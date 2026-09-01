@@ -48,13 +48,14 @@ with c1:
     age = st.number_input('Age (years)', 0.0, 30.0, 8.0, 0.5, disabled=not age_known)
 with c2:
     weight_known = st.checkbox('I know the weight')
-    weight = st.number_input('Weight (kg)', 0.1, 100.0, 20.0, 0.5, disabled=not weight_known)
+    weight_lb = st.number_input('Weight (lb)', 0.2, 250.0, 44.0, 0.5, disabled=not weight_known)
+    weight_kg = weight_lb / 2.2046226218 if weight_known else None
     sex = st.selectbox('Sex', [UNKNOWN,'Female — spayed','Female — intact','Male — neutered','Male — intact'])
 
 st.header('2. Location & travel')
 country = st.selectbox('Country', ['USA','Canada','Australia','United Kingdom','Other'])
 location = st.text_input('ZIP / postal code / city (optional)')
-travel = st.selectbox('How far could you travel for a trial?', ['Local only','Up to 100 miles / 160 km','Up to 300 miles / 480 km','Anywhere in my country','International if needed'])
+travel = st.selectbox('How far could you travel for a trial?', ['Local only','Up to 100 miles','Up to 300 miles','Anywhere in the U.S.','International if needed'])
 
 st.header('3. Diagnosis')
 diagnosis_status = st.selectbox('How certain is the diagnosis?', ['Confirmed by pathology/cytology','Suspected / not confirmed',UNKNOWN])
@@ -137,16 +138,17 @@ if search_clicked:
             st.success(f'{len(matches)} trial(s) may be worth contacting')
             for confidence,tr,reasons,unknown in matches:
                 with st.container(border=True):
-                    st.subheader(f"{confidence} · {tr['center']}")
+                    st.markdown(f"### {confidence} · {tr['center']}")
                     st.markdown(f"**{tr['title']}**")
-                    st.write('**Why it may fit:** ' + '; '.join(reasons) + '.')
+                    st.markdown('**Why it may fit:** ' + '; '.join(reasons) + '.')
                     if unknown:
-                        st.warning('Still needs confirmation: ' + '; '.join(unknown) + '.')
-                    st.write('**What the study says:** ' + tr['notes'])
-                    st.write('**Research contact:** ' + tr['contacts'])
-                    st.write('**Trial funding:** ' + tr['funding'])
-                    st.link_button('Open official study page', tr['url'])
-                    st.caption(f"Status in beta catalog: {tr['status']} · Record reviewed {date.today().isoformat()}")
+                        st.markdown('⚠️ **Need to confirm:** ' + '; '.join(unknown) + '.')
+                    st.markdown('**Contact:** ' + tr['contacts'])
+                    st.link_button('Official study page', tr['url'])
+                    with st.expander('Study details'):
+                        st.write('**What the study says:** ' + tr['notes'])
+                        st.write('**Trial funding:** ' + tr['funding'])
+                        st.caption(f"Status in beta catalog: {tr['status']} · Record reviewed {date.today().isoformat()}")
 
         with st.expander('Help us improve this beta'):
             st.write('If a trial team says your pet is not eligible, please save the reason. Those real-world exclusions are especially useful for improving the matcher. Do not post private medical or contact information publicly.')
