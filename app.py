@@ -33,6 +33,24 @@ TRIALS = [
 CANCERS = ['Mast cell tumor','Soft tissue sarcoma','Spindle cell sarcoma','Histiocytic sarcoma','Lymphoma','Osteosarcoma','Hemangiosarcoma','Oral melanoma','Other / not sure']
 UNKNOWN = "I don't know"
 
+st.markdown('''
+<style>
+h1 { font-size: 2.15rem !important; line-height: 1.08 !important; }
+h2 { font-size: 1.55rem !important; line-height: 1.18 !important; margin-top: 1.35rem !important; }
+h3 { font-size: 1.30rem !important; line-height: 1.22 !important; }
+label, [data-testid="stWidgetLabel"] p {
+    font-size: 1.08rem !important;
+    line-height: 1.35 !important;
+}
+[data-baseweb="select"] div,
+[data-testid="stTextInput"] input,
+[data-testid="stNumberInput"] input,
+[data-testid="stTextArea"] textarea {
+    font-size: 1.05rem !important;
+}
+</style>
+''', unsafe_allow_html=True)
+
 st.title('🐾 Vet Cancer Trial Finder')
 st.markdown('**Beta prototype.** Answer what you know. It is completely fine to choose **I don’t know**.')
 st.info('This tool screens for clinical trials that may be worth contacting. It does not determine eligibility and does not replace your veterinarian or oncologist.')
@@ -52,7 +70,7 @@ with c2:
     weight_kg = weight_lb / 2.2046226218 if weight_known else None
     sex = st.selectbox('Sex', [UNKNOWN,'Female — spayed','Female — intact','Male — neutered','Male — intact'])
 
-st.header('2. Location & travel')
+st.header('2. Location')
 country = st.selectbox('Country', ['USA','Canada','Australia','United Kingdom','Other'])
 location = st.text_input('ZIP / postal code / city (optional)')
 travel = st.selectbox('How far could you travel for a trial?', ['Local only','Up to 100 miles','Up to 300 miles','Anywhere in the U.S.','International if needed'])
@@ -63,7 +81,7 @@ cancer = st.selectbox('Cancer type', CANCERS)
 subtype = st.text_input('Exact wording from pathology/cytology, if known')
 grade = st.text_input('Grade, if known')
 
-st.header('4. Disease right now')
+st.header('4. Current disease')
 tumor_status = st.selectbox('Current tumor status', ['Tumor still present / measurable','Completely removed — clean margins','Removed — incomplete/dirty margins','Removed — margins unknown','Local recurrence','No evidence of disease (NED)',UNKNOWN])
 metastasis = st.selectbox('Metastases', ['No known metastases','Confirmed metastases','Suspected / staging incomplete',UNKNOWN])
 localized = st.selectbox('Has your veterinarian said the disease is localized?', ['Yes','No',UNKNOWN])
@@ -80,7 +98,7 @@ if cancer == 'Mast cell tumor':
 else:
     mct_grade = node_status = UNKNOWN
 
-st.header('5. Treatment history')
+st.header('5. Treatment')
 surgery = st.selectbox('Surgery', ['No','Yes',UNKNOWN])
 chemo = st.selectbox('Chemotherapy', ['Never','Currently receiving','Previously received',UNKNOWN])
 chemo_details = st.text_input('Chemotherapy drugs + last treatment date, if known')
@@ -90,11 +108,11 @@ steroid_details = st.text_input('Steroid name, dose, first/last dose date, if kn
 immunosuppressive = st.selectbox('Other immunosuppressive medication', ['No','Yes',UNKNOWN])
 archived_tissue = st.selectbox('Is archived tumor tissue available?', ['Yes','No',UNKNOWN])
 
-st.header('6. What would you consider?')
+st.header('6. Treatment options')
 prefs = st.multiselect('Select all that you would consider', ['Chemotherapy','Radiation','Surgery','Immunotherapy','Targeted therapy','Experimental drug','Observational / sample-only study'], default=['Immunotherapy','Targeted therapy','Experimental drug'])
 radiation_affordability = st.selectbox('If radiation is relevant', ['Would consider radiation','Would consider it if trial-funded','Would not consider radiation',UNKNOWN])
 
-st.header('7. Anything important we missed?')
+st.header('7. Other details')
 notes = st.text_area('Optional notes', placeholder='Other illnesses, medications, staging results, pathology details, etc.')
 
 search_clicked = st.button('Find potential trials', type='primary', use_container_width=True)
