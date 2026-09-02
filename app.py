@@ -3782,7 +3782,12 @@ if search_clicked:
                     st.markdown(f"### {confidence} · {tr['center']}")
                     st.markdown(f"**{tr['title']}**")
                     st.markdown('**Why it may fit:** ' + '; '.join(reasons) + '.')
-                    st.markdown('**Contact:** ' + tr['contacts'])
+                    st.markdown(
+                        '**Contact:** ' + tr.get(
+                            'contacts',
+                            tr.get('contact', 'Contact the study team through the official study page')
+                        )
+                    )
                     if tr.get('sites'):
                         site_text = '; '.join(
                             f"{x['hospital']} — {x['city']}, {x['state']}" for x in tr['sites']
