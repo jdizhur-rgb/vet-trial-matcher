@@ -3788,10 +3788,10 @@ if search_clicked:
                             f"{x['hospital']} — {x['city']}, {x['state']}" for x in tr['sites']
                         )
                         st.markdown('**Participating sites:** ' + site_text)
-                    st.link_button('Official study page', tr['url'])
+                    st.link_button('Official study page', tr.get('url', ''))
                     with st.expander('Study details'):
                         st.write('**What the study says:** ' + tr['notes'])
-                        st.write('**Trial funding:** ' + tr['funding'])
+                        st.write('**Trial funding:** ' + tr.get('funding', 'Ask the study team about covered study costs'))
                         st.caption(f"Status: {tr['status']} · Last verified: {tr.get('verified', 'date not recorded')}")
 
         with st.expander('Help us improve this beta'):
