@@ -127,12 +127,36 @@ if search_clicked:
                 continue
             reasons.append(f'{cancer} matches the study disease category')
             reasons.append('diagnosis reported as confirmed')
-            if tumor_status == 'Tumor still present / measurable': reasons.append('gross/measurable tumor reported')
-            if tumor_status in ['Completely removed — clean margins','Removed — incomplete/dirty margins','Removed — margins unknown','No evidence of disease (NED)']:
-                unknown.append('whether this study accepts patients after tumor removal / without measurable disease')
-            confidence='Likely match' if not unknown else 'Possible match'
+            if tumor_status == 'Tumor still present / measurable':
+                reasons.append('gross/measurable tumor reported')
+
+            # Conservative confidence rule:
+            # "Likely" only when every key eligibility criterion stored for the
+            # study can be positively confirmed from the owner's answers.
+            # Otherwise keep the study visible as "Possible".
+            key_checks = []
+
+            if req.get('measurable'):
+                key_checks.append(tumor_status == 'Tumor still present / measurable')
+
+            if req.get('metastatic'):
+                key_checks.append(metastasis == 'Confirmed metastases')
+
+            if req.get('no_metastasis'):
+                key_checks.append(metastasis == 'No known metastases')
+
+            if req.get('min_weight_lb'):
+                key_checks.append(weight_known and weight_lb >= req['min_weight_lb'])
+
+            # For studies where the catalog currently has only diagnosis-level
+            # criteria, do not imply eligibility: there may be center-specific
+            # staging, lab, treatment-history or performance-status criteria.
+            criteria_complete = bool(req) and bool(key_checks) and all(key_checks)
+
+            confidence = 'Likely match' if criteria_complete else 'Possible match'
             matches.append((confidence,tr,reasons,unknown))
 
+        matches.sort(key=lambda x: 0 if x[0] == 'Likely match' else 1)
         st.header('Results')
         if not matches:
             st.warning('No potential matches were found in this **currently verified catalog**. This does not mean no suitable clinical trial exists. The catalog is still being expanded.')
@@ -143,8 +167,6 @@ if search_clicked:
                     st.markdown(f"### {confidence} · {tr['center']}")
                     st.markdown(f"**{tr['title']}**")
                     st.markdown('**Why it may fit:** ' + '; '.join(reasons) + '.')
-                    if unknown:
-                        st.markdown('⚠️ **Need to confirm:** ' + '; '.join(unknown) + '.')
                     st.markdown('**Contact:** ' + tr['contacts'])
                     st.link_button('Official study page', tr['url'])
                     with st.expander('Study details'):
