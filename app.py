@@ -3800,3 +3800,8 @@ if search_clicked:
 st.divider()
 st.markdown('**Urgent symptoms come first.** Difficulty breathing, collapse, uncontrolled bleeding, severe pain, or another emergency should be assessed by a veterinarian immediately rather than delayed for a clinical-trial search.')
 st.caption('Beta: trial information can change. Always confirm recruiting status, eligibility, costs, travel requirements, and treatment details directly with the research team.')
+
+
+st.markdown("---")
+st.caption("U.S. trials only • Database last reviewed September 2, 2026")
+st.caption("This finder identifies potentially relevant clinical trials; it does not determine eligibility. Final eligibility is determined by the study investigators. It is not a substitute for veterinary advice.")
