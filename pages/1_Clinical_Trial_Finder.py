@@ -450,9 +450,9 @@ TRIALS = [{'id': 'eu-fr-hifu-urothelial',
   'url': 'https://research.vetmed.ufl.edu/research-programs/clinical-trials/oncology/',
   'contacts': 'UF Veterinary Hospitals Oncology — Oncology Referral Form',
   'funding': 'See official study page.',
-  'requires': {'confirmed': True, 'active_treatment_target': True},
-  'excludes': {},
-  'notes': 'Multicenter Phase II trametinib study.',
+  'requires': {'confirmed': True, 'active_treatment_target': True, 'measurable': True, 'chemo_washout_days': 14, 'radiation_washout_days': 28},
+  'excludes': {'current_chemo': True, 'current_radiation': True},
+  'notes': 'Multicenter Phase II trametinib study. Published recruitment criteria require a measurable tumor, no concurrent anticancer therapy, at least a 2-week washout after chemotherapy, and at least a 4-week washout after radiation therapy.',
   'verified': '2026-09-02',
   'study_type': 'treatment',
   'sites': [],
@@ -4841,13 +4841,21 @@ ct_and_current_biopsy = st.selectbox(
 ) if (not any_cancer_browse and not unlisted_mode and 'ct_and_current_biopsy' in _form_req_keys) else UNKNOWN
 
 st.header('4. Treatment')
-# Ask treatment-history questions only when at least one current candidate uses them.
-surgery_relevant = (not any_cancer_browse and not unlisted_mode) and bool((_form_req_keys | _form_exc_keys) & {'prior_surgery','post_splenectomy','post_amputation','planned_surgery','planned_amputation','planned_amputation_and_chemo'})
-chemo_relevant = (not any_cancer_browse and not unlisted_mode) and bool((_form_req_keys | _form_exc_keys) & {'prior_chemo','current_chemo','chemo_washout_days','planned_doxorubicin','planned_amputation_and_chemo'})
-radiation_relevant = (not any_cancer_browse and not unlisted_mode) and bool((_form_req_keys | _form_exc_keys) & {'prior_radiation','prior_local_radiation','current_radiation','radiation_washout_days','planned_radiation'})
-immunotherapy_relevant = (not any_cancer_browse and not unlisted_mode) and ('prior_immunotherapy' in _form_exc_keys or cancer in {'Oral melanoma','Melanoma — other'})
-steroids_relevant = (not any_cancer_browse and not unlisted_mode) and ('current_steroids' in _form_exc_keys or 'steroid_washout_days' in _form_req_keys)
-immunosuppressive_relevant = (not any_cancer_browse and not unlisted_mode) and ('immunosuppressive' in _form_exc_keys)
+# Core cancer-treatment history must not depend on how completely individual
+# trial metadata happen to be populated.  Earlier dynamic gating could make the
+# entire Treatment section disappear for a diagnosis (for example HS) and then
+# prevent the matcher from applying treatment-history exclusions.  Keep the four
+# core oncology history questions stable for every specific diagnosis.
+_specific_diagnosis = not any_cancer_browse and not unlisted_mode
+surgery_relevant = _specific_diagnosis
+chemo_relevant = _specific_diagnosis
+radiation_relevant = _specific_diagnosis
+immunotherapy_relevant = _specific_diagnosis
+
+# Medication questions remain protocol-driven because they are not universal
+# cancer-treatment history and otherwise add noise to most searches.
+steroids_relevant = _specific_diagnosis and ('current_steroids' in _form_exc_keys or 'steroid_washout_days' in _form_req_keys)
+immunosuppressive_relevant = _specific_diagnosis and ('immunosuppressive' in _form_exc_keys)
 
 surgery = st.selectbox('Surgery', ['No','Yes',UNKNOWN]) if surgery_relevant else UNKNOWN
 prior_procedure = UNKNOWN
