@@ -13,13 +13,13 @@ st.markdown("""<style>
 div.st-key-nav_trials button{min-height:2.45rem!important;width:100%!important;font-size:.9rem!important;font-weight:700!important;border-radius:.8rem!important;background:#eee8ff!important;color:#3b237a!important;border:1px solid #ddd2ff!important}
 div.st-key-nav_options button{min-height:2.45rem!important;width:100%!important;font-size:.9rem!important;font-weight:700!important;border-radius:.8rem!important;background:#e8f3ff!important;color:#155ca8!important;border:1px solid #cfe5fb!important}
 div[data-testid="stAlert"]{background:#edf7ef!important;border:0!important;box-shadow:none!important;color:#285b38!important}div[data-testid="stAlert"]>div{background:transparent!important;border:0!important;box-shadow:none!important}div[data-testid="stAlert"] p{color:#285b38!important}
-@media(min-width:901px){div[data-testid="stMainBlockContainer"] h1{font-size:1.55rem!important;line-height:1.08!important;margin:.1rem 0 .15rem!important;color:#55483f!important}div[data-testid="stMainBlockContainer"] h2{font-size:1.12rem!important;line-height:1.15!important;margin:.4rem 0 .1rem!important}div[data-testid="stMainBlockContainer"] h3{font-size:1.02rem!important}div[data-testid="stMainBlockContainer"] p{line-height:1.28!important}div[data-testid="stMainBlockContainer"] [data-testid="stAlert"]{margin:.15rem 0!important;padding:.28rem .55rem!important;font-size:.84rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stAlert"] p{font-size:.84rem!important;line-height:1.22!important}div[data-testid="stMainBlockContainer"] [data-testid="stExpander"]{margin:.12rem 0 .22rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stExpander"] details summary{min-height:2.15rem!important;padding:.2rem .55rem!important}div[data-testid="stMainBlockContainer"] div[data-testid="stVerticalBlock"]{gap:.35rem!important}div[data-testid="stMainBlockContainer"] label p,div[data-testid="stMainBlockContainer"] [data-testid="stWidgetLabel"] p{font-size:.9rem!important;line-height:1.2!important}div[data-testid="stMainBlockContainer"] [data-baseweb="select"]>div,div[data-testid="stMainBlockContainer"] [data-testid="stNumberInput"] input,div[data-testid="stMainBlockContainer"] [data-testid="stTextInput"] input{min-height:2.1rem!important;font-size:.9rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stCheckbox"]{min-height:1.75rem!important}.desktop-section-title{font-size:1rem;font-weight:700;margin:.28rem 0 .04rem}.pet-inline [data-testid="stWidgetLabel"]{margin-bottom:.05rem!important}}
+@media(min-width:901px){div[data-testid="stMainBlockContainer"] h1{font-size:1.55rem!important;line-height:1.08!important;margin:.1rem 0 .15rem!important;color:#55483f!important}div[data-testid="stMainBlockContainer"] h2{font-size:1.12rem!important;line-height:1.15!important;margin:.4rem 0 .1rem!important}div[data-testid="stMainBlockContainer"] h3{font-size:1.02rem!important}div[data-testid="stMainBlockContainer"] p{line-height:1.28!important}div[data-testid="stMainBlockContainer"] [data-testid="stAlert"]{margin:.15rem 0!important;padding:.28rem .55rem!important;font-size:.84rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stAlert"] p{font-size:.84rem!important;line-height:1.22!important}div[data-testid="stMainBlockContainer"] [data-testid="stExpander"]{margin:.12rem 0 .22rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stExpander"] details summary{min-height:2.15rem!important;padding:.2rem .55rem!important}div[data-testid="stMainBlockContainer"] div[data-testid="stVerticalBlock"]{gap:.35rem!important}div[data-testid="stMainBlockContainer"] label p,div[data-testid="stMainBlockContainer"] [data-testid="stWidgetLabel"] p{font-size:.9rem!important;line-height:1.2!important}div[data-testid="stMainBlockContainer"] [data-baseweb="select"]>div,div[data-testid="stMainBlockContainer"] [data-testid="stNumberInput"] input,div[data-testid="stMainBlockContainer"] [data-testid="stTextInput"] input{min-height:2.1rem!important;font-size:.9rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stCheckbox"]{min-height:1.75rem!important}.desktop-section-title{font-size:1rem;font-weight:700;margin:.28rem 0 .04rem}}
 @media(max-width:900px){.stMainBlockContainer,div[data-testid="stMainBlockContainer"]{padding:4.1rem 1rem 2rem!important;max-width:none!important}.nav-title{font-size:1.4rem}.nav-subtitle{font-size:.86rem}.beta-corner{text-align:left}}
 </style>""",unsafe_allow_html=True)
 
 _nav_top=st.empty()
 _orig={n:getattr(st,n) for n in ["markdown","title","header","selectbox","checkbox","number_input","radio","text_input","multiselect","expander","link_button","write","button"]}
-_layout={"section":None,"slots":[],"extra":0,"treatment":False,"age_value":None,"weight_unit":None,"weight_value":None};_pending={"contact":None,"sites":None,"url":None};_selected_region={"value":None};_selected_cancer={"value":None};_deferred={"args":None,"kwargs":None}
+_layout={"section":None,"slots":[],"extra":0,"treatment":False};_pending={"contact":None,"sites":None,"url":None};_selected_region={"value":None};_selected_cancer={"value":None};_deferred={"args":None,"kwargs":None}
 _treatment_labels={"Surgery","Osteosarcoma surgery","Hemangiosarcoma surgery","Chemotherapy","Prior or current cancer immunotherapy","Radiation to this tumor","Prednisone / other corticosteroids","Other immunosuppressive medication"}
 _europe={"Europe — all countries","UK","United Kingdom","France","Belgium","Netherlands","The Netherlands","Italy","Portugal","Spain","Sweden","Switzerland","Germany","Austria","Czechia","Czech Republic","Poland","Denmark","Finland","Norway","Ireland","Hungary","Slovenia","Cyprus"}
 _feedback_text="If a trial team says your pet is not eligible, please save the reason. Those real-world exclusions are especially useful for improving the matcher. Do not post private medical or contact information publicly."
@@ -32,7 +32,7 @@ def _extra(n):
 def _target(label):
     s=_layout["section"];a=_layout["slots"]
     if s=="pet" and a:
-        m={"Species":0,"Sex":3,"Country / region":4};return a[m[label]] if label in m else None
+        m={"Species":0,"I know the age":1,"Age (years)":1,"I know the weight":2,"Weight unit":2,"Weight (lb)":2,"Weight (kg)":2,"Sex":3,"Country / region":4};return a[m[label]] if label in m else None
     if s=="diagnosis" and a:return a[0] if label=="Cancer type" or label.startswith("Enter the diagnosis") else a[1]
     if s=="disease" and a:
         m={"Current tumor status":0,"Is the brain tumor currently present on imaging?":0,"Metastases":1,"Has your veterinarian said the disease is localized?":2};return a[m[label]] if label in m else _extra(3)
@@ -46,7 +46,7 @@ def title(body,*a,**k):
         _orig["markdown"]('<div class="nav-title"><span class="paw">🐾︎</span> Clinical Trial Finder</div><div class="nav-subtitle">Find treatment-focused veterinary cancer trials for dogs and cats.</div>',unsafe_allow_html=True);return None
     return _orig["title"](body,*a,**k)
 def header(body,*a,**k):
-    if body=="1. Your pet":_section("pet","1. Your pet",[1,1.25,1.65,1.2,1.35]);return
+    if body=="1. Your pet":_section("pet","1. Your pet",[1.15,1.15,1.5,1.2,1.35]);return
     if body=="2. Diagnosis":_section("diagnosis","2. Diagnosis",[1.65,1]);return
     if body=="3. Current disease":_section("disease","3. Current disease",3);return
     if body=="4. Treatment":_layout["section"]="treatment_pending";return
@@ -67,23 +67,16 @@ def selectbox(label,*args,**kwargs):
         return r
     return _render("selectbox",label,*args,**kwargs)
 def checkbox(label,*a,**k):
-    if _layout["section"]=="pet" and label=="I know the age":
-        with _layout["slots"][1]:
-            c1,c2=st.columns([.8,1.2],gap="small");r=c1.checkbox("Known",*a,**k);_layout["age_value"]=c2.empty();return r
-    if _layout["section"]=="pet" and label=="I know the weight":
-        with _layout["slots"][2]:
-            c1,c2,c3=st.columns([.7,1.25,1.05],gap="small");r=c1.checkbox("Known",*a,**k);_layout["weight_unit"]=c2.empty();_layout["weight_value"]=c3.empty();return r
+    if _layout["section"]=="pet" and label=="I know the age":return _render("checkbox","Age",*a,**k)
+    if _layout["section"]=="pet" and label=="I know the weight":return _render("checkbox","Weight",*a,**k)
     return _render("checkbox",label,*a,**k)
 def number_input(label,*a,**k):
-    if _layout["section"]=="pet" and label=="Age (years)" and _layout["age_value"] is not None:
-        with _layout["age_value"].container():return _orig["number_input"]("Age",*a,**k)
-    if _layout["section"]=="pet" and label in {"Weight (lb)","Weight (kg)"} and _layout["weight_value"] is not None:
-        with _layout["weight_value"].container():return _orig["number_input"]("Weight",*a,**k)
+    if _layout["section"]=="pet" and label in {"Age (years)","Weight (lb)","Weight (kg)"}:
+        k=dict(k);k["label_visibility"]="collapsed"
     return _render("number_input",label,*a,**k)
 def radio(label,*a,**k):
-    if _layout["section"]=="pet" and label=="Weight unit" and _layout["weight_unit"] is not None:
-        k=dict(k);k["horizontal"]=True
-        with _layout["weight_unit"].container():return _orig["radio"]("Unit",*a,**k)
+    if _layout["section"]=="pet" and label=="Weight unit":
+        k=dict(k);k["horizontal"]=True;k["label_visibility"]="collapsed"
     return _render("radio",label,*a,**k)
 def text_input(label,*a,**k):return _render("text_input",label,*a,**k)
 def multiselect(label,*a,**k):return _render("multiselect",label,*a,**k)
