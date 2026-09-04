@@ -64,6 +64,19 @@ def dynamic_header(body,*args,**kwargs):
     return _original_header(body,*args,**kwargs)
 
 def dynamic_selectbox(label,*args,**kwargs):
+    # Keep the most useful geographic choices at the top of the owner-facing list.
+    if label=="Country / region":
+        options=list(args[0] if args else kwargs.get("options", []))
+        priority=["USA","UK","United Kingdom","Europe — all countries"]
+        ordered=[]
+        for item in priority:
+            if item in options and item not in ordered:
+                ordered.append(item)
+        ordered.extend(item for item in options if item not in ordered)
+        if args:
+            args=(ordered,*args[1:])
+        else:
+            kwargs=dict(kwargs);kwargs["options"]=ordered
     # The source page computes diagnosis before cancer type. Defer only the
     # diagnosis widget so the owner sees Cancer type first; session_state keeps
     # the selected diagnosis available on the rerun used for matching.
