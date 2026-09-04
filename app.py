@@ -8,13 +8,15 @@ page=st.navigation(PAGES,position="hidden")
 
 st.markdown("""<style>
 .stMainBlockContainer,div[data-testid="stMainBlockContainer"]{max-width:1120px!important;padding:3.4rem 1.5rem 2rem!important}
-.nav-title{font-size:1.55rem;line-height:1.08;font-weight:700;margin:.15rem 0 .15rem;color:#55483f}.nav-title .paw{color:#9a6a43;font-family:Arial,sans-serif}.nav-subtitle{font-size:.92rem;color:#6f6a66;margin:0 0 .55rem}
+.nav-title{font-size:1.55rem;line-height:1.08;font-weight:700;margin:.6rem 0 .15rem;color:#55483f}.nav-title .paw{color:#9a6a43;font-family:Arial,sans-serif}.nav-subtitle{font-size:.92rem;color:#6f6a66;margin:0 0 .45rem}
 div.st-key-nav_trials button{min-height:2.45rem!important;width:100%!important;font-size:.9rem!important;font-weight:700!important;border-radius:.8rem!important;background:#eee8ff!important;color:#3b237a!important;border:1px solid #ddd2ff!important}
 div.st-key-nav_options button{min-height:2.45rem!important;width:100%!important;font-size:.9rem!important;font-weight:700!important;border-radius:.8rem!important;background:#e8f3ff!important;color:#155ca8!important;border:1px solid #cfe5fb!important}
+div[data-testid="stAlert"]{background:#edf7ef!important;border-color:#d5ead9!important;color:#285b38!important}div[data-testid="stAlert"] p{color:#285b38!important}
 @media(min-width:901px){div[data-testid="stMainBlockContainer"] h1{font-size:1.55rem!important;line-height:1.08!important;margin:.1rem 0 .15rem!important;color:#55483f!important}div[data-testid="stMainBlockContainer"] h2{font-size:1.12rem!important;line-height:1.15!important;margin:.4rem 0 .1rem!important}div[data-testid="stMainBlockContainer"] h3{font-size:1.02rem!important}div[data-testid="stMainBlockContainer"] p{line-height:1.28!important}div[data-testid="stMainBlockContainer"] [data-testid="stAlert"]{margin:.15rem 0!important;padding:.28rem .55rem!important;font-size:.84rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stAlert"] p{font-size:.84rem!important;line-height:1.22!important}div[data-testid="stMainBlockContainer"] [data-testid="stExpander"]{margin:.12rem 0 .22rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stExpander"] details summary{min-height:2.15rem!important;padding:.2rem .55rem!important}div[data-testid="stMainBlockContainer"] div[data-testid="stVerticalBlock"]{gap:.35rem!important}div[data-testid="stMainBlockContainer"] label p,div[data-testid="stMainBlockContainer"] [data-testid="stWidgetLabel"] p{font-size:.9rem!important;line-height:1.2!important}div[data-testid="stMainBlockContainer"] [data-baseweb="select"]>div,div[data-testid="stMainBlockContainer"] [data-testid="stNumberInput"] input,div[data-testid="stMainBlockContainer"] [data-testid="stTextInput"] input{min-height:2.1rem!important;font-size:.9rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stCheckbox"]{min-height:1.75rem!important}.desktop-section-title{font-size:1rem;font-weight:700;margin:.28rem 0 .04rem}}
 @media(max-width:900px){.stMainBlockContainer,div[data-testid="stMainBlockContainer"]{padding:4.1rem 1rem 2rem!important;max-width:none!important}.nav-title{font-size:1.4rem}.nav-subtitle{font-size:.86rem}}
 </style>""",unsafe_allow_html=True)
 
+_nav_top=st.empty()
 _nav_anchor={"slot":None}
 _orig={n:getattr(st,n) for n in ["markdown","title","header","selectbox","checkbox","number_input","radio","text_input","multiselect","expander","link_button","write","button"]}
 _layout={"section":None,"slots":[],"extra":0,"treatment":False};_pending={"contact":None,"sites":None,"url":None};_selected_region={"value":None};_selected_cancer={"value":None};_deferred={"args":None,"kwargs":None}
@@ -42,7 +44,6 @@ def _render(kind,label,*args,**kwargs):
 def title(body,*a,**k):
     if isinstance(body,str) and "Vet Cancer Trial Finder" in body:
         _orig["markdown"]('<div class="nav-title"><span class="paw">🐾︎</span> Clinical Trial Finder</div><div class="nav-subtitle">Find treatment-focused veterinary cancer trials for dogs and cats.</div>',unsafe_allow_html=True)
-        _nav_anchor["slot"]=st.empty()
         return None
     return _orig["title"](body,*a,**k)
 def header(body,*a,**k):
@@ -123,10 +124,9 @@ try:
 finally:
     for n,v in _orig.items():setattr(st,n,v)
 
-if _nav_anchor["slot"] is not None:
-    with _nav_anchor["slot"].container():
-        left,right=st.columns(2,gap="small")
-        with left:
-            if st.button("🐾︎ Clinical Trials",key="nav_trials",use_container_width=True):st.switch_page("pages/1_Clinical_Trial_Finder.py")
-        with right:
-            if st.button("🧬 Other Options",key="nav_options",use_container_width=True):st.switch_page("pages/2_Additional_Oncology_Options.py")
+with _nav_top.container():
+    left,right=st.columns(2,gap="small")
+    with left:
+        if st.button("🐾︎ Clinical Trials",key="nav_trials",use_container_width=True):st.switch_page("pages/1_Clinical_Trial_Finder.py")
+    with right:
+        if st.button("🧬 Other Options",key="nav_options",use_container_width=True):st.switch_page("pages/2_Additional_Oncology_Options.py")
