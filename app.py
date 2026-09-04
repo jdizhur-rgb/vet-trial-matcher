@@ -8,15 +8,12 @@ page=st.navigation(PAGES,position="hidden")
 
 st.markdown("""<style>
 .stMainBlockContainer,div[data-testid="stMainBlockContainer"]{max-width:1120px!important;padding:1rem 1.5rem 2rem!important}
-.nav-anchor div[data-testid="stButton"] button{min-height:2.55rem!important;width:100%!important;font-size:.9rem!important;font-weight:700!important;border-radius:.75rem!important}
-@media(min-width:901px){div[data-testid="stMainBlockContainer"] h1{font-size:1.55rem!important;line-height:1.08!important;margin:.1rem 0 .15rem!important}div[data-testid="stMainBlockContainer"] h2{font-size:1.12rem!important;line-height:1.15!important;margin:.4rem 0 .1rem!important}div[data-testid="stMainBlockContainer"] h3{font-size:1.02rem!important}div[data-testid="stMainBlockContainer"] p{line-height:1.28!important}div[data-testid="stMainBlockContainer"] [data-testid="stAlert"]{margin:.15rem 0!important;padding:.28rem .55rem!important;font-size:.84rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stAlert"] p{font-size:.84rem!important;line-height:1.22!important}div[data-testid="stMainBlockContainer"] [data-testid="stExpander"]{margin:.12rem 0 .22rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stExpander"] details summary{min-height:2.15rem!important;padding:.2rem .55rem!important}div[data-testid="stMainBlockContainer"] div[data-testid="stVerticalBlock"]{gap:.35rem!important}div[data-testid="stMainBlockContainer"] label p,div[data-testid="stMainBlockContainer"] [data-testid="stWidgetLabel"] p{font-size:.9rem!important;line-height:1.2!important}div[data-testid="stMainBlockContainer"] [data-baseweb="select"]>div,div[data-testid="stMainBlockContainer"] [data-testid="stNumberInput"] input,div[data-testid="stMainBlockContainer"] [data-testid="stTextInput"] input{min-height:2.1rem!important;font-size:.9rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stCheckbox"]{min-height:1.75rem!important}.desktop-section-title{font-size:1rem;font-weight:700;margin:.28rem 0 .04rem}}
-@media(max-width:900px){.stMainBlockContainer,div[data-testid="stMainBlockContainer"]{padding:4.1rem 1rem 2rem!important;max-width:none!important}}
+.nav-title{font-size:1.55rem;line-height:1.08;font-weight:700;margin:.1rem 0 .35rem;color:#55483f}.nav-title .paw{color:#9a6a43;font-family:Arial,sans-serif}
+@media(min-width:901px){div[data-testid="stMainBlockContainer"] h1{font-size:1.55rem!important;line-height:1.08!important;margin:.1rem 0 .15rem!important;color:#55483f!important}div[data-testid="stMainBlockContainer"] h2{font-size:1.12rem!important;line-height:1.15!important;margin:.4rem 0 .1rem!important}div[data-testid="stMainBlockContainer"] h3{font-size:1.02rem!important}div[data-testid="stMainBlockContainer"] p{line-height:1.28!important}div[data-testid="stMainBlockContainer"] [data-testid="stAlert"]{margin:.15rem 0!important;padding:.28rem .55rem!important;font-size:.84rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stAlert"] p{font-size:.84rem!important;line-height:1.22!important}div[data-testid="stMainBlockContainer"] [data-testid="stExpander"]{margin:.12rem 0 .22rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stExpander"] details summary{min-height:2.15rem!important;padding:.2rem .55rem!important}div[data-testid="stMainBlockContainer"] div[data-testid="stVerticalBlock"]{gap:.35rem!important}div[data-testid="stMainBlockContainer"] label p,div[data-testid="stMainBlockContainer"] [data-testid="stWidgetLabel"] p{font-size:.9rem!important;line-height:1.2!important}div[data-testid="stMainBlockContainer"] [data-baseweb="select"]>div,div[data-testid="stMainBlockContainer"] [data-testid="stNumberInput"] input,div[data-testid="stMainBlockContainer"] [data-testid="stTextInput"] input{min-height:2.1rem!important;font-size:.9rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stCheckbox"]{min-height:1.75rem!important}.desktop-section-title{font-size:1rem;font-weight:700;margin:.28rem 0 .04rem}}
+@media(max-width:900px){.stMainBlockContainer,div[data-testid="stMainBlockContainer"]{padding:4.1rem 1rem 2rem!important;max-width:none!important}.nav-title{font-size:1.45rem}}
 </style>""",unsafe_allow_html=True)
 
-# Reserve the navigation position now, but populate it only after page.run().
-# This avoids Streamlit's multipage router swallowing widgets rendered before the routed page.
-_nav_anchor=st.empty()
-
+_nav_anchor={"slot":None}
 _orig={n:getattr(st,n) for n in ["markdown","title","header","selectbox","checkbox","number_input","radio","text_input","multiselect","expander","link_button","write","button"]}
 _layout={"section":None,"slots":[],"extra":0,"treatment":False};_pending={"contact":None,"sites":None,"url":None};_selected_region={"value":None};_selected_cancer={"value":None};_deferred={"args":None,"kwargs":None}
 _treatment_labels={"Surgery","Osteosarcoma surgery","Hemangiosarcoma surgery","Chemotherapy","Prior or current cancer immunotherapy","Radiation to this tumor","Prednisone / other corticosteroids","Other immunosuppressive medication"}
@@ -40,7 +37,12 @@ def _target(label):
     return None
 def _render(kind,label,*args,**kwargs):
     t=_target(label);return getattr(t,kind)(label,*args,**kwargs) if t is not None else _orig[kind](label,*args,**kwargs)
-def title(body,*a,**k):return _orig["title"]("🐾 Clinical Trial Finder" if isinstance(body,str) and "Vet Cancer Trial Finder" in body else body,*a,**k)
+def title(body,*a,**k):
+    if isinstance(body,str) and "Vet Cancer Trial Finder" in body:
+        _orig["markdown"]('<div class="nav-title"><span class="paw">🐾︎</span> Clinical Trial Finder</div>',unsafe_allow_html=True)
+        _nav_anchor["slot"]=st.empty()
+        return None
+    return _orig["title"](body,*a,**k)
 def header(body,*a,**k):
     if body=="1. Your pet":_section("pet","1. Your pet",[1,1,1.15,1.2,1.35]);return
     if body=="2. Diagnosis":_section("diagnosis","2. Diagnosis",[1.65,1]);return
@@ -119,11 +121,10 @@ try:
 finally:
     for n,v in _orig.items():setattr(st,n,v)
 
-# Fill the placeholder only after the routed page has rendered.
-with _nav_anchor.container():
-    st.markdown('<div class="nav-anchor"></div>',unsafe_allow_html=True)
-    left,right=st.columns(2,gap="small")
-    with left:
-        if st.button("🐾 Clinical Trials",key="nav_trials",use_container_width=True):st.switch_page("pages/1_Clinical_Trial_Finder.py")
-    with right:
-        if st.button("🧬 Other Options",key="nav_options",use_container_width=True):st.switch_page("pages/2_Additional_Oncology_Options.py")
+if _nav_anchor["slot"] is not None:
+    with _nav_anchor["slot"].container():
+        left,right=st.columns(2,gap="small")
+        with left:
+            if st.button("🐾︎ Clinical Trials",key="nav_trials",use_container_width=True):st.switch_page("pages/1_Clinical_Trial_Finder.py")
+        with right:
+            if st.button("🧬 Other Options",key="nav_options",use_container_width=True):st.switch_page("pages/2_Additional_Oncology_Options.py")
