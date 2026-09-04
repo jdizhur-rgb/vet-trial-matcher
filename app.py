@@ -11,7 +11,7 @@ page = st.navigation(PAGES, position="hidden")
 
 st.markdown("""
 <style>
-.stMainBlockContainer, div[data-testid="stMainBlockContainer"] { padding-top: 3.25rem !important; }
+.stMainBlockContainer, div[data-testid="stMainBlockContainer"] { padding-top:3.25rem!important; }
 div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"]) { gap:0!important;padding:0!important;margin:0!important;border:1px solid rgba(100,160,220,.32);border-radius:1.15rem;overflow:hidden;background:rgba(35,48,65,.55); }
 div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"]) > div { min-width:0!important;flex:1 1 50%!important;width:50%!important; }
 div[data-testid="stPageLink"] { margin:0!important;padding:0!important; }
@@ -20,10 +20,10 @@ div[data-testid="stPageLink"] a:hover { background:rgba(70,130,210,.22); }
 div[data-testid="stPageLink"] p { font-size:1.02rem!important;line-height:1.1!important;font-weight:700!important;white-space:nowrap!important; }
 div[data-testid="stVerticalBlock"] > div:has(div[data-testid="stHorizontalBlock"] div[data-testid="stPageLink"]) { margin-bottom:-1.8rem!important; }
 @media (max-width:480px) {
- .stMainBlockContainer, div[data-testid="stMainBlockContainer"] { padding-top:5.35rem!important; }
+ .stMainBlockContainer, div[data-testid="stMainBlockContainer"] { padding-top:4.1rem!important; }
  div[data-testid="stPageLink"] a { min-height:2.65rem;padding:.28rem .1rem!important; }
  div[data-testid="stPageLink"] p { font-size:.84rem!important; }
- div[data-testid="stVerticalBlock"] > div:has(div[data-testid="stHorizontalBlock"] div[data-testid="stPageLink"]) { margin-bottom:-2.35rem!important; }
+ div[data-testid="stVerticalBlock"] > div:has(div[data-testid="stHorizontalBlock"] div[data-testid="stPageLink"]) { margin-bottom:-1.55rem!important; }
  div[data-testid="stVerticalBlock"] > div:has(h2#your-pet) { margin-top:-1.6rem!important; }
 }
 </style>
