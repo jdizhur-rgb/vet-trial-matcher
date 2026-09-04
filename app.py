@@ -1,4 +1,5 @@
 import streamlit as st
+from contextlib import contextmanager
 
 st.set_page_config(page_title="Vet Cancer Treatment Finder", page_icon="🐾", layout="centered")
 
@@ -73,11 +74,19 @@ with left:
 with right:
     st.page_link("pages/2_Additional_Oncology_Options.py", label="Other Options", icon="🧬", use_container_width=True)
 
-# Compact the existing Clinical Trial Finder result cards without touching its
-# large curated trial catalog or matching logic. Only the exact result-card
-# labels used by that page are transformed; the Additional Options page is
-# unaffected.
+# Presentation-only transforms for the large Clinical Trial Finder page.
+# The trial catalog and all matching/eligibility logic remain untouched.
 _original_markdown = st.markdown
+_original_title = st.title
+_original_expander = st.expander
+_original_link_button = st.link_button
+_pending = {"contact": None, "sites": None, "url": None}
+
+
+def compact_title(body, *args, **kwargs):
+    if isinstance(body, str) and "Vet Cancer Trial Finder" in body:
+        return _original_markdown("## 🐾 Clinical Trial Finder")
+    return _original_title(body, *args, **kwargs)
 
 
 def compact_result_markdown(body, *args, **kwargs):
@@ -85,37 +94,62 @@ def compact_result_markdown(body, *args, **kwargs):
         if body.startswith("### ") and " · " in body:
             heading = body[4:]
             confidence, center = heading.split(" · ", 1)
+            if confidence == "Potential broad-treatment trial — prescreening required":
+                confidence = "Prescreening required"
+            elif confidence == "Trial to review — cancer type not specified":
+                confidence = "Trial to review"
             _original_markdown(f"### {confidence}")
             st.caption(center)
             return None
         if body.startswith("**Study type:**"):
-            st.caption(body.replace("**Study type:**", "Study type:", 1).strip())
             return None
         if body.startswith("**Why it may fit:**"):
-            text = body.replace("**Why it may fit:**", "", 1).strip()
-            with st.expander("Why it fits"):
-                st.write(text)
-            return None
+            text = body.replace("**Why it may fit:**", "", 1).strip().rstrip(".")
+            return _original_markdown(f"**Why:** {text}.")
         if body.startswith("**Needs confirmation:**"):
-            text = body.replace("**Needs confirmation:**", "", 1).strip()
-            with st.expander("Eligibility to confirm"):
-                st.write(text)
-            return None
+            text = body.replace("**Needs confirmation:**", "", 1).strip().rstrip(".")
+            return _original_markdown(f"**Confirm:** {text}.")
         if body.startswith("**Contact:**"):
-            text = body.replace("**Contact:**", "", 1).strip()
-            with st.expander("Contact"):
-                st.write(text)
+            _pending["contact"] = body.replace("**Contact:**", "", 1).strip()
             return None
         if body.startswith("**Participating sites:**"):
-            text = body.replace("**Participating sites:**", "", 1).strip()
-            with st.expander("Participating sites"):
-                st.write(text)
+            _pending["sites"] = body.replace("**Participating sites:**", "", 1).strip()
             return None
     return _original_markdown(body, *args, **kwargs)
 
 
+def compact_link_button(label, url, *args, **kwargs):
+    if label == "Official study page":
+        _pending["url"] = url
+        return None
+    return _original_link_button(label, url, *args, **kwargs)
+
+
+@contextmanager
+def compact_expander(label, *args, **kwargs):
+    if label == "Study details":
+        with _original_expander("Details & contact", *args, **kwargs):
+            if _pending["contact"]:
+                _original_markdown(f"**Contact:** {_pending['contact']}")
+            if _pending["sites"]:
+                _original_markdown(f"**Participating sites:** {_pending['sites']}")
+            if _pending["url"]:
+                _original_link_button("Official study page", _pending["url"], use_container_width=True)
+            _pending.update(contact=None, sites=None, url=None)
+            yield
+    else:
+        with _original_expander(label, *args, **kwargs):
+            yield
+
+
+st.title = compact_title
 st.markdown = compact_result_markdown
+st.expander = compact_expander
+st.link_button = compact_link_button
 try:
     page.run()
 finally:
+    st.title = _original_title
     st.markdown = _original_markdown
+    st.expander = _original_expander
+    st.link_button = _original_link_button
