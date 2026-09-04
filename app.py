@@ -7,27 +7,33 @@ PAGES=[st.Page("pages/1_Clinical_Trial_Finder.py",title="Clinical Trial Finder",
 page=st.navigation(PAGES,position="hidden")
 st.markdown("""<style>
 .stMainBlockContainer,div[data-testid="stMainBlockContainer"]{max-width:1120px!important;padding:1rem 1.5rem 2rem!important}
-.nav-row{margin-bottom:.65rem}
-div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"]){gap:.55rem!important;margin:0 0 .65rem!important}div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"])>div{min-width:0!important;flex:1 1 50%!important;width:50%!important}div[data-testid="stPageLink"]{margin:0!important;padding:0!important}div[data-testid="stPageLink"] a{min-height:2.35rem;display:flex;align-items:center;justify-content:center;border:1px solid rgba(100,130,190,.24)!important;border-radius:.65rem!important;padding:.22rem .65rem!important}div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"])>div:nth-child(1) a{background:#eee8ff!important;color:#3b237a!important}div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"])>div:nth-child(2) a{background:#e8f3ff!important;color:#155ca8!important}div[data-testid="stPageLink"] p{font-size:.9rem!important;font-weight:700!important;color:inherit!important;white-space:nowrap!important}
+div[data-testid="stHorizontalBlock"]:has(button[kind="secondary"]){gap:.55rem!important;margin:0 0 .65rem!important}
+div[data-testid="stHorizontalBlock"]:has(button[kind="secondary"])>div{min-width:0!important;flex:1 1 50%!important;width:50%!important}
+div[data-testid="stHorizontalBlock"]:has(button[kind="secondary"])>div:nth-child(1) button{background:#eee8ff!important;color:#3b237a!important;border-color:rgba(100,130,190,.24)!important}
+div[data-testid="stHorizontalBlock"]:has(button[kind="secondary"])>div:nth-child(2) button{background:#e8f3ff!important;color:#155ca8!important;border-color:rgba(100,130,190,.24)!important}
+div[data-testid="stHorizontalBlock"]:has(button[kind="secondary"]) button{min-height:2.35rem!important;border-radius:.65rem!important;font-size:.9rem!important;font-weight:700!important}
 @media(min-width:901px){
- div[data-testid="stMainBlockContainer"] h1{font-size:1.85rem!important;line-height:1.1!important;margin:.15rem 0 .2rem!important}
- div[data-testid="stMainBlockContainer"] h2{font-size:1.18rem!important;line-height:1.15!important;margin:.45rem 0 .12rem!important}
- div[data-testid="stMainBlockContainer"] h3{font-size:1.05rem!important}
- div[data-testid="stMainBlockContainer"] p{line-height:1.3!important}
- div[data-testid="stMainBlockContainer"] [data-testid="stAlert"]{margin:.2rem 0!important;padding:.42rem .65rem!important}
- div[data-testid="stMainBlockContainer"] [data-testid="stExpander"]{margin:.15rem 0 .25rem!important}
- div[data-testid="stMainBlockContainer"] [data-testid="stExpander"] details summary{min-height:2.25rem!important;padding:.25rem .6rem!important}
- div[data-testid="stMainBlockContainer"] div[data-testid="stVerticalBlock"]{gap:.38rem!important}
+ div[data-testid="stMainBlockContainer"] h1{font-size:1.55rem!important;line-height:1.08!important;margin:.1rem 0 .15rem!important}
+ div[data-testid="stMainBlockContainer"] h2{font-size:1.12rem!important;line-height:1.15!important;margin:.4rem 0 .1rem!important}
+ div[data-testid="stMainBlockContainer"] h3{font-size:1.02rem!important}
+ div[data-testid="stMainBlockContainer"] p{line-height:1.28!important}
+ div[data-testid="stMainBlockContainer"] [data-testid="stAlert"]{margin:.15rem 0!important;padding:.28rem .55rem!important;font-size:.84rem!important}
+ div[data-testid="stMainBlockContainer"] [data-testid="stAlert"] p{font-size:.84rem!important;line-height:1.22!important}
+ div[data-testid="stMainBlockContainer"] [data-testid="stExpander"]{margin:.12rem 0 .22rem!important}
+ div[data-testid="stMainBlockContainer"] [data-testid="stExpander"] details summary{min-height:2.15rem!important;padding:.2rem .55rem!important}
+ div[data-testid="stMainBlockContainer"] div[data-testid="stVerticalBlock"]{gap:.35rem!important}
  div[data-testid="stMainBlockContainer"] label p,div[data-testid="stMainBlockContainer"] [data-testid="stWidgetLabel"] p{font-size:.9rem!important;line-height:1.2!important}
- div[data-testid="stMainBlockContainer"] [data-baseweb="select"]>div,div[data-testid="stMainBlockContainer"] [data-testid="stNumberInput"] input,div[data-testid="stMainBlockContainer"] [data-testid="stTextInput"] input{min-height:2.15rem!important;font-size:.9rem!important}
- div[data-testid="stMainBlockContainer"] [data-testid="stCheckbox"]{min-height:1.8rem!important}
- .desktop-section-title{font-size:1rem;font-weight:700;margin:.3rem 0 .05rem}
+ div[data-testid="stMainBlockContainer"] [data-baseweb="select"]>div,div[data-testid="stMainBlockContainer"] [data-testid="stNumberInput"] input,div[data-testid="stMainBlockContainer"] [data-testid="stTextInput"] input{min-height:2.1rem!important;font-size:.9rem!important}
+ div[data-testid="stMainBlockContainer"] [data-testid="stCheckbox"]{min-height:1.75rem!important}
+ .desktop-section-title{font-size:1rem;font-weight:700;margin:.28rem 0 .04rem}
 }
-@media(max-width:900px){.stMainBlockContainer,div[data-testid="stMainBlockContainer"]{padding:4.1rem 1rem 2rem!important;max-width:none!important}div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"]){gap:0!important;border:1px solid rgba(100,160,220,.24);border-radius:1rem;overflow:hidden}div[data-testid="stPageLink"] a{border:0!important;border-radius:0!important}}
+@media(max-width:900px){.stMainBlockContainer,div[data-testid="stMainBlockContainer"]{padding:4.1rem 1rem 2rem!important;max-width:none!important}}
 </style>""",unsafe_allow_html=True)
 nav_left,nav_right=st.columns(2,gap="small")
-with nav_left:st.page_link("pages/1_Clinical_Trial_Finder.py",label="Clinical Trials",icon="🐾",use_container_width=True)
-with nav_right:st.page_link("pages/2_Additional_Oncology_Options.py",label="Other Options",icon="🧬",use_container_width=True)
+with nav_left:
+    if st.button("🐾  Clinical Trials",use_container_width=True,key="nav_trials"): st.switch_page("pages/1_Clinical_Trial_Finder.py")
+with nav_right:
+    if st.button("🧬  Other Options",use_container_width=True,key="nav_options"): st.switch_page("pages/2_Additional_Oncology_Options.py")
 
 _orig={n:getattr(st,n) for n in ["markdown","title","header","selectbox","checkbox","number_input","radio","text_input","multiselect","expander","link_button","write"]}
 _layout={"section":None,"slots":[],"extra":0,"treatment":False};_pending={"contact":None,"sites":None,"url":None};_selected_region={"value":None};_deferred={"args":None,"kwargs":None}
