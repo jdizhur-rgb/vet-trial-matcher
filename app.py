@@ -13,11 +13,10 @@ div[data-testid="stHorizontalBlock"]:has(button[kind="secondary"])>div{min-width
 @media(max-width:900px){.stMainBlockContainer,div[data-testid="stMainBlockContainer"]{padding:4.1rem 1rem 2rem!important;max-width:none!important}}
 </style>""",unsafe_allow_html=True)
 nav_left,nav_right=st.columns(2,gap="small")
-current_title=getattr(page,"title","")
 with nav_left:
-    go_trials=st.button("🐾  Clinical Trials",use_container_width=True,key="nav_trials",disabled=current_title=="Clinical Trial Finder")
+    go_trials=st.button("🐾  Clinical Trials",use_container_width=True,key="nav_trials")
 with nav_right:
-    go_options=st.button("🧬  Other Options",use_container_width=True,key="nav_options",disabled=current_title=="Additional Oncology Options")
+    go_options=st.button("🧬  Other Options",use_container_width=True,key="nav_options")
 if go_trials:st.switch_page("pages/1_Clinical_Trial_Finder.py")
 if go_options:st.switch_page("pages/2_Additional_Oncology_Options.py")
 
