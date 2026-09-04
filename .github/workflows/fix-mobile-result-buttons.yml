@@ -1,0 +1,64 @@
+name: Fix mobile result buttons
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-mobile-result-buttons.yml'
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch result actions
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          p=Path('pages/1_Clinical_Trial_Finder.py')
+          s=p.read_text()
+          new=r'''def _render_result_save_controls():
+    st.html("""
+    <div id="trial-actions" style="display:flex;gap:8px;font-family:Arial,sans-serif">
+      <button id="copy-results" style="flex:1;padding:9px;border:1px solid #d8d3cf;border-radius:9px;background:white;font-weight:600">📋 Copy results</button>
+      <button id="print-results" style="flex:1;padding:9px;border:1px solid #d8d3cf;border-radius:9px;background:white;font-weight:600">📄 Save as PDF</button>
+    </div>
+    <div id="result-action-msg" style="font:12px Arial;color:#55745d;margin-top:5px"></div>
+    <script>
+    (() => {
+      const msg=document.getElementById('result-action-msg');
+      function text(){
+        const els=[...document.querySelectorAll('h1,h2,h3,p,a,button,summary')];
+        let i=els.findIndex(x=>x.innerText.trim()==='Results'), out=[];
+        if(i<0)return '';
+        for(;i<els.length;i++){
+          let t=els[i].innerText.trim();
+          if(t.startsWith('If a trial team says your pet is not eligible'))break;
+          if(t && t!=='Copy results' && t!=='Save as PDF')out.push(t);
+        }
+        return [...new Set(out)].join('\n\n');
+      }
+      document.getElementById('copy-results').addEventListener('click', async () => {
+        const t=text(); if(!t){msg.textContent='Run a search first.';return;}
+        try { await navigator.clipboard.writeText(t); msg.textContent='Results copied.'; return; } catch(e) {}
+        const ta=document.createElement('textarea'); ta.value=t; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.focus(); ta.select();
+        try { document.execCommand('copy'); msg.textContent='Results copied.'; } catch(e) { msg.textContent='Copy is blocked by this browser.'; }
+        ta.remove();
+      });
+      document.getElementById('print-results').addEventListener('click', () => window.print());
+    })();
+    </script>
+    """, unsafe_allow_javascript=True)
+'''
+          pat=r'def _render_result_save_controls\(\):\n.*?\n(?=TRIALS = )'
+          s2,n=re.subn(pat,new+'\n',s,count=1,flags=re.S)
+          assert n==1, f'expected one save-controls function, got {n}'
+          p.write_text(s2)
+          PY
+      - name: Commit patch
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add pages/1_Clinical_Trial_Finder.py
+          git diff --cached --quiet || git commit -m "Fix mobile Copy and Save PDF buttons"
+          git push
