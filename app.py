@@ -20,6 +20,12 @@ div[data-testid="stAlert"]{background:#edf7ef!important;border:0!important;box-s
 
 _nav_top=st.empty()
 _orig={n:getattr(st,n) for n in ["markdown","title","header","selectbox","checkbox","number_input","radio","text_input","multiselect","expander","link_button","write","button"]}
+_components_html_orig=components.html
+def _components_html(body,*a,**k):
+    if isinstance(body,str) and "Copy results" in body and "Save as PDF" in body:
+        return st.html(body, unsafe_allow_javascript=True)
+    return _components_html_orig(body,*a,**k)
+components.html=_components_html
 _layout={"section":None,"slots":[],"extra":0,"treatment":False,"age_value":None,"weight_unit":None,"weight_value":None};_pending={"contact":None,"sites":None,"url":None};_selected_region={"value":None};_selected_cancer={"value":None};_deferred={"args":None,"kwargs":None}
 _treatment_labels={"Surgery","Osteosarcoma surgery","Hemangiosarcoma surgery","Chemotherapy","Prior or current cancer immunotherapy","Radiation to this tumor","Prednisone / other corticosteroids","Other immunosuppressive medication"}
 _europe={"Europe — all countries","UK","United Kingdom","France","Belgium","Netherlands","The Netherlands","Italy","Portugal","Spain","Sweden","Switzerland","Germany","Austria","Czechia","Czech Republic","Poland","Denmark","Finland","Norway","Ireland","Hungary","Slovenia","Cyprus"}
@@ -137,6 +143,7 @@ def expander(label,*a,**k):
 st.title=title;st.header=header;st.selectbox=selectbox;st.checkbox=checkbox;st.number_input=number_input;st.radio=radio;st.text_input=text_input;st.multiselect=multiselect;st.markdown=markdown;st.write=write;st.link_button=link_button;st.expander=expander;st.button=button
 try:page.run()
 finally:
+    components.html=_components_html_orig
     for n,v in _orig.items():setattr(st,n,v)
 with _nav_top.container():
     left,right=st.columns(2,gap="small")
