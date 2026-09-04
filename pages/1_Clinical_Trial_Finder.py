@@ -52,8 +52,7 @@ def _render_result_save_controls(matches):
         lines.append("What the study says: " + tr.get("notes", ""))
         lines.append("Status: " + tr.get("status", "") + " · Last verified: " + tr.get("verified", "date not recorded"))
     lines += ["", "Recruitment and eligibility can change; confirm current status with the study team."]
-    report_text = "
-".join(lines)
+    report_text = "\n".join(lines)
 
     cols = st.columns(2, gap="small")
     payload = json.dumps(report_text)
