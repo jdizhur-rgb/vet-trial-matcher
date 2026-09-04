@@ -1,5 +1,6 @@
-# EU cancer-by-cancer gap audit completed 2026-09-03: all UI cancer categories rechecked; no unverified lead promoted to matching.
+# EU cancer-by-cancer gap audit completed 2026-09-04: all UI cancer categories rechecked; no unverified lead promoted to matching.
 import streamlit as st
+import streamlit.components.v1 as components
 
 CANCER_ALIASES = {
     # UI labels and protocol labels are not always identical. Keep these mappings
@@ -27,6 +28,10 @@ CANCER_ALIASES = {
 LYMPHOMA_CANCERS = {'B-cell lymphoma', 'T-cell lymphoma', 'Lymphoma — other'}
 
 st.set_page_config(page_title='Vet Cancer Trial Finder — Beta', page_icon='🐾', layout='centered')
+
+
+def _render_result_save_controls():
+    components.html("""<div style="display:flex;gap:8px;font-family:Arial,sans-serif"><button onclick="copyR()" style="flex:1;padding:9px;border:1px solid #d8d3cf;border-radius:9px;background:white;font-weight:600">📋 Copy results</button><button onclick="pdfR()" style="flex:1;padding:9px;border:1px solid #d8d3cf;border-radius:9px;background:white;font-weight:600">📄 Save as PDF</button></div><div id="m" style="font:12px Arial;color:#55745d;margin-top:5px"></div><script>function txt(){let e=[...parent.document.querySelectorAll('h1,h2,h3,p,a,button,summary')],i=e.findIndex(x=>x.innerText.trim()==='Results'),o=[];if(i<0)return '';for(;i<e.length;i++){let t=e[i].innerText.trim();if(t.startsWith('If a trial team says your pet is not eligible'))break;if(t&&t!=='Copy results'&&t!=='Save as PDF')o.push(t)}return [...new Set(o)].join('\n\n')}async function copyR(){let t=txt();try{await navigator.clipboard.writeText(t);document.getElementById('m').innerText='Results copied.'}catch(e){document.getElementById('m').innerText='Copy was blocked by the browser.'}}function pdfR(){let t=txt(),w=window.open('','_blank');if(!w){document.getElementById('m').innerText='PDF window was blocked by the browser.';return}w.document.write('<html><head><title>Clinical Trial Finder Results</title></head><body style="font-family:Arial;max-width:760px;margin:40px auto;line-height:1.45"><h1>Clinical Trial Finder Results</h1><pre style="white-space:pre-wrap;font-family:Arial">'+t.replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</pre><p style="font-size:11px;color:#666">Recruitment and eligibility can change; confirm current status with the study team.</p><script>window.onload=()=>window.print()<\/script></body></html>');w.document.close()}</script>""", height=70)
 
 TRIALS = [{'id': 'eu-fr-hifu-urothelial',
   'title': 'High-intensity focused ultrasound (HIFU) for canine urothelial carcinoma',
@@ -4599,6 +4604,27 @@ TRIALS = [{'id': 'eu-fr-hifu-urothelial',
      'owner_prescreen_required': True},
  {'id':'eu-cy-fusvet-tumor-ablation-watch','title':'Focused ultrasound ablation for spontaneous canine and feline tumors — Cyprus','center':'University of Nicosia / Cyprus University of Technology','country':'Cyprus','cancers':['Other solid tumor','Mammary carcinoma','Other sarcoma'],'status':'Recent therapeutic pilot completed; continuation/recruitment not publicly confirmed','species':'Dog/Cat','url':'https://www.unic.ac.cy/study-explores-non-invasive-cancer-treatment-for-dogs-and-cats/','contacts':'Dr Kyriakos Spanoudes / FUS research team','funding':'FUSVET supported by Cyprus Research and Innovation Foundation; current coverage unknown.','requires':{'confirmed':True,'active_treatment_target':True},'excludes':{},'notes':'2025 pilot treated 15 dogs/cats with spontaneous tumors using focused ultrasound and demonstrated targeted ablation. Current owner recruitment was not found; watch/contact lead only.','verified':'2026-09-03','study_type':'treatment','available_for_matching':False,'status_confidence':'needs_reconfirmation','owner_prescreen_required':True}]
 
+# Incremental catalog updates live in data/trial_updates.json.
+# This keeps routine trial additions/status/eligibility changes out of this large snapshot file.
+from pathlib import Path as _Path
+import json as _json
+
+_updates_path = _Path(__file__).resolve().parents[1] / "data" / "trial_updates.json"
+if _updates_path.exists():
+    with _updates_path.open("r", encoding="utf-8") as _fh:
+        _updates_doc = _json.load(_fh)
+    _by_id = {t["id"]: t for t in TRIALS}
+    for _trial_id in _updates_doc.get("delete", []):
+        _by_id.pop(_trial_id, None)
+    for _patch in _updates_doc.get("upsert", []):
+        _trial_id = _patch["id"]
+        if _trial_id in _by_id:
+            _by_id[_trial_id].update(_patch)
+        else:
+            _by_id[_trial_id] = _patch
+    TRIALS = list(_by_id.values())
+
+
 # 2026-09-03 private-referral / institutional-registry / local-language deep pass
 TRIALS.extend([
  {'id':'eu-uk-ndsr-high-grade-mammary-current','title':'Clinical trial for dogs with high-grade mammary carcinoma','center':'North Downs Specialist Referrals (NDSR)','country':'UK','cancers':['Mammary carcinoma','Mammary tumor — other'],'status':'Current clinical trial advertised by NDSR','species':'Dog','url':'https://www.ndsr.co.uk/insights/canine-mammary-cancer/','contacts':'NDSR Oncology Team; vet line +44 (0)1883 741449','funding':'Confirm trial-specific coverage with NDSR.','requires':{'confirmed':True},'excludes':{},'notes':'NDSR current owner/veterinary information explicitly states that a clinical trial is available for dogs with high-grade mammary carcinomas. Public page does not disclose the investigational regimen or full eligibility, so direct prescreening with the oncology team is required before presenting details beyond availability.','verified':'2026-09-03','study_type':'treatment','available_for_matching':True,'status_confidence':'confirmed_current','owner_prescreen_required':True},
@@ -5322,7 +5348,7 @@ if search_clicked:
                 if unknown:
                     unresolved = list(dict.fromkeys(str(x) for x in unknown))
                     st.markdown('**Needs confirmation:** ' + '; '.join(unresolved) + '.')
-                st.markdown(
+                st.write(
                     '**Contact:** ' + tr.get(
                         'contacts',
                         tr.get('contact', 'Contact the study team through the official study page')
@@ -5332,17 +5358,18 @@ if search_clicked:
                     site_text = '; '.join(
                         f"{x['hospital']} — {x['city']}, {x['state']}" for x in tr['sites']
                     )
-                    st.markdown('**Participating sites:** ' + site_text)
-                st.link_button('Official study page', tr.get('url', ''))
-                with st.expander('Study details'):
+                    st.write('**Participating sites:** ' + site_text)
+                st.link_button('Study page / enrollment', tr.get('url', ''), use_container_width=True)
+                with st.expander('Study information'):
                     if tr.get('intervention'):
                         st.write('**Study intervention:** ' + tr['intervention'])
                     st.write('**What the study says:** ' + tr['notes'])
                     st.write('**Trial funding:** ' + tr.get('funding', 'Ask the study team about covered study costs'))
                     st.caption(f"Status: {tr['status']} · Last verified: {tr.get('verified', 'date not recorded')}")
 
+    _render_result_save_controls()
     with st.expander('Help us improve this beta'):
-        st.write('If a trial team says your pet is not eligible, please save the reason. Those real-world exclusions are especially useful for improving the matcher. Do not post private medical or contact information publicly.')
+        st.write('If a trial team says your pet is not eligible, please save the reason they gave. This helps improve the matcher. Do not post private medical or contact information publicly.')
 
 st.divider()
 st.markdown('**Urgent symptoms come first.** Difficulty breathing, collapse, uncontrolled bleeding, severe pain, or another emergency should be assessed by a veterinarian immediately rather than delayed for a clinical-trial search.')
