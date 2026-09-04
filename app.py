@@ -8,32 +8,18 @@ page=st.navigation(PAGES,position="hidden")
 st.markdown("""<style>
 .stMainBlockContainer,div[data-testid="stMainBlockContainer"]{max-width:1120px!important;padding:1rem 1.5rem 2rem!important}
 div[data-testid="stHorizontalBlock"]:has(button[kind="secondary"]){gap:.55rem!important;margin:0 0 .65rem!important}
-div[data-testid="stHorizontalBlock"]:has(button[kind="secondary"])>div{min-width:0!important;flex:1 1 50%!important;width:50%!important}
-div[data-testid="stHorizontalBlock"]:has(button[kind="secondary"])>div:nth-child(1) button{background:#eee8ff!important;color:#3b237a!important;border-color:rgba(100,130,190,.24)!important}
-div[data-testid="stHorizontalBlock"]:has(button[kind="secondary"])>div:nth-child(2) button{background:#e8f3ff!important;color:#155ca8!important;border-color:rgba(100,130,190,.24)!important}
-div[data-testid="stHorizontalBlock"]:has(button[kind="secondary"]) button{min-height:2.35rem!important;border-radius:.65rem!important;font-size:.9rem!important;font-weight:700!important}
-@media(min-width:901px){
- div[data-testid="stMainBlockContainer"] h1{font-size:1.55rem!important;line-height:1.08!important;margin:.1rem 0 .15rem!important}
- div[data-testid="stMainBlockContainer"] h2{font-size:1.12rem!important;line-height:1.15!important;margin:.4rem 0 .1rem!important}
- div[data-testid="stMainBlockContainer"] h3{font-size:1.02rem!important}
- div[data-testid="stMainBlockContainer"] p{line-height:1.28!important}
- div[data-testid="stMainBlockContainer"] [data-testid="stAlert"]{margin:.15rem 0!important;padding:.28rem .55rem!important;font-size:.84rem!important}
- div[data-testid="stMainBlockContainer"] [data-testid="stAlert"] p{font-size:.84rem!important;line-height:1.22!important}
- div[data-testid="stMainBlockContainer"] [data-testid="stExpander"]{margin:.12rem 0 .22rem!important}
- div[data-testid="stMainBlockContainer"] [data-testid="stExpander"] details summary{min-height:2.15rem!important;padding:.2rem .55rem!important}
- div[data-testid="stMainBlockContainer"] div[data-testid="stVerticalBlock"]{gap:.35rem!important}
- div[data-testid="stMainBlockContainer"] label p,div[data-testid="stMainBlockContainer"] [data-testid="stWidgetLabel"] p{font-size:.9rem!important;line-height:1.2!important}
- div[data-testid="stMainBlockContainer"] [data-baseweb="select"]>div,div[data-testid="stMainBlockContainer"] [data-testid="stNumberInput"] input,div[data-testid="stMainBlockContainer"] [data-testid="stTextInput"] input{min-height:2.1rem!important;font-size:.9rem!important}
- div[data-testid="stMainBlockContainer"] [data-testid="stCheckbox"]{min-height:1.75rem!important}
- .desktop-section-title{font-size:1rem;font-weight:700;margin:.28rem 0 .04rem}
-}
+div[data-testid="stHorizontalBlock"]:has(button[kind="secondary"])>div{min-width:0!important;flex:1 1 50%!important;width:50%!important}div[data-testid="stHorizontalBlock"]:has(button[kind="secondary"])>div:nth-child(1) button{background:#eee8ff!important;color:#3b237a!important;border-color:rgba(100,130,190,.24)!important}div[data-testid="stHorizontalBlock"]:has(button[kind="secondary"])>div:nth-child(2) button{background:#e8f3ff!important;color:#155ca8!important;border-color:rgba(100,130,190,.24)!important}div[data-testid="stHorizontalBlock"]:has(button[kind="secondary"]) button{min-height:2.35rem!important;border-radius:.65rem!important;font-size:.9rem!important;font-weight:700!important;opacity:1!important}
+@media(min-width:901px){div[data-testid="stMainBlockContainer"] h1{font-size:1.55rem!important;line-height:1.08!important;margin:.1rem 0 .15rem!important}div[data-testid="stMainBlockContainer"] h2{font-size:1.12rem!important;line-height:1.15!important;margin:.4rem 0 .1rem!important}div[data-testid="stMainBlockContainer"] h3{font-size:1.02rem!important}div[data-testid="stMainBlockContainer"] p{line-height:1.28!important}div[data-testid="stMainBlockContainer"] [data-testid="stAlert"]{margin:.15rem 0!important;padding:.28rem .55rem!important;font-size:.84rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stAlert"] p{font-size:.84rem!important;line-height:1.22!important}div[data-testid="stMainBlockContainer"] [data-testid="stExpander"]{margin:.12rem 0 .22rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stExpander"] details summary{min-height:2.15rem!important;padding:.2rem .55rem!important}div[data-testid="stMainBlockContainer"] div[data-testid="stVerticalBlock"]{gap:.35rem!important}div[data-testid="stMainBlockContainer"] label p,div[data-testid="stMainBlockContainer"] [data-testid="stWidgetLabel"] p{font-size:.9rem!important;line-height:1.2!important}div[data-testid="stMainBlockContainer"] [data-baseweb="select"]>div,div[data-testid="stMainBlockContainer"] [data-testid="stNumberInput"] input,div[data-testid="stMainBlockContainer"] [data-testid="stTextInput"] input{min-height:2.1rem!important;font-size:.9rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stCheckbox"]{min-height:1.75rem!important}.desktop-section-title{font-size:1rem;font-weight:700;margin:.28rem 0 .04rem}}
 @media(max-width:900px){.stMainBlockContainer,div[data-testid="stMainBlockContainer"]{padding:4.1rem 1rem 2rem!important;max-width:none!important}}
 </style>""",unsafe_allow_html=True)
 nav_left,nav_right=st.columns(2,gap="small")
+current_title=getattr(page,"title","")
 with nav_left:
-    if st.button("🐾  Clinical Trials",use_container_width=True,key="nav_trials"): st.switch_page("pages/1_Clinical_Trial_Finder.py")
+    go_trials=st.button("🐾  Clinical Trials",use_container_width=True,key="nav_trials",disabled=current_title=="Clinical Trial Finder")
 with nav_right:
-    if st.button("🧬  Other Options",use_container_width=True,key="nav_options"): st.switch_page("pages/2_Additional_Oncology_Options.py")
+    go_options=st.button("🧬  Other Options",use_container_width=True,key="nav_options",disabled=current_title=="Additional Oncology Options")
+if go_trials:st.switch_page("pages/1_Clinical_Trial_Finder.py")
+if go_options:st.switch_page("pages/2_Additional_Oncology_Options.py")
 
 _orig={n:getattr(st,n) for n in ["markdown","title","header","selectbox","checkbox","number_input","radio","text_input","multiselect","expander","link_button","write"]}
 _layout={"section":None,"slots":[],"extra":0,"treatment":False};_pending={"contact":None,"sites":None,"url":None};_selected_region={"value":None};_deferred={"args":None,"kwargs":None}
@@ -41,9 +27,7 @@ _treatment_labels={"Surgery","Osteosarcoma surgery","Hemangiosarcoma surgery","C
 _europe={"Europe — all countries","UK","United Kingdom","France","Belgium","Netherlands","The Netherlands","Italy","Portugal","Spain","Sweden","Switzerland","Germany","Austria","Czechia","Czech Republic","Poland","Denmark","Finland","Norway","Ireland","Hungary","Slovenia","Cyprus"}
 _feedback_text="If a trial team says your pet is not eligible, please save the reason. Those real-world exclusions are especially useful for improving the matcher. Do not post private medical or contact information publicly."
 _SUPABASE_URL="https://bvghrabcfrexvynlyhqb.supabase.co";_SUPABASE_KEY=st.secrets.get("SUPABASE_KEY","")
-
-def _section(name,title,spec):
-    _orig["markdown"](f'<div class="desktop-section-title">{title}</div>',unsafe_allow_html=True);_layout.update(section=name,slots=st.columns(spec,gap="small",wrap=True),extra=0)
+def _section(name,title,spec):_orig["markdown"](f'<div class="desktop-section-title">{title}</div>',unsafe_allow_html=True);_layout.update(section=name,slots=st.columns(spec,gap="small",wrap=True),extra=0)
 def _extra(n):
     i=_layout["extra"]
     if i and i%n==0:_layout["slots"]=st.columns(n,gap="small",wrap=True)
