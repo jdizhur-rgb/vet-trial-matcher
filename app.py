@@ -41,6 +41,7 @@ _original_expander=st.expander
 _original_link_button=st.link_button
 _pending={"contact":None,"sites":None,"url":None}
 _treatment_section={"pending":False,"shown":False}
+_deferred_diagnosis={"args":None,"kwargs":None}
 _treatment_history_labels={
     "Surgery","Osteosarcoma surgery","Hemangiosarcoma surgery","Chemotherapy",
     "Prior or current cancer immunotherapy","Radiation to this tumor",
@@ -63,6 +64,22 @@ def dynamic_header(body,*args,**kwargs):
     return _original_header(body,*args,**kwargs)
 
 def dynamic_selectbox(label,*args,**kwargs):
+    # The source page computes diagnosis before cancer type. Defer only the
+    # diagnosis widget so the owner sees Cancer type first; session_state keeps
+    # the selected diagnosis available on the rerun used for matching.
+    if label=="How certain is the diagnosis?":
+        _deferred_diagnosis["args"]=args
+        _deferred_diagnosis["kwargs"]=dict(kwargs)
+        options=args[0] if args else kwargs.get("options", [])
+        return st.session_state.get("diagnosis_confirmation", options[0] if options else None)
+    if label=="Cancer type":
+        result=_original_selectbox(label,*args,**kwargs)
+        if _deferred_diagnosis["args"] is not None:
+            dkwargs=dict(_deferred_diagnosis["kwargs"] or {})
+            dkwargs["key"]="diagnosis_confirmation"
+            _original_selectbox("How certain is the diagnosis?",*_deferred_diagnosis["args"],**dkwargs)
+            _deferred_diagnosis.update(args=None,kwargs=None)
+        return result
     if _treatment_section["pending"] and label in _treatment_history_labels:
         _original_header("4. Treatment")
         _treatment_section["pending"]=False
