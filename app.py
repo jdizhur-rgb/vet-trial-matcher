@@ -4598,6 +4598,7 @@ TRIALS.extend([
 ])
 
 CANCERS = ['Acute myeloid leukemia', 'Adrenal tumor', 'Anal sac adenocarcinoma (AGASACA)', 'B-cell lymphoma', 'Brain tumor / glioma', 'Cancer — any type', 'Cutaneous epitheliotropic lymphoma', 'Feline injection-site sarcoma', 'Feline mammary carcinoma', 'Hemangiosarcoma', 'Hepatocellular carcinoma', 'Histiocytic sarcoma', 'Insulinoma', 'Lymphoma — other', 'Mammary carcinoma', 'Mammary tumor — other', 'Mast cell tumor', 'Melanoma — other', 'Oral melanoma', 'Oral squamous cell carcinoma', 'Osteosarcoma', 'Other bone tumor', 'Other liver tumor', 'Other sarcoma', 'Other solid tumor', 'Primary lung tumor', 'Prostate cancer', 'Renal tumor', 'Sinonasal carcinoma', 'Soft tissue sarcoma', 'Spindle cell sarcoma', 'Squamous cell carcinoma', 'Squamous cell carcinoma — other', 'T-cell lymphoma', 'Thyroid carcinoma', 'Thyroid tumor / carcinoma', 'Urothelial / transitional cell carcinoma', 'Urothelial carcinoma', 'Pancreatic carcinoma', 'Intestinal carcinoma', 'Gallbladder carcinoma', 'Oral tumor — other', 'Ocular melanoma / iris melanocytic tumor', 'Other / not sure', 'Chemodectoma']
+TREATMENT_OPTIONS = ['Chemotherapy','Radiation','Surgery','Immunotherapy','Targeted therapy','Experimental drug']
 UNKNOWN = "I don't know"
 
 # Enrollment-status normalization. Older audited records use 'current'; some
@@ -4804,8 +4805,8 @@ steroids = st.selectbox('Prednisone / other corticosteroids', ['Never / no','Pre
 immunosuppressive = st.selectbox('Other immunosuppressive medication', ['No','Yes',UNKNOWN]) if immunosuppressive_relevant else UNKNOWN
 
 st.header('5. Treatment options')
-prefs = st.multiselect('Select all that you would consider', ['Chemotherapy','Radiation','Surgery','Immunotherapy','Targeted therapy','Experimental drug'], default=['Immunotherapy','Targeted therapy','Experimental drug'])
-if 'planned_radiation' in _form_req_keys:
+prefs = st.multiselect('Select all that you would consider', TREATMENT_OPTIONS, default=TREATMENT_OPTIONS)
+if not any_cancer_browse and 'planned_radiation' in _form_req_keys:
     radiation_affordability = st.selectbox('If radiation is relevant', ['Would consider radiation','Would consider it if trial-funded','Would not consider radiation',UNKNOWN])
 else:
     radiation_affordability = UNKNOWN
