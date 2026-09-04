@@ -19,7 +19,7 @@ div[data-testid="stAlert"]{background:#edf7ef!important;border:0!important;box-s
 
 _nav_top=st.empty()
 _orig={n:getattr(st,n) for n in ["markdown","title","header","selectbox","checkbox","number_input","radio","text_input","multiselect","expander","link_button","write","button"]}
-_layout={"section":None,"slots":[],"extra":0,"treatment":False};_pending={"contact":None,"sites":None,"url":None};_selected_region={"value":None};_selected_cancer={"value":None};_deferred={"args":None,"kwargs":None}
+_layout={"section":None,"slots":[],"extra":0,"treatment":False,"age_value":None,"weight_unit":None,"weight_value":None};_pending={"contact":None,"sites":None,"url":None};_selected_region={"value":None};_selected_cancer={"value":None};_deferred={"args":None,"kwargs":None}
 _treatment_labels={"Surgery","Osteosarcoma surgery","Hemangiosarcoma surgery","Chemotherapy","Prior or current cancer immunotherapy","Radiation to this tumor","Prednisone / other corticosteroids","Other immunosuppressive medication"}
 _europe={"Europe — all countries","UK","United Kingdom","France","Belgium","Netherlands","The Netherlands","Italy","Portugal","Spain","Sweden","Switzerland","Germany","Austria","Czechia","Czech Republic","Poland","Denmark","Finland","Norway","Ireland","Hungary","Slovenia","Cyprus"}
 _feedback_text="If a trial team says your pet is not eligible, please save the reason. Those real-world exclusions are especially useful for improving the matcher. Do not post private medical or contact information publicly."
@@ -32,7 +32,7 @@ def _extra(n):
 def _target(label):
     s=_layout["section"];a=_layout["slots"]
     if s=="pet" and a:
-        m={"Species":0,"I know the age":1,"Age (years)":1,"I know the weight":2,"Weight unit":2,"Weight (lb)":2,"Weight (kg)":2,"Sex":3,"Country / region":4};return a[m[label]] if label in m else None
+        m={"Species":0,"Sex":3,"Country / region":4};return a[m[label]] if label in m else None
     if s=="diagnosis" and a:return a[0] if label=="Cancer type" or label.startswith("Enter the diagnosis") else a[1]
     if s=="disease" and a:
         m={"Current tumor status":0,"Is the brain tumor currently present on imaging?":0,"Metastases":1,"Has your veterinarian said the disease is localized?":2};return a[m[label]] if label in m else _extra(3)
@@ -46,7 +46,7 @@ def title(body,*a,**k):
         _orig["markdown"]('<div class="nav-title"><span class="paw">🐾︎</span> Clinical Trial Finder</div><div class="nav-subtitle">Find treatment-focused veterinary cancer trials for dogs and cats.</div>',unsafe_allow_html=True);return None
     return _orig["title"](body,*a,**k)
 def header(body,*a,**k):
-    if body=="1. Your pet":_section("pet","1. Your pet",[1.15,1.15,1.5,1.2,1.35]);return
+    if body=="1. Your pet":_section("pet","1. Your pet",[1.15,1.25,1.65,1.2,1.35]);return
     if body=="2. Diagnosis":_section("diagnosis","2. Diagnosis",[1.65,1]);return
     if body=="3. Current disease":_section("disease","3. Current disease",3);return
     if body=="4. Treatment":_layout["section"]="treatment_pending";return
@@ -67,16 +67,25 @@ def selectbox(label,*args,**kwargs):
         return r
     return _render("selectbox",label,*args,**kwargs)
 def checkbox(label,*a,**k):
-    if _layout["section"]=="pet" and label=="I know the age":return _render("checkbox","Age",*a,**k)
-    if _layout["section"]=="pet" and label=="I know the weight":return _render("checkbox","Weight",*a,**k)
+    if _layout["section"]=="pet" and label=="I know the age":
+        with _layout["slots"][1]:
+            c1,c2=st.columns([.9,1.1],gap="small");r=c1.checkbox("Age",*a,**k);_layout["age_value"]=c2.empty();return r
+    if _layout["section"]=="pet" and label=="I know the weight":
+        with _layout["slots"][2]:
+            c1,c2,c3=st.columns([.85,1.15,1.1],gap="small");r=c1.checkbox("Weight",*a,**k);_layout["weight_unit"]=c2.empty();_layout["weight_value"]=c3.empty();return r
     return _render("checkbox",label,*a,**k)
 def number_input(label,*a,**k):
-    if _layout["section"]=="pet" and label in {"Age (years)","Weight (lb)","Weight (kg)"}:
+    if _layout["section"]=="pet" and label=="Age (years)" and _layout["age_value"] is not None:
         k=dict(k);k["label_visibility"]="collapsed"
+        with _layout["age_value"].container():return _orig["number_input"](label,*a,**k)
+    if _layout["section"]=="pet" and label in {"Weight (lb)","Weight (kg)"} and _layout["weight_value"] is not None:
+        k=dict(k);k["label_visibility"]="collapsed"
+        with _layout["weight_value"].container():return _orig["number_input"](label,*a,**k)
     return _render("number_input",label,*a,**k)
 def radio(label,*a,**k):
-    if _layout["section"]=="pet" and label=="Weight unit":
+    if _layout["section"]=="pet" and label=="Weight unit" and _layout["weight_unit"] is not None:
         k=dict(k);k["horizontal"]=True;k["label_visibility"]="collapsed"
+        with _layout["weight_unit"].container():return _orig["radio"](label,*a,**k)
     return _render("radio",label,*a,**k)
 def text_input(label,*a,**k):return _render("text_input",label,*a,**k)
 def multiselect(label,*a,**k):return _render("multiselect",label,*a,**k)
