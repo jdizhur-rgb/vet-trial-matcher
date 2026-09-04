@@ -46,7 +46,7 @@ def title(body,*a,**k):
         _orig["markdown"]('<div class="nav-title"><span class="paw">🐾︎</span> Clinical Trial Finder</div><div class="nav-subtitle">Find treatment-focused veterinary cancer trials for dogs and cats.</div>',unsafe_allow_html=True);return None
     return _orig["title"](body,*a,**k)
 def header(body,*a,**k):
-    if body=="1. Your pet":_section("pet","1. Your pet",[1.15,1.15,1.55,1.2,1.35]);return
+    if body=="1. Your pet":_section("pet","1. Your pet",[1.15,1.15,1.4,1.2,1.35]);return
     if body=="2. Diagnosis":_section("diagnosis","2. Diagnosis",[1.65,1]);return
     if body=="3. Current disease":_section("disease","3. Current disease",3);return
     if body=="4. Treatment":_layout["section"]="treatment_pending";return
@@ -72,7 +72,7 @@ def checkbox(label,*a,**k):
             r=_orig["checkbox"]("Age",*a,**k);_layout["age_value"]=st.empty();return r
     if _layout["section"]=="pet" and label=="I know the weight":
         with _layout["slots"][2]:
-            r=_orig["checkbox"]("Weight",*a,**k);row=st.columns([1,1.25],gap="small");_layout["weight_unit"]=row[0].empty();_layout["weight_value"]=row[1].empty();return r
+            r=_orig["checkbox"]("Weight",*a,**k);row=st.columns([1.05,1.45],gap="small");_layout["weight_unit"]=row[0].empty();_layout["weight_value"]=row[1].empty();return r
     return _render("checkbox",label,*a,**k)
 def number_input(label,*a,**k):
     if _layout["section"]=="pet" and label=="Age (years)" and _layout["age_value"] is not None:
