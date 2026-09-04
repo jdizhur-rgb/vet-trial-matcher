@@ -6,35 +6,30 @@ import urllib.request
 
 st.set_page_config(page_title="Vet Cancer Treatment Finder", page_icon="🐾", layout="wide")
 
-PAGES = [
-    st.Page("pages/1_Clinical_Trial_Finder.py", title="Clinical Trial Finder", icon="🐾", default=True),
-    st.Page("pages/2_Additional_Oncology_Options.py", title="Additional Oncology Options", icon="🧬"),
-]
-page = st.navigation(PAGES, position="hidden")
+PAGES=[st.Page("pages/1_Clinical_Trial_Finder.py",title="Clinical Trial Finder",icon="🐾",default=True),st.Page("pages/2_Additional_Oncology_Options.py",title="Additional Oncology Options",icon="🧬")]
+page=st.navigation(PAGES,position="hidden")
 
 st.markdown("""
 <style>
-.stMainBlockContainer,div[data-testid="stMainBlockContainer"]{max-width:1280px!important;padding:1.25rem 2rem 2.5rem!important}
+.stMainBlockContainer,div[data-testid="stMainBlockContainer"]{max-width:1200px!important;padding:1.4rem 2rem 2.5rem!important}
 div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"]){gap:.65rem!important;margin:0 0 1rem!important}
 div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"])>div{min-width:0!important;flex:1 1 50%!important;width:50%!important}
 div[data-testid="stPageLink"]{margin:0!important;padding:0!important}
-div[data-testid="stPageLink"] a{min-height:2.7rem;display:flex;align-items:center;justify-content:center;border:1px solid rgba(100,160,220,.22)!important;border-radius:.7rem!important;padding:.4rem .8rem!important}
+div[data-testid="stPageLink"] a{min-height:2.65rem;display:flex;align-items:center;justify-content:center;border:1px solid rgba(100,160,220,.22)!important;border-radius:.7rem!important;padding:.35rem .8rem!important}
 div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"])>div:nth-child(1) a{background:#eee8ff!important;color:#3b237a!important}
 div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"])>div:nth-child(2) a{background:#e8f3ff!important;color:#155ca8!important}
 div[data-testid="stPageLink"] p{font-size:.95rem!important;font-weight:700!important;color:inherit!important;white-space:nowrap!important}
 @media (min-width:901px){
- div[data-testid="stMainBlockContainer"] h1{font-size:2rem!important;margin:.2rem 0 .35rem!important}
- div[data-testid="stMainBlockContainer"] h2{font-size:1.35rem!important;margin:.75rem 0 .3rem!important}
+ div[data-testid="stMainBlockContainer"] h1{font-size:2rem!important;margin:.35rem 0 .45rem!important}
+ div[data-testid="stMainBlockContainer"] h2{font-size:1.35rem!important;margin:.65rem 0 .25rem!important}
  div[data-testid="stMainBlockContainer"] h3{font-size:1.1rem!important}
  div[data-testid="stMainBlockContainer"] [data-testid="stAlert"]{padding:.65rem .9rem!important;margin:.45rem 0!important}
  div[data-testid="stMainBlockContainer"] [data-testid="stExpander"]{margin:.35rem 0!important}
  div[data-testid="stMainBlockContainer"] [data-testid="stExpander"] details summary{min-height:2.5rem!important;padding:.35rem .7rem!important}
- div[data-testid="stMainBlockContainer"] div[data-testid="stVerticalBlock"]{gap:.55rem!important}
- /* The questionnaire is one logical form, but on desktop flow its top-level sections in two columns. */
- div[data-testid="stMainBlockContainer"] div[data-testid="stVerticalBlockBorderWrapper"]{border-radius:.75rem!important}
+ div[data-testid="stMainBlockContainer"] div[data-testid="stVerticalBlock"]{gap:.6rem!important}
  div[data-testid="stMainBlockContainer"] [data-baseweb="select"]>div,
  div[data-testid="stMainBlockContainer"] [data-testid="stNumberInput"] input,
- div[data-testid="stMainBlockContainer"] [data-testid="stTextInput"] input{min-height:2.45rem!important}
+ div[data-testid="stMainBlockContainer"] [data-testid="stTextInput"] input{min-height:2.5rem!important}
 }
 @media (max-width:900px){
  .stMainBlockContainer,div[data-testid="stMainBlockContainer"]{padding:4.1rem 1rem 2rem!important;max-width:none!important}
@@ -49,24 +44,13 @@ left,right=st.columns(2,gap="small")
 with left:st.page_link("pages/1_Clinical_Trial_Finder.py",label="Clinical Trials",icon="🐾",use_container_width=True)
 with right:st.page_link("pages/2_Additional_Oncology_Options.py",label="Other Options",icon="🧬",use_container_width=True)
 
-_original_markdown=st.markdown
-_original_title=st.title
-_original_header=st.header
-_original_selectbox=st.selectbox
-_original_expander=st.expander
-_original_link_button=st.link_button
-_original_write=st.write
-_original_columns=st.columns
-_pending={"contact":None,"sites":None,"url":None}
-_treatment_section={"pending":False,"shown":False}
-_deferred_diagnosis={"args":None,"kwargs":None}
-_selected_region={"value":None}
-_pet_columns_seen={"value":False}
+_original_markdown=st.markdown;_original_title=st.title;_original_header=st.header;_original_selectbox=st.selectbox;_original_expander=st.expander;_original_link_button=st.link_button;_original_write=st.write;_original_columns=st.columns
+_pending={"contact":None,"sites":None,"url":None};_treatment_section={"pending":False,"shown":False};_deferred_diagnosis={"args":None,"kwargs":None};_selected_region={"value":None}
+_form_layout={"left":None,"right":None,"active":None,"started":False}
 _europe_regions={"Europe — all countries","UK","United Kingdom","France","Belgium","Netherlands","The Netherlands","Italy","Portugal","Spain","Sweden","Switzerland","Germany","Austria","Czechia","Czech Republic","Poland","Denmark","Finland","Norway","Ireland","Hungary","Slovenia","Cyprus"}
 _treatment_history_labels={"Surgery","Osteosarcoma surgery","Hemangiosarcoma surgery","Chemotherapy","Prior or current cancer immunotherapy","Radiation to this tumor","Prednisone / other corticosteroids","Other immunosuppressive medication"}
 _feedback_text="If a trial team says your pet is not eligible, please save the reason. Those real-world exclusions are especially useful for improving the matcher. Do not post private medical or contact information publicly."
-_SUPABASE_URL="https://bvghrabcfrexvynlyhqb.supabase.co"
-_SUPABASE_KEY="sb_publishable_Ah5rszPGl4kp5cL8h7ZydA_021AmfKV"
+_SUPABASE_URL="https://bvghrabcfrexvynlyhqb.supabase.co";_SUPABASE_KEY="sb_publishable_Ah5rszPGl4kp5cL8h7ZydA_021AmfKV"
 
 def submit_feedback(trial_center,exclusion_reason):
     payload=json.dumps({"trial_center":trial_center.strip(),"exclusion_reason":exclusion_reason.strip()}).encode("utf-8")
@@ -77,15 +61,26 @@ def compact_title(body,*args,**kwargs):
     if isinstance(body,str) and "Vet Cancer Trial Finder" in body:return _original_title("🐾 Clinical Trial Finder")
     return _original_title(body,*args,**kwargs)
 
-def responsive_columns(spec,*args,**kwargs):
-    # Preserve the page's intentional two-column pet block. The old router CSS was
-    # distorting every horizontal block; columns now keep Streamlit's native layout.
-    return _original_columns(spec,*args,**kwargs)
+def _close_form_column():
+    if _form_layout["active"] is not None:
+        _form_layout["active"].__exit__(None,None,None);_form_layout["active"]=None
 
 def dynamic_header(body,*args,**kwargs):
-    if body=="4. Treatment":_treatment_section["pending"]=True;_treatment_section["shown"]=False;return None
+    # Real responsive structure: sections 1–2 live in the left Streamlit column;
+    # sections 3–4 live in the right. Streamlit stacks those columns naturally on phones.
+    if body=="1. Your pet" and not _form_layout["started"]:
+        cols=_original_columns(2,gap="large");_form_layout["left"],_form_layout["right"]=cols;_form_layout["started"]=True
+        ctx=_form_layout["left"];ctx.__enter__();_form_layout["active"]=ctx
+        return _original_header(body,*args,**kwargs)
+    if body=="3. Current disease" and _form_layout["started"]:
+        _close_form_column();ctx=_form_layout["right"];ctx.__enter__();_form_layout["active"]=ctx
+        return _original_header(body,*args,**kwargs)
+    if body=="4. Treatment":
+        _treatment_section["pending"]=True;_treatment_section["shown"]=False;return None
     if body=="5. Treatment options":
-        number="5" if _treatment_section["shown"] else "4";_treatment_section["pending"]=False;return _original_header(f"{number}. Treatment options",*args,**kwargs)
+        _close_form_column();number="5" if _treatment_section["shown"] else "4";_treatment_section["pending"]=False
+        return _original_header(f"{number}. Treatment options",*args,**kwargs)
+    if body=="Results":_close_form_column()
     return _original_header(body,*args,**kwargs)
 
 def dynamic_selectbox(label,*args,**kwargs):
@@ -104,7 +99,8 @@ def dynamic_selectbox(label,*args,**kwargs):
         if _deferred_diagnosis["args"] is not None:
             dkwargs=dict(_deferred_diagnosis["kwargs"] or {});dkwargs["key"]="diagnosis_confirmation";_original_selectbox("How certain is the diagnosis?",*_deferred_diagnosis["args"],**dkwargs);_deferred_diagnosis.update(args=None,kwargs=None)
         return result
-    if _treatment_section["pending"] and label in _treatment_history_labels:_original_header("4. Treatment");_treatment_section["pending"]=False;_treatment_section["shown"]=True
+    if _treatment_section["pending"] and label in _treatment_history_labels:
+        _original_header("4. Treatment");_treatment_section["pending"]=False;_treatment_section["shown"]=True
     return _original_selectbox(label,*args,**kwargs)
 
 def compact_result_markdown(body,*args,**kwargs):
@@ -153,6 +149,7 @@ def compact_expander(label,*args,**kwargs):
     else:
         with _original_expander(label,*args,**kwargs):yield
 
-st.title=compact_title;st.header=dynamic_header;st.selectbox=dynamic_selectbox;st.markdown=compact_result_markdown;st.expander=compact_expander;st.link_button=compact_link_button;st.write=feedback_write;st.columns=responsive_columns
+st.title=compact_title;st.header=dynamic_header;st.selectbox=dynamic_selectbox;st.markdown=compact_result_markdown;st.expander=compact_expander;st.link_button=compact_link_button;st.write=feedback_write
 try:page.run()
-finally:st.title=_original_title;st.header=_original_header;st.selectbox=_original_selectbox;st.markdown=_original_markdown;st.expander=_original_expander;st.link_button=_original_link_button;st.write=_original_write;st.columns=_original_columns
+finally:
+    _close_form_column();st.title=_original_title;st.header=_original_header;st.selectbox=_original_selectbox;st.markdown=_original_markdown;st.expander=_original_expander;st.link_button=_original_link_button;st.write=_original_write
