@@ -35,13 +35,39 @@ with right: st.page_link("pages/2_Additional_Oncology_Options.py",label="Other O
 
 _original_markdown=st.markdown
 _original_title=st.title
+_original_header=st.header
+_original_selectbox=st.selectbox
 _original_expander=st.expander
 _original_link_button=st.link_button
 _pending={"contact":None,"sites":None,"url":None}
+_treatment_section={"pending":False,"shown":False}
+_treatment_history_labels={
+    "Surgery","Osteosarcoma surgery","Hemangiosarcoma surgery","Chemotherapy",
+    "Prior or current cancer immunotherapy","Radiation to this tumor",
+    "Prednisone / other corticosteroids","Other immunosuppressive medication"
+}
 
 def compact_title(body,*args,**kwargs):
     if isinstance(body,str) and "Vet Cancer Trial Finder" in body: return _original_markdown("## 🐾 Clinical Trial Finder")
     return _original_title(body,*args,**kwargs)
+
+def dynamic_header(body,*args,**kwargs):
+    if body=="4. Treatment":
+        _treatment_section["pending"]=True
+        _treatment_section["shown"]=False
+        return None
+    if body=="5. Treatment options":
+        number="5" if _treatment_section["shown"] else "4"
+        _treatment_section["pending"]=False
+        return _original_header(f"{number}. Treatment options",*args,**kwargs)
+    return _original_header(body,*args,**kwargs)
+
+def dynamic_selectbox(label,*args,**kwargs):
+    if _treatment_section["pending"] and label in _treatment_history_labels:
+        _original_header("4. Treatment")
+        _treatment_section["pending"]=False
+        _treatment_section["shown"]=True
+    return _original_selectbox(label,*args,**kwargs)
 
 def compact_result_markdown(body,*args,**kwargs):
     if isinstance(body,str):
@@ -74,7 +100,7 @@ def compact_expander(label,*args,**kwargs):
     else:
         with _original_expander(label,*args,**kwargs): yield
 
-st.title=compact_title;st.markdown=compact_result_markdown;st.expander=compact_expander;st.link_button=compact_link_button
+st.title=compact_title;st.header=dynamic_header;st.selectbox=dynamic_selectbox;st.markdown=compact_result_markdown;st.expander=compact_expander;st.link_button=compact_link_button
 try: page.run()
 finally:
-    st.title=_original_title;st.markdown=_original_markdown;st.expander=_original_expander;st.link_button=_original_link_button
+    st.title=_original_title;st.header=_original_header;st.selectbox=_original_selectbox;st.markdown=_original_markdown;st.expander=_original_expander;st.link_button=_original_link_button
