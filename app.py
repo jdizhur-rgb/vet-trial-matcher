@@ -73,4 +73,49 @@ with left:
 with right:
     st.page_link("pages/2_Additional_Oncology_Options.py", label="Other Options", icon="🧬", use_container_width=True)
 
-page.run()
+# Compact the existing Clinical Trial Finder result cards without touching its
+# large curated trial catalog or matching logic. Only the exact result-card
+# labels used by that page are transformed; the Additional Options page is
+# unaffected.
+_original_markdown = st.markdown
+
+
+def compact_result_markdown(body, *args, **kwargs):
+    if isinstance(body, str):
+        if body.startswith("### ") and " · " in body:
+            heading = body[4:]
+            confidence, center = heading.split(" · ", 1)
+            _original_markdown(f"### {confidence}")
+            st.caption(center)
+            return None
+        if body.startswith("**Study type:**"):
+            st.caption(body.replace("**Study type:**", "Study type:", 1).strip())
+            return None
+        if body.startswith("**Why it may fit:**"):
+            text = body.replace("**Why it may fit:**", "", 1).strip()
+            with st.expander("Why it fits"):
+                st.write(text)
+            return None
+        if body.startswith("**Needs confirmation:**"):
+            text = body.replace("**Needs confirmation:**", "", 1).strip()
+            with st.expander("Eligibility to confirm"):
+                st.write(text)
+            return None
+        if body.startswith("**Contact:**"):
+            text = body.replace("**Contact:**", "", 1).strip()
+            with st.expander("Contact"):
+                st.write(text)
+            return None
+        if body.startswith("**Participating sites:**"):
+            text = body.replace("**Participating sites:**", "", 1).strip()
+            with st.expander("Participating sites"):
+                st.write(text)
+            return None
+    return _original_markdown(body, *args, **kwargs)
+
+
+st.markdown = compact_result_markdown
+try:
+    page.run()
+finally:
+    st.markdown = _original_markdown
