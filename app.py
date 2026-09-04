@@ -14,6 +14,11 @@ page = st.navigation(PAGES, position="hidden")
 st.markdown(
     """
     <style>
+    /* Pull the whole app upward; Streamlit's default top padding is excessive on phones. */
+    .stMainBlockContainer,
+    div[data-testid="stMainBlockContainer"] {
+        padding-top: 2.25rem !important;
+    }
     div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"]) {
         gap: 0 !important;
         padding: 0 !important;
@@ -54,12 +59,14 @@ st.markdown(
         font-weight: 700 !important;
         white-space: nowrap !important;
     }
-    /* Streamlit adds generous vertical gaps between top-level elements.
-       Tighten only the gap immediately around our navigation row. */
     div[data-testid="stVerticalBlock"] > div:has(div[data-testid="stHorizontalBlock"] div[data-testid="stPageLink"]) {
         margin-bottom: -1.8rem !important;
     }
     @media (max-width: 480px) {
+        .stMainBlockContainer,
+        div[data-testid="stMainBlockContainer"] {
+            padding-top: 1rem !important;
+        }
         div[data-testid="stPageLink"] a {
             min-height: 3.2rem;
             padding: .45rem .12rem !important;
