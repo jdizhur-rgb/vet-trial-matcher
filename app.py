@@ -58,7 +58,7 @@ _treatment_history_labels={
 }
 _feedback_text="If a trial team says your pet is not eligible, please save the reason. Those real-world exclusions are especially useful for improving the matcher. Do not post private medical or contact information publicly."
 _feedback_subject=quote("Vet Cancer Trial Finder — eligibility feedback")
-_feedback_body=quote("Trial / center:\n\nReason the trial team said my pet was not eligible:\n\nPlease do not include private medical records, addresses, phone numbers, or other sensitive information.")
+_feedback_body=quote("Trial / center:\n\nReason the trial team said my pet was not eligible:\n\nPlease share only what you are comfortable sending by email. No medical records are needed.")
 _feedback_mailto=f"mailto:j.dizhur@gmail.com?subject={_feedback_subject}&body={_feedback_body}"
 
 def compact_title(body,*args,**kwargs):
@@ -129,9 +129,9 @@ def compact_result_markdown(body,*args,**kwargs):
 
 def feedback_write(body,*args,**kwargs):
     if body==_feedback_text:
-        _original_write("If a trial team says your pet is not eligible, please send us the reason. Real-world exclusions help improve the matcher.")
-        _original_link_button("Send eligibility feedback",_feedback_mailto,use_container_width=True)
-        st.caption("Please do not include private medical records or personal contact information. The button opens your email app; nothing is posted publicly.")
+        _original_write("If a trial team says your pet is not eligible, you can email us the reason. Real-world exclusions help improve the matcher.")
+        _original_link_button("Send eligibility feedback by email",_feedback_mailto,use_container_width=True)
+        st.caption("This opens your own email app, so your email address will be visible to us if you choose to send the message. We do not need medical records or other personal information.")
         return None
     return _original_write(body,*args,**kwargs)
 
