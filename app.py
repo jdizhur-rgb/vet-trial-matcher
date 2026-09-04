@@ -10,14 +10,12 @@ PAGES = [
 
 page = st.navigation(PAGES, position="hidden")
 
-# Mobile-first segmented navigation: one compact row, large enough to notice and tap.
 st.markdown(
     """
     <style>
-    /* Pull the whole app upward; Streamlit's default top padding is excessive on phones. */
     .stMainBlockContainer,
     div[data-testid="stMainBlockContainer"] {
-        padding-top: 2.25rem !important;
+        padding-top: 3.25rem !important;
     }
     div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"]) {
         gap: 0 !important;
@@ -50,9 +48,7 @@ st.markdown(
         background: transparent;
         white-space: nowrap;
     }
-    div[data-testid="stPageLink"] a:hover {
-        background: rgba(70,130,210,.22);
-    }
+    div[data-testid="stPageLink"] a:hover { background: rgba(70,130,210,.22); }
     div[data-testid="stPageLink"] p {
         font-size: 1.02rem !important;
         line-height: 1.1 !important;
@@ -65,17 +61,22 @@ st.markdown(
     @media (max-width: 480px) {
         .stMainBlockContainer,
         div[data-testid="stMainBlockContainer"] {
-            padding-top: 1rem !important;
+            padding-top: 2.6rem !important;
         }
         div[data-testid="stPageLink"] a {
             min-height: 3.2rem;
             padding: .45rem .12rem !important;
         }
-        div[data-testid="stPageLink"] p {
-            font-size: .94rem !important;
-        }
+        div[data-testid="stPageLink"] p { font-size: .94rem !important; }
         div[data-testid="stVerticalBlock"] > div:has(div[data-testid="stHorizontalBlock"] div[data-testid="stPageLink"]) {
             margin-bottom: -2.35rem !important;
+        }
+        /* Pull the first questionnaire section upward without moving the header/nav. */
+        div[data-testid="stMarkdownContainer"] h2:has(+ *) {
+            scroll-margin-top: 0;
+        }
+        div[data-testid="stVerticalBlock"] > div:has(h2#your-pet) {
+            margin-top: -1.6rem !important;
         }
     }
     </style>
@@ -89,8 +90,6 @@ with left:
 with right:
     st.page_link("pages/2_Additional_Oncology_Options.py", label="Other Options", icon="🧬", use_container_width=True)
 
-# Presentation-only transforms for the large Clinical Trial Finder page.
-# The trial catalog and all matching/eligibility logic remain untouched.
 _original_markdown = st.markdown
 _original_title = st.title
 _original_expander = st.expander
@@ -109,15 +108,12 @@ def compact_result_markdown(body, *args, **kwargs):
         if body.startswith("### ") and " · " in body:
             heading = body[4:]
             confidence, center = heading.split(" · ", 1)
-            if confidence == "Potential broad-treatment trial — prescreening required":
-                confidence = "Prescreening required"
-            elif confidence == "Trial to review — cancer type not specified":
-                confidence = "Trial to review"
+            if confidence == "Potential broad-treatment trial — prescreening required": confidence = "Prescreening required"
+            elif confidence == "Trial to review — cancer type not specified": confidence = "Trial to review"
             _original_markdown(f"### {confidence}")
             st.caption(center)
             return None
-        if body.startswith("**Study type:**"):
-            return None
+        if body.startswith("**Study type:**"): return None
         if body.startswith("**Why it may fit:**"):
             text = body.replace("**Why it may fit:**", "", 1).strip().rstrip(".")
             return _original_markdown(f"**Why:** {text}.")
@@ -125,11 +121,9 @@ def compact_result_markdown(body, *args, **kwargs):
             text = body.replace("**Needs confirmation:**", "", 1).strip().rstrip(".")
             return _original_markdown(f"**Confirm:** {text}.")
         if body.startswith("**Contact:**"):
-            _pending["contact"] = body.replace("**Contact:**", "", 1).strip()
-            return None
+            _pending["contact"] = body.replace("**Contact:**", "", 1).strip(); return None
         if body.startswith("**Participating sites:**"):
-            _pending["sites"] = body.replace("**Participating sites:**", "", 1).strip()
-            return None
+            _pending["sites"] = body.replace("**Participating sites:**", "", 1).strip(); return None
     return _original_markdown(body, *args, **kwargs)
 
 
@@ -144,17 +138,13 @@ def compact_link_button(label, url, *args, **kwargs):
 def compact_expander(label, *args, **kwargs):
     if label == "Study details":
         with _original_expander("Details & contact", *args, **kwargs):
-            if _pending["contact"]:
-                _original_markdown(f"**Contact:** {_pending['contact']}")
-            if _pending["sites"]:
-                _original_markdown(f"**Participating sites:** {_pending['sites']}")
-            if _pending["url"]:
-                _original_link_button("Official study page", _pending["url"], use_container_width=True)
+            if _pending["contact"]: _original_markdown(f"**Contact:** {_pending['contact']}")
+            if _pending["sites"]: _original_markdown(f"**Participating sites:** {_pending['sites']}")
+            if _pending["url"]: _original_link_button("Official study page", _pending["url"], use_container_width=True)
             _pending.update(contact=None, sites=None, url=None)
             yield
     else:
-        with _original_expander(label, *args, **kwargs):
-            yield
+        with _original_expander(label, *args, **kwargs): yield
 
 
 st.title = compact_title
