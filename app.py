@@ -14,25 +14,40 @@ page = st.navigation(PAGES, position="hidden")
 
 st.markdown("""
 <style>
-.stMainBlockContainer, div[data-testid="stMainBlockContainer"] { padding-top:2rem!important; max-width:860px!important; }
-div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"]) { gap:0!important;padding:0!important;margin:0!important;border:1px solid rgba(100,160,220,.24);border-radius:1rem;overflow:hidden;background:transparent; }
+.stMainBlockContainer, div[data-testid="stMainBlockContainer"] { padding-top:1rem!important; max-width:1100px!important; padding-bottom:1.5rem!important; }
+div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"]) { gap:0!important;padding:0!important;margin:0!important;border:1px solid rgba(100,160,220,.24);border-radius:.85rem;overflow:hidden;background:transparent; }
 div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"]) > div { min-width:0!important;flex:1 1 50%!important;width:50%!important; }
 div[data-testid="stPageLink"] { margin:0!important;padding:0!important; }
-div[data-testid="stPageLink"] a { min-height:2.65rem;width:100%;display:flex;align-items:center;justify-content:center;margin:0!important;padding:.3rem .2rem!important;border:0!important;border-radius:0!important;white-space:nowrap;transition:filter .15s ease; }
+div[data-testid="stPageLink"] a { min-height:2.25rem;width:100%;display:flex;align-items:center;justify-content:center;margin:0!important;padding:.18rem .15rem!important;border:0!important;border-radius:0!important;white-space:nowrap;transition:filter .15s ease; }
 div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"]) > div:nth-child(1) div[data-testid="stPageLink"] a { background:#eee8ff!important;color:#3b237a!important; }
 div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"]) > div:nth-child(2) div[data-testid="stPageLink"] a { background:#e8f3ff!important;color:#155ca8!important; }
 div[data-testid="stPageLink"] a:hover { filter:brightness(.97); }
-div[data-testid="stPageLink"] p { font-size:.9rem!important;line-height:1.05!important;font-weight:700!important;white-space:nowrap!important;color:inherit!important; }
-div[data-testid="stVerticalBlock"] > div:has(div[data-testid="stHorizontalBlock"] div[data-testid="stPageLink"]) { margin-bottom:-1.65rem!important; }
+div[data-testid="stPageLink"] p { font-size:.84rem!important;line-height:1!important;font-weight:700!important;white-space:nowrap!important;color:inherit!important; }
+div[data-testid="stVerticalBlock"] > div:has(div[data-testid="stHorizontalBlock"] div[data-testid="stPageLink"]) { margin-bottom:-2rem!important; }
 @media (min-width:481px) {
- div[data-testid="stMainBlockContainer"] h1 { font-size:1.85rem!important;line-height:1.15!important;margin-bottom:.45rem!important; }
- div[data-testid="stMainBlockContainer"] h2 { font-size:1.45rem!important;line-height:1.15!important;margin-top:.7rem!important;margin-bottom:.35rem!important; }
- div[data-testid="stMainBlockContainer"] h3 { font-size:1.15rem!important;line-height:1.15!important;margin-top:.55rem!important;margin-bottom:.25rem!important; }
- div[data-testid="stMainBlockContainer"] p, div[data-testid="stMainBlockContainer"] label, div[data-testid="stMainBlockContainer"] li { font-size:.93rem!important;line-height:1.35!important; }
- div[data-testid="stMainBlockContainer"] [data-testid="stAlert"] { padding:.65rem .8rem!important; }
- div[data-testid="stMainBlockContainer"] [data-testid="stExpander"] details summary { min-height:2.5rem!important;padding:.35rem .7rem!important; }
- div[data-testid="stMainBlockContainer"] [data-testid="stSelectbox"] { margin-bottom:-.25rem!important; }
- div[data-testid="stMainBlockContainer"] [data-testid="stRadio"] { margin-bottom:-.15rem!important; }
+ div[data-testid="stMainBlockContainer"] h1 { font-size:1.55rem!important;line-height:1.05!important;margin:.2rem 0 .15rem!important;padding:0!important; }
+ div[data-testid="stMainBlockContainer"] h2 { font-size:1.25rem!important;line-height:1.05!important;margin:.35rem 0 .15rem!important;padding:0!important; }
+ div[data-testid="stMainBlockContainer"] h3 { font-size:1.05rem!important;line-height:1.05!important;margin:.25rem 0 .1rem!important;padding:0!important; }
+ div[data-testid="stMainBlockContainer"] p, div[data-testid="stMainBlockContainer"] label, div[data-testid="stMainBlockContainer"] li { font-size:.84rem!important;line-height:1.2!important; }
+ div[data-testid="stMainBlockContainer"] [data-testid="stMarkdownContainer"] p { margin-bottom:.25rem!important; }
+ div[data-testid="stMainBlockContainer"] [data-testid="stAlert"] { padding:.42rem .65rem!important;margin:.2rem 0!important; }
+ div[data-testid="stMainBlockContainer"] [data-testid="stExpander"] { margin:.2rem 0!important; }
+ div[data-testid="stMainBlockContainer"] [data-testid="stExpander"] details summary { min-height:2rem!important;padding:.2rem .55rem!important; }
+ div[data-testid="stMainBlockContainer"] [data-testid="stSelectbox"],
+ div[data-testid="stMainBlockContainer"] [data-testid="stNumberInput"],
+ div[data-testid="stMainBlockContainer"] [data-testid="stTextInput"] { margin-bottom:-.45rem!important; }
+ div[data-testid="stMainBlockContainer"] [data-baseweb="select"] > div,
+ div[data-testid="stMainBlockContainer"] [data-testid="stNumberInput"] input,
+ div[data-testid="stMainBlockContainer"] [data-testid="stTextInput"] input { min-height:2rem!important;height:2rem!important;font-size:.84rem!important; }
+ div[data-testid="stMainBlockContainer"] [data-testid="stCheckbox"],
+ div[data-testid="stMainBlockContainer"] [data-testid="stRadio"] { margin-top:-.15rem!important;margin-bottom:-.35rem!important; }
+ div[data-testid="stMainBlockContainer"] [data-testid="stCheckbox"] label,
+ div[data-testid="stMainBlockContainer"] [data-testid="stRadio"] label { min-height:1.6rem!important; }
+ div[data-testid="stMainBlockContainer"] div[data-testid="stVerticalBlock"] { gap:.35rem!important; }
+ div[data-testid="stMainBlockContainer"] div[data-testid="stHorizontalBlock"] { gap:.75rem!important; }
+ div[data-testid="stMainBlockContainer"] hr { margin:.35rem 0!important; }
+ div[data-testid="stMainBlockContainer"] button { min-height:2rem!important;padding:.2rem .55rem!important;font-size:.84rem!important; }
+ div[data-testid="stMainBlockContainer"] small, div[data-testid="stMainBlockContainer"] [data-testid="stCaptionContainer"] { font-size:.76rem!important;line-height:1.15!important; }
 }
 @media (max-width:480px) {
  .stMainBlockContainer, div[data-testid="stMainBlockContainer"] { padding-top:4.1rem!important;max-width:none!important; }
