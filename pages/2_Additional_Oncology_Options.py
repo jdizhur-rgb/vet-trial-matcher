@@ -1,7 +1,5 @@
 import streamlit as st
 
-st.set_page_config(page_title="Additional Oncology Options", page_icon="🧬", layout="centered")
-
 OPTIONS = [
     {
         "id": "hsa-fidocure-genomic-guidance",
@@ -65,11 +63,8 @@ OPTIONS = [
     },
 ]
 
-st.title("🧬 Additional Options to Discuss With Your Oncologist")
-st.write(
-    "A deliberately short matcher for non-routine or newer oncology options that are currently accessible in the U.S. or Europe and have enough clinical evidence to justify a specialist discussion."
-)
-st.caption("Clinical trials are handled separately in the Trial Finder.")
+st.header("🧬 Additional Oncology Options")
+st.write("A short list of non-routine treatment options with enough clinical evidence and current access to be worth discussing with a veterinary oncologist.")
 
 with st.expander("How options qualify"):
     st.write(
@@ -79,7 +74,6 @@ with st.expander("How options qualify"):
     )
 
 species = st.selectbox("1. Species", ["Dog", "Cat"])
-
 available_cancers = sorted({c for x in OPTIONS if x["species"] == species for c in x["cancers"]})
 cancer = st.selectbox("2. Cancer type", ["Select cancer type"] + available_cancers)
 
@@ -92,17 +86,10 @@ else:
     cancer_matches = [x for x in OPTIONS if x["species"] == species and cancer in x["cancers"]]
     situations = sorted({s for x in cancer_matches for s in x["situations"]})
     situation = st.selectbox("3. Clinical situation", ["Show all relevant situations"] + situations)
-
-    if situation == "Show all relevant situations":
-        matches = cancer_matches
-    else:
-        matches = [x for x in cancer_matches if situation in x["situations"]]
+    matches = cancer_matches if situation == "Show all relevant situations" else [x for x in cancer_matches if situation in x["situations"]]
 
     if not matches:
-        st.info(
-            "No additional evidence-screened option currently matches this situation. "
-            "This does not mean there are no standard treatments or clinical trials."
-        )
+        st.info("No additional evidence-screened option currently matches this situation. This does not mean there are no standard treatments or clinical trials.")
     else:
         st.success(f"{len(matches)} additional option{'s' if len(matches) != 1 else ''} found to discuss with a veterinary oncologist.")
         for x in matches:
@@ -112,21 +99,14 @@ else:
                 st.markdown(f"**Current access:** {x['access']}")
                 st.markdown(f"**Evidence level:** {x['evidence_level']}")
                 st.write(x["evidence"])
-
                 with st.expander("Practical details and limitations"):
                     st.markdown(f"**Sample requirement:** {x['sample']}")
                     st.markdown(f"**Travel/access:** {x['travel']}")
                     st.markdown(f"**Important limitations:** {x['limitations']}")
-
                 c1, c2 = st.columns(2)
                 with c1:
                     st.link_button("Clinical evidence", x["url"], use_container_width=True)
                 with c2:
                     st.link_button("How to access", x["access_url"], use_container_width=True)
 
-st.divider()
-st.caption(
-    "These results are discussion prompts for a veterinary oncologist, not treatment recommendations or eligibility determinations. "
-    "Evidence and access can change. Watchlist and excluded research leads are intentionally not shown here. "
-    "Last evidence review: September 4, 2026."
-)
+st.caption("Discussion prompts for a veterinary oncologist, not treatment recommendations or eligibility determinations. Evidence and access can change. Last review: September 4, 2026.")
