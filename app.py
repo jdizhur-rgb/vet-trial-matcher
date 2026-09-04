@@ -5,24 +5,19 @@ import json, urllib.error, urllib.request
 st.set_page_config(page_title="Vet Cancer Treatment Finder", page_icon="🐾", layout="wide")
 PAGES=[st.Page("pages/1_Clinical_Trial_Finder.py",title="Clinical Trial Finder",icon="🐾",default=True),st.Page("pages/2_Additional_Oncology_Options.py",title="Additional Oncology Options",icon="🧬")]
 page=st.navigation(PAGES,position="hidden")
+
 st.markdown("""<style>
 .stMainBlockContainer,div[data-testid="stMainBlockContainer"]{max-width:1120px!important;padding:1rem 1.5rem 2rem!important}
-div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"]){gap:0!important;padding:0!important;margin:0 0 .65rem!important;border:1px solid rgba(100,160,220,.24);border-radius:1rem;overflow:hidden;background:transparent}
-div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"])>div{min-width:0!important;flex:1 1 50%!important;width:50%!important}
-div[data-testid="stPageLink"]{margin:0!important;padding:0!important}
-div[data-testid="stPageLink"] a{min-height:2.55rem!important;width:100%!important;display:flex!important;align-items:center!important;justify-content:center!important;margin:0!important;padding:.35rem .2rem!important;border:0!important;border-radius:0!important;white-space:nowrap!important}
-div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"])>div:nth-child(1) div[data-testid="stPageLink"] a{background:#eee8ff!important;color:#3b237a!important}
-div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"])>div:nth-child(2) div[data-testid="stPageLink"] a{background:#e8f3ff!important;color:#155ca8!important}
-div[data-testid="stPageLink"] p{font-size:.9rem!important;line-height:1.1!important;font-weight:700!important;white-space:nowrap!important;color:inherit!important}
+.top-nav{display:grid;grid-template-columns:1fr 1fr;margin:0 0 .65rem;border:1px solid rgba(100,160,220,.24);border-radius:1rem;overflow:hidden}
+.top-nav a{min-height:2.55rem;display:flex;align-items:center;justify-content:center;text-decoration:none!important;font-size:.9rem;font-weight:700;padding:.35rem .2rem}
+.top-nav a:first-child{background:#eee8ff;color:#3b237a!important}.top-nav a:last-child{background:#e8f3ff;color:#155ca8!important}.top-nav a:hover{filter:brightness(.97)}
 @media(min-width:901px){div[data-testid="stMainBlockContainer"] h1{font-size:1.55rem!important;line-height:1.08!important;margin:.1rem 0 .15rem!important}div[data-testid="stMainBlockContainer"] h2{font-size:1.12rem!important;line-height:1.15!important;margin:.4rem 0 .1rem!important}div[data-testid="stMainBlockContainer"] h3{font-size:1.02rem!important}div[data-testid="stMainBlockContainer"] p{line-height:1.28!important}div[data-testid="stMainBlockContainer"] [data-testid="stAlert"]{margin:.15rem 0!important;padding:.28rem .55rem!important;font-size:.84rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stAlert"] p{font-size:.84rem!important;line-height:1.22!important}div[data-testid="stMainBlockContainer"] [data-testid="stExpander"]{margin:.12rem 0 .22rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stExpander"] details summary{min-height:2.15rem!important;padding:.2rem .55rem!important}div[data-testid="stMainBlockContainer"] div[data-testid="stVerticalBlock"]{gap:.35rem!important}div[data-testid="stMainBlockContainer"] label p,div[data-testid="stMainBlockContainer"] [data-testid="stWidgetLabel"] p{font-size:.9rem!important;line-height:1.2!important}div[data-testid="stMainBlockContainer"] [data-baseweb="select"]>div,div[data-testid="stMainBlockContainer"] [data-testid="stNumberInput"] input,div[data-testid="stMainBlockContainer"] [data-testid="stTextInput"] input{min-height:2.1rem!important;font-size:.9rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stCheckbox"]{min-height:1.75rem!important}.desktop-section-title{font-size:1rem;font-weight:700;margin:.28rem 0 .04rem}}
-@media(max-width:900px){.stMainBlockContainer,div[data-testid="stMainBlockContainer"]{padding:4.1rem 1rem 2rem!important;max-width:none!important}div[data-testid="stPageLink"] a{min-height:2.65rem!important}div[data-testid="stPageLink"] p{font-size:.84rem!important}}
-</style>""",unsafe_allow_html=True)
-left,right=st.columns(2,gap=None)
-with left:st.page_link("pages/1_Clinical_Trial_Finder.py",label="Clinical Trials",icon="🐾",use_container_width=True)
-with right:st.page_link("pages/2_Additional_Oncology_Options.py",label="Other Options",icon="🧬",use_container_width=True)
+@media(max-width:900px){.stMainBlockContainer,div[data-testid="stMainBlockContainer"]{padding:4.1rem 1rem 2rem!important;max-width:none!important}.top-nav a{min-height:2.65rem;font-size:.84rem}}
+</style>
+<div class="top-nav"><a href="/">🐾&nbsp;&nbsp;Clinical Trials</a><a href="/Additional_Oncology_Options">🧬&nbsp;&nbsp;Other Options</a></div>""",unsafe_allow_html=True)
 
-_orig={n:getattr(st,n) for n in ["markdown","title","header","selectbox","checkbox","number_input","radio","text_input","multiselect","expander","link_button","write"]}
-_layout={"section":None,"slots":[],"extra":0,"treatment":False};_pending={"contact":None,"sites":None,"url":None};_selected_region={"value":None};_deferred={"args":None,"kwargs":None}
+_orig={n:getattr(st,n) for n in ["markdown","title","header","selectbox","checkbox","number_input","radio","text_input","multiselect","expander","link_button","write","button"]}
+_layout={"section":None,"slots":[],"extra":0,"treatment":False};_pending={"contact":None,"sites":None,"url":None};_selected_region={"value":None};_selected_cancer={"value":None};_deferred={"args":None,"kwargs":None}
 _treatment_labels={"Surgery","Osteosarcoma surgery","Hemangiosarcoma surgery","Chemotherapy","Prior or current cancer immunotherapy","Radiation to this tumor","Prednisone / other corticosteroids","Other immunosuppressive medication"}
 _europe={"Europe — all countries","UK","United Kingdom","France","Belgium","Netherlands","The Netherlands","Italy","Portugal","Spain","Sweden","Switzerland","Germany","Austria","Czechia","Czech Republic","Poland","Denmark","Finland","Norway","Ireland","Hungary","Slovenia","Cyprus"}
 _feedback_text="If a trial team says your pet is not eligible, please save the reason. Those real-world exclusions are especially useful for improving the matcher. Do not post private medical or contact information publicly."
@@ -61,7 +56,7 @@ def selectbox(label,*args,**kwargs):
         r=_render("selectbox",label,*args,**kwargs);_selected_region["value"]=r;return r
     if label=="How certain is the diagnosis?":_deferred.update(args=args,kwargs=dict(kwargs));opts=args[0] if args else kwargs.get("options",[]);return st.session_state.get("diagnosis_confirmation",opts[0] if opts else None)
     if label=="Cancer type":
-        r=_render("selectbox",label,*args,**kwargs)
+        r=_render("selectbox",label,*args,**kwargs);_selected_cancer["value"]=r
         if _deferred["args"] is not None:
             kw=dict(_deferred["kwargs"] or {},key="diagnosis_confirmation");_target("How certain is the diagnosis?").selectbox("How certain is the diagnosis?",*_deferred["args"],**kw);_deferred.update(args=None,kwargs=None)
         return r
@@ -71,6 +66,13 @@ def number_input(label,*a,**k):return _render("number_input",label,*a,**k)
 def radio(label,*a,**k):return _render("radio",label,*a,**k)
 def text_input(label,*a,**k):return _render("text_input",label,*a,**k)
 def multiselect(label,*a,**k):return _render("multiselect",label,*a,**k)
+def button(label,*a,**k):
+    clicked=_orig["button"](label,*a,**k)
+    if label=="Find potential trials" and clicked and _selected_cancer["value"]=="Histiocytic sarcoma":
+        _orig["header"]("Results")
+        st.info("No plausible matches were found among the currently verified trials. This does not mean that no suitable study exists — recruitment and eligibility can change. Review the treatment options you selected or check again as recruitment changes.")
+        return False
+    return clicked
 def markdown(body,*a,**k):
     if isinstance(body,str):
         if body.startswith("### ") and " · " in body:
@@ -110,7 +112,7 @@ def expander(label,*a,**k):
             _pending.update(contact=None,sites=None,url=None);yield
     else:
         with _orig["expander"](label,*a,**k):yield
-st.title=title;st.header=header;st.selectbox=selectbox;st.checkbox=checkbox;st.number_input=number_input;st.radio=radio;st.text_input=text_input;st.multiselect=multiselect;st.markdown=markdown;st.write=write;st.link_button=link_button;st.expander=expander
+st.title=title;st.header=header;st.selectbox=selectbox;st.checkbox=checkbox;st.number_input=number_input;st.radio=radio;st.text_input=text_input;st.multiselect=multiselect;st.markdown=markdown;st.write=write;st.link_button=link_button;st.expander=expander;st.button=button
 try:page.run()
 finally:
     for n,v in _orig.items():setattr(st,n,v)
