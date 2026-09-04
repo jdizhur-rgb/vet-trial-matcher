@@ -4636,15 +4636,32 @@ def is_current_trial(tr):
     return tr.get('status_confidence') in CURRENT_STATUS_CONFIDENCE
 
 def trial_accepts_diagnosis(tr, diagnosis):
-    """Return (accepted, broad) without fuzzy disease inference."""
-    tc=set(tr.get('cancers', []))
-    exact={diagnosis, *CANCER_ALIASES.get(diagnosis, [])}
-    if diagnosis == 'Spindle cell sarcoma': exact.add('Soft tissue sarcoma')
-    if exact.intersection(tc): return True, False
-    broad=set(tr.get('broad_disease_families', []))
-    if 'all_tumors' in broad or 'Cancer — any type' in tc: return True, True
-    fam=DIAGNOSIS_FAMILIES.get(diagnosis,set())
-    if fam.intersection(broad): return True, True
+    tc = set(tr.get('cancers', []))
+
+    # First preserve the original exact/alias matching behavior.
+    exact = {diagnosis, *CANCER_ALIASES.get(diagnosis, [])}
+    if diagnosis == 'Spindle cell sarcoma':
+        exact.add('Soft tissue sarcoma')
+
+    if exact.intersection(tc):
+        return True, False
+
+    # Broad-family matching is only a fallback for diagnoses that
+    # explicitly have a taxonomy-family mapping. Established diagnoses
+    # keep the original exact/alias semantics and must not automatically
+    # match generic basket / "all tumors" studies.
+    fam = DIAGNOSIS_FAMILIES.get(diagnosis)
+    if not fam:
+        return False, False
+
+    broad = set(tr.get('broad_disease_families', []))
+
+    if 'all_tumors' in broad or 'Cancer — any type' in tc:
+        return True, True
+
+    if fam.intersection(broad):
+        return True, True
+
     return False, False
 
 st.markdown('''
