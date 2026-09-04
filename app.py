@@ -6,14 +6,28 @@ st.set_page_config(page_title="Vet Cancer Treatment Finder", page_icon="🐾", l
 PAGES=[st.Page("pages/1_Clinical_Trial_Finder.py",title="Clinical Trial Finder",icon="🐾",default=True),st.Page("pages/2_Additional_Oncology_Options.py",title="Additional Oncology Options",icon="🧬")]
 page=st.navigation(PAGES,position="hidden")
 st.markdown("""<style>
-.stMainBlockContainer,div[data-testid="stMainBlockContainer"]{max-width:1240px!important;padding:1.1rem 2rem 2.5rem!important}
-div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"]){gap:.65rem!important;margin:0 0 .65rem!important}div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"])>div{min-width:0!important;flex:1 1 50%!important;width:50%!important}div[data-testid="stPageLink"]{margin:0!important;padding:0!important}div[data-testid="stPageLink"] a{min-height:2.5rem;display:flex;align-items:center;justify-content:center;border:1px solid rgba(100,160,220,.22)!important;border-radius:.7rem!important;padding:.3rem .8rem!important}div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"])>div:nth-child(1) a{background:#eee8ff!important;color:#3b237a!important}div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"])>div:nth-child(2) a{background:#e8f3ff!important;color:#155ca8!important}div[data-testid="stPageLink"] p{font-size:.95rem!important;font-weight:700!important;color:inherit!important;white-space:nowrap!important}
-@media(min-width:901px){div[data-testid="stMainBlockContainer"] h1{margin:.25rem 0!important}div[data-testid="stMainBlockContainer"] [data-testid="stAlert"]{margin:.25rem 0!important;padding:.5rem .75rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stExpander"]{margin:.2rem 0 .35rem!important}.desktop-section-title{font-size:1.08rem;font-weight:700;margin:.4rem 0 .1rem}}
+.stMainBlockContainer,div[data-testid="stMainBlockContainer"]{max-width:1120px!important;padding:1rem 1.5rem 2rem!important}
+.nav-row{margin-bottom:.65rem}
+div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"]){gap:.55rem!important;margin:0 0 .65rem!important}div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"])>div{min-width:0!important;flex:1 1 50%!important;width:50%!important}div[data-testid="stPageLink"]{margin:0!important;padding:0!important}div[data-testid="stPageLink"] a{min-height:2.35rem;display:flex;align-items:center;justify-content:center;border:1px solid rgba(100,130,190,.24)!important;border-radius:.65rem!important;padding:.22rem .65rem!important}div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"])>div:nth-child(1) a{background:#eee8ff!important;color:#3b237a!important}div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"])>div:nth-child(2) a{background:#e8f3ff!important;color:#155ca8!important}div[data-testid="stPageLink"] p{font-size:.9rem!important;font-weight:700!important;color:inherit!important;white-space:nowrap!important}
+@media(min-width:901px){
+ div[data-testid="stMainBlockContainer"] h1{font-size:1.85rem!important;line-height:1.1!important;margin:.15rem 0 .2rem!important}
+ div[data-testid="stMainBlockContainer"] h2{font-size:1.18rem!important;line-height:1.15!important;margin:.45rem 0 .12rem!important}
+ div[data-testid="stMainBlockContainer"] h3{font-size:1.05rem!important}
+ div[data-testid="stMainBlockContainer"] p{line-height:1.3!important}
+ div[data-testid="stMainBlockContainer"] [data-testid="stAlert"]{margin:.2rem 0!important;padding:.42rem .65rem!important}
+ div[data-testid="stMainBlockContainer"] [data-testid="stExpander"]{margin:.15rem 0 .25rem!important}
+ div[data-testid="stMainBlockContainer"] [data-testid="stExpander"] details summary{min-height:2.25rem!important;padding:.25rem .6rem!important}
+ div[data-testid="stMainBlockContainer"] div[data-testid="stVerticalBlock"]{gap:.38rem!important}
+ div[data-testid="stMainBlockContainer"] label p,div[data-testid="stMainBlockContainer"] [data-testid="stWidgetLabel"] p{font-size:.9rem!important;line-height:1.2!important}
+ div[data-testid="stMainBlockContainer"] [data-baseweb="select"]>div,div[data-testid="stMainBlockContainer"] [data-testid="stNumberInput"] input,div[data-testid="stMainBlockContainer"] [data-testid="stTextInput"] input{min-height:2.15rem!important;font-size:.9rem!important}
+ div[data-testid="stMainBlockContainer"] [data-testid="stCheckbox"]{min-height:1.8rem!important}
+ .desktop-section-title{font-size:1rem;font-weight:700;margin:.3rem 0 .05rem}
+}
 @media(max-width:900px){.stMainBlockContainer,div[data-testid="stMainBlockContainer"]{padding:4.1rem 1rem 2rem!important;max-width:none!important}div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"]){gap:0!important;border:1px solid rgba(100,160,220,.24);border-radius:1rem;overflow:hidden}div[data-testid="stPageLink"] a{border:0!important;border-radius:0!important}}
 </style>""",unsafe_allow_html=True)
-left,right=st.columns(2,gap="small")
-with left:st.page_link("pages/1_Clinical_Trial_Finder.py",label="Clinical Trials",icon="🐾",use_container_width=True)
-with right:st.page_link("pages/2_Additional_Oncology_Options.py",label="Other Options",icon="🧬",use_container_width=True)
+nav_left,nav_right=st.columns(2,gap="small")
+with nav_left:st.page_link("pages/1_Clinical_Trial_Finder.py",label="Clinical Trials",icon="🐾",use_container_width=True)
+with nav_right:st.page_link("pages/2_Additional_Oncology_Options.py",label="Other Options",icon="🧬",use_container_width=True)
 
 _orig={n:getattr(st,n) for n in ["markdown","title","header","selectbox","checkbox","number_input","radio","text_input","multiselect","expander","link_button","write"]}
 _layout={"section":None,"slots":[],"extra":0,"treatment":False};_pending={"contact":None,"sites":None,"url":None};_selected_region={"value":None};_deferred={"args":None,"kwargs":None}
@@ -42,8 +56,8 @@ def _render(kind,label,*args,**kwargs):
     t=_target(label);return getattr(t,kind)(label,*args,**kwargs) if t is not None else _orig[kind](label,*args,**kwargs)
 def title(body,*a,**k):return _orig["title"]("🐾 Clinical Trial Finder" if isinstance(body,str) and "Vet Cancer Trial Finder" in body else body,*a,**k)
 def header(body,*a,**k):
-    if body=="1. Your pet":_section("pet","1. Your pet",[1.05,1.1,1.35,1.35,1.65]);return
-    if body=="2. Diagnosis":_section("diagnosis","2. Diagnosis",[1.7,1]);return
+    if body=="1. Your pet":_section("pet","1. Your pet",[1,1,1.15,1.2,1.35]);return
+    if body=="2. Diagnosis":_section("diagnosis","2. Diagnosis",[1.65,1]);return
     if body=="3. Current disease":_section("disease","3. Current disease",3);return
     if body=="4. Treatment":_layout["section"]="treatment_pending";return
     if body=="5. Treatment options":_section("options","5. Treatment options" if _layout["treatment"] else "4. Treatment options",1);return
@@ -106,7 +120,6 @@ def expander(label,*a,**k):
             _pending.update(contact=None,sites=None,url=None);yield
     else:
         with _orig["expander"](label,*a,**k):yield
-
 st.title=title;st.header=header;st.selectbox=selectbox;st.checkbox=checkbox;st.number_input=number_input;st.radio=radio;st.text_input=text_input;st.multiselect=multiselect;st.markdown=markdown;st.write=write;st.link_button=link_button;st.expander=expander
 try:page.run()
 finally:
