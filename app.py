@@ -177,6 +177,7 @@ TRIALS = [{'id': 'eu-fr-hifu-urothelial',
   'status_confidence': 'current',
   'owner_prescreen_required': True},
  {'id': 'eu-ch-large-tumor-lattice-sbrt',
+  'broad_disease_families': ['solid_tumor'],
   'title': 'Lattice or SBRT radiotherapy for large inoperable canine tumors',
   'center': 'University of Zurich — Division of Radiation Oncology',
   'country': 'Switzerland',
@@ -1958,6 +1959,7 @@ TRIALS = [{'id': 'eu-fr-hifu-urothelial',
   'study_type': 'treatment',
   'excludes': {},
   'id': 'vroc-compassionate-advanced',
+  'broad_disease_families': ['all_tumors'],
   'title': 'Compassionate-use investigational protocol for advanced non-resectable tumors',
   'cancers': ['Other solid tumor',
               'Soft tissue sarcoma',
@@ -3006,6 +3008,7 @@ TRIALS = [{'id': 'eu-fr-hifu-urothelial',
   'study_type': 'treatment',
   'excludes': {},
   'id': 'vroc-compassionate-advanced-cat',
+  'broad_disease_families': ['all_tumors'],
   'title': 'Compassionate-use investigational protocol for advanced non-resectable tumors',
   'cancers': ['Other solid tumor',
               'Soft tissue sarcoma',
@@ -3746,6 +3749,7 @@ TRIALS = [{'id': 'eu-fr-hifu-urothelial',
   'available_for_matching': True,
   'contact': 'CASEtrials@ethosvet.com',
   'id': 'case-cosmyc-it',
+  'broad_disease_families': ['all_tumors'],
   'cancers': ['Cancer — any type'],
   'title': 'COSMyc-IT — OMO-103 Myc-inhibition tolerability trial for dogs with cancer',
   'study_type': 'treatment',
@@ -4365,10 +4369,11 @@ TRIALS = [{'id': 'eu-fr-hifu-urothelial',
   'notes': 'Discovery-only lead. Never present as recruiting. Use participating-center graph to search for separate prospective therapeutic protocols and owner-facing treatment access.',
   'owner_prescreen_required': True},
  {'id': 'eu-ch-sinonasal-heterogeneous-rt',
+  'broad_disease_families': ['nasal_tumor'],
   'title': 'Heterogeneous-dose radiotherapy for canine sinonasal tumors',
   'center': 'University of Zurich — Division of Radiation Oncology',
   'city': 'Zurich', 'country': 'Switzerland', 'species': 'Dog',
-  'cancers': ['Sinonasal carcinoma', 'Other solid tumor'],
+  'cancers': ['Sinonasal carcinoma', 'Nasal tumor / nasal cancer', 'Other solid tumor'],
   'status': 'Current clinical trial — University of Zurich and ESVONC ongoing list',
   'verified': '2026-09-03', 'study_type': 'treatment', 'status_confidence': 'current',
   'available_for_matching': True,
@@ -4590,6 +4595,9 @@ TRIALS.extend([
  {'id':'eu-ch-oral-vinorelbine-phase1','title':'Phase I oral vinorelbine for dogs with cancer','center':'Universitäres Tierspital Zürich / University of Zurich','country':'Switzerland','cancers':['Cancer — any type','Lymphoma — other','Histiocytic sarcoma','Mast cell tumor','Primary lung tumor','Other solid tumor'],'status':'Study participation possible','species':'Dog','url':'https://www.tierspital.uzh.ch/forschungsprojekte/orale-chemotherapie-hunde-mit-tumor/','contacts':'Dr. Csilla Fejös; +41 44 635 9090','funding':'Part of study costs covered by a foundation; confirm remaining costs.','requires':{'confirmed':True,'min_weight_kg':5,'standard_therapy_unavailable':True,'good_general_condition':True},'excludes':{},'notes':'Early Phase I dose-finding study of a single oral vinorelbine dose. Current UZH page says participation is possible. Intended for dogs with cancer for whom standard therapy is no longer appropriate or cannot be performed, in good general condition and >5 kg. UZH notes prior evidence particularly for lymphoma, histiocytic sarcoma, mast cell tumour and lung carcinoma.','verified':'2026-09-03','study_type':'treatment','available_for_matching':True,'status_confidence':'confirmed_current','owner_prescreen_required':True},
  {'id':'eu-ch-feline-sts-adam12-vaccine','title':'ADAM-12 therapeutic vaccine for feline soft-tissue sarcoma','center':'Universitäres Tierspital Zürich / University of Zurich','country':'Switzerland','cancers':['Soft tissue sarcoma','Feline injection-site sarcoma','Other sarcoma'],'status':'Study participation possible','species':'Cat','url':'https://www.tierspital.uzh.ch/forschungsprojekte/impfstudie-katzen-weichteilsarkom/','contacts':'Prof. Mirja C. Nolff / UZH study contact form','funding':'Confirm with study team.','requires':{'confirmed':True,'surgery_or_rt_not_possible':True,'ct_and_current_biopsy':True},'excludes':{},'notes':'Phase-0 therapeutic immunotherapy study targeting ADAM-12. Current UZH page says participation is possible. Cats need confirmed sarcoma for which surgery or radiotherapy is no longer possible (e.g. recurrent, too large or metastatic); CT and a current biopsy are required. Treatment includes vaccinations on days 0 and 7 with inpatient observation.','verified':'2026-09-03','study_type':'treatment','available_for_matching':True,'status_confidence':'confirmed_current','owner_prescreen_required':True},
  {'id':'eu-es-cancimpet-mammary-cpmv','title':'CANCIMPET intratumoral CPMV immunotherapy for mammary cancer','center':'Hospital Clínico Veterinario, Universidad Complutense de Madrid','country':'Spain','cancers':['Mammary carcinoma','Feline mammary carcinoma','Mammary tumor — other'],'status':'Currently recruiting treatment trial — UCM veterinary hospital owner recruitment page','species':'Dog/Cat','url':'https://www.ucm.es/hcv/noticias/inmunoterapia-para-tratar-el-cancer-de-mama-en-perras-y-gatas','contacts':'endomamahcvc@ucm.es','funding':'Experimental immunotherapy is provided without additional cost to participants; confirm any other owner-paid costs with the study team.','requires':{'confirmed':True,'active_treatment_target':True},'excludes':{},'notes':'CANCIMPET is an anticancer treatment trial of intratumoral CPMV immunotherapy for dogs and cats with poor-prognosis mammary cancer, including locally advanced, metastatic, and inflammatory mammary cancer. The official UCM veterinary hospital recruitment page invites owners to contact the study. The project runs through 2028-08-31; the public page does not provide full eligibility criteria, so investigator prescreening is required.','verified':'2026-09-03','study_type':'treatment','available_for_matching':True,'status_confidence':'confirmed_current','owner_prescreen_required':True},
+ {'id':'tufts-z007-broad-solid-2026','title':'Evaluation of TLR agonist Z-007 in dogs with cancer','center':'Cummings School of Veterinary Medicine, Tufts University','country':'USA','species':'Dog','cancers':['Other solid tumor'],'broad_disease_families':['solid_tumor','carcinoma','sarcoma'],'status':'Recruiting','url':'https://vet.tufts.edu/clinical-trials/evaluation-tlr-agonist-z-007-dogs-cancer','contacts':'clinicaltrials@tufts.edu','funding':'Study covers Z-007 treatment through Day 63 and treatment of Z-007/biopsy-related side effects; confirm other owner costs with Tufts.','requires':{'confirmed':True,'min_weight_kg':7,'measurable':True},'excludes':{},'notes':'Dog study of IV or intratumoral Z-007 for solid tumors including carcinomas, sarcomas and melanoma. Public criteria include a generally 2–7 cm repeat-biopsy-accessible tumor plus medical/laboratory requirements; no prior immunotherapy or autoimmune disease. Investigator prescreening required.','verified':'2026-09-04','study_type':'treatment','available_for_matching':True,'status_confidence':'confirmed_current','owner_prescreen_required':True},
+ {'id':'eu-ch-pnst-plexus-fluorescence-surgery','title':'Fluorescence-guided surgery for canine peripheral nerve sheath / plexus tumors','center':'Universitäres Tierspital Zürich / University of Zurich','country':'Switzerland','species':'Dog','cancers':['Peripheral nerve sheath tumor'],'status':'Studienteilnahme möglich','url':'https://www.tierspital.uzh.ch/forschungsprojekte/studie-plexustumore-hunde/','contacts':'University of Zurich study team — use official study page','funding':'Confirm study-covered and owner-paid costs with the University of Zurich study team.','requires':{'confirmed':True,'active_treatment_target':True},'excludes':{},'notes':'Therapeutic surgical study for peripheral nerve sheath/plexus tumors using fluorescence guidance to improve tumor visualization and potentially enable limb-preserving surgery. PNST-specific; other STS are not automatically eligible.','verified':'2026-09-04','study_type':'treatment','available_for_matching':True,'status_confidence':'confirmed_current','owner_prescreen_required':True},
+
 ])
 
 
@@ -4598,7 +4606,24 @@ TRIALS.extend([
  {'id':'eu-se-vivesto-cantrixil-canine-pilot-watch','title':'Cantrixil pilot study in dogs with cancer — planned H2 2026','center':'Vivesto AB — veterinary oncology development program','country':'Sweden','cancers':['Cancer — any type','Other solid tumor','Lymphoma — other'],'status':'Pilot study planned for the second half of 2026; recruitment sites/eligibility not yet publicly announced','species':'Dog','url':'https://www.vivesto.com/en/vivesto-reports-positive-results-from-i-v-cantrixil-pk-toxicology-study/','contacts':'Vivesto AB — info@vivesto.com / +46 18 50 54 40','funding':'Not yet published for the planned canine cancer pilot.','requires':{'confirmed':True,'active_treatment_target':True},'excludes':{},'notes':'Sponsor-development lead. Vivesto reported June 16, 2026 that intravenous Cantrixil PK/toxicology work was successful and supports a pilot study in dogs with cancer. Vivesto previously stated the canine pilot is planned for H2 2026 and could start by year-end. No owner-facing recruitment, participating veterinary sites, tumor-specific eligibility, or opening date is public as of 2026-09-03. Keep as watch only; the preceding PK/toxicology dog study was research-only and is not included as a treatment trial.','verified':'2026-09-03','study_type':'treatment','available_for_matching':False,'status_confidence':'planned','owner_prescreen_required':True},
 ])
 
-CANCERS = ['Acute myeloid leukemia', 'Adrenal tumor', 'Anal sac adenocarcinoma (AGASACA)', 'B-cell lymphoma', 'Brain tumor / glioma', 'Cancer — any type', 'Cutaneous epitheliotropic lymphoma', 'Feline injection-site sarcoma', 'Feline mammary carcinoma', 'Hemangiosarcoma', 'Hepatocellular carcinoma', 'Histiocytic sarcoma', 'Insulinoma', 'Lymphoma — other', 'Mammary carcinoma', 'Mammary tumor — other', 'Mast cell tumor', 'Melanoma — other', 'Oral melanoma', 'Oral squamous cell carcinoma', 'Osteosarcoma', 'Other bone tumor', 'Other liver tumor', 'Other sarcoma', 'Other solid tumor', 'Primary lung tumor', 'Prostate cancer', 'Renal tumor', 'Sinonasal carcinoma', 'Soft tissue sarcoma', 'Spindle cell sarcoma', 'Squamous cell carcinoma', 'Squamous cell carcinoma — other', 'T-cell lymphoma', 'Thyroid carcinoma', 'Thyroid tumor / carcinoma', 'Urothelial / transitional cell carcinoma', 'Urothelial carcinoma', 'Pancreatic carcinoma', 'Intestinal carcinoma', 'Gallbladder carcinoma', 'Oral tumor — other', 'Ocular melanoma / iris melanocytic tumor', 'Other / not sure', 'Chemodectoma']
+CANCERS = ['Acute myeloid leukemia', 'Adrenal tumor', 'Anal sac adenocarcinoma (AGASACA)', 'B-cell lymphoma', 'Brain tumor / glioma', 'Cancer — any type', 'Cutaneous epitheliotropic lymphoma', 'Feline injection-site sarcoma', 'Feline mammary carcinoma', 'Hemangiosarcoma', 'Hepatocellular carcinoma', 'Histiocytic sarcoma', 'Insulinoma', 'Lymphoma — other', 'Mammary carcinoma', 'Mammary tumor — other', 'Mast cell tumor', 'Melanoma — other', 'Oral melanoma', 'Oral squamous cell carcinoma', 'Osteosarcoma', 'Other bone tumor', 'Other liver tumor', 'Other sarcoma', 'Other solid tumor', 'Primary lung tumor', 'Prostate cancer', 'Renal tumor', 'Sinonasal carcinoma', 'Soft tissue sarcoma', 'Spindle cell sarcoma', 'Squamous cell carcinoma', 'Squamous cell carcinoma — other', 'T-cell lymphoma', 'Thyroid carcinoma', 'Thyroid tumor / carcinoma', 'Urothelial / transitional cell carcinoma', 'Urothelial carcinoma', 'Pancreatic carcinoma', 'Intestinal carcinoma', 'Gallbladder carcinoma', 'Oral tumor — other', 'Ocular melanoma / iris melanocytic tumor', 'Other / not sure', 'Chemodectoma', 'Gastric / stomach cancer', 'Gastrointestinal stromal tumor (GIST)', 'Colorectal / rectal cancer', 'Nasal tumor / nasal cancer', 'Salivary gland cancer', 'Esophageal cancer', 'Thymoma / thymic tumor', 'Multiple myeloma / plasma cell cancer', 'Peripheral nerve sheath tumor', 'Leiomyosarcoma', 'Chondrosarcoma', 'Fibrosarcoma', 'Liposarcoma', 'Rhabdomyosarcoma', "My cancer type isn't listed"]
+DIAGNOSIS_FAMILIES = {
+    'Gastric / stomach cancer': {'solid_tumor','carcinoma'},
+    'Colorectal / rectal cancer': {'solid_tumor','carcinoma'},
+    'Salivary gland cancer': {'solid_tumor','carcinoma'},
+    'Esophageal cancer': {'solid_tumor','carcinoma'},
+    'Thymoma / thymic tumor': {'solid_tumor'},
+    'Gastrointestinal stromal tumor (GIST)': {'solid_tumor','sarcoma'},
+    'Peripheral nerve sheath tumor': {'solid_tumor','sarcoma','soft_tissue_sarcoma'},
+    'Leiomyosarcoma': {'solid_tumor','sarcoma','soft_tissue_sarcoma'},
+    'Fibrosarcoma': {'solid_tumor','sarcoma','soft_tissue_sarcoma'},
+    'Liposarcoma': {'solid_tumor','sarcoma','soft_tissue_sarcoma'},
+    'Rhabdomyosarcoma': {'solid_tumor','sarcoma','soft_tissue_sarcoma'},
+    'Chondrosarcoma': {'solid_tumor','sarcoma'},
+    'Nasal tumor / nasal cancer': {'solid_tumor','nasal_tumor'},
+    'Multiple myeloma / plasma cell cancer': {'hematologic'},
+}
+UNLISTED_CANCER = "My cancer type isn't listed"
 TREATMENT_OPTIONS = ['Chemotherapy','Radiation','Surgery','Immunotherapy','Targeted therapy','Experimental drug']
 UNKNOWN = "I don't know"
 
@@ -4609,6 +4634,18 @@ UNKNOWN = "I don't know"
 CURRENT_STATUS_CONFIDENCE = {'current', 'confirmed_current'}
 def is_current_trial(tr):
     return tr.get('status_confidence') in CURRENT_STATUS_CONFIDENCE
+
+def trial_accepts_diagnosis(tr, diagnosis):
+    """Return (accepted, broad) without fuzzy disease inference."""
+    tc=set(tr.get('cancers', []))
+    exact={diagnosis, *CANCER_ALIASES.get(diagnosis, [])}
+    if diagnosis == 'Spindle cell sarcoma': exact.add('Soft tissue sarcoma')
+    if exact.intersection(tc): return True, False
+    broad=set(tr.get('broad_disease_families', []))
+    if 'all_tumors' in broad or 'Cancer — any type' in tc: return True, True
+    fam=DIAGNOSIS_FAMILIES.get(diagnosis,set())
+    if fam.intersection(broad): return True, True
+    return False, False
 
 st.markdown('''
 <style>
@@ -4674,6 +4711,8 @@ def country_matches(trial_country, selected_country):
 st.header('2. Diagnosis')
 diagnosis_status = st.selectbox('How certain is the diagnosis?', ['Confirmed by pathology/cytology','Suspected / not confirmed',UNKNOWN])
 cancer = st.selectbox('Cancer type', CANCERS)
+unlisted_mode = cancer == UNLISTED_CANCER
+unlisted_diagnosis = st.text_input('Enter the diagnosis as written in the pathology report, if known') if unlisted_mode else ''
 
 # Build the owner form from criteria that can actually affect matching for this
 # species/disease. Irrelevant disease-status rows stay visible but disabled so
@@ -4689,7 +4728,7 @@ for _tr in TRIALS:
         continue
     # 'Cancer — any type' selected by the owner is a wildcard: do not filter by diagnosis.
     # A trial-side 'Cancer — any type' is likewise a basket-trial wildcard.
-    if cancer == 'Cancer — any type' or accepted_for_form.intersection(_tr.get('cancers', [])) or 'Cancer — any type' in _tr.get('cancers', []):
+    if cancer == 'Cancer — any type' or (unlisted_mode and ('all_tumors' in _tr.get('broad_disease_families', []) or 'Cancer — any type' in _tr.get('cancers', []))) or (not unlisted_mode and trial_accepts_diagnosis(_tr, cancer)[0]):
         _form_trials.append(_tr)
 _form_req_keys = {k for t in _form_trials for k in t.get('requires', {})}
 _form_exc_keys = {k for t in _form_trials for k in t.get('excludes', {})}
@@ -4699,8 +4738,8 @@ hematologic = cancer in (LYMPHOMA_CANCERS | {'Cutaneous epitheliotropic lymphoma
 brain_tumor = cancer == 'Brain tumor / glioma'
 any_cancer_browse = cancer == 'Cancer — any type'
 
-if any_cancer_browse:
-    st.caption('Browse mode: disease-specific eligibility is not used until a cancer type is selected.')
+if any_cancer_browse or unlisted_mode:
+    st.caption('Browse mode: disease-specific eligibility is not used until a cancer type is selected.' if any_cancer_browse else 'Unlisted diagnosis: only genuinely all-tumor treatment programs will be shown for investigator review.')
     tumor_status = metastasis = localized = UNKNOWN
 elif hematologic:
     st.selectbox('Current tumor status', ['Not applicable'], disabled=True, key='na_tumor_status')
@@ -4767,31 +4806,31 @@ standard_therapy_unavailable = st.selectbox(
     'Is standard anticancer treatment no longer appropriate or not feasible?',
     ['Yes','No',UNKNOWN],
     help='Includes cases where standard therapy is no longer indicated, the tumor is inoperable/metastatic, or standard treatment cannot be performed.'
-) if (not any_cancer_browse and 'standard_therapy_unavailable' in _form_req_keys) else UNKNOWN
+) if (not any_cancer_browse and not unlisted_mode and 'standard_therapy_unavailable' in _form_req_keys) else UNKNOWN
 
 large_inoperable_or_rt_preferred = st.selectbox(
     'For a large tumor: is it inoperable, or is radiotherapy being chosen instead of surgery?',
     ['Yes','No',UNKNOWN]
-) if (not any_cancer_browse and 'large_inoperable_or_rt_preferred' in _form_req_keys) else UNKNOWN
+) if (not any_cancer_browse and not unlisted_mode and 'large_inoperable_or_rt_preferred' in _form_req_keys) else UNKNOWN
 
 surgery_or_rt_not_possible = st.selectbox(
     'Are curative surgery and radiotherapy no longer possible for this tumor?',
     ['Yes','No',UNKNOWN]
-) if (not any_cancer_browse and 'surgery_or_rt_not_possible' in _form_req_keys) else UNKNOWN
+) if (not any_cancer_browse and not unlisted_mode and 'surgery_or_rt_not_possible' in _form_req_keys) else UNKNOWN
 
 ct_and_current_biopsy = st.selectbox(
     'Can current CT imaging and a current tumor biopsy be provided/performed?',
     ['Yes','No',UNKNOWN]
-) if (not any_cancer_browse and 'ct_and_current_biopsy' in _form_req_keys) else UNKNOWN
+) if (not any_cancer_browse and not unlisted_mode and 'ct_and_current_biopsy' in _form_req_keys) else UNKNOWN
 
 st.header('4. Treatment')
 # Ask treatment-history questions only when at least one current candidate uses them.
-surgery_relevant = (not any_cancer_browse) and bool((_form_req_keys | _form_exc_keys) & {'prior_surgery','post_splenectomy','post_amputation','planned_surgery','planned_amputation','planned_amputation_and_chemo'})
-chemo_relevant = (not any_cancer_browse) and bool((_form_req_keys | _form_exc_keys) & {'prior_chemo','current_chemo','chemo_washout_days','planned_doxorubicin','planned_amputation_and_chemo'})
-radiation_relevant = (not any_cancer_browse) and bool((_form_req_keys | _form_exc_keys) & {'prior_radiation','prior_local_radiation','current_radiation','radiation_washout_days','planned_radiation'})
-immunotherapy_relevant = (not any_cancer_browse) and ('prior_immunotherapy' in _form_exc_keys or cancer in {'Oral melanoma','Melanoma — other'})
-steroids_relevant = (not any_cancer_browse) and ('current_steroids' in _form_exc_keys or 'steroid_washout_days' in _form_req_keys)
-immunosuppressive_relevant = (not any_cancer_browse) and ('immunosuppressive' in _form_exc_keys)
+surgery_relevant = (not any_cancer_browse and not unlisted_mode) and bool((_form_req_keys | _form_exc_keys) & {'prior_surgery','post_splenectomy','post_amputation','planned_surgery','planned_amputation','planned_amputation_and_chemo'})
+chemo_relevant = (not any_cancer_browse and not unlisted_mode) and bool((_form_req_keys | _form_exc_keys) & {'prior_chemo','current_chemo','chemo_washout_days','planned_doxorubicin','planned_amputation_and_chemo'})
+radiation_relevant = (not any_cancer_browse and not unlisted_mode) and bool((_form_req_keys | _form_exc_keys) & {'prior_radiation','prior_local_radiation','current_radiation','radiation_washout_days','planned_radiation'})
+immunotherapy_relevant = (not any_cancer_browse and not unlisted_mode) and ('prior_immunotherapy' in _form_exc_keys or cancer in {'Oral melanoma','Melanoma — other'})
+steroids_relevant = (not any_cancer_browse and not unlisted_mode) and ('current_steroids' in _form_exc_keys or 'steroid_washout_days' in _form_req_keys)
+immunosuppressive_relevant = (not any_cancer_browse and not unlisted_mode) and ('immunosuppressive' in _form_exc_keys)
 
 surgery = st.selectbox('Surgery', ['No','Yes',UNKNOWN]) if surgery_relevant else UNKNOWN
 prior_procedure = UNKNOWN
@@ -4859,12 +4898,15 @@ if search_clicked:
         if tr.get('study_type', 'treatment') != 'treatment':
             continue
 
-        accepted_cancers = {cancer, *CANCER_ALIASES.get(cancer, [])}
-        if cancer == 'Spindle cell sarcoma':
-            accepted_cancers.add('Soft tissue sarcoma')
-        # Owner-side 'Cancer — any type' means ANY diagnosis, not a literal cancer label.
-        if cancer != 'Cancer — any type' and not accepted_cancers.intersection(tr['cancers']) and 'Cancer — any type' not in tr['cancers']:
-            continue
+        broad_match = False
+        if unlisted_mode:
+            if 'all_tumors' not in tr.get('broad_disease_families', []) and 'Cancer — any type' not in tr.get('cancers', []):
+                continue
+            broad_match = True
+        elif cancer != 'Cancer — any type':
+            accepted, broad_match = trial_accepts_diagnosis(tr, cancer)
+            if not accepted:
+                continue
 
         # Treatment preferences are alternatives (OR): a study remains eligible if
         # it offers at least one modality the owner selected. Never require a trial
@@ -4884,6 +4926,18 @@ if search_clicked:
         # Only universal filters are allowed to exclude a study here: geography,
         # species, treatment preference, age and weight. Disease state, staging,
         # treatment history and protocol-specific requirements are left for review.
+        if unlisted_mode:
+            req = tr.get('requires', {})
+            min_age=req.get('min_age_years'); max_age=req.get('max_age_years')
+            if min_age is not None and age_known and age < min_age: continue
+            if max_age is not None and age_known and age > max_age: continue
+            min_lb=req.get('min_weight_lb')
+            if min_lb is None and req.get('min_weight_kg') is not None: min_lb=req['min_weight_kg']*2.2046226218
+            if min_lb is not None and weight_known and weight_lb < min_lb: continue
+            shown = unlisted_diagnosis.strip() or 'unlisted diagnosis'
+            matches.append(('Trial to review — diagnosis requires prescreening', tr, [f'{shown} has not been mapped to a trial disease category'], ['investigator must confirm diagnosis-specific eligibility']))
+            continue
+
         if cancer == 'Cancer — any type':
             req = tr.get('requires', {})
             min_age = req.get('min_age_years')
@@ -5150,7 +5204,7 @@ if search_clicked:
         if cancer == 'Cancer — any type':
             reasons.append('cancer type not specified — study shown for diagnosis review')
         else:
-            reasons.append(f'{cancer} matches the study disease category')
+            reasons.append('broad disease-family eligibility supports investigator review' if broad_match else f'{cancer} matches the study disease category')
         if diagnosis_status == 'Confirmed by pathology/cytology':
             reasons.append('diagnosis reported as confirmed')
         if tumor_status == 'Tumor still present / measurable':
@@ -5210,7 +5264,7 @@ if search_clicked:
             or tr.get('freshness_unresolved')
         ):
             if cancer != 'Cancer — any type':
-                confidence = 'Possible match'
+                confidence = 'Potential broad-treatment trial — prescreening required' if broad_match else 'Possible match'
 
         matches.append((confidence,tr,reasons,unknown))
 
