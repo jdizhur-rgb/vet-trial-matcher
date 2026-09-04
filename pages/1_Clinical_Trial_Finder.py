@@ -30,8 +30,51 @@ LYMPHOMA_CANCERS = {'B-cell lymphoma', 'T-cell lymphoma', 'Lymphoma — other'}
 st.set_page_config(page_title='Vet Cancer Trial Finder — Beta', page_icon='🐾', layout='centered')
 
 
-def _render_result_save_controls():
-    components.html("""<div style="display:flex;gap:8px;font-family:Arial,sans-serif"><button onclick="copyR()" style="flex:1;padding:9px;border:1px solid #d8d3cf;border-radius:9px;background:white;font-weight:600">📋 Copy results</button><button onclick="pdfR()" style="flex:1;padding:9px;border:1px solid #d8d3cf;border-radius:9px;background:white;font-weight:600">📄 Save as PDF</button></div><div id="m" style="font:12px Arial;color:#55745d;margin-top:5px"></div><script>function txt(){let e=[...parent.document.querySelectorAll('h1,h2,h3,p,a,button,summary')],i=e.findIndex(x=>x.innerText.trim()==='Results'),o=[];if(i<0)return '';for(;i<e.length;i++){let t=e[i].innerText.trim();if(t.startsWith('If a trial team says your pet is not eligible'))break;if(t&&t!=='Copy results'&&t!=='Save as PDF')o.push(t)}return [...new Set(o)].join('\n\n')}async function copyR(){let t=txt();try{await navigator.clipboard.writeText(t);document.getElementById('m').innerText='Results copied.'}catch(e){document.getElementById('m').innerText='Copy was blocked by the browser.'}}function pdfR(){let t=txt(),w=window.open('','_blank');if(!w){document.getElementById('m').innerText='PDF window was blocked by the browser.';return}w.document.write('<html><head><title>Clinical Trial Finder Results</title></head><body style="font-family:Arial;max-width:760px;margin:40px auto;line-height:1.45"><h1>Clinical Trial Finder Results</h1><pre style="white-space:pre-wrap;font-family:Arial">'+t.replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</pre><p style="font-size:11px;color:#666">Recruitment and eligibility can change; confirm current status with the study team.</p><script>window.onload=()=>window.print()<\/script></body></html>');w.document.close()}</script>""", height=70)
+def _render_result_save_controls(matches):
+    import io, json
+    from reportlab.lib.pagesizes import letter
+    from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+    from reportlab.lib.styles import getSampleStyleSheet
+    from reportlab.lib.units import inch
+
+    lines = ["Clinical Trial Finder Results"]
+    for confidence, tr, reasons, unknown in matches:
+        lines += ["", confidence, tr.get("center", ""), tr.get("title", "")]
+        if reasons:
+            lines.append("Why: " + "; ".join(str(x) for x in reasons) + ".")
+        if unknown:
+            lines.append("Confirm: " + "; ".join(dict.fromkeys(str(x) for x in unknown)) + ".")
+        lines.append("Contact: " + tr.get("contacts", tr.get("contact", "Contact the study team through the official study page")))
+        if tr.get("sites"):
+            lines.append("Participating sites: " + "; ".join(f"{x['hospital']} — {x['city']}, {x['state']}" for x in tr["sites"]))
+        if tr.get("url"):
+            lines.append("Study page: " + tr["url"])
+        lines.append("What the study says: " + tr.get("notes", ""))
+        lines.append("Status: " + tr.get("status", "") + " · Last verified: " + tr.get("verified", "date not recorded"))
+    lines += ["", "Recruitment and eligibility can change; confirm current status with the study team."]
+    report_text = "
+".join(lines)
+
+    cols = st.columns(2, gap="small")
+    payload = json.dumps(report_text)
+    with cols[0]:
+        st.html(f"""<button id="copy-results-native" style="width:100%;padding:9px 12px;border:1px solid #d8d3cf;border-radius:9px;background:white;font-weight:600;color:#4b4642;cursor:pointer">📋 Copy results</button><div id="copy-msg" style="font:12px Arial;color:#55745d;margin-top:4px;min-height:14px"></div><script>(()=>{{const text={payload};const b=document.getElementById('copy-results-native'),m=document.getElementById('copy-msg');b.addEventListener('click',async()=>{{try{{await navigator.clipboard.writeText(text);m.textContent='Results copied.';return}}catch(e){{}}const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.select();try{{document.execCommand('copy');m.textContent='Results copied.'}}catch(e){{m.textContent='Copy is blocked by this browser.'}}ta.remove()}})}})();</script>""", unsafe_allow_javascript=True)
+
+    buf = io.BytesIO()
+    styles = getSampleStyleSheet()
+    doc = SimpleDocTemplate(buf, pagesize=letter, rightMargin=.55*inch, leftMargin=.55*inch, topMargin=.55*inch, bottomMargin=.55*inch)
+    story = []
+    for i, line in enumerate(lines):
+        if not line:
+            story.append(Spacer(1, 8))
+        else:
+            style = styles["Title"] if i == 0 else styles["BodyText"]
+            safe = line.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")
+            story.append(Paragraph(safe, style))
+            story.append(Spacer(1, 4))
+    doc.build(story)
+    with cols[1]:
+        st.download_button("📄 Save as PDF", data=buf.getvalue(), file_name="clinical_trial_results.pdf", mime="application/pdf", use_container_width=True, on_click="ignore")
 
 TRIALS = [{'id': 'eu-fr-hifu-urothelial',
   'title': 'High-intensity focused ultrasound (HIFU) for canine urothelial carcinoma',
@@ -5367,7 +5410,7 @@ if search_clicked:
                     st.write('**Trial funding:** ' + tr.get('funding', 'Ask the study team about covered study costs'))
                     st.caption(f"Status: {tr['status']} · Last verified: {tr.get('verified', 'date not recorded')}")
 
-    _render_result_save_controls()
+    _render_result_save_controls(matches)
     with st.expander('Help us improve this beta'):
         st.write('If a trial team says your pet is not eligible, please save the reason they gave. This helps improve the matcher. Do not post private medical or contact information publicly.')
 
@@ -5377,5 +5420,5 @@ st.caption('Beta: trial information can change. Always confirm recruiting status
 
 
 st.markdown("---")
-st.caption("Verified treatment trials and experimental treatment programs • U.S. + Europe/UK • Last deep audit: September 3, 2026")
+st.caption("Verified treatment trials and experimental treatment programs • U.S. + Europe/UK • Last deep audit: September 4, 2026")
 st.caption("This finder identifies potentially relevant clinical trials; it does not determine eligibility. Final eligibility is determined by the study investigators. It is not a substitute for veterinary advice.")
