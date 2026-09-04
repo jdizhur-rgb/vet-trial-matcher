@@ -42,6 +42,13 @@ _original_link_button=st.link_button
 _pending={"contact":None,"sites":None,"url":None}
 _treatment_section={"pending":False,"shown":False}
 _deferred_diagnosis={"args":None,"kwargs":None}
+_selected_region={"value":None}
+_europe_regions={
+    "Europe — all countries","UK","United Kingdom","France","Belgium","Netherlands",
+    "The Netherlands","Italy","Portugal","Spain","Sweden","Switzerland","Germany",
+    "Austria","Czechia","Czech Republic","Poland","Denmark","Finland","Norway",
+    "Ireland","Hungary","Slovenia","Cyprus"
+}
 _treatment_history_labels={
     "Surgery","Osteosarcoma surgery","Hemangiosarcoma surgery","Chemotherapy",
     "Prior or current cancer immunotherapy","Radiation to this tumor",
@@ -64,7 +71,6 @@ def dynamic_header(body,*args,**kwargs):
     return _original_header(body,*args,**kwargs)
 
 def dynamic_selectbox(label,*args,**kwargs):
-    # Keep the most useful geographic choices at the top of the owner-facing list.
     if label=="Country / region":
         options=list(args[0] if args else kwargs.get("options", []))
         priority=["USA","UK","United Kingdom","Europe — all countries"]
@@ -77,9 +83,9 @@ def dynamic_selectbox(label,*args,**kwargs):
             args=(ordered,*args[1:])
         else:
             kwargs=dict(kwargs);kwargs["options"]=ordered
-    # The source page computes diagnosis before cancer type. Defer only the
-    # diagnosis widget so the owner sees Cancer type first; session_state keeps
-    # the selected diagnosis available on the rerun used for matching.
+        result=_original_selectbox(label,*args,**kwargs)
+        _selected_region["value"]=result
+        return result
     if label=="How certain is the diagnosis?":
         _deferred_diagnosis["args"]=args
         _deferred_diagnosis["kwargs"]=dict(kwargs)
@@ -123,6 +129,8 @@ def compact_link_button(label,url,*args,**kwargs):
 def compact_expander(label,*args,**kwargs):
     if label=="Study details":
         with _original_expander("Details & contact",*args,**kwargs):
+            if _selected_region["value"] in _europe_regions:
+                _original_markdown("**Enrollment:** European trials often recruit through the investigator or referral center without a separate online enrollment form. Contact the study team to confirm that enrollment/slots are currently open.")
             if _pending["contact"]: _original_markdown(f"**Contact:** {_pending['contact']}")
             if _pending["sites"]: _original_markdown(f"**Participating sites:** {_pending['sites']}")
             if _pending["url"]: _original_link_button("Official study page",_pending["url"],use_container_width=True)
