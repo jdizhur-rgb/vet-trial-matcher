@@ -9,7 +9,7 @@ OPTIONS = [
 
 st.markdown("<div style='height:1.45rem'></div>", unsafe_allow_html=True)
 st.markdown("<div style='font-size:1.55rem;line-height:1.08;font-weight:700;margin:.1rem 0 .15rem;color:#356fa8'>🧬 Other Options</div>", unsafe_allow_html=True)
-st.markdown("<div style='height:.38rem'></div>", unsafe_allow_html=True)
+st.markdown("<div style='height:.65rem'></div>", unsafe_allow_html=True)
 st.write("A short list of non-routine treatment options with enough clinical evidence and current access to be worth discussing with a veterinary oncologist.")
 with st.expander("How options qualify"):
     st.write("Experimental, off-label, precision, or research-derived ideas are not shown without meaningful comparative clinical evidence. A regulated veterinary oncology therapy may be included without a comparator when it has prospective clinical efficacy data and a real specialist-access pathway. Options shown to perform worse than an appropriate standard treatment are excluded.")
