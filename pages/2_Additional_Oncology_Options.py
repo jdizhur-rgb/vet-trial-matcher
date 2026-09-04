@@ -7,14 +7,9 @@ OPTIONS = [
     {"id":"gilvetmab-melanoma","species":"Dog","cancers":["Oral melanoma","Melanoma — other"],"situations":["Stage II–III malignant melanoma"],"name":"Gilvetmab","summary":"Anti-PD-1 immunotherapy available through veterinary oncology specialists for canine malignant melanoma.","access":"USA — available through veterinary oncology specialists under USDA conditional licensure.","evidence":"Prospective multicenter clinical efficacy data support activity in malignant melanoma. Gilvetmab is included because it is an officially available regulated veterinary oncology therapy.","evidence_level":"Regulated veterinary therapy + prospective clinical data","sample":"No special tumor-manufacturing sample required; oncologist determines diagnostic/staging requirements.","travel":"Usually through a veterinary oncology specialist in the USA","url":"https://pubmed.ncbi.nlm.nih.gov/42247661/","access_url":"https://www.merck-animal-health-usa.com/hub/gilvetmab/","limitations":"The published efficacy study was single-arm. Do not infer superiority over appropriate local control or other standard treatment from response-rate data alone."},
 ]
 
-# Use the same h1 typography as the Clinical Trial Finder, with matched page spacing.
-st.markdown('''
-<style>
-h1 { font-size: 2.15rem !important; line-height: 1.08 !important; }
-</style>
-''', unsafe_allow_html=True)
+# app.py renders the Trials title through Markdown h2; use exactly the same element here.
 st.markdown("<div style='height:1.45rem'></div>", unsafe_allow_html=True)
-st.title("🧬 Other Options")
+st.markdown("## 🧬 Other Options")
 st.write("A short list of non-routine treatment options with enough clinical evidence and current access to be worth discussing with a veterinary oncologist.")
 with st.expander("How options qualify"):
     st.write("Experimental, off-label, precision, or research-derived ideas are not shown without meaningful comparative clinical evidence. A regulated veterinary oncology therapy may be included without a comparator when it has prospective clinical efficacy data and a real specialist-access pathway. Options shown to perform worse than an appropriate standard treatment are excluded.")
