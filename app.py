@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 from contextlib import contextmanager
 import json, urllib.error, urllib.request
 
@@ -106,8 +107,11 @@ def markdown(body,*a,**k):
         if body.startswith("**Contact:**"):_pending["contact"]=body.replace("**Contact:**","",1).strip();return
         if body.startswith("**Participating sites:**"):_pending["sites"]=body.replace("**Participating sites:**","",1).strip();return
     return _orig["markdown"](body,*a,**k)
+def _save_controls():
+    components.html("""<style>body{margin:0;font-family:Arial,sans-serif}.row{display:flex;gap:8px}.b{flex:1;border:1px solid #d8d3cf;background:#fff;border-radius:9px;padding:9px 12px;font-size:14px;font-weight:600;color:#4b4642;cursor:pointer}.b:hover{background:#f7f5f3}.ok{font-size:12px;color:#55745d;margin-top:5px;min-height:15px}</style><div class='row'><button class='b' onclick='copyResults()'>📋 Copy results</button><button class='b' onclick='savePdf()'>📄 Save as PDF</button></div><div id='ok' class='ok'></div><script>function resultText(){const d=window.parent.document;const els=[...d.querySelectorAll('h1,h2,h3,p,a,button,summary')];let start=els.findIndex(e=>e.innerText.trim()==='Results');if(start<0)return '';let out=[];for(let i=start;i<els.length;i++){let t=els[i].innerText.trim();if(t.startsWith('If a trial team says your pet is not eligible'))break;if(t&&t!=='Copy results'&&t!=='Save as PDF')out.push(t)}return [...new Set(out)].join('\n\n')}async function copyResults(){let t=resultText();if(!t){document.getElementById('ok').innerText='Run a search first.';return}try{await navigator.clipboard.writeText(t);document.getElementById('ok').innerText='Results copied.'}catch(e){document.getElementById('ok').innerText='Copy was blocked by the browser.'}}function savePdf(){let t=resultText();if(!t){document.getElementById('ok').innerText='Run a search first.';return}let w=window.open('','_blank');w.document.write('<html><head><title>Clinical Trial Finder Results</title><style>body{font-family:Arial,sans-serif;max-width:760px;margin:40px auto;padding:0 24px;color:#282522;line-height:1.45}h1{font-size:22px}pre{font-family:Arial,sans-serif;white-space:pre-wrap;font-size:13px}.note{margin-top:28px;font-size:11px;color:#666}</style></head><body><h1>Clinical Trial Finder Results</h1><pre>'+t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</pre><div class="note">Saved from Vet Cancer Clinical Trial Finder. Recruitment and eligibility can change; confirm current status with the study team.</div><script>window.onload=()=>window.print()<\/script></body></html>');w.document.close()}</script>""",height=70)
 def write(body,*a,**k):
     if body==_feedback_text:
+        _save_controls()
         _orig["write"]("If a trial team says your pet is not eligible, you can share the reason without providing your name or email.")
         with st.expander("Share eligibility feedback"):
             with st.form("eligibility_feedback_form",clear_on_submit=True):
