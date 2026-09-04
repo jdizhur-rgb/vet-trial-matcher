@@ -8,14 +8,14 @@ page=st.navigation(PAGES,position="hidden")
 
 st.markdown("""<style>
 .stMainBlockContainer,div[data-testid="stMainBlockContainer"]{max-width:1120px!important;padding:1rem 1.5rem 2rem!important}
-div[data-testid="stRadio"]:has(input[name="top_navigation"]){margin:0 0 .65rem!important}div[data-testid="stRadio"]:has(input[name="top_navigation"])>div{display:grid!important;grid-template-columns:1fr 1fr!important;gap:0!important;width:100%!important;border:1px solid rgba(100,160,220,.24)!important;border-radius:1rem!important;overflow:hidden!important}div[data-testid="stRadio"]:has(input[name="top_navigation"]) label{min-height:2.55rem!important;display:flex!important;align-items:center!important;justify-content:center!important;margin:0!important;padding:.35rem .2rem!important;font-size:.9rem!important;font-weight:700!important}div[data-testid="stRadio"]:has(input[name="top_navigation"]) label:first-child{background:#eee8ff!important;color:#3b237a!important}div[data-testid="stRadio"]:has(input[name="top_navigation"]) label:last-child{background:#e8f3ff!important;color:#155ca8!important}div[data-testid="stRadio"]:has(input[name="top_navigation"]) label>div:first-child{display:none!important}
+.nav-anchor div[data-testid="stButton"] button{min-height:2.55rem!important;width:100%!important;font-size:.9rem!important;font-weight:700!important;border-radius:.75rem!important}
 @media(min-width:901px){div[data-testid="stMainBlockContainer"] h1{font-size:1.55rem!important;line-height:1.08!important;margin:.1rem 0 .15rem!important}div[data-testid="stMainBlockContainer"] h2{font-size:1.12rem!important;line-height:1.15!important;margin:.4rem 0 .1rem!important}div[data-testid="stMainBlockContainer"] h3{font-size:1.02rem!important}div[data-testid="stMainBlockContainer"] p{line-height:1.28!important}div[data-testid="stMainBlockContainer"] [data-testid="stAlert"]{margin:.15rem 0!important;padding:.28rem .55rem!important;font-size:.84rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stAlert"] p{font-size:.84rem!important;line-height:1.22!important}div[data-testid="stMainBlockContainer"] [data-testid="stExpander"]{margin:.12rem 0 .22rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stExpander"] details summary{min-height:2.15rem!important;padding:.2rem .55rem!important}div[data-testid="stMainBlockContainer"] div[data-testid="stVerticalBlock"]{gap:.35rem!important}div[data-testid="stMainBlockContainer"] label p,div[data-testid="stMainBlockContainer"] [data-testid="stWidgetLabel"] p{font-size:.9rem!important;line-height:1.2!important}div[data-testid="stMainBlockContainer"] [data-baseweb="select"]>div,div[data-testid="stMainBlockContainer"] [data-testid="stNumberInput"] input,div[data-testid="stMainBlockContainer"] [data-testid="stTextInput"] input{min-height:2.1rem!important;font-size:.9rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stCheckbox"]{min-height:1.75rem!important}.desktop-section-title{font-size:1rem;font-weight:700;margin:.28rem 0 .04rem}}
 @media(max-width:900px){.stMainBlockContainer,div[data-testid="stMainBlockContainer"]{padding:4.1rem 1rem 2rem!important;max-width:none!important}}
 </style>""",unsafe_allow_html=True)
-nav_choice=st.radio("Navigation",["🐾 Clinical Trials","🧬 Other Options"],horizontal=True,label_visibility="collapsed",index=None,key="top_navigation")
-if nav_choice:
-    st.session_state.pop("top_navigation",None)
-    st.switch_page("pages/1_Clinical_Trial_Finder.py" if nav_choice.startswith("🐾") else "pages/2_Additional_Oncology_Options.py")
+
+# Reserve the navigation position now, but populate it only after page.run().
+# This avoids Streamlit's multipage router swallowing widgets rendered before the routed page.
+_nav_anchor=st.empty()
 
 _orig={n:getattr(st,n) for n in ["markdown","title","header","selectbox","checkbox","number_input","radio","text_input","multiselect","expander","link_button","write","button"]}
 _layout={"section":None,"slots":[],"extra":0,"treatment":False};_pending={"contact":None,"sites":None,"url":None};_selected_region={"value":None};_selected_cancer={"value":None};_deferred={"args":None,"kwargs":None}
@@ -114,6 +114,16 @@ def expander(label,*a,**k):
     else:
         with _orig["expander"](label,*a,**k):yield
 st.title=title;st.header=header;st.selectbox=selectbox;st.checkbox=checkbox;st.number_input=number_input;st.radio=radio;st.text_input=text_input;st.multiselect=multiselect;st.markdown=markdown;st.write=write;st.link_button=link_button;st.expander=expander;st.button=button
-try:page.run()
+try:
+    page.run()
 finally:
     for n,v in _orig.items():setattr(st,n,v)
+
+# Fill the placeholder only after the routed page has rendered.
+with _nav_anchor.container():
+    st.markdown('<div class="nav-anchor"></div>',unsafe_allow_html=True)
+    left,right=st.columns(2,gap="small")
+    with left:
+        if st.button("🐾 Clinical Trials",key="nav_trials",use_container_width=True):st.switch_page("pages/1_Clinical_Trial_Finder.py")
+    with right:
+        if st.button("🧬 Other Options",key="nav_options",use_container_width=True):st.switch_page("pages/2_Additional_Oncology_Options.py")
