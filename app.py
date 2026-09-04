@@ -4,7 +4,7 @@ import json
 import urllib.error
 import urllib.request
 
-st.set_page_config(page_title="Vet Cancer Treatment Finder", page_icon="🐾", layout="centered")
+st.set_page_config(page_title="Vet Cancer Treatment Finder", page_icon="🐾", layout="wide")
 
 PAGES = [
     st.Page("pages/1_Clinical_Trial_Finder.py", title="Clinical Trial Finder", icon="🐾", default=True),
@@ -14,52 +14,58 @@ page = st.navigation(PAGES, position="hidden")
 
 st.markdown("""
 <style>
-.stMainBlockContainer, div[data-testid="stMainBlockContainer"] { padding-top:1rem!important; max-width:1100px!important; padding-bottom:1.5rem!important; }
-div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"]) { gap:0!important;padding:0!important;margin:0!important;border:1px solid rgba(100,160,220,.24);border-radius:.85rem;overflow:hidden;background:transparent; }
-div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"]) > div { min-width:0!important;flex:1 1 50%!important;width:50%!important; }
-div[data-testid="stPageLink"] { margin:0!important;padding:0!important; }
-div[data-testid="stPageLink"] a { min-height:2.25rem;width:100%;display:flex;align-items:center;justify-content:center;margin:0!important;padding:.18rem .15rem!important;border:0!important;border-radius:0!important;white-space:nowrap;transition:filter .15s ease; }
-div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"]) > div:nth-child(1) div[data-testid="stPageLink"] a { background:#eee8ff!important;color:#3b237a!important; }
-div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"]) > div:nth-child(2) div[data-testid="stPageLink"] a { background:#e8f3ff!important;color:#155ca8!important; }
-div[data-testid="stPageLink"] a:hover { filter:brightness(.97); }
-div[data-testid="stPageLink"] p { font-size:.84rem!important;line-height:1!important;font-weight:700!important;white-space:nowrap!important;color:inherit!important; }
-div[data-testid="stVerticalBlock"] > div:has(div[data-testid="stHorizontalBlock"] div[data-testid="stPageLink"]) { margin-bottom:-2rem!important; }
-@media (min-width:481px) {
- div[data-testid="stMainBlockContainer"] h1 { font-size:1.55rem!important;line-height:1.05!important;margin:.2rem 0 .15rem!important;padding:0!important; }
- div[data-testid="stMainBlockContainer"] h2 { font-size:1.25rem!important;line-height:1.05!important;margin:.35rem 0 .15rem!important;padding:0!important; }
- div[data-testid="stMainBlockContainer"] h3 { font-size:1.05rem!important;line-height:1.05!important;margin:.25rem 0 .1rem!important;padding:0!important; }
- div[data-testid="stMainBlockContainer"] p, div[data-testid="stMainBlockContainer"] label, div[data-testid="stMainBlockContainer"] li { font-size:.84rem!important;line-height:1.2!important; }
- div[data-testid="stMainBlockContainer"] [data-testid="stMarkdownContainer"] p { margin-bottom:.25rem!important; }
- div[data-testid="stMainBlockContainer"] [data-testid="stAlert"] { padding:.42rem .65rem!important;margin:.2rem 0!important; }
- div[data-testid="stMainBlockContainer"] [data-testid="stExpander"] { margin:.2rem 0!important; }
- div[data-testid="stMainBlockContainer"] [data-testid="stExpander"] details summary { min-height:2rem!important;padding:.2rem .55rem!important; }
- div[data-testid="stMainBlockContainer"] [data-testid="stSelectbox"],
- div[data-testid="stMainBlockContainer"] [data-testid="stNumberInput"],
- div[data-testid="stMainBlockContainer"] [data-testid="stTextInput"] { margin-bottom:-.45rem!important; }
- div[data-testid="stMainBlockContainer"] [data-baseweb="select"] > div,
- div[data-testid="stMainBlockContainer"] [data-testid="stNumberInput"] input,
- div[data-testid="stMainBlockContainer"] [data-testid="stTextInput"] input { min-height:2rem!important;height:2rem!important;font-size:.84rem!important; }
- div[data-testid="stMainBlockContainer"] [data-testid="stCheckbox"],
- div[data-testid="stMainBlockContainer"] [data-testid="stRadio"] { margin-top:-.15rem!important;margin-bottom:-.35rem!important; }
- div[data-testid="stMainBlockContainer"] [data-testid="stCheckbox"] label,
- div[data-testid="stMainBlockContainer"] [data-testid="stRadio"] label { min-height:1.6rem!important; }
- div[data-testid="stMainBlockContainer"] div[data-testid="stVerticalBlock"] { gap:.35rem!important; }
- div[data-testid="stMainBlockContainer"] div[data-testid="stHorizontalBlock"] { gap:.75rem!important; }
- div[data-testid="stMainBlockContainer"] hr { margin:.35rem 0!important; }
- div[data-testid="stMainBlockContainer"] button { min-height:2rem!important;padding:.2rem .55rem!important;font-size:.84rem!important; }
- div[data-testid="stMainBlockContainer"] small, div[data-testid="stMainBlockContainer"] [data-testid="stCaptionContainer"] { font-size:.76rem!important;line-height:1.15!important; }
+/* Desktop shell: normal document flow, no negative-margin compression. */
+.stMainBlockContainer, div[data-testid="stMainBlockContainer"] {
+  max-width:1180px!important;
+  padding:2rem 2.25rem 3rem!important;
 }
-@media (max-width:480px) {
- .stMainBlockContainer, div[data-testid="stMainBlockContainer"] { padding-top:4.1rem!important;max-width:none!important; }
- div[data-testid="stPageLink"] a { min-height:2.65rem;padding:.28rem .1rem!important; }
+div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"]) {
+  gap:.65rem!important;
+  margin:0 0 1.5rem!important;
+}
+div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"]) > div {
+  min-width:0!important; flex:1 1 50%!important; width:50%!important;
+}
+div[data-testid="stPageLink"] { margin:0!important;padding:0!important; }
+div[data-testid="stPageLink"] a {
+  min-height:2.8rem; display:flex; align-items:center; justify-content:center;
+  border:1px solid rgba(100,160,220,.22)!important; border-radius:.7rem!important;
+  padding:.45rem .8rem!important; transition:filter .15s ease;
+}
+div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"]) > div:nth-child(1) a { background:#eee8ff!important;color:#3b237a!important; }
+div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"]) > div:nth-child(2) a { background:#e8f3ff!important;color:#155ca8!important; }
+div[data-testid="stPageLink"] a:hover { filter:brightness(.97); }
+div[data-testid="stPageLink"] p { font-size:.95rem!important;font-weight:700!important;color:inherit!important;white-space:nowrap!important; }
+
+@media (min-width:769px) {
+  /* Keep readable desktop typography; compactness comes from layout, not tiny type. */
+  div[data-testid="stMainBlockContainer"] h1 { font-size:2rem!important; margin:.15rem 0 .55rem!important; }
+  div[data-testid="stMainBlockContainer"] h2 { font-size:1.4rem!important; margin:1rem 0 .45rem!important; }
+  div[data-testid="stMainBlockContainer"] h3 { font-size:1.15rem!important; }
+  div[data-testid="stMainBlockContainer"] p,
+  div[data-testid="stMainBlockContainer"] label,
+  div[data-testid="stMainBlockContainer"] li { font-size:.95rem!important; line-height:1.35!important; }
+  div[data-testid="stMainBlockContainer"] [data-testid="stAlert"] { padding:.7rem 1rem!important; margin:.65rem 0!important; }
+  div[data-testid="stMainBlockContainer"] [data-testid="stExpander"] { margin:.55rem 0!important; }
+  div[data-testid="stMainBlockContainer"] [data-testid="stExpander"] details summary { min-height:2.6rem!important; padding:.4rem .75rem!important; }
+  div[data-testid="stMainBlockContainer"] [data-baseweb="select"] > div,
+  div[data-testid="stMainBlockContainer"] [data-testid="stNumberInput"] input,
+  div[data-testid="stMainBlockContainer"] [data-testid="stTextInput"] input { min-height:2.55rem!important; }
+  div[data-testid="stMainBlockContainer"] div[data-testid="stVerticalBlock"] { gap:.65rem!important; }
+  div[data-testid="stMainBlockContainer"] div[data-testid="stHorizontalBlock"] { gap:1rem!important; }
+}
+
+/* Phone remains a separate layout. */
+@media (max-width:768px) {
+ .stMainBlockContainer, div[data-testid="stMainBlockContainer"] { padding:4.1rem 1rem 2rem!important;max-width:none!important; }
+ div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"]) { gap:0!important;margin:0 0 .8rem!important;border:1px solid rgba(100,160,220,.24);border-radius:1rem;overflow:hidden; }
+ div[data-testid="stPageLink"] a { min-height:2.65rem;padding:.28rem .1rem!important;border:0!important;border-radius:0!important; }
  div[data-testid="stPageLink"] p { font-size:.84rem!important; }
- div[data-testid="stVerticalBlock"] > div:has(div[data-testid="stHorizontalBlock"] div[data-testid="stPageLink"]) { margin-bottom:-1.55rem!important; }
- div[data-testid="stVerticalBlock"] > div:has(h2#your-pet) { margin-top:-1.6rem!important; }
 }
 </style>
 """, unsafe_allow_html=True)
 
-left,right=st.columns(2,gap=None)
+left,right=st.columns(2,gap="small")
 with left: st.page_link("pages/1_Clinical_Trial_Finder.py",label="Clinical Trials",icon="🐾",use_container_width=True)
 with right: st.page_link("pages/2_Additional_Oncology_Options.py",label="Other Options",icon="🧬",use_container_width=True)
 
@@ -86,7 +92,7 @@ def submit_feedback(trial_center, exclusion_reason):
     with urllib.request.urlopen(req,timeout=10) as response:return 200 <= response.status < 300
 
 def compact_title(body,*args,**kwargs):
-    if isinstance(body,str) and "Vet Cancer Trial Finder" in body:return _original_markdown("## 🐾 Clinical Trial Finder")
+    if isinstance(body,str) and "Vet Cancer Trial Finder" in body:return _original_title("🐾 Clinical Trial Finder")
     return _original_title(body,*args,**kwargs)
 
 def dynamic_header(body,*args,**kwargs):
@@ -130,7 +136,7 @@ def compact_result_markdown(body,*args,**kwargs):
 
 def feedback_write(body,*args,**kwargs):
     if body==_feedback_text:
-        _original_write("If a trial team says your pet is not eligible, you can anonymously share the reason to help improve the matcher.")
+        _original_write("If a trial team says your pet is not eligible, you can share the reason without providing your name or email.")
         with st.expander("Share eligibility feedback"):
             with st.form("eligibility_feedback_form",clear_on_submit=True):
                 trial=st.text_input("Trial / center",max_chars=300);reason=st.text_area("Reason the trial team said your pet was not eligible",max_chars=2000);st.caption("No name or email is required. Please do not include names, contact information, addresses, medical records, or other identifying information.");sent=st.form_submit_button("Submit feedback",use_container_width=True)
@@ -138,7 +144,7 @@ def feedback_write(body,*args,**kwargs):
                     if not trial.strip() or not reason.strip():st.warning("Please enter the trial / center and the reason given by the trial team.")
                     else:
                         try:
-                            if submit_feedback(trial,reason):st.success("Thank you. Your feedback was submitted anonymously.")
+                            if submit_feedback(trial,reason):st.success("Thank you. Your feedback was submitted.")
                             else:st.error("Feedback could not be submitted. Please try again later.")
                         except (urllib.error.URLError,urllib.error.HTTPError,TimeoutError):st.error("Feedback could not be submitted. Please try again later.")
         return None
