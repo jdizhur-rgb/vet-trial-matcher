@@ -1,6 +1,5 @@
 import streamlit as st
 from contextlib import contextmanager
-from urllib.parse import quote
 
 st.set_page_config(page_title="Vet Cancer Treatment Finder", page_icon="🐾", layout="centered")
 
@@ -57,9 +56,6 @@ _treatment_history_labels={
     "Prednisone / other corticosteroids","Other immunosuppressive medication"
 }
 _feedback_text="If a trial team says your pet is not eligible, please save the reason. Those real-world exclusions are especially useful for improving the matcher. Do not post private medical or contact information publicly."
-_feedback_subject=quote("Vet Cancer Trial Finder — eligibility feedback")
-_feedback_body=quote("Trial / center:\n\nReason the trial team said my pet was not eligible:\n\nPlease share only what you are comfortable sending by email. No medical records are needed.")
-_feedback_mailto=f"mailto:j.dizhur@gmail.com?subject={_feedback_subject}&body={_feedback_body}"
 
 def compact_title(body,*args,**kwargs):
     if isinstance(body,str) and "Vet Cancer Trial Finder" in body: return _original_markdown("## 🐾 Clinical Trial Finder")
@@ -85,8 +81,7 @@ def dynamic_selectbox(label,*args,**kwargs):
             if item in options and item not in ordered:
                 ordered.append(item)
         ordered.extend(item for item in options if item not in ordered)
-        if args:
-            args=(ordered,*args[1:])
+        if args: args=(ordered,*args[1:])
         else:
             kwargs=dict(kwargs);kwargs["options"]=ordered
         result=_original_selectbox(label,*args,**kwargs)
@@ -129,9 +124,13 @@ def compact_result_markdown(body,*args,**kwargs):
 
 def feedback_write(body,*args,**kwargs):
     if body==_feedback_text:
-        _original_write("If a trial team says your pet is not eligible, you can email us the reason. Real-world exclusions help improve the matcher.")
-        _original_link_button("Send eligibility feedback by email",_feedback_mailto,use_container_width=True)
-        st.caption("This opens your own email app, so your email address will be visible to us if you choose to send the message. We do not need medical records or other personal information.")
+        _original_write("If a trial team says your pet is not eligible, you can anonymously share the reason to help improve the matcher.")
+        with st.expander("Share eligibility feedback"):
+            st.text_input("Trial / center", key="feedback_trial")
+            st.text_area("Reason the trial team said your pet was not eligible", key="feedback_reason")
+            st.caption("No name or email is required. Please do not include names, contact information, addresses, medical records, or other identifying information.")
+            st.button("Submit feedback", key="feedback_submit", disabled=True, use_container_width=True)
+            st.caption("Anonymous submission will be enabled after secure feedback storage is connected.")
         return None
     return _original_write(body,*args,**kwargs)
 
