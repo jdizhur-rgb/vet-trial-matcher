@@ -1,5 +1,8 @@
 import streamlit as st
 from contextlib import contextmanager
+import json
+import urllib.error
+import urllib.request
 
 st.set_page_config(page_title="Vet Cancer Treatment Finder", page_icon="🐾", layout="centered")
 
@@ -56,6 +59,24 @@ _treatment_history_labels={
     "Prednisone / other corticosteroids","Other immunosuppressive medication"
 }
 _feedback_text="If a trial team says your pet is not eligible, please save the reason. Those real-world exclusions are especially useful for improving the matcher. Do not post private medical or contact information publicly."
+_SUPABASE_URL="https://bvghrabcfrexvynlyhqb.supabase.co"
+_SUPABASE_KEY="sb_publishable_Ah5rszPGl4kp5cL8h7ZydA_021AmfKV"
+
+def submit_feedback(trial_center, exclusion_reason):
+    payload=json.dumps({"trial_center":trial_center.strip(),"exclusion_reason":exclusion_reason.strip()}).encode("utf-8")
+    req=urllib.request.Request(
+        f"{_SUPABASE_URL}/rest/v1/eligibility_feedback",
+        data=payload,
+        method="POST",
+        headers={
+            "apikey":_SUPABASE_KEY,
+            "Authorization":f"Bearer {_SUPABASE_KEY}",
+            "Content-Type":"application/json",
+            "Prefer":"return=minimal",
+        },
+    )
+    with urllib.request.urlopen(req,timeout=10) as response:
+        return 200 <= response.status < 300
 
 def compact_title(body,*args,**kwargs):
     if isinstance(body,str) and "Vet Cancer Trial Finder" in body: return _original_markdown("## 🐾 Clinical Trial Finder")
@@ -78,8 +99,7 @@ def dynamic_selectbox(label,*args,**kwargs):
         priority=["USA","UK","United Kingdom","Europe — all countries"]
         ordered=[]
         for item in priority:
-            if item in options and item not in ordered:
-                ordered.append(item)
+            if item in options and item not in ordered: ordered.append(item)
         ordered.extend(item for item in options if item not in ordered)
         if args: args=(ordered,*args[1:])
         else:
@@ -95,8 +115,7 @@ def dynamic_selectbox(label,*args,**kwargs):
     if label=="Cancer type":
         result=_original_selectbox(label,*args,**kwargs)
         if _deferred_diagnosis["args"] is not None:
-            dkwargs=dict(_deferred_diagnosis["kwargs"] or {})
-            dkwargs["key"]="diagnosis_confirmation"
+            dkwargs=dict(_deferred_diagnosis["kwargs"] or {});dkwargs["key"]="diagnosis_confirmation"
             _original_selectbox("How certain is the diagnosis?",*_deferred_diagnosis["args"],**dkwargs)
             _deferred_diagnosis.update(args=None,kwargs=None)
         return result
@@ -126,11 +145,20 @@ def feedback_write(body,*args,**kwargs):
     if body==_feedback_text:
         _original_write("If a trial team says your pet is not eligible, you can anonymously share the reason to help improve the matcher.")
         with st.expander("Share eligibility feedback"):
-            st.text_input("Trial / center", key="feedback_trial")
-            st.text_area("Reason the trial team said your pet was not eligible", key="feedback_reason")
-            st.caption("No name or email is required. Please do not include names, contact information, addresses, medical records, or other identifying information.")
-            st.button("Submit feedback", key="feedback_submit", disabled=True, use_container_width=True)
-            st.caption("Anonymous submission will be enabled after secure feedback storage is connected.")
+            with st.form("eligibility_feedback_form",clear_on_submit=True):
+                trial=st.text_input("Trial / center",max_chars=300)
+                reason=st.text_area("Reason the trial team said your pet was not eligible",max_chars=2000)
+                st.caption("No name or email is required. Please do not include names, contact information, addresses, medical records, or other identifying information.")
+                sent=st.form_submit_button("Submit feedback",use_container_width=True)
+                if sent:
+                    if not trial.strip() or not reason.strip():
+                        st.warning("Please enter the trial / center and the reason given by the trial team.")
+                    else:
+                        try:
+                            if submit_feedback(trial,reason): st.success("Thank you. Your feedback was submitted anonymously.")
+                            else: st.error("Feedback could not be submitted. Please try again later.")
+                        except (urllib.error.URLError,urllib.error.HTTPError,TimeoutError):
+                            st.error("Feedback could not be submitted. Please try again later.")
         return None
     return _original_write(body,*args,**kwargs)
 
