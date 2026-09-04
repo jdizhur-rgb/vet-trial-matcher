@@ -1,5 +1,6 @@
 import streamlit as st
 from contextlib import contextmanager
+from urllib.parse import quote
 
 st.set_page_config(page_title="Vet Cancer Treatment Finder", page_icon="🐾", layout="centered")
 
@@ -39,6 +40,7 @@ _original_header=st.header
 _original_selectbox=st.selectbox
 _original_expander=st.expander
 _original_link_button=st.link_button
+_original_write=st.write
 _pending={"contact":None,"sites":None,"url":None}
 _treatment_section={"pending":False,"shown":False}
 _deferred_diagnosis={"args":None,"kwargs":None}
@@ -54,6 +56,10 @@ _treatment_history_labels={
     "Prior or current cancer immunotherapy","Radiation to this tumor",
     "Prednisone / other corticosteroids","Other immunosuppressive medication"
 }
+_feedback_text="If a trial team says your pet is not eligible, please save the reason. Those real-world exclusions are especially useful for improving the matcher. Do not post private medical or contact information publicly."
+_feedback_subject=quote("Vet Cancer Trial Finder — eligibility feedback")
+_feedback_body=quote("Trial / center:\n\nReason the trial team said my pet was not eligible:\n\nPlease do not include private medical records, addresses, phone numbers, or other sensitive information.")
+_feedback_mailto=f"mailto:j.dizhur@gmail.com?subject={_feedback_subject}&body={_feedback_body}"
 
 def compact_title(body,*args,**kwargs):
     if isinstance(body,str) and "Vet Cancer Trial Finder" in body: return _original_markdown("## 🐾 Clinical Trial Finder")
@@ -121,6 +127,14 @@ def compact_result_markdown(body,*args,**kwargs):
         if body.startswith("**Participating sites:**"): _pending["sites"]=body.replace("**Participating sites:**","",1).strip();return None
     return _original_markdown(body,*args,**kwargs)
 
+def feedback_write(body,*args,**kwargs):
+    if body==_feedback_text:
+        _original_write("If a trial team says your pet is not eligible, please send us the reason. Real-world exclusions help improve the matcher.")
+        _original_link_button("Send eligibility feedback",_feedback_mailto,use_container_width=True)
+        st.caption("Please do not include private medical records or personal contact information. The button opens your email app; nothing is posted publicly.")
+        return None
+    return _original_write(body,*args,**kwargs)
+
 def compact_link_button(label,url,*args,**kwargs):
     if label=="Official study page": _pending["url"]=url;return None
     return _original_link_button(label,url,*args,**kwargs)
@@ -138,7 +152,7 @@ def compact_expander(label,*args,**kwargs):
     else:
         with _original_expander(label,*args,**kwargs): yield
 
-st.title=compact_title;st.header=dynamic_header;st.selectbox=dynamic_selectbox;st.markdown=compact_result_markdown;st.expander=compact_expander;st.link_button=compact_link_button
+st.title=compact_title;st.header=dynamic_header;st.selectbox=dynamic_selectbox;st.markdown=compact_result_markdown;st.expander=compact_expander;st.link_button=compact_link_button;st.write=feedback_write
 try: page.run()
 finally:
-    st.title=_original_title;st.header=_original_header;st.selectbox=_original_selectbox;st.markdown=_original_markdown;st.expander=_original_expander;st.link_button=_original_link_button
+    st.title=_original_title;st.header=_original_header;st.selectbox=_original_selectbox;st.markdown=_original_markdown;st.expander=_original_expander;st.link_button=_original_link_button;st.write=_original_write
