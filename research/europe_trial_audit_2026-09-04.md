@@ -2,124 +2,95 @@
 
 Scope: client-owned dogs/cats receiving an anticancer intervention. Exclude diagnostic/biomarker-only, observational, sample-only and supportive-care studies. Current status must be verified before promotion to matcher.
 
-## High-confidence CURRENT treatment trials found in Oncowaf/ESVONC and primary center pages
+## Final audit result
+
+A full cross-check was completed against the current ESVONC monthly list, the full Oncowaf database, primary university/referral-hospital pages, sponsor/development pages, investigator names, and local-language searches. The apparent large Europe gap found on 2026-09-04 was mostly a discovery/reporting gap rather than a remaining catalog gap: the treatment records below were already present in `pages/1_Clinical_Trial_Finder.py` from the September 3 audit. They must not be duplicated.
+
+## Current treatment records confirmed present in the matcher catalog
 
 ### France
-1. **VetAgro Sup Lyon / FINDIMMUNE WOOF-01 — F1901 intratumoral immunotherapy**
-   - Species: dog
-   - Cancer: oral malignant melanoma or oral SCC, stage I-III, measurable lesion >=1 cm; weight >=5 kg.
-   - Intervention: investigational F1901 intratumoral injections D1/D30/D90; follow-up to 6 months.
-   - Key exclusions publicly listed: distant metastases; prior treatment beyond surgery; recent immunosuppressive therapy; organ/marrow requirements.
-   - Current recruitment: primary VetAgro Sup page says study is currently being conducted; FINDIMMUNE has current WOOF-01 protocol page; ESVONC/Oncowaf list as ongoing.
-   - Treatment/follow-up funded by study according to VetAgro Sup.
-   - **MATCHER: PASS / add after deduplication.**
-
-2. **CHV AniCura Armonia, Vaulx-Milieu — HIFU for canine urothelial carcinoma**
-   - Species: dog
-   - Cancer: cytology/histology-confirmed urothelial carcinoma.
-   - Intervention: high-intensity focused ultrasound anticancer treatment; tolerance + efficacy study.
-   - Eligibility: conventional chemotherapy/targeted therapy/surgery/RT refused, not applicable, or failed; life expectancy >=1 month; able to undergo general anesthesia.
-   - Current recruitment: Oncowaf current trial database + ESVONC monthly ongoing list.
-   - **MATCHER: PASS.**
-
-3. **CHV Frégis, Gentilly — thermoablation of hepatic tumors/metastases**
-   - Species: dog
-   - Cancer: primary hepatocellular carcinoma or <=3 hepatic metastases; lesion 1-3 cm; normal hepatic function.
-   - Intervention: local thermal ablation.
-   - Exclusions: hepatic dysfunction, coagulopathy, systemic metastatic disease; anesthesia required.
-   - Current: Oncowaf ongoing database / ESVONC list.
-   - **MATCHER: PASS.**
-
-4. **CHV Frégis — local thermoablation for chemodectoma**
-   - Species: dog
-   - Intervention: echo-guided or open local thermoablation with concomitant pericardiectomy.
-   - Key criterion: absence of metastatic disease; anesthesia possible; no decompensated cardiac disease.
-   - Current in Oncowaf.
-   - **MATCHER: PASS.**
-
-5. **CHV Frégis — embolization/chemoembolization of hepatic tumors/metastases**
-   - Species: dog
-   - Cancer: primary hepatic tumor or liver metastases, particularly neuroendocrine tumors.
-   - Intervention: embolization / chemoembolization.
-   - Requires normal hepatic function, no coagulopathy, anesthesia; excludes untreatable primary tumor.
-   - Current in Oncowaf.
-   - **MATCHER: PASS.**
-
-### Netherlands
-6. **Utrecht University — local vaccinia viral therapy before surgery for canine osteosarcoma**
-   - Species: dog
-   - Cancer: primary canine osteosarcoma planned for surgical removal.
-   - Intervention: local vaccinia virus injection in/around primary tumor 7-10 days before planned surgery.
-   - Goal includes tumor infection and potential systemic antitumor immune response; long-term metastatic/survival follow-up.
-   - Current: Utrecht interventional research page remains live and ESVONC lists viral therapy as ongoing.
-   - **MATCHER: PASS, but confirm detailed owner-contact/remaining enrollment slots if available.**
+- CHV AniCura Armonia — HIFU for canine urothelial carcinoma. Current primary AniCura page and ESVONC/Oncowaf confirm the active anticancer study. Conventional treatment must be refused, infeasible, or failed; anesthesia must be possible.
+- VetAgro Sup Lyon — intratumoral immunotherapy for stage I-III canine oral melanoma/oral SCC with measurable disease. Current Oncowaf/ESVONC listing; primary VetAgro program previously verified.
+- CHV Frégis — thermoablation for canine primary HCC/limited hepatic metastases.
+- CHV Frégis — local thermoablation for canine chemodectoma.
+- CHV Frégis — embolization/chemoembolization for primary hepatic tumors or liver metastases.
 
 ### Belgium
-7. **Ghent University — GCN2-IN-6 perioperative therapy for feline mammary tumors**
-   - Species: cat
-   - Cancer: mammary tumor / feline mammary adenocarcinoma, surgical candidate.
-   - Intervention: investigational oral GCN2-IN-6 before and after standard mastectomy (neoadjuvant + adjuvant).
-   - Primary Ghent owner/referrer pages actively invite eligible cats; safety/efficacy monitored.
-   - **MATCHER: PASS.**
+- Ghent University — oral GCN2-IN-6 before and after mastectomy for feline mammary tumors. Primary Ghent owner and referring-veterinarian pages actively invite eligible cats; investigational drug is supplied without additional cost.
+
+### Netherlands
+- Utrecht University OnGo — local vaccinia/oncolytic viral therapy injected into/around primary canine osteosarcoma 7-10 days before planned surgery. Current Utrecht interventional page + ESVONC ongoing listing. Existing matcher row appropriately requires owner prescreen because slot availability is not explicitly published.
+- RVC-led toceranib insulinoma study includes Veterinary Clinic Nieuwegein as a Netherlands site, but RVC metadata gave an end date of 31 May 2026; keep needs-reconfirmation rather than claiming a confirmed slot.
+- Utrecht holmium-166 microsphere brain-tumor treatment and feline oral-SCC nanobody-PDT remain therapeutic research leads without explicit current owner enrollment; keep out of automatic matching.
+- Versican-targeted urothelial-carcinoma vaccine and CimCure HSA vaccine remain contact/watch leads unless current enrollment is directly reconfirmed.
 
 ### Italy
-8. **AniCura I Portoni Rossi Bologna + University of Teramo — autologous hydroxyapatite-based cancer vaccine**
-   - Species: dog
-   - Cancer: mucosal melanoma.
-   - Intervention: autologous hydroxyapatite-based cancer vaccine.
-   - Eligibility: candidate for surgical resection and/or RT of primary; primary tumor tissue must still be available for vaccine preparation. Previously excised/formalin-fixed-only tumor is not eligible.
-   - Current in Oncowaf ongoing database.
-   - **MATCHER: PASS pending center-specific recruitment confirmation if owner-facing contact page can be located.**
+- AniCura I Portoni Rossi Bologna + University of Teramo — autologous hydroxyapatite-based vaccine for canine mucosal melanoma. Oncowaf currently lists it as ongoing. Primary tumor tissue must still be available; FFPE-only after prior excision is not sufficient.
+- University of Milan/Lodi — OncoFAP-MMAE Phase I-II targeted chemotherapy for FAP-positive advanced solid tumors is already in the catalog; owner-facing protocol page was previously verified.
+- Bologna University historical appendicular OSA immunotherapy study is explicitly CONCLUDED; do not import.
+- Pisa/EVVIVAX vaccine programs remain contactable but not matchable without current site-level enrollment confirmation.
 
 ### Portugal
-9. **AniCura Atlântico, Mafra — microwave/radiofrequency thermoablation for hepatic tumors**
-   - Species: dog
-   - Cancer: primary HCC or <=3 hepatic metastases, lesions 1-6 cm, normal hepatic function.
-   - Intervention: microwave or radiofrequency thermoablation.
-   - Current in Oncowaf.
-   - **MATCHER: PASS.**
-
-10. **AniCura Atlântico, Mafra — local microwave treatment for chemodectoma**
-   - Species: dog
-   - Intervention: local microwave application.
-   - Current in Oncowaf; absence of metastatic disease and anesthesia/cardiac constraints listed.
-   - **MATCHER: PASS after resolving apparent tumor-size typo/inconsistent public criterion before automated eligibility gating.**
-
-11. **University of Évora — photodynamic therapy for canine mammary tumors**
-   - Species: dog, female <=12 years.
-   - Cancer: mammary tumors, no metastases; excludes serious infectious/renal/hepatic/comorbid disease.
-   - Intervention: photodynamic therapy.
-   - Current in Oncowaf. Historical translational work exists from Évora/Coimbra; current recruitment should be confirmed with investigator before labeling status 'confirmed recruiting' in matcher.
-   - **MATCHER: REVIEW / current-status confirmation required.**
+- AniCura Atlântico, Mafra — microwave/radiofrequency thermoablation for HCC/limited hepatic metastases.
+- AniCura Atlântico, Mafra — microwave treatment for chemodectoma. Keep detailed tumor-size gating out until the apparent public criterion typo is clarified.
+- University of Évora — photodynamic therapy for canine mammary tumors remains listed by current Oncowaf; investigator-level status should still be confirmed before making stronger owner-facing claims than the database listing supports.
 
 ### United Kingdom
-12. **Royal (Dick) School Edinburgh — tigilanol tiglate for canine oral melanoma**
-   - Species: dog
-   - Cancer: oral melanoma.
-   - Intervention: intratumoral tigilanol tiglate (Stelfonta active drug used off-label by trial for melanoma); pilot initially planned for 8 dogs.
-   - Current: ESVONC ongoing list; Edinburgh primary announcement describes trial and UK project-licence material confirms naturally occurring clinical patients.
-   - **MATCHER: PASS after extracting current detailed eligibility/contact page.**
+- Royal (Dick) School Edinburgh — intratumoral tigilanol tiglate for canine oral melanoma. Current ESVONC ongoing list and Edinburgh trial material support the existing record.
+- RVC multicenter toceranib study for metastatic/recurrent insulinoma remains listed by ESVONC/Oncowaf, but RVC project metadata ended 31 May 2026; existing `needs_reconfirmation` handling is correct.
+- Liverpool DOG-FIGhT ferumoxytol/radiotherapy glioma program and NDSR high-grade mammary carcinoma trial were already found in the prior deep pass.
 
-13. **RVC-led multicenter UK + Netherlands — toceranib for metastatic/recurrent insulinoma**
-   - Species: dog
-   - Cancer: metastatic insulinoma stage II/III or recurrent insulinoma.
-   - Intervention: prospective palliative/adjuvant toceranib.
-   - Sites: RVC, Liverpool, Edinburgh, NDSR, Southfields, Dick White Referrals, Veterinary Clinic Nieuwegein.
-   - Current in Oncowaf/ESVONC.
-   - **MATCHER: PASS if not already present.**
+### Spain
+- Universidad Complutense de Madrid — CANCIMPET intratumoral CPMV immunotherapy for poor-prognosis mammary cancer in dogs/cats is already in the catalog from the local-language audit. This is a real owner-recruiting anticancer treatment project and remains a high-value Spain record.
+- Immuvera Nebumet Spain is an announced multicenter registration-study lead only; sites/live owner enrollment not verified, so do not match yet.
 
-## Borderline / exclude from treatment matcher
+### Sweden
+- SLU/Oxcia — **Silver Bullet 2.0 / OXC-101** is a genuine new 2026-2030 therapeutic research program. SLU's current page, updated May 2026, states start September 2026 and evaluates home-based oral OXC-101 in dogs with lymphoma, hemangiosarcoma and mammary tumors. AACR 2026 reports the preceding open-label pilot in nine pet dogs with lymphoma/HSA. However, the SLU project page does not yet publish an owner recruitment notice, sites, or eligibility. Existing catalog watch row should remain `available_for_matching=False` until enrollment is explicitly opened. Important correction to old note: the new Silver Bullet 2.0 project runs **September 2026-August 2030**, not 2023-2025.
+- Vivesto Cantrixil canine pilot remains planned H2 2026 with no verified owner-facing recruitment/site details; watch only.
 
-- **Ghent FLT/ICG intraoperative imaging, all surgically removable tumors** — active clinical study in dogs/cats. Surgery itself follows standard protocol; primary purpose is margin-identification/imaging performance. Despite potential future improvement in complete resection, this is principally an imaging/diagnostic-guidance study and does not itself provide an experimental anticancer treatment. **EXCLUDE under current treatment-only rule.**
-- **Liège urothelial carcinoma biomarker/immune-response study** — no anticancer intervention stated. **EXCLUDE.**
-- **Ghent doxorubicin cardiotoxicity ultrasound study** — diagnostic/supportive monitoring only. **EXCLUDE.**
-- **Bologna University trials page** — current page lists prior OSA, melanoma and visceral/cardiac HSA trials as CONCLUDED. Do not import as current.
-- **Paccal Vet dog HSA / cat solid tumors** — recruitment completed June/July 2026. Watch results/new cohorts; do not show as recruiting.
+### Switzerland
+- Current Zurich treatment trials already represented include sinonasal heterogeneous-dose RT, high-grade glioma chemoradiation, large-tumor lattice/SBRT, feline oral-SCC FLASH, oral vinorelbine Phase I, ADAM-12 vaccine for feline STS, and PNST fluorescence-guided surgery. Imaging/diagnostic-only Zurich projects remain excluded under treatment-only rules.
 
-## Current European source strategy
+## Deep negative regional sweep — no additional matchable treatment trial verified
 
-1. Poll ESVONC monthly ongoing list and full Oncowaf database separately: ESVONC monthly summary is non-exhaustive and currently omits several Oncowaf entries (Italy/Portugal/France procedural trials).
-2. For each listed trial, verify against center/investigator page when available; use Oncowaf as current recruitment evidence when no better primary page exists, but label confidence accordingly.
-3. Search centers in local language and by investigator names because many European studies never use the phrase 'clinical trial' in English.
-4. Recheck France (VetAgro Sup, Frégis, AniCura), Ghent, Utrecht, RVC network, Bologna/Teramo, Évora/Mafra at every refresh.
-5. Continue deep audit of Germany, Spain, Scandinavia, Austria, Czechia and Poland through university/referral-center pages, grants, publications and investigator recruitment notices.
+### Germany
+Deep searches of Hannover TiHo, FU Berlin, Leipzig/Giessen-style university sources, German-language trial terms, sponsor programs and Oncowaf did not produce an additional current owner-recruiting anticancer treatment study beyond the already cataloged/announced Immuvera Nebumet Germany lead. TiHo has substantial oncology infrastructure (chemotherapy, surgery, RT, cytogenetics, flow cytometry, gene therapy research), but infrastructure/research themes are not recruitment evidence.
+
+### Austria
+Vetmeduni Vienna has active specialist oncology/radiation oncology and comparative-oncology infrastructure. No additional current owner-recruiting experimental anticancer treatment protocol was verified. Historical/planned anti-EGFR canine IgE immunotherapy remains a translational lead, not a current match.
+
+### Czechia
+VETUNI Brno and Animed/Pfeifr remain important investigator/referral leads. The Animed canine melanoma 'biological/vaccine' treatment pathway has not been identified with enough certainty to create a new experimental-treatment trial record. No additional current recruiting treatment study verified.
+
+### Poland
+SGGW Warsaw nano-oncology remains active translational research: gold nanoparticles for canine OSA/metastases and feline injection-site sarcoma, targeted/photothermal platforms, and related delivery work. Current published evidence located remains preclinical/in-vitro/ex-ovo and no client-owned treatment recruitment was verified. Gdańsk canine PD-1/TIM3 antibody development is an important future immunotherapy lead but not yet a clinical treatment trial. Do not promote.
+
+### Denmark
+University of Copenhagen has strong comparative oncology and published clinical FLASH experience in canine spontaneous tumors. The indexed program describes the initial feasibility cohort and plans for subsequent Phase I/II work, but this audit did not verify a current 2026 owner-recruiting treatment protocol. Keep as research pipeline/watch, not matcher.
+
+### Finland / Norway / Ireland / Hungary
+Institutional/local-language searches did not verify a current owner-recruiting canine/feline anticancer treatment study meeting our rules. Clinical oncology services, ECT availability, publications, registries, or research projects alone were not treated as trials.
+
+### Slovenia
+Ljubljana ECT + canine IL-12 gene electrotransfer remains scientifically active and clinically important, but the prior funded protocol ended and no current owner-recruiting prospective protocol was verified. VetInspECT is useful for center discovery but is a registry/network, not a trial.
+
+### Cyprus
+FUSVET focused-ultrasound pilot treated spontaneous tumors in dogs/cats, but current continuation/recruitment was not verified. Watch only.
+
+## Explicit exclusions retained
+
+- Ghent fluorescence lifetime/ICG intraoperative imaging: diagnostic/surgical guidance, not a new anticancer treatment under current product rules.
+- Liège urothelial biomarker/immune-response study: no anticancer intervention.
+- Ghent doxorubicin cardiotoxicity ultrasound: monitoring/supportive research.
+- Paccal Vet canine HSA and feline solid-tumor pilots: recruitment completed in 2026; watch results/new cohorts.
+- Historical Bologna OSA immunotherapy: concluded.
+- Generic oncology services, standard chemotherapy/RT/ECT, registries and tissue/sample projects: not treatment trials.
+
+## Refresh rules after this audit
+
+1. ESVONC monthly list and full Oncowaf must both be checked; ESVONC explicitly says its monthly list is non-exhaustive.
+2. Verify each apparent ongoing trial against the primary center/investigator page when available.
+3. Search local languages + investigator names + grants + referral hospitals; Europe frequently lacks a central owner-facing trial page.
+4. Highest-priority watch items: SLU OXC-101 Silver Bullet 2.0, SGGW nano-oncology, Gdańsk PD-1/TIM3, Ljubljana IL-12 GET, Utrecht NB-PDT/holmium, CimCure vaccine programs, Immuvera Nebumet, Vivesto Cantrixil.
+5. Never promote a grant, publication, laboratory project, historical cohort, or 'clinical capability' as current recruitment.
+6. Zero results for a country/cancer is preferable to a false recruiting claim.
