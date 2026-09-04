@@ -17,7 +17,7 @@ st.markdown(
     div[data-testid="stHorizontalBlock"]:has(div[data-testid="stPageLink"]) {
         gap: 0 !important;
         padding: 0 !important;
-        margin: 0 0 .65rem 0 !important;
+        margin: 0 !important;
         border: 1px solid rgba(100,160,220,.32);
         border-radius: 1.15rem;
         overflow: hidden;
@@ -54,6 +54,11 @@ st.markdown(
         font-weight: 700 !important;
         white-space: nowrap !important;
     }
+    /* Streamlit adds generous vertical gaps between top-level elements.
+       Tighten only the gap immediately around our navigation row. */
+    div[data-testid="stVerticalBlock"] > div:has(div[data-testid="stHorizontalBlock"] div[data-testid="stPageLink"]) {
+        margin-bottom: -1.8rem !important;
+    }
     @media (max-width: 480px) {
         div[data-testid="stPageLink"] a {
             min-height: 3.2rem;
@@ -61,6 +66,9 @@ st.markdown(
         }
         div[data-testid="stPageLink"] p {
             font-size: .94rem !important;
+        }
+        div[data-testid="stVerticalBlock"] > div:has(div[data-testid="stHorizontalBlock"] div[data-testid="stPageLink"]) {
+            margin-bottom: -2.35rem !important;
         }
     }
     </style>
