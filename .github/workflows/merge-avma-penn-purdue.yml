@@ -1,0 +1,47 @@
+name: Merge AVMA Penn Purdue updates
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'data/avma_penn_purdue_20260905.json'
+      - '.github/workflows/merge-avma-penn-purdue.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Merge small update file into trial_updates
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          target = Path('data/trial_updates.json')
+          patch = Path('data/avma_penn_purdue_20260905.json')
+          base = json.loads(target.read_text(encoding='utf-8'))
+          add = json.loads(patch.read_text(encoding='utf-8'))
+          by_id = {r['id']: r for r in base.get('upsert', []) if r.get('id')}
+          for r in add.get('upsert', []):
+              by_id[r['id']] = r
+          base['upsert'] = list(by_id.values())
+          deletes = list(dict.fromkeys(base.get('delete', []) + add.get('delete', [])))
+          base['delete'] = deletes
+          target.write_text(json.dumps(base, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          print('upserts', len(base['upsert']), 'deletes', len(base['delete']))
+          PY
+      - name: Validate JSON
+        run: python -m json.tool data/trial_updates.json >/dev/null
+      - name: Commit merged catalog
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add data/trial_updates.json
+          git diff --cached --quiet || git commit -m "Merge Penn CAR-iNKT and Purdue AKS-701d treatment records"
+          git push
