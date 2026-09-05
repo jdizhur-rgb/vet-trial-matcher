@@ -1,7 +1,7 @@
 import streamlit as st
 import streamlit.components.v1 as components
 from contextlib import contextmanager
-import json, urllib.request
+import json, urllib.request, re
 
 st.set_page_config(page_title="Vet Cancer Treatment Finder", page_icon="🐾", layout="wide")
 PAGES=[st.Page("pages/1_Clinical_Trial_Finder.py",title="Clinical Trial Finder",icon="🐾",default=True),st.Page("pages/2_Additional_Oncology_Options.py",title="Additional Oncology Options",icon="🧬")]
@@ -22,8 +22,7 @@ _nav_top=st.empty()
 _orig={n:getattr(st,n) for n in ["markdown","title","header","selectbox","checkbox","number_input","radio","text_input","multiselect","expander","link_button","write","button"]}
 _components_html_orig=components.html
 def _components_html(body,*a,**k):
-    if isinstance(body,str) and "Copy results" in body and "Save as PDF" in body:
-        return st.html(body, unsafe_allow_javascript=True)
+    if isinstance(body,str) and "Copy results" in body and "Save as PDF" in body:return st.html(body,unsafe_allow_javascript=True)
     return _components_html_orig(body,*a,**k)
 components.html=_components_html
 _layout={"section":None,"slots":[],"extra":0,"treatment":False,"age_value":None,"weight_unit":None,"weight_value":None};_pending={"contact":None,"sites":None,"url":None};_selected_region={"value":None};_selected_cancer={"value":None};_deferred={"args":None,"kwargs":None}
@@ -49,8 +48,7 @@ def _target(label):
 def _render(kind,label,*args,**kwargs):
     t=_target(label);return getattr(t,kind)(label,*args,**kwargs) if t is not None else _orig[kind](label,*args,**kwargs)
 def title(body,*a,**k):
-    if isinstance(body,str) and "Vet Cancer Trial Finder" in body:
-        _orig["markdown"]('<div class="nav-title"><span class="paw">🐾︎</span> Clinical Trial Finder</div><div class="nav-subtitle">Find treatment-focused veterinary cancer trials for dogs and cats.</div>',unsafe_allow_html=True);return None
+    if isinstance(body,str) and "Vet Cancer Trial Finder" in body:_orig["markdown"]('<div class="nav-title"><span class="paw">🐾︎</span> Clinical Trial Finder</div><div class="nav-subtitle">Find treatment-focused veterinary cancer trials for dogs and cats.</div>',unsafe_allow_html=True);return None
     return _orig["title"](body,*a,**k)
 def header(body,*a,**k):
     if body=="1. Your pet":_section("pet","1. Your pet",[1.15,1.15,1.4,1.2,1.35]);return
@@ -75,11 +73,9 @@ def selectbox(label,*args,**kwargs):
     return _render("selectbox",label,*args,**kwargs)
 def checkbox(label,*a,**k):
     if _layout["section"]=="pet" and label=="I know the age":
-        with _layout["slots"][1]:
-            k=dict(k);k["key"]="pet_age_known";r=_orig["checkbox"]("Age",*a,**k);_layout["age_value"]=st.empty();return r
+        with _layout["slots"][1]:k=dict(k);k["key"]="pet_age_known";r=_orig["checkbox"]("Age",*a,**k);_layout["age_value"]=st.empty();return r
     if _layout["section"]=="pet" and label=="I know the weight":
-        with _layout["slots"][2]:
-            k=dict(k);k["key"]="pet_weight_known";r=_orig["checkbox"]("Weight",*a,**k);row=st.columns([1.15,1.55],gap="small");_layout["weight_unit"]=row[0].empty();_layout["weight_value"]=row[1].empty();return r
+        with _layout["slots"][2]:k=dict(k);k["key"]="pet_weight_known";r=_orig["checkbox"]("Weight",*a,**k);row=st.columns([1.15,1.55],gap="small");_layout["weight_unit"]=row[0].empty();_layout["weight_value"]=row[1].empty();return r
     return _render("checkbox",label,*a,**k)
 def number_input(label,*a,**k):
     if _layout["section"]=="pet" and label=="Age (years)" and _layout["age_value"] is not None:
@@ -109,9 +105,25 @@ def markdown(body,*a,**k):
         if body.startswith("**Contact:**"):_pending["contact"]=body.replace("**Contact:**","",1).strip();return
         if body.startswith("**Participating sites:**"):_pending["sites"]=body.replace("**Participating sites:**","",1).strip();return
     return _orig["markdown"](body,*a,**k)
+def _linkify_contact(text):
+    if not text:return ""
+    low=text.lower()
+    generic=("official study page" in low or "study page" in low) and not re.search(r"[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}",text) and not re.search(r"(?:\+?\d[\d .()/-]{7,}\d)",text)
+    if generic:return ""
+    text=re.sub(r"([\w.+-]+@[\w.-]+\.[A-Za-z]{2,})",r"[\1](mailto:\1)",text)
+    def phone_link(m):
+        raw=m.group(0);digits=re.sub(r"\D","",raw)
+        return f"[{raw}](tel:{digits})" if len(digits)>=7 else raw
+    return re.sub(r"(?<![:\w])(?:\+?\d[\d .()/-]{7,}\d)",phone_link,text)
 def _save_controls():
     components.html("""<style>body{margin:0;font-family:Arial,sans-serif}.row{display:flex;gap:8px}.b{flex:1;border:1px solid #d8d3cf;background:#fff;border-radius:9px;padding:9px 12px;font-size:14px;font-weight:600;color:#4b4642;cursor:pointer}.b:hover{background:#f7f5f3}.ok{font-size:12px;color:#55745d;margin-top:5px;min-height:15px}</style><div class='row'><button class='b' onclick='copyResults()'>📋 Copy results</button><button class='b' onclick='savePdf()'>📄 Save as PDF</button></div><div id='ok' class='ok'></div><script>function resultText(){const d=window.parent.document;const els=[...d.querySelectorAll('h1,h2,h3,p,a,button,summary')];let start=els.findIndex(e=>e.innerText.trim()==='Results');if(start<0)return '';let out=[];for(let i=start;i<els.length;i++){let t=els[i].innerText.trim();if(t.startsWith('If a trial team says your pet is not eligible'))break;if(t&&t!=='Copy results'&&t!=='Save as PDF')out.push(t)}return [...new Set(out)].join('\n\n')}async function copyResults(){let t=resultText();if(!t){document.getElementById('ok').innerText='Run a search first.';return}try{await navigator.clipboard.writeText(t);document.getElementById('ok').innerText='Results copied.'}catch(e){document.getElementById('ok').innerText='Copy was blocked by the browser.'}}function savePdf(){let t=resultText();if(!t){document.getElementById('ok').innerText='Run a search first.';return}let w=window.open('','_blank');w.document.write('<html><head><title>Clinical Trial Finder Results</title><style>body{font-family:Arial,sans-serif;max-width:760px;margin:40px auto;padding:0 24px;color:#282522;line-height:1.45}h1{font-size:22px}pre{font-family:Arial,sans-serif;white-space:pre-wrap;font-size:13px}.note{margin-top:28px;font-size:11px;color:#666}</style></head><body><h1>Clinical Trial Finder Results</h1><pre>'+t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</pre><div class="note">Saved from Vet Cancer Clinical Trial Finder. Recruitment and eligibility can change; confirm current status with the study team.</div><script>window.onload=()=>window.print()<\/script></body></html>');w.document.close()}</script>""",height=70)
 def write(body,*a,**k):
+    if isinstance(body,str) and body.startswith("**Contact:**"):
+        contact=body.replace("**Contact:**","",1).strip();linked=_linkify_contact(contact)
+        if linked:_orig["markdown"]("**Contact:** "+linked)
+        return
+    if isinstance(body,str) and body.startswith("**Participating sites:**"):
+        return _orig["markdown"](body)
     if body==_feedback_text:
         _save_controls();_orig["write"]("If a trial team says your pet is not eligible, you can share the reason without providing your name or email.")
         with st.expander("Share eligibility feedback"):
@@ -134,7 +146,9 @@ def expander(label,*a,**k):
     if label=="Study details":
         with _orig["expander"]("Details & contact",*a,**k):
             if _selected_region["value"] in _europe:_orig["markdown"]("**Enrollment:** European trials often recruit through the investigator or referral center without a separate online enrollment form. Contact the study team to confirm that enrollment/slots are currently open.")
-            if _pending["contact"]:_orig["markdown"](f"**Contact:** {_pending['contact']}")
+            if _pending["contact"]:
+                linked=_linkify_contact(_pending["contact"])
+                if linked:_orig["markdown"](f"**Contact:** {linked}")
             if _pending["sites"]:_orig["markdown"](f"**Participating sites:** {_pending['sites']}")
             if _pending["url"]:_orig["link_button"]("Official study page",_pending["url"],use_container_width=True)
             _pending.update(contact=None,sites=None,url=None);yield
