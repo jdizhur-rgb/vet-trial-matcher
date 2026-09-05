@@ -1,0 +1,28 @@
+name: USA primary-source oncology audit
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/apply_usa_primary_source_audit_20260905.py'
+      - '.github/workflows/usa-primary-source-audit.yml'
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Apply audited treatment records and calculate catalog stats
+        run: python scripts/apply_usa_primary_source_audit_20260905.py
+      - name: Validate JSON
+        run: python -m json.tool data/trial_updates.json >/dev/null && python -m json.tool data/catalog_stats.json >/dev/null
+      - name: Commit audit results
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/trial_updates.json data/catalog_stats.json
+          git diff --cached --quiet || git commit -m 'Apply USA primary-source oncology audit'
+          git push
