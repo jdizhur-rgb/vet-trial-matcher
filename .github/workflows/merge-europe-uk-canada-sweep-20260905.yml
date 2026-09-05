@@ -1,0 +1,62 @@
+name: Merge Europe UK Canada treatment sweep
+on:
+  push:
+    paths:
+      - 'data/europe_uk_canada_sweep_20260905.json'
+      - '.github/workflows/merge-europe-uk-canada-sweep-20260905.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Semantic merge and recalculate stats
+        run: |
+          python - <<'PY'
+          import json,re
+          from pathlib import Path
+          base=json.loads(Path('data/trials_base.json').read_text())
+          p=Path('data/trial_updates.json'); upd=json.loads(p.read_text())
+          sweep=json.loads(Path('data/europe_uk_canada_sweep_20260905.json').read_text())
+          ups=upd.setdefault('upsert',[])
+          def norm(x): return re.sub(r'[^a-z0-9]+',' ',str(x).lower()).strip()
+          def tokens(r):
+            s=' '.join([str(r.get('title','')),str(r.get('center','')),' '.join(r.get('cancers',[]) if isinstance(r.get('cancers'),list) else [])])
+            return set(norm(s).split())
+          eff={r.get('id'):r for r in base if r.get('id')}
+          for r in ups:
+            if r.get('id'): eff[r['id']]={**eff.get(r['id'],{}),**r}
+          added=[]
+          for r in sweep['upsert']:
+            if r['id'] in eff: continue
+            rt=tokens(r)
+            duplicate=False
+            for e in eff.values():
+              if norm(r.get('center'))==norm(e.get('center')) or norm(r.get('country'))==norm(e.get('country')):
+                et=tokens(e)
+                if rt and et and len(rt&et)/max(1,min(len(rt),len(et))) >= .72:
+                  duplicate=True; break
+            if duplicate: continue
+            ups.append(r); eff[r['id']]=r; added.append(r['id'])
+          p.write_text(json.dumps(upd,indent=2,ensure_ascii=False)+'\n')
+          matching=[r for r in eff.values() if r.get('available_for_matching') is True and r.get('study_type')=='treatment']
+          from collections import Counter
+          stats={'generated':'2026-09-05','effective_total_records':len(eff),'current_treatment_opportunities':len(matching),'by_country':dict(sorted(Counter(r.get('country','Unknown') for r in matching).items())),'by_species':dict(sorted(Counter(r.get('species','Unknown') for r in matching).items())),'added_from_europe_uk_canada_sweep':added}
+          Path('data/catalog_stats.json').write_text(json.dumps(stats,indent=2,ensure_ascii=False)+'\n')
+          print(json.dumps(stats,indent=2))
+          PY
+      - name: Validate
+        run: python -m json.tool data/trial_updates.json >/dev/null && python -m json.tool data/catalog_stats.json >/dev/null
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add data/trial_updates.json data/catalog_stats.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'Merge Europe UK Canada treatment sweep'
+          git push
