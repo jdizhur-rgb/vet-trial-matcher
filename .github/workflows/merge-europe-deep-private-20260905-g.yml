@@ -1,0 +1,51 @@
+name: Merge Europe deep private sweep G
+on:
+  push:
+    paths:
+      - '.github/workflows/merge-europe-deep-private-20260905-g.yml'
+permissions:
+  contents: write
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Merge patch and recalculate stats
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from collections import Counter
+          base=json.loads(Path('data/trials_base.json').read_text())
+          upd=json.loads(Path('data/trial_updates.json').read_text())
+          patch=json.loads(Path('data/europe_deep_private_sweep_20260905_g.json').read_text())
+          if isinstance(upd,list): upd={'upsert':upd,'delete':[]}
+          ups=upd.setdefault('upsert',[])
+          byid={r.get('id'):i for i,r in enumerate(ups) if isinstance(r,dict) and r.get('id')}
+          for r in patch.get('upsert',[]):
+              rid=r['id']
+              if rid in byid: ups[byid[rid]].update(r)
+              else: byid[rid]=len(ups); ups.append(r)
+          for rid in patch.get('delete',[]):
+              if rid not in upd.setdefault('delete',[]): upd['delete'].append(rid)
+          Path('data/trial_updates.json').write_text(json.dumps(upd,indent=2,ensure_ascii=False)+'\n')
+          rows={r.get('id'):dict(r) for r in base if isinstance(r,dict) and r.get('id')}
+          for rid in upd.get('delete',[]): rows.pop(rid,None)
+          for r in ups:
+              if not isinstance(r,dict) or not r.get('id'): continue
+              rid=r['id']; rows.setdefault(rid,{}).update(r)
+          closed={'closed','completed','not recruiting','on hold','suspended','terminated'}
+          current=[r for r in rows.values() if r.get('study_type')=='treatment' and r.get('available_for_matching') is True and str(r.get('status','')).strip().lower() not in closed]
+          def vals(v): return [str(x) for x in v] if isinstance(v,list) else ([str(v)] if v not in (None,'') else [])
+          cc=Counter(x for r in current for x in vals(r.get('country'))); ss=Counter(x for r in current for x in vals(r.get('species')))
+          stats={'generated':'2026-09-05','effective_total_records':len(rows),'current_treatment_opportunities':len(current),'by_country':dict(sorted(cc.items())),'by_species':dict(sorted(ss.items())),'audit_note':'Europe deep primary/private-network sweep: current AniCura AOI/ETH intralesional immunocytokine study added. Clinaxel oncology projects confirmed actively recruiting but held from matching pending tumor/site disclosure. Strict treatment-only exclusions retained.'}
+          Path('data/catalog_stats.json').write_text(json.dumps(stats,indent=2,ensure_ascii=False)+'\n')
+          print(json.dumps(stats,indent=2))
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add data/trial_updates.json data/catalog_stats.json
+          git diff --cached --quiet || git commit -m 'Merge AniCura AOI immunocytokine trial'
+          git push
