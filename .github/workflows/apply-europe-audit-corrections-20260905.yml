@@ -1,0 +1,60 @@
+name: Apply Europe audit corrections 2026-09-05
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-europe-audit-corrections-20260905.yml'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Correct matching catalog, update watchlist, recalc stats
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          corr=json.loads(Path('data/europe_audit_corrections_20260905.json').read_text())
+          up=Path('data/trial_updates.json')
+          data=json.loads(up.read_text()) if up.exists() else {'upsert':[],'delete':[]}
+          if isinstance(data,list): data={'upsert':data,'delete':[]}
+          dels=data.setdefault('delete',[])
+          for rid in corr.get('delete',[]):
+              if rid not in dels: dels.append(rid)
+          up.write_text(json.dumps(data,indent=2,ensure_ascii=False)+'\n')
+          wp=Path('data/watchlist.json')
+          if wp.exists():
+              w=json.loads(wp.read_text())
+              if isinstance(w,dict): arr=w.setdefault('watchlist',[])
+              else: arr=w
+          else:
+              w={'watchlist':[]}; arr=w['watchlist']
+          byid={r.get('id'):i for i,r in enumerate(arr) if isinstance(r,dict) and r.get('id')}
+          for r in corr.get('watchlist',[]):
+              if r['id'] in byid: arr[byid[r['id']]]=r
+              else: byid[r['id']]=len(arr); arr.append(r)
+          wp.write_text(json.dumps(w,indent=2,ensure_ascii=False)+'\n')
+          base=json.loads(Path('data/trials_base.json').read_text())
+          if isinstance(base,dict): base=base.get('trials',base.get('records',base.get('upsert',[])))
+          rows={r['id']:r for r in base if isinstance(r,dict) and r.get('id')}
+          for rid in data.get('delete',[]): rows.pop(rid,None)
+          for r in data.get('upsert',[]):
+              if isinstance(r,dict) and r.get('id'): rows[r['id']]=r
+          current=[r for r in rows.values() if r.get('available_for_matching') is True and str(r.get('status','')).lower() in {'recruiting','active','open','enrolling','currently recruiting'}]
+          from collections import Counter
+          def vals(v):
+              if isinstance(v,list): return v
+              return [v] if v else []
+          countries=Counter(x for r in current for x in vals(r.get('country')))
+          species=Counter(x for r in current for x in vals(r.get('species')))
+          stats={'generated':'2026-09-05','effective_total_records':len(rows),'current_treatment_opportunities':len(current),'by_country':dict(sorted(countries.items())),'by_species':dict(sorted(species.items())),'audit_note':'Europe primary-source sweep corrected: OXC-101 moved to watchlist until active recruitment is confirmed; Madrid CPMV and Ghent GCN2-IN-6 merged.'}
+          Path('data/catalog_stats.json').write_text(json.dumps(stats,indent=2,ensure_ascii=False)+'\n')
+          PY
+      - name: Commit corrections
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add data/trial_updates.json data/watchlist.json data/catalog_stats.json
+          git diff --cached --quiet || git commit -m 'Apply Europe audit corrections and refresh catalog stats'
+          git push
