@@ -20,14 +20,34 @@ LANGS={
 'nl':('Klinische onderzoeken en kankerbehandelingsstudies','Huidige behandelingsgerichte mogelijkheden','Zoek actuele behandelingsmogelijkheden'),
 }
 EU_LANGS=('en','de','fr','es','it','nl')
-GENERIC={'all cancers','solid tumors','solid tumor','other','multiple cancers','other cancer','cancer any type','advanced unresectable tumor','other solid tumor','carcinoma other','sarcoma other','other sarcoma','oral tumor','oral tumor other','other bone tumor','other liver tumor','melanoma other','lymphoma other','mammary tumor other'}
-ALIASES={
- 'urothelial/transitional cell carcinoma':'urothelial carcinoma','transitional cell carcinoma':'urothelial carcinoma','bladder cancer':'urothelial carcinoma',
- 'brain tumor (glioma)':'glioma','brain tumor glioma':'glioma',
- 'feline oral scc':'oral squamous cell carcinoma','squamous cell carcinoma other':'squamous cell carcinoma',
- 'hepatic carcinoma':'hepatocellular carcinoma','prostatic carcinoma':'prostate cancer','thyroid tumor/carcinoma':'thyroid carcinoma','thyroid tumor':'thyroid carcinoma',
- 'primary bone tumor':'osteosarcoma','pulmonary carcinoma':'primary lung tumor'
-}
+
+# SEO taxonomy is deliberately smaller than the matching taxonomy. Raw catalog labels,
+# catch-alls and pathology variants must not become doorway/thin pages.
+CANONICAL_RULES=(
+ ('oral squamous cell carcinoma', ('oral squamous cell carcinoma','oral scc','feline oral scc')),
+ ('squamous cell carcinoma', ('squamous cell carcinoma','scc')),
+ ('oral melanoma', ('oral melanoma','mucosal melanoma')),
+ ('melanoma', ('melanoma',)),
+ ('mast cell tumor', ('mast cell tumor','mast cell tumour','mct')),
+ ('soft tissue sarcoma', ('soft tissue sarcoma','soft-tissue sarcoma','sts')),
+ ('histiocytic sarcoma', ('histiocytic sarcoma',)),
+ ('hemangiosarcoma', ('hemangiosarcoma','haemangiosarcoma','hsa')),
+ ('osteosarcoma', ('osteosarcoma','bone cancer')),
+ ('urothelial carcinoma', ('urothelial','transitional cell carcinoma','bladder cancer','tcc')),
+ ('hepatocellular carcinoma', ('hepatocellular carcinoma','hepatic carcinoma')),
+ ('mammary carcinoma', ('mammary carcinoma','mammary cancer','mammary tumor','mammary tumour')),
+ ('thyroid carcinoma', ('thyroid carcinoma','thyroid cancer','thyroid tumor','thyroid tumour')),
+ ('prostate cancer', ('prostate cancer','prostatic carcinoma')),
+ ('primary lung tumor', ('primary lung tumor','primary lung tumour','pulmonary carcinoma','lung cancer')),
+ ('glioma', ('glioma','brain tumor (glioma)','brain tumour (glioma)')),
+ ('meningioma', ('meningioma',)),
+ ('nasal tumor', ('nasal tumor','nasal tumour','nasal cancer','nasal carcinoma')),
+ ('lymphoma', ('lymphoma','lymphosarcoma')),
+ ('leukemia', ('leukemia','leukaemia')),
+ ('multiple myeloma', ('multiple myeloma',)),
+ ('chemodectoma', ('chemodectoma',)),
+)
+GENERIC_WORDS=('any type','other','multiple cancers','solid tumor','solid tumour','advanced unresectable')
 
 def load_effective():
  base=json.loads((ROOT/'data'/'trials_base.json').read_text())
@@ -41,12 +61,19 @@ def esc(x): return html.escape(str(x or ''))
 def slugify(x): return re.sub(r'-+','-',re.sub(r'[^a-z0-9]+','-',x.lower())).strip('-')
 def species_ok(r,s):
  v=str(r.get('species','')).lower(); return s.lower() in v or ('dog' in v and 'cat' in v)
-def norm_cancer(c):
- k=str(c).strip().lower()
- if not k or k in GENERIC: return None
- return ALIASES.get(k,k)
-def display_name(k): return ' '.join(w.upper() if w in {'scc','aml'} else w.capitalize() for w in k.split())
-def row_cancers(r): return {x for x in (norm_cancer(c) for c in r.get('cancers',[])) if x}
+def norm_text(x):
+ return re.sub(r'[^a-z0-9]+',' ',str(x).lower()).strip()
+def canonical_cancer(c):
+ raw=norm_text(c)
+ if not raw or any(norm_text(g) in raw for g in GENERIC_WORDS): return None
+ # More specific rules are intentionally ordered before broad parent diagnoses.
+ for canonical, aliases in CANONICAL_RULES:
+  if any(norm_text(a) in raw for a in aliases): return canonical
+ return None
+def display_name(k):
+ special={'scc':'SCC','aml':'AML'}
+ return ' '.join(special.get(w,w.capitalize()) for w in k.split())
+def row_cancers(r): return {x for x in (canonical_cancer(c) for c in r.get('cancers',[])) if x}
 
 def page(title,desc,body,canonical,lang='en',alternates=None):
  alts=''.join(f'<link rel="alternate" hreflang="{k}" href="{v}">' for k,v in (alternates or {}).items())
@@ -75,8 +102,8 @@ def main():
      dest=OUT/path; dest.mkdir(parents=True,exist_ok=True); (dest/'index.html').write_text(page(h1,f'Current {label} cancer treatment trials for {sname.lower()}s in {region_label}.',body,url,lang,alternates),encoding='utf-8')
      links.append(url)
      if lang=='en': index.append((h1,path))
- body='<h1>Veterinary Cancer Clinical Trials for Dogs and Cats</h1><p>Browse only cancer and region combinations that currently have treatment opportunities in the live catalog.</p><ul>'+''.join(f'<li><a href="{SITE}/{p}">{esc(n)}</a></li>' for n,p in sorted(index))+'</ul>'
+ body='<h1>Veterinary Cancer Clinical Trials for Dogs and Cats</h1><p>Browse cancer and region combinations that currently have treatment opportunities in the live catalog.</p><ul>'+''.join(f'<li><a href="{SITE}/{p}">{esc(n)}</a></li>' for n,p in sorted(index))+'</ul>'
  (OUT/'index.html').write_text(page('Cancer Trial Finder For Dogs And Cats','Free current veterinary cancer treatment trial finder for dogs and cats.',body,SITE+'/'),encoding='utf-8')
  links.insert(0,SITE+'/'); sm='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'<url><loc>{esc(u)}</loc></url>\n' for u in links)+'</urlset>\n'; (OUT/'sitemap.xml').write_text(sm,encoding='utf-8'); (OUT/'robots.txt').write_text(f'User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n',encoding='utf-8'); (OUT/'.nojekyll').write_text('')
- print(f'Generated {len(links)} indexable pages from {len(rows)} current treatment opportunities; generic and duplicate cancer labels omitted')
+ print(f'Generated {len(links)} indexable pages from {len(rows)} current treatment opportunities using {len(cancers)} canonical cancer types')
 if __name__=='__main__': main()
