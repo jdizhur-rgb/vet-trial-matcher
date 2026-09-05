@@ -20,22 +20,23 @@ jobs:
           python - <<'PY'
           import json,re
           from pathlib import Path
+          from collections import Counter
           base=json.loads(Path('data/trials_base.json').read_text())
           p=Path('data/trial_updates.json'); upd=json.loads(p.read_text())
           sweep=json.loads(Path('data/europe_uk_canada_sweep_20260905.json').read_text())
           ups=upd.setdefault('upsert',[])
           def norm(x): return re.sub(r'[^a-z0-9]+',' ',str(x).lower()).strip()
           def tokens(r):
-            s=' '.join([str(r.get('title','')),str(r.get('center','')),' '.join(r.get('cancers',[]) if isinstance(r.get('cancers'),list) else [])])
+            c=r.get('cancers',[]); c=c if isinstance(c,list) else [c]
+            s=' '.join([str(r.get('title','')),str(r.get('center','')),' '.join(map(str,c))])
             return set(norm(s).split())
           eff={r.get('id'):r for r in base if r.get('id')}
           for r in ups:
             if r.get('id'): eff[r['id']]={**eff.get(r['id'],{}),**r}
           added=[]
-          for r in sweep['upsert']:
+          for r in sweep.get('upsert',[]):
             if r['id'] in eff: continue
-            rt=tokens(r)
-            duplicate=False
+            rt=tokens(r); duplicate=False
             for e in eff.values():
               if norm(r.get('center'))==norm(e.get('center')) or norm(r.get('country'))==norm(e.get('country')):
                 et=tokens(e)
@@ -45,8 +46,12 @@ jobs:
             ups.append(r); eff[r['id']]=r; added.append(r['id'])
           p.write_text(json.dumps(upd,indent=2,ensure_ascii=False)+'\n')
           matching=[r for r in eff.values() if r.get('available_for_matching') is True and r.get('study_type')=='treatment']
-          from collections import Counter
-          stats={'generated':'2026-09-05','effective_total_records':len(eff),'current_treatment_opportunities':len(matching),'by_country':dict(sorted(Counter(r.get('country','Unknown') for r in matching).items())),'by_species':dict(sorted(Counter(r.get('species','Unknown') for r in matching).items())),'added_from_europe_uk_canada_sweep':added}
+          countries=Counter(); species=Counter()
+          for r in matching:
+            cv=r.get('country','Unknown'); sv=r.get('species','Unknown')
+            for x in (cv if isinstance(cv,list) else [cv]): countries[str(x)]+=1
+            for x in (sv if isinstance(sv,list) else [sv]): species[str(x)]+=1
+          stats={'generated':'2026-09-05','effective_total_records':len(eff),'current_treatment_opportunities':len(matching),'by_country':dict(sorted(countries.items())),'by_species':dict(sorted(species.items())),'added_from_europe_uk_canada_sweep':added}
           Path('data/catalog_stats.json').write_text(json.dumps(stats,indent=2,ensure_ascii=False)+'\n')
           print(json.dumps(stats,indent=2))
           PY
