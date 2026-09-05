@@ -23,6 +23,7 @@ CANCER_ALIASES = {
     'Squamous cell carcinoma — other': ['Squamous cell carcinoma'],
     'Oral tumor — other': ['Oral tumor'],
     'Ocular melanoma / iris melanocytic tumor': ['Ocular melanoma', 'Iris melanocytic tumor'],
+    'Chemodectoma': ['Aortic body tumor', 'Aortic body tumors', 'Heart-base tumor', 'Heart base tumor', 'Paraganglioma', 'Non-chromaffin paraganglioma'],
 }
 
 LYMPHOMA_CANCERS = {'B-cell lymphoma', 'T-cell lymphoma', 'Lymphoma — other'}
