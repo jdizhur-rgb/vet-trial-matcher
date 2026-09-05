@@ -34,6 +34,19 @@ jobs:
         run: python seo/generate_seo.py
       - name: Include static files
         run: cp -a seo/static/. seo/site/
+      - name: Validate generated sitemap
+        run: |
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          p='seo/site/sitemap.xml'
+          root=ET.parse(p).getroot()
+          ns={'sm':'http://www.sitemaps.org/schemas/sitemap/0.9'}
+          urls=root.findall('sm:url',ns)
+          locs=[u.find('sm:loc',ns).text for u in urls]
+          assert len(locs)==len(set(locs)), 'duplicate sitemap URLs'
+          assert all(x.startswith('https://jdizhur-rgb.github.io/vet-trial-matcher/') for x in locs)
+          print(f'VALID_SITEMAP urls={len(locs)} bytes={__import__("os").path.getsize(p)}')
+          PY
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload SEO site
@@ -51,3 +64,29 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  verify:
+    runs-on: ubuntu-latest
+    needs: deploy
+    steps:
+      - name: Verify live sitemap over HTTP
+        run: |
+          URL='https://jdizhur-rgb.github.io/vet-trial-matcher/sitemap.xml'
+          echo "Checking $URL"
+          for i in 1 2 3 4 5 6; do
+            code=$(curl -L -sS -o /tmp/sitemap.xml -D /tmp/headers.txt -w '%{http_code}' "$URL" || true)
+            echo "attempt=$i status=$code"
+            cat /tmp/headers.txt || true
+            if [ "$code" = "200" ]; then break; fi
+            sleep 10
+          done
+          test "$code" = "200"
+          python - <<'PY'
+          import os, xml.etree.ElementTree as ET
+          p='/tmp/sitemap.xml'
+          root=ET.parse(p).getroot()
+          ns={'sm':'http://www.sitemaps.org/schemas/sitemap/0.9'}
+          locs=[x.text for x in root.findall('sm:url/sm:loc',ns)]
+          print(f'LIVE_SITEMAP_OK urls={len(locs)} bytes={os.path.getsize(p)} root={root.tag}')
+          assert locs
+          PY
