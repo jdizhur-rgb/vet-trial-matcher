@@ -1,0 +1,28 @@
+name: Catalog migration
+on:
+  push:
+    paths:
+      - '.github/workflows/catalog-migration.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Migrate embedded catalog to data file
+        run: python scripts/migrate_catalog.py
+      - name: Validate Python
+        run: python -m py_compile pages/1_Clinical_Trial_Finder.py scripts/migrate_catalog.py
+      - name: Commit migration
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add pages/1_Clinical_Trial_Finder.py data/trials_base.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Move clinical trial catalog into data file'
+          git push
