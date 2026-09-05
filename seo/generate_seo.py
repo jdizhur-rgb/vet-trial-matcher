@@ -1,79 +1,87 @@
 #!/usr/bin/env python3
-"""Generate crawlable SEO pages from the effective veterinary oncology catalog."""
+"""Generate crawlable SEO pages from current treatment opportunities only."""
 from __future__ import annotations
-import html, json, re
+import html, json, re, shutil
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "seo" / "site"
-FINDER = "https://vet-cancer-trial-finder.streamlit.app/"
-SITE = "https://jdizhur-rgb.github.io/vet-trial-matcher"
-
-CANCERS = {
-    "lymphoma": ["lymphoma"],
-    "osteosarcoma": ["osteosarcoma"],
-    "hemangiosarcoma": ["hemangiosarcoma"],
-    "histiocytic-sarcoma": ["histiocytic sarcoma"],
-    "mast-cell-tumor": ["mast cell"],
-    "melanoma": ["melanoma"],
-    "soft-tissue-sarcoma": ["soft tissue sarcoma"],
-    "oral-squamous-cell-carcinoma": ["oral squamous", "oral scc"],
-    "bladder-cancer": ["urothelial", "transitional cell", "bladder"],
-    "brain-tumors": ["glioma", "meningioma", "brain tumor"],
-    "mammary-cancer": ["mammary"],
+ROOT=Path(__file__).resolve().parents[1]
+OUT=ROOT/'seo'/'site'
+FINDER='https://vet-cancer-trial-finder.streamlit.app/'
+SITE='https://jdizhur-rgb.github.io/vet-trial-matcher'
+EUROPE={'Belgium','Denmark','France','Germany','Italy','Netherlands','Portugal','Spain','Sweden','Switzerland','UK','Ireland','Austria','Czechia','Poland','Finland','Norway','Hungary','Slovenia','Cyprus'}
+REGIONS={'north-america':{'USA','Canada'},'uk-europe':EUROPE}
+SPECIES={'dogs':'Dog','cats':'Cat'}
+LANGS={
+'en':('Clinical Trials and Cancer Treatment Studies','Current treatment-focused opportunities','Search current treatment opportunities'),
+'de':('Klinische Studien und Krebsbehandlungsstudien','Aktuelle behandlungsorientierte Möglichkeiten','Aktuelle Behandlungsmöglichkeiten suchen'),
+'fr':('Essais cliniques et études de traitement du cancer','Options thérapeutiques actuellement disponibles','Rechercher les options de traitement actuelles'),
+'es':('Ensayos clínicos y estudios de tratamiento del cáncer','Opciones terapéuticas disponibles actualmente','Buscar opciones de tratamiento actuales'),
+'it':('Studi clinici e studi sul trattamento del cancro','Opportunità terapeutiche attualmente disponibili','Cerca le opzioni terapeutiche attuali'),
+'nl':('Klinische onderzoeken en kankerbehandelingsstudies','Huidige behandelingsgerichte mogelijkheden','Zoek actuele behandelingsmogelijkheden'),
 }
-GEOS = {"usa":"USA", "canada":"Canada", "europe":"Europe", "uk":"UK"}
-EUROPE = {"Belgium","Denmark","France","Germany","Italy","Netherlands","Portugal","Spain","Sweden","Switzerland","UK","Ireland","Austria","Czechia","Poland","Finland","Norway","Hungary","Slovenia","Cyprus"}
+EU_LANGS=('en','de','fr','es','it','nl')
 
 def load_effective():
-    base = json.loads((ROOT / "data" / "trials_base.json").read_text())
-    upd = json.loads((ROOT / "data" / "trial_updates.json").read_text())
-    rows = {r["id"]: r for r in base}
-    for rid in upd.get("delete", []): rows.pop(rid, None)
-    for patch in upd.get("upsert", []):
-        rows[patch["id"]] = {**rows.get(patch["id"], {}), **patch}
-    return [r for r in rows.values() if r.get("study_type") == "treatment" and r.get("available_for_matching") is True]
+ base=json.loads((ROOT/'data'/'trials_base.json').read_text())
+ upd=json.loads((ROOT/'data'/'trial_updates.json').read_text())
+ rows={r['id']:r for r in base}
+ for rid in upd.get('delete',[]): rows.pop(rid,None)
+ for p in upd.get('upsert',[]): rows[p['id']]={**rows.get(p['id'],{}),**p}
+ return [r for r in rows.values() if r.get('study_type')=='treatment' and r.get('available_for_matching') is True]
 
-def esc(x): return html.escape(str(x or ""))
-def cancer_text(r): return " ".join(r.get("cancers", [])).lower()
-def title_slug(slug): return slug.replace("-", " ").title()
+def esc(x): return html.escape(str(x or ''))
+def slugify(x): return re.sub(r'-+','-',re.sub(r'[^a-z0-9]+','-',x.lower())).strip('-')
+def species_ok(r,s):
+ v=str(r.get('species','')).lower()
+ return s.lower() in v or ('dog' in v and 'cat' in v)
+def cancer_names(rows):
+ vals={}
+ for r in rows:
+  for c in r.get('cancers',[]):
+   c=str(c).strip()
+   if c and c.lower() not in {'all cancers','solid tumors','other','multiple cancers'}: vals.setdefault(c.lower(),c)
+ return vals
+
+def page(title,desc,body,canonical,lang='en',alternates=None):
+ alts=''.join(f'<link rel="alternate" hreflang="{k}" href="{v}">' for k,v in (alternates or {}).items())
+ return f'''<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)}</title><meta name="description" content="{esc(desc)}"><link rel="canonical" href="{canonical}">{alts}<style>body{{font-family:system-ui,sans-serif;max-width:920px;margin:auto;padding:28px;line-height:1.55;color:#17243b}}a{{color:#175b8c}}article{{border-top:1px solid #d9e2ea;padding:12px 0}}.cta{{display:inline-block;padding:12px 18px;background:#17243b;color:white;text-decoration:none;border-radius:8px}}</style></head><body><header><a href="{SITE}/"><strong>Cancer Trial Finder For Dogs And Cats</strong></a><p>Free. No registration, email or paywall.</p></header><main>{body}<p><a class="cta" href="{FINDER}">{esc(LANGS[lang][2])}</a></p><p><small>Listings change. Final eligibility and enrollment decisions are made by each research team.</small></p></main></body></html>'''
+
 def cards(rows):
-    if not rows: return "<p>No current matching opportunities are listed in this category. Check the live Finder because availability changes.</p>"
-    parts=[]
-    for r in rows:
-        parts.append(f'<article><h3>{esc(r.get("title"))}</h3><p><strong>{esc(r.get("center"))}</strong> · {esc(r.get("country"))}</p><p>{esc(r.get("status"))}</p></article>')
-    return "\n".join(parts)
-
-def page(title, description, body, canonical, nav):
-    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)}</title><meta name="description" content="{esc(description)}"><link rel="canonical" href="{canonical}"><style>body{{font-family:system-ui,sans-serif;max-width:900px;margin:auto;padding:28px;line-height:1.55;color:#17243b}}a{{color:#175b8c}}article{{border-top:1px solid #d9e2ea;padding:12px 0}}.cta{{display:inline-block;padding:12px 18px;background:#17243b;color:white;text-decoration:none;border-radius:8px}}nav a{{margin-right:12px}}</style></head><body><header><a href="{SITE}/"><strong>Cancer Trial Finder For Dogs And Cats</strong></a><p>Free. No registration, email or paywall.</p><nav>{nav}</nav></header><main>{body}<p><a class="cta" href="{FINDER}">Search current treatment opportunities</a></p><p><small>Listings change. The research team makes all final eligibility and enrollment decisions.</small></p></main></body></html>'''
+ return ''.join(f'<article><h3>{esc(r.get("title"))}</h3><p><strong>{esc(r.get("center"))}</strong> · {esc(r.get("country"))}</p><p>{esc(r.get("status"))}</p></article>' for r in rows)
 
 def main():
-    rows=load_effective(); OUT.mkdir(parents=True, exist_ok=True)
-    links=[]
-    cancer_pages=[]
-    for slug, terms in CANCERS.items():
-        hit=[r for r in rows if any(t in cancer_text(r) for t in terms)]
-        label=title_slug(slug)
-        path=f"cancer/{slug}/"; url=f"{SITE}/{path}"
-        cancer_pages.append((label,path))
-        body=f"<h1>{esc(label)} Clinical Trials and Treatment Studies for Dogs and Cats</h1><p>Current treatment-focused opportunities found in our veterinary oncology catalog: <strong>{len(hit)}</strong>.</p>{cards(hit)}"
-        dest=OUT/path; dest.mkdir(parents=True,exist_ok=True); (dest/"index.html").write_text(page(f"{label} Clinical Trials for Dogs and Cats",f"Find current treatment-focused {label.lower()} clinical trials and advanced oncology studies for dogs and cats.",body,url,""),encoding="utf-8")
-        links.append(url)
-    geo_pages=[]
-    for slug,country in GEOS.items():
-        hit=[r for r in rows if (r.get("country") in EUROPE if country=="Europe" else r.get("country")==country)]
-        label="United States" if country=="USA" else country
-        path=f"location/{slug}/"; url=f"{SITE}/{path}"; geo_pages.append((label,path))
-        body=f"<h1>Veterinary Cancer Clinical Trials in {esc(label)}</h1><p>Current treatment-focused opportunities in our catalog: <strong>{len(hit)}</strong>.</p>{cards(hit)}"
-        dest=OUT/path; dest.mkdir(parents=True,exist_ok=True); (dest/"index.html").write_text(page(f"Veterinary Cancer Clinical Trials in {label}",f"Find current cancer treatment trials and advanced oncology studies for dogs and cats in {label}.",body,url,""),encoding="utf-8")
-        links.append(url)
-    nav=" ".join(f'<a href="{SITE}/{p}">{esc(n)}</a>' for n,p in cancer_pages[:6])
-    body='<h1>Veterinary Cancer Clinical Trials for Dogs and Cats</h1><p>Search current treatment-focused clinical trials and advanced oncology opportunities. The Finder is free and does not require registration.</p><h2>Browse by cancer</h2><ul>'+''.join(f'<li><a href="{SITE}/{p}">{esc(n)}</a></li>' for n,p in cancer_pages)+'</ul><h2>Browse by location</h2><ul>'+''.join(f'<li><a href="{SITE}/{p}">{esc(n)}</a></li>' for n,p in geo_pages)+'</ul>'
-    (OUT/"index.html").write_text(page("Cancer Trial Finder For Dogs And Cats","Free veterinary cancer clinical trial finder for dogs and cats.",body,SITE+"/",nav),encoding="utf-8")
-    links.insert(0,SITE+"/")
-    sitemap='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'<url><loc>{u}</loc></url>\n' for u in links)+'</urlset>\n'
-    (OUT/"sitemap.xml").write_text(sitemap,encoding="utf-8")
-    (OUT/"robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n",encoding="utf-8")
-    (OUT/".nojekyll").write_text("",encoding="utf-8")
-    print(f"Generated {len(links)} indexable pages from {len(rows)} current treatment opportunities")
-if __name__ == "__main__": main()
+ rows=load_effective()
+ if OUT.exists(): shutil.rmtree(OUT)
+ OUT.mkdir(parents=True)
+ links=[]; index=[]
+ cancers=cancer_names(rows)
+ for region,countries in REGIONS.items():
+  rrows=[r for r in rows if r.get('country') in countries]
+  langs=EU_LANGS if region=='uk-europe' else ('en',)
+  region_label='USA & Canada' if region=='north-america' else 'UK & Europe'
+  for skey,sname in SPECIES.items():
+   srows=[r for r in rrows if species_ok(r,sname)]
+   for key,label in cancers.items():
+    hit=[r for r in srows if key in [str(c).lower() for c in r.get('cancers',[])]]
+    if not hit: continue
+    cslug=slugify(label)
+    for lang in langs:
+     prefix='' if lang=='en' else f'{lang}/'
+     path=f'{prefix}{region}/{skey}/{cslug}/'; url=f'{SITE}/{path}'
+     alternates={l:f'{SITE}/{"" if l=="en" else l+"/"}{region}/{skey}/{cslug}/' for l in langs}
+     alternates['x-default']=f'{SITE}/{region}/{skey}/{cslug}/'
+     h1=f'{label}: {LANGS[lang][0]} for {sname}s in {region_label}'
+     body=f'<h1>{esc(h1)}</h1><p>{esc(LANGS[lang][1])}: <strong>{len(hit)}</strong>.</p>{cards(hit)}'
+     dest=OUT/path; dest.mkdir(parents=True,exist_ok=True)
+     (dest/'index.html').write_text(page(h1,f'Current {label} cancer treatment trials for {sname.lower()}s in {region_label}.',body,url,lang,alternates),encoding='utf-8')
+     links.append(url)
+     if lang=='en': index.append((h1,path))
+ body='<h1>Veterinary Cancer Clinical Trials for Dogs and Cats</h1><p>Browse only cancer and region combinations that currently have treatment opportunities in the live catalog.</p><ul>'+''.join(f'<li><a href="{SITE}/{p}">{esc(n)}</a></li>' for n,p in sorted(index))+'</ul>'
+ (OUT/'index.html').write_text(page('Cancer Trial Finder For Dogs And Cats','Free current veterinary cancer treatment trial finder for dogs and cats.',body,SITE+'/'),encoding='utf-8')
+ links.insert(0,SITE+'/')
+ sm='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'<url><loc>{esc(u)}</loc></url>\n' for u in links)+'</urlset>\n'
+ (OUT/'sitemap.xml').write_text(sm,encoding='utf-8')
+ (OUT/'robots.txt').write_text(f'User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n',encoding='utf-8')
+ (OUT/'.nojekyll').write_text('')
+ print(f'Generated {len(links)} indexable pages from {len(rows)} current treatment opportunities; zero-result pages omitted')
+if __name__=='__main__': main()
