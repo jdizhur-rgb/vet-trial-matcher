@@ -1,0 +1,67 @@
+name: Merge Europe full primary sweep B
+on:
+  push:
+    paths:
+      - 'data/europe_full_primary_sweep_20260905_b.json'
+      - '.github/workflows/merge-europe-full-primary-sweep-20260905-b.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Merge patch safely
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          patch=json.loads(Path('data/europe_full_primary_sweep_20260905_b.json').read_text())
+          p=Path('data/trial_updates.json')
+          data=json.loads(p.read_text()) if p.exists() else {'upsert':[],'delete':[]}
+          if isinstance(data,list): data={'upsert':data,'delete':[]}
+          up=data.setdefault('upsert',[])
+          byid={r.get('id'):i for i,r in enumerate(up) if r.get('id')}
+          added=[]
+          for r in patch.get('upsert',[]):
+            rid=r.get('id')
+            if rid in byid: up[byid[rid]].update(r)
+            else: byid[rid]=len(up); up.append(r); added.append(rid)
+          p.write_text(json.dumps(data,indent=2,ensure_ascii=False)+'\n')
+          print('added',added)
+          PY
+      - name: Recalculate effective catalog stats
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from collections import Counter
+          def load(path, default):
+            p=Path(path); return json.loads(p.read_text()) if p.exists() else default
+          base=load('data/trials_base.json',[])
+          upd=load('data/trial_updates.json',{'upsert':[],'delete':[]})
+          if isinstance(upd,list): upd={'upsert':upd,'delete':[]}
+          rows={r.get('id'):r for r in base if r.get('id')}
+          for rid in upd.get('delete',[]): rows.pop(rid,None)
+          for r in upd.get('upsert',[]):
+            if not r.get('id'): continue
+            if r['id'] in rows: rows[r['id']].update(r)
+            else: rows[r['id']]=r
+          current=[r for r in rows.values() if r.get('study_type')=='treatment' and r.get('available_for_matching') is True and str(r.get('status','')).lower() not in {'closed','completed','not recruiting','on hold','suspended','terminated'}]
+          def vals(v):
+            if isinstance(v,list): return [str(x) for x in v]
+            return [str(v)] if v not in (None,'') else []
+          cc=Counter(x for r in current for x in vals(r.get('country')))
+          ss=Counter(x for r in current for x in vals(r.get('species')))
+          stats={'generated':'2026-09-05','effective_total_records':len(rows),'current_treatment_opportunities':len(current),'by_country':dict(sorted(cc.items())),'by_species':dict(sorted(ss.items())),'added_from_europe_full_primary_sweep_b':[r['id'] for r in load('data/europe_full_primary_sweep_20260905_b.json',{}).get('upsert',[])]}
+          Path('data/catalog_stats.json').write_text(json.dumps(stats,indent=2,ensure_ascii=False)+'\n')
+          print(json.dumps(stats,indent=2))
+          PY
+      - name: Commit merged catalog
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/trial_updates.json data/catalog_stats.json
+          git diff --cached --quiet || git commit -m 'Merge verified Europe primary treatment sweep'
+          git push
