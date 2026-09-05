@@ -1,0 +1,34 @@
+name: Patch chemodectoma aliases
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add chemodectoma aliases
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('pages/1_Clinical_Trial_Finder.py')
+          s = p.read_text()
+          marker = "    'Ocular melanoma / iris melanocytic tumor': ['Ocular melanoma', 'Iris melanocytic tumor'],\n"
+          addition = "    'Chemodectoma': ['Aortic body tumor', 'Aortic body tumors', 'Heart-base tumor', 'Heart base tumor', 'Paraganglioma', 'Non-chromaffin paraganglioma'],\n"
+          if addition not in s:
+              if marker not in s:
+                  raise SystemExit('Alias insertion marker not found')
+              s = s.replace(marker, marker + addition, 1)
+              p.write_text(s)
+          PY
+      - name: Commit patch and remove one-shot workflow
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/patch-chemodectoma-aliases.yml
+          git add pages/1_Clinical_Trial_Finder.py
+          git commit -m "Add chemodectoma diagnosis aliases"
+          git push
