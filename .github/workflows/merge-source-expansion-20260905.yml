@@ -1,0 +1,53 @@
+name: Merge source expansion 20260905
+on:
+  push:
+    paths:
+      - 'data/source_expansion_20260905.json'
+      - '.github/workflows/merge-source-expansion-20260905.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Merge new treatment records and recalculate stats
+        run: |
+          python - <<'PY'
+          import json, re
+          from pathlib import Path
+          base=json.loads(Path('data/trials_base.json').read_text())
+          p=Path('data/trial_updates.json'); upd=json.loads(p.read_text())
+          new=json.loads(Path('data/source_expansion_20260905.json').read_text())
+          ups=upd.setdefault('upsert',[])
+          def norm(s): return re.sub(r'[^a-z0-9]+',' ',str(s).lower()).strip()
+          def sig(r): return (norm(r.get('title','')),norm(r.get('center','')))
+          effective={r['id']:r for r in base if r.get('id')}
+          for r in ups:
+            if r.get('id'): effective[r['id']]={**effective.get(r['id'],{}),**r}
+          ids=set(effective); sigs={sig(r) for r in effective.values() if r.get('title')}
+          added=[]
+          for r in new.get('upsert',[]):
+            if r['id'] in ids or sig(r) in sigs: continue
+            ups.append(r); effective[r['id']]=r; ids.add(r['id']); sigs.add(sig(r)); added.append(r['id'])
+          p.write_text(json.dumps(upd,indent=2,ensure_ascii=False)+'\n')
+          matching=[r for r in effective.values() if r.get('available_for_matching') is True and r.get('study_type')=='treatment']
+          from collections import Counter
+          stats={'generated':'2026-09-05','effective_total_records':len(effective),'current_treatment_opportunities':len(matching),'by_country':dict(sorted(Counter(r.get('country','Unknown') for r in matching).items())),'by_species':dict(sorted(Counter(r.get('species','Unknown') for r in matching).items())),'added_from_source_expansion_20260905':added}
+          Path('data/catalog_stats.json').write_text(json.dumps(stats,indent=2,ensure_ascii=False)+'\n')
+          print(json.dumps(stats,indent=2))
+          PY
+      - name: Validate
+        run: python -m json.tool data/trial_updates.json >/dev/null && python -m json.tool data/catalog_stats.json >/dev/null
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add data/trial_updates.json data/catalog_stats.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'Merge verified treatment opportunities from expanded sources'
+          git push
