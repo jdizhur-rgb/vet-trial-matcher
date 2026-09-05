@@ -1,0 +1,33 @@
+name: Restore finder and update audit date
+on:
+  push:
+    paths:
+      - '.github/workflows/restore-finder-and-date.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Restore full finder without passing it through API
+        run: |
+          git checkout e8baf9ddd55e285a2e18aec89e2ca99f66e6d2c5 -- pages/1_Clinical_Trial_Finder.py
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('pages/1_Clinical_Trial_Finder.py')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace('Last deep audit: September 4, 2026','Last deep audit: September 5, 2026')
+          p.write_text(s,encoding='utf-8')
+          PY
+          python -m py_compile pages/1_Clinical_Trial_Finder.py
+      - name: Commit restored finder
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add pages/1_Clinical_Trial_Finder.py
+          git diff --cached --quiet || git commit -m 'Restore finder and update deep audit date'
+          git push
