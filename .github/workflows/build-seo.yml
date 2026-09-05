@@ -8,6 +8,7 @@ on:
       - 'data/trials_base.json'
       - 'data/trial_updates.json'
       - 'seo/generate_seo.py'
+      - 'seo/static/**'
       - '.github/workflows/build-seo.yml'
 
 permissions:
@@ -31,6 +32,8 @@ jobs:
           python-version: '3.12'
       - name: Generate SEO pages
         run: python seo/generate_seo.py
+      - name: Include static files
+        run: cp -a seo/static/. seo/site/
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload SEO site
