@@ -1,0 +1,21 @@
+{
+  "audit_date": "2026-09-05",
+  "purpose": "Verified actionable access routes for patient-facing treatment trial cards. Prefer direct study/institutional contacts over generic pages.",
+  "verified_overrides": [
+    {
+      "ids": ["ncsu-canine-ucc-il12", "ncsu-canine-sts-xcsgel", "ncsu-feline-oral-pivot-c", "ncsu-canine-osa-rt-surgery"],
+      "center": "NC State College of Veterinary Medicine",
+      "contacts": "Clinical Studies Core — cvmclinicalstudies@ncsu.edu; 919-515-3634",
+      "contact_url": "https://cvm.ncsu.edu/research/clinical-trials/",
+      "verification": "NC State current clinical-trial pages/flyers direct owners to the Clinical Studies Core. The institutional clinical-trials page states owners may contact the department/lab associated with the study.",
+      "verified": "2026-09-05"
+    }
+  ],
+  "display_policy": {
+    "required_for_patient_facing_match": "At least one actionable route: direct study email, phone, enrollment/contact form, or named referral center.",
+    "generic_homepage_only": "Do not present a generic institutional homepage as if it were an enrollment route.",
+    "dead_or_missing_url": "Keep a verified direct email/phone visible and do not render a dead enrollment button.",
+    "europe": "Investigator/referral-center email or phone is a valid primary enrollment route when no dedicated enrollment form exists.",
+    "contact_priority": ["study-specific enrollment form", "study-specific email/phone", "institutional clinical-trials coordinator", "named investigator/referral center"]
+  }
+}
