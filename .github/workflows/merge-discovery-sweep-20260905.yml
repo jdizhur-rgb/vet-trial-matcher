@@ -1,0 +1,83 @@
+name: Merge expanded discovery sweep
+
+on:
+  push:
+    paths:
+      - 'data/discovery_sweep_20260905.json'
+      - '.github/workflows/merge-discovery-sweep-20260905.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Merge semantically new records and recalculate stats
+        run: |
+          python - <<'PY'
+          import json, re
+          from pathlib import Path
+
+          base = json.loads(Path('data/trials_base.json').read_text())
+          upd_path = Path('data/trial_updates.json')
+          upd = json.loads(upd_path.read_text())
+          sweep = json.loads(Path('data/discovery_sweep_20260905.json').read_text())
+          upserts = upd.setdefault('upsert', [])
+
+          def norm(s):
+              return re.sub(r'[^a-z0-9]+', ' ', str(s).lower()).strip()
+          def sig(r):
+              return (norm(r.get('title','')), norm(r.get('center','')))
+
+          effective = {r.get('id'): r for r in base if r.get('id')}
+          for r in upserts:
+              rid = r.get('id')
+              if rid:
+                  effective[rid] = {**effective.get(rid, {}), **r}
+          existing_ids = set(effective)
+          existing_sigs = {sig(r) for r in effective.values() if r.get('title')}
+
+          added=[]
+          for r in sweep.get('upsert', []):
+              if r['id'] in existing_ids or sig(r) in existing_sigs:
+                  continue
+              upserts.append(r)
+              effective[r['id']] = r
+              existing_ids.add(r['id']); existing_sigs.add(sig(r)); added.append(r['id'])
+
+          upd_path.write_text(json.dumps(upd, indent=2, ensure_ascii=False) + '\n')
+
+          matching=[]
+          for r in effective.values():
+              if r.get('available_for_matching') is True and r.get('study_type') == 'treatment':
+                  matching.append(r)
+          from collections import Counter
+          countries=Counter(r.get('country','Unknown') for r in matching)
+          species=Counter(r.get('species','Unknown') for r in matching)
+          stats={
+              'generated':'2026-09-05',
+              'effective_total_records':len(effective),
+              'current_treatment_opportunities':len(matching),
+              'by_country':dict(sorted(countries.items())),
+              'by_species':dict(sorted(species.items())),
+              'added_from_expanded_discovery_sweep':added
+          }
+          Path('data/catalog_stats.json').write_text(json.dumps(stats, indent=2, ensure_ascii=False)+'\n')
+          print(json.dumps(stats, indent=2))
+          PY
+      - name: Validate JSON
+        run: python -m json.tool data/trial_updates.json >/dev/null && python -m json.tool data/catalog_stats.json >/dev/null
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add data/trial_updates.json data/catalog_stats.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'Merge expanded primary-source treatment discovery sweep'
+          git push
