@@ -1,0 +1,92 @@
+name: Full semantic duplicate audit
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/audit-semantic-duplicates-20260906.yml'
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Audit effective catalog and remove clear duplicate IDs
+        run: |
+          cat > /tmp/audit.py <<'PY'
+          import json,re,difflib
+          from pathlib import Path
+          root=Path('.')
+          base=json.load(open(root/'data/trials_base.json',encoding='utf8'))
+          up=json.load(open(root/'data/trial_updates.json',encoding='utf8'))
+          by={x['id']:dict(x) for x in base}
+          for i in up.get('delete',[]): by.pop(i,None)
+          for p in up.get('upsert',[]):
+              if p['id'] in by: by[p['id']].update(p)
+              else: by[p['id']]=dict(p)
+          def norm(s):
+              s=re.sub(r'https?://(www\.)?','',str(s).lower()).rstrip('/')
+              s=re.sub(r'[^a-z0-9]+',' ',s)
+              return ' '.join(s.split())
+          def toks(s): return set(norm(s).split())
+          ids=list(by)
+          pairs=[]; clear=[]
+          for ai,a in enumerate(ids):
+            A=by[a]
+            for b in ids[ai+1:]:
+              B=by[b]
+              if str(A.get('species',''))!=str(B.get('species','')): continue
+              ca=set(A.get('cancers',[])); cb=set(B.get('cancers',[]))
+              if ca and cb and not ca&cb: continue
+              ua=norm(A.get('url','')); ub=norm(B.get('url',''))
+              same_url=bool(ua and ub and ua==ub)
+              ta=norm(A.get('title','')); tb=norm(B.get('title',''))
+              title_ratio=difflib.SequenceMatcher(None,ta,tb).ratio()
+              center_ratio=difflib.SequenceMatcher(None,norm(A.get('center','')),norm(B.get('center',''))).ratio()
+              inter=len(toks(ta)&toks(tb))/max(1,len(toks(ta)|toks(tb)))
+              score=max(title_ratio,inter)+(0.25 if same_url else 0)+(0.15 if center_ratio>.65 else 0)
+              if same_url or score>=1.02:
+                rec={'id1':a,'id2':b,'title1':A.get('title'),'title2':B.get('title'),'same_url':same_url,'title_ratio':round(title_ratio,3),'token_jaccard':round(inter,3),'center_ratio':round(center_ratio,3),'url1':A.get('url'),'url2':B.get('url')}
+                pairs.append(rec)
+                # auto-clear only very high-confidence same-study pairs: same URL + strongly similar title/center,
+                # or near-identical title at same center.
+                if (same_url and title_ratio>=.72 and center_ratio>=.55) or (title_ratio>=.90 and center_ratio>=.72): clear.append(rec)
+          # Known CARE duplicate is semantically identical despite differing source URL variants.
+          care={'ucd-care-glioma-autophagy-rt','ucd-care-canine-glioma'}
+          if care<=set(by):
+              if not any({x['id1'],x['id2']}==care for x in clear):
+                  a,b=sorted(care); clear.append({'id1':a,'id2':b,'reason':'same UC Davis CARE protocol'})
+          # choose keeper: prefer newer/fuller update entry; explicit CARE keeper.
+          remove=set(); decisions=[]
+          upmap={p['id']:p for p in up.get('upsert',[])}
+          for p in clear:
+              a,b=p['id1'],p['id2']
+              if a in remove or b in remove: continue
+              if {a,b}==care: keep='ucd-care-canine-glioma'
+              else:
+                def richness(i):
+                  x=by[i]; return (x.get('verified',''),len(json.dumps(x,ensure_ascii=False)))
+                keep=max((a,b),key=richness)
+              drop=b if keep==a else a
+              remove.add(drop); decisions.append({'keep':keep,'remove':drop,'evidence':p})
+          if remove:
+              up['upsert']=[p for p in up.get('upsert',[]) if p['id'] not in remove]
+              dels=list(dict.fromkeys(up.get('delete',[])+[i for i in remove if i in {x['id'] for x in base}]))
+              up['delete']=dels
+              json.dump(up,open(root/'data/trial_updates.json','w',encoding='utf8'),ensure_ascii=False,indent=2); open(root/'data/trial_updates.json','a').write('\n')
+          report={'effective_before':len(by),'candidate_pairs':pairs,'auto_removed':decisions,'removed_ids':sorted(remove),'effective_after':len(by)-len(remove)}
+          json.dump(report,open(root/'data/duplicate_audit_20260906.json','w',encoding='utf8'),ensure_ascii=False,indent=2); open(root/'data/duplicate_audit_20260906.json','a').write('\n')
+          print(json.dumps(report,indent=2))
+          PY
+          python /tmp/audit.py
+      - name: Commit audit cleanup
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add data/trial_updates.json data/duplicate_audit_20260906.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Audit effective catalog for semantic duplicates"
+          git push
