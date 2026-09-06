@@ -1,0 +1,41 @@
+name: Clean broken analytics implementation
+on:
+  push:
+    paths:
+      - '.github/workflows/cleanup-broken-analytics-20260906.yml'
+permissions:
+  contents: write
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove analytics code and private stats artifacts
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          p = Path('app.py')
+          s = p.read_text()
+          s = s.replace('from analytics import install_analytics\n', '')
+          s = s.replace('install_analytics()\n', '')
+          s = re.sub(r',st\.Page\("pages/3_Private_Stats\.py"[^\]]*?\)\]', ']', s, count=1)
+          p.write_text(s)
+          PY
+          rm -f analytics.py
+          rm -f pages/3_Private_Stats.py
+          rm -f .github/workflows/install-analytics-20260906.yml
+          rm -f .github/workflows/add-private-stats-page.yml
+          rm -f .github/workflows/cleanup-broken-analytics-20260906.yml
+      - name: Verify no live analytics wiring remains
+        run: |
+          ! grep -RInE 'install_analytics|GA_MEASUREMENT_ID|GA_API_SECRET|ga_debug|private-stats-9f4c2|3_Private_Stats.py' app.py pages .github/workflows || (echo 'Analytics residue remains' && exit 1)
+          python -m py_compile app.py
+      - name: Commit cleanup
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -m 'Remove broken analytics and private stats code'
+          git push
