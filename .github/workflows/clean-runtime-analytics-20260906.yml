@@ -1,0 +1,33 @@
+name: Clean runtime analytics
+on:
+  push:
+    paths:
+      - '.github/workflows/clean-runtime-analytics-20260906.yml'
+permissions:
+  contents: write
+jobs:
+  clean:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove analytics and counter runtime hooks
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('app.py')
+          s = p.read_text()
+          s = s.replace('from visit_counter import record_visit\n', '')
+          s = s.replace(',st.Page("pages/3_Private_Stats.py",title="Visit Stats",url_path="private-stats-9f4c2")', '')
+          s = s.replace('if getattr(page,"url_path","") != "private-stats-9f4c2": record_visit()\n', '')
+          s = s.replace('from analytics import install_analytics\n', '')
+          s = s.replace('install_analytics()\n', '')
+          p.write_text(s)
+          for name in ['visit_counter.py','analytics.py','pages/3_Private_Stats.py']:
+              q=Path(name)
+              if q.exists(): q.unlink()
+          PY
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -A
+          git commit -m "Keep final UI without analytics or visit counter" || exit 0
+          git push
