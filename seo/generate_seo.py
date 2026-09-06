@@ -98,12 +98,12 @@ def main():
     for lang in langs:
      prefix='' if lang=='en' else f'{lang}/'; path=f'{prefix}{region}/{skey}/{cslug}/'; url=f'{SITE}/{path}'
      alternates={l:f'{SITE}/{"" if l=="en" else l+"/"}{region}/{skey}/{cslug}/' for l in langs}; alternates['x-default']=f'{SITE}/{region}/{skey}/{cslug}/'
-     h1=f'{label}: {LANGS[lang][0]} for {sname}s in {region_label}'; body=f'<h1>{esc(h1)}</h1><p>{esc(LANGS[lang][1])}: <strong>{len(hit)}</strong>.</p>{cards(hit)}'
-     dest=OUT/path; dest.mkdir(parents=True,exist_ok=True); (dest/'index.html').write_text(page(h1,f'Current {label} cancer treatment trials for {sname.lower()}s in {region_label}.',body,url,lang,alternates),encoding='utf-8')
+     h1=f'{label}: Treatment Options and Clinical Trials for {sname}s in {region_label}' if lang=='en' else f'{label}: {LANGS[lang][0]} for {sname}s in {region_label}'; body=f'<h1>{esc(h1)}</h1><p>{esc(LANGS[lang][1])}: <strong>{len(hit)}</strong>.</p>{cards(hit)}'
+     dest=OUT/path; dest.mkdir(parents=True,exist_ok=True); (dest/'index.html').write_text(page(h1,(f'Current {label} treatment options, clinical trials, advanced and experimental cancer treatments for {sname.lower()}s in {region_label}.' if lang=='en' else f'Current {label} cancer treatment trials for {sname.lower()}s in {region_label}.'),body,url,lang,alternates),encoding='utf-8')
      links.append(url)
      if lang=='en': index.append((h1,path))
- body='<h1>Veterinary Cancer Clinical Trials for Dogs and Cats</h1><p>Browse cancer and region combinations that currently have treatment opportunities in the live catalog.</p><ul>'+''.join(f'<li><a href="{SITE}/{p}">{esc(n)}</a></li>' for n,p in sorted(index))+'</ul>'
- (OUT/'index.html').write_text(page('Cancer Trial Finder For Dogs And Cats','Free current veterinary cancer treatment trial finder for dogs and cats.',body,SITE+'/'),encoding='utf-8')
+ body='<h1>Cancer Treatment Options and Clinical Trials for Dogs and Cats</h1><p>Find current canine and feline cancer treatment options, clinical trials, advanced treatments and experimental therapies by diagnosis and region.</p><ul>'+''.join(f'<li><a href="{SITE}/{p}">{esc(n)}</a></li>' for n,p in sorted(index))+'</ul>'
+ (OUT/'index.html').write_text(page('Cancer Treatment Options & Clinical Trials for Dogs and Cats','Free finder for current dog and cat cancer treatment options, clinical trials, advanced treatments and experimental therapies.',body,SITE+'/'),encoding='utf-8')
  links.insert(0,SITE+'/'); sm='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'<url><loc>{esc(u)}</loc></url>\n' for u in links)+'</urlset>\n'; (OUT/'sitemap.xml').write_text(sm,encoding='utf-8'); (OUT/'robots.txt').write_text(f'User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n',encoding='utf-8'); (OUT/'.nojekyll').write_text('')
  print(f'Generated {len(links)} indexable pages from {len(rows)} current treatment opportunities using {len(cancers)} canonical cancer types')
 if __name__=='__main__': main()
