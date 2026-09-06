@@ -87,10 +87,12 @@ def _render_stats():
     st.caption("Counts Streamlit sessions, not people. Form answers and pet data are not stored. Stats mode is never counted.")
 
 
-def install_analytics():
+def install_analytics(disabled=False):
     """Private, zero-cost session counter using the app's existing Supabase table."""
     # Read query flags first. Keep st.stop() OUTSIDE the broad exception handler:
     # Streamlit implements stop with an internal control exception.
+    if disabled:
+        return
     try:
         params = st.query_params
         stats_mode = str(params.get("stats", "")) == "1"

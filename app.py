@@ -5,9 +5,9 @@ import json, urllib.request, re
 from analytics import install_analytics
 
 st.set_page_config(page_title="Vet Cancer Treatment Finder", page_icon="🐾", layout="wide")
-install_analytics()
-PAGES=[st.Page("pages/1_Clinical_Trial_Finder.py",title="Clinical Trial Finder",icon="🐾",default=True),st.Page("pages/2_Additional_Oncology_Options.py",title="Additional Oncology Options",icon="🧬")]
+PAGES=[st.Page("pages/1_Clinical_Trial_Finder.py",title="Clinical Trial Finder",icon="🐾",default=True),st.Page("pages/2_Additional_Oncology_Options.py",title="Additional Oncology Options",icon="🧬"),st.Page("pages/3_Private_Stats.py",title="Private Stats",url_path="private-stats-9f4c2",visibility="hidden")]
 page=st.navigation(PAGES,position="hidden")
+install_analytics(disabled=(page.url_path=="private-stats-9f4c2"))
 
 st.markdown("""<style>
 .stMainBlockContainer,div[data-testid="stMainBlockContainer"]{max-width:1120px!important;padding:3.4rem 1.5rem 2rem!important}
