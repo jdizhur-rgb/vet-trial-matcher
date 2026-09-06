@@ -13,7 +13,12 @@ def _key():
 
 
 def _headers(extra=None):
-    h = {"apikey": _key(), "Content-Type": "application/json"}
+    key = _key()
+    h = {
+        "apikey": key,
+        "Authorization": f"Bearer {key}",
+        "Content-Type": "application/json",
+    }
     if extra:
         h.update(extra)
     return h
