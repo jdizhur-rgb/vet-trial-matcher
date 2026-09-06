@@ -28,7 +28,7 @@ CANCER_ALIASES = {
 
 LYMPHOMA_CANCERS = {'B-cell lymphoma', 'T-cell lymphoma', 'Lymphoma — other'}
 
-st.set_page_config(page_title='Vet Cancer Trial Finder — Beta', page_icon='🐾', layout='centered')
+st.set_page_config(page_title='Vet Cancer Treatment Finder', page_icon='🐾', layout='centered')
 
 
 def _render_result_save_controls(matches):
@@ -184,8 +184,8 @@ label, [data-testid="stWidgetLabel"] p {
 ''', unsafe_allow_html=True)
 
 st.title('🐾 Vet Cancer Trial Finder')
-st.markdown('**Beta prototype.** Answer what you know. It is completely fine to choose **I don’t know**.')
-st.info('This tool screens for clinical trials that may be worth contacting. It does not determine eligibility and does not replace your veterinarian or oncologist.')
+st.markdown('Answer what you know. It is completely fine to choose **I don’t know**.')
+st.info('This finder identifies potentially relevant cancer treatment options. It does not determine eligibility. Final eligibility and treatment decisions are determined by the treating or research team. It is not a substitute for veterinary advice.')
 
 with st.expander('Before you start', expanded=False):
     st.write('Helpful records, if you have them: pathology/cytology report, surgery report, recent imaging/staging, bloodwork, and names/dates of cancer treatments. You do not need all of these to search.')
