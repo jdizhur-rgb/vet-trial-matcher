@@ -1,13 +1,15 @@
 {
   "generated": "2026-09-06",
-  "effective_total_records": 274,
-  "current_treatment_opportunities": 193,
+  "effective_total_records": 282,
+  "current_treatment_opportunities": 201,
   "by_country": {
+    "Australia": 2,
     "Belgium": 3,
-    "Canada": 3,
+    "Canada": 4,
     "Denmark": 1,
     "France": 8,
     "Italy": 2,
+    "Japan": 5,
     "Netherlands": 2,
     "Portugal": 3,
     "Spain": 2,
@@ -16,9 +18,9 @@
     "USA": 148
   },
   "by_species": {
-    "Cat": 20,
-    "Dog": 167,
-    "Dog/Cat": 6
+    "Cat": 21,
+    "Dog": 173,
+    "Dog/Cat": 7
   },
   "source_class_sweep_added": [
     "ethos-epush-hsa-precision",
@@ -31,5 +33,37 @@
   "catalog_normalization": "Delete wins over upsert; stale patches for deleted IDs removed so app loader and audit counter use identical effective catalog semantics.",
   "stale_deleted_upserts_removed": [
     "se-slu-oxc101-precision-cancer"
-  ]
+  ],
+  "hole_audit_2026_09_06": {
+    "candidates": 11,
+    "accepted": 8,
+    "rejected_as_duplicate": 3,
+    "accepted_ids": [
+      "au-uq-enzistat-solid-tumors",
+      "au-uq-osa-vaccine",
+      "jp-utokyo-organoid-targeted-solid-tumors",
+      "jp-utokyo-feline-tcc-lapatinib",
+      "jp-utokyo-canine-bladder-ido1",
+      "jp-utokyo-polymer-anticancer-solid-tumors",
+      "jp-hokkaido-pdl1-canine-malignancies",
+      "ca-ovc-hsa-carboplatin"
+    ],
+    "rejected": [
+      [
+        "us-umn-feline-mammary-olaparib-meloxicam",
+        "semantic-duplicate",
+        "umn-feline-mammary-olaparib-meloxicam"
+      ],
+      [
+        "us-umn-trike-sarcoma-rt",
+        "semantic-duplicate",
+        "umn-sarcoma-trike-rt"
+      ],
+      [
+        "us-medvet-multicancer-vaccine",
+        "semantic-duplicate",
+        "medvet-egfr-her2-vaccine-osa-hsa-tcc"
+      ]
+    ]
+  }
 }
