@@ -1,0 +1,39 @@
+name: Remove blocking visit counter
+on:
+  push:
+    paths:
+      - '.github/workflows/remove-visit-counter-20260906.yml'
+permissions:
+  contents: write
+jobs:
+  remove:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove visit counter
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('app.py')
+          s = p.read_text()
+          s = s.replace('from visit_counter import record_visit\n', '')
+          old = 'PAGES=[st.Page("pages/1_Clinical_Trial_Finder.py",title="Clinical Trial Finder",icon="🐾",default=True),st.Page("pages/2_Additional_Oncology_Options.py",title="Additional Oncology Options",icon="🧬"),st.Page("pages/3_Private_Stats.py",title="Visit Stats",url_path="private-stats-9f4c2")]'
+          new = 'PAGES=[st.Page("pages/1_Clinical_Trial_Finder.py",title="Clinical Trial Finder",icon="🐾",default=True),st.Page("pages/2_Additional_Oncology_Options.py",title="Additional Oncology Options",icon="🧬")]'
+          s = s.replace(old, new)
+          s = s.replace('if getattr(page,"url_path","") != "private-stats-9f4c2": record_visit()\n', '')
+          p.write_text(s)
+          PY
+          rm -f visit_counter.py pages/3_Private_Stats.py
+          rm -f .github/workflows/remove-visit-counter-20260906.yml
+      - name: Verify
+        run: |
+          python -m py_compile app.py
+          ! grep -q 'visit_counter' app.py
+          ! grep -q 'private-stats-9f4c2' app.py
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Remove blocking visit counter'
+          git push
