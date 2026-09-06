@@ -20,6 +20,7 @@ st.markdown("<div style='height:1.45rem'></div>", unsafe_allow_html=True)
 st.markdown("<div style='font-size:1.55rem;line-height:1.08;font-weight:700;margin:.1rem 0 .15rem;color:#356fa8'>🧬 Other Options</div>", unsafe_allow_html=True)
 st.markdown("<div style='height:.65rem'></div>", unsafe_allow_html=True)
 st.write("A short list of non-routine treatment options with current access and enough evidence or clinical relevance to be worth discussing with a veterinary oncologist.")
+st.page_link("pages/3_ECT_Center_Finder.py", label="⚡ Find ECT Centers near you", use_container_width=True)
 with st.expander("How options qualify"):
     st.write("This section can include regulated, experimental, off-label, precision, or personalized anticancer treatments with a real current access pathway.")
 species=st.selectbox("1. Species",["Dog","Cat"])
