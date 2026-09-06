@@ -1,0 +1,21 @@
+name: Refine treatment option buttons
+on:
+  push:
+    paths:
+      - '.github/workflows/refine-treatment-options-buttons.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python scripts/refine_treatment_options_buttons_20260906.py
+      - run: python -m py_compile pages/2_Additional_Oncology_Options.py
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pages/2_Additional_Oncology_Options.py
+          if ! git diff --cached --quiet; then git commit -m "Use calm buttons and add verified compassionate access" && git push; fi
