@@ -41,10 +41,12 @@ st.write("Explore treatment access beyond standard clinical trials.")
 
 # Calm, card-like route buttons rather than questionnaire-style radio controls.
 st.markdown("""<style>
-div[data-testid="stHorizontalBlock"] div[data-testid="column"]:nth-child(1) div[data-testid="stButton"] button {background:#eaf4fb;border:1px solid #c7ddeb;color:#315f7d;border-radius:12px;min-height:3.25rem;font-weight:500;}
-div[data-testid="stHorizontalBlock"] div[data-testid="column"]:nth-child(2) div[data-testid="stButton"] button {background:#dcecf7;border:1px solid #b8d3e5;color:#285875;border-radius:12px;min-height:3.25rem;font-weight:500;}
-div[data-testid="stHorizontalBlock"] div[data-testid="column"]:nth-child(3) div[data-testid="stButton"] button {background:#cfe4f2;border:1px solid #a9cadf;color:#214f6d;border-radius:12px;min-height:3.25rem;font-weight:500;}
-div[data-testid="stHorizontalBlock"] div[data-testid="stButton"] button:hover {filter:brightness(.97);border-color:#8fb8d1;}
+/* Route buttons: target Streamlit key classes so mobile stacking keeps distinct shades. */
+.st-key-route_ect button {background-color:#e7f2fa !important;border-color:#bfd8e9 !important;color:#285b7a !important;}
+.st-key-route_advanced button {background-color:#d6e9f6 !important;border-color:#a9cce3 !important;color:#245674 !important;}
+.st-key-route_compassionate button {background-color:#c5dfef !important;border-color:#91bdd8 !important;color:#1f4f6c !important;}
+.st-key-route_ect button,.st-key-route_advanced button,.st-key-route_compassionate button {border-radius:12px !important;min-height:3.25rem !important;font-weight:500 !important;}
+.st-key-route_ect button:hover,.st-key-route_advanced button:hover,.st-key-route_compassionate button:hover {filter:brightness(.97);}
 </style>""",unsafe_allow_html=True)
 if "treatment_option_route" not in st.session_state: st.session_state.treatment_option_route="⚡ Electrochemotherapy (ECT)"
 c1,c2,c3=st.columns(3)
