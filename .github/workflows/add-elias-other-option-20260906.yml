@@ -1,0 +1,36 @@
+name: Add ELIAS ECI Other Option
+on:
+  push:
+    paths:
+      - '.github/workflows/add-elias-other-option-20260906.yml'
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add ELIAS ECI and validate
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('pages/2_Additional_Oncology_Options.py')
+          s=p.read_text()
+          option='''    {"id":"osa-elias-eci","species":"Dog","countries":["USA"],"cancers":["Osteosarcoma"],"situations":["After amputation / adjuvant treatment planning"],"name":"ELIAS Cancer Immunotherapy (ECI)","summary":"USDA-approved autologous vaccine-enhanced adoptive T-cell therapy for canine osteosarcoma after amputation.","access":"USA — veterinarian-directed ELIAS Cancer Immunotherapy (ECI), distributed under a USDA Autologous Prescription Product license. The treating veterinary team coordinates tumor collection, personalized vaccine preparation, vaccination and autologous T-cell infusion.","evidence":"USDA licensure is supported by canine safety and efficacy studies. ELIAS also reported an 18-month 2026 ASCENT analysis evaluating ECI after amputation with a single carboplatin dose; this newer combination analysis was presented at the 2026 VCS/VSSO conference and should be interpreted as conference-level evidence rather than a completed peer-reviewed randomized comparison.","evidence_level":"USDA-approved autologous prescription product + canine clinical evidence","sample":"Autologous tumor material is required to manufacture the personalized vaccine component; coordinate with an ECI-trained veterinary team before or at amputation so collection and shipping requirements are met.","travel":"Treatment can be coordinated through veterinary practices that offer ECI; availability is practice-dependent. Contact ELIAS or an oncology team before surgery to confirm logistics.","url":"https://www.aphis.usda.gov/sites/default/files/2025-04/691-95a750.pdf","provider_url":"https://eliasanimalhealth.com/","access_url":"https://eliasanimalhealth.com/","access_label":"ELIAS access information","contact_note":"Ask the veterinary oncologist whether ECI is appropriate before amputation/tumor disposal because autologous tumor material is part of manufacturing. ELIAS provides practice access information for veterinarians.","limitations":"This is a regulated personalized therapy, not evidence that ECI is superior to every contemporary osteosarcoma protocol. It requires amputation and usable autologous tumor material. The 2026 ASCENT combination findings are an interim/conference analysis and should not be overstated as definitive comparative evidence."},\n'''
+          if '"id":"osa-elias-eci"' not in s:
+              marker='OPTIONS = [\n'
+              assert marker in s
+              s=s.replace(marker, marker+option, 1)
+          s=s.replace('Last review: September 6, 2026.', 'Last review: September 6, 2026.')
+          p.write_text(s)
+          PY
+          python -m py_compile pages/2_Additional_Oncology_Options.py
+          grep -q 'osa-elias-eci' pages/2_Additional_Oncology_Options.py
+          grep -q 'bcell-lymphoma-aurelius-act' pages/2_Additional_Oncology_Options.py
+      - name: Commit option
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add pages/2_Additional_Oncology_Options.py
+          git diff --cached --quiet || git commit -m 'Add ELIAS ECI osteosarcoma therapy to Other Options'
+          git push
