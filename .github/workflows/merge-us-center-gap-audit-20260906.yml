@@ -1,0 +1,82 @@
+name: Merge US oncology center gap audit 2026-09-06
+
+on:
+  push:
+    paths:
+      - 'data/us_center_gap_audit_20260906.json'
+      - '.github/workflows/merge-us-center-gap-audit-20260906.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Semantic-dedup and merge verified treatment gaps
+        run: |
+          python - <<'PY'
+          import json,re
+          from pathlib import Path
+          from collections import Counter
+          base=json.loads(Path('data/trials_base.json').read_text())
+          p=Path('data/trial_updates.json'); upd=json.loads(p.read_text())
+          patch=json.loads(Path('data/us_center_gap_audit_20260906.json').read_text())
+          up=upd.setdefault('upsert',[])
+          def norm(x): return re.sub(r'[^a-z0-9]+',' ',str(x).lower()).strip()
+          def cancers(r): return tuple(sorted(norm(x) for x in (r.get('cancers') or [])))
+          def key(r):
+              return (norm(r.get('center','')), cancers(r), norm(r.get('intervention') or r.get('title','')))
+          eff={r['id']:r for r in base if r.get('id')}
+          pos={}
+          for i,r in enumerate(up):
+              if r.get('id'):
+                  eff[r['id']]={**eff.get(r['id'],{}),**r}; pos[r['id']]=i
+          existing_keys={key(r) for r in eff.values() if r.get('title')}
+          added=[]; updated=[]; skipped=[]
+          for r in patch['upsert']:
+              rid=r['id']
+              if rid in eff:
+                  merged={**eff[rid],**r}
+                  if merged!=eff[rid]:
+                      if rid in pos: up[pos[rid]]={**up[pos[rid]],**r}
+                      else: up.append(r); pos[rid]=len(up)-1
+                      eff[rid]=merged; updated.append(rid)
+                  continue
+              # exact semantic key is a guard; manual audit file already reviewed aliases by center+disease+intervention
+              if key(r) in existing_keys:
+                  skipped.append(rid); continue
+              up.append(r); pos[rid]=len(up)-1; eff[rid]=r; existing_keys.add(key(r)); added.append(rid)
+          p.write_text(json.dumps(upd,indent=2,ensure_ascii=False)+'\n')
+          matching=[r for r in eff.values() if r.get('available_for_matching') is True and r.get('study_type')=='treatment']
+          def scalar(v):
+              if isinstance(v,list): return '/'.join(map(str,v))
+              return v or 'Unknown'
+          stats={
+            'generated':'2026-09-06','effective_total_records':len(eff),
+            'current_treatment_opportunities':len(matching),
+            'by_country':dict(sorted(Counter(scalar(r.get('country')) for r in matching).items())),
+            'by_species':dict(sorted(Counter(scalar(r.get('species')) for r in matching).items())),
+            'us_center_gap_audit_added':added,'us_center_gap_audit_updated':updated,'us_center_gap_audit_semantic_skips':skipped,
+            'audit_note':'Major-US-center treatment-only gap pass with manual semantic dedup by center, disease, intervention and protocol/source. Existing CARE/LSU/CSU/VT/Illinois/OSU/Minnesota/Tufts canonical records were not re-added; closed, on-hold, observational, diagnostic and supportive-care studies excluded.'
+          }
+          Path('data/catalog_stats.json').write_text(json.dumps(stats,indent=2,ensure_ascii=False)+'\n')
+          print(json.dumps(stats,indent=2,ensure_ascii=False))
+          PY
+      - name: Validate JSON
+        run: |
+          python -m json.tool data/trial_updates.json >/dev/null
+          python -m json.tool data/catalog_stats.json >/dev/null
+      - name: Commit merged catalog
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add data/trial_updates.json data/catalog_stats.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'Merge verified US oncology center treatment gaps'
+          git push
