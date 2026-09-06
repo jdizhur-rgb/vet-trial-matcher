@@ -1,12 +1,12 @@
 {
   "generated": "2026-09-06",
-  "effective_total_records": 265,
-  "current_treatment_opportunities": 184,
+  "effective_total_records": 301,
+  "current_treatment_opportunities": 220,
   "by_country": {
     "Belgium": 3,
     "Canada": 3,
     "Denmark": 1,
-    "France": 8,
+    "France": 9,
     "Italy": 2,
     "Netherlands": 2,
     "Portugal": 3,
@@ -14,121 +14,23 @@
     "Sweden": 1,
     "Switzerland": 14,
     "UK": 7,
-    "USA": 138
+    "USA": 173
   },
   "by_species": {
-    "Cat": 20,
-    "Dog": 158,
+    "Cat": 21,
+    "Dog": 193,
     "Dog/Cat": 6
   },
-  "dedupe_note": "Conservative semantic dedupe completed. Distinct protocols sharing institutional listing URLs were restored; only explicitly reviewed same-protocol legacy IDs were collapsed.",
-  "duplicate_groups_collapsed": {
-    "fr-fregis-chemodectoma-thermoablation": [
-      "eu-fr-chemodectoma-thermoablation"
-    ],
-    "uf-osa-mrna": [
-      "uf-osa-vaccine"
-    ],
-    "osu-sts-mic-nk": [
-      "osu-sts-nk"
-    ],
-    "umn-canine-oral-melanoma-aav-vaccine": [
-      "umn-melanoma-aav",
-      "umn-oral-melanoma-aav-vaccine"
-    ],
-    "umn-feline-mammary-olaparib-meloxicam": [
-      "umn-feline-mammary"
-    ],
-    "illinois-oral-melanoma-il12-il15": [
-      "ill-melanoma"
-    ],
-    "illinois-osa-pulm-met-treatment": [
-      "ill-osa-pulm"
-    ],
-    "illinois-osa-radiation": [
-      "ill-osa-rt"
-    ],
-    "illinois-sts-treatment": [
-      "ill-sts"
-    ],
-    "illinois-sts-surgery": [
-      "ill-sts-surg"
-    ],
-    "illinois-ucc-gilvetmab-epacadostat": [
-      "ill-uc"
-    ],
-    "penn-flash-rt-extremity-sts": [
-      "penn-flash-sts",
-      "upenn-extremity-sarcoma-proton-flash"
-    ],
-    "penn-psma-theranostic-prostate": [
-      "penn-prostate",
-      "upenn-prostate-psma-theranostic"
-    ],
-    "upenn-osa-car-inkt-met": [
-      "penn-osa-car-inkt-met"
-    ],
-    "csu-ucc-lapatinib-rt": [
-      "csu-tcc-lapatinib-rt"
-    ],
-    "csu-cotc033-vaccine-immunity": [
-      "csu-cotc033-vaccine"
-    ],
-    "csu-osa-3d-limb-spare": [
-      "csu-osa-implant"
-    ],
-    "ncsu-canine-ucc-il12": [
-      "ncsu-bladder-immunotherapy"
-    ],
-    "ncsu-canine-osa-rt-surgery": [
-      "ncsu-osa-rt-compare"
-    ],
-    "ncsu-canine-sts-xcsgel": [
-      "ncsu-sts-xcsgel"
-    ],
-    "umn-sarcoma-trike-rt": [
-      "umn-trike-sarcoma"
-    ],
-    "tufts-sts-fap-car-t": [
-      "tufts-sts-fap-cart"
-    ],
-    "tufts-z007-broad-solid-2026": [
-      "tufts-z007-solid-tumors"
-    ],
-    "tufts-met-osa-vaccine-tme": [
-      "tufts-osa-met-vax"
-    ],
-    "lsu-scc-intratumoral-chemo": [
-      "lsu-scc-intratumoral"
-    ],
-    "utsw-vroc-glioma-car-neutrophils-rt": [
-      "vroc-car-neutrophil-glioma",
-      "utsw-glioma-car-neutrophil-rt"
-    ],
-    "utsw-vroc-glioma-ferumoxytol-rt": [
-      "vroc-ferumoxytol-glioma",
-      "utsw-glioma-ferumoxytol-rt"
-    ],
-    "utsw-solid-cpmv": [
-      "vroc-cpmv-solid"
-    ],
-    "utsw-vroc-melanoma-crtnp-hifu-pdl1": [
-      "vroc-melanoma-crtnp",
-      "utsw-melanoma-crtnp-hifu-pdl1"
-    ],
-    "utsw-vroc-melanoma-carboplatin-hifu": [
-      "vroc-melanoma-carboplatin-hifu",
-      "utsw-melanoma-carboplatin-hifu"
-    ],
-    "utsw-advanced-tumor-compassionate": [
-      "vroc-compassionate-advanced"
-    ],
-    "vt-thyroid-histotripsy": [
-      "vtech-thyroid-histotripsy"
-    ],
-    "ucd-care-canine-glioma": [
-      "ucd-care-glioma-autophagy-rt",
-      "ucd-glioma-care"
-    ]
-  }
+  "us_center_gap_audit_added": [
+    "jhu-canine-osa-cryo-immunotherapy",
+    "jhu-canine-brain-rt-tmz",
+    "jhu-kubanda-canine-mammary-cryo",
+    "jhu-vctn-if7-sn38-metastatic",
+    "jhu-vctn-if7-sn38-brain",
+    "illinois-oligomet-rt-gilvetmab",
+    "wsu-sts-tce-hydrogel"
+  ],
+  "us_center_gap_audit_updated": [],
+  "us_center_gap_audit_semantic_skips": [],
+  "audit_note": "Major-US-center treatment-only gap pass with manual semantic dedup by center, disease, intervention and protocol/source. Existing CARE/LSU/CSU/VT/Illinois/OSU/Minnesota/Tufts canonical records were not re-added; closed, on-hold, observational, diagnostic and supportive-care studies excluded."
 }
