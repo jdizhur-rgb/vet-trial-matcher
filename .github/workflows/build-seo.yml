@@ -55,12 +55,15 @@ jobs:
               assert page.exists()
               html=page.read_text()
               assert '100% FREE' in html
-              assert 'No hidden trial results. No paid report.' in html
+              assert 'No registration. No hidden results. No paid report.' in html
               assert 'background:#287fb8' in html
               assert 'Check your pet against these trials' in html
               assert 'font-size:2rem' in html
               if rel:
                   assert '← Cancer Trial Finder home' in html
+                  assert '<section class="cancer-info">' in html
+                  assert '<h2>About ' in html
+                  assert '<h2>Treatment &amp; research</h2>' in html
               if '<article>' in html:
                   assert html.index('Check your pet against these trials') < html.index('<article>')
           print(f'GENERATED_ALL_PAGES_CURRENT pages={len(locs)}')
@@ -108,11 +111,15 @@ jobs:
                       sep='&' if '?' in url else '?'
                       html=get(f'{url}{sep}deploy={sha}&attempt={attempt}')
                       assert '100% FREE' in html
-                      assert 'No hidden trial results. No paid report.' in html
+                      assert 'No registration. No hidden results. No paid report.' in html
                       assert 'background:#287fb8' in html
                       assert 'Check your pet against these trials' in html
                       assert 'font-size:2rem' in html
-                      if url != base: assert '← Cancer Trial Finder home' in html
+                      if url != base:
+                          assert '← Cancer Trial Finder home' in html
+                          assert '<section class="cancer-info">' in html
+                          assert '<h2>About ' in html
+                          assert '<h2>Treatment &amp; research</h2>' in html
                       if '<article>' in html: assert html.index('Check your pet against these trials') < html.index('<article>')
                   except Exception as e:
                       still.append(url); last_errors[url]=str(e)
