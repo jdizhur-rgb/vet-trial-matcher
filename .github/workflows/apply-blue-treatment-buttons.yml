@@ -1,0 +1,19 @@
+name: Apply blue treatment button shades
+on:
+  push:
+    paths: ['.github/workflows/apply-blue-treatment-buttons.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python scripts/blue_treatment_buttons_20260906.py
+      - run: python -m py_compile pages/2_Additional_Oncology_Options.py
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pages/2_Additional_Oncology_Options.py
+          git commit -m "Use three calm blue shades for treatment routes" && git push || true
