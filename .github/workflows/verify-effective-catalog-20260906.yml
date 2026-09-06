@@ -1,0 +1,43 @@
+name: Verify effective catalog 2026-09-06
+on:
+  push:
+    paths:
+      - '.github/workflows/verify-effective-catalog-20260906.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independently verify effective catalog and stats
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from collections import Counter
+          base=json.loads(Path('data/trials_base.json').read_text())
+          upd=json.loads(Path('data/trial_updates.json').read_text())
+          stats=json.loads(Path('data/catalog_stats.json').read_text())
+          deleted=set(upd.get('delete',[]))
+          by={r['id']:dict(r) for r in base if r.get('id') not in deleted}
+          for p in upd.get('upsert',[]):
+              if p.get('id') in deleted:
+                  raise SystemExit(f'ERROR: deleted id also appears in upsert: {p.get("id")}')
+              by[p['id']]={**by.get(p['id'],{}),**p}
+          matching=[r for r in by.values() if r.get('study_type')=='treatment' and r.get('available_for_matching') is True]
+          print('base_records=',len(base))
+          print('delete_ids=',len(deleted))
+          print('upserts=',len(upd.get('upsert',[])))
+          print('effective_total=',len(by))
+          print('current_treatment=',len(matching))
+          assert len(by)==stats['effective_total_records'], (len(by),stats['effective_total_records'])
+          assert len(matching)==stats['current_treatment_opportunities'], (len(matching),stats['current_treatment_opportunities'])
+          ids=[r['id'] for r in matching]
+          assert len(ids)==len(set(ids))
+          print('VERIFIED_STATS_MATCH_EFFECTIVE_CATALOG')
+          PY
