@@ -35,6 +35,12 @@ jobs:
               return re.sub(r'[^a-z0-9]+', ' ', str(s).lower()).strip()
           def sig(r):
               return (norm(r.get('title','')), norm(r.get('center','')))
+          def scalar(v, default='Unknown'):
+              if isinstance(v, list):
+                  return '/'.join(str(x) for x in v) if v else default
+              if isinstance(v, dict):
+                  return json.dumps(v, sort_keys=True, ensure_ascii=False)
+              return v if v not in (None, '') else default
 
           effective = {r.get('id'): r for r in base if r.get('id')}
           for r in upserts:
@@ -69,8 +75,8 @@ jobs:
           wp.write_text(json.dumps(wd, indent=2, ensure_ascii=False) + '\n')
 
           matching=[r for r in effective.values() if r.get('available_for_matching') is True and r.get('study_type') == 'treatment']
-          countries=Counter(r.get('country','Unknown') for r in matching)
-          species=Counter(r.get('species','Unknown') for r in matching)
+          countries=Counter(scalar(r.get('country')) for r in matching)
+          species=Counter(scalar(r.get('species')) for r in matching)
           stats={
               'generated':'2026-09-06',
               'effective_total_records':len(effective),
