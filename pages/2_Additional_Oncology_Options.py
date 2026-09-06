@@ -35,49 +35,56 @@ def zip_coords(z):
     return None
 
 st.markdown("<div style='height:1.45rem'></div>", unsafe_allow_html=True)
-st.markdown("<div style='font-size:1.55rem;line-height:1.08;font-weight:700;margin:.1rem 0 .15rem;color:#356fa8'>🧬 Other Options</div>", unsafe_allow_html=True)
+st.markdown("<div style='font-size:1.55rem;line-height:1.08;font-weight:700;margin:.1rem 0 .15rem;color:#356fa8'>💊 More Treatment Options</div>", unsafe_allow_html=True)
 st.markdown("<div style='height:.65rem'></div>", unsafe_allow_html=True)
-st.write("A short list of non-routine treatment options with current access and enough evidence or clinical relevance to be worth discussing with a veterinary oncologist.")
+st.write("Explore treatment access beyond standard clinical trials.")
 
-with st.expander("⚡ Find ECT Centers near you"):
-    st.write("Find veterinary centers offering electrochemotherapy (ECT) in the USA and Canada.")
-    zip_code=st.text_input("ZIP / postal code",placeholder="e.g. 01095 or M5V 3L9",key="ect_zip")
-    if st.button("Find nearest ECT centers",use_container_width=True,key="ect_find"):
-        loc=zip_coords(zip_code.strip().replace(" ",""))
-        if not loc:st.error("ZIP / postal code not found. Try a valid US ZIP or Canadian postal code.")
-        else:
-            centers=json.loads((Path(__file__).resolve().parents[1]/"data"/"ect_centers_usa_canada.json").read_text())["centers"]
-            coords={("Toronto","ON"):(43.6532,-79.3832),("Brossard","QC"):(45.4501,-73.4658),("Auburn","AL"):(32.6099,-85.4808),("Laguna Hills","CA"):(33.6125,-117.7128),("Los Angeles","CA"):(34.0522,-118.2437),("San Francisco","CA"):(37.7749,-122.4194),("Boulder","CO"):(40.015,-105.2705),("Colorado Springs","CO"):(38.8339,-104.8214),("Lafayette","CO"):(39.9936,-105.0897),("Lakewood","CO"):(39.7047,-105.0814),("Boca Raton","FL"):(26.3683,-80.1289),("Coral Springs","FL"):(26.2712,-80.2706),("Gainesville","FL"):(29.6516,-82.3248),("Melbourne","FL"):(28.0836,-80.6081),("Marietta","GA"):(33.9526,-84.5499),("Savannah","GA"):(32.0809,-81.0912),("Buzzards Bay","MA"):(41.7454,-70.6181),("South Weymouth","MA"):(42.1751,-70.9495),("Walpole","MA"):(42.1418,-71.2495),("Rockville","MD"):(39.084,-77.1528),("Auburn Hills","MI"):(42.6875,-83.2455),("Bloomfield Hills","MI"):(42.5836,-83.2455),("Arden Hills","MN"):(45.0502,-93.1566),("Oakdale","MN"):(44.963,-92.9649),("Raleigh","NC"):(35.7796,-78.6382),("Stratham","NH"):(43.0231,-70.9137),("Eatontown","NJ"):(40.2962,-74.0509),("Woodbridge","NJ"):(40.5576,-74.2846),("Santa Fe","NM"):(35.687,-105.9378),("New York","NY"):(40.7128,-74.006),("Bend","OR"):(44.0582,-121.3153),("Milwaukie","OR"):(45.4462,-122.6393),("Tacoma","WA"):(47.2529,-122.4443),("Waukesha","WI"):(43.0117,-88.2315)}
-            lat,lon,place,region=loc;ranked=[]
-            for x in centers:
-                c=coords.get((x["city"],x["region"]))
-                if c:ranked.append((miles(lat,lon,*c),x))
-            ranked.sort(key=lambda v:v[0]);st.success(f"Nearest listed ECT centers to {place}{', '+region if region else ''}")
-            for dist,x in ranked[:8]:
-                with st.container(border=True):
-                    st.subheader(x["center"]);st.write(f"{x['city']}, {x['region']} · approximately {dist:.0f} miles away");st.markdown(f"☎️ [{x['phone']}](tel:{x['phone'].replace('-', '')})");st.link_button("Center website",x["website"],use_container_width=True)
-            st.caption("Distances are straight-line estimates, not driving distances. Confirm that ECT is currently available before travel.")
+route=st.radio("Choose an option",["⚡ Electrochemotherapy (ECT)","🧬 Advanced / Novel Treatments","🧪 Compassionate / Expanded Access"],horizontal=True,label_visibility="collapsed",key="treatment_option_route")
 
-with st.expander("How options qualify"):
-    st.write("This section can include regulated, experimental, off-label, precision, or personalized anticancer treatments with a real current access pathway.")
-species=st.selectbox("1. Species",["Dog","Cat"])
-country=st.selectbox("2. Country / region",["USA","Canada","Europe"])
-country_options=[x for x in OPTIONS if x["species"]==species and country in x.get("countries",[])]
-available_cancers=sorted({c for x in country_options for c in x["cancers"]})
-cancer=st.selectbox("3. Cancer type",["Select cancer type"]+available_cancers)
-if cancer!="Select cancer type":
-    cancer_matches=[x for x in country_options if cancer in x["cancers"]]
-    situations=sorted({s for x in cancer_matches for s in x["situations"]})
-    situation=st.selectbox("4. Clinical situation",["Show all relevant situations"]+situations)
-    matches=cancer_matches if situation=="Show all relevant situations" else [x for x in cancer_matches if situation in x["situations"]]
-    st.success(f"{len(matches)} additional option{'s' if len(matches)!=1 else ''} found to discuss with a veterinary oncologist.")
-    for x in matches:
-        with st.container(border=True):
-            st.subheader(x["name"]); st.write(x["summary"])
-            contacts=contact_line(x,country)
-            if contacts: st.markdown(contacts)
-            with st.expander("Evidence"):
-                st.markdown(f"**Evidence level:** {x['evidence_level']}"); st.write(x["evidence"]); st.link_button("Clinical evidence",x["url"],use_container_width=True)
-            with st.expander("Access & sample"):
-                st.markdown(f"**Current access:** {x['access']}"); st.markdown(f"**Sample:** {x['sample']}"); st.markdown(f"**Travel:** {x['travel']}")
-            with st.expander("Limitations"): st.write(x["limitations"])
+if route=="⚡ Electrochemotherapy (ECT)":
+ with st.expander("⚡ Find ECT Centers near you",expanded=True):
+     st.write("Find veterinary centers offering electrochemotherapy (ECT) in the USA and Canada.")
+     zip_code=st.text_input("ZIP / postal code",placeholder="e.g. 01095 or M5V 3L9",key="ect_zip")
+     if st.button("Find nearest ECT centers",use_container_width=True,key="ect_find"):
+         loc=zip_coords(zip_code.strip().replace(" ",""))
+         if not loc:st.error("ZIP / postal code not found. Try a valid US ZIP or Canadian postal code.")
+         else:
+             centers=json.loads((Path(__file__).resolve().parents[1]/"data"/"ect_centers_usa_canada.json").read_text())["centers"]
+             coords={("Toronto","ON"):(43.6532,-79.3832),("Brossard","QC"):(45.4501,-73.4658),("Auburn","AL"):(32.6099,-85.4808),("Laguna Hills","CA"):(33.6125,-117.7128),("Los Angeles","CA"):(34.0522,-118.2437),("San Francisco","CA"):(37.7749,-122.4194),("Boulder","CO"):(40.015,-105.2705),("Colorado Springs","CO"):(38.8339,-104.8214),("Lafayette","CO"):(39.9936,-105.0897),("Lakewood","CO"):(39.7047,-105.0814),("Boca Raton","FL"):(26.3683,-80.1289),("Coral Springs","FL"):(26.2712,-80.2706),("Gainesville","FL"):(29.6516,-82.3248),("Melbourne","FL"):(28.0836,-80.6081),("Marietta","GA"):(33.9526,-84.5499),("Savannah","GA"):(32.0809,-81.0912),("Buzzards Bay","MA"):(41.7454,-70.6181),("South Weymouth","MA"):(42.1751,-70.9495),("Walpole","MA"):(42.1418,-71.2495),("Rockville","MD"):(39.084,-77.1528),("Auburn Hills","MI"):(42.6875,-83.2455),("Bloomfield Hills","MI"):(42.5836,-83.2455),("Arden Hills","MN"):(45.0502,-93.1566),("Oakdale","MN"):(44.963,-92.9649),("Raleigh","NC"):(35.7796,-78.6382),("Stratham","NH"):(43.0231,-70.9137),("Eatontown","NJ"):(40.2962,-74.0509),("Woodbridge","NJ"):(40.5576,-74.2846),("Santa Fe","NM"):(35.687,-105.9378),("New York","NY"):(40.7128,-74.006),("Bend","OR"):(44.0582,-121.3153),("Milwaukie","OR"):(45.4462,-122.6393),("Tacoma","WA"):(47.2529,-122.4443),("Waukesha","WI"):(43.0117,-88.2315)}
+             lat,lon,place,region=loc;ranked=[]
+             for x in centers:
+                 c=coords.get((x["city"],x["region"]))
+                 if c:ranked.append((miles(lat,lon,*c),x))
+             ranked.sort(key=lambda v:v[0]);st.success(f"Nearest listed ECT centers to {place}{', '+region if region else ''}")
+             for dist,x in ranked[:8]:
+                 with st.container(border=True):
+                     st.subheader(x["center"]);st.write(f"{x['city']}, {x['region']} · approximately {dist:.0f} miles away");st.markdown(f"☎️ [{x['phone']}](tel:{x['phone'].replace('-', '')})");st.link_button("Center website",x["website"],use_container_width=True)
+             st.caption("Distances are straight-line estimates, not driving distances. Confirm that ECT is currently available before travel.")
+elif route=="🧪 Compassionate / Expanded Access":
+ st.subheader("Compassionate / Expanded Access")
+ st.write("Investigational anticancer treatments that may be available outside a conventional recruiting clinical trial. Availability is verified program by program; contact and eligibility details are shown only when there is a real current access pathway.")
+ st.info("Verified compassionate and special-access programs are being added here separately from clinical trials so they are not confused with ordinary trial enrollment.")
+else:
+ with st.expander("How options qualify"):
+     st.write("This section can include regulated, experimental, off-label, precision, or personalized anticancer treatments with a real current access pathway.")
+ species=st.selectbox("1. Species",["Dog","Cat"])
+ country=st.selectbox("2. Country / region",["USA","Canada","Europe"])
+ country_options=[x for x in OPTIONS if x["species"]==species and country in x.get("countries",[])]
+ available_cancers=sorted({c for x in country_options for c in x["cancers"]})
+ cancer=st.selectbox("3. Cancer type",["Select cancer type"]+available_cancers)
+ if cancer!="Select cancer type":
+     cancer_matches=[x for x in country_options if cancer in x["cancers"]]
+     situations=sorted({s for x in cancer_matches for s in x["situations"]})
+     situation=st.selectbox("4. Clinical situation",["Show all relevant situations"]+situations)
+     matches=cancer_matches if situation=="Show all relevant situations" else [x for x in cancer_matches if situation in x["situations"]]
+     st.success(f"{len(matches)} additional option{'s' if len(matches)!=1 else ''} found to discuss with a veterinary oncologist.")
+     for x in matches:
+         with st.container(border=True):
+             st.subheader(x["name"]); st.write(x["summary"])
+             contacts=contact_line(x,country)
+             if contacts: st.markdown(contacts)
+             with st.expander("Evidence"):
+                 st.markdown(f"**Evidence level:** {x['evidence_level']}"); st.write(x["evidence"]); st.link_button("Clinical evidence",x["url"],use_container_width=True)
+             with st.expander("Access & sample"):
+                 st.markdown(f"**Current access:** {x['access']}"); st.markdown(f"**Sample:** {x['sample']}"); st.markdown(f"**Travel:** {x['travel']}")
+             with st.expander("Limitations"): st.write(x["limitations"])
