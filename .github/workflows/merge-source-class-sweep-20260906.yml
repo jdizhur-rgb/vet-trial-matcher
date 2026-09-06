@@ -1,0 +1,101 @@
+name: Merge source-class oncology sweep 2026-09-06
+
+on:
+  push:
+    paths:
+      - 'data/source_class_sweep_20260906.json'
+      - '.github/workflows/merge-source-class-sweep-20260906.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Merge with semantic guard and recalc stats
+        run: |
+          python - <<'PY'
+          import json, re
+          from pathlib import Path
+          from collections import Counter
+
+          base=json.loads(Path('data/trials_base.json').read_text())
+          upath=Path('data/trial_updates.json')
+          upd=json.loads(upath.read_text())
+          patch=json.loads(Path('data/source_class_sweep_20260906.json').read_text())
+          upserts=upd.setdefault('upsert',[])
+          deletes=set(upd.get('delete', upd.get('delete_ids', [])))
+
+          effective={r['id']:r for r in base if r.get('id') and r.get('id') not in deletes}
+          pos={}
+          for i,r in enumerate(upserts):
+              if r.get('id') and r['id'] not in deletes:
+                  effective[r['id']]={**effective.get(r['id'],{}),**r}
+                  pos[r['id']]=i
+
+          def n(x): return re.sub(r'[^a-z0-9]+',' ',str(x).lower()).strip()
+          def toks(x): return set(n(x).split())
+          def cancers(r): return toks(' '.join(r.get('cancers',[]) if isinstance(r.get('cancers'),list) else [str(r.get('cancers',''))]))
+          def intervention(r): return toks(' '.join([r.get('title',''),r.get('notes','')]))
+          def semantic_same(a,b):
+              if n(a.get('center','')) != n(b.get('center','')): return False
+              ca,cb=cancers(a),cancers(b)
+              if not ca or not cb or len(ca&cb)/max(1,min(len(ca),len(cb))) < .5: return False
+              ia,ib=intervention(a),intervention(b)
+              key={'radiation','vaccine','virus','oncolytic','checkpoint','gene','cryo','chemotherapy','immunotherapy','histotripsy','hifu','car','hydrogel','surgery','il','12'}
+              aa,bb=ia&key,ib&key
+              return bool(aa and bb and aa==bb)
+
+          added=[]; updated=[]; skips=[]
+          for r in patch['upsert']:
+              rid=r['id']
+              if rid in effective:
+                  merged={**effective[rid],**r}
+                  if merged!=effective[rid]:
+                      if rid in pos: upserts[pos[rid]]={**upserts[pos[rid]],**r}
+                      else: upserts.append(r); pos[rid]=len(upserts)-1
+                      effective[rid]=merged; updated.append(rid)
+                  continue
+              dup=next((eid for eid,e in effective.items() if semantic_same(r,e)),None)
+              if dup:
+                  skips.append({'candidate':rid,'existing':dup})
+                  continue
+              upserts.append(r); pos[rid]=len(upserts)-1; effective[rid]=r; added.append(rid)
+
+          upath.write_text(json.dumps(upd,indent=2,ensure_ascii=False)+'\n')
+          matching=[r for r in effective.values() if r.get('study_type')=='treatment' and r.get('available_for_matching') is True]
+          def scalar(v):
+              if isinstance(v,list): return '/'.join(map(str,v))
+              return str(v or 'Unknown')
+          stats={
+            'generated':'2026-09-06',
+            'effective_total_records':len(effective),
+            'current_treatment_opportunities':len(matching),
+            'by_country':dict(sorted(Counter(scalar(r.get('country')) for r in matching).items())),
+            'by_species':dict(sorted(Counter(scalar(r.get('species')) for r in matching).items())),
+            'source_class_sweep_added':added,
+            'source_class_sweep_updated':updated,
+            'source_class_semantic_skips':skips,
+            'audit_note':'Source-class v2 pass: university catalogs + private specialty/referral networks + CRO/multicenter leads + human/comparative oncology/NCI/PRECINCT + news/recruitment wording + feline-only + modality + compassionate-use discovery. Treatment-only inclusion and semantic protocol dedup applied before insertion.'
+          }
+          Path('data/catalog_stats.json').write_text(json.dumps(stats,indent=2,ensure_ascii=False)+'\n')
+          print(json.dumps(stats,indent=2,ensure_ascii=False))
+          PY
+      - name: Validate
+        run: |
+          python -m json.tool data/trial_updates.json >/dev/null
+          python -m json.tool data/catalog_stats.json >/dev/null
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add data/trial_updates.json data/catalog_stats.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'Merge source-class oncology sweep'
+          git push
