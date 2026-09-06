@@ -39,7 +39,20 @@ st.markdown("<div style='font-size:1.55rem;line-height:1.08;font-weight:700;marg
 st.markdown("<div style='height:.65rem'></div>", unsafe_allow_html=True)
 st.write("Explore treatment access beyond standard clinical trials.")
 
-route=st.radio("Choose an option",["⚡ Electrochemotherapy (ECT)","🧬 Advanced / Novel Treatments","🧪 Compassionate / Expanded Access"],horizontal=True,label_visibility="collapsed",key="treatment_option_route")
+# Calm, card-like route buttons rather than questionnaire-style radio controls.
+st.markdown("""<style>
+div[data-testid="stHorizontalBlock"] div[data-testid="stButton"] button {background:#f2f6f8;border:1px solid #d7e0e6;color:#334155;border-radius:12px;min-height:3.25rem;font-weight:500;}
+div[data-testid="stHorizontalBlock"] div[data-testid="stButton"] button:hover {border-color:#9fb6c5;background:#eaf1f5;color:#243746;}
+</style>""",unsafe_allow_html=True)
+if "treatment_option_route" not in st.session_state: st.session_state.treatment_option_route="⚡ Electrochemotherapy (ECT)"
+c1,c2,c3=st.columns(3)
+with c1:
+ if st.button("⚡ Electrochemotherapy (ECT)",use_container_width=True,key="route_ect"): st.session_state.treatment_option_route="⚡ Electrochemotherapy (ECT)"
+with c2:
+ if st.button("🧬 Advanced / Novel Treatments",use_container_width=True,key="route_advanced"): st.session_state.treatment_option_route="🧬 Advanced / Novel Treatments"
+with c3:
+ if st.button("🧪 Compassionate / Expanded Access",use_container_width=True,key="route_compassionate"): st.session_state.treatment_option_route="🧪 Compassionate / Expanded Access"
+route=st.session_state.treatment_option_route
 
 if route=="⚡ Electrochemotherapy (ECT)":
  with st.expander("⚡ Find ECT Centers near you",expanded=True):
@@ -62,8 +75,15 @@ if route=="⚡ Electrochemotherapy (ECT)":
              st.caption("Distances are straight-line estimates, not driving distances. Confirm that ECT is currently available before travel.")
 elif route=="🧪 Compassionate / Expanded Access":
  st.subheader("Compassionate / Expanded Access")
- st.write("Investigational anticancer treatments that may be available outside a conventional recruiting clinical trial. Availability is verified program by program; contact and eligibility details are shown only when there is a real current access pathway.")
- st.info("Verified compassionate and special-access programs are being added here separately from clinical trials so they are not confused with ordinary trial enrollment.")
+ st.write("Investigational anticancer treatment access outside ordinary trial enrollment. We list a program only when a current owner contact pathway can be verified.")
+ with st.container(border=True):
+     st.markdown("### UT Southwestern VROC — Compassionate-Use Protocol")
+     st.write("**Dogs and cats · advanced non-resectable tumors · Dallas, Texas**")
+     st.write("A current prospective, non-randomized compassionate-use protocol for pets with advanced non-resectable tumors. Treatment may use investigational therapy, chemotherapy, immunotherapy, and combination approaches selected through the VROC protocol.")
+     st.write("**Access:** contact VROC for case review and eligibility. Enrollment is required for patients treated by the clinic; exact treatment, visits, risks and costs depend on the protocol and individual case.")
+     st.markdown("✉️ [VROC@UTSouthwestern.edu](mailto:VROC@UTSouthwestern.edu)    ☎️ [214-645-6221](tel:2146456221)")
+     st.link_button("Official VROC compassionate-use listing","https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-trials.html",use_container_width=True)
+ st.caption("Compassionate / expanded access does not mean a treatment is proven or guaranteed to be available for an individual pet. Eligibility is determined by the treating program.")
 else:
  with st.expander("How options qualify"):
      st.write("This section can include regulated, experimental, off-label, precision, or personalized anticancer treatments with a real current access pathway.")
