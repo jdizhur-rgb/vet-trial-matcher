@@ -1,0 +1,39 @@
+name: Install analytics hook
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/install-analytics-20260906.yml'
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Patch app.py
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('app.py')
+          s=p.read_text(encoding='utf-8')
+          if 'from analytics import install_analytics' not in s:
+              s=s.replace('import json, urllib.request, re\n', 'import json, urllib.request, re\nfrom analytics import install_analytics\n')
+          marker='st.set_page_config(page_title="Vet Cancer Treatment Finder", page_icon="🐾", layout="wide")\n'
+          if 'install_analytics()' not in s:
+              s=s.replace(marker, marker+'install_analytics()\n')
+          p.write_text(s,encoding='utf-8')
+          PY
+      - name: Validate
+        run: python -m py_compile app.py analytics.py
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add app.py analytics.py
+          git diff --cached --quiet && exit 0
+          git commit -m "Install privacy-conscious analytics hook"
+          git push
