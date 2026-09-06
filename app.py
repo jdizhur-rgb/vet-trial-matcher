@@ -1,7 +1,126 @@
 import streamlit as st
+import streamlit.components.v1 as components
+from contextlib import contextmanager
+import json, urllib.request, re
+from visit_counter import record_visit
 
-st.set_page_config(page_title="Widget test", page_icon="🐾")
-st.title("Widget test")
-st.write("Text renders.")
-st.selectbox("Species", ["Dog", "Cat"])
-st.write("Selectbox rendered.")
+st.set_page_config(page_title="Vet Cancer Treatment Finder", page_icon="🐾", layout="wide")
+PAGES=[st.Page("pages/1_Clinical_Trial_Finder.py",title="Clinical Trial Finder",icon="🐾",default=True),st.Page("pages/2_Additional_Oncology_Options.py",title="Additional Oncology Options",icon="🧬"),st.Page("pages/3_Private_Stats.py",title="Visit Stats",url_path="private-stats-9f4c2")]
+page=st.navigation(PAGES,position="hidden")
+if getattr(page,"url_path","") != "private-stats-9f4c2": record_visit()
+
+st.markdown("""<style>
+.stMainBlockContainer,div[data-testid="stMainBlockContainer"]{max-width:1120px!important;padding:3.4rem 1.5rem 2rem!important}
+.nav-title{font-size:1.55rem;line-height:1.08;font-weight:700;margin:.6rem 0 .15rem;color:#55483f}.nav-title .paw{color:#9a6a43;font-family:Arial,sans-serif}.nav-subtitle{font-size:.92rem;color:#6f6a66;margin:0 0 .45rem}
+.beta-corner{text-align:right;font-size:.72rem;color:#8a8580;margin:.05rem .15rem .15rem}.intro-answer{font-size:.94rem;color:#45414a;margin:.35rem 0 .65rem}
+div.st-key-nav_trials button{min-height:2.45rem!important;width:100%!important;font-size:.9rem!important;font-weight:700!important;border-radius:.8rem!important;background:#eee8ff!important;color:#3b237a!important;border:1px solid #ddd2ff!important}
+div.st-key-nav_options button{min-height:2.45rem!important;width:100%!important;font-size:.9rem!important;font-weight:700!important;border-radius:.8rem!important;background:#e8f3ff!important;color:#155ca8!important;border:1px solid #cfe5fb!important}
+div[data-testid="stAlert"]{background:#edf7ef!important;border:0!important;box-shadow:none!important;color:#285b38!important}div[data-testid="stAlert"]>div{background:transparent!important;border:0!important;box-shadow:none!important}div[data-testid="stAlert"] p{color:#285b38!important}
+@media(min-width:901px){div[data-testid="stMainBlockContainer"] h1{font-size:1.55rem!important;line-height:1.08!important;margin:.1rem 0 .15rem!important;color:#55483f!important}div[data-testid="stMainBlockContainer"] h2{font-size:1.12rem!important;line-height:1.15!important;margin:.4rem 0 .1rem!important}div[data-testid="stMainBlockContainer"] h3{font-size:1.02rem!important}div[data-testid="stMainBlockContainer"] p{line-height:1.28!important}div[data-testid="stMainBlockContainer"] [data-testid="stAlert"]{margin:.15rem 0!important;padding:.28rem .55rem!important;font-size:.84rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stAlert"] p{font-size:.84rem!important;line-height:1.22!important}div[data-testid="stMainBlockContainer"] [data-testid="stExpander"]{margin:.12rem 0 .22rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stExpander"] details summary{min-height:2.15rem!important;padding:.2rem .55rem!important}div[data-testid="stMainBlockContainer"] div[data-testid="stVerticalBlock"]{gap:.35rem!important}div[data-testid="stMainBlockContainer"] label p,div[data-testid="stMainBlockContainer"] [data-testid="stWidgetLabel"] p{font-size:.9rem!important;line-height:1.2!important}div[data-testid="stMainBlockContainer"] [data-baseweb="select"]>div,div[data-testid="stMainBlockContainer"] [data-testid="stNumberInput"] input,div[data-testid="stMainBlockContainer"] [data-testid="stTextInput"] input{min-height:2.1rem!important;font-size:.9rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stCheckbox"]{min-height:1.75rem!important}.desktop-section-title{font-size:1rem;font-weight:700;margin:.28rem 0 .04rem}div.st-key-pet_age_known,div.st-key-pet_weight_known{margin-top:-.62rem!important;margin-bottom:-.2rem!important}div.st-key-weight_unit_compact [role="radiogroup"]{display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;gap:.55rem!important;align-items:center!important}div.st-key-weight_unit_compact [role="radiogroup"] label{margin:0!important;white-space:nowrap!important}}
+@media(max-width:900px){.stMainBlockContainer,div[data-testid="stMainBlockContainer"]{padding:4.1rem 1rem 2rem!important;max-width:none!important}.nav-title{font-size:1.4rem}.nav-subtitle{font-size:.86rem}.beta-corner{text-align:left}}
+</style>""",unsafe_allow_html=True)
+
+_nav_top=st.empty()
+_orig={n:getattr(st,n) for n in ["markdown","title","header","selectbox","checkbox","number_input","radio","text_input","multiselect","expander","link_button","write","button"]}
+_components_html_orig=components.html
+def _components_html(body,*a,**k):
+    if isinstance(body,str) and "Copy results" in body and "Save as PDF" in body:return st.html(body,unsafe_allow_javascript=True)
+    return _components_html_orig(body,*a,**k)
+components.html=_components_html
+_layout={"section":None,"slots":[],"extra":0,"treatment":False,"age_value":None,"weight_unit":None,"weight_value":None};_pending={"contact":None,"sites":None,"url":None};_selected_region={"value":None};_selected_cancer={"value":None};_deferred={"args":None,"kwargs":None}
+_treatment_labels={"Surgery","Osteosarcoma surgery","Hemangiosarcoma surgery","Chemotherapy","Prior or current cancer immunotherapy","Radiation to this tumor","Prednisone / other corticosteroids","Other immunosuppressive medication"}
+_europe={"Europe — all countries","UK","United Kingdom","France","Belgium","Netherlands","The Netherlands","Italy","Portugal","Spain","Sweden","Switzerland","Germany","Austria","Czechia","Czech Republic","Poland","Denmark","Finland","Norway","Ireland","Hungary","Slovenia","Cyprus"}
+_feedback_text="If a trial team says your pet is not eligible, please save the reason. Those real-world exclusions are especially useful for improving the matcher. Do not post private medical or contact information publicly."
+_SUPABASE_URL="https://bvghrabcfrexvynlyhqb.supabase.co";_SUPABASE_KEY=st.secrets.get("SUPABASE_KEY","")
+def _section(name,title,spec):_orig["markdown"](f'<div class="desktop-section-title">{title}</div>',unsafe_allow_html=True);_layout.update(section=name,slots=st.columns(spec,gap="small",wrap=True),extra=0)
+def _extra(n):
+    i=_layout["extra"]
+    if i and i%n==0:_layout["slots"]=st.columns(n,gap="small",wrap=True)
+    t=_layout["slots"][i%n];_layout["extra"]+=1;return t
+def _target(label):
+    s=_layout["section"];a=_layout["slots"]
+    if s=="pet" and a:
+        m={"Species":0,"Sex":3,"Country / region":4};return a[m[label]] if label in m else None
+    if s=="diagnosis" and a:return a[0] if label=="Cancer type" or label.startswith("Enter the diagnosis") else a[1]
+    if s=="disease" and a:
+        m={"Current tumor status":0,"Is the brain tumor currently present on imaging?":0,"Metastases":1,"Has your veterinarian said the disease is localized?":2};return a[m[label]] if label in m else _extra(3)
+    if s=="treatment":return _extra(4)
+    if s=="options" and a:return a[0]
+    return None
+def _render(kind,label,*args,**kwargs):
+    t=_target(label);return getattr(t,kind)(label,*args,**kwargs) if t is not None else _orig[kind](label,*args,**kwargs)
+def title(body,*a,**k):
+    if isinstance(body,str) and "Vet Cancer Trial Finder" in body:_orig["markdown"]('<div class="nav-title"><span class="paw">🐾︎</span> Clinical Trial Finder</div><div class="nav-subtitle">Find treatment-focused veterinary cancer trials for dogs and cats.</div>',unsafe_allow_html=True);return None
+    return _orig["title"](body,*a,**k)
+def header(body,*a,**k):
+    if body=="1. Your pet":_section("pet","1. Your pet",[1.15,1.15,1.4,1.2,1.35]);return
+    if body=="2. Diagnosis":_section("diagnosis","2. Diagnosis",[1.65,1]);return
+    if body=="3. Current disease":_section("disease","3. Current disease",3);return
+    if body=="4. Treatment":_layout["section"]="treatment_pending";return
+    if body=="5. Treatment options":_section("options","5. Treatment options" if _layout["treatment"] else "4. Treatment options",1);return
+    return _orig["header"](body,*a,**k)
+def selectbox(label,*args,**kwargs):
+    if label in _treatment_labels and _layout["section"]=="treatment_pending":_section("treatment","4. Treatment",4);_layout["treatment"]=True
+    if label=="Country / region":
+        opts=list(args[0] if args else kwargs.get("options",[]));priority=["USA","UK","United Kingdom","Europe — all countries"];ordered=[x for x in priority if x in opts];ordered += [x for x in opts if x not in ordered]
+        if args:args=(ordered,*args[1:])
+        else:kwargs=dict(kwargs,options=ordered)
+        r=_render("selectbox",label,*args,**kwargs);_selected_region["value"]=r;return r
+    if label=="How certain is the diagnosis?":_deferred.update(args=args,kwargs=dict(kwargs));opts=args[0] if args else kwargs.get("options",[]);return st.session_state.get("diagnosis_confirmation",opts[0] if opts else None)
+    if label=="Cancer type":
+        r=_render("selectbox",label,*args,**kwargs);_selected_cancer["value"]=r
+        if _deferred["args"] is not None:
+            kw=dict(_deferred["kwargs"] or {},key="diagnosis_confirmation");_target("How certain is the diagnosis?").selectbox("How certain is the diagnosis?",*_deferred["args"],**kw);_deferred.update(args=None,kwargs=None)
+        return r
+    return _render("selectbox",label,*args,**kwargs)
+def checkbox(label,*a,**k):
+    if _layout["section"]=="pet" and label=="I know the age":
+        with _layout["slots"][1]:k=dict(k);k["key"]="pet_age_known";r=_orig["checkbox"]("Age",*a,**k);_layout["age_value"]=st.empty();return r
+    if _layout["section"]=="pet" and label=="I know the weight":
+        with _layout["slots"][2]:k=dict(k);k["key"]="pet_weight_known";r=_orig["checkbox"]("Weight",*a,**k);row=st.columns([1.15,1.55],gap="small");_layout["weight_unit"]=row[0].empty();_layout["weight_value"]=row[1].empty();return r
+    return _render("checkbox",label,*a,**k)
+def number_input(label,*a,**k):
+    if _layout["section"]=="pet" and label=="Age (years)" and _layout["age_value"] is not None:
+        k=dict(k);k["label_visibility"]="collapsed"
+        with _layout["age_value"].container():return _orig["number_input"](label,*a,**k)
+    if _layout["section"]=="pet" and label in {"Weight (lb)","Weight (kg)"} and _layout["weight_value"] is not None:
+        k=dict(k);k["label_visibility"]="collapsed"
+        with _layout["weight_value"].container():return _orig["number_input"](label,*a,**k)
+    return _render("number_input",label,*a,**k)
+def radio(label,*a,**k):
+    if _layout["section"]=="pet" and label=="Weight unit" and _layout["weight_unit"] is not None:
+        k=dict(k);k["horizontal"]=True;k["label_visibility"]="collapsed";k["key"]="weight_unit_compact"
+        with _layout["weight_unit"].container():return _orig["radio"](label,*a,**k)
+    return _render("radio",label,*a,**k)
+def text_input(label,*a,**k):return _render("text_input",label,*a,**k)
+def multiselect(label,*a,**k):return _render("multiselect",label,*a,**k)
+def button(label,*a,**k):return _orig["button"](label,*a,**k)
+def markdown(body,*a,**k):
+    if isinstance(body,str):
+        if body.startswith("**Beta prototype.**"):
+            rest=body.replace("**Beta prototype.**","",1).strip();_orig["markdown"]('<div class="beta-corner">Beta prototype</div>',unsafe_allow_html=True);_orig["markdown"](f'<div class="intro-answer">{rest}</div>',unsafe_allow_html=True);return
+        if body.startswith("### ") and " · " in body:
+            confidence,center=body[4:].split(" · ",1);confidence={"Potential broad-treatment trial — prescreening required":"Prescreening required","Trial to review — cancer type not specified":"Trial to review"}.get(confidence,confidence);_orig["markdown"](f"### {confidence}");st.caption(center);return
+        if body.startswith("**Study type:**"):return
+        if body.startswith("**Why it may fit:**"):return _orig["markdown"]("**Why:** "+body.replace("**Why it may fit:**","",1).strip().rstrip(".")+".")
+        if body.startswith("**Needs confirmation:**"):return _orig["markdown"]("**Confirm:** "+body.replace("**Needs confirmation:**","",1).strip().rstrip(".")+".")
+        if body.startswith("**Contact:**"):_pending["contact"]=body.replace("**Contact:**","",1).strip();return
+        if body.startswith("**Participating sites:**"):_pending["sites"]=body.replace("**Participating sites:**","",1).strip();return
+    return _orig["markdown"](body,*a,**k)
+def _linkify_contact(text):
+    if not text:return ""
+    low=text.lower()
+    generic=("official study page" in low or "study page" in low) and not re.search(r"[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}",text) and not re.search(r"(?:\+?\d[\d .()/-]{7,}\d)",text)
+    if generic:return ""
+    text=re.sub(r"([\w.+-]+@[\w.-]+\.[A-Za-z]{2,})",r"[\1](mailto:\1)",text)
+    def phone_link(m):
+        raw=m.group(0);digits=re.sub(r"\D","",raw)
+        return f"[{raw}](tel:{digits})" if len(digits)>=7 else raw
+    return re.sub(r"(?<![:\w])(?:\+?\d[\d .()/-]{7,}\d)",phone_link,text)
+def _save_controls():
+    components.html("""<style>body{margin:0;font-family:Arial,sans-serif}.row{display:flex;gap:8px}.b{flex:1;border:1px solid #d8d3cf;background:#fff;border-radius:9px;padding:9px 12px;font-size:14px;font-weight:600;color:#4b4642;cursor:pointer}.b:hover{background:#f7f5f3}.ok{font-size:12px;color:#55745d;margin-top:5px;min-height:15px}</style><div class='row'><button class='b' onclick='copyResults()'>📋 Copy results</button><button class='b' onclick='savePdf()'>📄 Save as PDF</button></div><div id='ok' class='ok'></div><script>function copyResults(){try{let t=window.parent.document.querySelector('[data-testid="stMainBlockContainer"]').innerText;navigator.clipboard.writeText(t);document.getElementById('ok').textContent='Copied';}catch(e){document.getElementById('ok').textContent='Could not copy';}}function savePdf(){window.parent.print();}</script>""",height=72)
+def write(body,*a,**k):return _orig["write"](body,*a,**k)
+def link_button(label,url,*a,**k):return _orig["link_button"](label,url,*a,**k)
+
+st.title=title;st.header=header;st.selectbox=selectbox;st.checkbox=checkbox;st.number_input=number_input;st.radio=radio;st.text_input=text_input;st.multiselect=multiselect;st.button=button;st.markdown=markdown;st.write=write;st.link_button=link_button
+page.run()
