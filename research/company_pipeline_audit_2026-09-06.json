@@ -1,0 +1,304 @@
+{
+  "audit_date": "2026-09-06",
+  "scope": "US/Canada companion-animal oncology drug developers, biotech/pharma pipelines, CRO/specialty networks, regulatory disclosures, and non-trial treatment access. Treatment-focused only; dogs/cats; duplicates checked against the project database by study/drug/center/indication where identifiable.",
+  "categories": {
+    "active_treatment_trials_candidates": [
+      {
+        "key": "leah-car-t-bcell-lymphoma-2026",
+        "developer": "LEAH Labs",
+        "treatment": "CAR-T cell therapy",
+        "species": "Dog",
+        "cancer": "B-cell lymphoma",
+        "sites": ["University of Minnesota", "Ohio State University", "University of Missouri"],
+        "status": "Open and actively enrolling",
+        "funding": "Fully funded; treatment provided at no cost to enrolled families",
+        "source": "https://leahlabs.com/",
+        "duplicate_check": "No exact LEAH/CAR-T B-cell lymphoma record located by repository code search; requires final effective-DB merge check before production upsert.",
+        "action": "ADD_IF_NOT_PRESENT"
+      },
+      {
+        "key": "aurelius-lytix-bcell-lymphoma",
+        "developer": "Aurelius Biotherapeutics / Lytix Biopharma",
+        "treatment": "Oncolytic peptide plus T-cell immunotherapy",
+        "species": "Dog",
+        "cancer": "B-cell lymphoma",
+        "sites": ["Aurelius Biotherapeutics, Bellingham, Washington"],
+        "status": "Recruiting initial pilot study",
+        "eligibility_highlights": "Previously untreated B-cell lymphoma, stage 3-5(a); most treatment in Bellingham",
+        "funding": "Fully funded; no additional expense to owners",
+        "source": "https://aureliusbio.com/",
+        "duplicate_check": "No exact Aurelius/Lytix record located by repository code search; requires final effective-DB merge check before production upsert.",
+        "action": "ADD_IF_NOT_PRESENT"
+      },
+      {
+        "key": "akston-aks701d-ucc-purdue",
+        "developer": "Akston Biosciences",
+        "treatment": "AKS-701d anti-PD-L1 antibody",
+        "species": "Dog",
+        "cancer": "Urothelial/bladder cancer",
+        "sites": ["Purdue University"],
+        "status": "Currently being administered to client-owned dogs; follow-on higher-dose studies planned and pivotal multi-site study targeted for late 2026",
+        "source": "https://www.sec.gov/Archives/edgar/data/1776612/000110465926041980/tm2516611-24_s1a.htm",
+        "duplicate_check": "No AKS-701d hit in repository code search; final effective-DB merge check required.",
+        "action": "VERIFY_OWNER_ENROLLMENT_THEN_ADD"
+      },
+      {
+        "key": "akston-aks619d-solid-tumors-purdue",
+        "developer": "Akston Biosciences",
+        "treatment": "AKS-619d PD-L1-directed immunotherapy program",
+        "species": "Dog",
+        "cancer": "Multiple naturally occurring cancers",
+        "sites": ["Purdue University"],
+        "status": "Clinical program treating client-owned dogs; public SEC disclosures confirm dosing but owner-facing recruitment route needs confirmation",
+        "source": "https://www.sec.gov/Archives/edgar/data/1776612/000110465926041980/tm2516611-24_s1a.htm",
+        "duplicate_check": "No AKS-619d hit in repository code search; final effective-DB merge check required.",
+        "action": "VERIFY_OWNER_ENROLLMENT_THEN_ADD"
+      },
+      {
+        "key": "castr-tce-solid-tumors",
+        "developer": "CASTR Alliance",
+        "treatment": "Local T-cell engager immunotherapy",
+        "species": "Dog",
+        "cancer": "Solid tumors / soft tissue sarcoma cohorts",
+        "status": "Ongoing dose-optimization clinical study",
+        "source": "https://castr-wa.com/",
+        "duplicate_check": "Potential overlap with previously identified VRCCO/CASTR local T-cell engager study; treat as SAME STUDY unless protocol/site evidence proves otherwise.",
+        "action": "DUPLICATE_MERGE_OR_UPDATE"
+      },
+      {
+        "key": "umn-trike-sarcoma-rt",
+        "developer": "University of Minnesota translational immunotherapy program",
+        "treatment": "TriKE immunotherapy plus hypofractionated radiation",
+        "species": "Dog",
+        "cancer": "Sarcoma",
+        "status": "Open and enrolling",
+        "source": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/trike-new",
+        "duplicate_check": "No TriKE hit located by repository code search; final effective-DB merge check required.",
+        "action": "ADD_IF_NOT_PRESENT"
+      },
+      {
+        "key": "tufts-z007-solid-tumors",
+        "developer": "Tufts / Z-007 development program",
+        "treatment": "Z-007 systemic/intratumoral TLR7/8/9 agonist",
+        "species": "Dog",
+        "cancer": "Solid tumors (carcinoma, sarcoma, melanoma)",
+        "status": "Recruiting",
+        "funding": "Cancer treatment costs with Z-007 covered through Day 63; eligible responders may continue every 2 weeks for up to 6 months on compassionate-use basis",
+        "source": "https://vet.tufts.edu/clinical-trials/evaluation-tlr-agonist-z-007-dogs-cancer",
+        "duplicate_check": "Known project study from prior audit; do not create second record. Update existing record with compassionate-use continuation if missing.",
+        "action": "DUPLICATE_UPDATE_EXISTING"
+      },
+      {
+        "key": "elias-ecip-osa-01",
+        "developer": "ELIAS Animal Health",
+        "treatment": "ECI vaccine-enhanced adoptive T-cell therapy plus novel adjuvant after surgery",
+        "species": "Dog",
+        "cancer": "Appendicular osteosarcoma",
+        "sites": ["University of Missouri"],
+        "status": "Now enrolling",
+        "source": "https://eliasanimalhealth.com/clinical-studies/canine-osteosarcoma-combined-immunotherapy/",
+        "duplicate_check": "ELIAS osteosarcoma programs already appear in project/search output; do not add without exact protocol-ID comparison. ECIP-OSA-01 is distinct from closed ECI-OSA-04.",
+        "action": "DUPLICATE_PROTOCOL_CHECK"
+      },
+      {
+        "key": "jhu-osa-cryo-immunotherapy",
+        "developer": "Johns Hopkins CIGAT",
+        "treatment": "Cryotherapy or immunotherapy before amputation and chemotherapy",
+        "species": "Dog",
+        "cancer": "Osteosarcoma",
+        "status": "Currently recruiting",
+        "source": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+        "duplicate_check": "Potentially already represented in university-source records; exact protocol/title merge check required.",
+        "action": "DUPLICATE_PROTOCOL_CHECK"
+      },
+      {
+        "key": "utsw-combination-novel-therapeutics",
+        "developer": "UT Southwestern Veterinary Research & Oncology Clinic",
+        "treatment": "FUS/radiotherapy/novel drug combinations/immunotherapy",
+        "species": "Dog/Cat",
+        "cancer": "Spontaneous tumors",
+        "status": "Listed as current therapeutic clinical protocol",
+        "source": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-trials.html",
+        "duplicate_check": "UTSW protocols may already exist as individual trial records; split by actual protocol and deduplicate before adding.",
+        "action": "SPLIT_AND_DEDUP"
+      }
+    ],
+    "other_treatment_access": [
+      {
+        "key": "elias-eci-commercial",
+        "developer": "ELIAS Animal Health",
+        "treatment": "ELIAS Cancer Immunotherapy (ECI)",
+        "species": "Dog",
+        "cancer": "Osteosarcoma; licensed autologous prescription product may also be used by licensed veterinarians for other cancers",
+        "status": "USDA-approved/licensed and commercially available at 100+ authorized US treatment centers",
+        "source": "https://eliasanimalhealth.com/elias-cancer-immunotherapy/",
+        "category": "Novel / licensed treatment",
+        "duplicate_check": "Do not duplicate ECI clinical-trial records; this is commercial treatment access.",
+        "action": "OTHER_TREATMENT_ACCESS"
+      },
+      {
+        "key": "gilvetmab-commercial",
+        "developer": "Merck Animal Health",
+        "treatment": "Gilvetmab anti-PD-1 monoclonal antibody",
+        "species": "Dog",
+        "cancer": "Mast cell tumor and melanoma",
+        "status": "Conditionally licensed by USDA; available through veterinary oncology specialists",
+        "source": "https://www.merck-animal-health-usa.com/hub/gilvetmab/",
+        "category": "Novel / conditionally licensed treatment",
+        "duplicate_check": "Do not duplicate gilvetmab clinical studies; this record represents current commercial access.",
+        "action": "OTHER_TREATMENT_ACCESS"
+      },
+      {
+        "key": "laverdia-commercial",
+        "developer": "Anivive Lifesciences",
+        "treatment": "Laverdia (verdinexor)",
+        "species": "Dog",
+        "cancer": "Lymphoma",
+        "status": "FDA full approval",
+        "source": "https://www.fda.gov/animal-veterinary/cvm-updates/fda-grants-full-approval-first-oral-treatment-lymphoma-dogs",
+        "category": "Approved treatment",
+        "action": "OTHER_TREATMENT_ACCESS"
+      },
+      {
+        "key": "stelfonta-commercial",
+        "developer": "QBiotics",
+        "treatment": "STELFONTA (tigilanol tiglate)",
+        "species": "Dog",
+        "cancer": "Mast cell tumor",
+        "status": "Approved and commercial; QBiotics states supply continuity during distribution transition",
+        "source": "https://qbiotics.com/announcement/update-on-stelfonta-supply-and-distribution-arrangements",
+        "category": "Approved intratumoral treatment",
+        "action": "OTHER_TREATMENT_ACCESS"
+      },
+      {
+        "key": "fidocure-targeted-access",
+        "developer": "FidoCure / One Health Company",
+        "treatment": "Tumor sequencing with facilitated access to human FDA-approved targeted therapies through pharmacy partners",
+        "species": "Dog",
+        "cancer": "Multiple cancers; genomically selected",
+        "status": "Commercial precision-oncology treatment-access service",
+        "source": "https://fidocure.com/for-veterinarians/",
+        "category": "Precision oncology / off-label targeted treatment access",
+        "action": "OTHER_TREATMENT_ACCESS_WITH_EVIDENCE_CAUTION"
+      },
+      {
+        "key": "utsw-compassionate-advanced-tumors",
+        "developer": "UT Southwestern Veterinary Research & Oncology Clinic",
+        "treatment": "Investigational therapy, chemotherapy, immunotherapy and combinations",
+        "species": "Dog/Cat",
+        "cancer": "Advanced non-resectable tumors",
+        "status": "Prospective non-randomized single-arm compassionate-use protocol listed by UTSW",
+        "source": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-trials.html",
+        "category": "Compassionate / special access",
+        "action": "OTHER_TREATMENT_ACCESS"
+      }
+    ],
+    "watchlist": [
+      {
+        "key": "vivesto-paccal-vet-hsa",
+        "developer": "Vivesto",
+        "treatment": "Paccal Vet (paclitaxel micellar)",
+        "species": "Dog",
+        "cancer": "Splenic hemangiosarcoma after splenectomy",
+        "status": "Recruitment complete; topline results expected Q3 2026",
+        "source": "https://www.vivesto.com/en/vivesto-completes-recruitment-in-paccal-vet-dog-pilot-study-topline-results-expected-q3-2026/",
+        "action": "WATCH_NEXT_ACCESS"
+      },
+      {
+        "key": "unleash-k9-acv-cd200arl-osa",
+        "developer": "Unleash Therapeutics / Ardent Animal Health",
+        "treatment": "K9-ACV autologous cancer vaccine plus CD200AR-L checkpoint inhibitor",
+        "species": "Dog",
+        "cancer": "Appendicular osteosarcoma",
+        "status": "Multicenter efficacy study recruitment complete per developer; an Ardent page still labels it ongoing, so owner-facing status is conflicting",
+        "sources": ["https://www.unleashtx.com/", "https://ardentanimalhealth.com/k9-acv-checkpoint-inhibitor-trial/"],
+        "action": "WATCH_STATUS_CONFLICT_NO_MATCHING"
+      },
+      {
+        "key": "vetigenics-vgs001-vgs002-checkmate-k9",
+        "developer": "Vetigenics",
+        "treatment": "VGS-001 CTLA4, VGS-002 PD-1, CTLA4+PD-1 CHECKMATE-K9",
+        "species": "Dog",
+        "cancer": "Oral melanoma / urothelial carcinoma / combination cohorts",
+        "status": "Closed or fully enrolled",
+        "source": "https://vetigenics.com/technology-pipeline/pipeline-and-clinical-trials/",
+        "action": "WATCH_NEXT_STUDY"
+      },
+      {
+        "key": "anivive-ebat-hsa",
+        "developer": "Anivive Lifesciences",
+        "treatment": "eBAT bispecific angiotoxin",
+        "species": "Dog",
+        "cancer": "Hemangiosarcoma",
+        "status": "Mid-stage development; pilot field efficacy completed; manufacturing/CMC planning; not currently owner-enrollable on public pipeline",
+        "source": "https://investors.anivive.com/treatments",
+        "action": "WATCH_NEXT_TRIAL_OR_APPROVAL"
+      },
+      {
+        "key": "anivive-osteosarcoma-pill",
+        "developer": "Anivive Lifesciences",
+        "treatment": "Investigational osteosarcoma oral product",
+        "species": "Dog",
+        "cancer": "Osteosarcoma",
+        "status": "INAD I-013511; in development; no verified owner-enrollment route found",
+        "source": "https://www.anivive.com/",
+        "action": "WATCH_NEXT_TRIAL"
+      },
+      {
+        "key": "os-animal-health-ost-her2",
+        "developer": "OS Animal Health / OS Therapies",
+        "treatment": "OST-HER2 Listeria-based immunotherapy plus palliative radiation",
+        "species": "Dog",
+        "cancer": "Osteosarcoma",
+        "status": "Phase 2 data published; company pursuing USDA regulatory path; no current owner enrollment established",
+        "source": "https://ir.ostherapies.com/news-events/press-releases/detail/118/os-animal-health-announces-peer-reviewed-publication-of",
+        "action": "WATCH_REGULATORY_AND_ACCESS"
+      },
+      {
+        "key": "akston-aks701d-pivotal",
+        "developer": "Akston Biosciences",
+        "treatment": "AKS-701d pivotal multi-site program",
+        "species": "Dog",
+        "cancer": "Bladder/urothelial cancer",
+        "status": "Planned as soon as pre-license serial batches are available in late 2026",
+        "source": "https://www.sec.gov/Archives/edgar/data/1776612/000110465926041980/tm2516611-24_s1a.htm",
+        "action": "WATCH_OPENING"
+      }
+    ],
+    "reject_or_not_current_owner_treatment": [
+      {
+        "key": "endovia-cannepil-cancer-pain",
+        "reason": "Cancer-related pain/supportive care rather than anticancer treatment",
+        "source": "https://www.sec.gov/Archives/edgar/data/1553788/000173112226001144/e7891_ex99-1.htm"
+      },
+      {
+        "key": "nci-longitudinal-cancer-studies",
+        "reason": "Longitudinal specimen/data collection; treatment is not the study intervention",
+        "source": "https://dctd.cancer.gov/research/research-areas/comparative-oncology"
+      },
+      {
+        "key": "ovc-porphysome-dog-oral-tumor",
+        "reason": "On hold for recruitment; do not expose as current match",
+        "source": "https://ovcclinicaltrials.uoguelph.ca/all-active-canine-clinical-trials-oncology/"
+      },
+      {
+        "key": "elias-eci-osa-04",
+        "reason": "Enrollment closed; historical study, not current access",
+        "source": "https://eliasanimalhealth.com/clinical-studies/canine-osteosarcoma/"
+      },
+      {
+        "key": "umn-coed-osa",
+        "reason": "Enrollment closed and study purpose is early detection/biology rather than anticancer treatment",
+        "source": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/coed-part-2"
+      }
+    ]
+  },
+  "dedup_rules_applied": [
+    "Same investigational agent + same protocol/site/indication is one study even if found on developer, university, CRO and press-release pages.",
+    "Commercial/licensed access is a separate opportunity type from a clinical trial using the same product.",
+    "A successor protocol with a different protocol ID or materially different intervention is not automatically a duplicate.",
+    "Closed, fully enrolled, suspended or on-hold studies are never surfaced as active matching opportunities.",
+    "Pipeline announcements without a current owner enrollment route remain watchlist only.",
+    "Supportive care, diagnostics, biomarkers, prevention, sample collection and observational studies are rejected from treatment matching."
+  ]
+}
