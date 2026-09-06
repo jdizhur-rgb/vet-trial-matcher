@@ -420,8 +420,10 @@ if search_clicked:
         if not country_matches(tr.get('country', 'USA'), country):
             continue
 
-        # Owner-facing matcher is treatment-only.
-        if tr.get('study_type', 'treatment') != 'treatment':
+        # Patient-facing results include strict treatment trials plus clearly
+        # labeled treatment-access opportunities such as funded standard therapy.
+        # Research-only observational studies remain excluded.
+        if tr.get('study_type', 'treatment') not in {'treatment', 'other_treatment_access'}:
             continue
 
         broad_match = False
@@ -792,6 +794,11 @@ if search_clicked:
             if cancer != 'Cancer — any type':
                 confidence = 'Potential broad-treatment trial — prescreening required' if broad_match else 'Possible match'
 
+        if tr.get('study_type') == 'other_treatment_access':
+            confidence = 'Other treatment-access opportunity'
+            reasons = [r for r in reasons if r != 'diagnosis reported as confirmed']
+            reasons.insert(0, 'funded/assisted standard anticancer treatment is available through this study pathway')
+
         matches.append((confidence,tr,reasons,unknown))
 
     matches.sort(key=lambda x: (0 if x[0] == 'Likely match' else 1 if x[0] == 'Possible match' else 2, 1 if x[1].get('early_phase') else 0))
@@ -803,7 +810,7 @@ if search_clicked:
             'Review the treatment options you selected or check again as recruitment changes.'
         )
     else:
-        st.success(f'{len(matches)} trial(s) may be worth contacting')
+        st.success(f'{len(matches)} oncology opportunity(ies) may be worth contacting')
         for confidence,tr,reasons,unknown in matches:
             with st.container(border=True):
                 st.markdown(f"### {confidence} · {tr['center']}")
