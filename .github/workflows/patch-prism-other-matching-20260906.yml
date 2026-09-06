@@ -1,0 +1,91 @@
+name: Patch PRISM other-opportunity matching
+
+on:
+  push:
+    paths:
+      - 'data/prism_other_patch_20260906.json'
+      - '.github/workflows/patch-prism-other-matching-20260906.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Merge PRISM record and patch matcher behavior
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          patch = json.loads(Path('data/prism_other_patch_20260906.json').read_text())
+          upd_path = Path('data/trial_updates.json')
+          upd = json.loads(upd_path.read_text())
+          upserts = upd.setdefault('upsert', [])
+          byid = {r.get('id'): i for i, r in enumerate(upserts) if r.get('id')}
+          for r in patch.get('upsert', []):
+              rid = r['id']
+              if rid in byid:
+                  upserts[byid[rid]] = {**upserts[byid[rid]], **r}
+              else:
+                  upserts.append(r)
+                  byid[rid] = len(upserts)-1
+          upd_path.write_text(json.dumps(upd, indent=2, ensure_ascii=False) + '\n')
+
+          app_path = Path('pages/1_Clinical_Trial_Finder.py')
+          text = app_path.read_text()
+          old = """        # Owner-facing matcher is treatment-only.\n        if tr.get('study_type', 'treatment') != 'treatment':\n            continue\n"""
+          new = """        # Patient-facing results include strict treatment trials plus clearly\n        # labeled treatment-access opportunities such as funded standard therapy.\n        # Research-only observational studies remain excluded.\n        if tr.get('study_type', 'treatment') not in {'treatment', 'other_treatment_access'}:\n            continue\n"""
+          if old not in text:
+              raise SystemExit('Expected matcher study_type block not found')
+          text = text.replace(old, new, 1)
+
+          old2 = """        matches.append((confidence,tr,reasons,unknown))\n\n    matches.sort"""
+          new2 = """        if tr.get('study_type') == 'other_treatment_access':\n            confidence = 'Other treatment-access opportunity'\n            reasons = [r for r in reasons if r != 'diagnosis reported as confirmed']\n            reasons.insert(0, 'funded/assisted standard anticancer treatment is available through this study pathway')\n\n        matches.append((confidence,tr,reasons,unknown))\n\n    matches.sort"""
+          if old2 not in text:
+              raise SystemExit('Expected result append block not found')
+          text = text.replace(old2, new2, 1)
+
+          old3 = "st.success(f'{len(matches)} trial(s) may be worth contacting')"
+          new3 = "st.success(f'{len(matches)} oncology opportunity(ies) may be worth contacting')"
+          if old3 not in text:
+              raise SystemExit('Expected results success text not found')
+          text = text.replace(old3, new3, 1)
+          app_path.write_text(text)
+
+          # Keep stats strict: only study_type=treatment counts as a treatment opportunity.
+          base = json.loads(Path('data/trials_base.json').read_text())
+          by_id = {r['id']: r for r in base}
+          for r in upd.get('upsert', []):
+              rid = r['id']
+              by_id[rid] = {**by_id.get(rid, {}), **r}
+          for rid in upd.get('delete', []):
+              by_id.pop(rid, None)
+          strict = [r for r in by_id.values() if r.get('available_for_matching') is True and r.get('study_type') == 'treatment']
+          stats_path = Path('data/catalog_stats.json')
+          stats = json.loads(stats_path.read_text())
+          stats['generated'] = '2026-09-06'
+          stats['effective_total_records'] = len(by_id)
+          stats['current_treatment_opportunities'] = len(strict)
+          stats['prism_other_access_visible'] = True
+          stats_path.write_text(json.dumps(stats, indent=2, ensure_ascii=False) + '\n')
+          PY
+      - name: Validate
+        run: |
+          python -m json.tool data/trial_updates.json >/dev/null
+          python -m json.tool data/catalog_stats.json >/dev/null
+          python -m py_compile pages/1_Clinical_Trial_Finder.py
+      - name: Commit patch
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add data/trial_updates.json data/catalog_stats.json pages/1_Clinical_Trial_Finder.py
+          git diff --cached --quiet && exit 0
+          git commit -m 'Show UC Davis PRISM under Other treatment access'
+          git push
