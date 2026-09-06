@@ -1,0 +1,30 @@
+name: Apply treatment options navigation
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-treatment-options-nav.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply navigation patch
+        run: python scripts/split_treatment_options_nav_20260906.py
+      - name: Validate Python
+        run: |
+          python -m py_compile app.py
+          python -m py_compile pages/2_Additional_Oncology_Options.py
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app.py pages/2_Additional_Oncology_Options.py
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Split more treatment options into three routes"
+            git push
+          fi
