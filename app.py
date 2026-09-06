@@ -24,7 +24,7 @@ st.markdown("""
 .nav-title {font-size:1.55rem;line-height:1.08;font-weight:700;margin:.45rem 0 .12rem;color:#55483f}
 .nav-title .paw {color:#9a6a43;font-family:Arial,sans-serif}
 .nav-subtitle {font-size:.92rem;color:#6f6a66;margin:0 0 .35rem}
-.beta-corner {text-align:right;font-size:.72rem;color:#8a8580;margin:.02rem .15rem .12rem}
+.beta-corner {display:none}
 .intro-answer {font-size:.94rem;color:#45414a;margin:.25rem 0 .55rem}
 .desktop-section-title {font-size:1rem;font-weight:700;margin:.3rem 0 .05rem}
 div[data-testid="stAlert"] {background:#edf7ef!important;border:0!important;box-shadow:none!important;color:#285b38!important}
@@ -54,7 +54,6 @@ div[data-testid="stAlert"] p {color:#285b38!important}
   .stMainBlockContainer, div[data-testid="stMainBlockContainer"] {padding:4rem 1rem 2rem!important;max-width:none!important}
   .nav-title {font-size:1.4rem}
   .nav-subtitle {font-size:.86rem}
-  .beta-corner {text-align:left}
 }
 </style>
 """, unsafe_allow_html=True)
@@ -182,10 +181,8 @@ def multiselect(label, *args, **kwargs): return _render("multiselect", label, *a
 
 def markdown(body, *args, **kwargs):
     if isinstance(body, str):
-        if body.startswith("**Beta prototype.**"):
-            rest = body.replace("**Beta prototype.**", "", 1).strip()
-            _orig["markdown"]('<div class="beta-corner">Beta prototype</div>', unsafe_allow_html=True)
-            _orig["markdown"](f'<div class="intro-answer">{rest}</div>', unsafe_allow_html=True)
+        if body.startswith("Answer what you know."):
+            _orig["markdown"](f'<div class="intro-answer">{body}</div>', unsafe_allow_html=True)
             return
         if body.startswith("### ") and " · " in body:
             confidence, center = body[4:].split(" · ", 1)

@@ -28,7 +28,7 @@ CANCER_ALIASES = {
 
 LYMPHOMA_CANCERS = {'B-cell lymphoma', 'T-cell lymphoma', 'Lymphoma — other'}
 
-st.set_page_config(page_title='Vet Cancer Trial Finder — Beta', page_icon='🐾', layout='centered')
+st.set_page_config(page_title='Vet Cancer Treatment Finder', page_icon='🐾', layout='centered')
 
 
 def _render_result_save_controls(matches):
@@ -184,8 +184,8 @@ label, [data-testid="stWidgetLabel"] p {
 ''', unsafe_allow_html=True)
 
 st.title('🐾 Vet Cancer Trial Finder')
-st.markdown('**Beta prototype.** Answer what you know. It is completely fine to choose **I don’t know**.')
-st.info('This tool screens for clinical trials that may be worth contacting. It does not determine eligibility and does not replace your veterinarian or oncologist.')
+st.markdown('Answer what you know. It is completely fine to choose **I don’t know**.')
+st.info('This finder identifies potentially relevant cancer treatment options. It does not determine eligibility. Final eligibility and treatment decisions are determined by the treating or research team. It is not a substitute for veterinary advice.')
 
 with st.expander('Before you start', expanded=False):
     st.write('Helpful records, if you have them: pathology/cytology report, surgery report, recent imaging/staging, bloodwork, and names/dates of cancer treatments. You do not need all of these to search.')
@@ -840,14 +840,14 @@ if search_clicked:
                     st.caption(f"Status: {tr['status']} · Last verified: {tr.get('verified', 'date not recorded')}")
 
     _render_result_save_controls(matches)
-    with st.expander('Help us improve this beta'):
+    with st.expander('Help us improve this finder'):
         st.write('If a trial team says your pet is not eligible, please save the reason they gave. This helps improve the matcher. Do not post private medical or contact information publicly.')
 
 st.divider()
 st.markdown('**Urgent symptoms come first.** Difficulty breathing, collapse, uncontrolled bleeding, severe pain, or another emergency should be assessed by a veterinarian immediately rather than delayed for a clinical-trial search.')
-st.caption('Beta: trial information can change. Always confirm recruiting status, eligibility, costs, travel requirements, and treatment details directly with the research team.')
+st.caption('Trial information can change. Always confirm recruiting status, eligibility, costs, travel requirements, and treatment details directly with the research or treatment team.')
 
 
 st.markdown("---")
 st.caption("Verified treatment trials and experimental treatment programs • U.S. + Europe/UK • Last deep audit: September 5, 2026")
-st.caption("This finder identifies potentially relevant clinical trials; it does not determine eligibility. Final eligibility is determined by the study investigators. It is not a substitute for veterinary advice.")
+st.caption("This finder identifies potentially relevant cancer treatment options. It does not determine eligibility. Final eligibility and treatment decisions are determined by the treating or research team. It is not a substitute for veterinary advice.")
