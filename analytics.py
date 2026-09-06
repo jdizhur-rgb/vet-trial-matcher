@@ -75,37 +75,40 @@ def _render_stats():
     week = _count_since(now - timedelta(days=7))
     month = _count_since(now - timedelta(days=30))
 
-    st.title("Private visit stats")
+    st.title("📊 Private visit stats")
     if total is None:
-        st.error("Visit counter is not available. SUPABASE_KEY may be missing or the table may be unreachable.")
+        st.error("Visit counter is not available yet.")
         return
     cols = st.columns(4)
     cols[0].metric("All visits", total)
     cols[1].metric("Last 24h", day)
     cols[2].metric("Last 7 days", week)
     cols[3].metric("Last 30 days", month)
-    st.caption("Counts Streamlit sessions, not people. Form answers and pet data are not stored. Your owner/stats links are excluded.")
+    st.caption("Counts Streamlit sessions, not people. Form answers and pet data are not stored. Stats mode is never counted.")
 
 
 def install_analytics():
-    """Private, zero-cost session counter using the app's existing Supabase table.
-
-    A single anonymous row is written once per Streamlit session. No form values,
-    diagnosis, pet data, IP address, email, or browser fingerprint is written by
-    this code. `?analytics_off=1` excludes the current Streamlit session.
-    `?stats=1&analytics_off=1` opens the private stats view and never counts it.
-    """
+    """Private, zero-cost session counter using the app's existing Supabase table."""
+    # Read query flags first. Keep st.stop() OUTSIDE the broad exception handler:
+    # Streamlit implements stop with an internal control exception.
     try:
         params = st.query_params
-        if str(params.get("analytics_off", "")) == "1":
-            st.session_state["_analytics_off"] = True
-        if str(params.get("analytics_on", "")) == "1":
-            st.session_state.pop("_analytics_off", None)
+        stats_mode = str(params.get("stats", "")) == "1"
+        analytics_off = str(params.get("analytics_off", "")) == "1"
+        analytics_on = str(params.get("analytics_on", "")) == "1"
+    except Exception:
+        stats_mode = analytics_off = analytics_on = False
 
-        if str(params.get("stats", "")) == "1":
+    if stats_mode:
+        st.session_state["_analytics_off"] = True
+        _render_stats()
+        st.stop()
+
+    try:
+        if analytics_off:
             st.session_state["_analytics_off"] = True
-            _render_stats()
-            st.stop()
+        if analytics_on:
+            st.session_state.pop("_analytics_off", None)
 
         if st.session_state.get("_analytics_off"):
             return
