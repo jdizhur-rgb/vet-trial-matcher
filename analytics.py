@@ -2,8 +2,14 @@ import json
 import streamlit as st
 
 
+DEFAULT_GA_MEASUREMENT_ID = "G-TQOYHMOOM5"
+
+
 def install_analytics():
-    """Install GA4 only when GA_MEASUREMENT_ID is configured in Streamlit secrets.
+    """Install privacy-conscious GA4 tracking.
+
+    The GA4 measurement ID is public by design, so the app can safely fall
+    back to its configured ID when no Streamlit secret is present.
 
     Privacy choices:
     - no names, email, form values, diagnosis text, age, weight, or other pet data are sent;
@@ -11,9 +17,11 @@ def install_analytics():
     - the owner's browser can opt out persistently with ?analytics_off=1;
     - ?analytics_on=1 reverses the local opt-out.
     """
-    measurement_id = str(st.secrets.get("GA_MEASUREMENT_ID", "")).strip()
+    measurement_id = str(
+        st.secrets.get("GA_MEASUREMENT_ID", DEFAULT_GA_MEASUREMENT_ID)
+    ).strip()
     if not measurement_id:
-        return
+        measurement_id = DEFAULT_GA_MEASUREMENT_ID
 
     mid = json.dumps(measurement_id)
     st.html(
