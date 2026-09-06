@@ -3,6 +3,7 @@ on:
   workflow_dispatch:
   push:
     paths:
+      - '.github/workflows/remove-beta-copy.yml'
       - 'scripts/remove_beta_copy_20260906.py'
 jobs:
   patch:
@@ -15,6 +16,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: python scripts/remove_beta_copy_20260906.py
+      - run: python -m py_compile app.py pages/1_Clinical_Trial_Finder.py
       - name: Commit changes
         run: |
           git config user.name github-actions[bot]
