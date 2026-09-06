@@ -1,0 +1,90 @@
+name: Merge global hole audit 2026-09-06
+on:
+  push:
+    paths:
+      - 'data/hole_audit_2026-09-06.json'
+      - '.github/workflows/merge-hole-audit-20260906.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Semantic dedup and merge
+        run: |
+          python - <<'PY'
+          import json,re,unicodedata
+          from pathlib import Path
+          from difflib import SequenceMatcher
+          from collections import Counter
+          base=json.loads(Path('data/trials_base.json').read_text())
+          upd=json.loads(Path('data/trial_updates.json').read_text())
+          cand=json.loads(Path('data/hole_audit_2026-09-06.json').read_text())['records']
+          deleted=set(upd.get('delete',[]))
+          by={r['id']:dict(r) for r in base if r.get('id') not in deleted}
+          for r in upd.get('upsert',[]):
+              if r.get('id') not in deleted: by[r['id']]={**by.get(r['id'],{}),**r}
+          def norm(s):
+              s=unicodedata.normalize('NFKD',str(s or '')).lower()
+              return re.sub(r'[^a-z0-9]+',' ',s).strip()
+          def cancers(r): return {norm(x) for x in (r.get('cancers') or []) if norm(x)}
+          def center(r): return norm(r.get('center'))
+          def similar(a,b):
+              ca,cb=center(a),center(b)
+              same_center=ca and cb and (ca in cb or cb in ca or SequenceMatcher(None,ca,cb).ratio()>=.72)
+              ov=bool(cancers(a)&cancers(b)) or 'solid tumor' in cancers(a) or 'solid tumor' in cancers(b)
+              ta,tb=norm(a.get('title')),norm(b.get('title'))
+              title_sim=SequenceMatcher(None,ta,tb).ratio()
+              # intervention anchors prevent same-center/same-cancer duplicate aliases
+              anchors=['olaparib','trike','lapatinib','ido1','pd l1','enzistat','carboplatin','vaccine','polymer','pirarubicin']
+              shared_anchor=any(x in ta and x in tb for x in anchors)
+              return same_center and ov and (title_sim>=.58 or shared_anchor)
+          accepted=[]; rejected=[]
+          existing=list(by.values())
+          for r in cand:
+              if r['id'] in by:
+                  rejected.append((r['id'],'same-id',r['id'])); continue
+              hits=[e for e in existing+accepted if similar(r,e)]
+              if hits:
+                  rejected.append((r['id'],'semantic-duplicate',hits[0].get('id'))); continue
+              accepted.append(r)
+          upd.setdefault('upsert',[]).extend(accepted)
+          Path('data/trial_updates.json').write_text(json.dumps(upd,indent=2,ensure_ascii=False)+'\n')
+          # rebuild effective catalog exactly as app: base -> delete -> upsert
+          by={r['id']:dict(r) for r in base}
+          for x in upd.get('delete',[]): by.pop(x,None)
+          for r in upd.get('upsert',[]): by[r['id']]={**by.get(r['id'],{}),**r}
+          matching=[r for r in by.values() if r.get('study_type')=='treatment' and r.get('available_for_matching') is True]
+          def scalar(v): return '/'.join(map(str,v)) if isinstance(v,list) else str(v or 'Unknown')
+          stats=json.loads(Path('data/catalog_stats.json').read_text())
+          stats.update({'generated':'2026-09-06','effective_total_records':len(by),'current_treatment_opportunities':len(matching),'by_country':dict(sorted(Counter(scalar(r.get('country')) for r in matching).items())),'by_species':dict(sorted(Counter(scalar(r.get('species')) for r in matching).items())),'hole_audit_2026_09_06':{'candidates':len(cand),'accepted':len(accepted),'rejected_as_duplicate':len(rejected),'accepted_ids':[r['id'] for r in accepted],'rejected':rejected}})
+          Path('data/catalog_stats.json').write_text(json.dumps(stats,indent=2,ensure_ascii=False)+'\n')
+          print('CANDIDATES',len(cand)); print('ACCEPTED',len(accepted),[r['id'] for r in accepted]); print('REJECTED',rejected); print('EFFECTIVE',len(by),'CURRENT_TREATMENT',len(matching))
+          PY
+      - name: Verify no delete-upsert overlap and unique IDs
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          b=json.loads(Path('data/trials_base.json').read_text()); u=json.loads(Path('data/trial_updates.json').read_text()); s=json.loads(Path('data/catalog_stats.json').read_text())
+          assert not (set(u.get('delete',[])) & {r['id'] for r in u.get('upsert',[])})
+          by={r['id']:dict(r) for r in b}
+          for x in u.get('delete',[]): by.pop(x,None)
+          for r in u.get('upsert',[]): by[r['id']]={**by.get(r['id'],{}),**r}
+          m=[r for r in by.values() if r.get('study_type')=='treatment' and r.get('available_for_matching') is True]
+          assert len(by)==s['effective_total_records']; assert len(m)==s['current_treatment_opportunities']
+          print('VERIFIED',len(by),len(m))
+          PY
+      - name: Commit merged audit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add data/trial_updates.json data/catalog_stats.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'Merge 2026-09-06 global hole audit'
+          git push
