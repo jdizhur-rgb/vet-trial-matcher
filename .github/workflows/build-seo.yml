@@ -34,31 +34,36 @@ jobs:
         run: python seo/generate_seo.py
       - name: Include static files
         run: cp -a seo/static/. seo/site/
-      - name: Validate generated sitemap
+      - name: Validate generated sitemap and every SEO page UI
         run: |
-          python - <<'PY'
-          import xml.etree.ElementTree as ET
-          p='seo/site/sitemap.xml'
-          root=ET.parse(p).getroot()
-          ns={'sm':'http://www.sitemaps.org/schemas/sitemap/0.9'}
-          urls=root.findall('sm:url',ns)
-          locs=[u.find('sm:loc',ns).text for u in urls]
-          assert len(locs)==len(set(locs)), 'duplicate sitemap URLs'
-          assert all(x.startswith('https://jdizhur-rgb.github.io/vet-trial-matcher/') for x in locs)
-          print(f'VALID_SITEMAP urls={len(locs)} bytes={__import__("os").path.getsize(p)}')
-          PY
-      - name: Verify generated HS page has current UI
-        run: |
-          PAGE='seo/site/north-america/dogs/histiocytic-sarcoma/index.html'
-          test -f "$PAGE"
-          grep -Fq '100% FREE' "$PAGE"
-          grep -Fq 'No hidden trial results. No paid report.' "$PAGE"
-          grep -Fq 'background:#287fb8' "$PAGE"
           python - <<'PY'
           from pathlib import Path
-          p=Path('seo/site/north-america/dogs/histiocytic-sarcoma/index.html').read_text()
-          assert p.index('Check your pet against these trials') < p.index('<article>')
-          print('GENERATED_HS_PAGE_OK')
+          from urllib.parse import urlparse
+          import xml.etree.ElementTree as ET
+
+          base='https://jdizhur-rgb.github.io/vet-trial-matcher/'
+          site=Path('seo/site')
+          sitemap=site/'sitemap.xml'
+          root=ET.parse(sitemap).getroot()
+          ns={'sm':'http://www.sitemaps.org/schemas/sitemap/0.9'}
+          locs=[x.text for x in root.findall('sm:url/sm:loc',ns)]
+          assert locs and len(locs)==len(set(locs)), 'empty/duplicate sitemap URLs'
+          assert all(x.startswith(base) for x in locs), 'unexpected sitemap URL'
+
+          checked=0
+          for url in locs:
+              rel=url[len(base):].strip('/')
+              page=site/'index.html' if not rel else site/rel/'index.html'
+              assert page.exists(), f'missing generated page: {page}'
+              html=page.read_text()
+              assert '100% FREE' in html, f'missing FREE banner: {url}'
+              assert 'No hidden trial results. No paid report.' in html, f'missing free-access copy: {url}'
+              assert 'background:#287fb8' in html, f'missing blue CTA style: {url}'
+              assert 'Check your pet against these trials' in html, f'missing matcher CTA: {url}'
+              if '<article>' in html:
+                  assert html.index('Check your pet against these trials') < html.index('<article>'), f'CTA below trials: {url}'
+              checked += 1
+          print(f'GENERATED_ALL_PAGES_CURRENT pages={checked}')
           PY
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -82,46 +87,55 @@ jobs:
     runs-on: ubuntu-latest
     needs: deploy
     steps:
-      - name: Verify live sitemap over HTTP
+      - name: Verify every live SEO page matches current UI
         run: |
-          URL='https://jdizhur-rgb.github.io/vet-trial-matcher/sitemap.xml'
-          echo "Checking $URL"
-          for i in 1 2 3 4 5 6; do
-            code=$(curl -L -sS -o /tmp/sitemap.xml -D /tmp/headers.txt -w '%{http_code}' "$URL" || true)
-            echo "attempt=$i status=$code"
-            cat /tmp/headers.txt || true
-            if [ "$code" = "200" ]; then break; fi
-            sleep 10
-          done
-          test "$code" = "200"
           python - <<'PY'
-          import os, xml.etree.ElementTree as ET
-          p='/tmp/sitemap.xml'
-          root=ET.parse(p).getroot()
+          import time
+          import urllib.request
+          import xml.etree.ElementTree as ET
+
+          base='https://jdizhur-rgb.github.io/vet-trial-matcher/'
+          sha='${{ github.sha }}'
+
+          def get(url):
+              req=urllib.request.Request(url, headers={'Cache-Control':'no-cache','User-Agent':'vet-trial-matcher-deploy-check'})
+              with urllib.request.urlopen(req, timeout=30) as r:
+                  return r.read().decode('utf-8')
+
+          sitemap_url=base+'sitemap.xml?deploy='+sha
+          sitemap=get(sitemap_url)
+          root=ET.fromstring(sitemap)
           ns={'sm':'http://www.sitemaps.org/schemas/sitemap/0.9'}
           locs=[x.text for x in root.findall('sm:url/sm:loc',ns)]
-          print(f'LIVE_SITEMAP_OK urls={len(locs)} bytes={os.path.getsize(p)} root={root.tag}')
           assert locs
-          PY
-      - name: Verify live HS page is the newly deployed version
-        run: |
-          URL='https://jdizhur-rgb.github.io/vet-trial-matcher/north-america/dogs/histiocytic-sarcoma/'
-          echo "Checking $URL"
-          ok=0
-          for i in 1 2 3 4 5 6 7 8 9 10; do
-            curl -L -sS -H 'Cache-Control: no-cache' -o /tmp/hs.html "${URL}?deploy=${GITHUB_SHA}&attempt=${i}" || true
-            if grep -Fq '100% FREE' /tmp/hs.html && grep -Fq 'No hidden trial results. No paid report.' /tmp/hs.html; then
-              ok=1
-              break
-            fi
-            echo "attempt=$i still not current"
-            sleep 15
-          done
-          test "$ok" = "1"
-          python - <<'PY'
-          from pathlib import Path
-          p=Path('/tmp/hs.html').read_text()
-          assert p.index('Check your pet against these trials') < p.index('<article>')
-          assert 'background:#287fb8' in p
-          print('LIVE_HS_PAGE_CURRENT')
+
+          pending=list(locs)
+          last_errors={}
+          for attempt in range(10):
+              still=[]
+              for i,url in enumerate(pending):
+                  try:
+                      sep='&' if '?' in url else '?'
+                      html=get(f'{url}{sep}deploy={sha}&attempt={attempt}')
+                      assert '100% FREE' in html
+                      assert 'No hidden trial results. No paid report.' in html
+                      assert 'background:#287fb8' in html
+                      assert 'Check your pet against these trials' in html
+                      if '<article>' in html:
+                          assert html.index('Check your pet against these trials') < html.index('<article>')
+                  except Exception as e:
+                      still.append(url)
+                      last_errors[url]=str(e)
+                  time.sleep(0.03)
+              pending=still
+              print(f'attempt={attempt+1} current={len(locs)-len(pending)}/{len(locs)} pending={len(pending)}')
+              if not pending:
+                  break
+              time.sleep(15)
+          if pending:
+              print('STALE_OR_INVALID_PAGES:')
+              for url in pending:
+                  print(url, last_errors.get(url,''))
+              raise SystemExit(f'{len(pending)} live SEO pages are not current')
+          print(f'LIVE_ALL_PAGES_CURRENT pages={len(locs)}')
           PY
