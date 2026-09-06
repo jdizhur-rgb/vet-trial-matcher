@@ -1,0 +1,71 @@
+name: Normalize catalog delete precedence 2026-09-06
+on:
+  push:
+    paths:
+      - '.github/workflows/normalize-delete-upsert-precedence-20260906.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  normalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Remove stale upserts for deleted IDs and recalc
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from collections import Counter
+          p=Path('data/trial_updates.json')
+          upd=json.loads(p.read_text())
+          deleted=set(upd.get('delete',[]))
+          overlaps=[r['id'] for r in upd.get('upsert',[]) if r.get('id') in deleted]
+          upd['upsert']=[r for r in upd.get('upsert',[]) if r.get('id') not in deleted]
+          p.write_text(json.dumps(upd,indent=2,ensure_ascii=False)+'\n')
+          base=json.loads(Path('data/trials_base.json').read_text())
+          by={r['id']:dict(r) for r in base}
+          for x in deleted: by.pop(x,None)
+          for r in upd['upsert']: by[r['id']]={**by.get(r['id'],{}),**r}
+          matching=[r for r in by.values() if r.get('study_type')=='treatment' and r.get('available_for_matching') is True]
+          def scalar(v): return '/'.join(map(str,v)) if isinstance(v,list) else str(v or 'Unknown')
+          stats=json.loads(Path('data/catalog_stats.json').read_text())
+          stats.update({
+            'generated':'2026-09-06',
+            'effective_total_records':len(by),
+            'current_treatment_opportunities':len(matching),
+            'by_country':dict(sorted(Counter(scalar(r.get('country')) for r in matching).items())),
+            'by_species':dict(sorted(Counter(scalar(r.get('species')) for r in matching).items())),
+            'catalog_normalization':'Delete wins over upsert; stale patches for deleted IDs removed so app loader and audit counter use identical effective catalog semantics.',
+            'stale_deleted_upserts_removed':overlaps
+          })
+          Path('data/catalog_stats.json').write_text(json.dumps(stats,indent=2,ensure_ascii=False)+'\n')
+          print('stale_deleted_upserts_removed=',len(overlaps),overlaps)
+          print('effective_total=',len(by),'current_treatment=',len(matching))
+          PY
+      - name: Verify app-loader semantics equals strict semantics
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          base=json.loads(Path('data/trials_base.json').read_text()); upd=json.loads(Path('data/trial_updates.json').read_text()); stats=json.loads(Path('data/catalog_stats.json').read_text())
+          by={r['id']:dict(r) for r in base}
+          for x in upd.get('delete',[]): by.pop(x,None)
+          for r in upd.get('upsert',[]): by[r['id']]={**by.get(r['id'],{}),**r}
+          m=[r for r in by.values() if r.get('study_type')=='treatment' and r.get('available_for_matching') is True]
+          assert not (set(upd.get('delete',[])) & {r['id'] for r in upd.get('upsert',[])})
+          assert len(by)==stats['effective_total_records']
+          assert len(m)==stats['current_treatment_opportunities']
+          print('VERIFIED_APP_AND_STATS_IDENTICAL',len(by),len(m))
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add data/trial_updates.json data/catalog_stats.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'Normalize delete precedence in effective catalog'
+          git push
