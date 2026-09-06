@@ -1,102 +1,118 @@
-import hashlib
 import json
 import time
+import uuid
 import urllib.parse
 import urllib.request
+from datetime import datetime, timedelta, timezone
+
 import streamlit as st
 
-_DEFAULT_MEASUREMENT_ID = "G-TQOYHMOOM5"
+_SUPABASE_URL = "https://bvghrabcfrexvynlyhqb.supabase.co"
+_VISIT_MARKER = "__app_visit__"
 
 
-def _client_id():
-    """Stable anonymous ID for this Streamlit session; no pet/form data is included."""
-    if "_ga_client_id" not in st.session_state:
-        raw = f"{time.time_ns()}-{id(st.session_state)}"
-        digest = hashlib.sha256(raw.encode()).hexdigest()
-        st.session_state["_ga_client_id"] = f"{int(time.time())}.{int(digest[:12], 16)}"
-    return st.session_state["_ga_client_id"]
+def _key():
+    return str(st.secrets.get("SUPABASE_KEY", "")).strip()
 
 
-def _payload(client_id):
-    session_id = int(time.time())
-    return {
-        "client_id": client_id,
-        "events": [
-            {
-                "name": "page_view",
-                "params": {
-                    "page_location": "https://vet-cancer-trial-finder.streamlit.app/",
-                    "page_title": "Vet Cancer Treatment Finder",
-                    "engagement_time_msec": 100,
-                    "session_id": session_id,
-                },
-            }
-        ],
-    }
+def _headers(extra=None):
+    h = {"apikey": _key(), "Content-Type": "application/json"}
+    if extra:
+        h.update(extra)
+    return h
 
 
-def _post(endpoint, payload):
+def _post_visit():
+    if not _key():
+        return False
+    payload = json.dumps(
+        {
+            "trial_center": _VISIT_MARKER,
+            "exclusion_reason": st.session_state.setdefault("_visit_id", uuid.uuid4().hex),
+        }
+    ).encode("utf-8")
     req = urllib.request.Request(
-        endpoint,
-        data=json.dumps(payload).encode("utf-8"),
-        headers={"Content-Type": "application/json", "User-Agent": "VetCancerTrialFinder/1.0"},
+        f"{_SUPABASE_URL}/rest/v1/eligibility_feedback",
+        data=payload,
         method="POST",
-    )
-    with urllib.request.urlopen(req, timeout=8) as response:
-        return response.status, response.read().decode("utf-8", errors="replace")
-
-
-@st.cache_data(ttl=1800, show_spinner=False)
-def _send_page_view(measurement_id, api_secret, client_id):
-    endpoint = "https://www.google-analytics.com/mp/collect?" + urllib.parse.urlencode(
-        {"measurement_id": measurement_id, "api_secret": api_secret}
+        headers=_headers({"Prefer": "return=minimal"}),
     )
     try:
-        status, _ = _post(endpoint, _payload(client_id))
-        return status in (200, 204)
+        with urllib.request.urlopen(req, timeout=8) as r:
+            return r.status in (200, 201, 204)
     except Exception:
         return False
 
 
-def _debug_result(measurement_id, api_secret, client_id):
-    endpoint = "https://www.google-analytics.com/debug/mp/collect?" + urllib.parse.urlencode(
-        {"measurement_id": measurement_id, "api_secret": api_secret}
+def _count_since(since=None):
+    if not _key():
+        return None
+    params = {
+        "select": "trial_center",
+        "trial_center": f"eq.{_VISIT_MARKER}",
+    }
+    if since is not None:
+        params["created_at"] = "gte." + since.astimezone(timezone.utc).isoformat().replace("+00:00", "Z")
+    url = f"{_SUPABASE_URL}/rest/v1/eligibility_feedback?{urllib.parse.urlencode(params)}"
+    req = urllib.request.Request(
+        url,
+        method="GET",
+        headers=_headers({"Prefer": "count=exact", "Range": "0-0"}),
     )
     try:
-        status, body = _post(endpoint, _payload(client_id))
-        parsed = json.loads(body or "{}")
-        return {"http_status": status, "validationMessages": parsed.get("validationMessages", [])}
-    except Exception as exc:
-        return {"error": f"{type(exc).__name__}: {exc}"}
+        with urllib.request.urlopen(req, timeout=8) as r:
+            content_range = r.headers.get("Content-Range", "")
+            total = content_range.rsplit("/", 1)[-1]
+            return int(total) if total.isdigit() else 0
+    except Exception:
+        return None
+
+
+def _render_stats():
+    now = datetime.now(timezone.utc)
+    total = _count_since()
+    day = _count_since(now - timedelta(days=1))
+    week = _count_since(now - timedelta(days=7))
+    month = _count_since(now - timedelta(days=30))
+
+    st.title("Private visit stats")
+    if total is None:
+        st.error("Visit counter is not available. SUPABASE_KEY may be missing or the table may be unreachable.")
+        return
+    cols = st.columns(4)
+    cols[0].metric("All visits", total)
+    cols[1].metric("Last 24h", day)
+    cols[2].metric("Last 7 days", week)
+    cols[3].metric("Last 30 days", month)
+    st.caption("Counts Streamlit sessions, not people. Form answers and pet data are not stored. Your owner/stats links are excluded.")
 
 
 def install_analytics():
-    """Send a privacy-minimized GA4 page_view from the Streamlit server.
+    """Private, zero-cost session counter using the app's existing Supabase table.
 
-    Requires GA_API_SECRET in Streamlit secrets. No diagnosis, age, weight,
-    search terms, names, email addresses, or other form values are transmitted.
-    The cache prevents Streamlit reruns from inflating page-view counts.
-
-    Temporary diagnostic mode: add ?ga_debug=1 to the app URL. It shows only
-    whether the required secrets are present and Google's validation messages;
-    it never displays the secret itself.
+    A single anonymous row is written once per Streamlit session. No form values,
+    diagnosis, pet data, IP address, email, or browser fingerprint is written by
+    this code. `?analytics_off=1` excludes the current Streamlit session.
+    `?stats=1&analytics_off=1` opens the private stats view and never counts it.
     """
-    measurement_id = str(st.secrets.get("GA_MEASUREMENT_ID", _DEFAULT_MEASUREMENT_ID)).strip()
-    api_secret = str(st.secrets.get("GA_API_SECRET", "")).strip()
-    client_id = _client_id()
+    try:
+        params = st.query_params
+        if str(params.get("analytics_off", "")) == "1":
+            st.session_state["_analytics_off"] = True
+        if str(params.get("analytics_on", "")) == "1":
+            st.session_state.pop("_analytics_off", None)
 
-    if st.query_params.get("ga_debug") == "1":
-        if not api_secret:
-            st.error("GA debug: GA_API_SECRET is missing in Streamlit Secrets.")
+        if str(params.get("stats", "")) == "1":
+            st.session_state["_analytics_off"] = True
+            _render_stats()
+            st.stop()
+
+        if st.session_state.get("_analytics_off"):
             return
-        result = _debug_result(measurement_id, api_secret, client_id)
-        if result.get("validationMessages") == [] and result.get("http_status") in (200, 204):
-            st.success("GA debug: Google accepted the Measurement Protocol payload with no validation errors.")
-        else:
-            st.warning("GA debug result")
-            st.json(result)
+        if not st.session_state.get("_visit_logged"):
+            if _post_visit():
+                st.session_state["_visit_logged"] = True
+                st.session_state["_visit_logged_at"] = int(time.time())
+    except Exception:
+        # Analytics must never interfere with the matcher.
         return
-
-    if not measurement_id or not api_secret:
-        return
-    _send_page_view(measurement_id, api_secret, client_id)
