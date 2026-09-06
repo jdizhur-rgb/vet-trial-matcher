@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: python scripts/expand_other_options_20260906.py
+      - run: python scripts/expand_other_options_remaining_20260906.py
       - run: python -m py_compile pages/2_Additional_Oncology_Options.py
       - run: |
           git config user.name github-actions[bot]
