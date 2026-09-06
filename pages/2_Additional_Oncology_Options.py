@@ -1,1 +1,45 @@
-PLACEHOLDER
+import streamlit as st
+
+OPTIONS = [
+    {"id":"hsa-fidocure-genomic-guidance","species":"Dog","countries":["USA"],"cancers":["Hemangiosarcoma"],"situations":["Splenic hemangiosarcoma"],"name":"FidoCure genomic guidance","summary":"Tumor genomic profiling to guide targeted therapy after splenic hemangiosarcoma diagnosis.","access":"USA — ordered and managed through the treating veterinarian/oncologist; FFPE tumor tissue can be used.","evidence":"Retrospective real-world comparative evidence.","evidence_level":"Comparative real-world clinical evidence","sample":"FFPE tumor tissue / pathology material","travel":"No research-center travel inherently required","url":"https://www.nature.com/articles/s41598-025-89862-9","provider_url":"https://fidocure.com/","access_url":"https://fidocure.com/pet-parents/","access_label":"Start with FidoCure","contact_email":"support@fidocure.com","contact_phone":"855-701-8047","limitations":"Retrospective observational data."},
+    {"id":"bcell-lymphoma-apavac-vaxkit","species":"Dog","countries":["USA","Canada","Europe"],"cancers":["B-cell lymphoma"],"situations":["Newly diagnosed / treatment planning","Tumor or lymph-node tissue available"],"name":"APAVAC / Vaxkit","summary":"Personalized autologous tumor vaccine used alongside chemotherapy for B-cell lymphoma.","access":"USA / Canada / Europe — veterinarian-directed autologous vaccine platform.","evidence":"Comparative clinical evidence includes randomized and cohort data.","evidence_level":"Randomized clinical evidence + comparative clinical cohort evidence","sample":"Adequate fresh/autologous tumor or lymph-node tissue is required.","travel":"Potentially usable through the treating veterinarian.","url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC6554898/","provider_url":"https://vaxkit.com/","access_url":"https://vaxkit.com/","access_label":"Vaxkit access & contact","contact_email":"info@vaxkit.com","limitations":"Not a contemporary standard-of-care replacement."},
+    {"id":"bcell-lymphoma-aurelius-act","species":"Dog","countries":["USA"],"cancers":["B-cell lymphoma"],"situations":["After initial chemotherapy / in clinical remission"],"name":"Aurelius adoptive T-cell therapy","summary":"Autologous adoptive T-cell immunotherapy for canine B-cell lymphoma. T cells are collected from the dog’s blood, expanded and activated by Aurelius, then shipped back for intravenous infusion.","access":"USA — veterinarian-directed experimental treatment from Aurelius Biotherapeutics in Bellingham, Washington.","evidence":"Published canine clinical evidence supports adoptive T-cell transfer after chemotherapy in B-cell lymphoma.","evidence_level":"Published canine clinical evidence + current experimental access","sample":"20 mL peripheral blood in purple-top tubes, shipped chilled overnight; confirm timing and eligibility with Aurelius before collection.","travel":"The blood sample can be sent by the treating veterinarian and the expanded cells shipped back for infusion.","url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC8688351/","provider_url":"https://aureliusbio.com/","access_url":"https://aureliusbio.com/veterinarians/","access_label":"Aurelius access & protocol","contact_email":"info@AureliusBio.com","contact_phone":"360-734-0720","limitations":"Experimental therapy; USDA licensure is pending."},
+    {"id":"osa-elias-eci","species":"Dog","countries":["USA"],"cancers":["Osteosarcoma"],"situations":["After amputation / adjuvant treatment planning"],"name":"ELIAS Cancer Immunotherapy (ECI)","summary":"USDA-approved autologous vaccine-enhanced adoptive T-cell therapy for canine osteosarcoma after amputation.","access":"USA — veterinarian-directed ELIAS Cancer Immunotherapy (ECI).","evidence":"USDA licensure is supported by canine safety and efficacy studies.","evidence_level":"USDA-approved autologous prescription product + canine clinical evidence","sample":"Autologous tumor material is required; coordinate before or at amputation.","travel":"Treatment can be coordinated through veterinary practices that offer ECI.","url":"https://www.aphis.usda.gov/sites/default/files/2025-04/691-95a750.pdf","provider_url":"https://eliasanimalhealth.com/","access_url":"https://eliasanimalhealth.com/","access_label":"ELIAS access information","limitations":"Requires amputation and usable autologous tumor material."},
+    {"id":"gilvetmab-mct","species":"Dog","countries":["USA"],"cancers":["Mast cell tumor"],"situations":["Stage I–III mast cell tumor"],"name":"Gilvetmab","summary":"Anti-PD-1 immunotherapy available through veterinary oncology specialists for canine mast cell tumor.","access":"USA — available through specialists practicing veterinary oncology under USDA conditional licensure.","evidence":"Prospective multicenter clinical efficacy data support activity in mast cell tumors.","evidence_level":"Regulated veterinary therapy + prospective clinical data","sample":"No special tumor-manufacturing sample required.","travel":"Treatment is administered intravenously in a veterinary clinic.","url":"https://pubmed.ncbi.nlm.nih.gov/42247661/","provider_url":"https://www.merck-animal-health-usa.com/hub/gilvetmab/","access_url":"https://www.merck-animal-health-usa.com/hub/gilvetmab/","access_label":"Gilvetmab access / oncologist","contact_phone":"800-521-5767","limitations":"The published efficacy study was single-arm."},
+    {"id":"gilvetmab-melanoma","species":"Dog","countries":["USA"],"cancers":["Oral melanoma","Melanoma — other"],"situations":["Stage II–III malignant melanoma"],"name":"Gilvetmab","summary":"Anti-PD-1 immunotherapy available through veterinary oncology specialists for canine malignant melanoma.","access":"USA — available through specialists practicing veterinary oncology under USDA conditional licensure.","evidence":"Prospective multicenter clinical efficacy data support activity in malignant melanoma.","evidence_level":"Regulated veterinary therapy + prospective clinical data","sample":"No special tumor-manufacturing sample required.","travel":"Treatment is administered intravenously in a veterinary clinic.","url":"https://pubmed.ncbi.nlm.nih.gov/42247661/","provider_url":"https://www.merck-animal-health-usa.com/hub/gilvetmab/","access_url":"https://www.merck-animal-health-usa.com/hub/gilvetmab/","access_label":"Gilvetmab access / oncologist","contact_phone":"800-521-5767","limitations":"The published efficacy study was single-arm."},
+]
+
+def contact_line(x, country):
+    parts=[]
+    if x.get("provider_url"): parts.append(f"🌐 [Official website]({x['provider_url']})")
+    if x.get("contact_email"): parts.append(f"✉️ [{x['contact_email']}](mailto:{x['contact_email']})")
+    if x.get("contact_phone"): parts.append(f"☎️ [{x['contact_phone']}](tel:{x['contact_phone'].replace('-', '')})")
+    return "    ".join(parts)
+
+st.markdown("<div style='height:1.45rem'></div>", unsafe_allow_html=True)
+st.markdown("<div style='font-size:1.55rem;line-height:1.08;font-weight:700;margin:.1rem 0 .15rem;color:#356fa8'>🧬 Other Options</div>", unsafe_allow_html=True)
+st.markdown("<div style='height:.65rem'></div>", unsafe_allow_html=True)
+st.write("A short list of non-routine treatment options with current access and enough evidence or clinical relevance to be worth discussing with a veterinary oncologist.")
+with st.expander("How options qualify"):
+    st.write("This section can include regulated, experimental, off-label, precision, or personalized anticancer treatments with a real current access pathway.")
+species=st.selectbox("1. Species",["Dog","Cat"])
+country=st.selectbox("2. Country / region",["USA","Canada","Europe"])
+country_options=[x for x in OPTIONS if x["species"]==species and country in x.get("countries",[])]
+available_cancers=sorted({c for x in country_options for c in x["cancers"]})
+cancer=st.selectbox("3. Cancer type",["Select cancer type"]+available_cancers)
+if cancer!="Select cancer type":
+    cancer_matches=[x for x in country_options if cancer in x["cancers"]]
+    situations=sorted({s for x in cancer_matches for s in x["situations"]})
+    situation=st.selectbox("4. Clinical situation",["Show all relevant situations"]+situations)
+    matches=cancer_matches if situation=="Show all relevant situations" else [x for x in cancer_matches if situation in x["situations"]]
+    st.success(f"{len(matches)} additional option{'s' if len(matches)!=1 else ''} found to discuss with a veterinary oncologist.")
+    for x in matches:
+        with st.container(border=True):
+            st.subheader(x["name"]); st.write(x["summary"])
+            contacts=contact_line(x,country)
+            if contacts: st.markdown(contacts)
+            with st.expander("Evidence"):
+                st.markdown(f"**Evidence level:** {x['evidence_level']}"); st.write(x["evidence"]); st.link_button("Clinical evidence",x["url"],use_container_width=True)
+            with st.expander("Access & sample"):
+                st.markdown(f"**Current access:** {x['access']}"); st.markdown(f"**Sample:** {x['sample']}"); st.markdown(f"**Travel:** {x['travel']}")
+            with st.expander("Limitations"): st.write(x["limitations"])
