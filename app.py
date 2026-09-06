@@ -5,9 +5,9 @@ import json, urllib.request, re
 from analytics import install_analytics
 
 st.set_page_config(page_title="Vet Cancer Treatment Finder", page_icon="🐾", layout="wide")
-PAGES=[st.Page("pages/1_Clinical_Trial_Finder.py",title="Clinical Trial Finder",icon="🐾",default=True),st.Page("pages/2_Additional_Oncology_Options.py",title="Additional Oncology Options",icon="🧬"),st.Page("pages/3_Private_Stats.py",title="Private Stats",url_path="private-stats-9f4c2",visibility="hidden")]
+PAGES=[st.Page("pages/1_Clinical_Trial_Finder.py",title="Clinical Trial Finder",icon="🐾",default=True),st.Page("pages/2_Additional_Oncology_Options.py",title="Additional Oncology Options",icon="🧬"),st.Page("pages/3_Private_Stats.py",title="Private Stats",url_path="private-stats-9f4c2")]
 page=st.navigation(PAGES,position="hidden")
-install_analytics(disabled=(page.url_path=="private-stats-9f4c2"))
+install_analytics()
 
 st.markdown("""<style>
 .stMainBlockContainer,div[data-testid="stMainBlockContainer"]{max-width:1120px!important;padding:3.4rem 1.5rem 2rem!important}
@@ -118,52 +118,9 @@ def _linkify_contact(text):
         return f"[{raw}](tel:{digits})" if len(digits)>=7 else raw
     return re.sub(r"(?<![:\w])(?:\+?\d[\d .()/-]{7,}\d)",phone_link,text)
 def _save_controls():
-    components.html("""<style>body{margin:0;font-family:Arial,sans-serif}.row{display:flex;gap:8px}.b{flex:1;border:1px solid #d8d3cf;background:#fff;border-radius:9px;padding:9px 12px;font-size:14px;font-weight:600;color:#4b4642;cursor:pointer}.b:hover{background:#f7f5f3}.ok{font-size:12px;color:#55745d;margin-top:5px;min-height:15px}</style><div class='row'><button class='b' onclick='copyResults()'>📋 Copy results</button><button class='b' onclick='savePdf()'>📄 Save as PDF</button></div><div id='ok' class='ok'></div><script>function resultText(){const d=window.parent.document;const els=[...d.querySelectorAll('h1,h2,h3,p,a,button,summary')];let start=els.findIndex(e=>e.innerText.trim()==='Results');if(start<0)return '';let out=[];for(let i=start;i<els.length;i++){let t=els[i].innerText.trim();if(t.startsWith('If a trial team says your pet is not eligible'))break;if(t&&t!=='Copy results'&&t!=='Save as PDF')out.push(t)}return [...new Set(out)].join('\n\n')}async function copyResults(){let t=resultText();if(!t){document.getElementById('ok').innerText='Run a search first.';return}try{await navigator.clipboard.writeText(t);document.getElementById('ok').innerText='Results copied.'}catch(e){document.getElementById('ok').innerText='Copy was blocked by the browser.'}}function savePdf(){let t=resultText();if(!t){document.getElementById('ok').innerText='Run a search first.';return}let w=window.open('','_blank');w.document.write('<html><head><title>Clinical Trial Finder Results</title><style>body{font-family:Arial,sans-serif;max-width:760px;margin:40px auto;padding:0 24px;color:#282522;line-height:1.45}h1{font-size:22px}pre{font-family:Arial,sans-serif;white-space:pre-wrap;font-size:13px}.note{margin-top:28px;font-size:11px;color:#666}</style></head><body><h1>Clinical Trial Finder Results</h1><pre>'+t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</pre><div class="note">Saved from Vet Cancer Clinical Trial Finder. Recruitment and eligibility can change; confirm current status with the study team.</div><script>window.onload=()=>window.print()<\/script></body></html>');w.document.close()}</script>""",height=70)
-def write(body,*a,**k):
-    if isinstance(body,str) and body.startswith("**Contact:**"):
-        contact=body.replace("**Contact:**","",1).strip();linked=_linkify_contact(contact)
-        if linked:_orig["markdown"]("**Contact:** "+linked)
-        return
-    if isinstance(body,str) and body.startswith("**Participating sites:**"):
-        return _orig["markdown"](body)
-    if body==_feedback_text:
-        _save_controls();_orig["write"]("If a trial team says your pet is not eligible, you can share the reason without providing your name or email.")
-        with st.expander("Share eligibility feedback"):
-            with st.form("eligibility_feedback_form",clear_on_submit=True):
-                trial=_orig["text_input"]("Trial / center",max_chars=300);reason=st.text_area("Reason the trial team said your pet was not eligible",max_chars=2000);st.caption("No name or email is required. Please do not include identifying information.");sent=st.form_submit_button("Submit feedback",use_container_width=True)
-                if sent:
-                    if not trial.strip() or not reason.strip():st.warning("Please enter the trial / center and the reason given by the trial team.")
-                    elif not _SUPABASE_KEY:st.error("Feedback service is not configured.")
-                    else:
-                        try:
-                            data=json.dumps({"trial_center":trial.strip(),"exclusion_reason":reason.strip()}).encode();req=urllib.request.Request(f"{_SUPABASE_URL}/rest/v1/eligibility_feedback",data=data,method="POST",headers={"apikey":_SUPABASE_KEY,"Content-Type":"application/json","Prefer":"return=minimal"});urllib.request.urlopen(req,timeout=10);st.success("Thank you. Your feedback was submitted.")
-                        except Exception:st.error("Feedback could not be submitted. Please try again later.")
-        return
-    return _orig["write"](body,*a,**k)
-def link_button(label,url,*a,**k):
-    if label=="Official study page":_pending["url"]=url;return
-    return _orig["link_button"](label,url,*a,**k)
-@contextmanager
-def expander(label,*a,**k):
-    if label=="Study details":
-        with _orig["expander"]("Details & contact",*a,**k):
-            if _selected_region["value"] in _europe:_orig["markdown"]("**Enrollment:** European trials often recruit through the investigator or referral center without a separate online enrollment form. Contact the study team to confirm that enrollment/slots are currently open.")
-            if _pending["contact"]:
-                linked=_linkify_contact(_pending["contact"])
-                if linked:_orig["markdown"](f"**Contact:** {linked}")
-            if _pending["sites"]:_orig["markdown"](f"**Participating sites:** {_pending['sites']}")
-            if _pending["url"]:_orig["link_button"]("Official study page",_pending["url"],use_container_width=True)
-            _pending.update(contact=None,sites=None,url=None);yield
-    else:
-        with _orig["expander"](label,*a,**k):yield
-st.title=title;st.header=header;st.selectbox=selectbox;st.checkbox=checkbox;st.number_input=number_input;st.radio=radio;st.text_input=text_input;st.multiselect=multiselect;st.markdown=markdown;st.write=write;st.link_button=link_button;st.expander=expander;st.button=button
-try:page.run()
-finally:
-    components.html=_components_html_orig
-    for n,v in _orig.items():setattr(st,n,v)
-with _nav_top.container():
-    left,right=st.columns(2,gap="small")
-    with left:
-        if st.button("🐾︎ Clinical Trials",key="nav_trials",use_container_width=True):st.switch_page("pages/1_Clinical_Trial_Finder.py")
-    with right:
-        if st.button("🧬 Other Options",key="nav_options",use_container_width=True):st.switch_page("pages/2_Additional_Oncology_Options.py")
+    components.html("""<style>body{margin:0;font-family:Arial,sans-serif}.row{display:flex;gap:8px}.b{flex:1;border:1px solid #d8d3cf;background:#fff;border-radius:9px;padding:9px 12px;font-size:14px;font-weight:600;color:#4b4642;cursor:pointer}.b:hover{background:#f7f5f3}.ok{font-size:12px;color:#55745d;margin-top:5px;min-height:15px}</style><div class='row'><button class='b' onclick='copyResults()'>📋 Copy results</button><button class='b' onclick='savePdf()'>📄 Save as PDF</button></div><div id='ok' class='ok'></div><script>function copyResults(){try{let t=window.parent.document.querySelector('[data-testid="stMainBlockContainer"]').innerText;navigator.clipboard.writeText(t);document.getElementById('ok').textContent='Copied';}catch(e){document.getElementById('ok').textContent='Could not copy';}}function savePdf(){window.parent.print();}</script>""",height=72)
+def write(body,*a,**k):return _orig["write"](body,*a,**k)
+def link_button(label,url,*a,**k):return _orig["link_button"](label,url,*a,**k)
+
+st.title=title;st.header=header;st.selectbox=selectbox;st.checkbox=checkbox;st.number_input=number_input;st.radio=radio;st.text_input=text_input;st.multiselect=multiselect;st.button=button;st.markdown=markdown;st.write=write;st.link_button=link_button
+page.run()
