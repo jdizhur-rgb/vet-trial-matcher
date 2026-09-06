@@ -1,0 +1,49 @@
+name: Add hidden private stats route
+
+on:
+  push:
+    paths:
+      - '.github/workflows/add-private-stats-page.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch app routing
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('app.py')
+          s = p.read_text()
+          old = '''st.set_page_config(page_title="Vet Cancer Treatment Finder", page_icon="🐾", layout="wide")
+          install_analytics()
+          PAGES=[st.Page("pages/1_Clinical_Trial_Finder.py",title="Clinical Trial Finder",icon="🐾",default=True),st.Page("pages/2_Additional_Oncology_Options.py",title="Additional Oncology Options",icon="🧬")]
+          page=st.navigation(PAGES,position="hidden")'''
+          new = '''st.set_page_config(page_title="Vet Cancer Treatment Finder", page_icon="🐾", layout="wide")
+          PAGES=[st.Page("pages/1_Clinical_Trial_Finder.py",title="Clinical Trial Finder",icon="🐾",default=True),st.Page("pages/2_Additional_Oncology_Options.py",title="Additional Oncology Options",icon="🧬"),st.Page("pages/3_Private_Stats.py",title="Private Stats",url_path="private-stats-9f4c2",visibility="hidden")]
+          page=st.navigation(PAGES,position="hidden")
+          install_analytics(disabled=(page.url_path=="private-stats-9f4c2"))'''
+          if old not in s:
+              raise SystemExit('Expected app.py block not found')
+          p.write_text(s.replace(old,new,1))
+
+          a = Path('analytics.py')
+          t = a.read_text()
+          t = t.replace('def install_analytics():', 'def install_analytics(disabled=False):', 1)
+          needle = '    try:\n        params = st.query_params\n'
+          repl = '    if disabled:\n        return\n    try:\n        params = st.query_params\n'
+          if needle not in t:
+              raise SystemExit('Expected analytics.py block not found')
+          a.write_text(t.replace(needle,repl,1))
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app.py analytics.py
+          git commit -m "Use hidden Streamlit page for private stats"
+          git push
