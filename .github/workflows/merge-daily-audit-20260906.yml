@@ -43,22 +43,38 @@ jobs:
               return v if v not in (None, '') else default
 
           effective = {r.get('id'): r for r in base if r.get('id')}
-          for r in upserts:
+          upsert_pos = {}
+          for i, r in enumerate(upserts):
               rid = r.get('id')
               if rid:
                   effective[rid] = {**effective.get(rid, {}), **r}
+                  upsert_pos[rid] = i
           existing_ids = set(effective)
           existing_sigs = {sig(r) for r in effective.values() if r.get('title')}
 
           added=[]
+          updated=[]
           for r in patch.get('upsert', []):
-              if r['id'] in existing_ids or sig(r) in existing_sigs:
+              rid = r['id']
+              if rid in existing_ids:
+                  merged = {**effective[rid], **r}
+                  if merged != effective[rid]:
+                      if rid in upsert_pos:
+                          upserts[upsert_pos[rid]] = {**upserts[upsert_pos[rid]], **r}
+                      else:
+                          upserts.append(r)
+                          upsert_pos[rid] = len(upserts)-1
+                      effective[rid] = merged
+                      updated.append(rid)
+                  continue
+              if sig(r) in existing_sigs:
                   continue
               upserts.append(r)
-              effective[r['id']] = r
-              existing_ids.add(r['id'])
+              upsert_pos[rid] = len(upserts)-1
+              effective[rid] = r
+              existing_ids.add(rid)
               existing_sigs.add(sig(r))
-              added.append(r['id'])
+              added.append(rid)
 
           upd_path.write_text(json.dumps(upd, indent=2, ensure_ascii=False) + '\n')
 
@@ -84,7 +100,8 @@ jobs:
               'by_country':dict(sorted(countries.items())),
               'by_species':dict(sorted(species.items())),
               'daily_audit_added':added,
-              'audit_note':'Daily external oncology audit: added newly confirmed MSU histiocytic-sarcoma quasiorganelle therapy and UC Davis CARE glioma treatment trial. Clinaxel CX23/F01 and CX22/B01 remain insufficiently disclosed for matching; SLU OXC-101 lacks confirmed patient recruitment; Utrecht holmium lacks fresh recruitment; LISANEXT is temporarily not accepting applications.'
+              'daily_audit_updated':updated,
+              'audit_note':'Daily external oncology audit: added newly confirmed UC Davis CARE glioma treatment trial and refreshed the existing MSU histiocytic-sarcoma quasiorganelle record with current recruitment, eligibility, funding and contact details. Clinaxel CX23/F01 and CX22/B01 remain insufficiently disclosed for matching; SLU OXC-101 lacks confirmed patient recruitment; Utrecht holmium lacks fresh recruitment; LISANEXT is temporarily not accepting applications.'
           }
           Path('data/catalog_stats.json').write_text(json.dumps(stats, indent=2, ensure_ascii=False)+'\n')
           print(json.dumps(stats, indent=2, ensure_ascii=False))
