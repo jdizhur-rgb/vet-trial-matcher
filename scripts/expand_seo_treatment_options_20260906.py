@@ -1,0 +1,8 @@
+from pathlib import Path
+p=Path('seo/generate_seo.py')
+s=p.read_text(encoding='utf-8')
+s=s.replace("h1=f'{label}: {LANGS[lang][0]} for {sname}s in {region_label}'; body=f'<h1>{esc(h1)}</h1><p>{esc(LANGS[lang][1])}: <strong>{len(hit)}</strong>.</p>{cards(hit)}'", "h1=f'{label}: Treatment Options and Clinical Trials for {sname}s in {region_label}' if lang=='en' else f'{label}: {LANGS[lang][0]} for {sname}s in {region_label}'; body=f'<h1>{esc(h1)}</h1><p>{esc(LANGS[lang][1])}: <strong>{len(hit)}</strong>.</p>{cards(hit)}'")
+s=s.replace("page(h1,f'Current {label} cancer treatment trials for {sname.lower()}s in {region_label}.'", "page(h1,(f'Current {label} treatment options, clinical trials, advanced and experimental cancer treatments for {sname.lower()}s in {region_label}.' if lang=='en' else f'Current {label} cancer treatment trials for {sname.lower()}s in {region_label}.')")
+s=s.replace("body='<h1>Veterinary Cancer Clinical Trials for Dogs and Cats</h1><p>Browse cancer and region combinations that currently have treatment opportunities in the live catalog.</p>", "body='<h1>Cancer Treatment Options and Clinical Trials for Dogs and Cats</h1><p>Find current canine and feline cancer treatment options, clinical trials, advanced treatments and experimental therapies by diagnosis and region.</p>")
+s=s.replace("page('Cancer Trial Finder For Dogs And Cats','Free current veterinary cancer treatment trial finder for dogs and cats.'", "page('Cancer Treatment Options & Clinical Trials for Dogs and Cats','Free finder for current dog and cat cancer treatment options, clinical trials, advanced treatments and experimental therapies.'")
+p.write_text(s,encoding='utf-8')
