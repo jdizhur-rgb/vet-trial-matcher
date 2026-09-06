@@ -47,6 +47,19 @@ jobs:
           assert all(x.startswith('https://jdizhur-rgb.github.io/vet-trial-matcher/') for x in locs)
           print(f'VALID_SITEMAP urls={len(locs)} bytes={__import__("os").path.getsize(p)}')
           PY
+      - name: Verify generated HS page has current UI
+        run: |
+          PAGE='seo/site/north-america/dogs/histiocytic-sarcoma/index.html'
+          test -f "$PAGE"
+          grep -Fq '100% FREE' "$PAGE"
+          grep -Fq 'No hidden trial results. No paid report.' "$PAGE"
+          grep -Fq 'background:#287fb8' "$PAGE"
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('seo/site/north-america/dogs/histiocytic-sarcoma/index.html').read_text()
+          assert p.index('Check your pet against these trials') < p.index('<article>')
+          print('GENERATED_HS_PAGE_OK')
+          PY
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload SEO site
@@ -89,4 +102,26 @@ jobs:
           locs=[x.text for x in root.findall('sm:url/sm:loc',ns)]
           print(f'LIVE_SITEMAP_OK urls={len(locs)} bytes={os.path.getsize(p)} root={root.tag}')
           assert locs
+          PY
+      - name: Verify live HS page is the newly deployed version
+        run: |
+          URL='https://jdizhur-rgb.github.io/vet-trial-matcher/north-america/dogs/histiocytic-sarcoma/'
+          echo "Checking $URL"
+          ok=0
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            curl -L -sS -H 'Cache-Control: no-cache' -o /tmp/hs.html "${URL}?deploy=${GITHUB_SHA}&attempt=${i}" || true
+            if grep -Fq '100% FREE' /tmp/hs.html && grep -Fq 'No hidden trial results. No paid report.' /tmp/hs.html; then
+              ok=1
+              break
+            fi
+            echo "attempt=$i still not current"
+            sleep 15
+          done
+          test "$ok" = "1"
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('/tmp/hs.html').read_text()
+          assert p.index('Check your pet against these trials') < p.index('<article>')
+          assert 'background:#287fb8' in p
+          print('LIVE_HS_PAGE_CURRENT')
           PY
