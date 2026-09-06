@@ -1,15 +1,18 @@
 import json
 import streamlit as st
+import streamlit.components.v1 as components
 
 
-DEFAULT_GA_MEASUREMENT_ID = "G-TQOYHMOOM5"
+# Public GA4 measurement ID. A Streamlit secret with the same name can override it.
+_DEFAULT_MEASUREMENT_ID = "G-TQOYHMOOM5"
 
 
 def install_analytics():
-    """Install privacy-conscious GA4 tracking.
+    """Install GA4 in a hidden Streamlit component.
 
-    The GA4 measurement ID is public by design, so the app can safely fall
-    back to its configured ID when no Streamlit secret is present.
+    The first version tried to inject JavaScript with st.html(), which can be
+    sandboxed/ignored for this use. components.html() executes the script in a
+    dedicated iframe, which is sufficient to send GA4 page_view events.
 
     Privacy choices:
     - no names, email, form values, diagnosis text, age, weight, or other pet data are sent;
@@ -17,61 +20,68 @@ def install_analytics():
     - the owner's browser can opt out persistently with ?analytics_off=1;
     - ?analytics_on=1 reverses the local opt-out.
     """
-    measurement_id = str(
-        st.secrets.get("GA_MEASUREMENT_ID", DEFAULT_GA_MEASUREMENT_ID)
-    ).strip()
+    measurement_id = str(st.secrets.get("GA_MEASUREMENT_ID", _DEFAULT_MEASUREMENT_ID)).strip()
     if not measurement_id:
-        measurement_id = DEFAULT_GA_MEASUREMENT_ID
+        return
 
     mid = json.dumps(measurement_id)
-    st.html(
+    components.html(
         f"""
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
 <script>
 (() => {{
   try {{
-    const p = window.parent;
-    const u = new URL(p.location.href);
-    if (u.searchParams.get('analytics_off') === '1') {{
-      p.localStorage.setItem('vet_trial_analytics_off', '1');
-      u.searchParams.delete('analytics_off');
-      p.history.replaceState({{}}, '', u.toString());
-    }}
-    if (u.searchParams.get('analytics_on') === '1') {{
-      p.localStorage.removeItem('vet_trial_analytics_off');
-      u.searchParams.delete('analytics_on');
-      p.history.replaceState({{}}, '', u.toString());
-    }}
-    if (p.localStorage.getItem('vet_trial_analytics_off') === '1') return;
-
     const id = {mid};
-    if (!p.document.getElementById('vet-trial-ga4')) {{
-      const s = p.document.createElement('script');
-      s.id = 'vet-trial-ga4';
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(id);
-      p.document.head.appendChild(s);
+    const parentUrl = (() => {{
+      try {{ return new URL(window.parent.location.href); }}
+      catch (_) {{ return new URL(document.referrer || 'https://vet-cancer-trial-finder.streamlit.app/'); }}
+    }})();
+
+    let storage;
+    try {{ storage = window.parent.localStorage; }}
+    catch (_) {{ storage = window.localStorage; }}
+
+    if (parentUrl.searchParams.get('analytics_off') === '1') {{
+      try {{ storage.setItem('vet_trial_analytics_off', '1'); }} catch (_) {{}}
     }}
-    p.dataLayer = p.dataLayer || [];
-    p.gtag = p.gtag || function(){{p.dataLayer.push(arguments);}};
-    p.gtag('js', new Date());
-    p.gtag('consent', 'default', {{
+    if (parentUrl.searchParams.get('analytics_on') === '1') {{
+      try {{ storage.removeItem('vet_trial_analytics_off'); }} catch (_) {{}}
+    }}
+    try {{
+      if (storage.getItem('vet_trial_analytics_off') === '1') return;
+    }} catch (_) {{}}
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function(){{ window.dataLayer.push(arguments); }};
+    window.gtag('js', new Date());
+    window.gtag('consent', 'default', {{
       'ad_storage': 'denied',
       'ad_user_data': 'denied',
       'ad_personalization': 'denied',
       'analytics_storage': 'granted'
     }});
-    p.gtag('config', id, {{
+    window.gtag('config', id, {{
       'send_page_view': true,
       'allow_google_signals': false,
       'allow_ad_personalization_signals': false,
-      'page_location': p.location.origin + p.location.pathname,
-      'page_title': p.document.title || 'Vet Cancer Treatment Finder'
+      'page_location': parentUrl.origin + parentUrl.pathname,
+      'page_title': 'Vet Cancer Treatment Finder'
     }});
-  }} catch (e) {{
-    // Analytics must never interfere with the matcher.
-  }}
+
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(id);
+    document.head.appendChild(s);
+  }} catch (_) {{}}
 }})();
 </script>
+</head>
+<body></body>
+</html>
 """,
-        unsafe_allow_javascript=True,
+        height=0,
+        width=0,
     )
