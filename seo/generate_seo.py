@@ -11,82 +11,55 @@ SITE='https://jdizhur-rgb.github.io/vet-trial-matcher'
 EUROPE={'Belgium','Denmark','France','Germany','Italy','Netherlands','Portugal','Spain','Sweden','Switzerland','UK','Ireland','Austria','Czechia','Poland','Finland','Norway','Hungary','Slovenia','Cyprus'}
 REGIONS={'north-america':{'USA','Canada'},'uk-europe':EUROPE}
 SPECIES={'dogs':'Dog','cats':'Cat'}
-LANGS={
-'en':('Clinical Trials and Cancer Treatment Studies','Current treatment-focused opportunities','Search current treatment opportunities'),
-'de':('Klinische Studien und Krebsbehandlungsstudien','Aktuelle behandlungsorientierte Möglichkeiten','Aktuelle Behandlungsmöglichkeiten suchen'),
-'fr':('Essais cliniques et études de traitement du cancer','Options thérapeutiques actuellement disponibles','Rechercher les options de traitement actuelles'),
-'es':('Ensayos clínicos y estudios de tratamiento del cáncer','Opciones terapéuticas disponibles actualmente','Buscar opciones de tratamiento actuales'),
-'it':('Studi clinici e studi sul trattamento del cancro','Opportunità terapeutiche attualmente disponibili','Cerca le opzioni terapeutiche attuali'),
-'nl':('Klinische onderzoeken en kankerbehandelingsstudies','Huidige behandelingsgerichte mogelijkheden','Zoek actuele behandelingsmogelijkheden'),
-}
+LANGS={'en':('Clinical Trials and Cancer Treatment Studies','Current treatment-focused opportunities','Check your pet against these trials'),'de':('Klinische Studien und Krebsbehandlungsstudien','Aktuelle behandlungsorientierte Möglichkeiten','Behandlungsmöglichkeiten prüfen'),'fr':('Essais cliniques et études de traitement du cancer','Options thérapeutiques actuellement disponibles','Vérifier les options de traitement'),'es':('Ensayos clínicos y estudios de tratamiento del cáncer','Opciones terapéuticas disponibles actualmente','Comprobar opciones de tratamiento'),'it':('Studi clinici e studi sul trattamento del cancro','Opportunità terapeutiche attualmente disponibili','Verifica le opzioni di trattamento'),'nl':('Klinische onderzoeken en kankerbehandelingsstudies','Huidige behandelingsgerichte mogelijkheden','Bekijk behandelingsmogelijkheden')}
 EU_LANGS=('en','de','fr','es','it','nl')
-
-# SEO taxonomy is deliberately smaller than the matching taxonomy. Raw catalog labels,
-# catch-alls and pathology variants must not become doorway/thin pages.
-CANONICAL_RULES=(
- ('oral squamous cell carcinoma', ('oral squamous cell carcinoma','oral scc','feline oral scc')),
- ('squamous cell carcinoma', ('squamous cell carcinoma','scc')),
- ('oral melanoma', ('oral melanoma','mucosal melanoma')),
- ('melanoma', ('melanoma',)),
- ('mast cell tumor', ('mast cell tumor','mast cell tumour','mct')),
- ('soft tissue sarcoma', ('soft tissue sarcoma','soft-tissue sarcoma','sts')),
- ('histiocytic sarcoma', ('histiocytic sarcoma',)),
- ('hemangiosarcoma', ('hemangiosarcoma','haemangiosarcoma','hsa')),
- ('osteosarcoma', ('osteosarcoma','bone cancer')),
- ('urothelial carcinoma', ('urothelial','transitional cell carcinoma','bladder cancer','tcc')),
- ('hepatocellular carcinoma', ('hepatocellular carcinoma','hepatic carcinoma')),
- ('mammary carcinoma', ('mammary carcinoma','mammary cancer','mammary tumor','mammary tumour')),
- ('thyroid carcinoma', ('thyroid carcinoma','thyroid cancer','thyroid tumor','thyroid tumour')),
- ('prostate cancer', ('prostate cancer','prostatic carcinoma')),
- ('primary lung tumor', ('primary lung tumor','primary lung tumour','pulmonary carcinoma','lung cancer')),
- ('glioma', ('glioma','brain tumor (glioma)','brain tumour (glioma)')),
- ('meningioma', ('meningioma',)),
- ('nasal tumor', ('nasal tumor','nasal tumour','nasal cancer','nasal carcinoma')),
- ('lymphoma', ('lymphoma','lymphosarcoma')),
- ('leukemia', ('leukemia','leukaemia')),
- ('multiple myeloma', ('multiple myeloma',)),
- ('chemodectoma', ('chemodectoma',)),
-)
+CANONICAL_RULES=(('oral squamous cell carcinoma',('oral squamous cell carcinoma','oral scc','feline oral scc')),('squamous cell carcinoma',('squamous cell carcinoma','scc')),('oral melanoma',('oral melanoma','mucosal melanoma')),('melanoma',('melanoma',)),('mast cell tumor',('mast cell tumor','mast cell tumour','mct')),('soft tissue sarcoma',('soft tissue sarcoma','soft-tissue sarcoma','sts')),('histiocytic sarcoma',('histiocytic sarcoma',)),('hemangiosarcoma',('hemangiosarcoma','haemangiosarcoma','hsa')),('osteosarcoma',('osteosarcoma','bone cancer')),('urothelial carcinoma',('urothelial','transitional cell carcinoma','bladder cancer','tcc')),('hepatocellular carcinoma',('hepatocellular carcinoma','hepatic carcinoma')),('mammary carcinoma',('mammary carcinoma','mammary cancer','mammary tumor','mammary tumour')),('thyroid carcinoma',('thyroid carcinoma','thyroid cancer','thyroid tumor','thyroid tumour')),('prostate cancer',('prostate cancer','prostatic carcinoma')),('primary lung tumor',('primary lung tumor','primary lung tumour','pulmonary carcinoma','lung cancer')),('glioma',('glioma','brain tumor (glioma)','brain tumour (glioma)')),('meningioma',('meningioma',)),('nasal tumor',('nasal tumor','nasal tumour','nasal cancer','nasal carcinoma')),('lymphoma',('lymphoma','lymphosarcoma')),('leukemia',('leukemia','leukaemia')),('multiple myeloma',('multiple myeloma',)),('chemodectoma',('chemodectoma',)))
 GENERIC_WORDS=('any type','other','multiple cancers','solid tumor','solid tumour','advanced unresectable')
 
 def load_effective():
- base=json.loads((ROOT/'data'/'trials_base.json').read_text())
- upd=json.loads((ROOT/'data'/'trial_updates.json').read_text())
- rows={r['id']:r for r in base}
+ base=json.loads((ROOT/'data'/'trials_base.json').read_text()); upd=json.loads((ROOT/'data'/'trial_updates.json').read_text()); rows={r['id']:r for r in base}
  for rid in upd.get('delete',[]): rows.pop(rid,None)
  for p in upd.get('upsert',[]): rows[p['id']]={**rows.get(p['id'],{}),**p}
  return [r for r in rows.values() if r.get('study_type')=='treatment' and r.get('available_for_matching') is True]
-
 def esc(x): return html.escape(str(x or ''))
 def slugify(x): return re.sub(r'-+','-',re.sub(r'[^a-z0-9]+','-',x.lower())).strip('-')
 def species_ok(r,s):
  v=str(r.get('species','')).lower(); return s.lower() in v or ('dog' in v and 'cat' in v)
-def norm_text(x):
- return re.sub(r'[^a-z0-9]+',' ',str(x).lower()).strip()
+def norm_text(x): return re.sub(r'[^a-z0-9]+',' ',str(x).lower()).strip()
 def canonical_cancer(c):
  raw=norm_text(c)
  if not raw or any(norm_text(g) in raw for g in GENERIC_WORDS): return None
- # More specific rules are intentionally ordered before broad parent diagnoses.
- for canonical, aliases in CANONICAL_RULES:
+ for canonical,aliases in CANONICAL_RULES:
   if any(norm_text(a) in raw for a in aliases): return canonical
  return None
-def display_name(k):
- special={'scc':'SCC','aml':'AML'}
- return ' '.join(special.get(w,w.capitalize()) for w in k.split())
+def display_name(k): return ' '.join({'scc':'SCC','aml':'AML'}.get(w,w.capitalize()) for w in k.split())
 def row_cancers(r): return {x for x in (canonical_cancer(c) for c in r.get('cancers',[])) if x}
 
 def page(title,desc,body,canonical,lang='en',alternates=None):
  alts=''.join(f'<link rel="alternate" hreflang="{k}" href="{v}">' for k,v in (alternates or {}).items())
- return f'''<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)}</title><meta name="description" content="{esc(desc)}"><link rel="canonical" href="{canonical}">{alts}<style>body{{font-family:system-ui,sans-serif;max-width:920px;margin:auto;padding:28px;line-height:1.55;color:#17243b}}a{{color:#175b8c}}article{{border-top:1px solid #d9e2ea;padding:12px 0}}.cta{{display:inline-block;padding:12px 18px;background:#17243b;color:white;text-decoration:none;border-radius:8px}}</style></head><body><header><a href="{SITE}/"><strong>Cancer Trial Finder For Dogs And Cats</strong></a><p>Free. No registration, email or paywall.</p></header><main>{body}<p><a class="cta" href="{FINDER}">{esc(LANGS[lang][2])}</a></p><p><small>Listings change. Final eligibility and enrollment decisions are made by each research team.</small></p></main></body></html>'''
+ return f'''<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)}</title><meta name="description" content="{esc(desc)}"><link rel="canonical" href="{canonical}">{alts}<style>body{{font-family:system-ui,sans-serif;max-width:920px;margin:auto;padding:28px;line-height:1.55;color:#17243b}}a{{color:#175b8c}}article{{border-top:1px solid #d9e2ea;padding:18px 0}}article h3{{margin-bottom:5px}}.count{{font-size:1.12rem}}.status{{font-weight:600}}.cta,.trial-link{{display:inline-block;padding:10px 15px;background:#17243b;color:white;text-decoration:none;border-radius:8px}}.trial-link{{padding:7px 11px;font-size:.92rem;background:#175b8c}}.meta{{color:#4d5967}}small{{color:#596674}}</style></head><body><header><a href="{SITE}/"><strong>Cancer Trial Finder For Dogs And Cats</strong></a><p>Free. No registration, email or paywall.</p></header><main>{body}<p><a class="cta" href="{FINDER}">{esc(LANGS[lang][2])}</a></p><p><small>Listings change. Final eligibility and enrollment decisions are made by each research team. Always confirm current recruiting status with the study team.</small></p></main></body></html>'''
+
 def cards(rows):
- return ''.join(f'<article><h3>{esc(r.get("title"))}</h3><p><strong>{esc(r.get("center"))}</strong> · {esc(r.get("country"))}</p><p>{esc(r.get("status"))}</p></article>' for r in rows)
+ out=[]
+ for r in rows:
+  notes=r.get('notes') or ''
+  funding=r.get('funding') or ''
+  verified=r.get('verified') or ''
+  contact=r.get('contacts') or r.get('contact') or ''
+  url=r.get('url') or ''
+  bits=[f'<article><h3>{esc(r.get("title"))}</h3>',f'<p class="meta"><strong>{esc(r.get("center"))}</strong> · {esc(r.get("country"))}</p>',f'<p class="status">{esc(r.get("status"))}</p>']
+  if notes: bits.append(f'<p>{esc(notes)}</p>')
+  if funding: bits.append(f'<p><strong>Costs:</strong> {esc(funding)}</p>')
+  if contact: bits.append(f'<p><strong>Contact:</strong> {esc(contact)}</p>')
+  if verified: bits.append(f'<p><small>Last verified: {esc(verified)}</small></p>')
+  if url: bits.append(f'<p><a class="trial-link" href="{esc(url)}" rel="nofollow noopener">Official study / enrollment information</a></p>')
+  bits.append('</article>'); out.append(''.join(bits))
+ return ''.join(out)
 
 def main():
  rows=load_effective()
  if OUT.exists(): shutil.rmtree(OUT)
- OUT.mkdir(parents=True)
- links=[]; index=[]
- cancers=sorted({c for r in rows for c in row_cancers(r)})
+ OUT.mkdir(parents=True); links=[]; index=[]; cancers=sorted({c for r in rows for c in row_cancers(r)})
  for region,countries in REGIONS.items():
   rrows=[r for r in rows if r.get('country') in countries]; langs=EU_LANGS if region=='uk-europe' else ('en',); region_label='USA & Canada' if region=='north-america' else 'UK & Europe'
   for skey,sname in SPECIES.items():
@@ -96,14 +69,12 @@ def main():
     if not hit: continue
     label=display_name(key); cslug=slugify(key)
     for lang in langs:
-     prefix='' if lang=='en' else f'{lang}/'; path=f'{prefix}{region}/{skey}/{cslug}/'; url=f'{SITE}/{path}'
-     alternates={l:f'{SITE}/{"" if l=="en" else l+"/"}{region}/{skey}/{cslug}/' for l in langs}; alternates['x-default']=f'{SITE}/{region}/{skey}/{cslug}/'
-     h1=f'{label}: {LANGS[lang][0]} for {sname}s in {region_label}'; body=f'<h1>{esc(h1)}</h1><p>{esc(LANGS[lang][1])}: <strong>{len(hit)}</strong>.</p>{cards(hit)}'
-     dest=OUT/path; dest.mkdir(parents=True,exist_ok=True); (dest/'index.html').write_text(page(h1,f'Current {label} cancer treatment trials for {sname.lower()}s in {region_label}.',body,url,lang,alternates),encoding='utf-8')
-     links.append(url)
-     if lang=='en': index.append((h1,path))
- body='<h1>Veterinary Cancer Clinical Trials for Dogs and Cats</h1><p>Browse cancer and region combinations that currently have treatment opportunities in the live catalog.</p><ul>'+''.join(f'<li><a href="{SITE}/{p}">{esc(n)}</a></li>' for n,p in sorted(index))+'</ul>'
- (OUT/'index.html').write_text(page('Cancer Trial Finder For Dogs And Cats','Free current veterinary cancer treatment trial finder for dogs and cats.',body,SITE+'/'),encoding='utf-8')
- links.insert(0,SITE+'/'); sm='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'<url><loc>{esc(u)}</loc></url>\n' for u in links)+'</urlset>\n'; (OUT/'sitemap.xml').write_text(sm,encoding='utf-8'); (OUT/'robots.txt').write_text(f'User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n',encoding='utf-8'); (OUT/'.nojekyll').write_text('')
+     prefix='' if lang=='en' else f'{lang}/'; path=f'{prefix}{region}/{skey}/{cslug}/'; url=f'{SITE}/{path}'; alternates={l:f'{SITE}/{"" if l=="en" else l+"/"}{region}/{skey}/{cslug}/' for l in langs}; alternates['x-default']=f'{SITE}/{region}/{skey}/{cslug}/'
+     h1=f'{label}: {LANGS[lang][0]} for {sname}s in {region_label}'
+     noun='trial' if len(hit)==1 else 'trials'; body=f'<h1>{esc(h1)}</h1><p class="count"><strong>{len(hit)} current treatment {noun}</strong> in our catalog. Trial names, locations and source links are shown below — free, with no paywall.</p>{cards(hit)}'
+     dest=OUT/path; dest.mkdir(parents=True,exist_ok=True); (dest/'index.html').write_text(page(h1,f'{len(hit)} current {label} cancer treatment {noun} for {sname.lower()}s in {region_label}. Free trial names, locations and enrollment links.',body,url,lang,alternates),encoding='utf-8'); links.append(url)
+     if lang=='en': index.append((h1,path,len(hit)))
+ body='<h1>Veterinary Cancer Clinical Trials for Dogs and Cats</h1><p>Browse cancer and region combinations that currently have treatment opportunities in the live catalog. Trial details and source links are free.</p><ul>'+''.join(f'<li><a href="{SITE}/{p}">{esc(n)}</a> — {count} current treatment {"trial" if count==1 else "trials"}</li>' for n,p,count in sorted(index))+'</ul>'
+ (OUT/'index.html').write_text(page('Cancer Trial Finder For Dogs And Cats','Free current veterinary cancer treatment trial finder for dogs and cats.',body,SITE+'/'),encoding='utf-8'); links.insert(0,SITE+'/'); sm='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join(f'<url><loc>{esc(u)}</loc></url>\n' for u in links)+'</urlset>\n'; (OUT/'sitemap.xml').write_text(sm,encoding='utf-8'); (OUT/'robots.txt').write_text(f'User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n',encoding='utf-8'); (OUT/'.nojekyll').write_text('')
  print(f'Generated {len(links)} indexable pages from {len(rows)} current treatment opportunities using {len(cancers)} canonical cancer types')
 if __name__=='__main__': main()
