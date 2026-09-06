@@ -27,5 +27,9 @@
   ],
   "source_class_sweep_updated": [],
   "source_class_semantic_skips": [],
-  "audit_note": "Source-class v2 pass: university catalogs + private specialty/referral networks + CRO/multicenter leads + human/comparative oncology/NCI/PRECINCT + news/recruitment wording + feline-only + modality + compassionate-use discovery. Treatment-only inclusion and semantic protocol dedup applied before insertion."
+  "audit_note": "Source-class v2 pass: university catalogs + private specialty/referral networks + CRO/multicenter leads + human/comparative oncology/NCI/PRECINCT + news/recruitment wording + feline-only + modality + compassionate-use discovery. Treatment-only inclusion and semantic protocol dedup applied before insertion.",
+  "catalog_normalization": "Delete wins over upsert; stale patches for deleted IDs removed so app loader and audit counter use identical effective catalog semantics.",
+  "stale_deleted_upserts_removed": [
+    "se-slu-oxc101-precision-cancer"
+  ]
 }
