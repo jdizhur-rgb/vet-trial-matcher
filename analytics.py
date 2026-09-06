@@ -1,87 +1,54 @@
-import json
+import hashlib
+import time
+import urllib.parse
+import urllib.request
 import streamlit as st
-import streamlit.components.v1 as components
 
-
-# Public GA4 measurement ID. A Streamlit secret with the same name can override it.
 _DEFAULT_MEASUREMENT_ID = "G-TQOYHMOOM5"
 
 
+def _client_id():
+    """Stable anonymous ID for this Streamlit session; no pet/form data is included."""
+    if "_ga_client_id" not in st.session_state:
+        raw = f"{time.time_ns()}-{id(st.session_state)}"
+        digest = hashlib.sha256(raw.encode()).hexdigest()
+        st.session_state["_ga_client_id"] = f"{int(time.time())}.{int(digest[:12], 16)}"
+    return st.session_state["_ga_client_id"]
+
+
+@st.cache_data(ttl=1800, show_spinner=False)
+def _send_page_view(measurement_id, api_secret, client_id):
+    endpoint = "https://www.google-analytics.com/mp/collect?" + urllib.parse.urlencode(
+        {"measurement_id": measurement_id, "api_secret": api_secret}
+    )
+    payload = (
+        '{"client_id":"%s","events":[{"name":"page_view","params":'
+        '{"page_location":"https://vet-cancer-trial-finder.streamlit.app/",'
+        '"page_title":"Vet Cancer Treatment Finder","engagement_time_msec":100,'
+        '"session_id":"%s"}}]}' % (client_id, client_id.split(".", 1)[0])
+    ).encode("utf-8")
+    req = urllib.request.Request(
+        endpoint,
+        data=payload,
+        headers={"Content-Type": "application/json", "User-Agent": "VetCancerTrialFinder/1.0"},
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=5) as response:
+            return response.status in (200, 204)
+    except Exception:
+        return False
+
+
 def install_analytics():
-    """Install GA4 in a hidden Streamlit component.
+    """Send a privacy-minimized GA4 page_view from the Streamlit server.
 
-    The first version tried to inject JavaScript with st.html(), which can be
-    sandboxed/ignored for this use. components.html() executes the script in a
-    dedicated iframe, which is sufficient to send GA4 page_view events.
-
-    Privacy choices:
-    - no names, email, form values, diagnosis text, age, weight, or other pet data are sent;
-    - Google Signals/ad personalization are disabled;
-    - the owner's browser can opt out persistently with ?analytics_off=1;
-    - ?analytics_on=1 reverses the local opt-out.
+    Requires GA_API_SECRET in Streamlit secrets. No diagnosis, age, weight,
+    search terms, names, email addresses, or other form values are transmitted.
+    The cache prevents Streamlit reruns from inflating page-view counts.
     """
     measurement_id = str(st.secrets.get("GA_MEASUREMENT_ID", _DEFAULT_MEASUREMENT_ID)).strip()
-    if not measurement_id:
+    api_secret = str(st.secrets.get("GA_API_SECRET", "")).strip()
+    if not measurement_id or not api_secret:
         return
-
-    mid = json.dumps(measurement_id)
-    components.html(
-        f"""
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<script>
-(() => {{
-  try {{
-    const id = {mid};
-    const parentUrl = (() => {{
-      try {{ return new URL(window.parent.location.href); }}
-      catch (_) {{ return new URL(document.referrer || 'https://vet-cancer-trial-finder.streamlit.app/'); }}
-    }})();
-
-    let storage;
-    try {{ storage = window.parent.localStorage; }}
-    catch (_) {{ storage = window.localStorage; }}
-
-    if (parentUrl.searchParams.get('analytics_off') === '1') {{
-      try {{ storage.setItem('vet_trial_analytics_off', '1'); }} catch (_) {{}}
-    }}
-    if (parentUrl.searchParams.get('analytics_on') === '1') {{
-      try {{ storage.removeItem('vet_trial_analytics_off'); }} catch (_) {{}}
-    }}
-    try {{
-      if (storage.getItem('vet_trial_analytics_off') === '1') return;
-    }} catch (_) {{}}
-
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = window.gtag || function(){{ window.dataLayer.push(arguments); }};
-    window.gtag('js', new Date());
-    window.gtag('consent', 'default', {{
-      'ad_storage': 'denied',
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied',
-      'analytics_storage': 'granted'
-    }});
-    window.gtag('config', id, {{
-      'send_page_view': true,
-      'allow_google_signals': false,
-      'allow_ad_personalization_signals': false,
-      'page_location': parentUrl.origin + parentUrl.pathname,
-      'page_title': 'Vet Cancer Treatment Finder'
-    }});
-
-    const s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(id);
-    document.head.appendChild(s);
-  }} catch (_) {{}}
-}})();
-</script>
-</head>
-<body></body>
-</html>
-""",
-        height=0,
-        width=0,
-    )
+    _send_page_view(measurement_id, api_secret, _client_id())
