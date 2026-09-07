@@ -86,15 +86,8 @@ def _load_trials():
     with (_root / "data" / "trials_base.json").open(encoding="utf-8") as _fh:
         _base = _json.load(_fh)
     _by_id = {t["id"]: t for t in _base}
-    # Legacy consolidated updates plus explicitly approved small catalog patches.
-    # New catalog work belongs in small JSON files; do not grow trial_updates.json.
-    _patch_paths = [
-        _root / "data" / "trial_updates.json",
-        _root / "data" / "discovery_aurelius_20260905.json",
-    ]
-    for _updates_path in _patch_paths:
-        if not _updates_path.exists():
-            continue
+    _updates_path = _root / "data" / "trial_updates.json"
+    if _updates_path.exists():
         with _updates_path.open(encoding="utf-8") as _fh:
             _doc = _json.load(_fh)
         for _trial_id in _doc.get("delete", []):
