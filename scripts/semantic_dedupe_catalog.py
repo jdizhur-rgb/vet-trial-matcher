@@ -17,9 +17,7 @@ def same(a,b):
  ta,tb=title(a),title(b);ca,cb=center(a),center(b)
  if not ta or not tb:return False,''
  ts=SequenceMatcher(None,ta,tb).ratio();cs=SequenceMatcher(None,ca,cb).ratio() if ca and cb else 0;sp=bool(vals(a,'species')&vals(b,'species'));ct=ov(vals(a,'cancers'),vals(b,'cancers')) if vals(a,'cancers') and vals(b,'cancers') else 0;common=ids(a)&ids(b)
- # COTC number is a true protocol identity and may be multicenter.
  if sp and any(x.startswith('COTC') for x in common):return True,f'protocol:{sorted(common)}'
- # Z-007/PIVOT-C/AKS/BI identifiers may name an agent/program: require same institution.
  if sp and common and cs>=.72 and ct>=.5:return True,f'id+center+cancer:{sorted(common)}'
  if sp and cs>=.78 and ts>=.84 and ct>=.5:return True,f'center+title+cancer:{cs:.2f}/{ts:.2f}/{ct:.2f}'
  distinctive={'palbociclib','trike','carinkt','r3lcmv','adam12','vinorelbine','ferumoxytol'};da=toks(ta)&distinctive;db=toks(tb)&distinctive
@@ -27,9 +25,10 @@ def same(a,b):
  return False,''
 def quality(x):return(bool(x.get('verified')),x.get('status_confidence') in {'confirmed_current','current'},bool(x.get('contacts')),len(str(x.get('notes',''))))
 def load():
- base=json.loads(BASE.read_text());base=base.get('trials',base.get('records',[])) if isinstance(base,dict) else base;upd=json.loads(UPD.read_text());deleted=set(upd.get('delete',[]));byid={x['id']:x for x in base if x.get('id') not in deleted}
- for x in upd.get('upsert',[]):
-  if x.get('id') not in deleted:byid[x['id']]=x
+ base=json.loads(BASE.read_text());base=base.get('trials',base.get('records',[])) if isinstance(base,dict) else base;upd=json.loads(UPD.read_text());deleted=set(upd.get('delete',[]));byid={x['id']:x for x in base}
+ # Effective catalog semantics: partial upserts MERGE onto base records; delete has final precedence.
+ for x in upd.get('upsert',[]):byid[x['id']]={**byid.get(x['id'],{}),**x}
+ for rid in deleted:byid.pop(rid,None)
  return base,upd,[x for x in byid.values() if x.get('study_type')=='treatment' and x.get('available_for_matching') is True]
 base,upd,rows=load();pairs=[]
 for i,a in enumerate(rows):
