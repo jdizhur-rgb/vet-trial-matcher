@@ -1,0 +1,38 @@
+name: Add Facebook footer
+on:
+  push:
+    branches: [facebook-footer-patch-final]
+    paths:
+      - '.github/workflows/add-facebook-footer-20260907.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: facebook-footer-patch-final
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Patch app.py footer
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('app.py')
+          s=p.read_text(encoding='utf-8')
+          marker='https://www.facebook.com/share/1YmSPexTr1/'
+          if marker not in s:
+              p.write_text(s.rstrip()+"\n\nst.markdown(\"[Follow us on Facebook](https://www.facebook.com/share/1YmSPexTr1/)\")\n",encoding='utf-8')
+          PY
+      - name: Validate
+        run: python -m py_compile app.py
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add app.py
+          git diff --cached --quiet || git commit -m 'Add Facebook link to site footer'
+          git push origin HEAD:facebook-footer-patch-final
