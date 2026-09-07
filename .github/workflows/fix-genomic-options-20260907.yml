@@ -1,0 +1,27 @@
+name: Fix genomic treatment options
+on:
+  push:
+    paths:
+      - 'scripts/fix_genomic_options_20260907.py'
+      - '.github/workflows/fix-genomic-options-20260907.yml'
+  workflow_dispatch:
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - run: python scripts/fix_genomic_options_20260907.py
+      - run: python -m py_compile pages/2_Additional_Oncology_Options.py
+      - name: Smoke test broad genomic options
+        run: |
+          grep -q '"id":"fidocure-genomic-guidance".*"cancers":\["Cancer — any type"\]' pages/2_Additional_Oncology_Options.py
+          grep -q '"id":"vidium-searchlight-dna".*"cancers":\["Cancer — any type"\]' pages/2_Additional_Oncology_Options.py
+          grep -q '"id":"vetomics-cgp-genomic-guidance".*"cancers":\["Cancer — any type"\]' pages/2_Additional_Oncology_Options.py
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pages/2_Additional_Oncology_Options.py
+          git diff --cached --quiet || git commit -m "Fix genomic option matching and add Vidium"
+          git push
