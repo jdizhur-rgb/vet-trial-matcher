@@ -18,7 +18,9 @@ This checklist is mandatory for every daily catalog update.
 - `data/trials_base.json` is the legacy/base catalog. Do **not** routinely append new discoveries to this large file.
 - `data/trial_updates.json` is a legacy consolidated patch file. Do **not** default to editing or rewriting it for new discoveries.
 - New audited additions/updates should be kept in **small modular JSON patch files** in `data/` (`{"upsert": [...], "delete": [...]}`), with descriptive/date-based names. Existing examples include `discovery_aurelius_20260905.json` and other audit/discovery patch files.
-- Before creating a new record, search the base, legacy updates, and existing modular patch files. Never conclude that a treatment is missing after checking only `trials_base.json` or GitHub code search.
+- Before creating a new record, inspect the **effective catalog exactly as the patient-facing loader builds it**: base + legacy updates + every approved modular catalog patch, with deletes and ID upserts applied. Do not infer absence from one component file.
+- **GitHub code search is discovery/navigation only. A zero-result code search is never evidence that a protocol is absent from the catalog.** Large JSON files and generated/effective records may not be indexed or returned reliably.
+- Do not create institution-specific duplicate-avoidance exceptions or memory lists. The same effective-catalog semantic-dedup procedure applies to every university, hospital, company and registry.
 - A small discovery/audit patch is not useful to owners unless the patient-facing catalog loader actually consumes it. Every confirmed modular patch intended for matching must be connected to the effective catalog and then tested in the matcher.
 - Do not blindly load every JSON file in `data/`: the directory also contains statistics, watchlists, audit reports, ECT-center data and other non-catalog documents. Only explicitly approved catalog patch files belong in the matcher input set.
 
@@ -29,7 +31,7 @@ This checklist is mandatory for every daily catalog update.
 3. Apply the treatment-scope filter. Keep true anticancer treatment opportunities in treatment matching; classify treatment-access/support programs separately; do not promote observational/diagnostic/sample-only/supportive/prevention-only research into treatment matching.
 4. Verify recruitment/access from a primary source. If recruitment or protocol details are insufficient, keep the lead on the watchlist rather than matching it.
 5. Normalize disease labels, species, geography, treatment modality and source URLs.
-6. **MANDATORY PRE-MERGE DEDUPLICATION:** compare every proposed new/upserted record against the full effective catalog: base + legacy updates + all approved modular catalog patches.
+6. **MANDATORY PRE-MERGE DEDUPLICATION:** compare every proposed new/upserted record against the full effective catalog: base + legacy updates + all approved modular catalog patches, after applying the same merge/delete semantics as the live loader.
    - Check exact ID and normalized URL matches.
    - Check semantic similarity of protocol title/intervention, cancer, species, center/investigator and eligibility.
    - Treat different source URLs or different IDs as possible representations of the same protocol.
@@ -37,6 +39,7 @@ This checklist is mandatory for every daily catalog update.
    - Similar titles for different interventions are **not** duplicates (for example, separate glioma protocols using CAR-neutrophils vs ferumoxytol).
    - When the same protocol appears through multiple sources, keep one canonical record and merge the freshest verified details/primary source into it.
    - Ambiguous candidate pairs require review; never auto-delete on similarity score alone.
+   - **Never create a new record merely because GitHub code search, filename search, or a single catalog component returns no match. Absence must be established against the constructed effective catalog.**
 7. Only after deduplication, write confirmed additions/updates/deletes to a small modular catalog patch. Avoid growing the legacy consolidated file unless a migration/compaction is intentionally being performed.
 8. Ensure every approved modular patch intended for matching is included by the patient-facing catalog loader; verify at least one representative query after connecting it.
 9. Recalculate catalog statistics from the deduplicated effective catalog. Treatment totals must count only records that actually qualify for strict treatment matching.
@@ -49,4 +52,4 @@ Once per week, perform a broader control pass independent of publication date. R
 
 ## Non-negotiable dedup rule
 
-No new catalog record is committed until it has been checked against the entire effective catalog for exact, fuzzy and semantic duplication. Candidate generation may be automated; destructive duplicate removal must be conservative and evidence-based.
+No new catalog record is committed until it has been checked against the **constructed effective live catalog** for exact, fuzzy and semantic duplication. Candidate generation may be automated; destructive duplicate removal must be conservative and evidence-based. Search-index misses are not catalog misses, and institution-specific exception lists must not substitute for this universal check.
