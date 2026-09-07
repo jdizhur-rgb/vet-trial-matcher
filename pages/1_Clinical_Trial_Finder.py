@@ -137,6 +137,15 @@ UNKNOWN = "I don't know"
 # considered by the patient-facing matcher. Watch/planned/reconfirmation rows
 # remain excluded.
 CURRENT_STATUS_CONFIDENCE = {'current', 'confirmed_current'}
+
+def species_matches(trial_species, selected_species):
+    """Normalize legacy string and newer list species fields."""
+    if isinstance(trial_species, (list, tuple, set)):
+        values = {str(x).strip() for x in trial_species}
+    else:
+        values = {x.strip() for x in str(trial_species or '').split('/') if x.strip()}
+    return selected_species in values
+
 def is_current_trial(tr):
     return tr.get('status_confidence') in CURRENT_STATUS_CONFIDENCE
 
@@ -244,7 +253,7 @@ _form_trials = []
 for _tr in TRIALS:
     if not _tr.get('available_for_matching', True) or not is_current_trial(_tr):
         continue
-    if _tr.get('study_type', 'treatment') != 'treatment' or species not in str(_tr.get('species', '')).split('/'):
+    if _tr.get('study_type', 'treatment') != 'treatment' or not species_matches(_tr.get('species', ''), species):
         continue
     if not country_matches(_tr.get('country', 'USA'), country):
         continue
@@ -419,7 +428,7 @@ if search_clicked:
         # not a patient-facing match. Reconfirm it before turning matching back on.
         if not is_current_trial(tr):
             continue
-        if species not in str(tr.get('species', '')).split('/'):
+        if not species_matches(tr.get('species', ''), species):
             continue
         if not country_matches(tr.get('country', 'USA'), country):
             continue
