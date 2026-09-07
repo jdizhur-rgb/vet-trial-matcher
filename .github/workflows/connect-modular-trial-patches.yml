@@ -1,0 +1,71 @@
+name: Connect modular trial patches
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch-loader:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Make Clinical Trial Finder load modular patches
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('pages/1_Clinical_Trial_Finder.py')
+          s = p.read_text(encoding='utf-8')
+          old = '''    _updates_path = _root / "data" / "trial_updates.json"
+    if _updates_path.exists():
+        with _updates_path.open(encoding="utf-8") as _fh:
+            _doc = _json.load(_fh)
+        for _trial_id in _doc.get("delete", []):
+            _by_id.pop(_trial_id, None)
+        for _patch in _doc.get("upsert", []):
+            _trial_id = _patch["id"]
+            if _trial_id in _by_id:
+                _by_id[_trial_id].update(_patch)
+            else:
+                _by_id[_trial_id] = _patch
+'''
+          new = '''    # Legacy consolidated updates plus small modular discovery/audit patches.
+    # New catalog work belongs in small JSON patch files; do not grow trial_updates.json.
+    _patch_paths = [_root / "data" / "trial_updates.json"]
+    _patch_paths += sorted((_root / "data").glob("discovery_*.json"))
+    for _updates_path in _patch_paths:
+        if not _updates_path.exists():
+            continue
+        with _updates_path.open(encoding="utf-8") as _fh:
+            _doc = _json.load(_fh)
+        for _trial_id in _doc.get("delete", []):
+            _by_id.pop(_trial_id, None)
+        for _patch in _doc.get("upsert", []):
+            _trial_id = _patch["id"]
+            if _trial_id in _by_id:
+                _by_id[_trial_id].update(_patch)
+            else:
+                _by_id[_trial_id] = _patch
+'''
+          if old not in s:
+              raise SystemExit('Expected loader block not found; refusing unsafe edit')
+          p.write_text(s.replace(old, new, 1), encoding='utf-8')
+          PY
+      - name: Validate Python syntax and modular JSON
+        run: |
+          python -m py_compile pages/1_Clinical_Trial_Finder.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for p in Path('data').glob('discovery_*.json'):
+              json.loads(p.read_text(encoding='utf-8'))
+          PY
+      - name: Commit loader change
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add pages/1_Clinical_Trial_Finder.py
+          git diff --cached --quiet && exit 0
+          git commit -m "Load modular trial discovery patches"
+          git push
