@@ -165,3 +165,5 @@ with _nav_top.container():
         if st.button("🐾︎ Clinical Trials",key="nav_trials",use_container_width=True):st.switch_page("pages/1_Clinical_Trial_Finder.py")
     with right:
         if st.button("💊 More Treatment Options",key="nav_options",use_container_width=True):st.switch_page("pages/2_Additional_Oncology_Options.py")
+
+st.markdown("[Follow us on Facebook](https://www.facebook.com/share/1YmSPexTr1/)")
