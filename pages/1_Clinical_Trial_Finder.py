@@ -86,18 +86,22 @@ def _load_trials():
     with (_root / "data" / "trials_base.json").open(encoding="utf-8") as _fh:
         _base = _json.load(_fh)
     _by_id = {t["id"]: t for t in _base}
-    _updates_path = _root / "data" / "trial_updates.json"
-    if _updates_path.exists():
-        with _updates_path.open(encoding="utf-8") as _fh:
-            _doc = _json.load(_fh)
-        for _trial_id in _doc.get("delete", []):
-            _by_id.pop(_trial_id, None)
+    _patch_paths = [_root / "data" / "trial_updates.json"]
+    _patch_paths += sorted((_root / "data").glob("catalog_patch_*.json"))
+    for _updates_path in _patch_paths:
+        if not _updates_path.exists(): continue
+        with _updates_path.open(encoding="utf-8") as _fh: _doc = _json.load(_fh)
+        for _trial_id in _doc.get("delete", []): _by_id.pop(_trial_id, None)
         for _patch in _doc.get("upsert", []):
             _trial_id = _patch["id"]
             if _trial_id in _by_id:
-                _by_id[_trial_id].update(_patch)
-            else:
-                _by_id[_trial_id] = _patch
+                _merged = dict(_by_id[_trial_id])
+                for _key, _value in _patch.items():
+                    if _key in {"requires", "excludes"} and isinstance(_value, dict):
+                        _nested = dict(_merged.get(_key, {})); _nested.update(_value); _merged[_key] = _nested
+                    else: _merged[_key] = _value
+                _by_id[_trial_id] = _merged
+            else: _by_id[_trial_id] = _patch
     return list(_by_id.values())
 
 TRIALS = _load_trials()
