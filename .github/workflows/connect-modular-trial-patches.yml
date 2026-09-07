@@ -2,6 +2,9 @@ name: Connect modular trial patches
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/connect-modular-trial-patches.yml'
 
 permissions:
   contents: write
