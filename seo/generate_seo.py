@@ -53,8 +53,10 @@ def load_effective():
  base=json.loads((ROOT/'data'/'trials_base.json').read_text())
  upd=json.loads((ROOT/'data'/'trial_updates.json').read_text())
  rows={r['id']:r for r in base}
- for rid in upd.get('delete',[]): rows.pop(rid,None)
+ # Upserts override base, but delete markers have FINAL precedence.
+ # Applying deletes first resurrected deleted upserts on SEO pages.
  for p in upd.get('upsert',[]): rows[p['id']]={**rows.get(p['id'],{}),**p}
+ for rid in upd.get('delete',[]): rows.pop(rid,None)
  return [r for r in rows.values() if r.get('study_type')=='treatment' and r.get('available_for_matching') is True]
 
 def esc(x): return html.escape(str(x or ''))
