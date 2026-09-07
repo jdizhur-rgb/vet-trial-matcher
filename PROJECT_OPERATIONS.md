@@ -31,6 +31,8 @@ Production matching is based on the effective catalog assembled from:
 - `data/trials_base.json`
 - `data/trial_updates.json`
 
+Effective-catalog semantics are: start with base by ID; MERGE partial upserts onto the existing record; then apply delete markers with FINAL precedence. All consumers (matcher, SEO, dedupe, smoke tests) must use the same semantics. Never replace a base record with a partial upsert, and never apply deletes before upserts in a way that lets a deleted upsert be resurrected.
+
 A staging/research/catalog-patch file is NOT production. A script or workflow existing is NOT proof that its data reached production.
 
 For public treatment matching, records normally need:
@@ -72,6 +74,10 @@ Pre-promotion and post-promotion dedupe must compare real-world identity using a
 
 Same study under a different ID or slightly different title = merge/update, not a second public record.
 
+**Do not dedupe on shared URL alone.** Universities often use one master clinical-trials page for many unrelated protocols. URL equality is supporting evidence, never sufficient identity by itself. Likewise, a shared drug/agent name (for example Z-007) can represent different protocols/sites. Prefer explicit protocol IDs (for example COTC033), or same-institution + highly similar title + overlapping disease/intervention evidence.
+
+Dedupe automation is audit-first: identify conservative probable pairs, inspect the evidence, then apply. After applying, rebuild the full effective catalog and require the same detector to return zero remaining probable duplicates.
+
 Known historical duplicate families that require caution include TriKE, Penn CAR-iNKT, UTSW protocols, COTC records, and other records imported from multiple source audits.
 
 ## 6. Required smoke tests
@@ -109,6 +115,8 @@ Lesson: workflow creation/triggering is not final-state verification. Always fet
 
 Do NOT “fix” this class of bug by merely removing the country from the selector when genuine verified treatment records exist in staging. Reconcile and promote the records correctly.
 
+Species may be stored as a string (`Dog`, `Dog/Cat`) or a list (`["Dog"]`, `["Dog","Cat"]`). All matching, filtering, SEO/import logic and smoke tests must normalize both forms.
+
 ## 9. Safety / false-hope rule
 
 Eligibility matching must be conservative. A broad cancer label must not override explicit exclusions. If a program excludes a diagnosis (for example a particular lymphoma or brain tumor), do not map that excluded diagnosis merely because the program otherwise accepts many malignant tumors.
@@ -126,6 +134,8 @@ Primary query clusters:
 - experimental treatments
 
 Support dogs/canine AND cats/feline. Avoid thin doorway pages and avoid implying that a diagnosis page contains non-trial commercial/compassionate options unless those options are actually included in that page's data source.
+
+**SEO must use exactly the same effective-catalog merge/delete semantics as production.** A bug found 2026-09-07 applied delete markers before upserts, causing deleted duplicate records (including old Auburn palbociclib) to be resurrected on generated SEO pages even though the production catalog had deleted them. Delete markers now have final precedence, and SEO generation must smoke-test that known deleted records do not reappear.
 
 ## 11. Deployment lessons
 
