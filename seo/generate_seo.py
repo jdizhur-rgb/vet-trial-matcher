@@ -15,7 +15,7 @@ LANGS={
 'en':('Clinical Trials and Cancer Treatment Studies','Current treatment-focused opportunities','Search the Cancer Trial Finder For Dogs And Cats'),
 'de':('Klinische Studien und Krebsbehandlungsstudien','Aktuelle behandlungsorientierte Möglichkeiten','Aktuelle Behandlungsmöglichkeiten suchen'),
 'fr':('Essais cliniques et études de traitement du cancer','Options thérapeutiques actuellement disponibles','Rechercher les options de traitement actuelles'),
-'es':('Ensayos clínicos y estudios sobre el tratamiento del cáncer','Opciones terapéuticas disponibles actualmente','Buscar opciones de tratamiento actuales'),
+'es':('Ensayos clínicos y estudios de tratamiento del cáncer','Opciones terapéuticas disponibles actualmente','Buscar opciones de tratamiento actuales'),
 'it':('Studi clinici e studi sul trattamento del cancro','Opportunità terapeutiche attualmente disponibili','Cerca le opzioni terapeutiche attuali'),
 'nl':('Klinische onderzoeken en kankerbehandelingsstudies','Huidige behandelingsgerichte mogelijkheden','Zoek actuele behandelingsmogelijkheden'),
 }
