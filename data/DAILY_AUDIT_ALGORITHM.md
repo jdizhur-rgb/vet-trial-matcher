@@ -43,6 +43,7 @@ This checklist is mandatory for every daily catalog update.
 7. Only after deduplication, write confirmed additions/updates/deletes to a small modular catalog patch. Avoid growing the legacy consolidated file unless a migration/compaction is intentionally being performed.
 8. Ensure every approved modular patch intended for matching is included by the patient-facing catalog loader; verify at least one representative query after connecting it.
 9. Recalculate catalog statistics from the deduplicated effective catalog. Treatment totals must count only records that actually qualify for strict treatment matching.
+   - Every daily run must collect and report the post-run effective-catalog statistics: total effective records; current strict treatment opportunities (`study_type == treatment` and `available_for_matching == true`); treatment opportunities by country; treatment opportunities by species; and the IDs/counts added, substantively updated, deleted/closed, or left on the watchlist during that run. Statistics are reporting only and must be calculated from the same effective-catalog loader used by the patient-facing matcher; collecting statistics must not itself alter catalog records.
 10. Validate JSON and matcher behavior, including cancer aliases and visibility of any `Other` opportunity intended to be searchable.
 11. Commit only after all checks pass. Record additions, substantive updates, closures, duplicate merges and unresolved watchlist leads in the daily audit output.
 
