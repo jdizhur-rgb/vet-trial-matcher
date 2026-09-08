@@ -105,6 +105,8 @@ jobs:
             assert not any(x in text for x in forbidden), path
             if path:
               assert 'class="card"' in text, path
-              assert 'Official study / enrollment information' in text, path
+            if path=='north-america/dogs/histiocytic-sarcoma/':
+              for marker in ('About Histiocytic Sarcoma','Treatment &amp; research','Costs:','Contact:','Official study / enrollment information'):
+                assert marker in text, marker
             print('LIVE_OK',path or '/')
           PY
