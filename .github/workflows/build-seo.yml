@@ -47,11 +47,13 @@ jobs:
             s=p.read_text(errors='replace')
             assert 'Cancer Trial Finder For Dogs And Cats' in s, p
             assert 'class="wrap"' in s, p
-            assert 'class="card"' in s or p==Path('seo/site/index.html'), p
             assert not any(x in s for x in forbidden), f'raw internal field on {p}'
+            if p!=Path('seo/site/index.html'): assert 'class="card"' in s, p
           hs=Path('seo/site/north-america/dogs/histiocytic-sarcoma/index.html').read_text()
-          for marker in ('About Histiocytic Sarcoma','Treatment &amp; research','Costs:','Contact:','Official study / enrollment information'):
-            assert marker in hs, marker
+          markers=('100% FREE','No registration. No hidden results. No paid report.','About Histiocytic Sarcoma','Standard treatment','Histiocytic sarcoma is an aggressive cancer of histiocytic immune cells.','lomustine (CCNU)','Treatment &amp; research','Costs:','Contact:','Official study / enrollment information')
+          for marker in markers: assert marker in hs, marker
+          assert hs.index('100% FREE') < hs.index('About Histiocytic Sarcoma') < hs.index('Treatment &amp; research')
+          assert hs.count('class="free"')==1
           print(f'VALID_SITE pages={len(pages)} sitemap={len(locs)}')
           PY
       - uses: actions/configure-pages@v5
@@ -87,10 +89,8 @@ jobs:
           generated=[]
           for prefix in ('north-america/dogs/','north-america/cats/','uk-europe/dogs/','uk-europe/cats/'):
             found=sorted(Path('seo/site',prefix).glob('*/index.html')) if Path('seo/site',prefix).exists() else []
-            if found:
-              generated.append(str(found[0].parent.relative_to('seo/site')).replace('\\','/')+'/')
-          paths=['','north-america/dogs/histiocytic-sarcoma/','north-america/dogs/lymphoma/'] + generated
-          paths=list(dict.fromkeys(paths))
+            if found: generated.append(str(found[0].parent.relative_to('seo/site')).replace('\\','/')+'/')
+          paths=list(dict.fromkeys(['','north-america/dogs/histiocytic-sarcoma/','north-america/dogs/lymphoma/']+generated))
           forbidden=('active_treatment_target:', 'chemo_washout_days:', 'radiation_washout_days:', "{'", "': True")
           for path in paths:
             text=''
@@ -99,14 +99,16 @@ jobs:
                 req=urllib.request.Request(base+path+'?verify='+str(time.time()),headers={'Cache-Control':'no-cache'})
                 text=urllib.request.urlopen(req,timeout=20).read().decode('utf-8','replace')
               except Exception: text=''
-              if 'Cancer Trial Finder For Dogs And Cats' in text and not any(x in text for x in forbidden): break
+              if 'Cancer Trial Finder For Dogs And Cats' in text and not any(x in text for x in forbidden):
+                if path!='north-america/dogs/histiocytic-sarcoma/' or 'Standard treatment' in text: break
               time.sleep(10)
             assert 'Cancer Trial Finder For Dogs And Cats' in text, path
             assert not any(x in text for x in forbidden), path
-            if path:
-              assert 'class="card"' in text, path
+            if path: assert 'class="card"' in text, path
             if path=='north-america/dogs/histiocytic-sarcoma/':
-              for marker in ('About Histiocytic Sarcoma','Treatment &amp; research','Costs:','Contact:','Official study / enrollment information'):
-                assert marker in text, marker
+              markers=('100% FREE','No registration. No hidden results. No paid report.','About Histiocytic Sarcoma','Standard treatment','Histiocytic sarcoma is an aggressive cancer of histiocytic immune cells.','lomustine (CCNU)','Treatment &amp; research','Official study / enrollment information')
+              for marker in markers: assert marker in text, marker
+              assert text.index('100% FREE') < text.index('About Histiocytic Sarcoma') < text.index('Treatment &amp; research')
+              assert text.count('class="free"')==1
             print('LIVE_OK',path or '/')
           PY
