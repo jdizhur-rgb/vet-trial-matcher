@@ -118,15 +118,17 @@ def canonical_center(value):
 def center_overview(center):
     if center != CSU_CENTER: return ""
     return (
-        '<h2>About the Flint Animal Cancer Center</h2>'
-        '<figure style="margin:16px 0 22px">'
+        '<div class="center-overview" style="text-align:justify;text-justify:inter-word">'
+        '<h2 style="text-align:left">About the Flint Animal Cancer Center</h2>'
+        '<figure style="margin:16px 0 22px;text-align:left">'
         '<img src="https://vetmedbiosci.colostate.edu/psrl/wp-content/uploads/sites/15/2021/04/08007_00004-1.jpg" alt="Colorado State University Translational Medicine Institute research facility" loading="lazy" style="width:100%;max-height:430px;object-fit:cover;border-radius:14px;display:block">'
         '<figcaption style="font-size:.86rem;color:#607086;margin-top:7px">Colorado State University Translational Medicine Institute, home to research programs that collaborate with the Flint Animal Cancer Center. Photo: Colorado State University.</figcaption>'
         '</figure>'
         '<p>Colorado State University’s Flint Animal Cancer Center in Fort Collins combines multidisciplinary cancer care with comparative oncology research. Its program includes clinical trials, laboratory research and a cancer biorepository, with work designed to improve cancer prevention, diagnosis and treatment in pets while also informing human cancer research.</p>'
-        '<h2>Cancer research &amp; team</h2>'
+        '<h2 style="text-align:left">Cancer research &amp; team</h2>'
         '<p>Research at CSU spans medical, surgical and radiation oncology, immunology and immunotherapy, cancer genomics and translational drug development. The center is directed by veterinary oncologist <strong>Susan Lana, DVM</strong>. <strong>Douglas Thamm, VMD</strong> directs clinical research, and the broader comparative oncology group includes specialists working across clinical trials, immunotherapy, genomics, radiation biology and surgical oncology.</p>'
         '<p><a href="https://vetmedbiosci.colostate.edu/cs/research-topic-directory/comparative-oncology-and-cancer-biology/" rel="noopener">Meet CSU comparative oncology researchers</a> · <a href="https://vetmedbiosci.colostate.edu/vth/clinical_trial_tag/oncology/" rel="noopener">See CSU oncology clinical trials</a></p>'
+        '</div>'
     )
 
 
