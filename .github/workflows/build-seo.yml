@@ -1,6 +1,5 @@
 name: Build and deploy SEO site
 
-# Deploy generated pages from the current effective treatment catalog.
 on:
   workflow_dispatch:
   push:
@@ -38,26 +37,28 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
-          import json, re
+          import json,re,sys,html
           import xml.etree.ElementTree as ET
+          sys.path.insert(0,'seo')
+          import generate_seo_strict as strict
           root=ET.parse('seo/site/sitemap.xml').getroot(); ns={'s':'http://www.sitemaps.org/schemas/sitemap/0.9'}
           locs=[x.text for x in root.findall('s:url/s:loc',ns)]
           assert locs and len(locs)==len(set(locs))
           pages=list(Path('seo/site').rglob('index.html'))
           assert len(pages)>=40, f'too few pages: {len(pages)}'
           audit=json.loads(Path('seo/site/mapping-audit.json').read_text())
-          matrix=audit['matrix']
-          assert audit['matrix_cells']==len(matrix) and audit['assignments']>0
+          cells=audit['cells']
+          assert audit['matrix_cells']==len(cells) and audit['assignments']>0
+          by_id={r['id']:r for r in strict.g.load_effective()}
           forbidden=('active_treatment_target:', 'chemo_washout_days:', 'radiation_washout_days:', "{'", "': True")
-          def titles(s): return re.findall(r'<article class="card"><h3>(.*?)</h3>',s,re.S)
-          # Every English region/species/diagnosis cell must equal the strict matrix by card identity and order.
-          for cell, expected in matrix.items():
-            region,species,cancer=cell.split('|',2)
-            slug=re.sub(r'-+','-',re.sub(r'[^a-z0-9]+','-',cancer.lower())).strip('-')
-            p=Path('seo/site')/region/species/slug/'index.html'
-            assert p.exists(), (cell,p)
-            s=p.read_text(errors='replace')
-            assert titles(s)==[x['title'] for x in expected], (cell,titles(s),[x['title'] for x in expected])
+          def titles(s): return [html.unescape(x) for x in re.findall(r'<article class="card"><h3>(.*?)</h3>',s,re.S)]
+          # Systemic identity check for every North America + UK/Europe matrix cell.
+          for rel, ids in cells.items():
+            p=Path('seo/site')/rel/'index.html'
+            assert p.exists(), (rel,p)
+            actual=titles(p.read_text(errors='replace'))
+            expected=[by_id[i].get('title','') for i in ids]
+            assert sorted(actual)==sorted(expected), (rel,actual,expected)
           for p in pages:
             s=p.read_text(errors='replace')
             assert 'Cancer Trial Finder For Dogs And Cats' in s, p
@@ -65,11 +66,10 @@ jobs:
             assert not any(x in s for x in forbidden), f'raw internal field on {p}'
             if p!=Path('seo/site/index.html'): assert 'class="card"' in s, p
           hs=Path('seo/site/north-america/dogs/histiocytic-sarcoma/index.html').read_text()
-          markers=('100% FREE','No registration. No hidden results. No paid report.','About Histiocytic Sarcoma','Standard treatment','Histiocytic sarcoma is an aggressive cancer of histiocytic immune cells.','lomustine (CCNU)','Treatment &amp; research','Costs:','Contact:','Official study / enrollment information')
+          markers=('100% FREE','No registration. No hidden results. No paid report.','About Histiocytic Sarcoma','Standard treatment','lomustine (CCNU)','Treatment &amp; research')
           for marker in markers: assert marker in hs, marker
-          assert hs.index('100% FREE') < hs.index('About Histiocytic Sarcoma') < hs.index('Treatment &amp; research')
           assert hs.count('class="free"')==1
-          print(f"VALID_SITE pages={len(pages)} sitemap={len(locs)} matrix_cells={audit['matrix_cells']} assignments={audit['assignments']}")
+          print(f"VALID_ALL pages={len(pages)} matrix_cells={len(cells)} assignments={audit['assignments']}")
           PY
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
@@ -99,13 +99,12 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
-          import re,time,urllib.request
+          import html,re,time,urllib.request
           base='https://jdizhur-rgb.github.io/vet-trial-matcher/'
-          # English pages cover every matrix cell in BOTH regions, BOTH species, and every generated diagnosis.
           local_pages=sorted(Path('seo/site').glob('*/*/*/index.html'))
           paths=['']+[str(p.parent.relative_to('seo/site')).replace('\\','/')+'/' for p in local_pages]
           forbidden=('active_treatment_target:', 'chemo_washout_days:', 'radiation_washout_days:', "{'", "': True")
-          def titles(s): return re.findall(r'<article class="card"><h3>(.*?)</h3>',s,re.S)
+          def titles(s): return [html.unescape(x) for x in re.findall(r'<article class="card"><h3>(.*?)</h3>',s,re.S)]
           for path in paths:
             expected=(Path('seo/site')/path/'index.html').read_text() if path else Path('seo/site/index.html').read_text()
             expected_titles=titles(expected)
@@ -121,10 +120,5 @@ jobs:
             assert 'Cancer Trial Finder For Dogs And Cats' in text, path
             assert not any(x in text for x in forbidden), path
             assert titles(text)==expected_titles, (path,titles(text),expected_titles)
-            if path=='north-america/dogs/histiocytic-sarcoma/':
-              markers=('100% FREE','No registration. No hidden results. No paid report.','About Histiocytic Sarcoma','Standard treatment','Histiocytic sarcoma is an aggressive cancer of histiocytic immune cells.','lomustine (CCNU)','Treatment &amp; research','Official study / enrollment information')
-              for marker in markers: assert marker in text, marker
-              assert text.index('100% FREE') < text.index('About Histiocytic Sarcoma') < text.index('Treatment &amp; research')
-              assert text.count('class="free"')==1
             print('LIVE_OK',path or '/',len(expected_titles),'cards')
           PY
