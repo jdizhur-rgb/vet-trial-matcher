@@ -1,0 +1,17 @@
+name: Revert overbroad dedupe
+on:
+  push:
+    paths: ['.github/workflows/revert-overbroad-dedupe.yml']
+permissions:
+  contents: write
+jobs:
+  revert:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git revert --no-edit 9ac1f9b
+          git push

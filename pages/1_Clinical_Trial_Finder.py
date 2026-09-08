@@ -28,7 +28,7 @@ CANCER_ALIASES = {
 
 LYMPHOMA_CANCERS = {'B-cell lymphoma', 'T-cell lymphoma', 'Lymphoma — other'}
 
-st.set_page_config(page_title='Vet Cancer Trial Finder — Beta', page_icon='🐾', layout='centered')
+st.set_page_config(page_title='Vet Cancer Treatment Finder', page_icon='🐾', layout='centered')
 
 
 def _render_result_save_controls(matches):
@@ -86,18 +86,22 @@ def _load_trials():
     with (_root / "data" / "trials_base.json").open(encoding="utf-8") as _fh:
         _base = _json.load(_fh)
     _by_id = {t["id"]: t for t in _base}
-    _updates_path = _root / "data" / "trial_updates.json"
-    if _updates_path.exists():
-        with _updates_path.open(encoding="utf-8") as _fh:
-            _doc = _json.load(_fh)
-        for _trial_id in _doc.get("delete", []):
-            _by_id.pop(_trial_id, None)
+    _patch_paths = [_root / "data" / "trial_updates.json"]
+    _patch_paths += sorted((_root / "data").glob("catalog_patch_*.json"))
+    for _updates_path in _patch_paths:
+        if not _updates_path.exists(): continue
+        with _updates_path.open(encoding="utf-8") as _fh: _doc = _json.load(_fh)
+        for _trial_id in _doc.get("delete", []): _by_id.pop(_trial_id, None)
         for _patch in _doc.get("upsert", []):
             _trial_id = _patch["id"]
             if _trial_id in _by_id:
-                _by_id[_trial_id].update(_patch)
-            else:
-                _by_id[_trial_id] = _patch
+                _merged = dict(_by_id[_trial_id])
+                for _key, _value in _patch.items():
+                    if _key in {"requires", "excludes"} and isinstance(_value, dict):
+                        _nested = dict(_merged.get(_key, {})); _nested.update(_value); _merged[_key] = _nested
+                    else: _merged[_key] = _value
+                _by_id[_trial_id] = _merged
+            else: _by_id[_trial_id] = _patch
     return list(_by_id.values())
 
 TRIALS = _load_trials()
@@ -133,6 +137,15 @@ UNKNOWN = "I don't know"
 # considered by the patient-facing matcher. Watch/planned/reconfirmation rows
 # remain excluded.
 CURRENT_STATUS_CONFIDENCE = {'current', 'confirmed_current'}
+
+def species_matches(trial_species, selected_species):
+    """Normalize legacy string and newer list species fields."""
+    if isinstance(trial_species, (list, tuple, set)):
+        values = {str(x).strip() for x in trial_species}
+    else:
+        values = {x.strip() for x in str(trial_species or '').split('/') if x.strip()}
+    return selected_species in values
+
 def is_current_trial(tr):
     return tr.get('status_confidence') in CURRENT_STATUS_CONFIDENCE
 
@@ -184,8 +197,8 @@ label, [data-testid="stWidgetLabel"] p {
 ''', unsafe_allow_html=True)
 
 st.title('🐾 Vet Cancer Trial Finder')
-st.markdown('**Beta prototype.** Answer what you know. It is completely fine to choose **I don’t know**.')
-st.info('This tool screens for clinical trials that may be worth contacting. It does not determine eligibility and does not replace your veterinarian or oncologist.')
+st.markdown('Answer what you know. It is completely fine to choose **I don’t know**.')
+st.info('This finder identifies potentially relevant cancer treatment options. It does not determine eligibility. Final eligibility and treatment decisions are determined by the treating or research team. It is not a substitute for veterinary advice.')
 
 with st.expander('Before you start', expanded=False):
     st.write('Helpful records, if you have them: pathology/cytology report, surgery report, recent imaging/staging, bloodwork, and names/dates of cancer treatments. You do not need all of these to search.')
@@ -240,7 +253,7 @@ _form_trials = []
 for _tr in TRIALS:
     if not _tr.get('available_for_matching', True) or not is_current_trial(_tr):
         continue
-    if _tr.get('study_type', 'treatment') != 'treatment' or species not in str(_tr.get('species', '')).split('/'):
+    if _tr.get('study_type', 'treatment') != 'treatment' or not species_matches(_tr.get('species', ''), species):
         continue
     if not country_matches(_tr.get('country', 'USA'), country):
         continue
@@ -415,7 +428,7 @@ if search_clicked:
         # not a patient-facing match. Reconfirm it before turning matching back on.
         if not is_current_trial(tr):
             continue
-        if species not in str(tr.get('species', '')).split('/'):
+        if not species_matches(tr.get('species', ''), species):
             continue
         if not country_matches(tr.get('country', 'USA'), country):
             continue
@@ -840,14 +853,14 @@ if search_clicked:
                     st.caption(f"Status: {tr['status']} · Last verified: {tr.get('verified', 'date not recorded')}")
 
     _render_result_save_controls(matches)
-    with st.expander('Help us improve this beta'):
+    with st.expander('Help us improve this finder'):
         st.write('If a trial team says your pet is not eligible, please save the reason they gave. This helps improve the matcher. Do not post private medical or contact information publicly.')
 
 st.divider()
 st.markdown('**Urgent symptoms come first.** Difficulty breathing, collapse, uncontrolled bleeding, severe pain, or another emergency should be assessed by a veterinarian immediately rather than delayed for a clinical-trial search.')
-st.caption('Beta: trial information can change. Always confirm recruiting status, eligibility, costs, travel requirements, and treatment details directly with the research team.')
+st.caption('Trial information can change. Always confirm recruiting status, eligibility, costs, travel requirements, and treatment details directly with the research or treatment team.')
 
 
 st.markdown("---")
 st.caption("Verified treatment trials and experimental treatment programs • U.S. + Europe/UK • Last deep audit: September 5, 2026")
-st.caption("This finder identifies potentially relevant clinical trials; it does not determine eligibility. Final eligibility is determined by the study investigators. It is not a substitute for veterinary advice.")
+st.caption("This finder identifies potentially relevant cancer treatment options. It does not determine eligibility. Final eligibility and treatment decisions are determined by the treating or research team. It is not a substitute for veterinary advice.")

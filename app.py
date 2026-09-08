@@ -10,7 +10,7 @@ page=st.navigation(PAGES,position="hidden")
 st.markdown("""<style>
 .stMainBlockContainer,div[data-testid="stMainBlockContainer"]{max-width:1120px!important;padding:3.4rem 1.5rem 2rem!important}
 .nav-title{font-size:1.55rem;line-height:1.08;font-weight:700;margin:.6rem 0 .15rem;color:#55483f}.nav-title .paw{color:#9a6a43;font-family:Arial,sans-serif}.nav-subtitle{font-size:.92rem;color:#6f6a66;margin:0 0 .45rem}
-.beta-corner{text-align:right;font-size:.72rem;color:#8a8580;margin:.05rem .15rem .15rem}.intro-answer{font-size:.94rem;color:#45414a;margin:.35rem 0 .65rem}
+.beta-corner{display:none}.intro-answer{font-size:.94rem;color:#45414a;margin:.35rem 0 .65rem}
 div.st-key-nav_trials button{min-height:2.45rem!important;width:100%!important;font-size:.9rem!important;font-weight:700!important;border-radius:.8rem!important;background:#eee8ff!important;color:#3b237a!important;border:1px solid #ddd2ff!important}
 div.st-key-nav_options button{min-height:2.45rem!important;width:100%!important;font-size:.9rem!important;font-weight:700!important;border-radius:.8rem!important;background:#e8f3ff!important;color:#155ca8!important;border:1px solid #cfe5fb!important}
 div[data-testid="stAlert"]{background:#edf7ef!important;border:0!important;box-shadow:none!important;color:#285b38!important}div[data-testid="stAlert"]>div{background:transparent!important;border:0!important;box-shadow:none!important}div[data-testid="stAlert"] p{color:#285b38!important}
@@ -95,8 +95,8 @@ def multiselect(label,*a,**k):return _render("multiselect",label,*a,**k)
 def button(label,*a,**k):return _orig["button"](label,*a,**k)
 def markdown(body,*a,**k):
     if isinstance(body,str):
-        if body.startswith("**Beta prototype.**"):
-            rest=body.replace("**Beta prototype.**","",1).strip();_orig["markdown"]('<div class="beta-corner">Beta prototype</div>',unsafe_allow_html=True);_orig["markdown"](f'<div class="intro-answer">{rest}</div>',unsafe_allow_html=True);return
+        if body.startswith("Answer what you know."):
+            _orig["markdown"](f'<div class="intro-answer">{body}</div>',unsafe_allow_html=True);return
         if body.startswith("### ") and " · " in body:
             confidence,center=body[4:].split(" · ",1);confidence={"Potential broad-treatment trial — prescreening required":"Prescreening required","Trial to review — cancer type not specified":"Trial to review"}.get(confidence,confidence);_orig["markdown"](f"### {confidence}");st.caption(center);return
         if body.startswith("**Study type:**"):return
@@ -165,3 +165,5 @@ with _nav_top.container():
         if st.button("🐾︎ Clinical Trials",key="nav_trials",use_container_width=True):st.switch_page("pages/1_Clinical_Trial_Finder.py")
     with right:
         if st.button("💊 More Treatment Options",key="nav_options",use_container_width=True):st.switch_page("pages/2_Additional_Oncology_Options.py")
+
+st.markdown("[Follow us on Facebook](https://www.facebook.com/share/1YmSPexTr1/)")

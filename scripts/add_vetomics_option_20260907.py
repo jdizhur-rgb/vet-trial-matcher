@@ -1,0 +1,10 @@
+from pathlib import Path
+p=Path('pages/2_Additional_Oncology_Options.py')
+s=p.read_text(encoding='utf-8')
+marker='OPTIONS = [\n'
+assert marker in s
+if 'vetomics-cgp-genomic-guidance' not in s:
+    record='''    {"id":"vetomics-cgp-genomic-guidance","species":"Dog","countries":["USA"],"cancers":["Cancer — any type"],"situations":["Tumor genomic profiling / treatment planning","Few standard treatment options remain","Tumor tissue or FNA material available"],"name":"VetOmics Canine CGP","summary":"Whole-exome tumor genomic profiling across 20,257 coding genes, with genomics-guided treatment recommendations.","access":"USA — ordered through a veterinarian or veterinary hospital. VetOmics lists the Canine CGP price as $900 to hospitals/veterinarians; the hospital may add its own markup. Treatment is separate.","evidence":"VetOmics provides clinical interpretation and potential therapeutic recommendations from tumor genomic findings. Actionability and canine-specific evidence vary by finding.","evidence_level":"Commercial comprehensive genomic profiling + treatment guidance; actionability varies by finding","sample":"FFPE tumor tissue, FNA slides, or fresh-frozen tumor tissue; requirements vary by specimen type.","travel":"No research-center travel is inherently required for testing; the treating veterinarian coordinates sample submission. Any recommended treatment is obtained separately.","url":"https://vetomicsanimalhealth.com/our-approach/","provider_url":"https://vetomicsanimalhealth.com/","access_url":"https://vetomicsanimalhealth.com/order/","access_label":"Order Canine CGP","contact_email":"CustomerCare@VetomicsAnimalHealth.com","limitations":"This is a genomic testing and treatment-guidance service, not a treatment provider. A genomic match does not establish that a recommended therapy will work in an individual dog; canine-specific evidence is limited for some matches."},\n'''
+    s=s.replace(marker,marker+record,1)
+    p.write_text(s,encoding='utf-8')
+print('VetOmics option present')

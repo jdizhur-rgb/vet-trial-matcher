@@ -427,10 +427,13 @@
       "funding": "Confirm current study-covered and owner-paid costs with CSU Clinical Trials.",
       "requires": {
         "confirmed": true,
-        "active_treatment_target": true
+        "active_treatment_target": true,
+        "measurable": true,
+        "min_weight_kg": 15,
+        "max_weight_kg": 60
       },
       "excludes": {},
-      "notes": "COTC033 interventional immunotherapy study that repurposes existing vaccine immunity against tumors. CSU currently lists histiocytic sarcoma, oral melanoma, soft tissue sarcoma, other sarcomas and carcinomas among eligible cancer categories. Full protocol eligibility requires investigator prescreening.",
+      "notes": "COTC033 current CSU treatment study. Published eligibility includes confirmed eligible cancer, a 2–8 cm tumor accessible for biopsy, and body weight 15–60 kg (33–132 lb). Structured criteria are applied by the global matcher; any known hard failure excludes the study.",
       "verified": "2026-09-05",
       "study_type": "treatment",
       "available_for_matching": true,
@@ -463,37 +466,6 @@
         "bone_metastasis": true
       },
       "notes": "Single IV carboplatin treatment followed by three weeks of activity, gait, imaging and laboratory monitoring. Requires seven days on a standard oral pain regimen before enrollment and a 30-day bisphosphonate washout.",
-      "verified": "2026-09-05",
-      "study_type": "treatment",
-      "available_for_matching": true,
-      "status_confidence": "confirmed_current",
-      "owner_prescreen_required": true
-    },
-    {
-      "id": "umn-sarcoma-trike-rt",
-      "title": "TriKE immunotherapy plus hypofractionated radiation for canine sarcoma",
-      "center": "University of Minnesota Veterinary Medical Center",
-      "country": "USA",
-      "state": "Minnesota",
-      "species": "Dog",
-      "cancers": [
-        "Soft tissue sarcoma",
-        "Other sarcoma"
-      ],
-      "status": "Actively recruiting — confirmed on the institution’s current clinical-trials page",
-      "url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/trike-new",
-      "contacts": "See official study page for current study contact and prescreening instructions",
-      "funding": "Once enrolled, the study covers study blood/urine tests, imaging, radiation planning and treatment, TriKE immunotherapy and follow-up exams.",
-      "requires": {
-        "confirmed": true,
-        "active_treatment_target": true,
-        "min_tumor_cm": 2,
-        "min_weight_kg": 7
-      },
-      "excludes": {
-        "prior_immunotherapy": true
-      },
-      "notes": "Novel TriKE immunotherapy is given with hypofractionated radiation. Confirmed sarcoma at least 2 cm; prior chemotherapy/radiation may be allowed after washout; prior immunotherapy excluded.",
       "verified": "2026-09-05",
       "study_type": "treatment",
       "available_for_matching": true,
@@ -582,33 +554,6 @@
       "owner_prescreen_required": true
     },
     {
-      "id": "upenn-met-osa-car-inkt",
-      "title": "CAR-iNKT cell therapy for canine metastatic osteosarcoma",
-      "center": "Penn Vet Ryan Hospital",
-      "country": "USA",
-      "state": "Pennsylvania",
-      "species": "Dog",
-      "cancers": [
-        "Osteosarcoma"
-      ],
-      "status": "Actively recruiting — confirmed on the institution’s current clinical-trials page",
-      "url": "https://www.vet.upenn.edu/clinical-trial/cell-therapy-for-metastatic-osteosarcoma/",
-      "contacts": "See official study page for current study contact and prescreening instructions",
-      "funding": "Confirm current study-covered and owner-paid costs with the study team.",
-      "requires": {
-        "confirmed": true,
-        "active_treatment_target": true,
-        "measurable_lung_metastases": true
-      },
-      "excludes": {},
-      "notes": "Interventional donor-derived CAR invariant natural killer T-cell therapy for osteosarcoma metastatic to the lungs.",
-      "verified": "2026-09-05",
-      "study_type": "treatment",
-      "available_for_matching": true,
-      "status_confidence": "confirmed_current",
-      "owner_prescreen_required": true
-    },
-    {
       "id": "osu-sts-mic-nk",
       "title": "Anti-MIC antibody plus adoptive NK-cell therapy for canine soft tissue sarcoma",
       "center": "The Ohio State University Veterinary Medical Center",
@@ -630,31 +575,6 @@
         "prior_local_radiation": true
       },
       "notes": "Localized confirmed STS treated with anti-MIC antibody and expanded natural-killer-cell infusion.",
-      "verified": "2026-09-05",
-      "study_type": "treatment",
-      "available_for_matching": true,
-      "status_confidence": "confirmed_current",
-      "owner_prescreen_required": true
-    },
-    {
-      "id": "osu-oral-melanoma-r3lcmv",
-      "title": "r3LCMV immunotherapy for canine oral melanoma",
-      "center": "The Ohio State University Veterinary Medical Center",
-      "country": "USA",
-      "state": "Ohio",
-      "species": "Dog",
-      "cancers": [
-        "Oral melanoma"
-      ],
-      "status": "Actively recruiting — confirmed on the institution’s current clinical-trials page",
-      "url": "https://vmc.vet.osu.edu/clinical-trials-office/current-trials",
-      "contacts": "See official study page for current study contact and prescreening instructions",
-      "funding": "Confirm current study-covered and owner-paid costs with the study team.",
-      "requires": {
-        "active_treatment_target": true
-      },
-      "excludes": {},
-      "notes": "Current OSU oncology treatment trial using r3LCMV-based immunotherapy for canine mucosal/oral melanoma.",
       "verified": "2026-09-05",
       "study_type": "treatment",
       "available_for_matching": true,
@@ -880,31 +800,6 @@
       "owner_prescreen_required": true
     },
     {
-      "id": "ucd-glioma-prism-radiation",
-      "title": "PRISM radiation pathway for canine glioma",
-      "center": "UC Davis Weill School of Veterinary Medicine",
-      "country": "USA",
-      "state": "California",
-      "species": "Dog",
-      "cancers": [
-        "Brain tumor / glioma"
-      ],
-      "status": "Actively recruiting — confirmed on the institution’s current clinical-trials page",
-      "url": "https://behavior.vetmed.ucdavis.edu/index.php/news/clinical-trials-dogs-glioma-brain-tumors",
-      "contacts": "See official study page for current study contact and prescreening instructions",
-      "funding": "Confirm current study-covered and owner-paid costs with the study team.",
-      "requires": {
-        "active_treatment_target": true
-      },
-      "excludes": {},
-      "notes": "Recruiting PRISM study includes a radiation-therapy treatment pathway for dogs with diagnosed or suspected glioma. Only the therapeutic radiation pathway is represented in matching.",
-      "verified": "2026-09-05",
-      "study_type": "treatment",
-      "available_for_matching": true,
-      "status_confidence": "confirmed_current",
-      "owner_prescreen_required": true
-    },
-    {
       "id": "utsw-solid-cpmv",
       "title": "Intratumoral cowpea mosaic virus immunotherapy for canine solid tumors",
       "center": "UT Southwestern Veterinary Research and Oncology Clinic",
@@ -926,58 +821,6 @@
       },
       "excludes": {},
       "notes": "Weekly intratumoral CPMV immunotherapy for naturally occurring canine solid tumors.",
-      "verified": "2026-09-05",
-      "study_type": "treatment",
-      "available_for_matching": true,
-      "status_confidence": "confirmed_current",
-      "owner_prescreen_required": true
-    },
-    {
-      "id": "utsw-solid-rt-histotripsy",
-      "title": "Radiation plus histotripsy for canine/feline solid tumors",
-      "center": "UT Southwestern Veterinary Research and Oncology Clinic",
-      "country": "USA",
-      "state": "Texas",
-      "species": "Dog",
-      "cancers": [
-        "Soft tissue sarcoma",
-        "Other solid tumor"
-      ],
-      "status": "Actively recruiting — confirmed on the institution’s current clinical-trials page",
-      "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-trials.html",
-      "contacts": "See official study page for current study contact and prescreening instructions",
-      "funding": "Confirm current study-covered and owner-paid costs with the study team.",
-      "requires": {
-        "active_treatment_target": true
-      },
-      "excludes": {},
-      "notes": "Current VROC treatment study combining radiation and high-intensity focused ultrasound histotripsy for naturally occurring tumors.",
-      "verified": "2026-09-05",
-      "study_type": "treatment",
-      "available_for_matching": true,
-      "status_confidence": "confirmed_current",
-      "owner_prescreen_required": true
-    },
-    {
-      "id": "utsw-advanced-tumor-compassionate",
-      "title": "Compassionate-use investigational therapy for advanced non-resectable tumors",
-      "center": "UT Southwestern Veterinary Research and Oncology Clinic",
-      "country": "USA",
-      "state": "Texas",
-      "species": "Dog",
-      "cancers": [
-        "Cancer — any type",
-        "Other solid tumor"
-      ],
-      "status": "Actively recruiting — confirmed on the institution’s current clinical-trials page",
-      "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-trials.html",
-      "contacts": "See official study page for current study contact and prescreening instructions",
-      "funding": "Confirm current study-covered and owner-paid costs with the study team.",
-      "requires": {
-        "active_treatment_target": true
-      },
-      "excludes": {},
-      "notes": "Prospective compassionate-use protocol for advanced non-resectable tumors using investigational therapy, chemotherapy, immunotherapy and combination approaches.",
       "verified": "2026-09-05",
       "study_type": "treatment",
       "available_for_matching": true,
@@ -1346,57 +1189,6 @@
       ]
     },
     {
-      "id": "medvet-egfr-her2-vaccine-osa-hsa-tcc",
-      "title": "Experimental EGFR/HER2 Tumor Vaccine",
-      "species": "Dog",
-      "country": "USA",
-      "locations": [
-        "MedVet Salt Lake City",
-        "MedVet Cincinnati",
-        "MedVet Cleveland",
-        "MedVet Pittsburgh"
-      ],
-      "status": "Currently enrolling with location-specific restrictions",
-      "study_type": "treatment",
-      "available_for_matching": true,
-      "intervention": "Experimental EGFR/HER2 tumor vaccine used with appropriate standard-of-care therapy",
-      "cost": "Vaccine is provided at no charge; hospital visits, diagnostics and administration are owner-paid.",
-      "url": "https://www.medvet.com/clinical-studies/",
-      "verified": "2026-09-05",
-      "center": "MedVet Clinical Studies Center",
-      "cancers": [
-        "Osteosarcoma",
-        "Hemangiosarcoma",
-        "Urothelial carcinoma",
-        "Transitional cell carcinoma"
-      ]
-    },
-    {
-      "id": "eu-fr-hepatic-tumor-thermoablation",
-      "title": "Thermoablation treatment for canine hepatic tumors and liver metastases",
-      "center": "France — Camille Bismuth investigator study",
-      "country": "France",
-      "species": "Dog",
-      "cancers": [
-        "Hepatic tumor",
-        "Liver metastases"
-      ],
-      "status": "Ongoing — listed in current ESVONC monthly oncology trial overview",
-      "url": "https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials",
-      "contacts": "Camille Bismuth — see Oncowaf/ESVONC current trial listing",
-      "funding": "Confirm study-covered costs with investigator.",
-      "requires": {
-        "active_treatment_target": true
-      },
-      "excludes": {},
-      "notes": "Interventional treatment study using thermoablation of primary hepatic tumors and/or liver metastases.",
-      "verified": "2026-09-05",
-      "study_type": "treatment",
-      "available_for_matching": true,
-      "status_confidence": "confirmed_current",
-      "owner_prescreen_required": true
-    },
-    {
       "id": "eu-nl-uk-insulinoma-toceranib",
       "title": "Toceranib phosphate for metastatic or recurrent canine insulinoma",
       "center": "European multicenter study — Floryne Buishand",
@@ -1420,108 +1212,6 @@
       "available_for_matching": true,
       "status_confidence": "confirmed_current",
       "owner_prescreen_required": true
-    },
-    {
-      "id": "uk-oral-melanoma-tigilanol-tiglate",
-      "title": "Tigilanol tiglate immunotherapy for canine oral melanoma",
-      "center": "United Kingdom — Kelly Blacklock investigator study",
-      "country": "UK",
-      "species": "Dog",
-      "cancers": [
-        "Oral melanoma"
-      ],
-      "status": "Ongoing — listed in current ESVONC monthly oncology trial overview",
-      "url": "https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials",
-      "contacts": "Kelly Blacklock — see Oncowaf/ESVONC current trial listing",
-      "funding": "Confirm study-covered costs with investigator.",
-      "requires": {
-        "active_treatment_target": true
-      },
-      "excludes": {},
-      "notes": "Current UK treatment study of tigilanol tiglate for dogs with oral melanoma.",
-      "verified": "2026-09-05",
-      "study_type": "treatment",
-      "available_for_matching": true,
-      "status_confidence": "confirmed_current",
-      "owner_prescreen_required": true
-    },
-    {
-      "id": "eu-ch-feline-oscc-flash-rt",
-      "title": "FLASH radiotherapy for feline oral squamous cell carcinoma",
-      "center": "Switzerland — Carla Bley investigator study",
-      "country": "Switzerland",
-      "species": "Cat",
-      "cancers": [
-        "Oral squamous cell carcinoma"
-      ],
-      "status": "Ongoing — listed in current ESVONC monthly oncology trial overview",
-      "url": "https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials",
-      "contacts": "Carla Bley — see Oncowaf/ESVONC current trial listing",
-      "funding": "Confirm study-covered costs with investigator.",
-      "requires": {
-        "active_treatment_target": true
-      },
-      "excludes": {},
-      "notes": "Current interventional FLASH radiotherapy study for cats with oral SCC.",
-      "verified": "2026-09-05",
-      "study_type": "treatment",
-      "available_for_matching": true,
-      "status_confidence": "confirmed_current",
-      "owner_prescreen_required": true
-    },
-    {
-      "id": "ch-zurich-oral-vinorelbine-phase1",
-      "title": "Oral vinorelbine Phase I for dogs with tumors",
-      "species": "Dog",
-      "cancers": [
-        "Lymphoma",
-        "Histiocytic sarcoma",
-        "Mast cell tumor",
-        "Lung carcinoma",
-        "Advanced solid tumors"
-      ],
-      "country": "Switzerland",
-      "center": "University Animal Hospital Zurich",
-      "study_type": "treatment",
-      "status": "Recruiting",
-      "available_for_matching": true,
-      "summary": "Early Phase I study determining a safe oral dose of vinorelbine in dogs with cancer. Dogs may qualify when standard treatment is no longer appropriate or feasible; good general condition and body weight over 5 kg are required. Treatment includes a single oral vinorelbine dose after staging/screening.",
-      "source_url": "https://www.tierspital.uzh.ch/forschungsprojekte/orale-chemotherapie-hunde-mit-tumor/",
-      "last_verified": "2026-09-05"
-    },
-    {
-      "id": "ch-zurich-feline-sts-adam12-vaccine",
-      "title": "ADAM-12 vaccine immunotherapy for feline soft tissue sarcoma",
-      "species": "Cat",
-      "cancers": [
-        "Soft tissue sarcoma",
-        "Feline injection-site sarcoma"
-      ],
-      "country": "Switzerland",
-      "center": "University Animal Hospital Zurich",
-      "study_type": "treatment",
-      "status": "Recruiting",
-      "available_for_matching": true,
-      "summary": "Phase 0 immunotherapy study testing an ADAM-12-targeted vaccine in cats with confirmed sarcoma when surgery or radiotherapy is no longer possible. Vaccinated cats receive two doses on days 0 and 7 with CT and biopsy follow-up; safety is the primary endpoint and antitumor activity is exploratory.",
-      "source_url": "https://www.tierspital.uzh.ch/forschungsprojekte/impfstudie-katzen-weichteilsarkom/",
-      "last_verified": "2026-09-05"
-    },
-    {
-      "id": "ch-zurich-canine-highgrade-glioma-chemoradiation",
-      "title": "Radiotherapy plus temozolomide and lomustine for canine high-grade glioma",
-      "species": "Dog",
-      "cancers": [
-        "High-grade glioma",
-        "Brain tumor"
-      ],
-      "country": "Switzerland",
-      "center": "University Animal Hospital Zurich",
-      "study_type": "treatment",
-      "status": "Recruiting",
-      "available_for_matching": true,
-      "summary": "Placebo-controlled clinical trial for biopsy-confirmed aggressive glioma. All dogs receive radiotherapy; half additionally receive temozolomide plus lomustine and half placebo. Brain biopsy, chemotherapy and laboratory testing are free and radiotherapy is discounted.",
-      "source_url": "https://www.tierspital.uzh.ch/forschungsprojekte/studie-therapie-gliome-hund/",
-      "last_verified": "2026-09-05"
     },
     {
       "id": "ch-zurich-canine-meningioma-genomic-rt",
@@ -1572,40 +1262,6 @@
       "notes": "Local thermoablation, ultrasound-guided or open surgery with concomitant pericardiectomy; current ESVONC/Oncowaf listing."
     },
     {
-      "id": "fr-fregis-hepatic-embolization-chemoembolization",
-      "title": "Embolization or chemoembolization for canine hepatic tumors and metastases",
-      "center": "CHV Frégis",
-      "country": "France",
-      "species": "Dog",
-      "cancers": [
-        "Hepatocellular carcinoma",
-        "Liver metastasis",
-        "Hepatic tumor"
-      ],
-      "study_type": "treatment",
-      "status": "Recruiting",
-      "available_for_matching": true,
-      "verified": "2026-09-05",
-      "source": "https://oncowaf.be/en/ClinicalTrials/searchResults"
-    },
-    {
-      "id": "nl-utrecht-osa-viral-therapy",
-      "title": "Viral therapy for canine osteosarcoma",
-      "center": "Utrecht University",
-      "country": "Netherlands",
-      "species": "Dog",
-      "cancers": [
-        "Osteosarcoma",
-        "Bone tumor"
-      ],
-      "study_type": "treatment",
-      "status": "Recruiting",
-      "available_for_matching": true,
-      "verified": "2026-09-05",
-      "source": "https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials",
-      "notes": "Listed as ongoing treatment trial in the current monthly ESVONC overview gathered from Oncowaf."
-    },
-    {
       "id": "se-slu-oxc101-precision-cancer",
       "title": "Silver Bullet 2.0: home-based OXC-101 precision therapy for canine cancer",
       "center": "Swedish University of Agricultural Sciences (SLU)",
@@ -1622,59 +1278,6 @@
       "verified": "2026-09-05",
       "source": "https://www.slu.se/forskning/forskningskatalog/projekt/j/jakten-pa-den-magiska-kulan-2.0--ny-precisionsbehandling-mot-cancer-hos-hund",
       "notes": "SLU states project start September 2026 and evaluation of oral OXC-101 (karonudib) in dogs with lymphoma, hemangiosarcoma and mammary tumors. Contact project lead Henrik Ronnberg to confirm immediate enrollment before travel."
-    },
-    {
-      "id": "es-ucm-cancimpet-cpmv-mammary",
-      "title": "CANCIMPET intratumoral CPMV immunotherapy for poor-prognosis mammary cancer",
-      "center": "Complutense University of Madrid Veterinary Teaching Hospital",
-      "country": "Spain",
-      "species": "Dog/Cat",
-      "cancers": [
-        "Mammary carcinoma",
-        "Mammary tumor",
-        "Inflammatory mammary carcinoma",
-        "Metastatic mammary carcinoma"
-      ],
-      "study_type": "treatment",
-      "status": "Recruiting",
-      "available_for_matching": true,
-      "verified": "2026-09-05",
-      "source": "https://www.ucm.es/hcv/noticias/inmunoterapia-para-tratar-el-cancer-de-mama-en-perras-y-gatas"
-    },
-    {
-      "id": "be-ghent-feline-mammary-gcn2in6",
-      "title": "GCN2-IN-6 neoadjuvant and adjuvant therapy with mastectomy for feline mammary cancer",
-      "center": "Ghent University Small Animal Clinic",
-      "country": "Belgium",
-      "species": "Cat",
-      "cancers": [
-        "Mammary tumor",
-        "Mammary adenocarcinoma",
-        "Mammary carcinoma"
-      ],
-      "study_type": "treatment",
-      "status": "Recruiting",
-      "available_for_matching": true,
-      "verified": "2026-09-05",
-      "source": "https://www.ugent.be/di/khd/nl/onderzoek/katten_met_borstkanker-info-eigenaars"
-    },
-    {
-      "id": "uk-liverpool-dog-fight-glioma-ferumoxytol",
-      "title": "DOG-FIGhT ferumoxytol radiosensitizer trial for canine glioma",
-      "center": "University of Liverpool Small Animal Teaching Hospital",
-      "country": "UK",
-      "species": "Dog",
-      "cancers": [
-        "Glioma",
-        "Brain tumor"
-      ],
-      "study_type": "treatment",
-      "status": "Current translational canine clinical trial",
-      "available_for_matching": true,
-      "verified": "2026-09-05",
-      "source": "https://www.liverpool.ac.uk/people/tim-bentley",
-      "contacts": "Prof. Tim Bentley — Tim.Bentley@liverpool.ac.uk; Small Animal Teaching Hospital — sath@liverpool.ac.uk",
-      "notes": "University of Liverpool identifies DOG-FIGhT as Professor Bentley's current translational canine clinical trial. Dogs with glioma receive ferumoxytol before surgery; the study evaluates ferumoxytol as a glioma radiosensitizer and dogs also receive postoperative radiation therapy. Investigator prescreening is required to confirm the currently enrolling arm and eligibility before travel."
     },
     {
       "id": "fr-oniris-osa-biocera-vet-cement",
@@ -1958,7 +1561,7 @@
         "Osteosarcoma",
         "Mast cell tumor"
       ],
-      "status": "Ongoing proof-of-concept study in client-owned dogs — Purdue Oncology screening confirmed in current sponsor disclosures",
+      "status": "Ongoing proof-of-concept study in client-owned dogs — owner-facing current enrollment route not independently confirmed",
       "url": "https://www.akstonbio.com/in-the-news/akston-pioneers-a-new-generation-of-cancer-therapy-for-dogs-in-clinical-trial-launch/",
       "contacts": "Purdue University Veterinary Hospital Oncology Service — owner prescreening through Purdue Oncology",
       "funding": "Confirm study-covered and owner-paid costs with Purdue Oncology.",
@@ -1969,20 +1572,572 @@
       "excludes": {
         "bladder_cancer": true
       },
-      "notes": "Independent Purdue proof-of-concept study of intramuscular AKS-619d, designed to induce antibodies targeting PD-L1. Public sponsor disclosures state client-owned dogs presenting to Purdue Oncology are screened for eligibility. The solid-tumor study excludes bladder cancer to avoid competing with the separate AKS-701d urothelial-carcinoma study.",
+      "notes": "Independent Purdue proof-of-concept study of intramuscular AKS-619d, designed to induce antibodies targeting PD-L1. Public sponsor disclosures state client-owned dogs presenting to Purdue Oncology are screened for eligibility. The solid-tumor study excludes bladder cancer to avoid competing with the separate AKS-701d urothelial-carcinoma study. Kept out of patient matching until Purdue publishes or confirms a current owner enrollment route.",
       "verified": "2026-09-06",
+      "study_type": "treatment",
+      "available_for_matching": false,
+      "status_confidence": "needs_reconfirmation",
+      "owner_prescreen_required": true
+    },
+    {
+      "id": "china-dongjun-mct-new-drug-2026",
+      "title": "Investigational anticancer drug for canine mast cell tumor",
+      "center": "Zhongnong Dongjun Laboratory",
+      "country": "China",
+      "species": [
+        "Dog"
+      ],
+      "cancers": [
+        "Mast cell tumor"
+      ],
+      "status": "Recruiting — limited nationwide enrollment",
+      "status_confidence": "confirmed_current",
+      "study_type": "treatment",
+      "treatments": [
+        "Experimental drug"
+      ],
+      "requires": {
+        "confirmed": true,
+        "min_age_years": 1,
+        "active_treatment_target": true
+      },
+      "url": "https://www.caudjlab.com/newdetail.aspx?id=73",
+      "contacts": "Enrollment contact: 徐老师 (Teacher Xu); WeChat enrollment link/QR is provided on the official study page.",
+      "verified": "2026-09-07",
+      "notes": "Official 2026-08-18 recruitment notice. Pathology-confirmed canine mast cell tumor; tumor must be recurrent or unresected. Dogs must be over 1 year old and without terminal severe heart, liver, kidney failure or severe anemia. Investigational anticancer drug and scheduled tumor-related reassessments are provided free during the study. Site team performs final screening.",
+      "available_for_matching": true
+    },
+    {
+      "id": "china-dongjun-osa-new-drug-2026",
+      "title": "Investigational anticancer drug for canine osteosarcoma",
+      "center": "Zhongnong Dongjun Laboratory",
+      "country": "China",
+      "species": [
+        "Dog"
+      ],
+      "cancers": [
+        "Osteosarcoma"
+      ],
+      "status": "Recruiting — limited nationwide enrollment",
+      "status_confidence": "confirmed_current",
+      "study_type": "treatment",
+      "treatments": [
+        "Experimental drug"
+      ],
+      "requires": {
+        "confirmed": true,
+        "min_age_years": 1,
+        "measurable_or_lung_metastasis": true
+      },
+      "url": "https://www.caudjlab.com/newdetail.aspx?id=73",
+      "contacts": "Enrollment contact: 徐老师 (Teacher Xu); WeChat enrollment link/QR is provided on the official study page.",
+      "verified": "2026-09-07",
+      "notes": "Official 2026-08-18 recruitment notice. Pathology-confirmed canine osteosarcoma; recruitment specifically identifies dogs that have not undergone amputation and/or have pulmonary metastasis. Dogs must be over 1 year old and without terminal severe heart, liver, kidney failure or severe anemia. Investigational drug and scheduled tumor reassessments are free during the study. Final eligibility is determined by the study team.",
+      "available_for_matching": true
+    },
+    {
+      "id": "china-dongjun-oral-scc-new-drug-2026",
+      "title": "Investigational anticancer drug for canine oral squamous cell carcinoma",
+      "center": "Zhongnong Dongjun Laboratory",
+      "country": "China",
+      "species": [
+        "Dog"
+      ],
+      "cancers": [
+        "Oral squamous cell carcinoma"
+      ],
+      "status": "Recruiting — limited nationwide enrollment",
+      "status_confidence": "confirmed_current",
+      "study_type": "treatment",
+      "treatments": [
+        "Experimental drug"
+      ],
+      "requires": {
+        "confirmed": true,
+        "min_age_years": 1,
+        "active_treatment_target": true
+      },
+      "url": "https://www.caudjlab.com/newdetail.aspx?id=73",
+      "contacts": "Enrollment contact: 徐老师 (Teacher Xu); WeChat enrollment link/QR is provided on the official study page.",
+      "verified": "2026-09-07",
+      "notes": "Official 2026-08-18 recruitment notice. Pathology-confirmed canine oral squamous cell carcinoma and a tumor-bearing case are required. Dogs must be over 1 year old and without terminal severe heart, liver, kidney failure or severe anemia. Investigational anticancer drug and scheduled tumor-related reassessments are provided free during the study. Final eligibility is determined by the study team.",
+      "available_for_matching": true
+    },
+    {
+      "id": "china-petcura-personalized-mrna-iit-2026",
+      "title": "Personalized mRNA-LNP immunotherapy for canine malignant tumors",
+      "center": "PETcura (宝科雅) multicenter IIT",
+      "country": "China",
+      "species": [
+        "Dog"
+      ],
+      "cancers": [
+        "Acute myeloid leukemia",
+        "Adrenal tumor",
+        "Anal sac adenocarcinoma (AGASACA)",
+        "B-cell lymphoma",
+        "Chemodectoma",
+        "Chondrosarcoma",
+        "Colorectal / rectal cancer",
+        "Cutaneous epitheliotropic lymphoma",
+        "Esophageal cancer",
+        "Fibrosarcoma",
+        "Gallbladder carcinoma",
+        "Gastric / stomach cancer",
+        "Gastrointestinal stromal tumor (GIST)",
+        "Hemangiosarcoma",
+        "Hepatocellular carcinoma",
+        "Histiocytic sarcoma",
+        "Insulinoma",
+        "Intestinal carcinoma",
+        "Leiomyosarcoma",
+        "Liposarcoma",
+        "Lymphoma — other",
+        "Mammary carcinoma",
+        "Mammary tumor — other",
+        "Mast cell tumor",
+        "Melanoma — other",
+        "Multiple myeloma / plasma cell cancer",
+        "Nasal tumor / nasal cancer",
+        "Ocular melanoma / iris melanocytic tumor",
+        "Oral melanoma",
+        "Oral squamous cell carcinoma",
+        "Oral tumor — other",
+        "Osteosarcoma",
+        "Other bone tumor",
+        "Other liver tumor",
+        "Other sarcoma",
+        "Other solid tumor",
+        "Pancreatic carcinoma",
+        "Peripheral nerve sheath tumor",
+        "Primary lung tumor",
+        "Prostate cancer",
+        "Renal tumor",
+        "Rhabdomyosarcoma",
+        "Salivary gland cancer",
+        "Sinonasal carcinoma",
+        "Soft tissue sarcoma",
+        "Spindle cell sarcoma",
+        "Squamous cell carcinoma",
+        "Squamous cell carcinoma — other",
+        "Thymoma / thymic tumor",
+        "Thyroid carcinoma",
+        "Thyroid tumor / carcinoma",
+        "Urothelial / transitional cell carcinoma",
+        "Urothelial carcinoma",
+        "Cancer — any type"
+      ],
+      "status": "Recruiting — limited enrollment",
+      "status_confidence": "confirmed_current",
+      "study_type": "treatment",
+      "treatments": [
+        "Immunotherapy",
+        "Experimental drug"
+      ],
+      "requires": {
+        "confirmed": true,
+        "min_age_years": 2,
+        "min_weight_kg": 5
+      },
+      "owner_prescreen_required": true,
+      "url": "https://www.petcura.cn/zh/mrna-vaccine/study/",
+      "contacts": "WeChat: petcura; project team matches eligible owners with a participating veterinarian/hospital.",
+      "sites": [
+        {
+          "hospital": "PETcura partner hospitals",
+          "city": "Beijing",
+          "state": "2 hospitals"
+        },
+        {
+          "hospital": "PETcura partner hospital",
+          "city": "Shanghai",
+          "state": "1 hospital"
+        },
+        {
+          "hospital": "PETcura partner hospital",
+          "city": "Guangzhou",
+          "state": "1 hospital"
+        },
+        {
+          "hospital": "PETcura partner hospitals",
+          "city": "Hangzhou",
+          "state": "2 hospitals"
+        },
+        {
+          "hospital": "PETcura partner hospitals",
+          "city": "Nanjing",
+          "state": "2 hospitals"
+        },
+        {
+          "hospital": "PETcura partner hospital",
+          "city": "Shenzhen",
+          "state": "1 hospital"
+        },
+        {
+          "hospital": "PETcura partner hospital",
+          "city": "Shenyang",
+          "state": "1 hospital"
+        },
+        {
+          "hospital": "PETcura partner hospital",
+          "city": "Chengdu",
+          "state": "1 hospital"
+        },
+        {
+          "hospital": "PETcura partner hospital",
+          "city": "Chongqing",
+          "state": "1 hospital"
+        }
+      ],
+      "verified": "2026-09-07",
+      "notes": "Official study page updated 2026-08-15. Exploratory multicenter IIT for canine malignant tumors using fresh tumor plus paired adjacent normal tissue for >=50G RNA sequencing, neoantigen selection and personalized mRNA-LNP immunotherapy. T-cell lymphoma and brain tumors are explicitly excluded and therefore are not mapped to this record. Requires histologic or cytologic confirmation, age >=2 years, generally weight >=5 kg (smaller dogs may be individually assessed), fresh tumor and paired normal tissue obtainable at surgery; dogs already operated may still be considered if tissue was correctly frozen. Also requires adequate performance status/labs and successful LNP tolerance testing. Excludes recent chemotherapy/radiation/high-dose corticosteroids within 2 weeks, severe infection/autoimmune disease/immunodeficiency, pregnancy/lactation, and expected survival <6 months. Owners pay some sampling/freezing/sequencing costs; personalized mRNA design/manufacture is funded by PETcura.",
+      "available_for_matching": true
+    },
+    {
+      "id": "jhu-cigat-osa-cryo-immunotherapy-2026",
+      "title": "Cryotherapy or intratumoral immunotherapy before amputation for canine osteosarcoma",
+      "center": "Johns Hopkins Center for Image-Guided Animal Therapy (CIGAT)",
+      "country": "USA",
+      "state": "Maryland",
+      "species": "Dog",
+      "cancers": [
+        "Osteosarcoma"
+      ],
+      "status": "Open and recruiting — listed on the current Johns Hopkins CIGAT clinical-trials page",
+      "url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+      "contacts": "Johns Hopkins CIGAT — 410-502-7325; contact through the official clinical-trials page",
+      "funding": "Study covers PET-CT/CT imaging, cryotherapy or intratumoral immunotherapy, study-related medications, and follow-up imaging/blood tests. Required amputation and chemotherapy are not covered by the study.",
+      "requires": {
+        "confirmed": true,
+        "active_treatment_target": true,
+        "planned_amputation_and_chemo": true
+      },
+      "excludes": {
+        "prior_chemo": true,
+        "prior_osteosarcoma_treatment": true
+      },
+      "notes": "Treatment trial for histopathologically confirmed canine osteosarcoma. Eligible dogs receive PET-CT and either cryotherapy or two doses of tumor-injected immunotherapy before required amputation at about two weeks, followed by chemotherapy. Johns Hopkins lists no prior osteosarcoma treatment or chemotherapy for other cancers and requires the dog to be systemically healthy apart from osteosarcoma.",
+      "verified": "2026-09-07",
       "study_type": "treatment",
       "available_for_matching": true,
       "status_confidence": "confirmed_current",
       "owner_prescreen_required": true
+    },
+    {
+      "id": "jhu-cigat-brain-rt-tmz-2026",
+      "title": "Radiation therapy plus temozolomide for canine brain tumors",
+      "center": "Johns Hopkins Center for Image-Guided Animal Therapy (CIGAT)",
+      "country": "USA",
+      "state": "Maryland",
+      "species": "Dog",
+      "cancers": [
+        "Brain tumor / glioma"
+      ],
+      "status": "Open and enrolling — current Johns Hopkins CIGAT clinical-trials page",
+      "url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+      "contacts": "Johns Hopkins CIGAT — 410-502-7325; contact through the official clinical-trials page",
+      "funding": "Radiation therapy and chemotherapy are fully funded. Study-related medications for side effects, follow-up MRI, and blood tests are also covered; treatment after progression is not covered.",
+      "requires": {
+        "active_treatment_target": true,
+        "min_age_years": 1,
+        "min_weight_kg": 10,
+        "brain_tumor_present": true
+      },
+      "excludes": {
+        "prior_local_radiation": true,
+        "prior_chemo": true
+      },
+      "notes": "Treatment study for dogs with a suspected glioma/intra-axial brain tumor greater than 1 cm on MRI and restricted to one side of the brain. Protocol uses five consecutive workdays of radiation therapy with concurrent oral temozolomide. Previous or current oncologic treatment of the brain tumor is exclusionary; investigator prescreening is required.",
+      "verified": "2026-09-07",
+      "study_type": "treatment",
+      "available_for_matching": true,
+      "status_confidence": "confirmed_current",
+      "owner_prescreen_required": true
+    },
+    {
+      "id": "jhu-cigat-mammary-kubanda-cryo-2026",
+      "title": "Kubanda veterinary cryotherapy for canine mammary cancer",
+      "center": "Johns Hopkins Center for Image-Guided Animal Therapy (CIGAT) / Kubanda Cryotherapy",
+      "country": "USA",
+      "state": "Maryland",
+      "species": "Dog",
+      "cancers": [
+        "Mammary carcinoma",
+        "Mammary tumor — other"
+      ],
+      "status": "Now recruiting — Phase IB trial listed on the current Johns Hopkins CIGAT clinical-trials page",
+      "url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+      "contacts": "Kubanda Cryotherapy / Johns Hopkins CIGAT — contact through the official clinical-trials page",
+      "funding": "Confirm study-covered and owner-paid costs with the study team.",
+      "requires": {
+        "active_treatment_target": true
+      },
+      "excludes": {},
+      "notes": "Phase IB anticancer treatment trial of a veterinary cryotherapy device for dogs with mammary (breast) cancer. The current Johns Hopkins page explicitly states that the trial is recruiting; detailed public eligibility criteria are not posted, so investigator prescreening is required.",
+      "verified": "2026-09-07",
+      "study_type": "treatment",
+      "available_for_matching": true,
+      "status_confidence": "confirmed_current",
+      "owner_prescreen_required": true
+    },
+    {
+      "id": "korea-vaxleukin15-mammary-2026",
+      "title": "Vaxleukin-15 (recombinant canine IL-15) for canine mammary tumors",
+      "center": "Vaxcell Bio / Yuhan distribution through veterinary hospitals",
+      "country": "South Korea",
+      "species": [
+        "Dog"
+      ],
+      "cancers": [
+        "Mammary carcinoma",
+        "Mammary tumor — other"
+      ],
+      "status": "Approved and commercially available in South Korea",
+      "status_confidence": "confirmed_current",
+      "study_type": "other_treatment_access",
+      "treatments": [
+        "Immunotherapy"
+      ],
+      "requires": {
+        "confirmed": true,
+        "planned_surgery": true
+      },
+      "url": "https://www.vaxcell-bio.com/en/",
+      "verified": "2026-09-07",
+      "notes": "Vaxleukin-15 (recombinant canine IL-15) is an approved veterinary immunoadjuvant treatment in South Korea. For canine mammary tumors, the approved use is in combination with surgical standard-of-care treatment, not as a replacement for surgery. The mammary-tumor indication was approved in 2024. Current 2026 company materials state that the product is being sold in South Korea through Yuhan. This is treatment access, not an actively recruiting clinical trial."
+    },
+    {
+      "id": "korea-vaxleukin15-lymphoma-2026",
+      "title": "Vaxleukin-15 (recombinant canine IL-15) for canine lymphoma",
+      "center": "Vaxcell Bio / Yuhan distribution through veterinary hospitals",
+      "country": "South Korea",
+      "species": [
+        "Dog"
+      ],
+      "cancers": [
+        "B-cell lymphoma",
+        "Lymphoma — other"
+      ],
+      "status": "Approved and commercially available in South Korea",
+      "status_confidence": "confirmed_current",
+      "study_type": "other_treatment_access",
+      "treatments": [
+        "Immunotherapy"
+      ],
+      "requires": {
+        "confirmed": true,
+        "current_chemo": true
+      },
+      "url": "https://www.vaxcell-bio.com/en/",
+      "verified": "2026-09-07",
+      "notes": "Vaxleukin-15 (recombinant canine IL-15) received the South Korean lymphoma indication in September 2025. The approved use is as an immunoadjuvant alongside standard chemotherapy, not as a replacement for chemotherapy. Current 2026 company materials list both canine lymphoma and mammary tumors as being sold in South Korea through Yuhan. This is treatment access, not an actively recruiting clinical trial. Final prescribing/eligibility decisions are made by the treating veterinarian."
+    },
+    {
+      "id": "leah-bcell-cart-2026",
+      "title": "Fully funded CAR-T cell therapy trial for canine B-cell lymphoma",
+      "center": "LEAH Labs / University of Minnesota / Ohio State University / University of Missouri",
+      "country": "USA",
+      "species": "Dog",
+      "cancers": [
+        "B-cell lymphoma"
+      ],
+      "status": "Trial open — actively enrolling at three partner institutions",
+      "url": "https://leahlabs.com/",
+      "contacts": "LEAH Labs — info@leahlabs.com; enrollment request form on the official site",
+      "funding": "LEAH Labs states the trial is fully funded and covers 100% of costs for enrolled families.",
+      "requires": {
+        "confirmed": true,
+        "active_treatment_target": true
+      },
+      "excludes": {},
+      "notes": "Active therapeutic CAR-T cell trial for dogs diagnosed with B-cell lymphoma. LEAH Labs currently lists three actively enrolling sites: University of Minnesota College of Veterinary Medicine (Minneapolis, MN), Ohio State University College of Veterinary Medicine (Columbus, OH), and University of Missouri Veterinary Health Center (Columbia, MO). Detailed owner-facing inclusion/exclusion criteria are not published on the sponsor page, so investigator prescreening is required.",
+      "verified": "2026-09-07",
+      "study_type": "treatment",
+      "available_for_matching": true,
+      "status_confidence": "confirmed_current",
+      "owner_prescreen_required": true,
+      "sites": [
+        {
+          "hospital": "University of Minnesota College of Veterinary Medicine",
+          "city": "Minneapolis",
+          "state": "MN"
+        },
+        {
+          "hospital": "Ohio State University College of Veterinary Medicine",
+          "city": "Columbus",
+          "state": "OH"
+        },
+        {
+          "hospital": "University of Missouri Veterinary Health Center",
+          "city": "Columbia",
+          "state": "MO"
+        }
+      ]
+    },
+    {
+      "id": "mexico-ensenada-silver-nanoparticle-cancer-2026",
+      "title": "Experimental silver nanoparticle treatment for canine and feline cancer",
+      "center": "Hospital Veterinario Peña Jasso / UNAM-UABC-UAG translational nanomedicine project",
+      "country": "Mexico",
+      "species": [
+        "Dog",
+        "Cat"
+      ],
+      "cancers": [
+        "Cancer — any type"
+      ],
+      "status": "Recruiting — experimental treatment program",
+      "status_confidence": "confirmed_current",
+      "study_type": "treatment",
+      "treatments": [
+        "Experimental drug",
+        "Nanoparticle therapy"
+      ],
+      "requires": {
+        "confirmed": true
+      },
+      "owner_prescreen_required": true,
+      "url": "https://zonanorte.mx/main/mozaico/nid/8542",
+      "contacts": "Enrollment is through Hospital Veterinario Peña Jasso in Ensenada, Baja California. Owners first register and the hospital performs a clinical evaluation to determine suitability for the experimental phase.",
+      "sites": [
+        {
+          "hospital": "Hospital Veterinario Peña Jasso",
+          "city": "Ensenada",
+          "state": "Baja California"
+        }
+      ],
+      "verified": "2026-09-07",
+      "notes": "Current 2026 translational program CBF-2025-G-82 led by Dr. Nina Bogdanchikova. A fresh recruitment report quotes the project veterinary collaborator directly: dogs and cats with a cancer diagnosis may be considered after individualized clinical review; 16 veterinary patients had already been treated at the time of reporting. Owners pay for pre-enrollment evaluation tests; once admitted, consultations, radiographs and follow-up studies are covered by the program. The experimental formulation uses PVP-stabilized silver nanoparticles developed through UNAM-associated research. UNAM's official academic/patent database independently confirms the underlying silver-nanoparticle anticancer composition and inventor team. Evidence of current veterinary recruitment is a direct investigator/collaborator statement in a 2026 news report rather than a dedicated institutional trial registry page, so final eligibility and continued enrollment must be confirmed with the hospital. Do not describe efficacy as established; this remains experimental translational treatment.",
+      "available_for_matching": true
+    },
+    {
+      "id": "taiwan-evergreen-il15-melanoma-osa",
+      "title": "IL-15 immunotherapy for canine melanoma or osteosarcoma with pulmonary metastasis",
+      "center": "Evergreen Animal Hospital (長青動物醫院), Taipei",
+      "country": "Taiwan",
+      "species": [
+        "Dog"
+      ],
+      "cancers": [
+        "Oral melanoma",
+        "Melanoma — other",
+        "Osteosarcoma"
+      ],
+      "status": "Recruiting",
+      "status_confidence": "confirmed_current",
+      "study_type": "treatment",
+      "treatments": [
+        "Immunotherapy",
+        "Experimental drug"
+      ],
+      "requires": {
+        "confirmed": true,
+        "metastatic": true,
+        "measurable": true
+      },
+      "excludes": {
+        "current_steroids": true,
+        "immunosuppressive": true
+      },
+      "url": "https://www.egah.com.tw/news/%E6%8B%9B%E5%8B%9F%E7%8A%AC%E9%BB%91%E8%89%B2%E7%B4%A0%E7%98%A4%E5%8F%8A%E9%AA%A8%E8%82%89%E7%98%A4%E8%87%A8%E5%BA%8A%E8%A9%A6%E9%A9%97",
+      "contacts": "Evergreen Animal Hospital main hospital oncology clinic, Taipei; phone 02-23369908. Ask for IL15臨床試驗.",
+      "verified": "2026-09-07",
+      "notes": "Official hospital recruitment page. Cytology- or histopathology-confirmed melanoma or osteosarcoma; breed, age, weight and sex unrestricted. Requires pulmonary metastatic lesion >1.0 cm and no life-threatening tumor-related symptoms. Current steroids or other immunosuppressants are not allowed. Owner must attend weekly treatment/follow-up for about 10-12 weeks. IL-15 is given weekly for 8 treatments, by subcutaneous injection and, for pulmonary metastatic disease, also via nebulized inhalation. IL-15 drug is free; diagnostics and supportive medications are owner-paid. IMPORTANT matcher prescreen: official protocol specifically requires a lung metastatic lesion >1.0 cm; current schema cannot encode the 1-cm pulmonary-lesion threshold separately, so final eligibility must confirm this criterion.",
+      "available_for_matching": true
+    },
+    {
+      "id": "taiwan-protect-pt001-oral-melanoma",
+      "title": "PT001 PD-L1/CTLA-4 recombinant protein therapeutic vaccine for stage II-III canine oral malignant melanoma",
+      "center": "Protect Animal Health (寶泰生醫) multicenter field trial",
+      "country": "Taiwan",
+      "species": [
+        "Dog"
+      ],
+      "cancers": [
+        "Oral melanoma"
+      ],
+      "status": "Recruiting — multicenter field trial",
+      "status_confidence": "confirmed_current",
+      "study_type": "treatment",
+      "treatments": [
+        "Immunotherapy",
+        "Experimental drug"
+      ],
+      "requires": {
+        "confirmed": true,
+        "min_age_years": 1,
+        "measurable": true
+      },
+      "excludes": {
+        "prior_local_radiation": true,
+        "current_steroids": true,
+        "immunosuppressive": true
+      },
+      "url": "https://www.protectvac.com/news-18.html",
+      "contacts": "Participating veterinary hospitals listed on the official recruitment page; screening through the study sites.",
+      "sites": [
+        {
+          "hospital": "National Taiwan University Veterinary Hospital",
+          "city": "Taipei",
+          "state": "Taiwan"
+        },
+        {
+          "hospital": "Evergreen Animal Hospital",
+          "city": "Taipei",
+          "state": "Taiwan"
+        },
+        {
+          "hospital": "Duma Animal Hospital (中和杜瑪動物醫院)",
+          "city": "New Taipei",
+          "state": "Taiwan"
+        },
+        {
+          "hospital": "National Chung Hsing University Veterinary Teaching Hospital",
+          "city": "Taichung",
+          "state": "Taiwan"
+        },
+        {
+          "hospital": "Bubble Animal Hospital (泡泡動物醫院)",
+          "city": "Taichung",
+          "state": "Taiwan"
+        },
+        {
+          "hospital": "Jimmy Harry Animal Hospital (吉米哈利動物醫院)",
+          "city": "Taichung",
+          "state": "Taiwan"
+        },
+        {
+          "hospital": "沃可動物醫院",
+          "city": "Taichung",
+          "state": "Taiwan"
+        },
+        {
+          "hospital": "中興梅西動物醫院",
+          "city": "Kaohsiung",
+          "state": "Taiwan"
+        }
+      ],
+      "verified": "2026-09-07",
+      "notes": "Official sponsor recruitment notice dated 2025-10-26 remains publicly listed; sponsor subsequently announced regulatory approval to conduct the Taiwan field trial on 2025-11-03 and continues to describe PT001 as an active oncology development program in 2026. Multicenter randomized open-label two-arm field trial of PT001, a PD-L1 and CTLA-4 recombinant-protein therapeutic vaccine, for confirmed stage II-III canine oral malignant melanoma. Age >=1 year. Owners must agree to suspend other cancer treatment. Excludes severe liver/kidney disease, autoimmune disease, bone-marrow disease or other high-risk systemic disease, dogs requiring steroids/immunosuppressants, and prior radiation. Tumor must be recordable/measurable. Trial contains a control arm. Final screening by study site is required.",
+      "available_for_matching": true
     }
   ],
   "delete": [
-    "se-slu-oxc101-precision-cancer",
+    "auburn-palbociclib",
+    "csu-car-t-sarcoma",
     "csu-cotc033-vaccine",
     "csu-osa-implant",
     "csu-tcc-lapatinib-rt",
+    "eu-be-feline-mammary-neoadjuvant",
+    "eu-ch-feline-oscc-feather",
+    "eu-ch-feline-sts-adam12-vaccine",
+    "eu-ch-high-grade-glioma-chemoradiation",
+    "eu-ch-oral-vinorelbine-phase1",
+    "eu-es-cancimpet-mammary-cpmv",
     "eu-fr-chemodectoma-thermoablation",
+    "eu-fr-hepatic-chemoembolization",
+    "eu-fr-hepatic-thermoablation",
+    "eu-nl-utrecht-osa-virus",
     "ill-melanoma",
     "ill-osa-pulm",
     "ill-osa-rt",
@@ -1990,23 +2145,37 @@
     "ill-sts-surg",
     "ill-uc",
     "lsu-scc-intratumoral",
+    "medvet-egfr-her2-vax",
+    "mizzou-cotc033-vpl",
     "ncsu-bladder-immunotherapy",
     "ncsu-osa-rt-compare",
     "ncsu-sts-xcsgel",
+    "osu-oral-melanoma",
     "osu-sts-nk",
     "penn-flash-sts",
+    "penn-osa-carinkt",
     "penn-prostate",
+    "se-slu-oxc101-precision-cancer",
+    "tufts-osa-cotc034",
     "tufts-osa-met-vax",
     "tufts-sts-fap-cart",
+    "ucd-glioma-autophagy",
     "uf-osa-vaccine",
+    "uk-edinburgh-oral-melanoma-tigilanol",
+    "uk-liverpool-dog-fight-glioma",
     "umn-feline-mammary",
     "umn-melanoma-aav",
     "umn-trike-sarcoma",
     "vroc-car-neutrophil-glioma",
     "vroc-compassionate-advanced",
+    "vroc-compassionate-advanced-cat",
     "vroc-cpmv-solid",
     "vroc-ferumoxytol-glioma",
     "vroc-melanoma-carboplatin-hifu",
-    "vroc-melanoma-crtnp"
+    "vroc-melanoma-crtnp",
+    "vroc-rt-histotripsy",
+    "vroc-rt-histotripsy-cat",
+    "vt-brain-pdt",
+    "vt-thyroid"
   ]
 }

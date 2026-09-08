@@ -1,0 +1,37 @@
+name: Semantic dedupe catalog
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/semantic_dedupe_catalog.py'
+      - 'data/trials_base.json'
+      - 'data/trial_updates.json'
+      - '.github/workflows/semantic-dedupe-catalog.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  dedupe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Semantic dedupe and post-check
+        run: python scripts/semantic_dedupe_catalog.py
+      - name: Commit cleaned catalog if changed
+        run: |
+          if git diff --quiet -- data/trial_updates.json; then
+            echo 'No catalog changes required'
+          else
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add data/trial_updates.json
+            git commit -m 'Remove semantic duplicate treatment records'
+            git push
+          fi
+      - name: Re-run gate on committed state
+        run: python scripts/semantic_dedupe_catalog.py
