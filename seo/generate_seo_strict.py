@@ -117,6 +117,8 @@ CENTER_RULES = (
     ("Mississippi State University College of Veterinary Medicine", ("mississippi state university",)),
 )
 
+CSU_CENTER = "Colorado State University Flint Animal Cancer Center"
+
 
 def canonical_center(value):
     text = g.norm(value)
@@ -124,6 +126,21 @@ def canonical_center(value):
         if any(g.norm(alias) in text for alias in aliases):
             return name
     return None
+
+
+def center_overview(center):
+    if center != CSU_CENTER:
+        return ""
+    return (
+        '<h2>About the Flint Animal Cancer Center</h2>'
+        '<p>Colorado State University’s Flint Animal Cancer Center in Fort Collins combines multidisciplinary cancer care with comparative oncology research. '
+        'Its program includes clinical trials, laboratory research and a cancer biorepository, with work designed to improve cancer prevention, diagnosis and treatment in pets while also informing human cancer research.</p>'
+        '<h2>Cancer research &amp; team</h2>'
+        '<p>Research at CSU spans medical, surgical and radiation oncology, immunology and immunotherapy, cancer genomics and translational drug development. '
+        'The center is directed by veterinary oncologist <strong>Susan Lana, DVM</strong>. <strong>Douglas Thamm, VMD</strong> directs clinical research, and the broader comparative oncology group includes specialists working across clinical trials, immunotherapy, genomics, radiation biology and surgical oncology.</p>'
+        '<p><a href="https://vetmedbiosci.colostate.edu/cs/research-topic-directory/comparative-oncology-and-cancer-biology/" rel="noopener">Meet CSU comparative oncology researchers</a> · '
+        '<a href="https://vetmedbiosci.colostate.edu/vth/clinical_trial_tag/oncology/" rel="noopener">See CSU oncology clinical trials</a></p>'
+    )
 
 
 def generate_center_pages():
@@ -148,7 +165,8 @@ def generate_center_pages():
         h1 = f"{center}: Veterinary Cancer Clinical Trials"
         body = (
             f'<h1>{g.esc(h1)}</h1>'
-            f'<p class="lead count-callout"><strong>{len(hit)} current treatment opportunities in our catalog.</strong><br>'
+            + center_overview(center)
+            + f'<p class="lead count-callout"><strong>{len(hit)} current treatment opportunities in our catalog.</strong><br>'
             f'<span>Current research represented here includes {g.esc(cancer_text)}.</span></p>'
             '<div class="free"><strong>100% FREE</strong> — view trial details, contacts and official enrollment links.<br>'
             '<small>No registration. No hidden results. No paid report.</small></div>'
