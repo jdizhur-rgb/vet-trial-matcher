@@ -10,31 +10,24 @@ import generate_seo as g
 
 
 def _phrase_present(phrase: str, text: str) -> bool:
-    phrase = g.norm(phrase)
-    text = g.norm(text)
-    if not phrase or not text:
-        return False
+    phrase = g.norm(phrase); text = g.norm(text)
+    if not phrase or not text: return False
     return re.search(r"(?<![a-z0-9])" + re.escape(phrase) + r"(?![a-z0-9])", text) is not None
 
 
 def canonical_cancer(value):
     raw = g.norm(value)
-    if not raw:
-        return None
-    if any(_phrase_present(term, raw) for term in g.GENERIC_WORDS):
-        return None
+    if not raw: return None
+    if any(_phrase_present(term, raw) for term in g.GENERIC_WORDS): return None
     for key, aliases in g.CANONICAL_RULES:
-        if any(_phrase_present(alias, raw) for alias in aliases):
-            return key
+        if any(_phrase_present(alias, raw) for alias in aliases): return key
     return None
 
 
 def cancer_values(row):
     value = row.get("cancers", [])
-    if isinstance(value, str):
-        return [value]
-    if isinstance(value, (list, tuple, set)):
-        return list(value)
+    if isinstance(value, str): return [value]
+    if isinstance(value, (list, tuple, set)): return list(value)
     return []
 
 
@@ -43,36 +36,25 @@ def row_cancers(row):
 
 
 def audit_matrix():
-    rows = g.load_effective()
-    matrix = {}
-    errors = []
+    rows = g.load_effective(); matrix = {}; errors = []
     for region, countries in g.REGIONS.items():
         for species_key, species_name in g.SPECIES.items():
             for row in rows:
-                if row.get("country") not in countries or not g.species_ok(row, species_name):
-                    continue
+                if row.get("country") not in countries or not g.species_ok(row, species_name): continue
                 for cancer in row_cancers(row):
-                    key = f"{region}/{species_key}/{g.slugify(cancer)}"
-                    matrix.setdefault(key, []).append(row["id"])
+                    matrix.setdefault(f"{region}/{species_key}/{g.slugify(cancer)}", []).append(row["id"])
     for page in g.OUT.glob("*/*/*/index.html"):
-        rel = str(page.parent.relative_to(g.OUT)).replace("\\", "/")
-        expected = matrix.get(rel, [])
+        rel = str(page.parent.relative_to(g.OUT)).replace("\\", "/"); expected = matrix.get(rel, [])
         if not expected:
-            errors.append(f"orphan page: {rel}")
-            continue
-        text = page.read_text(encoding="utf-8", errors="replace")
-        card_count = text.count('class="card"')
-        if card_count != len(expected):
-            errors.append(f"card-count mismatch {rel}: html={card_count} matrix={len(expected)}")
+            errors.append(f"orphan page: {rel}"); continue
+        card_count = page.read_text(encoding="utf-8", errors="replace").count('class="card"')
+        if card_count != len(expected): errors.append(f"card-count mismatch {rel}: html={card_count} matrix={len(expected)}")
     for rel, ids in matrix.items():
-        page = g.OUT / rel / "index.html"
-        if not page.exists(): errors.append(f"missing page: {rel} ({len(ids)} records)")
+        if not (g.OUT / rel / "index.html").exists(): errors.append(f"missing page: {rel} ({len(ids)} records)")
     for row in rows:
         values = [g.norm(v) for v in cancer_values(row)]
-        if any("paraganglioma" in v for v in values) and "glioma" in row_cancers(row):
-            errors.append(f"paraganglioma leaked into glioma: {row['id']}")
-    if errors:
-        raise AssertionError("SEO matrix audit failed:\n" + "\n".join(errors[:50]))
+        if any("paraganglioma" in v for v in values) and "glioma" in row_cancers(row): errors.append(f"paraganglioma leaked into glioma: {row['id']}")
+    if errors: raise AssertionError("SEO matrix audit failed:\n" + "\n".join(errors[:50]))
     audit = {"effective_treatment_records": len(rows), "matrix_cells": len(matrix), "assignments": sum(len(v) for v in matrix.values()), "cells": {k: sorted(v) for k, v in sorted(matrix.items())}}
     (g.OUT / "mapping-audit.json").write_text(json.dumps(audit, indent=2), encoding="utf-8")
     print(f"STRICT_MATRIX_OK records={audit['effective_treatment_records']} cells={audit['matrix_cells']} assignments={audit['assignments']}")
@@ -109,39 +91,54 @@ CSU_CENTER = "Colorado State University Flint Animal Cancer Center"
 
 
 def canonical_center(value):
-    text = g.norm(value)
+    """Normalize known university aliases, but never drop a real US trial site."""
+    raw = str(value or "").strip()
+    if not raw: return None
+    text = g.norm(raw)
     for name, aliases in CENTER_RULES:
         if any(g.norm(alias) in text for alias in aliases): return name
-    return None
+    return re.sub(r"\s+", " ", raw)
 
 
 def center_overview(center):
-    if center != CSU_CENTER: return ""
+    if center == CSU_CENTER:
+        return (
+            '<div class="center-overview" style="text-align:justify;text-justify:inter-word">'
+            '<h2 style="text-align:left">About the Flint Animal Cancer Center</h2>'
+            '<figure style="margin:16px 0 22px;text-align:left">'
+            '<img src="https://vetmedbiosci.colostate.edu/psrl/wp-content/uploads/sites/15/2021/04/08007_00004-1.jpg" alt="Colorado State University Translational Medicine Institute research facility" loading="lazy" style="width:100%;max-height:430px;object-fit:cover;border-radius:14px;display:block">'
+            '<figcaption style="font-size:.86rem;color:#607086;margin-top:7px">Colorado State University Translational Medicine Institute, home to research programs that collaborate with the Flint Animal Cancer Center. Photo: Colorado State University.</figcaption>'
+            '</figure>'
+            '<p>Colorado State University’s Flint Animal Cancer Center in Fort Collins combines multidisciplinary cancer care with comparative oncology research. Its program includes clinical trials, laboratory research and a cancer biorepository, with work designed to improve cancer prevention, diagnosis and treatment in pets while also informing human cancer research.</p>'
+            '<h2 style="text-align:left">Cancer research &amp; team</h2>'
+            '<p>Research at CSU spans medical, surgical and radiation oncology, immunology and immunotherapy, cancer genomics and translational drug development. The center is directed by veterinary oncologist <strong>Susan Lana, DVM</strong>. <strong>Douglas Thamm, VMD</strong> directs clinical research, and the broader comparative oncology group includes specialists working across clinical trials, immunotherapy, genomics, radiation biology and surgical oncology.</p>'
+            '<p><a href="https://vetmedbiosci.colostate.edu/cs/research-topic-directory/comparative-oncology-and-cancer-biology/" rel="noopener">Meet CSU comparative oncology researchers</a> · <a href="https://vetmedbiosci.colostate.edu/vth/clinical_trial_tag/oncology/" rel="noopener">See CSU oncology clinical trials</a></p>'
+            '</div>'
+        )
     return (
         '<div class="center-overview" style="text-align:justify;text-justify:inter-word">'
-        '<h2 style="text-align:left">About the Flint Animal Cancer Center</h2>'
-        '<figure style="margin:16px 0 22px;text-align:left">'
-        '<img src="https://vetmedbiosci.colostate.edu/psrl/wp-content/uploads/sites/15/2021/04/08007_00004-1.jpg" alt="Colorado State University Translational Medicine Institute research facility" loading="lazy" style="width:100%;max-height:430px;object-fit:cover;border-radius:14px;display:block">'
-        '<figcaption style="font-size:.86rem;color:#607086;margin-top:7px">Colorado State University Translational Medicine Institute, home to research programs that collaborate with the Flint Animal Cancer Center. Photo: Colorado State University.</figcaption>'
-        '</figure>'
-        '<p>Colorado State University’s Flint Animal Cancer Center in Fort Collins combines multidisciplinary cancer care with comparative oncology research. Its program includes clinical trials, laboratory research and a cancer biorepository, with work designed to improve cancer prevention, diagnosis and treatment in pets while also informing human cancer research.</p>'
-        '<h2 style="text-align:left">Cancer research &amp; team</h2>'
-        '<p>Research at CSU spans medical, surgical and radiation oncology, immunology and immunotherapy, cancer genomics and translational drug development. The center is directed by veterinary oncologist <strong>Susan Lana, DVM</strong>. <strong>Douglas Thamm, VMD</strong> directs clinical research, and the broader comparative oncology group includes specialists working across clinical trials, immunotherapy, genomics, radiation biology and surgical oncology.</p>'
-        '<p><a href="https://vetmedbiosci.colostate.edu/cs/research-topic-directory/comparative-oncology-and-cancer-biology/" rel="noopener">Meet CSU comparative oncology researchers</a> · <a href="https://vetmedbiosci.colostate.edu/vth/clinical_trial_tag/oncology/" rel="noopener">See CSU oncology clinical trials</a></p>'
+        '<h2 style="text-align:left">About this veterinary cancer research center</h2>'
+        f'<p><strong>{g.esc(center)}</strong> currently has veterinary cancer treatment or research opportunities represented in our catalog. '
+        'The listings below are tied to the individual study teams and official study sources, so owners can review the actual treatment approach, eligibility details and contact information without a paid matching report.</p>'
         '</div>'
     )
 
 
 def generate_center_pages():
-    rows = [r for r in g.load_effective() if r.get("country") == "USA"]
+    rows = [r for r in g.load_effective() if r.get("country") == "USA" and str(r.get("center", "")).strip()]
     grouped = {}
     for row in rows:
         center = canonical_center(row.get("center", ""))
         if center: grouped.setdefault(center, []).append(row)
     if not grouped: return
     center_links, index_items = [], []
+    used_slugs = {}
     for center, hit in sorted(grouped.items()):
-        slug = g.slugify(center.replace("College of Veterinary Medicine", "").replace("School of Veterinary Medicine", ""))
+        base_slug = g.slugify(center.replace("College of Veterinary Medicine", "").replace("School of Veterinary Medicine", "")) or "research-center"
+        slug = base_slug
+        if slug in used_slugs and used_slugs[slug] != center:
+            slug = g.slugify(center)
+        used_slugs[slug] = center
         path = f"centers/{slug}/"; url = f"{g.SITE}/{path}"
         cancers = sorted({c for r in hit for c in row_cancers(r)})
         cancer_text = ", ".join(g.display_name(c) for c in cancers) if cancers else "multiple cancer types"
@@ -151,9 +148,9 @@ def generate_center_pages():
         (dest / "index.html").write_text(g.page(h1, f"Current veterinary cancer clinical trials and treatment studies at {center}.", body, url), encoding="utf-8")
         center_links.append(url); index_items.append((center, path, len(hit)))
     index_url = f"{g.SITE}/centers/"
-    index_body = ('<h1>Veterinary Cancer Clinical Trial Centers</h1><p class="lead">Browse U.S. veterinary universities and teaching hospitals with current treatment opportunities represented in our catalog.</p><div class="free"><strong>100% FREE</strong> — trial details, contacts and official enrollment links are available without registration or a paywall.</div><h2>Current research centers</h2><ul>' + ''.join(f'<li><a href="{g.SITE}/{p}">{g.esc(n)}</a> — {count} current opportunities</li>' for n,p,count in index_items) + '</ul>')
+    index_body = ('<h1>Veterinary Cancer Clinical Trial Centers</h1><p class="lead">Browse U.S. universities, veterinary teaching hospitals, specialty hospitals and research centers with current cancer treatment opportunities represented in our catalog.</p><div class="free"><strong>100% FREE</strong> — trial details, contacts and official enrollment links are available without registration or a paywall.</div><h2>Current research centers</h2><ul>' + ''.join(f'<li><a href="{g.SITE}/{p}">{g.esc(n)}</a> — {count} current opportunities</li>' for n,p,count in index_items) + '</ul>')
     center_dir = g.OUT / "centers"; center_dir.mkdir(parents=True, exist_ok=True)
-    (center_dir / "index.html").write_text(g.page("Veterinary Cancer Clinical Trial Centers", "U.S. veterinary cancer clinical trial centers with current treatment opportunities.", index_body, index_url), encoding="utf-8")
+    (center_dir / "index.html").write_text(g.page("Veterinary Cancer Clinical Trial Centers", "U.S. universities, veterinary hospitals and cancer research centers with current treatment opportunities.", index_body, index_url), encoding="utf-8")
     sitemap = g.OUT / "sitemap.xml"; text = sitemap.read_text(encoding="utf-8")
     additions = ''.join(f'<url><loc>{g.esc(u)}</loc></url>\n' for u in [index_url] + center_links)
     sitemap.write_text(text.replace('</urlset>', additions + '</urlset>'), encoding="utf-8")
