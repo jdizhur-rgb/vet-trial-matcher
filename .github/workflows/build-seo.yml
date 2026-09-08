@@ -34,11 +34,11 @@ jobs:
         run: python seo/generate_seo_strict.py
       - name: Include static files
         run: cp -a seo/static/. seo/site/
-      - name: Validate complete generated site
+      - name: Validate every generated diagnosis page
         run: |
           python - <<'PY'
           from pathlib import Path
-          import json
+          import json, re
           import xml.etree.ElementTree as ET
           root=ET.parse('seo/site/sitemap.xml').getroot(); ns={'s':'http://www.sitemaps.org/schemas/sitemap/0.9'}
           locs=[x.text for x in root.findall('s:url/s:loc',ns)]
@@ -46,20 +46,24 @@ jobs:
           pages=list(Path('seo/site').rglob('index.html'))
           assert len(pages)>=40, f'too few pages: {len(pages)}'
           audit=json.loads(Path('seo/site/mapping-audit.json').read_text())
-          assert audit['matrix_cells']>0 and audit['assignments']>0
+          matrix=audit['matrix']
+          assert audit['matrix_cells']==len(matrix) and audit['assignments']>0
           forbidden=('active_treatment_target:', 'chemo_washout_days:', 'radiation_washout_days:', "{'", "': True")
+          def titles(s): return re.findall(r'<article class="card"><h3>(.*?)</h3>',s,re.S)
+          # Every English region/species/diagnosis cell must equal the strict matrix by card identity and order.
+          for cell, expected in matrix.items():
+            region,species,cancer=cell.split('|',2)
+            slug=re.sub(r'-+','-',re.sub(r'[^a-z0-9]+','-',cancer.lower())).strip('-')
+            p=Path('seo/site')/region/species/slug/'index.html'
+            assert p.exists(), (cell,p)
+            s=p.read_text(errors='replace')
+            assert titles(s)==[x['title'] for x in expected], (cell,titles(s),[x['title'] for x in expected])
           for p in pages:
             s=p.read_text(errors='replace')
             assert 'Cancer Trial Finder For Dogs And Cats' in s, p
             assert 'class="wrap"' in s, p
             assert not any(x in s for x in forbidden), f'raw internal field on {p}'
             if p!=Path('seo/site/index.html'): assert 'class="card"' in s, p
-          # Systemic regression: chemodectoma/paraganglioma must not leak onto glioma.
-          glioma=Path('seo/site/uk-europe/dogs/glioma/index.html')
-          if glioma.exists():
-            gt=glioma.read_text()
-            assert 'Local thermoablation for canine chemodectoma' not in gt
-            assert 'paraganglioma' not in gt.lower()
           hs=Path('seo/site/north-america/dogs/histiocytic-sarcoma/index.html').read_text()
           markers=('100% FREE','No registration. No hidden results. No paid report.','About Histiocytic Sarcoma','Standard treatment','Histiocytic sarcoma is an aggressive cancer of histiocytic immune cells.','lomustine (CCNU)','Treatment &amp; research','Costs:','Contact:','Official study / enrollment information')
           for marker in markers: assert marker in hs, marker
@@ -91,37 +95,36 @@ jobs:
           python-version: '3.12'
       - name: Rebuild strict matrix for live verification
         run: python seo/generate_seo_strict.py
-      - name: Verify every live English diagnosis page
+      - name: Verify every live diagnosis page in North America and Europe
         run: |
           python - <<'PY'
           from pathlib import Path
-          import time,urllib.request
+          import re,time,urllib.request
           base='https://jdizhur-rgb.github.io/vet-trial-matcher/'
-          local_pages=[p for p in Path('seo/site').glob('*/*/*/index.html')]
-          paths=['']+[str(p.parent.relative_to('seo/site')).replace('\\','/')+'/' for p in sorted(local_pages)]
+          # English pages cover every matrix cell in BOTH regions, BOTH species, and every generated diagnosis.
+          local_pages=sorted(Path('seo/site').glob('*/*/*/index.html'))
+          paths=['']+[str(p.parent.relative_to('seo/site')).replace('\\','/')+'/' for p in local_pages]
           forbidden=('active_treatment_target:', 'chemo_washout_days:', 'radiation_washout_days:', "{'", "': True")
+          def titles(s): return re.findall(r'<article class="card"><h3>(.*?)</h3>',s,re.S)
           for path in paths:
             expected=(Path('seo/site')/path/'index.html').read_text() if path else Path('seo/site/index.html').read_text()
-            expected_cards=expected.count('class="card"')
+            expected_titles=titles(expected)
             text=''
             for i in range(12):
               try:
                 req=urllib.request.Request(base+path+'?verify='+str(time.time()),headers={'Cache-Control':'no-cache'})
                 text=urllib.request.urlopen(req,timeout=20).read().decode('utf-8','replace')
               except Exception: text=''
-              if 'Cancer Trial Finder For Dogs And Cats' in text and not any(x in text for x in forbidden) and text.count('class="card"')==expected_cards:
+              if 'Cancer Trial Finder For Dogs And Cats' in text and not any(x in text for x in forbidden) and titles(text)==expected_titles:
                 break
               time.sleep(10)
             assert 'Cancer Trial Finder For Dogs And Cats' in text, path
             assert not any(x in text for x in forbidden), path
-            assert text.count('class="card"')==expected_cards, (path, text.count('class="card"'), expected_cards)
-            if path=='uk-europe/dogs/glioma/':
-              assert 'Local thermoablation for canine chemodectoma' not in text
-              assert 'paraganglioma' not in text.lower()
+            assert titles(text)==expected_titles, (path,titles(text),expected_titles)
             if path=='north-america/dogs/histiocytic-sarcoma/':
               markers=('100% FREE','No registration. No hidden results. No paid report.','About Histiocytic Sarcoma','Standard treatment','Histiocytic sarcoma is an aggressive cancer of histiocytic immune cells.','lomustine (CCNU)','Treatment &amp; research','Official study / enrollment information')
               for marker in markers: assert marker in text, marker
               assert text.index('100% FREE') < text.index('About Histiocytic Sarcoma') < text.index('Treatment &amp; research')
               assert text.count('class="free"')==1
-            print('LIVE_OK',path or '/')
+            print('LIVE_OK',path or '/',len(expected_titles),'cards')
           PY
