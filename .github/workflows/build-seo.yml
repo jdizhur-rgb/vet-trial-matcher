@@ -24,36 +24,40 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - name: Generate SEO pages
         run: python seo/generate_seo.py
       - name: Include static files
         run: cp -a seo/static/. seo/site/
-      - name: Validate generated sitemap
+      - name: Validate complete generated site
         run: |
           python - <<'PY'
-          import xml.etree.ElementTree as ET
-          p='seo/site/sitemap.xml'
-          root=ET.parse(p).getroot()
-          ns={'sm':'http://www.sitemaps.org/schemas/sitemap/0.9'}
-          urls=root.findall('sm:url',ns)
-          locs=[u.find('sm:loc',ns).text for u in urls]
-          assert len(locs)==len(set(locs)), 'duplicate sitemap URLs'
-          assert all(x.startswith('https://jdizhur-rgb.github.io/vet-trial-matcher/') for x in locs)
-          print(f'VALID_SITEMAP urls={len(locs)} bytes={__import__("os").path.getsize(p)}')
+          from pathlib import Path
+          import re,xml.etree.ElementTree as ET
+          root=ET.parse('seo/site/sitemap.xml').getroot(); ns={'s':'http://www.sitemaps.org/schemas/sitemap/0.9'}
+          locs=[x.text for x in root.findall('s:url/s:loc',ns)]
+          assert locs and len(locs)==len(set(locs))
+          pages=list(Path('seo/site').rglob('index.html'))
+          assert len(pages)>=50, f'too few pages: {len(pages)}'
+          forbidden=('active_treatment_target:', 'chemo_washout_days:', 'radiation_washout_days:', "{'", "': True")
+          for p in pages:
+            s=p.read_text(errors='replace')
+            assert 'Cancer Trial Finder For Dogs And Cats' in s, p
+            assert 'class="wrap"' in s, p
+            assert 'class="card"' in s or p==Path('seo/site/index.html'), p
+            assert not any(x in s for x in forbidden), f'raw internal field on {p}'
+          hs=Path('seo/site/north-america/dogs/histiocytic-sarcoma/index.html').read_text()
+          for marker in ('About Histiocytic Sarcoma','Treatment &amp; research','Costs:','Contact:','Official study / enrollment information'):
+            assert marker in hs, marker
+          print(f'VALID_SITE pages={len(pages)} sitemap={len(locs)}')
           PY
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-      - name: Upload SEO site
-        uses: actions/upload-pages-artifact@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: seo/site
-
   deploy:
     environment:
       name: github-pages
@@ -64,29 +68,30 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
   verify:
     runs-on: ubuntu-latest
     needs: deploy
     steps:
-      - name: Verify live sitemap over HTTP
+      - name: Verify representative live pages
         run: |
-          URL='https://jdizhur-rgb.github.io/vet-trial-matcher/sitemap.xml'
-          echo "Checking $URL"
-          for i in 1 2 3 4 5 6; do
-            code=$(curl -L -sS -o /tmp/sitemap.xml -D /tmp/headers.txt -w '%{http_code}' "$URL" || true)
-            echo "attempt=$i status=$code"
-            cat /tmp/headers.txt || true
-            if [ "$code" = "200" ]; then break; fi
-            sleep 10
-          done
-          test "$code" = "200"
           python - <<'PY'
-          import os, xml.etree.ElementTree as ET
-          p='/tmp/sitemap.xml'
-          root=ET.parse(p).getroot()
-          ns={'sm':'http://www.sitemaps.org/schemas/sitemap/0.9'}
-          locs=[x.text for x in root.findall('sm:url/sm:loc',ns)]
-          print(f'LIVE_SITEMAP_OK urls={len(locs)} bytes={os.path.getsize(p)} root={root.tag}')
-          assert locs
+          import time,urllib.request
+          base='https://jdizhur-rgb.github.io/vet-trial-matcher/'
+          paths=['','north-america/dogs/histiocytic-sarcoma/','north-america/dogs/lymphoma/','north-america/cats/squamous-cell-carcinoma/']
+          forbidden=('active_treatment_target:', 'chemo_washout_days:', 'radiation_washout_days:', "{'", "': True")
+          for path in paths:
+            text=''
+            for i in range(8):
+              try:
+                req=urllib.request.Request(base+path+'?verify='+str(time.time()),headers={'Cache-Control':'no-cache'})
+                text=urllib.request.urlopen(req,timeout=20).read().decode('utf-8','replace')
+              except Exception: text=''
+              if 'Cancer Trial Finder For Dogs And Cats' in text and not any(x in text for x in forbidden): break
+              time.sleep(10)
+            assert 'Cancer Trial Finder For Dogs And Cats' in text, path
+            assert not any(x in text for x in forbidden), path
+            if path:
+              assert 'class="card"' in text, path
+              assert 'Official study / enrollment information' in text, path
+            print('LIVE_OK',path or '/')
           PY
