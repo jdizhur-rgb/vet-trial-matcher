@@ -9,6 +9,7 @@ on:
       - 'data/trials_base.json'
       - 'data/trial_updates.json'
       - 'seo/generate_seo.py'
+      - 'seo/generate_seo_strict.py'
       - 'seo/static/**'
       - '.github/workflows/build-seo.yml'
 
@@ -29,20 +30,23 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Generate SEO pages
-        run: python seo/generate_seo.py
+      - name: Generate SEO pages with strict diagnosis mapping
+        run: python seo/generate_seo_strict.py
       - name: Include static files
         run: cp -a seo/static/. seo/site/
       - name: Validate complete generated site
         run: |
           python - <<'PY'
           from pathlib import Path
+          import json
           import xml.etree.ElementTree as ET
           root=ET.parse('seo/site/sitemap.xml').getroot(); ns={'s':'http://www.sitemaps.org/schemas/sitemap/0.9'}
           locs=[x.text for x in root.findall('s:url/s:loc',ns)]
           assert locs and len(locs)==len(set(locs))
           pages=list(Path('seo/site').rglob('index.html'))
-          assert len(pages)>=50, f'too few pages: {len(pages)}'
+          assert len(pages)>=40, f'too few pages: {len(pages)}'
+          audit=json.loads(Path('seo/site/mapping-audit.json').read_text())
+          assert audit['matrix_cells']>0 and audit['assignments']>0
           forbidden=('active_treatment_target:', 'chemo_washout_days:', 'radiation_washout_days:', "{'", "': True")
           for p in pages:
             s=p.read_text(errors='replace')
@@ -50,12 +54,18 @@ jobs:
             assert 'class="wrap"' in s, p
             assert not any(x in s for x in forbidden), f'raw internal field on {p}'
             if p!=Path('seo/site/index.html'): assert 'class="card"' in s, p
+          # Systemic regression: chemodectoma/paraganglioma must not leak onto glioma.
+          glioma=Path('seo/site/uk-europe/dogs/glioma/index.html')
+          if glioma.exists():
+            gt=glioma.read_text()
+            assert 'Local thermoablation for canine chemodectoma' not in gt
+            assert 'paraganglioma' not in gt.lower()
           hs=Path('seo/site/north-america/dogs/histiocytic-sarcoma/index.html').read_text()
           markers=('100% FREE','No registration. No hidden results. No paid report.','About Histiocytic Sarcoma','Standard treatment','Histiocytic sarcoma is an aggressive cancer of histiocytic immune cells.','lomustine (CCNU)','Treatment &amp; research','Costs:','Contact:','Official study / enrollment information')
           for marker in markers: assert marker in hs, marker
           assert hs.index('100% FREE') < hs.index('About Histiocytic Sarcoma') < hs.index('Treatment &amp; research')
           assert hs.count('class="free"')==1
-          print(f'VALID_SITE pages={len(pages)} sitemap={len(locs)}')
+          print(f"VALID_SITE pages={len(pages)} sitemap={len(locs)} matrix_cells={audit['matrix_cells']} assignments={audit['assignments']}")
           PY
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
@@ -79,33 +89,35 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Determine representative generated pages
-        run: python seo/generate_seo.py
-      - name: Verify representative live pages
+      - name: Rebuild strict matrix for live verification
+        run: python seo/generate_seo_strict.py
+      - name: Verify every live English diagnosis page
         run: |
           python - <<'PY'
           from pathlib import Path
           import time,urllib.request
           base='https://jdizhur-rgb.github.io/vet-trial-matcher/'
-          generated=[]
-          for prefix in ('north-america/dogs/','north-america/cats/','uk-europe/dogs/','uk-europe/cats/'):
-            found=sorted(Path('seo/site',prefix).glob('*/index.html')) if Path('seo/site',prefix).exists() else []
-            if found: generated.append(str(found[0].parent.relative_to('seo/site')).replace('\\','/')+'/')
-          paths=list(dict.fromkeys(['','north-america/dogs/histiocytic-sarcoma/','north-america/dogs/lymphoma/']+generated))
+          local_pages=[p for p in Path('seo/site').glob('*/*/*/index.html')]
+          paths=['']+[str(p.parent.relative_to('seo/site')).replace('\\','/')+'/' for p in sorted(local_pages)]
           forbidden=('active_treatment_target:', 'chemo_washout_days:', 'radiation_washout_days:', "{'", "': True")
           for path in paths:
+            expected=(Path('seo/site')/path/'index.html').read_text() if path else Path('seo/site/index.html').read_text()
+            expected_cards=expected.count('class="card"')
             text=''
             for i in range(12):
               try:
                 req=urllib.request.Request(base+path+'?verify='+str(time.time()),headers={'Cache-Control':'no-cache'})
                 text=urllib.request.urlopen(req,timeout=20).read().decode('utf-8','replace')
               except Exception: text=''
-              if 'Cancer Trial Finder For Dogs And Cats' in text and not any(x in text for x in forbidden):
-                if path!='north-america/dogs/histiocytic-sarcoma/' or 'Standard treatment' in text: break
+              if 'Cancer Trial Finder For Dogs And Cats' in text and not any(x in text for x in forbidden) and text.count('class="card"')==expected_cards:
+                break
               time.sleep(10)
             assert 'Cancer Trial Finder For Dogs And Cats' in text, path
             assert not any(x in text for x in forbidden), path
-            if path: assert 'class="card"' in text, path
+            assert text.count('class="card"')==expected_cards, (path, text.count('class="card"'), expected_cards)
+            if path=='uk-europe/dogs/glioma/':
+              assert 'Local thermoablation for canine chemodectoma' not in text
+              assert 'paraganglioma' not in text.lower()
             if path=='north-america/dogs/histiocytic-sarcoma/':
               markers=('100% FREE','No registration. No hidden results. No paid report.','About Histiocytic Sarcoma','Standard treatment','Histiocytic sarcoma is an aggressive cancer of histiocytic immune cells.','lomustine (CCNU)','Treatment &amp; research','Official study / enrollment information')
               for marker in markers: assert marker in text, marker
