@@ -103,12 +103,21 @@ def audit_matrix():
 
 
 def main():
-    # Patch only diagnosis matching and the visual treatment-count callout.
+    # Patch only diagnosis matching and small presentation adjustments.
     g.canonical_cancer = canonical_cancer
     g.row_cancers = row_cancers
     original_page = g.page
 
     def page_with_count_callout(title, desc, body, canonical, lang='en', alts=None):
+        if lang == 'en':
+            disease_start = body.find('<section class="disease">')
+            disease_end = body.find('</section>', disease_start)
+            lead_start = body.find('<p class="lead">')
+            if disease_start != -1 and disease_end != -1 and lead_start != -1 and lead_start < disease_start:
+                disease_end += len('</section>')
+                disease = body[disease_start:disease_end]
+                body = body[:lead_start] + disease + body[lead_start:disease_start] + body[disease_end:]
+
         body = re.sub(
             r'<p class="lead">(\d+ [^<]*treatment[^<]*opportunit[^<]*\.) Trial names, locations and official source links are shown below\.</p>',
             r'<p class="lead count-callout"><strong>\1</strong><br><span>Trial names, locations and official source links are shown below.</span></p>',
