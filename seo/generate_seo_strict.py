@@ -109,15 +109,6 @@ def main():
     original_page = g.page
 
     def page_with_count_callout(title, desc, body, canonical, lang='en', alts=None):
-        if lang == 'en':
-            disease_start = body.find('<section class="disease">')
-            disease_end = body.find('</section>', disease_start)
-            lead_start = body.find('<p class="lead">')
-            if disease_start != -1 and disease_end != -1 and lead_start != -1 and lead_start < disease_start:
-                disease_end += len('</section>')
-                disease = body[disease_start:disease_end]
-                body = body[:lead_start] + disease + body[lead_start:disease_start] + body[disease_end:]
-
         body = re.sub(
             r'<p class="lead">(\d+ [^<]*treatment[^<]*opportunit[^<]*\.) Trial names, locations and official source links are shown below\.</p>',
             r'<p class="lead count-callout"><strong>\1</strong><br><span>Trial names, locations and official source links are shown below.</span></p>',
@@ -126,6 +117,17 @@ def main():
             flags=re.I,
         )
         rendered = original_page(title, desc, body, canonical, lang, alts)
+
+        # English diagnosis pages: move the complete cancer overview before all trial callouts.
+        if lang == 'en':
+            disease_start = rendered.find('<section class="disease">')
+            disease_end = rendered.find('</section>', disease_start)
+            lead_start = rendered.find('<p class="lead')
+            if disease_start != -1 and disease_end != -1 and lead_start != -1 and lead_start < disease_start:
+                disease_end += len('</section>')
+                disease = rendered[disease_start:disease_end]
+                rendered = rendered[:lead_start] + disease + rendered[lead_start:disease_start] + rendered[disease_end:]
+
         if 'count-callout' in rendered:
             rendered = rendered.replace(
                 '.free{',
