@@ -36,7 +36,7 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
-          import re,xml.etree.ElementTree as ET
+          import xml.etree.ElementTree as ET
           root=ET.parse('seo/site/sitemap.xml').getroot(); ns={'s':'http://www.sitemaps.org/schemas/sitemap/0.9'}
           locs=[x.text for x in root.findall('s:url/s:loc',ns)]
           assert locs and len(locs)==len(set(locs))
@@ -72,16 +72,29 @@ jobs:
     runs-on: ubuntu-latest
     needs: deploy
     steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Determine representative generated pages
+        run: python seo/generate_seo.py
       - name: Verify representative live pages
         run: |
           python - <<'PY'
+          from pathlib import Path
           import time,urllib.request
           base='https://jdizhur-rgb.github.io/vet-trial-matcher/'
-          paths=['','north-america/dogs/histiocytic-sarcoma/','north-america/dogs/lymphoma/','north-america/cats/squamous-cell-carcinoma/']
+          generated=[]
+          for prefix in ('north-america/dogs/','north-america/cats/','uk-europe/dogs/','uk-europe/cats/'):
+            found=sorted(Path('seo/site',prefix).glob('*/index.html')) if Path('seo/site',prefix).exists() else []
+            if found:
+              generated.append(str(found[0].parent.relative_to('seo/site')).replace('\\','/')+'/')
+          paths=['','north-america/dogs/histiocytic-sarcoma/','north-america/dogs/lymphoma/'] + generated
+          paths=list(dict.fromkeys(paths))
           forbidden=('active_treatment_target:', 'chemo_washout_days:', 'radiation_washout_days:', "{'", "': True")
           for path in paths:
             text=''
-            for i in range(8):
+            for i in range(12):
               try:
                 req=urllib.request.Request(base+path+'?verify='+str(time.time()),headers={'Cache-Control':'no-cache'})
                 text=urllib.request.urlopen(req,timeout=20).read().decode('utf-8','replace')
