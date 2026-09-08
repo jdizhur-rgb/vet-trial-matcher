@@ -53,7 +53,6 @@ def row_cancers(row):
 def audit_matrix():
     """Audit every generated diagnosis assignment, not representative pages."""
     rows = g.load_effective()
-    by_id = {r["id"]: r for r in rows}
     matrix = {}
     errors = []
 
@@ -66,7 +65,6 @@ def audit_matrix():
                     key = f"{region}/{species_key}/{g.slugify(cancer)}"
                     matrix.setdefault(key, []).append(row["id"])
 
-    # Every English diagnosis page must correspond exactly to one non-empty matrix cell.
     for page in g.OUT.glob("*/*/*/index.html"):
         rel = str(page.parent.relative_to(g.OUT)).replace("\\", "/")
         expected = matrix.get(rel, [])
@@ -78,13 +76,11 @@ def audit_matrix():
         if card_count != len(expected):
             errors.append(f"card-count mismatch {rel}: html={card_count} matrix={len(expected)}")
 
-    # Every expected matrix cell must have a generated English page.
     for rel, ids in matrix.items():
         page = g.OUT / rel / "index.html"
         if not page.exists():
             errors.append(f"missing page: {rel} ({len(ids)} records)")
 
-    # Regression for the real substring bug: paraganglioma must never become glioma.
     for row in rows:
         values = [g.norm(v) for v in cancer_values(row)]
         if any("paraganglioma" in v for v in values) and "glioma" in row_cancers(row):
@@ -107,9 +103,29 @@ def audit_matrix():
 
 
 def main():
-    # Patch the single canonical mapping used by page discovery and card selection.
+    # Patch only diagnosis matching and the visual treatment-count callout.
     g.canonical_cancer = canonical_cancer
     g.row_cancers = row_cancers
+    original_page = g.page
+
+    def page_with_count_callout(title, desc, body, canonical, lang='en', alts=None):
+        body = re.sub(
+            r'<p class="lead">(\d+ [^<]*treatment[^<]*opportunit[^<]*\.) Trial names, locations and official source links are shown below\.</p>',
+            r'<p class="lead count-callout"><strong>\1</strong><br><span>Trial names, locations and official source links are shown below.</span></p>',
+            body,
+            count=1,
+            flags=re.I,
+        )
+        rendered = original_page(title, desc, body, canonical, lang, alts)
+        if 'count-callout' in rendered:
+            rendered = rendered.replace(
+                '.free{',
+                '.count-callout{background:#fff;border:1px solid #d9e2ea;border-radius:12px;padding:13px 16px;margin:18px 0 12px}.count-callout strong{font-size:1.12rem;color:#17243b}.count-callout span{font-size:.96rem;color:#607086}.free{',
+                1,
+            )
+        return rendered
+
+    g.page = page_with_count_callout
     g.main()
     audit_matrix()
 
