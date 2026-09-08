@@ -1,12 +1,5 @@
 #!/usr/bin/env python3
-"""Systematic SEO generator guard: strict diagnosis mapping for every generated page.
-
-The presentation and effective-catalog logic remain in generate_seo.py. This entrypoint
-replaces permissive substring diagnosis matching with token/phrase-boundary matching,
-normalizes scalar/list cancer fields, runs the generator, then audits the complete
-region/species/cancer matrix. It exists to prevent cross-diagnosis leakage such as
-`glioma` matching the `paraganglioma` synonym used for chemodectoma.
-"""
+"""Systematic SEO generator guard: strict diagnosis mapping for every generated page."""
 from __future__ import annotations
 
 import json
@@ -17,7 +10,6 @@ import generate_seo as g
 
 
 def _phrase_present(phrase: str, text: str) -> bool:
-    """Match a normalized diagnosis phrase as a complete phrase, never inside a word."""
     phrase = g.norm(phrase)
     text = g.norm(text)
     if not phrase or not text:
@@ -51,7 +43,6 @@ def row_cancers(row):
 
 
 def audit_matrix():
-    """Audit every generated diagnosis assignment, not representative pages."""
     rows = g.load_effective()
     matrix = {}
     errors = []
@@ -96,14 +87,111 @@ def audit_matrix():
         "cells": {k: sorted(v) for k, v in sorted(matrix.items())},
     }
     (g.OUT / "mapping-audit.json").write_text(json.dumps(audit, indent=2), encoding="utf-8")
-    print(
-        f"STRICT_MATRIX_OK records={audit['effective_treatment_records']} "
-        f"cells={audit['matrix_cells']} assignments={audit['assignments']}"
+    print(f"STRICT_MATRIX_OK records={audit['effective_treatment_records']} cells={audit['matrix_cells']} assignments={audit['assignments']}")
+
+
+CENTER_RULES = (
+    ("Colorado State University Flint Animal Cancer Center", ("colorado state university", "flint animal cancer center")),
+    ("University of Florida College of Veterinary Medicine", ("university of florida",)),
+    ("Michigan State University College of Veterinary Medicine", ("michigan state university",)),
+    ("Auburn University College of Veterinary Medicine", ("auburn university",)),
+    ("University of Pennsylvania School of Veterinary Medicine", ("university of pennsylvania", "penn vet")),
+    ("Tufts University Cummings School of Veterinary Medicine", ("tufts university", "tufts cummings")),
+    ("NC State College of Veterinary Medicine", ("nc state", "north carolina state university")),
+    ("University of Wisconsin–Madison School of Veterinary Medicine", ("university of wisconsin", "wisconsin madison")),
+    ("University of Missouri College of Veterinary Medicine", ("university of missouri",)),
+    ("University of Illinois College of Veterinary Medicine", ("university of illinois",)),
+    ("Purdue University College of Veterinary Medicine", ("purdue university",)),
+    ("Cornell University College of Veterinary Medicine", ("cornell university",)),
+    ("University of Minnesota College of Veterinary Medicine", ("university of minnesota",)),
+    ("Ohio State University College of Veterinary Medicine", ("ohio state university", "the ohio state university")),
+    ("Texas A&M School of Veterinary Medicine", ("texas a&m", "texas a and m")),
+    ("Louisiana State University School of Veterinary Medicine", ("louisiana state university", "lsu")),
+    ("University of Georgia College of Veterinary Medicine", ("university of georgia",)),
+    ("University of Tennessee College of Veterinary Medicine", ("university of tennessee",)),
+    ("Washington State University College of Veterinary Medicine", ("washington state university",)),
+    ("Iowa State University College of Veterinary Medicine", ("iowa state university",)),
+    ("Kansas State University College of Veterinary Medicine", ("kansas state university",)),
+    ("Oklahoma State University College of Veterinary Medicine", ("oklahoma state university",)),
+    ("Oregon State University Carlson College of Veterinary Medicine", ("oregon state university",)),
+    ("Mississippi State University College of Veterinary Medicine", ("mississippi state university",)),
+)
+
+
+def canonical_center(value):
+    text = g.norm(value)
+    for name, aliases in CENTER_RULES:
+        if any(g.norm(alias) in text for alias in aliases):
+            return name
+    return None
+
+
+def generate_center_pages():
+    rows = [r for r in g.load_effective() if r.get("country") == "USA"]
+    grouped = {}
+    for row in rows:
+        center = canonical_center(row.get("center", ""))
+        if center:
+            grouped.setdefault(center, []).append(row)
+
+    if not grouped:
+        return
+
+    center_links = []
+    index_items = []
+    for center, hit in sorted(grouped.items()):
+        slug = g.slugify(center.replace("College of Veterinary Medicine", "").replace("School of Veterinary Medicine", ""))
+        path = f"centers/{slug}/"
+        url = f"{g.SITE}/{path}"
+        cancers = sorted({c for r in hit for c in row_cancers(r)})
+        cancer_text = ", ".join(g.display_name(c) for c in cancers) if cancers else "multiple cancer types"
+        h1 = f"{center}: Veterinary Cancer Clinical Trials"
+        body = (
+            f'<h1>{g.esc(h1)}</h1>'
+            f'<p class="lead count-callout"><strong>{len(hit)} current treatment opportunities in our catalog.</strong><br>'
+            f'<span>Current research represented here includes {g.esc(cancer_text)}.</span></p>'
+            '<div class="free"><strong>100% FREE</strong> — view trial details, contacts and official enrollment links.<br>'
+            '<small>No registration. No hidden results. No paid report.</small></div>'
+            f'<p><a class="cta" href="{g.FINDER}">Check your pet against these options</a></p>'
+            '<h2>Current treatment &amp; research opportunities</h2>'
+            '<p>These treatment-focused studies and advanced oncology options are drawn from our current catalog. '
+            'Enrollment status and final eligibility are determined by the research team.</p>'
+            + g.cards(hit)
+        )
+        dest = g.OUT / path
+        dest.mkdir(parents=True, exist_ok=True)
+        (dest / "index.html").write_text(
+            g.page(h1, f"Current veterinary cancer clinical trials and treatment studies at {center}.", body, url),
+            encoding="utf-8",
+        )
+        center_links.append(url)
+        index_items.append((center, path, len(hit)))
+
+    index_url = f"{g.SITE}/centers/"
+    index_body = (
+        '<h1>Veterinary Cancer Clinical Trial Centers</h1>'
+        '<p class="lead">Browse U.S. veterinary universities and teaching hospitals with current treatment opportunities represented in our catalog.</p>'
+        '<div class="free"><strong>100% FREE</strong> — trial details, contacts and official enrollment links are available without registration or a paywall.</div>'
+        '<h2>Current research centers</h2><ul>'
+        + ''.join(f'<li><a href="{g.SITE}/{p}">{g.esc(n)}</a> — {count} current opportunities</li>' for n, p, count in index_items)
+        + '</ul>'
     )
+    center_dir = g.OUT / "centers"
+    center_dir.mkdir(parents=True, exist_ok=True)
+    (center_dir / "index.html").write_text(
+        g.page("Veterinary Cancer Clinical Trial Centers", "U.S. veterinary cancer clinical trial centers with current treatment opportunities.", index_body, index_url),
+        encoding="utf-8",
+    )
+
+    sitemap = g.OUT / "sitemap.xml"
+    text = sitemap.read_text(encoding="utf-8")
+    additions = ''.join(f'<url><loc>{g.esc(u)}</loc></url>\n' for u in [index_url] + center_links)
+    text = text.replace('</urlset>', additions + '</urlset>')
+    sitemap.write_text(text, encoding="utf-8")
+    print(f"CENTER_PAGES_OK centers={len(grouped)}")
 
 
 def main():
-    # Patch only diagnosis matching and small presentation adjustments.
     g.canonical_cancer = canonical_cancer
     g.row_cancers = row_cancers
     original_page = g.page
@@ -118,7 +206,6 @@ def main():
         )
         rendered = original_page(title, desc, body, canonical, lang, alts)
 
-        # English diagnosis pages: move the complete cancer overview before all trial callouts.
         if lang == 'en':
             disease_start = rendered.find('<section class="disease">')
             disease_end = rendered.find('</section>', disease_start)
@@ -138,6 +225,7 @@ def main():
 
     g.page = page_with_count_callout
     g.main()
+    generate_center_pages()
     audit_matrix()
 
 
