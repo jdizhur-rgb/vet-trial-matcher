@@ -1,14 +1,14 @@
 """Central physical-location directory for institution pages and study sites.
 
 All center-page and participating-site addresses come from this file whenever
-we know the physical location.  Catalog spelling variants are resolved through
+we know the physical location. Catalog spelling variants are resolved through
 one shared normalizer so address lookup behaves the same everywhere.
 """
 from __future__ import annotations
 import re
 
 LOCATIONS = {
-    # Universities / teaching hospitals
+    # Universities / teaching hospitals — USA
     "Colorado State University Flint Animal Cancer Center": "Flint Animal Cancer Center, 300 W Drake Rd, Fort Collins, CO 80523",
     "Auburn University College of Veterinary Medicine": "Bailey Small Animal Teaching Hospital, 1220 Wire Rd, Auburn, AL 36849",
     "Cornell University College of Veterinary Medicine": "Cornell University Hospital for Animals, 930 Campus Rd, Ithaca, NY 14853",
@@ -35,6 +35,16 @@ LOCATIONS = {
     "University of Wisconsin–Madison School of Veterinary Medicine": "UW Veterinary Care, 2015 Linden Dr, Madison, WI 53706",
     "Virginia-Maryland College of Veterinary Medicine / Virginia Tech": "Veterinary Teaching Hospital, 245 Duck Pond Dr, Blacksburg, VA 24061",
     "Washington State University College of Veterinary Medicine": "WSU Veterinary Teaching Hospital, 205 Ott Rd, Pullman, WA 99164",
+
+    # Universities / teaching hospitals — international
+    "University of Évora Veterinary Hospital": "Hospital Veterinário, Universidade de Évora, Herdade da Mitra, Apartado 94, 7002-554 Évora, Portugal",
+    "University of Zurich Veterinary Hospital": "Universitäres Tierspital Zürich, Winterthurerstrasse 204, 8057 Zürich, Switzerland",
+    "University of Milan Veterinary Teaching Hospital (Lodi)": "Ospedale Veterinario Universitario, Via dell'Università 6, 26900 Lodi LO, Italy",
+    "Ontario Veterinary College — University of Guelph": "Ontario Veterinary College, University of Guelph, 50 Stone Rd E, Guelph, ON N1G 2W1, Canada",
+    "Hospital for Sick Children": "The Hospital for Sick Children, 555 University Ave, Toronto, ON M5G 1X8, Canada",
+    "University Hospital for Companion Animals — University of Copenhagen": "University Hospital for Companion Animals, Dyrlægevej 16, 1870 Frederiksberg C, Denmark",
+    "Ghent University Faculty of Veterinary Medicine": "Ghent University Faculty of Veterinary Medicine, Salisburylaan 133, 9820 Merelbeke, Belgium",
+    "AniCura Ospedale Veterinario I Portoni Rossi": "Ospedale Veterinario I Portoni Rossi, Via Roma 57/A, 40069 Zola Predosa BO, Italy",
 
     # Independent / specialty / research centers
     "Aurelius Biotherapeutics": "Aurelius Biotherapeutics, 720 Virginia St, Bellingham, WA 98225",
@@ -67,14 +77,57 @@ LOCATIONS = {
 }
 
 ALIASES = {
+    # Common network/site spelling variants
     "Massachusetts Veterinary Referral Hospital (MVRH)": "Massachusetts Veterinary Referral Hospital",
     "Gulf Coast Veterinary Specialists (GCVS)": "Gulf Coast Veterinary Specialists",
     "SAGE": "SAGE Veterinary Centers",
+    "SAGE – San Francisco": "SAGE Veterinary Centers",
     "Colorado Animal Specialty & Emergency (CASE) / Ethos Discovery": "Colorado Animal Specialty & Emergency (CASE)",
+    "CASE": "Colorado Animal Specialty & Emergency (CASE)",
     "Veterinary Specialty Hospital": "Veterinary Specialty Hospital - Sorrento Valley",
     "Veterinary Referral Center of Central Oregon / CASTR Alliance": "Veterinary Referral Center of Central Oregon",
+    "Veterinary Referral Center of Central Oregon (VRCCO)": "Veterinary Referral Center of Central Oregon",
     "WVRC Racine/Kenosha": "WVRC Racine Kenosha",
     "Metropolitan Veterinary Hospital": "Metropolitan Veterinary Hospital - Akron",
+
+    # University catalog variants — all resolve to the same physical teaching hospital
+    "University of Florida": "University of Florida College of Veterinary Medicine",
+    "University of Florida Veterinary Hospitals": "University of Florida College of Veterinary Medicine",
+    "University of Illinois": "University of Illinois College of Veterinary Medicine",
+    "University of Illinois Veterinary Teaching Hospital": "University of Illinois College of Veterinary Medicine",
+    "University of Pennsylvania": "University of Pennsylvania School of Veterinary Medicine",
+    "University of Pennsylvania School of Veterinary Medicine — Comparative Immunotherapy Program": "University of Pennsylvania School of Veterinary Medicine",
+    "University of Minnesota": "University of Minnesota College of Veterinary Medicine",
+    "University of Minnesota Veterinary Medical Center": "University of Minnesota College of Veterinary Medicine",
+    "University of Minnesota Canine Brain Tumor Program": "University of Minnesota College of Veterinary Medicine",
+    "Tufts University": "Tufts University Cummings School of Veterinary Medicine",
+    "Tufts Cummings School of Veterinary Medicine": "Tufts University Cummings School of Veterinary Medicine",
+    "Cummings School of Veterinary Medicine, Tufts University": "Tufts University Cummings School of Veterinary Medicine",
+    "Michigan State University": "Michigan State University College of Veterinary Medicine",
+    "Michigan State University Veterinary Medical Center": "Michigan State University College of Veterinary Medicine",
+    "Cornell University": "Cornell University College of Veterinary Medicine",
+    "University of Georgia": "University of Georgia College of Veterinary Medicine",
+    "Purdue University": "Purdue University College of Veterinary Medicine",
+    "Purdue University Veterinary Hospital": "Purdue University College of Veterinary Medicine",
+    "Ohio State University": "Ohio State University College of Veterinary Medicine",
+    "Ohio State University Veterinary Medical Center": "Ohio State University College of Veterinary Medicine",
+    "The Ohio State University Veterinary Medical Center": "Ohio State University College of Veterinary Medicine",
+    "Texas A&M University": "Texas A&M School of Veterinary Medicine",
+    "Texas A&M Small Animal Teaching Hospital": "Texas A&M School of Veterinary Medicine",
+    "Texas A&M Veterinary Medical Teaching Hospital": "Texas A&M School of Veterinary Medicine",
+    "Colorado State University": "Colorado State University Flint Animal Cancer Center",
+    "Colorado State University Veterinary Teaching Hospital": "Colorado State University Flint Animal Cancer Center",
+    "University of Missouri Veterinary Health Center": "University of Missouri College of Veterinary Medicine",
+    "LSU Veterinary Teaching Hospital": "Louisiana State University School of Veterinary Medicine",
+    "Washington State University Veterinary Teaching Hospital": "Washington State University College of Veterinary Medicine",
+    "UC Davis Veterinary Medical Teaching Hospital": "UC Davis Veterinary Center for Clinical Trials",
+
+    # International variants
+    "University of Zurich — Division of Radiation Oncology": "University of Zurich Veterinary Hospital",
+    "Universitäres Tierspital Zürich / University of Zurich": "University of Zurich Veterinary Hospital",
+    "AniCura I Portoni Rossi / University of Teramo": "AniCura Ospedale Veterinario I Portoni Rossi",
+    "Ontario Veterinary College": "Ontario Veterinary College — University of Guelph",
+    "University Hospital for Companion Animals, University of Copenhagen": "University Hospital for Companion Animals — University of Copenhagen",
 }
 
 
@@ -107,6 +160,4 @@ def address_is_complete(address, country=""):
         return bool(re.search(r"\b[A-Z]\d[A-Z][ -]?\d[A-Z]\d\b", text, re.I))
     if country_key in {"uk", "united kingdom", "great britain", "england", "scotland", "wales"}:
         return bool(re.search(r"\b[A-Z]{1,2}\d[A-Z\d]?\s*\d[A-Z]{2}\b", text, re.I))
-    # Continental Europe and other countries use many postal formats. Require a
-    # street number plus enough comma-separated location detail to avoid city-only labels.
     return len([p for p in text.split(",") if p.strip()]) >= 3
