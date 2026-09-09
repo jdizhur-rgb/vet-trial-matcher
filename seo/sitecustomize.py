@@ -91,7 +91,12 @@ def cards_with_locations(rows):
  return ''.join(out)
 
 def _rebuild_center_body(body):
- body=re.sub(r'<section class="center-locations">.*?</section>','',body,flags=re.S)
+ # Keep one verified physical address for a single center. Network/roll-up pages
+ # must not show an aggregate address dump; participating addresses stay on study cards.
+ def keep_single_center_location(match):
+  section=match.group(0)
+  return section if section.count('<li>')==1 else ''
+ body=re.sub(r'<section class="center-locations">.*?</section>',keep_single_center_location,body,flags=re.S)
  m=re.search(r'<p class="lead count-callout"><strong>.*?</strong><br><span>Current research represented here includes (.*?)\.</span></p>',body,flags=re.S)
  if m:
   cancers=m.group(1);sentence=f'<p class="center-current">Current opportunities across this center or network include research and treatment options for <strong>{cancers}</strong>. See details below.</p>';body=body[:m.start()]+body[m.end():];pos=body.find('</div>',body.find('<div class="center-overview"'))
