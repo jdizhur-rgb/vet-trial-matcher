@@ -31,42 +31,39 @@ jobs:
           marker = '# SAFE_DATABASE_STATS_V1'
           if marker not in text:
               anchor = "st.title('🐾 Vet Cancer Trial Finder')\nst.markdown('Answer what you know. It is completely fine to choose **I don’t know**.')"
-              replacement = """st.title('🐾 Vet Cancer Trial Finder')
-
-# SAFE_DATABASE_STATS_V1
-# Read-only summary of the catalog already loaded into TRIALS. This intentionally
-# does not reopen data files, mutate the catalog, or affect matching logic.
-_stats_trials = [
-    t for t in TRIALS
-    if t.get('available_for_matching', True)
-    and is_current_trial(t)
-    and t.get('study_type', 'treatment') in {'treatment', 'other_treatment_access'}
-]
-_stats_centers = {str(t.get('center', '')).strip() for t in _stats_trials if str(t.get('center', '')).strip()}
-_stats_excluded_cancers = {'Cancer — any type', 'Other / not sure', UNLISTED_CANCER}
-_stats_cancers = {
-    c for c in CANCERS
-    if c not in _stats_excluded_cancers
-    and any(trial_accepts_diagnosis(t, c)[0] for t in _stats_trials)
-}
-_stats_country_aliases = {
-    'United Kingdom': 'UK',
-    'The Netherlands': 'Netherlands',
-    'Czech Republic': 'Czechia',
-}
-_stats_countries = {
-    _stats_country_aliases.get(str(t.get('country', 'USA')).strip(), str(t.get('country', 'USA')).strip())
-    for t in _stats_trials
-    if str(t.get('country', 'USA')).strip()
-}
-st.caption(
-    f"{len(_stats_trials)} active treatment opportunities · "
-    f"{len(_stats_centers)} centers · "
-    f"{len(_stats_cancers)} cancer types · "
-    f"{len(_stats_countries)} countries"
-)
-
-st.markdown('Answer what you know. It is completely fine to choose **I don’t know**.')"""
+              replacement = "\n".join([
+                  "st.title('🐾 Vet Cancer Trial Finder')",
+                  "",
+                  "# SAFE_DATABASE_STATS_V1",
+                  "# Read-only summary of the catalog already loaded into TRIALS.",
+                  "_stats_trials = [",
+                  "    t for t in TRIALS",
+                  "    if t.get('available_for_matching', True)",
+                  "    and is_current_trial(t)",
+                  "    and t.get('study_type', 'treatment') in {'treatment', 'other_treatment_access'}",
+                  "]",
+                  "_stats_centers = {str(t.get('center', '')).strip() for t in _stats_trials if str(t.get('center', '')).strip()}",
+                  "_stats_excluded_cancers = {'Cancer — any type', 'Other / not sure', UNLISTED_CANCER}",
+                  "_stats_cancers = {",
+                  "    c for c in CANCERS",
+                  "    if c not in _stats_excluded_cancers",
+                  "    and any(trial_accepts_diagnosis(t, c)[0] for t in _stats_trials)",
+                  "}",
+                  "_stats_country_aliases = {'United Kingdom': 'UK', 'The Netherlands': 'Netherlands', 'Czech Republic': 'Czechia'}",
+                  "_stats_countries = {",
+                  "    _stats_country_aliases.get(str(t.get('country', 'USA')).strip(), str(t.get('country', 'USA')).strip())",
+                  "    for t in _stats_trials",
+                  "    if str(t.get('country', 'USA')).strip()",
+                  "}",
+                  "st.caption(",
+                  "    f\"{len(_stats_trials)} active treatment opportunities · \"",
+                  "    f\"{len(_stats_centers)} centers · \"",
+                  "    f\"{len(_stats_cancers)} cancer types · \"",
+                  "    f\"{len(_stats_countries)} countries\"",
+                  ")",
+                  "",
+                  "st.markdown('Answer what you know. It is completely fine to choose **I don’t know**.')",
+              ])
               if anchor not in text:
                   raise SystemExit('Expected title/intro anchor not found; refusing to modify file')
               text = text.replace(anchor, replacement, 1)
@@ -75,45 +72,6 @@ st.markdown('Answer what you know. It is completely fine to choose **I don’t k
 
       - name: Syntax check
         run: python -m py_compile pages/1_Clinical_Trial_Finder.py app.py
-
-      - name: Show computed catalog stats
-        run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-
-          root = Path('.')
-          base = json.loads((root/'data'/'trials_base.json').read_text(encoding='utf-8'))
-          by_id = {t['id']: t for t in base}
-          paths = [root/'data'/'trial_updates.json'] + sorted((root/'data').glob('catalog_patch_*.json'))
-          for p in paths:
-              if not p.exists():
-                  continue
-              doc = json.loads(p.read_text(encoding='utf-8'))
-              for tid in doc.get('delete', []):
-                  by_id.pop(tid, None)
-              for patch in doc.get('upsert', []):
-                  tid = patch['id']
-                  if tid in by_id:
-                      merged = dict(by_id[tid])
-                      for k, v in patch.items():
-                          if k in {'requires', 'excludes'} and isinstance(v, dict):
-                              nested = dict(merged.get(k, {})); nested.update(v); merged[k] = nested
-                          else:
-                              merged[k] = v
-                      by_id[tid] = merged
-                  else:
-                      by_id[tid] = patch
-          active = [t for t in by_id.values() if t.get('available_for_matching', True) and t.get('status_confidence') in {'current','confirmed_current'} and t.get('study_type','treatment') in {'treatment','other_treatment_access'}]
-          aliases = {'United Kingdom':'UK','The Netherlands':'Netherlands','Czech Republic':'Czechia'}
-          centers = {str(t.get('center','')).strip() for t in active if str(t.get('center','')).strip()}
-          countries = {aliases.get(str(t.get('country','USA')).strip(), str(t.get('country','USA')).strip()) for t in active}
-          raw_cancers = sorted({c for t in active for c in t.get('cancers', []) if c and c != 'Cancer — any type'})
-          print(f'active treatment opportunities: {len(active)}')
-          print(f'unique center labels: {len(centers)}')
-          print(f'countries: {len(countries)}')
-          print(f'raw catalog cancer labels (diagnostic only): {len(raw_cancers)}')
-          PY
 
       - name: Commit feature change if needed
         run: |
