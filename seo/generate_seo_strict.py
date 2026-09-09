@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Single owner-facing SEO rendering layer with catalog-wide location preflight."""
 from __future__ import annotations
-import html,json,re
+import hashlib,html,json,re
 import generate_seo as g
 from center_profiles import PROFILES
 from center_profiles_extra import EXTRA_PROFILES
-from center_directory import LOCATIONS, address_for, address_is_complete, normalize
+from center_directory import LOCATIONS, address_for, address_is_complete, canonical_name_for, normalize
 PROFILES.update(EXTRA_PROFILES)
 CURRENT={'current','confirmed_current'}
 
@@ -98,7 +98,13 @@ def region_for(country):
     return str(country or 'Other')
 
 
+def is_composite_center(name):
+    raw=str(name or '').lower();n=normalize(name)
+    return '/' in raw or '+' in raw or any(x in n for x in ('multicenter','multicentre','field trial','partner network','research network'))
+
+
 def institution_like(name):
+    if is_composite_center(name):return False
     n=normalize(name)
     return any(x in n for x in ('university','college','school of veterinary','teaching hospital','animal medical center'))
 
@@ -123,13 +129,9 @@ def preflight(rows):
             if site_label(s,country):covered_sites+=1
             else:missing_sites.append({'name':name,'country':country,'region':region_for(country),'trial_id':rid})
     report={
-        'effective_treatment_records':len(rows),
-        'directory_locations':len(LOCATIONS),
-        'unique_centers':len(seen_centers),
-        'unique_active_sites':len(seen_sites),
-        'covered_active_sites':covered_sites,
-        'missing_center_addresses':missing_centers,
-        'missing_participating_site_addresses':missing_sites,
+        'effective_treatment_records':len(rows),'directory_locations':len(LOCATIONS),'unique_centers':len(seen_centers),
+        'unique_active_sites':len(seen_sites),'covered_active_sites':covered_sites,
+        'missing_center_addresses':missing_centers,'missing_participating_site_addresses':missing_sites,
     }
     print('ADDRESS_PREFLIGHT',json.dumps({'centers':len(seen_centers),'sites':len(seen_sites),'missing_centers':len(missing_centers),'missing_sites':len(missing_sites)},sort_keys=True))
     return report
@@ -166,7 +168,10 @@ CENTER_RULES=(
 ('Colorado State University Flint Animal Cancer Center',('colorado state university','flint animal cancer center')),('University of Florida College of Veterinary Medicine',('university of florida',)),('Michigan State University College of Veterinary Medicine',('michigan state university',)),('Auburn University College of Veterinary Medicine',('auburn university',)),('University of Pennsylvania School of Veterinary Medicine',('university of pennsylvania','penn vet')),('Tufts University Cummings School of Veterinary Medicine',('tufts university','tufts cummings')),('NC State College of Veterinary Medicine',('nc state','north carolina state university')),('University of Missouri College of Veterinary Medicine',('university of missouri',)),('University of Illinois College of Veterinary Medicine',('university of illinois',)),('Purdue University College of Veterinary Medicine',('purdue university',)),('Cornell University College of Veterinary Medicine',('cornell university',)),('University of Minnesota College of Veterinary Medicine',('university of minnesota',)),('Ohio State University College of Veterinary Medicine',('ohio state university','the ohio state university')),('Texas A&M School of Veterinary Medicine',('texas a&m','texas a and m')),('Louisiana State University School of Veterinary Medicine',('louisiana state university','lsu')),('University of Georgia College of Veterinary Medicine',('university of georgia',)),('Washington State University College of Veterinary Medicine',('washington state university',)),('UC Davis Veterinary Center for Clinical Trials',('uc davis veterinary center for clinical trials','uc davis veterinary medical teaching hospital','uc davis')),('Aurelius Biotherapeutics',('aurelius biotherapeutics',)),('Ethos Veterinary Health / Ethos Discovery',('ethos veterinary health','ethos discovery')),('Colorado Animal Specialty & Emergency (CASE)',('colorado animal specialty','case / ethos discovery')),('Johns Hopkins Center for Image-Guided Animal Therapy (CIGAT)',('johns hopkins center for image-guided animal therapy',)),('SAGE Veterinary Centers',('sage san francisco','sage veterinary')),
 )
 def canonical_center(v):
-    raw=str(v or '').strip();text=normalize(raw)
+    raw=str(v or '').strip()
+    known=canonical_name_for(raw)
+    if known:return known
+    text=normalize(raw)
     for name,aliases in CENTER_RULES:
         if any(normalize(a) in text for a in aliases):return name
     return re.sub(r'\s+',' ',raw) if raw else None
@@ -204,6 +209,15 @@ def center_page_address(center,hit):
     return ''
 
 
+def safe_center_slug(center,used):
+    base=g.slugify(center.replace('College of Veterinary Medicine','').replace('School of Veterinary Medicine',''))
+    digest=hashlib.sha1(center.encode('utf-8')).hexdigest()[:8]
+    if not base:base=f'center-{digest}'
+    slug=base
+    if slug in used and used[slug]!=center:slug=f'{base}-{digest}'
+    return slug
+
+
 def generate_centers(rows):
     rows=[r for r in rows if str(r.get('center','')).strip()];grouped={}
     for r in rows:
@@ -212,13 +226,13 @@ def generate_centers(rows):
             if site_active(s) and (s.get('hospital') or s.get('name')):add(grouped,s.get('hospital') or s.get('name'),r)
     links=[];items=[];used={}
     for center,hit in sorted(grouped.items()):
-        slug=g.slugify(center.replace('College of Veterinary Medicine','').replace('School of Veterinary Medicine','')) or 'research-center'
-        if slug in used and used[slug]!=center:slug=g.slugify(center)
-        used[slug]=center;path=f'centers/{slug}/';url=f'{g.SITE}/{path}';cancers=sorted({c for r in hit for c in row_cancers(r)});ct=', '.join(g.display_name(c) for c in cancers) or 'multiple cancer types'
+        slug=safe_center_slug(center,used);used[slug]=center;path=f'centers/{slug}/';url=f'{g.SITE}/{path}'
+        cancers=sorted({c for r in hit for c in row_cancers(r)});ct=', '.join(g.display_name(c) for c in cancers) or 'multiple cancer types'
         addr=center_page_address(center,hit);address_html=f'<div class="center-address"><strong>Location</strong><br>{g.esc(addr)}</div>' if addr else ''
         body='<div class="center-page">'+f'<h1>{g.esc(center)}</h1>'+overview(center)+address_html+f'<p>Current opportunities here include research or treatment options for <strong>{g.esc(ct)}</strong>.</p><p><a class="cta" href="{g.FINDER}">Find cancer treatment options near you</a></p><p class="free-note">100% free. No registration, hidden results or paid report.</p><h2>Cancer treatment &amp; research options</h2>'+g.cards(hit)+'</div>'
         desc=f'Dog and cat cancer treatment options, research studies and clinical trials at {center}.'
         d=g.OUT/path;d.mkdir(parents=True,exist_ok=True);(d/'index.html').write_text(g.page(center,desc,body,url),encoding='utf-8');links.append(url);items.append((center,path,len(hit)))
+    assert len(used)==len(grouped),(len(used),len(grouped))
     iu=f'{g.SITE}/centers/';ib='<h1>Veterinary Cancer Research Centers</h1><p class="lead">Browse universities, teaching hospitals, specialty hospitals and research centers with current cancer treatment opportunities.</p><ul>'+''.join(f'<li><a href="{g.SITE}/{p}">{g.esc(n)}</a> — {c} current opportunities</li>' for n,p,c in items)+'</ul>'
     d=g.OUT/'centers';d.mkdir(parents=True,exist_ok=True);(d/'index.html').write_text(g.page('Veterinary Cancer Research Centers','Veterinary cancer research centers and current treatment studies.',ib,iu),encoding='utf-8')
     sm=g.OUT/'sitemap.xml';s=sm.read_text();sm.write_text(s.replace('</urlset>',''.join(f'<url><loc>{g.esc(u)}</loc></url>\n' for u in [iu]+links)+'</urlset>'))
