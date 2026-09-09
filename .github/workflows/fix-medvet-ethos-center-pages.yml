@@ -1,0 +1,89 @@
+name: Fix MedVet and Ethos center pages
+on:
+  push:
+    paths:
+      - 'seo/static/.center-pages-deploy-trigger'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Add verified MedVet oncology study and replace Ethos image
+        run: |
+          python - <<'PY'
+          import json,re,urllib.request
+          from pathlib import Path
+
+          base=Path('data/trials_base.json')
+          rows=json.loads(base.read_text(encoding='utf-8'))
+          rid='medvet-egfr-her2-vaccine-2026'
+          if not any(r.get('id')==rid for r in rows):
+              rows.append({
+                'id':rid,
+                'title':'Experimental EGFR/HER2 tumor vaccine',
+                'center':'MedVet Clinical Studies Center',
+                'country':'USA',
+                'species':'Dog',
+                'cancers':['Osteosarcoma','Hemangiosarcoma','Urothelial carcinoma'],
+                'status':'Currently enrolling at selected MedVet hospitals',
+                'url':'https://www.medvet.com/clinical-studies/',
+                'contacts':'MedVet Clinical Studies — clinicalstudies@medvet.com; 614-874-1271',
+                'funding':'The investigational vaccine is currently provided at no charge. Hospital visits, diagnostics and vaccine administration are owner-paid.',
+                'requires':{'confirmed':True,'anticipated_survival_over_3_months':True,'standard_of_care_therapy':True},
+                'excludes':{'other_immunotherapy':True,'alternative_therapy':True,'other_clinical_study':True},
+                'notes':'USDA-regulated study. Current enrolling locations listed by MedVet include Salt Lake City; Cincinnati and Cleveland for established patients; Pittsburgh for Pennsylvania residents. Chicago is paused and is not presented as enrolling.',
+                'verified':'2026-09-08',
+                'study_type':'treatment',
+                'available_for_matching':True,
+                'status_confidence':'confirmed_current',
+                'owner_prescreen_required':True
+              })
+              base.write_text(json.dumps(rows,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+
+          p=Path('seo/center_profiles_extra.py')
+          text=p.read_text(encoding='utf-8')
+          old='https://www.ethosvet.com/wp-content/uploads/Dog-Outside-on-Green-Grass-625x375.jpg'
+          try:
+              req=urllib.request.Request('https://www.ethosvet.com/ethos-science/',headers={'User-Agent':'Mozilla/5.0'})
+              html=urllib.request.urlopen(req,timeout=20).read().decode('utf-8','ignore')
+              m=re.search(r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)',html,re.I)
+              if not m:
+                  m=re.search(r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:image["\']',html,re.I)
+              if m:
+                  image=m.group(1).replace('&amp;','&')
+                  text=text.replace(old,image)
+                  text=text.replace('Dog participating in veterinary clinical research featured by Ethos Veterinary Health','Ethos Science clinical research program')
+                  text=text.replace('Clinical research at Ethos Veterinary Health is conducted through participating specialty hospitals. Photo: Ethos Veterinary Health.','Ethos Science supports clinical research across the Ethos specialty-hospital network. Photo: Ethos Veterinary Health.')
+              else:
+                  # Better no generic patient photo than a misleading center image.
+                  text=text.replace(',"image":"'+old+'","image_alt":"Dog participating in veterinary clinical research featured by Ethos Veterinary Health","image_caption":"Clinical research at Ethos Veterinary Health is conducted through participating specialty hospitals. Photo: Ethos Veterinary Health."','')
+          except Exception:
+              text=text.replace(',"image":"'+old+'","image_alt":"Dog participating in veterinary clinical research featured by Ethos Veterinary Health","image_caption":"Clinical research at Ethos Veterinary Health is conducted through participating specialty hospitals. Photo: Ethos Veterinary Health."','')
+          p.write_text(text,encoding='utf-8')
+          PY
+      - name: Verify MedVet is in effective source data
+        run: |
+          python - <<'PY'
+          import json
+          rows=json.load(open('data/trials_base.json'))
+          r=[x for x in rows if x.get('id')=='medvet-egfr-her2-vaccine-2026']
+          assert len(r)==1 and r[0].get('available_for_matching') is True
+          print('MEDVET_SOURCE_OK')
+          PY
+      - name: Commit fixes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/trials_base.json seo/center_profiles_extra.py
+          if git diff --cached --quiet; then
+            echo 'No changes needed'
+          else
+            git commit -m 'Fix MedVet center source and Ethos research image'
+            git push
+          fi
