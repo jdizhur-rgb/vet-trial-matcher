@@ -35,6 +35,7 @@ LOCATIONS = {
     "University of Wisconsin–Madison School of Veterinary Medicine": "UW Veterinary Care, 2015 Linden Dr, Madison, WI 53706",
     "Virginia-Maryland College of Veterinary Medicine / Virginia Tech": "Veterinary Teaching Hospital, 245 Duck Pond Dr, Blacksburg, VA 24061",
     "Washington State University College of Veterinary Medicine": "WSU Veterinary Teaching Hospital, 205 Ott Rd, Pullman, WA 99164",
+    "UT Southwestern Veterinary Research and Oncology Clinic": "Veterinary Research and Oncology Clinic, 5801 Forest Park Rd, Dallas, TX 75235",
 
     # Universities / teaching hospitals — international
     "University of Évora Veterinary Hospital": "Hospital Veterinário, Universidade de Évora, Herdade da Mitra, Apartado 94, 7002-554 Évora, Portugal",
@@ -47,6 +48,11 @@ LOCATIONS = {
     "AniCura Ospedale Veterinario I Portoni Rossi": "Ospedale Veterinario I Portoni Rossi, Via Roma 57/A, 40069 Zola Predosa BO, Italy",
     "National Taiwan University Veterinary Hospital": "National Taiwan University Veterinary Hospital, No. 153, Sec. 3, Keelung Rd, Da'an Dist, Taipei City 10672, Taiwan",
     "National Chung Hsing University Veterinary Teaching Hospital": "National Chung Hsing University Veterinary Teaching Hospital, No. 21, Sec. 1, Xiangshang Rd, West Dist, Taichung City, Taiwan",
+    "AniCura Atlântico Hospital Veterinário": "AniCura Atlântico Hospital Veterinário, Rua Quintino António Gomes 12, 2640-402 Mafra, Portugal",
+    "CHV AniCura Armonia": "CHV AniCura Armonia, 500 rue le Chatelier, 38090 Vaulx-Milieu, France",
+    "VetAgro Sup CHUVAC": "Centre hospitalier universitaire vétérinaire des animaux de compagnie, 1 avenue Bourgelat, 69280 Marcy-l'Étoile, France",
+    "North Downs Specialist Referrals": "North Downs Specialist Referrals, The Friesian Buildings 3 & 4, Brewerstreet Dairy Business Park, Brewer Street, Bletchingley, Surrey RH1 4QP, UK",
+    "AniCura AOI - Animal Oncology and Imaging Center": "AniCura AOI - Animal Oncology and Imaging Center, Rothusstrasse 2a, 6331 Hünenberg, Switzerland",
 
     # Independent / specialty / research centers
     "Aurelius Biotherapeutics": "Aurelius Biotherapeutics, 720 Virginia St, Bellingham, WA 98225",
@@ -90,9 +96,6 @@ LOCATIONS = {
     "MedVet Chicago": "MedVet Chicago, 3305 N California Ave, Chicago, IL 60618",
 }
 
-# A named practice can have more than one physical hospital when the public study
-# listing identifies the practice but not a branch. These are real practice sites,
-# not headquarters. The card will show every possible participating location.
 LOCATION_GROUPS = {
     "Southeast Veterinary Oncology & Internal Medicine": (
         "Southeast Veterinary Oncology & Internal Medicine - Orange Park",
@@ -146,12 +149,19 @@ ALIASES = {
     "University of Missouri Veterinary Health Center": "University of Missouri College of Veterinary Medicine",
     "LSU Veterinary Teaching Hospital": "Louisiana State University School of Veterinary Medicine",
     "Washington State University Veterinary Teaching Hospital": "Washington State University College of Veterinary Medicine",
+    "NC State Veterinary Hospital": "NC State College of Veterinary Medicine",
+    "UC Davis": "UC Davis Veterinary Center for Clinical Trials",
     "UC Davis Veterinary Medical Teaching Hospital": "UC Davis Veterinary Center for Clinical Trials",
     "University of Zurich — Division of Radiation Oncology": "University of Zurich Veterinary Hospital",
     "Universitäres Tierspital Zürich / University of Zurich": "University of Zurich Veterinary Hospital",
     "AniCura I Portoni Rossi / University of Teramo": "AniCura Ospedale Veterinario I Portoni Rossi",
     "Ontario Veterinary College": "Ontario Veterinary College — University of Guelph",
     "University Hospital for Companion Animals, University of Copenhagen": "University Hospital for Companion Animals — University of Copenhagen",
+    "VetAgro Sup — Service of Cancerology": "VetAgro Sup CHUVAC",
+    "North Downs Specialist Referrals (NDSR)": "North Downs Specialist Referrals",
+    "AniCura AOI – Animal Oncology and Imaging Center / ETH Zürich": "AniCura AOI - Animal Oncology and Imaging Center",
+    "Evergreen Animal Hospital (長青動物醫院), Taipei": "Evergreen Animal Hospital",
+    "Evergreen Animal Hospital — Taipei": "Evergreen Animal Hospital",
     "Duma Animal Hospital (中和杜瑪動物醫院)": "Duma Animal Hospital",
     "Bubble Animal Hospital (泡泡動物醫院)": "Bubble Animal Hospital",
     "Jimmy Harry Animal Hospital (吉米哈利動物醫院)": "Jimmy Harry Animal Hospital",
@@ -160,7 +170,6 @@ ALIASES = {
 
 
 def normalize(value):
-    """One punctuation-insensitive key for catalog, directory and aliases."""
     text = str(value or "").lower().replace("&", " and ")
     return re.sub(r"[^a-z0-9]+", " ", text).strip()
 
@@ -174,12 +183,10 @@ _GROUP_INDEX = {normalize(k): tuple(v) for k, v in LOCATION_GROUPS.items()}
 
 
 def canonical_name_for(name):
-    """Return the canonical directory name for a known single physical site."""
     return _CANONICAL_INDEX.get(normalize(name), "")
 
 
 def addresses_for(name):
-    """Return every verified physical site represented by this name."""
     key=normalize(name)
     if key in _GROUP_INDEX:
         return [LOCATIONS[x] for x in _GROUP_INDEX[key] if x in LOCATIONS]
@@ -188,13 +195,11 @@ def addresses_for(name):
 
 
 def address_for(name):
-    """Return an address only when a name resolves to one physical site."""
     vals=addresses_for(name)
     return vals[0] if len(vals)==1 else ""
 
 
 def address_is_complete(address, country=""):
-    """Country-aware physical-address validation used by build and preflight."""
     text = " ".join(str(address or "").split())
     if not text or not re.search(r"\d", text):
         return False
