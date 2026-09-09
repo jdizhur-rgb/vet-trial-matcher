@@ -11,6 +11,12 @@ st.markdown("""<style>
 .stMainBlockContainer,div[data-testid="stMainBlockContainer"]{max-width:1120px!important;padding:3.4rem 1.5rem 2rem!important}
 .nav-title{font-size:1.55rem;line-height:1.08;font-weight:700;margin:.6rem 0 .15rem;color:#55483f}.nav-title .paw{color:#9a6a43;font-family:Arial,sans-serif}.nav-subtitle{font-size:.92rem;color:#6f6a66;margin:0 0 .45rem}
 .beta-corner{display:none}.intro-answer{font-size:.94rem;color:#45414a;margin:.35rem 0 .65rem}
+/* Compact result cards: tighten vertical rhythm without changing controls. */
+div[data-testid="stMainBlockContainer"] h3{line-height:1.18!important;margin:.22rem 0 .12rem!important}
+div[data-testid="stMainBlockContainer"] p{line-height:1.38!important;margin-top:.18rem!important;margin-bottom:.32rem!important}
+div[data-testid="stMainBlockContainer"] [data-testid="stMarkdownContainer"]{margin-bottom:0!important}
+div[data-testid="stMainBlockContainer"] [data-testid="stVerticalBlock"]{gap:.48rem!important}
+
 div.st-key-nav_trials button{min-height:2.45rem!important;width:100%!important;font-size:.9rem!important;font-weight:700!important;border-radius:.8rem!important;background:#eee8ff!important;color:#3b237a!important;border:1px solid #ddd2ff!important}
 div.st-key-nav_options button{min-height:2.45rem!important;width:100%!important;font-size:.9rem!important;font-weight:700!important;border-radius:.8rem!important;background:#e8f3ff!important;color:#155ca8!important;border:1px solid #cfe5fb!important}
 div[data-testid="stAlert"]{background:#edf7ef!important;border:0!important;box-shadow:none!important;color:#285b38!important}div[data-testid="stAlert"]>div{background:transparent!important;border:0!important;box-shadow:none!important}div[data-testid="stAlert"] p{color:#285b38!important}
@@ -100,10 +106,10 @@ def markdown(body,*a,**k):
         if body.startswith("### ") and " · " in body:
             confidence,center=body[4:].split(" · ",1);confidence={"Potential broad-treatment trial — prescreening required":"Prescreening required","Trial to review — cancer type not specified":"Trial to review"}.get(confidence,confidence)
             if confidence == "Prescreening required":
-                _orig["markdown"]('<span style="display:inline-block;font-size:.78rem;font-weight:600;color:#6f665f;background:#f3f0ec;padding:.16rem .48rem;border-radius:999px;margin:0 0 .35rem">Prescreening required</span>',unsafe_allow_html=True)
+                _orig["markdown"]('<span style="display:inline-block;font-size:.76rem;font-weight:600;color:#6f665f;background:#f3f0ec;padding:.12rem .44rem;border-radius:999px;margin:0 0 .18rem">Prescreening required</span>',unsafe_allow_html=True)
             else:
                 _orig["markdown"](f"### {confidence}")
-            _orig["markdown"](f'<div style="font-size:1.03rem;font-weight:700;color:#2f6f73;margin:.18rem 0 .48rem">{center}</div>',unsafe_allow_html=True)
+            _orig["markdown"](f'<div style="font-size:1.03rem;line-height:1.18;font-weight:700;color:#2f6f73;margin:.08rem 0 .24rem">{center}</div>',unsafe_allow_html=True)
             return
         if body.startswith("**Study type:**"):return
         if body.startswith("**Why it may fit:**"):return _orig["markdown"]("**Why:** "+body.replace("**Why it may fit:**","",1).strip().rstrip(".")+".")
