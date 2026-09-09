@@ -12,7 +12,7 @@ st.markdown("""<style>
 .nav-title{font-size:1.55rem;line-height:1.08;font-weight:700;margin:.6rem 0 .15rem;color:#55483f}.nav-title .paw{color:#9a6a43;font-family:Arial,sans-serif}.nav-subtitle{font-size:.92rem;color:#6f6a66;margin:0 0 .45rem}
 .beta-corner{display:none}.intro-answer{font-size:.94rem;color:#45414a;margin:.35rem 0 .65rem}
 /* Compact result cards: tighten vertical rhythm without changing controls. */
-div[data-testid="stMainBlockContainer"] h3{line-height:1.18!important;margin:.22rem 0 .12rem!important}
+div[data-testid="stMainBlockContainer"] h3{font-size:1rem!important;line-height:1.16!important;margin:.12rem 0 .08rem!important}
 div[data-testid="stMainBlockContainer"] p{line-height:1.38!important;margin-top:.18rem!important;margin-bottom:.32rem!important}
 div[data-testid="stMainBlockContainer"] [data-testid="stMarkdownContainer"]{margin-bottom:0!important}
 div[data-testid="stMainBlockContainer"] [data-testid="stVerticalBlock"]{gap:.48rem!important}
@@ -106,10 +106,10 @@ def markdown(body,*a,**k):
         if body.startswith("### ") and " · " in body:
             confidence,center=body[4:].split(" · ",1);confidence={"Potential broad-treatment trial — prescreening required":"Prescreening required","Trial to review — cancer type not specified":"Trial to review"}.get(confidence,confidence)
             if confidence == "Prescreening required":
-                _orig["markdown"]('<span style="display:inline-block;font-size:.76rem;font-weight:600;color:#6f665f;background:#f3f0ec;padding:.12rem .44rem;border-radius:999px;margin:0 0 .18rem">Prescreening required</span>',unsafe_allow_html=True)
+                _orig["markdown"]('<span style="display:inline-block;font-size:.76rem;font-weight:600;color:#6f665f;background:#f3f0ec;padding:.12rem .44rem;border-radius:999px;margin:0 0 .12rem">Prescreening required</span>',unsafe_allow_html=True)
             else:
-                _orig["markdown"](f"### {confidence}")
-            _orig["markdown"](f'<div style="font-size:1.03rem;line-height:1.18;font-weight:700;color:#2f6f73;margin:.08rem 0 .24rem">{center}</div>',unsafe_allow_html=True)
+                _orig["markdown"](f'<div style="font-size:.82rem;line-height:1.1;font-weight:650;color:#6f665f;margin:0 0 .12rem">{confidence}</div>',unsafe_allow_html=True)
+            _orig["markdown"](f'<div style="font-size:1.03rem;line-height:1.16;font-weight:700;color:#2f6f73;margin:.04rem 0 .18rem">{center}</div>',unsafe_allow_html=True)
             return
         if body.startswith("**Study type:**"):return
         if body.startswith("**Why it may fit:**"):return _orig["markdown"]("**Why:** "+body.replace("**Why it may fit:**","",1).strip().rstrip(".")+".")
