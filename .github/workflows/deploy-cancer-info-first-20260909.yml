@@ -1,0 +1,63 @@
+name: Deploy cancer pages info first 2026-09-09
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/deploy-cancer-info-first-20260909.yml'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Put cancer information before availability
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import sys
+          sys.path.insert(0,'seo')
+          from cancer_page_enhancements import enhance_cancer_pages
+          root=Path('seo/site')
+          enhance_cancer_pages(root)
+          pages=[]
+          for region in ('north-america','uk-europe'):
+            for species in ('dogs','cats'):
+              pages += list((root/region/species).glob('*/index.html'))
+          assert len(pages) >= 88, len(pages)
+          for p in pages:
+            s=p.read_text(errors='replace')
+            a=s.find('<section class="disease">')
+            b=s.find('<div class="cancer-summary">')
+            assert a >= 0 and b >= 0 and a < b, (p,a,b)
+            assert 'How it is usually treated' in s,p
+            assert 'What can affect treatment choices' in s,p
+          print('INFO_FIRST_OK',len(pages))
+          PY
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: seo/site
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
