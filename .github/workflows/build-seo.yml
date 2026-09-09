@@ -10,6 +10,7 @@ on:
       - 'data/catalog_patch_*.json'
       - 'seo/generate_seo.py'
       - 'seo/generate_seo_strict.py'
+      - 'seo/generate_cancer_coverage.py'
       - 'seo/address_preflight_report.py'
       - 'seo/center_directory.py'
       - 'seo/center_profiles.py'
@@ -40,6 +41,7 @@ jobs:
       - name: Generate SEO site
         run: |
           python seo/generate_seo_strict.py
+          python seo/generate_cancer_coverage.py
           python seo/ensure_center_images.py
       - name: Include static files
         run: cp -a seo/static/. seo/site/
@@ -53,6 +55,7 @@ jobs:
           pages=list(Path('seo/site').rglob('index.html'))
           centers=list(Path('seo/site/centers').glob('*/index.html'))
           assert len(pages)>=40 and centers
+          assert Path('seo/site/cancer-coverage/index.html').exists()
           generic=('About this veterinary cancer research center','currently has veterinary cancer treatment or research opportunities represented in our catalog')
           for p in pages:
             s=p.read_text(errors='replace')
@@ -94,6 +97,7 @@ jobs:
       - name: Rebuild expected center pages
         run: |
           python seo/generate_seo_strict.py
+          python seo/generate_cancer_coverage.py
           python seo/ensure_center_images.py
       - name: Verify every live center page against rebuilt output
         run: |
