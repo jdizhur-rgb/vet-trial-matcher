@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-"""Single owner-facing SEO rendering layer."""
+"""Single owner-facing SEO rendering layer with catalog-wide location preflight."""
 from __future__ import annotations
 import html,json,re
-from pathlib import Path
 import generate_seo as g
 from center_profiles import PROFILES
 from center_profiles_extra import EXTRA_PROFILES
-from center_directory import LOCATIONS, address_for
+from center_directory import LOCATIONS, address_for, address_is_complete, normalize
 PROFILES.update(EXTRA_PROFILES)
 CURRENT={'current','confirmed_current'}
+
 
 def merge(old,patch):
     new=dict(old)
@@ -17,6 +17,7 @@ def merge(old,patch):
             x=dict(new.get(k,{}) if isinstance(new.get(k),dict) else {});x.update(v);new[k]=x
         else:new[k]=v
     return new
+
 
 def load_effective():
     base=json.loads((g.ROOT/'data'/'trials_base.json').read_text());rows={r['id']:r for r in base}
@@ -28,6 +29,7 @@ def load_effective():
         for p in doc.get('upsert',[]):rows[p['id']]=merge(rows.get(p['id'],{}),p)
     return [r for r in rows.values() if r.get('study_type')=='treatment' and r.get('available_for_matching') is True and r.get('status_confidence') in CURRENT]
 g.load_effective=load_effective
+
 
 def phrase(needle,text):
     needle=g.norm(needle);text=g.norm(text);return bool(needle and re.search(r'(?<![a-z0-9])'+re.escape(needle)+r'(?![a-z0-9])',text))
@@ -42,36 +44,96 @@ def cancer_values(r):
 def row_cancers(r):return {x for x in (canonical_cancer(v) for v in cancer_values(r)) if x}
 g.canonical_cancer=canonical_cancer;g.row_cancers=row_cancers
 
-def full_address(s):return bool(re.search(r'\d',s or '') and re.search(r'\b[A-Z]{2}\s+\d{5}(?:-\d{4})?\b',s or ''))
-def site_active(s):return isinstance(s,dict) and s.get('available_for_matching') is not False and not any(x in g.norm(s.get('status','')) for x in ('not enrolling','enrollment closed','closed','paused'))
-def site_label(s):
+
+def site_active(s):
+    return isinstance(s,dict) and s.get('available_for_matching') is not False and not any(x in g.norm(s.get('status','')) for x in ('not enrolling','enrollment closed','closed','paused'))
+
+
+def embedded_address(obj,country=''):
+    a=str(obj.get('address') or '').strip();city=str(obj.get('city') or '').strip();state=str(obj.get('state') or '').strip();z=str(obj.get('zip') or obj.get('zipcode') or obj.get('postal_code') or '').strip()
+    candidates=[]
+    if a:candidates.append(a)
+    if a and city:
+        tail=', '.join(x for x in (city,state) if x)
+        if z:tail=(tail+' '+z).strip()
+        candidates.append(f'{a}, {tail}')
+    for detail in reversed(candidates):
+        if address_is_complete(detail,country):return detail
+    return ''
+
+
+def site_label(s,country=''):
     name=str(s.get('hospital') or s.get('name') or '').strip()
     known=address_for(name)
-    if known:return known
-    a=str(s.get('address') or '').strip();city=str(s.get('city') or '').strip();state=str(s.get('state') or '').strip();z=str(s.get('zip') or s.get('zipcode') or '').strip()
-    if full_address(a):detail=a
-    elif a and re.search(r'\d',a) and city and state and z:detail=f'{a}, {city}, {state} {z}'
-    else:return ''
-    return f'{name}, {detail}' if name and g.norm(name) not in g.norm(detail) else detail
+    if known and address_is_complete(known,country):return known
+    detail=embedded_address(s,country)
+    if not detail:return ''
+    return f'{name}, {detail}' if name and normalize(name) not in normalize(detail) else detail
+
 
 def row_locations(r):
-    vals=[];active=[]
+    country=str(r.get('country') or '')
+    vals=[]
     for s in r.get('sites',[]) if isinstance(r.get('sites'),list) else []:
         if site_active(s):
-            active.append(s);x=site_label(s)
+            x=site_label(s,country)
             if x:vals.append(x)
-    if active and len(vals)!=len(active):
-        missing=[str(s.get('hospital') or s.get('name') or '?') for s in active if not site_label(s)]
-        raise AssertionError(f'Missing participating-site address for {r.get("id")}: {missing}')
     if not vals:
         known=address_for(r.get('center',''))
-        if known:vals.append(known)
-    if not vals and full_address(str(r.get('address') or '')):vals.append(str(r['address']))
+        if known and address_is_complete(known,country):vals.append(known)
+    if not vals:
+        own=embedded_address(r,country)
+        if own:vals.append(own)
     out=[];seen=set()
     for x in vals:
-        k=g.norm(x)
+        k=normalize(x)
         if k not in seen:seen.add(k);out.append(x)
     return out
+
+
+def region_for(country):
+    c=normalize(country)
+    if c in {'usa','united states','united states of america','canada','mexico'}:return 'North America'
+    if c in {'uk','united kingdom','england','scotland','wales','ireland','france','germany','italy','spain','portugal','belgium','netherlands','switzerland','austria','poland','czechia','denmark','sweden','norway','finland','hungary','slovenia','cyprus'}:return 'UK / Europe'
+    return str(country or 'Other')
+
+
+def institution_like(name):
+    n=normalize(name)
+    return any(x in n for x in ('university','college','school of veterinary','teaching hospital','animal medical center'))
+
+
+def preflight(rows):
+    missing_sites=[];missing_centers=[];seen_sites=set();seen_centers=set();covered_sites=0
+    for r in rows:
+        rid=str(r.get('id') or '?');country=str(r.get('country') or '');center=str(r.get('center') or '').strip()
+        if center:
+            ck=(normalize(center),normalize(country))
+            if ck not in seen_centers:
+                seen_centers.add(ck)
+                addr=address_for(center) or embedded_address(r,country)
+                if institution_like(center) and not address_is_complete(addr,country):
+                    missing_centers.append({'name':center,'country':country,'region':region_for(country),'trial_id':rid})
+        for s in r.get('sites',[]) if isinstance(r.get('sites'),list) else []:
+            if not site_active(s):continue
+            name=str(s.get('hospital') or s.get('name') or '').strip() or '(unnamed site)'
+            sk=(normalize(name),normalize(country))
+            if sk in seen_sites:continue
+            seen_sites.add(sk)
+            if site_label(s,country):covered_sites+=1
+            else:missing_sites.append({'name':name,'country':country,'region':region_for(country),'trial_id':rid})
+    report={
+        'effective_treatment_records':len(rows),
+        'directory_locations':len(LOCATIONS),
+        'unique_centers':len(seen_centers),
+        'unique_active_sites':len(seen_sites),
+        'covered_active_sites':covered_sites,
+        'missing_center_addresses':missing_centers,
+        'missing_participating_site_addresses':missing_sites,
+    }
+    print('ADDRESS_PREFLIGHT',json.dumps({'centers':len(seen_centers),'sites':len(seen_sites),'missing_centers':len(missing_centers),'missing_sites':len(missing_sites)},sort_keys=True))
+    return report
+
 
 def cards(rows):
     out=[]
@@ -101,18 +163,20 @@ def page(title,desc,body,canonical,lang='en',alts=None):
 g.page=page
 
 CENTER_RULES=(
-('Colorado State University Flint Animal Cancer Center',('colorado state university','flint animal cancer center')),('University of Florida College of Veterinary Medicine',('university of florida',)),('Michigan State University College of Veterinary Medicine',('michigan state university',)),('Auburn University College of Veterinary Medicine',('auburn university',)),('University of Pennsylvania School of Veterinary Medicine',('university of pennsylvania','penn vet')),('Tufts University Cummings School of Veterinary Medicine',('tufts university','tufts cummings')),('NC State College of Veterinary Medicine',('nc state','north carolina state university')),('University of Missouri College of Veterinary Medicine',('university of missouri',)),('University of Illinois College of Veterinary Medicine',('university of illinois',)),('Purdue University College of Veterinary Medicine',('purdue university',)),('Cornell University College of Veterinary Medicine',('cornell university',)),('University of Minnesota College of Veterinary Medicine',('university of minnesota',)),('Ohio State University College of Veterinary Medicine',('ohio state university','the ohio state university')),('Texas A&M School of Veterinary Medicine',('texas a&m','texas a and m')),('Louisiana State University School of Veterinary Medicine',('louisiana state university','lsu')),('University of Georgia College of Veterinary Medicine',('university of georgia',)),('Washington State University College of Veterinary Medicine',('washington state university',)),('UC Davis Veterinary Center for Clinical Trials',('uc davis veterinary center for clinical trials','uc davavis veterinary medical teaching hospital','uc davis')),('Aurelius Biotherapeutics',('aurelius biotherapeutics',)),('Ethos Veterinary Health / Ethos Discovery',('ethos veterinary health','ethos discovery')),('Colorado Animal Specialty & Emergency (CASE)',('colorado animal specialty','case / ethos discovery')),('Johns Hopkins Center for Image-Guided Animal Therapy (CIGAT)',('johns hopkins center for image-guided animal therapy',)),('SAGE Veterinary Centers',('sage san francisco','sage veterinary')),
+('Colorado State University Flint Animal Cancer Center',('colorado state university','flint animal cancer center')),('University of Florida College of Veterinary Medicine',('university of florida',)),('Michigan State University College of Veterinary Medicine',('michigan state university',)),('Auburn University College of Veterinary Medicine',('auburn university',)),('University of Pennsylvania School of Veterinary Medicine',('university of pennsylvania','penn vet')),('Tufts University Cummings School of Veterinary Medicine',('tufts university','tufts cummings')),('NC State College of Veterinary Medicine',('nc state','north carolina state university')),('University of Missouri College of Veterinary Medicine',('university of missouri',)),('University of Illinois College of Veterinary Medicine',('university of illinois',)),('Purdue University College of Veterinary Medicine',('purdue university',)),('Cornell University College of Veterinary Medicine',('cornell university',)),('University of Minnesota College of Veterinary Medicine',('university of minnesota',)),('Ohio State University College of Veterinary Medicine',('ohio state university','the ohio state university')),('Texas A&M School of Veterinary Medicine',('texas a&m','texas a and m')),('Louisiana State University School of Veterinary Medicine',('louisiana state university','lsu')),('University of Georgia College of Veterinary Medicine',('university of georgia',)),('Washington State University College of Veterinary Medicine',('washington state university',)),('UC Davis Veterinary Center for Clinical Trials',('uc davis veterinary center for clinical trials','uc davis veterinary medical teaching hospital','uc davis')),('Aurelius Biotherapeutics',('aurelius biotherapeutics',)),('Ethos Veterinary Health / Ethos Discovery',('ethos veterinary health','ethos discovery')),('Colorado Animal Specialty & Emergency (CASE)',('colorado animal specialty','case / ethos discovery')),('Johns Hopkins Center for Image-Guided Animal Therapy (CIGAT)',('johns hopkins center for image-guided animal therapy',)),('SAGE Veterinary Centers',('sage san francisco','sage veterinary')),
 )
 def canonical_center(v):
-    raw=str(v or '').strip();text=g.norm(raw)
+    raw=str(v or '').strip();text=normalize(raw)
     for name,aliases in CENTER_RULES:
-        if any(g.norm(a) in text for a in aliases):return name
+        if any(normalize(a) in text for a in aliases):return name
     return re.sub(r'\s+',' ',raw) if raw else None
+
 
 def profile(center):
     p=PROFILES.get(center)
     if p:return p
     return {'title':f'About {center}','about':f'{center} is involved in companion-animal cancer treatment or clinical research. Current opportunities are listed below with study-specific eligibility, contacts and participating locations.','links':[]}
+
 
 def overview(center):
     p=profile(center);fig=''
@@ -121,14 +185,27 @@ def overview(center):
     research=f'<p>{g.esc(p["research"])}</p>' if p.get('research') else ''
     return f'<div class="center-overview"><h2>{g.esc(p["title"])}</h2>{fig}<p>{g.esc(p["about"])}</p>{research}'+(f'<p>{links}</p>' if links else '')+'</div>'
 
+
 def add(grouped,name,row):
     name=canonical_center(name)
     if not name:return
     b=grouped.setdefault(name,[])
     if not any(x.get('id')==row.get('id') for x in b):b.append(row)
 
-def generate_centers():
-    rows=[r for r in g.load_effective() if r.get('country')=='USA' and str(r.get('center','')).strip()];grouped={}
+
+def center_page_address(center,hit):
+    country=str(hit[0].get('country') or '') if hit else ''
+    known=address_for(center)
+    if known and address_is_complete(known,country):return known
+    for r in hit:
+        if canonical_center(r.get('center'))==center:
+            own=embedded_address(r,str(r.get('country') or ''))
+            if own:return own
+    return ''
+
+
+def generate_centers(rows):
+    rows=[r for r in rows if str(r.get('center','')).strip()];grouped={}
     for r in rows:
         add(grouped,r.get('center'),r)
         for s in r.get('sites',[]) if isinstance(r.get('sites'),list) else []:
@@ -138,7 +215,7 @@ def generate_centers():
         slug=g.slugify(center.replace('College of Veterinary Medicine','').replace('School of Veterinary Medicine','')) or 'research-center'
         if slug in used and used[slug]!=center:slug=g.slugify(center)
         used[slug]=center;path=f'centers/{slug}/';url=f'{g.SITE}/{path}';cancers=sorted({c for r in hit for c in row_cancers(r)});ct=', '.join(g.display_name(c) for c in cancers) or 'multiple cancer types'
-        addr=address_for(center);address_html=f'<div class="center-address"><strong>Location</strong><br>{g.esc(addr)}</div>' if addr else ''
+        addr=center_page_address(center,hit);address_html=f'<div class="center-address"><strong>Location</strong><br>{g.esc(addr)}</div>' if addr else ''
         body='<div class="center-page">'+f'<h1>{g.esc(center)}</h1>'+overview(center)+address_html+f'<p>Current opportunities here include research or treatment options for <strong>{g.esc(ct)}</strong>.</p><p><a class="cta" href="{g.FINDER}">Find cancer treatment options near you</a></p><p class="free-note">100% free. No registration, hidden results or paid report.</p><h2>Cancer treatment &amp; research options</h2>'+g.cards(hit)+'</div>'
         desc=f'Dog and cat cancer treatment options, research studies and clinical trials at {center}.'
         d=g.OUT/path;d.mkdir(parents=True,exist_ok=True);(d/'index.html').write_text(g.page(center,desc,body,url),encoding='utf-8');links.append(url);items.append((center,path,len(hit)))
@@ -147,15 +224,22 @@ def generate_centers():
     sm=g.OUT/'sitemap.xml';s=sm.read_text();sm.write_text(s.replace('</urlset>',''.join(f'<url><loc>{g.esc(u)}</loc></url>\n' for u in [iu]+links)+'</urlset>'))
     print('CENTER_PAGES_OK',len(grouped))
 
-def audit():
+
+def audit(report):
     pages=list(g.OUT.rglob('index.html'));assert pages
+    invalid=[]
     for p in pages:
         s=p.read_text(errors='replace')
         for block in re.findall(r'<div class="study-locations">.*?</div>',s,re.S):
             for item in re.findall(r'<li>(.*?)</li>',block,re.S):
-                text=html.unescape(re.sub(r'<.*?>','',item));assert full_address(text),(p,text)
-    (g.OUT/'mapping-audit.json').write_text(json.dumps({'effective_treatment_records':len(g.load_effective()),'directory_locations':len(LOCATIONS)},indent=2))
+                text=html.unescape(re.sub(r'<.*?>','',item))
+                if not address_is_complete(text,''):invalid.append({'page':str(p.relative_to(g.OUT)),'location':text})
+    report['invalid_rendered_locations']=invalid
+    (g.OUT/'mapping-audit.json').write_text(json.dumps(report,indent=2,ensure_ascii=False),encoding='utf-8')
+    assert not invalid,invalid[:10]
+
 
 def main():
-    g.main();generate_centers();audit()
+    rows=g.load_effective();report=preflight(rows)
+    g.main();generate_centers(rows);audit(report)
 if __name__=='__main__':main()
