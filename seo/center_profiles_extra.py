@@ -11,7 +11,6 @@ EXTRA_PROFILES = {
     "Virginia-Maryland College of Veterinary Medicine / Virginia Tech": {"title":"About Virginia Tech Veterinary Clinical Research","about":"Virginia Tech's Veterinary Clinical Research Office facilitates clinical trials and translational studies at the Virginia-Maryland College of Veterinary Medicine and Veterinary Teaching Hospital, including oncology research for companion animals.","research":"The program lists oncology among its research specialties and works with veterinary investigators, research staff, sponsors and pet owners to test new approaches to diagnosis and treatment.","links":[("Virginia Tech veterinary clinical trials","https://research.vetmed.vt.edu/clinical-trials.html")]},
 }
 
-# Exact site-name variants that occur in the treatment catalog.
 _ALIASES = {
     "UT Southwestern Veterinary Research & Oncology Clinic": "UT Southwestern Veterinary Research and Oncology Clinic",
     "UT Southwestern Veterinary Research and Oncology Clinic": "UT Southwestern Veterinary Research and Oncology Clinic",
@@ -24,6 +23,3 @@ _ALIASES = {
 }
 for _alias, _target in _ALIASES.items():
     EXTRA_PROFILES[_alias] = EXTRA_PROFILES[_target]
-
-# Populate/copy official center imagery before generate_seo_strict merges profiles.
-import center_image_localizer  # noqa: E402,F401
