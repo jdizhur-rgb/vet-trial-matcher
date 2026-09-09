@@ -1,6 +1,6 @@
 """Verified official imagery for owner-facing center pages.
 
-Python imports usercustomize after sitecustomize, before the SEO generator runs.  Keep
+Python imports usercustomize after sitecustomize, before the SEO generator runs. Keep
 image ownership here instead of mixing presentation URLs into trial records.
 """
 from center_profiles import PROFILES
@@ -23,8 +23,8 @@ IMAGES = {
         "image_caption": "Photo: University of Florida College of Veterinary Medicine.",
     },
     "University of Illinois College of Veterinary Medicine": {
-        "image": "https://vetmed.illinois.edu/wp-content/uploads/2021/04/OncoTrial_feature.jpg",
-        "image_alt": "Veterinary oncology team with a dog at the University of Illinois",
+        "image": "https://vetmed.illinois.edu/wp-content/uploads/2021/04/pc-radiation-selting.jpg",
+        "image_alt": "Dog receiving veterinary cancer care at the University of Illinois",
         "image_caption": "Photo: University of Illinois College of Veterinary Medicine.",
     },
     "Cornell University College of Veterinary Medicine": {
