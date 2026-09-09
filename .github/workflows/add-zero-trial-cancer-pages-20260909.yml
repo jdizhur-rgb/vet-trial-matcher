@@ -17,6 +17,10 @@ jobs:
           from pathlib import Path
           p=Path('seo/generate_seo.py')
           s=p.read_text()
+          old_cancers="cancers=sorted({c for r in rows for c in row_cancers(r)})"
+          new_cancers="cancers=sorted(DISEASE_INFO)"
+          assert old_cancers in s, 'expected catalog-derived cancer list not found'
+          s=s.replace(old_cancers,new_cancers,1)
           old='    if not hit: continue\n    label=display_name(key); slug=slugify(key)'
           new='    label=display_name(key); slug=slugify(key)'
           assert old in s, 'expected zero-trial skip not found'
