@@ -14,6 +14,7 @@ on:
       - 'seo/usercustomize.py'
       - 'seo/center_profiles.py'
       - 'seo/center_profiles_extra.py'
+      - 'seo/ensure_center_images.py'
       - 'seo/static/**'
       - '.github/workflows/build-seo.yml'
 
@@ -35,7 +36,9 @@ jobs:
         with:
           python-version: '3.12'
       - name: Generate all SEO pages
-        run: python seo/generate_seo_strict.py
+        run: |
+          python seo/generate_seo_strict.py
+          python seo/ensure_center_images.py
       - name: Include static files
         run: cp -a seo/static/. seo/site/
       - name: Validate rebuilt diagnosis and center pages
@@ -67,11 +70,14 @@ jobs:
           centers=list(Path('seo/site/centers').glob('*/index.html')); assert centers
           for p in centers:
             s=p.read_text(errors='replace'); assert 'Find cancer treatment options near you' in s,p
+            overview=re.search(r'<div class="center-overview"[^>]*>.*?</div>',s,re.S); assert overview and '<img ' in overview.group(0),(p,'center image missing')
             for section in re.findall(r'<section class="center-locations">.*?</section>',s,re.S): assert section.count('<li>')<=1,(p,'network-wide location rollup survived')
+          fallback=Path('seo/site/images/centers/center-fallback.jpg')
+          if any('center-fallback.jpg' in p.read_text(errors='replace') for p in centers): assert fallback.exists() and fallback.stat().st_size>5000
           ethos=next((p for p in centers if 'ethos' in p.parent.name),None)
           if ethos:
             s=ethos.read_text(errors='replace'); assert 'Locations &amp; participating hospitals' not in s; assert 'What is being offered:' in s
-          print(f"VALID_ALL pages={len(pages)} centers={len(centers)}")
+          print(f"VALID_ALL pages={len(pages)} centers={len(centers)} center_images={len(centers)}")
           PY
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
@@ -96,7 +102,9 @@ jobs:
         with:
           python-version: '3.12'
       - name: Rebuild pages for live verification
-        run: python seo/generate_seo_strict.py
+        run: |
+          python seo/generate_seo_strict.py
+          python seo/ensure_center_images.py
       - name: Verify every live page matches rebuilt structure
         run: |
           python - <<'PY'
@@ -122,6 +130,12 @@ jobs:
             assert 'Cancer Trial Finder For Dogs And Cats' in text,path; assert titles(text)==titles(expected),path; assert_full_locations(text,path)
             if path.startswith('centers/') and path!='centers/':
               assert 'Find cancer treatment options near you' in text,path
+              overview=re.search(r'<div class="center-overview"[^>]*>.*?</div>',text,re.S); assert overview and '<img ' in overview.group(0),(path,'live center image missing')
+              for src in re.findall(r'<img[^>]+src="([^"]+)"',overview.group(0)):
+                if src.startswith('/vet-trial-matcher/'):
+                  image_url='https://jdizhur-rgb.github.io'+src
+                  with urllib.request.urlopen(urllib.request.Request(image_url,headers={'User-Agent':'Mozilla/5.0'}),timeout=20) as r:
+                    assert r.status==200 and (r.headers.get_content_type() or '').startswith('image/'),(path,src)
               for section in re.findall(r'<section class="center-locations">.*?</section>',text,re.S): assert section.count('<li>')<=1,(path,'live network rollup')
               if 'ethos' in path: assert 'Locations &amp; participating hospitals' not in text and 'What is being offered:' in text,path
             print('LIVE_OK',path or '/',len(titles(text)),'cards')
