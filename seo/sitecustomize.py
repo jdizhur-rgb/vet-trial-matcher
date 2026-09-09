@@ -1,9 +1,36 @@
 """Owner-facing SEO presentation and study-specific participating locations."""
 import re
+import json
 import generate_seo as g
 
 _original_cards=g.cards
 _original_page=g.page
+
+# Keep SEO generation on the same effective catalog semantics as the live matcher:
+# base + trial_updates + every catalog_patch_*.json, with deletes/upserts applied,
+# and only currently matchable treatment records exposed as "current".
+_CURRENT_STATUS_CONFIDENCE={'current','confirmed_current'}
+def _merge_catalog_record(old,patch):
+ new=dict(old)
+ for key,value in patch.items():
+  if key in {'requires','excludes'} and isinstance(value,dict):
+   nested=dict(new.get(key,{}) if isinstance(new.get(key),dict) else {})
+   nested.update(value); new[key]=nested
+  else:
+   new[key]=value
+ return new
+def _live_effective_catalog():
+ root=g.ROOT
+ base=json.loads((root/'data'/'trials_base.json').read_text())
+ rows={r['id']:r for r in base}
+ patch_paths=[root/'data'/'trial_updates.json']+sorted((root/'data').glob('catalog_patch_*.json'))
+ for path in patch_paths:
+  if not path.exists(): continue
+  doc=json.loads(path.read_text())
+  for rid in doc.get('delete',[]): rows.pop(rid,None)
+  for patch in doc.get('upsert',[]): rows[patch['id']]=_merge_catalog_record(rows.get(patch['id'],{}),patch)
+ return [r for r in rows.values() if r.get('study_type')=='treatment' and r.get('available_for_matching') is True and r.get('status_confidence') in _CURRENT_STATUS_CONFIDENCE]
+g.load_effective=_live_effective_catalog
 
 # Verified study-specific fallbacks for multicenter/network studies whose source row
 # does not yet carry structured `sites`. Never use a network-wide hospital rollup.
