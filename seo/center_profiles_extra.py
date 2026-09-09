@@ -24,3 +24,6 @@ _ALIASES = {
 }
 for _alias, _target in _ALIASES.items():
     EXTRA_PROFILES[_alias] = EXTRA_PROFILES[_target]
+
+# Populate/copy official center imagery before generate_seo_strict merges profiles.
+import center_image_localizer  # noqa: E402,F401
