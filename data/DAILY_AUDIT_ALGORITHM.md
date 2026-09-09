@@ -17,8 +17,11 @@ This checklist is mandatory for every daily catalog update.
 
 - **AVMA Veterinary Clinical Trials Registry (veterinaryclinicaltrials.org) is a mandatory discovery and reconciliation source for U.S. veterinary oncology trials.** Check newly surfaced registry studies during daily discovery when they have a reliable new/updated date, and perform a full oncology reconciliation against the registry during the weekly deep/control audit.
 - Treat the AVMA registry as a discovery/structured-detail source, not as sufficient proof of current recruitment by itself. For every AVMA lead, verify current recruitment/access against the sponsoring university, hospital, investigator or study page whenever a current primary source is available.
-- Use AVMA structured fields to enrich existing canonical records when verified, especially funding/owner-cost range, investigator, intervention and participation details. Do not create a duplicate merely because the AVMA title differs from the canonical catalog title.
-- If AVMA lists a study but the current sponsor/institution source no longer lists it as open, do not expose it to matching; retain it on the watchlist/inactive history until recruitment is reconfirmed.
+- **MANDATORY PROTOCOL-LEVEL CHECK:** follow a lead to the individual study/protocol page whenever one exists. Verify that the page describes the same intervention/protocol, not merely the same cancer, investigator or institution. Read the study-level status, eligibility, funding/support, contacts and recruitment timeline before classifying it.
+- An institutional trial index is navigation evidence, not definitive negative evidence. **Absence from a general university/hospital/center trial list is not proof that a study is closed.** Before moving a registry-listed study to inactive/watchlist for this reason, check the individual study page, PI/investigator page and current registry record; if those conflict, record the conflict rather than infer closure.
+- Conversely, an individual page for a different protocol in the same cancer must never be used to confirm another protocol. Match identity by intervention, investigator/sponsor, disease population and eligibility, not by a generic page title such as “Osteosarcoma Clinical Trial.”
+- Use AVMA structured fields to enrich existing canonical records when verified, especially recruitment start/end dates, funding/owner-cost range, investigator, intervention and participation details. Do not create a duplicate merely because the AVMA title differs from the canonical catalog title.
+- If current protocol-level sources conflict and current recruitment cannot be established for the exact study, do not expose it to matching; retain it on the watchlist/inactive history with the conflicting evidence recorded until recruitment is reconfirmed.
 
 ## Catalog structure — read this before editing
 
@@ -37,14 +40,14 @@ This checklist is mandatory for every daily catalog update.
    - Include the AVMA Veterinary Clinical Trials Registry under the required registry/source rules above.
    - Complete center-wide reconciliation is part of the weekly deep/control audit. When a new daily publication points to a center/protocol, inspect the relevant individual protocol and primary source immediately.
 3. Apply the treatment-scope filter. Keep true anticancer treatment opportunities in treatment matching; classify treatment-access/support programs separately; do not promote observational/diagnostic/sample-only/supportive/prevention-only research into treatment matching.
-4. Verify recruitment/access from a primary source. If recruitment or protocol details are insufficient, keep the lead on the watchlist rather than matching it.
+4. Verify recruitment/access from a protocol-level primary source whenever available. If recruitment or protocol details are insufficient or conflicting, keep the lead on the watchlist rather than matching it.
 5. Normalize disease labels, species, geography, treatment modality and source URLs.
 6. **MANDATORY PRE-MERGE DEDUPLICATION:** compare every proposed new/upserted record against the full effective catalog: base + legacy updates + all approved modular catalog patches, after applying the same merge/delete semantics as the live loader.
    - Check exact ID and normalized URL matches.
    - Check semantic similarity of protocol title/intervention, cancer, species, center/investigator and eligibility.
    - Treat different source URLs or different IDs as possible representations of the same protocol.
    - A shared hospital/center index URL is **not** evidence of duplication by itself.
-   - Similar titles for different interventions are **not** duplicates (for example, separate glioma protocols using CAR-neutrophils vs ferumoxytol).
+   - Similar titles for different interventions are **not** duplicates.
    - When the same protocol appears through multiple sources, keep one canonical record and merge the freshest verified details/primary source into it.
    - Ambiguous candidate pairs require review; never auto-delete on similarity score alone.
    - **Never create a new record merely because GitHub code search, filename search, or a single catalog component returns no match. Absence must be established against the constructed effective catalog.**
@@ -57,7 +60,7 @@ This checklist is mandatory for every daily catalog update.
 
 ## Weekly deep/control audit
 
-Once per week, perform a broader control pass independent of publication date. Recheck existing catalog records and institutional indexes against current primary sources; detect closures, pauses, recruitment/status changes, eligibility/contact/funding changes, silently edited or undated pages, late-indexed discoveries, stale records and historical gaps. **Reconcile the complete current AVMA Veterinary Clinical Trials Registry oncology set against the effective catalog, classifying each registry record as canonical match, genuinely new candidate, status/detail mismatch, or stale/unconfirmed registry entry.** This weekly pass is the safety net for anything that cannot reliably be discovered through the preceding-day publication filter.
+Once per week, perform a broader control pass independent of publication date. Recheck existing catalog records and institutional indexes against current primary sources; detect closures, pauses, recruitment/status changes, eligibility/contact/funding changes, silently edited or undated pages, late-indexed discoveries, stale records and historical gaps. **Reconcile the complete current AVMA Veterinary Clinical Trials Registry oncology set against the effective catalog, classifying each registry record as canonical match, genuinely new candidate, status/detail mismatch, or stale/unconfirmed registry entry. For each candidate or mismatch, drill down to the individual study/protocol page before changing live status.** This weekly pass is the safety net for anything that cannot reliably be discovered through the preceding-day publication filter.
 
 ## Non-negotiable dedup rule
 
