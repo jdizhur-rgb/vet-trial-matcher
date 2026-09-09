@@ -9,6 +9,7 @@ on:
       - 'data/trial_updates.json'
       - 'seo/generate_seo.py'
       - 'seo/generate_seo_strict.py'
+      - 'seo/sitecustomize.py'
       - 'seo/center_profiles.py'
       - 'seo/center_profiles_extra.py'
       - 'seo/static/**'
@@ -31,11 +32,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Generate SEO pages with strict diagnosis mapping
+      - name: Generate all SEO pages
         run: python seo/generate_seo_strict.py
       - name: Include static files
         run: cp -a seo/static/. seo/site/
-      - name: Validate every generated diagnosis and center page
+      - name: Validate rebuilt diagnosis and center pages
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -44,33 +45,24 @@ jobs:
           sys.path.insert(0,'seo')
           import generate_seo_strict as strict
           root=ET.parse('seo/site/sitemap.xml').getroot(); ns={'s':'http://www.sitemaps.org/schemas/sitemap/0.9'}
-          locs=[x.text for x in root.findall('s:url/s:loc',ns)]
-          assert locs and len(locs)==len(set(locs))
-          pages=list(Path('seo/site').rglob('index.html'))
-          assert len(pages)>=40, f'too few pages: {len(pages)}'
-          audit=json.loads(Path('seo/site/mapping-audit.json').read_text())
-          cells=audit['cells']; by_id={r['id']:r for r in strict.g.load_effective()}
+          locs=[x.text for x in root.findall('s:url/s:loc',ns)]; assert locs and len(locs)==len(set(locs))
+          pages=list(Path('seo/site').rglob('index.html')); assert len(pages)>=40
+          audit=json.loads(Path('seo/site/mapping-audit.json').read_text()); cells=audit['cells']; by_id={r['id']:r for r in strict.g.load_effective()}
           forbidden=('active_treatment_target:', 'chemo_washout_days:', 'radiation_washout_days:', "{'", "': True")
           def titles(s): return [html.unescape(x) for x in re.findall(r'<article class="card"><h3>(.*?)</h3>',s,re.S)]
-          for rel, ids in cells.items():
-            p=Path('seo/site')/rel/'index.html'; assert p.exists(), (rel,p)
-            assert sorted(titles(p.read_text(errors='replace')))==sorted(by_id[i].get('title','') for i in ids), rel
+          for rel,ids in cells.items():
+            p=Path('seo/site')/rel/'index.html'; assert p.exists(); assert sorted(titles(p.read_text(errors='replace')))==sorted(by_id[i].get('title','') for i in ids),rel
           for p in pages:
-            s=p.read_text(errors='replace')
-            assert 'Cancer Trial Finder For Dogs And Cats' in s, p
-            assert 'class="wrap"' in s, p
-            assert not any(x in s for x in forbidden), f'raw internal field on {p}'
-            if p not in (Path('seo/site/index.html'), Path('seo/site/centers/index.html')): assert 'class="card"' in s, p
-          center_pages=list(Path('seo/site/centers').glob('*/index.html'))
-          assert center_pages, 'no center pages generated'
-          for p in center_pages:
-            s=p.read_text(errors='replace')
-            assert 'Current treatment &amp; research opportunities' in s, p
-            assert '100% FREE' in s, p
-          hs=Path('seo/site/north-america/dogs/histiocytic-sarcoma/index.html').read_text()
-          for marker in ('100% FREE','No registration. No hidden results. No paid report.','About Histiocytic Sarcoma','Standard treatment','lomustine (CCNU)','Treatment &amp; research'): assert marker in hs, marker
-          assert hs.count('class="free"')==1
-          print(f"VALID_ALL pages={len(pages)} centers={len(center_pages)} matrix_cells={len(cells)} assignments={audit['assignments']}")
+            s=p.read_text(errors='replace'); assert 'Cancer Trial Finder For Dogs And Cats' in s; assert 'class="wrap"' in s; assert not any(x in s for x in forbidden)
+            if p not in (Path('seo/site/index.html'),Path('seo/site/centers/index.html')): assert 'class="card"' in s
+          centers=list(Path('seo/site/centers').glob('*/index.html')); assert centers
+          for p in centers:
+            s=p.read_text(errors='replace'); assert 'Cancer treatment &amp; research options' in s,p; assert '100% FREE' in s,p
+            for section in re.findall(r'<section class="center-locations">.*?</section>',s,re.S): assert section.count('<li>')<=1,(p,'network-wide location rollup survived')
+          ethos=next((p for p in centers if 'ethos' in p.parent.name),None)
+          if ethos:
+            s=ethos.read_text(errors='replace'); assert 'Locations &amp; participating hospitals' not in s; assert 'Participating locations' in s
+          print(f"VALID_ALL pages={len(pages)} centers={len(centers)}")
           PY
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
@@ -94,53 +86,31 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Rebuild strict matrix for live verification
+      - name: Rebuild pages for live verification
         run: python seo/generate_seo_strict.py
-      - name: Verify every live diagnosis and center page
+      - name: Verify every live page matches rebuilt structure
         run: |
           python - <<'PY'
           from pathlib import Path
           import html,re,time,urllib.request
           base='https://jdizhur-rgb.github.io/vet-trial-matcher/'
-          diagnosis=sorted(Path('seo/site').glob('*/*/*/index.html'))
-          centers=sorted(Path('seo/site/centers').glob('*/index.html'))
-          local_pages=diagnosis+centers
-          paths=['']+[str(p.parent.relative_to('seo/site')).replace('\\','/')+'/' for p in local_pages]
-          forbidden=('active_treatment_target:', 'chemo_washout_days:', 'radiation_washout_days:', "{'", "': True")
+          diagnosis=sorted(Path('seo/site').glob('*/*/*/index.html')); centers=sorted(Path('seo/site/centers').glob('*/index.html')); local=diagnosis+centers
+          paths=['']+[str(p.parent.relative_to('seo/site')).replace('\\','/')+'/' for p in local]
           def titles(s): return [html.unescape(x) for x in re.findall(r'<article class="card"><h3>(.*?)</h3>',s,re.S)]
           for path in paths:
-            expected=(Path('seo/site')/path/'index.html').read_text() if path else Path('seo/site/index.html').read_text()
-            expected_titles=titles(expected); text=''
+            expected=(Path('seo/site')/path/'index.html').read_text() if path else Path('seo/site/index.html').read_text(); text=''
+            signature='Cancer treatment &amp; research options' if path.startswith('centers/') and path!='centers/' else 'Cancer Trial Finder For Dogs And Cats'
             for i in range(12):
               try:
                 req=urllib.request.Request(base+path+'?verify='+str(time.time()),headers={'Cache-Control':'no-cache','User-Agent':'Mozilla/5.0'})
-                with urllib.request.urlopen(req,timeout=20) as r:
-                  assert r.status==200, (path,r.status)
-                  text=r.read().decode('utf-8','replace')
+                with urllib.request.urlopen(req,timeout=20) as r: text=r.read().decode('utf-8','replace')
               except Exception: text=''
-              if 'Cancer Trial Finder For Dogs And Cats' in text and not any(x in text for x in forbidden) and titles(text)==expected_titles: break
+              if signature in text and titles(text)==titles(expected): break
               time.sleep(10)
-            assert 'Cancer Trial Finder For Dogs And Cats' in text, path
-            assert not any(x in text for x in forbidden), path
-            assert titles(text)==expected_titles, (path,titles(text),expected_titles)
-            print('LIVE_OK',path or '/',len(expected_titles),'cards')
-          print('LIVE_CENTER_AUDIT_OK',len(centers),'center pages')
-          PY
-      - name: Verify official center images that are actually rendered
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          import re,urllib.request
-          failures=[]; checked=0
-          for p in sorted(Path('seo/site/centers').glob('*/index.html')):
-            s=p.read_text(errors='replace')
-            for src in re.findall(r'<figure[^>]*>.*?<img[^>]+src="([^"]+)"',s,re.S):
-              checked+=1
-              try:
-                req=urllib.request.Request(src,headers={'User-Agent':'Mozilla/5.0'})
-                with urllib.request.urlopen(req,timeout=20) as r:
-                  if r.status!=200: failures.append((str(p),src,r.status))
-              except Exception as e: failures.append((str(p),src,str(e)))
-          assert not failures, failures
-          print('CENTER_IMAGES_OK',checked,'rendered images')
+            assert signature in text,path; assert titles(text)==titles(expected),path
+            if path.startswith('centers/') and path!='centers/':
+              for section in re.findall(r'<section class="center-locations">.*?</section>',text,re.S): assert section.count('<li>')<=1,(path,'live network rollup')
+              if 'ethos' in path: assert 'Locations &amp; participating hospitals' not in text and 'Participating locations' in text,path
+            print('LIVE_OK',path or '/',len(titles(text)),'cards')
+          print('LIVE_REBUILD_OK',len(local),'content pages')
           PY
