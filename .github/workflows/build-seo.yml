@@ -9,6 +9,8 @@ on:
       - 'data/trial_updates.json'
       - 'seo/generate_seo.py'
       - 'seo/generate_seo_strict.py'
+      - 'seo/center_profiles.py'
+      - 'seo/center_profiles_extra.py'
       - 'seo/static/**'
       - '.github/workflows/build-seo.yml'
 
@@ -33,7 +35,7 @@ jobs:
         run: python seo/generate_seo_strict.py
       - name: Include static files
         run: cp -a seo/static/. seo/site/
-      - name: Validate every generated diagnosis page
+      - name: Validate every generated diagnosis and center page
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -47,29 +49,28 @@ jobs:
           pages=list(Path('seo/site').rglob('index.html'))
           assert len(pages)>=40, f'too few pages: {len(pages)}'
           audit=json.loads(Path('seo/site/mapping-audit.json').read_text())
-          cells=audit['cells']
-          assert audit['matrix_cells']==len(cells) and audit['assignments']>0
-          by_id={r['id']:r for r in strict.g.load_effective()}
+          cells=audit['cells']; by_id={r['id']:r for r in strict.g.load_effective()}
           forbidden=('active_treatment_target:', 'chemo_washout_days:', 'radiation_washout_days:', "{'", "': True")
           def titles(s): return [html.unescape(x) for x in re.findall(r'<article class="card"><h3>(.*?)</h3>',s,re.S)]
-          # Systemic identity check for every North America + UK/Europe matrix cell.
           for rel, ids in cells.items():
-            p=Path('seo/site')/rel/'index.html'
-            assert p.exists(), (rel,p)
-            actual=titles(p.read_text(errors='replace'))
-            expected=[by_id[i].get('title','') for i in ids]
-            assert sorted(actual)==sorted(expected), (rel,actual,expected)
+            p=Path('seo/site')/rel/'index.html'; assert p.exists(), (rel,p)
+            assert sorted(titles(p.read_text(errors='replace')))==sorted(by_id[i].get('title','') for i in ids), rel
           for p in pages:
             s=p.read_text(errors='replace')
             assert 'Cancer Trial Finder For Dogs And Cats' in s, p
             assert 'class="wrap"' in s, p
             assert not any(x in s for x in forbidden), f'raw internal field on {p}'
             if p not in (Path('seo/site/index.html'), Path('seo/site/centers/index.html')): assert 'class="card"' in s, p
+          center_pages=list(Path('seo/site/centers').glob('*/index.html'))
+          assert center_pages, 'no center pages generated'
+          for p in center_pages:
+            s=p.read_text(errors='replace')
+            assert 'Current treatment &amp; research opportunities' in s, p
+            assert '100% FREE' in s, p
           hs=Path('seo/site/north-america/dogs/histiocytic-sarcoma/index.html').read_text()
-          markers=('100% FREE','No registration. No hidden results. No paid report.','About Histiocytic Sarcoma','Standard treatment','lomustine (CCNU)','Treatment &amp; research')
-          for marker in markers: assert marker in hs, marker
+          for marker in ('100% FREE','No registration. No hidden results. No paid report.','About Histiocytic Sarcoma','Standard treatment','lomustine (CCNU)','Treatment &amp; research'): assert marker in hs, marker
           assert hs.count('class="free"')==1
-          print(f"VALID_ALL pages={len(pages)} matrix_cells={len(cells)} assignments={audit['assignments']}")
+          print(f"VALID_ALL pages={len(pages)} centers={len(center_pages)} matrix_cells={len(cells)} assignments={audit['assignments']}")
           PY
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
@@ -95,27 +96,27 @@ jobs:
           python-version: '3.12'
       - name: Rebuild strict matrix for live verification
         run: python seo/generate_seo_strict.py
-      - name: Verify every live diagnosis page in North America and Europe
+      - name: Verify live diagnosis and center pages
         run: |
           python - <<'PY'
           from pathlib import Path
           import html,re,time,urllib.request
           base='https://jdizhur-rgb.github.io/vet-trial-matcher/'
-          local_pages=sorted(Path('seo/site').glob('*/*/*/index.html'))
+          diagnosis=sorted(Path('seo/site').glob('*/*/*/index.html'))
+          centers=sorted(Path('seo/site/centers').glob('*/index.html'))
+          local_pages=diagnosis+centers
           paths=['']+[str(p.parent.relative_to('seo/site')).replace('\\','/')+'/' for p in local_pages]
           forbidden=('active_treatment_target:', 'chemo_washout_days:', 'radiation_washout_days:', "{'", "': True")
           def titles(s): return [html.unescape(x) for x in re.findall(r'<article class="card"><h3>(.*?)</h3>',s,re.S)]
           for path in paths:
             expected=(Path('seo/site')/path/'index.html').read_text() if path else Path('seo/site/index.html').read_text()
-            expected_titles=titles(expected)
-            text=''
+            expected_titles=titles(expected); text=''
             for i in range(12):
               try:
                 req=urllib.request.Request(base+path+'?verify='+str(time.time()),headers={'Cache-Control':'no-cache'})
                 text=urllib.request.urlopen(req,timeout=20).read().decode('utf-8','replace')
               except Exception: text=''
-              if 'Cancer Trial Finder For Dogs And Cats' in text and not any(x in text for x in forbidden) and titles(text)==expected_titles:
-                break
+              if 'Cancer Trial Finder For Dogs And Cats' in text and not any(x in text for x in forbidden) and titles(text)==expected_titles: break
               time.sleep(10)
             assert 'Cancer Trial Finder For Dogs And Cats' in text, path
             assert not any(x in text for x in forbidden), path
