@@ -46,15 +46,17 @@ def audit_matrix():
 CENTER_RULES=(
 ('Colorado State University Flint Animal Cancer Center',('colorado state university','flint animal cancer center')),
 ('University of Florida College of Veterinary Medicine',('university of florida',)),('Michigan State University College of Veterinary Medicine',('michigan state university',)),('Auburn University College of Veterinary Medicine',('auburn university',)),('University of Pennsylvania School of Veterinary Medicine',('university of pennsylvania','penn vet')),('Tufts University Cummings School of Veterinary Medicine',('tufts university','tufts cummings')),('NC State College of Veterinary Medicine',('nc state','north carolina state university')),('University of Wisconsin–Madison School of Veterinary Medicine',('university of wisconsin','wisconsin madison')),('University of Missouri College of Veterinary Medicine',('university of missouri',)),('University of Illinois College of Veterinary Medicine',('university of illinois',)),('Purdue University College of Veterinary Medicine',('purdue university',)),('Cornell University College of Veterinary Medicine',('cornell university',)),('University of Minnesota College of Veterinary Medicine',('university of minnesota',)),('Ohio State University College of Veterinary Medicine',('ohio state university','the ohio state university')),('Texas A&M School of Veterinary Medicine',('texas a&m','texas a and m')),('Louisiana State University School of Veterinary Medicine',('louisiana state university','lsu')),('University of Georgia College of Veterinary Medicine',('university of georgia',)),('University of Tennessee College of Veterinary Medicine',('university of tennessee',)),('Washington State University College of Veterinary Medicine',('washington state university',)),('Iowa State University College of Veterinary Medicine',('iowa state university',)),('Kansas State University College of Veterinary Medicine',('kansas state university',)),('Oklahoma State University College of Veterinary Medicine',('oklahoma state university',)),('Oregon State University Carlson College of Veterinary Medicine',('oregon state university',)),('Mississippi State University College of Veterinary Medicine',('mississippi state university',)),
-('Ethos Veterinary Health / Ethos Discovery',('ethos veterinary health','ethos discovery')),
-('Colorado Animal Specialty & Emergency (CASE)',('colorado animal specialty','case / ethos discovery')),
-('UC Davis Veterinary Center for Clinical Trials',('uc davis veterinary center for clinical trials','uc davis veterinary medical teaching hospital','uc davis')),
-('Johns Hopkins Center for Image-Guided Animal Therapy (CIGAT)',('johns hopkins center for image-guided animal therapy',)),
-('Veterinary Referral Center of Central Oregon',('veterinary referral center of central oregon','vrcco')),
-('SAGE Veterinary Centers',('sage san francisco','sage veterinary')),
-('Veterinary Specialty Hospital',('veterinary specialty hospital sorrento valley','veterinary specialty hospital north county')),
+('Ethos Veterinary Health / Ethos Discovery',('ethos veterinary health','ethos discovery')),('Colorado Animal Specialty & Emergency (CASE)',('colorado animal specialty','case / ethos discovery')),('UC Davis Veterinary Center for Clinical Trials',('uc davis veterinary center for clinical trials','uc davis veterinary medical teaching hospital','uc davis')),('Johns Hopkins Center for Image-Guided Animal Therapy (CIGAT)',('johns hopkins center for image-guided animal therapy',)),('Veterinary Referral Center of Central Oregon',('veterinary referral center of central oregon','vrcco')),('SAGE Veterinary Centers',('sage san francisco','sage veterinary')),('Veterinary Specialty Hospital',('veterinary specialty hospital sorrento valley','veterinary specialty hospital north county')),
 )
 CSU_CENTER='Colorado State University Flint Animal Cancer Center'
+KNOWN_LOCATIONS={
+CSU_CENTER:['300 W. Drake Road, Fort Collins, CO 80523'],
+'Colorado Animal Specialty & Emergency (CASE)':['Boulder, CO'],
+'Ethos Veterinary Health / Ethos Discovery':['Boulder, CO','Woburn, MA','Natick, MA','Cleveland, OH','Akron, OH','Tacoma, WA','San Diego, CA','San Marcos, CA','San Francisco, CA','Jacksonville / Orange Park, FL','Houston, TX','Mission, KS','Williston, VT','Charleston, SC','Vancouver, WA'],
+'MedVet Clinical Studies Center':['Salt Lake City, UT','Cincinnati, OH','Cleveland, OH','Pittsburgh, PA'],
+'SAGE Veterinary Centers':['San Francisco, CA'],
+'Veterinary Specialty Hospital':['San Diego, CA','San Marcos, CA'],
+}
 def canonical_center(value):
     raw=str(value or '').strip()
     if not raw:return None
@@ -65,27 +67,48 @@ def canonical_center(value):
 def profile_figure(p):
     src=p.get('image')
     if not src:return ''
-    alt=p.get('image_alt') or p.get('title','Veterinary cancer research center')
-    caption=p.get('image_caption','')
+    alt=p.get('image_alt') or p.get('title','Veterinary cancer research center'); caption=p.get('image_caption','')
     fig=f'<figure style="margin:16px 0 22px;text-align:left"><img src="{g.esc(src)}" alt="{g.esc(alt)}" loading="lazy" style="width:100%;max-height:430px;object-fit:cover;border-radius:14px;display:block">'
     if caption: fig+=f'<figcaption style="font-size:.86rem;color:#607086;margin-top:7px">{g.esc(caption)}</figcaption>'
     return fig+'</figure>'
 def center_overview(center):
     if center==CSU_CENTER:
-        return ('<div class="center-overview" style="text-align:justify;text-justify:inter-word"><h2 style="text-align:left">About the Flint Animal Cancer Center</h2><figure style="margin:16px 0 22px;text-align:left"><img src="https://vetmedbiosci.colostate.edu/psrl/wp-content/uploads/sites/15/2021/04/08007_00004-1.jpg" alt="Colorado State University Translational Medicine Institute research facility" loading="lazy" style="width:100%;max-height:430px;object-fit:cover;border-radius:14px;display:block"><figcaption style="font-size:.86rem;color:#607086;margin-top:7px">Colorado State University Translational Medicine Institute, home to research programs that collaborate with the Flint Animal Cancer Center. Photo: Colorado State University.</figcaption></figure><p>Colorado State University’s Flint Animal Cancer Center in Fort Collins combines multidisciplinary cancer care with comparative oncology research. Its program includes clinical trials, laboratory research and a cancer biorepository, with work designed to improve cancer prevention, diagnosis and treatment in pets while also informing human cancer research.</p><h2 style="text-align:left">Cancer research &amp; team</h2><p>Research at CSU spans medical, surgical and radiation oncology, immunology and immunotherapy, cancer genomics and translational drug development. The center is directed by veterinary oncologist <strong>Susan Lana, DVM</strong>. <strong>Douglas Thamm, VMD</strong> directs clinical research, and the broader comparative oncology group includes specialists working across clinical trials, immunotherapy, genomics, radiation biology and surgical oncology.</p><p><a href="https://vetmedbiosci.colostate.edu/cs/research-topic-directory/comparative-oncology-and-cancer-biology/" rel="noopener">Meet CSU comparative oncology researchers</a> · <a href="https://vetmedbiosci.colostate.edu/vth/clinical_trial_tag/oncology/" rel="noopener">See CSU oncology clinical trials</a></p></div>')
+        return ('<div class="center-overview" style="text-align:justify;text-justify:inter-word"><h2 style="text-align:left">About the Flint Animal Cancer Center</h2><figure style="margin:16px 0 22px;text-align:left"><img src="https://vetmedbiosci.colostate.edu/psrl/wp-content/uploads/sites/15/2021/04/08007_00004-1.jpg" alt="Colorado State University Translational Medicine Institute research facility" loading="lazy" style="width:100%;max-height:430px;object-fit:cover;border-radius:14px;display:block"><figcaption style="font-size:.86rem;color:#607086;margin-top:7px">Colorado State University Translational Medicine Institute, home to research programs that collaborate with the Flint Animal Cancer Center. Photo: Colorado State University.</figcaption></figure><p>Colorado State University’s Flint Animal Cancer Center in Fort Collins combines multidisciplinary cancer care with comparative oncology research. Its program includes clinical trials, laboratory research and a cancer biorepository.</p><h2 style="text-align:left">Cancer research &amp; team</h2><p>Research at CSU spans medical, surgical and radiation oncology, immunology and immunotherapy, cancer genomics and translational drug development.</p></div>')
     p=PROFILES.get(center)
     if p:
         links=' · '.join(f'<a href="{g.esc(url)}" rel="noopener">{g.esc(label)}</a>' for label,url in p.get('links',[]))
         return '<div class="center-overview" style="text-align:justify;text-justify:inter-word">'+f'<h2 style="text-align:left">{g.esc(p["title"])}</h2>'+profile_figure(p)+f'<p>{g.esc(p["about"])}</p><h2 style="text-align:left">Cancer research &amp; team</h2><p>{g.esc(p["research"])}</p>'+(f'<p style="text-align:left">{links}</p>' if links else '')+'</div>'
-    return '<div class="center-overview" style="text-align:justify;text-justify:inter-word"><h2 style="text-align:left">About this veterinary cancer research center</h2>'+f'<p><strong>{g.esc(center)}</strong> currently has veterinary cancer treatment or research opportunities represented in our catalog. The listings below are tied to the individual study teams and official study sources, so owners can review the actual treatment approach, eligibility details and contact information without a paid matching report.</p></div>'
-def _site_name(site):
-    if not isinstance(site,dict): return ''
-    return str(site.get('hospital') or site.get('name') or '').strip()
+    return '<div class="center-overview"><h2>About this veterinary cancer research center</h2>'+f'<p><strong>{g.esc(center)}</strong> currently has veterinary cancer treatment or research opportunities represented in our catalog.</p></div>'
+def _site_name(site): return str(site.get('hospital') or site.get('name') or '').strip() if isinstance(site,dict) else ''
 def _site_active(site):
-    if not isinstance(site,dict): return False
-    if site.get('available_for_matching') is False:return False
-    status=g.norm(site.get('status',''))
-    return not any(x in status for x in ('not enrolling','enrollment closed','closed','paused'))
+    if not isinstance(site,dict) or site.get('available_for_matching') is False:return False
+    return not any(x in g.norm(site.get('status','')) for x in ('not enrolling','enrollment closed','closed','paused'))
+def _location_values(row):
+    vals=[]
+    for key in ('location','city','state','address'):
+        v=row.get(key)
+        if isinstance(v,str) and v.strip(): vals.append(v.strip())
+    for s in row.get('sites',[]) if isinstance(row.get('sites'),list) else []:
+        if not _site_active(s): continue
+        parts=[]
+        for key in ('address','city','state','zip','location'):
+            v=s.get(key)
+            if isinstance(v,str) and v.strip() and v.strip() not in parts: parts.append(v.strip())
+        if parts: vals.append(', '.join(parts))
+    return vals
+def _locations(center,hit):
+    vals=list(KNOWN_LOCATIONS.get(center,[]))
+    for r in hit: vals.extend(_location_values(r))
+    out=[]; seen=set()
+    for v in vals:
+        k=g.norm(v)
+        if k and k not in seen: seen.add(k); out.append(v)
+    return out[:24]
+def location_block(center,hit):
+    locs=_locations(center,hit)
+    if not locs:return ''
+    title='Location' if len(locs)==1 else 'Locations & participating hospitals'
+    return f'<section class="center-locations"><h2>{title}</h2><p>Looking for veterinary cancer clinical trials near you? Current locations represented for <strong>{g.esc(center)}</strong> include:</p><ul>'+''.join(f'<li>{g.esc(x)}</li>' for x in locs)+'</ul></section>'
 def _add(grouped,name,row):
     name=canonical_center(name)
     if not name:return
@@ -97,20 +120,20 @@ def generate_center_pages():
         _add(grouped,row.get('center',''),row)
         active_sites=[s for s in row.get('sites',[]) if _site_active(s)] if isinstance(row.get('sites'),list) else []
         for site in active_sites:
-            name=_site_name(site)
-            if name:_add(grouped,name,row)
-        if any('medvet' in g.norm(_site_name(s)) for s in active_sites): _add(grouped,'MedVet Clinical Studies Center',row)
+            if _site_name(site):_add(grouped,_site_name(site),row)
+        if any('medvet' in g.norm(_site_name(s)) for s in active_sites):_add(grouped,'MedVet Clinical Studies Center',row)
     if not grouped:return
     center_links=[]; index_items=[]; used={}
     for center,hit in sorted(grouped.items()):
         base=g.slugify(center.replace('College of Veterinary Medicine','').replace('School of Veterinary Medicine','')) or 'research-center'; slug=base
         if slug in used and used[slug]!=center:slug=g.slugify(center)
         used[slug]=center; path=f'centers/{slug}/'; url=f'{g.SITE}/{path}'
-        cancers=sorted({c for r in hit for c in row_cancers(r)}); cancer_text=', '.join(g.display_name(c) for c in cancers) if cancers else 'multiple cancer types'; h1=f'{center}: Veterinary Cancer Clinical Trials'
-        body=f'<h1>{g.esc(h1)}</h1>'+center_overview(center)+f'<p class="lead count-callout"><strong>{len(hit)} current treatment opportunities in our catalog.</strong><br><span>Current research represented here includes {g.esc(cancer_text)}.</span></p><div class="free"><strong>100% FREE</strong> — view trial details, contacts and official enrollment links.<br><small>No registration. No hidden results. No paid report.</small></div><p><a class="cta" href="{g.FINDER}">Check your pet against these options</a></p><h2>Current treatment &amp; research opportunities</h2><p>These treatment-focused studies and advanced oncology options are drawn from our current catalog. Enrollment status and final eligibility are determined by the research team.</p>'+g.cards(hit)
-        dest=g.OUT/path; dest.mkdir(parents=True,exist_ok=True); (dest/'index.html').write_text(g.page(h1,f'Current veterinary cancer clinical trials and treatment studies at {center}.',body,url),encoding='utf-8'); center_links.append(url); index_items.append((center,path,len(hit)))
-    index_url=f'{g.SITE}/centers/'; index_body='<h1>Veterinary Cancer Clinical Trial Centers</h1><p class="lead">Browse U.S. universities, veterinary teaching hospitals, specialty hospitals and research centers with current cancer treatment opportunities represented in our catalog.</p><div class="free"><strong>100% FREE</strong> — trial details, contacts and official enrollment links are available without registration or a paywall.</div><h2>Current research centers</h2><ul>'+''.join(f'<li><a href="{g.SITE}/{p}">{g.esc(n)}</a> — {count} current opportunities</li>' for n,p,count in index_items)+'</ul>'
-    d=g.OUT/'centers'; d.mkdir(parents=True,exist_ok=True); (d/'index.html').write_text(g.page('Veterinary Cancer Clinical Trial Centers','U.S. universities, veterinary hospitals and cancer research centers with current treatment opportunities.',index_body,index_url),encoding='utf-8')
+        cancers=sorted({c for r in hit for c in row_cancers(r)}); cancer_text=', '.join(g.display_name(c) for c in cancers) if cancers else 'multiple cancer types'; locs=_locations(center,hit); geo=', '.join(locs[:5]); h1=f'{center}: Veterinary Cancer Clinical Trials'
+        body=f'<h1>{g.esc(h1)}</h1>'+center_overview(center)+location_block(center,hit)+f'<p class="lead count-callout"><strong>{len(hit)} current treatment opportunities in our catalog.</strong><br><span>Current research represented here includes {g.esc(cancer_text)}.</span></p><div class="free"><strong>100% FREE</strong> — view trial details, contacts and official enrollment links.<br><small>No registration. No hidden results. No paid report.</small></div><p><a class="cta" href="{g.FINDER}">Find cancer treatment options near you</a></p><h2>Current treatment &amp; research opportunities</h2><p>These treatment-focused studies and advanced oncology options are drawn from our current catalog. Enrollment status and final eligibility are determined by the research team.</p>'+g.cards(hit)
+        desc=f'Current veterinary cancer clinical trials and treatment studies at {center}'+(f' in {geo}' if geo else '')+'. Find dog and cat cancer research options, locations and official enrollment contacts.'
+        dest=g.OUT/path; dest.mkdir(parents=True,exist_ok=True); (dest/'index.html').write_text(g.page(h1,desc,body,url),encoding='utf-8'); center_links.append(url); index_items.append((center,path,len(hit),geo))
+    index_url=f'{g.SITE}/centers/'; index_body='<h1>Veterinary Cancer Clinical Trials Near You</h1><p class="lead">Browse U.S. universities, veterinary teaching hospitals, specialty hospitals and research centers with current cancer treatment opportunities. Use city and state locations below to find veterinary cancer clinical trials near you.</p><div class="free"><strong>100% FREE</strong> — trial details, contacts and official enrollment links are available without registration or a paywall.</div><h2>Current research centers &amp; locations</h2><ul>'+''.join(f'<li><a href="{g.SITE}/{p}">{g.esc(n)}</a> — {count} current opportunities'+(f' — {g.esc(geo)}' if geo else '')+'</li>' for n,p,count,geo in index_items)+'</ul>'
+    d=g.OUT/'centers'; d.mkdir(parents=True,exist_ok=True); (d/'index.html').write_text(g.page('Veterinary Cancer Clinical Trials Near You','Find U.S. veterinary cancer clinical trials near you by university, specialty hospital, research center, city and state.',index_body,index_url),encoding='utf-8')
     sm=g.OUT/'sitemap.xml'; text=sm.read_text(encoding='utf-8'); additions=''.join(f'<url><loc>{g.esc(u)}</loc></url>\n' for u in [index_url]+center_links); sm.write_text(text.replace('</urlset>',additions+'</urlset>'),encoding='utf-8'); print(f'CENTER_PAGES_OK centers={len(grouped)}')
 def main():
     g.canonical_cancer=canonical_cancer; g.row_cancers=row_cancers; original_page=g.page
