@@ -10,13 +10,20 @@ DATA = ROOT / "data"
 OUT = DATA / "catalog_patch_academic_sites_generated.json"
 
 
-def load_center_directory():
-    path = ROOT / "seo" / "center_directory.py"
-    spec = importlib.util.spec_from_file_location("center_directory", path)
+def load_module(path: Path, name: str):
+    spec = importlib.util.spec_from_file_location(name, path)
     mod = importlib.util.module_from_spec(spec)
     assert spec and spec.loader
     spec.loader.exec_module(mod)
     return mod
+
+
+def load_center_directory():
+    return load_module(ROOT / "seo" / "center_directory.py", "center_directory")
+
+
+def load_center_presentation():
+    return load_module(ROOT / "seo" / "center_presentation.py", "center_presentation")
 
 
 def load_catalog():
@@ -29,7 +36,6 @@ def load_catalog():
             continue
         doc = json.loads(p.read_text(encoding="utf-8"))
         if isinstance(doc, list):
-            # trial_updates.json is a list in this repo
             for tr in doc:
                 if tr.get("id"):
                     old = dict(by_id.get(tr["id"], {}))
@@ -67,19 +73,16 @@ def parse_city_region(address: str, country: str, fallback_city: str = "", fallb
     if fallback_city and fallback_region:
         return fallback_city, fallback_region
 
-    # US and Canada: final city + state/province before postal code.
     m = re.search(r",\s*([^,]+),\s*([A-Z]{2})\s+[A-Z0-9][A-Z0-9 -]{2,}$", address)
     if m:
         return m.group(1).strip(), m.group(2).strip()
 
-    # UK entries commonly have county/region + postcode + UK.
     if country in {"UK", "United Kingdom"}:
         parts = [x.strip() for x in address.split(",")]
         if len(parts) >= 3:
             city = fallback_city or parts[-3]
             return city, fallback_region or "UK"
 
-    # General international fallback: use catalog city when present, country as region label.
     if fallback_city:
         return fallback_city, fallback_region or country
 
@@ -88,6 +91,7 @@ def parse_city_region(address: str, country: str, fallback_city: str = "", fallb
 
 def main():
     cd = load_center_directory()
+    cp = load_center_presentation()
     out = []
     skipped = []
 
@@ -118,20 +122,29 @@ def main():
             skipped.append({"id": trial_id, "center": center, "address": address})
             continue
 
-        out.append({
+        display_name = cp.display_name_for(canonical)
+        patch = {
             "id": trial_id,
             "sites": [{
-                "hospital": canonical,
+                "hospital": f"📍 {display_name}",
                 "name": canonical,
                 "city": city,
                 "state": region,
             }],
             "location_source": "seo/center_directory.py",
-        })
+        }
+
+        if not str(tr.get("contacts") or tr.get("contact") or "").strip():
+            fallback_contact = cp.contact_for(canonical)
+            if fallback_contact:
+                patch["contacts"] = fallback_contact
+                patch["contact_source"] = "seo/center_presentation.py"
+
+        out.append(patch)
 
     doc = {
-        "generated_from": "seo/center_directory.py",
-        "purpose": "Expose academic trial geography through the existing Participating sites UI without modifying the Finder page.",
+        "generated_from": ["seo/center_directory.py", "seo/center_presentation.py"],
+        "purpose": "Expose academic geography with compact patient-facing center labels and verified contact fallbacks without modifying the Finder page.",
         "upsert": sorted(out, key=lambda x: x["id"]),
         "delete": [],
     }
