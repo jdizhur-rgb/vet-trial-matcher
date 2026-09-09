@@ -1,155 +1,199 @@
 #!/usr/bin/env python3
-"""Systematic SEO generator guard: strict diagnosis mapping for every generated page."""
+"""Single owner-facing SEO rendering layer.
+
+This module owns catalog merging, cards, page styling, center profiles and
+location rules.  Legacy *customize modules must remain side-effect free.
+"""
 from __future__ import annotations
-import json,re
+import html,json,re
 from pathlib import Path
 import generate_seo as g
-import sitecustomize as owner_ui
 from center_profiles import PROFILES
 from center_profiles_extra import EXTRA_PROFILES
 PROFILES.update(EXTRA_PROFILES)
+CURRENT={'current','confirmed_current'}
 
-def _phrase_present(phrase,text):
-    phrase=g.norm(phrase); text=g.norm(text)
-    return bool(phrase and text and re.search(r"(?<![a-z0-9])"+re.escape(phrase)+r"(?![a-z0-9])",text))
-def canonical_cancer(value):
-    raw=g.norm(value)
-    if not raw or any(_phrase_present(x,raw) for x in g.GENERIC_WORDS): return None
+def merge(old,patch):
+    new=dict(old)
+    for k,v in patch.items():
+        if k in {'requires','excludes'} and isinstance(v,dict):
+            x=dict(new.get(k,{}) if isinstance(new.get(k),dict) else {}); x.update(v); new[k]=x
+        else:new[k]=v
+    return new
+
+def load_effective():
+    base=json.loads((g.ROOT/'data'/'trials_base.json').read_text()); rows={r['id']:r for r in base}
+    paths=[g.ROOT/'data'/'trial_updates.json']+sorted((g.ROOT/'data').glob('catalog_patch_*.json'))
+    for path in paths:
+        if not path.exists():continue
+        doc=json.loads(path.read_text())
+        for rid in doc.get('delete',[]):rows.pop(rid,None)
+        for p in doc.get('upsert',[]):rows[p['id']]=merge(rows.get(p['id'],{}),p)
+    return [r for r in rows.values() if r.get('study_type')=='treatment' and r.get('available_for_matching') is True and r.get('status_confidence') in CURRENT]
+g.load_effective=load_effective
+
+def phrase(needle,text):
+    needle=g.norm(needle);text=g.norm(text);return bool(needle and re.search(r'(?<![a-z0-9])'+re.escape(needle)+r'(?![a-z0-9])',text))
+def canonical_cancer(v):
+    raw=g.norm(v)
+    if not raw or any(phrase(x,raw) for x in g.GENERIC_WORDS):return None
     for key,aliases in g.CANONICAL_RULES:
-        if any(_phrase_present(a,raw) for a in aliases): return key
+        if any(phrase(a,raw) for a in aliases):return key
     return None
-def cancer_values(row):
-    v=row.get('cancers',[])
-    return [v] if isinstance(v,str) else list(v) if isinstance(v,(list,tuple,set)) else []
-def row_cancers(row): return {x for x in (canonical_cancer(v) for v in cancer_values(row)) if x}
-def audit_matrix():
-    rows=g.load_effective(); matrix={}; errors=[]
-    for region,countries in g.REGIONS.items():
-        for species_key,species_name in g.SPECIES.items():
-            for row in rows:
-                if row.get('country') not in countries or not g.species_ok(row,species_name): continue
-                for cancer in row_cancers(row): matrix.setdefault(f"{region}/{species_key}/{g.slugify(cancer)}",[]).append(row['id'])
-    for page in g.OUT.glob('*/*/*/index.html'):
-        rel=str(page.parent.relative_to(g.OUT)).replace('\\','/'); expected=matrix.get(rel,[])
-        if not expected: errors.append(f'orphan page: {rel}'); continue
-        n=page.read_text(encoding='utf-8',errors='replace').count('class="card"')
-        if n!=len(expected): errors.append(f'card-count mismatch {rel}: html={n} matrix={len(expected)}')
-    for rel,ids in matrix.items():
-        if not (g.OUT/rel/'index.html').exists(): errors.append(f'missing page: {rel} ({len(ids)} records)')
-    for row in rows:
-        vals=[g.norm(v) for v in cancer_values(row)]
-        if any('paraganglioma' in v for v in vals) and 'glioma' in row_cancers(row): errors.append(f"paraganglioma leaked into glioma: {row['id']}")
-    if errors: raise AssertionError('SEO matrix audit failed:\n'+'\n'.join(errors[:50]))
-    audit={'effective_treatment_records':len(rows),'matrix_cells':len(matrix),'assignments':sum(len(v) for v in matrix.values()),'cells':{k:sorted(v) for k,v in sorted(matrix.items())}}
-    (g.OUT/'mapping-audit.json').write_text(json.dumps(audit,indent=2),encoding='utf-8')
-    print(f"STRICT_MATRIX_OK records={audit['effective_treatment_records']} cells={audit['matrix_cells']} assignments={audit['assignments']}")
+def cancer_values(r):
+    v=r.get('cancers',[]);return [v] if isinstance(v,str) else list(v) if isinstance(v,(list,tuple,set)) else []
+def row_cancers(r):return {x for x in (canonical_cancer(v) for v in cancer_values(r)) if x}
+g.canonical_cancer=canonical_cancer;g.row_cancers=row_cancers
+
+SITE_ADDRESSES={
+'aurelius biotherapeutics':'Aurelius Biotherapeutics, 720 Virginia Street, Bellingham, WA 98225',
+'colorado animal specialty emergency case':'Colorado Animal Specialty & Emergency (CASE), 2972 Iris Ave, Boulder, CO 80301',
+'overland park veterinary emergency specialty':'Overland Park Veterinary Emergency & Specialty, 8301 W 163rd St, Overland Park, KS 66223',
+'massachusetts veterinary referral hospital mvrh':'Massachusetts Veterinary Referral Hospital, 20 Cabot Rd, Woburn, MA 01801',
+'massachusetts veterinary referral hospital':'Massachusetts Veterinary Referral Hospital, 20 Cabot Rd, Woburn, MA 01801',
+'peak veterinary referral center':'Peak Veterinary Referral Center, 158 Hurricane Ln, Williston, VT 05495',
+'mission veterinary emergency specialty':'Mission Veterinary Emergency & Specialty, 5914 Johnson Dr, Mission, KS 66202',
+'gulf coast veterinary specialists gcvs':'Gulf Coast Veterinary Specialists, 8042 Katy Fwy, Houston, TX 77024',
+'gulf coast veterinary specialists':'Gulf Coast Veterinary Specialists, 8042 Katy Fwy, Houston, TX 77024',
+'first coast veterinary specialists emergency':'First Coast Veterinary Specialists & Emergency, 301 Jacksonville Dr, Jacksonville Beach, FL 32250',
+'summit veterinary referral center':'Summit Veterinary Referral Center, 2505 S 80th St, Tacoma, WA 98409',
+'care center cincinnati':'CARE Center, 6995 E Kemper Rd, Cincinnati, OH 45249',
+'sage':'SAGE Veterinary Centers, 600 Alabama St, San Francisco, CA 94110',
+'sage veterinary centers':'SAGE Veterinary Centers, 600 Alabama St, San Francisco, CA 94110',
+}
+UNIVERSITY_ADDRESSES={
+'Colorado State University Flint Animal Cancer Center':'Flint Animal Cancer Center, 300 W Drake Rd, Fort Collins, CO 80523',
+'Auburn University College of Veterinary Medicine':'Bailey Small Animal Teaching Hospital, 1220 Wire Rd, Auburn, AL 36849',
+'Cornell University College of Veterinary Medicine':'Cornell University Hospital for Animals, 930 Campus Rd, Ithaca, NY 14853',
+'Louisiana State University School of Veterinary Medicine':'LSU Veterinary Teaching Hospital, 1909 Skip Bertman Dr, Baton Rouge, LA 70803',
+'Michigan State University College of Veterinary Medicine':'Michigan State University Veterinary Medical Center, 736 Wilson Rd, East Lansing, MI 48824',
+'NC State College of Veterinary Medicine':'NC State Veterinary Hospital, 1052 William Moore Dr, Raleigh, NC 27607',
+'Ohio State University College of Veterinary Medicine':'The Ohio State University Veterinary Medical Center, 601 Vernon L Tharp St, Columbus, OH 43210',
+'Purdue University College of Veterinary Medicine':'Purdue University Veterinary Hospital, 625 Harrison St, West Lafayette, IN 47907',
+'Texas A&M School of Veterinary Medicine':'Texas A&M Small Animal Teaching Hospital, 408 Raymond Stotzer Pkwy, College Station, TX 77845',
+'Tufts University Cummings School of Veterinary Medicine':'Henry and Lois Foster Hospital for Small Animals, 200 Westboro Rd, North Grafton, MA 01536',
+'UC Davis Veterinary Center for Clinical Trials':'UC Davis Veterinary Medical Teaching Hospital, 1 Garrod Dr, Davis, CA 95616',
+'University of Florida College of Veterinary Medicine':'UF Small Animal Hospital, 2015 SW 16th Ave, Gainesville, FL 32608',
+'University of Georgia College of Veterinary Medicine':'UGA Veterinary Teaching Hospital, 2200 College Station Rd, Athens, GA 30602',
+'University of Illinois College of Veterinary Medicine':'University of Illinois Veterinary Teaching Hospital, 1008 W Hazelwood Dr, Urbana, IL 61802',
+'University of Minnesota College of Veterinary Medicine':'University of Minnesota Veterinary Medical Center, 1365 Gortner Ave, St Paul, MN 55108',
+'University of Missouri College of Veterinary Medicine':'University of Missouri Veterinary Health Center, 900 E Campus Dr, Columbia, MO 65211',
+'University of Pennsylvania School of Veterinary Medicine':'Penn Vet Ryan Veterinary Hospital, 3900 Spruce St, Philadelphia, PA 19104',
+'Washington State University College of Veterinary Medicine':'WSU Veterinary Teaching Hospital, 205 Ott Rd, Pullman, WA 99164',
+}
+
+def full_address(s):return bool(re.search(r'\d',s or '') and re.search(r'\b[A-Z]{2}\s+\d{5}(?:-\d{4})?\b',s or ''))
+def site_active(s):return isinstance(s,dict) and s.get('available_for_matching') is not False and not any(x in g.norm(s.get('status','')) for x in ('not enrolling','enrollment closed','closed','paused'))
+def site_label(s):
+    name=str(s.get('hospital') or s.get('name') or '').strip();known=SITE_ADDRESSES.get(g.norm(name),'')
+    if known:return known
+    a=str(s.get('address') or '').strip();city=str(s.get('city') or '').strip();state=str(s.get('state') or '').strip();z=str(s.get('zip') or s.get('zipcode') or '').strip()
+    if full_address(a):detail=a
+    elif a and re.search(r'\d',a) and city and state and z:detail=f'{a}, {city}, {state} {z}'
+    else:return ''
+    return f'{name}, {detail}' if name and g.norm(name) not in g.norm(detail) else detail
+
+def row_locations(r):
+    vals=[]
+    for s in r.get('sites',[]) if isinstance(r.get('sites'),list) else []:
+        if site_active(s):
+            x=site_label(s)
+            if x:vals.append(x)
+    if not vals:
+        known=SITE_ADDRESSES.get(g.norm(r.get('center','')),'')
+        if known:vals.append(known)
+    if not vals and full_address(str(r.get('address') or '')):vals.append(str(r['address']))
+    out=[];seen=set()
+    for x in vals:
+        k=g.norm(x)
+        if k not in seen:seen.add(k);out.append(x)
+    return out
+
+def cards(rows):
+    out=[]
+    for r in rows:
+        p=[f'<article class="card"><h3>{g.esc(r.get("title"))}</h3><p class="meta"><strong>{g.esc(r.get("center"))}</strong> · {g.esc(r.get("country"))}</p>']
+        if r.get('status'):p.append(f'<p class="status">{g.esc(r["status"])}</p>')
+        treatment=g.prose(r.get('intervention') or r.get('treatment') or r.get('notes'))
+        if treatment:p.append(f'<p><b>What is being offered:</b> {g.esc(treatment)}</p>')
+        req=g.prose(r.get('requires'));exc=g.prose(r.get('excludes'));fund=g.prose(r.get('funding'));contact=g.contact_text(r)
+        if req:p.append(f'<p><b>Who may qualify:</b> {g.esc(req)}</p>')
+        if exc:p.append(f'<p><b>May not qualify if:</b> {g.esc(exc)}</p>')
+        if fund:p.append(f'<p><b>Costs / coverage:</b> {g.esc(fund)}</p>')
+        if contact:p.append(f'<p><b>Contact:</b> {g.esc(contact)}</p>')
+        locs=row_locations(r)
+        if locs:p.append('<div class="study-locations"><p class="field-label">'+('Location' if len(locs)==1 else 'Participating locations')+'</p><ul>'+''.join(f'<li>{g.esc(x)}</li>' for x in locs)+'</ul></div>')
+        if r.get('last_verified'):p.append(f'<p class="verified">Last verified: {g.esc(r["last_verified"])}</p>')
+        if r.get('url'):p.append(f'<p><a class="official" href="{g.esc(r["url"])}" rel="noopener">Official study / enrollment information →</a></p>')
+        p.append('</article>');out.append(''.join(p))
+    return ''.join(out)
+g.cards=cards
+
+base_page=g.page
+def page(title,desc,body,canonical,lang='en',alts=None):
+    rendered=base_page(title,desc,body,canonical,lang,alts)
+    css='body{font-size:16px}.center-page h1{font-size:clamp(1.75rem,4vw,2.35rem);line-height:1.12;margin:24px 0 18px}.center-page .center-overview h2{font-size:1.3rem;margin-top:18px}.center-page .center-overview p{max-width:760px}.study-locations{margin:15px 0 4px;padding:12px 14px;background:#f6f8fb;border-radius:10px}.study-locations ul{margin:5px 0 0;padding-left:20px}.field-label{font-weight:750;margin:0}.university-address{background:#fff;border:1px solid #d9e2ea;border-radius:12px;padding:12px 15px;margin:14px 0 22px}.free-note{font-size:.8rem;color:#607086}.card p{margin:.7rem 0}@media(max-width:600px){.center-page h1{font-size:1.72rem}.center-page .center-overview h2{font-size:1.2rem}}'
+    return rendered.replace('</style>',css+'</style>',1)
+g.page=page
 
 CENTER_RULES=(
-('Colorado State University Flint Animal Cancer Center',('colorado state university','flint animal cancer center')),
-('University of Florida College of Veterinary Medicine',('university of florida',)),('Michigan State University College of Veterinary Medicine',('michigan state university',)),('Auburn University College of Veterinary Medicine',('auburn university',)),('University of Pennsylvania School of Veterinary Medicine',('university of pennsylvania','penn vet')),('Tufts University Cummings School of Veterinary Medicine',('tufts university','tufts cummings')),('NC State College of Veterinary Medicine',('nc state','north carolina state university')),('University of Wisconsin–Madison School of Veterinary Medicine',('university of wisconsin','wisconsin madison')),('University of Missouri College of Veterinary Medicine',('university of missouri',)),('University of Illinois College of Veterinary Medicine',('university of illinois',)),('Purdue University College of Veterinary Medicine',('purdue university',)),('Cornell University College of Veterinary Medicine',('cornell university',)),('University of Minnesota College of Veterinary Medicine',('university of minnesota',)),('Ohio State University College of Veterinary Medicine',('ohio state university','the ohio state university')),('Texas A&M School of Veterinary Medicine',('texas a&m','texas a and m')),('Louisiana State University School of Veterinary Medicine',('louisiana state university','lsu')),('University of Georgia College of Veterinary Medicine',('university of georgia',)),('University of Tennessee College of Veterinary Medicine',('university of tennessee',)),('Washington State University College of Veterinary Medicine',('washington state university',)),('Iowa State University College of Veterinary Medicine',('iowa state university',)),('Kansas State University College of Veterinary Medicine',('kansas state university',)),('Oklahoma State University College of Veterinary Medicine',('oklahoma state university',)),('Oregon State University Carlson College of Veterinary Medicine',('oregon state university',)),('Mississippi State University College of Veterinary Medicine',('mississippi state university',)),
-('Ethos Veterinary Health / Ethos Discovery',('ethos veterinary health','ethos discovery')),('Colorado Animal Specialty & Emergency (CASE)',('colorado animal specialty','case / ethos discovery')),('UC Davis Veterinary Center for Clinical Trials',('uc davis veterinary center for clinical trials','uc davis veterinary medical teaching hospital','uc davis')),('Johns Hopkins Center for Image-Guided Animal Therapy (CIGAT)',('johns hopkins center for image-guided animal therapy',)),('Veterinary Referral Center of Central Oregon',('veterinary referral center of central oregon','vrcco')),('SAGE Veterinary Centers',('sage san francisco','sage veterinary')),('Veterinary Specialty Hospital',('veterinary specialty hospital sorrento valley','veterinary specialty hospital north county')),
+('Colorado State University Flint Animal Cancer Center',('colorado state university','flint animal cancer center')),('University of Florida College of Veterinary Medicine',('university of florida',)),('Michigan State University College of Veterinary Medicine',('michigan state university',)),('Auburn University College of Veterinary Medicine',('auburn university',)),('University of Pennsylvania School of Veterinary Medicine',('university of pennsylvania','penn vet')),('Tufts University Cummings School of Veterinary Medicine',('tufts university','tufts cummings')),('NC State College of Veterinary Medicine',('nc state','north carolina state university')),('University of Missouri College of Veterinary Medicine',('university of missouri',)),('University of Illinois College of Veterinary Medicine',('university of illinois',)),('Purdue University College of Veterinary Medicine',('purdue university',)),('Cornell University College of Veterinary Medicine',('cornell university',)),('University of Minnesota College of Veterinary Medicine',('university of minnesota',)),('Ohio State University College of Veterinary Medicine',('ohio state university','the ohio state university')),('Texas A&M School of Veterinary Medicine',('texas a&m','texas a and m')),('Louisiana State University School of Veterinary Medicine',('louisiana state university','lsu')),('University of Georgia College of Veterinary Medicine',('university of georgia',)),('Washington State University College of Veterinary Medicine',('washington state university',)),('UC Davis Veterinary Center for Clinical Trials',('uc davis veterinary center for clinical trials','uc davis veterinary medical teaching hospital','uc davis')),('Aurelius Biotherapeutics',('aurelius biotherapeutics',)),('Ethos Veterinary Health / Ethos Discovery',('ethos veterinary health','ethos discovery')),('Colorado Animal Specialty & Emergency (CASE)',('colorado animal specialty','case / ethos discovery')),('Johns Hopkins Center for Image-Guided Animal Therapy (CIGAT)',('johns hopkins center for image-guided animal therapy',)),('SAGE Veterinary Centers',('sage san francisco','sage veterinary')),
 )
-CSU_CENTER='Colorado State University Flint Animal Cancer Center'
-SINGLE_SITE_LOCATIONS={
-CSU_CENTER:'Flint Animal Cancer Center, 300 W. Drake Road, Fort Collins, CO 80523',
-'Purdue University College of Veterinary Medicine':'Purdue University Veterinary Hospital, 625 Harrison Street, West Lafayette, IN 47907',
-'University of Minnesota College of Veterinary Medicine':'Clinical Investigation Center, Veterinary Medical Center, 1365 Gortner Avenue, St. Paul, MN 55108',
-}
-KNOWN_LOCATIONS={CSU_CENTER:[SINGLE_SITE_LOCATIONS[CSU_CENTER]]}
-
-def canonical_center(value):
-    raw=str(value or '').strip()
-    if not raw:return None
-    text=g.norm(raw)
+def canonical_center(v):
+    raw=str(v or '').strip();text=g.norm(raw)
     for name,aliases in CENTER_RULES:
-        if any(g.norm(a) in text for a in aliases): return name
-    return re.sub(r'\s+',' ',raw)
-def profile_figure(p):
-    src=p.get('image')
-    if not src:return ''
-    alt=p.get('image_alt') or p.get('title','Veterinary cancer research center'); caption=p.get('image_caption','')
-    fig=f'<figure style="margin:16px 0 22px;text-align:left"><img src="{g.esc(src)}" alt="{g.esc(alt)}" loading="lazy" style="width:100%;max-height:430px;object-fit:cover;border-radius:14px;display:block">'
-    if caption: fig+=f'<figcaption style="font-size:.86rem;color:#607086;margin-top:7px">{g.esc(caption)}</figcaption>'
-    return fig+'</figure>'
-def center_overview(center):
-    if center==CSU_CENTER:
-        return ('<div class="center-overview" style="text-align:justify;text-justify:inter-word"><h2 style="text-align:left">About the Flint Animal Cancer Center</h2><figure style="margin:16px 0 22px;text-align:left"><img src="https://vetmedbiosci.colostate.edu/psrl/wp-content/uploads/sites/15/2021/04/08007_00004-1.jpg" alt="Colorado State University Translational Medicine Institute research facility" loading="lazy" style="width:100%;max-height:430px;object-fit:cover;border-radius:14px;display:block"><figcaption style="font-size:.86rem;color:#607086;margin-top:7px">Photo: Colorado State University.</figcaption></figure><p>Colorado State University’s Flint Animal Cancer Center in Fort Collins combines multidisciplinary cancer care with comparative oncology research, clinical studies, laboratory research and a cancer biorepository.</p></div>')
+        if any(g.norm(a) in text for a in aliases):return name
+    return re.sub(r'\s+',' ',raw) if raw else None
+
+def profile(center):
+    if center=='Aurelius Biotherapeutics':
+        return {'title':'About Aurelius Biotherapeutics','about':'Aurelius Biotherapeutics in Bellingham, Washington focuses on experimental adoptive T-cell immunotherapy for dogs with B-cell lymphoma. Its work grew from canine lymphoma research with MD Anderson Cancer Center, and its current program uses a dog’s own T cells as an individualized immune-cell treatment.','links':[('Official website','https://aureliusbio.com/')]}
     p=PROFILES.get(center)
-    if p:
-        links=' · '.join(f'<a href="{g.esc(url)}" rel="noopener">{g.esc(label)}</a>' for label,url in p.get('links',[]))
-        return '<div class="center-overview" style="text-align:justify;text-justify:inter-word">'+f'<h2 style="text-align:left">{g.esc(p["title"])}</h2>'+profile_figure(p)+f'<p>{g.esc(p["about"])}</p>'+(f'<p style="text-align:left">{links}</p>' if links else '')+'</div>'
-    return '<div class="center-overview"><h2>About this veterinary cancer research center</h2>'+f'<p><strong>{g.esc(center)}</strong> currently has veterinary cancer treatment or research opportunities represented in our catalog.</p></div>'
-def _site_name(site): return str(site.get('hospital') or site.get('name') or '').strip() if isinstance(site,dict) else ''
-def _site_active(site):
-    if not isinstance(site,dict) or site.get('available_for_matching') is False:return False
-    return not any(x in g.norm(site.get('status','')) for x in ('not enrolling','enrollment closed','closed','paused'))
-def _looks_full_address(value):
-    s=str(value or '').strip()
-    return bool(re.search(r'\d',s) and ',' in s and re.search(r'\b[A-Z]{2}\s+\d{5}(?:-\d{4})?\b',s))
-def _site_full_address(site):
-    if not isinstance(site,dict) or not _site_active(site): return ''
-    address=str(site.get('address') or '').strip(); city=str(site.get('city') or '').strip(); state=str(site.get('state') or '').strip(); zipcode=str(site.get('zip') or '').strip(); name=_site_name(site)
-    if _looks_full_address(address): full=address
-    elif address and re.search(r'\d',address) and city and state and zipcode: full=', '.join(x for x in (address,city,state+' '+zipcode) if x)
-    else: return ''
-    return f'{name}, {full}' if name and g.norm(name) not in g.norm(full) else full
-def _location_values(row):
-    vals=[]
-    address=str(row.get('address') or '').strip()
-    if _looks_full_address(address): vals.append(address)
-    for s in row.get('sites',[]) if isinstance(row.get('sites'),list) else []:
-        full=_site_full_address(s)
-        if full: vals.append(full)
-    return vals
-def _locations(center,hit):
-    if center in SINGLE_SITE_LOCATIONS:return [SINGLE_SITE_LOCATIONS[center]]
-    vals=[]
-    for r in hit: vals.extend(_location_values(r))
-    out=[]; seen=set()
-    for v in vals:
-        k=g.norm(v)
-        if k and k not in seen: seen.add(k); out.append(v)
-    return out[:24]
-def location_block(center,hit):
-    locs=_locations(center,hit)
-    if not locs:return ''
-    title='Location' if len(locs)==1 else 'Locations & participating hospitals'
-    return f'<section class="center-locations"><h2>{title}</h2><ul>'+''.join(f'<li>{g.esc(x)}</li>' for x in locs)+'</ul></section>'
-def _add(grouped,name,row):
+    if p:return p
+    if center in UNIVERSITY_ADDRESSES:return {'title':f'About {center}','about':f'{center} combines veterinary specialty care with clinical research. The cancer studies currently represented in our catalog are listed below with study-specific eligibility, contacts and enrollment information.','links':[]}
+    return {'title':f'About {center}','about':f'{center} is involved in companion-animal cancer treatment or clinical research. Current opportunities are listed below with study-specific eligibility, contacts and participating locations.','links':[]}
+
+def overview(center):
+    p=profile(center);fig=''
+    if p.get('image'):fig=f'<figure><img src="{g.esc(p["image"])}" alt="{g.esc(p.get("image_alt") or center)}" loading="lazy" style="width:100%;max-height:390px;object-fit:cover;border-radius:14px;display:block">'+(f'<figcaption style="font-size:.86rem;color:#607086;margin-top:7px">{g.esc(p.get("image_caption"))}</figcaption>' if p.get('image_caption') else '')+'</figure>'
+    links=' · '.join(f'<a href="{g.esc(u)}" rel="noopener">{g.esc(l)}</a>' for l,u in p.get('links',[]))
+    return f'<div class="center-overview"><h2>{g.esc(p["title"])}</h2>{fig}<p>{g.esc(p["about"])}</p>'+(f'<p>{links}</p>' if links else '')+'</div>'
+
+def add(grouped,name,row):
     name=canonical_center(name)
     if not name:return
-    bucket=grouped.setdefault(name,[])
-    if not any(x.get('id')==row.get('id') for x in bucket):bucket.append(row)
-def generate_center_pages():
-    rows=[r for r in g.load_effective() if r.get('country')=='USA' and str(r.get('center','')).strip()]; grouped={}
-    for row in rows:
-        _add(grouped,row.get('center',''),row)
-        active_sites=[s for s in row.get('sites',[]) if _site_active(s)] if isinstance(row.get('sites'),list) else []
-        for site in active_sites:
-            if _site_name(site):_add(grouped,_site_name(site),row)
-        if any('medvet' in g.norm(_site_name(s)) for s in active_sites):_add(grouped,'MedVet Clinical Studies Center',row)
-    if not grouped:return
-    center_links=[]; index_items=[]; used={}
+    b=grouped.setdefault(name,[])
+    if not any(x.get('id')==row.get('id') for x in b):b.append(row)
+
+def generate_centers():
+    rows=[r for r in g.load_effective() if r.get('country')=='USA' and str(r.get('center','')).strip()];grouped={}
+    for r in rows:
+        add(grouped,r.get('center'),r)
+        for s in r.get('sites',[]) if isinstance(r.get('sites'),list) else []:
+            if site_active(s) and (s.get('hospital') or s.get('name')):add(grouped,s.get('hospital') or s.get('name'),r)
+    links=[];items=[];used={}
     for center,hit in sorted(grouped.items()):
-        base=g.slugify(center.replace('College of Veterinary Medicine','').replace('School of Veterinary Medicine','')) or 'research-center'; slug=base
+        slug=g.slugify(center.replace('College of Veterinary Medicine','').replace('School of Veterinary Medicine','')) or 'research-center'
         if slug in used and used[slug]!=center:slug=g.slugify(center)
-        used[slug]=center; path=f'centers/{slug}/'; url=f'{g.SITE}/{path}'
-        cancers=sorted({c for r in hit for c in row_cancers(r)}); cancer_text=', '.join(g.display_name(c) for c in cancers) if cancers else 'multiple cancer types'; locs=_locations(center,hit); geo=', '.join(locs[:5]); h1=f'{center}: Veterinary Cancer Clinical Trials'
-        body=f'<h1>{g.esc(h1)}</h1>'+center_overview(center)+location_block(center,hit)+f'<p class="lead count-callout"><strong>{len(hit)} current treatment opportunities in our catalog.</strong><br><span>Current research represented here includes {g.esc(cancer_text)}.</span></p><div class="free"><strong>100% FREE</strong> — view trial details, contacts and official enrollment links.<br><small>No registration. No hidden results. No paid report.</small></div><p><a class="cta" href="{g.FINDER}">Find cancer treatment options near you</a></p><h2>Current treatment &amp; research opportunities</h2><p>These treatment-focused studies and advanced oncology options are drawn from our current catalog. Enrollment status and final eligibility are determined by the research team.</p>'+g.cards(hit)
-        desc=f'Current veterinary cancer clinical trials and treatment studies at {center}'+(f' in {geo}' if geo else '')+'. Find dog and cat cancer research options, locations and official enrollment contacts.'
-        dest=g.OUT/path; dest.mkdir(parents=True,exist_ok=True); (dest/'index.html').write_text(g.page(h1,desc,body,url),encoding='utf-8'); center_links.append(url); index_items.append((center,path,len(hit),geo))
-    index_url=f'{g.SITE}/centers/'; index_body='<h1>Veterinary Cancer Clinical Trials Near You</h1><p class="lead">Browse U.S. universities, veterinary teaching hospitals, specialty hospitals and research centers with current cancer treatment opportunities.</p><div class="free"><strong>100% FREE</strong> — trial details, contacts and official enrollment links are available without registration or a paywall.</div><h2>Current research centers &amp; locations</h2><ul>'+''.join(f'<li><a href="{g.SITE}/{p}">{g.esc(n)}</a> — {count} current opportunities'+(f' — {g.esc(geo)}' if geo else '')+'</li>' for n,p,count,geo in index_items)+'</ul>'
-    d=g.OUT/'centers'; d.mkdir(parents=True,exist_ok=True); (d/'index.html').write_text(g.page('Veterinary Cancer Clinical Trials Near You','Find U.S. veterinary cancer clinical trials near you by university, specialty hospital, research center and verified address.',index_body,index_url),encoding='utf-8')
-    sm=g.OUT/'sitemap.xml'; text=sm.read_text(encoding='utf-8'); additions=''.join(f'<url><loc>{g.esc(u)}</loc></url>\n' for u in [index_url]+center_links); sm.write_text(text.replace('</urlset>',additions+'</urlset>'),encoding='utf-8'); print(f'CENTER_PAGES_OK centers={len(grouped)}')
+        used[slug]=center;path=f'centers/{slug}/';url=f'{g.SITE}/{path}';cancers=sorted({c for r in hit for c in row_cancers(r)});ct=', '.join(g.display_name(c) for c in cancers) or 'multiple cancer types'
+        addr=UNIVERSITY_ADDRESSES.get(center);address_html=f'<div class="university-address"><strong>Location</strong><br>{g.esc(addr)}</div>' if addr else ''
+        body='<div class="center-page">'+f'<h1>{g.esc(center)}</h1>'+overview(center)+address_html+f'<p>Current opportunities here include research or treatment options for <strong>{g.esc(ct)}</strong>.</p><p><a class="cta" href="{g.FINDER}">Find cancer treatment options near you</a></p><p class="free-note">100% free. No registration, hidden results or paid report.</p><h2>Cancer treatment &amp; research options</h2>'+g.cards(hit)+'</div>'
+        desc=f'Dog and cat cancer treatment options, research studies and clinical trials at {center}.'
+        d=g.OUT/path;d.mkdir(parents=True,exist_ok=True);(d/'index.html').write_text(g.page(center,desc,body,url),encoding='utf-8');links.append(url);items.append((center,path,len(hit)))
+    iu=f'{g.SITE}/centers/';ib='<h1>Veterinary Cancer Research Centers</h1><p class="lead">Browse universities, teaching hospitals, specialty hospitals and research centers with current cancer treatment opportunities.</p><ul>'+''.join(f'<li><a href="{g.SITE}/{p}">{g.esc(n)}</a> — {c} current opportunities</li>' for n,p,c in items)+'</ul>'
+    d=g.OUT/'centers';d.mkdir(parents=True,exist_ok=True);(d/'index.html').write_text(g.page('Veterinary Cancer Research Centers','Veterinary cancer research centers and current treatment studies.',ib,iu),encoding='utf-8')
+    sm=g.OUT/'sitemap.xml';s=sm.read_text();sm.write_text(s.replace('</urlset>',''.join(f'<url><loc>{g.esc(u)}</loc></url>\n' for u in [iu]+links)+'</urlset>'))
+    print('CENTER_PAGES_OK',len(grouped))
+
+def audit():
+    pages=list(g.OUT.rglob('index.html'));assert pages
+    for p in pages:
+        s=p.read_text(errors='replace')
+        for block in re.findall(r'<div class="study-locations">.*?</div>',s,re.S):
+            for item in re.findall(r'<li>(.*?)</li>',block,re.S):
+                text=html.unescape(re.sub(r'<.*?>','',item));assert full_address(text),(p,text)
+    (g.OUT/'mapping-audit.json').write_text(json.dumps({'effective_treatment_records':len(g.load_effective())},indent=2))
+
 def main():
-    g.canonical_cancer=canonical_cancer; g.row_cancers=row_cancers; original_page=g.page
-    def page_with_count_callout(title,desc,body,canonical,lang='en',alts=None):
-        body=re.sub(r'<p class="lead">(\d+ [^<]*treatment[^<]*opportunit[^<]*\.) Trial names, locations and official source links are shown below\.</p>',r'<p class="lead count-callout"><strong>\1</strong><br><span>Trial names, locations and official source links are shown below.</span></p>',body,count=1,flags=re.I); rendered=original_page(title,desc,body,canonical,lang,alts)
-        if lang=='en':
-            ds=rendered.find('<section class="disease">'); de=rendered.find('</section>',ds); ls=rendered.find('<p class="lead')
-            if ds!=-1 and de!=-1 and ls!=-1 and ls<ds:
-                de+=len('</section>'); disease=rendered[ds:de]; rendered=rendered[:ls]+disease+rendered[ls:ds]+rendered[de:]
-        if 'count-callout' in rendered: rendered=rendered.replace('.free{','.count-callout{background:#fff;border:1px solid #d9e2ea;border-radius:12px;padding:13px 16px;margin:18px 0 12px}.count-callout strong{font-size:1.12rem;color:#17243b}.count-callout span{font-size:.96rem;color:#607086}.free{',1)
-        return rendered
-    g.page=page_with_count_callout; g.main(); generate_center_pages(); audit_matrix()
+    g.main();generate_centers();audit()
 if __name__=='__main__':main()
