@@ -5,7 +5,7 @@ import hashlib,html,json,re
 import generate_seo as g
 from center_profiles import PROFILES
 from center_profiles_extra import EXTRA_PROFILES
-from center_directory import LOCATIONS, address_for, address_is_complete, canonical_name_for, normalize
+from center_directory import LOCATIONS, address_for, addresses_for, address_is_complete, canonical_name_for, normalize
 PROFILES.update(EXTRA_PROFILES)
 CURRENT={'current','confirmed_current'}
 
@@ -49,6 +49,12 @@ def site_active(s):
     return isinstance(s,dict) and s.get('available_for_matching') is not False and not any(x in g.norm(s.get('status','')) for x in ('not enrolling','enrollment closed','closed','paused'))
 
 
+def site_is_coverage_placeholder(s):
+    """True for coverage records that name a city/network but not a real hospital."""
+    name=normalize(s.get('hospital') or s.get('name') or '')
+    return 'partner hospital' in name or name in {'participating hospital','participating hospitals','partner site','partner sites'}
+
+
 def embedded_address(obj,country=''):
     a=str(obj.get('address') or '').strip();city=str(obj.get('city') or '').strip();state=str(obj.get('state') or '').strip();z=str(obj.get('zip') or obj.get('zipcode') or obj.get('postal_code') or '').strip()
     candidates=[]
@@ -62,25 +68,22 @@ def embedded_address(obj,country=''):
     return ''
 
 
-def site_label(s,country=''):
-    name=str(s.get('hospital') or s.get('name') or '').strip()
-    known=address_for(name)
-    if known and address_is_complete(known,country):return known
+def site_labels(s,country=''):
+    known=[x for x in addresses_for(s.get('hospital') or s.get('name') or '') if address_is_complete(x,country)]
+    if known:return known
     detail=embedded_address(s,country)
-    if not detail:return ''
-    return f'{name}, {detail}' if name and normalize(name) not in normalize(detail) else detail
+    if not detail:return []
+    name=str(s.get('hospital') or s.get('name') or '').strip()
+    return [f'{name}, {detail}' if name and normalize(name) not in normalize(detail) else detail]
 
 
 def row_locations(r):
     country=str(r.get('country') or '')
     vals=[]
     for s in r.get('sites',[]) if isinstance(r.get('sites'),list) else []:
-        if site_active(s):
-            x=site_label(s,country)
-            if x:vals.append(x)
+        if site_active(s) and not site_is_coverage_placeholder(s):vals.extend(site_labels(s,country))
     if not vals:
-        known=address_for(r.get('center',''))
-        if known and address_is_complete(known,country):vals.append(known)
+        vals.extend(x for x in addresses_for(r.get('center','')) if address_is_complete(x,country))
     if not vals:
         own=embedded_address(r,country)
         if own:vals.append(own)
@@ -88,6 +91,19 @@ def row_locations(r):
     for x in vals:
         k=normalize(x)
         if k not in seen:seen.add(k);out.append(x)
+    return out
+
+
+def coverage_areas(r):
+    out=[];seen=set();country=str(r.get('country') or '')
+    for s in r.get('sites',[]) if isinstance(r.get('sites'),list) else []:
+        if not (site_active(s) and site_is_coverage_placeholder(s)):continue
+        pieces=[str(s.get(k) or '').strip() for k in ('city','state')]
+        label=', '.join(x for x in pieces if x)
+        if country and normalize(country) not in normalize(label):label=', '.join(x for x in (label,country) if x)
+        if not label:label='Participating hospital assigned by the study team'
+        key=normalize(label)
+        if key not in seen:seen.add(key);out.append(label)
     return out
 
 
@@ -110,30 +126,37 @@ def institution_like(name):
 
 
 def preflight(rows):
-    missing_sites=[];missing_centers=[];seen_sites=set();seen_centers=set();covered_sites=0
+    missing_sites=[];missing_centers=[];coverage=[];seen_sites=set();seen_centers=set();seen_coverage=set();covered_sites=0
     for r in rows:
         rid=str(r.get('id') or '?');country=str(r.get('country') or '');center=str(r.get('center') or '').strip()
         if center:
             ck=(normalize(center),normalize(country))
             if ck not in seen_centers:
                 seen_centers.add(ck)
-                addr=address_for(center) or embedded_address(r,country)
-                if institution_like(center) and not address_is_complete(addr,country):
+                addrs=addresses_for(center);own=embedded_address(r,country)
+                if institution_like(center) and not (any(address_is_complete(a,country) for a in addrs) or address_is_complete(own,country)):
                     missing_centers.append({'name':center,'country':country,'region':region_for(country),'trial_id':rid})
         for s in r.get('sites',[]) if isinstance(r.get('sites'),list) else []:
             if not site_active(s):continue
             name=str(s.get('hospital') or s.get('name') or '').strip() or '(unnamed site)'
+            if site_is_coverage_placeholder(s):
+                key=(normalize(name),normalize(s.get('city')),normalize(country))
+                if key not in seen_coverage:
+                    seen_coverage.add(key);coverage.append({'name':name,'city':s.get('city'),'state':s.get('state'),'country':country,'trial_id':rid})
+                continue
             sk=(normalize(name),normalize(country))
             if sk in seen_sites:continue
             seen_sites.add(sk)
-            if site_label(s,country):covered_sites+=1
+            if site_labels(s,country):covered_sites+=1
             else:missing_sites.append({'name':name,'country':country,'region':region_for(country),'trial_id':rid})
     report={
         'effective_treatment_records':len(rows),'directory_locations':len(LOCATIONS),'unique_centers':len(seen_centers),
-        'unique_active_sites':len(seen_sites),'covered_active_sites':covered_sites,
-        'missing_center_addresses':missing_centers,'missing_participating_site_addresses':missing_sites,
+        'unique_active_physical_sites':len(seen_sites),'covered_active_physical_sites':covered_sites,
+        'coverage_placeholders':coverage,'missing_center_addresses':missing_centers,'missing_participating_site_addresses':missing_sites,
     }
-    print('ADDRESS_PREFLIGHT',json.dumps({'centers':len(seen_centers),'sites':len(seen_sites),'missing_centers':len(missing_centers),'missing_sites':len(missing_sites)},sort_keys=True))
+    print('ADDRESS_PREFLIGHT',json.dumps({'centers':len(seen_centers),'physical_sites':len(seen_sites),'coverage_placeholders':len(coverage),'missing_centers':len(missing_centers),'missing_sites':len(missing_sites)},sort_keys=True))
+    if missing_centers or missing_sites:
+        raise AssertionError('Address preflight failed: '+json.dumps({'centers':missing_centers,'sites':missing_sites},ensure_ascii=False,sort_keys=True))
     return report
 
 
@@ -151,6 +174,8 @@ def cards(rows):
         if contact:p.append(f'<p><b>Contact:</b> {g.esc(contact)}</p>')
         locs=row_locations(r)
         if locs:p.append('<div class="study-locations"><p class="field-label">'+('Location' if len(locs)==1 else 'Participating locations')+'</p><ul>'+''.join(f'<li>{g.esc(x)}</li>' for x in locs)+'</ul></div>')
+        areas=coverage_areas(r)
+        if areas:p.append('<div class="enrollment-areas"><p class="field-label">Enrollment area</p><ul>'+''.join(f'<li>{g.esc(x)}</li>' for x in areas)+'</ul><p class="coverage-note">The public study listing names a partner-hospital network rather than a specific hospital. Confirm the assigned hospital with the study team.</p></div>')
         if r.get('last_verified'):p.append(f'<p class="verified">Last verified: {g.esc(r["last_verified"])}</p>')
         if r.get('url'):p.append(f'<p><a class="official" href="{g.esc(r["url"])}" rel="noopener">Official study / enrollment information →</a></p>')
         p.append('</article>');out.append(''.join(p))
@@ -160,7 +185,7 @@ g.cards=cards
 base_page=g.page
 def page(title,desc,body,canonical,lang='en',alts=None):
     rendered=base_page(title,desc,body,canonical,lang,alts)
-    css='body{font-size:16px}.center-page h1{font-size:clamp(1.45rem,3.2vw,2rem);line-height:1.12;margin:20px 0 14px}.center-page .center-overview h2{font-size:1.18rem;margin-top:14px}.center-page .center-overview p{max-width:760px}.center-page .center-overview figure{margin:16px 0 14px;width:100%;max-width:760px}.center-page .center-overview figure img{width:100%!important;max-width:none!important;max-height:390px!important;object-fit:cover;border-radius:14px;display:block}.study-locations{margin:15px 0 4px;padding:12px 14px;background:#f6f8fb;border-radius:10px}.study-locations ul{margin:5px 0 0;padding-left:20px}.field-label{font-weight:750;margin:0}.center-address{background:#fff;border:1px solid #d9e2ea;border-radius:12px;padding:12px 15px;margin:14px 0 22px}.free-note{font-size:.8rem;color:#607086}.card p{margin:.7rem 0}@media(max-width:600px){.center-page h1{font-size:1.42rem}.center-page .center-overview h2{font-size:1.08rem}.center-page .center-overview figure{max-width:none}}'
+    css='body{font-size:16px}.center-page h1{font-size:clamp(1.45rem,3.2vw,2rem);line-height:1.12;margin:20px 0 14px}.center-page .center-overview h2{font-size:1.18rem;margin-top:14px}.center-page .center-overview p{max-width:760px}.center-page .center-overview figure{margin:16px 0 14px;width:100%;max-width:760px}.center-page .center-overview figure img{width:100%!important;max-width:none!important;max-height:390px!important;object-fit:cover;border-radius:14px;display:block}.study-locations,.enrollment-areas{margin:15px 0 4px;padding:12px 14px;background:#f6f8fb;border-radius:10px}.study-locations ul,.enrollment-areas ul{margin:5px 0 0;padding-left:20px}.field-label{font-weight:750;margin:0}.coverage-note{font-size:.86rem;color:#607086}.center-address{background:#fff;border:1px solid #d9e2ea;border-radius:12px;padding:12px 15px;margin:14px 0 22px}.free-note{font-size:.8rem;color:#607086}.card p{margin:.7rem 0}@media(max-width:600px){.center-page h1{font-size:1.42rem}.center-page .center-overview h2{font-size:1.08rem}.center-page .center-overview figure{max-width:none}}'
     return rendered.replace('</style>',css+'</style>',1)
 g.page=page
 
@@ -198,15 +223,15 @@ def add(grouped,name,row):
     if not any(x.get('id')==row.get('id') for x in b):b.append(row)
 
 
-def center_page_address(center,hit):
+def center_page_addresses(center,hit):
     country=str(hit[0].get('country') or '') if hit else ''
-    known=address_for(center)
-    if known and address_is_complete(known,country):return known
+    known=[x for x in addresses_for(center) if address_is_complete(x,country)]
+    if known:return known
     for r in hit:
         if canonical_center(r.get('center'))==center:
             own=embedded_address(r,str(r.get('country') or ''))
-            if own:return own
-    return ''
+            if own:return [own]
+    return []
 
 
 def safe_center_slug(center,used):
@@ -223,12 +248,14 @@ def generate_centers(rows):
     for r in rows:
         add(grouped,r.get('center'),r)
         for s in r.get('sites',[]) if isinstance(r.get('sites'),list) else []:
-            if site_active(s) and (s.get('hospital') or s.get('name')):add(grouped,s.get('hospital') or s.get('name'),r)
+            if site_active(s) and not site_is_coverage_placeholder(s) and (s.get('hospital') or s.get('name')):add(grouped,s.get('hospital') or s.get('name'),r)
     links=[];items=[];used={}
     for center,hit in sorted(grouped.items()):
         slug=safe_center_slug(center,used);used[slug]=center;path=f'centers/{slug}/';url=f'{g.SITE}/{path}'
         cancers=sorted({c for r in hit for c in row_cancers(r)});ct=', '.join(g.display_name(c) for c in cancers) or 'multiple cancer types'
-        addr=center_page_address(center,hit);address_html=f'<div class="center-address"><strong>Location</strong><br>{g.esc(addr)}</div>' if addr else ''
+        addrs=center_page_addresses(center,hit)
+        address_html=''
+        if addrs:address_html='<div class="center-address"><strong>'+('Location' if len(addrs)==1 else 'Locations')+'</strong><br>'+'<br>'.join(g.esc(x) for x in addrs)+'</div>'
         body='<div class="center-page">'+f'<h1>{g.esc(center)}</h1>'+overview(center)+address_html+f'<p>Current opportunities here include research or treatment options for <strong>{g.esc(ct)}</strong>.</p><p><a class="cta" href="{g.FINDER}">Find cancer treatment options near you</a></p><p class="free-note">100% free. No registration, hidden results or paid report.</p><h2>Cancer treatment &amp; research options</h2>'+g.cards(hit)+'</div>'
         desc=f'Dog and cat cancer treatment options, research studies and clinical trials at {center}.'
         d=g.OUT/path;d.mkdir(parents=True,exist_ok=True);(d/'index.html').write_text(g.page(center,desc,body,url),encoding='utf-8');links.append(url);items.append((center,path,len(hit)))
