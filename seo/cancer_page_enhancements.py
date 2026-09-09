@@ -63,11 +63,18 @@ def _enhance(text: str) -> tuple[str, bool]:
     )
     text = text.replace(old_h1, new_h1, 1)
 
-    summary = (
-        f'<div class="cancer-summary"><strong class="opportunity-count">{count} current treatment opportunities</strong>'
-        f'<p>Clinical trials and advanced cancer treatment studies currently represented in our catalog for {label_html}.</p>'
-        '<p class="summary-detail">See locations, key eligibility, costs when provided, contacts and official enrollment links below.</p></div>'
-    )
+    if count == '0':
+        summary = (
+            '<div class="cancer-summary"><strong class="opportunity-count">No current treatment opportunities in our catalog</strong>'
+            f'<p>We do not currently have an active {label_html} trial or advanced treatment listing for this species and region.</p>'
+            '<p class="summary-detail">The cancer information on this page remains available, and new studies can be added here when enrollment opens.</p></div>'
+        )
+    else:
+        summary = (
+            f'<div class="cancer-summary"><strong class="opportunity-count">{count} current treatment opportunities</strong>'
+            f'<p>Clinical trials and advanced cancer treatment studies currently represented in our catalog for {label_html}.</p>'
+            '<p class="summary-detail">See locations, key eligibility, costs when provided, contacts and official enrollment links below.</p></div>'
+        )
     text = LEAD_RE.sub(summary, text, count=1)
 
     # Replace the complete educational section from one centrally maintained
@@ -89,9 +96,14 @@ def _enhance(text: str) -> tuple[str, bool]:
         # generic copy. New canonical cancers must receive reviewed owner copy.
         raise AssertionError(f'Missing owner-facing cancer content for {label}')
 
+    research_intro = (
+        '<h2>Current clinical trials &amp; treatment options</h2><p class="section-intro">No active listings are currently represented in our catalog for this species and region. We keep this page available so new opportunities can appear here when they open.</p>'
+        if count == '0' else
+        '<h2>Current clinical trials &amp; treatment options</h2><p class="section-intro">Browse the current listings below, then use the free matcher to check the study-specific criteria against your pet’s diagnosis and situation.</p>'
+    )
     text = text.replace(
         '<h2>Treatment &amp; research</h2><p>Below are treatment-focused clinical trials and advanced oncology options currently represented in our live catalog.</p>',
-        '<h2>Current clinical trials &amp; treatment options</h2><p class="section-intro">Browse the current listings below, then use the free matcher to check the study-specific criteria against your pet’s diagnosis and situation.</p>',
+        research_intro,
         1,
     )
 
