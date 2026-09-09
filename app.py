@@ -98,7 +98,13 @@ def markdown(body,*a,**k):
         if body.startswith("Answer what you know."):
             _orig["markdown"](f'<div class="intro-answer">{body}</div>',unsafe_allow_html=True);return
         if body.startswith("### ") and " · " in body:
-            confidence,center=body[4:].split(" · ",1);confidence={"Potential broad-treatment trial — prescreening required":"Prescreening required","Trial to review — cancer type not specified":"Trial to review"}.get(confidence,confidence);_orig["markdown"](f"### {confidence}");_orig["markdown"](f"**{center}**");return
+            confidence,center=body[4:].split(" · ",1);confidence={"Potential broad-treatment trial — prescreening required":"Prescreening required","Trial to review — cancer type not specified":"Trial to review"}.get(confidence,confidence)
+            if confidence == "Prescreening required":
+                _orig["markdown"]('<span style="display:inline-block;font-size:.78rem;font-weight:600;color:#6f665f;background:#f3f0ec;padding:.16rem .48rem;border-radius:999px;margin:0 0 .35rem">Prescreening required</span>',unsafe_allow_html=True)
+            else:
+                _orig["markdown"](f"### {confidence}")
+            _orig["markdown"](f'<div style="font-size:1.03rem;font-weight:700;color:#2f6f73;margin:.18rem 0 .48rem">{center}</div>',unsafe_allow_html=True)
+            return
         if body.startswith("**Study type:**"):return
         if body.startswith("**Why it may fit:**"):return _orig["markdown"]("**Why:** "+body.replace("**Why it may fit:**","",1).strip().rstrip(".")+".")
         if body.startswith("**Needs confirmation:**"):return _orig["markdown"]("**Confirm:** "+body.replace("**Needs confirmation:**","",1).strip().rstrip(".")+".")
