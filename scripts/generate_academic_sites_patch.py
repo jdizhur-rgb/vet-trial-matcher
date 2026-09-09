@@ -89,67 +89,107 @@ def parse_city_region(address: str, country: str, fallback_city: str = "", fallb
     return "", ""
 
 
+def usable_contact(text: str) -> bool:
+    text = str(text or "").strip()
+    if not text:
+        return False
+    if re.search(r"[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}", text):
+        return True
+    if re.search(r"(?:\+?\d[\d .()/-]{7,}\d)", text):
+        return True
+    return False
+
+
+def contact_score(text: str) -> tuple[int, int]:
+    low = text.lower()
+    institutional = sum(k in low for k in ("clinical", "trial", "oncology", "hospital", "vet", "research"))
+    return institutional, -len(text)
+
+
 def main():
     cd = load_center_directory()
     cp = load_center_presentation()
+    catalog = load_catalog()
     out = []
     skipped = []
 
-    for tr in load_catalog():
+    # Reuse a real email/phone already verified elsewhere for the same institution.
+    # This lets one good institutional trial-office contact repair sparse cards
+    # without manually copying it into every trial record.
+    center_contacts = {}
+    for tr in catalog:
+        center = str(tr.get("center") or "").strip()
+        contact = str(tr.get("contacts") or tr.get("contact") or "").strip()
+        if not center or not usable_contact(contact):
+            continue
+        try:
+            canonical = cd.canonical_name_for(center) or center
+        except Exception:
+            canonical = center
+        old = center_contacts.get(canonical)
+        if old is None or contact_score(contact) > contact_score(old):
+            center_contacts[canonical] = contact
+
+    for tr in catalog:
         trial_id = tr.get("id")
         center = str(tr.get("center") or "").strip()
-        if not trial_id or not center or tr.get("sites"):
+        if not trial_id or not center:
             continue
 
         try:
-            canonical = cd.canonical_name_for(center)
+            canonical = cd.canonical_name_for(center) or center
             address = cd.address_for(center)
         except Exception:
             canonical = center
             address = None
 
-        if not canonical or not address or not is_academic(canonical):
-            continue
+        patch = {"id": trial_id}
+        changed = False
 
-        country = str(tr.get("country") or "USA").strip()
-        city, region = parse_city_region(
-            address,
-            country,
-            str(tr.get("city") or "").strip(),
-            str(tr.get("state") or "").strip(),
-        )
-        if not city or not region:
-            skipped.append({"id": trial_id, "center": center, "address": address})
-            continue
-
-        display_name = cp.display_name_for(canonical)
-        patch = {
-            "id": trial_id,
-            "sites": [{
-                "hospital": f"📍 {display_name}",
-                "name": canonical,
-                "city": city,
-                "state": region,
-            }],
-            "location_source": "seo/center_directory.py",
-        }
-
-        if not str(tr.get("contacts") or tr.get("contact") or "").strip():
-            fallback_contact = cp.contact_for(canonical)
-            if fallback_contact:
+        # Contact cleanup applies to every center, not just universities.
+        current_contact = str(tr.get("contacts") or tr.get("contact") or "").strip()
+        if not usable_contact(current_contact):
+            fallback_contact = cp.contact_for(canonical) or center_contacts.get(canonical)
+            if fallback_contact and usable_contact(fallback_contact):
                 patch["contacts"] = fallback_contact
-                patch["contact_source"] = "seo/center_presentation.py"
+                patch["contact_source"] = "verified institution fallback"
+                changed = True
 
-        out.append(patch)
+        # Geography generation remains conservative: only single-site academic
+        # records with no explicit sites get a generated participating-site line.
+        if not tr.get("sites") and canonical and address and is_academic(canonical):
+            country = str(tr.get("country") or "USA").strip()
+            city, region = parse_city_region(
+                address,
+                country,
+                str(tr.get("city") or "").strip(),
+                str(tr.get("state") or "").strip(),
+            )
+            if city and region:
+                display_name = cp.display_name_for(canonical)
+                patch["sites"] = [{
+                    "hospital": f"📍 {display_name}",
+                    "name": canonical,
+                    "city": city,
+                    "state": region,
+                }]
+                patch["location_source"] = "seo/center_directory.py"
+                changed = True
+            else:
+                skipped.append({"id": trial_id, "center": center, "address": address})
+
+        if changed:
+            out.append(patch)
 
     doc = {
-        "generated_from": ["seo/center_directory.py", "seo/center_presentation.py"],
-        "purpose": "Expose academic geography with compact patient-facing center labels and verified contact fallbacks without modifying the Finder page.",
+        "generated_from": ["seo/center_directory.py", "seo/center_presentation.py", "effective catalog contacts"],
+        "purpose": "Expose academic geography and propagate verified institution contacts across sparse trial cards without modifying trial matching logic.",
         "upsert": sorted(out, key=lambda x: x["id"]),
         "delete": [],
     }
     OUT.write_text(json.dumps(doc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"ACADEMIC_SITES_PATCH {len(out)}")
+    print(f"CENTER_PRESENTATION_PATCH {len(out)}")
+    print(f"CENTER_CONTACT_FALLBACKS {len(center_contacts)}")
     if skipped:
         print("ACADEMIC_SITES_SKIPPED", json.dumps(skipped, ensure_ascii=False))
 
