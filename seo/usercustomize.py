@@ -33,8 +33,6 @@ class CenterProfiles(dict):
   p={'title':f'About {key}','about':about,'links':[],**FALLBACK}; self[key]=p; return p
 
 def fill_profiles(mapping):
- # Match copy by normalized name, not exact spelling. Center names in the catalog often
- # carry suffixes such as (GCVS), / Ethos Discovery, or & Emergency.
  for actual,p in list(mapping.items()):
   na=g.norm(actual)
   for wanted,patch in CENTER_COPY.items():
@@ -56,11 +54,15 @@ CENTER_PAGE_ADDRESSES={
 
 _previous_page=g.page
 def page_with_center_address(title,desc,body,canonical,lang='en',alts=None):
+ rendered=_previous_page(title,desc,body,canonical,lang,alts)
  if lang=='en' and '/centers/' in canonical and not canonical.rstrip('/').endswith('/centers'):
   slug=canonical.rstrip('/').rsplit('/',1)[-1]; address=CENTER_PAGE_ADDRESSES.get(slug)
-  if address and '<section class="center-locations">' not in body:
+  if address and '<section class="center-locations">' not in rendered:
    block='<section class="center-locations"><h2>Location</h2><ul><li>'+g.esc(address)+'</li></ul></section>'
-   overview=re.search(r'<div class="center-overview"[^>]*>.*?</div>',body,re.S)
-   body=body[:overview.end()]+block+body[overview.end():] if overview else block+body
- return _previous_page(title,desc,body,canonical,lang,alts)
+   overview=re.search(r'<div class="center-overview"[^>]*>.*?</div>',rendered,re.S)
+   if overview: rendered=rendered[:overview.end()]+block+rendered[overview.end():]
+   else:
+    h1=re.search(r'</h1>',rendered,re.S)
+    rendered=rendered[:h1.end()]+block+rendered[h1.end():] if h1 else block+rendered
+ return rendered
 g.page=page_with_center_address
