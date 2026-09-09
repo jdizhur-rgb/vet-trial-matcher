@@ -3,6 +3,7 @@
 from __future__ import annotations
 import hashlib,html,json,re
 import generate_seo as g
+from cancer_page_enhancements import enhance_cancer_pages
 from center_profiles import PROFILES
 from center_profiles_extra import EXTRA_PROFILES
 from center_directory import LOCATIONS, address_for, addresses_for, address_is_complete, canonical_name_for, normalize
@@ -282,5 +283,5 @@ def audit(report):
 
 def main():
     rows=g.load_effective();report=preflight(rows)
-    g.main();generate_centers(rows);audit(report)
+    g.main();enhance_cancer_pages(g.OUT);generate_centers(rows);audit(report)
 if __name__=='__main__':main()
