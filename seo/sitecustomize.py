@@ -1,0 +1,138 @@
+"""Render study-specific participating sites inside SEO trial cards.
+Loaded automatically by Python before the SEO generator.
+"""
+import re
+import generate_seo as g
+
+_original_cards = g.cards
+
+MULTI_CENTER_MARKERS = (
+    'ethos', 'medvet', 'sage veterinary', 'veterinary specialty hospital',
+    'multicenter', 'multi-center', 'hospital network'
+)
+
+# Verified public study pages sometimes list participating hospitals more clearly
+# than older catalog records. Keep these fallbacks study-specific, never center-wide.
+TITLE_SITE_FALLBACKS = {
+    'canine b-cell lymphoma study': [
+        'Colorado Animal Specialty & Emergency (CASE) — Boulder, CO',
+        'Overland Park Veterinary & Specialty (OPVES) — Overland Park, KS',
+        'Veterinary Specialty Hospital — Sorrento Valley, CA',
+    ],
+    'canine epitheliotropic lymphosarcoma sample collection study': [
+        'Overland Park Veterinary Emergency and Specialty — Overland Park, KS',
+        'Nashville Veterinary Specialists — Nashville, TN',
+        'Gulf Coast Veterinary Specialists (GCVS) — Houston, TX',
+        'Peak Veterinary Referral Center — Williston, VT',
+    ],
+    'canine oncology sample study': [
+        'Charleston Veterinary Referral Center (CVRC) — Charleston, SC',
+        'Boston West Veterinary Emergency and Specialty — Natick, MA',
+        'Massachusetts Veterinary Referral Hospital (MVRH) — Woburn, MA',
+        'Metropolitan Veterinary Hospital — Cleveland, OH',
+        'Metropolitan Veterinary Hospital — Akron, OH',
+        'Pacific Northwest Pet ER & Specialty Center (PACWVETS) — Vancouver, WA',
+        'SAGE — San Francisco, CA',
+        'Southeast Veterinary Oncology & Internal Medicine — Jacksonville, FL',
+        'Upstate Vet Emergency + Specialty Care — Greenville, SC',
+        'Veterinary Specialty Hospital – North County — San Marcos, CA',
+        'Animal Medical Center of Plainfield — Plainfield, IL',
+        'Eastern Carolina Veterinary Medical Center — Wilmington, NC',
+        'Spanaway Veterinary Clinic — Spanaway, WA',
+    ],
+    'fine needle aspirate sample study wave 2': [
+        'Animal Emergency Hospital (AEH) — Bel Air, MD',
+        'Metropolitan Veterinary Hospital — Cleveland, OH',
+        'Boston West Veterinary Emergency & Specialty — Natick, MA',
+        'Metropolitan Veterinary Hospital — Akron, OH',
+        'Pacific Northwest Pet Emergency & Specialty Center (PACWVETS) — Vancouver, WA',
+        'Premier Vet Group — Orland Park, IL',
+        'SAGE San Francisco — San Francisco, CA',
+        'McAbee Veterinary Hospital — Winter Park, FL',
+        'Sumner Veterinary Hospital — Sumner, WA',
+    ],
+}
+
+def _active(site):
+    if not isinstance(site, dict) or site.get('available_for_matching') is False:
+        return False
+    status = g.norm(site.get('status', ''))
+    return not any(x in status for x in ('not enrolling', 'enrollment closed', 'closed', 'paused'))
+
+def _site_label(site):
+    name = str(site.get('hospital') or site.get('name') or '').strip()
+    address = str(site.get('address') or '').strip()
+    city = str(site.get('city') or '').strip()
+    state = str(site.get('state') or '').strip()
+    zipcode = str(site.get('zip') or site.get('zipcode') or '').strip()
+    location = str(site.get('location') or '').strip()
+    geo = ', '.join(x for x in (city, state) if x)
+    if zipcode:
+        geo = (geo + ' ' + zipcode).strip()
+    detail = address
+    if geo and g.norm(geo) not in g.norm(detail):
+        detail = ', '.join(x for x in (detail, geo) if x)
+    if location and g.norm(location) not in g.norm(detail):
+        detail = ', '.join(x for x in (detail, location) if x)
+    if name and detail:
+        return f'{name} — {detail}'
+    return name or detail
+
+def _row_sites(row):
+    vals = []
+    for site in row.get('sites', []) if isinstance(row.get('sites'), list) else []:
+        if _active(site):
+            label = _site_label(site)
+            if label:
+                vals.append(label)
+    if not vals:
+        key = g.norm(row.get('title', ''))
+        vals.extend(TITLE_SITE_FALLBACKS.get(key, []))
+    # A single-site row can carry its location directly.
+    if not vals:
+        address = str(row.get('address') or '').strip()
+        city = str(row.get('city') or '').strip()
+        state = str(row.get('state') or '').strip()
+        location = str(row.get('location') or '').strip()
+        direct = address or ', '.join(x for x in (city, state) if x) or location
+        if direct and g.norm(direct) not in ('multiple', 'usa', 'united states'):
+            vals.append(direct)
+    out = []
+    seen = set()
+    for value in vals:
+        value = re.sub(r'\s+', ' ', str(value)).strip(' ,')
+        key = g.norm(value)
+        if not key or key in ('multiple', 'co') or key in seen:
+            continue
+        seen.add(key)
+        out.append(value)
+    return out
+
+def _locations_html(row):
+    sites = _row_sites(row)
+    if not sites:
+        return ''
+    label = 'Participating location' if len(sites) == 1 else 'Participating locations'
+    items = ''.join(f'<li>{g.esc(x)}</li>' for x in sites)
+    return f'<div class="study-locations"><p><b>{label}:</b></p><ul>{items}</ul></div>'
+
+def cards_with_study_locations(rows):
+    rows = list(rows)
+    html = _original_cards(rows)
+    cards = re.findall(r'<article class="card">.*?</article>', html, flags=re.S)
+    if len(cards) != len(rows):
+        return html
+    rendered = []
+    hide_center_rollup = False
+    for row, card in zip(rows, cards):
+        loc = _locations_html(row)
+        if loc:
+            card = card.replace('</article>', loc + '</article>')
+        center = g.norm(row.get('center', ''))
+        if len(_row_sites(row)) > 1 or any(x in center for x in MULTI_CENTER_MARKERS):
+            hide_center_rollup = True
+        rendered.append(card)
+    prefix = '<style>.center-locations{display:none}.study-locations{margin:14px 0}.study-locations p{margin-bottom:4px}.study-locations ul{margin-top:4px;padding-left:22px}</style>' if hide_center_rollup else ''
+    return prefix + ''.join(rendered)
+
+g.cards = cards_with_study_locations
