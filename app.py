@@ -98,7 +98,7 @@ def markdown(body,*a,**k):
         if body.startswith("Answer what you know."):
             _orig["markdown"](f'<div class="intro-answer">{body}</div>',unsafe_allow_html=True);return
         if body.startswith("### ") and " · " in body:
-            confidence,center=body[4:].split(" · ",1);confidence={"Potential broad-treatment trial — prescreening required":"Prescreening required","Trial to review — cancer type not specified":"Trial to review"}.get(confidence,confidence);_orig["markdown"](f"### {confidence}");st.caption(center);return
+            confidence,center=body[4:].split(" · ",1);confidence={"Potential broad-treatment trial — prescreening required":"Prescreening required","Trial to review — cancer type not specified":"Trial to review"}.get(confidence,confidence);_orig["markdown"](f"### {confidence}");_orig["markdown"](f"**{center}**");return
         if body.startswith("**Study type:**"):return
         if body.startswith("**Why it may fit:**"):return _orig["markdown"]("**Why:** "+body.replace("**Why it may fit:**","",1).strip().rstrip(".")+".")
         if body.startswith("**Needs confirmation:**"):return _orig["markdown"]("**Confirm:** "+body.replace("**Needs confirmation:**","",1).strip().rstrip(".")+".")
