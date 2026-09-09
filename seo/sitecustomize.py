@@ -12,8 +12,8 @@ MULTI_CENTER_MARKERS = (
 )
 
 # Verified public study pages sometimes list participating hospitals more clearly
-# than older catalog records. Keep these fallbacks study-specific, never center-wide.
-TITLE_SITE_FALLBACKS = {
+# than older catalog records. These are study-specific fallbacks only.
+_RAW_TITLE_SITE_FALLBACKS = {
     'canine b-cell lymphoma study': [
         'Colorado Animal Specialty & Emergency (CASE) — Boulder, CO',
         'Overland Park Veterinary & Specialty (OPVES) — Overland Park, KS',
@@ -51,13 +51,22 @@ TITLE_SITE_FALLBACKS = {
         'McAbee Veterinary Hospital — Winter Park, FL',
         'Sumner Veterinary Hospital — Sumner, WA',
     ],
+    'experimental egfr/her2 tumor vaccine': [
+        'MedVet Salt Lake City — Salt Lake City, UT',
+        'MedVet Cincinnati — Cincinnati, OH (established patients)',
+        'MedVet Cleveland — Cleveland, OH (established patients)',
+        'MedVet Pittsburgh — Pittsburgh, PA (Pennsylvania residents)',
+    ],
 }
+TITLE_SITE_FALLBACKS = {g.norm(k): v for k, v in _RAW_TITLE_SITE_FALLBACKS.items()}
+
 
 def _active(site):
     if not isinstance(site, dict) or site.get('available_for_matching') is False:
         return False
     status = g.norm(site.get('status', ''))
     return not any(x in status for x in ('not enrolling', 'enrollment closed', 'closed', 'paused'))
+
 
 def _site_label(site):
     name = str(site.get('hospital') or site.get('name') or '').strip()
@@ -78,6 +87,7 @@ def _site_label(site):
         return f'{name} — {detail}'
     return name or detail
 
+
 def _row_sites(row):
     vals = []
     for site in row.get('sites', []) if isinstance(row.get('sites'), list) else []:
@@ -86,15 +96,18 @@ def _row_sites(row):
             if label:
                 vals.append(label)
     if not vals:
-        key = g.norm(row.get('title', ''))
-        vals.extend(TITLE_SITE_FALLBACKS.get(key, []))
-    # A single-site row can carry its location directly.
+        vals.extend(TITLE_SITE_FALLBACKS.get(g.norm(row.get('title', '')), []))
+    # Single-site records may carry their physical location directly.
     if not vals:
         address = str(row.get('address') or '').strip()
         city = str(row.get('city') or '').strip()
         state = str(row.get('state') or '').strip()
+        zipcode = str(row.get('zip') or row.get('zipcode') or '').strip()
         location = str(row.get('location') or '').strip()
-        direct = address or ', '.join(x for x in (city, state) if x) or location
+        geo = ', '.join(x for x in (city, state) if x)
+        if zipcode:
+            geo = (geo + ' ' + zipcode).strip()
+        direct = ', '.join(x for x in (address, geo) if x) or location
         if direct and g.norm(direct) not in ('multiple', 'usa', 'united states'):
             vals.append(direct)
     out = []
@@ -108,20 +121,22 @@ def _row_sites(row):
         out.append(value)
     return out
 
+
 def _locations_html(row):
     sites = _row_sites(row)
     if not sites:
         return ''
-    label = 'Participating location' if len(sites) == 1 else 'Participating locations'
+    label = 'Study location' if len(sites) == 1 else 'Participating study locations'
     items = ''.join(f'<li>{g.esc(x)}</li>' for x in sites)
     return f'<div class="study-locations"><p><b>{label}:</b></p><ul>{items}</ul></div>'
 
+
 def cards_with_study_locations(rows):
     rows = list(rows)
-    html = _original_cards(rows)
-    cards = re.findall(r'<article class="card">.*?</article>', html, flags=re.S)
+    rendered_html = _original_cards(rows)
+    cards = re.findall(r'<article class="card">.*?</article>', rendered_html, flags=re.S)
     if len(cards) != len(rows):
-        return html
+        return rendered_html
     rendered = []
     hide_center_rollup = False
     for row, card in zip(rows, cards):
@@ -129,10 +144,13 @@ def cards_with_study_locations(rows):
         if loc:
             card = card.replace('</article>', loc + '</article>')
         center = g.norm(row.get('center', ''))
-        if len(_row_sites(row)) > 1 or any(x in center for x in MULTI_CENTER_MARKERS):
+        if len(_row_sites(row)) > 1 or any(g.norm(x) in center for x in MULTI_CENTER_MARKERS):
             hide_center_rollup = True
         rendered.append(card)
+    # On network/multicenter pages the old center-wide location rollup is hidden.
+    # Single-site university/center pages keep their one physical address above.
     prefix = '<style>.center-locations{display:none}.study-locations{margin:14px 0}.study-locations p{margin-bottom:4px}.study-locations ul{margin-top:4px;padding-left:22px}</style>' if hide_center_rollup else ''
     return prefix + ''.join(rendered)
+
 
 g.cards = cards_with_study_locations
