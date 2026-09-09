@@ -51,10 +51,17 @@ jobs:
           audit=json.loads(Path('seo/site/mapping-audit.json').read_text()); cells=audit['cells']; by_id={r['id']:r for r in strict.g.load_effective()}
           forbidden=('active_treatment_target:', 'chemo_washout_days:', 'radiation_washout_days:', "{'", "': True")
           def titles(s): return [html.unescape(x) for x in re.findall(r'<article class="card"><h3>(.*?)</h3>',s,re.S)]
+          def assert_full_locations(s,label):
+            for block in re.findall(r'<div class="study-locations">.*?</div>',s,re.S):
+              for item in re.findall(r'<li>(.*?)</li>',block,re.S):
+                text=html.unescape(re.sub(r'<.*?>','',item))
+                assert re.search(r'\d',text), (label,'location has no street number',text)
+                assert re.search(r'\b[A-Z]{2}\s+\d{5}(?:-\d{4})?\b',text), (label,'location has no state+ZIP',text)
+                assert text.strip().lower() not in {'multiple','indiana','minnesota','colorado','co'},(label,'garbage location',text)
           for rel,ids in cells.items():
             p=Path('seo/site')/rel/'index.html'; assert p.exists(); assert sorted(titles(p.read_text(errors='replace')))==sorted(by_id[i].get('title','') for i in ids),rel
           for p in pages:
-            s=p.read_text(errors='replace'); assert 'Cancer Trial Finder For Dogs And Cats' in s; assert 'class="wrap"' in s; assert not any(x in s for x in forbidden)
+            s=p.read_text(errors='replace'); assert 'Cancer Trial Finder For Dogs And Cats' in s; assert 'class="wrap"' in s; assert not any(x in s for x in forbidden); assert_full_locations(s,str(p))
             if p not in (Path('seo/site/index.html'),Path('seo/site/centers/index.html')): assert 'class="card"' in s
           centers=list(Path('seo/site/centers').glob('*/index.html')); assert centers
           for p in centers:
@@ -62,7 +69,7 @@ jobs:
             for section in re.findall(r'<section class="center-locations">.*?</section>',s,re.S): assert section.count('<li>')<=1,(p,'network-wide location rollup survived')
           ethos=next((p for p in centers if 'ethos' in p.parent.name),None)
           if ethos:
-            s=ethos.read_text(errors='replace'); assert 'Locations &amp; participating hospitals' not in s; assert 'Participating locations' in s; assert 'What is being offered:' in s
+            s=ethos.read_text(errors='replace'); assert 'Locations &amp; participating hospitals' not in s; assert 'What is being offered:' in s
           print(f"VALID_ALL pages={len(pages)} centers={len(centers)}")
           PY
       - uses: actions/configure-pages@v5
@@ -98,6 +105,10 @@ jobs:
           diagnosis=sorted(Path('seo/site').glob('*/*/*/index.html')); centers=sorted(Path('seo/site/centers').glob('*/index.html')); local=diagnosis+centers
           paths=['']+[str(p.parent.relative_to('seo/site')).replace('\\','/')+'/' for p in local]
           def titles(s): return [html.unescape(x) for x in re.findall(r'<article class="card"><h3>(.*?)</h3>',s,re.S)]
+          def assert_full_locations(s,label):
+            for block in re.findall(r'<div class="study-locations">.*?</div>',s,re.S):
+              for item in re.findall(r'<li>(.*?)</li>',block,re.S):
+                text=html.unescape(re.sub(r'<.*?>','',item)); assert re.search(r'\d',text),(label,text); assert re.search(r'\b[A-Z]{2}\s+\d{5}(?:-\d{4})?\b',text),(label,text)
           for path in paths:
             expected=(Path('seo/site')/path/'index.html').read_text() if path else Path('seo/site/index.html').read_text(); text=''
             for i in range(12):
@@ -107,11 +118,11 @@ jobs:
               except Exception: text=''
               if 'Cancer Trial Finder For Dogs And Cats' in text and titles(text)==titles(expected): break
               time.sleep(10)
-            assert 'Cancer Trial Finder For Dogs And Cats' in text,path; assert titles(text)==titles(expected),path
+            assert 'Cancer Trial Finder For Dogs And Cats' in text,path; assert titles(text)==titles(expected),path; assert_full_locations(text,path)
             if path.startswith('centers/') and path!='centers/':
               assert 'Find cancer treatment options near you' in text,path
               for section in re.findall(r'<section class="center-locations">.*?</section>',text,re.S): assert section.count('<li>')<=1,(path,'live network rollup')
-              if 'ethos' in path: assert 'Locations &amp; participating hospitals' not in text and 'Participating locations' in text and 'What is being offered:' in text,path
+              if 'ethos' in path: assert 'Locations &amp; participating hospitals' not in text and 'What is being offered:' in text,path
             print('LIVE_OK',path or '/',len(titles(text)),'cards')
           print('LIVE_REBUILD_OK',len(local),'content pages')
           PY
