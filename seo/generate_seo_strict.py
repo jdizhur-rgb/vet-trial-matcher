@@ -4,6 +4,10 @@ from __future__ import annotations
 import json,re
 from pathlib import Path
 import generate_seo as g
+# Explicitly apply the shared owner-facing presentation layer during strict builds.
+# This is intentionally imported here rather than relying on Python's implicit
+# sitecustomize startup behavior, which depends on the launch directory.
+import sitecustomize as owner_ui
 from center_profiles import PROFILES
 from center_profiles_extra import EXTRA_PROFILES
 PROFILES.update(EXTRA_PROFILES)
@@ -49,8 +53,15 @@ CENTER_RULES=(
 ('Ethos Veterinary Health / Ethos Discovery',('ethos veterinary health','ethos discovery')),('Colorado Animal Specialty & Emergency (CASE)',('colorado animal specialty','case / ethos discovery')),('UC Davis Veterinary Center for Clinical Trials',('uc davis veterinary center for clinical trials','uc davis veterinary medical teaching hospital','uc davis')),('Johns Hopkins Center for Image-Guided Animal Therapy (CIGAT)',('johns hopkins center for image-guided animal therapy',)),('Veterinary Referral Center of Central Oregon',('veterinary referral center of central oregon','vrcco')),('SAGE Veterinary Centers',('sage san francisco','sage veterinary')),('Veterinary Specialty Hospital',('veterinary specialty hospital sorrento valley','veterinary specialty hospital north county')),
 )
 CSU_CENTER='Colorado State University Flint Animal Cancer Center'
+# A verified physical address for a true single-site center wins over locations
+# mentioned in individual study records. Network/multicenter locations are never
+# promoted into a center-wide rollup.
+SINGLE_SITE_LOCATIONS={
+CSU_CENTER:'300 W. Drake Road, Fort Collins, CO 80523',
+'Purdue University College of Veterinary Medicine':'625 Harrison Street, West Lafayette, IN 47907',
+}
 KNOWN_LOCATIONS={
-CSU_CENTER:['300 W. Drake Road, Fort Collins, CO 80523'],
+CSU_CENTER:[SINGLE_SITE_LOCATIONS[CSU_CENTER]],
 'Colorado Animal Specialty & Emergency (CASE)':['Boulder, CO'],
 'Ethos Veterinary Health / Ethos Discovery':['Boulder, CO','Woburn, MA','Natick, MA','Cleveland, OH','Akron, OH','Tacoma, WA','San Diego, CA','San Marcos, CA','San Francisco, CA','Jacksonville / Orange Park, FL','Houston, TX','Mission, KS','Williston, VT','Charleston, SC','Vancouver, WA'],
 'MedVet Clinical Studies Center':['Salt Lake City, UT','Cincinnati, OH','Cleveland, OH','Pittsburgh, PA'],
@@ -97,6 +108,8 @@ def _location_values(row):
         if parts: vals.append(', '.join(parts))
     return vals
 def _locations(center,hit):
+    if center in SINGLE_SITE_LOCATIONS:
+        return [SINGLE_SITE_LOCATIONS[center]]
     vals=list(KNOWN_LOCATIONS.get(center,[]))
     for r in hit: vals.extend(_location_values(r))
     out=[]; seen=set()
