@@ -1,8 +1,11 @@
 """Central physical-location directory for institution pages and study sites.
 
-All center-page and participating-site addresses must come from this file.
-Keys are canonical display names; ALIASES resolves catalog/site spelling variants.
+All center-page and participating-site addresses come from this file whenever
+we know the physical location.  Catalog spelling variants are resolved through
+one shared normalizer so address lookup behaves the same everywhere.
 """
+from __future__ import annotations
+import re
 
 LOCATIONS = {
     # Universities / teaching hospitals
@@ -74,14 +77,36 @@ ALIASES = {
     "Metropolitan Veterinary Hospital": "Metropolitan Veterinary Hospital - Akron",
 }
 
+
 def normalize(value):
-    return " ".join(str(value or "").lower().replace("&", " and ").replace("/", " ").replace("(", " ").replace(")", " ").split())
+    """One punctuation-insensitive key for catalog, directory and aliases."""
+    text = str(value or "").lower().replace("&", " and ")
+    return re.sub(r"[^a-z0-9]+", " ", text).strip()
+
 
 _INDEX = {normalize(k): v for k, v in LOCATIONS.items()}
 for alias, canonical in ALIASES.items():
     if canonical in LOCATIONS:
         _INDEX[normalize(alias)] = LOCATIONS[canonical]
 
+
 def address_for(name):
     """Return a verified physical address for a canonical name or known alias."""
     return _INDEX.get(normalize(name), "")
+
+
+def address_is_complete(address, country=""):
+    """Country-aware physical-address validation used by build and preflight."""
+    text = " ".join(str(address or "").split())
+    if not text or not re.search(r"\d", text):
+        return False
+    country_key = normalize(country)
+    if country_key in {"usa", "united states", "united states of america"}:
+        return bool(re.search(r"\b[A-Z]{2}\s+\d{5}(?:-\d{4})?\b", text, re.I))
+    if country_key == "canada":
+        return bool(re.search(r"\b[A-Z]\d[A-Z][ -]?\d[A-Z]\d\b", text, re.I))
+    if country_key in {"uk", "united kingdom", "great britain", "england", "scotland", "wales"}:
+        return bool(re.search(r"\b[A-Z]{1,2}\d[A-Z\d]?\s*\d[A-Z]{2}\b", text, re.I))
+    # Continental Europe and other countries use many postal formats. Require a
+    # street number plus enough comma-separated location detail to avoid city-only labels.
+    return len([p for p in text.split(",") if p.strip()]) >= 3
