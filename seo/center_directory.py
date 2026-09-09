@@ -48,7 +48,19 @@ LOCATIONS = {
     "Schwarzman Animal Medical Center": "Schwarzman Animal Medical Center, 510 E 62nd St, New York, NY 10065",
     "Veterinary Specialty Hospital - Sorrento Valley": "Veterinary Specialty Hospital, 10435 Sorrento Valley Rd, San Diego, CA 92121",
     "Pet Emergency and Specialty Center of Marin": "Pet Emergency and Specialty Center of Marin, 901 Francisco Blvd E, San Rafael, CA 94901",
+    "Veterinary Referral Center of Central Oregon": "VRCCO East, 62889 NE Oxford Ct, Bend, OR 97701",
+    "Johns Hopkins Center for Image-Guided Animal Therapy (CIGAT)": "Johns Hopkins CIGAT, 600 N Wolfe St, Park 311, Baltimore, MD 21287",
+    "Metropolitan Veterinary Hospital - Akron": "Metropolitan Veterinary Hospital, 1053 S Cleveland-Massillon Rd, Akron, OH 44321",
     "WVRC Grafton": "WVRC Grafton, 1381 Port Washington Rd, Grafton, WI 53024",
+    "WVRC Racine Kenosha": "WVRC Racine/Kenosha, 1123 58th Ave, Somers, WI 53144",
+    "WVRC Waukesha": "WVRC Waukesha, W239 N1046 Pewaukee Rd, Waukesha, WI 53188",
+
+    # MedVet study locations
+    "MedVet Salt Lake City": "MedVet Salt Lake City, 331 W Bearcat Dr, Salt Lake City, UT 84115",
+    "MedVet Cincinnati": "MedVet Cincinnati, 3964 Red Bank Rd, Cincinnati, OH 45227",
+    "MedVet Cleveland": "MedVet Cleveland, 20400 Emerald Pkwy, Cleveland, OH 44135",
+    "MedVet Pittsburgh": "MedVet Pittsburgh, 2810 Washington Rd, McMurray, PA 15317",
+    "MedVet Chicago": "MedVet Chicago, 3305 N California Ave, Chicago, IL 60618",
 }
 
 ALIASES = {
@@ -57,6 +69,9 @@ ALIASES = {
     "SAGE": "SAGE Veterinary Centers",
     "Colorado Animal Specialty & Emergency (CASE) / Ethos Discovery": "Colorado Animal Specialty & Emergency (CASE)",
     "Veterinary Specialty Hospital": "Veterinary Specialty Hospital - Sorrento Valley",
+    "Veterinary Referral Center of Central Oregon / CASTR Alliance": "Veterinary Referral Center of Central Oregon",
+    "WVRC Racine/Kenosha": "WVRC Racine Kenosha",
+    "Metropolitan Veterinary Hospital": "Metropolitan Veterinary Hospital - Akron",
 }
 
 def normalize(value):
