@@ -1,0 +1,40 @@
+name: Sync academic trial sites from central directory
+
+on:
+  push:
+    paths:
+      - 'seo/center_directory.py'
+      - 'data/trials_base.json'
+      - 'data/trial_updates.json'
+      - 'data/catalog_patch_*.json'
+      - 'scripts/generate_academic_sites_patch.py'
+      - '.github/workflows/sync-academic-sites-from-directory.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Generate academic site patch
+        run: python scripts/generate_academic_sites_patch.py
+      - name: Commit generated patch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/catalog_patch_academic_sites_generated.json
+          if git diff --cached --quiet; then
+            echo "Academic site patch already current"
+          else
+            git commit -m "Sync academic trial geography from central directory"
+            git push origin main
+          fi
