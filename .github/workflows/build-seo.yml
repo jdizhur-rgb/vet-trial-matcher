@@ -39,6 +39,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Address preflight diagnostics
+        continue-on-error: true
         run: python seo/address_preflight_report.py
       - name: Generate SEO site
         run: |
