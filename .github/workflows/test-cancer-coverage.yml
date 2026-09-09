@@ -1,0 +1,26 @@
+name: Test cancer coverage
+on:
+  push:
+    branches: [feature/cancer-coverage]
+    paths:
+      - 'seo/generate_cancer_coverage.py'
+      - '.github/workflows/test-cancer-coverage.yml'
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/cancer-coverage
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build and verify
+        run: |
+          python -m py_compile seo/generate_cancer_coverage.py seo/generate_seo_strict.py seo/generate_seo.py
+          python seo/generate_seo_strict.py
+          python seo/generate_cancer_coverage.py
+          test -f seo/site/cancer-coverage/index.html
+          grep -q "Cancer Trial Coverage" seo/site/cancer-coverage/index.html
+          grep -q "See cancer trial coverage by cancer type" seo/site/index.html
+          grep -q "/cancer-coverage/" seo/site/sitemap.xml
