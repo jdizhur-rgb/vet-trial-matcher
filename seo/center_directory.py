@@ -60,6 +60,8 @@ LOCATIONS = {
     "SAGE Veterinary Centers": "SAGE Veterinary Centers, 600 Alabama St, San Francisco, CA 94110",
     "Schwarzman Animal Medical Center": "Schwarzman Animal Medical Center, 510 E 62nd St, New York, NY 10065",
     "Veterinary Specialty Hospital - Sorrento Valley": "Veterinary Specialty Hospital, 10435 Sorrento Valley Rd, San Diego, CA 92121",
+    "Veterinary Specialty Hospital - North County": "Veterinary Specialty Hospital - North County, 2055 Montiel Rd, San Marcos, CA 92069",
+    "Veterinary Emergency + Referral Center": "Veterinary Emergency + Referral Center, 4800 N Davis Hwy, Pensacola, FL 32503",
     "Pet Emergency and Specialty Center of Marin": "Pet Emergency and Specialty Center of Marin, 901 Francisco Blvd E, San Rafael, CA 94901",
     "Veterinary Referral Center of Central Oregon": "VRCCO East, 62889 NE Oxford Ct, Bend, OR 97701",
     "Johns Hopkins Center for Image-Guided Animal Therapy (CIGAT)": "Johns Hopkins CIGAT, 600 N Wolfe St, Park 311, Baltimore, MD 21287",
@@ -77,7 +79,6 @@ LOCATIONS = {
 }
 
 ALIASES = {
-    # Common network/site spelling variants
     "Massachusetts Veterinary Referral Hospital (MVRH)": "Massachusetts Veterinary Referral Hospital",
     "Gulf Coast Veterinary Specialists (GCVS)": "Gulf Coast Veterinary Specialists",
     "SAGE": "SAGE Veterinary Centers",
@@ -85,12 +86,12 @@ ALIASES = {
     "Colorado Animal Specialty & Emergency (CASE) / Ethos Discovery": "Colorado Animal Specialty & Emergency (CASE)",
     "CASE": "Colorado Animal Specialty & Emergency (CASE)",
     "Veterinary Specialty Hospital": "Veterinary Specialty Hospital - Sorrento Valley",
+    "Veterinary Specialty Hospital – North County": "Veterinary Specialty Hospital - North County",
+    "Veterinary Emergency Referral Center": "Veterinary Emergency + Referral Center",
     "Veterinary Referral Center of Central Oregon / CASTR Alliance": "Veterinary Referral Center of Central Oregon",
     "Veterinary Referral Center of Central Oregon (VRCCO)": "Veterinary Referral Center of Central Oregon",
     "WVRC Racine/Kenosha": "WVRC Racine Kenosha",
     "Metropolitan Veterinary Hospital": "Metropolitan Veterinary Hospital - Akron",
-
-    # University catalog variants — all resolve to the same physical teaching hospital
     "University of Florida": "University of Florida College of Veterinary Medicine",
     "University of Florida Veterinary Hospitals": "University of Florida College of Veterinary Medicine",
     "University of Illinois": "University of Illinois College of Veterinary Medicine",
@@ -121,8 +122,6 @@ ALIASES = {
     "LSU Veterinary Teaching Hospital": "Louisiana State University School of Veterinary Medicine",
     "Washington State University Veterinary Teaching Hospital": "Washington State University College of Veterinary Medicine",
     "UC Davis Veterinary Medical Teaching Hospital": "UC Davis Veterinary Center for Clinical Trials",
-
-    # International variants
     "University of Zurich — Division of Radiation Oncology": "University of Zurich Veterinary Hospital",
     "Universitäres Tierspital Zürich / University of Zurich": "University of Zurich Veterinary Hospital",
     "AniCura I Portoni Rossi / University of Teramo": "AniCura Ospedale Veterinario I Portoni Rossi",
@@ -137,10 +136,16 @@ def normalize(value):
     return re.sub(r"[^a-z0-9]+", " ", text).strip()
 
 
-_INDEX = {normalize(k): v for k, v in LOCATIONS.items()}
+_CANONICAL_INDEX = {normalize(k): k for k in LOCATIONS}
 for alias, canonical in ALIASES.items():
     if canonical in LOCATIONS:
-        _INDEX[normalize(alias)] = LOCATIONS[canonical]
+        _CANONICAL_INDEX[normalize(alias)] = canonical
+_INDEX = {key: LOCATIONS[canonical] for key, canonical in _CANONICAL_INDEX.items()}
+
+
+def canonical_name_for(name):
+    """Return the canonical directory name for a known center/site variant."""
+    return _CANONICAL_INDEX.get(normalize(name), "")
 
 
 def address_for(name):
