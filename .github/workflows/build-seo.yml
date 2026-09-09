@@ -58,7 +58,7 @@ jobs:
             if p not in (Path('seo/site/index.html'),Path('seo/site/centers/index.html')): assert 'class="card"' in s
           centers=list(Path('seo/site/centers').glob('*/index.html')); assert centers
           for p in centers:
-            s=p.read_text(errors='replace'); assert '100% FREE' in s,p
+            s=p.read_text(errors='replace'); assert 'Find cancer treatment options near you' in s,p; assert 'free to use' in s,p
             for section in re.findall(r'<section class="center-locations">.*?</section>',s,re.S): assert section.count('<li>')<=1,(p,'network-wide location rollup survived')
           ethos=next((p for p in centers if 'ethos' in p.parent.name),None)
           if ethos:
@@ -109,6 +109,7 @@ jobs:
               time.sleep(10)
             assert 'Cancer Trial Finder For Dogs And Cats' in text,path; assert titles(text)==titles(expected),path
             if path.startswith('centers/') and path!='centers/':
+              assert 'Find cancer treatment options near you' in text and 'free to use' in text,path
               for section in re.findall(r'<section class="center-locations">.*?</section>',text,re.S): assert section.count('<li>')<=1,(path,'live network rollup')
               if 'ethos' in path: assert 'Locations &amp; participating hospitals' not in text and 'Participating locations' in text and 'What is being offered:' in text,path
             print('LIVE_OK',path or '/',len(titles(text)),'cards')
