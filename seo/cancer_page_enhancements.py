@@ -28,12 +28,7 @@ CSS = r'''
 
 def _is_english_cancer_page(path: Path, root: Path) -> bool:
     rel = path.relative_to(root).parts
-    return (
-        len(rel) == 4
-        and rel[0] in {'north-america', 'uk-europe'}
-        and rel[1] in {'dogs', 'cats'}
-        and rel[3] == 'index.html'
-    )
+    return len(rel) == 4 and rel[0] in {'north-america', 'uk-europe'} and rel[1] in {'dogs', 'cats'} and rel[3] == 'index.html'
 
 
 def _content_key(label: str) -> str:
@@ -44,85 +39,53 @@ def _enhance(text: str) -> tuple[str, bool]:
     m = H1_RE.search(text)
     if not m:
         return text, False
-
     label_html = m.group('label')
     label = html.unescape(re.sub(r'<.*?>', '', label_html))
     species = m.group('species')
     region_html = m.group('region')
     region = html.unescape(region_html)
-
     lead = LEAD_RE.search(text)
     if not lead:
         return text, False
     count = lead.group('count')
 
-    old_h1 = m.group(0)
-    new_h1 = (
-        f'<div class="cancer-page"><h1>{label_html} Clinical Trials for {species}</h1>'
-        f'<p class="eyebrow">{region_html} · Free cancer trial and treatment search</p>'
-    )
-    text = text.replace(old_h1, new_h1, 1)
+    text = text.replace(m.group(0), f'<div class="cancer-page"><h1>{label_html} Clinical Trials for {species}</h1><p class="eyebrow">{region_html} · Free cancer trial and treatment search</p>', 1)
 
     if count == '0':
-        summary = (
-            '<div class="cancer-summary"><strong class="opportunity-count">No current treatment opportunities in our catalog</strong>'
-            f'<p>We do not currently have an active {label_html} trial or advanced treatment listing for this species and region.</p>'
-            '<p class="summary-detail">The cancer information on this page remains available, and new studies can be added here when enrollment opens.</p></div>'
-        )
+        summary = '<div class="cancer-summary"><strong class="opportunity-count">No current treatment opportunities in our catalog</strong>'+f'<p>We do not currently have an active {label_html} trial or advanced treatment listing for this species and region.</p>'+'<p class="summary-detail">The cancer information on this page remains available, and new studies can be added here when enrollment opens.</p></div>'
     else:
-        summary = (
-            f'<div class="cancer-summary"><strong class="opportunity-count">{count} current treatment opportunities</strong>'
-            f'<p>Clinical trials and advanced cancer treatment studies currently represented in our catalog for {label_html}.</p>'
-            '<p class="summary-detail">See locations, key eligibility, costs when provided, contacts and official enrollment links below.</p></div>'
-        )
+        summary = f'<div class="cancer-summary"><strong class="opportunity-count">{count} current treatment opportunities</strong>'+f'<p>Clinical trials and advanced cancer treatment studies currently represented in our catalog for {label_html}.</p>'+'<p class="summary-detail">See locations, key eligibility, costs when provided, contacts and official enrollment links below.</p></div>'
     text = LEAD_RE.sub(summary, text, count=1)
 
-    # Replace the complete educational section from one centrally maintained
-    # owner-facing source. This keeps every diagnosis page systematic and avoids
-    # hand-editing generated HTML files.
     info = CONTENT.get(_content_key(label))
     if info:
         about, treatment, factors = info
-        disease = (
-            f'<section class="disease"><h2>About {label_html}</h2><p>{html.escape(about)}</p>'
-            f'<h2>How it is usually treated</h2><p>{html.escape(treatment)}</p>'
-            f'<h2>What can affect treatment choices</h2><p>{html.escape(factors)}</p></section>'
-        )
+        disease = f'<section class="disease"><h2>About {label_html}</h2><p>{html.escape(about)}</p>'+f'<h2>How it is usually treated</h2><p>{html.escape(treatment)}</p>'+f'<h2>What can affect treatment choices</h2><p>{html.escape(factors)}</p></section>'
         text, n = DISEASE_RE.subn(disease, text, count=1)
         if n != 1:
             raise AssertionError(f'Could not replace disease section for {label}')
     else:
-        # Fail rather than silently leave a newly introduced cancer with the old
-        # generic copy. New canonical cancers must receive reviewed owner copy.
         raise AssertionError(f'Missing owner-facing cancer content for {label}')
 
-    research_intro = (
-        '<h2>Current clinical trials &amp; treatment options</h2><p class="section-intro">No active listings are currently represented in our catalog for this species and region. We keep this page available so new opportunities can appear here when they open.</p>'
-        if count == '0' else
-        '<h2>Current clinical trials &amp; treatment options</h2><p class="section-intro">Browse the current listings below, then use the free matcher to check the study-specific criteria against your pet’s diagnosis and situation.</p>'
-    )
-    text = text.replace(
-        '<h2>Treatment &amp; research</h2><p>Below are treatment-focused clinical trials and advanced oncology options currently represented in our live catalog.</p>',
-        research_intro,
-        1,
-    )
+    # Put useful disease information first. Availability, free-search messaging,
+    # and study cards follow the educational section on every cancer page.
+    disease_match = DISEASE_RE.search(text)
+    if disease_match:
+        disease_block = disease_match.group(0)
+        text = text[:disease_match.start()] + text[disease_match.end():]
+        anchor = text.find('<div class="cancer-summary">')
+        if anchor < 0:
+            raise AssertionError(f'Could not locate cancer summary for {label}')
+        text = text[:anchor] + disease_block + text[anchor:]
 
+    research_intro = ('<h2>Current clinical trials &amp; treatment options</h2><p class="section-intro">No active listings are currently represented in our catalog for this species and region. We keep this page available so new opportunities can appear here when they open.</p>' if count == '0' else '<h2>Current clinical trials &amp; treatment options</h2><p class="section-intro">Browse the current listings below, then use the free matcher to check the study-specific criteria against your pet’s diagnosis and situation.</p>')
+    text = text.replace('<h2>Treatment &amp; research</h2><p>Below are treatment-focused clinical trials and advanced oncology options currently represented in our live catalog.</p>', research_intro, 1)
     text = text.replace('</main>', '</div></main>', 1)
 
     title = f'{label} Clinical Trials for {species} | Free Pet Cancer Trial Finder'
-    desc = (
-        f'Find current {label} clinical trials and cancer treatment studies for {species.lower()} '
-        f'in {region}. Free access to eligibility, locations, contacts and official enrollment links.'
-    )
+    desc = f'Find current {label} clinical trials and cancer treatment studies for {species.lower()} in {region}. Free access to eligibility, locations, contacts and official enrollment links.'
     text = re.sub(r'<title>.*?</title>', f'<title>{html.escape(title)}</title>', text, count=1, flags=re.S)
-    text = re.sub(
-        r'<meta name="description" content=".*?">',
-        f'<meta name="description" content="{html.escape(desc, quote=True)}">',
-        text,
-        count=1,
-        flags=re.S,
-    )
-
+    text = re.sub(r'<meta name="description" content=".*?">', f'<meta name="description" content="{html.escape(desc, quote=True)}">', text, count=1, flags=re.S)
     if CSS not in text:
         text = text.replace('</style>', CSS + '</style>', 1)
     return text, True
