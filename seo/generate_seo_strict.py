@@ -54,19 +54,44 @@ def canonical_center(value):
     for name,aliases in CENTER_RULES:
         if any(g.norm(a) in text for a in aliases): return name
     return re.sub(r'\s+',' ',raw)
+def profile_figure(p):
+    src=p.get('image')
+    if not src:return ''
+    alt=p.get('image_alt') or p.get('title','Veterinary cancer research center')
+    caption=p.get('image_caption','')
+    fig=f'<figure style="margin:16px 0 22px;text-align:left"><img src="{g.esc(src)}" alt="{g.esc(alt)}" loading="lazy" style="width:100%;max-height:430px;object-fit:cover;border-radius:14px;display:block">'
+    if caption: fig+=f'<figcaption style="font-size:.86rem;color:#607086;margin-top:7px">{g.esc(caption)}</figcaption>'
+    return fig+'</figure>'
 def center_overview(center):
     if center==CSU_CENTER:
         return ('<div class="center-overview" style="text-align:justify;text-justify:inter-word"><h2 style="text-align:left">About the Flint Animal Cancer Center</h2><figure style="margin:16px 0 22px;text-align:left"><img src="https://vetmedbiosci.colostate.edu/psrl/wp-content/uploads/sites/15/2021/04/08007_00004-1.jpg" alt="Colorado State University Translational Medicine Institute research facility" loading="lazy" style="width:100%;max-height:430px;object-fit:cover;border-radius:14px;display:block"><figcaption style="font-size:.86rem;color:#607086;margin-top:7px">Colorado State University Translational Medicine Institute, home to research programs that collaborate with the Flint Animal Cancer Center. Photo: Colorado State University.</figcaption></figure><p>Colorado State University’s Flint Animal Cancer Center in Fort Collins combines multidisciplinary cancer care with comparative oncology research. Its program includes clinical trials, laboratory research and a cancer biorepository, with work designed to improve cancer prevention, diagnosis and treatment in pets while also informing human cancer research.</p><h2 style="text-align:left">Cancer research &amp; team</h2><p>Research at CSU spans medical, surgical and radiation oncology, immunology and immunotherapy, cancer genomics and translational drug development. The center is directed by veterinary oncologist <strong>Susan Lana, DVM</strong>. <strong>Douglas Thamm, VMD</strong> directs clinical research, and the broader comparative oncology group includes specialists working across clinical trials, immunotherapy, genomics, radiation biology and surgical oncology.</p><p><a href="https://vetmedbiosci.colostate.edu/cs/research-topic-directory/comparative-oncology-and-cancer-biology/" rel="noopener">Meet CSU comparative oncology researchers</a> · <a href="https://vetmedbiosci.colostate.edu/vth/clinical_trial_tag/oncology/" rel="noopener">See CSU oncology clinical trials</a></p></div>')
     p=PROFILES.get(center)
     if p:
         links=' · '.join(f'<a href="{g.esc(url)}" rel="noopener">{g.esc(label)}</a>' for label,url in p.get('links',[]))
-        return '<div class="center-overview" style="text-align:justify;text-justify:inter-word">'+f'<h2 style="text-align:left">{g.esc(p["title"])}</h2><p>{g.esc(p["about"])}</p><h2 style="text-align:left">Cancer research &amp; team</h2><p>{g.esc(p["research"])}</p>'+(f'<p style="text-align:left">{links}</p>' if links else '')+'</div>'
+        return '<div class="center-overview" style="text-align:justify;text-justify:inter-word">'+f'<h2 style="text-align:left">{g.esc(p["title"])}</h2>'+profile_figure(p)+f'<p>{g.esc(p["about"])}</p><h2 style="text-align:left">Cancer research &amp; team</h2><p>{g.esc(p["research"])}</p>'+(f'<p style="text-align:left">{links}</p>' if links else '')+'</div>'
     return '<div class="center-overview" style="text-align:justify;text-justify:inter-word"><h2 style="text-align:left">About this veterinary cancer research center</h2>'+f'<p><strong>{g.esc(center)}</strong> currently has veterinary cancer treatment or research opportunities represented in our catalog. The listings below are tied to the individual study teams and official study sources, so owners can review the actual treatment approach, eligibility details and contact information without a paid matching report.</p></div>'
+def _site_name(site):
+    if not isinstance(site,dict): return ''
+    return str(site.get('hospital') or site.get('name') or '').strip()
+def _site_active(site):
+    if not isinstance(site,dict): return False
+    if site.get('available_for_matching') is False:return False
+    status=g.norm(site.get('status',''))
+    return not any(x in status for x in ('not enrolling','enrollment closed','closed','paused'))
+def _add(grouped,name,row):
+    name=canonical_center(name)
+    if not name:return
+    bucket=grouped.setdefault(name,[])
+    if not any(x.get('id')==row.get('id') for x in bucket):bucket.append(row)
 def generate_center_pages():
     rows=[r for r in g.load_effective() if r.get('country')=='USA' and str(r.get('center','')).strip()]; grouped={}
     for row in rows:
-        c=canonical_center(row.get('center',''))
-        if c: grouped.setdefault(c,[]).append(row)
+        _add(grouped,row.get('center',''),row)
+        active_sites=[s for s in row.get('sites',[]) if _site_active(s)] if isinstance(row.get('sites'),list) else []
+        for site in active_sites:
+            name=_site_name(site)
+            if name:_add(grouped,name,row)
+        if any('medvet' in g.norm(_site_name(s)) for s in active_sites): _add(grouped,'MedVet Clinical Studies Center',row)
     if not grouped:return
     center_links=[]; index_items=[]; used={}
     for center,hit in sorted(grouped.items()):
