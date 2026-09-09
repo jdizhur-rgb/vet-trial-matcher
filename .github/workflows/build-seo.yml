@@ -96,7 +96,7 @@ jobs:
           python-version: '3.12'
       - name: Rebuild strict matrix for live verification
         run: python seo/generate_seo_strict.py
-      - name: Verify live diagnosis and center pages
+      - name: Verify every live diagnosis and center page
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -113,8 +113,10 @@ jobs:
             expected_titles=titles(expected); text=''
             for i in range(12):
               try:
-                req=urllib.request.Request(base+path+'?verify='+str(time.time()),headers={'Cache-Control':'no-cache'})
-                text=urllib.request.urlopen(req,timeout=20).read().decode('utf-8','replace')
+                req=urllib.request.Request(base+path+'?verify='+str(time.time()),headers={'Cache-Control':'no-cache','User-Agent':'Mozilla/5.0'})
+                with urllib.request.urlopen(req,timeout=20) as r:
+                  assert r.status==200, (path,r.status)
+                  text=r.read().decode('utf-8','replace')
               except Exception: text=''
               if 'Cancer Trial Finder For Dogs And Cats' in text and not any(x in text for x in forbidden) and titles(text)==expected_titles: break
               time.sleep(10)
@@ -122,4 +124,23 @@ jobs:
             assert not any(x in text for x in forbidden), path
             assert titles(text)==expected_titles, (path,titles(text),expected_titles)
             print('LIVE_OK',path or '/',len(expected_titles),'cards')
+          print('LIVE_CENTER_AUDIT_OK',len(centers),'center pages')
+          PY
+      - name: Verify official center images that are actually rendered
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re,urllib.request
+          failures=[]; checked=0
+          for p in sorted(Path('seo/site/centers').glob('*/index.html')):
+            s=p.read_text(errors='replace')
+            for src in re.findall(r'<figure[^>]*>.*?<img[^>]+src="([^"]+)"',s,re.S):
+              checked+=1
+              try:
+                req=urllib.request.Request(src,headers={'User-Agent':'Mozilla/5.0'})
+                with urllib.request.urlopen(req,timeout=20) as r:
+                  if r.status!=200: failures.append((str(p),src,r.status))
+              except Exception as e: failures.append((str(p),src,str(e)))
+          assert not failures, failures
+          print('CENTER_IMAGES_OK',checked,'rendered images')
           PY
