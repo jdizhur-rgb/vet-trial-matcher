@@ -45,6 +45,8 @@ LOCATIONS = {
     "University Hospital for Companion Animals — University of Copenhagen": "University Hospital for Companion Animals, Dyrlægevej 16, 1870 Frederiksberg C, Denmark",
     "Ghent University Faculty of Veterinary Medicine": "Ghent University Faculty of Veterinary Medicine, Salisburylaan 133, 9820 Merelbeke, Belgium",
     "AniCura Ospedale Veterinario I Portoni Rossi": "Ospedale Veterinario I Portoni Rossi, Via Roma 57/A, 40069 Zola Predosa BO, Italy",
+    "National Taiwan University Veterinary Hospital": "National Taiwan University Veterinary Hospital, No. 153, Sec. 3, Keelung Rd, Da'an Dist, Taipei City 10672, Taiwan",
+    "National Chung Hsing University Veterinary Teaching Hospital": "National Chung Hsing University Veterinary Teaching Hospital, No. 21, Sec. 1, Xiangshang Rd, West Dist, Taichung City, Taiwan",
 
     # Independent / specialty / research centers
     "Aurelius Biotherapeutics": "Aurelius Biotherapeutics, 720 Virginia St, Bellingham, WA 98225",
@@ -69,6 +71,16 @@ LOCATIONS = {
     "WVRC Grafton": "WVRC Grafton, 1381 Port Washington Rd, Grafton, WI 53024",
     "WVRC Racine Kenosha": "WVRC Racine/Kenosha, 1123 58th Ave, Somers, WI 53144",
     "WVRC Waukesha": "WVRC Waukesha, W239 N1046 Pewaukee Rd, Waukesha, WI 53188",
+    "Southeast Veterinary Oncology & Internal Medicine - Orange Park": "Southeast Veterinary Oncology & Internal Medicine, 304 Corporate Way, Orange Park, FL 32073",
+    "Southeast Veterinary Oncology & Internal Medicine - Jacksonville": "Southeast Veterinary Oncology & Internal Medicine, 14333 Beach Blvd, Suite 42, Jacksonville, FL 32250",
+    "Atlantic Veterinary Internal Medicine & Oncology - Annapolis": "Atlantic Veterinary Internal Medicine & Oncology, 808 Bestgate Rd, Annapolis, MD 21401",
+    "Atlantic Veterinary Internal Medicine & Oncology - Hunt Valley": "Atlantic Veterinary Internal Medicine & Oncology, 10626 York Rd, Cockeysville, MD 21030",
+    "Hospital Veterinario Peña Jasso": "Hospital Veterinario Peña Jasso, Blvd Costero 1548, Playa de Ensenada, Ensenada, Baja California 22880, Mexico",
+    "Evergreen Animal Hospital": "Evergreen Animal Hospital, No. 78 Guangzhou St, Wanhua Dist, Taipei City, Taiwan",
+    "Duma Animal Hospital": "Duma Animal Hospital, No. 136 Zhongyuan St, Zhonghe Dist, New Taipei City, Taiwan",
+    "Bubble Animal Hospital": "Bubble Animal Hospital, No. 102, Sec. 1, Longde Rd, Nantun Dist, Taichung City, Taiwan",
+    "Jimmy Harry Animal Hospital": "Jimmy Harry Animal Hospital, No. 250 Dasheng St, Nantun Dist, Taichung City 408, Taiwan",
+    "Woke Animal Hospital": "Woke Animal Hospital, No. 776, Sec. 4, Wenxin Rd, Beitun Dist, Taichung City, Taiwan",
 
     # MedVet study locations
     "MedVet Salt Lake City": "MedVet Salt Lake City, 331 W Bearcat Dr, Salt Lake City, UT 84115",
@@ -76,6 +88,19 @@ LOCATIONS = {
     "MedVet Cleveland": "MedVet Cleveland, 20400 Emerald Pkwy, Cleveland, OH 44135",
     "MedVet Pittsburgh": "MedVet Pittsburgh, 2810 Washington Rd, McMurray, PA 15317",
     "MedVet Chicago": "MedVet Chicago, 3305 N California Ave, Chicago, IL 60618",
+}
+
+# A named practice can have more than one physical hospital when the public study
+# listing identifies the practice but not a branch. These are real practice sites,
+# not headquarters. The card will show every possible participating location.
+LOCATION_GROUPS = {
+    "Southeast Veterinary Oncology & Internal Medicine": (
+        "Southeast Veterinary Oncology & Internal Medicine - Orange Park",
+    ),
+    "Atlantic Veterinary Internal Medicine & Oncology": (
+        "Atlantic Veterinary Internal Medicine & Oncology - Annapolis",
+        "Atlantic Veterinary Internal Medicine & Oncology - Hunt Valley",
+    ),
 }
 
 ALIASES = {
@@ -127,6 +152,10 @@ ALIASES = {
     "AniCura I Portoni Rossi / University of Teramo": "AniCura Ospedale Veterinario I Portoni Rossi",
     "Ontario Veterinary College": "Ontario Veterinary College — University of Guelph",
     "University Hospital for Companion Animals, University of Copenhagen": "University Hospital for Companion Animals — University of Copenhagen",
+    "Duma Animal Hospital (中和杜瑪動物醫院)": "Duma Animal Hospital",
+    "Bubble Animal Hospital (泡泡動物醫院)": "Bubble Animal Hospital",
+    "Jimmy Harry Animal Hospital (吉米哈利動物醫院)": "Jimmy Harry Animal Hospital",
+    "沃可動物醫院": "Woke Animal Hospital",
 }
 
 
@@ -141,16 +170,27 @@ for alias, canonical in ALIASES.items():
     if canonical in LOCATIONS:
         _CANONICAL_INDEX[normalize(alias)] = canonical
 _INDEX = {key: LOCATIONS[canonical] for key, canonical in _CANONICAL_INDEX.items()}
+_GROUP_INDEX = {normalize(k): tuple(v) for k, v in LOCATION_GROUPS.items()}
 
 
 def canonical_name_for(name):
-    """Return the canonical directory name for a known center/site variant."""
+    """Return the canonical directory name for a known single physical site."""
     return _CANONICAL_INDEX.get(normalize(name), "")
 
 
+def addresses_for(name):
+    """Return every verified physical site represented by this name."""
+    key=normalize(name)
+    if key in _GROUP_INDEX:
+        return [LOCATIONS[x] for x in _GROUP_INDEX[key] if x in LOCATIONS]
+    one=_INDEX.get(key, "")
+    return [one] if one else []
+
+
 def address_for(name):
-    """Return a verified physical address for a canonical name or known alias."""
-    return _INDEX.get(normalize(name), "")
+    """Return an address only when a name resolves to one physical site."""
+    vals=addresses_for(name)
+    return vals[0] if len(vals)==1 else ""
 
 
 def address_is_complete(address, country=""):
