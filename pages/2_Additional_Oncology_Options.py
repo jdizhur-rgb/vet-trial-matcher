@@ -3,11 +3,18 @@ from pathlib import Path
 import runpy, importlib.util
 
 st.markdown("""<style>
-/* Secondary navigation inside More Treatment Options: compact tabs, visually
-   subordinate to the two main site buttons. Keep all three in one row on mobile. */
+/* Clinical Trials stays the single primary navigation action on this page.
+   Remove the redundant More Treatment Options button and let Trials span the row. */
+div[data-testid="stHorizontalBlock"]:has(.st-key-nav_trials):has(.st-key-nav_options){display:block!important}
+div[data-testid="stHorizontalBlock"]:has(.st-key-nav_trials):has(.st-key-nav_options) > div[data-testid="stColumn"]{width:100%!important;min-width:100%!important;flex:1 1 100%!important}
+.st-key-nav_options{display:none!important}
+.st-key-nav_trials{width:100%!important}
+.st-key-nav_trials button{width:100%!important;min-height:2.9rem!important;font-size:1rem!important}
+
+/* Three compact secondary tools, kept in one row on mobile. */
 div[data-testid="stHorizontalBlock"]:has(.st-key-main_route_centers){
   display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;
-  gap:.38rem!important;align-items:stretch!important;margin:.05rem 0 .55rem!important;
+  gap:.38rem!important;align-items:stretch!important;margin:.12rem 0 .55rem!important;
 }
 div[data-testid="stHorizontalBlock"]:has(.st-key-main_route_centers) > div[data-testid="stColumn"]{
   width:auto!important;min-width:0!important;flex:1 1 0!important;
