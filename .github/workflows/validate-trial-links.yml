@@ -1,0 +1,25 @@
+name: Validate active trial links
+
+on:
+  push:
+    paths:
+      - 'data/trials_base.json'
+      - 'data/trial_updates.json'
+      - 'data/catalog_patch_*.json'
+      - 'scripts/validate_trial_links.py'
+      - '.github/workflows/validate-trial-links.yml'
+  workflow_dispatch:
+  schedule:
+    - cron: '17 12 * * *'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check direct study and registry links
+        run: python scripts/validate_trial_links.py
