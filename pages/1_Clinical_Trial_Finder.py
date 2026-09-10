@@ -881,14 +881,7 @@ if search_clicked:
                     if tr.get('intervention'):
                         st.write('**Study intervention:** ' + tr['intervention'])
                     st.write('**What the study says:** ' + tr['notes'])
-                    _funding = tr.get('funding', 'Ask the study team about covered study costs')
-          _funding_low = _funding.lower()
-          if any(x in _funding_low for x in ('fully funded', 'no cost to the owner', 'at no cost', 'all treatments and procedures')):
-              st.success('**Trial funding:** ' + _funding)
-          elif any(x in _funding_low for x in ('partially funded', 'partial funding', 'partially covered', 'some study costs', 'some costs')):
-              st.warning('**Trial funding:** ' + _funding)
-          else:
-              st.write('**Trial funding:** ' + _funding)
+                    st.write('**Trial funding:** ' + tr.get('funding', 'Ask the study team about covered study costs'))
                     st.caption(f"Status: {tr['status']} · Last verified: {tr.get('verified', 'date not recorded')}")
 
     _render_result_save_controls(matches)
