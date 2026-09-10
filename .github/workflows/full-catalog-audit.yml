@@ -1,0 +1,19 @@
+name: Full catalog integrity audit
+on:
+  push:
+    paths:
+      - 'data/**'
+      - 'scripts/full_catalog_audit.py'
+      - '.github/workflows/full-catalog-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Run full catalog audit
+        run: python scripts/full_catalog_audit.py
