@@ -2,7 +2,8 @@ name: Restore trial center addresses once
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
     paths:
       - '.github/workflows/restore-addresses-once.yml'
 
@@ -14,48 +15,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Restore addresses in result cards
+      - name: Patch address renderer only
+        run: python scripts/restore_trial_addresses_once.py
+      - name: Commit address restore
         run: |
-          python - <<'PY'
-          from pathlib import Path
-          p=Path('app.py')
-          s=p.read_text(encoding='utf-8')
-          old='''            _orig["markdown"](f'<div style="font-size:1.03rem;line-height:1.16;font-weight:700;color:#2f6f73;margin:.04rem 0 .18rem">{center}</div>',unsafe_allow_html=True);return
-'''
-          new='''            _orig["markdown"](f'<div style="font-size:1.03rem;line-height:1.16;font-weight:700;color:#2f6f73;margin:.04rem 0 .18rem">{center}</div>',unsafe_allow_html=True)
-            try:
-                from seo.center_directory import addresses_for as _addresses_for
-                _addresses=_addresses_for(center)
-            except Exception:
-                _addresses=[]
-            for _address in _addresses:
-                _orig["markdown"](f"📍 {_address}")
-            return
-'''
-          if old not in s:
-              raise SystemExit('Expected center-render block not found; refusing to patch')
-          if 'from seo.center_directory import addresses_for as _addresses_for' in s:
-              raise SystemExit('Address rendering already present; refusing duplicate patch')
-          p.write_text(s.replace(old,new,1),encoding='utf-8')
-          PY
-      - name: Verify navigation and address rendering
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          s=Path('app.py').read_text(encoding='utf-8')
-          assert '🐾︎ Clinical Trials' in s
-          assert '🏥 Oncology Centers' in s
-          assert '🧬 Advanced Treatments' in s
-          assert '🧪 Expanded Access' in s
-          assert 'from seo.center_directory import addresses_for as _addresses_for' in s
-          assert '📍 {_address}' in s
-          print('NAVIGATION_PRESERVED_AND_ADDRESSES_RESTORED')
-          PY
-      - name: Commit app patch and remove one-time workflow
-        run: |
-          rm .github/workflows/restore-addresses-once.yml
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add app.py .github/workflows/restore-addresses-once.yml
-          git commit -m 'Restore full center addresses in trial result cards'
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add app.py
+          git diff --cached --quiet && exit 1
+          git commit -m "Restore full center addresses in trial result cards"
           git push
