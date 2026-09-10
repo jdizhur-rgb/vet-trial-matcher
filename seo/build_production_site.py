@@ -25,6 +25,7 @@ import generate_cancer_coverage
 import ensure_center_images
 from center_page_enhancements import enhance_center_pages
 from finalize_cancer_pages import finalize_cancer_pages
+from help_center import generate_help_center
 
 
 def main():
@@ -32,6 +33,7 @@ def main():
     enhance_center_pages(SEO_DIR / "site")
     finalize_cancer_pages(SEO_DIR / "site")
     generate_cancer_coverage.main()
+    generate_help_center(SEO_DIR / "site")
     ensure_center_images.main()
     out = SEO_DIR / "site"
     (out / "CNAME").write_text(f"{DOMAIN}\n", encoding="utf-8")
