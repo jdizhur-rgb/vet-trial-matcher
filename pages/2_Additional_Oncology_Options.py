@@ -1,6 +1,6 @@
 import streamlit as st
 from pathlib import Path
-import runpy
+import runpy, importlib.util
 
 st.markdown("""<style>
 .st-key-main_route_centers button{background-color:#e7f2fa!important;border-color:#bfd8e9!important;color:#285b7a!important}
@@ -27,8 +27,10 @@ with c3:
 
 route=st.session_state.main_treatment_route
 if route=="centers":
-    from _oncology_center_finder import render
-    render()
+    helper=Path(__file__).with_name("_oncology_center_finder.py")
+    spec=importlib.util.spec_from_file_location("oncology_center_finder",helper)
+    mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
+    mod.render()
 else:
     # Reuse the last known-good implementation for the two existing treatment sections.
     st.session_state.treatment_option_route=(
