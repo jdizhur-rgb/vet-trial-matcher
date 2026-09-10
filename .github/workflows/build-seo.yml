@@ -46,6 +46,28 @@ jobs:
           python seo/generate_seo_strict.py
           python seo/generate_cancer_coverage.py
           python seo/ensure_center_images.py
+      - name: Apply production domain
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          root = Path('seo/site')
+          old = 'https://jdizhur-rgb.github.io/vet-trial-matcher'
+          new = 'https://vettrialfinder.com'
+          changed = 0
+          for p in root.rglob('*'):
+              if not p.is_file() or p.suffix.lower() not in {'.html', '.xml', '.txt'}:
+                  continue
+              text = p.read_text(encoding='utf-8', errors='strict')
+              replaced = text.replace(old, new)
+              if replaced != text:
+                  p.write_text(replaced, encoding='utf-8')
+                  changed += 1
+          (root / 'CNAME').write_text('vettrialfinder.com\n', encoding='utf-8')
+          assert old not in (root / 'sitemap.xml').read_text(encoding='utf-8')
+          assert 'Sitemap: https://vettrialfinder.com/sitemap.xml' in (root / 'robots.txt').read_text(encoding='utf-8')
+          print('PRODUCTION_DOMAIN_OK', changed)
+          PY
       - name: Include static files
         run: cp -a seo/static/. seo/site/
       - name: Validate generated site
@@ -61,11 +83,13 @@ jobs:
           centers=list(Path('seo/site/centers').glob('*/index.html'))
           assert len(pages)>=40 and centers
           assert Path('seo/site/cancer-coverage/index.html').exists()
+          assert Path('seo/site/CNAME').read_text().strip() == 'vettrialfinder.com'
 
           generic=('About this veterinary cancer research center','currently has veterinary cancer treatment or research opportunities represented in our catalog')
           for p in pages:
             s=p.read_text(errors='replace')
             assert 'Cancer Trial Finder For Dogs And Cats' in s,p
+            assert 'jdizhur-rgb.github.io/vet-trial-matcher' not in s,p
             for block in re.findall(r'<div class="study-locations">.*?</div>',s,re.S):
               for item in re.findall(r'<li>(.*?)</li>',block,re.S):
                 text=html.unescape(re.sub(r'<.*?>','',item)).strip()
@@ -90,6 +114,7 @@ jobs:
             assert 'How it is usually treated' in s,p
             assert 'What can affect treatment choices' in s,p
             assert '<link rel="canonical"' in s,p
+            assert 'https://vettrialfinder.com/' in s,p
           print('VALID_ALL_CENTERS',len(centers))
           print('VALID_ALL_ENGLISH_CANCER_PAGES',len(expected))
           PY
@@ -120,6 +145,17 @@ jobs:
           python seo/generate_seo_strict.py
           python seo/generate_cancer_coverage.py
           python seo/ensure_center_images.py
+          python - <<'PY'
+          from pathlib import Path
+          root=Path('seo/site')
+          old='https://jdizhur-rgb.github.io/vet-trial-matcher'
+          new='https://vettrialfinder.com'
+          for p in root.rglob('*'):
+              if p.is_file() and p.suffix.lower() in {'.html','.xml','.txt'}:
+                  text=p.read_text(encoding='utf-8',errors='strict')
+                  if old in text:
+                      p.write_text(text.replace(old,new),encoding='utf-8')
+          PY
       - name: Verify live center and cancer pages
         run: |
           python - <<'PY'
@@ -127,7 +163,7 @@ jobs:
           import html,re,time,urllib.request,sys
           sys.path.insert(0,'seo')
           import generate_seo as g
-          base='https://jdizhur-rgb.github.io/vet-trial-matcher/'
+          base='https://vettrialfinder.com/'
 
           def h1(s):
             m=re.search(r'<h1>(.*?)</h1>',s,re.S)
