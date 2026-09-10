@@ -23,10 +23,12 @@ generate_seo.SITE = SITE
 import generate_seo_strict
 import generate_cancer_coverage
 import ensure_center_images
+from center_page_enhancements import enhance_center_pages
 
 
 def main():
     generate_seo_strict.main()
+    enhance_center_pages(SEO_DIR / "site")
     generate_cancer_coverage.main()
     ensure_center_images.main()
     out = SEO_DIR / "site"
