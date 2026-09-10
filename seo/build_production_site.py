@@ -28,6 +28,7 @@ from finalize_cancer_pages import finalize_cancer_pages
 from help_center import generate_help_center
 from about_page import generate_about_page
 from site_shell import apply_site_shell
+from about_site_integration import integrate_about
 
 
 def main():
@@ -40,6 +41,7 @@ def main():
     ensure_center_images.main()
     out = SEO_DIR / "site"
     apply_site_shell(out)
+    integrate_about(out)
     (out / "CNAME").write_text(f"{DOMAIN}\n", encoding="utf-8")
 
 
