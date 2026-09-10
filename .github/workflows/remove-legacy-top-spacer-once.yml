@@ -1,0 +1,37 @@
+name: Remove obsolete oncology top spacer once
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/remove-legacy-top-spacer-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove only obsolete top spacer
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('pages/_additional_oncology_legacy.py')
+          s=p.read_text(encoding='utf-8')
+          target='st.markdown("<div style=\'height:1.45rem\'></div>", unsafe_allow_html=True)\n'
+          if s.count(target) != 1:
+              raise SystemExit(f'Expected exactly one spacer, found {s.count(target)}')
+          s=s.replace(target,'',1)
+          p.write_text(s,encoding='utf-8')
+          print('Removed only 1.45rem top spacer')
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add pages/_additional_oncology_legacy.py
+          git diff --cached --quiet && exit 1
+          git commit -m "Remove obsolete oncology page top spacer"
+          git push
