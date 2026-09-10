@@ -1,0 +1,35 @@
+name: Migrate production domain once
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/migrate-production-domain-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Replace legacy generator default and remove this migration
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('seo/generate_seo.py')
+          old = "SITE='https://jdizhur-rgb.github.io/vet-trial-matcher'"
+          new = "SITE='https://vettrialfinder.com'"
+          text = p.read_text(encoding='utf-8')
+          assert text.count(old) == 1, f'expected exactly one legacy SITE default, found {text.count(old)}'
+          p.write_text(text.replace(old, new, 1), encoding='utf-8')
+          PY
+          rm .github/workflows/migrate-production-domain-once.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add seo/generate_seo.py .github/workflows/migrate-production-domain-once.yml
+          git commit -m "Use vettrialfinder.com as generator default"
+          git push origin HEAD:main
