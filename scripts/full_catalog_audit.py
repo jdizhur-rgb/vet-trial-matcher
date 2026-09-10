@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'data'
-BASELINE = '391d618cda5b08a7593b394a7fe2fb61365b02b2'  # first live counter commit
+BASELINE = '391d618cda5b08a7593b394a7fe2fb61365b02b2'
 CURRENT = {'current','confirmed_current'}
 TYPES = {'treatment','other_treatment_access'}
 
@@ -52,10 +52,11 @@ def active_finder(r):
     return r.get('available_for_matching',True) and r.get('status_confidence') in CURRENT and r.get('study_type','treatment') in TYPES
 
 def norm(s): return re.sub(r'[^a-z0-9]+',' ',str(s or '').lower()).strip()
-
-def key_url(u):
-    u=str(u or '').lower().split('?')[0].rstrip('/')
-    return u
+def key_url(u): return str(u or '').lower().split('?')[0].rstrip('/')
+def compact(r):
+    if not r: return None
+    keys=['id','title','center','country','state','species','cancers','status','status_confidence','study_type','available_for_matching','url','registry_url','contacts','funding','notes','verified']
+    return {k:r.get(k) for k in keys if k in r}
 
 def main():
     cur=load_worktree(); base=load_ref(BASELINE)
@@ -94,7 +95,6 @@ def main():
     print('EXACT_CENTER_TITLE_GROUPS',len(exact_titles))
     for (_,t),ids in sorted(exact_titles): print('TITLEDUP',','.join(sorted(ids)),'|',t)
 
-    # conservative near-duplicate candidates: same normalized center + high title similarity
     vals=list(ca.values()); near=[]
     for i,a in enumerate(vals):
         caa=norm(a.get('center')); ta=norm(a.get('title'))
@@ -109,7 +109,6 @@ def main():
     print('NEAR_DUP_CANDIDATES',len(near))
     for score,a,b,ta,tb in sorted(near,reverse=True): print('NEARDUP',f'{score:.3f}',a,b,'|',ta,'||',tb)
 
-    # deleted aliases from all cleanup patches must not survive effective catalog
     deleted=[]
     for p in sorted(DATA.glob('catalog_patch_*.json')):
         try: d=json.loads(p.read_text())
@@ -119,7 +118,6 @@ def main():
     print('DELETED_IDS_SURVIVING_EFFECTIVE',len(survivors))
     for x in survivors: print('DELETE_SURVIVOR',x)
 
-    # basic completeness of every active record
     required=('id','title','center','species','cancers','status_confidence')
     incomplete=[]
     for r in ca.values():
@@ -128,5 +126,36 @@ def main():
         if miss: incomplete.append((r['id'],miss))
     print('ACTIVE_INCOMPLETE',len(incomplete))
     for rid,miss in incomplete: print('INCOMPLETE',rid,','.join(miss))
+
+    # Check historic canonical mapping against current effective rows.
+    audit_path=DATA/'duplicate_audit_20260906_final.json'
+    if audit_path.exists():
+        da=json.loads(audit_path.read_text())
+        print('HISTORIC_CANONICAL_GROUPS')
+        for canon,aliases in da.get('canonical_groups',{}).items():
+            present=[x for x in [canon,*aliases] if x in cur]
+            active=[x for x in present if active_finder(cur[x])]
+            if present:
+                print('CANON_GROUP',canon,'| present=',','.join(present),'| active=',','.join(active))
+
+    suspects=[
+      'auburn-palbociclib','auburn-palbociclib-solid-cancers',
+      'osu-oral-melanoma','osu-oral-melanoma-r3lcmv',
+      'penn-osa-carinkt','upenn-osa-car-inkt-met','penn-osa-car-inkt-met',
+      'vroc-car-neutrophil-glioma','utsw-vroc-glioma-car-neutrophils-rt','utsw-glioma-car-neutrophil-rt',
+      'vroc-ferumoxytol-glioma','utsw-vroc-glioma-ferumoxytol-rt','utsw-glioma-ferumoxytol-rt',
+      'vroc-cpmv-solid','utsw-solid-cpmv',
+      'vroc-melanoma-crtnp','utsw-vroc-melanoma-crtnp-hifu-pdl1','utsw-melanoma-crtnp-hifu-pdl1',
+      'vroc-rt-histotripsy',
+      'csu-aml-trametinib','csu-canine-aml-trametinib',
+      'ncsu-feline-oral-pivot-c','ncsu-pivot-c-feline-oral',
+      'tufts-z007','tufts-z007-broad-solid-2026',
+      'umn-melanoma-mab','umn-oral-melanoma-mab',
+      'ucd-care-canine-glioma','ucd-prism-canine-glioma'
+    ]
+    print('SUSPECT_RECORD_DUMPS')
+    for rid in suspects:
+        if rid in cur or rid in base:
+            print('RECORD',rid,'CURRENT=',json.dumps(compact(cur.get(rid)),ensure_ascii=False,sort_keys=True),'BASELINE=',json.dumps(compact(base.get(rid)),ensure_ascii=False,sort_keys=True))
 
 if __name__=='__main__': main()
