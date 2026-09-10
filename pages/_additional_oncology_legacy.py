@@ -51,13 +51,14 @@ st.markdown("""<style>
 .st-key-route_ect button:hover,.st-key-route_advanced button:hover,.st-key-route_compassionate button:hover {filter:brightness(.97);}
 </style>""",unsafe_allow_html=True)
 if "treatment_option_route" not in st.session_state: st.session_state.treatment_option_route="⚡ Electrochemotherapy (ECT)"
-c1,c2,c3=st.columns(3)
-with c1:
- if st.button("⚡ Electrochemotherapy (ECT)",use_container_width=True,key="route_ect"): st.session_state.treatment_option_route="⚡ Electrochemotherapy (ECT)"
-with c2:
- if st.button("🧬 Advanced / Novel Treatments",use_container_width=True,key="route_advanced"): st.session_state.treatment_option_route="🧬 Advanced / Novel Treatments"
-with c3:
- if st.button("🧪 Compassionate / Expanded Access",use_container_width=True,key="route_compassionate"): st.session_state.treatment_option_route="🧪 Compassionate / Expanded Access"
+if not st.session_state.get("_hide_legacy_route_buttons", False):
+ c1,c2,c3=st.columns(3)
+ with c1:
+  if st.button("⚡ Electrochemotherapy (ECT)",use_container_width=True,key="route_ect"): st.session_state.treatment_option_route="⚡ Electrochemotherapy (ECT)"
+ with c2:
+  if st.button("🧬 Advanced / Novel Treatments",use_container_width=True,key="route_advanced"): st.session_state.treatment_option_route="🧬 Advanced / Novel Treatments"
+ with c3:
+  if st.button("🧪 Compassionate / Expanded Access",use_container_width=True,key="route_compassionate"): st.session_state.treatment_option_route="🧪 Compassionate / Expanded Access"
 route=st.session_state.treatment_option_route
 
 if route=="⚡ Electrochemotherapy (ECT)":

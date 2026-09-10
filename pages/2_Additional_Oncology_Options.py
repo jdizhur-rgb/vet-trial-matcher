@@ -54,12 +54,14 @@ else:
     st.markdown=_section_markdown
     st.write=_section_write
     st.button=_legacy_button
+    st.session_state._hide_legacy_route_buttons=True
     try:
         runpy.run_path(str(Path(__file__).with_name("_additional_oncology_legacy.py")),run_name="__main__")
     finally:
         st.markdown=_markdown
         st.write=_write
         st.button=_button
+        st.session_state.pop("_hide_legacy_route_buttons",None)
 
     if route=="compassionate":
         with st.container(border=True):
