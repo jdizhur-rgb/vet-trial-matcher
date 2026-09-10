@@ -1,6 +1,7 @@
 # EU cancer-by-cancer gap audit completed 2026-09-04: all UI cancer categories rechecked; no unverified lead promoted to matching.
 import streamlit as st
 import streamlit.components.v1 as components
+import ui
 
 CANCER_ALIASES = {
     # UI labels and protocol labels are not always identical. Keep these mappings
@@ -881,7 +882,7 @@ if search_clicked:
                     if tr.get('intervention'):
                         st.write('**Study intervention:** ' + tr['intervention'])
                     st.write('**What the study says:** ' + tr['notes'])
-                    st.write('**Trial funding:** ' + tr.get('funding', 'Ask the study team about covered study costs'))
+                    ui.render_funding(tr.get('funding', 'Ask the study team about covered study costs'), tr.get('funding_status'))
                     st.caption(f"Status: {tr['status']} · Last verified: {tr.get('verified', 'date not recorded')}")
 
     _render_result_save_controls(matches)
