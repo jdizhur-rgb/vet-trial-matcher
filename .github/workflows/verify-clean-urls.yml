@@ -1,0 +1,73 @@
+name: Verify clean production URLs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/verify-clean-urls.yml'
+      - 'seo/**'
+      - 'data/trials_base.json'
+      - 'data/trial_updates.json'
+      - 'data/catalog_patch_*.json'
+
+permissions:
+  contents: read
+
+jobs:
+  verify-clean-urls:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Rebuild expected site
+        run: python seo/build_production_site.py
+      - name: Verify clean live cancer URLs without query strings
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import html,re,time,urllib.request
+
+          SITE='https://vettrialfinder.com'
+
+          def card_titles(s):
+              return [html.unescape(re.sub(r'<.*?>','',x)).strip() for x in re.findall(r'<article class="card"><h3>(.*?)</h3>',s,re.S)]
+
+          sentinels=[
+              'north-america/dogs/histiocytic-sarcoma/',
+              'north-america/dogs/soft-tissue-sarcoma/',
+              'north-america/dogs/osteosarcoma/',
+              'north-america/dogs/lymphoma/',
+              'north-america/dogs/oral-melanoma/',
+          ]
+
+          failures=[]
+          for path in sentinels:
+              expected=(Path('seo/site')/path/'index.html').read_text(errors='replace')
+              exp_cards=card_titles(expected)
+              if not exp_cards:
+                  failures.append((path,'expected page unexpectedly has zero cards'))
+                  continue
+
+              text=''
+              live_cards=[]
+              for _ in range(18):
+                  try:
+                      # Deliberately use the real public URL exactly as owners and search engines do.
+                      # No query string and no no-cache request headers.
+                      req=urllib.request.Request(SITE+'/'+path,headers={'User-Agent':'Mozilla/5.0'})
+                      text=urllib.request.urlopen(req,timeout=20).read().decode('utf-8','replace')
+                      live_cards=card_titles(text)
+                  except Exception:
+                      live_cards=[]
+                  if live_cards==exp_cards:
+                      break
+                  time.sleep(10)
+
+              if live_cards!=exp_cards:
+                  failures.append((path,len(live_cards),len(exp_cards),live_cards,exp_cards))
+
+          assert not failures, 'clean URL verification failed: '+repr(failures)
+          print('CLEAN_PRODUCTION_URLS_OK',len(sentinels))
+          PY
