@@ -894,5 +894,5 @@ st.caption('Trial information can change. Always confirm recruiting status, elig
 
 
 st.markdown("---")
-st.caption("Verified treatment trials and experimental treatment programs • U.S. + Europe/UK • Last deep audit: September 5, 2026")
+st.caption("Verified treatment trials and experimental treatment programs • U.S. + Europe/UK • Updated daily")
 st.caption("This finder identifies potentially relevant cancer treatment options. It does not determine eligibility. Final eligibility and treatment decisions are determined by the treating or research team. It is not a substitute for veterinary advice.")
