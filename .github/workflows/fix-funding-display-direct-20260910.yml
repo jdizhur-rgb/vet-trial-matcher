@@ -1,0 +1,41 @@
+name: Fix funding display direct
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/fix-funding-display-direct-20260910.yml
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch funding display
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('pages/1_Clinical_Trial_Finder.py')
+          s = p.read_text(encoding='utf-8')
+          old = "                    st.write('**Trial funding:** ' + tr.get('funding', 'Ask the study team about covered study costs'))"
+          new = """                    _funding = tr.get('funding', 'Ask the study team about covered study costs')
+                    _funding_low = _funding.lower()
+                    if any(x in _funding_low for x in ('fully funded', 'no cost to the owner', 'at no cost', 'all treatments and procedures')):
+                        st.success('**Trial funding:** ' + _funding)
+                    elif any(x in _funding_low for x in ('partially funded', 'partial funding', 'partially covered', 'some study costs', 'some costs')):
+                        st.warning('**Trial funding:** ' + _funding)
+                    else:
+                        st.write('**Trial funding:** ' + _funding)"""
+          if old not in s:
+              raise SystemExit('funding line not found')
+          p.write_text(s.replace(old, new, 1), encoding='utf-8')
+          PY
+      - name: Commit patch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pages/1_Clinical_Trial_Finder.py
+          git commit -m "Restore funding highlights in trial results"
+          git push
