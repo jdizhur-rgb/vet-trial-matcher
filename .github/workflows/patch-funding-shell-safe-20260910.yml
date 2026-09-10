@@ -15,6 +15,10 @@ jobs:
           python-version: '3.11'
       - name: Install requirements
         run: pip install -r requirements.txt
+      - name: Provide isolated test config
+        run: |
+          mkdir -p .streamlit
+          printf 'SUPABASE_KEY = "test-only"\n' > .streamlit/secrets.toml
       - name: Compile live Python
         run: python -m py_compile app.py pages/1_Clinical_Trial_Finder.py pages/2_Additional_Oncology_Options.py
       - name: Structural invariants
