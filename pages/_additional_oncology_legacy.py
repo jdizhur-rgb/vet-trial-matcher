@@ -37,8 +37,8 @@ def zip_coords(z):
         except Exception:pass
     return None
 
-st.markdown("<div style='font-size:1.55rem;line-height:1.08;font-weight:700;margin:.1rem 0 .15rem;color:#356fa8'>💊 More Treatment Options</div>", unsafe_allow_html=True)
-st.markdown("<div style='height:.65rem'></div>", unsafe_allow_html=True)
+st.markdown("<div style='height:1.45rem'></div>", unsafe_allow_html=True)
+st.markdown("<div style='font-size:1.55rem;line-height:1.08;font-weight:700;margin:.1rem 0 0;color:#356fa8'>💊 More Treatment Options</div>", unsafe_allow_html=True)
 st.write("Explore treatment access beyond standard clinical trials.")
 
 # Calm, card-like route buttons rather than questionnaire-style radio controls.
