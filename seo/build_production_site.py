@@ -25,6 +25,7 @@ import generate_cancer_coverage
 import ensure_center_images
 from center_page_enhancements import enhance_center_pages
 from finalize_cancer_pages import finalize_cancer_pages
+from cache_policy import apply_cache_policy
 
 
 def main():
@@ -34,6 +35,7 @@ def main():
     generate_cancer_coverage.main()
     ensure_center_images.main()
     out = SEO_DIR / "site"
+    apply_cache_policy(out)
     (out / "CNAME").write_text(f"{DOMAIN}\n", encoding="utf-8")
 
 
