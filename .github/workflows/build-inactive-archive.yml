@@ -1,0 +1,35 @@
+name: Build inactive trial archive
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'data/trials_base.json'
+      - 'data/trial_updates.json'
+      - 'data/catalog_patch_*.json'
+      - 'scripts/archive_inactive_trials.py'
+
+permissions:
+  contents: write
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build tomb
+        run: python scripts/archive_inactive_trials.py
+      - name: Commit archive if changed
+        run: |
+          if git diff --quiet -- data/archive/inactive_trials.json; then
+            echo 'Archive unchanged.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/archive/inactive_trials.json
+          git commit -m 'Refresh inactive trial archive'
+          git push
