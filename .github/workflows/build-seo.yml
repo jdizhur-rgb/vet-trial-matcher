@@ -18,6 +18,8 @@ on:
       - 'seo/center_profiles.py'
       - 'seo/center_profiles_extra.py'
       - 'seo/ensure_center_images.py'
+      - 'seo/production_aliases.py'
+      - 'seo/build_production_site.py'
       - 'seo/static/**'
       - '.github/workflows/build-seo.yml'
 
@@ -38,14 +40,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Address preflight diagnostics
-        continue-on-error: true
-        run: python seo/address_preflight_report.py
-      - name: Generate SEO site
-        run: |
-          python seo/generate_seo_strict.py
-          python seo/generate_cancer_coverage.py
-          python seo/ensure_center_images.py
+      - name: Generate SEO site with strict address validation
+        run: python seo/build_production_site.py
       - name: Apply production domain
         run: |
           python - <<'PY'
@@ -142,9 +138,7 @@ jobs:
           python-version: '3.12'
       - name: Rebuild expected site
         run: |
-          python seo/generate_seo_strict.py
-          python seo/generate_cancer_coverage.py
-          python seo/ensure_center_images.py
+          python seo/build_production_site.py
           python - <<'PY'
           from pathlib import Path
           root=Path('seo/site')
