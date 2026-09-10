@@ -11,6 +11,12 @@ st.markdown("""<style>
 .stMainBlockContainer,div[data-testid="stMainBlockContainer"]{max-width:1120px!important;padding:3.4rem 1.5rem 2rem!important}
 .nav-title{font-size:1.55rem;line-height:1.08;font-weight:700;margin:.6rem 0 .15rem;color:#55483f}.nav-title .paw{color:#9a6a43;font-family:Arial,sans-serif}.nav-subtitle{font-size:.92rem;color:#6f6a66;margin:0 0 .45rem}
 .beta-corner{display:none}.intro-answer{font-size:.94rem;color:#45414a;margin:.35rem 0 .65rem}
+/* Unified study/action controls. */
+div[data-testid="stExpander"] details summary{justify-content:center!important;text-align:center!important;gap:.35rem!important}
+div[data-testid="stExpander"] details summary p{text-align:center!important}
+div[data-testid="stDownloadButton"] button{width:100%!important;min-height:3rem!important;font-size:1rem!important;font-weight:600!important;border-radius:.8rem!important}
+@media(max-width:900px){div[data-testid="stHorizontalBlock"]{row-gap:.35rem!important}div[data-testid="stDownloadButton"]{margin-top:0!important;margin-bottom:0!important}}
+
 /* Compact result cards: tighten vertical rhythm without changing controls. */
 div[data-testid="stMainBlockContainer"] h3{font-size:1rem!important;line-height:1.16!important;margin:.12rem 0 .08rem!important}
 div[data-testid="stMainBlockContainer"] p{line-height:1.38!important;margin-top:.18rem!important;margin-bottom:.32rem!important}
