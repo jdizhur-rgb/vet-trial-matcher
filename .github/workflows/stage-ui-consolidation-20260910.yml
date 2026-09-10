@@ -1,0 +1,77 @@
+name: Stage UI consolidation
+on:
+  push:
+    branches: [ui-consolidation-20260910]
+    paths: ['.github/workflows/stage-ui-consolidation-20260910.yml']
+permissions:
+  contents: write
+jobs:
+  consolidate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ui-consolidation-20260910
+      - name: Build consolidated UI module
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          app = Path('app.py')
+          page = Path('pages/1_Clinical_Trial_Finder.py')
+          ui = Path('ui.py')
+
+          app_src = app.read_text(encoding='utf-8')
+          page_src = page.read_text(encoding='utf-8')
+
+          if 'def render_funding(' in app_src or 'import ui' in page_src:
+              raise SystemExit('Unexpected pre-existing UI consolidation markers')
+
+          helper = '''\n\ndef render_funding(funding, funding_status=None):
+              """Render study funding consistently from one UI source of truth."""
+              text = str(funding or 'Ask the study team about covered study costs').strip()
+              status = str(funding_status or '').strip().lower()
+              low = text.lower()
+              if status == 'fully funded' or any(x in low for x in ('fully funded', 'no cost to the owner', 'at no cost', 'all treatments and procedures associated with the clinical trial occur at no cost')):
+                  cls = 'funding-full'
+              elif status == 'partially funded' or any(x in low for x in ('partially funded', 'partial funding', 'partially covered')):
+                  cls = 'funding-partial'
+              else:
+                  cls = 'funding-neutral'
+              safe = html.escape(text)
+              st.markdown(f'<div class="{cls}"><strong>Trial funding:</strong> {safe}</div>', unsafe_allow_html=True)
+          '''
+
+          app_src = app_src.replace('import json, urllib.request, re\n', 'import json, urllib.request, re, html\n' + helper + '\n', 1)
+          css_marker = '.beta-corner{display:none}.intro-answer{font-size:.94rem;color:#45414a;margin:.35rem 0 .65rem}\n'
+          funding_css = '''.funding-full{background:#edf7ef;border:1px solid #cfe6d4;border-radius:.65rem;padding:.55rem .7rem;margin:.35rem 0;color:#285b38}.funding-full strong{color:#285b38}\n.funding-partial{background:#fff8e6;border:1px solid #eadcaf;border-radius:.65rem;padding:.55rem .7rem;margin:.35rem 0;color:#6b5722}.funding-partial strong{color:#6b5722}\n.funding-neutral{padding:.08rem 0;margin:.2rem 0;color:#4b4642}\n'''
+          if css_marker not in app_src:
+              raise SystemExit('Global CSS insertion point not found')
+          app_src = app_src.replace(css_marker, css_marker + funding_css, 1)
+          ui.write_text(app_src, encoding='utf-8')
+
+          app.write_text('''# Streamlit entry point.\n# All presentation/shell behavior lives in ui.py so UI changes have one source of truth.\nimport ui  # noqa: F401\n''', encoding='utf-8')
+
+          page_src = page_src.replace('import streamlit.components.v1 as components\n', 'import streamlit.components.v1 as components\nimport ui\n', 1)
+          old = "                    st.write('**Trial funding:** ' + tr.get('funding', 'Ask the study team about covered study costs'))"
+          new = "                    ui.render_funding(tr.get('funding', 'Ask the study team about covered study costs'), tr.get('funding_status'))"
+          if old not in page_src:
+              raise SystemExit('Funding render line not found')
+          page_src = page_src.replace(old, new, 1)
+          page.write_text(page_src, encoding='utf-8')
+          PY
+      - name: Compile-check all live Python entrypoints
+        run: |
+          python -m py_compile app.py ui.py pages/1_Clinical_Trial_Finder.py pages/2_Additional_Oncology_Options.py
+      - name: Guard matching logic and catalog from accidental edits
+        run: |
+          git diff -- data/ ':!data/*.md' --exit-code
+      - name: Show staged diff
+        run: git diff -- app.py ui.py pages/1_Clinical_Trial_Finder.py
+      - name: Commit validated staging changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app.py ui.py pages/1_Clinical_Trial_Finder.py
+          git commit -m "Consolidate UI shell and add stable funding renderer"
+          git push origin HEAD:ui-consolidation-20260910
