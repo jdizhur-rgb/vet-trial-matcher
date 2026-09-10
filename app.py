@@ -11,6 +11,9 @@ st.markdown("""<style>
 .stMainBlockContainer,div[data-testid="stMainBlockContainer"]{max-width:1120px!important;padding:3.4rem 1.5rem 2rem!important}
 .nav-title{font-size:1.55rem;line-height:1.08;font-weight:700;margin:.6rem 0 .15rem;color:#55483f}.nav-title .paw{color:#9a6a43;font-family:Arial,sans-serif}.nav-subtitle{font-size:.92rem;color:#6f6a66;margin:0 0 .45rem}
 .beta-corner{display:none}.intro-answer{font-size:.94rem;color:#45414a;margin:.35rem 0 .65rem}
+.funding-full{background:#edf7ef;border:1px solid #cfe6d4;border-radius:.65rem;padding:.55rem .7rem;margin:.35rem 0;color:#285b38}.funding-full strong{color:#285b38}
+.funding-partial{background:#fff8e6;border:1px solid #eadcaf;border-radius:.65rem;padding:.55rem .7rem;margin:.35rem 0;color:#6b5722}.funding-partial strong{color:#6b5722}
+.funding-neutral{padding:.08rem 0;margin:.2rem 0;color:#4b4642}
 /* Study information only. Streamlit 1.62 DOM is:
    summary > StyledSummaryHeading(span) > [chevron, StyledSummaryLabelWrapper(div)].
    Center the heading contents and disable the label wrapper's default flex-grow:1/width:100%. */
@@ -171,6 +174,18 @@ def _linkify_contact(text):
 def _save_controls():
     components.html("""<style>body{margin:0;font-family:Arial,sans-serif}.row{display:flex;gap:8px}.b{flex:1;border:1px solid #d8d3cf;background:#fff;border-radius:9px;padding:9px 12px;font-size:14px;font-weight:600;color:#4b4642;cursor:pointer}.b:hover{background:#f7f5f3}.ok{font-size:12px;color:#55745d;margin-top:5px;min-height:15px}</style><div class='row'><button class='b' onclick='copyResults()'>📋 Copy results</button><button class='b' onclick='savePdf()'>📄 Save as PDF</button></div><div id='ok' class='ok'></div><script>function resultText(){const d=window.parent.document;const els=[...d.querySelectorAll('h1,h2,h3,p,a,button,summary')];let start=els.findIndex(e=>e.innerText.trim()==='Results');if(start<0)return '';let out=[];for(let i=start;i<els.length;i++){let t=els[i].innerText.trim();if(t.startsWith('If a trial team says your pet is not eligible'))break;if(t&&t!=='Copy results'&&t!=='Save as PDF')out.push(t)}return [...new Set(out)].join('\n\n')}async function copyResults(){let t=resultText();if(!t){document.getElementById('ok').innerText='Run a search first.';return}try{await navigator.clipboard.writeText(t);document.getElementById('ok').innerText='Results copied.'}catch(e){document.getElementById('ok').innerText='Copy was blocked by the browser.'}}function savePdf(){let t=resultText();if(!t){document.getElementById('ok').innerText='Run a search first.';return}let w=window.open('','_blank');w.document.write('<html><head><title>Clinical Trial Finder Results</title><style>body{font-family:Arial,sans-serif;max-width:760px;margin:40px auto;padding:0 24px;color:#282522;line-height:1.45}h1{font-size:22px}pre{font-family:Arial,sans-serif;white-space:pre-wrap;font-size:13px}.note{margin-top:28px;font-size:11px;color:#666}</style></head><body><h1>Clinical Trial Finder Results</h1><pre>'+t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</pre><div class="note">Saved from Vet Cancer Clinical Trial Finder. Recruitment and eligibility can change; confirm current status with the study team.</div><script>window.onload=()=>window.print()<\/script></body></html>');w.document.close()}</script>""",height=70)
 def write(body,*a,**k):
+    if isinstance(body,str) and body.startswith("**Trial funding:**"):
+        text=body.replace("**Trial funding:**","",1).strip()
+        low=text.lower()
+        if any(x in low for x in ("fully funded","no cost to the owner","at no cost","no cost to owners")):
+            cls="funding-full"
+        elif any(x in low for x in ("partially funded","partial funding","partially covered")):
+            cls="funding-partial"
+        else:
+            cls="funding-neutral"
+        import html as _html
+        _orig["markdown"](f'<div class="{cls}"><strong>Trial funding:</strong> {_html.escape(text)}</div>',unsafe_allow_html=True)
+        return
     if isinstance(body,str) and body.startswith("**Contact:**"):
         contact=body.replace("**Contact:**","",1).strip();linked=_linkify_contact(contact)
         if linked:_orig["markdown"]("**Contact:** "+linked)
