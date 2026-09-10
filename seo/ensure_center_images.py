@@ -13,7 +13,7 @@ SITE = ROOT / "site"
 STATIC = ROOT / "static" / "images" / "centers"
 FALLBACK = STATIC / "center-fallback.jpg"
 FALLBACK_URL = "https://images.pexels.com/photos/6235650/pexels-photo-6235650.jpeg?cs=srgb&fm=jpg"
-PUBLIC_SRC = "/vet-trial-matcher/images/centers/center-fallback.jpg"
+PUBLIC_SRC = "/images/centers/center-fallback.jpg"
 
 
 def ensure_fallback_file():
