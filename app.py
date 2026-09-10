@@ -1,7 +1,7 @@
 import streamlit as st
 import streamlit.components.v1 as components
 from contextlib import contextmanager
-import json, urllib.request, re
+import re
 
 st.set_page_config(page_title="Vet Cancer Treatment Finder", page_icon="🐾", layout="wide")
 PAGES=[st.Page("pages/1_Clinical_Trial_Finder.py",title="Clinical Trial Finder",icon="🐾",default=True),st.Page("pages/2_Additional_Oncology_Options.py",title="More Treatment Options",icon="💊")]
@@ -79,7 +79,6 @@ _layout={"section":None,"slots":[],"extra":0,"treatment":False,"age_value":None,
 _treatment_labels={"Surgery","Osteosarcoma surgery","Hemangiosarcoma surgery","Chemotherapy","Prior or current cancer immunotherapy","Radiation to this tumor","Prednisone / other corticosteroids","Other immunosuppressive medication"}
 _europe={"Europe — all countries","UK","United Kingdom","France","Belgium","Netherlands","The Netherlands","Italy","Portugal","Spain","Sweden","Switzerland","Germany","Austria","Czechia","Czech Republic","Poland","Denmark","Finland","Norway","Ireland","Hungary","Slovenia","Cyprus"}
 _feedback_text="If a trial team says your pet is not eligible, please save the reason. Those real-world exclusions are especially useful for improving the matcher. Do not post private medical or contact information publicly."
-_SUPABASE_URL="https://bvghrabcfrexvynlyhqb.supabase.co";_SUPABASE_KEY=st.secrets.get("SUPABASE_KEY","")
 def _section(name,title,spec):_orig["markdown"](f'<div class="desktop-section-title">{title}</div>',unsafe_allow_html=True);_layout.update(section=name,slots=st.columns(spec,gap="small",wrap=True),extra=0)
 def _extra(n):
     i=_layout["extra"]
@@ -193,17 +192,7 @@ def write(body,*a,**k):
     if isinstance(body,str) and body.startswith("**Participating sites:**"):
         return _orig["markdown"](body)
     if body==_feedback_text:
-        _save_controls();_orig["write"]("If a trial team says your pet is not eligible, you can share the reason without providing your name or email.")
-        with st.expander("Share eligibility feedback"):
-            with st.form("eligibility_feedback_form",clear_on_submit=True):
-                trial=_orig["text_input"]("Trial / center",max_chars=300);reason=st.text_area("Reason the trial team said your pet was not eligible",max_chars=2000);st.caption("No name or email is required. Please do not include identifying information.");sent=st.form_submit_button("Submit feedback",use_container_width=True)
-                if sent:
-                    if not trial.strip() or not reason.strip():st.warning("Please enter the trial / center and the reason given by the trial team.")
-                    elif not _SUPABASE_KEY:st.error("Feedback service is not configured.")
-                    else:
-                        try:
-                            data=json.dumps({"trial_center":trial.strip(),"exclusion_reason":reason.strip()}).encode();req=urllib.request.Request(f"{_SUPABASE_URL}/rest/v1/eligibility_feedback",data=data,method="POST",headers={"apikey":_SUPABASE_KEY,"Content-Type":"application/json","Prefer":"return=minimal"});urllib.request.urlopen(req,timeout=10);st.success("Thank you. Your feedback was submitted.")
-                        except Exception:st.error("Feedback could not be submitted. Please try again later.")
+        _save_controls()
         return
     return _orig["write"](body,*a,**k)
 def link_button(label,url,*a,**k):
