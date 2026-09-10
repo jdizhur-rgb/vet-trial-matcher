@@ -4,7 +4,7 @@ from __future__ import annotations
 import html,json,re,shutil
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]; OUT=ROOT/'seo'/'site'
-FINDER='https://vet-cancer-trial-finder.streamlit.app/'; SITE='https://jdizhur-rgb.github.io/vet-trial-matcher'
+FINDER='https://vet-cancer-trial-finder.streamlit.app/'; SITE='https://vettrialfinder.com'
 EUROPE={'Belgium','Denmark','France','Germany','Italy','Netherlands','Portugal','Spain','Sweden','Switzerland','UK','Ireland','Austria','Czechia','Poland','Finland','Norway','Hungary','Slovenia','Cyprus'}
 REGIONS={'north-america':{'USA','Canada'},'uk-europe':EUROPE}; SPECIES={'dogs':'Dog','cats':'Cat'}
 LANGS={'en':('Clinical Trials and Cancer Treatment Studies','current treatment opportunities','Check your pet against these options'),'de':('Klinische Studien und Krebsbehandlungsstudien','aktuelle Behandlungsmöglichkeiten','Behandlungsoptionen prüfen'),'fr':('Essais cliniques et études de traitement du cancer','options thérapeutiques actuelles','Vérifier les options de traitement'),'es':('Ensayos clínicos y estudios de tratamiento del cáncer','opciones terapéuticas actuales','Consultar opciones de tratamiento'),'it':('Studi clinici e studi sul trattamento del cancro','opzioni terapeutiche attuali','Controlla le opzioni di trattamento'),'nl':('Klinische onderzoeken en kankerbehandelingsstudies','huidige behandelingsmogelijkheden','Bekijk behandelingsopties')}; EU_LANGS=('en','de','fr','es','it','nl')
