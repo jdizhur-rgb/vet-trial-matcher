@@ -26,6 +26,7 @@ import ensure_center_images
 from center_page_enhancements import enhance_center_pages
 from finalize_cancer_pages import finalize_cancer_pages
 from help_center import generate_help_center
+from site_shell import apply_site_shell
 
 
 def main():
@@ -36,6 +37,7 @@ def main():
     generate_help_center(SEO_DIR / "site")
     ensure_center_images.main()
     out = SEO_DIR / "site"
+    apply_site_shell(out)
     (out / "CNAME").write_text(f"{DOMAIN}\n", encoding="utf-8")
 
 
