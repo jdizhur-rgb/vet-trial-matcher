@@ -27,10 +27,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add app.py
+          git add app.py pages/1_Clinical_Trial_Finder.py
           if git diff --cached --quiet; then
             echo "Result-center presentation already current"
           else
-            git commit -m "Make institution name prominent above trial title"
+            git commit -m "Update Finder presentation"
             git push origin main
           fi
