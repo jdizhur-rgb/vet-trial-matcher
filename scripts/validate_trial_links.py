@@ -51,7 +51,9 @@ def load_effective() -> list[dict]:
             rows[patch["id"]] = merge(rows.get(patch["id"], {}), patch)
     return [
         r for r in rows.values()
-        if r.get("available_for_matching") is True
+        # Match the patient-facing finder exactly: legacy records without an
+        # explicit availability flag are considered available unless disabled.
+        if r.get("available_for_matching", True)
         and r.get("status_confidence") in CURRENT
         and r.get("study_type", "treatment") in {"treatment", "other_treatment_access"}
     ]
@@ -87,7 +89,7 @@ def check_url(url: str) -> tuple[str, str]:
         return "uncertain", f"HTTP {exc.code}"
     except (urllib.error.URLError, TimeoutError, socket.timeout) as exc:
         return "uncertain", f"network error: {exc}"
-    except Exception as exc:  # keep the audit readable rather than crashing early
+    except Exception as exc:
         return "uncertain", f"unexpected error: {exc}"
 
 
@@ -127,12 +129,9 @@ def main() -> int:
     for rid, title in missing_direct:
         print(f"MISSING\t{rid}\tno owner-facing study link\t{title}")
 
-    # A hard-dead URL must not quietly remain in the live active catalog.
-    # Missing URLs are also an error because the owner needs a source/details page.
     if dead or missing_direct:
         print("TRIAL_LINK_VALIDATION_FAILED", file=sys.stderr)
         return 1
-
     print("TRIAL_LINK_VALIDATION_OK")
     return 0
 
