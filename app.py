@@ -11,18 +11,7 @@ st.markdown("""<style>
 .stMainBlockContainer,div[data-testid="stMainBlockContainer"]{max-width:1120px!important;padding:3.4rem 1.5rem 2rem!important}
 .nav-title{font-size:1.55rem;line-height:1.08;font-weight:700;margin:.6rem 0 .15rem;color:#55483f}.nav-title .paw{color:#9a6a43;font-family:Arial,sans-serif}.nav-subtitle{font-size:.92rem;color:#6f6a66;margin:0 0 .45rem}
 .beta-corner{display:none}.intro-answer{font-size:.94rem;color:#45414a;margin:.35rem 0 .65rem}
-/* Result-card study controls + Copy/PDF pair only. Do not affect form/layout columns. */
-div[data-testid="stVerticalBlockBorderWrapper"] div[data-testid="stExpander"] details summary{
-  display:flex!important;align-items:center!important;justify-content:center!important;
-  text-align:center!important;gap:.35rem!important;
-}
-div[data-testid="stVerticalBlockBorderWrapper"] div[data-testid="stExpander"] details summary > *{
-  flex:0 0 auto!important;width:auto!important;max-width:max-content!important;
-}
-div[data-testid="stVerticalBlockBorderWrapper"] div[data-testid="stExpander"] details summary [data-testid="stMarkdownContainer"],
-div[data-testid="stVerticalBlockBorderWrapper"] div[data-testid="stExpander"] details summary p{
-  width:auto!important;text-align:center!important;margin:0!important;
-}
+/* Copy/PDF pair only. Study-information centering is applied by exact label after render. */
 #copy-results-native{
   width:100%!important;height:48px!important;padding:0 12px!important;
   border:1px solid #d8d3cf!important;border-radius:.8rem!important;background:#fff!important;
@@ -208,6 +197,37 @@ try:page.run()
 finally:
     components.html=_components_html_orig
     for n,v in _orig.items():setattr(st,n,v)
+# Center only the result-card "Study information" expander after Streamlit has rendered it.
+components.html("""<script>
+(()=>{
+  const d=window.parent.document;
+  const apply=()=>{
+    d.querySelectorAll('div[data-testid="stExpander"] summary').forEach(s=>{
+      if((s.innerText||'').trim()!=='Study information') return;
+      s.style.setProperty('display','flex','important');
+      s.style.setProperty('align-items','center','important');
+      s.style.setProperty('justify-content','center','important');
+      s.style.setProperty('gap','.35rem','important');
+      s.style.setProperty('text-align','center','important');
+      Array.from(s.children).forEach(c=>{
+        c.style.setProperty('flex','0 0 auto','important');
+        c.style.setProperty('width','auto','important');
+        c.style.setProperty('max-width','max-content','important');
+      });
+      s.querySelectorAll('[data-testid="stMarkdownContainer"],p').forEach(c=>{
+        c.style.setProperty('width','auto','important');
+        c.style.setProperty('margin','0','important');
+        c.style.setProperty('text-align','center','important');
+      });
+    });
+  };
+  apply();
+  const o=new MutationObserver(apply);
+  o.observe(d.body,{childList:true,subtree:true});
+  setTimeout(()=>o.disconnect(),5000);
+})();
+</script>""",height=0)
+
 with _nav_top.container():
     left,right=st.columns(2,gap="small")
     with left:
