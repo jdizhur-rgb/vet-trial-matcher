@@ -37,27 +37,21 @@ def zip_coords(z):
         except Exception:pass
     return None
 
-route=st.session_state.get("treatment_option_route","🧬 Advanced / Novel Treatments")
-if route=="🧪 Compassionate / Expanded Access":
-    page_title="🧪 Expanded Access"
-    page_intro="Explore compassionate and expanded-access treatment pathways."
-else:
-    page_title="🧬 Advanced Treatments"
-    page_intro="Explore advanced and less-common cancer treatment options."
-
 st.markdown("<div style='height:1.45rem'></div>", unsafe_allow_html=True)
-st.markdown(f"<div style='font-size:1.55rem;line-height:1.08;font-weight:700;margin:.1rem 0 .15rem;color:#356fa8'>{page_title}</div>", unsafe_allow_html=True)
+st.markdown("<div style='font-size:1.55rem;line-height:1.08;font-weight:700;margin:.1rem 0 .15rem;color:#356fa8'>💊 More Treatment Options</div>", unsafe_allow_html=True)
 st.markdown("<div style='height:.65rem'></div>", unsafe_allow_html=True)
-st.write(page_intro)
+st.write("Explore treatment access beyond standard clinical trials.")
 
-# Legacy route controls are retained only for compatibility; the wrapper hides them.
+# Calm, card-like route buttons rather than questionnaire-style radio controls.
 st.markdown("""<style>
+/* Route buttons: target Streamlit key classes so mobile stacking keeps distinct shades. */
 .st-key-route_ect button {background-color:#e7f2fa !important;border-color:#bfd8e9 !important;color:#285b7a !important;}
 .st-key-route_advanced button {background-color:#d6e9f6 !important;border-color:#a9cce3 !important;color:#245674 !important;}
 .st-key-route_compassionate button {background-color:#c5dfef !important;border-color:#91bdd8 !important;color:#1f4f6c !important;}
 .st-key-route_ect button,.st-key-route_advanced button,.st-key-route_compassionate button {border-radius:12px !important;min-height:3.25rem !important;font-weight:500 !important;}
+.st-key-route_ect button:hover,.st-key-route_advanced button:hover,.st-key-route_compassionate button:hover {filter:brightness(.97);}
 </style>""",unsafe_allow_html=True)
-if "treatment_option_route" not in st.session_state: st.session_state.treatment_option_route="🧬 Advanced / Novel Treatments"
+if "treatment_option_route" not in st.session_state: st.session_state.treatment_option_route="⚡ Electrochemotherapy (ECT)"
 c1,c2,c3=st.columns(3)
 with c1:
  if st.button("⚡ Electrochemotherapy (ECT)",use_container_width=True,key="route_ect"): st.session_state.treatment_option_route="⚡ Electrochemotherapy (ECT)"
@@ -68,7 +62,24 @@ with c3:
 route=st.session_state.treatment_option_route
 
 if route=="⚡ Electrochemotherapy (ECT)":
- st.info("ECT center search has moved to Oncology Centers.")
+ with st.expander("⚡ Find ECT Centers near you",expanded=True):
+     st.write("Find veterinary centers offering electrochemotherapy (ECT) in the USA and Canada.")
+     zip_code=st.text_input("ZIP / postal code",placeholder="e.g. 01095 or M5V 3L9",key="ect_zip")
+     if st.button("Find nearest ECT centers",use_container_width=True,key="ect_find"):
+         loc=zip_coords(zip_code.strip().replace(" ",""))
+         if not loc:st.error("ZIP / postal code not found. Try a valid US ZIP or Canadian postal code.")
+         else:
+             centers=json.loads((Path(__file__).resolve().parents[1]/"data"/"ect_centers_usa_canada.json").read_text())["centers"]
+             coords={("Toronto","ON"):(43.6532,-79.3832),("Brossard","QC"):(45.4501,-73.4658),("Auburn","AL"):(32.6099,-85.4808),("Laguna Hills","CA"):(33.6125,-117.7128),("Los Angeles","CA"):(34.0522,-118.2437),("San Francisco","CA"):(37.7749,-122.4194),("Boulder","CO"):(40.015,-105.2705),("Colorado Springs","CO"):(38.8339,-104.8214),("Lafayette","CO"):(39.9936,-105.0897),("Lakewood","CO"):(39.7047,-105.0814),("Boca Raton","FL"):(26.3683,-80.1289),("Coral Springs","FL"):(26.2712,-80.2706),("Gainesville","FL"):(29.6516,-82.3248),("Melbourne","FL"):(28.0836,-80.6081),("Marietta","GA"):(33.9526,-84.5499),("Savannah","GA"):(32.0809,-81.0912),("Buzzards Bay","MA"):(41.7454,-70.6181),("South Weymouth","MA"):(42.1751,-70.9495),("Walpole","MA"):(42.1418,-71.2495),("Rockville","MD"):(39.084,-77.1528),("Auburn Hills","MI"):(42.6875,-83.2455),("Bloomfield Hills","MI"):(42.5836,-83.2455),("Arden Hills","MN"):(45.0502,-93.1566),("Oakdale","MN"):(44.963,-92.9649),("Raleigh","NC"):(35.7796,-78.6382),("Stratham","NH"):(43.0231,-70.9137),("Eatontown","NJ"):(40.2962,-74.0509),("Woodbridge","NJ"):(40.5576,-74.2846),("Santa Fe","NM"):(35.687,-105.9378),("New York","NY"):(40.7128,-74.006),("Bend","OR"):(44.0582,-121.3153),("Milwaukie","OR"):(45.4462,-122.6393),("Tacoma","WA"):(47.2529,-122.4443),("Waukesha","WI"):(43.0117,-88.2315)}
+             lat,lon,place,region=loc;ranked=[]
+             for x in centers:
+                 c=coords.get((x["city"],x["region"]))
+                 if c:ranked.append((miles(lat,lon,*c),x))
+             ranked.sort(key=lambda v:v[0]);st.success(f"Nearest listed ECT centers to {place}{', '+region if region else ''}")
+             for dist,x in ranked[:8]:
+                 with st.container(border=True):
+                     st.subheader(x["center"]);st.write(f"{x['city']}, {x['region']} · approximately {dist:.0f} miles away");st.markdown(f"☎️ [{x['phone']}](tel:{x['phone'].replace('-', '')})");st.link_button("Center website",x["website"],use_container_width=True)
+             st.caption("Distances are straight-line estimates, not driving distances. Confirm that ECT is currently available before travel.")
 elif route=="🧪 Compassionate / Expanded Access":
  st.subheader("Compassionate / Expanded Access")
  st.write("Investigational anticancer treatment access outside ordinary trial enrollment. We list a program only when a current owner contact pathway can be verified.")

@@ -26,8 +26,6 @@ div[data-testid="stMainBlockContainer"] h3{font-size:1rem!important;line-height:
 div[data-testid="stMainBlockContainer"] p{line-height:1.38!important;margin-top:.18rem!important;margin-bottom:.32rem!important}
 div[data-testid="stMainBlockContainer"] [data-testid="stMarkdownContainer"]{margin-bottom:0!important}
 div[data-testid="stMainBlockContainer"] [data-testid="stVerticalBlock"]{gap:.48rem!important}
-
-/* Global navigation: one primary Trial button + three compact direct tools. */
 div.st-key-nav_trials button{min-height:2.9rem!important;width:100%!important;font-size:1rem!important;font-weight:700!important;border-radius:.8rem!important;background:#eee8ff!important;color:#3b237a!important;border:1px solid #ddd2ff!important}
 div[data-testid="stHorizontalBlock"]:has(.st-key-nav_centers){display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;gap:.38rem!important;align-items:stretch!important;margin:.45rem 0 0!important}
 div[data-testid="stHorizontalBlock"]:has(.st-key-nav_centers) > div[data-testid="stColumn"]{width:auto!important;min-width:0!important;flex:1 1 0!important}
@@ -39,7 +37,6 @@ div[data-testid="stAlert"]{background:#edf7ef!important;border:0!important;box-s
 @media(max-width:900px){.stMainBlockContainer,div[data-testid="stMainBlockContainer"]{padding:4.1rem 1rem 2rem!important;max-width:none!important}.nav-title{font-size:1.4rem}.nav-subtitle{font-size:.86rem}.beta-corner{text-align:left}}
 </style>""",unsafe_allow_html=True)
 
-_nav_top=st.empty()
 _orig={n:getattr(st,n) for n in ["markdown","title","header","selectbox","checkbox","number_input","radio","text_input","multiselect","expander","link_button","write","button"]}
 _components_html_orig=components.html
 def _components_html(body,*a,**k):
@@ -168,21 +165,24 @@ def expander(label,*a,**k):
         if label=="Study information":_study_expander_seq["n"]+=1;k=dict(k);k["key"]=f"study-info-{_study_expander_seq['n']}"
         with _orig["expander"](label,*a,**k):yield
 st.title=title;st.header=header;st.selectbox=selectbox;st.checkbox=checkbox;st.number_input=number_input;st.radio=radio;st.text_input=text_input;st.multiselect=multiselect;st.markdown=markdown;st.write=write;st.link_button=link_button;st.expander=expander;st.button=button
+
+# Render navigation once, before the selected page.
+if st.button("🐾︎ Clinical Trials",key="nav_trials",use_container_width=True):
+    st.switch_page("pages/1_Clinical_Trial_Finder.py")
+c1,c2,c3=st.columns(3,gap="small")
+with c1:
+    if st.button("🏥 Oncology Centers",key="nav_centers",use_container_width=True):
+        st.session_state.main_treatment_route="centers";st.switch_page("pages/2_Additional_Oncology_Options.py")
+with c2:
+    if st.button("🧬 Advanced Treatments",key="nav_advanced",use_container_width=True):
+        st.session_state.main_treatment_route="advanced";st.switch_page("pages/2_Additional_Oncology_Options.py")
+with c3:
+    if st.button("🧪 Expanded Access",key="nav_expanded",use_container_width=True):
+        st.session_state.main_treatment_route="compassionate";st.switch_page("pages/2_Additional_Oncology_Options.py")
+
 try:page.run()
 finally:
     components.html=_components_html_orig
     for n,v in _orig.items():setattr(st,n,v)
-with _nav_top.container():
-    if st.button("🐾︎ Clinical Trials",key="nav_trials",use_container_width=True):st.switch_page("pages/1_Clinical_Trial_Finder.py")
-    c1,c2,c3=st.columns(3,gap="small")
-    with c1:
-        if st.button("🏥 Oncology Centers",key="nav_centers",use_container_width=True):
-            st.session_state.main_treatment_route="centers";st.switch_page("pages/2_Additional_Oncology_Options.py")
-    with c2:
-        if st.button("🧬 Advanced Treatments",key="nav_advanced",use_container_width=True):
-            st.session_state.main_treatment_route="advanced";st.switch_page("pages/2_Additional_Oncology_Options.py")
-    with c3:
-        if st.button("🧪 Expanded Access",key="nav_expanded",use_container_width=True):
-            st.session_state.main_treatment_route="compassionate";st.switch_page("pages/2_Additional_Oncology_Options.py")
 
 st.markdown("[Follow us on Facebook](https://www.facebook.com/share/1YmSPexTr1/)")
