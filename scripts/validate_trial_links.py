@@ -5,6 +5,7 @@ Checks both the direct study URL (`url`) and the optional Veterinary Clinical
 Trials Registry URL (`registry_url`). Hard-dead links (malformed, 404, 410)
 fail the check. Bot-blocked/rate-limited/transient responses are reported as
 uncertain so they can be reviewed without creating false dead-link failures.
+This validator intentionally uses the same active-treatment semantics as the Finder.
 """
 from __future__ import annotations
 
