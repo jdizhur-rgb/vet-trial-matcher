@@ -3,21 +3,39 @@ from pathlib import Path
 import runpy, importlib.util
 
 st.markdown("""<style>
-.st-key-main_route_centers button{background-color:#e7f2fa!important;border-color:#bfd8e9!important;color:#285b7a!important}
-.st-key-main_route_advanced button{background-color:#d6e9f6!important;border-color:#a9cce3!important;color:#245674!important}
-.st-key-main_route_compassionate button{background-color:#c5dfef!important;border-color:#91bdd8!important;color:#1f4f6c!important}
-.st-key-main_route_centers button,.st-key-main_route_advanced button,.st-key-main_route_compassionate button{border-radius:12px!important;min-height:3.25rem!important;font-weight:500!important}
+/* Secondary navigation inside More Treatment Options: compact tabs, visually
+   subordinate to the two main site buttons. Keep all three in one row on mobile. */
+div[data-testid="stHorizontalBlock"]:has(.st-key-main_route_centers){
+  display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;
+  gap:.38rem!important;align-items:stretch!important;margin:.05rem 0 .55rem!important;
+}
+div[data-testid="stHorizontalBlock"]:has(.st-key-main_route_centers) > div[data-testid="stColumn"]{
+  width:auto!important;min-width:0!important;flex:1 1 0!important;
+}
+.st-key-main_route_centers button,.st-key-main_route_advanced button,.st-key-main_route_compassionate button{
+  width:100%!important;min-height:2.35rem!important;padding:.28rem .42rem!important;
+  border-radius:10px!important;font-size:.82rem!important;line-height:1.08!important;
+  font-weight:600!important;white-space:normal!important;box-shadow:none!important;
+}
+.st-key-main_route_centers button{background-color:#eef6fb!important;border-color:#cadfeb!important;color:#285b7a!important}
+.st-key-main_route_advanced button{background-color:#e8f2f8!important;border-color:#c2d9e7!important;color:#245674!important}
+.st-key-main_route_compassionate button{background-color:#e1edf4!important;border-color:#b8d1df!important;color:#1f4f6c!important}
+@media(max-width:520px){
+ .st-key-main_route_centers button,.st-key-main_route_advanced button,.st-key-main_route_compassionate button{
+   min-height:2.55rem!important;padding:.24rem .25rem!important;font-size:.74rem!important;
+ }
+}
 .st-key-route_ect,.st-key-route_advanced,.st-key-route_compassionate{display:none!important}
 </style>""",unsafe_allow_html=True)
 
 if "main_treatment_route" not in st.session_state: st.session_state.main_treatment_route="centers"
-c1,c2,c3=st.columns(3)
+c1,c2,c3=st.columns(3,gap="small")
 with c1:
-    if st.button("🏥 Find an Oncology Center",use_container_width=True,key="main_route_centers"):st.session_state.main_treatment_route="centers"
+    if st.button("🏥 Oncology Centers",use_container_width=True,key="main_route_centers"):st.session_state.main_treatment_route="centers"
 with c2:
-    if st.button("🧬 Advanced / Novel Treatments",use_container_width=True,key="main_route_advanced"):st.session_state.main_treatment_route="advanced"
+    if st.button("🧬 Advanced Treatments",use_container_width=True,key="main_route_advanced"):st.session_state.main_treatment_route="advanced"
 with c3:
-    if st.button("🧪 Compassionate / Expanded Access",use_container_width=True,key="main_route_compassionate"):st.session_state.main_treatment_route="compassionate"
+    if st.button("🧪 Expanded Access",use_container_width=True,key="main_route_compassionate"):st.session_state.main_treatment_route="compassionate"
 
 route=st.session_state.main_treatment_route
 if route=="centers":
