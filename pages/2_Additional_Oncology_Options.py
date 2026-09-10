@@ -30,6 +30,14 @@ if route=="centers":
     helper=Path(__file__).with_name("_oncology_center_finder.py")
     spec=importlib.util.spec_from_file_location("oncology_center_finder",helper)
     mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
+    # Explicit supplements keep every strictly verified legacy ECT location in the
+    # hospital finder even when a broad third-party hospital locator omits it.
+    mod.EXTRAS.extend([
+        {"center":"San Francisco Animal Medical Center","address":"2343 Fillmore St","city":"San Francisco","region":"CA","zip":"94115","phone":"415-465-6291","website":"https://www.sfamc.com/specialty-care/oncology","services":["Medical oncology","ECT"]},
+        {"center":"Animal Cancer Care Clinic – Melbourne","address":"901 Jordan Blass Dr","city":"Melbourne","region":"FL","zip":"32940","phone":"407-930-6679","website":"https://animalcancercareclinic.com/","services":["Medical oncology","Chemotherapy","ECT","Immunotherapy","Surgical oncology"]},
+        {"center":"BluePearl Pet Hospital – Arden Hills","address":"1285 Grey Fox Rd Suite 100","city":"Arden Hills","region":"MN","zip":"55112","phone":"763-754-5000","website":"https://bluepearlvet.com/hospital/arden-hills-mn/specialties-services/oncology/","services":["Medical oncology","ECT"]},
+        {"center":"Veterinary Oncology Services – Manhattan","address":"700 Columbus Ave","city":"New York","region":"NY","zip":"10025","phone":"888-658-6568","website":"https://petcancerinformation.com/areas-we-serve/manhattan","services":["Medical oncology","Chemotherapy","ECT","Immunotherapy","Gene-electrotransfer","T-cell therapy"]}
+    ])
     mod.render()
 else:
     # Reuse the last known-good implementation for the two existing treatment sections.
