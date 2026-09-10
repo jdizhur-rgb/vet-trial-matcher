@@ -4,7 +4,7 @@ from contextlib import contextmanager
 import re
 
 st.set_page_config(page_title="Vet Cancer Treatment Finder", page_icon="🐾", layout="wide")
-PAGES=[st.Page("pages/1_Clinical_Trial_Finder.py",title="Clinical Trial Finder",icon="🐾",default=True),st.Page("pages/2_Additional_Oncology_Options.py",title="More Treatment Options",icon="💊")]
+PAGES=[st.Page("pages/1_Clinical_Trial_Finder.py",title="Clinical Trial Finder",icon="🐾",default=True),st.Page("pages/2_Additional_Oncology_Options.py",title="Oncology Tools",icon="🏥")]
 page=st.navigation(PAGES,position="hidden")
 
 st.markdown("""<style>
@@ -14,55 +14,26 @@ st.markdown("""<style>
 .funding-full{background:#edf7ef;border:1px solid #cfe6d4;border-radius:.65rem;padding:.55rem .7rem;margin:.35rem 0;color:#285b38}.funding-full strong{color:#285b38}
 .funding-partial{background:#fff8e6;border:1px solid #eadcaf;border-radius:.65rem;padding:.55rem .7rem;margin:.35rem 0;color:#6b5722}.funding-partial strong{color:#6b5722}
 .funding-neutral{padding:.08rem 0;margin:.2rem 0;color:#4b4642}
-/* Study information only. Streamlit 1.62 DOM is:
-   summary > StyledSummaryHeading(span) > [chevron, StyledSummaryLabelWrapper(div)].
-   Center the heading contents and disable the label wrapper's default flex-grow:1/width:100%. */
-[class*="st-key-study-info-"] [data-testid="stExpander"] details summary > span{
-  display:flex!important;align-items:center!important;justify-content:center!important;
-  width:100%!important;max-width:100%!important;gap:.5rem!important;
-}
-[class*="st-key-study-info-"] [data-testid="stExpander"] details summary > span > div{
-  width:auto!important;max-width:max-content!important;flex-grow:0!important;flex-shrink:0!important;
-}
-[class*="st-key-study-info-"] [data-testid="stExpander"] details summary > span > div [data-testid="stMarkdownContainer"],
-[class*="st-key-study-info-"] [data-testid="stExpander"] details summary > span > div p{
-  width:auto!important;margin:0!important;text-align:center!important;
-}
-
-/* Copy/PDF pair only. */
-#copy-results-native{
-  width:100%!important;height:48px!important;padding:0 12px!important;
-  border:1px solid #d8d3cf!important;border-radius:.8rem!important;background:#fff!important;
-  font-size:1rem!important;font-weight:600!important;color:#4b4642!important;
-  text-align:center!important;
-}
-#copy-msg:empty{display:none!important}
-#copy-msg:not(:empty){margin:.2rem 0 0!important;min-height:0!important}
-div[data-testid="stHorizontalBlock"]:has(#copy-results-native) div[data-testid="stDownloadButton"] button{
-  width:100%!important;height:48px!important;min-height:48px!important;padding:0 12px!important;
-  border:1px solid #d8d3cf!important;border-radius:.8rem!important;background:#fff!important;
-  color:#4b4642!important;justify-content:center!important;box-shadow:none!important;
-}
-div[data-testid="stHorizontalBlock"]:has(#copy-results-native) div[data-testid="stDownloadButton"] button p{
-  margin:0!important;font-size:1rem!important;font-weight:600!important;color:#4b4642!important;
-}
-@media(max-width:900px){
-  div[data-testid="stHorizontalBlock"]:has(#copy-results-native){
-    display:flex!important;flex-direction:column!important;gap:.45rem!important;
-  }
-  div[data-testid="stHorizontalBlock"]:has(#copy-results-native) > div[data-testid="stColumn"]{
-    width:100%!important;min-width:100%!important;flex:1 1 auto!important;
-  }
-}
-
-/* Compact result cards: tighten vertical rhythm without changing controls. */
+[class*="st-key-study-info-"] [data-testid="stExpander"] details summary > span{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;max-width:100%!important;gap:.5rem!important}
+[class*="st-key-study-info-"] [data-testid="stExpander"] details summary > span > div{width:auto!important;max-width:max-content!important;flex-grow:0!important;flex-shrink:0!important}
+[class*="st-key-study-info-"] [data-testid="stExpander"] details summary > span > div [data-testid="stMarkdownContainer"],[class*="st-key-study-info-"] [data-testid="stExpander"] details summary > span > div p{width:auto!important;margin:0!important;text-align:center!important}
+#copy-results-native{width:100%!important;height:48px!important;padding:0 12px!important;border:1px solid #d8d3cf!important;border-radius:.8rem!important;background:#fff!important;font-size:1rem!important;font-weight:600!important;color:#4b4642!important;text-align:center!important}
+#copy-msg:empty{display:none!important}#copy-msg:not(:empty){margin:.2rem 0 0!important;min-height:0!important}
+div[data-testid="stHorizontalBlock"]:has(#copy-results-native) div[data-testid="stDownloadButton"] button{width:100%!important;height:48px!important;min-height:48px!important;padding:0 12px!important;border:1px solid #d8d3cf!important;border-radius:.8rem!important;background:#fff!important;color:#4b4642!important;justify-content:center!important;box-shadow:none!important}
+div[data-testid="stHorizontalBlock"]:has(#copy-results-native) div[data-testid="stDownloadButton"] button p{margin:0!important;font-size:1rem!important;font-weight:600!important;color:#4b4642!important}
+@media(max-width:900px){div[data-testid="stHorizontalBlock"]:has(#copy-results-native){display:flex!important;flex-direction:column!important;gap:.45rem!important}div[data-testid="stHorizontalBlock"]:has(#copy-results-native) > div[data-testid="stColumn"]{width:100%!important;min-width:100%!important;flex:1 1 auto!important}}
 div[data-testid="stMainBlockContainer"] h3{font-size:1rem!important;line-height:1.16!important;margin:.12rem 0 .08rem!important}
 div[data-testid="stMainBlockContainer"] p{line-height:1.38!important;margin-top:.18rem!important;margin-bottom:.32rem!important}
 div[data-testid="stMainBlockContainer"] [data-testid="stMarkdownContainer"]{margin-bottom:0!important}
 div[data-testid="stMainBlockContainer"] [data-testid="stVerticalBlock"]{gap:.48rem!important}
 
-div.st-key-nav_trials button{min-height:2.45rem!important;width:100%!important;font-size:.9rem!important;font-weight:700!important;border-radius:.8rem!important;background:#eee8ff!important;color:#3b237a!important;border:1px solid #ddd2ff!important}
-div.st-key-nav_options button{min-height:2.45rem!important;width:100%!important;font-size:.9rem!important;font-weight:700!important;border-radius:.8rem!important;background:#e8f3ff!important;color:#155ca8!important;border:1px solid #cfe5fb!important}
+/* Global navigation: one primary Trial button + three compact direct tools. */
+div.st-key-nav_trials button{min-height:2.9rem!important;width:100%!important;font-size:1rem!important;font-weight:700!important;border-radius:.8rem!important;background:#eee8ff!important;color:#3b237a!important;border:1px solid #ddd2ff!important}
+div[data-testid="stHorizontalBlock"]:has(.st-key-nav_centers){display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;gap:.38rem!important;align-items:stretch!important;margin:.45rem 0 0!important}
+div[data-testid="stHorizontalBlock"]:has(.st-key-nav_centers) > div[data-testid="stColumn"]{width:auto!important;min-width:0!important;flex:1 1 0!important}
+.st-key-nav_centers button,.st-key-nav_advanced button,.st-key-nav_expanded button{width:100%!important;min-height:2.55rem!important;padding:.28rem .35rem!important;border-radius:10px!important;font-size:.82rem!important;line-height:1.08!important;font-weight:600!important;white-space:normal!important;box-shadow:none!important}
+.st-key-nav_centers button{background:#eef6fb!important;border-color:#cadfeb!important;color:#285b7a!important}.st-key-nav_advanced button{background:#e8f2f8!important;border-color:#c2d9e7!important;color:#245674!important}.st-key-nav_expanded button{background:#e1edf4!important;border-color:#b8d1df!important;color:#1f4f6c!important}
+@media(max-width:520px){.st-key-nav_centers button,.st-key-nav_advanced button,.st-key-nav_expanded button{min-height:3.15rem!important;padding:.22rem .2rem!important;font-size:.76rem!important}}
 div[data-testid="stAlert"]{background:#edf7ef!important;border:0!important;box-shadow:none!important;color:#285b38!important}div[data-testid="stAlert"]>div{background:transparent!important;border:0!important;box-shadow:none!important}div[data-testid="stAlert"] p{color:#285b38!important}
 @media(min-width:901px){div[data-testid="stMainBlockContainer"] h1{font-size:1.55rem!important;line-height:1.08!important;margin:.1rem 0 .15rem!important;color:#55483f!important}div[data-testid="stMainBlockContainer"] h2{font-size:1.12rem!important;line-height:1.15!important;margin:.4rem 0 .1rem!important}div[data-testid="stMainBlockContainer"] h3{font-size:1.02rem!important}div[data-testid="stMainBlockContainer"] p{line-height:1.28!important}div[data-testid="stMainBlockContainer"] [data-testid="stAlert"]{margin:.15rem 0!important;padding:.28rem .55rem!important;font-size:.84rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stAlert"] p{font-size:.84rem!important;line-height:1.22!important}div[data-testid="stMainBlockContainer"] [data-testid="stExpander"]{margin:.12rem 0 .22rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stExpander"] details summary{min-height:2.15rem!important;padding:.2rem .55rem!important}div[data-testid="stMainBlockContainer"] div[data-testid="stVerticalBlock"]{gap:.35rem!important}div[data-testid="stMainBlockContainer"] label p,div[data-testid="stMainBlockContainer"] [data-testid="stWidgetLabel"] p{font-size:.9rem!important;line-height:1.2!important}div[data-testid="stMainBlockContainer"] [data-baseweb="select"]>div,div[data-testid="stMainBlockContainer"] [data-testid="stNumberInput"] input,div[data-testid="stMainBlockContainer"] [data-testid="stTextInput"] input{min-height:2.1rem!important;font-size:.9rem!important}div[data-testid="stMainBlockContainer"] [data-testid="stCheckbox"]{min-height:1.75rem!important}.desktop-section-title{font-size:1rem;font-weight:700;margin:.28rem 0 .04rem}div.st-key-pet_age_known,div.st-key-pet_weight_known{margin-top:-.62rem!important;margin-bottom:-.2rem!important}div.st-key-weight_unit_compact [role="radiogroup"]{display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;gap:.55rem!important;align-items:center!important}div.st-key-weight_unit_compact [role="radiogroup"] label{margin:0!important;white-space:nowrap!important}}
 @media(max-width:900px){.stMainBlockContainer,div[data-testid="stMainBlockContainer"]{padding:4.1rem 1rem 2rem!important;max-width:none!important}.nav-title{font-size:1.4rem}.nav-subtitle{font-size:.86rem}.beta-corner{text-align:left}}
@@ -148,12 +119,9 @@ def markdown(body,*a,**k):
             _orig["markdown"](f'<div class="intro-answer">{body}</div>',unsafe_allow_html=True);return
         if body.startswith("### ") and " · " in body:
             confidence,center=body[4:].split(" · ",1);confidence={"Potential broad-treatment trial — prescreening required":"Prescreening required","Trial to review — cancer type not specified":"Trial to review"}.get(confidence,confidence)
-            if confidence == "Prescreening required":
-                _orig["markdown"]('<span style="display:inline-block;font-size:.76rem;font-weight:600;color:#6f665f;background:#f3f0ec;padding:.12rem .44rem;border-radius:999px;margin:0 0 .12rem">Prescreening required</span>',unsafe_allow_html=True)
-            else:
-                _orig["markdown"](f'<div style="font-size:.82rem;line-height:1.1;font-weight:650;color:#6f665f;margin:0 0 .12rem">{confidence}</div>',unsafe_allow_html=True)
-            _orig["markdown"](f'<div style="font-size:1.03rem;line-height:1.16;font-weight:700;color:#2f6f73;margin:.04rem 0 .18rem">{center}</div>',unsafe_allow_html=True)
-            return
+            if confidence == "Prescreening required":_orig["markdown"]('<span style="display:inline-block;font-size:.76rem;font-weight:600;color:#6f665f;background:#f3f0ec;padding:.12rem .44rem;border-radius:999px;margin:0 0 .12rem">Prescreening required</span>',unsafe_allow_html=True)
+            else:_orig["markdown"](f'<div style="font-size:.82rem;line-height:1.1;font-weight:650;color:#6f665f;margin:0 0 .12rem">{confidence}</div>',unsafe_allow_html=True)
+            _orig["markdown"](f'<div style="font-size:1.03rem;line-height:1.16;font-weight:700;color:#2f6f73;margin:.04rem 0 .18rem">{center}</div>',unsafe_allow_html=True);return
         if body.startswith("**Study type:**"):return
         if body.startswith("**Why it may fit:**"):return _orig["markdown"]("**Why:** "+body.replace("**Why it may fit:**","",1).strip().rstrip(".")+".")
         if body.startswith("**Needs confirmation:**"):return _orig["markdown"]("**Confirm:** "+body.replace("**Needs confirmation:**","",1).strip().rstrip(".")+".")
@@ -162,38 +130,25 @@ def markdown(body,*a,**k):
     return _orig["markdown"](body,*a,**k)
 def _linkify_contact(text):
     if not text:return ""
-    low=text.lower()
-    generic=("official study page" in low or "study page" in low) and not re.search(r"[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}",text) and not re.search(r"(?:\+?\d[\d .()/-]{7,}\d)",text)
+    low=text.lower();generic=("official study page" in low or "study page" in low) and not re.search(r"[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}",text) and not re.search(r"(?:\+?\d[\d .()/-]{7,}\d)",text)
     if generic:return ""
     text=re.sub(r"([\w.+-]+@[\w.-]+\.[A-Za-z]{2,})",r"[\1](mailto:\1)",text)
     def phone_link(m):
-        raw=m.group(0);digits=re.sub(r"\D","",raw)
-        return f"[{raw}](tel:{digits})" if len(digits)>=7 else raw
+        raw=m.group(0);digits=re.sub(r"\D","",raw);return f"[{raw}](tel:{digits})" if len(digits)>=7 else raw
     return re.sub(r"(?<![:\w])(?:\+?\d[\d .()/-]{7,}\d)",phone_link,text)
 def _save_controls():
     components.html("""<style>body{margin:0;font-family:Arial,sans-serif}.row{display:flex;gap:8px}.b{flex:1;border:1px solid #d8d3cf;background:#fff;border-radius:9px;padding:9px 12px;font-size:14px;font-weight:600;color:#4b4642;cursor:pointer}.b:hover{background:#f7f5f3}.ok{font-size:12px;color:#55745d;margin-top:5px;min-height:15px}</style><div class='row'><button class='b' onclick='copyResults()'>📋 Copy results</button><button class='b' onclick='savePdf()'>📄 Save as PDF</button></div><div id='ok' class='ok'></div><script>function resultText(){const d=window.parent.document;const els=[...d.querySelectorAll('h1,h2,h3,p,a,button,summary')];let start=els.findIndex(e=>e.innerText.trim()==='Results');if(start<0)return '';let out=[];for(let i=start;i<els.length;i++){let t=els[i].innerText.trim();if(t.startsWith('If a trial team says your pet is not eligible'))break;if(t&&t!=='Copy results'&&t!=='Save as PDF')out.push(t)}return [...new Set(out)].join('\n\n')}async function copyResults(){let t=resultText();if(!t){document.getElementById('ok').innerText='Run a search first.';return}try{await navigator.clipboard.writeText(t);document.getElementById('ok').innerText='Results copied.'}catch(e){document.getElementById('ok').innerText='Copy was blocked by the browser.'}}function savePdf(){let t=resultText();if(!t){document.getElementById('ok').innerText='Run a search first.';return}let w=window.open('','_blank');w.document.write('<html><head><title>Clinical Trial Finder Results</title><style>body{font-family:Arial,sans-serif;max-width:760px;margin:40px auto;padding:0 24px;color:#282522;line-height:1.45}h1{font-size:22px}pre{font-family:Arial,sans-serif;white-space:pre-wrap;font-size:13px}.note{margin-top:28px;font-size:11px;color:#666}</style></head><body><h1>Clinical Trial Finder Results</h1><pre>'+t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</pre><div class="note">Saved from Vet Cancer Clinical Trial Finder. Recruitment and eligibility can change; confirm current status with the study team.</div><script>window.onload=()=>window.print()<\/script></body></html>');w.document.close()}</script>""",height=70)
 def write(body,*a,**k):
     if isinstance(body,str) and body.startswith("**Trial funding:**"):
-        text=body.replace("**Trial funding:**","",1).strip()
-        low=text.lower()
-        if any(x in low for x in ("fully funded","no cost to the owner","at no cost","no cost to owners")):
-            cls="funding-full"
-        elif any(x in low for x in ("partially funded","partial funding","partially covered")):
-            cls="funding-partial"
-        else:
-            cls="funding-neutral"
-        import html as _html
-        _orig["markdown"](f'<div class="{cls}"><strong>Trial funding:</strong> {_html.escape(text)}</div>',unsafe_allow_html=True)
-        return
+        text=body.replace("**Trial funding:**","",1).strip();low=text.lower()
+        cls="funding-full" if any(x in low for x in ("fully funded","no cost to the owner","at no cost","no cost to owners")) else "funding-partial" if any(x in low for x in ("partially funded","partial funding","partially covered")) else "funding-neutral"
+        import html as _html;_orig["markdown"](f'<div class="{cls}"><strong>Trial funding:</strong> {_html.escape(text)}</div>',unsafe_allow_html=True);return
     if isinstance(body,str) and body.startswith("**Contact:**"):
         contact=body.replace("**Contact:**","",1).strip();linked=_linkify_contact(contact)
         if linked:_orig["markdown"]("**Contact:** "+linked)
         return
-    if isinstance(body,str) and body.startswith("**Participating sites:**"):
-        return _orig["markdown"](body)
-    if body==_feedback_text:
-        _save_controls()
-        return
+    if isinstance(body,str) and body.startswith("**Participating sites:**"):return _orig["markdown"](body)
+    if body==_feedback_text:_save_controls();return
     return _orig["write"](body,*a,**k)
 def link_button(label,url,*a,**k):
     if label=="Official study page":_pending["url"]=url;return
@@ -210,9 +165,7 @@ def expander(label,*a,**k):
             if _pending["url"]:_orig["link_button"]("Official study page",_pending["url"],use_container_width=True)
             _pending.update(contact=None,sites=None,url=None);yield
     else:
-        if label=="Study information":
-            _study_expander_seq["n"]+=1
-            k=dict(k);k["key"]=f"study-info-{_study_expander_seq['n']}"
+        if label=="Study information":_study_expander_seq["n"]+=1;k=dict(k);k["key"]=f"study-info-{_study_expander_seq['n']}"
         with _orig["expander"](label,*a,**k):yield
 st.title=title;st.header=header;st.selectbox=selectbox;st.checkbox=checkbox;st.number_input=number_input;st.radio=radio;st.text_input=text_input;st.multiselect=multiselect;st.markdown=markdown;st.write=write;st.link_button=link_button;st.expander=expander;st.button=button
 try:page.run()
@@ -220,10 +173,16 @@ finally:
     components.html=_components_html_orig
     for n,v in _orig.items():setattr(st,n,v)
 with _nav_top.container():
-    left,right=st.columns(2,gap="small")
-    with left:
-        if st.button("🐾︎ Clinical Trials",key="nav_trials",use_container_width=True):st.switch_page("pages/1_Clinical_Trial_Finder.py")
-    with right:
-        if st.button("💊 More Treatment Options",key="nav_options",use_container_width=True):st.switch_page("pages/2_Additional_Oncology_Options.py")
+    if st.button("🐾︎ Clinical Trials",key="nav_trials",use_container_width=True):st.switch_page("pages/1_Clinical_Trial_Finder.py")
+    c1,c2,c3=st.columns(3,gap="small")
+    with c1:
+        if st.button("🏥 Oncology Centers",key="nav_centers",use_container_width=True):
+            st.session_state.main_treatment_route="centers";st.switch_page("pages/2_Additional_Oncology_Options.py")
+    with c2:
+        if st.button("🧬 Advanced Treatments",key="nav_advanced",use_container_width=True):
+            st.session_state.main_treatment_route="advanced";st.switch_page("pages/2_Additional_Oncology_Options.py")
+    with c3:
+        if st.button("🧪 Expanded Access",key="nav_expanded",use_container_width=True):
+            st.session_state.main_treatment_route="compassionate";st.switch_page("pages/2_Additional_Oncology_Options.py")
 
 st.markdown("[Follow us on Facebook](https://www.facebook.com/share/1YmSPexTr1/)")
