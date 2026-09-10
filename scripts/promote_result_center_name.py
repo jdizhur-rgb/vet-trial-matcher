@@ -1,7 +1,7 @@
 from pathlib import Path
 
-path = Path('app.py')
-text = path.read_text(encoding='utf-8')
+app_path = Path('app.py')
+text = app_path.read_text(encoding='utf-8')
 
 old_css = '''/* Study information only: Streamlit 1.62 maps expander key to st-key-* class. */
 div[class*="st-key-study-info-"] details summary{
@@ -31,8 +31,19 @@ new_css = '''/* Study information only. Streamlit 1.62 DOM is:
   width:auto!important;margin:0!important;text-align:center!important;
 }
 '''
-if old_css not in text:
-    raise SystemExit('Expected keyed Study information CSS block not found; app.py left unchanged')
-text = text.replace(old_css, new_css, 1)
-path.write_text(text, encoding='utf-8')
-print('CENTERED_STUDY_INFORMATION_FROM_STREAMLIT_162_DOM')
+if old_css in text:
+    text = text.replace(old_css, new_css, 1)
+elif new_css not in text:
+    raise SystemExit('Expected Study information CSS block not found; app.py left unchanged')
+app_path.write_text(text, encoding='utf-8')
+
+finder_path = Path('pages/1_Clinical_Trial_Finder.py')
+finder = finder_path.read_text(encoding='utf-8')
+old_footer = 'Verified treatment trials and experimental treatment programs • U.S. + Europe/UK • Last deep audit: September 5, 2026'
+new_footer = 'Verified treatment trials and experimental treatment programs • U.S. + Europe/UK • Updated daily'
+if old_footer in finder:
+    finder = finder.replace(old_footer, new_footer, 1)
+elif new_footer not in finder:
+    raise SystemExit('Expected footer text not found; Finder left unchanged')
+finder_path.write_text(finder, encoding='utf-8')
+print('UPDATED_DAILY_FOOTER')
