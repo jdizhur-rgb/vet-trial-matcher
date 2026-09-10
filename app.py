@@ -95,7 +95,7 @@ def _target(label):
 def _render(kind,label,*args,**kwargs):
     t=_target(label);return getattr(t,kind)(label,*args,**kwargs) if t is not None else _orig[kind](label,*args,**kwargs)
 def title(body,*a,**k):
-    if isinstance(body,str) and "Vet Cancer Trial Finder" in body:_orig["markdown"]('<div class="nav-title"><span class="paw">🐾︎</span> Clinical Trial Finder</div><div class="nav-subtitle">Find treatment-focused veterinary cancer trials for dogs and cats.</div>',unsafe_allow_html=True);return None
+    if isinstance(body,str) and "Vet Cancer Trial Finder" in body:_orig["markdown"]('<div class="nav-title"><span class="paw">🐾︎</span> Cancer Clinical Trial Finder for Dogs & Cats</div><div class="nav-subtitle">Find cancer clinical trials, research studies, and investigational treatment options.</div>',unsafe_allow_html=True);return None
     return _orig["title"](body,*a,**k)
 def header(body,*a,**k):
     if body=="1. Your pet":_section("pet","1. Your pet",[1.15,1.15,1.4,1.2,1.35]);return
