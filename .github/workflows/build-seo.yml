@@ -19,6 +19,7 @@ on:
       - 'seo/center_profiles_extra.py'
       - 'seo/ensure_center_images.py'
       - 'seo/production_aliases.py'
+      - 'seo/site_config.py'
       - 'seo/build_production_site.py'
       - 'seo/static/**'
       - '.github/workflows/build-seo.yml'
@@ -40,30 +41,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Generate SEO site with strict address validation
+      - name: Generate production SEO site
         run: python seo/build_production_site.py
-      - name: Apply production domain
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-
-          root = Path('seo/site')
-          old = 'https://jdizhur-rgb.github.io/vet-trial-matcher'
-          new = 'https://vettrialfinder.com'
-          changed = 0
-          for p in root.rglob('*'):
-              if not p.is_file() or p.suffix.lower() not in {'.html', '.xml', '.txt'}:
-                  continue
-              text = p.read_text(encoding='utf-8', errors='strict')
-              replaced = text.replace(old, new)
-              if replaced != text:
-                  p.write_text(replaced, encoding='utf-8')
-                  changed += 1
-          (root / 'CNAME').write_text('vettrialfinder.com\n', encoding='utf-8')
-          assert old not in (root / 'sitemap.xml').read_text(encoding='utf-8')
-          assert 'Sitemap: https://vettrialfinder.com/sitemap.xml' in (root / 'robots.txt').read_text(encoding='utf-8')
-          print('PRODUCTION_DOMAIN_OK', changed)
-          PY
       - name: Include static files
         run: cp -a seo/static/. seo/site/
       - name: Validate generated site
@@ -73,13 +52,21 @@ jobs:
           import html,re,sys
           sys.path.insert(0,'seo')
           import generate_seo as g
+          from site_config import DOMAIN, SITE
           from center_directory import address_is_complete
 
+          assert DOMAIN == 'vettrialfinder.com'
+          assert SITE == 'https://vettrialfinder.com'
           pages=list(Path('seo/site').rglob('index.html'))
           centers=list(Path('seo/site/centers').glob('*/index.html'))
           assert len(pages)>=40 and centers
           assert Path('seo/site/cancer-coverage/index.html').exists()
-          assert Path('seo/site/CNAME').read_text().strip() == 'vettrialfinder.com'
+          assert Path('seo/site/CNAME').read_text().strip() == DOMAIN
+          sitemap=Path('seo/site/sitemap.xml').read_text(encoding='utf-8')
+          robots=Path('seo/site/robots.txt').read_text(encoding='utf-8')
+          assert 'jdizhur-rgb.github.io/vet-trial-matcher' not in sitemap
+          assert SITE in sitemap
+          assert f'Sitemap: {SITE}/sitemap.xml' in robots
 
           generic=('About this veterinary cancer research center','currently has veterinary cancer treatment or research opportunities represented in our catalog')
           for p in pages:
@@ -110,7 +97,7 @@ jobs:
             assert 'How it is usually treated' in s,p
             assert 'What can affect treatment choices' in s,p
             assert '<link rel="canonical"' in s,p
-            assert 'https://vettrialfinder.com/' in s,p
+            assert SITE+'/' in s,p
           print('VALID_ALL_CENTERS',len(centers))
           print('VALID_ALL_ENGLISH_CANCER_PAGES',len(expected))
           PY
@@ -137,19 +124,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Rebuild expected site
-        run: |
-          python seo/build_production_site.py
-          python - <<'PY'
-          from pathlib import Path
-          root=Path('seo/site')
-          old='https://jdizhur-rgb.github.io/vet-trial-matcher'
-          new='https://vettrialfinder.com'
-          for p in root.rglob('*'):
-              if p.is_file() and p.suffix.lower() in {'.html','.xml','.txt'}:
-                  text=p.read_text(encoding='utf-8',errors='strict')
-                  if old in text:
-                      p.write_text(text.replace(old,new),encoding='utf-8')
-          PY
+        run: python seo/build_production_site.py
       - name: Verify live center and cancer pages
         run: |
           python - <<'PY'
@@ -157,7 +132,8 @@ jobs:
           import html,re,time,urllib.request,sys
           sys.path.insert(0,'seo')
           import generate_seo as g
-          base='https://vettrialfinder.com/'
+          from site_config import SITE
+          base=SITE+'/'
 
           def h1(s):
             m=re.search(r'<h1>(.*?)</h1>',s,re.S)
