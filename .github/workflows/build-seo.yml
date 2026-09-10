@@ -23,6 +23,9 @@ on:
       - 'seo/production_aliases.py'
       - 'seo/site_config.py'
       - 'seo/build_production_site.py'
+      - 'seo/about_page.py'
+      - 'seo/site_shell.py'
+      - 'seo/assets/**'
       - 'seo/static/**'
       - '.github/workflows/build-seo.yml'
 
@@ -73,7 +76,7 @@ jobs:
           generic=('About this veterinary cancer research center','currently has veterinary cancer treatment or research opportunities represented in our catalog')
           for p in pages:
             s=p.read_text(errors='replace')
-            assert 'Cancer Trial Finder For Dogs And Cats' in s,p
+            assert '<header class="site-header">' in s,p
             assert 'jdizhur-rgb.github.io/vet-trial-matcher' not in s,p
             for block in re.findall(r'<div class="study-locations">.*?</div>',s,re.S):
               for item in re.findall(r'<li>(.*?)</li>',block,re.S):
