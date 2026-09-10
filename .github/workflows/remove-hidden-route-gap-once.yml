@@ -1,0 +1,42 @@
+name: Remove hidden legacy route gap once
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/remove-hidden-route-gap-once.yml']
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove empty legacy navigation row while preserving heading
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('pages/_additional_oncology_legacy.py')
+          s=p.read_text(encoding='utf-8')
+          old='''c1,c2,c3=st.columns(3)\nwith c1:\n if st.button("⚡ Electrochemotherapy (ECT)",use_container_width=True,key="route_ect"): st.session_state.treatment_option_route="⚡ Electrochemotherapy (ECT)"\nwith c2:\n if st.button("🧬 Advanced / Novel Treatments",use_container_width=True,key="route_advanced"): st.session_state.treatment_option_route="🧬 Advanced / Novel Treatments"\nwith c3:\n if st.button("🧪 Compassionate / Expanded Access",use_container_width=True,key="route_compassionate"): st.session_state.treatment_option_route="🧪 Compassionate / Expanded Access"\nroute=st.session_state.treatment_option_route'''
+          new='''if not st.session_state.get("_hide_legacy_route_buttons", False):\n c1,c2,c3=st.columns(3)\n with c1:\n  if st.button("⚡ Electrochemotherapy (ECT)",use_container_width=True,key="route_ect"): st.session_state.treatment_option_route="⚡ Electrochemotherapy (ECT)"\n with c2:\n  if st.button("🧬 Advanced / Novel Treatments",use_container_width=True,key="route_advanced"): st.session_state.treatment_option_route="🧬 Advanced / Novel Treatments"\n with c3:\n  if st.button("🧪 Compassionate / Expanded Access",use_container_width=True,key="route_compassionate"): st.session_state.treatment_option_route="🧪 Compassionate / Expanded Access"\nroute=st.session_state.treatment_option_route'''
+          if s.count(old)!=1: raise SystemExit(f'legacy nav block matches: {s.count(old)}')
+          p.write_text(s.replace(old,new,1),encoding='utf-8')
+
+          p=Path('pages/2_Additional_Oncology_Options.py')
+          s=p.read_text(encoding='utf-8')
+          old='''    st.markdown=_section_markdown\n    st.write=_section_write\n    st.button=_legacy_button\n    try:'''
+          new='''    st.markdown=_section_markdown\n    st.write=_section_write\n    st.button=_legacy_button\n    st.session_state._hide_legacy_route_buttons=True\n    try:'''
+          if s.count(old)!=1: raise SystemExit(f'wrapper setup matches: {s.count(old)}')
+          s=s.replace(old,new,1)
+          old='''    finally:\n        st.markdown=_markdown\n        st.write=_write\n        st.button=_button'''
+          new='''    finally:\n        st.markdown=_markdown\n        st.write=_write\n        st.button=_button\n        st.session_state.pop("_hide_legacy_route_buttons",None)'''
+          if s.count(old)!=1: raise SystemExit(f'wrapper cleanup matches: {s.count(old)}')
+          p.write_text(s.replace(old,new,1),encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add pages/_additional_oncology_legacy.py pages/2_Additional_Oncology_Options.py
+          git diff --cached --quiet && exit 1
+          git commit -m "Remove empty legacy navigation row from oncology pages"
+          git push
