@@ -13,6 +13,7 @@ on:
       - 'seo/generate_cancer_coverage.py'
       - 'seo/cancer_page_enhancements.py'
       - 'seo/cancer_owner_content.py'
+      - 'seo/center_page_enhancements.py'
       - 'seo/address_preflight_report.py'
       - 'seo/center_directory.py'
       - 'seo/center_profiles.py'
@@ -82,6 +83,9 @@ jobs:
             s=p.read_text(errors='replace')
             assert '<div class="center-page">' in s,p
             assert 'Find cancer treatment options near you' in s,p
+            assert 'Browse all veterinary cancer research centers' in s,p
+            assert '<script type="application/ld+json">' in s,p
+            assert 'BreadcrumbList' in s and 'Organization' in s,p
             assert ': Veterinary Cancer Clinical Trials</h1>' not in s,p
             assert not any(x in s for x in generic),(p,'generic center description survived')
 
@@ -97,6 +101,8 @@ jobs:
             assert 'How it is usually treated' in s,p
             assert 'What can affect treatment choices' in s,p
             assert '<link rel="canonical"' in s,p
+            assert '<script type="application/ld+json">' in s,p
+            assert 'BreadcrumbList' in s and 'WebPage' in s,p
             assert SITE+'/' in s,p
           print('VALID_ALL_CENTERS',len(centers))
           print('VALID_ALL_ENGLISH_CANCER_PAGES',len(expected))
@@ -154,12 +160,13 @@ jobs:
                 text=urllib.request.urlopen(req,timeout=20).read().decode('utf-8','replace')
               except Exception:
                 text=''
-              if h1(text)==h1(expected) and card_titles(text)==card_titles(expected) and '<div class="center-page">' in text:
+              if h1(text)==h1(expected) and card_titles(text)==card_titles(expected) and '<div class="center-page">' in text and 'BreadcrumbList' in text:
                 break
               time.sleep(10)
             assert h1(text)==h1(expected),(path,h1(text),h1(expected))
             assert card_titles(text)==card_titles(expected),(path,'study cards differ')
             assert '<div class="center-page">' in text,path
+            assert 'BreadcrumbList' in text and 'Organization' in text,path
 
           cancer_paths=[]
           for region in ('north-america','uk-europe'):
@@ -176,12 +183,13 @@ jobs:
                 text=urllib.request.urlopen(req,timeout=20).read().decode('utf-8','replace')
               except Exception:
                 text=''
-              if h1(text)==h1(exp) and 'How it is usually treated' in text and 'What can affect treatment choices' in text:
+              if h1(text)==h1(exp) and 'How it is usually treated' in text and 'What can affect treatment choices' in text and 'BreadcrumbList' in text:
                 break
               time.sleep(10)
             assert h1(text)==h1(exp),(path,h1(text),h1(exp))
             assert 'How it is usually treated' in text,path
             assert 'What can affect treatment choices' in text,path
+            assert 'BreadcrumbList' in text and 'WebPage' in text,path
           print('LIVE_ALL_CENTERS_OK',len(local))
           print('LIVE_ALL_ENGLISH_CANCER_PAGES_OK',len(cancer_paths))
           PY
