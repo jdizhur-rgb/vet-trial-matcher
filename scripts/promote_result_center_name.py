@@ -2,79 +2,39 @@ from pathlib import Path
 
 path = Path('app.py')
 text = path.read_text(encoding='utf-8')
-old_css = '''/* Result-card study controls + Copy/PDF pair only. Do not affect form/layout columns. */
-div[data-testid="stVerticalBlockBorderWrapper"] div[data-testid="stExpander"] details summary{
-  display:flex!important;align-items:center!important;justify-content:center!important;
-  text-align:center!important;gap:.35rem!important;
-}
-div[data-testid="stVerticalBlockBorderWrapper"] div[data-testid="stExpander"] details summary > *{
-  flex:0 0 auto!important;width:auto!important;max-width:max-content!important;
-}
-div[data-testid="stVerticalBlockBorderWrapper"] div[data-testid="stExpander"] details summary [data-testid="stMarkdownContainer"],
-div[data-testid="stVerticalBlockBorderWrapper"] div[data-testid="stExpander"] details summary p{
-  width:auto!important;text-align:center!important;margin:0!important;
-}
-#copy-results-native{
-  width:100%!important;height:48px!important;padding:0 12px!important;
-  border:1px solid #d8d3cf!important;border-radius:.8rem!important;background:#fff!important;
-  font-size:1rem!important;font-weight:600!important;color:#4b4642!important;
-  text-align:center!important;
-}
-#copy-msg:empty{display:none!important}
-#copy-msg:not(:empty){margin:.2rem 0 0!important;min-height:0!important}
-div[data-testid="stHorizontalBlock"]:has(#copy-results-native) div[data-testid="stDownloadButton"] button{
-  width:100%!important;height:48px!important;min-height:48px!important;padding:0 12px!important;
-  border:1px solid #d8d3cf!important;border-radius:.8rem!important;background:#fff!important;
-  color:#4b4642!important;justify-content:center!important;box-shadow:none!important;
-}
-div[data-testid="stHorizontalBlock"]:has(#copy-results-native) div[data-testid="stDownloadButton"] button p{
-  margin:0!important;font-size:1rem!important;font-weight:600!important;color:#4b4642!important;
-}
-@media(max-width:900px){
-  div[data-testid="stHorizontalBlock"]:has(#copy-results-native){
-    display:flex!important;flex-direction:column!important;gap:.45rem!important;
-  }
-  div[data-testid="stHorizontalBlock"]:has(#copy-results-native) > div[data-testid="stColumn"]{
-    width:100%!important;min-width:100%!important;flex:1 1 auto!important;
-  }
-}
-'''
-new_css = '''/* Copy/PDF pair only. Study-information centering is applied by exact label after render. */
-#copy-results-native{
-  width:100%!important;height:48px!important;padding:0 12px!important;
-  border:1px solid #d8d3cf!important;border-radius:.8rem!important;background:#fff!important;
-  font-size:1rem!important;font-weight:600!important;color:#4b4642!important;
-  text-align:center!important;
-}
-#copy-msg:empty{display:none!important}
-#copy-msg:not(:empty){margin:.2rem 0 0!important;min-height:0!important}
-div[data-testid="stHorizontalBlock"]:has(#copy-results-native) div[data-testid="stDownloadButton"] button{
-  width:100%!important;height:48px!important;min-height:48px!important;padding:0 12px!important;
-  border:1px solid #d8d3cf!important;border-radius:.8rem!important;background:#fff!important;
-  color:#4b4642!important;justify-content:center!important;box-shadow:none!important;
-}
-div[data-testid="stHorizontalBlock"]:has(#copy-results-native) div[data-testid="stDownloadButton"] button p{
-  margin:0!important;font-size:1rem!important;font-weight:600!important;color:#4b4642!important;
-}
-@media(max-width:900px){
-  div[data-testid="stHorizontalBlock"]:has(#copy-results-native){
-    display:flex!important;flex-direction:column!important;gap:.45rem!important;
-  }
-  div[data-testid="stHorizontalBlock"]:has(#copy-results-native) > div[data-testid="stColumn"]{
-    width:100%!important;min-width:100%!important;flex:1 1 auto!important;
-  }
-}
-'''
-if old_css not in text:
-    raise SystemExit('Expected existing controls CSS block not found; app.py left unchanged')
-text = text.replace(old_css, new_css, 1)
 
-anchor = '''with _nav_top.container():\n'''
-js = '''# Center only the result-card "Study information" expander after Streamlit has rendered it.\ncomponents.html("""<script>\n(()=>{\n  const d=window.parent.document;\n  const apply=()=>{\n    d.querySelectorAll('div[data-testid="stExpander"] summary').forEach(s=>{\n      if((s.innerText||'').trim()!=='Study information') return;\n      s.style.setProperty('display','flex','important');\n      s.style.setProperty('align-items','center','important');\n      s.style.setProperty('justify-content','center','important');\n      s.style.setProperty('gap','.35rem','important');\n      s.style.setProperty('text-align','center','important');\n      Array.from(s.children).forEach(c=>{\n        c.style.setProperty('flex','0 0 auto','important');\n        c.style.setProperty('width','auto','important');\n        c.style.setProperty('max-width','max-content','important');\n      });\n      s.querySelectorAll('[data-testid="stMarkdownContainer"],p').forEach(c=>{\n        c.style.setProperty('width','auto','important');\n        c.style.setProperty('margin','0','important');\n        c.style.setProperty('text-align','center','important');\n      });\n    });\n  };\n  apply();\n  const o=new MutationObserver(apply);\n  o.observe(d.body,{childList:true,subtree:true});\n  setTimeout(()=>o.disconnect(),5000);\n})();\n</script>""",height=0)\n\n'''
-if 'Center only the result-card "Study information" expander' not in text:
-    if anchor not in text:
-        raise SystemExit('Post-render anchor not found; app.py left unchanged')
-    text = text.replace(anchor, js + anchor, 1)
+# Remove the failed post-render iframe approach. components.html runs in an iframe,
+# so it is the wrong mechanism for styling Streamlit's parent DOM.
+start = '# Center only the result-card "Study information" expander after Streamlit has rendered it.\n'
+end = 'with _nav_top.container():\n'
+if start in text:
+    a = text.index(start)
+    b = text.index(end, a)
+    text = text[:a] + text[b:]
+
+# Streamlit 1.62 supports `key=` on st.expander and exposes that key as a
+# st-key-* CSS class. Tag only Study information expanders with unique keys.
+old_layout = '_layout={"section":None,"slots":[],"extra":0,"treatment":False,"age_value":None,"weight_unit":None,"weight_value":None};_pending={"contact":None,"sites":None,"url":None};_selected_region={"value":None};_selected_cancer={"value":None};_deferred={"args":None,"kwargs":None}\n'
+new_layout = '_layout={"section":None,"slots":[],"extra":0,"treatment":False,"age_value":None,"weight_unit":None,"weight_value":None};_pending={"contact":None,"sites":None,"url":None};_selected_region={"value":None};_selected_cancer={"value":None};_deferred={"args":None,"kwargs":None};_study_expander_seq={"n":0}\n'
+if old_layout in text:
+    text = text.replace(old_layout, new_layout, 1)
+elif '_study_expander_seq={"n":0}' not in text:
+    raise SystemExit('Layout state anchor not found; app.py left unchanged')
+
+old_else = '''    else:\n        with _orig["expander"](label,*a,**k):yield\n'''
+new_else = '''    else:\n        if label=="Study information":\n            _study_expander_seq["n"]+=1\n            k=dict(k);k["key"]=f"study-info-{_study_expander_seq['n']}"\n        with _orig["expander"](label,*a,**k):yield\n'''
+if old_else in text:
+    text = text.replace(old_else, new_else, 1)
+elif 'k["key"]=f"study-info-' not in text:
+    raise SystemExit('Expander wrapper anchor not found; app.py left unchanged')
+
+# Add CSS scoped only to the Streamlit key class generated above.
+css_anchor = '/* Copy/PDF pair only. Study-information centering is applied by exact label after render. */\n'
+css_new = '''/* Study information only: Streamlit 1.62 maps expander key to st-key-* class. */\ndiv[class*="st-key-study-info-"] details summary{\n  display:flex!important;align-items:center!important;justify-content:center!important;\n  text-align:center!important;gap:.35rem!important;\n}\ndiv[class*="st-key-study-info-"] details summary > *{\n  flex:0 0 auto!important;width:auto!important;max-width:max-content!important;\n}\ndiv[class*="st-key-study-info-"] details summary [data-testid="stMarkdownContainer"],\ndiv[class*="st-key-study-info-"] details summary p{\n  width:auto!important;text-align:center!important;margin:0!important;\n}\n\n/* Copy/PDF pair only. */\n'''
+if css_anchor in text:
+    text = text.replace(css_anchor, css_new, 1)
+elif 'st-key-study-info-' not in text:
+    raise SystemExit('Controls CSS anchor not found; app.py left unchanged')
 
 path.write_text(text, encoding='utf-8')
-print('EXACT_STUDY_INFORMATION_CENTERING')
+print('KEYED_STUDY_INFORMATION_CENTERING')
