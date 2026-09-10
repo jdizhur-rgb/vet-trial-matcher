@@ -1,0 +1,54 @@
+name: Validate UI consolidation
+on:
+  push:
+    branches: [ui-consolidation-20260910]
+    paths: ['.github/workflows/validate-ui-consolidation-20260910.yml']
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ui-consolidation-20260910
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install app requirements
+        run: pip install -r requirements.txt
+      - name: Compile all live Python files
+        run: python -m py_compile app.py ui.py pages/1_Clinical_Trial_Finder.py pages/2_Additional_Oncology_Options.py
+      - name: Verify consolidation invariants
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          app = Path('app.py').read_text(encoding='utf-8')
+          ui = Path('ui.py').read_text(encoding='utf-8')
+          page = Path('pages/1_Clinical_Trial_Finder.py').read_text(encoding='utf-8')
+          assert app.strip().endswith('import ui  # noqa: F401')
+          assert 'def render_funding(' in ui
+          assert '.funding-full{' in ui and '.funding-partial{' in ui
+          assert "ui.render_funding(" in page
+          assert "st.write('**Trial funding:** '" not in page
+          assert 'def trial_modalities(' in page
+          assert '_load_trials()' in page
+          print('UI consolidation invariants OK')
+          PY
+      - name: Streamlit startup smoke test
+        run: |
+          streamlit run app.py --server.headless=true --server.port=8501 > /tmp/streamlit.log 2>&1 &
+          pid=$!
+          ok=0
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8501/_stcore/health | grep -qi ok; then ok=1; break; fi
+            sleep 1
+          done
+          if [ "$ok" != "1" ]; then
+            cat /tmp/streamlit.log
+            kill $pid || true
+            exit 1
+          fi
+          curl -fsS http://127.0.0.1:8501/ >/tmp/home.html
+          test -s /tmp/home.html
+          kill $pid || true
+          wait $pid || true
+          echo 'Streamlit startup smoke test OK'
