@@ -60,3 +60,12 @@ else:
         st.markdown=_markdown
         st.write=_write
         st.button=_button
+
+    if route=="compassionate":
+        with st.container(border=True):
+            st.markdown("### VMD Sciences — Veterinary Managed / Expanded Access")
+            st.write("**Dogs and cats · multiple conditions · veterinarian-requested global treatment access**")
+            st.write("A current managed-access pathway for veterinarians seeking a specific treatment that is not available in the patient's region. VMD Sciences helps navigate regulatory approval, sourcing, importation and delivery of eligible veterinary medicines and investigational or specialized therapies.")
+            st.write("**Access:** a licensed veterinarian submits the request for the individual patient. Availability is treatment- and country-specific and is not guaranteed. This is an access pathway, not a clinical trial or a promise that a requested drug can be obtained.")
+            st.link_button("VMD Sciences treatment access", "https://www.vmdsciences.com/find-a-global-treatment", use_container_width=True)
+            st.link_button("Veterinarian importation request", "https://www.vmdsciences.com/veterinarians", use_container_width=True)
