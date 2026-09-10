@@ -1,0 +1,42 @@
+name: Install permanent funding renderer
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/permanent-funding-renderer-20260910.yml']
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch Finder page
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('pages/1_Clinical_Trial_Finder.py')
+          s=p.read_text(encoding='utf-8')
+          old="                    st.write('**Trial funding:** ' + tr.get('funding', 'Ask the study team about covered study costs'))\n"
+          new="""                    _funding = str(tr.get('funding', 'Ask the study team about covered study costs'))
+                    _funding_low = _funding.lower()
+                    if any(term in _funding_low for term in ('fully funded', 'no cost to the owner', 'at no cost', 'all treatments and procedures', 'all study-related costs are covered', 'study-related costs are covered')):
+                        st.success('**Trial funding:** ' + _funding)
+                    elif any(term in _funding_low for term in ('partially funded', 'partial funding', 'partially covered', 'some study costs', 'some costs are covered', 'some costs covered')):
+                        st.warning('**Trial funding:** ' + _funding)
+                    else:
+                        st.write('**Trial funding:** ' + _funding)
+"""
+          if old not in s:
+              raise SystemExit('Expected funding line not found; refusing unsafe patch')
+          s=s.replace(old,new,1)
+          p.write_text(s,encoding='utf-8')
+          PY
+      - name: Compile guard
+        run: python -m py_compile app.py pages/1_Clinical_Trial_Finder.py pages/2_Additional_Oncology_Options.py
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pages/1_Clinical_Trial_Finder.py
+          git commit -m "Make funding highlights persistent in Finder" || exit 0
+          git push
