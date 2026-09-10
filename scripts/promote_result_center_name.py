@@ -35,6 +35,13 @@ if old_css in text:
     text = text.replace(old_css, new_css, 1)
 elif new_css not in text:
     raise SystemExit('Expected Study information CSS block not found; app.py left unchanged')
+
+old_header = '<div class="nav-title"><span class="paw">🐾︎</span> Clinical Trial Finder</div><div class="nav-subtitle">Find treatment-focused veterinary cancer trials for dogs and cats.</div>'
+new_header = '<div class="nav-title"><span class="paw">🐾︎</span> Cancer Clinical Trial Finder for Dogs & Cats</div><div class="nav-subtitle">Find cancer clinical trials, research studies, and investigational treatment options.</div>'
+if old_header in text:
+    text = text.replace(old_header, new_header, 1)
+elif new_header not in text:
+    raise SystemExit('Expected Finder header text not found; app.py left unchanged')
 app_path.write_text(text, encoding='utf-8')
 
 finder_path = Path('pages/1_Clinical_Trial_Finder.py')
@@ -46,4 +53,4 @@ if old_footer in finder:
 elif new_footer not in finder:
     raise SystemExit('Expected footer text not found; Finder left unchanged')
 finder_path.write_text(finder, encoding='utf-8')
-print('UPDATED_DAILY_FOOTER')
+print('UPDATED_FINDER_PRESENTATION')
