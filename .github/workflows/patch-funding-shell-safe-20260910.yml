@@ -1,38 +1,18 @@
-name: Patch funding shell safely
+name: Validate funding shell safely
 on:
   push:
     branches: [funding-shell-safe-20260910]
-    paths: ['.github/workflows/patch-funding-shell-safe-20260910.yml']
-permissions:
-  contents: write
+    paths:
+      - app.py
+      - .github/workflows/patch-funding-shell-safe-20260910.yml
 jobs:
-  patch-and-test:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: funding-shell-safe-20260910
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Patch only app.py
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          p=Path('app.py')
-          s=p.read_text(encoding='utf-8')
-          css_anchor='.beta-corner{display:none}.intro-answer{font-size:.94rem;color:#45414a;margin:.35rem 0 .65rem}\n'
-          css='''.funding-full{background:#edf7ef;border:1px solid #cfe6d4;border-radius:.65rem;padding:.55rem .7rem;margin:.35rem 0;color:#285b38}.funding-full strong{color:#285b38}\n.funding-partial{background:#fff8e6;border:1px solid #eadcaf;border-radius:.65rem;padding:.55rem .7rem;margin:.35rem 0;color:#6b5722}.funding-partial strong{color:#6b5722}\n.funding-neutral{padding:.08rem 0;margin:.2rem 0;color:#4b4642}\n'''
-          if '.funding-full{' not in s:
-              if css_anchor not in s: raise SystemExit('CSS anchor not found')
-              s=s.replace(css_anchor,css_anchor+css,1)
-          old='''def write(body,*a,**k):\n    if isinstance(body,str) and body.startswith("**Contact:**"):\n'''
-          new='''def write(body,*a,**k):\n    if isinstance(body,str) and body.startswith("**Trial funding:**"):\n        text=body.replace("**Trial funding:**","",1).strip()\n        low=text.lower()\n        if any(x in low for x in ("fully funded","no cost to the owner","at no cost","no cost to owners")):\n            cls="funding-full"\n        elif any(x in low for x in ("partially funded","partial funding","partially covered")):\n            cls="funding-partial"\n        else:\n            cls="funding-neutral"\n        import html as _html\n        _orig["markdown"](f'<div class="{cls}"><strong>Trial funding:</strong> {_html.escape(text)}</div>',unsafe_allow_html=True)\n        return\n    if isinstance(body,str) and body.startswith("**Contact:**"):\n'''
-          if 'body.startswith("**Trial funding:**")' not in s:
-              if old not in s: raise SystemExit('write() anchor not found')
-              s=s.replace(old,new,1)
-          p.write_text(s,encoding='utf-8')
-          PY
       - name: Install requirements
         run: pip install -r requirements.txt
       - name: Compile live Python
@@ -59,31 +39,20 @@ jobs:
           at.run(timeout=30)
           if at.exception:
               raise SystemExit('\n'.join(str(x.value) for x in at.exception))
-          titles=[x.value for x in at.title]
-          assert any('Vet Cancer' in x or 'Cancer Clinical Trial Finder' in x for x in titles) or len(at.markdown)>0
+          assert len(at.markdown) > 0 or len(at.selectbox) > 0
           PY
       - name: Runtime startup smoke
         run: |
           streamlit run app.py --server.headless true --server.port 8501 > /tmp/st.log 2>&1 &
           pid=$!
+          ok=0
           for i in $(seq 1 30); do
             if python - <<'PY'
           import urllib.request
           urllib.request.urlopen('http://127.0.0.1:8501/_stcore/health',timeout=2).read()
           PY
-            then kill $pid; wait $pid || true; exit 0; fi
+            then ok=1; break; fi
             sleep 1
           done
-          cat /tmp/st.log
-          kill $pid || true
-          exit 1
-      - name: Ensure only app.py changed
-        run: |
-          test "$(git diff --name-only | tr '\n' ' ')" = "app.py "
-      - name: Commit tested patch
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add app.py
-          git commit -m "Centralize funding styling in app shell"
-          git push origin HEAD:funding-shell-safe-20260910
+          if [ "$ok" != "1" ]; then cat /tmp/st.log; kill $pid || true; exit 1; fi
+          kill $pid; wait $pid || true
