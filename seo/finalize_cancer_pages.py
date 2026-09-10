@@ -4,6 +4,9 @@
 Keeps the rendered availability summary synchronized with the actual trial cards
 and removes duplicate empty-state messaging. This runs after the normal cancer
 page enhancement step and fails the build if counts disagree.
+
+A production deploy is intentionally triggered when this validator changes so
+clean public cancer URLs can be checked against the freshly generated pages.
 """
 from __future__ import annotations
 
