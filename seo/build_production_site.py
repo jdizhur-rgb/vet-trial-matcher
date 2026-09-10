@@ -26,6 +26,7 @@ import ensure_center_images
 from center_page_enhancements import enhance_center_pages
 from finalize_cancer_pages import finalize_cancer_pages
 from help_center import generate_help_center
+from about_page import generate_about_page
 from site_shell import apply_site_shell
 
 
@@ -35,6 +36,7 @@ def main():
     finalize_cancer_pages(SEO_DIR / "site")
     generate_cancer_coverage.main()
     generate_help_center(SEO_DIR / "site")
+    generate_about_page(SEO_DIR / "site")
     ensure_center_images.main()
     out = SEO_DIR / "site"
     apply_site_shell(out)
