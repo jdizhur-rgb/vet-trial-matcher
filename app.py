@@ -11,17 +11,19 @@ st.markdown("""<style>
 .stMainBlockContainer,div[data-testid="stMainBlockContainer"]{max-width:1120px!important;padding:3.4rem 1.5rem 2rem!important}
 .nav-title{font-size:1.55rem;line-height:1.08;font-weight:700;margin:.6rem 0 .15rem;color:#55483f}.nav-title .paw{color:#9a6a43;font-family:Arial,sans-serif}.nav-subtitle{font-size:.92rem;color:#6f6a66;margin:0 0 .45rem}
 .beta-corner{display:none}.intro-answer{font-size:.94rem;color:#45414a;margin:.35rem 0 .65rem}
-/* Study information only: Streamlit 1.62 maps expander key to st-key-* class. */
-div[class*="st-key-study-info-"] details summary{
+/* Study information only. Streamlit 1.62 DOM is:
+   summary > StyledSummaryHeading(span) > [chevron, StyledSummaryLabelWrapper(div)].
+   Center the heading contents and disable the label wrapper's default flex-grow:1/width:100%. */
+[class*="st-key-study-info-"] [data-testid="stExpander"] details summary > span{
   display:flex!important;align-items:center!important;justify-content:center!important;
-  text-align:center!important;gap:.35rem!important;
+  width:100%!important;max-width:100%!important;gap:.5rem!important;
 }
-div[class*="st-key-study-info-"] details summary > *{
-  flex:0 0 auto!important;width:auto!important;max-width:max-content!important;
+[class*="st-key-study-info-"] [data-testid="stExpander"] details summary > span > div{
+  width:auto!important;max-width:max-content!important;flex-grow:0!important;flex-shrink:0!important;
 }
-div[class*="st-key-study-info-"] details summary [data-testid="stMarkdownContainer"],
-div[class*="st-key-study-info-"] details summary p{
-  width:auto!important;text-align:center!important;margin:0!important;
+[class*="st-key-study-info-"] [data-testid="stExpander"] details summary > span > div [data-testid="stMarkdownContainer"],
+[class*="st-key-study-info-"] [data-testid="stExpander"] details summary > span > div p{
+  width:auto!important;margin:0!important;text-align:center!important;
 }
 
 /* Copy/PDF pair only. */
