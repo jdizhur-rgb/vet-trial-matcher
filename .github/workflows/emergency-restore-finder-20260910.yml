@@ -1,0 +1,27 @@
+name: Emergency restore Finder page
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/emergency-restore-finder-20260910.yml']
+permissions:
+  contents: write
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Restore last known-good Finder page
+        run: |
+          git show 7380a90b0b764d25c4020bc18efba5074fc73a23:pages/1_Clinical_Trial_Finder.py > pages/1_Clinical_Trial_Finder.py
+      - name: Compile check before commit
+        run: |
+          python -m py_compile app.py pages/1_Clinical_Trial_Finder.py pages/2_Additional_Oncology_Options.py
+      - name: Commit restored page
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pages/1_Clinical_Trial_Finder.py
+          git diff --cached --quiet || git commit -m "Emergency restore Finder page to known-good version"
+          git push
