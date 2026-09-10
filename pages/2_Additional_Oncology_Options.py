@@ -2,35 +2,12 @@ import streamlit as st
 from pathlib import Path
 import runpy, importlib.util
 
-st.markdown("""<style>
-/* Clinical Trials stays the single primary navigation action on this page. */
-div[data-testid="stHorizontalBlock"]:has(.st-key-nav_trials):has(.st-key-nav_options){display:block!important}
-div[data-testid="stHorizontalBlock"]:has(.st-key-nav_trials):has(.st-key-nav_options) > div[data-testid="stColumn"]{width:100%!important;min-width:100%!important;flex:1 1 100%!important}
-.st-key-nav_options{display:none!important}
-.st-key-nav_trials{width:100%!important}
-.st-key-nav_trials button{width:100%!important;min-height:2.9rem!important;font-size:1rem!important}
-
-/* Three compact secondary tools, kept in one row on mobile. */
-div[data-testid="stHorizontalBlock"]:has(.st-key-main_route_centers){display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;gap:.38rem!important;align-items:stretch!important;margin:.12rem 0 .55rem!important}
-div[data-testid="stHorizontalBlock"]:has(.st-key-main_route_centers) > div[data-testid="stColumn"]{width:auto!important;min-width:0!important;flex:1 1 0!important}
-.st-key-main_route_centers button,.st-key-main_route_advanced button,.st-key-main_route_compassionate button{width:100%!important;min-height:2.35rem!important;padding:.28rem .42rem!important;border-radius:10px!important;font-size:.82rem!important;line-height:1.08!important;font-weight:600!important;white-space:normal!important;box-shadow:none!important}
-.st-key-main_route_centers button{background-color:#eef6fb!important;border-color:#cadfeb!important;color:#285b7a!important}
-.st-key-main_route_advanced button{background-color:#e8f2f8!important;border-color:#c2d9e7!important;color:#245674!important}
-.st-key-main_route_compassionate button{background-color:#e1edf4!important;border-color:#b8d1df!important;color:#1f4f6c!important}
-@media(max-width:520px){.st-key-main_route_centers button,.st-key-main_route_advanced button,.st-key-main_route_compassionate button{min-height:2.55rem!important;padding:.24rem .25rem!important;font-size:.74rem!important}}
-.st-key-route_ect,.st-key-route_advanced,.st-key-route_compassionate{display:none!important}
-</style>""",unsafe_allow_html=True)
-
-if "main_treatment_route" not in st.session_state: st.session_state.main_treatment_route="centers"
-c1,c2,c3=st.columns(3,gap="small")
-with c1:
-    if st.button("🏥 Oncology Centers",use_container_width=True,key="main_route_centers"):st.session_state.main_treatment_route="centers"
-with c2:
-    if st.button("🧬 Advanced Treatments",use_container_width=True,key="main_route_advanced"):st.session_state.main_treatment_route="advanced"
-with c3:
-    if st.button("🧪 Expanded Access",use_container_width=True,key="main_route_compassionate"):st.session_state.main_treatment_route="compassionate"
+# Navigation is rendered only once, globally, in app.py.
+if "main_treatment_route" not in st.session_state:
+    st.session_state.main_treatment_route="centers"
 
 route=st.session_state.main_treatment_route
+
 if route=="centers":
     helper=Path(__file__).with_name("_oncology_center_finder.py")
     spec=importlib.util.spec_from_file_location("oncology_center_finder",helper)
@@ -47,22 +24,39 @@ if route=="centers":
     mod.render()
 else:
     st.session_state.treatment_option_route=("🧬 Advanced / Novel Treatments" if route=="advanced" else "🧪 Compassionate / Expanded Access")
-    # The legacy renderer still prints the old umbrella title. Replace it only while
-    # rendering these two sections so the page title matches the selected tab.
+
+    # Legacy renderer still contains its old ECT / Advanced / Expanded route buttons.
+    # Suppress exactly those controls so only app.py owns site navigation.
     _markdown=st.markdown
     _write=st.write
+    _button=st.button
+
     def _section_markdown(body,*args,**kwargs):
         if isinstance(body,str) and "💊 More Treatment Options" in body:
             label="🧬 Advanced Treatments" if route=="advanced" else "🧪 Expanded Access"
             body=f"<div style='font-size:1.55rem;line-height:1.08;font-weight:700;margin:.1rem 0 .15rem;color:#356fa8'>{label}</div>"
         return _markdown(body,*args,**kwargs)
+
     def _section_write(body,*args,**kwargs):
         if body=="Explore treatment access beyond standard clinical trials.":
             body="Explore advanced and less-common cancer treatment options." if route=="advanced" else "Explore compassionate and expanded-access treatment pathways."
         return _write(body,*args,**kwargs)
+
+    def _legacy_button(label,*args,**kwargs):
+        if label in {
+            "⚡ Electrochemotherapy (ECT)",
+            "🧬 Advanced / Novel Treatments",
+            "🧪 Compassionate / Expanded Access",
+        }:
+            return False
+        return _button(label,*args,**kwargs)
+
     st.markdown=_section_markdown
     st.write=_section_write
-    try:runpy.run_path(str(Path(__file__).with_name("_additional_oncology_legacy.py")),run_name="__main__")
+    st.button=_legacy_button
+    try:
+        runpy.run_path(str(Path(__file__).with_name("_additional_oncology_legacy.py")),run_name="__main__")
     finally:
         st.markdown=_markdown
         st.write=_write
+        st.button=_button
