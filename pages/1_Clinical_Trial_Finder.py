@@ -48,8 +48,9 @@ def _render_result_save_controls(matches):
         lines.append("Contact: " + tr.get("contacts", tr.get("contact", "Contact the study team through the official study page")))
         if tr.get("sites"):
             lines.append("Participating sites: " + "; ".join(f"{x['hospital']} — {x['city']}, {x['state']}" for x in tr["sites"]))
-        if tr.get("url"):
-            lines.append("Study page: " + tr["url"])
+        details_url = tr.get("registry_url") or tr.get("url")
+        if details_url:
+            lines.append("Full study details: " + details_url)
         lines.append("What the study says: " + tr.get("notes", ""))
         lines.append("Status: " + tr.get("status", "") + " · Last verified: " + tr.get("verified", "date not recorded"))
     lines += ["", "Recruitment and eligibility can change; confirm current status with the study team."]
@@ -873,7 +874,9 @@ if search_clicked:
                         f"{x['hospital']} — {x['city']}, {x['state']}" for x in tr['sites']
                     )
                     st.write('**Participating sites:** ' + site_text)
-                st.link_button('Study page / enrollment', tr.get('url', ''), use_container_width=True)
+                details_url = tr.get('registry_url') or tr.get('url', '')
+                if details_url:
+                    st.link_button('View full study details →', details_url, use_container_width=True)
                 with st.expander('Study information'):
                     if tr.get('intervention'):
                         st.write('**Study intervention:** ' + tr['intervention'])
