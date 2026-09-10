@@ -1,0 +1,36 @@
+name: Fix oncology section spacing once
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-oncology-spacing-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore heading position and tighten Explore spacing
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('pages/_additional_oncology_legacy.py')
+          s=p.read_text(encoding='utf-8')
+          old='''st.markdown("<div style=\'font-size:1.55rem;line-height:1.08;font-weight:700;margin:.1rem 0 .15rem;color:#356fa8\'>💊 More Treatment Options</div>", unsafe_allow_html=True)\nst.markdown("<div style=\'height:.65rem\'></div>", unsafe_allow_html=True)\nst.write("Explore treatment access beyond standard clinical trials.")'''
+          new='''st.markdown("<div style=\'height:1.45rem\'></div>", unsafe_allow_html=True)\nst.markdown("<div style=\'font-size:1.55rem;line-height:1.08;font-weight:700;margin:.1rem 0 0;color:#356fa8\'>💊 More Treatment Options</div>", unsafe_allow_html=True)\nst.write("Explore treatment access beyond standard clinical trials.")'''
+          if s.count(old) != 1:
+              raise SystemExit(f'Expected one spacing block, found {s.count(old)}')
+          p.write_text(s.replace(old,new,1),encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add pages/_additional_oncology_legacy.py
+          git diff --cached --quiet && exit 1
+          git commit -m "Restore oncology heading and tighten description spacing"
+          git push
