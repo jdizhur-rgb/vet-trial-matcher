@@ -10,7 +10,7 @@ FELINE_PRACTICAL = {
         'next': 'First establish whether this is a solitary skin tumor or whether the spleen, intestine, lymph nodes or multiple skin sites are involved. Do not apply canine mast-cell grading rules to a cat. For splenic disease, splenectomy can be an important treatment decision when the cat is an appropriate surgical candidate.',
         'tests': 'For a solitary skin tumor, pathology after removal may be enough. With multiple, recurrent or visceral disease, ask what staging will change management. CBC, abdominal imaging and sampling of suspicious spleen or lymph nodes may be useful depending on the presentation.'},
     'soft tissue sarcoma': {
-        'prognosis': 'Feline soft tissue sarcoma includes ordinary soft tissue sarcomas and injection-site sarcomas, which should not be treated as interchangeable. In a series of 79 cats treated with surgery plus curative-intent radiation, median survival was 520 days overall. For injection-site sarcoma, radical first surgery matters: one 91-cat series reported median survival of 901 days after radical excision, with much longer survival in cats that did not recur or metastasize.',
+        'prognosis': 'Feline soft tissue sarcoma includes ordinary soft tissue sarcomas and injection-site sarcomas, which should not be treated as interchangeable. Injection-site sarcoma is especially prone to local recurrence: reviews report recurrence even after apparently complete surgery, and published series show that carefully planned radical first surgery can produce substantially longer control than repeated marginal removals.',
         'next': 'If this could be an injection-site sarcoma, plan the first definitive surgery carefully rather than simply removing the visible lump. Wide margins and imaging may change the operation. If the tumor was already removed, pathology, measured margins and whether it fits the injection-site pattern determine what comes next.',
         'tests': 'Biopsy and cross-sectional imaging can be useful before radical surgery when the mass is large, fixed or in a difficult location. Ask the pathologist for grade and margins, and preserve blocks/slides if review or a trial may be considered.'},
     'osteosarcoma': {
@@ -25,20 +25,24 @@ FELINE_PRACTICAL = {
         'prognosis': 'Feline mammary carcinoma is usually biologically aggressive, but outcome varies substantially with tumor size, stage and pathology. Tumors larger than 3 cm, lymph-node metastasis, lymphovascular invasion, ulceration and higher histologic grade are repeatedly associated with shorter survival. Because published cohorts and stages differ, a single median survival number is less useful than these individual findings.',
         'next': 'Measure and stage the disease before assuming surgery alone is enough. Record how many glands are involved, evaluate regional lymph nodes and lungs, and discuss the appropriate extent of feline mammary surgery. Pathology after surgery should guide whether additional treatment is worth considering.',
         'tests': 'Pathology should report histologic grade, margins and lymphovascular invasion when assessable. Ask whether regional lymph nodes should be sampled and whether chest imaging is adequate for staging. Biomarker testing should have a clear treatment or trial purpose before you pay for it.'},
+    'thyroid carcinoma': {
+        'prognosis': 'Feline thyroid carcinoma is uncommon and the evidence base is much smaller than for ordinary feline hyperthyroidism. In a small series treated with high-dose radioactive iodine, successful treatment produced prolonged survival, with reported survival from 181 to 2,381 days. A newer 25-cat series of thyroid carcinoma reported median overall survival of about 795 days after curative-intent treatment. Individual outcome depends on whether the tumor is functional, locally invasive or metastatic and on which treatment can control it.',
+        'next': 'First separate thyroid carcinoma from the much more common benign causes of feline hyperthyroidism. Determine whether the mass is functional, whether it is mobile or invasive, and whether regional lymph nodes or lungs are involved. Surgery and high-dose radioactive iodine can both be relevant; the best choice depends on anatomy, iodine uptake, kidney function and metastatic disease.',
+        'tests': 'Total T4 and routine bloodwork help define thyroid and kidney status. Thyroid scintigraphy can show functional thyroid tissue and ectopic or metastatic iodine-avid disease, but imaging alone cannot reliably prove malignancy. Neck imaging, chest staging and pathology are useful when surgery or an invasive mass is being considered.'},
     'primary lung tumor': {
         'prognosis': 'Feline primary lung tumors vary sharply by grade and stage. In one CT-staged surgical series, median survival was 156 days overall, but 498 days without enlarged lymph nodes versus 65 days with nodal enlargement, and 730 days for low/intermediate-grade tumors versus 105 days for high-grade tumors. Older surgical data likewise showed much longer survival for better-differentiated tumors.',
         'next': 'First confirm that this is likely a primary lung tumor rather than metastasis from another cancer. For a solitary mass, CT, surgical resectability, lymph-node status and pleural effusion are major decision points. Cats with respiratory distress or pleural fluid may need stabilization before cancer planning.',
         'tests': 'Chest CT is useful for defining the mass, intrathoracic nodes and pleural disease before surgery. Ask whether suspicious lymph nodes will be sampled and whether pathology grade will change recommendations after lobectomy.'},
     'meningioma': {
-        'prognosis': 'Feline intracranial meningioma can have a very favorable long-term outlook after surgery compared with many other brain tumors. A 121-cat multicenter series reported median survival of 37 months after excision. A 2026 single-institution series reported estimated median survival of 1,674 days, although 3 of 17 cats died within four weeks after surgery, so perioperative risk still matters.',
+        'prognosis': 'Feline intracranial meningioma can have a very favorable long-term outlook after surgery compared with many other brain tumors. A 2024 surgical series reported median survival of 881 days. A 2026 single-institution series reported estimated median survival of 1,674 days, although 3 of 17 cats died within four weeks after surgery, so perioperative risk still matters.',
         'next': 'Stabilize seizures or other neurologic signs, then discuss MRI and surgical accessibility. In cats, surgery is often a particularly strong option for accessible intracranial meningiomas. Radiation remains relevant when surgery is not feasible, incomplete or declined.',
         'tests': 'MRI is the key planning test. Ask whether the imaging appearance is sufficiently typical for meningioma, what the surgical risk is for that location, and whether tissue diagnosis would change the plan if surgery is not chosen.'},
     'nasal tumor': {
-        'prognosis': 'Feline nasal tumors are usually dominated by local disease, but the exact histology matters. In a 42-cat intranasal carcinoma study, definitive-intent radiation produced median overall survival of 721 days versus 284 days with palliative-intent radiation. An older small series of non-lymphoid nasal tumors treated with megavoltage radiation reported median survival of 382 days.',
+        'prognosis': 'Feline nasal tumors are usually dominated by local disease, but the exact histology matters. In a 65-cat series treated with palliative hypofractionated radiation, clinical signs improved in 86% of cats. Published survival varies substantially among tumor types and radiation protocols, so a single number should not be applied before biopsy identifies what the nasal tumor actually is.',
         'next': 'Get the tissue diagnosis and define local extent before choosing treatment. Nasal lymphoma and nasal carcinoma are not the same disease. Radiation is commonly central for non-lymphoid intranasal tumors, while lymphoma may require a different systemic/local approach.',
         'tests': 'CT of the nasal cavity plus biopsy are usually the core tests. Ask whether the cribriform plate, orbit or regional nodes are involved and whether the pathology represents lymphoma, carcinoma or another tumor type.'},
     'multiple myeloma': {
-        'prognosis': 'Feline myeloma-related disease is uncommon and published outcome data are limited. A 2024 multicenter study of 50 cats reported median survival of 122 days overall, with anemia and thrombocytopenia associated with shorter survival. Older reports include individual cats living well over a year, so the disease course is variable rather than uniformly short.',
+        'prognosis': 'Feline myeloma-related disease is uncommon and published outcome data are limited. Prognosis varies with the organs affected and complications such as anemia, thrombocytopenia, kidney injury, high calcium and bone disease, so canine survival figures should not be substituted for cats.',
         'next': 'Assess what the plasma-cell disease is doing now: anemia, low platelets, kidney injury, high calcium, bone pain, pathologic fracture or hyperviscosity can drive urgency. Systemic therapy is usually the main treatment, with local radiation sometimes useful for painful bone lesions.',
         'tests': 'CBC/chemistry, calcium, serum and urine protein studies, imaging for bone lesions and bone-marrow evaluation may all contribute. Ask which findings are needed to confirm the diagnosis and which will be used to monitor response.'},
 }
@@ -46,12 +50,13 @@ FELINE_PRACTICAL = {
 SOURCES = {
     'lymphoma': ['PMID:26333999'],
     'mast cell tumor': ['PMID:28168776', 'PMID:26083443', 'PMID:30244666'],
-    'soft tissue sarcoma': ['PMID:19999355', 'PMID:21718202', 'PMID:30982391'],
-    'osteosarcoma': ['PMID:41962564', 'PMID:38327132', 'PMID:11105889'],
+    'soft tissue sarcoma': ['PMID:23603504', 'PMID:21718202', 'PMID:35639367'],
+    'osteosarcoma': ['PMID:41962564', 'PMID:11105889'],
     'oral squamous cell carcinoma': ['PMID:31113565', 'PMID:21539605', 'PMID:41158948'],
     'mammary carcinoma': ['PMID:40150308', 'PMID:31113336', 'PMID:24741029'],
+    'thyroid carcinoma': ['PMID:18835538', 'PMID:32655154'],
     'primary lung tumor': ['PMID:26420583', 'PMID:9662772', 'PMID:24710595'],
-    'meningioma': ['PMID:26032173', 'PMID:41617661', 'PMID:38568826'],
-    'nasal tumor': ['PMID:33660305', 'PMID:12027506'],
-    'multiple myeloma': ['PMID:38517293', 'PMID:16112593', 'PMID:10896403'],
+    'meningioma': ['PMID:41617661', 'PMID:38568826'],
+    'nasal tumor': ['PMID:25312719', 'PMID:3533873'],
+    'multiple myeloma': [],
 }
