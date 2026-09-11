@@ -1,0 +1,99 @@
+name: Post repair global matcher audit
+on:
+  push:
+    branches: [post-repair-audit]
+    paths: ['.github/workflows/post-repair-global-audit.yml']
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: post-repair-audit}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -r requirements.txt
+      - name: Pass A - full effective catalog integrity
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path('.')
+          by={x['id']:x for x in json.loads((root/'data/trials_base.json').read_text())}
+          for f in [root/'data/trial_updates.json']+sorted((root/'data').glob('catalog_patch_*.json')):
+            d=json.loads(f.read_text())
+            for tid in d.get('delete',[]):by.pop(tid,None)
+            for x in d.get('upsert',[]):
+              m=dict(by.get(x['id'],{}))
+              for k,v in x.items():
+                if k in {'requires','excludes'} and isinstance(v,dict):
+                  n=dict(m.get(k,{}));n.update(v);m[k]=n
+                else:m[k]=v
+              by[x['id']]=m
+          bad=[];site_bad=[]
+          for tid,t in by.items():
+            if not t.get('available_for_matching',True):continue
+            if t.get('status_confidence') not in {'current','confirmed_current'}:continue
+            if t.get('study_type','treatment') not in {'treatment','other_treatment_access'}:continue
+            missing=[k for k in ('id','title','center','status') if not t.get(k)]
+            if missing:bad.append((tid,missing))
+            sites=t.get('sites') or []
+            if not isinstance(sites,list):site_bad.append((tid,'sites-not-list',repr(sites)))
+            else:
+              for i,x in enumerate(sites):
+                if not isinstance(x,dict):site_bad.append((tid,i,'not-dict',repr(x)));continue
+                miss=[k for k in ('hospital','city','state') if not x.get(k)]
+                if miss:site_bad.append((tid,i,miss,x))
+          print('ACTIVE',sum(1 for t in by.values() if t.get('available_for_matching',True) and t.get('status_confidence') in {'current','confirmed_current'} and t.get('study_type','treatment') in {'treatment','other_treatment_access'}))
+          print('CORE_BAD',bad)
+          print('SITE_BAD',site_bad)
+          assert not bad,bad
+          assert not site_bad,site_bad
+          print('CATALOG_INTEGRITY_OK')
+          PY
+      - name: Pass B - source renderer invariants
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          a=Path('app.py').read_text();p=Path('pages/1_Clinical_Trial_Finder.py').read_text()
+          assert 'if body.startswith("**Contact:**"):_pending' not in a
+          assert 'if body.startswith("**Participating sites:**"):_pending' not in a
+          assert "tr['center']" not in p and "tr['title']" not in p and "tr['notes']" not in p and "tr['status']" not in p
+          assert "st.write('**Participating sites:** ' + site_text)" in p
+          assert "st.write(\n                    '**Contact:** '" in p
+          print('RENDERER_SOURCE_OK')
+          PY
+      - name: Pass C - broad AppTest matrix
+        run: |
+          python - <<'PY'
+          from streamlit.testing.v1 import AppTest
+          cancers=['Oral melanoma','Soft tissue sarcoma','Osteosarcoma','Hemangiosarcoma','Histiocytic sarcoma','Mast cell tumor','Lymphoma','Urothelial carcinoma','Squamous cell carcinoma','Primary lung tumor','Glioma','Mammary carcinoma']
+          species=['Dog','Cat']
+          failures=[];cases=0
+          for sp in species:
+            for cancer in cancers:
+              try:
+                a=AppTest.from_file('app.py',default_timeout=30).run()
+                def sb(label):return next(x for x in a.selectbox if x.label==label)
+                sb('Species').select(sp);sb('Country / region').select('USA');sb('Cancer type').select(cancer);a.run()
+                next(x for x in a.button if x.label=='Find potential trials').click();a.run();cases+=1
+                if a.exception:failures.append((sp,cancer,repr(a.exception)))
+              except Exception as e:failures.append((sp,cancer,repr(e)))
+          print('CASES',cases,'FAILURES',failures)
+          assert not failures,failures
+          print('MATRIX_OK')
+          PY
+      - name: Pass D - exact Ethos and BARC output
+        run: |
+          python - <<'PY'
+          from streamlit.testing.v1 import AppTest
+          a=AppTest.from_file('app.py',default_timeout=30).run()
+          def sb(label):return next(x for x in a.selectbox if x.label==label)
+          sb('Species').select('Dog');sb('Country / region').select('USA');sb('Cancer type').select('Oral melanoma');a.run();next(x for x in a.button if x.label=='Find potential trials').click();a.run()
+          text='\n'.join(str(getattr(e,'value','')) for kind in ('markdown','text','caption') for e in getattr(a,kind))
+          exact=['Ethos Veterinary Health','Metropolitan Veterinary Hospital — Cleveland, OH','Summit Veterinary Referral Center — Tacoma, WA','Veterinary Specialty Hospital — San Diego, CA','Bridge Animal Referral Center, 8401 Main St, Edmonds, WA 98026']
+          missing=[x for x in exact if x not in text]
+          print('MISSING',missing)
+          assert not missing,missing
+          assert not a.exception
+          print('ETHOS_BARC_OK')
+          PY
