@@ -30,6 +30,8 @@ else:
     _markdown=st.markdown
     _write=st.write
     _button=st.button
+    _selectbox=st.selectbox
+    _advanced_selection={}
 
     def _section_markdown(body,*args,**kwargs):
         if isinstance(body,str) and "💊 More Treatment Options" in body:
@@ -51,9 +53,23 @@ else:
             return False
         return _button(label,*args,**kwargs)
 
+    def _advanced_selectbox(label, options, *args, **kwargs):
+        # Ljubljana is a normal filtered Advanced option: Dog + Europe + Mast cell tumor.
+        if route=="advanced" and label=="3. Cancer type" and _advanced_selection.get("species")=="Dog" and _advanced_selection.get("country")=="Europe":
+            options=list(options)
+            if "Mast cell tumor" not in options:
+                options.append("Mast cell tumor")
+        value=_selectbox(label,options,*args,**kwargs)
+        if route=="advanced":
+            if label=="1. Species": _advanced_selection["species"]=value
+            elif label=="2. Country / region": _advanced_selection["country"]=value
+            elif label=="3. Cancer type": _advanced_selection["cancer"]=value
+        return value
+
     st.markdown=_section_markdown
     st.write=_section_write
     st.button=_legacy_button
+    st.selectbox=_advanced_selectbox
     st.session_state._hide_legacy_route_buttons=True
     try:
         runpy.run_path(str(Path(__file__).with_name("_additional_oncology_legacy.py")),run_name="__main__")
@@ -61,18 +77,25 @@ else:
         st.markdown=_markdown
         st.write=_write
         st.button=_button
+        st.selectbox=_selectbox
         st.session_state.pop("_hide_legacy_route_buttons",None)
 
-    if route=="advanced":
+    if route=="advanced" and _advanced_selection.get("species")=="Dog" and _advanced_selection.get("country")=="Europe" and _advanced_selection.get("cancer")=="Mast cell tumor":
+        st.success("1 additional option found to discuss with a veterinary oncologist.")
         with st.container(border=True):
             st.markdown("### University of Ljubljana — ECT + IL-12 Gene Electrotransfer")
-            st.write("**Dogs · Slovenia · strongest canine evidence in mast cell tumors**")
             st.write("Electrochemotherapy combined with local gene electrotransfer of canine interleukin-12 (IL-12 GET). Electroporation is used both for local chemotherapy delivery and to introduce an IL-12 plasmid intended to stimulate an antitumor immune response.")
-            st.write("**Access:** The Small Animal Clinic of the University of Ljubljana Veterinary Faculty states that it offers electroporation-based cancer treatments. Its veterinary oncology group continues to publish clinical use of ECT + IL-12 GET, including a 2026 canine mast cell tumor case. Current availability and suitability for an individual tumor should be confirmed directly with the center.")
-            st.write("**Evidence:** Canine clinical studies are most developed for mast cell tumors. Systemic/immune effects beyond the treated tumor are promising but are not proven to be reliable or predictable across cancer types.")
-            st.write("**Contact:** Prof. Nataša Tozon Mask — natasa.tozon@vf.uni-lj.si")
-            st.link_button("University of Ljubljana treatment information", "https://www.vf.uni-lj.si/en/news/electroporation-based-treatments-canine-and-feline-oral-tumors", use_container_width=True)
-            st.link_button("2026 ECT + IL-12 clinical report", "https://www.frontiersin.org/journals/veterinary-science/articles/10.3389/fvets.2026.1813360/full", use_container_width=True)
+            st.markdown("🌐 [Official treatment information](https://www.vf.uni-lj.si/en/news/electroporation-based-treatments-canine-and-feline-oral-tumors)    ✉️ [natasa.tozon@vf.uni-lj.si](mailto:natasa.tozon@vf.uni-lj.si)")
+            with st.expander("Evidence"):
+                st.markdown("**Evidence level:** Canine clinical evidence; strongest current evidence in mast cell tumors")
+                st.write("The University of Ljubljana veterinary oncology group continues to publish clinical use of ECT + IL-12 GET, including a 2026 canine mast cell tumor report. Systemic/immune effects beyond the treated tumor are promising but are not proven to be reliable or predictable across cancer types.")
+                st.link_button("2026 clinical report", "https://www.frontiersin.org/journals/veterinary-science/articles/10.3389/fvets.2026.1813360/full", use_container_width=True)
+            with st.expander("Access & sample"):
+                st.markdown("**Current access:** University of Ljubljana Veterinary Faculty, Small Animal Clinic, Slovenia. Confirm current availability and individual suitability directly with the center.")
+                st.markdown("**Sample:** No special manufacturing sample; tumor diagnosis and case records are needed for case review.")
+                st.markdown("**Travel:** Treatment is performed at the center in Slovenia.")
+            with st.expander("Limitations"):
+                st.write("Evidence is still limited and cancer-specific. A systemic effect outside the treated tumor cannot be assumed.")
 
     if route=="compassionate":
         with st.container(border=True):
