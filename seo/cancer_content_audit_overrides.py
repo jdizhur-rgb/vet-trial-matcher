@@ -20,22 +20,48 @@ CANINE_PRACTICAL_OVERRIDES = {
             'when medically safe.'
         ),
     },
+    'hemangiosarcoma': {
+        'prognosis': (
+            'Visceral hemangiosarcoma is aggressive and can bleed suddenly. One retrospective study of 37 dogs '
+            'reported median survival of 66 days with surgery alone and 274 days with surgery followed by '
+            'doxorubicin, but only 14 dogs received chemotherapy and the study population was selected. These '
+            'figures show that chemotherapy can improve control in some dogs; they should not be presented as '
+            'a universal expectation. Stage, primary site and whether rupture or metastasis is present remain '
+            'major determinants of outcome.'
+        ),
+    },
 }
 
 FELINE_PRACTICAL_OVERRIDES = {
     'osteosarcoma': {
         'prognosis': (
             'Feline osteosarcoma often has a longer course than the typical canine disease, but metastasis '
-            'is not rare and should not be minimized. A recent multicenter study of appendicular feline '
-            'osteosarcoma reported a median survival of about 469 days. Site, visible metastasis and local '
-            'control remain major prognostic factors, and the role of adjuvant chemotherapy deserves an '
-            'individual discussion rather than being dismissed automatically.'
+            'is not rare and should not be minimized. A 2026 multicenter study of appendicular feline '
+            'osteosarcoma reported a median survival of about 469 days and metastasis in about 36% of cats. '
+            'In cats without lung metastasis before surgery, adjuvant chemotherapy was associated with longer '
+            'survival in that retrospective study. Site, visible metastasis and local control remain major '
+            'prognostic factors.'
         ),
         'next': (
             'Separate appendicular from axial disease, control pain and assess fracture risk, and stage the '
             'chest before treatment. For a resectable limb tumor, amputation is usually the main local '
             'treatment. Discuss whether adjuvant chemotherapy is reasonable for this cat based on stage and '
-            'pathology instead of assuming that cats never benefit from systemic treatment.'
+            'pathology instead of assuming that surgery alone is always sufficient.'
+        ),
+    },
+    'thyroid carcinoma': {
+        'prognosis': (
+            'Feline thyroid carcinoma is rare, so the evidence base is small. In a series of eight cats with '
+            'functional thyroid carcinoma treated with high-dose radioactive iodine, treatment was successful '
+            'in six and survival ranged from 181 to 2,381 days. That small series supports the possibility of '
+            'long control in selected iodine-responsive tumors, but it is not a general survival estimate for '
+            'all feline thyroid carcinomas.'
+        ),
+        'next': (
+            'First distinguish suspected carcinoma from ordinary benign feline hyperthyroidism, then define '
+            'local invasion, metastatic stage and whether the tumor is functional and potentially iodine-avid. '
+            'Those findings determine whether surgery, radioactive iodine, radiation or another approach is '
+            'realistic.'
         ),
     },
 }
