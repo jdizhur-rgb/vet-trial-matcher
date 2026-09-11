@@ -8,6 +8,7 @@ import html, re
 from pathlib import Path
 from cancer_owner_content import CONTENT
 from cancer_practical_content import PRACTICAL
+from canine_branch_content import ADDITIONAL_BRANCHES
 from feline_practical_content import FELINE_PRACTICAL
 
 CSS=r'''.owner-guide,.owner-guide p,.owner-guide li{color:#263238!important}.owner-guide strong{color:#1f2d38!important}.owner-guide h2{margin-top:25px;color:#477ca8!important;font-size:1.2rem;font-weight:700}.guide-reality,.guide-waiting{margin:19px 0;padding:16px 18px;border:1px solid #dbe7f0;border-radius:14px;background:#f8fbfd}.guide-reality h2,.guide-waiting h2{margin-top:0;color:#477ca8!important}.guide-accordions{display:grid;gap:9px;margin:12px 0 20px}.guide-accordions details{border:1px solid #dbe7f0;border-radius:12px;background:#fff;overflow:hidden}.guide-accordions summary{position:relative;cursor:pointer;list-style:none;padding:13px 42px 13px 15px;color:#4d7da3!important;font-weight:650;line-height:1.35}.guide-accordions summary::-webkit-details-marker{display:none}.guide-accordions summary:after{content:'+';position:absolute;right:15px;top:50%;transform:translateY(-50%);color:#9aabba;font-size:1.25rem;font-weight:400}.guide-accordions details[open] summary:after{content:'−'}.guide-accordions details[open] summary{background:#f8fbfd}.guide-detail{padding:2px 15px 13px;color:#263238!important}.guide-detail p{margin:.45rem 0}.guide-more{margin-top:22px}.guide-questions{padding-left:20px;margin:.35rem 0}.guide-questions li{margin:.45rem 0}@media(max-width:600px){.owner-guide h2{font-size:1.08rem;margin-top:20px}.owner-guide p{font-size:.96rem;line-height:1.5}.guide-reality,.guide-waiting{padding:13px 14px;margin:15px 0}.guide-accordions{gap:7px;margin:10px 0 17px}.guide-accordions summary{padding:11px 38px 11px 13px;font-size:.96rem}.guide-accordions summary:after{right:13px}.guide-detail{padding:1px 13px 11px}.guide-questions{padding-left:18px}}'''.strip()
@@ -76,6 +77,7 @@ BRANCHES={
  ('A lymph node is positive','Nodal spread raises the risk of distant disease and can change recommendations for staging and systemic treatment. Ask whether the sampled node was actually the draining regional node for the affected gland.'),
  ('There are lung or other metastases','Systemic treatment and comfort become more important, while surgery or local treatment may still help selected painful, ulcerated or bleeding masses. Trial eligibility depends on measurable disease and prior treatment.')],
 }
+BRANCHES.update(ADDITIONAL_BRANCHES)
 
 def _p(s): return html.escape(s)
 
