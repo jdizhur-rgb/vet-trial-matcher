@@ -1,0 +1,57 @@
+name: Diagnose matcher once
+on:
+  push:
+    branches: [streamlit-prod]
+    paths: ['.github/workflows/diagnose-matcher-once.yml']
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: streamlit-prod
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Inspect effective trial data and renderer
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path('.')
+          base=json.loads((root/'data/trials_base.json').read_text())
+          by_id={t['id']:t for t in base}
+          touched=[]
+          for p in [root/'data/trial_updates.json']+sorted((root/'data').glob('catalog_patch_*.json')):
+              d=json.loads(p.read_text())
+              if 'ethos-gilvetmab-melanoma' in d.get('delete',[]):
+                  touched.append((p.name,'DELETE'))
+                  by_id.pop('ethos-gilvetmab-melanoma',None)
+              for x in d.get('upsert',[]):
+                  if x.get('id')=='ethos-gilvetmab-melanoma':
+                      touched.append((p.name,sorted(x.keys())))
+                  tid=x['id']
+                  if tid in by_id:
+                      m=dict(by_id[tid])
+                      for k,v in x.items():
+                          if k in {'requires','excludes'} and isinstance(v,dict):
+                              n=dict(m.get(k,{})); n.update(v); m[k]=n
+                          else:m[k]=v
+                      by_id[tid]=m
+                  else:by_id[tid]=x
+          e=by_id.get('ethos-gilvetmab-melanoma')
+          print('ETHOS_TOUCHES=',touched)
+          print('ETHOS_KEYS=',sorted(e.keys()) if e else None)
+          print('ETHOS_SITES=',json.dumps(e.get('sites') if e else None,indent=2))
+          print('ETHOS_CENTER=',e.get('center') if e else None)
+          print('ETHOS_CONTACTS=',e.get('contacts') if e else None)
+          app=(root/'app.py').read_text()
+          legacy=(root/'pages/_Clinical_Trial_Finder_legacy.py').read_text()
+          print('APP_SITE_WRITE_DIRECT=', 'if isinstance(body,str) and body.startswith("**Participating sites:**"):return _orig["markdown"](body)' in app)
+          print('APP_PENDING_SITE_MARKDOWN=', 'if body.startswith("**Participating sites:**"):_pending["sites"]=' in app)
+          print('APP_EXPANDER_STUDY_DETAILS=', 'if label=="Study details"' in app)
+          print('LEGACY_EXPANDER_STUDY_INFORMATION=', "with st.expander('Study information')" in legacy)
+          print('LEGACY_SITE_RENDER=', "st.write('**Participating sites:** ' + site_text)" in legacy)
+          PY
