@@ -10,10 +10,16 @@ def _p(value: str) -> str:
     return html.escape(value)
 
 
+def validate_feline_branch_coverage(practical: dict) -> None:
+    missing = sorted(set(practical) - set(FELINE_BRANCHES))
+    if missing:
+        raise AssertionError('Missing feline-specific decision branches: ' + ', '.join(missing))
+
+
 def _feline_section(label, key, pet, practical):
     about, treatment, factors = pages.CONTENT[key]
     p = practical[key]
-    branches = FELINE_BRANCHES.get(key, pages._generic_branches(pet))
+    branches = FELINE_BRANCHES[key]
     branch_html = ''.join(
         f'<details><summary>{_p(title)}</summary><div class="guide-detail"><p>{_p(body)}</p></div></details>'
         for title, body in branches
