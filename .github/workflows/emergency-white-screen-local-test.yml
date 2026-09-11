@@ -1,0 +1,45 @@
+name: Emergency white-screen local test
+on:
+  push:
+    branches: [emergency-white-screen-fix-20260911]
+    paths:
+      - 'app.py'
+      - '.github/workflows/emergency-white-screen-local-test.yml'
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: emergency-white-screen-fix-20260911
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install
+        run: |
+          pip install -r requirements.txt playwright
+          python -m playwright install chromium
+      - name: Start app
+        run: |
+          streamlit run app.py --server.headless true --server.address 127.0.0.1 --server.port 8501 >/tmp/streamlit.log 2>&1 &
+          for i in $(seq 1 60); do curl -fsS http://127.0.0.1:8501/_stcore/health >/dev/null && exit 0; sleep 1; done
+          cat /tmp/streamlit.log; exit 1
+      - name: Browser test
+        run: |
+          python - <<'PY'
+          from playwright.sync_api import sync_playwright
+          with sync_playwright() as p:
+              b=p.chromium.launch(headless=True)
+              page=b.new_page(viewport={'width':1440,'height':1600})
+              errs=[]
+              page.on('pageerror', lambda e: errs.append(str(e)))
+              page.goto('http://127.0.0.1:8501/',wait_until='domcontentloaded',timeout=60000)
+              page.get_by_text('Country / region',exact=True).wait_for(timeout=60000)
+              body=page.locator('body').inner_text()
+              assert '142 active treatment opportunities' in body, body[:2000]
+              assert not [e for e in errs if 'Bad delta path index' in e], errs
+              print('EMERGENCY_LOCAL_BROWSER_PASS')
+              b.close()
+          PY
