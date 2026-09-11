@@ -130,8 +130,6 @@ def markdown(body,*a,**k):
         if body.startswith("**Study type:**"):return
         if body.startswith("**Why it may fit:**"):return _orig["markdown"]("**Why:** "+body.replace("**Why it may fit:**","",1).strip().rstrip(".")+".")
         if body.startswith("**Needs confirmation:**"):return _orig["markdown"]("**Confirm:** "+body.replace("**Needs confirmation:**","",1).strip().rstrip(".")+".")
-        if body.startswith("**Contact:**"):_pending["contact"]=body.replace("**Contact:**","",1).strip();return
-        if body.startswith("**Participating sites:**"):_pending["sites"]=body.replace("**Participating sites:**","",1).strip();return
     return _orig["markdown"](body,*a,**k)
 def _linkify_contact(text):
     if not text:return ""
@@ -148,11 +146,8 @@ def write(body,*a,**k):
         text=body.replace("**Trial funding:**","",1).strip();low=text.lower()
         cls="funding-full" if any(x in low for x in ("fully funded","no cost to the owner","at no cost","no cost to owners")) else "funding-partial" if any(x in low for x in ("partially funded","partial funding","partially covered")) else "funding-neutral"
         import html as _html;_orig["markdown"](f'<div class="{cls}"><strong>Trial funding:</strong> {_html.escape(text)}</div>',unsafe_allow_html=True);return
-    if isinstance(body,str) and body.startswith("**Contact:**"):
-        contact=body.replace("**Contact:**","",1).strip();linked=_linkify_contact(contact)
-        if linked:_orig["markdown"]("**Contact:** "+linked)
-        return
-    if isinstance(body,str) and body.startswith("**Participating sites:**"):return _orig["markdown"](body)
+    if isinstance(body,str) and body.startswith("**Contact:**"):return _orig["write"](body,*a,**k)
+    if isinstance(body,str) and body.startswith("**Participating sites:**"):return _orig["write"](body,*a,**k)
     if body==_feedback_text:_save_controls();return
     return _orig["write"](body,*a,**k)
 def link_button(label,url,*a,**k):
