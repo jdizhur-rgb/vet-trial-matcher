@@ -16,6 +16,8 @@ jobs:
         run: |
           pip install playwright
           python -m playwright install --with-deps chromium
+      - name: Wait for Streamlit cold rebuild
+        run: sleep 60
       - name: Check public live app
         run: |
           python - <<'PY'
