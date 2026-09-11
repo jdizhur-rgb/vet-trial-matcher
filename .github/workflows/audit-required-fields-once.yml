@@ -1,0 +1,42 @@
+name: Audit required active trial fields once
+on:
+  push:
+    branches: [live-main-repair]
+    paths: ['.github/workflows/audit-required-fields-once.yml']
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: live-main-repair
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Print all active records missing core fields
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path('.')
+          by_id={t['id']:t for t in json.loads((root/'data/trials_base.json').read_text())}
+          for p in [root/'data/trial_updates.json']+sorted((root/'data').glob('catalog_patch_*.json')):
+              d=json.loads(p.read_text())
+              for tid in d.get('delete',[]): by_id.pop(tid,None)
+              for x in d.get('upsert',[]):
+                  tid=x['id']; m=dict(by_id.get(tid,{}))
+                  for k,v in x.items():
+                      if k in {'requires','excludes'} and isinstance(v,dict):
+                          n=dict(m.get(k,{})); n.update(v); m[k]=n
+                      else:m[k]=v
+                  by_id[tid]=m
+          bad=[]
+          for tid,t in by_id.items():
+              if not t.get('available_for_matching',True): continue
+              if t.get('status_confidence') not in {'current','confirmed_current'}: continue
+              if t.get('study_type','treatment') not in {'treatment','other_treatment_access'}: continue
+              missing=[k for k in ('title','center','status') if not t.get(k)]
+              if missing: bad.append((tid,missing,t.get('country'),t.get('url')))
+          print('MISSING_CORE_COUNT',len(bad))
+          for row in bad: print('MISSING_CORE',row)
+          PY
