@@ -1,0 +1,55 @@
+name: Public v2 recheck once
+on:
+  push:
+    branches: [streamlit-prod]
+    paths: ['.github/workflows/public-v2-recheck-once.yml']
+permissions:
+  contents: read
+jobs:
+  recheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install browser
+        run: |
+          pip install playwright
+          python -m playwright install chromium
+      - name: Wait for Streamlit Cloud deploy
+        run: sleep 90
+      - name: Check public app and data
+        run: |
+          python - <<'PY'
+          from playwright.sync_api import sync_playwright
+          url='https://c-trials.streamlit.app/'
+          errors=[]
+          with sync_playwright() as p:
+              b=p.chromium.launch(headless=True)
+              page=b.new_page(viewport={'width':1440,'height':1600})
+              page.on('console', lambda m: errors.append(m.text) if m.type=='error' else None)
+              page.on('pageerror', lambda e: errors.append(str(e)))
+              page.goto(url,wait_until='domcontentloaded',timeout=90000)
+              page.get_by_text('Country / region', exact=True).wait_for(timeout=90000)
+              page.wait_for_timeout(5000)
+              body=page.locator('body').inner_text()
+              print('BODY_HEAD',repr(body[:1600]))
+              print('ERRORS',errors)
+              assert '142 active treatment opportunities' in body, body[:1600]
+              assert not [e for e in errors if 'Bad delta path index' in e], errors
+              print('PUBLIC_V2_BASE_PASS')
+              # Verify static address rendering in a real public search.
+              box=page.get_by_text('Country / region',exact=True).locator("xpath=ancestor::div[contains(@class,'stSelectbox')][1]").get_by_role('combobox')
+              box.click(); box.fill('USA'); box.press('Enter'); page.wait_for_timeout(800)
+              cbox=page.get_by_text('Cancer type',exact=True).locator("xpath=ancestor::div[contains(@class,'stSelectbox')][1]").get_by_role('combobox')
+              cbox.click(); cbox.fill('Oral melanoma'); cbox.press('Enter'); page.wait_for_timeout(1000)
+              page.get_by_role('button',name='Find potential trials').click()
+              page.get_by_text('Results',exact=True).wait_for(timeout=30000)
+              body=page.locator('body').inner_text()
+              need=['Ethos Veterinary Health','734 Alpha Drive','2505 S 80th St','10435 Sorrento Valley Rd','Bridge Animal Referral Center (BARC)','8401 Main St']
+              missing=[x for x in need if x not in body]
+              print('MISSING',missing)
+              assert not missing, missing
+              print('PUBLIC_V2_ADDRESS_PASS')
+              b.close()
+          PY
