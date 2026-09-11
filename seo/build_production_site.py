@@ -18,8 +18,11 @@ apply_aliases(center_directory)
 
 # The production build owns the public base URL. Modules importing generate_seo
 # share this module object, so every generated canonical/sitemap link uses SITE.
+# The matcher URL is also overridden here so SEO-only URL changes never touch
+# the isolated Streamlit production branch or matcher runtime.
 import generate_seo
 generate_seo.SITE = SITE
+generate_seo.FINDER = "https://c-trials.streamlit.app/"
 
 import generate_seo_strict
 import generate_cancer_coverage
