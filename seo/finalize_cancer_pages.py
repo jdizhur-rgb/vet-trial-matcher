@@ -5,7 +5,10 @@ import re
 from pathlib import Path
 
 SUMMARY_COUNT_RE = re.compile(r'<p class="option-count">(?P<count>\d+) option(?:s)? currently in our catalog\.</p>')
-ZERO_SUMMARY = 'No active listings in our catalog right now.'
+ZERO_SUMMARIES = (
+    'No active listings in our catalog right now.',
+    'No active listings are currently represented in our catalog',
+)
 CARD_RE = re.compile(r'<article class="card"><h3>')
 
 
@@ -24,7 +27,7 @@ def finalize_cancer_pages(root: Path) -> int:
         text = path.read_text(encoding='utf-8')
         cards = len(CARD_RE.findall(text))
         positive = SUMMARY_COUNT_RE.search(text)
-        zero = ZERO_SUMMARY in text
+        zero = any(summary in text for summary in ZERO_SUMMARIES)
 
         if cards:
             if not positive:
