@@ -45,6 +45,9 @@ def main():
     generate_about_page(SEO_DIR / "site")
     ensure_center_images.main()
     out = SEO_DIR / "site"
+    # Safety guard: feline pages must not inherit canine prognosis copy.
+    for feline in out.glob("*/cats/*/index.html"):
+        assert 'class="disease owner-guide"' not in feline.read_text(encoding="utf-8"), feline
     apply_site_shell(out)
     home = out / "index.html"
     if home.exists():
