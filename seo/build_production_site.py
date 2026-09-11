@@ -39,12 +39,9 @@ from about_page import generate_about_page
 from site_shell import apply_site_shell
 from about_site_integration import integrate_about
 
-# Keep location presentation consistent across treatment cards. The strict
-# renderer prefers a verified full street address. If a record's center name is
-# an alias (for example, a program name such as "Penn Vet ..."), resolve it to
-# the canonical institution and use the directory address. If no verified
-# street address is available, still show the best city/state/country location
-# instead of omitting the Location block entirely.
+# Resolve program/alias names to canonical institutions before giving up on a
+# verified address. This fixes cases such as Penn Vet program names while
+# preserving the strict full-address validation already used in production.
 _strict_row_locations = generate_seo_strict.row_locations
 
 
@@ -53,36 +50,95 @@ def _production_row_locations(row):
     if locations:
         return locations
 
-    country = str(row.get("country") or "").strip()
     center = str(row.get("center") or "").strip()
     canonical = generate_seo_strict.canonical_center(center) if center else None
-
+    country = str(row.get("country") or "").strip()
     for name in (canonical, center):
         if not name:
             continue
-        address = center_directory.address_for(name)
-        if address:
-            return [address]
+        for address in center_directory.addresses_for(name):
+            if center_directory.address_is_complete(address, country):
+                return [address]
+    return []
 
+
+generate_seo_strict.row_locations = _production_row_locations
+
+
+def _fallback_location(row):
+    """Best non-street location for display only; strict address audit stays intact."""
+    country = str(row.get("country") or "").strip()
     for site in row.get("sites", []) if isinstance(row.get("sites"), list) else []:
         if not generate_seo_strict.site_active(site):
             continue
         city = str(site.get("city") or "").strip()
         state = str(site.get("state") or "").strip()
-        place = ", ".join(x for x in (city, state, country) if x)
-        if place:
-            name = str(site.get("hospital") or site.get("name") or "").strip()
-            return [f"{name}, {place}" if name else place]
-
+        if city or state:
+            return ", ".join(x for x in (city, state, country) if x)
     city = str(row.get("city") or "").strip()
     state = str(row.get("state") or "").strip()
-    place = ", ".join(x for x in (city, state, country) if x)
-    if place:
-        return [place]
-    return [country] if country else []
+    if city or state:
+        return ", ".join(x for x in (city, state, country) if x)
+    return country
 
 
-generate_seo_strict.row_locations = _production_row_locations
+def _cards_with_consistent_location(rows):
+    out = []
+    for row in rows:
+        p = [f'<article class="card"><h3>{generate_seo.esc(row.get("title"))}</h3><p class="meta"><strong>{generate_seo.esc(row.get("center"))}</strong> · {generate_seo.esc(row.get("country"))}</p>']
+        if row.get("status"):
+            p.append(f'<p class="status">{generate_seo.esc(row["status"])}</p>')
+        treatment = generate_seo.prose(row.get("intervention") or row.get("treatment") or row.get("notes"))
+        if treatment:
+            p.append(f'<p><b>What is being offered:</b> {generate_seo.esc(treatment)}</p>')
+        req = generate_seo.prose(row.get("requires"))
+        exc = generate_seo.prose(row.get("excludes"))
+        fund = generate_seo.prose(row.get("funding"))
+        contact = generate_seo.contact_text(row)
+        if req:
+            p.append(f'<p><b>Who may qualify:</b> {generate_seo.esc(req)}</p>')
+        if exc:
+            p.append(f'<p><b>May not qualify if:</b> {generate_seo.esc(exc)}</p>')
+        if fund:
+            p.append(f'<p><b>Costs / coverage:</b> {generate_seo.esc(fund)}</p>')
+        if contact:
+            p.append(f'<p><b>Contact:</b> {generate_seo.esc(contact)}</p>')
+
+        locations = _production_row_locations(row)
+        if locations:
+            p.append('<div class="study-locations"><p class="field-label">' + ('Location' if len(locations) == 1 else 'Participating locations') + '</p><ul>' + ''.join(f'<li>{generate_seo.esc(x)}</li>' for x in locations) + '</ul></div>')
+        else:
+            fallback = _fallback_location(row)
+            if fallback:
+                p.append('<div class="study-region"><p class="field-label">Location</p><ul><li>' + generate_seo.esc(fallback) + '</li></ul></div>')
+
+        areas = generate_seo_strict.coverage_areas(row)
+        if areas:
+            p.append('<div class="enrollment-areas"><p class="field-label">Enrollment area</p><ul>' + ''.join(f'<li>{generate_seo.esc(x)}</li>' for x in areas) + '</ul><p class="coverage-note">The public study listing names a partner-hospital network rather than a specific hospital. Confirm the assigned hospital with the study team.</p></div>')
+        if row.get("last_verified"):
+            p.append(f'<p class="verified">Last verified: {generate_seo.esc(row["last_verified"])}</p>')
+        if row.get("url"):
+            p.append(f'<p><a class="official" href="{generate_seo.esc(row["url"])}" rel="noopener">Official study / enrollment information →</a></p>')
+        p.append('</article>')
+        out.append(''.join(p))
+    return ''.join(out)
+
+
+generate_seo.cards = _cards_with_consistent_location
+generate_seo_strict.g.cards = _cards_with_consistent_location
+
+# Match the existing Location styling without classifying region-only fallbacks
+# as verified street addresses for the strict mapping audit.
+_base_page = generate_seo.page
+
+
+def _page_with_location_style(title, desc, body, canonical, lang='en', alts=None):
+    rendered = _base_page(title, desc, body, canonical, lang, alts)
+    return rendered.replace('</style>', '.study-region{margin:15px 0 4px;padding:12px 14px;background:#f6f8fb;border-radius:10px}.study-region ul{margin:5px 0 0;padding-left:20px}</style>', 1)
+
+
+generate_seo.page = _page_with_location_style
+generate_seo_strict.g.page = _page_with_location_style
 
 # Keep rare feline diagnoses in a separate evidence file so sparse feline data
 # are never silently replaced with canine outcome figures. Missing dedicated
