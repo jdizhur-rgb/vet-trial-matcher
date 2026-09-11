@@ -1,0 +1,53 @@
+name: Production database browser validation once
+on:
+  push:
+    branches: [streamlit-prod]
+    paths: ['.github/workflows/prod-database-browser-validation-once.yml']
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: streamlit-prod
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install app and browser
+        run: |
+          pip install -r requirements.txt playwright
+          python -m playwright install chromium
+      - name: Start Streamlit
+        run: |
+          streamlit run app.py --server.headless true --server.address 127.0.0.1 --server.port 8501 >/tmp/streamlit.log 2>&1 &
+          for i in $(seq 1 60); do curl -fsS http://127.0.0.1:8501/_stcore/health >/dev/null && exit 0; sleep 1; done
+          cat /tmp/streamlit.log; exit 1
+      - name: Validate production branch in real Chromium
+        run: |
+          python - <<'PY'
+          from playwright.sync_api import sync_playwright
+          def choose(page,label,value):
+              box=page.get_by_text(label,exact=True).locator("xpath=ancestor::div[contains(@class,'stSelectbox')][1]").get_by_role('combobox')
+              box.click(); box.fill(value); box.press('Enter'); page.wait_for_timeout(900)
+          def run_case(page,cancer,need):
+              page.goto('http://127.0.0.1:8501/',wait_until='domcontentloaded',timeout=60000)
+              page.get_by_text('Country / region',exact=True).wait_for(timeout=60000)
+              body=page.locator('body').inner_text()
+              assert '142 active treatment opportunities' in body, 'counter is not 142'
+              choose(page,'Country / region','USA'); choose(page,'Cancer type',cancer)
+              page.get_by_role('button',name='Find potential trials').click()
+              page.get_by_text('Results',exact=True).wait_for(timeout=30000)
+              body=page.locator('body').inner_text()
+              missing=[x for x in need if x not in body]
+              print('CASE',cancer,'MISSING',missing)
+              assert not missing, missing
+          with sync_playwright() as p:
+              b=p.chromium.launch(headless=True)
+              page=b.new_page(viewport={'width':1440,'height':1800})
+              run_case(page,'Oral melanoma',['Ethos Veterinary Health','734 Alpha Drive','2505 S 80th St','10435 Sorrento Valley Rd','Bridge Animal Referral Center (BARC)','8401 Main St'])
+              run_case(page,'Brain tumor / glioma',['UC Davis','1 Garrod Dr','Davis, CA 95616'])
+              b.close()
+          print('STREAMLIT_PROD_DATABASE_BROWSER_PASS')
+          PY
