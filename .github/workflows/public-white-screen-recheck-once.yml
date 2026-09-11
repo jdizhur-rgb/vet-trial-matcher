@@ -1,0 +1,45 @@
+name: Public white-screen recheck once
+on:
+  push:
+    branches: [streamlit-prod]
+    paths: ['.github/workflows/public-white-screen-recheck-once.yml']
+permissions:
+  contents: read
+jobs:
+  recheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install browser
+        run: |
+          pip install playwright
+          python -m playwright install chromium
+      - name: Wait for Streamlit Cloud deploy
+        run: sleep 75
+      - name: Check public app
+        run: |
+          python - <<'PY'
+          from playwright.sync_api import sync_playwright
+          url='https://c-trials.streamlit.app/'
+          errors=[]
+          with sync_playwright() as p:
+              b=p.chromium.launch(headless=True)
+              page=b.new_page(viewport={'width':1440,'height':1400})
+              page.on('console', lambda m: errors.append(m.text) if m.type=='error' else None)
+              page.on('pageerror', lambda e: errors.append(str(e)))
+              page.goto(url,wait_until='domcontentloaded',timeout=90000)
+              page.wait_for_timeout(20000)
+              body=page.locator('body').inner_text(timeout=10000)
+              print('BODY_LEN',len(body))
+              print('BODY_HEAD',repr(body[:1200]))
+              print('ERRORS',errors)
+              bad=[e for e in errors if 'Bad delta path index' in e]
+              assert not bad, bad
+              assert 'Cancer Clinical Trial Finder' in body or 'Country / region' in body, body[:1000]
+              assert '142 active treatment opportunities' in body, body[:1200]
+              page.screenshot(path='/tmp/public-recheck.png',full_page=True)
+              b.close()
+          print('PUBLIC_WHITE_SCREEN_RECHECK_PASS')
+          PY
