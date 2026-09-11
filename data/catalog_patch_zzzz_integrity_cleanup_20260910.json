@@ -119,9 +119,23 @@
       "id": "tufts-z007-broad-solid-2026",
       "cancers": ["Other solid tumor", "Oral melanoma", "Melanoma — other", "Soft tissue sarcoma", "Spindle cell sarcoma", "Mammary carcinoma", "Squamous cell carcinoma", "Hepatocellular carcinoma", "Prostate cancer", "Urothelial carcinoma"],
       "broad_disease_families": ["solid_tumor"],
-      "verified": "2026-09-10",
+      "requires": {"confirmed": true, "active_treatment_target": true, "measurable": true, "min_weight_kg": 7, "pretreatment_biopsy": true},
+      "special_requirement": "Tufts generally requires a 2–7 cm tumor that can be safely accessed for repeated biopsies; investigator prescreening is required.",
+      "verified": "2026-09-11",
       "status_confidence": "confirmed_current",
-      "available_for_matching": true
+      "available_for_matching": true,
+      "owner_prescreen_required": true
+    },
+    {
+      "id": "ucd-pdl1-metastatic",
+      "cancers": ["Oral melanoma", "Melanoma — other", "Mammary carcinoma", "Squamous cell carcinoma", "Hepatocellular carcinoma", "Prostate cancer", "Urothelial carcinoma", "Primary lung tumor", "Other carcinoma"],
+      "broad_disease_families": ["carcinoma"],
+      "requires": {"confirmed": true, "metastatic": true, "min_weight_kg": 15, "pulmonary_metastases": true},
+      "special_requirement": "Current UC Davis CAALM enrollment is for dogs with melanoma or carcinoma that has spread to the lungs; pulmonary metastases must be confirmed by the study team.",
+      "verified": "2026-09-11",
+      "status_confidence": "confirmed_current",
+      "available_for_matching": true,
+      "owner_prescreen_required": true
     },
     {
       "id": "umn-melanoma-mab",
