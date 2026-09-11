@@ -1,0 +1,35 @@
+name: Hotfix Streamlit components crash
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/hotfix-components-html-20260911.yml']
+permissions:
+  contents: write
+jobs:
+  hotfix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Restore native components.html behavior
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('app.py')
+          s=p.read_text()
+          old='''def _components_html(body,*a,**k):\n    if isinstance(body,str) and "Copy results" in body and "Save as PDF" in body:return st.html(body,unsafe_allow_javascript=True)\n    return _components_html_orig(body,*a,**k)'''
+          new='''def _components_html(body,*a,**k):\n    return _components_html_orig(body,*a,**k)'''
+          if old not in s:
+              raise SystemExit('expected wrapper not found; refusing broad edit')
+          p.write_text(s.replace(old,new,1))
+          PY
+      - name: Compile check
+        run: python -m py_compile app.py pages/1_Clinical_Trial_Finder.py pages/2_Additional_Oncology_Options.py
+      - name: Commit hotfix
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app.py
+          git diff --cached --quiet || git commit -m "Fix Streamlit components HTML crash"
+          git push
