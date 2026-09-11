@@ -10,10 +10,14 @@ def _p(value: str) -> str:
     return html.escape(value)
 
 
-def validate_feline_branch_coverage(practical: dict) -> None:
-    missing = sorted(set(practical) - set(FELINE_BRANCHES))
-    if missing:
-        raise AssertionError('Missing feline-specific decision branches: ' + ', '.join(missing))
+def validate_feline_branch_coverage(practical: dict) -> list[str]:
+    """Return diagnoses that do not yet have a feline-specific decision branch.
+
+    Missing branch copy must never take the production site down. Those diagnoses
+    continue to use the existing reviewed practical guide until dedicated branch
+    content is added.
+    """
+    return sorted(set(practical) - set(FELINE_BRANCHES))
 
 
 def _feline_section(label, key, pet, practical):
@@ -40,7 +44,7 @@ def activate_feline_branches() -> None:
     original = pages.section
 
     def section(label, key, pet, practical):
-        if pet == 'cat':
+        if pet == 'cat' and key in FELINE_BRANCHES:
             return _feline_section(label, key, pet, practical)
         return original(label, key, pet, practical)
 
