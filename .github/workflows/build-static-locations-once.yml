@@ -13,4 +13,60 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python scripts/build_static_trial_locations.py
+      - name: Build full static location patch
+        run: |
+          python - <<'PY'
+          import importlib.util,json
+          from pathlib import Path
+          root=Path('.'); data=root/'data'; out=data/'catalog_patch_zzzzzzzz_static_locations_all.json'
+          base=json.loads((data/'trials_base.json').read_text())
+          by={t['id']:dict(t) for t in base}
+          for p in [data/'trial_updates.json']+sorted(data.glob('catalog_patch_*.json')):
+            if not p.exists() or p==out: continue
+            d=json.loads(p.read_text())
+            ups=d if isinstance(d,list) else d.get('upsert',[])
+            dels=[] if isinstance(d,list) else d.get('delete',[])
+            for i in dels: by.pop(i,None)
+            for q in ups:
+              i=q.get('id')
+              if not i: continue
+              x=dict(by.get(i,{}))
+              for k,v in q.items():
+                if k in ('requires','excludes') and isinstance(v,dict):
+                  z=dict(x.get(k,{})); z.update(v); x[k]=z
+                else: x[k]=v
+              by[i]=x
+          spec=importlib.util.spec_from_file_location('cd',root/'seo'/'center_directory.py'); cd=importlib.util.module_from_spec(spec); spec.loader.exec_module(cd)
+          active=[t for t in by.values() if t.get('available_for_matching',True) and t.get('status_confidence') in {'current','confirmed_current'} and t.get('study_type','treatment') in {'treatment','other_treatment_access'}]
+          patches=[]; unresolved=[]
+          for t in sorted(active,key=lambda x:x['id']):
+            sites=[]
+            for s in t.get('sites') or []:
+              if isinstance(s,str): sites.append({'label':s,'status':'active'})
+              elif isinstance(s,dict):
+                q=dict(s); q['status']='active'
+                if not q.get('label'):
+                  h=str(q.get('hospital') or q.get('name') or '').strip(); a=str(q.get('address') or '').strip(); c=str(q.get('city') or '').strip(); r=str(q.get('state') or q.get('region') or '').strip(); tail=', '.join(x for x in (c,r) if x); q['label']=' — '.join(x for x in (h,a,tail) if x)
+                sites.append(q)
+            inactive=[]
+            for s in t.get('inactive_sites') or []:
+              if isinstance(s,str): inactive.append({'label':s,'status':'inactive'})
+              elif isinstance(s,dict): q=dict(s); q['status']='inactive'; inactive.append(q)
+            source='existing trial sites'
+            if not sites:
+              try: addrs=list(cd.addresses_for(t.get('center','')) or [])
+              except Exception: addrs=[]
+              sites=[{'label':str(a),'status':'active'} for a in addrs]
+              if sites: source='center directory snapshot'
+            patches.append({'id':t['id'],'sites':sites,'inactive_sites':inactive,'location_model':'static active/inactive sites','location_source':source,'location_verified':'2026-09-11','location_unresolved':not bool(sites)})
+            if not sites: unresolved.append({'id':t['id'],'center':t.get('center'),'country':t.get('country'),'title':t.get('title')})
+          out.write_text(json.dumps({'purpose':'Static location snapshot for every active matcher trial. Cards render stored locations only; stopped sites move to inactive_sites.','upsert':patches,'delete':[]},ensure_ascii=False,indent=2)+'\n')
+          print('ACTIVE',len(active)); print('RESOLVED',len(active)-len(unresolved)); print('UNRESOLVED',len(unresolved)); print(json.dumps(unresolved,ensure_ascii=False,indent=2))
+          PY
+      - name: Commit patch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/catalog_patch_zzzzzzzz_static_locations_all.json
+          git commit -m 'Snapshot static locations for all active trials' || exit 0
+          git push origin main
