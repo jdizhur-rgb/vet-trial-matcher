@@ -39,6 +39,51 @@ from about_page import generate_about_page
 from site_shell import apply_site_shell
 from about_site_integration import integrate_about
 
+# Keep location presentation consistent across treatment cards. The strict
+# renderer prefers a verified full street address. If a record's center name is
+# an alias (for example, a program name such as "Penn Vet ..."), resolve it to
+# the canonical institution and use the directory address. If no verified
+# street address is available, still show the best city/state/country location
+# instead of omitting the Location block entirely.
+_strict_row_locations = generate_seo_strict.row_locations
+
+
+def _production_row_locations(row):
+    locations = _strict_row_locations(row)
+    if locations:
+        return locations
+
+    country = str(row.get("country") or "").strip()
+    center = str(row.get("center") or "").strip()
+    canonical = generate_seo_strict.canonical_center(center) if center else None
+
+    for name in (canonical, center):
+        if not name:
+            continue
+        address = center_directory.address_for(name)
+        if address:
+            return [address]
+
+    for site in row.get("sites", []) if isinstance(row.get("sites"), list) else []:
+        if not generate_seo_strict.site_active(site):
+            continue
+        city = str(site.get("city") or "").strip()
+        state = str(site.get("state") or "").strip()
+        place = ", ".join(x for x in (city, state, country) if x)
+        if place:
+            name = str(site.get("hospital") or site.get("name") or "").strip()
+            return [f"{name}, {place}" if name else place]
+
+    city = str(row.get("city") or "").strip()
+    state = str(row.get("state") or "").strip()
+    place = ", ".join(x for x in (city, state, country) if x)
+    if place:
+        return [place]
+    return [country] if country else []
+
+
+generate_seo_strict.row_locations = _production_row_locations
+
 # Keep rare feline diagnoses in a separate evidence file so sparse feline data
 # are never silently replaced with canine outcome figures. Missing dedicated
 # decision branches fall back to the existing reviewed practical guide.
