@@ -1,0 +1,39 @@
+name: Public browser diagnostic once
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/live-diagnostic-once.yml']
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install playwright && python -m playwright install chromium
+      - name: Inspect and exercise public app once
+        run: |
+          python - <<'PY'
+          from playwright.sync_api import sync_playwright
+          url='https://c-trials.streamlit.app/'
+          with sync_playwright() as p:
+            b=p.chromium.launch(headless=True); g=b.new_page(viewport={'width':1280,'height':1600})
+            g.goto(url,wait_until='domcontentloaded',timeout=90000)
+            g.get_by_text('Country / region',exact=True).wait_for(timeout=90000)
+            print('SELECTS',g.locator('div[data-baseweb="select"]').count())
+            print('BODY_BEFORE',g.locator('body').inner_text()[:6000])
+            country=g.get_by_text('Country / region',exact=True).locator("xpath=ancestor::div[contains(@class,'stSelectbox')][1]").get_by_role('combobox')
+            country.click(); country.fill('USA'); country.press('Enter'); g.wait_for_timeout(1200)
+            cancer=g.get_by_text('Cancer type',exact=True).locator("xpath=ancestor::div[contains(@class,'stSelectbox')][1]").get_by_role('combobox')
+            cancer.click(); cancer.fill('Oral melanoma'); cancer.press('Enter'); g.wait_for_timeout(1200)
+            print('COUNTRY_VALUE',country.input_value())
+            print('CANCER_VALUE',cancer.input_value())
+            g.get_by_role('button',name='Find potential trials').click()
+            g.get_by_text('Results',exact=True).wait_for(timeout=45000)
+            body=g.locator('body').inner_text()
+            print('BODY_AFTER',body[-15000:])
+            needed=['Ethos Veterinary Health','Metropolitan Veterinary Hospital — Cleveland, OH','Summit Veterinary Referral Center — Tacoma, WA','Veterinary Specialty Hospital — San Diego, CA','8401 Main St, Edmonds, WA 98026']
+            missing=[x for x in needed if x not in body]
+            print('MISSING',missing)
+            b.close()
+            if missing: raise SystemExit(1)
+          PY
