@@ -105,20 +105,20 @@ jobs:
           for p in expected:
             s=p.read_text(errors='replace')
             cards=re.findall(r'<article class="card"><h3>(.*?)</h3>',s,re.S)
-            m=re.search(r'<strong class="opportunity-count">(\d+) current treatment opportunities</strong>',s)
-            zero='No current treatment opportunities in our catalog' in s
+            m=re.search(r'<p class="option-count">(\d+) options? currently in our catalog\.</p>',s)
+            zero='No active listings in our catalog right now.' in s
             assert 'How it is usually treated' in s,p
             assert 'What can affect treatment choices' in s,p
             assert '<link rel="canonical"' in s,p
             assert '<script type="application/ld+json">' in s,p
             assert 'BreadcrumbList' in s and 'WebPage' in s,p
             assert SITE+'/' in s,p
+            assert 'Related cancer types' not in s,p
             if cards:
               assert m and int(m.group(1)) == len(cards),(p,len(cards),m.group(1) if m else None)
               assert not zero,p
             else:
               assert not m and zero,p
-              assert 'No active listings are currently represented in our catalog' not in s,p
           print('VALID_ALL_CENTERS',len(centers))
           print('VALID_ALL_ENGLISH_CANCER_PAGES',len(expected))
           PY
@@ -207,10 +207,11 @@ jobs:
             assert 'How it is usually treated' in text,path
             assert 'What can affect treatment choices' in text,path
             assert 'BreadcrumbList' in text and 'WebPage' in text,path
+            assert 'Related cancer types' not in text,path
             if exp_cards:
-              assert 'No current treatment opportunities in our catalog' not in text,path
+              assert 'No active listings in our catalog right now.' not in text,path
             else:
-              assert 'No active listings are currently represented in our catalog' not in text,path
+              assert 'No active listings in our catalog right now.' in text,path
           print('LIVE_ALL_CENTERS_OK',len(local))
           print('LIVE_ALL_ENGLISH_CANCER_PAGES_OK',len(cancer_paths))
           PY
