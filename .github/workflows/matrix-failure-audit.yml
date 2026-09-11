@@ -1,0 +1,36 @@
+name: Matrix failure audit
+on:
+  push:
+    branches: [post-repair-audit]
+    paths: ['.github/workflows/matrix-failure-audit.yml']
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: post-repair-audit}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -r requirements.txt
+      - name: Matrix only
+        run: |
+          python - <<'PY'
+          from streamlit.testing.v1 import AppTest
+          cancers=['Oral melanoma','Soft tissue sarcoma','Osteosarcoma','Hemangiosarcoma','Histiocytic sarcoma','Mast cell tumor','Lymphoma','Urothelial carcinoma','Squamous cell carcinoma','Primary lung tumor','Glioma','Mammary carcinoma']
+          species=['Dog','Cat']
+          failures=[]
+          for sp in species:
+            for cancer in cancers:
+              try:
+                a=AppTest.from_file('app.py',default_timeout=30).run()
+                def sb(label): return next(x for x in a.selectbox if x.label==label)
+                sb('Species').select(sp); sb('Country / region').select('USA'); sb('Cancer type').select(cancer); a.run()
+                next(x for x in a.button if x.label=='Find potential trials').click(); a.run()
+                if a.exception: failures.append((sp,cancer,'APP_EXCEPTION',str(a.exception[0].value) if len(a.exception) else 'unknown'))
+              except Exception as e:
+                failures.append((sp,cancer,'HARNESS',type(e).__name__+': '+str(e)))
+          print('FAILURES_BEGIN')
+          for x in failures: print(repr(x))
+          print('FAILURES_END count=',len(failures))
+          if failures: raise SystemExit(1)
+          PY
