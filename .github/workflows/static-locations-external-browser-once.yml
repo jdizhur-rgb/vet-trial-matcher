@@ -31,7 +31,7 @@ jobs:
 
           def choose(page,label,value):
               box=page.get_by_text(label,exact=True).locator("xpath=ancestor::div[contains(@class,'stSelectbox')][1]").get_by_role('combobox')
-              box.click(); page.get_by_role('option',name=value,exact=True).click(); page.wait_for_timeout(700)
+              box.click(); box.fill(value); box.press('Enter'); page.wait_for_timeout(900)
 
           def run_case(page,cancer,need):
               page.goto('http://127.0.0.1:8501/',wait_until='domcontentloaded',timeout=60000)
