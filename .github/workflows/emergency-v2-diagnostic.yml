@@ -1,0 +1,44 @@
+name: Emergency v2 diagnostic
+on:
+  push:
+    branches: [emergency-white-screen-v2-20260911]
+    paths: ['.github/workflows/emergency-v2-diagnostic.yml']
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install
+        run: |
+          pip install -r requirements.txt playwright
+          python -m playwright install chromium
+      - name: Start and inspect
+        run: |
+          streamlit run app.py --server.headless true --server.address 127.0.0.1 --server.port 8501 >/tmp/streamlit.log 2>&1 &
+          sleep 5
+          echo '=== STREAMLIT LOG ==='
+          cat /tmp/streamlit.log || true
+          echo '=== HEALTH ==='
+          curl -i http://127.0.0.1:8501/_stcore/health || true
+      - name: Browser diagnostic
+        run: |
+          python - <<'PY'
+          from playwright.sync_api import sync_playwright
+          with sync_playwright() as p:
+              b=p.chromium.launch(headless=True)
+              page=b.new_page(viewport={'width':1440,'height':1200})
+              page.on('console', lambda m: print('CONSOLE',m.type,m.text))
+              page.on('pageerror', lambda e: print('PAGEERROR',e))
+              page.goto('http://127.0.0.1:8501/',wait_until='domcontentloaded',timeout=60000)
+              page.wait_for_timeout(10000)
+              print('BODY',repr(page.locator('body').inner_text()[:3000]))
+              print('HTML',page.locator('body').inner_html()[:3000])
+              b.close()
+          PY
+          echo '=== FINAL STREAMLIT LOG ==='
+          cat /tmp/streamlit.log || true
