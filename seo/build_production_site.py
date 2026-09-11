@@ -33,7 +33,6 @@ from practical_cancer_pages import apply_practical_cancer_guides, apply_feline_p
 from feline_practical_content import FELINE_PRACTICAL
 from feline_practical_more import FELINE_MORE
 from feline_branch_integration import activate_feline_branches
-from hs_owner_page import apply_canine_hs_guide
 from help_center import generate_help_center
 from about_page import generate_about_page
 from site_shell import apply_site_shell
@@ -153,7 +152,6 @@ def main():
     finalize_cancer_pages(SEO_DIR / "site")
     apply_practical_cancer_guides(SEO_DIR / "site")
     apply_feline_practical_guides(SEO_DIR / "site")
-    apply_canine_hs_guide(SEO_DIR / "site")
     generate_cancer_coverage.main()
     generate_help_center(SEO_DIR / "site")
     generate_about_page(SEO_DIR / "site")
