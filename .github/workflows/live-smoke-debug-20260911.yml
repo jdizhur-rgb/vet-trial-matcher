@@ -14,25 +14,29 @@ jobs:
         with:
           python-version: '3.13'
       - name: Install deps
-        run: pip install -r requirements.txt requests
-      - name: Start Streamlit and probe
+        run: |
+          pip install -r requirements.txt playwright
+          python -m playwright install --with-deps chromium
+      - name: Run browser smoke test
         run: |
           set +e
           streamlit run app.py --server.headless true --server.port 8765 > /tmp/streamlit.log 2>&1 &
           PID=$!
-          sleep 12
-          echo '=== PROCESS ==='
-          ps -p $PID -f || true
-          echo '=== HTTP ==='
+          sleep 6
           python - <<'PY'
-          import requests
-          try:
-              r=requests.get('http://127.0.0.1:8765',timeout=10)
-              print(r.status_code)
-              print(r.text[:500])
-          except Exception as e:
-              print(repr(e))
+          from playwright.sync_api import sync_playwright
+          with sync_playwright() as p:
+              browser=p.chromium.launch(headless=True)
+              page=browser.new_page()
+              page.on('console', lambda m: print('BROWSER CONSOLE:', m.type, m.text))
+              page.on('pageerror', lambda e: print('PAGE ERROR:', e))
+              page.goto('http://127.0.0.1:8765', wait_until='domcontentloaded', timeout=30000)
+              page.wait_for_timeout(15000)
+              print('TITLE:', page.title())
+              print('URL:', page.url)
+              print('BODY:', page.locator('body').inner_text()[:4000])
+              browser.close()
           PY
-          echo '=== LOG ==='
+          echo '=== STREAMLIT LOG ==='
           cat /tmp/streamlit.log
           kill $PID 2>/dev/null || true
