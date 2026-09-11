@@ -21,6 +21,16 @@ FELINE_MORE = {
         'next': 'The immediate practical question is whether the mass is interfering with urination or defecation and whether there is metastatic disease. Inability to pass urine is an emergency. Once the cat is stable, define the tumor location and extent before deciding whether surgery, a urine-diversion procedure, medical treatment or supportive care is realistic. Do not borrow canine prostate-cancer drug expectations or survival figures.',
         'tests': 'Abdominal ultrasound or CT can define the prostate, urethra, bladder and regional lymph nodes. Chest imaging is reasonable because lung metastasis has been reported. Cytology or histopathology is needed to establish the tumor type when a sample can be obtained safely; ask whether sampling will change the treatment plan before an invasive procedure.'
     },
+    'hemangiosarcoma': {
+        'prognosis': 'Feline hemangiosarcoma behaves very differently depending on where it starts. Cutaneous tumors can sometimes have useful long-term control after complete surgery, while subcutaneous disease recurs more often and visceral hemangiosarcoma is usually much more aggressive. In a 26-cat visceral series, disease was multifocal in 77% of cats and the six cats that survived beyond the immediate diagnostic period had a median survival of 77 days. In a newer splenectomy cohort, cats with splenic hemangiosarcoma had a median survival of 94 days. These figures should not be applied to a small completely excised skin tumor.',
+        'next': 'First separate cutaneous or subcutaneous disease from visceral disease and establish whether there is bleeding or metastatic spread. Collapse, pale gums, breathing difficulty or a suspected hemoabdomen can require urgent stabilization. For a localized skin lesion, complete surgical margins matter; for visceral disease, staging and the realistic role of surgery and systemic treatment need to be discussed promptly.',
+        'tests': 'CBC and chemistry help identify anemia and organ effects. For visceral disease, abdominal imaging and chest staging are useful, but ultrasound can miss multifocal lesions. Pathology is important, and immunohistochemistry may be needed when a vascular tumor could represent hemangiosarcoma or another vascular neoplasm. Preserve blocks and slides if expert review is needed.'
+    },
+    'oral melanoma': {
+        'prognosis': 'Feline oral melanoma is rare but usually aggressive. In a 20-cat retrospective study, median survival was 102 days and the one-year survival rate was 15%; documented metastatic disease and tumors arising within the oral cavity rather than the lip were associated with shorter survival. A five-cat radiation series reported a median survival of 146 days. These are small retrospective groups, not a prediction for an individual cat.',
+        'next': 'Confirm that the tumor really is melanoma before building the treatment plan around that label. Feline oral malignant tumors can be difficult to classify, especially when they contain little or no pigment. Once confirmed, define local extent and metastatic stage quickly and discuss whether surgery, radiation or another local treatment is feasible. Eating, oral pain and bleeding should be managed at the same time.',
+        'tests': 'Histopathology with an appropriate immunohistochemistry panel can be important: in one study, only 2 of 22 feline oral malignant tumors suspected or previously diagnosed as melanoma were confirmed as oral malignant melanoma by immunohistochemistry. Imaging can define local bone and soft-tissue invasion, and suspicious regional lymph nodes and the chest should be assessed when the result would change treatment.'
+    },
 }
 
 SOURCES = {
@@ -28,6 +38,8 @@ SOURCES = {
     'glioma': ['PMID:30339060', 'PMID:23651604'],
     'chemodectoma': ['PMID:35811937', 'PMID:34399378', 'PMID:37533454', 'PMID:38706413'],
     'prostate cancer': ['PMID:19740688', 'PMID:15546773', 'PMID:12322712'],
+    'hemangiosarcoma': ['PMID:18081524', 'PMID:18289302', 'PMID:15767654', 'PMID:37582488', 'PMID:38227337'],
+    'oral melanoma': ['PMID:37710985', 'PMID:34190003', 'PMID:15005368'],
 }
 
 # Importing this module activates only these independently reviewed feline entries.
