@@ -1,0 +1,24 @@
+name: Normalize static location fields once
+on:
+  push:
+    branches: [database-audit-20260911]
+    paths: ['scripts/normalize_static_location_fields.py']
+permissions:
+  contents: write
+jobs:
+  normalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: database-audit-20260911
+      - name: Build normalization patch
+        run: python scripts/normalize_static_location_fields.py
+      - name: Commit normalization patch
+        run: |
+          cp /tmp/location-normalization-patch.json data/catalog_patch_zzzzzzzzzzz_static_location_normalization_20260911.json
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add data/catalog_patch_zzzzzzzzzzz_static_location_normalization_20260911.json
+          git commit -m 'Normalize structured static trial locations'
+          git push origin HEAD:database-audit-20260911
