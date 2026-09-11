@@ -1,104 +1,118 @@
-"""Diagnosis-specific decision branches for feline cancer owner guides."""
+"""Diagnosis-specific decision branches for feline cancer owner guides.
+
+Only branches that materially change the next action are kept. Generic staging and
+trial boilerplate belongs in the surrounding page, not repeated inside accordions.
+"""
 
 FELINE_BRANCHES = {
     'lymphoma': [
-        ('The exact lymphoma type is not clear yet','Before choosing treatment, pin down the anatomic form and, when possible, whether this is low-grade or high-grade lymphoma. Intestinal low-grade lymphoma and aggressive multicentric or high-grade disease are not the same clinical problem.'),
-        ('High-grade or systemic lymphoma, treatment not started','Ask what sampling is still needed and whether chemotherapy should start promptly. Check trials before prednisone or chemotherapy when this can be done safely, because prior drugs may affect eligibility.'),
-        ('Low-grade intestinal lymphoma','Confirm that the diagnosis really fits low-grade intestinal lymphoma and discuss whether chlorambucil plus prednisolone is appropriate. Track weight, appetite, vomiting/diarrhea and laboratory changes rather than judging response only by whether a mass is visible.'),
-        ('Steroids or chemotherapy have already started','Keep exact drug names, doses and dates. Do not stop steroids abruptly without instructions. Prior treatment and the length and quality of response matter if lymphoma progresses or a trial is considered.')],
+        ('Low-grade intestinal lymphoma', 'Confirm that the diagnosis really fits low-grade intestinal lymphoma and discuss whether oral therapy is appropriate. Track weight, appetite, vomiting or diarrhea, and laboratory changes rather than judging response only by whether a mass is visible.'),
+        ('High-grade or systemic lymphoma', 'This usually needs a more urgent systemic-treatment discussion than low-grade intestinal disease. Sampling, subtype, and the cat’s clinical condition determine how quickly treatment should start.'),
+        ('Steroids or chemotherapy have already started', 'Keep exact drug names, doses, and dates. Do not stop steroids abruptly without instructions. Prior treatment and the quality and duration of response matter if lymphoma progresses or a trial is considered.'),
+    ],
     'mast cell tumor': [
-        ('There is one skin mast cell tumor','A solitary feline cutaneous MCT is often primarily a local surgical problem. Get histopathology after removal and use the pathology plus site and recurrence history to decide whether anything beyond surgery is needed.'),
-        ('There are multiple or recurrent skin tumors','Multiple lesions do not automatically mean the same thing as visceral dissemination, but they justify a more careful review of pathology and the rest of the cat. Ask whether additional staging or a different local strategy is warranted.'),
-        ('The spleen is involved','Splenic MCT behaves differently from a routine skin MCT. Ask whether splenectomy is feasible and stage for other disease; published feline series support splenectomy as an important treatment in appropriate cats.'),
-        ('There is intestinal or disseminated disease','This is a different risk category from a solitary skin tumor. Define the sites involved, stabilize gastrointestinal or systemic problems, and discuss systemic treatment and realistic goals rather than applying cutaneous-MCT expectations.')],
-    'oral squamous cell carcinoma': [
-        ('The oral tumor is still present','Map the exact site and local extent before treatment. CT can be useful for bone invasion and surgical or radiation planning. Because feline oral SCC is usually locally aggressive, a long wait without a plan can cost useful local-treatment time.'),
-        ('Surgery may be feasible','Ask what operation would be required to obtain meaningful margins and what eating and oral function are expected afterward. Small, favorably located tumors are different from extensive tongue, mandibular or maxillary disease.'),
-        ('Complete surgery is not feasible','Discuss radiation, systemic or investigational treatment and symptom control together. The plan should explicitly address pain, eating and tumor bleeding; local progression is often the immediate problem.'),
-        ('Eating, drinking or pain is becoming difficult','Do not wait for the next routine oncology slot if the cat cannot maintain nutrition or comfort. Ask promptly about analgesia, hydration, nutritional support and whether a local palliative treatment can help while the cancer plan is finalized.')],
-    'mammary carcinoma': [
-        ('The mammary mass is still present','Record how many glands are involved, tumor size and whether regional lymph nodes or lungs show disease. In cats, mammary carcinoma is commonly aggressive, so surgical planning and staging should not be copied from a casual approach to a small benign-appearing lump.'),
-        ('Surgery has already been done','Review tumor size, grade, measured margins, lymphovascular invasion and lymph-node status. Those findings help determine recurrence/metastatic risk and whether an oncology discussion about additional treatment is worthwhile.'),
-        ('A regional lymph node is positive','Nodal metastasis is an important adverse finding. Complete staging and discuss systemic treatment; make sure the sampled node actually drains the affected mammary region.'),
-        ('There is metastatic, ulcerated or recurrent disease','Systemic treatment and comfort become central. Local surgery may still help selected painful, infected, ulcerated or bleeding lesions, but the expected benefit should be weighed against recovery and the extent of disease.')],
+        ('There are multiple or recurrent skin tumors', 'Multiple skin lesions are not automatically the same as visceral dissemination, but they justify a closer review of pathology and whether additional staging or a different local strategy is warranted.'),
+        ('The spleen is involved', 'Splenic mast cell tumor behaves differently from a routine skin tumor. Ask whether splenectomy is feasible and whether there is disease elsewhere before applying expectations from cutaneous MCT.'),
+        ('There is intestinal or disseminated disease', 'This is a different risk category from a solitary skin tumor. Stabilize gastrointestinal or systemic problems and discuss systemic treatment and realistic goals separately from local skin-tumor management.'),
+    ],
     'soft tissue sarcoma': [
-        ('The mass is still present','If this could be an injection-site sarcoma, plan the first surgery carefully rather than shelling out the mass. Biopsy and imaging can help define the required margins and whether referral for surgery or radiation should happen before an operation.'),
-        ('It was removed with incomplete margins','Do not wait automatically for a visible recurrence. Ask whether wider re-excision and/or radiation is feasible; feline injection-site sarcoma is especially prone to difficult local recurrence after marginal surgery.'),
-        ('It was removed with complete margins','Review the exact subtype, grade and measured margins. Complete excision improves local control, but follow-up still matters and some higher-risk tumors justify staging or additional discussion.'),
-        ('It is recurrent, unresectable or metastatic','Re-image the local site and stage the chest before assuming another surgery is useful. Radiation, systemic treatment, local investigational approaches or trials may be considered according to site and previous treatment.')],
+        ('This may be an injection-site sarcoma', 'Do not treat it like an ordinary superficial lump. Biopsy and imaging may change the first definitive surgery, and referral before excision can matter because local recurrence after marginal surgery is difficult to control.'),
+        ('It was removed with incomplete margins', 'Do not automatically wait for visible recurrence. Ask whether wider re-excision and/or radiation is feasible while the disease burden is still microscopic.'),
+        ('It is recurrent, unresectable, or metastatic', 'Re-image the local site and stage the chest before repeating surgery. Radiation, systemic treatment, or an investigational local approach may be more useful than another marginal excision.'),
+    ],
     'osteosarcoma': [
-        ('The bone tumor is still present','Control pain and assess fracture risk first. Stage the chest and define the affected bone, then discuss amputation or another local treatment. Feline osteosarcoma often behaves less metastatically than canine osteosarcoma, so do not automatically apply dog chemotherapy expectations.'),
-        ('Amputation or local surgery is done','Review pathology and staging. In many cats with completely treated appendicular osteosarcoma, surgery can be the main treatment; additional therapy depends on site, margins, histology and evidence of spread.'),
-        ('The tumor is axial or cannot be completely removed','Local control can be much harder than for a removable limb tumor. Ask about radiation, surgery feasibility, pain control and whether systemic or investigational treatment has a realistic role.'),
-        ('Metastases are present','This changes the favorable assumptions sometimes quoted for feline osteosarcoma. Treatment should be individualized around sites of spread, pain, respiratory status and realistic systemic options.')],
-    'primary lung tumor': [
-        ('There is one apparently resectable lung mass','Stage the thorax carefully and evaluate regional lymph nodes before surgery. For a solitary primary lung tumor, lung lobectomy may provide meaningful control when there is no metastatic disease.'),
-        ('Lung lobectomy has already been done','Review histologic type, grade, margins and lymph-node findings. These details are more useful than the word “lung cancer” alone for deciding whether monitoring or additional treatment is reasonable.'),
-        ('There are multiple lung nodules','First determine whether this is truly a primary lung cancer rather than metastases from another tumor or a non-neoplastic process. Surgery statistics for a solitary primary mass do not apply to diffuse pulmonary disease.'),
-        ('The tumor is unresectable or metastatic','Discuss systemic or palliative options and respiratory comfort. A trial may be relevant if measurable disease is required, but the diagnosis and primary site should be secure before matching.')],
-    'meningioma': [
-        ('MRI suggests a meningioma and treatment has not started','Ask whether the location makes surgery feasible and what neurologic deficits are expected with surgery versus radiation. Feline meningiomas are often more surgically approachable than many other primary brain tumors.'),
-        ('Seizures or neurologic signs are active','Control seizures and brain swelling while definitive planning is underway. Worsening consciousness, repeated seizures or inability to walk/eat can justify urgent neurologic assessment rather than waiting for a routine oncology appointment.'),
-        ('Surgery has already been done','Ask whether gross removal was achieved and what follow-up imaging is recommended. Histopathology confirms the diagnosis and can identify less typical behavior.'),
-        ('Surgery is not feasible or disease recurs','Radiation may be an option depending on location and prior treatment. Medical therapy can control symptoms but should not be mistaken for tumor-directed treatment.')],
-    'nasal tumor': [
-        ('There is a nasal mass but no tissue diagnosis yet','Imaging can define local invasion, but biopsy is usually needed because carcinoma, lymphoma and other nasal diseases require different treatment. Repeated nosebleeds alone do not identify the tumor type.'),
-        ('Diagnosis is confirmed and radiation is being considered','Ask what radiation protocol is appropriate for the exact histology and extent of disease. CT-based planning is useful because nasal tumors can invade locally beyond what is visible from the nostril.'),
-        ('Breathing or nosebleeds are worsening','Heavy bleeding, marked breathing difficulty or inability to eat warrants earlier assessment. Symptom control can be started while definitive treatment is arranged.'),
-        ('Radiation is complete or the tumor has recurred','Track the duration of response and repeat imaging when it will change the next decision. Re-irradiation or systemic treatment may be possible in selected cats, depending on histology and prior dose.')],
-    'melanoma': [
-        ('The melanoma is on the skin or eye','Do not use oral-melanoma expectations automatically. Exact site, histopathology, mitotic activity and local invasion matter; ocular melanoma has its own staging and treatment considerations.'),
-        ('The melanoma is oral','Feline oral melanoma is rare and published data are sparse. Confirm the diagnosis carefully, consider immunohistochemistry when morphology is uncertain, and stage regional nodes and lungs before assuming canine oral-melanoma behavior.'),
-        ('The tumor has already been removed','Review margins and diagnostic certainty. For unusual feline melanocytic tumors, pathology review can be worthwhile before adding treatment based on a label alone.'),
-        ('There is recurrence or metastatic disease','Re-stage and discuss realistic local and systemic options. Because feline evidence is limited, a specialty-center or trial review may be useful, but canine vaccine or drug outcomes should not be presented as feline evidence.')],
+        ('The tumor is axial or cannot be completely removed', 'Local control can be much harder than for a removable limb tumor. Ask about radiation, surgical feasibility, pain control, and whether systemic treatment has a realistic role for this site and stage.'),
+        ('Metastases are present', 'Visible metastasis changes the more favorable assumptions sometimes quoted for feline osteosarcoma. Treatment should be individualized around sites of spread, pain, respiratory status, and expected benefit.'),
+        ('Amputation or local surgery is already done', 'Review pathology and staging rather than assuming surgery automatically ends the discussion. Newer feline data support considering adjuvant treatment in selected nonmetastatic cats, especially when other risk factors are present.'),
+    ],
+    'oral squamous cell carcinoma': [
+        ('Complete surgery is not feasible', 'Discuss radiation, investigational treatment, and symptom control together. The plan should explicitly address pain, eating, hydration, and tumor bleeding because local progression is often the immediate problem.'),
+        ('Eating or drinking is becoming difficult', 'Do not wait for the next routine oncology slot if the cat cannot maintain nutrition, hydration, or comfort. Supportive care may need to start before the definitive cancer plan is finalized.'),
+        ('Surgery has already been done', 'Review measured margins, bone involvement, and postoperative function. Incomplete removal may justify another local-control discussion rather than waiting for obvious regrowth.'),
+    ],
     'squamous cell carcinoma': [
-        ('The SCC is on sun-exposed skin','Small superficial lesions on the pinna, nasal planum or eyelid can be a local-control problem. Earlier definitive local treatment can be easier than treating a large invasive lesion; surgery, radiation, cryotherapy or other local methods may be options by site.'),
-        ('The SCC is oral','Use the oral-SCC pathway instead. Feline oral SCC is much more aggressive locally than many cutaneous SCCs and should not inherit the prognosis of a small sun-induced skin lesion.'),
-        ('The lesion was already removed','Review depth and measured margins. Incomplete local treatment may justify re-excision, radiation or another local method depending on anatomy.'),
-        ('The lesion is extensive, recurrent or metastatic','Define whether the main problem is local invasion or true distant spread. Local treatment may still improve comfort and function; systemic evidence in cats is limited and should be discussed separately.')],
+        ('The SCC is on sun-exposed skin', 'A small superficial lesion on the pinna, nasal planum, or eyelid can be primarily a local-control problem. Earlier treatment can be easier than treating a large invasive lesion.'),
+        ('The SCC is oral', 'Use the oral-SCC pathway instead. Feline oral SCC is much more aggressive locally than many cutaneous SCCs and should not inherit the prognosis of a small sun-induced skin lesion.'),
+        ('The lesion is extensive or recurrent', 'Define whether the main problem is local invasion or true distant spread. Local treatment may still improve comfort and function even when cure is unrealistic.'),
+    ],
     'urothelial carcinoma': [
-        ('Urination is still reasonably normal','Use this time to define whether disease involves bladder, urethra or both and whether there is metastatic disease. Feline evidence is limited, so treatment should be based on the cat’s anatomy and condition rather than copied directly from canine protocols.'),
-        ('Urination is becoming difficult','Repeated straining, a weak stream or inability to pass urine can become urgent. Ask early how urine flow will be maintained if obstruction worsens.'),
-        ('Medical treatment has started','Track symptoms and imaging measurements together. Stable disease may still be clinically useful; record exact NSAIDs, chemotherapy or targeted drugs because feline safety and prior treatment matter.'),
-        ('The disease is metastatic or obstructive','Systemic options, urine-flow management and comfort need to be planned together. Interventional procedures may help selected cats even when the cancer itself cannot be removed.')],
+        ('Urination is becoming difficult', 'Repeated straining, a weak stream, or inability to pass urine can become urgent. Ask early how urine flow will be maintained if obstruction worsens.'),
+        ('Medical treatment has started', 'Track symptoms and imaging measurements together. Stable disease may still be clinically useful; record exact drugs because feline safety and prior treatment matter.'),
+        ('The disease is metastatic or obstructive', 'Systemic treatment, urine-flow management, and comfort need to be planned together. Interventional procedures may help selected cats even when the tumor itself cannot be removed.'),
+    ],
     'hepatocellular carcinoma': [
-        ('There is one liver mass','Ask whether it is confined to a resectable lobe and whether imaging suggests major vascular involvement. Solitary feline HCC can be a surgical problem, so do not apply expectations from diffuse liver cancer.'),
-        ('Liver lobectomy has already been done','Review histopathology, margins and staging. Follow-up should be based on the actual tumor type and completeness of removal rather than assuming every liver carcinoma requires chemotherapy.'),
-        ('There are multiple or diffuse liver lesions','The favorable assumptions from resectable solitary masses do not apply. Confirm the diagnosis and assess liver function before considering biopsy, systemic treatment or supportive care.'),
-        ('The mass is not resectable','Ask why: location, vascular invasion, multifocal disease or the cat’s overall condition. That distinction determines whether another local approach, systemic treatment or supportive care is realistic.')],
+        ('Liver lobectomy has already been done', 'Review histopathology, margins, and staging. Follow-up should be based on the actual tumor type and completeness of removal rather than assuming every liver carcinoma needs chemotherapy.'),
+        ('There are multiple or diffuse liver lesions', 'The favorable assumptions from a solitary resectable mass do not apply. Confirm diagnosis and liver function before considering biopsy, systemic treatment, or supportive care.'),
+        ('The mass is not resectable', 'Ask why: location, vascular invasion, multifocal disease, metastasis, or the cat’s overall condition. Those reasons lead to different realistic alternatives.'),
+    ],
+    'mammary carcinoma': [
+        ('Surgery has already been done', 'Review tumor size, grade, measured margins, lymphovascular invasion, and lymph-node status. Those findings determine recurrence risk and whether additional treatment is worth discussing.'),
+        ('A regional lymph node is positive', 'Nodal metastasis is an important adverse finding. Complete staging and discuss systemic treatment; make sure the sampled node actually drains the affected mammary region.'),
+        ('There is metastatic, ulcerated, or recurrent disease', 'Systemic treatment and comfort become central. Local surgery or radiation may still help selected painful, infected, ulcerated, or bleeding lesions when the expected benefit justifies recovery.'),
+    ],
     'thyroid carcinoma': [
-        ('A thyroid mass is newly found','Confirm that this is a neoplastic thyroid mass rather than assuming ordinary feline hyperthyroidism. Define whether it is mobile or invasive and whether the cat is hyperthyroid, euthyroid or hypothyroid.'),
-        ('The mass appears surgically removable','Ask about vascular invasion, bilateral disease and surgical risks before thyroidectomy. Histopathology after removal establishes the tumor type and margins.'),
-        ('The mass is fixed or invasive','CT can help define invasion and whether surgery is realistic. Radiation, radioactive iodine in selected functional tumors, or other treatment may be discussed according to tumor biology and anatomy.'),
-        ('There is metastatic or recurrent disease','Confirm sites of spread and whether the tumor is iodine-avid or otherwise targetable before choosing treatment. Do not use survival expectations from benign hyperthyroidism.')],
-    'prostate cancer': [
-        ('Urination is still possible','Define the prostate, urethra and bladder anatomy and stage for metastasis while the cat is stable. Because feline prostate cancer is exceptionally rare, treatment needs to be individualized rather than borrowed from dogs.'),
-        ('Urination is difficult or impossible','Inability to pass urine is an emergency. Stabilization and restoration of urine flow come before a long-term cancer plan; ask whether catheterization, stenting or another diversion procedure is feasible.'),
-        ('Surgery is being considered or already done','Ask exactly what procedure is possible and what urinary complications are expected. Keep the full histopathology because published feline experience includes different carcinoma subtypes.'),
-        ('Metastatic disease is present','Discuss symptom control and systemic options with the understanding that feline evidence is extremely sparse. Individual case reports should not be treated as a standard expected outcome.')],
-    'glioma': [
-        ('MRI suggests a glioma','Ask how confident the imaging diagnosis is and whether tissue confirmation would change treatment. Feline glioma is rare, so canine survival estimates should not be used as if they were feline data.'),
-        ('Seizures or brain-swelling signs are active','Control seizures and intracranial inflammation first. Repeated seizures, worsening consciousness or rapid neurologic decline can require urgent neurologic care.'),
-        ('Biopsy, surgery or radiation is being considered','The lesion’s location and accessibility determine what is realistic. Ask what information biopsy adds and what risks it carries before pursuing tissue solely for certainty.'),
-        ('Treatment has already started','Track neurologic function, seizure frequency, steroid dose and follow-up MRI together. Published feline outcome data are too sparse for a single reliable glioma median.')],
+        ('The mass is fixed or invasive', 'Cross-sectional imaging can help define invasion and whether surgery is realistic. Radiation, radioactive iodine in selected iodine-avid tumors, or other treatment may be more appropriate than a high-risk operation.'),
+        ('Surgery has already been done', 'Review histopathology, margins, and evidence of vascular invasion or spread. A removed thyroid carcinoma does not automatically need additional treatment.'),
+        ('There is metastatic or recurrent disease', 'Confirm sites of spread and whether the tumor is iodine-avid or otherwise targetable before choosing treatment. Do not borrow expectations from ordinary benign feline hyperthyroidism.'),
+    ],
+    'primary lung tumor': [
+        ('Lung lobectomy has already been done', 'Review histologic type, grade, margins, and lymph-node findings. These details are more useful than the phrase “lung cancer” alone for deciding whether monitoring or additional treatment is reasonable.'),
+        ('There are multiple lung nodules', 'First determine whether this is truly a primary lung cancer rather than metastases from another tumor or a non-neoplastic process. Surgery outcomes for a solitary primary mass do not apply to diffuse pulmonary disease.'),
+        ('The tumor is unresectable or metastatic', 'Discuss systemic or palliative options and respiratory comfort. The diagnosis and primary site should be secure before using canine or human lung-cancer expectations.'),
+    ],
+    'melanoma': [
+        ('The melanoma is on the eye', 'Ocular melanoma has its own staging and treatment considerations. Ophthalmic assessment matters because timing of local treatment can depend on progression, glaucoma, pain, and metastatic risk.'),
+        ('The melanoma is oral', 'Feline oral melanoma is rare and published data are sparse. Confirm the diagnosis carefully and stage the regional nodes and lungs rather than borrowing canine oral-melanoma outcomes.'),
+        ('There is recurrence or metastatic disease', 'Re-stage and discuss realistic local and systemic options. Canine vaccine or drug outcomes should not be presented as feline evidence.'),
+    ],
+    'oral melanoma': [
+        ('The diagnosis is uncertain', 'Feline oral melanoma is rare, so pathology review and immunohistochemistry can be worthwhile when morphology is not classic before committing to an aggressive treatment plan.'),
+        ('The tumor was already removed', 'Review measured margins and complete staging if it was not done. A clean-looking mouth does not answer the question of regional or distant spread.'),
+        ('There is nodal or distant spread', 'Separate control of the oral tumor from the systemic problem. Local treatment may still help pain, bleeding, or eating even when metastatic disease is present.'),
+    ],
+    'meningioma': [
+        ('Seizures or neurologic signs are active', 'Control seizures and brain swelling while definitive planning is underway. Worsening consciousness, repeated seizures, or inability to walk or eat can justify urgent neurologic assessment.'),
+        ('Surgery has already been done', 'Ask whether gross removal was achieved and what follow-up imaging is recommended. Histopathology confirms the diagnosis and can identify less typical behavior.'),
+        ('Surgery is not feasible or disease recurs', 'Radiation may be an option depending on location and prior treatment. Medical therapy can control symptoms but should not be mistaken for tumor-directed treatment.'),
+    ],
+    'nasal tumor': [
+        ('There is a nasal mass but no tissue diagnosis yet', 'Imaging can define local invasion, but biopsy is usually needed because carcinoma, lymphoma, and other nasal diseases require different treatment.'),
+        ('Breathing or nosebleeds are worsening', 'Heavy bleeding, marked breathing difficulty, or inability to eat warrants earlier assessment. Symptom control can start while definitive treatment is arranged.'),
+        ('Radiation is complete or the tumor has recurred', 'Track the duration of response and repeat imaging only when it will change the next decision. Re-irradiation or systemic treatment may be possible in selected cats depending on histology and prior dose.'),
+    ],
     'leukemia': [
-        ('The leukemia type is not clear yet','First establish whether this is acute or chronic and which blood-cell lineage is involved. Also clarify FeLV status: FeLV infection and leukemia are related in some cats but are not the same diagnosis.'),
-        ('Acute leukemia is suspected or confirmed','Acute leukemia can progress quickly. Cytopenias, infection, bleeding and weakness may need immediate supportive care while chemotherapy options and prognosis are discussed.'),
-        ('Chronic leukemia is suspected or confirmed','Some chronic leukemias behave more slowly, so treatment urgency depends on subtype, blood counts and clinical signs. Do not apply acute-leukemia survival expectations to a stable chronic case.'),
-        ('Treatment has already started','Keep serial CBC results, drug doses and transfusion/supportive-care history. Response in blood and marrow, treatment tolerance and infections guide the next step.')],
+        ('Acute leukemia is suspected or confirmed', 'Acute leukemia can progress quickly. Cytopenias, infection, bleeding, and weakness may need immediate supportive care while chemotherapy options and prognosis are discussed.'),
+        ('Chronic leukemia is suspected or confirmed', 'Some chronic leukemias behave more slowly, so treatment urgency depends on subtype, blood counts, progression, and clinical signs. Do not apply acute-leukemia survival expectations to a stable chronic case.'),
+        ('Treatment has already started', 'Keep serial CBC results, drug doses, and transfusion or supportive-care history. Response in blood and marrow, treatment tolerance, and infections guide the next step.'),
+    ],
     'multiple myeloma': [
-        ('The diagnosis is not complete yet','Confirm that the findings truly support plasma-cell myeloma rather than relying on one abnormal protein value. Combine protein studies, imaging, blood/urine findings and marrow or tissue results as appropriate.'),
-        ('There is kidney injury, high calcium or severe anemia','These complications can be more immediately important than the tumor burden itself. Stabilization and supportive treatment should happen alongside the cancer plan.'),
-        ('There is painful bone disease','Treat pain and assess fracture or spinal risk. Local radiation can sometimes help a focal painful lesion while systemic therapy addresses the plasma-cell disease.'),
-        ('Systemic treatment has started','Track monoclonal protein or other disease markers together with blood counts, kidney values and clinical response. Feline evidence is limited, so treatment response in the individual cat matters heavily.')],
-    'chemodectoma': [
-        ('A heart-base mass was just found','First determine whether the mass is causing pericardial/pleural fluid, vascular obstruction or other cardiovascular effects. In cats, chemodectoma is so rare that imaging appearance alone may not establish the exact tumor type.'),
-        ('There is pericardial or pleural fluid','Breathing difficulty, collapse or cardiovascular compromise requires stabilization first. Fluid management and cardiology assessment come before debating long-term tumor therapy.'),
-        ('The cat is stable but the mass is growing or symptomatic','Echocardiography and CT can define anatomy and help determine whether surgery, radiation or medical treatment is realistic. Sampling a heart-base mass may carry risk, so ask whether tissue will change management.'),
-        ('Metastatic disease is present','Treatment is individualized because there is no dependable feline standard or survival median. Discuss local mechanical problems, systemic disease and quality of life separately rather than relying on a single case report.')],
+        ('There is kidney injury, high calcium, or severe anemia', 'These complications can be more immediately important than tumor burden itself. Stabilization and supportive treatment should happen alongside the cancer plan.'),
+        ('There is painful bone disease', 'Treat pain and assess fracture or spinal risk. Local radiation can sometimes help a focal painful lesion while systemic therapy addresses the plasma-cell disease.'),
+        ('Systemic treatment has started', 'Track the monoclonal protein or other disease markers together with blood counts, kidney values, and clinical response. Feline evidence is limited, so the individual cat’s response matters heavily.'),
+    ],
+    'glioma': [
+        ('Seizures or brain-swelling signs are active', 'Control seizures and intracranial inflammation first. Repeated seizures, worsening consciousness, or rapid neurologic decline can require urgent neurologic care.'),
+        ('Biopsy, surgery, or radiation is being considered', 'The lesion’s location and accessibility determine what is realistic. Ask what information biopsy adds and what risks it carries before pursuing tissue solely for certainty.'),
+        ('Treatment has already started', 'Track neurologic function, seizure frequency, steroid dose, and follow-up MRI together. Published feline outcome data are too sparse for a single reliable survival expectation.'),
+    ],
+    'prostate cancer': [
+        ('Urination is difficult or impossible', 'Inability to pass urine is an emergency. Stabilization and restoration of urine flow come before a long-term cancer plan; ask whether catheterization, stenting, or another diversion procedure is feasible.'),
+        ('Surgery is being considered or already done', 'Ask exactly what procedure is possible and what urinary complications are expected. Keep the full histopathology because published feline experience includes different carcinoma subtypes.'),
+        ('Metastatic disease is present', 'Discuss symptom control and systemic options with the understanding that feline evidence is extremely sparse. Individual case reports should not be treated as a standard expected outcome.'),
+    ],
+    'hemangiosarcoma': [
+        ('There is internal bleeding or suspected rupture', 'Pale gums, collapse, marked weakness, a distended abdomen, or breathing difficulty can be urgent. Stabilization and control of bleeding come before the long-term cancer plan.'),
+        ('The tumor was already removed', 'Review the exact primary site, pathology, margins, and staging. Feline hemangiosarcoma behavior differs by site, so a superficial cutaneous tumor and visceral disease should not be given the same expectations.'),
+        ('Visceral or metastatic disease is present', 'Systemic evidence in cats is limited. Focus the discussion on the sites causing clinical problems, realistic treatment goals, and whether any systemic option has feline-specific support.'),
+    ],
     'histiocytic sarcoma': [
-        ('There appears to be one localized lesion','Confirm histiocytic origin with appropriate pathology and stage for additional disease. A truly localized resectable lesion may have different options from disseminated feline HS.'),
-        ('The lesion has already been removed','Review margins and immunohistochemistry, then complete staging if it was not done. Preserve blocks/slides because rare-tumor expert review or research may require them.'),
-        ('Several organs or sites are involved','This is a systemic problem rather than simply a margin problem. Discuss systemic treatment, symptom control and realistic goals; feline evidence is sparse and canine HS outcomes should not be substituted.'),
-        ('The diagnosis is uncertain','Because feline HS is rare, pathology review and immunohistochemistry are especially important before committing to an aggressive treatment plan.')],
+        ('The lesion has already been removed', 'Review margins and immunohistochemistry, then complete staging if it was not done. Preserve blocks or slides because rare-tumor expert review or research may require them.'),
+        ('Several organs or sites are involved', 'This is a systemic problem rather than simply a margin problem. Discuss systemic treatment, symptom control, and realistic goals; canine histiocytic-sarcoma outcomes should not be substituted.'),
+        ('The diagnosis is uncertain', 'Because feline histiocytic sarcoma is rare, pathology review and appropriate immunohistochemistry are especially important before committing to aggressive treatment.'),
+    ],
+    'chemodectoma': [
+        ('There is pericardial or pleural fluid', 'Breathing difficulty, collapse, or cardiovascular compromise requires stabilization first. Fluid management and cardiology assessment come before debating long-term tumor therapy.'),
+        ('The mass is growing or causing compression', 'Echocardiography and CT can define anatomy and help determine whether radiation, surgery, or medical treatment is realistic. Sampling a heart-base mass may carry risk, so tissue should have a clear purpose.'),
+        ('Metastatic disease is present', 'Treatment is individualized because there is no dependable feline standard. Discuss mechanical local problems, systemic disease, and quality of life separately rather than relying on a single case report.'),
+    ],
 }
