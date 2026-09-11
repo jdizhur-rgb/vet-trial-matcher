@@ -146,8 +146,11 @@ def write(body,*a,**k):
         text=body.replace("**Trial funding:**","",1).strip();low=text.lower()
         cls="funding-full" if any(x in low for x in ("fully funded","no cost to the owner","at no cost","no cost to owners")) else "funding-partial" if any(x in low for x in ("partially funded","partial funding","partially covered")) else "funding-neutral"
         import html as _html;_orig["markdown"](f'<div class="{cls}"><strong>Trial funding:</strong> {_html.escape(text)}</div>',unsafe_allow_html=True);return
-    if isinstance(body,str) and body.startswith("**Contact:**"):return _orig["write"](body,*a,**k)
-    if isinstance(body,str) and body.startswith("**Participating sites:**"):return _orig["write"](body,*a,**k)
+    if isinstance(body,str) and body.startswith("**Contact:**"):
+        contact=body.replace("**Contact:**","",1).strip();linked=_linkify_contact(contact)
+        if linked:_orig["markdown"]("**Contact:** "+linked)
+        return
+    if isinstance(body,str) and body.startswith("**Participating sites:**"):return _orig["markdown"](body)
     if body==_feedback_text:_save_controls();return
     return _orig["write"](body,*a,**k)
 def link_button(label,url,*a,**k):
