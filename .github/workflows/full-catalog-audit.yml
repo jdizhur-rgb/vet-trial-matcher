@@ -17,3 +17,48 @@ jobs:
           fetch-depth: 0
       - name: Run full catalog audit
         run: python scripts/full_catalog_audit.py
+      - name: Audit active static locations
+        run: |
+          python - <<'PY'
+          import json,re
+          from pathlib import Path
+          d=Path('data')
+          rows={r['id']:dict(r) for r in json.loads((d/'trials_base.json').read_text())}
+          for p in [d/'trial_updates.json']+sorted(d.glob('catalog_patch_*.json')):
+              if not p.exists(): continue
+              doc=json.loads(p.read_text())
+              for rid in doc.get('delete',[]): rows.pop(rid,None)
+              for q in doc.get('upsert',[]):
+                  old=dict(rows.get(q['id'],{}))
+                  for k,v in q.items():
+                      if k in {'requires','excludes'} and isinstance(v,dict):
+                          n=dict(old.get(k,{})); n.update(v); old[k]=n
+                      else: old[k]=v
+                  rows[q['id']]=old
+          active=[r for r in rows.values() if r.get('available_for_matching',True) and r.get('status_confidence') in {'current','confirmed_current'} and r.get('study_type','treatment') in {'treatment','other_treatment_access'}]
+          no_site=[]; weak=[]; inactive=[]
+          for r in active:
+              sites=r.get('sites') or []
+              shown=[]
+              for s in sites:
+                  if isinstance(s,dict) and s.get('status','active')!='active':
+                      inactive.append((r['id'],s.get('label') or s.get('hospital')))
+                      continue
+                  shown.append(s)
+              if not shown: no_site.append(r['id'])
+              for s in shown:
+                  text=(s.get('label') or s.get('address') or s.get('hospital') or '') if isinstance(s,dict) else str(s)
+                  if not re.search(r'\d',text): weak.append((r['id'],text))
+          print('ACTIVE',len(active))
+          print('NO_ACTIVE_SITE',no_site)
+          print('INACTIVE_SITE_ROWS',len(inactive))
+          print('WEAK_ACTIVE_SITE_COUNT',len(weak))
+          for x in weak: print('WEAK',x[0],'|',x[1])
+          e=rows['ethos-gilvetmab-melanoma']
+          et=' | '.join((x.get('label') or x.get('hospital','')) if isinstance(x,dict) else str(x) for x in e.get('sites',[]))
+          print('ETHOS',et)
+          assert len(active)==142
+          assert not no_site
+          assert all(v in et for v in ('734 Alpha Drive','2505 S 80th St','10435 Sorrento Valley Rd'))
+          print('STATIC_LOCATION_AUDIT_PASS')
+          PY
