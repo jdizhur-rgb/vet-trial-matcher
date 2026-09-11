@@ -2,7 +2,9 @@ name: Build static address patch once
 on:
   push:
     branches: [database-audit-20260911]
-    paths: ['scripts/build_static_address_patch.py']
+    paths:
+      - 'scripts/build_static_address_patch.py'
+      - '.github/workflows/build-static-address-patch-once.yml'
 permissions:
   contents: write
 jobs:
