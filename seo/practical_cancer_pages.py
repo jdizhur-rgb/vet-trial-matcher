@@ -6,29 +6,20 @@ from cancer_owner_content import CONTENT
 from cancer_practical_content import PRACTICAL
 from canine_branch_content import ADDITIONAL_BRANCHES
 from feline_practical_content import FELINE_PRACTICAL
-from species_owner_content_overrides import FELINE_OWNER_CONTENT
+from species_owner_content_overrides import CANINE_OWNER_CONTENT,FELINE_OWNER_CONTENT
 from cancer_content_audit_overrides import CANINE_PRACTICAL_OVERRIDES,FELINE_PRACTICAL_OVERRIDES
 
 CSS=r'''.owner-guide,.owner-guide p,.owner-guide li{color:#263238!important}.owner-guide strong{color:#1f2d38!important}.owner-guide h2{margin-top:25px;color:#477ca8!important;font-size:1.2rem;font-weight:700}.guide-reality{margin:19px 0;padding:16px 18px;border:1px solid #dbe7f0;border-radius:14px;background:#f8fbfd}.guide-reality h2{margin-top:0;color:#477ca8!important}.guide-accordions{display:grid;gap:9px;margin:12px 0 20px}.guide-accordions details{border:1px solid #dbe7f0;border-radius:12px;background:#fff;overflow:hidden}.guide-accordions summary{position:relative;cursor:pointer;list-style:none;padding:13px 42px 13px 15px;color:#4d7da3!important;font-weight:650;line-height:1.35}.guide-accordions summary::-webkit-details-marker{display:none}.guide-accordions summary:after{content:'+';position:absolute;right:15px;top:50%;transform:translateY(-50%);color:#9aabba;font-size:1.25rem;font-weight:400}.guide-accordions details[open] summary:after{content:'−'}.guide-accordions details[open] summary{background:#f8fbfd}.guide-detail{padding:2px 15px 13px}.guide-detail p{margin:.45rem 0}.guide-more{margin-top:22px}@media(max-width:600px){.owner-guide h2{font-size:1.08rem;margin-top:20px}.guide-reality{padding:13px 14px;margin:15px 0}.guide-accordions summary{padding:11px 38px 11px 13px;font-size:.96rem}}'''.strip()
 
-BRANCHES={}
-BRANCHES.update(ADDITIONAL_BRANCHES)
-
-SKIP_FIRST_CANINE={
- 'prostate cancer','primary lung tumor','glioma','meningioma','nasal tumor',
- 'leukemia','multiple myeloma','chemodectoma'
-}
-SKIP_FIRST_FELINE={
- 'lymphoma','primary lung tumor','meningioma','nasal tumor','melanoma',
- 'urothelial carcinoma','hepatocellular carcinoma','thyroid carcinoma',
- 'prostate cancer','glioma','leukemia','multiple myeloma','chemodectoma'
-}
+# No generic filler branches. Every entry in ADDITIONAL_BRANCHES is deliberately
+# diagnosis-specific and has already survived the editorial audit.
+BRANCHES=dict(ADDITIONAL_BRANCHES)
 
 def _p(s):return html.escape(s)
 
 def _owner_content(key,pet):
- if pet=='cat' and key in FELINE_OWNER_CONTENT:return FELINE_OWNER_CONTENT[key]
- return CONTENT[key]
+ if pet=='cat':return FELINE_OWNER_CONTENT.get(key,CONTENT[key])
+ return CANINE_OWNER_CONTENT.get(key,CONTENT[key])
 
 def _practical_content(key,pet,practical):
  base=dict(practical[key])
@@ -36,15 +27,9 @@ def _practical_content(key,pet,practical):
  base.update(overrides.get(key,{}))
  return base
 
-def _useful_branches(key,pet):
- branches=list(BRANCHES.get(key,[]))
- skip=SKIP_FIRST_FELINE if pet=='cat' else SKIP_FIRST_CANINE
- if key in skip and branches:branches=branches[1:]
- return branches
-
 def section(label,key,pet,practical):
  about,treatment,_factors=_owner_content(key,pet);p=_practical_content(key,pet,practical)
- branches=_useful_branches(key,pet)
+ branches=list(BRANCHES.get(key,[]))
  branch_block=''
  if branches:
   items=''.join(f'<details><summary>{_p(a)}</summary><div class="guide-detail"><p>{_p(b)}</p></div></details>' for a,b in branches)
