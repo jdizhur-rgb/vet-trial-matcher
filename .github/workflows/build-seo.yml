@@ -13,6 +13,7 @@ on:
       - 'seo/generate_cancer_coverage.py'
       - 'seo/cancer_page_enhancements.py'
       - 'seo/cancer_owner_content.py'
+      - 'seo/hs_owner_page.py'
       - 'seo/center_page_enhancements.py'
       - 'seo/finalize_cancer_pages.py'
       - 'seo/address_preflight_report.py'
@@ -124,7 +125,7 @@ jobs:
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
-          path: seo/site
+          path: seo/site/
   deploy:
     environment:
       name: github-pages
