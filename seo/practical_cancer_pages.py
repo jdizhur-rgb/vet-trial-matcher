@@ -84,28 +84,37 @@ def _p(s): return html.escape(s)
 def _generic_branches(pet):
  return [('The tumor is still there','Before the first major treatment, make sure the diagnosis and extent of disease are clear enough to plan it well. Check clinical trials before treatment when there is time to do so safely; some require measurable or untreated disease.'),('The tumor was already removed','Get the complete pathology report. Margin status, grade or subtype and other tumor-specific findings can change what comes next. Ask whether staging is complete and whether additional local or systemic treatment is actually indicated.'),('The cancer has spread or cannot be removed',f'Local treatment may still help a specific problem, while systemic treatment and trials may become more important. The realistic choices depend on the site, stage and your {pet}\'s condition.'),(f'My {pet} is already in treatment','Trials may still be possible. Check which studies allow the treatments already given before changing therapy if the current treatment stops working.')]
 
-def section(label,key,pet,practical):
+def build_section(label,key,pet,practical,branches):
  about,treatment,factors=CONTENT[key]; p=practical[key]
- branches=BRANCHES.get(key,_generic_branches(pet)) if pet=='dog' else _generic_branches(pet)
- branch_html=''.join(f'<details><summary>{_p(title)}</summary><div class="guide-detail"><p>{_p(body)}</p></div></details>' for title,body in branches)
- return f'''<section class="disease owner-guide">
-<h2>Understanding {html.escape(label)}</h2><p>{_p(about)}</p>
-<div class="guide-reality"><h2>What does the prognosis look like?</h2><p>{_p(p['prognosis'])}</p><p><strong>No statistic can predict your {pet}.</strong> The useful question is what the published numbers mean for the decisions in front of you now.</p></div>
-<h2>After a {html.escape(label)} diagnosis</h2><p>{_p(p['next'])}</p>
-<h2>Where are you now?</h2><div class="guide-accordions">{branch_html}</div>
-<div class="guide-waiting"><h2>If you are waiting for oncology</h2><p>If the appointment is far away, ask about a cancellation list or another oncology center. Complete useful staging that can be arranged safely and check trials before the next irreversible treatment decision.</p><p>Checking early does not commit you to a trial. It simply prevents an otherwise suitable option from disappearing because a required tumor was removed or an excluded drug was started first.</p></div>
-<div class="guide-accordions guide-more"><details><summary>Questions to ask your oncologist</summary><div class="guide-detail"><ul class="guide-questions"><li>What exact subtype, grade and stage do we know?</li><li>Is anything important still missing before we choose treatment?</li><li>What is the goal of treatment: cure, long-term control, slowing spread, or symptom control?</li><li>What would make you change this plan?</li><li>Could treatment we start now affect clinical-trial eligibility later?</li></ul></div></details>
-<details><summary>How it is usually treated</summary><div class="guide-detail"><p>{_p(treatment)}</p></div></details>
-<details><summary>What can affect treatment choices</summary><div class="guide-detail"><p>{_p(factors)}</p></div></details>
-<details><summary>Tests worth asking about</summary><div class="guide-detail"><p>{_p(p['tests'])}</p><p>Before paying for an additional cancer test, ask one practical question: <strong>will this result change treatment or trial eligibility now?</strong></p></div></details></div></section>'''
+ parts=['<section class="disease owner-guide">']
+ if about: parts.extend((f'<h2>Understanding {html.escape(label)}</h2>',f'<p>{_p(about)}</p>'))
+ prognosis=p.get('prognosis','').strip()
+ if prognosis: parts.append(f'<div class="guide-reality"><h2>What does the prognosis look like?</h2><p>{_p(prognosis)}</p><p><strong>No statistic can predict your {pet}.</strong> The useful question is what the published numbers mean for the decisions in front of you now.</p></div>')
+ next_step=p.get('next','').strip()
+ if next_step: parts.extend((f'<h2>After a {html.escape(label)} diagnosis</h2>',f'<p>{_p(next_step)}</p>'))
+ usable_branches=[(title,body) for title,body in branches if title.strip() and body.strip()]
+ if usable_branches:
+  branch_html=''.join(f'<details><summary>{_p(title)}</summary><div class="guide-detail"><p>{_p(body)}</p></div></details>' for title,body in usable_branches)
+  parts.append(f'<h2>Where are you now?</h2><div class="guide-accordions">{branch_html}</div>')
+ parts.append('<div class="guide-waiting"><h2>If you are waiting for oncology</h2><p>If the appointment is far away, ask about a cancellation list or another oncology center. Complete useful staging that can be arranged safely and check trials before the next irreversible treatment decision.</p><p>Checking early does not commit you to a trial. It simply prevents an otherwise suitable option from disappearing because a required tumor was removed or an excluded drug was started first.</p></div>')
+ details=['<details><summary>Questions to ask your oncologist</summary><div class="guide-detail"><ul class="guide-questions"><li>What exact subtype, grade and stage do we know?</li><li>Is anything important still missing before we choose treatment?</li><li>What is the goal of treatment: cure, long-term control, slowing spread, or symptom control?</li><li>What would make you change this plan?</li><li>Could treatment we start now affect clinical-trial eligibility later?</li></ul></div></details>']
+ if treatment: details.append(f'<details><summary>How it is usually treated</summary><div class="guide-detail"><p>{_p(treatment)}</p></div></details>')
+ if factors: details.append(f'<details><summary>What can affect treatment choices</summary><div class="guide-detail"><p>{_p(factors)}</p></div></details>')
+ tests=p.get('tests','').strip()
+ if tests: details.append(f'<details><summary>Tests worth asking about</summary><div class="guide-detail"><p>{_p(tests)}</p><p>Before paying for an additional cancer test, ask one practical question: <strong>will this result change treatment or trial eligibility now?</strong></p></div></details>')
+ parts.extend((f'<div class="guide-accordions guide-more">{"".join(details)}</div>','</section>'))
+ return ''.join(parts)
 
-def _apply(root,species,pet,practical,skip_hs=False):
+def section(label,key,pet,practical):
+ branches=BRANCHES.get(key,_generic_branches(pet)) if pet=='dog' else _generic_branches(pet)
+ return build_section(label,key,pet,practical,branches)
+
+def _apply(root,species,pet,practical):
  root=Path(root); changed=0
  for path in root.rglob('index.html'):
   rel=path.relative_to(root).parts
   if len(rel)!=4 or rel[0] not in {'north-america','uk-europe'} or rel[1]!=species or rel[3]!='index.html': continue
   key=rel[2].replace('-',' ')
-  if skip_hs and key=='histiocytic sarcoma': continue
   if key not in practical or key not in CONTENT: continue
   text=path.read_text(encoding='utf-8')
   h=re.search(r'<h1>(.*?)</h1>',text,re.S); label=html.unescape(re.sub(r'<.*?>','',h.group(1))) if h else key.title()
@@ -116,7 +125,7 @@ def _apply(root,species,pet,practical,skip_hs=False):
  return changed
 
 def apply_practical_cancer_guides(root:Path)->int:
- changed=_apply(root,'dogs','dog',PRACTICAL,True)
+ changed=_apply(root,'dogs','dog',PRACTICAL)
  if not changed: raise AssertionError('Practical cancer guide matched no canine pages')
  print('PRACTICAL_CANINE_CANCER_GUIDES_APPLIED',changed); return changed
 
