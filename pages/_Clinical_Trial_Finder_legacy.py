@@ -870,10 +870,14 @@ if search_clicked:
                     )
                 )
                 if tr.get('sites'):
+                    active_sites = [x for x in tr['sites'] if not isinstance(x, dict) or x.get('status', 'active') == 'active']
                     site_text = '; '.join(
-                        f"{x['hospital']} — {x['city']}, {x['state']}" for x in tr['sites']
+                        (x.get('label') or f"{x.get('hospital','')} — {x.get('city','')}, {x.get('state','')}".strip(' —,'))
+                        if isinstance(x, dict) else str(x)
+                        for x in active_sites
                     )
-                    st.write('**Participating sites:** ' + site_text)
+                    if site_text:
+                        st.write('**Participating sites:** ' + site_text)
                 details_url = tr.get('registry_url') or tr.get('url', '')
                 if details_url:
                     st.link_button('View full study details →', details_url, use_container_width=True)

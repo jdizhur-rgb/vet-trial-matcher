@@ -119,13 +119,6 @@ def markdown(body,*a,**k):
             if confidence == "Prescreening required":_orig["markdown"]('<span style="display:inline-block;font-size:.76rem;font-weight:600;color:#6f665f;background:#f3f0ec;padding:.12rem .44rem;border-radius:999px;margin:0 0 .12rem">Prescreening required</span>',unsafe_allow_html=True)
             else:_orig["markdown"](f'<div style="font-size:.82rem;line-height:1.1;font-weight:650;color:#6f665f;margin:0 0 .12rem">{confidence}</div>',unsafe_allow_html=True)
             _orig["markdown"](f'<div style="font-size:1.03rem;line-height:1.16;font-weight:700;color:#2f6f73;margin:.04rem 0 .18rem">{center}</div>',unsafe_allow_html=True)
-            try:
-                from seo.center_directory import addresses_for as _addresses_for
-                _addresses = _addresses_for(center)
-            except Exception:
-                _addresses = []
-            for _address in _addresses:
-                _orig["markdown"](f"📍 {_address}")
             return
         if body.startswith("**Study type:**"):return
         if body.startswith("**Why it may fit:**"):return _orig["markdown"]("**Why:** "+body.replace("**Why it may fit:**","",1).strip().rstrip(".")+".")
