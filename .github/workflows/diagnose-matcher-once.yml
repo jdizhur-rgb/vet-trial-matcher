@@ -1,12 +1,12 @@
-name: Diagnose matcher once
+name: Fix card metadata rendering once
 on:
   push:
     branches: [streamlit-prod]
     paths: ['.github/workflows/diagnose-matcher-once.yml']
 permissions:
-  contents: read
+  contents: write
 jobs:
-  diagnose:
+  fix-and-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -15,33 +15,54 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Remove shell interception of card metadata
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('app.py')
+          s=p.read_text()
+          old1='        if body.startswith("**Contact:**"):_pending["contact"]=body.replace("**Contact:**","",1).strip();return\n        if body.startswith("**Participating sites:**"):_pending["sites"]=body.replace("**Participating sites:**","",1).strip();return\n'
+          if old1 not in s: raise SystemExit('expected markdown interception block not found')
+          s=s.replace(old1,'',1)
+          old2='    if isinstance(body,str) and body.startswith("**Contact:**"):\n        contact=body.replace("**Contact:**","",1).strip();linked=_linkify_contact(contact)\n        if linked:_orig["markdown"]("**Contact:** "+linked)\n        return\n    if isinstance(body,str) and body.startswith("**Participating sites:**"):return _orig["markdown"](body)\n'
+          new2='    if isinstance(body,str) and body.startswith("**Contact:**"):return _orig["write"](body,*a,**k)\n    if isinstance(body,str) and body.startswith("**Participating sites:**"):return _orig["write"](body,*a,**k)\n'
+          if old2 not in s: raise SystemExit('expected write interception block not found')
+          s=s.replace(old2,new2,1)
+          p.write_text(s)
+          compile(s,'app.py','exec')
+          PY
       - run: pip install -r requirements.txt
-      - name: Execute real Streamlit widget flow
+      - name: Verify Ethos, UC Davis and BARC in real Streamlit flow
         run: |
           python - <<'PY'
           from streamlit.testing.v1 import AppTest
           at=AppTest.from_file('app.py', default_timeout=30).run()
           def sb(label):
-              for x in at.selectbox:
-                  if x.label==label:return x
-              raise RuntimeError(f'missing selectbox {label}; have {[x.label for x in at.selectbox]}')
-          sb('Country / region').select('USA')
-          sb('Cancer type').select('Oral melanoma')
-          at.run()
+              return next(x for x in at.selectbox if x.label==label)
+          sb('Country / region').select('USA'); sb('Cancer type').select('Oral melanoma'); at.run()
           sb('How certain is the diagnosis?').select('Confirmed by pathology/cytology')
           sb('Current tumor status').select('Tumor still present / measurable')
-          sb('Metastases').select('Confirmed metastases')
-          sb('Has your veterinarian said the disease is localized?').select('No')
-          at.run()
-          buttons=[b for b in at.button if b.label=='Find potential trials']
-          if not buttons: raise RuntimeError(f'Find button missing; have {[b.label for b in at.button]}')
-          buttons[0].click()
-          at.run()
-          print('===RENDERED===')
-          for kind in ('markdown','text','caption','info','success','warning','error'):
-              for e in getattr(at,kind):
-                  v=getattr(e,'value',None)
-                  if v is not None and any(s in str(v) for s in ['Ethos','Participating sites','Metropolitan Veterinary','Summit Veterinary','Veterinary Specialty Hospital','Contact:','UC Davis','Bridge Animal']):
-                      print(kind,repr(str(v)))
-          print('EXCEPTIONS=',[(getattr(e,'message',None),getattr(e,'stack_trace',None)) for e in at.exception])
+          sb('Metastases').select('Confirmed metastases'); sb('Has your veterinarian said the disease is localized?').select('No'); at.run()
+          next(b for b in at.button if b.label=='Find potential trials').click(); at.run()
+          vals=[str(getattr(e,'value','')) for kind in ('markdown','text','caption') for e in getattr(at,kind)]
+          joined='\n'.join(vals)
+          checks={
+            'Ethos center':'Ethos Veterinary Health',
+            'Ethos Cleveland':'Metropolitan Veterinary Hospital — Cleveland, OH',
+            'Ethos Tacoma':'Summit Veterinary Referral Center — Tacoma, WA',
+            'Ethos San Diego':'Veterinary Specialty Hospital — San Diego, CA',
+            'UC Davis address':'1 Garrod Dr, Davis, CA 95616',
+            'BARC contact':'425-697-2272',
+          }
+          missing=[name for name,text in checks.items() if text not in joined]
+          if at.exception: raise SystemExit('Streamlit exceptions: '+repr(at.exception))
+          if missing: raise SystemExit('Missing rendered fields: '+repr(missing))
+          print('CARD_METADATA_TEST_OK', checks)
           PY
+      - name: Commit tested runtime fix
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add app.py
+          git commit -m 'Render trial sites and contacts natively in result cards'
+          git push origin HEAD:streamlit-prod
