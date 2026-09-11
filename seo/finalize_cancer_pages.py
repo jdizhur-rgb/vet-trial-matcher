@@ -1,26 +1,12 @@
 #!/usr/bin/env python3
-"""Final consistency pass for generated English cancer pages.
-
-Keeps the rendered availability summary synchronized with the actual trial cards
-and removes duplicate empty-state messaging. This runs after the normal cancer
-page enhancement step and fails the build if counts disagree.
-
-A production deploy is intentionally triggered when this validator changes so
-clean public cancer URLs can be checked against the freshly generated pages.
-"""
+"""Final consistency pass for generated English cancer pages."""
 from __future__ import annotations
-
 import re
 from pathlib import Path
 
-SUMMARY_COUNT_RE = re.compile(r'<strong class="opportunity-count">(?P<count>\d+) current treatment opportunities</strong>')
-ZERO_SUMMARY = 'No current treatment opportunities in our catalog'
+SUMMARY_COUNT_RE = re.compile(r'<p class="option-count">(?P<count>\d+) option(?:s)? currently in our catalog\.</p>')
+ZERO_SUMMARY = 'No active listings in our catalog right now.'
 CARD_RE = re.compile(r'<article class="card"><h3>')
-ZERO_SECTION = (
-    '<h2>Current clinical trials &amp; treatment options</h2>'
-    '<p class="section-intro">No active listings are currently represented in our catalog for this species and region. '
-    'We keep this page available so new opportunities can appear here when they open.</p>'
-)
 
 
 def _is_english_cancer_page(path: Path, root: Path) -> bool:
@@ -31,7 +17,6 @@ def _is_english_cancer_page(path: Path, root: Path) -> bool:
 def finalize_cancer_pages(root: Path) -> int:
     root = Path(root)
     checked = 0
-    changed = 0
     for path in root.rglob('index.html'):
         if not _is_english_cancer_page(path, root):
             continue
@@ -54,19 +39,10 @@ def finalize_cancer_pages(root: Path) -> int:
                 raise AssertionError(f'{path}: positive availability summary but no trial cards')
             if not zero:
                 raise AssertionError(f'{path}: no trial cards and no explicit zero-state summary')
-            # The summary already explains that there are no current listings;
-            # do not repeat the same information in a second empty-state block.
-            new = text.replace(ZERO_SECTION, '', 1)
-            if new != text:
-                path.write_text(new, encoding='utf-8')
-                text = new
-                changed += 1
-            if ZERO_SECTION in text:
-                raise AssertionError(f'{path}: duplicate zero-state section survived finalization')
 
     if not checked:
         raise AssertionError('No English cancer pages found for final consistency pass')
-    print('CANCER_PAGE_CONSISTENCY_OK', checked, 'ZERO_STATE_DEDUPED', changed)
+    print('CANCER_PAGE_CONSISTENCY_OK', checked)
     return checked
 
 
