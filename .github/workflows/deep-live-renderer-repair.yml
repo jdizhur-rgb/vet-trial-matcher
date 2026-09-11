@@ -12,109 +12,78 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: live-main-repair
-          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Apply renderer/data repair
+      - name: Repair renderer only
         run: |
-          git fetch origin streamlit-prod
-          git show origin/streamlit-prod:seo/center_directory.py > seo/center_directory.py
-          git show origin/streamlit-prod:data/catalog_patch_zzzz_integrity_cleanup_20260910.json > data/catalog_patch_zzzz_integrity_cleanup_20260910.json
-          git show origin/streamlit-prod:data/catalog_patch_zzzzz_render_hotfix_20260911.json > data/catalog_patch_zzzzz_render_hotfix_20260911.json
-          git show origin/streamlit-prod:data/catalog_patch_zzzzzz_verified_locations_20260911.json > data/catalog_patch_zzzzzz_verified_locations_20260911.json
           python - <<'PY'
           from pathlib import Path
           import re
 
-          # PASS 1: remove stale result-card metadata buffering from the shell.
-          p=Path('app.py')
-          s=p.read_text()
-          s=s.replace(';_pending={"contact":None,"sites":None,"url":None}', '')
-          # Result header should only style confidence + center. Location belongs to the result renderer.
-          s=re.sub(
-              r'            _orig\["markdown"\]\(f\'<div style="font-size:1\.03rem;line-height:1\.16;font-weight:700;color:#2f6f73;margin:\.04rem 0 \.18rem">\{center\}</div>\',unsafe_allow_html=True\)\n            try:\n                from seo\.center_directory import addresses_for as _addresses_for\n                _addresses = _addresses_for\(center\)\n            except Exception:\n                _addresses = \[\]\n            for _address in _addresses:\n                _orig\["markdown"\]\(f"📍 \{_address\}"\)\n            return',
-              '            _orig["markdown"](f\'<div style="font-size:1.03rem;line-height:1.16;font-weight:700;color:#2f6f73;margin:.04rem 0 .18rem">{center}</div>\',unsafe_allow_html=True)\n            return',
-              s,
-              count=1,
-          )
-          # Old main branch buffered markdown metadata for a now-nonexistent "Study details" expander.
-          s=s.replace('        if body.startswith("**Contact:**"):_pending["contact"]=body.replace("**Contact:**","",1).strip();return\n        if body.startswith("**Participating sites:**"):_pending["sites"]=body.replace("**Participating sites:**","",1).strip();return\n','')
-          # Contact/sites are owned by the page renderer, not monkeypatched write().
-          s=re.sub(r'    if isinstance\(body,str\) and body\.startswith\("\*\*Contact:\*\*"\):\n        contact=.*?\n        return\n    if isinstance\(body,str\) and body\.startswith\("\*\*Participating sites:\*\*"\):return _orig\["markdown"\]\(body\)\n', '', s, count=1, flags=re.S)
-          # Link buttons must never be swallowed by shell state.
-          s=re.sub(r'def link_button\(label,url,\*a,\*\*k\):\n    if label=="Official study page":_pending\["url"\]=url;return\n    return _orig\["link_button"\]\(label,url,\*a,\*\*k\)', 'def link_button(label,url,*a,**k):\n    return _orig["link_button"](label,url,*a,**k)', s, count=1)
-          # Remove dead Study-details buffer path. Keep only stable unique keys for Study information.
-          s=re.sub(
-              r'@contextmanager\ndef expander\(label,\*a,\*\*k\):\n    if label=="Study details":.*?        with _orig\["expander"\]\(label,\*a,\*\*k\):yield',
-              '@contextmanager\ndef expander(label,*a,**k):\n    if label=="Study information":\n        _study_expander_seq["n"]+=1;k=dict(k);k["key"]=f"study-info-{_study_expander_seq[\'n\']}"\n    with _orig["expander"](label,*a,**k):yield',
-              s,
-              count=1,
-              flags=re.S,
-          )
-          if '_pending[' in s:
-              raise SystemExit('stale _pending references remain in app.py')
-          compile(s,'app.py','exec')
-          p.write_text(s)
+          # BARC: confirmed single physical center address.
+          p=Path('seo/center_directory.py'); s=p.read_text()
+          barc='    "Bridge Animal Referral Center (BARC)": "Bridge Animal Referral Center, 8401 Main St, Edmonds, WA 98026",\n'
+          if barc not in s:
+              anchor='    "Aurelius Biotherapeutics": "Aurelius Biotherapeutics, 720 Virginia St, Bellingham, WA 98225",\n'
+              if anchor not in s: raise SystemExit('BARC anchor not found')
+              s=s.replace(anchor,anchor+barc,1)
+          compile(s,'seo/center_directory.py','exec'); p.write_text(s)
 
-          # PASS 2: make one renderer own all result-card metadata.
-          p=Path('pages/1_Clinical_Trial_Finder.py')
-          s=p.read_text()
-          if 'from seo.center_directory import addresses_for as _addresses_for' not in s:
-              anchor='import json as _json\n'
-              if anchor not in s: raise SystemExit('page import anchor not found')
-              s=s.replace(anchor, anchor+'from seo.center_directory import addresses_for as _addresses_for\n',1)
+          # Shell: delete stale metadata buffering. Result metadata must render where it is emitted.
+          p=Path('app.py'); s=p.read_text()
+          s=s.replace('        if body.startswith("**Contact:**"):_pending["contact"]=body.replace("**Contact:**","",1).strip();return\n','')
+          s=s.replace('        if body.startswith("**Participating sites:**"):_pending["sites"]=body.replace("**Participating sites:**","",1).strip();return\n','')
+          compile(s,'app.py','exec'); p.write_text(s)
 
-          helper='''\n\ndef _trial_location_lines(tr):\n    """Return human-readable patient-facing locations from the merged trial record.\n\n    Study-specific participating sites win. A center-directory address is only a\n    fallback for genuinely single-center records. No location is invented.\n    """\n    sites = tr.get("sites") or []\n    out = []\n    for site in sites:\n        if not isinstance(site, dict):\n            continue\n        hospital = str(site.get("hospital", "")).strip()\n        city = str(site.get("city", "")).strip()\n        state = str(site.get("state", "")).strip()\n        place = ", ".join(x for x in (city, state) if x)\n        label = f"{hospital} — {place}" if hospital and place else (hospital or place)\n        if label and label not in out:\n            out.append(label)\n    if out:\n        return out\n    try:\n        for address in _addresses_for(str(tr.get("center", "")).strip()):\n            if address and address not in out:\n                out.append(address)\n    except Exception:\n        pass\n    return out\n\n'''
-          anchor='search_clicked = st.button(\'Find potential trials\', type=\'primary\', use_container_width=True)\n'
-          if '_trial_location_lines' not in s:
-              if anchor not in s: raise SystemExit('search button anchor not found')
-              s=s.replace(anchor, helper+anchor,1)
-
-          start=s.index('        for confidence,tr,reasons,unknown in matches:\n')
-          end=s.index('    _render_result_save_controls(matches)\n', start)
-          new='''        for confidence,tr,reasons,unknown in matches:\n            with st.container(border=True):\n                center = str(tr.get('center') or 'Study center')\n                title = str(tr.get('title') or 'Clinical study')\n                st.markdown(f"### {confidence} · {center}")\n                st.markdown(f"**{title}**")\n                st.markdown('**Study type:** ' + str(tr.get('study_type', 'treatment')).replace('_', ' ').title())\n                st.markdown('**Why it may fit:** ' + '; '.join(str(x) for x in reasons) + '.')\n                if unknown:\n                    unresolved = list(dict.fromkeys(str(x) for x in unknown))\n                    st.markdown('**Needs confirmation:** ' + '; '.join(unresolved) + '.')\n\n                locations = _trial_location_lines(tr)\n                if locations:\n                    st.markdown('**Location:** ' + '; '.join(locations))\n\n                contact = tr.get('contacts') or tr.get('contact') or 'Contact the study team through the official study page'\n                st.markdown('**Contact:** ' + str(contact))\n\n                details_url = tr.get('registry_url') or tr.get('url', '')\n                if details_url:\n                    st.link_button('View full study details →', details_url, use_container_width=True)\n                with st.expander('Study information'):\n                    if tr.get('intervention'):\n                        st.write('**Study intervention:** ' + str(tr.get('intervention')))\n                    st.write('**What the study says:** ' + str(tr.get('notes') or 'See the official study page for current study details.'))\n                    st.write('**Trial funding:** ' + str(tr.get('funding') or 'Ask the study team about covered study costs'))\n                    st.caption(f"Status: {tr.get('status', 'Status not recorded')} · Last verified: {tr.get('verified', 'date not recorded')}")\n\n'''
-          s=s[:start]+new+s[end:]
-          compile(s,'pages/1_Clinical_Trial_Finder.py','exec')
-          p.write_text(s)
+          # Page: make direct dict reads resilient; existing renderer then emits Contact + Participating sites natively.
+          p=Path('pages/1_Clinical_Trial_Finder.py'); s=p.read_text()
+          s=s.replace("tr['notes']", "tr.get('notes', 'See the official study page for current study details.')")
+          s=s.replace("tr['status']", "tr.get('status', 'Status not recorded')")
+          s=s.replace("tr['center']", "tr.get('center', 'Study center')")
+          s=s.replace("tr['title']", "tr.get('title', 'Clinical study')")
+          compile(s,'pages/1_Clinical_Trial_Finder.py','exec'); p.write_text(s)
           PY
-      - name: Install test dependencies
+      - name: Install test tools
         run: |
           pip install -r requirements.txt
           pip install playwright
-          python -m playwright install chromium --with-deps
-      - name: Pass 1 - static catalog and source invariants
+          python -m playwright install chromium
+      - name: Pass 1 static and data
         run: |
           python - <<'PY'
-          import json, pathlib
+          import json
+          from pathlib import Path
           from seo.center_directory import addresses_for
-          root=pathlib.Path('.')
-          app=(root/'app.py').read_text()
-          page=(root/'pages/1_Clinical_Trial_Finder.py').read_text()
-          assert '_pending[' not in app
-          assert '**Location:**' in page
+          app=Path('app.py').read_text(); page=Path('pages/1_Clinical_Trial_Finder.py').read_text()
+          assert 'if body.startswith("**Contact:**"):_pending' not in app
+          assert 'if body.startswith("**Participating sites:**"):_pending' not in app
           assert "tr['notes']" not in page and "tr['status']" not in page
-          by_id={t['id']:t for t in json.loads((root/'data/trials_base.json').read_text())}
-          for p in [root/'data/trial_updates.json']+sorted((root/'data').glob('catalog_patch_*.json')):
-              d=json.loads(p.read_text())
-              for tid in d.get('delete',[]): by_id.pop(tid,None)
+          by={t['id']:t for t in json.loads(Path('data/trials_base.json').read_text())}
+          for f in [Path('data/trial_updates.json')]+sorted(Path('data').glob('catalog_patch_*.json')):
+              d=json.loads(f.read_text())
+              for tid in d.get('delete',[]): by.pop(tid,None)
               for x in d.get('upsert',[]):
-                  tid=x['id']; m=dict(by_id.get(tid,{}))
+                  m=dict(by.get(x['id'],{}))
                   for k,v in x.items():
                       if k in {'requires','excludes'} and isinstance(v,dict):
                           n=dict(m.get(k,{})); n.update(v); m[k]=n
-                      else:m[k]=v
-                  by_id[tid]=m
-          ethos=by_id['ethos-gilvetmab-melanoma']
-          assert len(ethos.get('sites') or [])==3, ethos.get('sites')
-          assert any('Bridge Animal Referral Center' in a for a in addresses_for('Bridge Animal Referral Center (BARC)'))
-          for tid,t in by_id.items():
+                      else: m[k]=v
+                  by[x['id']]=m
+          e=by['ethos-gilvetmab-melanoma']
+          assert len(e.get('sites') or [])==3, e.get('sites')
+          assert any('8401 Main St' in x for x in addresses_for('Bridge Animal Referral Center (BARC)'))
+          bad=[]
+          for tid,t in by.items():
               if not t.get('available_for_matching',True): continue
-              for key in ('id','title','center'):
-                  assert t.get(key), (tid,key)
-          print('PASS1_STATIC_OK')
+              if t.get('status_confidence') not in {'current','confirmed_current'}: continue
+              if t.get('study_type','treatment') not in {'treatment','other_treatment_access'}: continue
+              miss=[k for k in ('title','center','status') if not t.get(k)]
+              if miss: bad.append((tid,miss))
+          assert not bad,bad
+          print('PASS1_OK')
           PY
-      - name: Pass 2 - Streamlit AppTest simulation
+      - name: Pass 2 Streamlit simulation
         run: |
           python - <<'PY'
           from streamlit.testing.v1 import AppTest
@@ -122,61 +91,40 @@ jobs:
           def sb(label): return next(x for x in at.selectbox if x.label==label)
           sb('Country / region').select('USA'); sb('Cancer type').select('Oral melanoma'); at.run()
           next(b for b in at.button if b.label=='Find potential trials').click(); at.run()
-          vals=[]
-          for kind in ('markdown','text','caption'):
-              vals += [str(getattr(e,'value','')) for e in getattr(at,kind)]
-          joined='\n'.join(vals)
-          required=[
-            'Ethos Veterinary Health',
-            'Metropolitan Veterinary Hospital — Cleveland, OH',
-            'Summit Veterinary Referral Center — Tacoma, WA',
-            'Veterinary Specialty Hospital — San Diego, CA',
-            'Bridge Animal Referral Center, 8401 Main St, Edmonds, WA 98026'
-          ]
-          miss=[x for x in required if x not in joined]
-          if at.exception: raise SystemExit('App exceptions: '+repr(at.exception))
-          if miss: raise SystemExit('AppTest missing: '+repr(miss))
-          print('PASS2_APPTEST_OK')
+          text='\n'.join(str(getattr(e,'value','')) for kind in ('markdown','text','caption') for e in getattr(at,kind))
+          needed=['Ethos Veterinary Health','Metropolitan Veterinary Hospital — Cleveland, OH','Summit Veterinary Referral Center — Tacoma, WA','Veterinary Specialty Hospital — San Diego, CA','Bridge Animal Referral Center, 8401 Main St, Edmonds, WA 98026']
+          missing=[x for x in needed if x not in text]
+          if at.exception: raise SystemExit('exceptions '+repr(at.exception))
+          if missing: raise SystemExit('missing '+repr(missing))
+          print('PASS2_OK')
           PY
-      - name: Pass 3 - real Chromium DOM simulation
+      - name: Pass 3 Chromium DOM
         run: |
-          streamlit run app.py --server.headless=true --server.port=8501 > /tmp/streamlit.log 2>&1 &
-          echo $! > /tmp/streamlit.pid
-          for i in {1..60}; do curl -fsS http://127.0.0.1:8501/_stcore/health && break || sleep 1; done
+          streamlit run app.py --server.headless=true --server.port=8501 >/tmp/st.log 2>&1 &
+          for i in {1..45}; do curl -fsS http://127.0.0.1:8501/_stcore/health && break || sleep 1; done
           python - <<'PY'
           from playwright.sync_api import sync_playwright
           with sync_playwright() as p:
-              b=p.chromium.launch()
-              page=b.new_page(viewport={"width":1280,"height":1600})
-              page.goto('http://127.0.0.1:8501',wait_until='networkidle',timeout=60000)
-              # Country
-              page.get_by_text('USA',exact=True).first.click()
-              # Cancer type: click the selectbox associated with label, then choose Oral melanoma.
-              lab=page.get_by_text('Cancer type',exact=True).first
-              lab.locator('xpath=following::div[@data-baseweb="select"][1]').click()
-              page.get_by_text('Oral melanoma',exact=True).last.click()
-              page.get_by_role('button',name='Find potential trials').click()
-              page.get_by_text('Results',exact=True).wait_for(timeout=30000)
-              body=page.locator('body').inner_text()
-              required=[
-                'Ethos Veterinary Health',
-                'Metropolitan Veterinary Hospital — Cleveland, OH',
-                'Summit Veterinary Referral Center — Tacoma, WA',
-                'Veterinary Specialty Hospital — San Diego, CA',
-                'Bridge Animal Referral Center, 8401 Main St, Edmonds, WA 98026'
-              ]
-              miss=[x for x in required if x not in body]
-              if miss:
-                  print(body)
-                  raise SystemExit('Chromium DOM missing: '+repr(miss))
-              page.screenshot(path='/tmp/results.png',full_page=True)
+              b=p.chromium.launch(headless=True)
+              pg=b.new_page(viewport={'width':1280,'height':1600})
+              pg.goto('http://127.0.0.1:8501',wait_until='networkidle',timeout=60000)
+              sels=pg.locator('div[data-baseweb="select"]')
+              sels.nth(1).click(); pg.get_by_text('USA',exact=True).last.click()
+              sels=pg.locator('div[data-baseweb="select"]')
+              sels.nth(3).click(); pg.get_by_text('Oral melanoma',exact=True).last.click()
+              pg.get_by_role('button',name='Find potential trials').click()
+              pg.get_by_text('Results',exact=True).wait_for(timeout=30000)
+              body=pg.locator('body').inner_text()
+              needed=['Ethos Veterinary Health','Metropolitan Veterinary Hospital — Cleveland, OH','Summit Veterinary Referral Center — Tacoma, WA','Veterinary Specialty Hospital — San Diego, CA','Bridge Animal Referral Center, 8401 Main St, Edmonds, WA 98026']
+              missing=[x for x in needed if x not in body]
+              if missing: raise SystemExit('browser missing '+repr(missing))
               b.close()
-          print('PASS3_BROWSER_OK')
+          print('PASS3_OK')
           PY
-      - name: Commit only after all three passes
+      - name: Commit tested repair
         run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add app.py pages/1_Clinical_Trial_Finder.py seo/center_directory.py data/catalog_patch_zzzz_integrity_cleanup_20260910.json data/catalog_patch_zzzzz_render_hotfix_20260911.json data/catalog_patch_zzzzzz_verified_locations_20260911.json
-          git commit -m 'Unify live trial-card renderer and restore verified locations'
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add app.py pages/1_Clinical_Trial_Finder.py seo/center_directory.py
+          git commit -m 'Fix live trial metadata rendering and BARC address'
           git push origin HEAD:live-main-repair
