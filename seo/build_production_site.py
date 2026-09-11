@@ -26,7 +26,8 @@ import generate_cancer_coverage
 import ensure_center_images
 from center_page_enhancements import enhance_center_pages
 from finalize_cancer_pages import finalize_cancer_pages
-from practical_cancer_pages import apply_practical_cancer_guides
+from practical_cancer_pages import apply_practical_cancer_guides, apply_feline_practical_guides
+from feline_practical_content import FELINE_PRACTICAL
 from hs_owner_page import apply_canine_hs_guide
 from help_center import generate_help_center
 from about_page import generate_about_page
@@ -39,15 +40,18 @@ def main():
     enhance_center_pages(SEO_DIR / "site")
     finalize_cancer_pages(SEO_DIR / "site")
     apply_practical_cancer_guides(SEO_DIR / "site")
+    apply_feline_practical_guides(SEO_DIR / "site")
     apply_canine_hs_guide(SEO_DIR / "site")
     generate_cancer_coverage.main()
     generate_help_center(SEO_DIR / "site")
     generate_about_page(SEO_DIR / "site")
     ensure_center_images.main()
     out = SEO_DIR / "site"
-    # Safety guard: feline pages must not inherit canine prognosis copy.
+    # Safety guard: only independently reviewed feline diagnoses may use the owner guide.
     for feline in out.glob("*/cats/*/index.html"):
-        assert 'class="disease owner-guide"' not in feline.read_text(encoding="utf-8"), feline
+        key=feline.parent.name.replace('-', ' ')
+        has_guide='class="disease owner-guide"' in feline.read_text(encoding="utf-8")
+        assert has_guide == (key in FELINE_PRACTICAL), feline
     apply_site_shell(out)
     home = out / "index.html"
     if home.exists():
