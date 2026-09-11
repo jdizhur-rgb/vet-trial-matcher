@@ -1,0 +1,60 @@
+name: Static locations final audit once
+on:
+  push:
+    paths: ['.github/workflows/static-locations-final-audit-once.yml']
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Audit every active matcher record
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=Path('data')
+          by={x['id']:dict(x) for x in json.loads((d/'trials_base.json').read_text())}
+          for p in [d/'trial_updates.json']+sorted(d.glob('catalog_patch_*.json')):
+            if not p.exists(): continue
+            doc=json.loads(p.read_text())
+            ups=doc if isinstance(doc,list) else doc.get('upsert',[])
+            dels=[] if isinstance(doc,list) else doc.get('delete',[])
+            for i in dels: by.pop(i,None)
+            for q in ups:
+              i=q.get('id')
+              if not i: continue
+              old=dict(by.get(i,{}))
+              for k,v in q.items():
+                if k in {'requires','excludes'} and isinstance(v,dict):
+                  n=dict(old.get(k,{})); n.update(v); old[k]=n
+                else: old[k]=v
+              by[i]=old
+          active=[x for x in by.values() if x.get('available_for_matching',True) and x.get('status_confidence') in {'current','confirmed_current'} and x.get('study_type','treatment') in {'treatment','other_treatment_access'}]
+          bad=[]
+          for x in active:
+            sites=x.get('sites') or []
+            active_sites=[s for s in sites if not isinstance(s,dict) or s.get('status','active')=='active']
+            if not active_sites or x.get('location_unresolved'):
+              bad.append((x['id'],'missing active sites'))
+              continue
+            for s in active_sites:
+              if isinstance(s,dict) and not (s.get('label') or s.get('hospital')):
+                bad.append((x['id'],'site without display text'))
+          print('ACTIVE',len(active))
+          print('STATIC_OK',len(active)-len({i for i,_ in bad}))
+          print('BAD',bad)
+          med=by.get('medvet-egfr-her2-vaccine-2026',{})
+          assert any('Chicago' in str(s) for s in med.get('inactive_sites',[])), med
+          assert not any('Chicago' in str(s) for s in med.get('sites',[])), med
+          for i in ['elias-eci-chemo-osa','eu-nl-uk-insulinoma-toceranib','china-dongjun-mct-new-drug-2026','china-dongjun-oral-scc-new-drug-2026','china-dongjun-osa-new-drug-2026','korea-vaxleukin15-lymphoma-2026','korea-vaxleukin15-mammary-2026','dk-copenhagen-flash-superficial-tumors']:
+            x=by.get(i,{})
+            assert not (x.get('available_for_matching',True) and x.get('status_confidence') in {'current','confirmed_current'}), (i,x.get('status_confidence'))
+          assert not bad
+          app=Path('app.py').read_text()
+          assert 'from seo.center_directory import addresses_for' not in app
+          print('DYNAMIC_ADDRESS_LOOKUP',False)
+          PY
