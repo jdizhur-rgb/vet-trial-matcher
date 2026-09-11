@@ -4,6 +4,14 @@ from pathlib import Path
 import shutil
 from site_config import SITE
 
+MOBILE_CSS = '''
+@media(max-width:650px){
+.site-header{position:static;margin:0 -15px 14px;padding:0 15px}.site-nav{display:block;min-height:0;padding:10px 0}.brand{display:block;font-size:1rem;margin-bottom:7px}.site-nav nav{justify-content:flex-start;gap:7px 12px;margin-top:0}.site-nav nav a{font-size:.82rem;line-height:1.25}
+.home-hero{grid-template-columns:1fr;gap:16px;padding:18px 0 14px}.home-hero h1,main>h1{font-size:2rem;line-height:1.08}.home-hero .lead,.lead{font-size:1rem;line-height:1.5}.eyebrow{font-size:.86rem;line-height:1.35}.hero-actions{gap:9px;margin:17px 0 6px}.hero-actions .cta,.secondary-cta{padding:10px 14px;font-size:.95rem}.pet-panel{max-width:230px;gap:9px}.pet-tile{min-height:88px;border-radius:14px}.pet-tile span{font-size:2.9rem}
+.site-grid{grid-template-columns:1fr;gap:10px;margin:12px 0 24px}.site-card{padding:14px 16px;border-radius:12px}.site-card h3{font-size:1.05rem;margin-bottom:5px}.site-card p{font-size:.92rem;line-height:1.45}.how{grid-template-columns:1fr;gap:9px}.how div{padding:13px 15px}.how strong{font-size:.95rem}.how span{font-size:.9rem;line-height:1.45}.site-footer{margin-top:30px;padding-top:18px}.section-index{columns:1}
+}
+'''
+
 ABOUT_CSS = '''
 .about-story{max-width:850px;margin:0 auto;font-size:1.02rem;line-height:1.72}.about-story h1{margin-bottom:26px}.about-story p{margin:0 0 19px}.story-photo{width:min(310px,42%);margin:4px 0 20px}.story-photo-right{float:right;margin-left:28px}.story-photo-left{float:left;margin-right:28px}.story-photo img{display:block;width:100%;height:auto;border-radius:16px;border:1px solid #d9e2ea}.story-photo span{display:block;text-align:center;color:#607086;font-size:.9rem;margin-top:6px}.story-close{clear:both;padding:20px 22px;background:#edf4f8;border-radius:14px;margin-top:28px!important}.founder-signoff{display:flex;align-items:center;gap:14px;margin-top:22px}.founder-signoff img{width:130px;height:130px;object-fit:cover;border-radius:14px;border:1px solid #d9e2ea}.founder-signoff strong,.founder-signoff span{display:block}.founder-signoff span{color:#607086;font-size:.92rem;margin-top:2px}@media(max-width:650px){.about-story{font-size:1rem;line-height:1.58}.about-story h1{font-size:2rem;line-height:1.1;margin-bottom:18px}.about-story p{margin-bottom:15px}.story-photo,.story-photo-right,.story-photo-left{float:none;width:55%;max-width:210px;margin:12px auto 18px}.story-photo span{font-size:.82rem;margin-top:4px}.story-close{padding:15px 16px;margin-top:20px!important}.founder-signoff{gap:12px;margin-top:18px}.founder-signoff img{width:96px;height:96px}}
 '''
@@ -21,6 +29,7 @@ def integrate_about(root: Path) -> None:
         text = page.read_text(encoding='utf-8')
         if f'{SITE}/about/' not in text:
             text = text.replace(f'<a href="{SITE}/help/">Help</a>', f'<a href="{SITE}/about/">About</a><a href="{SITE}/help/">Help</a>', 1)
+        text = text.replace('</style>', MOBILE_CSS + '</style>', 1)
         if page.parent.name == 'about':
             text = text.replace('</style>', ABOUT_CSS + '</style>', 1)
         page.write_text(text, encoding='utf-8')
