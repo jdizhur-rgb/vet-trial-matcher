@@ -23,12 +23,13 @@ def merge(old,patch):
 
 def load_effective():
     base=json.loads((g.ROOT/'data'/'trials_base.json').read_text());rows={r['id']:r for r in base}
-    paths=[g.ROOT/'data'/'trial_updates.json']+sorted((g.ROOT/'data').glob('catalog_patch_*.json'))
-    for path in paths:
-        if not path.exists():continue
-        doc=json.loads(path.read_text())
-        for rid in doc.get('delete',[]):rows.pop(rid,None)
-        for p in doc.get('upsert',[]):rows[p['id']]=merge(rows.get(p['id'],{}),p)
+    # Only the canonical production update file belongs in the public catalog.
+    # catalog_patch_* files are staging inputs and must not leak into a deploy.
+    path=g.ROOT/'data'/'trial_updates.json'
+    doc=json.loads(path.read_text()) if path.exists() else {}
+    for p in doc.get('upsert',[]):rows[p['id']]=merge(rows.get(p['id'],{}),p)
+    # Deletes have final precedence so an upsert cannot resurrect a removed row.
+    for rid in doc.get('delete',[]):rows.pop(rid,None)
     return [r for r in rows.values() if r.get('study_type')=='treatment' and r.get('available_for_matching') is True and r.get('status_confidence') in CURRENT]
 g.load_effective=load_effective
 
