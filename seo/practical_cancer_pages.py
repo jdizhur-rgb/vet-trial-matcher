@@ -7,32 +7,48 @@ from cancer_practical_content import PRACTICAL
 from canine_branch_content import ADDITIONAL_BRANCHES
 from feline_practical_content import FELINE_PRACTICAL
 
-CSS=r'''.owner-guide,.owner-guide p,.owner-guide li{color:#263238!important}.owner-guide strong{color:#1f2d38!important}.owner-guide h2{margin-top:25px;color:#477ca8!important;font-size:1.2rem;font-weight:700}.guide-reality{margin:19px 0;padding:16px 18px;border:1px solid #dbe7f0;border-radius:14px;background:#f8fbfd}.guide-reality h2{margin-top:0;color:#477ca8!important}.guide-accordions{display:grid;gap:9px;margin:12px 0 20px}.guide-accordions details{border:1px solid #dbe7f0;border-radius:12px;background:#fff;overflow:hidden}.guide-accordions summary{position:relative;cursor:pointer;list-style:none;padding:13px 42px 13px 15px;color:#4d7da3!important;font-weight:650;line-height:1.35}.guide-accordions summary::-webkit-details-marker{display:none}.guide-accordions summary:after{content:'+';position:absolute;right:15px;top:50%;transform:translateY(-50%);color:#9aabba;font-size:1.25rem;font-weight:400}.guide-accordions details[open] summary:after{content:'−'}.guide-accordions details[open] summary{background:#f8fbfd}.guide-detail{padding:2px 15px 13px}.guide-detail p{margin:.45rem 0}.guide-more{margin-top:22px}.guide-questions{padding-left:20px;margin:.35rem 0}.guide-questions li{margin:.45rem 0}@media(max-width:600px){.owner-guide h2{font-size:1.08rem;margin-top:20px}.guide-reality{padding:13px 14px;margin:15px 0}.guide-accordions summary{padding:11px 38px 11px 13px;font-size:.96rem}}'''.strip()
+CSS=r'''.owner-guide,.owner-guide p,.owner-guide li{color:#263238!important}.owner-guide strong{color:#1f2d38!important}.owner-guide h2{margin-top:25px;color:#477ca8!important;font-size:1.2rem;font-weight:700}.guide-reality{margin:19px 0;padding:16px 18px;border:1px solid #dbe7f0;border-radius:14px;background:#f8fbfd}.guide-reality h2{margin-top:0;color:#477ca8!important}.guide-accordions{display:grid;gap:9px;margin:12px 0 20px}.guide-accordions details{border:1px solid #dbe7f0;border-radius:12px;background:#fff;overflow:hidden}.guide-accordions summary{position:relative;cursor:pointer;list-style:none;padding:13px 42px 13px 15px;color:#4d7da3!important;font-weight:650;line-height:1.35}.guide-accordions summary::-webkit-details-marker{display:none}.guide-accordions summary:after{content:'+';position:absolute;right:15px;top:50%;transform:translateY(-50%);color:#9aabba;font-size:1.25rem;font-weight:400}.guide-accordions details[open] summary:after{content:'−'}.guide-accordions details[open] summary{background:#f8fbfd}.guide-detail{padding:2px 15px 13px}.guide-detail p{margin:.45rem 0}.guide-more{margin-top:22px}@media(max-width:600px){.owner-guide h2{font-size:1.08rem;margin-top:20px}.guide-reality{padding:13px 14px;margin:15px 0}.guide-accordions summary{padding:11px 38px 11px 13px;font-size:.96rem}}'''.strip()
 
-# The high-value branches live in the diagnosis-specific source files. Generic
-# filler branches are intentionally not generated: silence is better than repeating
-# staging/trial boilerplate under four headings.
+# No generic scenario filler. A page gets a scenario only when that scenario changes
+# what the owner should actually do next.
 BRANCHES={}
 BRANCHES.update(ADDITIONAL_BRANCHES)
 
+# These first scenarios merely restate the diagnosis-level "What matters next" copy.
+# Suppress them instead of repeating the same advice in an accordion.
+SKIP_FIRST_CANINE={
+ 'prostate cancer','primary lung tumor','glioma','meningioma','nasal tumor',
+ 'leukemia','multiple myeloma','chemodectoma'
+}
+SKIP_FIRST_FELINE={
+ 'lymphoma','primary lung tumor','meningioma','nasal tumor','melanoma',
+ 'urothelial carcinoma','hepatocellular carcinoma','thyroid carcinoma',
+ 'prostate cancer','glioma','leukemia','multiple myeloma','chemodectoma'
+}
+
 def _p(s):return html.escape(s)
 
+def _useful_branches(key,pet):
+ branches=list(BRANCHES.get(key,[]))
+ skip=SKIP_FIRST_FELINE if pet=='cat' else SKIP_FIRST_CANINE
+ if key in skip and branches: branches=branches[1:]
+ return branches
+
 def section(label,key,pet,practical):
- about,treatment,factors=CONTENT[key];p=practical[key]
- branches=BRANCHES.get(key,[])
+ about,treatment,_factors=CONTENT[key];p=practical[key]
+ branches=_useful_branches(key,pet)
  branch_block=''
  if branches:
   items=''.join(f'<details><summary>{_p(a)}</summary><div class="guide-detail"><p>{_p(b)}</p></div></details>' for a,b in branches)
   branch_block=f'<h2>Where are you now?</h2><div class="guide-accordions">{items}</div>'
  tests=p.get('tests','').strip()
  tests_block=f'<details><summary>Tests that may matter</summary><div class="guide-detail"><p>{_p(tests)}</p></div></details>' if tests else ''
- factors_block=f'<details><summary>What can change the plan</summary><div class="guide-detail"><p>{_p(factors)}</p></div></details>' if factors else ''
  return f'''<section class="disease owner-guide">
 <h2>Understanding {html.escape(label)}</h2><p>{_p(about)}</p>
 <div class="guide-reality"><h2>What does the prognosis look like?</h2><p>{_p(p['prognosis'])}</p></div>
 <h2>What matters next</h2><p>{_p(p['next'])}</p>
 {branch_block}
-<div class="guide-accordions guide-more"><details><summary>How it is usually treated</summary><div class="guide-detail"><p>{_p(treatment)}</p></div></details>{factors_block}{tests_block}</div></section>'''
+<div class="guide-accordions guide-more"><details><summary>How it is usually treated</summary><div class="guide-detail"><p>{_p(treatment)}</p></div></details>{tests_block}</div></section>'''
 
 def _apply(root,species,pet,practical,skip_hs=False):
  root=Path(root);changed=0
