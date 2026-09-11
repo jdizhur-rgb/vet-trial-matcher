@@ -1,0 +1,40 @@
+{
+  "purpose": "Static per-trial location data for result cards.",
+  "location_policy": {
+    "new_trial": "Add each recruiting physical location to sites when the trial is added.",
+    "site_stops_recruiting": "Move the site from sites to inactive_sites.",
+    "site_reopens": "Move the site back from inactive_sites to sites after recruitment is re-verified."
+  },
+  "upsert": [
+    {
+      "id": "ethos-gilvetmab-melanoma",
+      "sites": [
+        {"hospital": "Metropolitan Veterinary Hospital - Cleveland East, 734 Alpha Drive", "city": "Highland Heights", "state": "OH 44143", "status": "active"},
+        {"hospital": "Summit Veterinary Referral Center, 2505 S 80th St", "city": "Tacoma", "state": "WA 98409", "status": "active"},
+        {"hospital": "Veterinary Specialty Hospital - Sorrento Valley, 10435 Sorrento Valley Rd", "city": "San Diego", "state": "CA 92121", "status": "active"}
+      ],
+      "inactive_sites": [],
+      "location_model": "static active/inactive sites",
+      "location_verified": "2026-09-11"
+    },
+    {
+      "id": "barc-gold-nanoparticles",
+      "sites": [
+        {"hospital": "Bridge Animal Referral Center, 8401 Main St", "city": "Edmonds", "state": "WA 98026", "status": "active"}
+      ],
+      "inactive_sites": [],
+      "location_model": "static active/inactive sites",
+      "location_verified": "2026-09-11"
+    },
+    {
+      "id": "barc-egfr-her2",
+      "sites": [
+        {"hospital": "Bridge Animal Referral Center, 8401 Main St", "city": "Edmonds", "state": "WA 98026", "status": "active"}
+      ],
+      "inactive_sites": [],
+      "location_model": "static active/inactive sites",
+      "location_verified": "2026-09-11"
+    }
+  ],
+  "delete": []
+}
