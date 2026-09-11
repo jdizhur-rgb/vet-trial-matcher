@@ -45,6 +45,36 @@ BRANCHES={
  ('The tumor was already removed','Get the pathology, measured margins and original tumor size, and complete staging if it was not done. A visually clean mouth does not answer the metastatic-risk question; stage and nodal status still matter.'),
  ('The lymph node is positive','A positive regional node changes stage and prognosis. Ask whether nodal local treatment is appropriate and how systemic options fit with control of the primary tumor.'),
  ('There is distant metastatic disease','The goal usually shifts toward systemic control and maintaining comfort while treating local mouth problems when useful. Trial criteria can differ sharply by stage, so use the actual staging results rather than the diagnosis name alone.')],
+'melanoma':[
+ ('The melanoma is on the skin','Do not borrow the prognosis of oral melanoma. Many cutaneous melanomas behave less aggressively, so the pathology, mitotic activity, depth, margins and exact skin site matter before escalating treatment.'),
+ ('The melanoma is on a toe or nail bed','Digital melanoma carries more metastatic risk than many ordinary skin melanomas. Regional lymph-node evaluation and chest staging are more relevant, and local control may require digit amputation or another definitive local treatment.'),
+ ('The melanoma is oral or another mucosal site','Treat it as a higher-risk melanoma until staging says otherwise. Local control and metastatic staging both matter, and some trials require measurable disease before surgery or radiation.'),
+ ('It has already spread or recurred','Re-stage rather than assuming the previous plan still fits. Systemic or immune-based options and trials may become more important, while local treatment can still help bleeding, pain or function at the primary site.')],
+'oral squamous cell carcinoma':[
+ ('The oral tumor is still there','Define the exact location, size and bone invasion before choosing surgery or radiation. For a resectable canine gingival tumor, the first local treatment can be decisive, so major surgery should be planned from imaging rather than from appearance alone.'),
+ ('The tumor was already removed','Review measured margins and whether bone was involved. If margins are incomplete, ask whether a wider resection or radiation offers meaningful local control rather than waiting for visible regrowth.'),
+ ('Complete surgery is not feasible','Radiation may still provide local control or palliation, and trials may offer other local approaches. Keep eating, pain, bleeding and oral function in the plan; local progression can matter more than distant spread in many cases.'),
+ ('Nodes or distant metastases are present','Confirm whether the spread is regional or distant and what it changes. Local treatment may still be useful for the mouth, while systemic options and trial eligibility need a separate discussion.')],
+'squamous cell carcinoma':[
+ ('The tumor is on the skin','A small cutaneous SCC may be primarily a local-control problem. Depth, location and margins determine whether surgery, radiation or another local method is appropriate; generic oral-SCC survival numbers do not belong here.'),
+ ('The tumor is oral or nasal','Site changes everything. Oral and nasal SCC need site-specific imaging and staging because local invasion, bone involvement and the feasibility of surgery or radiation drive the plan.'),
+ ('It was already removed','Use the pathology report to identify the exact primary site, subtype, depth and margins. Incomplete margins can justify additional local treatment depending on anatomy and expected behavior.'),
+ ('It is unresectable, recurrent or metastatic','Ask what local treatment can still improve function or comfort and whether systemic therapy or a trial is realistic for that specific SCC site. “SCC” alone is not enough to choose a treatment.')],
+'urothelial carcinoma':[
+ ('My dog is urinating normally','Use this time to define the exact bladder, urethral or prostatic location and stage the disease. Medical treatment is often started without waiting for the tumor to become obstructive.'),
+ ('Urination is becoming difficult','Reduced stream, repeated straining or inability to pass urine can become urgent. Ask early about options to maintain urine flow, including interventional procedures when appropriate, rather than waiting for complete obstruction.'),
+ ('Treatment has already started','Track the exact drugs, dates and imaging measurements. Stable disease can be a meaningful response in UC; treatment decisions should not be based only on whether the mass disappears.'),
+ ('The cancer has spread','Systemic therapy remains central, while local measures may still be needed for urine flow or pain. Metastatic site and previous drugs help determine whether a trial is realistic.')],
+'hepatocellular carcinoma':[
+ ('There is one large liver mass','The key question is surgical resectability, not size alone. Ask whether the mass is confined to one lobe and how close it is to major vessels and central liver structures; a large solitary mass can still be a surgical disease.'),
+ ('Surgery has already been done','Review the final pathology and margins and confirm whether staging showed additional lesions. Completely resected massive HCC can behave far better than many owners expect, so do not assume chemotherapy is automatically required.'),
+ ('There are multiple or diffuse liver lesions','Do not apply the favorable surgery statistics from solitary massive HCC. Multifocal or diffuse disease needs a different discussion about diagnosis, liver function, systemic/local options and whether biopsy is necessary.'),
+ ('The mass cannot be removed','Ask whether the reason is anatomy, vascular involvement, diffuse disease or overall health. Interventional, systemic or trial options may be reasonable in selected cases, but the expected benefit depends on the exact pattern of disease.')],
+'mammary carcinoma':[
+ ('The mammary mass is still present','Record the number and size of masses and check regional lymph nodes and lungs before assuming a small surgery is enough. Surgical planning differs by species and by how many glands are involved.'),
+ ('Surgery is already done','Read the pathology for tumor type, grade, measured margins and lymphovascular invasion. Those details, plus tumor size and nodal status, decide whether surgery alone is reasonable or whether oncology discussion is warranted.'),
+ ('A lymph node is positive','Nodal spread raises the risk of distant disease and can change recommendations for staging and systemic treatment. Ask whether the sampled node was actually the draining regional node for the affected gland.'),
+ ('There are lung or other metastases','Systemic treatment and comfort become more important, while surgery or local treatment may still help selected painful, ulcerated or bleeding masses. Trial eligibility depends on measurable disease and prior treatment.')],
 }
 
 def _p(s): return html.escape(s)
