@@ -64,4 +64,31 @@ FELINE_PRACTICAL_OVERRIDES = {
             'realistic.'
         ),
     },
+    'prostate cancer': {
+        'prognosis': (
+            'Feline prostate cancer is exceptionally rare. Published evidence consists mostly of case reports '
+            'and very small series, so there is no reliable feline median survival or established standard '
+            'treatment. Reported tumors are often locally aggressive and may metastasize, but an exceptional '
+            'long-surviving case should not be used as the expected outcome.'
+        ),
+        'next': (
+            'The immediate question is whether the mass is interfering with urination or defecation and '
+            'whether metastatic disease is present. Inability to pass urine is an emergency. Once the cat is '
+            'stable, define the local anatomy before deciding whether surgery, a procedure to maintain urine '
+            'flow, systemic treatment or supportive care is realistic.'
+        ),
+    },
+    'oral melanoma': {
+        'prognosis': (
+            'Feline oral melanoma is rare and published outcome data are sparse. Small retrospective series '
+            'suggest aggressive behavior, but they are too small for a single survival number to be treated as '
+            'a dependable prediction. Diagnostic certainty, local extent and metastatic stage matter more than '
+            'borrowing canine melanoma expectations.'
+        ),
+        'next': (
+            'Confirm the diagnosis, especially for poorly pigmented tumors, then define local invasion and '
+            'metastatic stage. Eating, oral pain and bleeding should be managed alongside decisions about '
+            'surgery, radiation or another local treatment.'
+        ),
+    },
 }
