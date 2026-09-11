@@ -1,0 +1,130 @@
+name: Port static locations and test once
+on:
+  push:
+    paths: ['.github/workflows/port-static-locations-test-once.yml']
+permissions:
+  contents: write
+jobs:
+  migrate-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: streamlit-static-locations
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Remove runtime address lookup and make sites the single display source
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          app=Path('app.py')
+          s=app.read_text()
+          old='''            try:\n                from seo.center_directory import addresses_for as _addresses_for\n                _addresses = _addresses_for(center)\n            except Exception:\n                _addresses = []\n            for _address in _addresses:\n                _orig["markdown"](f"📍 {_address}")\n'''
+          assert old in s, 'dynamic address block not found'
+          s=s.replace(old,'')
+          app.write_text(s)
+
+          p=Path('pages/_Clinical_Trial_Finder_legacy.py')
+          s=p.read_text()
+          old='''                    site_text = '; '.join(\n                        f"{x['hospital']} — {x['city']}, {x['state']}" for x in tr['sites']\n                    )\n                    st.write('**Participating sites:** ' + site_text)\n'''
+          new='''                    active_sites = [x for x in tr['sites'] if not isinstance(x, dict) or x.get('status', 'active') == 'active']\n                    site_text = '; '.join(\n                        (x.get('label') or f"{x.get('hospital','')} — {x.get('city','')}, {x.get('state','')}".strip(' —,'))\n                        if isinstance(x, dict) else str(x)\n                        for x in active_sites\n                    )\n                    if site_text:\n                        st.write('**Participating sites:** ' + site_text)\n'''
+          assert old in s, 'legacy participating-sites block not found'
+          p.write_text(s.replace(old,new))
+          PY
+      - name: Audit merged production catalog
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=Path('data')
+          by={x['id']:dict(x) for x in json.loads((d/'trials_base.json').read_text())}
+          for p in [d/'trial_updates.json']+sorted(d.glob('catalog_patch_*.json')):
+            if not p.exists(): continue
+            doc=json.loads(p.read_text())
+            ups=doc if isinstance(doc,list) else doc.get('upsert',[])
+            dels=[] if isinstance(doc,list) else doc.get('delete',[])
+            for i in dels: by.pop(i,None)
+            for q in ups:
+              i=q.get('id')
+              if not i: continue
+              old=dict(by.get(i,{}))
+              for k,v in q.items():
+                if k in {'requires','excludes'} and isinstance(v,dict):
+                  n=dict(old.get(k,{})); n.update(v); old[k]=n
+                else: old[k]=v
+              by[i]=old
+          active=[x for x in by.values() if x.get('available_for_matching',True) and x.get('status_confidence') in {'current','confirmed_current'} and x.get('study_type','treatment') in {'treatment','other_treatment_access'}]
+          bad=[]
+          for x in active:
+            sites=[s for s in (x.get('sites') or []) if not isinstance(s,dict) or s.get('status','active')=='active']
+            if not sites or x.get('location_unresolved'):
+              bad.append(x.get('id'))
+          print('ACTIVE',len(active)); print('STATIC_OK',len(active)-len(bad)); print('BAD',bad)
+          assert len(active)==142, len(active)
+          assert not bad, bad
+          ethos=by['ethos-gilvetmab-melanoma']
+          et=' '.join(str(x) for x in ethos['sites'])
+          for v in ['734 Alpha Drive','2505 S 80th St','10435 Sorrento Valley Rd']: assert v in et
+          barc=' '.join(str(x) for i,x in by.items() if i.startswith('barc-'))
+          assert '8401 Main St' in barc
+          med=by['medvet-egfr-her2-vaccine-2026']
+          assert 'Chicago' not in ' '.join(str(x) for x in med.get('sites',[]))
+          assert 'Chicago' in ' '.join(str(x) for x in med.get('inactive_sites',[]))
+          app=Path('app.py').read_text()
+          assert 'from seo.center_directory import addresses_for' not in app
+          print('STATIC_CATALOG_PASS')
+          PY
+      - name: Install browser test dependencies
+        run: |
+          pip install -r requirements.txt playwright
+          python -m playwright install chromium
+      - name: Start Streamlit
+        run: |
+          streamlit run app.py --server.headless true --server.address 127.0.0.1 --server.port 8501 > /tmp/streamlit.log 2>&1 &
+          for i in $(seq 1 60); do
+            curl -fsS http://127.0.0.1:8501/_stcore/health >/dev/null && exit 0
+            sleep 1
+          done
+          cat /tmp/streamlit.log
+          exit 1
+      - name: External Chromium DOM test
+        run: |
+          python - <<'PY'
+          from playwright.sync_api import sync_playwright
+          def choose(page,label,value):
+              box=page.get_by_text(label,exact=True).locator("xpath=ancestor::div[contains(@class,'stSelectbox')][1]").get_by_role('combobox')
+              box.click(); box.fill(value); box.press('Enter'); page.wait_for_timeout(900)
+          def run_case(page,cancer,need):
+              page.goto('http://127.0.0.1:8501/',wait_until='domcontentloaded',timeout=60000)
+              page.get_by_text('Country / region',exact=True).wait_for(timeout=60000)
+              choose(page,'Country / region','USA'); choose(page,'Cancer type',cancer)
+              page.get_by_role('button',name='Find potential trials').click()
+              page.get_by_text('Results',exact=True).wait_for(timeout=30000)
+              body=page.locator('body').inner_text()
+              missing=[x for x in need if x not in body]
+              print('CASE',cancer,'MISSING',missing)
+              if missing:
+                  print(body[-18000:]); raise SystemExit(1)
+          with sync_playwright() as p:
+              b=p.chromium.launch(headless=True)
+              page=b.new_page(viewport={'width':1440,'height':1800})
+              run_case(page,'Oral melanoma',['Ethos Veterinary Health','734 Alpha Drive','2505 S 80th St','10435 Sorrento Valley Rd','Bridge Animal Referral Center (BARC)','8401 Main St','Edmonds, WA 98026'])
+              page.screenshot(path='/tmp/streamlit-static-oral.png',full_page=True)
+              run_case(page,'Brain tumor / glioma',['UC Davis','1 Garrod Dr','Davis, CA 95616'])
+              page.screenshot(path='/tmp/streamlit-static-glioma.png',full_page=True)
+              b.close()
+          print('STREAMLIT_PROD_EXTERNAL_BROWSER_PASS')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: streamlit-static-location-screenshots
+          path: /tmp/streamlit-static-*.png
+      - name: Commit tested renderer changes
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add app.py pages/_Clinical_Trial_Finder_legacy.py
+          git commit -m 'Render only stored static trial locations'
+          git push origin HEAD:streamlit-static-locations
