@@ -56,6 +56,7 @@ LOCATIONS = {
 
     # Independent / specialty / research centers
     "Aurelius Biotherapeutics": "Aurelius Biotherapeutics, 720 Virginia St, Bellingham, WA 98225",
+    "Bridge Animal Referral Center (BARC)": "Bridge Animal Referral Center, 8401 Main St, Edmonds, WA 98026",
     "Colorado Animal Specialty & Emergency (CASE)": "Colorado Animal Specialty & Emergency, 2972 Iris Ave, Boulder, CO 80301",
     "Overland Park Veterinary Emergency & Specialty": "Overland Park Veterinary Emergency & Specialty, 8301 W 163rd St, Overland Park, KS 66223",
     "Massachusetts Veterinary Referral Hospital": "Massachusetts Veterinary Referral Hospital, 20 Cabot Rd, Woburn, MA 01801",

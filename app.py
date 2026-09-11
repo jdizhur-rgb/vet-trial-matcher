@@ -130,8 +130,6 @@ def markdown(body,*a,**k):
         if body.startswith("**Study type:**"):return
         if body.startswith("**Why it may fit:**"):return _orig["markdown"]("**Why:** "+body.replace("**Why it may fit:**","",1).strip().rstrip(".")+".")
         if body.startswith("**Needs confirmation:**"):return _orig["markdown"]("**Confirm:** "+body.replace("**Needs confirmation:**","",1).strip().rstrip(".")+".")
-        if body.startswith("**Contact:**"):_pending["contact"]=body.replace("**Contact:**","",1).strip();return
-        if body.startswith("**Participating sites:**"):_pending["sites"]=body.replace("**Participating sites:**","",1).strip();return
     return _orig["markdown"](body,*a,**k)
 def _linkify_contact(text):
     if not text:return ""

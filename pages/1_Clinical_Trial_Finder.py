@@ -856,8 +856,8 @@ if search_clicked:
         st.success(f'{len(matches)} oncology opportunity(ies) may be worth contacting')
         for confidence,tr,reasons,unknown in matches:
             with st.container(border=True):
-                st.markdown(f"### {confidence} · {tr['center']}")
-                st.markdown(f"**{tr['title']}**")
+                st.markdown(f"### {confidence} · {tr.get('center', 'Study center')}")
+                st.markdown(f"**{tr.get('title', 'Clinical study')}**")
                 st.markdown('**Study type:** ' + tr.get('study_type', 'treatment').replace('_', ' ').title())
                 st.markdown('**Why it may fit:** ' + '; '.join(reasons) + '.')
                 if unknown:
@@ -880,9 +880,9 @@ if search_clicked:
                 with st.expander('Study information'):
                     if tr.get('intervention'):
                         st.write('**Study intervention:** ' + tr['intervention'])
-                    st.write('**What the study says:** ' + tr['notes'])
+                    st.write('**What the study says:** ' + tr.get('notes', 'See the official study page for current study details.'))
                     st.write('**Trial funding:** ' + tr.get('funding', 'Ask the study team about covered study costs'))
-                    st.caption(f"Status: {tr['status']} · Last verified: {tr.get('verified', 'date not recorded')}")
+                    st.caption(f"Status: {tr.get('status', 'Status not recorded')} · Last verified: {tr.get('verified', 'date not recorded')}")
 
     _render_result_save_controls(matches)
     with st.expander('Help us improve this finder'):
