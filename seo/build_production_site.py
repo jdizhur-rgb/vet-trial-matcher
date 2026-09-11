@@ -26,6 +26,7 @@ import generate_cancer_coverage
 import ensure_center_images
 from center_page_enhancements import enhance_center_pages
 from finalize_cancer_pages import finalize_cancer_pages
+from hs_owner_page import apply_canine_hs_guide
 from help_center import generate_help_center
 from about_page import generate_about_page
 from site_shell import apply_site_shell
@@ -36,6 +37,7 @@ def main():
     generate_seo_strict.main()
     enhance_center_pages(SEO_DIR / "site")
     finalize_cancer_pages(SEO_DIR / "site")
+    apply_canine_hs_guide(SEO_DIR / "site")
     generate_cancer_coverage.main()
     generate_help_center(SEO_DIR / "site")
     generate_about_page(SEO_DIR / "site")
