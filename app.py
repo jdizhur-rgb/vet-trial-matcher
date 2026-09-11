@@ -69,7 +69,6 @@ _nav_top=st.empty()
 _orig={n:getattr(st,n) for n in ["markdown","title","header","selectbox","checkbox","number_input","radio","text_input","multiselect","expander","link_button","write","button"]}
 _components_html_orig=components.html
 def _components_html(body,*a,**k):
-    if isinstance(body,str) and "Copy results" in body and "Save as PDF" in body:return st.html(body,unsafe_allow_javascript=True)
     return _components_html_orig(body,*a,**k)
 components.html=_components_html
 _layout={"section":None,"slots":[],"extra":0,"treatment":False,"age_value":None,"weight_unit":None,"weight_value":None};_pending={"contact":None,"sites":None,"url":None};_selected_region={"value":None};_selected_cancer={"value":None};_deferred={"args":None,"kwargs":None};_study_expander_seq={"n":0}
