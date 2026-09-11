@@ -1,0 +1,24 @@
+name: Build static address patch once
+on:
+  push:
+    branches: [database-audit-20260911]
+    paths: ['scripts/build_static_address_patch.py']
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: database-audit-20260911
+      - name: Build patch
+        run: python scripts/build_static_address_patch.py
+      - name: Save patch
+        run: |
+          cp /tmp/static-address-patch.json data/catalog_patch_zzzzzzzzz_static_street_addresses_20260911.json
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add data/catalog_patch_zzzzzzzzz_static_street_addresses_20260911.json
+          git commit -m 'Persist static street addresses for active trial sites'
+          git push origin HEAD:database-audit-20260911
