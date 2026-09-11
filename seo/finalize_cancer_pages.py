@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Final consistency pass for generated English cancer pages."""
+"""Final consistency and copy pass for generated English cancer pages."""
 from __future__ import annotations
 import re
 from pathlib import Path
@@ -7,6 +7,9 @@ from pathlib import Path
 SUMMARY_COUNT_RE = re.compile(r'<p class="option-count">(?P<count>\d+) option(?:s)? currently in our catalog\.</p>')
 ZERO_SUMMARY = 'No active listings in our catalog right now.'
 CARD_RE = re.compile(r'<article class="card"><h3>')
+FREE_INLINE_RE = re.compile(r'<p class="free-inline">.*?</p>')
+OPTIONS_HEADING = '<h2>Treatment options available now</h2>'
+ZERO_HEADING = '<h2>Current trial listings</h2>'
 
 
 def _is_english_cancer_page(path: Path, root: Path) -> bool:
@@ -39,6 +42,16 @@ def finalize_cancer_pages(root: Path) -> int:
                 raise AssertionError(f'{path}: positive availability summary but no trial cards')
             if not zero:
                 raise AssertionError(f'{path}: no trial cards and no explicit zero-state summary')
+
+        # "Free to use" already appears in the site footer. Repeating it inside every
+        # cancer page adds no decision value. Zero-result pages also should not claim
+        # that treatment options are "available now" immediately before saying none
+        # are listed.
+        revised = FREE_INLINE_RE.sub('', text)
+        if not cards:
+            revised = revised.replace(OPTIONS_HEADING, ZERO_HEADING, 1)
+        if revised != text:
+            path.write_text(revised, encoding='utf-8')
 
     if not checked:
         raise AssertionError('No English cancer pages found for final consistency pass')
