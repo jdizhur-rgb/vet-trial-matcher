@@ -1,0 +1,38 @@
+name: Live smoke debug
+on:
+  push:
+    branches: [streamlit-prod]
+    paths: ['.github/workflows/live-smoke-debug-20260911.yml']
+permissions:
+  contents: read
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install deps
+        run: pip install -r requirements.txt requests
+      - name: Start Streamlit and probe
+        run: |
+          set +e
+          streamlit run app.py --server.headless true --server.port 8765 > /tmp/streamlit.log 2>&1 &
+          PID=$!
+          sleep 12
+          echo '=== PROCESS ==='
+          ps -p $PID -f || true
+          echo '=== HTTP ==='
+          python - <<'PY'
+          import requests
+          try:
+              r=requests.get('http://127.0.0.1:8765',timeout=10)
+              print(r.status_code)
+              print(r.text[:500])
+          except Exception as e:
+              print(repr(e))
+          PY
+          echo '=== LOG ==='
+          cat /tmp/streamlit.log
+          kill $PID 2>/dev/null || true
