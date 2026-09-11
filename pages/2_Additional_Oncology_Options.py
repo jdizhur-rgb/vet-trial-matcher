@@ -63,6 +63,17 @@ else:
         st.button=_button
         st.session_state.pop("_hide_legacy_route_buttons",None)
 
+    if route=="advanced":
+        with st.container(border=True):
+            st.markdown("### University of Ljubljana — ECT + IL-12 Gene Electrotransfer")
+            st.write("**Dogs · Slovenia · strongest canine evidence in mast cell tumors**")
+            st.write("Electrochemotherapy combined with local gene electrotransfer of canine interleukin-12 (IL-12 GET). Electroporation is used both for local chemotherapy delivery and to introduce an IL-12 plasmid intended to stimulate an antitumor immune response.")
+            st.write("**Access:** The Small Animal Clinic of the University of Ljubljana Veterinary Faculty states that it offers electroporation-based cancer treatments. Its veterinary oncology group continues to publish clinical use of ECT + IL-12 GET, including a 2026 canine mast cell tumor case. Current availability and suitability for an individual tumor should be confirmed directly with the center.")
+            st.write("**Evidence:** Canine clinical studies are most developed for mast cell tumors. Systemic/immune effects beyond the treated tumor are promising but are not proven to be reliable or predictable across cancer types.")
+            st.write("**Contact:** Prof. Nataša Tozon Mask — natasa.tozon@vf.uni-lj.si")
+            st.link_button("University of Ljubljana treatment information", "https://www.vf.uni-lj.si/en/news/electroporation-based-treatments-canine-and-feline-oral-tumors", use_container_width=True)
+            st.link_button("2026 ECT + IL-12 clinical report", "https://www.frontiersin.org/journals/veterinary-science/articles/10.3389/fvets.2026.1813360/full", use_container_width=True)
+
     if route=="compassionate":
         with st.container(border=True):
             st.markdown("### VMD Sciences — Veterinary Managed / Expanded Access")
