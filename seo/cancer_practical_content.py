@@ -6,10 +6,6 @@ Primary evidence was checked against PubMed/peer-reviewed veterinary oncology re
 """
 
 PRACTICAL = {
-'histiocytic sarcoma': {
- 'prognosis':'Canine histiocytic sarcoma is serious, but localized and disseminated disease do not have the same outlook. Published canine groups report survival measured in only a few months for disseminated disease, while some dogs with localized disease treated aggressively have lived a year or longer. Site, stage and response to treatment matter more than one number.',
- 'next':'Confirm the diagnosis with histopathology and immunohistochemistry, then determine whether disease is localized or present in other organs. If the tumor was removed, review the measured margins. Because HS can spread early, staging and an oncology discussion should not be left for months.',
- 'tests':'Chest and abdominal imaging are commonly used for staging, with additional tests chosen for the original tumor site. Preserve pathology blocks and slides in case expert review, additional testing or a trial requires them. Ask whether any genomic test would actually change treatment or trial eligibility before paying for it.'},
 'lymphoma': {
  'prognosis':'For dogs with common high-grade nodal B-cell lymphoma treated with CHOP, recent large studies report median survival around 10–11 months; T-cell and other lymphoma forms can behave differently. Cats vary even more by anatomic form and grade. These are group statistics, not a clock for one pet.',
  'next':'Confirm the lymphoma type before assuming one prognosis. Immunophenotyping (B-cell versus T-cell), grade and anatomic form can change both treatment and trial eligibility. Because lymphoma is usually systemic, treatment decisions are generally made in days to a few weeks rather than after a long wait.',
