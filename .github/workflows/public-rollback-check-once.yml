@@ -1,0 +1,39 @@
+name: Public rollback check once
+on:
+  push:
+    branches: [address-rework-v2]
+    paths: ['.github/workflows/public-rollback-check-once.yml']
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install browser
+        run: |
+          pip install playwright
+          python -m playwright install chromium
+      - name: Wait for Streamlit deploy
+        run: sleep 90
+      - name: Check public app
+        run: |
+          python - <<'PY'
+          from playwright.sync_api import sync_playwright
+          errors=[]
+          with sync_playwright() as p:
+              b=p.chromium.launch(headless=True)
+              page=b.new_page(viewport={'width':1440,'height':1400})
+              page.on('console', lambda m: errors.append(m.text) if m.type=='error' else None)
+              page.on('pageerror', lambda e: errors.append(str(e)))
+              page.goto('https://c-trials.streamlit.app/', wait_until='domcontentloaded', timeout=90000)
+              page.wait_for_timeout(30000)
+              body=page.locator('body').inner_text(timeout=10000)
+              print('BODY_LEN',len(body))
+              print('BODY_HEAD',repr(body[:1600]))
+              print('ERRORS',errors)
+              assert 'Country / region' in body, body[:1600]
+              assert not [e for e in errors if 'Bad delta path index' in e], errors
+              print('PUBLIC_ROLLBACK_PASS')
+              b.close()
+          PY
