@@ -1,0 +1,16 @@
+name: Build static locations once
+on:
+  workflow_dispatch:
+  push:
+    paths: ['.github/workflows/build-static-locations-once.yml']
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/build_static_trial_locations.py
