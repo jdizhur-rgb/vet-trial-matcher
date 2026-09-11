@@ -1,0 +1,41 @@
+name: Public main entrypoint check once
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/public-main-entrypoint-check-once.yml']
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install browser
+        run: |
+          pip install playwright
+          python -m playwright install chromium
+      - name: Wait for deploy
+        run: sleep 90
+      - name: Inspect public app
+        run: |
+          python - <<'PY'
+          from playwright.sync_api import sync_playwright
+          errors=[]
+          with sync_playwright() as p:
+              b=p.chromium.launch(headless=True)
+              page=b.new_page(viewport={'width':1440,'height':1600})
+              page.on('console', lambda m: errors.append(m.text) if m.type=='error' else None)
+              page.on('pageerror', lambda e: errors.append(str(e)))
+              page.goto('https://c-trials.streamlit.app/',wait_until='domcontentloaded',timeout=90000)
+              page.wait_for_timeout(30000)
+              body=page.locator('body').inner_text(timeout=10000)
+              print('BODY_LEN',len(body))
+              print('BODY_HEAD',repr(body[:1800]))
+              print('ERRORS',errors)
+              assert not [e for e in errors if 'Bad delta path index' in e], errors
+              assert 'Country / region' in body, body[:1800]
+              print('PUBLIC_MAIN_ENTRYPOINT_PASS')
+              b.close()
+          PY
