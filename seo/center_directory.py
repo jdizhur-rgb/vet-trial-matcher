@@ -108,6 +108,15 @@ LOCATION_GROUPS = {
 }
 
 ALIASES = {
+    'Purdue University Veterinary Hospital / Werling Comparative Oncology Research Center': 'Purdue University College of Veterinary Medicine',
+    'ELIAS Animal Health / University of Missouri': 'University of Missouri College of Veterinary Medicine',
+    'UC Davis Weill School of Veterinary Medicine / Translational Brain Tumor Center': 'UC Davis Veterinary Center for Clinical Trials',
+    'Penn Vet Comparative Immunotherapy Program': 'University of Pennsylvania School of Veterinary Medicine',
+    'UT Southwestern Veterinary Radiation Oncology Clinic (VROC)': 'UT Southwestern Veterinary Research and Oncology Clinic',
+    'Ethos Discovery / Veterinary Specialty Hospital - North County': 'Veterinary Specialty Hospital - North County',
+    'Johns Hopkins Center for Image-Guided Animal Therapy (CIGAT) / Kubanda Cryotherapy': 'Johns Hopkins Center for Image-Guided Animal Therapy (CIGAT)',
+    'Ontario Veterinary College / Hospital for Sick Children': 'Ontario Veterinary College — University of Guelph',
+    'University Hospital for Companion Animals, University of Copenhagen / Lund University': 'University Hospital for Companion Animals — University of Copenhagen',
     "Massachusetts Veterinary Referral Hospital (MVRH)": "Massachusetts Veterinary Referral Hospital",
     "Gulf Coast Veterinary Specialists (GCVS)": "Gulf Coast Veterinary Specialists",
     "SAGE": "SAGE Veterinary Centers",
