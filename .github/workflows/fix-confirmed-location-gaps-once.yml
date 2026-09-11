@@ -1,0 +1,90 @@
+name: Fix confirmed location gaps once
+on:
+  push:
+    branches: [streamlit-prod]
+    paths: ['.github/workflows/fix-confirmed-location-gaps-once.yml']
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: streamlit-prod
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Add verified aliases and current multicenter sites
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('seo/center_directory.py'); s=p.read_text()
+          aliases={
+            'Purdue University Veterinary Hospital / Werling Comparative Oncology Research Center':'Purdue University College of Veterinary Medicine',
+            'ELIAS Animal Health / University of Missouri':'University of Missouri College of Veterinary Medicine',
+            'UC Davis Weill School of Veterinary Medicine / Translational Brain Tumor Center':'UC Davis Veterinary Center for Clinical Trials',
+            'Penn Vet Comparative Immunotherapy Program':'University of Pennsylvania School of Veterinary Medicine',
+            'UT Southwestern Veterinary Radiation Oncology Clinic (VROC)':'UT Southwestern Veterinary Research and Oncology Clinic',
+            'Ethos Discovery / Veterinary Specialty Hospital - North County':'Veterinary Specialty Hospital - North County',
+            'Johns Hopkins Center for Image-Guided Animal Therapy (CIGAT) / Kubanda Cryotherapy':'Johns Hopkins Center for Image-Guided Animal Therapy (CIGAT)',
+            'Ontario Veterinary College / Hospital for Sick Children':'Ontario Veterinary College — University of Guelph',
+            'University Hospital for Companion Animals, University of Copenhagen / Lund University':'University Hospital for Companion Animals — University of Copenhagen',
+          }
+          anchor='ALIASES = {\n'
+          additions=''.join(f'    {k!r}: {v!r},\n' for k,v in aliases.items())
+          if additions not in s: s=s.replace(anchor,anchor+additions,1)
+          p.write_text(s); compile(s,str(p),'exec')
+
+          patch=Path('data/catalog_patch_zzzzzz_verified_locations_20260911.json')
+          payload={'upsert':[
+            {'id':'medvet-egfr-her2-vaccine-2026','sites':[
+              {'hospital':'MedVet Salt Lake City','city':'Salt Lake City','state':'UT'},
+              {'hospital':'MedVet Cincinnati','city':'Cincinnati','state':'OH'},
+              {'hospital':'MedVet Cleveland','city':'Cleveland','state':'OH'},
+              {'hospital':'MedVet Pittsburgh','city':'McMurray','state':'PA'}
+            ]},
+            {'id':'ethos-mimic-osa-lung','sites':[
+              {'hospital':'Veterinary Specialty Hospital - North County','city':'San Marcos','state':'CA'},
+              {'hospital':'Gulf Coast Veterinary Specialists','city':'Houston','state':'TX'}
+            ]},
+            {'id':'ethos-vsh-urothelial-immunotherapy-2026','sites':[
+              {'hospital':'Veterinary Specialty Hospital - North County','city':'San Marcos','state':'CA'},
+              {'hospital':'Colorado Animal Specialty & Emergency (CASE)','city':'Boulder','state':'CO'},
+              {'hospital':'Metropolitan Veterinary Hospital - Cleveland East','city':'Highland Heights','state':'OH'}
+            ]}
+          ]}
+          patch.write_text(json.dumps(payload,indent=2,ensure_ascii=False)+'\n')
+          PY
+      - name: Verify resolved records
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from seo.center_directory import addresses_for
+          for name in [
+            'Purdue University Veterinary Hospital / Werling Comparative Oncology Research Center',
+            'ELIAS Animal Health / University of Missouri',
+            'UC Davis Weill School of Veterinary Medicine / Translational Brain Tumor Center',
+            'Penn Vet Comparative Immunotherapy Program',
+            'UT Southwestern Veterinary Radiation Oncology Clinic (VROC)',
+            'Ethos Discovery / Veterinary Specialty Hospital - North County',
+            'Johns Hopkins Center for Image-Guided Animal Therapy (CIGAT) / Kubanda Cryotherapy',
+            'Ontario Veterinary College / Hospital for Sick Children',
+            'University Hospital for Companion Animals, University of Copenhagen / Lund University']:
+              if not addresses_for(name): raise SystemExit('unresolved alias: '+name)
+          d=json.loads(Path('data/catalog_patch_zzzzzz_verified_locations_20260911.json').read_text())
+          ids={x['id']:x for x in d['upsert']}
+          assert len(ids['medvet-egfr-her2-vaccine-2026']['sites'])==4
+          assert len(ids['ethos-mimic-osa-lung']['sites'])==2
+          assert len(ids['ethos-vsh-urothelial-immunotherapy-2026']['sites'])==3
+          print('VERIFIED_LOCATION_FIX_OK')
+          PY
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add seo/center_directory.py data/catalog_patch_zzzzzz_verified_locations_20260911.json
+          git commit -m 'Fill verified trial location gaps'
+          git push origin HEAD:streamlit-prod
