@@ -50,7 +50,6 @@ jobs:
                   if isinstance(s,dict):
                       city=(s.get('city') or '').strip()
                       state=(s.get('state') or '').strip()
-                      # Preserve original structured geography as a cross-check against the persisted address.
                       if city and city not in text and '/' not in city and city.lower() not in {'multiple','various'}:
                           mismatch.append((r['id'],'city',city,text))
                       if state and len(state)<=3 and state not in text:
@@ -68,6 +67,7 @@ jobs:
           assert not no_site
           assert not inactive_leak
           assert not weak, weak
+          assert not mismatch, mismatch
           assert all(v in et for v in ('734 Alpha Drive','2505 S 80th St','10435 Sorrento Valley Rd'))
           print('STATIC_STREET_ADDRESS_MIGRATION_PASS')
           PY
