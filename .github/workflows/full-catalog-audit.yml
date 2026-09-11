@@ -36,7 +36,7 @@ jobs:
                       else: old[k]=v
                   rows[q['id']]=old
           active=[r for r in rows.values() if r.get('available_for_matching',True) and r.get('status_confidence') in {'current','confirmed_current'} and r.get('study_type','treatment') in {'treatment','other_treatment_access'}]
-          weak=[]; no_site=[]; inactive_leak=[]
+          weak=[]; no_site=[]; inactive_leak=[]; mismatch=[]
           for r in active:
               shown=[]
               for s in r.get('sites') or []:
@@ -47,17 +47,27 @@ jobs:
               for s in shown:
                   text=(s.get('label') or s.get('address') or s.get('hospital') or '') if isinstance(s,dict) else str(s)
                   if not re.search(r'\d',text): weak.append((r['id'],text))
+                  if isinstance(s,dict):
+                      city=(s.get('city') or '').strip()
+                      state=(s.get('state') or '').strip()
+                      # Preserve original structured geography as a cross-check against the persisted address.
+                      if city and city not in text and '/' not in city and city.lower() not in {'multiple','various'}:
+                          mismatch.append((r['id'],'city',city,text))
+                      if state and len(state)<=3 and state not in text:
+                          mismatch.append((r['id'],'state',state,text))
           print('ACTIVE',len(active))
           print('NO_ACTIVE_SITE',no_site)
           print('INACTIVE_LEAK',inactive_leak)
           print('WEAK_ACTIVE_SITE_COUNT',len(weak))
+          print('STRUCTURED_LOCATION_MISMATCH_COUNT',len(mismatch))
           for x in weak: print('WEAK',x[0],'|',x[1])
+          for x in mismatch: print('MISMATCH',*x,sep=' | ')
           e=rows['ethos-gilvetmab-melanoma']
           et=' | '.join((x.get('label') or x.get('hospital','')) if isinstance(x,dict) else str(x) for x in e.get('sites',[]))
           assert len(active)==142
           assert not no_site
           assert not inactive_leak
+          assert not weak, weak
           assert all(v in et for v in ('734 Alpha Drive','2505 S 80th St','10435 Sorrento Valley Rd'))
-          assert len(weak)==2, weak
           print('STATIC_STREET_ADDRESS_MIGRATION_PASS')
           PY
