@@ -2,7 +2,9 @@ name: Normalize static location fields once
 on:
   push:
     branches: [database-audit-20260911]
-    paths: ['scripts/normalize_static_location_fields.py']
+    paths:
+      - 'scripts/normalize_static_location_fields.py'
+      - '.github/workflows/normalize-static-location-fields-once.yml'
 permissions:
   contents: write
 jobs:
