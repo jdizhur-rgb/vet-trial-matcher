@@ -2,6 +2,7 @@
 """Build the production SEO site with strict validation and production settings."""
 from __future__ import annotations
 
+import re
 import sys
 from pathlib import Path
 
@@ -41,6 +42,11 @@ def main():
     ensure_center_images.main()
     out = SEO_DIR / "site"
     apply_site_shell(out)
+    home = out / "index.html"
+    if home.exists():
+        text = home.read_text(encoding="utf-8")
+        text = re.sub(r'<section class="share-panel">.*?</section>', '', text, count=1, flags=re.S)
+        home.write_text(text, encoding="utf-8")
     integrate_about(out)
     (out / "CNAME").write_text(f"{DOMAIN}\n", encoding="utf-8")
 
