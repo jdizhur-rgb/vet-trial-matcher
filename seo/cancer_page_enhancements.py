@@ -43,7 +43,7 @@ def _enhance(text):
  if dm and tm>=0 and dm.start()>tm:block=dm.group(0);text=text[:dm.start()]+text[dm.end():];tm=text.find('<section class="options-transition">');text=text[:tm]+block+text[tm:]
  text=CARD_RE.sub(_collapse_card,text);text=text.replace('</main>','</div></main>',1)
  title=f'{label} Clinical Trials for {species} | Vet Trial Finder';desc=f'Learn about {label} in {species.lower()}, common treatment approaches and factors that affect care. Check Vet Trial Finder for new clinical trials and treatment studies.' if count=='0' else f'Find {count} current {label} clinical trial and treatment {"option" if count=="1" else "options"} for {species.lower()} in {region}. Free eligibility details, locations, contacts and official links.';text=re.sub(r'<title>.*?</title>',f'<title>{html.escape(title)}</title>',text,count=1,flags=re.S);text=re.sub(r'<meta name="description" content=".*?">',f'<meta name="description" content="{html.escape(desc,quote=True)}">',text,count=1,flags=re.S);text=text.replace('</head>',_json_ld(title,desc,canonical,label,species,region)+'</head>',1)
- if CSS not in text:text.replace('</style>',CSS+'</style>',1)
+ if CSS not in text:text=text.replace('</style>',CSS+'</style>',1)
  return text,True
 
 def enhance_cancer_pages(root):
