@@ -23,6 +23,7 @@ def generate_about_page(root: Path) -> None:
 <p>On this site, the main types of cancer and their standard treatments are explained in plain language. You can search for current clinical trials, see their basic eligibility requirements, locations and contacts, and find universities, specialty hospitals and oncology centers that may be able to help. We also collect information about treatments that are not available everywhere, such as electrochemotherapy, newer targeted and immunotherapy approaches, and expanded access programs.</p>
 <p>Some of these options are experimental, some are already being used in veterinary oncology but can be difficult to find. None of them is right for every animal, but some may offer another option when standard treatment is not enough.</p>
 <p class="story-close"><strong>We don’t promise anything and we don’t give false hope. But we provide information and help you find it when time matters.</strong></p>
+<div class="founder-signoff"><img src="/assets/yuliia-senya-about.jpg" alt="Yuliia Dizhur with Senya"><div><strong>Yuliia Dizhur</strong><span>Founder, Vet Trial Finder</span></div></div>
 </article>
 '''
     d = root / 'about'
