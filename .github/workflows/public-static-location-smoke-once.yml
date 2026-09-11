@@ -1,0 +1,61 @@
+name: Public static location smoke once
+on:
+  push:
+    paths: ['.github/workflows/public-static-location-smoke-once.yml']
+permissions:
+  contents: read
+jobs:
+  public-browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install browser
+        run: |
+          pip install playwright
+          python -m playwright install chromium
+      - name: Test deployed public app
+        run: |
+          python - <<'PY'
+          import time
+          from playwright.sync_api import sync_playwright
+          URL='https://c-trials.streamlit.app/'
+          def choose(page,label,value):
+              box=page.get_by_text(label,exact=True).locator("xpath=ancestor::div[contains(@class,'stSelectbox')][1]").get_by_role('combobox')
+              box.click(); box.fill(value); box.press('Enter'); page.wait_for_timeout(1200)
+          last=''
+          with sync_playwright() as p:
+              b=p.chromium.launch(headless=True)
+              for attempt in range(1,5):
+                  page=b.new_page(viewport={'width':1440,'height':1800})
+                  try:
+                      print('ATTEMPT',attempt)
+                      page.goto(URL,wait_until='domcontentloaded',timeout=60000)
+                      page.get_by_text('Country / region',exact=True).wait_for(timeout=90000)
+                      body=page.locator('body').inner_text()
+                      if '142 active treatment opportunities' not in body:
+                          print('COUNTER_NOT_142')
+                          page.close(); time.sleep(20); continue
+                      choose(page,'Country / region','USA'); choose(page,'Cancer type','Oral melanoma')
+                      page.get_by_role('button',name='Find potential trials').click()
+                      page.get_by_text('Results',exact=True).wait_for(timeout=30000)
+                      body=page.locator('body').inner_text()
+                      need=['Ethos Veterinary Health','734 Alpha Drive','2505 S 80th St','10435 Sorrento Valley Rd','Bridge Animal Referral Center (BARC)','8401 Main St','Edmonds, WA 98026']
+                      missing=[x for x in need if x not in body]
+                      print('MISSING',missing)
+                      page.screenshot(path='/tmp/public-static.png',full_page=True)
+                      if not missing:
+                          print('PUBLIC_STATIC_LOCATIONS_PASS'); b.close(); raise SystemExit(0)
+                      last='missing '+repr(missing)
+                  except Exception as e:
+                      last=repr(e); print('ERROR',last)
+                  page.close(); time.sleep(20)
+              b.close()
+          raise SystemExit('PUBLIC_SMOKE_FAILED: '+last)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-static-location-screenshot
+          path: /tmp/public-static.png
