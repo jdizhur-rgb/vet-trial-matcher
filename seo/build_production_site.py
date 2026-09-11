@@ -28,11 +28,16 @@ from center_page_enhancements import enhance_center_pages
 from finalize_cancer_pages import finalize_cancer_pages
 from practical_cancer_pages import apply_practical_cancer_guides, apply_feline_practical_guides
 from feline_practical_content import FELINE_PRACTICAL
+from feline_practical_more import FELINE_MORE
 from hs_owner_page import apply_canine_hs_guide
 from help_center import generate_help_center
 from about_page import generate_about_page
 from site_shell import apply_site_shell
 from about_site_integration import integrate_about
+
+# Keep rare feline diagnoses in a separate evidence file so sparse feline data
+# are never silently replaced with canine outcome figures.
+FELINE_PRACTICAL.update(FELINE_MORE)
 
 
 def main():
