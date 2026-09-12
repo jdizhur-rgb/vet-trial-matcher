@@ -1,5 +1,5 @@
 name: Restore tested Kot design
-# Cancer copy source: cancer-page-audit-depth@d1c48e3
+# Cancer copy source: cancer-page-audit-depth@a3aad79
 
 on:
   workflow_dispatch:
@@ -148,13 +148,18 @@ jobs:
           assert 'https://vettrialfinder.com/uk-europe/' not in sitemap
           assert not any(f'https://vettrialfinder.com/{lang}/' in sitemap for lang in ('de','fr','es','it','nl'))
           assert sitemap.count('/centers/') == 49
+          assert 'https://vettrialfinder.com/how-we-verify/' in sitemap
           assert '<lastmod>2026-09-12</lastmod>' in sitemap
           assert '<meta name="robots" content="noindex, follow">' in (root/'de/uk-europe/dogs/lymphoma/index.html').read_text(encoding='utf-8')
           assert '<meta name="robots" content="noindex, follow">' in (root/'uk-europe/dogs/oral-melanoma/index.html').read_text(encoding='utf-8')
           assert all('/uk-europe/' not in url for url in sitemap.split('<loc>')[1:])
           assert '"@type": "WebSite"' in home and '"@type": "Organization"' in home
-          assert '"BreadcrumbList"' in (root/'north-america/dogs/lymphoma/index.html').read_text(encoding='utf-8')
+          assert '"@type": "BreadcrumbList"' in (root/'north-america/dogs/lymphoma/index.html').read_text(encoding='utf-8')
           assert (root/'404.html').exists()
+          verification=(root/'how-we-verify/index.html').read_text(encoding='utf-8')
+          assert '<h1>How We Verify Listings</h1>' in verification
+          assert 'What this site does not do' in verification
+          assert 'How We Verify</a>' in home
           source=Path('seo/about_page.py').read_text(encoding='utf-8')
           assert not any(x in source for x in ('assets_embedded','base64','urllib.request','fallback_url'))
           senya=root/'assets/senya-about.jpg'; yasha=root/'assets/yasha-about.jpg'
