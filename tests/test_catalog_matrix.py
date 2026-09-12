@@ -44,7 +44,6 @@ class CatalogMatrixTests(unittest.TestCase):
                     ids = [match.trial["id"] for match in matches]
                     self.assertEqual(len(ids), len(set(ids)))
                     for match in matches:
-                        self.assertEqual("USA", match.trial.get("country", "USA"))
                         status = str(match.trial.get("status", "")).lower()
                         self.assertFalse(any(value in status for value in BLOCKED_STATUS_PHRASES))
 
@@ -63,6 +62,23 @@ class CatalogMatrixTests(unittest.TestCase):
                 )
                 for match in matches:
                     self.assertFalse(match.trial.get("requires", {}).get("confirmed"))
+
+    def test_each_country_can_be_selected_without_losing_other_countries(self):
+        countries = sorted({
+            trial.get("country", "USA") for trial in self.trials
+            if trial.get("status_confidence") in {"current", "confirmed_current"}
+        })
+        self.assertGreater(len(countries), 1)
+        for country in countries:
+            with self.subTest(country=country):
+                matches = match_trials(
+                    self.trials,
+                    SearchAnswers(species="Dog", cancer="Cancer — any type"),
+                    accepts_diagnosis=trial_accepts_diagnosis,
+                    trial_modalities=trial_modalities,
+                    country_matches=lambda trial_country, selected=country: trial_country == selected,
+                )
+                self.assertTrue(all(match.trial.get("country", "USA") == country for match in matches))
 
 
 if __name__ == "__main__":

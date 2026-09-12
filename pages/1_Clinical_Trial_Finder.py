@@ -208,7 +208,6 @@ _stats_trials = [
     t for t in TRIALS
     if t.get('available_for_matching', True)
     and is_current_trial(t)
-    and t.get('country', 'USA') == 'USA'
     and t.get('study_type', 'treatment') in {'treatment', 'other_treatment_access'}
 ]
 _stats_centers = {str(t.get('center', '')).strip() for t in _stats_trials if str(t.get('center', '')).strip()}
@@ -227,7 +226,8 @@ _stats_countries = {
 st.caption(
     f"{len(_stats_trials)} active treatment opportunities · "
     f"{len(_stats_centers)} centers · "
-    f"{len(_stats_cancers)} cancer types · USA"
+    f"{len(_stats_cancers)} cancer types · "
+    f"{len(_stats_countries)} countries"
 )
 
 st.markdown('Answer what you know. It is completely fine to choose **I don’t know**.')
@@ -264,16 +264,21 @@ EUROPE_COUNTRIES = {
     'Hungary', 'Greece', 'Romania', 'Croatia', 'Estonia', 'Latvia',
     'Lithuania', 'Luxembourg', 'Iceland'
 }
-country = 'USA'
-st.markdown('**Country / region:** USA')
-zip_code = st.text_input(
-    'ZIP code (optional)',
-    max_chars=10,
-    placeholder='e.g. 01095',
-    help='Used only to put closer studies first. It does not exclude distant studies.',
-)
+country_options = ['All countries', 'Europe — all countries'] + trial_countries
+country = st.selectbox('Country / region', country_options)
+if country == 'USA':
+    zip_code = st.text_input(
+        'ZIP code (optional)',
+        max_chars=10,
+        placeholder='e.g. 01095',
+        help='Used only to put closer studies first. It does not exclude distant studies.',
+    )
+else:
+    zip_code = ''
 
 def country_matches(trial_country, selected_country):
+    if selected_country == 'All countries':
+        return True
     if selected_country == 'Europe — all countries':
         return trial_country in EUROPE_COUNTRIES
     return trial_country == selected_country
@@ -531,6 +536,7 @@ if search_clicked:
         _answers,
         accepts_diagnosis=trial_accepts_diagnosis,
         trial_modalities=trial_modalities,
+        country_matches=lambda trial_country: country_matches(trial_country, country),
     )
     _distance_context = None
     if zip_code.strip():
@@ -598,5 +604,5 @@ st.caption('Trial information can change. Always confirm recruiting status, elig
 
 
 st.markdown("---")
-st.caption("Verified treatment trials and experimental treatment programs • USA • Updated daily")
+st.caption("Verified treatment trials and experimental treatment programs • International coverage • Updated daily")
 st.caption("This finder identifies potentially relevant cancer treatment options. It does not determine eligibility. Final eligibility and treatment decisions are determined by the treating or research team. It is not a substitute for veterinary advice.")

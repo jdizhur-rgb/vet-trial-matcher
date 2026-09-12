@@ -15,11 +15,13 @@ class AppSmokeTests(unittest.TestCase):
         values = {widget.label: widget.value for widget in app.selectbox}
         self.assertIsNone(values["Cancer type"])
         self.assertEqual("I don't know", values["How certain is the diagnosis?"])
+        self.assertEqual("All countries", values["Country / region"])
         search = next(button for button in app.button if button.label == "Find potential trials")
         self.assertTrue(search.disabled)
 
     def test_yasha_case_returns_no_plausible_hs_matches(self):
         app = self.open_app()
+        next(widget for widget in app.selectbox if widget.label == "Country / region").select("USA")
         next(widget for widget in app.selectbox if widget.label == "Cancer type").select("Histiocytic sarcoma")
         app.run()
         changes = {
@@ -42,6 +44,7 @@ class AppSmokeTests(unittest.TestCase):
 
     def test_result_renders_funding_without_opening_details(self):
         app = self.open_app()
+        next(widget for widget in app.selectbox if widget.label == "Country / region").select("USA")
         next(widget for widget in app.selectbox if widget.label == "Cancer type").select("Mast cell tumor")
         app.run()
         next(widget for widget in app.selectbox if widget.label == "How certain is the diagnosis?").select("Confirmed by pathology/cytology")
