@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from collections import defaultdict
+import re
 from typing import Any, Dict, Iterable, List
 
 from seo.center_directory import addresses_for
@@ -33,15 +33,35 @@ def _structured_address(site: Dict[str, Any]) -> str:
     return ", ".join(parts)
 
 
+def _embedded_full_address(site: Dict[str, Any]) -> str:
+    """Use a stored full address when an older patch embedded it in label/hospital."""
+    for value in (site.get("label"), site.get("hospital")):
+        text = _clean(value)
+        if not text or not re.search(r"\d", text):
+            continue
+        # Require more than a bare street fragment: US ZIP, international postcode,
+        # or at least a comma-separated locality after a numbered street.
+        if re.search(r"\b\d{5}(?:-\d{4})?\b", text):
+            return text
+        if len(text.split(",")) >= 3:
+            return text
+    return ""
+
+
 def site_addresses(site: Dict[str, Any], *, trial_center: str = "") -> List[str]:
     """Resolve physical addresses for one stored participating-site record.
 
-    Priority is trial-specific structured street data, then the central center
-    directory. City/state-only labels are never promoted to street addresses.
+    Priority is trial-specific structured street data, then a full address already
+    embedded by older catalog patches, then the central center directory.
+    City/state-only labels are never promoted to street addresses.
     """
     direct = _structured_address(site)
     if direct:
         return [direct]
+
+    embedded = _embedded_full_address(site)
+    if embedded:
+        return [embedded]
 
     candidates = []
     for key in (site.get("name"), site.get("hospital"), trial_center):
