@@ -120,8 +120,6 @@ def should_noindex(relative: Path, text: str) -> bool:
         # so the absence of study cards is the durable zero-opportunity signal.
         return count == 0 or '<article class="card">' not in text
     if len(parts) >= 3 and parts[0] == "centers":
-        if not re.search(r'·\s*(?:USA|Canada)\b', text):
-            return True
         count = opportunity_count(text)
         return count == 0
     return False
