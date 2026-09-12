@@ -90,17 +90,26 @@ jobs:
           assert 'jdizhur-rgb.github.io/vet-trial-matcher' not in home
           asset=root/'assets/kot-home.jpg'; assert asset.exists() and asset.stat().st_size>10000, asset
           about=(root/'about/index.html').read_text(encoding='utf-8')
+          assert 'class="about-story-v2"' in about
           assert 'class="story-intro"' in about
           assert 'class="story-break"' in about
           assert 'color:#315f7d!important' in about
+          assert 'This project started because two dogs taught me' in about
+          assert 'second surgery to remove the dirty margins' in about
+          assert 'experimental treatments, looking for something that might give him better chances' in about
+          assert 'We don’t promise anything and we don’t give false hope.' in about
+          assert 'Yuliia Dizhur' in about and 'Founder, Vet Trial Finder' in about
+          assert 'aspect-ratio:3/4;object-position:center center' in about
+          source=Path('seo/about_page.py').read_text(encoding='utf-8')
+          assert not any(x in source for x in ('assets_embedded','base64','urllib.request','fallback_url'))
           senya=root/'assets/senya-about.jpg'; yasha=root/'assets/yasha-about.jpg'
-          assert senya.exists() and senya.stat().st_size>12000, senya.stat().st_size
-          assert yasha.exists() and yasha.stat().st_size>12000, yasha.stat().st_size
+          assert senya.exists() and senya.stat().st_size>50000, senya.stat().st_size
+          assert yasha.exists() and yasha.stat().st_size>50000, yasha.stat().st_size
           cancer=[]
           for region in ('north-america','uk-europe'):
             for species in ('dogs','cats'): cancer += list((root/region/species).glob('*/index.html'))
           assert len(cancer)>=88, len(cancer)
-          print('ABOUT_LAYOUT_AND_WEB_PHOTOS_OK',len(pages),len(cancer),senya.stat().st_size,yasha.stat().st_size)
+          print('ABOUT_STORY_V2_PRODUCTION_OK',len(pages),len(cancer),senya.stat().st_size,yasha.stat().st_size)
           PY
       - name: Save exact candidate artifact
         uses: actions/upload-artifact@v4
