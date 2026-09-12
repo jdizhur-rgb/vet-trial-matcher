@@ -264,9 +264,24 @@ EUROPE_COUNTRIES = {
     'Hungary', 'Greece', 'Romania', 'Croatia', 'Estonia', 'Latvia',
     'Lithuania', 'Luxembourg', 'Iceland'
 }
-country_options = ['All countries', 'Europe — all countries'] + trial_countries
-country = st.selectbox('Country / region', country_options, index=country_options.index('USA'))
-if country == 'USA':
+region_choice = st.selectbox(
+    'Country / region',
+    ['USA', 'Canada', 'Europe', 'Other countries', 'All countries'],
+)
+if region_choice == 'Europe':
+    european_countries = sorted({value for value in trial_countries if value in EUROPE_COUNTRIES})
+    european_country = st.selectbox('European country', ['All Europe'] + european_countries)
+    country = 'Europe — all countries' if european_country == 'All Europe' else european_country
+elif region_choice == 'Other countries':
+    other_countries = sorted({
+        value for value in trial_countries
+        if value not in EUROPE_COUNTRIES and value not in {'USA', 'Canada'}
+    })
+    country = st.selectbox('Country', other_countries)
+else:
+    country = region_choice
+
+if region_choice == 'USA':
     zip_code = st.text_input(
         'ZIP code (optional)',
         max_chars=10,

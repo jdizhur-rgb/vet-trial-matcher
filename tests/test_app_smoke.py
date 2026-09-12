@@ -62,6 +62,14 @@ class AppSmokeTests(unittest.TestCase):
         app.run()
         self.assertTrue(any(box.label == "I know the tumor size" for box in app.checkbox))
 
+    def test_europe_has_a_country_submenu(self):
+        app = self.open_app()
+        next(widget for widget in app.selectbox if widget.label == "Country / region").select("Europe")
+        app.run()
+        submenu = next(widget for widget in app.selectbox if widget.label == "European country")
+        self.assertEqual("All Europe", submenu.value)
+        self.assertIn("France", submenu.options)
+
 
 if __name__ == "__main__":
     unittest.main()
