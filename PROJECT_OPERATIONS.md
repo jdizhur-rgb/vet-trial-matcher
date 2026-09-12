@@ -140,7 +140,7 @@ Support dogs/canine AND cats/feline. Avoid thin doorway pages and avoid implying
 Production indexing policy added 2026-09-12:
 - All canonical and sitemap URLs must use `https://vettrialfinder.com` only.
 - Partially translated `de`, `fr`, `es`, `it`, and `nl` pages remain available but are `noindex, follow` and excluded from the sitemap until each language is fully localized and reviewed.
-- All `/uk-europe/` pages and center pages without a current USA/Canada opportunity are excluded from the production search index and sitemap; North America is the active SEO scope. Existing European URLs remain available temporarily so shared links do not become abrupt 404s.
+- All `/uk-europe/` cancer pages are excluded from the production search index and sitemap; North America is the active cancer-page SEO scope. Center pages remain indexable regardless of region because the directory is small and contains useful institution-specific programs, contacts and treatment information. Existing European cancer URLs remain available temporarily so shared links do not become abrupt 404s.
 - Diagnosis/species/region pages with zero current treatment opportunities remain available to owners but are `noindex, follow` and excluded from the sitemap.
 - Search-indexing changes are applied after the static production build by `seo_index_cleanup.py`; they must not modify or couple to the Streamlit matcher runtime.
 
