@@ -1,0 +1,53 @@
+name: Embed workaround check
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/embed-workaround-check-20260911.yml']
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install Playwright
+        run: |
+          pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Verify embed URL is stable and interactive
+        run: |
+          python - <<'PY'
+          from playwright.sync_api import sync_playwright
+          URL='https://c-trials.streamlit.app/?embed=true'
+          with sync_playwright() as p:
+              b=p.chromium.launch(headless=True)
+              for label,viewport,mobile in [('DESKTOP',{'width':1440,'height':1000},False),('MOBILE',{'width':390,'height':844},True)]:
+                  ctx=b.new_context(viewport=viewport,is_mobile=mobile,has_touch=mobile)
+                  page=ctx.new_page(); errs=[]; nav=[]
+                  page.on('pageerror',lambda e: errs.append(str(e)))
+                  page.on('framenavigated',lambda f: nav.append(f.url) if f==page.main_frame else None)
+                  r=page.goto(URL,wait_until='domcontentloaded',timeout=60000)
+                  page.wait_for_timeout(8000)
+                  frames=[f for f in page.frames if '/~/+/' in f.url]
+                  print(label,'STATUS',r.status if r else None,'FRAME_COUNT',len(frames),'NAV',nav,'ERRORS',errs)
+                  assert frames, 'inner Streamlit app frame missing'
+                  app=frames[0]
+                  text=app.locator('body').inner_text()
+                  print(label,'APP_BODYLEN',len(text),'HAS_FINDER','Vet Cancer Trial Finder' in text)
+                  assert 'Vet Cancer Trial Finder' in text
+                  btn=app.get_by_role('button',name='Find potential trials')
+                  print(label,'MATCH_BUTTONS',btn.count())
+                  assert btn.count()==1
+                  btn.click(); app.wait_for_timeout(4000)
+                  text=app.locator('body').inner_text()
+                  print(label,'RESULTS', 'Results' in text, 'BODYLEN',len(text))
+                  assert 'Results' in text
+                  page.wait_for_timeout(12000)
+                  frames2=[f for f in page.frames if '/~/+/' in f.url]
+                  print(label,'STILL_ALIVE',len(frames2), 'OUTER_URL',page.url)
+                  assert frames2 and 'Results' in frames2[0].locator('body').inner_text()
+                  ctx.close()
+              b.close()
+          PY
