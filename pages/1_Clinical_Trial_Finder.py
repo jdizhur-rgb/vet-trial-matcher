@@ -1,6 +1,7 @@
 # EU cancer-by-cancer gap audit completed 2026-09-04: all UI cancer categories rechecked; no unverified lead promoted to matching.
 import streamlit as st
 import streamlit.components.v1 as components
+from seo.trial_site_directory import active_trial_addresses
 
 CANCER_ALIASES = {
     # UI labels and protocol labels are not always identical. Keep these mappings
@@ -47,7 +48,10 @@ def _render_result_save_controls(matches):
             lines.append("Confirm: " + "; ".join(dict.fromkeys(str(x) for x in unknown)) + ".")
         lines.append("Contact: " + tr.get("contacts", tr.get("contact", "Contact the study team through the official study page")))
         if tr.get("sites"):
-            lines.append("Participating sites: " + "; ".join(f"{x['hospital']} — {x['city']}, {x['state']}" for x in tr["sites"]))
+            lines.append("Participating sites: " + "; ".join(str(x.get('name') or x.get('hospital') or x.get('label') or '').strip() for x in tr["sites"] if str(x.get('name') or x.get('hospital') or x.get('label') or '').strip()))
+        _addresses = active_trial_addresses(tr)
+        if _addresses:
+            lines.append("Address: " + "; ".join(_addresses))
         details_url = tr.get("registry_url") or tr.get("url")
         if details_url:
             lines.append("Full study details: " + details_url)
@@ -871,9 +875,15 @@ if search_clicked:
                 )
                 if tr.get('sites'):
                     site_text = '; '.join(
-                        f"{x['hospital']} — {x['city']}, {x['state']}" for x in tr['sites']
+                        str(x.get('name') or x.get('hospital') or x.get('label') or '').strip()
+                        for x in tr['sites']
+                        if str(x.get('name') or x.get('hospital') or x.get('label') or '').strip()
                     )
-                    st.write('**Participating sites:** ' + site_text)
+                    if site_text:
+                        st.write('**Participating sites:** ' + site_text)
+                _addresses = active_trial_addresses(tr)
+                if _addresses:
+                    st.write('**Address:** ' + '; '.join(_addresses))
                 details_url = tr.get('registry_url') or tr.get('url', '')
                 if details_url:
                     st.link_button('View full study details →', details_url, use_container_width=True)
