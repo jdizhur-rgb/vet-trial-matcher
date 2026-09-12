@@ -19,7 +19,7 @@ jobs:
         run: |
           PYTHONPATH=. python tools/patch_trial_address_renderer.py
           PYTHONPATH=. python tools/build_trial_site_directory.py | tee /tmp/address_audit.txt
-          python -m py_compile pages/1_Clinical_Trial_Finder.py seo/trial_site_directory.py tools/build_trial_site_directory.py
+          python -m py_compile pages/1_Clinical_Trial_Finder.py seo/trial_site_directory.py seo/center_directory_verified_20260912.py tools/build_trial_site_directory.py
           PYTHONPATH=. python - <<'PY'
           from seo.trial_site_directory import active_trial_addresses, trial_site_records
           from tools.build_trial_site_directory import load_trials
@@ -76,6 +76,8 @@ jobs:
                   assert 'Address:' in body
                   assert '1 Garrod Dr' in body, 'UC Davis street not rendered'
                   assert '2089 SW 16th Ave' in body, 'UF street not rendered'
+                  assert '5 Strathmore Rd' in body, 'Boston West street not rendered'
+                  assert '393 Woods Lake Rd' in body, 'Upstate Vet street not rendered'
                   assert not errs, errs
                   page.close()
               b.close()
