@@ -85,13 +85,20 @@ div[data-testid="stHorizontalBlock"]:has(.st-key-nav_centers) > div[data-testid=
 .st-key-nav_expanded button { background: #e1edf4 !important; border-color: #b8d1df !important; color: #1f4f6c !important; }
 
 div[data-testid="stAlert"] {
-  background: #edf7ef !important;
-  border: 0 !important;
+  background: #f5f8f9 !important;
+  border: 1px solid #edf0f1 !important;
   box-shadow: none !important;
-  color: #285b38 !important;
+  color: #45484b !important;
 }
 
-div[data-testid="stAlert"] p { color: #285b38 !important; }
+div[data-testid="stAlert"] > div {
+  background: transparent !important;
+}
+
+div[data-testid="stAlert"] p,
+div[data-testid="stAlert"] strong {
+  color: #45484b !important;
+}
 
 div[data-testid="stMainBlockContainer"] label p,
 div[data-testid="stMainBlockContainer"] [data-testid="stWidgetLabel"] p {
@@ -130,13 +137,13 @@ div[data-testid="stMainBlockContainer"] [data-testid="stExpander"] details summa
   }
 
   div[data-testid="stMainBlockContainer"] [data-testid="stAlert"] {
-    padding: .55rem .72rem !important;
-    margin: .28rem 0 .55rem !important;
+    padding: .48rem .68rem !important;
+    margin: .25rem 0 .5rem !important;
   }
 
   div[data-testid="stMainBlockContainer"] [data-testid="stAlert"] p {
     font-size: .9rem !important;
-    line-height: 1.35 !important;
+    line-height: 1.34 !important;
     margin: 0 !important;
   }
 
@@ -148,27 +155,33 @@ div[data-testid="stMainBlockContainer"] [data-testid="stExpander"] details summa
 
 @media (max-width: 520px) {
   div[data-testid="stHorizontalBlock"]:has(.st-key-nav_centers) {
-    flex-wrap: wrap !important;
-    gap: .38rem !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: .28rem !important;
     margin-top: .38rem !important;
   }
 
   div[data-testid="stHorizontalBlock"]:has(.st-key-nav_centers) > div[data-testid="stColumn"] {
-    flex: 1 1 calc(50% - .2rem) !important;
-    width: calc(50% - .2rem) !important;
+    flex: 1 1 0 !important;
+    width: 33.333% !important;
     min-width: 0 !important;
-  }
-
-  div[data-testid="stHorizontalBlock"]:has(.st-key-nav_centers) > div[data-testid="stColumn"]:nth-child(3) {
-    flex-basis: 100% !important;
-    width: 100% !important;
   }
 
   .st-key-nav_centers button,
   .st-key-nav_advanced button,
   .st-key-nav_expanded button {
-    min-height: 2.85rem !important;
-    padding: .3rem .35rem !important;
-    font-size: .76rem !important;
+    min-height: 3.05rem !important;
+    padding: .22rem .16rem !important;
+    font-size: .68rem !important;
+    line-height: 1.08 !important;
+  }
+
+  .st-key-nav_centers button p,
+  .st-key-nav_advanced button p,
+  .st-key-nav_expanded button p {
+    font-size: .68rem !important;
+    line-height: 1.08 !important;
+    white-space: normal !important;
   }
 }
