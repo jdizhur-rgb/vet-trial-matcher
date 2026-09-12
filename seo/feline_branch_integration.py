@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import practical_cancer_pages as pages
 from feline_branch_content import FELINE_BRANCHES
+from feline_practical_content import FELINE_PRACTICAL
 
 
 def validate_feline_branch_coverage(practical: dict) -> list[str]:
@@ -16,6 +17,12 @@ def validate_feline_branch_coverage(practical: dict) -> list[str]:
 
 
 def activate_feline_branches() -> None:
+    # The production build loads FELINE_MORE before calling this function, so this
+    # catches any newly reviewed feline diagnosis before it can inherit canine copy.
+    missing = validate_feline_branch_coverage(FELINE_PRACTICAL)
+    if missing:
+        raise AssertionError('Missing feline decision branches: ' + ', '.join(missing))
+
     original = pages.section
 
     def section(label, key, pet, practical):
@@ -23,9 +30,6 @@ def activate_feline_branches() -> None:
             return original(label, key, pet, practical)
 
         # Never fall through to canine ADDITIONAL_BRANCHES for a cat.
-        # A feline-specific branch set is used when reviewed; otherwise suppress
-        # the decision-branch block entirely while retaining the feline prognosis,
-        # next-step guidance, treatment copy and any relevant tests.
         old = pages.BRANCHES.get(key)
         if key in FELINE_BRANCHES:
             pages.BRANCHES[key] = FELINE_BRANCHES[key]
