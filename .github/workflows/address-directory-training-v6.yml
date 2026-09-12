@@ -1,0 +1,64 @@
+name: Address directory training v6
+on:
+  push:
+    branches: [addresses-schema-test-20260911]
+    paths: ['.github/workflows/address-directory-training-v6.yml']
+permissions:
+  contents: read
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: addresses-schema-test-20260911
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Validate directory
+        run: |
+          PYTHONPATH=. python tools/build_trial_site_directory.py
+          python -m py_compile pages/1_Clinical_Trial_Finder.py seo/trial_site_directory.py seo/center_directory_verified_20260912.py
+      - name: Install browser
+        run: |
+          pip install -r requirements.txt playwright
+          python -m playwright install --with-deps chromium
+      - name: External Chromium desktop and mobile
+        run: |
+          streamlit run app.py --server.headless true --server.port 8765 >/tmp/app.log 2>&1 &
+          sleep 8
+          python - <<'PY'
+          from playwright.sync_api import sync_playwright
+          def choose(page,label,value):
+              boxes=page.locator('[data-testid="stSelectbox"]')
+              for i in range(boxes.count()):
+                  box=boxes.nth(i)
+                  if label in box.inner_text():
+                      box.get_by_role('combobox').click()
+                      page.keyboard.type(value, delay=20)
+                      page.keyboard.press('Enter')
+                      page.wait_for_timeout(1000)
+                      return
+              raise AssertionError(label)
+          with sync_playwright() as p:
+              browser=p.chromium.launch(headless=True)
+              for name,w,h in [('desktop',1440,1200),('mobile',390,844)]:
+                  page=browser.new_page(viewport={'width':w,'height':h})
+                  errors=[]
+                  page.on('pageerror',lambda e: errors.append(str(e)))
+                  page.goto('http://127.0.0.1:8765',wait_until='domcontentloaded',timeout=60000)
+                  page.wait_for_timeout(7000)
+                  choose(page,'Country / region','USA')
+                  choose(page,'Cancer type','Cancer — any type')
+                  page.get_by_role('button',name='Find potential trials').click()
+                  page.wait_for_timeout(7000)
+                  body=page.locator('body').inner_text()
+                  assert 'Results' in body
+                  assert 'Address:' in body
+                  assert '1 Garrod Dr' in body
+                  assert '2089 SW 16th Ave' in body
+                  assert not errors, errors
+                  print(name,'OK',len(body))
+                  page.close()
+              browser.close()
+          PY
