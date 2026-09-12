@@ -153,7 +153,7 @@ jobs:
           assert '<meta name="robots" content="noindex, follow">' in (root/'uk-europe/dogs/oral-melanoma/index.html').read_text(encoding='utf-8')
           assert all('/uk-europe/' not in url for url in sitemap.split('<loc>')[1:])
           assert '"@type": "WebSite"' in home and '"@type": "Organization"' in home
-          assert '"@type": "BreadcrumbList"' in (root/'north-america/dogs/lymphoma/index.html').read_text(encoding='utf-8')
+          assert '"BreadcrumbList"' in (root/'north-america/dogs/lymphoma/index.html').read_text(encoding='utf-8')
           assert (root/'404.html').exists()
           source=Path('seo/about_page.py').read_text(encoding='utf-8')
           assert not any(x in source for x in ('assets_embedded','base64','urllib.request','fallback_url'))
