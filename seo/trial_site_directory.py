@@ -4,6 +4,7 @@ import re
 from typing import Any, Dict, Iterable, List
 
 from seo.center_directory import addresses_for
+from seo.center_directory_verified_20260912 import verified_addresses_for
 
 
 def _clean(value: Any) -> str:
@@ -39,8 +40,6 @@ def _embedded_full_address(site: Dict[str, Any]) -> str:
         text = _clean(value)
         if not text or not re.search(r"\d", text):
             continue
-        # Require more than a bare street fragment: US ZIP, international postcode,
-        # or at least a comma-separated locality after a numbered street.
         if re.search(r"\b\d{5}(?:-\d{4})?\b", text):
             return text
         if len(text.split(",")) >= 3:
@@ -52,8 +51,9 @@ def site_addresses(site: Dict[str, Any], *, trial_center: str = "") -> List[str]
     """Resolve physical addresses for one stored participating-site record.
 
     Priority is trial-specific structured street data, then a full address already
-    embedded by older catalog patches, then the central center directory.
-    City/state-only labels are never promoted to street addresses.
+    embedded by older catalog patches, then the verified participating-site patch,
+    then the central center directory. City/state-only labels are never promoted
+    to street addresses.
     """
     direct = _structured_address(site)
     if direct:
@@ -69,6 +69,9 @@ def site_addresses(site: Dict[str, Any], *, trial_center: str = "") -> List[str]
         if key and key not in candidates:
             candidates.append(key)
     for key in candidates:
+        vals = [_clean(x) for x in verified_addresses_for(key) if _clean(x)]
+        if vals:
+            return vals
         vals = [_clean(x) for x in addresses_for(key) if _clean(x)]
         if vals:
             return vals
@@ -101,9 +104,10 @@ def trial_site_records(trial: Dict[str, Any]) -> List[Dict[str, Any]]:
     add_many(trial.get("sites") or [], "active")
     add_many(trial.get("inactive_sites") or [], "inactive")
 
-    # Single-site trials sometimes store only a center name and no sites array.
     if not out and center:
-        addresses = [_clean(x) for x in addresses_for(center) if _clean(x)]
+        addresses = [_clean(x) for x in verified_addresses_for(center) if _clean(x)]
+        if not addresses:
+            addresses = [_clean(x) for x in addresses_for(center) if _clean(x)]
         if addresses:
             out.append({
                 "trial_id": trial_id,
