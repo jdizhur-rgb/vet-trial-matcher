@@ -91,6 +91,8 @@ jobs:
           from about_page import _write_embedded_about_assets
           _write_embedded_about_assets(Path('seo/site'))
           PY
+      - name: Apply production search indexing policy
+        run: python seo_index_cleanup.py
       - name: Validate refined Kot design with current catalog
         run: |
           python - <<'PY'
@@ -140,6 +142,15 @@ jobs:
           assert 'height:auto;object-fit:contain' in about
           assert '/assets/senya-about.jpg?v=about-v5' in about
           assert '/assets/yasha-about.jpg?v=about-v4' in about
+          sitemap=(root/'sitemap.xml').read_text(encoding='utf-8')
+          assert 'https://vettrialfinder.com/' in sitemap
+          assert 'jdizhur-rgb.github.io' not in sitemap
+          assert not any(f'https://vettrialfinder.com/{lang}/' in sitemap for lang in ('de','fr','es','it','nl'))
+          assert '<lastmod>2026-09-12</lastmod>' in sitemap
+          assert '<meta name="robots" content="noindex, follow">' in (root/'de/uk-europe/dogs/lymphoma/index.html').read_text(encoding='utf-8')
+          assert '"@type": "WebSite"' in home and '"@type": "Organization"' in home
+          assert '"@type": "BreadcrumbList"' in (root/'north-america/dogs/lymphoma/index.html').read_text(encoding='utf-8')
+          assert (root/'404.html').exists()
           source=Path('seo/about_page.py').read_text(encoding='utf-8')
           assert not any(x in source for x in ('assets_embedded','base64','urllib.request','fallback_url'))
           senya=root/'assets/senya-about.jpg'; yasha=root/'assets/yasha-about.jpg'
