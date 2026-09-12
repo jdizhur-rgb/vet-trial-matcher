@@ -16,38 +16,38 @@ jobs:
         run: |
           pip install playwright
           python -m playwright install --with-deps chromium
-      - name: Probe public wrapper and inner app frame
+      - name: Compare public wrapper, embed, and inner app
         run: |
           python - <<'PY'
           from playwright.sync_api import sync_playwright
+          URLS=[
+            ('BASE','https://c-trials.streamlit.app/'),
+            ('EMBED','https://c-trials.streamlit.app/?embed=true'),
+            ('INNER','https://c-trials.streamlit.app/~/+/'),
+          ]
           with sync_playwright() as p:
               b=p.chromium.launch(headless=True)
-              ctx=b.new_context(viewport={"width":390,"height":844},is_mobile=True,has_touch=True)
-              page=ctx.new_page(); nav=[]
-              page.on('console', lambda m: print('CONSOLE:',m.type,m.text))
-              page.on('pageerror', lambda e: print('PAGEERROR:',e))
-              page.on('framenavigated', lambda f: nav.append(f.url) if f==page.main_frame else None)
-              page.on('response', lambda r: print('HTTP',r.status,r.url) if r.status>=400 else None)
-              page.on('requestfailed', lambda r: print('REQFAIL',r.url,r.failure))
-              page.goto('https://c-trials.streamlit.app/',wait_until='domcontentloaded',timeout=60000)
-              for i in range(6):
-                  page.wait_for_timeout(3000)
-                  outer=page.locator('body').inner_text()
-                  inner=[]
-                  for f in page.frames:
-                      if '/~/+/' in f.url:
-                          try: inner.append((f.url,len(f.locator('body').inner_text()),f.locator('body').inner_text()[:500]))
-                          except Exception as e: inner.append((f.url,-1,repr(e)))
-                  print('TICK',i+1,'OUTER',len(outer),repr(outer[:200]),'INNER',inner)
-              direct=ctx.new_page()
-              direct.on('console', lambda m: print('DIRECT_CONSOLE:',m.type,m.text))
-              direct.on('pageerror', lambda e: print('DIRECT_PAGEERROR:',e))
-              r=direct.goto('https://c-trials.streamlit.app/~/+/',wait_until='domcontentloaded',timeout=60000)
-              print('DIRECT_STATUS',r.status if r else None)
-              for i in range(6):
-                  direct.wait_for_timeout(3000)
-                  txt=direct.locator('body').inner_text()
-                  print('DIRECT_TICK',i+1,'BODYLEN',len(txt),'BODY',repr(txt[:500]),'URL',direct.url)
-              print('NAV',nav)
+              for label,url in URLS:
+                  ctx=b.new_context(viewport={"width":390,"height":844},is_mobile=True,has_touch=True)
+                  page=ctx.new_page(); errs=[]; nav=[]
+                  page.on('pageerror',lambda e: errs.append(str(e)))
+                  page.on('framenavigated',lambda f: nav.append(f.url) if f==page.main_frame else None)
+                  r=page.goto(url,wait_until='domcontentloaded',timeout=60000)
+                  print(label,'STATUS',r.status if r else None)
+                  for i in range(6):
+                      page.wait_for_timeout(3000)
+                      txt=page.locator('body').inner_text()
+                      inner=[]
+                      for f in page.frames:
+                          if f != page.main_frame:
+                              try: inner.append((f.url,len(f.locator('body').inner_text())))
+                              except: pass
+                      print(label,'TICK',i+1,'BODYLEN',len(txt),'HEAD',repr(txt[:160]),'FRAMES',inner)
+                  btn=page.get_by_role('button',name='Find potential trials')
+                  print(label,'MATCH_BUTTONS',btn.count(),'ERRORS',errs,'NAV',nav)
+                  if btn.count():
+                      btn.first.click(); page.wait_for_timeout(4000)
+                      txt=page.locator('body').inner_text(); print(label,'MATCH_CLICKED','Results' in txt,'BODYLEN',len(txt))
+                  ctx.close()
               b.close()
           PY
