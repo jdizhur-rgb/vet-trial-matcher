@@ -2,6 +2,9 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
+from location_sort import sort_matches_by_distance
+from matcher_engine import SearchAnswers, match_trials as _engine_match_trials
+
 CANCER_ALIASES = {
     # UI labels and protocol labels are not always identical. Keep these mappings
     # deliberately conservative: aliases mean the same disease family, not merely
@@ -205,6 +208,7 @@ _stats_trials = [
     t for t in TRIALS
     if t.get('available_for_matching', True)
     and is_current_trial(t)
+    and t.get('country', 'USA') == 'USA'
     and t.get('study_type', 'treatment') in {'treatment', 'other_treatment_access'}
 ]
 _stats_centers = {str(t.get('center', '')).strip() for t in _stats_trials if str(t.get('center', '')).strip()}
@@ -223,8 +227,7 @@ _stats_countries = {
 st.caption(
     f"{len(_stats_trials)} active treatment opportunities · "
     f"{len(_stats_centers)} centers · "
-    f"{len(_stats_cancers)} cancer types · "
-    f"{len(_stats_countries)} countries"
+    f"{len(_stats_cancers)} cancer types · USA"
 )
 
 st.markdown('Answer what you know. It is completely fine to choose **I don’t know**.')
@@ -237,7 +240,7 @@ st.header('1. Your pet')
 c1, c2 = st.columns(2)
 with c1:
     species = st.selectbox('Species', ['Dog','Cat'])
-    age_known = st.checkbox('I know the age', value=True)
+    age_known = st.checkbox('I know the age', value=False)
     age = st.number_input('Age (years)', 0.0, 30.0, 8.0, 0.5, disabled=not age_known)
 with c2:
     weight_known = st.checkbox('I know the weight')
@@ -261,8 +264,14 @@ EUROPE_COUNTRIES = {
     'Hungary', 'Greece', 'Romania', 'Croatia', 'Estonia', 'Latvia',
     'Lithuania', 'Luxembourg', 'Iceland'
 }
-country_options = ['Europe — all countries'] + trial_countries
-country = st.selectbox('Country / region', country_options)
+country = 'USA'
+st.markdown('**Country / region:** USA')
+zip_code = st.text_input(
+    'ZIP code (optional)',
+    max_chars=10,
+    placeholder='e.g. 01095',
+    help='Used only to put closer studies first. It does not exclude distant studies.',
+)
 
 def country_matches(trial_country, selected_country):
     if selected_country == 'Europe — all countries':
@@ -270,8 +279,12 @@ def country_matches(trial_country, selected_country):
     return trial_country == selected_country
 
 st.header('2. Diagnosis')
-diagnosis_status = st.selectbox('How certain is the diagnosis?', ['Confirmed by pathology/cytology','Suspected / not confirmed',UNKNOWN])
-cancer = st.selectbox('Cancer type', CANCERS)
+diagnosis_status = st.selectbox(
+    'How certain is the diagnosis?',
+    ['Confirmed by pathology/cytology','Suspected / not confirmed',UNKNOWN],
+    index=2,
+)
+cancer = st.selectbox('Cancer type', CANCERS, index=None, placeholder='Select cancer type')
 unlisted_mode = cancer == UNLISTED_CANCER
 unlisted_diagnosis = st.text_input('Enter the diagnosis as written in the pathology report, if known') if unlisted_mode else ''
 
@@ -299,7 +312,13 @@ hematologic = cancer in (LYMPHOMA_CANCERS | {'Cutaneous epitheliotropic lymphoma
 brain_tumor = cancer == 'Brain tumor / glioma'
 any_cancer_browse = cancer == 'Cancer — any type'
 
-if any_cancer_browse or unlisted_mode:
+if cancer is None:
+    st.caption('Select a cancer type to continue.')
+    st.selectbox('Current tumor status', ['Select a cancer type first'], disabled=True, key='no_cancer_tumor_status')
+    st.selectbox('Metastases', ['Select a cancer type first'], disabled=True, key='no_cancer_metastases')
+    st.selectbox('Has your veterinarian said the disease is localized?', ['Select a cancer type first'], disabled=True, key='no_cancer_localized')
+    tumor_status = metastasis = localized = UNKNOWN
+elif any_cancer_browse or unlisted_mode:
     st.caption('Browse mode: disease-specific eligibility is not used until a cancer type is selected.' if any_cancer_browse else 'Unlisted diagnosis: only genuinely all-tumor treatment programs will be shown for investigator review.')
     tumor_status = metastasis = localized = UNKNOWN
 elif hematologic:
@@ -362,6 +381,29 @@ if cancer == 'Hemangiosarcoma':
 else:
     hsa_site = UNKNOWN
 
+# A compact adaptive layer for criteria that can safely be answered by owners.
+# These fields appear only when at least one otherwise relevant trial uses them.
+if {'min_tumor_cm', 'max_tumor_cm'}.intersection(_form_req_keys):
+    tumor_size_known = st.checkbox('I know the tumor size')
+    tumor_size_cm = st.number_input(
+        'Largest tumor measurement (cm)',
+        min_value=0.1,
+        max_value=100.0,
+        value=2.0,
+        step=0.1,
+        disabled=not tumor_size_known,
+    ) if tumor_size_known else None
+else:
+    tumor_size_cm = None
+
+if {'superficial_accessible_tumor', 'superficial_or_oral_tumor'}.intersection(_form_req_keys):
+    surface_or_oral_accessible = st.selectbox(
+        'Is the tumor accessible from the body surface or mouth?',
+        [UNKNOWN, 'Yes', 'No'],
+    )
+else:
+    surface_or_oral_accessible = UNKNOWN
+
 # Protocol-specific disease constraints used by broad Zurich basket/local-therapy trials.
 standard_therapy_unavailable = st.selectbox(
     'Is standard anticancer treatment no longer appropriate or not feasible?',
@@ -390,7 +432,7 @@ st.header('4. Treatment')
 # entire Treatment section disappear for a diagnosis (for example HS) and then
 # prevent the matcher from applying treatment-history exclusions.  Keep the four
 # core oncology history questions stable for every specific diagnosis.
-_specific_diagnosis = not any_cancer_browse and not unlisted_mode
+_specific_diagnosis = cancer is not None and not any_cancer_browse and not unlisted_mode
 surgery_relevant = _specific_diagnosis
 chemo_relevant = _specific_diagnosis
 radiation_relevant = _specific_diagnosis
@@ -446,7 +488,109 @@ def trial_modalities(tr):
     # because metadata are sparse; leave them unclassified for owner prescreen.
     return mods
 
-search_clicked = st.button('Find potential trials', type='primary', use_container_width=True)
+search_clicked = st.button(
+    'Find potential trials',
+    type='primary',
+    use_container_width=True,
+    disabled=cancer is None,
+)
+
+
+if search_clicked:
+    _answers = SearchAnswers(
+        species=species,
+        cancer=cancer,
+        diagnosis_status=diagnosis_status,
+        age=age if age_known else None,
+        weight_lb=weight_lb if weight_known else None,
+        sex=sex,
+        tumor_status=tumor_status,
+        metastasis=metastasis,
+        localized=localized,
+        lymphoma_response=lymphoma_response,
+        surgery=surgery,
+        prior_procedure=prior_procedure,
+        chemo=chemo,
+        immunotherapy_history=immunotherapy_history,
+        radiation=radiation,
+        steroids=steroids,
+        immunosuppressive=immunosuppressive,
+        preferences=frozenset(prefs),
+        radiation_affordability=radiation_affordability,
+        standard_therapy_unavailable=standard_therapy_unavailable,
+        large_inoperable_or_rt_preferred=large_inoperable_or_rt_preferred,
+        surgery_or_rt_not_possible=surgery_or_rt_not_possible,
+        ct_and_current_biopsy=ct_and_current_biopsy,
+        tumor_size_cm=tumor_size_cm,
+        osa_location=osa_location,
+        surface_or_oral_accessible=surface_or_oral_accessible,
+        unlisted_diagnosis=unlisted_diagnosis,
+    )
+    _engine_matches = _engine_match_trials(
+        TRIALS,
+        _answers,
+        accepts_diagnosis=trial_accepts_diagnosis,
+        trial_modalities=trial_modalities,
+    )
+    _distance_context = None
+    if zip_code.strip():
+        _engine_matches, _distance_context = sort_matches_by_distance(_engine_matches, zip_code)
+
+    st.header('Results')
+    if zip_code.strip() and _distance_context is None:
+        st.warning('ZIP code not recognized. Results are shown in their usual order.')
+    elif _distance_context:
+        st.caption(
+            f"Sorted by approximate straight-line distance from "
+            f"{_distance_context['city']}, {_distance_context['state']}. "
+            "Distance does not affect eligibility."
+        )
+
+    if not _engine_matches:
+        st.info(
+            'No plausible matches were found among the currently verified trials. '
+            'This does not mean that no suitable study exists — recruitment and eligibility can change.'
+        )
+    else:
+        st.success(f'{len(_engine_matches)} oncology opportunity(ies) may be worth contacting')
+        _distances = (_distance_context or {}).get('distances', {})
+        for _match in _engine_matches:
+            tr = _match.trial
+            with st.container(border=True):
+                st.markdown(f"### {_match.label} · {tr['center']}")
+                st.markdown(f"**{tr['title']}**")
+                if tr.get('sites'):
+                    st.markdown('**Where:** ' + '; '.join(
+                        f"{site['hospital']} — {site['city']}, {site['state']}" for site in tr['sites']
+                    ))
+                elif tr.get('city') or tr.get('state'):
+                    st.markdown('**Where:** ' + ', '.join(
+                        value for value in (tr.get('city'), tr.get('state')) if value
+                    ))
+                if tr.get('intervention'):
+                    st.markdown('**What is offered:** ' + tr['intervention'])
+                if tr.get('funding'):
+                    st.markdown('**Costs / coverage:** ' + tr['funding'])
+                if tr['id'] in _distances:
+                    st.markdown(f"**Approximate distance:** {_distances[tr['id']]:.0f} miles")
+                st.markdown('**Why it may fit:** ' + '; '.join(_match.reasons) + '.')
+                if _match.needs_confirmation:
+                    st.markdown('**Needs confirmation:** ' + '; '.join(_match.needs_confirmation) + '.')
+                st.write('**Contact:** ' + tr.get('contacts', tr.get('contact', 'Contact the study team through the official study page')))
+                details_url = tr.get('registry_url') or tr.get('url', '')
+                if details_url:
+                    st.link_button('View full study details →', details_url, use_container_width=True)
+                with st.expander('Study information'):
+                    if tr.get('intervention'):
+                        st.write('**Study intervention:** ' + tr['intervention'])
+                    if tr.get('notes'):
+                        st.write('**What the study says:** ' + tr['notes'])
+                    st.caption(f"Status: {tr['status']} · Last verified: {tr.get('verified', 'date not recorded')}")
+        _render_result_save_controls([match.as_legacy_tuple() for match in _engine_matches])
+
+    # The legacy inline engine remains below for one comparison cycle but is not
+    # executed.  It will be removed after the new engine passes UI regression.
+    search_clicked = False
 
 
 if search_clicked:
@@ -892,5 +1036,5 @@ st.caption('Trial information can change. Always confirm recruiting status, elig
 
 
 st.markdown("---")
-st.caption("Verified treatment trials and experimental treatment programs • U.S. + Europe/UK • Updated daily")
+st.caption("Verified treatment trials and experimental treatment programs • USA • Updated daily")
 st.caption("This finder identifies potentially relevant cancer treatment options. It does not determine eligibility. Final eligibility and treatment decisions are determined by the treating or research team. It is not a substitute for veterinary advice.")
