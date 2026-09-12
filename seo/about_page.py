@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Generate the About page for Vet Trial Finder."""
 import base64
+import urllib.request
 from pathlib import Path
 import generate_seo as g
 from site_config import SITE
@@ -11,13 +12,26 @@ def _write_embedded_about_assets(root: Path) -> None:
     dest = root / "assets"
     dest.mkdir(parents=True, exist_ok=True)
     mapping = {
-        "senya-about.b64": "senya-about.jpg",
-        "yasha-about.b64": "yasha-about.jpg",
+        "senya-about.b64": (
+            "senya-about.jpg",
+            "https://raw.githubusercontent.com/jdizhur-rgb/vet-trial-matcher/0c20d174267460d846495db27e937eb233a12d09/seo/assets_embedded/senya-about.b64",
+        ),
+        "yasha-about.b64": (
+            "yasha-about.jpg",
+            "https://raw.githubusercontent.com/jdizhur-rgb/vet-trial-matcher/0a1b7fb3cbb2626994fe043a74004d14e494435e/seo/assets_embedded/yasha-about.b64",
+        ),
     }
-    for source_name, output_name in mapping.items():
+    for source_name, (output_name, fallback_url) in mapping.items():
         source = src / source_name
         if source.exists():
-            (dest / output_name).write_bytes(base64.b64decode(source.read_text(encoding="ascii")))
+            payload = source.read_text(encoding="ascii")
+        else:
+            with urllib.request.urlopen(fallback_url, timeout=20) as response:
+                payload = response.read().decode("ascii")
+        data = base64.b64decode(payload)
+        if len(data) < 50000:
+            raise RuntimeError(f"about image too small: {output_name} ({len(data)} bytes)")
+        (dest / output_name).write_bytes(data)
 
 
 def generate_about_page(root: Path) -> None:
