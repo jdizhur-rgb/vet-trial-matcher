@@ -1,4 +1,4 @@
-name: Restore audited static design
+name: Restore pre-mobile Kot design
 
 on:
   workflow_dispatch:
@@ -26,17 +26,19 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Overlay audited static renderer without touching matcher or current catalog
+      - name: Restore production builder and exact pre-mobile Kot visual layer
         run: |
           cp seo/center_directory.py /tmp/main-center-directory.py
           git fetch origin cancer-page-audit --depth=1
           git checkout FETCH_HEAD -- seo/
           cp /tmp/main-center-directory.py seo/center_directory.py
+          git fetch origin desktop-redesign-kot --depth=3
+          git checkout d144b54e6e47c7d47816731182adde136432c86a -- seo/site_shell.py seo/assets/kot-home.jpg
       - name: Build candidate
         run: python seo/build_production_site.py
       - name: Include static files
         run: cp -a seo/static/. seo/site/
-      - name: Validate candidate shell and current catalog output
+      - name: Validate exact pre-mobile Kot design with current catalog
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -44,12 +46,17 @@ jobs:
           pages=list(root.rglob('index.html'))
           assert len(pages)>=100, len(pages)
           home=(root/'index.html').read_text(encoding='utf-8')
-          help_page=(root/'help/index.html').read_text(encoding='utf-8')
           assert '<header class="site-header">' in home
-          assert 'home-hero' in home
-          assert 'Cancer Types' in home and 'Oncology Centers' in home
-          assert '<h1>Help Center</h1>' in help_page
+          assert '<section class="home-hero">' in home
+          assert '/assets/kot-home.jpg' in home
+          assert 'min-height:390px' in home
+          assert 'object-position:center 48%' in home
+          assert 'display:flex!important;flex-direction:column' in home
+          assert 'min-height:500px' not in home
+          assert 'Find clinical trials and cancer treatment options for your pet' in home
           assert 'jdizhur-rgb.github.io/vet-trial-matcher' not in home
+          asset=root/'assets/kot-home.jpg'
+          assert asset.exists() and asset.stat().st_size>10000, asset
           cancer=[]
           for region in ('north-america','uk-europe'):
             for species in ('dogs','cats'):
@@ -59,12 +66,12 @@ jobs:
             s=p.read_text(encoding='utf-8')
             assert '<header class="site-header">' in s,p
             assert '<link rel="canonical"' in s,p
-          print('CANDIDATE_OK',len(pages),len(cancer))
+          print('PRE_MOBILE_KOT_CANDIDATE_OK',len(pages),len(cancer),asset.stat().st_size)
           PY
-      - name: Save candidate artifact
+      - name: Save exact candidate artifact
         uses: actions/upload-artifact@v4
         with:
-          name: audited-static-design-candidate
+          name: pre-mobile-kot-design-candidate
           path: seo/site/
           retention-days: 3
       - uses: actions/configure-pages@v5
@@ -79,6 +86,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy audited static design
+      - name: Deploy exact pre-mobile Kot design
         id: deployment
         uses: actions/deploy-pages@v4
