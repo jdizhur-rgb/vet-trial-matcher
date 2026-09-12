@@ -93,6 +93,8 @@ jobs:
           PY
       - name: Apply production search indexing policy
         run: python seo_index_cleanup.py
+      - name: Add real ZIP search to oncology-center directory
+        run: python center_zip_search.py
       - name: Validate refined Kot design with current catalog
         run: |
           python - <<'PY'
@@ -158,6 +160,10 @@ jobs:
           assert '<h1>How We Verify Listings</h1>' in verification
           assert 'What this site does not do' in verification
           assert 'How We Verify</a>' in home
+          centers=(root/'centers/index.html').read_text(encoding='utf-8')
+          assert 'async function searchByZip' in centers
+          assert 'api.zippopotam.us/us/' in centers
+          assert 'data-zip=' in centers and 'center-search-status' in centers
           source=Path('seo/about_page.py').read_text(encoding='utf-8')
           assert not any(x in source for x in ('assets_embedded','base64','urllib.request','fallback_url'))
           senya=root/'assets/senya-about.jpg'; yasha=root/'assets/yasha-about.jpg'
