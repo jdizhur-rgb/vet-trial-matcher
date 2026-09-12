@@ -25,55 +25,25 @@ if route=="centers":
 else:
     st.session_state.treatment_option_route=("🧬 Advanced / Novel Treatments" if route=="advanced" else "🧪 Compassionate / Expanded Access")
 
-    # Legacy renderer still contains its old ECT / Advanced / Expanded route buttons.
-    # Suppress exactly those controls so only app.py owns site navigation.
-    _markdown=st.markdown
-    _write=st.write
-    _button=st.button
-    _selectbox=st.selectbox
-    _legacy_state={"country":None}
-
-    def _section_markdown(body,*args,**kwargs):
-        if isinstance(body,str) and "💊 More Treatment Options" in body:
-            label="🧬 Advanced Treatments" if route=="advanced" else "🧪 Expanded Access"
-            body=f"<div style='font-size:1.55rem;line-height:1.08;font-weight:700;margin:.1rem 0 .15rem;color:#356fa8'>{label}</div>"
-        return _markdown(body,*args,**kwargs)
-
-    def _section_write(body,*args,**kwargs):
-        if body=="Explore treatment access beyond standard clinical trials.":
-            body="Explore advanced and less-common cancer treatment options." if route=="advanced" else "Explore compassionate and expanded-access treatment pathways."
-        return _write(body,*args,**kwargs)
-
-    def _legacy_button(label,*args,**kwargs):
-        if label in {
-            "⚡ Electrochemotherapy (ECT)",
-            "🧬 Advanced / Novel Treatments",
-            "🧪 Compassionate / Expanded Access",
-        }:
-            return False
-        return _button(label,*args,**kwargs)
-
-    def _legacy_selectbox(label,*args,**kwargs):
-        value=_selectbox(label,*args,**kwargs)
-        if label=="2. Country / region":
-            _legacy_state["country"]=value
-        return value
-
-    st.markdown=_section_markdown
-    st.write=_section_write
-    st.button=_legacy_button
-    st.selectbox=_legacy_selectbox
+    # Configure the legacy renderer through ordinary session state only.
+    # No Streamlit function replacement is needed here.
     st.session_state._hide_legacy_route_buttons=True
+    st.session_state._legacy_title=("🧬 Advanced Treatments" if route=="advanced" else "🧪 Expanded Access")
+    st.session_state._legacy_intro=(
+        "Explore advanced and less-common cancer treatment options."
+        if route=="advanced"
+        else "Explore compassionate and expanded-access treatment pathways."
+    )
     try:
         runpy.run_path(str(Path(__file__).with_name("_additional_oncology_legacy.py")),run_name="__main__")
     finally:
-        st.markdown=_markdown
-        st.write=_write
-        st.button=_button
-        st.selectbox=_selectbox
         st.session_state.pop("_hide_legacy_route_buttons",None)
+        st.session_state.pop("_legacy_title",None)
+        st.session_state.pop("_legacy_intro",None)
 
-    if route=="advanced" and _legacy_state["country"]=="Europe":
+    _legacy_country=st.session_state.get("_legacy_country")
+
+    if route=="advanced" and _legacy_country=="Europe":
         with st.container(border=True):
             st.markdown("### University of Ljubljana — ECT + IL-12 Gene Electrotransfer")
             st.write("**Dogs · Slovenia · strongest canine evidence in mast cell tumors**")
