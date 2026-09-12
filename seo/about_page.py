@@ -29,7 +29,7 @@ def _write_embedded_about_assets(root: Path) -> None:
             with urllib.request.urlopen(fallback_url, timeout=20) as response:
                 payload = response.read().decode("ascii")
         data = base64.b64decode(payload)
-        if len(data) < 50000:
+        if len(data) < 12000:
             raise RuntimeError(f"about image too small: {output_name} ({len(data)} bytes)")
         (dest / output_name).write_bytes(data)
 
