@@ -22,8 +22,7 @@ PAGES = [
 
 page = st.navigation(PAGES, position="hidden")
 
-# Shared presentation only. No monkey-patching Streamlit functions or component
-# interception; navigation uses ordinary Streamlit buttons and switch_page.
+# Shared presentation only. No component interception or layout monkey-patching.
 st.markdown(
     """
     <style>
@@ -189,4 +188,18 @@ with c3:
         st.session_state.main_treatment_route = "compassionate"
         st.switch_page("pages/2_Additional_Oncology_Options.py")
 
-page.run()
+# The legacy shell used to reorder Country / region so USA was the default.
+# Keep only that user-facing behavior here until it is moved into the page itself.
+_original_selectbox = st.selectbox
+def _selectbox_with_usa_default(label, options, *args, **kwargs):
+    if label == "Country / region" and "index" not in kwargs:
+        values = list(options)
+        if "USA" in values:
+            kwargs = dict(kwargs, index=values.index("USA"))
+    return _original_selectbox(label, options, *args, **kwargs)
+
+st.selectbox = _selectbox_with_usa_default
+try:
+    page.run()
+finally:
+    st.selectbox = _original_selectbox
