@@ -110,6 +110,8 @@ def add_structured_data(text: str, path: str) -> str:
 
 def should_noindex(relative: Path, text: str) -> bool:
     parts = relative.parts
+    if parts and parts[0] == "uk-europe":
+        return True
     if parts and parts[0] in LANGUAGE_PREFIXES:
         return True
     if len(parts) >= 4 and parts[0] in {"north-america", "uk-europe"} and parts[1] in {"dogs", "cats"}:
@@ -182,6 +184,7 @@ def main() -> None:
 
     sitemap = (root / "sitemap.xml").read_text(encoding="utf-8")
     assert "jdizhur-rgb.github.io" not in sitemap
+    assert f"{SITE}/uk-europe/" not in sitemap
     assert not any(f"{SITE}/{lang}/" in sitemap for lang in LANGUAGE_PREFIXES)
     assert len(indexable) == len(set(indexable))
     print(f"SEO_INDEX_POLICY_OK indexable={len(indexable)} noindex={noindexed}")
