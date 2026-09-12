@@ -1,0 +1,71 @@
+name: Restore audited static design
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/restore-audited-static-design.yml'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: audited-static-design
+  cancel-in-progress: true
+
+jobs:
+  build-candidate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Overlay audited static renderer without touching matcher or current catalog
+        run: |
+          cp seo/center_directory.py /tmp/main-center-directory.py
+          git fetch origin cancer-page-audit --depth=1
+          git checkout FETCH_HEAD -- seo/
+          cp /tmp/main-center-directory.py seo/center_directory.py
+      - name: Build candidate
+        run: python seo/build_production_site.py
+      - name: Include static files
+        run: cp -a seo/static/. seo/site/
+      - name: Validate candidate shell and current catalog output
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          root=Path('seo/site')
+          pages=list(root.rglob('index.html'))
+          assert len(pages)>=100, len(pages)
+          home=(root/'index.html').read_text(encoding='utf-8')
+          help_page=(root/'help/index.html').read_text(encoding='utf-8')
+          assert '<header class="site-header">' in home
+          assert 'home-hero' in home
+          assert 'Cancer Types' in home and 'Oncology Centers' in home
+          assert '<h1>Help Center</h1>' in help_page
+          assert 'jdizhur-rgb.github.io/vet-trial-matcher' not in home
+          cancer=[]
+          for region in ('north-america','uk-europe'):
+            for species in ('dogs','cats'):
+              cancer += list((root/region/species).glob('*/index.html'))
+          assert len(cancer)>=88, len(cancer)
+          for p in cancer:
+            s=p.read_text(encoding='utf-8')
+            assert '<header class="site-header">' in s,p
+            assert 'How it is usually treated' in s,p
+            assert 'What can affect treatment choices' in s,p
+          print('CANDIDATE_OK',len(pages),len(cancer))
+          PY
+      - name: Upload visual candidate
+        uses: actions/upload-artifact@v4
+        with:
+          name: audited-static-design-candidate
+          path: seo/site/
+          retention-days: 3
