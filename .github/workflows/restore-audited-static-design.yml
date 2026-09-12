@@ -54,8 +54,13 @@ jobs:
           PY
       - name: Build candidate
         run: python seo/build_production_site.py
-      - name: Include static files
-        run: cp -a seo/static/. seo/site/
+      - name: Include static files without replacing About photos
+        run: |
+          cp seo/site/assets/senya-about.jpg /tmp/senya-about.jpg
+          cp seo/site/assets/yasha-about.jpg /tmp/yasha-about.jpg
+          cp -a seo/static/. seo/site/
+          cp /tmp/senya-about.jpg seo/site/assets/senya-about.jpg
+          cp /tmp/yasha-about.jpg seo/site/assets/yasha-about.jpg
       - name: Validate refined Kot design with current catalog
         run: |
           python - <<'PY'
