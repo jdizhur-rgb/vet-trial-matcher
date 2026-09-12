@@ -61,7 +61,7 @@ def generate_about_page(root: Path) -> None:
 .story-scene{display:grid;grid-template-columns:minmax(300px,.92fr) minmax(0,1.08fr);gap:34px;align-items:start;margin:0 0 28px}
 .story-scene.yasha{grid-template-columns:minmax(0,1.08fr) minmax(300px,.92fr);margin-top:34px}
 .story-scene.yasha .story-photo{order:2}.story-scene.yasha .story-copy{order:1}
-.story-photo{margin:0;background:#f7fafc;border:1px solid #dce5ec;border-radius:16px;overflow:hidden;box-shadow:0 5px 18px rgba(23,36,59,.055)}
+.story-photo{width:100%;box-sizing:border-box;margin:0;background:#f7fafc;border:1px solid #dce5ec;border-radius:16px;overflow:hidden;box-shadow:0 5px 18px rgba(23,36,59,.055)}
 .story-photo img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
 .story-photo.senya img{aspect-ratio:3/4;object-position:center center}
 .story-photo.yasha img{object-position:center center}
