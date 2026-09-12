@@ -20,7 +20,3 @@ SOURCES = {
 
 from feline_practical_content import FELINE_PRACTICAL
 FELINE_PRACTICAL.update(FELINE_MORE)
-
-# Switch the feline owner guide from the old generic mass/surgery scaffold to
-# diagnosis-specific branches after all reviewed feline evidence is loaded.
-import feline_branch_patch  # noqa: E402,F401
