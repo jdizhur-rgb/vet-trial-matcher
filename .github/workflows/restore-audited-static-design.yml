@@ -46,6 +46,14 @@ jobs:
           new='.mobile-hero-copy,.mobile-hero-lead{display:none}@media(max-width:800px){.site-header{left:auto;width:auto;margin-bottom:14px}.site-nav{padding:8px 0;min-height:0}.brand-row{gap:8px}.brand{font-size:1.08rem}.brand-free{font-size:.6rem;padding:4px 6px}.site-nav nav{justify-content:flex-start;margin-top:6px;gap:6px 12px}.site-nav nav a{font-size:.82rem;line-height:1.2}.home-hero{position:relative;display:block!important;min-height:300px;padding:0!important;overflow:hidden;border-radius:10px;background:#17324d}.hero-photo{position:absolute;inset:0;max-width:none;width:100%;height:100%;margin:0}.hero-photo:after{content:"";display:block;position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,28,45,.82) 0%,rgba(10,28,45,.58) 40%,rgba(10,28,45,.12) 72%,rgba(10,28,45,.03) 100%)}.hero-photo img{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:72% 52%;border:0;border-radius:0;box-shadow:none}.hero-copy{display:none}.mobile-hero-copy{display:flex;position:absolute;z-index:1;left:16px;right:16px;bottom:14px;max-width:none;padding:0;color:#fff;flex-direction:column;align-items:flex-start}.mobile-hero-copy h1{color:#fff;font-size:clamp(20px,5.5vw,24px);line-height:1.05;margin:0 0 16px;max-width:285px}.mobile-hero-copy h1 .mobile-line{display:block;white-space:nowrap}.mobile-hero-copy .hero-actions{display:flex!important;justify-content:flex-start!important;align-items:stretch!important;align-self:flex-start!important;width:auto!important;flex-wrap:nowrap!important;gap:6px;margin:0!important}.mobile-hero-copy .cta,.mobile-hero-copy .secondary-cta{display:flex;align-items:center;box-sizing:border-box;height:34px;padding:0 9px;font-size:12px!important;line-height:1!important;border:1px solid rgba(255,255,255,.8);border-radius:6px;white-space:nowrap;background:rgba(23,50,77,.22);color:#fff!important}.mobile-hero-lead{display:block;margin:14px 2px 20px;color:#52677b;font-size:15px;line-height:1.45}}'
           if old not in s: raise SystemExit('expected mobile hero block not found')
           s=s.replace(old,new,1)
+          badge_old='.brand-free{font-size:.68rem;line-height:1;'
+          badge_new='.brand-free{display:inline-flex;align-items:center;justify-content:center;align-self:center;transform:translateY(-1px);font-size:.68rem;line-height:1;'
+          if badge_old not in s: raise SystemExit('expected free badge rule not found')
+          s=s.replace(badge_old,badge_new,1)
+          heading_old='.share-panel p{color:#52677b}'
+          heading_new='.share-panel p{color:#52677b}main h1,main h2,main h3{color:#315f7d!important}'
+          if heading_old not in s: raise SystemExit('expected heading insertion point not found')
+          s=s.replace(heading_old,heading_new,1)
           hero_old='<div class="hero-copy"><p class="eyebrow">Clinical Trials &amp; Experimental Treatments for Dogs and Cats</p><h1>Find clinical trials and cancer treatment options for your pet</h1><p class="lead">Search current studies by diagnosis, check participating hospitals, and find other oncology options in one place. The site is free to use.</p><div class="hero-actions"><a class="cta" href="{FINDER}">Find Trials</a><a class="secondary-cta" href="{SITE}/help/">How it works</a></div></div></section><h2>Start here</h2>'
           hero_new='<div class="hero-copy"><p class="eyebrow">Clinical Trials &amp; Experimental Treatments for Dogs and Cats</p><h1>Find clinical trials and cancer treatment options for your pet</h1><p class="lead">Search current studies by diagnosis, check participating hospitals, and find other oncology options in one place. The site is free to use.</p><div class="hero-actions"><a class="cta" href="{FINDER}">Find Trials</a><a class="secondary-cta" href="{SITE}/help/">How it works</a></div></div><div class="mobile-hero-copy"><h1><span class="mobile-line">Find cancer trials</span><span class="mobile-line">for your pet</span></h1><div class="hero-actions"><a class="cta" href="{FINDER}">Find Trials</a><a class="secondary-cta" href="{SITE}/help/">How it works</a></div></div></section><p class="mobile-hero-lead">Search current studies by diagnosis, check participating hospitals, and find other oncology options in one place. The site is free to use.</p><h2>Start here</h2>'
           if hero_old not in s: raise SystemExit('expected homepage hero markup not found')
@@ -83,6 +91,8 @@ jobs:
           assert 'align-self:flex-start!important' in home
           assert 'height:34px' in home
           assert 'font-size:12px!important' in home
+          assert 'main h1,main h2,main h3{color:#315f7d!important}' in home
+          assert 'transform:translateY(-1px)' in home
           assert 'background:rgba(23,50,77,.22);color:#fff!important' in home
           assert 'class="mobile-hero-lead"' in home
           assert '.hero-copy{display:none}' in home
@@ -94,7 +104,7 @@ jobs:
           assert 'class="story-intro"' in about
           assert 'class="story-break"' in about
           assert 'color:#315f7d!important' in about
-          assert 'This project started because two dogs taught me' in about
+          assert 'This project started because two dogs taught me' not in about
           assert 'second surgery to remove the dirty margins' in about
           assert 'experimental treatments, looking for something that might give him better chances' in about
           assert 'We don’t promise anything and we don’t give false hope.' in about
