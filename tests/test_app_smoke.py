@@ -69,6 +69,16 @@ class AppSmokeTests(unittest.TestCase):
         submenu = next(widget for widget in app.selectbox if widget.label == "European country")
         self.assertEqual("All Europe", submenu.value)
         self.assertIn("France", submenu.options)
+        self.assertFalse(any(field.label == "ZIP code (optional)" for field in app.text_input))
+
+    def test_other_countries_have_a_catalog_driven_submenu(self):
+        app = self.open_app()
+        next(widget for widget in app.selectbox if widget.label == "Country / region").select("Other countries")
+        app.run()
+        submenu = next(widget for widget in app.selectbox if widget.label == "Country")
+        self.assertTrue(submenu.options)
+        self.assertNotIn("USA", submenu.options)
+        self.assertNotIn("Canada", submenu.options)
 
 
 if __name__ == "__main__":

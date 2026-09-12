@@ -1,29 +1,7 @@
 import unittest
 
 from matcher_engine import BLOCKED_STATUS_PHRASES, SearchAnswers, match_trials
-from trial_catalog import load_trials, trial_accepts_diagnosis, trial_modalities
-
-
-CANCERS = [
-    "Acute myeloid leukemia", "Adrenal tumor", "Anal sac adenocarcinoma (AGASACA)",
-    "B-cell lymphoma", "Brain tumor / glioma", "Chemodectoma", "Chondrosarcoma",
-    "Colorectal / rectal cancer", "Cutaneous epitheliotropic lymphoma", "Esophageal cancer",
-    "Feline injection-site sarcoma", "Feline mammary carcinoma", "Fibrosarcoma",
-    "Gallbladder carcinoma", "Gastric / stomach cancer", "Gastrointestinal stromal tumor (GIST)",
-    "Hemangiosarcoma", "Hepatocellular carcinoma", "Histiocytic sarcoma", "Insulinoma",
-    "Intestinal carcinoma", "Leiomyosarcoma", "Liposarcoma", "Lymphoma — other",
-    "Mammary carcinoma", "Mammary tumor — other", "Mast cell tumor", "Melanoma — other",
-    "Multiple myeloma / plasma cell cancer", "Nasal tumor / nasal cancer",
-    "Ocular melanoma / iris melanocytic tumor", "Oral melanoma",
-    "Oral squamous cell carcinoma", "Oral tumor — other", "Osteosarcoma",
-    "Other bone tumor", "Other liver tumor", "Other sarcoma", "Other solid tumor",
-    "Pancreatic carcinoma", "Peripheral nerve sheath tumor", "Primary lung tumor",
-    "Prostate cancer", "Renal tumor", "Rhabdomyosarcoma", "Salivary gland cancer",
-    "Sinonasal carcinoma", "Soft tissue sarcoma", "Spindle cell sarcoma",
-    "Squamous cell carcinoma", "Squamous cell carcinoma — other", "T-cell lymphoma",
-    "Thymoma / thymic tumor", "Thyroid carcinoma", "Thyroid tumor / carcinoma",
-    "Urothelial / transitional cell carcinoma", "Urothelial carcinoma",
-]
+from trial_catalog import CANCERS, load_trials, trial_accepts_diagnosis, trial_modalities
 
 
 class CatalogMatrixTests(unittest.TestCase):
@@ -34,6 +12,8 @@ class CatalogMatrixTests(unittest.TestCase):
     def test_every_species_and_cancer_combination_is_safe(self):
         for species in ("Dog", "Cat"):
             for cancer in CANCERS:
+                if cancer in {"Cancer — any type", "Other / not sure", "My cancer type isn't listed"}:
+                    continue
                 with self.subTest(species=species, cancer=cancer):
                     matches = match_trials(
                         self.trials,
@@ -50,6 +30,8 @@ class CatalogMatrixTests(unittest.TestCase):
     def test_suspected_diagnosis_never_passes_confirmed_requirement(self):
         for species in ("Dog", "Cat"):
             for cancer in CANCERS:
+                if cancer in {"Cancer — any type", "Other / not sure", "My cancer type isn't listed"}:
+                    continue
                 matches = match_trials(
                     self.trials,
                     SearchAnswers(

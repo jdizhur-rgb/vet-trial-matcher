@@ -130,11 +130,6 @@ class Match:
     reasons: tuple[str, ...]
     needs_confirmation: tuple[str, ...]
 
-    def as_legacy_tuple(self):
-        """Keep rendering compatible while the UI is migrated incrementally."""
-        return self.label, self.trial, list(self.reasons), list(self.needs_confirmation)
-
-
 def _status_is_open(trial: dict[str, Any]) -> bool:
     if trial.get("status_confidence") not in CURRENT_STATUS_CONFIDENCE:
         return False
@@ -171,7 +166,7 @@ def match_trials(
     *,
     accepts_diagnosis: Callable[[dict[str, Any], str], tuple[bool, bool]],
     trial_modalities: Callable[[dict[str, Any]], set[str]],
-    country_matches: Callable[[str], bool] = lambda country: country == "USA",
+    country_matches: Callable[[str], bool] = lambda _country: True,
 ) -> list[Match]:
     """Return plausible treatment opportunities without rendering UI."""
     results: list[Match] = []

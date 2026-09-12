@@ -1,33 +1,17 @@
 # EU cancer-by-cancer gap audit completed 2026-09-04: all UI cancer categories rechecked; no unverified lead promoted to matching.
 import streamlit as st
-import streamlit.components.v1 as components
 
 from location_sort import sort_matches_by_distance
 from matcher_engine import SearchAnswers, match_trials as _engine_match_trials
-
-CANCER_ALIASES = {
-    # UI labels and protocol labels are not always identical. Keep these mappings
-    # deliberately conservative: aliases mean the same disease family, not merely
-    # a vaguely related cancer.
-    'B-cell lymphoma': ['Lymphoma', 'Lymphoma — other'],
-    'T-cell lymphoma': ['Lymphoma', 'Lymphoma — other', 'Enteropathy-associated T-cell lymphoma'],
-    'Lymphoma — other': ['Lymphoma', 'Gastrointestinal lymphoma', 'Large cell lymphoma'],
-    'Brain tumor / glioma': ['Brain tumor', 'Glioma'],
-    'Feline mammary carcinoma': ['Mammary carcinoma', 'Mammary tumor'],
-    'Mammary carcinoma': ['Mammary tumor'],
-    'Mammary tumor — other': ['Mammary tumor'],
-    'Urothelial / transitional cell carcinoma': ['Urothelial carcinoma', 'Transitional cell carcinoma'],
-    'Urothelial carcinoma': ['Urothelial / transitional cell carcinoma', 'Transitional cell carcinoma', 'Bladder cancer'],
-    'Thyroid tumor / carcinoma': ['Thyroid carcinoma'],
-    'Thyroid carcinoma': ['Thyroid tumor / carcinoma'],
-    'Hepatocellular carcinoma': ['Hepatic carcinoma'],
-    'Primary lung tumor': ['Pulmonary carcinoma'],
-    'Oral squamous cell carcinoma': ['Feline oral SCC'],
-    'Squamous cell carcinoma — other': ['Squamous cell carcinoma'],
-    'Oral tumor — other': ['Oral tumor'],
-    'Ocular melanoma / iris melanocytic tumor': ['Ocular melanoma', 'Iris melanocytic tumor'],
-    'Chemodectoma': ['Aortic body tumor', 'Aortic body tumors', 'Heart-base tumor', 'Heart base tumor', 'Paraganglioma', 'Non-chromaffin paraganglioma'],
-}
+from trial_catalog import (
+    CANCER_ALIASES,
+    CANCERS,
+    is_current_trial,
+    load_trials,
+    species_matches,
+    trial_accepts_diagnosis,
+    trial_modalities,
+)
 
 LYMPHOMA_CANCERS = {'B-cell lymphoma', 'T-cell lymphoma', 'Lymphoma — other'}
 
@@ -42,12 +26,13 @@ def _render_result_save_controls(matches):
     from reportlab.lib.units import inch
 
     lines = ["Clinical Trial Finder Results"]
-    for confidence, tr, reasons, unknown in matches:
-        lines += ["", confidence, tr.get("center", ""), tr.get("title", "")]
-        if reasons:
-            lines.append("Why: " + "; ".join(str(x) for x in reasons) + ".")
-        if unknown:
-            lines.append("Confirm: " + "; ".join(dict.fromkeys(str(x) for x in unknown)) + ".")
+    for match in matches:
+        tr = match.trial
+        lines += ["", match.label, tr.get("center", ""), tr.get("title", "")]
+        if match.reasons:
+            lines.append("Why: " + "; ".join(match.reasons) + ".")
+        if match.needs_confirmation:
+            lines.append("Confirm: " + "; ".join(dict.fromkeys(match.needs_confirmation)) + ".")
         lines.append("Contact: " + tr.get("contacts", tr.get("contact", "Contact the study team through the official study page")))
         if tr.get("sites"):
             lines.append("Participating sites: " + "; ".join(f"{x['hospital']} — {x['city']}, {x['state']}" for x in tr["sites"]))
@@ -81,106 +66,16 @@ def _render_result_save_controls(matches):
         st.download_button("📄 Save as PDF", data=buf.getvalue(), file_name="clinical_trial_results.pdf", mime="application/pdf", use_container_width=True, on_click="ignore")
 
 
-# Catalog data is stored separately from the Streamlit page.
-from pathlib import Path as _Path
-import json as _json
-
-def _load_trials():
-    _root = _Path(__file__).resolve().parents[1]
-    with (_root / "data" / "trials_base.json").open(encoding="utf-8") as _fh:
-        _base = _json.load(_fh)
-    _by_id = {t["id"]: t for t in _base}
-    _patch_paths = [_root / "data" / "trial_updates.json"]
-    _patch_paths += sorted((_root / "data").glob("catalog_patch_*.json"))
-    for _updates_path in _patch_paths:
-        if not _updates_path.exists(): continue
-        with _updates_path.open(encoding="utf-8") as _fh: _doc = _json.load(_fh)
-        for _trial_id in _doc.get("delete", []): _by_id.pop(_trial_id, None)
-        for _patch in _doc.get("upsert", []):
-            _trial_id = _patch["id"]
-            if _trial_id in _by_id:
-                _merged = dict(_by_id[_trial_id])
-                for _key, _value in _patch.items():
-                    if _key in {"requires", "excludes"} and isinstance(_value, dict):
-                        _nested = dict(_merged.get(_key, {})); _nested.update(_value); _merged[_key] = _nested
-                    else: _merged[_key] = _value
-                _by_id[_trial_id] = _merged
-            else: _by_id[_trial_id] = _patch
-    return list(_by_id.values())
-
-TRIALS = _load_trials()
+TRIALS = load_trials()
 
 # 2026-09-03 private-referral / institutional-registry / local-language deep pass
 
 
 # 2026-09-03 regulatory / CRO / sponsor-development pass
 
-CANCERS = ['Acute myeloid leukemia', 'Adrenal tumor', 'Anal sac adenocarcinoma (AGASACA)', 'B-cell lymphoma', 'Brain tumor / glioma', 'Chemodectoma', 'Chondrosarcoma', 'Colorectal / rectal cancer', 'Cutaneous epitheliotropic lymphoma', 'Esophageal cancer', 'Feline injection-site sarcoma', 'Feline mammary carcinoma', 'Fibrosarcoma', 'Gallbladder carcinoma', 'Gastric / stomach cancer', 'Gastrointestinal stromal tumor (GIST)', 'Hemangiosarcoma', 'Hepatocellular carcinoma', 'Histiocytic sarcoma', 'Insulinoma', 'Intestinal carcinoma', 'Leiomyosarcoma', 'Liposarcoma', 'Lymphoma — other', 'Mammary carcinoma', 'Mammary tumor — other', 'Mast cell tumor', 'Melanoma — other', 'Multiple myeloma / plasma cell cancer', 'Nasal tumor / nasal cancer', 'Ocular melanoma / iris melanocytic tumor', 'Oral melanoma', 'Oral squamous cell carcinoma', 'Oral tumor — other', 'Osteosarcoma', 'Other bone tumor', 'Other liver tumor', 'Other sarcoma', 'Other solid tumor', 'Pancreatic carcinoma', 'Peripheral nerve sheath tumor', 'Primary lung tumor', 'Prostate cancer', 'Renal tumor', 'Rhabdomyosarcoma', 'Salivary gland cancer', 'Sinonasal carcinoma', 'Soft tissue sarcoma', 'Spindle cell sarcoma', 'Squamous cell carcinoma', 'Squamous cell carcinoma — other', 'T-cell lymphoma', 'Thymoma / thymic tumor', 'Thyroid carcinoma', 'Thyroid tumor / carcinoma', 'Urothelial / transitional cell carcinoma', 'Urothelial carcinoma', 'Cancer — any type', 'Other / not sure', "My cancer type isn't listed"]
-DIAGNOSIS_FAMILIES = {
-    'Gastric / stomach cancer': {'solid_tumor','carcinoma'},
-    'Colorectal / rectal cancer': {'solid_tumor','carcinoma'},
-    'Salivary gland cancer': {'solid_tumor','carcinoma'},
-    'Esophageal cancer': {'solid_tumor','carcinoma'},
-    'Thymoma / thymic tumor': {'solid_tumor'},
-    'Gastrointestinal stromal tumor (GIST)': {'solid_tumor','sarcoma'},
-    'Peripheral nerve sheath tumor': {'solid_tumor','sarcoma','soft_tissue_sarcoma'},
-    'Leiomyosarcoma': {'solid_tumor','sarcoma','soft_tissue_sarcoma'},
-    'Fibrosarcoma': {'solid_tumor','sarcoma','soft_tissue_sarcoma'},
-    'Liposarcoma': {'solid_tumor','sarcoma','soft_tissue_sarcoma'},
-    'Rhabdomyosarcoma': {'solid_tumor','sarcoma','soft_tissue_sarcoma'},
-    'Chondrosarcoma': {'solid_tumor','sarcoma'},
-    'Nasal tumor / nasal cancer': {'solid_tumor','nasal_tumor'},
-    'Multiple myeloma / plasma cell cancer': {'hematologic'},
-}
 UNLISTED_CANCER = "My cancer type isn't listed"
 TREATMENT_OPTIONS = ['Chemotherapy','Radiation','Surgery','Immunotherapy','Targeted therapy','Experimental drug']
 UNKNOWN = "I don't know"
-
-# Enrollment-status normalization. Older audited records use 'current'; some
-# newer confirmed records use 'confirmed_current'. Both mean the study may be
-# considered by the patient-facing matcher. Watch/planned/reconfirmation rows
-# remain excluded.
-CURRENT_STATUS_CONFIDENCE = {'current', 'confirmed_current'}
-
-def species_matches(trial_species, selected_species):
-    """Normalize legacy string and newer list species fields."""
-    if isinstance(trial_species, (list, tuple, set)):
-        values = {str(x).strip() for x in trial_species}
-    else:
-        values = {x.strip() for x in str(trial_species or '').split('/') if x.strip()}
-    return selected_species in values
-
-def is_current_trial(tr):
-    return tr.get('status_confidence') in CURRENT_STATUS_CONFIDENCE
-
-def trial_accepts_diagnosis(tr, diagnosis):
-    tc = set(tr.get('cancers', []))
-
-    # First preserve the original exact/alias matching behavior.
-    exact = {diagnosis, *CANCER_ALIASES.get(diagnosis, [])}
-    if diagnosis == 'Spindle cell sarcoma':
-        exact.add('Soft tissue sarcoma')
-
-    if exact.intersection(tc):
-        return True, False
-
-    # Broad-family matching is only a fallback for diagnoses that
-    # explicitly have a taxonomy-family mapping. Established diagnoses
-    # keep the original exact/alias semantics and must not automatically
-    # match generic basket / "all tumors" studies.
-    fam = DIAGNOSIS_FAMILIES.get(diagnosis)
-    if not fam:
-        return False, False
-
-    broad = set(tr.get('broad_disease_families', []))
-
-    if 'all_tumors' in broad or 'Cancer — any type' in tc:
-        return True, True
-
-    if fam.intersection(broad):
-        return True, True
-
-    return False, False
 
 st.markdown('''
 <style>
@@ -311,7 +206,6 @@ unlisted_diagnosis = st.text_input('Enter the diagnosis as written in the pathol
 # Build the owner form from criteria that can actually affect matching for this
 # species/disease. Irrelevant disease-status rows stay visible but disabled so
 # the form does not jump around when the cancer type changes.
-accepted_for_form = {cancer, *CANCER_ALIASES.get(cancer, [])}
 _form_trials = []
 for _tr in TRIALS:
     if not _tr.get('available_for_matching', True) or not is_current_trial(_tr):
@@ -482,32 +376,6 @@ if not any_cancer_browse and 'planned_radiation' in _form_req_keys:
 else:
     radiation_affordability = UNKNOWN
 
-def trial_modalities(tr):
-    """Return broad treatment modalities offered by a treatment study.
-
-    Used only for the owner's 'would consider' filter. Multiple selected owner
-    preferences are OR choices, never an AND requirement.
-    """
-    text = ' '.join(str(tr.get(k, '')) for k in ('title','intervention','notes')).lower()
-    req = tr.get('requires', {})
-    mods = set()
-    if req.get('planned_surgery') or req.get('planned_amputation') or req.get('planned_amputation_and_chemo') or any(x in text for x in ('surgery','surgical','mastectom','amputation')):
-        mods.add('Surgery')
-    if req.get('planned_radiation') or any(x in text for x in ('radiotherapy','radiation','sbrt','flash','lattice','radiosensiti','proton')):
-        mods.add('Radiation')
-    if req.get('planned_doxorubicin') or req.get('planned_amputation_and_chemo') or any(x in text for x in ('chemotherapy','doxorubicin','carboplatin','lomustine','vinorelbine','toceranib','tigilanol','chemoembol')):
-        mods.add('Chemotherapy')
-    if any(x in text for x in ('immunotherap','vaccine','car-t','car t','interleukin','il-2','checkpoint','pd-1','pd-l1','oncolytic','tlr agonist','bcg')):
-        mods.add('Immunotherapy')
-    if any(x in text for x in ('targeted','toceranib','kinase inhibitor','adam-12','versican','antibody','radioimmunotherap','nanobody')):
-        mods.add('Targeted therapy')
-    # Novel study drugs/local investigational agents count as Experimental drug.
-    if any(x in text for x in ('phase i','phase 1','phase ii','phase 2','experimental','investigational','tigilanol','oXC-101'.lower(),'rimcazole','gcn2','oncofap','nebumet','cantrixil')):
-        mods.add('Experimental drug')
-    # Treatment records with no confidently inferred class should not disappear
-    # because metadata are sparse; leave them unclassified for owner prescreen.
-    return mods
-
 search_clicked = st.button(
     'Find potential trials',
     type='primary',
@@ -607,11 +475,7 @@ if search_clicked:
                     if tr.get('notes'):
                         st.write('**What the study says:** ' + tr['notes'])
                     st.caption(f"Status: {tr['status']} · Last verified: {tr.get('verified', 'date not recorded')}")
-        _render_result_save_controls([match.as_legacy_tuple() for match in _engine_matches])
-
-    # The legacy inline engine remains below for one comparison cycle but is not
-    # executed.  It will be removed after the new engine passes UI regression.
-    search_clicked = False
+        _render_result_save_controls(_engine_matches)
 
 st.divider()
 st.markdown('**Urgent symptoms come first.** Difficulty breathing, collapse, uncontrolled bleeding, severe pain, or another emergency should be assessed by a veterinarian immediately rather than delayed for a clinical-trial search.')

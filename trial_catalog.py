@@ -45,6 +45,30 @@ DIAGNOSIS_FAMILIES = {
     "Multiple myeloma / plasma cell cancer": {"hematologic"},
 }
 
+CANCERS = [
+    "Acute myeloid leukemia", "Adrenal tumor", "Anal sac adenocarcinoma (AGASACA)",
+    "B-cell lymphoma", "Brain tumor / glioma", "Chemodectoma", "Chondrosarcoma",
+    "Colorectal / rectal cancer", "Cutaneous epitheliotropic lymphoma", "Esophageal cancer",
+    "Feline injection-site sarcoma", "Feline mammary carcinoma", "Fibrosarcoma",
+    "Gallbladder carcinoma", "Gastric / stomach cancer", "Gastrointestinal stromal tumor (GIST)",
+    "Hemangiosarcoma", "Hepatocellular carcinoma", "Histiocytic sarcoma", "Insulinoma",
+    "Intestinal carcinoma", "Leiomyosarcoma", "Liposarcoma", "Lymphoma — other",
+    "Mammary carcinoma", "Mammary tumor — other", "Mast cell tumor", "Melanoma — other",
+    "Multiple myeloma / plasma cell cancer", "Nasal tumor / nasal cancer",
+    "Ocular melanoma / iris melanocytic tumor", "Oral melanoma", "Oral squamous cell carcinoma",
+    "Oral tumor — other", "Osteosarcoma", "Other bone tumor", "Other liver tumor",
+    "Other sarcoma", "Other solid tumor", "Pancreatic carcinoma",
+    "Peripheral nerve sheath tumor", "Primary lung tumor", "Prostate cancer", "Renal tumor",
+    "Rhabdomyosarcoma", "Salivary gland cancer", "Sinonasal carcinoma", "Soft tissue sarcoma",
+    "Spindle cell sarcoma", "Squamous cell carcinoma", "Squamous cell carcinoma — other",
+    "T-cell lymphoma", "Thymoma / thymic tumor", "Thyroid carcinoma",
+    "Thyroid tumor / carcinoma", "Urothelial / transitional cell carcinoma",
+    "Urothelial carcinoma", "Cancer — any type", "Other / not sure",
+    "My cancer type isn't listed",
+]
+
+CURRENT_STATUS_CONFIDENCE = {"current", "confirmed_current"}
+
 
 def load_trials(root: Path | None = None) -> list[dict[str, Any]]:
     root = root or Path(__file__).resolve().parent
@@ -71,6 +95,23 @@ def load_trials(root: Path | None = None) -> list[dict[str, Any]]:
                     merged[key] = value
             by_id[trial_id] = merged
     return list(by_id.values())
+
+
+def species_matches(trial_species: Any, selected_species: str) -> bool:
+    """Normalize legacy string and newer list species fields."""
+    if isinstance(trial_species, (list, tuple, set)):
+        values = {str(value).strip() for value in trial_species}
+    else:
+        values = {
+            value.strip()
+            for value in str(trial_species or "").split("/")
+            if value.strip()
+        }
+    return selected_species in values
+
+
+def is_current_trial(trial: dict[str, Any]) -> bool:
+    return trial.get("status_confidence") in CURRENT_STATUS_CONFIDENCE
 
 
 def trial_accepts_diagnosis(trial: dict[str, Any], diagnosis: str) -> tuple[bool, bool]:

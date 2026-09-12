@@ -15,10 +15,27 @@ def run_real(answers):
         load_trials(), answers,
         accepts_diagnosis=trial_accepts_diagnosis,
         trial_modalities=trial_modalities,
+        country_matches=lambda country: country == "USA",
     )
 
 
 class MatcherEngineTests(unittest.TestCase):
+    def test_engine_has_no_implicit_country_preference(self):
+        trials = [
+            {
+                "id": country, "species": "Dog", "country": country,
+                "cancers": ["Test cancer"], "status": "Recruiting",
+                "status_confidence": "confirmed_current", "study_type": "treatment",
+            }
+            for country in ("USA", "France")
+        ]
+        matches = match_trials(
+            trials, SearchAnswers(species="Dog", cancer="Test cancer"),
+            accepts_diagnosis=lambda trial, cancer: (cancer in trial["cancers"], False),
+            trial_modalities=lambda trial: set(),
+        )
+        self.assertEqual({"USA", "France"}, {match.trial["country"] for match in matches})
+
     def test_yasha_does_not_match_any_us_hs_trial(self):
         answers = SearchAnswers(
             species="Dog",
