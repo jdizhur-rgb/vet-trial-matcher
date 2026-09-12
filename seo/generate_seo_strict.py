@@ -186,7 +186,7 @@ g.cards=cards
 base_page=g.page
 def page(title,desc,body,canonical,lang='en',alts=None):
     rendered=base_page(title,desc,body,canonical,lang,alts)
-    css='body{font-size:16px}.center-page h1{font-size:clamp(1.45rem,3.2vw,2rem);line-height:1.12;margin:20px 0 14px}.center-page .center-overview h2{font-size:1.18rem;margin-top:14px}.center-page .center-overview p{max-width:760px}.center-page .center-overview figure{margin:16px 0 14px;width:100%;max-width:760px}.center-page .center-overview figure img{width:100%!important;max-width:none!important;max-height:390px!important;object-fit:cover;border-radius:14px;display:block}.study-locations,.enrollment-areas{margin:15px 0 4px;padding:12px 14px;background:#f6f8fb;border-radius:10px}.study-locations ul,.enrollment-areas ul{margin:5px 0 0;padding-left:20px}.field-label{font-weight:750;margin:0}.coverage-note{font-size:.86rem;color:#607086}.center-address{background:#fff;border:1px solid #d9e2ea;border-radius:12px;padding:12px 15px;margin:14px 0 22px}.free-note{font-size:.8rem;color:#607086}.card p{margin:.7rem 0}@media(max-width:600px){.center-page h1{font-size:1.42rem}.center-page .center-overview h2{font-size:1.08rem}.center-page .center-overview figure{max-width:none}}'
+    css='body{font-size:16px}.center-page{max-width:900px}.center-page h1{font-size:clamp(1.55rem,3.2vw,2.25rem);line-height:1.12;margin:20px 0 10px}.center-kicker{color:#607086;font-weight:700;margin:0 0 22px}.center-overview{margin:0 0 24px}.center-overview.has-image{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,38%);gap:24px;align-items:start}.center-overview-copy h2{font-size:1.2rem;margin:0 0 10px}.center-overview-copy p{margin:.65rem 0}.center-overview figure{grid-column:2;margin:0;grid-row:1;width:100%}.center-overview figure img{width:100%!important;max-width:none!important;aspect-ratio:4/3;object-fit:cover;border-radius:14px;display:block}.center-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0 28px}.center-fact{background:#fff;border:1px solid #d9e2ea;border-radius:12px;padding:14px}.center-fact strong{display:block;color:#356d89;margin-bottom:5px}.center-note{background:#f1f7fa;border-left:4px solid #6d9fb6;border-radius:8px;padding:14px 16px;margin:20px 0 28px}.center-note p{margin:.35rem 0}.opportunity-list{display:grid;gap:14px}.opportunity{background:#fff;border:1px solid #d9e2ea;border-radius:14px;overflow:hidden}.opportunity summary{cursor:pointer;list-style:none;padding:16px 18px;font-weight:750;color:#274f65}.opportunity summary::-webkit-details-marker{display:none}.opportunity summary:after{content:"+";float:right;font-size:1.35rem;font-weight:400}.opportunity[open] summary:after{content:"−"}.opportunity .card{border:0;border-top:1px solid #e2e9ee;border-radius:0;margin:0;box-shadow:none}.study-locations,.enrollment-areas{margin:15px 0 4px;padding:12px 14px;background:#f6f8fb;border-radius:10px}.study-locations ul,.enrollment-areas ul{margin:5px 0 0;padding-left:20px}.field-label{font-weight:750;margin:0}.coverage-note,.source-note{font-size:.86rem;color:#607086}.free-note{font-size:.8rem;color:#607086}.card p{margin:.7rem 0}.center-search-link{display:inline-block;margin-top:22px;font-weight:700}@media(max-width:700px){.center-overview.has-image{display:block}.center-overview figure{margin:16px 0}.center-facts{grid-template-columns:1fr}.center-page h1{font-size:1.5rem}.opportunity summary{padding:14px}}'
     return rendered.replace('</style>',css+'</style>',1)
 g.page=page
 
@@ -206,7 +206,13 @@ def canonical_center(v):
 def profile(center):
     p=PROFILES.get(center)
     if p:return p
-    return {'title':f'About {center}','about':f'{center} is involved in companion-animal cancer treatment or clinical research. Current opportunities are listed below with study-specific eligibility, contacts and participating locations.','links':[]}
+    if is_composite_center(center):
+        about=(f'This page groups the current cancer studies in our catalog that are coordinated by {center}. '
+            'A multicenter listing does not mean visits happen at one central address; the participating hospital or enrollment area is shown inside each option when it is publicly available.')
+    else:
+        about=(f'This page brings together current cancer studies and treatment options in our catalog that name {center} as the main center or a participating hospital. '
+            'It is not a complete list of every oncology service the center may offer.')
+    return {'title':'','about':about,'links':[]}
 
 
 def overview(center):
@@ -214,7 +220,49 @@ def overview(center):
     if p.get('image'):fig=f'<figure><img src="{g.esc(p["image"])}" alt="{g.esc(p.get("image_alt") or center)}" loading="lazy">'+(f'<figcaption style="font-size:.86rem;color:#607086;margin-top:7px">{g.esc(p.get("image_caption"))}</figcaption>' if p.get('image_caption') else '')+'</figure>'
     links=' · '.join(f'<a href="{g.esc(u)}" rel="noopener">{g.esc(l)}</a>' for l,u in p.get('links',[]))
     research=f'<p>{g.esc(p["research"])}</p>' if p.get('research') else ''
-    return f'<div class="center-overview"><h2>{g.esc(p["title"])}</h2>{fig}<p>{g.esc(p["about"])}</p>{research}'+(f'<p>{links}</p>' if links else '')+'</div>'
+    heading=f'<h2>{g.esc(p["title"])}</h2>' if p.get('title') else ''
+    copy=f'<div class="center-overview-copy">{heading}<p>{g.esc(p["about"])}</p>{research}'+(f'<p>{links}</p>' if links else '')+'</div>'
+    return f'<div class="center-overview{" has-image" if fig else ""}">{copy}{fig}</div>'
+
+
+def species_for(rows):
+    found=[]
+    for label in ('Dog','Cat'):
+        if any(g.species_ok(r,label) for r in rows):found.append(label.lower()+'s')
+    return found
+
+
+def center_kind(center,rows):
+    if is_composite_center(center) or any(coverage_areas(r) for r in rows):return 'Multicenter program or hospital network'
+    n=normalize(center)
+    if any(x in n for x in ('university','college','school','teaching hospital')):return 'University or teaching hospital'
+    return 'Specialty hospital or research center'
+
+
+def owner_summary(center,rows,cancers,addresses):
+    species=species_for(rows)
+    species_text=' and '.join(species) if species else 'companion animals'
+    cancer_text=', '.join(g.display_name(c) for c in cancers) if cancers else 'Cancer diagnoses listed in the studies below'
+    has_study_sites=any(any(site_active(s) for s in r.get('sites',[]) if isinstance(s,dict)) for r in rows if isinstance(r.get('sites'),list))
+    location_text=('See each opportunity for its participating hospital or enrollment area.' if has_study_sites
+        else '<br>'.join(g.esc(x) for x in addresses) if addresses
+        else 'Confirm the visit location with the study team.')
+    return ('<div class="center-facts">'
+        f'<div class="center-fact"><strong>Who the current listings are for</strong>{g.esc(species_text.capitalize())}</div>'
+        f'<div class="center-fact"><strong>Cancer types currently listed</strong>{g.esc(cancer_text)}</div>'
+        f'<div class="center-fact"><strong>Type of center</strong>{g.esc(center_kind(center,rows))}</div>'
+        f'<div class="center-fact"><strong>Where visits take place</strong>{location_text}</div>'
+        '</div>')
+
+
+def center_cards(rows):
+    rendered=[]
+    for row in rows:
+        title=g.esc(row.get('title') or 'Cancer treatment opportunity')
+        card=cards([row])
+        card=re.sub(r'(<article class="card">)<h3>.*?</h3>',r'\1',card,count=1,flags=re.S)
+        rendered.append(f'<details class="opportunity"><summary>{title}</summary>{card}</details>')
+    return '<div class="opportunity-list">'+''.join(rendered)+'</div>'
 
 
 def add(grouped,name,row):
@@ -255,9 +303,16 @@ def generate_centers(rows):
         slug=safe_center_slug(center,used);used[slug]=center;path=f'centers/{slug}/';url=f'{g.SITE}/{path}'
         cancers=sorted({c for r in hit for c in row_cancers(r)});ct=', '.join(g.display_name(c) for c in cancers) or 'multiple cancer types'
         addrs=center_page_addresses(center,hit)
-        address_html=''
-        if addrs:address_html='<div class="center-address"><strong>'+('Location' if len(addrs)==1 else 'Locations')+'</strong><br>'+'<br>'.join(g.esc(x) for x in addrs)+'</div>'
-        body='<div class="center-page">'+f'<h1>{g.esc(center)}</h1>'+overview(center)+address_html+f'<p>Current opportunities here include research or treatment options for <strong>{g.esc(ct)}</strong>.</p><p><a class="cta" href="{g.FINDER}">Find cancer treatment options near you</a></p><p class="free-note">100% free. No registration, hidden results or paid report.</p><h2>Cancer treatment &amp; research options</h2>'+g.cards(hit)+'</div>'
+        count=len(hit);noun='opportunity' if count==1 else 'opportunities'
+        body=('<div class="center-page">'
+            f'<h1>{g.esc(center)}</h1><p class="center-kicker">{count} current cancer treatment or research {noun}</p>'
+            +overview(center)+owner_summary(center,hit,cancers,addrs)
+            +'<div class="center-note"><strong>Before you contact the center</strong>'
+            +'<p>A listing here does not mean every pet will qualify. Enrollment can change, and the study team makes the final decision after reviewing your pet’s diagnosis, records and previous treatment.</p>'
+            +'<p>Have the pathology report, recent imaging and treatment history ready. Ask whether a referral is required, which visits must happen in person and what the study pays for before making travel plans.</p></div>'
+            +f'<h2>Current options at {g.esc(center)}</h2><p class="source-note">Open an option to see who may qualify, locations, costs or coverage, contact details and the official source.</p>'
+            +center_cards(hit)
+            +f'<p><a class="center-search-link" href="{g.FINDER}">Check all options for your pet →</a></p><p class="free-note">Free to use. No registration or paid report.</p></div>')
         desc=f'Dog and cat cancer treatment options, research studies and clinical trials at {center}.'
         d=g.OUT/path;d.mkdir(parents=True,exist_ok=True);(d/'index.html').write_text(g.page(center,desc,body,url),encoding='utf-8');links.append(url);items.append((center,path,len(hit)))
     assert len(used)==len(grouped),(len(used),len(grouped))
@@ -277,8 +332,19 @@ def audit(report):
                 text=html.unescape(re.sub(r'<.*?>','',item))
                 if not address_is_complete(text,''):invalid.append({'page':str(p.relative_to(g.OUT)),'location':text})
     report['invalid_rendered_locations']=invalid
+    center_pages=list((g.OUT/'centers').glob('*/index.html'))
+    malformed=[]
+    for p in center_pages:
+        s=p.read_text(errors='replace')
+        required=('class="center-kicker"','class="center-facts"','Before you contact the center','class="opportunity-list"')
+        if any(marker not in s for marker in required) or s.count('<details class="opportunity">')!=s.count('<article class="card">'):
+            malformed.append(str(p.relative_to(g.OUT)))
+    report['owner_friendly_center_pages']=len(center_pages)-len(malformed)
+    report['malformed_center_pages']=malformed
     (g.OUT/'mapping-audit.json').write_text(json.dumps(report,indent=2,ensure_ascii=False),encoding='utf-8')
     assert not invalid,invalid[:10]
+    assert center_pages and not malformed,malformed[:10]
+    print('CENTER_OWNER_PAGES_OK',len(center_pages))
 
 
 def main():
