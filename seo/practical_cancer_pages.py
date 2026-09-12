@@ -10,6 +10,7 @@ from species_owner_content_overrides import CANINE_OWNER_CONTENT,FELINE_OWNER_CO
 from cancer_content_audit_overrides import CANINE_PRACTICAL_OVERRIDES,FELINE_PRACTICAL_OVERRIDES
 from cancer_benchmark_content import CANINE_PRACTICAL as BENCHMARK,CANINE_BRANCHES as BENCHMARK_BRANCHES
 from cancer_owner_depth import DOG_DEPTH,CAT_DEPTH
+from cancer_treatment_factors import DOG_FACTORS,CAT_FACTORS
 
 CSS=r'''.owner-guide,.owner-guide p,.owner-guide li{color:#263238!important}.owner-guide h2{margin-top:25px;color:#477ca8!important;font-size:1.2rem}.guide-reality,.guide-waiting{margin:19px 0;padding:16px 18px;border:1px solid #dbe7f0;border-radius:14px;background:#f8fbfd}.guide-reality h2,.guide-waiting h2{margin-top:0}.guide-accordions{display:grid;gap:9px;margin:12px 0 20px}.guide-accordions details{border:1px solid #dbe7f0;border-radius:12px;background:#fff;overflow:hidden}.guide-accordions summary{cursor:pointer;padding:13px 15px;color:#4d7da3!important;font-weight:650}.guide-detail{padding:2px 15px 13px}.guide-questions li{margin:.45rem 0}@media(max-width:600px){.owner-guide h2{font-size:1.08rem}.guide-reality,.guide-waiting{padding:13px 14px}}'''.strip()
 BRANCHES=dict(ADDITIONAL_BRANCHES);BRANCHES.update(BENCHMARK_BRANCHES)
@@ -26,7 +27,8 @@ def _details(title,text):
  return f'<details><summary>{_e(title)}</summary><div class="guide-detail"><p>{_e(text)}</p></div></details>' if text else ''
 
 def section(label,key,pet,source):
- about,treatment,factors=_owner(key,pet);p=_practical(key,pet,source)
+ about,treatment,legacy_factors=_owner(key,pet);p=_practical(key,pet,source)
+ factors=(CAT_FACTORS if pet=='cat' else DOG_FACTORS).get(key,legacy_factors).strip()
  branches=BRANCHES.get(key,[])
  branch=''
  if branches:
@@ -34,7 +36,7 @@ def section(label,key,pet,source):
  waiting=p.get('waiting','').strip();waiting=f'<div class="guide-waiting"><h2>If you are waiting for oncology</h2><p>{_e(waiting)}</p></div>' if waiting else ''
  questions=p.get('questions',[]);q=''
  if questions:q='<details><summary>Questions to ask your oncologist</summary><div class="guide-detail"><ul class="guide-questions">'+''.join(f'<li>{_e(x)}</li>' for x in questions)+'</ul></div></details>'
- more=q+_details('How it is usually treated',treatment.strip())+_details('What can affect treatment choices',factors.strip())+_details('Tests that may matter',p.get('tests','').strip())
+ more=q+_details('How it is usually treated',treatment.strip())+_details('What can affect treatment choices',factors)+_details('Tests that may matter',p.get('tests','').strip())
  more=f'<div class="guide-accordions">{more}</div>' if more else ''
  return f'''<section class="disease owner-guide"><h2>Understanding {_e(label)}</h2><p>{_e(about)}</p><div class="guide-reality"><h2>What does the prognosis look like?</h2><p>{_e(p['prognosis'])}</p></div><h2>What matters next</h2><p>{_e(p['next'])}</p>{branch}{waiting}{more}</section>'''
 
@@ -48,6 +50,7 @@ def _apply(root,species,pet,source):
   text=path.read_text(encoding='utf-8');h=re.search(r'<h1>(.*?)</h1>',text,re.S);label=html.unescape(re.sub(r'<.*?>','',h.group(1))) if h else key.title()
   new,n=re.subn(r'<section class="disease(?: owner-guide| hs-guide)?">.*?</section>',section(label,key,pet,source),text,count=1,flags=re.S)
   if n!=1:raise AssertionError(f'Could not replace guide in {path}')
+  if CSS not in new:new.replace('</style>',CSS+'</style>',1)
   if CSS not in new:new=new.replace('</style>',CSS+'</style>',1)
   if new!=text:path.write_text(new,encoding='utf-8');changed+=1
  return changed
