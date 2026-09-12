@@ -99,8 +99,11 @@ jobs:
           assert 'experimental treatments, looking for something that might give him better chances' in about
           assert 'We don’t promise anything and we don’t give false hope.' in about
           assert 'Yuliia Dizhur' in about and 'Founder, Vet Trial Finder' in about
-          assert 'aspect-ratio:3/4;object-position:center center' in about
-          assert '.story-photo{width:100%;box-sizing:border-box' in about
+          assert '.story-scene{display:flow-root' in about
+          assert 'float:left;width:26%;max-width:225px' in about
+          assert '.story-scene.yasha .story-photo{float:right' in about
+          assert 'width:31%;max-width:140px' in about
+          assert 'height:auto;object-fit:contain' in about
           source=Path('seo/about_page.py').read_text(encoding='utf-8')
           assert not any(x in source for x in ('assets_embedded','base64','urllib.request','fallback_url'))
           senya=root/'assets/senya-about.jpg'; yasha=root/'assets/yasha-about.jpg'
