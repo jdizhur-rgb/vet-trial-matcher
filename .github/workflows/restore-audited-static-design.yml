@@ -104,7 +104,7 @@ jobs:
           assert '.story-scene.yasha .story-photo{float:right' in about
           assert 'width:31%;max-width:140px' in about
           assert 'height:auto;object-fit:contain' in about
-          assert '/assets/yasha-about.jpg?v=about-v4' in about
+          assert '/assets/senya-about.jpg?v=about-v5' in about\n          assert '/assets/yasha-about.jpg?v=about-v4' in about
           source=Path('seo/about_page.py').read_text(encoding='utf-8')
           assert not any(x in source for x in ('assets_embedded','base64','urllib.request','fallback_url'))
           senya=root/'assets/senya-about.jpg'; yasha=root/'assets/yasha-about.jpg'
