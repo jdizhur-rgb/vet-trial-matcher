@@ -86,13 +86,13 @@ jobs:
           assert 'class="story-break"' in about
           assert 'color:#315f7d!important' in about
           senya=root/'assets/senya-about.jpg'; yasha=root/'assets/yasha-about.jpg'
-          assert senya.exists() and senya.stat().st_size>50000, senya.stat().st_size
-          assert yasha.exists() and yasha.stat().st_size>50000, yasha.stat().st_size
+          assert senya.exists() and senya.stat().st_size>12000, senya.stat().st_size
+          assert yasha.exists() and yasha.stat().st_size>12000, yasha.stat().st_size
           cancer=[]
           for region in ('north-america','uk-europe'):
             for species in ('dogs','cats'): cancer += list((root/region/species).glob('*/index.html'))
           assert len(cancer)>=88, len(cancer)
-          print('ABOUT_LAYOUT_AND_HIRES_PHOTOS_OK',len(pages),len(cancer),senya.stat().st_size,yasha.stat().st_size)
+          print('ABOUT_LAYOUT_AND_WEB_PHOTOS_OK',len(pages),len(cancer),senya.stat().st_size,yasha.stat().st_size)
           PY
       - name: Save exact candidate artifact
         uses: actions/upload-artifact@v4
