@@ -1,0 +1,39 @@
+name: Address directory training writeback
+on:
+  push:
+    branches: [addresses-schema-test-20260911]
+    paths: ['.github/workflows/address-directory-training-writeback.yml']
+permissions:
+  contents: write
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: addresses-schema-test-20260911
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Generate verified training files
+        run: |
+          PYTHONPATH=. python tools/patch_trial_address_renderer.py
+          PYTHONPATH=. python tools/build_trial_site_directory.py
+          python -m py_compile pages/1_Clinical_Trial_Finder.py seo/trial_site_directory.py tools/build_trial_site_directory.py
+          PYTHONPATH=. python - <<'PY'
+          from seo.trial_site_directory import active_trial_addresses
+          from tools.build_trial_site_directory import load_trials
+          by={t['id']:t for t in load_trials()}
+          assert any('1 Garrod Dr' in x for x in active_trial_addresses(by['ucd-pdl1-metastatic']))
+          assert any('2089 SW 16th Ave' in x for x in active_trial_addresses(by['uf-oral-melanoma-vaccine-pd1']))
+          PY
+      - name: Commit only generated training files
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add pages/1_Clinical_Trial_Finder.py data/trial_site_directory.json
+          git diff --cached --check
+          if ! git diff --cached --quiet; then
+            git commit -m 'Training: render active trial addresses from central site directory'
+            git push origin HEAD:addresses-schema-test-20260911
+          fi
