@@ -1,0 +1,68 @@
+name: Clean shell smoke
+
+on:
+  push:
+    branches:
+      - clean-shell-refactor-20260912
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install app and browser
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Compile core files
+        run: |
+          python -m py_compile app.py pages/1_Clinical_Trial_Finder.py pages/2_Additional_Oncology_Options.py
+
+      - name: Start Streamlit
+        run: |
+          streamlit run app.py --server.headless=true --server.port=8501 > /tmp/streamlit.log 2>&1 &
+          for i in {1..30}; do
+            curl -fsS http://127.0.0.1:8501/_stcore/health && exit 0
+            sleep 1
+          done
+          cat /tmp/streamlit.log
+          exit 1
+
+      - name: Browser smoke desktop and mobile
+        run: |
+          python - <<'PY'
+          from playwright.sync_api import sync_playwright
+
+          def run(page, width, height):
+              page.set_viewport_size({'width': width, 'height': height})
+              errors = []
+              page.on('pageerror', lambda exc: errors.append(str(exc)))
+              page.goto('http://127.0.0.1:8501', wait_until='domcontentloaded', timeout=60000)
+              page.get_by_text('Country / region', exact=True).wait_for(timeout=30000)
+              page.get_by_text('Cancer type', exact=True).wait_for(timeout=30000)
+              page.get_by_text('1. Your pet', exact=True).wait_for(timeout=30000)
+              assert page.get_by_text('Clinical Trial Finder Results', exact=False).count() == 0
+              if errors:
+                  raise AssertionError('Page errors: ' + ' | '.join(errors))
+
+          with sync_playwright() as p:
+              browser = p.chromium.launch()
+              page = browser.new_page()
+              run(page, 1440, 1200)
+              run(page, 390, 844)
+              browser.close()
+          PY
+
+      - name: Dump Streamlit log on failure
+        if: failure()
+        run: cat /tmp/streamlit.log || true
