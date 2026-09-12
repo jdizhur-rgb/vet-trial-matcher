@@ -19,7 +19,7 @@ jobs:
         run: |
           pip install playwright
           python -m playwright install --with-deps chromium
-      - name: Verify public app after redeploy
+      - name: Verify public matcher returns USA browse results
         run: |
           python - <<'PY'
           import time
@@ -32,6 +32,7 @@ jobs:
               page = browser.new_page(viewport={'width': 1440, 'height': 1200})
               errors = []
               page.on('pageerror', lambda exc: errors.append(str(exc)))
+              ready = False
               for attempt in range(12):
                   try:
                       page.goto(url, wait_until='domcontentloaded', timeout=60000)
@@ -39,16 +40,35 @@ jobs:
                       body = page.locator('body').inner_text(timeout=10000)
                       last = body[:5000]
                       if 'Country / region' in body and 'Cancer type' in body:
-                          print('PUBLIC APP READY on attempt', attempt + 1)
-                          print(body[:1200])
-                          browser.close()
-                          raise SystemExit(0)
+                          ready = True
+                          break
                   except Exception as exc:
                       last = f'{type(exc).__name__}: {exc}'
                   time.sleep(10)
-              print('LAST PUBLIC STATE:')
-              print(last)
-              print('PAGE ERRORS:', errors)
+              if not ready:
+                  print('LAST PUBLIC STATE:')
+                  print(last)
+                  print('PAGE ERRORS:', errors)
+                  raise SystemExit(1)
+
+              country = page.get_by_text('Country / region').locator('..').locator('[data-baseweb="select"]')
+              country.click()
+              page.get_by_text('USA', exact=True).last.click()
+
+              cancer = page.get_by_text('Cancer type').locator('..').locator('[data-baseweb="select"]')
+              cancer.click()
+              page.get_by_text('Cancer — any type', exact=True).last.click()
+
+              page.get_by_role('button', name='Find potential trials').click()
+              page.wait_for_timeout(5000)
+              body = page.locator('body').inner_text(timeout=10000)
+              print(body[-5000:])
+              if 'oncology opportunity(ies) may be worth contacting' not in body:
+                  print('NO REAL RESULTS RETURNED')
+                  print('PAGE ERRORS:', errors)
+                  raise SystemExit(1)
+              if errors:
+                  print('PAGE ERRORS:', errors)
+              print('PUBLIC MATCHER RETURNS REAL USA BROWSE RESULTS')
               browser.close()
-              raise SystemExit(1)
           PY
