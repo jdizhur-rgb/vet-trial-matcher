@@ -1,5 +1,6 @@
 """Static semantic coverage checks for reviewed owner cancer guides."""
 from cancer_owner_depth import DOG_DEPTH, CAT_DEPTH
+from cancer_treatment_factors import DOG_FACTORS, CAT_FACTORS
 from canine_branch_content import ADDITIONAL_BRANCHES
 from feline_branch_content import FELINE_BRANCHES
 
@@ -31,9 +32,17 @@ def _validate_depth(name, data):
         assert len(set(questions)) == len(questions), f'{name} {diagnosis}: duplicate questions'
 
 
+def _validate_factors(name, data):
+    assert set(data) == CANONICAL, f'{name} factor coverage mismatch: missing={sorted(CANONICAL-set(data))}, extra={sorted(set(data)-CANONICAL)}'
+    for diagnosis, text in data.items():
+        assert text.strip(), f'{name} {diagnosis}: empty treatment factors'
+
+
 def validate():
     _validate_depth('dog', DOG_DEPTH)
     _validate_depth('cat', CAT_DEPTH)
+    _validate_factors('dog', DOG_FACTORS)
+    _validate_factors('cat', CAT_FACTORS)
     dog_branches = set(ADDITIONAL_BRANCHES) | {'histiocytic sarcoma'}
     assert dog_branches == CANONICAL, f'dog branch coverage mismatch: missing={sorted(CANONICAL-dog_branches)}'
     assert set(FELINE_BRANCHES) == CANONICAL, f'cat branch coverage mismatch: missing={sorted(CANONICAL-set(FELINE_BRANCHES))}'
