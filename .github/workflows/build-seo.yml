@@ -13,7 +13,6 @@ on:
       - 'seo/generate_cancer_coverage.py'
       - 'seo/cancer_page_enhancements.py'
       - 'seo/cancer_owner_content.py'
-      - 'seo/address_preflight_report.py'
       - 'seo/center_directory.py'
       - 'seo/center_profiles.py'
       - 'seo/center_profiles_extra.py'
@@ -38,9 +37,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Address preflight diagnostics
-        continue-on-error: true
-        run: python seo/address_preflight_report.py
       - name: Generate SEO site
         run: |
           python seo/generate_seo_strict.py
