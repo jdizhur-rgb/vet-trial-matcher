@@ -1,0 +1,69 @@
+name: Address audit test
+
+on:
+  push:
+    branches:
+      - addresses-only-test-20260911
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Audit static participating-site addresses
+        run: |
+          python - <<'PY'
+          import json, re
+          from pathlib import Path
+
+          p = Path('data/catalog_patch_zzzzzzzz_static_locations_all.json')
+          data = json.loads(p.read_text(encoding='utf-8'))
+          rows = data.get('upsert', [])
+          street_re = re.compile(r'\b\d{1,6}\s+[A-Za-z0-9]')
+
+          total_sites = 0
+          full_address_sites = 0
+          city_only = []
+          no_active_sites = []
+          inactive = []
+          unresolved = []
+
+          for row in rows:
+              tid = row.get('id','')
+              sites = row.get('sites') or []
+              inactive_sites = row.get('inactive_sites') or []
+              if not sites:
+                  no_active_sites.append(tid)
+              if row.get('location_unresolved'):
+                  unresolved.append(tid)
+              for s in sites:
+                  total_sites += 1
+                  text = ' '.join(str(s.get(k,'')) for k in ('label','hospital','address','street','city','state'))
+                  if street_re.search(text):
+                      full_address_sites += 1
+                  else:
+                      city_only.append((tid, s.get('label') or s.get('hospital') or str(s)))
+              for s in inactive_sites:
+                  inactive.append((tid, s.get('label') or s.get('hospital') or str(s)))
+
+          print(f'RECORDS={len(rows)}')
+          print(f'ACTIVE_SITES={total_sites}')
+          print(f'FULL_STREET_ADDRESS_SITES={full_address_sites}')
+          print(f'CITY_OR_CENTER_ONLY_SITES={len(city_only)}')
+          print(f'NO_ACTIVE_SITE_RECORDS={len(no_active_sites)}')
+          print(f'INACTIVE_SITES={len(inactive)}')
+          print(f'UNRESOLVED_RECORDS={len(unresolved)}')
+
+          print('\n--- CITY/CENTER ONLY ---')
+          for tid, label in city_only:
+              print(f'{tid}\t{label}')
+          print('\n--- NO ACTIVE SITE ---')
+          for tid in no_active_sites:
+              print(tid)
+          print('\n--- INACTIVE SITES ---')
+          for tid, label in inactive:
+              print(f'{tid}\t{label}')
+          print('\n--- UNRESOLVED ---')
+          for tid in unresolved:
+              print(tid)
+          PY
