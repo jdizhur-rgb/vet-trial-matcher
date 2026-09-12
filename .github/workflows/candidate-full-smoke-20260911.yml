@@ -1,0 +1,69 @@
+name: Candidate full smoke test
+on:
+  push:
+    branches: [candidate-pre-rollback-20260911]
+    paths: ['.github/workflows/candidate-full-smoke-20260911.yml']
+permissions:
+  contents: read
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: candidate-pre-rollback-20260911
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install
+        run: |
+          pip install -r requirements.txt playwright
+          python -m playwright install --with-deps chromium
+      - name: Compile runtime Python
+        run: |
+          python - <<'PY'
+          import pathlib, py_compile
+          bad=[]
+          for p in [pathlib.Path('app.py'), *pathlib.Path('pages').glob('*.py')]:
+              try: py_compile.compile(str(p), doraise=True)
+              except Exception as e: bad.append((str(p),str(e)))
+          print('BAD',bad)
+          assert not bad
+          PY
+      - name: Run candidate and exercise Finder
+        run: |
+          set -e
+          streamlit run app.py --server.headless true --server.port 8765 > /tmp/app.log 2>&1 &
+          PID=$!
+          sleep 6
+          python - <<'PY'
+          from playwright.sync_api import sync_playwright
+          def run(page,label):
+              errs=[]; warnings=[]
+              page.on('pageerror',lambda e: errs.append(str(e)))
+              page.on('console',lambda m: warnings.append((m.type,m.text)) if m.type in ('error','warning') else None)
+              page.goto('http://127.0.0.1:8765',wait_until='domcontentloaded',timeout=60000)
+              page.wait_for_timeout(7000)
+              body=page.locator('body').inner_text()
+              print(label,'BODYLEN',len(body))
+              print(label,'HEAD',repr(body[:800]))
+              assert 'Cancer Clinical Trial Finder for Dogs & Cats' in body or 'Vet Cancer Trial Finder' in body
+              assert 'Country / region' in body
+              btn=page.get_by_role('button',name='Find potential trials')
+              print(label,'MATCH_BUTTONS',btn.count())
+              assert btn.count()==1
+              btn.click(); page.wait_for_timeout(5000)
+              body2=page.locator('body').inner_text()
+              print(label,'AFTER',len(body2),'RESULTS',('Results' in body2))
+              assert 'Results' in body2
+              assert not errs, errs
+              fatal=[x for x in warnings if x[0]=='error' or 'Bad delta path index' in x[1]]
+              assert not fatal, fatal
+          with sync_playwright() as p:
+              b=p.chromium.launch(headless=True)
+              run(b.new_page(viewport={'width':1440,'height':1200}),'DESKTOP')
+              run(b.new_page(viewport={'width':390,'height':844},is_mobile=True,has_touch=True),'MOBILE')
+              b.close()
+          PY
+          cat /tmp/app.log
+          kill $PID
