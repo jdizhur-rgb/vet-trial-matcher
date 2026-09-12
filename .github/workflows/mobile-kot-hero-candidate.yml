@@ -1,0 +1,72 @@
+name: Mobile Kot hero candidate check
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/mobile-kot-hero-candidate.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build-candidate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Assemble current production stack with safe mobile hero
+        run: |
+          cp seo/center_directory.py /tmp/main-center-directory.py
+          git fetch origin cancer-page-audit --depth=1
+          git checkout FETCH_HEAD -- seo/
+          cp /tmp/main-center-directory.py seo/center_directory.py
+          git fetch origin mobile-kot-hero-safe-20260912 --depth=1
+          git checkout FETCH_HEAD -- seo/site_shell.py seo/assets/kot-home.jpg
+      - name: Build candidate
+        run: python seo/build_production_site.py
+      - name: Include static files
+        run: cp -a seo/static/. seo/site/
+      - name: Validate desktop and mobile hero invariants
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          root=Path('seo/site')
+          pages=list(root.rglob('index.html'))
+          assert len(pages)>=100, len(pages)
+          home=(root/'index.html').read_text(encoding='utf-8')
+          assert '<header class="site-header">' in home
+          assert '<section class="home-hero">' in home
+          assert '/assets/kot-home.jpg' in home
+          assert 'min-height:390px' in home
+          assert 'object-position:center 48%' in home
+          assert '.site-header{left:auto;width:auto;margin-left:-26px;margin-right:-26px' in home
+          assert 'min-height:clamp(440px,120vw,540px)' in home
+          assert 'object-position:62% 48%' in home
+          assert 'linear-gradient(180deg' in home
+          assert 'display:flex!important;flex-direction:column' not in home
+          assert 'Find clinical trials and cancer treatment options for your pet' in home
+          asset=root/'assets/kot-home.jpg'
+          assert asset.exists() and asset.stat().st_size>10000, asset
+          cancer=[]
+          for region in ('north-america','uk-europe'):
+            for species in ('dogs','cats'):
+              cancer += list((root/region/species).glob('*/index.html'))
+          assert len(cancer)>=88, len(cancer)
+          for p in cancer:
+            s=p.read_text(encoding='utf-8')
+            assert '<header class="site-header">' in s,p
+            assert '<link rel="canonical"' in s,p
+          print('MOBILE_KOT_CANDIDATE_OK',len(pages),len(cancer),asset.stat().st_size)
+          PY
+      - name: Save candidate artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mobile-kot-hero-candidate
+          path: seo/site/
+          retention-days: 3
