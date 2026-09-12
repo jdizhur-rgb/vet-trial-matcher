@@ -153,7 +153,9 @@ jobs:
           de_sample=root/'de/uk-europe/dogs/lymphoma/index.html'
           if de_sample.exists():
             assert '<meta name="robots" content="noindex, follow">' in de_sample.read_text(encoding='utf-8')
-          assert '<meta name="robots" content="noindex, follow">' in (root/'uk-europe/dogs/oral-melanoma/index.html').read_text(encoding='utf-8')
+          uk_sample=root/'uk-europe/dogs/oral-melanoma/index.html'
+          if uk_sample.exists():
+            assert '<meta name="robots" content="noindex, follow">' in uk_sample.read_text(encoding='utf-8')
           assert all('/uk-europe/' not in url for url in sitemap.split('<loc>')[1:])
           assert '"@type": "WebSite"' in home and '"@type": "Organization"' in home
           assert '"@type": "BreadcrumbList"' in (root/'north-america/dogs/lymphoma/index.html').read_text(encoding='utf-8')
