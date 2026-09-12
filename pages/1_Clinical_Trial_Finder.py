@@ -889,7 +889,7 @@ if search_clicked:
                     elif _site_name and _site_name not in _location_rows:
                         _location_rows.append(_site_name)
                 if _location_rows:
-                    st.write('**Location:** ' + '; '.join(_location_rows))
+                    st.write('**Location / Address:** ' + '; '.join(_location_rows))
                 details_url = tr.get('registry_url') or tr.get('url', '')
                 if details_url:
                     st.link_button('View full study details →', details_url, use_container_width=True)
