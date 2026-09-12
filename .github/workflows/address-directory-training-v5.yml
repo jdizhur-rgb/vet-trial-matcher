@@ -1,0 +1,83 @@
+name: Address directory training v5
+on:
+  push:
+    branches: [addresses-schema-test-20260911]
+    paths: ['.github/workflows/address-directory-training-v5.yml']
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: addresses-schema-test-20260911
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Build and validate candidate
+        run: |
+          PYTHONPATH=. python tools/patch_trial_address_renderer.py
+          PYTHONPATH=. python tools/build_trial_site_directory.py | tee /tmp/address_audit.txt
+          python -m py_compile pages/1_Clinical_Trial_Finder.py seo/trial_site_directory.py tools/build_trial_site_directory.py
+          PYTHONPATH=. python - <<'PY'
+          from seo.trial_site_directory import active_trial_addresses, trial_site_records
+          from tools.build_trial_site_directory import load_trials
+          by={t['id']:t for t in load_trials()}
+          assert any('1 Garrod Dr' in x for x in active_trial_addresses(by['ucd-pdl1-metastatic']))
+          assert any('2089 SW 16th Ave' in x for x in active_trial_addresses(by['uf-oral-melanoma-vaccine-pd1']))
+          synthetic={'id':'x','center':'X','sites':[{'name':'A','street':'1 Active Rd','city':'T','state':'MA','status':'active'},{'name':'B','street':'2 Active Rd','city':'T','state':'MA','status':'active'}],'inactive_sites':[{'name':'C','street':'3 Old Rd','city':'T','state':'MA','status':'inactive'}]}
+          recs=trial_site_records(synthetic)
+          assert sum(r['status']=='active' for r in recs)==2 and sum(r['status']=='inactive' for r in recs)==1
+          shown=active_trial_addresses(synthetic)
+          assert len(shown)==2 and all('Old Rd' not in x for x in shown)
+          print('SCHEMA_OK')
+          PY
+      - name: Install app and Chromium
+        run: |
+          pip install -r requirements.txt playwright
+          python -m playwright install --with-deps chromium
+      - name: Browser address field desktop and mobile
+        run: |
+          set -e
+          streamlit run app.py --server.headless true --server.port 8765 > /tmp/app.log 2>&1 &
+          PID=$!
+          sleep 8
+          python - <<'PY'
+          from playwright.sync_api import sync_playwright
+
+          def choose(page,label,value):
+              boxes=page.locator('[data-testid="stSelectbox"]')
+              for i in range(boxes.count()):
+                  box=boxes.nth(i)
+                  if label in box.inner_text():
+                      combo=box.get_by_role('combobox')
+                      combo.click()
+                      page.keyboard.type(value, delay=20)
+                      page.keyboard.press('Enter')
+                      page.wait_for_timeout(1000)
+                      return
+              raise AssertionError('selectbox not found: '+label)
+
+          with sync_playwright() as p:
+              b=p.chromium.launch(headless=True)
+              for label,w,h in [('DESKTOP',1440,1200),('MOBILE',390,844)]:
+                  page=b.new_page(viewport={'width':w,'height':h}); errs=[]
+                  page.on('pageerror',lambda e: errs.append(str(e)))
+                  page.goto('http://127.0.0.1:8765',wait_until='domcontentloaded',timeout=60000)
+                  page.wait_for_timeout(7000)
+                  choose(page,'Country / region','USA')
+                  choose(page,'Cancer type','Cancer — any type')
+                  page.get_by_role('button',name='Find potential trials').click()
+                  page.wait_for_timeout(7000)
+                  body=page.locator('body').inner_text()
+                  print(label,'BODYLEN',len(body))
+                  assert 'Results' in body
+                  assert 'Address:' in body
+                  assert '1 Garrod Dr' in body, 'UC Davis street not rendered'
+                  assert '2089 SW 16th Ave' in body, 'UF street not rendered'
+                  assert not errs, errs
+                  page.close()
+              b.close()
+          PY
+          kill $PID
