@@ -66,3 +66,9 @@ jobs:
           assert checked==88,checked
           print('CANCER_PAGE_AUDIT_BUILD_OK',checked)
           PY
+      - name: Upload candidate site for visual review
+        uses: actions/upload-artifact@v4
+        with:
+          name: cancer-page-audit-site
+          path: seo/site/
+          retention-days: 3
