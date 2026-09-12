@@ -1,0 +1,77 @@
+name: Mobile homepage hero overlay
+
+on:
+  push:
+    branches: [desktop-redesign-kot]
+    paths:
+      - '.github/workflows/mobile-hero-overlay-once.yml'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  patch-build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: desktop-redesign-kot
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Patch mobile homepage hero
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          p = Path('seo/site_shell.py')
+          s = p.read_text(encoding='utf-8')
+          old = '''@media(max-width:800px){.site-header{left:auto;width:auto}.home-hero{display:flex!important;flex-direction:column;padding:0!important;gap:0!important;background:transparent}.hero-photo{position:relative;order:0;max-width:none;width:100%;height:auto;margin:0}.hero-photo:after{display:none}.hero-photo img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:14px;border:1px solid #d9e2ea}.hero-copy{order:1;padding:18px 0 0;color:#17243b}.hero-copy h1{color:#17243b}.hero-copy .eyebrow{color:#567188}.hero-copy .lead{color:#42536a}.hero-copy .cta{background:#175b8c;color:#fff!important}.hero-copy .secondary-cta{border-color:#b8c8d6;background:#fff;color:#175b8c!important}}'''
+          new = '''@media(max-width:800px){.site-header{left:auto;width:auto}.home-hero{position:relative!important;display:block!important;min-height:500px;padding:0!important;overflow:hidden;border-radius:14px;background:#17324d}.hero-photo{position:absolute;inset:0;order:0;max-width:none;width:100%;height:100%;margin:0}.hero-photo:after{display:block;content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,28,45,.94) 0%,rgba(10,28,45,.82) 46%,rgba(10,28,45,.42) 72%,rgba(10,28,45,.12) 100%)}.hero-photo img{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:62% center;border:0;border-radius:0;box-shadow:none}.hero-copy{position:relative;z-index:1;max-width:78%;padding:30px 20px 24px;color:#fff}.hero-copy h1{color:#fff;font-size:clamp(1.78rem,7vw,2.2rem);line-height:1.07;margin:0 0 12px}.hero-copy .eyebrow{color:#fff;font-size:.82rem;line-height:1.35}.hero-copy .lead{color:#fff;font-size:.96rem;line-height:1.48}.hero-copy .hero-actions{gap:8px;margin:18px 0 0}.hero-copy .cta{background:#fff;color:#175b8c!important;padding:10px 13px}.hero-copy .secondary-cta{border-color:rgba(255,255,255,.75);background:rgba(23,50,77,.32);color:#fff!important;padding:10px 13px}}@media(max-width:420px){.home-hero{min-height:510px}.hero-copy{max-width:82%;padding:26px 18px 22px}.hero-photo img{object-position:64% center}}'''
+          if old not in s:
+              raise SystemExit('Expected mobile hero CSS block not found; refusing broad edit')
+          p.write_text(s.replace(old, new, 1), encoding='utf-8')
+          PY
+
+      - name: Commit source patch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add seo/site_shell.py
+          if ! git diff --cached --quiet; then
+            git commit -m 'Make mobile hero use desktop overlay composition'
+            git push origin HEAD:desktop-redesign-kot
+          fi
+
+      - name: Build production site
+        run: python seo/build_production_site.py
+
+      - name: Include static files
+        run: cp -a seo/static/. seo/site/
+
+      - name: Verify mobile hero CSS exists
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          s=Path('seo/site/index.html').read_text(encoding='utf-8')
+          assert '@media(max-width:800px)' in s
+          assert 'min-height:500px' in s
+          assert 'object-position:62% center' in s
+          assert 'rgba(10,28,45,.94)' in s
+          assert '<section class="home-hero">' in s
+          print('MOBILE_HERO_OVERLAY_OK')
+          PY
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: seo/site/
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
