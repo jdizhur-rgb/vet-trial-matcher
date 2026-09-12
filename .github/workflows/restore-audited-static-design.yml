@@ -32,6 +32,22 @@ jobs:
           git fetch origin cancer-page-audit --depth=1
           git checkout FETCH_HEAD -- seo/
           cp /tmp/main-center-directory.py seo/center_directory.py
+          git fetch origin cancer-page-audit-depth --depth=1
+          git checkout FETCH_HEAD -- \
+            seo/cancer_benchmark_content.py \
+            seo/cancer_branch_depth.py \
+            seo/cancer_owner_depth.py \
+            seo/cancer_page_polish.py \
+            seo/cancer_treatment_factors.py \
+            seo/feline_branch_content.py \
+            seo/hs_owner_page.py \
+            seo/owner_friendly_descriptions.py \
+            seo/owner_friendly_factors.py \
+            seo/owner_friendly_next_steps.py \
+            seo/owner_friendly_prognosis.py \
+            seo/owner_friendly_treatment_tests.py \
+            seo/practical_cancer_pages.py \
+            seo/validate_cancer_depth.py
           git fetch origin mobile-kot-hero-safe-20260912 --depth=1
           git checkout 6c90fc9476f17a20545e29ba94cabb6697fe55d1 -- seo/site_shell.py seo/assets/kot-home.jpg
           python - <<'PY'
@@ -61,7 +77,9 @@ jobs:
           p.write_text(s,encoding='utf-8')
           PY
       - name: Build candidate
-        run: python seo/build_production_site.py
+        run: |
+          python seo/build_production_site.py
+          PYTHONPATH=seo python seo/validate_cancer_depth.py --site seo/site
       - name: Include static files and restore About photos last
         run: |
           cp -a seo/static/. seo/site/
