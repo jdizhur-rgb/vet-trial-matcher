@@ -51,7 +51,7 @@ jobs:
           if badge_old not in s: raise SystemExit('expected free badge rule not found')
           s=s.replace(badge_old,badge_new,1)
           heading_old='.share-panel p{color:#52677b}'
-          heading_new='.share-panel p{color:#52677b}main h1,main h2,main h3{color:#315f7d!important}'
+          heading_new='.share-panel p{color:#52677b}main h1,main h2,main h3{color:#315f7d!important}main .cta{padding:8px 13px;border-radius:7px;font-size:.9rem;font-weight:650}.home-hero .cta{padding:12px 18px;border-radius:9px;font-size:inherit;font-weight:750}main .eligibility-cta{display:inline-block!important;width:auto!important;padding:8px 13px;border-radius:7px;font-size:.9rem;font-weight:600}'
           if heading_old not in s: raise SystemExit('expected heading insertion point not found')
           s=s.replace(heading_old,heading_new,1)
           hero_old='<div class="hero-copy"><p class="eyebrow">Clinical Trials &amp; Experimental Treatments for Dogs and Cats</p><h1>Find clinical trials and cancer treatment options for your pet</h1><p class="lead">Search current studies by diagnosis, check participating hospitals, and find other oncology options in one place. The site is free to use.</p><div class="hero-actions"><a class="cta" href="{FINDER}">Find Trials</a><a class="secondary-cta" href="{SITE}/help/">How it works</a></div></div></section><h2>Start here</h2>'
@@ -93,6 +93,9 @@ jobs:
           assert 'font-size:12px!important' in home
           assert 'main h1,main h2,main h3{color:#315f7d!important}' in home
           assert 'transform:translateY(-1px)' in home
+          assert 'main .cta{padding:8px 13px' in home
+          assert '.home-hero .cta{padding:12px 18px' in home
+          assert 'main .eligibility-cta{display:inline-block!important;width:auto!important' in home
           assert 'background:rgba(23,50,77,.22);color:#fff!important' in home
           assert 'class="mobile-hero-lead"' in home
           assert '.hero-copy{display:none}' in home
@@ -121,6 +124,11 @@ jobs:
           senya=root/'assets/senya-about.jpg'; yasha=root/'assets/yasha-about.jpg'
           assert senya.exists() and senya.stat().st_size>50000, senya.stat().st_size
           assert yasha.exists() and yasha.stat().st_size>50000, yasha.stat().st_size
+          help_page=(root/'help/index.html').read_text(encoding='utf-8')
+          assert help_page.count('<details>') == 13
+          assert help_page.count('<summary>') == 13
+          assert 'class="help-faq"' in help_page
+          assert '.help-center .cta{padding:8px 13px' in help_page
           cancer=[]
           for region in ('north-america','uk-europe'):
             for species in ('dogs','cats'): cancer += list((root/region/species).glob('*/index.html'))
