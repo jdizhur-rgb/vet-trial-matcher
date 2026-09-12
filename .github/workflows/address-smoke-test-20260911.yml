@@ -1,0 +1,59 @@
+name: Address-only smoke test
+on:
+  push:
+    branches: [addresses-only-test-20260911]
+permissions:
+  contents: read
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Validate address patch
+        run: |
+          python - <<'PY'
+          import json
+          p='data/catalog_patch_zzzzzzzzzz_address_smoke_20260911.json'
+          d=json.load(open(p,encoding='utf-8'))
+          by={x['id']:x for x in d['upsert']}
+          assert '1 Garrod Dr' in by['ucd-pdl1-metastatic']['sites'][0]['label']
+          assert '2089 SW 16th Ave' in by['uf-oral-melanoma-vaccine-pd1']['sites'][0]['label']
+          print('ADDRESS_PATCH_OK')
+          PY
+      - name: Install
+        run: |
+          pip install -r requirements.txt playwright
+          python -m playwright install --with-deps chromium
+      - name: Run app and Finder smoke
+        run: |
+          set -e
+          streamlit run app.py --server.headless true --server.port 8765 > /tmp/app.log 2>&1 &
+          PID=$!
+          sleep 7
+          python - <<'PY'
+          from playwright.sync_api import sync_playwright
+          with sync_playwright() as p:
+              b=p.chromium.launch(headless=True)
+              for label,w,h in [('DESKTOP',1440,1200),('MOBILE',390,844)]:
+                  page=b.new_page(viewport={'width':w,'height':h})
+                  errs=[]
+                  page.on('pageerror',lambda e: errs.append(str(e)))
+                  page.goto('http://127.0.0.1:8765',wait_until='domcontentloaded',timeout=60000)
+                  page.wait_for_timeout(7000)
+                  body=page.locator('body').inner_text()
+                  print(label,'BODYLEN',len(body))
+                  assert 'Cancer Clinical Trial Finder for Dogs & Cats' in body or 'Vet Cancer Trial Finder' in body
+                  btn=page.get_by_role('button',name='Find potential trials')
+                  assert btn.count()==1
+                  btn.click(); page.wait_for_timeout(4000)
+                  body2=page.locator('body').inner_text()
+                  assert 'Results' in body2
+                  assert not errs, errs
+                  page.close()
+              b.close()
+          PY
+          cat /tmp/app.log
+          kill $PID
