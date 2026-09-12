@@ -16,38 +16,32 @@ jobs:
         run: |
           pip install playwright
           python -m playwright install --with-deps chromium
-      - name: Compare public wrapper, embed, and inner app
+      - name: Wait for Streamlit deploy
+        run: sleep 75
+      - name: Verify restored live candidate
         run: |
           python - <<'PY'
           from playwright.sync_api import sync_playwright
-          URLS=[
-            ('BASE','https://c-trials.streamlit.app/'),
-            ('EMBED','https://c-trials.streamlit.app/?embed=true'),
-            ('INNER','https://c-trials.streamlit.app/~/+/'),
-          ]
+          URL='https://c-trials.streamlit.app/~/+/'
           with sync_playwright() as p:
               b=p.chromium.launch(headless=True)
-              for label,url in URLS:
-                  ctx=b.new_context(viewport={"width":390,"height":844},is_mobile=True,has_touch=True)
-                  page=ctx.new_page(); errs=[]; nav=[]
+              for label,viewport,mobile in [('DESKTOP',{'width':1440,'height':1200},False),('MOBILE',{'width':390,'height':844},True)]:
+                  ctx=b.new_context(viewport=viewport,is_mobile=mobile,has_touch=mobile)
+                  page=ctx.new_page(); errs=[]
                   page.on('pageerror',lambda e: errs.append(str(e)))
-                  page.on('framenavigated',lambda f: nav.append(f.url) if f==page.main_frame else None)
-                  r=page.goto(url,wait_until='domcontentloaded',timeout=60000)
-                  print(label,'STATUS',r.status if r else None)
-                  for i in range(6):
-                      page.wait_for_timeout(3000)
-                      txt=page.locator('body').inner_text()
-                      inner=[]
-                      for f in page.frames:
-                          if f != page.main_frame:
-                              try: inner.append((f.url,len(f.locator('body').inner_text())))
-                              except: pass
-                      print(label,'TICK',i+1,'BODYLEN',len(txt),'HEAD',repr(txt[:160]),'FRAMES',inner)
+                  r=page.goto(URL,wait_until='domcontentloaded',timeout=60000)
+                  page.wait_for_timeout(7000)
+                  body=page.locator('body').inner_text()
+                  print(label,'STATUS',r.status if r else None,'BODYLEN',len(body),'HEAD',repr(body[:900]))
+                  assert 'Cancer Clinical Trial Finder for Dogs & Cats' in body, body[:1200]
+                  assert 'Country / region' in body
                   btn=page.get_by_role('button',name='Find potential trials')
-                  print(label,'MATCH_BUTTONS',btn.count(),'ERRORS',errs,'NAV',nav)
-                  if btn.count():
-                      btn.first.click(); page.wait_for_timeout(4000)
-                      txt=page.locator('body').inner_text(); print(label,'MATCH_CLICKED','Results' in txt,'BODYLEN',len(txt))
+                  assert btn.count()==1
+                  btn.click(); page.wait_for_timeout(5000)
+                  body2=page.locator('body').inner_text()
+                  print(label,'RESULTS',('Results' in body2),'BODYLEN',len(body2),'ERRORS',errs)
+                  assert 'Results' in body2
+                  assert not errs, errs
                   ctx.close()
               b.close()
           PY
