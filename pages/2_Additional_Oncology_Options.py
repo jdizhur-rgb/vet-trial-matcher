@@ -30,6 +30,8 @@ else:
     _markdown=st.markdown
     _write=st.write
     _button=st.button
+    _selectbox=st.selectbox
+    _legacy_state={"country":None}
 
     def _section_markdown(body,*args,**kwargs):
         if isinstance(body,str) and "💊 More Treatment Options" in body:
@@ -51,9 +53,16 @@ else:
             return False
         return _button(label,*args,**kwargs)
 
+    def _legacy_selectbox(label,*args,**kwargs):
+        value=_selectbox(label,*args,**kwargs)
+        if label=="2. Country / region":
+            _legacy_state["country"]=value
+        return value
+
     st.markdown=_section_markdown
     st.write=_section_write
     st.button=_legacy_button
+    st.selectbox=_legacy_selectbox
     st.session_state._hide_legacy_route_buttons=True
     try:
         runpy.run_path(str(Path(__file__).with_name("_additional_oncology_legacy.py")),run_name="__main__")
@@ -61,9 +70,10 @@ else:
         st.markdown=_markdown
         st.write=_write
         st.button=_button
+        st.selectbox=_selectbox
         st.session_state.pop("_hide_legacy_route_buttons",None)
 
-    if route=="advanced":
+    if route=="advanced" and _legacy_state["country"]=="Europe":
         with st.container(border=True):
             st.markdown("### University of Ljubljana — ECT + IL-12 Gene Electrotransfer")
             st.write("**Dogs · Slovenia · strongest canine evidence in mast cell tumors**")
