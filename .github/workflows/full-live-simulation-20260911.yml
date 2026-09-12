@@ -1,0 +1,109 @@
+name: Full live simulation
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/full-live-simulation-20260911.yml']
+permissions:
+  contents: read
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: streamlit-prod
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install app and browser deps
+        run: |
+          pip install -r requirements.txt playwright
+          python -m playwright install --with-deps chromium
+      - name: Compile every Python file
+        run: python -m compileall -q .
+      - name: Validate every JSON file
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          bad=[]; n=0
+          for p in pathlib.Path('.').rglob('*.json'):
+              if '.git' in p.parts: continue
+              n+=1
+              try: json.loads(p.read_text(encoding='utf-8'))
+              except Exception as e: bad.append((str(p),repr(e)))
+          print('JSON_FILES',n)
+          print('JSON_BAD',bad)
+          if bad: raise SystemExit(1)
+          PY
+      - name: Static execution-risk scan
+        run: |
+          python - <<'PY'
+          import pathlib,re
+          pats=['st.rerun','st.experimental_rerun','st.switch_page','while True','components.html','unsafe_allow_javascript','st.set_page_config','st.navigation','session_state','query_params']
+          for p in pathlib.Path('.').rglob('*.py'):
+              if '.git' in p.parts: continue
+              t=p.read_text(encoding='utf-8',errors='replace')
+              hits=[]
+              for pat in pats:
+                  c=t.count(pat)
+                  if c: hits.append(f'{pat}={c}')
+              if hits: print(str(p), ' | '.join(hits))
+          PY
+      - name: Start full app and browser-simulate matcher
+        run: |
+          set +e
+          streamlit run app.py --server.headless true --server.port 8765 > /tmp/app.log 2>&1 &
+          PID=$!
+          sleep 5
+          python - <<'PY'
+          from playwright.sync_api import sync_playwright
+          with sync_playwright() as p:
+              b=p.chromium.launch(headless=True)
+              page=b.new_page(viewport={"width":1440,"height":1200})
+              errors=[]; console=[]
+              page.on('pageerror', lambda e: errors.append(str(e)))
+              page.on('console', lambda m: console.append((m.type,m.text)) if m.type in ('error','warning') else None)
+              page.goto('http://127.0.0.1:8765', wait_until='domcontentloaded', timeout=60000)
+              page.wait_for_timeout(8000)
+              print('HOME_TITLE',page.title())
+              print('HOME_BODYLEN',len(page.locator('body').inner_text()))
+              print('HOME_HEAD',page.locator('body').inner_text()[:1200].replace('\n',' | '))
+              # Exercise default matcher path.
+              btn=page.get_by_role('button',name='Find potential trials')
+              print('MATCH_BUTTONS',btn.count())
+              if btn.count():
+                  btn.first.click()
+                  page.wait_for_timeout(5000)
+                  print('AFTER_MATCH_BODYLEN',len(page.locator('body').inner_text()))
+                  print('AFTER_MATCH_HEAD',page.locator('body').inner_text()[:2000].replace('\n',' | '))
+              print('PAGEERRORS',errors)
+              print('CONSOLE_WARN_ERR',console[:30])
+              b.close()
+          PY
+          echo '=== APP LOG ==='
+          cat /tmp/app.log
+          kill $PID 2>/dev/null || true
+      - name: Run secondary pages standalone
+        run: |
+          for f in pages/2_Additional_Oncology_Options.py pages/3_ECT_Center_Finder.py; do
+            echo "=== $f ==="
+            streamlit run "$f" --server.headless true --server.port 8766 > /tmp/page.log 2>&1 &
+            PID=$!
+            sleep 4
+            python - <<'PY'
+          from playwright.sync_api import sync_playwright
+          with sync_playwright() as p:
+              b=p.chromium.launch(headless=True)
+              page=b.new_page()
+              errs=[]
+              page.on('pageerror',lambda e: errs.append(str(e)))
+              page.goto('http://127.0.0.1:8766',wait_until='domcontentloaded',timeout=60000)
+              page.wait_for_timeout(5000)
+              print('TITLE',page.title(),'BODYLEN',len(page.locator('body').inner_text()),'ERRORS',errs)
+              print(page.locator('body').inner_text()[:900].replace('\n',' | '))
+              b.close()
+          PY
+            cat /tmp/page.log
+            kill $PID 2>/dev/null || true
+            sleep 2
+          done
