@@ -50,7 +50,6 @@ def _apply(root,species,pet,source):
   text=path.read_text(encoding='utf-8');h=re.search(r'<h1>(.*?)</h1>',text,re.S);label=html.unescape(re.sub(r'<.*?>','',h.group(1))) if h else key.title()
   new,n=re.subn(r'<section class="disease(?: owner-guide| hs-guide)?">.*?</section>',section(label,key,pet,source),text,count=1,flags=re.S)
   if n!=1:raise AssertionError(f'Could not replace guide in {path}')
-  if CSS not in new:new.replace('</style>',CSS+'</style>',1)
   if CSS not in new:new=new.replace('</style>',CSS+'</style>',1)
   if new!=text:path.write_text(new,encoding='utf-8');changed+=1
  return changed
