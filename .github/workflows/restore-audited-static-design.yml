@@ -147,6 +147,7 @@ jobs:
           assert 'jdizhur-rgb.github.io' not in sitemap
           assert 'https://vettrialfinder.com/uk-europe/' not in sitemap
           assert not any(f'https://vettrialfinder.com/{lang}/' in sitemap for lang in ('de','fr','es','it','nl'))
+          assert sitemap.count('/centers/') == 49
           assert '<lastmod>2026-09-12</lastmod>' in sitemap
           assert '<meta name="robots" content="noindex, follow">' in (root/'de/uk-europe/dogs/lymphoma/index.html').read_text(encoding='utf-8')
           assert '<meta name="robots" content="noindex, follow">' in (root/'uk-europe/dogs/oral-melanoma/index.html').read_text(encoding='utf-8')
