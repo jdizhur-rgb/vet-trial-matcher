@@ -1,0 +1,81 @@
+name: Cancer page audit CI
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'seo/cancer_*.py'
+      - 'seo/canine_branch_content.py'
+      - 'seo/feline_*.py'
+      - 'seo/practical_cancer_pages.py'
+      - 'seo/hs_owner_page.py'
+      - 'seo/build_production_site.py'
+      - '.github/workflows/cancer-page-audit-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  audit-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate semantic depth source coverage
+        run: python seo/validate_cancer_depth.py
+      - name: Build candidate site without deployment
+        run: python seo/build_production_site.py
+      - name: Validate all generated cancer guides
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re, sys
+          sys.path.insert(0, 'seo')
+          import generate_seo as g
+
+          root = Path('seo/site')
+          generic_questions = (
+              'What exact subtype, grade and stage do we know?',
+              'Is anything important still missing before we choose treatment?',
+              'What is the goal of treatment: cure, long-term control, slowing spread, or symptom control?',
+              'What would make you change this plan?',
+          )
+          required = (
+              'What does the prognosis look like?',
+              'What matters next',
+              'Where are you now?',
+              'If you are waiting for oncology',
+              'Questions to ask your oncologist',
+              'How it is usually treated',
+              'What can affect treatment choices',
+              'Tests that may matter',
+          )
+
+          checked = 0
+          for region in ('north-america', 'uk-europe'):
+              for species in ('dogs', 'cats'):
+                  for key in sorted(g.DISEASE_INFO):
+                      p = root / region / species / g.slugify(key) / 'index.html'
+                      assert p.exists(), p
+                      s = p.read_text(encoding='utf-8', errors='replace')
+                      assert 'class="disease owner-guide"' in s, p
+                      for marker in required:
+                          assert marker in s, (p, marker)
+                      for q in generic_questions:
+                          assert q not in s, (p, 'legacy generic question', q)
+                      if species == 'dogs' and key == 'lymphoma':
+                          assert 'Cats are treated according to' not in s, p
+                      cards = re.findall(r'<article class="card"><h3>(.*?)</h3>', s, re.S)
+                      m = re.search(r'<p class="option-count">(\d+) options? currently in our catalog\.</p>', s)
+                      zero = 'No active listings in our catalog right now.' in s
+                      if cards:
+                          assert m and int(m.group(1)) == len(cards), (p, len(cards), m.group(1) if m else None)
+                          assert not zero, p
+                      else:
+                          assert not m and zero, p
+                      checked += 1
+          assert checked == 88, checked
+          print('CANCER_PAGE_AUDIT_BUILD_OK', checked, 'generated pages')
+          PY
