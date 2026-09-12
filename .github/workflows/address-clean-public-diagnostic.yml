@@ -1,0 +1,78 @@
+name: Clean address public diagnostic
+on:
+  push:
+    branches: [address-clean-candidate-20260912]
+    paths: ['.github/workflows/address-clean-public-diagnostic.yml']
+permissions:
+  contents: read
+jobs:
+  diagnostic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install Chromium
+        run: |
+          pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Wait for public matcher
+        run: |
+          python - <<'PY'
+          from playwright.sync_api import sync_playwright
+          with sync_playwright() as p:
+              b=p.chromium.launch(headless=True); page=b.new_page(viewport={'width':1440,'height':1200})
+              ok=False
+              for attempt in range(12):
+                  page.goto('https://c-trials.streamlit.app/',wait_until='domcontentloaded',timeout=90000)
+                  page.wait_for_timeout(8000)
+                  body=page.locator('body').inner_text()
+                  print('ATTEMPT',attempt+1,'LEN',len(body),'COUNTRY',('Country / region' in body),'CANCER',('Cancer type' in body))
+                  if 'Country / region' in body and 'Cancer type' in body:
+                      ok=True; break
+                  page.wait_for_timeout(7000)
+              b.close()
+              assert ok, 'public app never rendered matcher form'
+          PY
+      - name: Verify matcher results
+        run: |
+          python - <<'PY'
+          from playwright.sync_api import sync_playwright
+          def choose(page,label,value):
+              boxes=page.locator('[data-testid="stSelectbox"]')
+              for i in range(boxes.count()):
+                  box=boxes.nth(i)
+                  if label in box.inner_text():
+                      box.get_by_role('combobox').click(); page.keyboard.type(value); page.keyboard.press('Enter'); page.wait_for_timeout(900); return
+              raise AssertionError(label)
+          with sync_playwright() as p:
+              b=p.chromium.launch(headless=True); page=b.new_page(viewport={'width':1440,'height':1200})
+              page.goto('https://c-trials.streamlit.app/',wait_until='domcontentloaded',timeout=90000); page.wait_for_timeout(8000)
+              choose(page,'Country / region','USA'); choose(page,'Cancer type','Cancer — any type')
+              page.get_by_role('button',name='Find potential trials').click(); page.wait_for_timeout(7000)
+              body=page.locator('body').inner_text(); print('RESULTS_LEN',len(body)); assert 'Results' in body
+              b.close()
+          PY
+      - name: Verify single active-site street address field
+        run: |
+          python - <<'PY'
+          from playwright.sync_api import sync_playwright
+          def choose(page,label,value):
+              boxes=page.locator('[data-testid="stSelectbox"]')
+              for i in range(boxes.count()):
+                  box=boxes.nth(i)
+                  if label in box.inner_text():
+                      box.get_by_role('combobox').click(); page.keyboard.type(value); page.keyboard.press('Enter'); page.wait_for_timeout(900); return
+              raise AssertionError(label)
+          with sync_playwright() as p:
+              b=p.chromium.launch(headless=True); page=b.new_page(viewport={'width':1440,'height':1200})
+              page.goto('https://c-trials.streamlit.app/',wait_until='domcontentloaded',timeout=90000); page.wait_for_timeout(8000)
+              choose(page,'Country / region','USA'); choose(page,'Cancer type','Cancer — any type')
+              page.get_by_role('button',name='Find potential trials').click(); page.wait_for_timeout(7000)
+              body=page.locator('body').inner_text()
+              assert 'Location / Address:' in body
+              assert 'Participating sites:' not in body
+              assert '1 Garrod Dr' in body
+              b.close()
+          PY
