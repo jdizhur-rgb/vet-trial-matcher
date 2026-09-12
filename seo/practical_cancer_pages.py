@@ -12,6 +12,7 @@ from cancer_benchmark_content import CANINE_PRACTICAL as BENCHMARK,CANINE_BRANCH
 from cancer_owner_depth import DOG_DEPTH,CAT_DEPTH
 from cancer_treatment_factors import DOG_FACTORS,CAT_FACTORS
 from owner_friendly_prognosis import DOG as DOG_PROGNOSIS,CAT as CAT_PROGNOSIS
+from owner_friendly_descriptions import DOG as DOG_DESCRIPTIONS,CAT as CAT_DESCRIPTIONS
 
 CSS=r'''.owner-guide,.owner-guide p,.owner-guide li{color:#263238!important}.owner-guide h2{margin-top:25px;color:#477ca8!important;font-size:1.2rem}.guide-reality,.guide-waiting{margin:19px 0;padding:16px 18px;border:1px solid #dbe7f0;border-radius:14px;background:#f8fbfd}.guide-reality h2,.guide-waiting h2{margin-top:0}.guide-accordions{display:grid;gap:9px;margin:12px 0 20px}.guide-accordions details{border:1px solid #dbe7f0;border-radius:12px;background:#fff;overflow:hidden}.guide-accordions summary{cursor:pointer;padding:13px 15px;color:#4d7da3!important;font-weight:650}.guide-detail{padding:2px 15px 13px}.guide-questions li{margin:.45rem 0}@media(max-width:600px){.owner-guide h2{font-size:1.08rem}.guide-reality,.guide-waiting{padding:13px 14px}}'''.strip()
 BRANCHES=dict(ADDITIONAL_BRANCHES);BRANCHES.update(BENCHMARK_BRANCHES)
@@ -22,8 +23,6 @@ def _practical(key,pet,source):
  p=dict(source.get(key,{}));p.update((FELINE_PRACTICAL_OVERRIDES if pet=='cat' else CANINE_PRACTICAL_OVERRIDES).get(key,{}))
  if pet=='dog':p.update(BENCHMARK.get(key,{}))
  p.update((CAT_DEPTH if pet=='cat' else DOG_DEPTH).get(key,{}))
- # HS is already the owner-facing benchmark; rewrite the other prognosis blocks
- # so evidence supports the copy instead of becoming the copy.
  if not (pet=='dog' and key=='histiocytic sarcoma'):
   prognosis=(CAT_PROGNOSIS if pet=='cat' else DOG_PROGNOSIS).get(key)
   if prognosis:p['prognosis']=prognosis
@@ -33,7 +32,12 @@ def _details(title,text):
  return f'<details><summary>{_e(title)}</summary><div class="guide-detail"><p>{_e(text)}</p></div></details>' if text else ''
 
 def section(label,key,pet,source):
- about,treatment,legacy_factors=_owner(key,pet);p=_practical(key,pet,source)
+ about,treatment,legacy_factors=_owner(key,pet)
+ # Canine HS remains the established benchmark copy. Other pages use the shorter,
+ # owner-first descriptions rather than research-style explanatory text.
+ if not (pet=='dog' and key=='histiocytic sarcoma'):
+  about=(CAT_DESCRIPTIONS if pet=='cat' else DOG_DESCRIPTIONS).get(key,about)
+ p=_practical(key,pet,source)
  factors=(CAT_FACTORS if pet=='cat' else DOG_FACTORS).get(key,legacy_factors).strip()
  branches=BRANCHES.get(key,[])
  branch=''
