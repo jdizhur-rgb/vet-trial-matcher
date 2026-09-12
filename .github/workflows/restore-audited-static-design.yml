@@ -39,7 +39,7 @@ jobs:
           p=Path('seo/site_shell.py')
           s=p.read_text(encoding='utf-8')
           desktop_old='.hero-photo img{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:center 48%;border:0;border-radius:0;box-shadow:none}'
-          desktop_new='.hero-photo img{width:110%;max-width:none;height:100%;aspect-ratio:auto;object-fit:cover;object-position:left 48%;border:0;border-radius:0;box-shadow:none}'
+          desktop_new='.hero-photo img{width:125%;max-width:none;height:100%;aspect-ratio:auto;object-fit:cover;object-position:left 48%;border:0;border-radius:0;box-shadow:none}'
           if desktop_old not in s:
               raise SystemExit('expected desktop hero image rule not found')
           s=s.replace(desktop_old,desktop_new,1)
@@ -65,7 +65,7 @@ jobs:
           assert '<section class="home-hero">' in home
           assert '/assets/kot-home.jpg' in home
           assert 'min-height:390px' in home
-          assert 'width:110%;max-width:none;height:100%' in home
+          assert 'width:125%;max-width:none;height:100%' in home
           assert 'object-position:left 48%' in home
           assert '.site-header{left:auto;width:auto;margin-left:-26px;margin-right:-26px' in home
           assert 'min-height:360px' in home
@@ -82,7 +82,7 @@ jobs:
             for species in ('dogs','cats'):
               cancer += list((root/region/species).glob('*/index.html'))
           assert len(cancer)>=88, len(cancer)
-          print('DESKTOP_KOT_RIGHT_PRODUCTION_OK',len(pages),len(cancer),asset.stat().st_size)
+          print('DESKTOP_KOT_FURTHER_RIGHT_PRODUCTION_OK',len(pages),len(cancer),asset.stat().st_size)
           PY
       - name: Save exact candidate artifact
         uses: actions/upload-artifact@v4
