@@ -38,8 +38,10 @@ def zip_coords(z):
     return None
 
 st.markdown("<div style='height:1.45rem'></div>", unsafe_allow_html=True)
-st.markdown("<div style='font-size:1.55rem;line-height:1.08;font-weight:700;margin:.1rem 0 0;color:#356fa8'>💊 More Treatment Options</div>", unsafe_allow_html=True)
-st.write("Explore treatment access beyond standard clinical trials.")
+_legacy_title=st.session_state.get("_legacy_title","💊 More Treatment Options")
+_legacy_intro=st.session_state.get("_legacy_intro","Explore treatment access beyond standard clinical trials.")
+st.markdown(f"<div style='font-size:1.55rem;line-height:1.08;font-weight:700;margin:.1rem 0 0;color:#356fa8'>{_legacy_title}</div>", unsafe_allow_html=True)
+st.write(_legacy_intro)
 
 # Calm, card-like route buttons rather than questionnaire-style radio controls.
 st.markdown("""<style>
@@ -95,7 +97,7 @@ else:
  with st.expander("How options qualify"):
      st.write("This section can include regulated, experimental, off-label, precision, or personalized anticancer treatments with a real current access pathway.")
  species=st.selectbox("1. Species",["Dog","Cat"])
- country=st.selectbox("2. Country / region",["USA","Canada","Europe"])
+ country=st.selectbox("2. Country / region",["USA","Canada","Europe"],key="_legacy_country")
  country_options=[x for x in OPTIONS if x["species"]==species and country in x.get("countries",[])]
  available_cancers=sorted({c for x in country_options for c in x["cancers"]})
  cancer=st.selectbox("3. Cancer type",["Select cancer type"]+available_cancers)
