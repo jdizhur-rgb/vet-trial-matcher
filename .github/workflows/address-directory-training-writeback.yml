@@ -19,7 +19,7 @@ jobs:
         run: |
           PYTHONPATH=. python tools/patch_trial_address_renderer.py
           PYTHONPATH=. python tools/build_trial_site_directory.py
-          python -m py_compile pages/1_Clinical_Trial_Finder.py seo/trial_site_directory.py tools/build_trial_site_directory.py
+          python -m py_compile pages/1_Clinical_Trial_Finder.py seo/trial_site_directory.py seo/center_directory_verified_20260912.py tools/build_trial_site_directory.py
           PYTHONPATH=. python - <<'PY'
           from seo.trial_site_directory import active_trial_addresses
           from tools.build_trial_site_directory import load_trials
@@ -34,6 +34,6 @@ jobs:
           git add pages/1_Clinical_Trial_Finder.py data/trial_site_directory.json
           git diff --cached --check
           if ! git diff --cached --quiet; then
-            git commit -m 'Training: render active trial addresses from central site directory'
+            git commit -m 'Training: refresh central trial-site address directory'
             git push origin HEAD:addresses-schema-test-20260911
           fi
