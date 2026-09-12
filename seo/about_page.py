@@ -27,8 +27,10 @@ def _validate_about_v2(root: Path) -> None:
     html = page_path.read_text(encoding="utf-8")
     required = (
         'class="about-story-v2"',
-        'class="story-scene senya-scene story-intro"',
-        'class="story-scene yasha story-break"',
+        'class="story-intro"',
+        'class="story-scene senya-scene"',
+        'class="story-break"',
+        'class="story-scene yasha"',
         'class="founder-signoff"',
         'Founder, Vet Trial Finder',
         'color:#315f7d!important',
@@ -44,7 +46,7 @@ def _validate_about_v2(root: Path) -> None:
         raise AssertionError(f"About v2 validation failed; missing: {missing}")
     for name in ("senya-about.jpg", "yasha-about.jpg"):
         asset = root / "assets" / name
-        if not asset.exists() or asset.stat().st_size < 12000:
+        if not asset.exists() or asset.stat().st_size < 50000:
             raise AssertionError(f"About image missing or too small: {asset}")
 
 
@@ -80,11 +82,13 @@ def generate_about_page(root: Path) -> None:
 <h1>Why This Project Exists</h1>
 <p class="about-lead">This project started because two dogs taught me how much can depend on finding the right information at the right time.</p>
 
-<section class="story-scene senya-scene story-intro">
+<section class="story-intro">
+<div class="story-scene senya-scene">
 <figure class="story-photo senya"><img src="/assets/senya-about.jpg" alt="Senya, a Miniature Schnauzer"><figcaption>Senya</figcaption></figure>
 <div class="story-copy">
 <p>I lost my soulmate dog, Senya, a Miniature Schnauzer, to cancer. It started with a small lump. We went to the vet, who felt it and said it was a lipoma and there was nothing to worry about. So I didn’t worry, for a while.</p>
 <p>The lump grew quickly. We went to another vet. They did a fine needle aspiration and said the result was inconclusive, but if we wanted, they could remove it. We scheduled surgery. After the surgery, the surgeon came out and said that “it was something else.” Pathology showed a soft tissue sarcoma.</p>
+</div>
 </div>
 </section>
 
@@ -94,11 +98,13 @@ def generate_about_page(root: Path) -> None:
 
 <div class="story-divider"></div>
 
-<section class="story-scene yasha story-break">
+<section class="story-break">
+<div class="story-scene yasha">
 <figure class="story-photo yasha"><img src="/assets/yasha-about.jpg" alt="Yasha"><figcaption>Yasha</figcaption></figure>
 <div class="story-copy">
 <p>A year later, during an exam, a small lump was found under the leg of our other dog, Yasha. I immediately asked for an aspiration. The test showed sarcoma. We were lucky to get in with an oncologist quickly because we were already patients at the hospital. A board-certified surgeon performed the surgery beautifully. Pathology showed histiocytic sarcoma, a very aggressive form of cancer.</p>
 <p>Yasha is undergoing treatment now. I don’t know what is ahead of us, but this time I want to be prepared. I searched through the internet looking for information. I learned about the standard treatment protocols and prognosis and read several papers about experimental treatments, looking for something that might give him better chances.</p>
+</div>
 </div>
 </section>
 
