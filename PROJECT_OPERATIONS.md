@@ -143,6 +143,7 @@ Production indexing policy added 2026-09-12:
 - All `/uk-europe/` cancer pages are excluded from the production search index and sitemap; North America is the active cancer-page SEO scope. Center pages remain indexable regardless of region because the directory is small and contains useful institution-specific programs, contacts and treatment information. Existing European cancer URLs remain available temporarily so shared links do not become abrupt 404s.
 - Diagnosis/species/region pages with zero current treatment opportunities remain available to owners but are `noindex, follow` and excluded from the sitemap.
 - Search-indexing changes are applied after the static production build by `seo_index_cleanup.py`; they must not modify or couple to the Streamlit matcher runtime.
+- The indexed `/how-we-verify/` page explains sources, inclusion rules, status checks, conservative eligibility matching, funding language, duplicate handling and the limits of the site. It is linked from the footer on every static page.
 
 ## 11. Deployment lessons
 
