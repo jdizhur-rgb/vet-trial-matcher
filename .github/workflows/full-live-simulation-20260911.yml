@@ -33,19 +33,22 @@ jobs:
           print('PY_BAD_COUNT',len(bad))
           for item in bad: print('PY_BAD',item)
           PY
-      - name: Validate every JSON file
+      - name: Validate application JSON files
         run: |
           python - <<'PY'
           import json, pathlib
           bad=[]; n=0
-          for p in pathlib.Path('.').rglob('*.json'):
-              if '.git' in p.parts: continue
-              n+=1
-              try: json.loads(p.read_text(encoding='utf-8'))
-              except Exception as e: bad.append((str(p),repr(e)))
-          print('JSON_FILES',n)
-          print('JSON_BAD_COUNT',len(bad))
-          for item in bad: print('JSON_BAD',item)
+          for root in ('data','research','rollback','rollback_snapshots'):
+              p0=pathlib.Path(root)
+              if not p0.exists(): continue
+              for p in p0.rglob('*.json'):
+                  n+=1
+                  try: json.loads(p.read_text(encoding='utf-8'))
+                  except Exception as e: bad.append((str(p),repr(e)))
+          print('APP_JSON_FILES',n)
+          print('APP_JSON_BAD_COUNT',len(bad))
+          for item in bad: print('APP_JSON_BAD',item)
+          if bad: raise SystemExit(1)
           PY
       - name: Static execution-risk scan
         run: |
@@ -61,7 +64,7 @@ jobs:
                   if c: hits.append(f'{pat}={c}')
               if hits: print(str(p), ' | '.join(hits))
           PY
-      - name: Start full app and browser-simulate matcher
+      - name: Start full app and browser-simulate matcher desktop and mobile
         run: |
           set +e
           streamlit run app.py --server.headless true --server.port 8765 > /tmp/app.log 2>&1 &
@@ -69,57 +72,78 @@ jobs:
           sleep 5
           python - <<'PY'
           from playwright.sync_api import sync_playwright
-          with sync_playwright() as p:
-              b=p.chromium.launch(headless=True)
-              page=b.new_page(viewport={"width":1440,"height":1200})
+          def exercise(page,label):
               errors=[]; console=[]
               page.on('pageerror', lambda e: errors.append(str(e)))
               page.on('console', lambda m: console.append((m.type,m.text)) if m.type in ('error','warning') else None)
               page.goto('http://127.0.0.1:8765', wait_until='domcontentloaded', timeout=60000)
-              page.wait_for_timeout(8000)
-              print('HOME_TITLE',page.title())
+              page.wait_for_timeout(6000)
               body=page.locator('body').inner_text()
-              print('HOME_BODYLEN',len(body))
-              print('HOME_HEAD',body[:1200].replace('\n',' | '))
+              print(label,'HOME_BODYLEN',len(body),'TITLE',page.title())
               btn=page.get_by_role('button',name='Find potential trials')
-              print('MATCH_BUTTONS',btn.count())
+              print(label,'MATCH_BUTTONS',btn.count())
               if btn.count():
-                  btn.first.click()
-                  page.wait_for_timeout(5000)
+                  btn.first.click(); page.wait_for_timeout(4000)
                   body=page.locator('body').inner_text()
-                  print('AFTER_MATCH_BODYLEN',len(body))
-                  print('AFTER_MATCH_HEAD',body[:2000].replace('\n',' | '))
-              print('PAGEERRORS',errors)
-              print('CONSOLE_WARN_ERR',console[:30])
+                  print(label,'AFTER_MATCH_BODYLEN',len(body),'HAS_RESULTS', 'Results' in body)
+              print(label,'PAGEERRORS',errors)
+              print(label,'CONSOLE_WARN_ERR',console[:20])
+          with sync_playwright() as p:
+              b=p.chromium.launch(headless=True)
+              exercise(b.new_page(viewport={"width":1440,"height":1200}),'DESKTOP')
+              exercise(b.new_page(viewport={"width":390,"height":844},is_mobile=True,has_touch=True),'MOBILE')
               b.close()
           PY
           echo '=== APP LOG ==='
           cat /tmp/app.log
           kill $PID 2>/dev/null || true
-      - name: Run secondary pages standalone
+      - name: Exercise all More Treatment Options routes
         run: |
-          for f in pages/2_Additional_Oncology_Options.py pages/3_ECT_Center_Finder.py; do
-            echo "=== $f ==="
-            streamlit run "$f" --server.headless true --server.port 8766 > /tmp/page.log 2>&1 &
-            PID=$!
-            sleep 4
-            python - <<'PY'
+          set +e
+          streamlit run pages/2_Additional_Oncology_Options.py --server.headless true --server.port 8766 > /tmp/page2.log 2>&1 &
+          PID=$!
+          sleep 4
+          python - <<'PY'
           from playwright.sync_api import sync_playwright
           with sync_playwright() as p:
               b=p.chromium.launch(headless=True)
-              page=b.new_page()
+              page=b.new_page(viewport={"width":390,"height":844},is_mobile=True,has_touch=True)
               errs=[]; console=[]
               page.on('pageerror',lambda e: errs.append(str(e)))
               page.on('console',lambda m: console.append((m.type,m.text)) if m.type in ('error','warning') else None)
               page.goto('http://127.0.0.1:8766',wait_until='domcontentloaded',timeout=60000)
-              page.wait_for_timeout(5000)
-              body=page.locator('body').inner_text()
-              print('TITLE',page.title(),'BODYLEN',len(body),'ERRORS',errs)
-              print('BODY',body[:1200].replace('\n',' | '))
-              print('CONSOLE',console[:20])
+              page.wait_for_timeout(4000)
+              print('ECT_INITIAL', 'Find ECT Centers near you' in page.locator('body').inner_text())
+              page.get_by_role('button',name='🧬 Advanced / Novel Treatments').click(); page.wait_for_timeout(2500)
+              body=page.locator('body').inner_text(); print('ADVANCED_OK', 'How options qualify' in body and '1. Species' in body, 'BODYLEN',len(body))
+              page.get_by_role('button',name='🧪 Compassionate / Expanded Access').click(); page.wait_for_timeout(2500)
+              body=page.locator('body').inner_text(); print('COMPASSIONATE_OK','UT Southwestern VROC' in body,'BODYLEN',len(body))
+              page.get_by_role('button',name='⚡ Electrochemotherapy (ECT)').click(); page.wait_for_timeout(2500)
+              body=page.locator('body').inner_text(); print('ECT_RETURN_OK','Find nearest ECT centers' in body,'BODYLEN',len(body))
+              zipbox=page.get_by_label('ZIP / postal code')
+              if zipbox.count():
+                  zipbox.fill('01095'); page.get_by_role('button',name='Find nearest ECT centers').click(); page.wait_for_timeout(7000)
+                  body=page.locator('body').inner_text(); print('ECT_ZIP_RESULT',('Nearest listed ECT centers' in body),('ZIP / postal code not found' in body), 'BODYLEN',len(body))
+              print('PAGEERRORS',errs); print('CONSOLE',console[:20])
               b.close()
           PY
-            cat /tmp/page.log
-            kill $PID 2>/dev/null || true
-            sleep 2
-          done
+          cat /tmp/page2.log
+          kill $PID 2>/dev/null || true
+      - name: Exercise standalone ECT page
+        run: |
+          set +e
+          streamlit run pages/3_ECT_Center_Finder.py --server.headless true --server.port 8767 > /tmp/page3.log 2>&1 &
+          PID=$!
+          sleep 4
+          python - <<'PY'
+          from playwright.sync_api import sync_playwright
+          with sync_playwright() as p:
+              b=p.chromium.launch(headless=True)
+              page=b.new_page()
+              errs=[]; page.on('pageerror',lambda e: errs.append(str(e)))
+              page.goto('http://127.0.0.1:8767',wait_until='domcontentloaded',timeout=60000); page.wait_for_timeout(4000)
+              body=page.locator('body').inner_text(); print('ECT_PAGE_OK','ECT Center Finder' in body,'BODYLEN',len(body),'ERRORS',errs)
+              b.close()
+          PY
+          cat /tmp/page3.log
+          kill $PID 2>/dev/null || true
