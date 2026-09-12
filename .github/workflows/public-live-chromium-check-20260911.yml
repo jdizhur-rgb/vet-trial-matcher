@@ -16,31 +16,36 @@ jobs:
         run: |
           pip install playwright
           python -m playwright install --with-deps chromium
-      - name: Wait for Streamlit deploy
-        run: sleep 75
-      - name: Verify restored live candidate
+      - name: Verify ordinary public URL
         run: |
           python - <<'PY'
           from playwright.sync_api import sync_playwright
-          URL='https://c-trials.streamlit.app/~/+/'
+          URL='https://c-trials.streamlit.app/'
           with sync_playwright() as p:
               b=p.chromium.launch(headless=True)
               for label,viewport,mobile in [('DESKTOP',{'width':1440,'height':1200},False),('MOBILE',{'width':390,'height':844},True)]:
                   ctx=b.new_context(viewport=viewport,is_mobile=mobile,has_touch=mobile)
-                  page=ctx.new_page(); errs=[]
+                  page=ctx.new_page(); errs=[]; nav=[]
                   page.on('pageerror',lambda e: errs.append(str(e)))
+                  page.on('framenavigated',lambda f: nav.append(f.url) if f==page.main_frame else None)
                   r=page.goto(URL,wait_until='domcontentloaded',timeout=60000)
                   page.wait_for_timeout(7000)
                   body=page.locator('body').inner_text()
                   print(label,'STATUS',r.status if r else None,'BODYLEN',len(body),'HEAD',repr(body[:900]))
+                  print(label,'NAV',nav,'ERRORS',errs)
                   assert 'Cancer Clinical Trial Finder for Dogs & Cats' in body, body[:1200]
-                  assert 'Country / region' in body
+                  assert '142 active treatment opportunities' in body
                   btn=page.get_by_role('button',name='Find potential trials')
                   assert btn.count()==1
                   btn.click(); page.wait_for_timeout(5000)
                   body2=page.locator('body').inner_text()
-                  print(label,'RESULTS',('Results' in body2),'BODYLEN',len(body2),'ERRORS',errs)
                   assert 'Results' in body2
+                  page.wait_for_timeout(18000)
+                  body3=page.locator('body').inner_text()
+                  print(label,'STABLE_BODYLEN',len(body3),'RESULTS',('Results' in body3),'NAV',nav,'ERRORS',errs)
+                  assert 'Cancer Clinical Trial Finder for Dogs & Cats' in body3
+                  assert 'Results' in body3
+                  assert len(nav) <= 2, nav
                   assert not errs, errs
                   ctx.close()
               b.close()
