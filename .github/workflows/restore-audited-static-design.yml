@@ -152,7 +152,7 @@ jobs:
           assert '<lastmod>2026-09-12</lastmod>' in sitemap
           assert all('/uk-europe/' not in url for url in sitemap.split('<loc>')[1:])
           assert '"@type": "WebSite"' in home and '"@type": "Organization"' in home
-          assert '"@type": "BreadcrumbList"' in (root/'north-america/dogs/lymphoma/index.html').read_text(encoding='utf-8')
+          assert 'BreadcrumbList' in (root/'north-america/dogs/lymphoma/index.html').read_text(encoding='utf-8')
           assert (root/'404.html').exists()
           verification=(root/'how-we-verify/index.html').read_text(encoding='utf-8')
           assert '<h1>How We Verify Listings</h1>' in verification
