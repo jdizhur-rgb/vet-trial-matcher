@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the About page for Vet Trial Finder."""
+"""Generate and validate the About page for Vet Trial Finder."""
 import shutil
 from pathlib import Path
 import generate_seo as g
@@ -9,8 +9,8 @@ from site_config import SITE
 def _write_embedded_about_assets(root: Path) -> None:
     """Copy the canonical About photos into the built site.
 
-    The name is kept for workflow compatibility, but About no longer uses
-    embedded/fallback images or downloads replacement photos during build.
+    The function name is kept for workflow compatibility. The page now uses
+    only the canonical repository assets and never downloads fallback images.
     """
     src = Path(__file__).resolve().parent / "assets"
     dest = root / "assets"
@@ -20,6 +20,32 @@ def _write_embedded_about_assets(root: Path) -> None:
         if not source.exists():
             raise RuntimeError(f"missing canonical About image: {source}")
         shutil.copy2(source, dest / name)
+
+
+def _validate_about_v2(root: Path) -> None:
+    page_path = root / "about" / "index.html"
+    html = page_path.read_text(encoding="utf-8")
+    required = (
+        'class="about-story-v2"',
+        'class="story-scene senya-scene story-intro"',
+        'class="story-scene yasha story-break"',
+        'class="founder-signoff"',
+        'Founder, Vet Trial Finder',
+        'color:#315f7d!important',
+        'second surgery to remove the dirty margins',
+        'experimental treatments, looking for something that might give him better chances',
+        'We don’t promise anything and we don’t give false hope.',
+        '/assets/senya-about.jpg',
+        '/assets/yasha-about.jpg',
+        '/assets/yuliia-senya-about.jpg',
+    )
+    missing = [marker for marker in required if marker not in html]
+    if missing:
+        raise AssertionError(f"About v2 validation failed; missing: {missing}")
+    for name in ("senya-about.jpg", "yasha-about.jpg"):
+        asset = root / "assets" / name
+        if not asset.exists() or asset.stat().st_size < 12000:
+            raise AssertionError(f"About image missing or too small: {asset}")
 
 
 def generate_about_page(root: Path) -> None:
@@ -54,7 +80,7 @@ def generate_about_page(root: Path) -> None:
 <h1>Why This Project Exists</h1>
 <p class="about-lead">This project started because two dogs taught me how much can depend on finding the right information at the right time.</p>
 
-<section class="story-scene senya-scene">
+<section class="story-scene senya-scene story-intro">
 <figure class="story-photo senya"><img src="/assets/senya-about.jpg" alt="Senya, a Miniature Schnauzer"><figcaption>Senya</figcaption></figure>
 <div class="story-copy">
 <p>I lost my soulmate dog, Senya, a Miniature Schnauzer, to cancer. It started with a small lump. We went to the vet, who felt it and said it was a lipoma and there was nothing to worry about. So I didn’t worry, for a while.</p>
@@ -68,7 +94,7 @@ def generate_about_page(root: Path) -> None:
 
 <div class="story-divider"></div>
 
-<section class="story-scene yasha">
+<section class="story-scene yasha story-break">
 <figure class="story-photo yasha"><img src="/assets/yasha-about.jpg" alt="Yasha"><figcaption>Yasha</figcaption></figure>
 <div class="story-copy">
 <p>A year later, during an exam, a small lump was found under the leg of our other dog, Yasha. I immediately asked for an aspiration. The test showed sarcoma. We were lucky to get in with an oncologist quickly because we were already patients at the hospital. A board-certified surgeon performed the surgery beautifully. Pathology showed histiocytic sarcoma, a very aggressive form of cancer.</p>
@@ -96,3 +122,4 @@ def generate_about_page(root: Path) -> None:
         body,
         f'{SITE}/about/'
     ), encoding='utf-8')
+    _validate_about_v2(root)
