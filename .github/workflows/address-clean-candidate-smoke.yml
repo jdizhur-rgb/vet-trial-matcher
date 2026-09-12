@@ -1,0 +1,81 @@
+name: Clean address candidate smoke
+on:
+  push:
+    branches: [address-clean-candidate-20260912]
+permissions:
+  contents: read
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install app and browser
+        run: |
+          pip install -r requirements.txt playwright
+          python -m playwright install --with-deps chromium
+      - name: Static validation
+        run: |
+          python -m py_compile app.py pages/1_Clinical_Trial_Finder.py seo/trial_site_directory.py seo/center_directory_verified_20260912.py
+          python - <<'PY'
+          from seo.trial_site_directory import site_addresses
+          active = {'hospital':'UC Davis Veterinary Center for Clinical Trials'}
+          vals = site_addresses(active, trial_center='UC Davis Veterinary Center for Clinical Trials')
+          assert any('1 Garrod Dr' in x for x in vals), vals
+          print('ADDRESS_RESOLVER_OK', vals)
+          PY
+      - name: Start Streamlit
+        run: |
+          nohup streamlit run app.py --server.headless=true --server.port=8501 > /tmp/streamlit.log 2>&1 &
+          for i in {1..60}; do
+            if curl -fsS http://127.0.0.1:8501/_stcore/health >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/streamlit.log
+          exit 1
+      - name: Chromium desktop and mobile
+        run: |
+          python - <<'PY'
+          from playwright.sync_api import sync_playwright
+          URL='http://127.0.0.1:8501/'
+          def choose(page,label,value):
+              boxes=page.locator('[data-testid="stSelectbox"]')
+              for i in range(boxes.count()):
+                  box=boxes.nth(i)
+                  if label in box.inner_text():
+                      box.get_by_role('combobox').click()
+                      page.keyboard.type(value, delay=10)
+                      page.keyboard.press('Enter')
+                      page.wait_for_timeout(600)
+                      return
+              raise AssertionError(f'missing selectbox: {label}')
+          with sync_playwright() as p:
+              browser=p.chromium.launch(headless=True)
+              for name,w,h in [('desktop',1440,1200),('mobile',390,844)]:
+                  page=browser.new_page(viewport={'width':w,'height':h})
+                  errors=[]
+                  page.on('pageerror',lambda e: errors.append(str(e)))
+                  page.goto(URL,wait_until='domcontentloaded',timeout=90000)
+                  page.wait_for_timeout(5000)
+                  body0=page.locator('body').inner_text()
+                  assert 'Country / region' in body0, body0[:2000]
+                  assert 'Cancer type' in body0, body0[:2000]
+                  choose(page,'Country / region','USA')
+                  choose(page,'Cancer type','Cancer — any type')
+                  page.get_by_role('button',name='Find potential trials').click()
+                  page.wait_for_timeout(4000)
+                  body=page.locator('body').inner_text()
+                  assert 'Results' in body
+                  assert 'Location / Address:' in body
+                  assert 'Participating sites:' not in body
+                  assert '1 Garrod Dr' in body
+                  assert not errors, errors
+                  print(name,'LOCAL_UI_OK',len(body))
+                  page.close()
+              browser.close()
+          PY
+      - name: Dump Streamlit log on failure
+        if: failure()
+        run: cat /tmp/streamlit.log || true
