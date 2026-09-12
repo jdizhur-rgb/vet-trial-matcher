@@ -54,13 +54,16 @@ jobs:
           PY
       - name: Build candidate
         run: python seo/build_production_site.py
-      - name: Include static files without replacing About photos
+      - name: Include static files and restore About photos last
         run: |
-          cp seo/site/assets/senya-about.jpg /tmp/senya-about.jpg
-          cp seo/site/assets/yasha-about.jpg /tmp/yasha-about.jpg
           cp -a seo/static/. seo/site/
-          cp /tmp/senya-about.jpg seo/site/assets/senya-about.jpg
-          cp /tmp/yasha-about.jpg seo/site/assets/yasha-about.jpg
+          python - <<'PY'
+          import sys
+          from pathlib import Path
+          sys.path.insert(0, 'seo')
+          from about_page import _write_embedded_about_assets
+          _write_embedded_about_assets(Path('seo/site'))
+          PY
       - name: Validate refined Kot design with current catalog
         run: |
           python - <<'PY'
