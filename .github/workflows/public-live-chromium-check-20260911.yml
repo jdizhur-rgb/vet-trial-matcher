@@ -16,14 +16,14 @@ jobs:
         run: |
           pip install playwright
           python -m playwright install --with-deps chromium
-      - name: Trace public live app
+      - name: Trace anonymous public live app
         run: |
           python - <<'PY'
           from playwright.sync_api import sync_playwright
           with sync_playwright() as p:
               b=p.chromium.launch(headless=True)
-              page=b.new_page()
-              nav=[]
+              ctx=b.new_context(viewport={"width":390,"height":844},is_mobile=True,has_touch=True)
+              page=ctx.new_page(); nav=[]
               page.on('console', lambda m: print('CONSOLE:',m.type,m.text))
               page.on('pageerror', lambda e: print('PAGEERROR:',e))
               page.on('framenavigated', lambda f: nav.append(f.url) if f==page.main_frame else None)
@@ -34,10 +34,15 @@ jobs:
                   w.on('close',lambda: print('WS CLOSE',w.url))
                   w.on('socketerror',lambda e: print('WS ERROR',w.url,e))
               page.on('websocket',ws)
-              page.goto('https://c-trials.streamlit.app/',wait_until='domcontentloaded',timeout=60000)
-              for i in range(6):
-                  page.wait_for_timeout(5000)
-                  print('TICK',i+1,'BODYLEN',len(page.locator('body').inner_text()),'URL',page.url)
+              resp=page.goto('https://c-trials.streamlit.app/',wait_until='domcontentloaded',timeout=60000)
+              print('TOP_STATUS',resp.status if resp else None)
+              for i in range(8):
+                  page.wait_for_timeout(3000)
+                  text=page.locator('body').inner_text()
+                  print('TICK',i+1,'BODYLEN',len(text),'BODY',repr(text[:300]),'URL',page.url)
+                  print('FRAMES',[(f.name,f.url) for f in page.frames])
+                  print('COOKIES',[(c['name'],c['domain']) for c in ctx.cookies()])
               print('NAV',nav)
+              print('FINAL_HTML_HEAD',page.content()[:1500].replace('\n',' '))
               b.close()
           PY
