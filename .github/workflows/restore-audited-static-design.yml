@@ -38,6 +38,11 @@ jobs:
           from pathlib import Path
           p=Path('seo/site_shell.py')
           s=p.read_text(encoding='utf-8')
+          desktop_old='.hero-photo img{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:center 48%;border:0;border-radius:0;box-shadow:none}'
+          desktop_new='.hero-photo img{width:110%;max-width:none;height:100%;aspect-ratio:auto;object-fit:cover;object-position:left 48%;border:0;border-radius:0;box-shadow:none}'
+          if desktop_old not in s:
+              raise SystemExit('expected desktop hero image rule not found')
+          s=s.replace(desktop_old,desktop_new,1)
           old='@media(max-width:800px){.site-header{left:auto;width:auto}.home-hero{position:relative;display:block!important;min-height:clamp(440px,120vw,540px);padding:0!important;overflow:hidden;border-radius:10px;background:#17324d}.hero-photo{position:absolute;inset:0;max-width:none;width:100%;height:100%;margin:0}.hero-photo:after{content:"";display:block;position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,28,45,.90) 0%,rgba(10,28,45,.76) 48%,rgba(10,28,45,.28) 100%)}.hero-photo img{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:62% 48%;border:0;border-radius:0;box-shadow:none}.hero-copy{position:relative;z-index:1;max-width:none;padding:28px 22px 24px;color:#fff}.hero-copy h1{color:#fff;font-size:clamp(30px,8.5vw,38px);line-height:1.08;margin:0 0 13px}.hero-copy .eyebrow,.hero-copy .lead{color:#fff}.hero-copy .lead{font-size:16px;line-height:1.45;max-width:520px}.hero-copy .cta{background:#fff;color:#175b8c!important}.hero-copy .secondary-cta{border-color:rgba(255,255,255,.75);background:rgba(23,50,77,.3);color:#fff!important}}'
           new='@media(max-width:800px){.site-header{left:auto;width:auto}.home-hero{position:relative;display:block!important;min-height:360px;padding:0!important;overflow:hidden;border-radius:10px;background:#17324d}.hero-photo{position:absolute;inset:0;max-width:none;width:100%;height:100%;margin:0}.hero-photo:after{content:"";display:block;position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,28,45,.86) 0%,rgba(10,28,45,.70) 42%,rgba(10,28,45,.20) 72%,rgba(10,28,45,.06) 100%)}.hero-photo img{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:72% 52%;border:0;border-radius:0;box-shadow:none}.hero-copy{position:relative;z-index:1;max-width:68%;padding:24px 18px 20px;color:#fff}.hero-copy h1{color:#fff;font-size:clamp(25px,7vw,31px);line-height:1.08;margin:0 0 10px}.hero-copy .eyebrow,.hero-copy .lead{color:#fff}.hero-copy .eyebrow{font-size:13px;line-height:1.28}.hero-copy .lead{font-size:14px;line-height:1.38;max-width:360px}.hero-actions{gap:9px;margin:16px 0 0}.hero-copy .cta,.hero-copy .secondary-cta{padding:9px 12px;font-size:14px}.hero-copy .cta{background:#fff;color:#175b8c!important}.hero-copy .secondary-cta{border-color:rgba(255,255,255,.75);background:rgba(23,50,77,.22);color:#fff!important}}'
           if old not in s:
@@ -60,7 +65,8 @@ jobs:
           assert '<section class="home-hero">' in home
           assert '/assets/kot-home.jpg' in home
           assert 'min-height:390px' in home
-          assert 'object-position:center 48%' in home
+          assert 'width:110%;max-width:none;height:100%' in home
+          assert 'object-position:left 48%' in home
           assert '.site-header{left:auto;width:auto;margin-left:-26px;margin-right:-26px' in home
           assert 'min-height:360px' in home
           assert 'object-position:72% 52%' in home
@@ -76,7 +82,7 @@ jobs:
             for species in ('dogs','cats'):
               cancer += list((root/region/species).glob('*/index.html'))
           assert len(cancer)>=88, len(cancer)
-          print('REFINED_KOT_PRODUCTION_OK',len(pages),len(cancer),asset.stat().st_size)
+          print('DESKTOP_KOT_RIGHT_PRODUCTION_OK',len(pages),len(cancer),asset.stat().st_size)
           PY
       - name: Save exact candidate artifact
         uses: actions/upload-artifact@v4
