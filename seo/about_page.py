@@ -1,11 +1,27 @@
 #!/usr/bin/env python3
 """Generate the About page for Vet Trial Finder."""
+import base64
 from pathlib import Path
 import generate_seo as g
 from site_config import SITE
 
 
+def _write_embedded_about_assets(root: Path) -> None:
+    src = Path(__file__).resolve().parent / "assets_embedded"
+    dest = root / "assets"
+    dest.mkdir(parents=True, exist_ok=True)
+    mapping = {
+        "senya-about.b64": "senya-about.jpg",
+        "yasha-about.b64": "yasha-about.jpg",
+    }
+    for source_name, output_name in mapping.items():
+        source = src / source_name
+        if source.exists():
+            (dest / output_name).write_bytes(base64.b64decode(source.read_text(encoding="ascii")))
+
+
 def generate_about_page(root: Path) -> None:
+    _write_embedded_about_assets(root)
     body = '''
 <style>
 .about-story{max-width:920px;margin:0 auto;color:#24364a}
