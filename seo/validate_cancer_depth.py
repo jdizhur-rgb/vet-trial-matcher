@@ -93,6 +93,7 @@ def validate_built_site(root=Path('seo/site')):
     generic_questions = GENERIC_QUESTIONS - {
         'Could treatment we start now affect clinical-trial eligibility later?'
     }
+    literature_review_phrases = ('six-cat series', 'median survival was', 'range of 1 to', 'small published group')
     checked = 0
     for region in ('north-america', 'uk-europe'):
         for species in ('dogs', 'cats'):
@@ -110,6 +111,8 @@ def validate_built_site(root=Path('seo/site')):
                     assert ' '.join(expected.split()) in text, f'{page}: owner-friendly layer was overridden'
                 for question in generic_questions:
                     assert question not in text, f'{page}: legacy generic question survived'
+                for phrase in literature_review_phrases:
+                    assert phrase not in text.lower(), f'{page}: literature-review phrasing survived: {phrase}'
                 assert not re.search(r'<(?:p|li|summary)\b[^>]*>\s*</(?:p|li|summary)>', raw, re.I), f'{page}: empty block'
                 paragraphs = [' '.join(html.unescape(x).split()) for x in re.findall(r'<p\b[^>]*>(.*?)</p>', raw, re.I | re.S)]
                 for first, second in zip(paragraphs, paragraphs[1:]):

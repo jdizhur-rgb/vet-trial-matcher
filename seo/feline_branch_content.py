@@ -81,9 +81,9 @@ FELINE_BRANCHES = {
         ('Radiation is complete or the tumor has recurred', 'Track the duration of response and repeat imaging only when it will change the next decision. Re-irradiation or systemic treatment may be possible in selected cats depending on histology and prior dose.'),
     ],
     'leukemia': [
-        ('Acute leukemia is suspected or confirmed', 'Acute leukemia can progress quickly. Cytopenias, infection, bleeding, and weakness may need immediate supportive care while chemotherapy options and prognosis are discussed.'),
-        ('Chronic leukemia is suspected or confirmed', 'Some chronic leukemias behave more slowly, so treatment urgency depends on subtype, blood counts, progression, and clinical signs. Do not apply acute-leukemia survival expectations to a stable chronic case.'),
-        ('Treatment has already started', 'Keep serial CBC results, drug doses, and transfusion or supportive-care history. Response in blood and marrow, treatment tolerance, and infections guide the next step.'),
+        ('My cat is very unwell now', 'Weakness, pale gums, unusual bleeding, fever, trouble breathing or a sudden decline can mean the healthy blood cells are dangerously low. Ask whether your cat needs urgent care, a transfusion, antibiotics or other support before the full cancer plan is ready.'),
+        ('My cat is stable while the type is being confirmed', 'Ask whether the results so far suggest a fast-moving or slower form and what test is still needed. If treatment has not started, check whether blood or bone-marrow samples should be collected first so an important diagnostic or trial option is not lost.'),
+        ('Treatment has already started', 'Keep the blood-count results together with the names, doses and dates of every medicine. Ask which numbers and symptoms show that treatment is helping, and which changes would mean the plan needs to change.'),
     ],
     'multiple myeloma': [
         ('There is kidney injury, high calcium, or severe anemia', 'These complications can be more immediately important than tumor burden itself. Stabilization and supportive treatment should happen alongside the cancer plan.'),

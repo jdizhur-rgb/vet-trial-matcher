@@ -43,7 +43,7 @@ CAT = {
 'glioma':'MRI location and extent, neurologic condition, seizure and swelling control, confidence in the imaging diagnosis and access to surgery or radiation drive the plan.',
 'meningioma':'Location, surgical accessibility, neurologic condition, residual disease, recurrence and anesthesia risk determine whether surgery, radiation or both are appropriate.',
 'nasal tumor':'The biopsy diagnosis is crucial, especially lymphoma versus carcinoma. CT extent, involvement near the brain, airflow or bleeding problems and previous treatment also affect the plan.',
-'leukemia':'Acute versus chronic disease, cell lineage, FeLV status when relevant, severity of low blood counts, infection or bleeding risk and treatment response determine urgency and intensity.',
+'leukemia':'The biggest questions are how quickly the leukemia is moving, which blood cells are affected and whether your cat is already having anemia, bleeding or infection. FeLV status, overall health and response to the first treatment also shape what is safe and realistic.',
 'multiple myeloma':'Kidney injury, high calcium, anemia, abnormal proteins, bone lesions, marrow involvement and response to therapy guide both treatment and monitoring.',
 'chemodectoma':'Fluid around the heart or lungs, compression, arrhythmia, documented growth, metastasis and symptoms determine whether treatment is needed at all and which option is realistic.',
 'histiocytic sarcoma':'Localized versus disseminated disease, confidence in the pathology diagnosis, resectability, margins, metastasis and the limited feline evidence base shape every treatment decision.',
