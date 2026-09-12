@@ -15,7 +15,7 @@ class AppSmokeTests(unittest.TestCase):
         values = {widget.label: widget.value for widget in app.selectbox}
         self.assertIsNone(values["Cancer type"])
         self.assertEqual("I don't know", values["How certain is the diagnosis?"])
-        self.assertEqual("All countries", values["Country / region"])
+        self.assertEqual("USA", values["Country / region"])
         search = next(button for button in app.button if button.label == "Find potential trials")
         self.assertTrue(search.disabled)
 

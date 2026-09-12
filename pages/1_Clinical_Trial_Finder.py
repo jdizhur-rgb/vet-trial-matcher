@@ -265,7 +265,7 @@ EUROPE_COUNTRIES = {
     'Lithuania', 'Luxembourg', 'Iceland'
 }
 country_options = ['All countries', 'Europe — all countries'] + trial_countries
-country = st.selectbox('Country / region', country_options)
+country = st.selectbox('Country / region', country_options, index=country_options.index('USA'))
 if country == 'USA':
     zip_code = st.text_input(
         'ZIP code (optional)',
