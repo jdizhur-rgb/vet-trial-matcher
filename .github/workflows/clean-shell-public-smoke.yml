@@ -1,0 +1,54 @@
+name: Clean shell public smoke
+
+on:
+  push:
+    branches:
+      - clean-shell-refactor-20260912
+  workflow_dispatch:
+
+jobs:
+  public-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Chromium
+        run: |
+          pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Verify public app after redeploy
+        run: |
+          python - <<'PY'
+          import time
+          from playwright.sync_api import sync_playwright
+
+          url = 'https://c-trials.streamlit.app/'
+          last = ''
+          with sync_playwright() as p:
+              browser = p.chromium.launch()
+              page = browser.new_page(viewport={'width': 1440, 'height': 1200})
+              errors = []
+              page.on('pageerror', lambda exc: errors.append(str(exc)))
+              for attempt in range(12):
+                  try:
+                      page.goto(url, wait_until='domcontentloaded', timeout=60000)
+                      page.wait_for_timeout(6000)
+                      body = page.locator('body').inner_text(timeout=10000)
+                      last = body[:5000]
+                      if 'Country / region' in body and 'Cancer type' in body:
+                          print('PUBLIC APP READY on attempt', attempt + 1)
+                          print(body[:1200])
+                          browser.close()
+                          raise SystemExit(0)
+                  except Exception as exc:
+                      last = f'{type(exc).__name__}: {exc}'
+                  time.sleep(10)
+              print('LAST PUBLIC STATE:')
+              print(last)
+              print('PAGE ERRORS:', errors)
+              browser.close()
+              raise SystemExit(1)
+          PY
