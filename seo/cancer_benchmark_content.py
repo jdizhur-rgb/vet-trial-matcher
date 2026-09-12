@@ -9,17 +9,22 @@ CANINE_PRACTICAL = {
     'histiocytic sarcoma': {
         'prognosis': (
             'HS is serious, but the outlook varies a lot. In published groups of dogs, '
-            'median survival has been roughly 2–3 months for disseminated disease and '
-            'about 13–19 months in some dogs with localized HS treated aggressively. '
-            'Some dogs do much better or worse than these numbers. No statistic can '
-            'predict your dog. The practical point is that time matters.'
+            'median survival has been roughly 2–3 months for disseminated disease. '
+            'Longer survival, around 13–19 months, has been reported in some published '
+            'groups with particular localized forms treated aggressively, but those '
+            'results should not be read as the expected outcome for every dog with '
+            'localized HS. Some dogs do much better or worse than these numbers, and no '
+            'statistic can predict an individual dog. The practical point is that the '
+            'extent and location of disease matter greatly and time matters.'
         ),
         'next': (
-            'An important next step is usually staging — checking whether cancer is '
-            'present anywhere else in the body. This commonly includes chest imaging '
-            'and abdominal imaging; other tests depend on where the original tumor was '
-            'found. With HS, it makes sense to move the process along rather than simply '
-            'wait for the next routine appointment.'
+            'Once the diagnosis is confirmed, the next decisions depend on whether HS is '
+            'localized or disseminated, whether a localized tumor can be controlled '
+            'completely, and whether systemic treatment should be discussed because HS '
+            'can spread beyond the original site. If surgery has already been done, '
+            'review the measured margins together with staging. Before another major '
+            'treatment step, it is also worth checking whether a clinical trial requires '
+            'measurable disease or limits previous treatment.'
         ),
         'tests': (
             'There is no single cancer test that tells every dog with HS which treatment '
@@ -30,12 +35,13 @@ CANINE_PRACTICAL = {
         ),
         'waiting': (
             'Waiting does not mean there is nothing to do. Ask about a cancellation list '
-            'or another oncology center if the appointment is far away. Complete '
-            'recommended staging if your veterinary team can arrange it, and check '
-            'clinical trials before the next treatment decision. Some trials require a '
-            'tumor to still be measurable or exclude certain previous chemotherapy or '
-            'radiation. Checking early does not commit you to a trial; it shows what '
-            'options exist before one is accidentally closed.'
+            'or another oncology center if the appointment is far away. Gather the '
+            'pathology report and any completed staging, arrange missing staging that '
+            'your veterinary team recommends, and check clinical trials before the next '
+            'treatment decision. Some trials require a tumor to still be measurable or '
+            'exclude certain previous chemotherapy or radiation. Checking early does not '
+            'commit you to a trial; it shows what options exist before one is accidentally '
+            'closed.'
         ),
         'questions': [
             'Is this localized HS or is there evidence that it has spread?',
@@ -52,7 +58,7 @@ CANINE_BRANCHES = {
         ('The tumor is still there',
          'If surgery is possible, ask whether it can realistically be removed with clean margins. Surgery is often the best local treatment for a removable localized tumor. If clean margins are unlikely, ask what other local-control options are reasonable. It is also worth checking trials before surgery when there is time to do so safely because some studies require a measurable tumor, biopsy, or direct treatment of the tumor. This is not a reason to delay surgery your veterinary team considers necessary.'),
         ('The tumor was already removed',
-         'Get the pathology report and check the margin status. The next questions are whether staging shows disease elsewhere, whether the surgical site needs more local treatment, and whether systemic treatment is recommended because HS can spread microscopically.'),
+         'Get the pathology report and check the measured margin status. Clean removal can solve the local problem, but it does not by itself eliminate the risk that HS may spread elsewhere. The next questions are whether staging shows disease elsewhere and whether systemic treatment is recommended. Additional treatment to the surgical site is not automatic just because the diagnosis is HS; it depends on the margins, location and whether meaningful residual local disease is suspected.'),
         ('The cancer has spread or cannot be removed',
          'Surgery may no longer be the main decision. Ask about systemic treatment, local treatment for a tumor that is causing problems, and clinical trials that accept measurable or metastatic disease.'),
         ('My dog is already in treatment',
