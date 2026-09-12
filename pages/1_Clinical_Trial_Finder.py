@@ -1,7 +1,7 @@
 # EU cancer-by-cancer gap audit completed 2026-09-04: all UI cancer categories rechecked; no unverified lead promoted to matching.
 import streamlit as st
 import streamlit.components.v1 as components
-from seo.trial_site_directory import active_trial_addresses
+from seo.trial_site_directory import active_trial_addresses, trial_site_records
 
 CANCER_ALIASES = {
     # UI labels and protocol labels are not always identical. Keep these mappings
@@ -873,17 +873,23 @@ if search_clicked:
                         tr.get('contact', 'Contact the study team through the official study page')
                     )
                 )
-                if tr.get('sites'):
-                    site_text = '; '.join(
-                        str(x.get('name') or x.get('hospital') or x.get('label') or '').strip()
-                        for x in tr['sites']
-                        if str(x.get('name') or x.get('hospital') or x.get('label') or '').strip()
-                    )
-                    if site_text:
-                        st.write('**Participating sites:** ' + site_text)
-                _addresses = active_trial_addresses(tr)
-                if _addresses:
-                    st.write('**Address:** ' + '; '.join(_addresses))
+                _location_rows = []
+                for _rec in trial_site_records(tr):
+                    if _rec.get('status') != 'active':
+                        continue
+                    _site_name = str(_rec.get('site_name') or '').strip()
+                    _site_addresses = [str(x).strip() for x in _rec.get('addresses', []) if str(x).strip()]
+                    if _site_addresses:
+                        for _address in _site_addresses:
+                            _row = _address
+                            if _site_name and _site_name.lower() not in _address.lower():
+                                _row = f'{_site_name} — {_address}'
+                            if _row not in _location_rows:
+                                _location_rows.append(_row)
+                    elif _site_name and _site_name not in _location_rows:
+                        _location_rows.append(_site_name)
+                if _location_rows:
+                    st.write('**Location:** ' + '; '.join(_location_rows))
                 details_url = tr.get('registry_url') or tr.get('url', '')
                 if details_url:
                     st.link_button('View full study details →', details_url, use_container_width=True)
