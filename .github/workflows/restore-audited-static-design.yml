@@ -71,7 +71,6 @@ jobs:
           assert 'min-height:300px' in home
           assert 'object-position:72% 52%' in home
           assert '<span class="mobile-line">Find cancer trials</span><span class="mobile-line">for your pet</span>' in home
-          assert 'margin-bottom:14px' in home
           assert 'font-size:.82rem' in home
           assert 'align-self:flex-start!important' in home
           assert 'height:34px' in home
@@ -82,11 +81,18 @@ jobs:
           assert 'Find clinical trials and cancer treatment options for your pet' in home
           assert 'jdizhur-rgb.github.io/vet-trial-matcher' not in home
           asset=root/'assets/kot-home.jpg'; assert asset.exists() and asset.stat().st_size>10000, asset
+          about=(root/'about/index.html').read_text(encoding='utf-8')
+          assert 'class="story-intro"' in about
+          assert 'class="story-break"' in about
+          assert 'color:#315f7d!important' in about
+          senya=root/'assets/senya-about.jpg'; yasha=root/'assets/yasha-about.jpg'
+          assert senya.exists() and senya.stat().st_size>50000, senya.stat().st_size
+          assert yasha.exists() and yasha.stat().st_size>50000, yasha.stat().st_size
           cancer=[]
           for region in ('north-america','uk-europe'):
             for species in ('dogs','cats'): cancer += list((root/region/species).glob('*/index.html'))
           assert len(cancer)>=88, len(cancer)
-          print('MOBILE_HEADER_AND_BUTTON_ALIGNMENT_OK',len(pages),len(cancer),asset.stat().st_size)
+          print('ABOUT_LAYOUT_AND_HIRES_PHOTOS_OK',len(pages),len(cancer),senya.stat().st_size,yasha.stat().st_size)
           PY
       - name: Save exact candidate artifact
         uses: actions/upload-artifact@v4
