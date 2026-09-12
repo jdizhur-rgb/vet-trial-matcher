@@ -137,6 +137,12 @@ Support dogs/canine AND cats/feline. Avoid thin doorway pages and avoid implying
 
 **SEO must use exactly the same effective-catalog merge/delete semantics as production.** A bug found 2026-09-07 applied delete markers before upserts, causing deleted duplicate records (including old Auburn palbociclib) to be resurrected on generated SEO pages even though the production catalog had deleted them. Delete markers now have final precedence, and SEO generation must smoke-test that known deleted records do not reappear.
 
+Production indexing policy added 2026-09-12:
+- All canonical and sitemap URLs must use `https://vettrialfinder.com` only.
+- Partially translated `de`, `fr`, `es`, `it`, and `nl` pages remain available but are `noindex, follow` and excluded from the sitemap until each language is fully localized and reviewed.
+- Diagnosis/species/region pages with zero current treatment opportunities remain available to owners but are `noindex, follow` and excluded from the sitemap.
+- Search-indexing changes are applied after the static production build by `seo_index_cleanup.py`; they must not modify or couple to the Streamlit matcher runtime.
+
 ## 11. Deployment lessons
 
 - Production Streamlit branch is `main` unless fresh evidence proves otherwise.
