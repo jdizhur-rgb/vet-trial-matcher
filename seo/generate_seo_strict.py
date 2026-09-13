@@ -8,6 +8,18 @@ from center_profiles import PROFILES
 from center_profiles_extra import EXTRA_PROFILES
 from center_directory import LOCATIONS, address_for, addresses_for, address_is_complete, canonical_name_for, normalize
 PROFILES.update(EXTRA_PROFILES)
+PROFILES["Aurelius Biotherapeutics"] = {
+    "title": "About Aurelius Biotherapeutics",
+    "about": (
+        "Aurelius Biotherapeutics develops personalized immune-cell treatments for dogs with lymphoma "
+        "in partnership with Bellingham Veterinary. Its current program uses a dog's own T cells as part "
+        "of treatment for eligible canine patients."
+    ),
+    "image": "https://bhamvet.com/wp-content/uploads/2022/07/HalfCircle-Dog.png",
+    "image_alt": "Dog featured by Bellingham Veterinary, clinical partner of Aurelius Biotherapeutics",
+    "image_caption": "Photo: Bellingham Veterinary.",
+    "links": [("Aurelius Biotherapeutics", "https://aureliusbio.com/")],
+}
 CURRENT={'current','confirmed_current'}
 
 
@@ -238,10 +250,14 @@ def profile(center):
 def overview(center):
     p=profile(center);fig=''
     if p.get('image'):fig=f'<figure><img src="{g.esc(p["image"])}" alt="{g.esc(p.get("image_alt") or center)}" loading="lazy">'+(f'<figcaption>{g.esc(p.get("image_caption"))}</figcaption>' if p.get('image_caption') else '')+'</figure>'
-    links=' · '.join(f'<a href="{g.esc(u)}" rel="noopener">{g.esc(l)}</a>' for l,u in p.get('links',[]))
-    research=f'<p>{g.esc(p["research"])}</p>' if p.get('research') else ''
+    # Keep the mobile page useful: one short introduction and one primary source
+    # before the eligibility/location facts. Longer research biographies belong
+    # on the linked institution page, not above the trial options.
+    primary_link=next(iter(p.get('links',[])),None)
+    links=(f'<a href="{g.esc(primary_link[1])}" rel="noopener">{g.esc(primary_link[0])} →</a>'
+        if primary_link else '')
     heading=f'<h2>{g.esc(p["title"])}</h2>' if p.get('title') else ''
-    copy=f'<div class="center-overview-copy"><p>{g.esc(p["about"])}</p>{research}'+(f'<p>{links}</p>' if links else '')+'</div>'
+    copy=f'<div class="center-overview-copy"><p>{g.esc(p["about"])}</p>'+(f'<p>{links}</p>' if links else '')+'</div>'
     return f'<div class="center-overview{" has-image" if fig else ""}">{heading}{fig}{copy}</div>'
 
 
