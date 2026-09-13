@@ -78,6 +78,33 @@ for _center, _label, _url in (
 ):
     if _center in PROFILES:
         PROFILES[_center]["links"] = [(_label, _url)]
+
+# Page-specific introductions for centers whose source profiles previously
+# described only their participation in the catalog. These explain the actual
+# oncology work represented by the current listings instead of repeating a
+# generic directory formula.
+_CENTER_COPY = {
+    "AniCura AOI - Animal Oncology and Imaging Center": "AniCura AOI in Hünenberg, Switzerland, combines veterinary oncology with diagnostic imaging. Its current listing is an intralesional immunocytokine study for dogs with accessible superficial tumors, with treatment delivered directly into the tumor.",
+    "AniCura Atlântico Hospital Veterinário": "AniCura Atlântico in Portugal is evaluating image-guided thermal ablation for canine tumors that can be difficult to treat surgically. Its current studies use microwave treatment for hepatocellular carcinoma and local ablation for chemodectoma.",
+    "AniCura Ospedale Veterinario I Portoni Rossi": "AniCura I Portoni Rossi near Bologna is enrolling dogs with mucosal melanoma in a personalized cancer-vaccine study. The vaccine is prepared from the dog's own tumor, so the primary tumor must still be available for collection.",
+    "CHV AniCura Armonia": "CHV AniCura Armonia in France is participating in a study of high-intensity focused ultrasound for canine urothelial carcinoma. HIFU concentrates ultrasound energy in the tumor as a non-incisional local treatment.",
+    "North Downs Specialist Referrals": "North Downs Specialist Referrals in Surrey is recruiting dogs with high-grade mammary carcinoma for a treatment study. Its multidisciplinary referral hospital includes medical and radiation oncology, diagnostic imaging and cancer surgery.",
+    "Duma Animal Hospital": "Duma Animal Hospital is one of the participating sites in Taiwan's PT001 field trial for dogs with stage II–III oral malignant melanoma. The investigational therapeutic vaccine targets the immune-checkpoint proteins PD-L1 and CTLA-4.",
+    "European multicenter study — Floryne Buishand": "This European multicenter study, led by veterinary surgical oncologist Floryne Buishand, evaluates toceranib for dogs with metastatic or recurrent insulinoma. Participating hospitals handle screening and follow-up rather than sending every patient to one central site.",
+    "Ghent University Faculty of Veterinary Medicine": "Ghent University's Small Animal Clinic is studying fluorescence-lifetime imaging during cancer surgery in dogs and cats. The technique analyzes how tissue responds to light in real time, with the aim of helping surgeons distinguish tumor from normal tissue.",
+    "Hospital Veterinario Peña Jasso": "Hospital Veterinario Peña Jasso in Ensenada is participating in a UNAM–UABC–UAG translational nanomedicine project. The current study evaluates an experimental silver-nanoparticle treatment in dogs and cats with cancer.",
+    "University of Milan Veterinary Teaching Hospital (Lodi)": "The University of Milan Veterinary Teaching Hospital in Lodi is evaluating OncoFAP-MMAE for dogs with advanced solid tumors that express fibroblast activation protein. The targeted drug is designed to carry chemotherapy into the tumor's supporting tissue.",
+    "University Hospital for Companion Animals, University of Copenhagen / Lund University": "The University of Copenhagen's companion-animal hospital and Lund University are studying FLASH radiotherapy for dogs with superficial malignant tumors. FLASH delivers radiation at an ultra-high dose rate and is being investigated for tumor control with less injury to normal tissue.",
+    "University of Évora Veterinary Hospital": "The University of Évora Veterinary Hospital is studying photodynamic therapy for canine mammary tumors. The method combines a light-activated drug with targeted illumination to damage tumor cells locally.",
+    "VetAgro Sup CHUVAC": "VetAgro Sup's companion-animal university hospital near Lyon provides specialty oncology care and clinical research. Its current study delivers an investigational immunotherapy directly into oral malignant tumors in dogs.",
+    "Ontario Veterinary College / Hospital for Sick Children": "The Ontario Veterinary College and Toronto's Hospital for Sick Children are evaluating MRI-guided high-intensity focused ultrasound for dogs with limb osteosarcoma. The study uses real-time imaging to direct heat into the tumor without an incision.",
+    "Ontario Veterinary College — University of Guelph": "The Ontario Veterinary College is currently studying toceranib for canine oral melanoma and porphysome nanoparticle phototherapy for feline oral squamous cell carcinoma. Both projects connect specialty oncology care with translational cancer research at the University of Guelph.",
+    "UT Southwestern Veterinary Radiation Oncology Clinic (VROC)": "UT Southwestern's Veterinary Research and Oncology Clinic is evaluating temozolomide combined with propranolol for dogs with hemangiosarcoma. The Dallas clinic places veterinary patients inside an academic radiation-oncology and translational-research program.",
+    "Zhongnong Dongjun Laboratory": "Zhongnong Dongjun Laboratory has current investigational drug studies for dogs with mast cell tumor, osteosarcoma and oral squamous cell carcinoma. The individual study listing provides the diagnosis-specific requirements and treating location that owners need to confirm before enrollment.",
+}
+for _name, _copy in _CENTER_COPY.items():
+    if _name in PROFILES:
+        PROFILES[_name]["about"] = _copy
 CURRENT={'current','confirmed_current'}
 
 
@@ -308,14 +335,16 @@ def profile(center):
 def overview(center):
     p=profile(center);fig=''
     if p.get('image'):fig=f'<figure><img src="{g.esc(p["image"])}" alt="{g.esc(p.get("image_alt") or center)}" loading="lazy">'+(f'<figcaption>{g.esc(p.get("image_caption"))}</figcaption>' if p.get('image_caption') else '')+'</figure>'
-    # Keep the mobile page useful: one short introduction and one primary source
-    # before the eligibility/location facts. Longer research biographies belong
-    # on the linked institution page, not above the trial options.
+    # One substantive paragraph: the center's clinical role plus one concise
+    # research sentence where the verified profile provides it.
     primary_link=next(iter(p.get('links',[])),None)
     links=(f'<a href="{g.esc(primary_link[1])}" rel="noopener">{g.esc(primary_link[0])} →</a>'
         if primary_link else '')
     heading=f'<h2>{g.esc(p["title"])}</h2>' if p.get('title') else ''
-    copy=f'<div class="center-overview-copy"><p>{g.esc(p["about"])}</p>'+(f'<p>{links}</p>' if links else '')+'</div>'
+    research=str(p.get('research') or '').strip()
+    research_sentence=(re.split(r'(?<=[.!?])\s+',research,1)[0] if research else '')
+    intro=' '.join(x for x in (str(p.get('about') or '').strip(),research_sentence) if x)
+    copy=f'<div class="center-overview-copy"><p>{g.esc(intro)}</p>'+(f'<p class="center-source">{links}</p>' if links else '')+'</div>'
     return f'<div class="center-overview{" has-image" if fig else ""}">{heading}{fig}{copy}</div>'
 
 
