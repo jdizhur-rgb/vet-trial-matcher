@@ -1,7 +1,4 @@
-name: Restore tested Kot design
-# Contact email: About, Help and the shared footer
-# Cancer copy source: cancer-page-audit-depth@a3aad79
-# Center pages: current main generator, refined shell, legacy URL aliases\n# Center imagery: verified editorial and institution sources (complete pass)\n# Center layout: photo below About, compact facts, footer note\n# Center facts: owner-relevant fields only\n# Center directory: canonical duplicates merged\n# Johns Hopkins CIGAT: official scanner photo\n# Center headings: compact line height\n# Center type: readable mobile sizing
+name: Build and deploy static site
 
 on:
   workflow_dispatch:
@@ -9,6 +6,12 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/restore-audited-static-design.yml'
+      - 'scripts/build_static_site.py'
+      - 'seo/**'
+      - 'data/**'
+      - 'seo_index_cleanup.py'
+      - 'help_content_update.py'
+      - 'center_zip_search.py'
 
 permissions:
   contents: read
@@ -29,88 +32,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Restore production builder and refined Kot visual layer
-        run: |
-          cp seo/center_directory.py /tmp/main-center-directory.py
-          cp seo/generate_seo_strict.py /tmp/main-generate-seo-strict.py
-          cp seo/generate_seo.py /tmp/main-generate-seo.py
-          cp seo/ensure_center_images.py /tmp/main-ensure-center-images.py
-          cp seo/center_profiles.py /tmp/main-center-profiles.py
-          cp seo/center_profiles_extra.py /tmp/main-center-profiles-extra.py
-          git fetch origin cancer-page-audit --depth=1
-          git checkout FETCH_HEAD -- seo/
-          cp /tmp/main-center-directory.py seo/center_directory.py
-          cp /tmp/main-generate-seo-strict.py seo/generate_seo_strict.py
-          cp /tmp/main-generate-seo.py seo/generate_seo.py
-          cp /tmp/main-ensure-center-images.py seo/ensure_center_images.py
-          cp /tmp/main-center-profiles.py seo/center_profiles.py
-          cp /tmp/main-center-profiles-extra.py seo/center_profiles_extra.py
-          git fetch origin cancer-page-audit-depth --depth=1
-          git checkout FETCH_HEAD -- \
-            seo/cancer_benchmark_content.py \
-            seo/cancer_branch_depth.py \
-            seo/cancer_owner_depth.py \
-            seo/cancer_page_polish.py \
-            seo/cancer_treatment_factors.py \
-            seo/feline_branch_content.py \
-            seo/hs_owner_page.py \
-            seo/owner_friendly_descriptions.py \
-            seo/owner_friendly_factors.py \
-            seo/owner_friendly_next_steps.py \
-            seo/owner_friendly_prognosis.py \
-            seo/owner_friendly_treatment_tests.py \
-            seo/practical_cancer_pages.py \
-            seo/validate_cancer_depth.py
-          git fetch origin mobile-kot-hero-safe-20260912 --depth=1
-          git checkout 6c90fc9476f17a20545e29ba94cabb6697fe55d1 -- seo/site_shell.py seo/assets/kot-home.jpg
-          python - <<'PY'
-          from pathlib import Path
-          p=Path('seo/site_shell.py')
-          s=p.read_text(encoding='utf-8')
-          desktop_old='.hero-photo img{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:center 48%;border:0;border-radius:0;box-shadow:none}'
-          desktop_new='.hero-photo img{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:center 30%;transform:translateX(25%);border:0;border-radius:0;box-shadow:none}'
-          if desktop_old not in s: raise SystemExit('expected desktop hero image rule not found')
-          s=s.replace(desktop_old,desktop_new,1)
-          old='@media(max-width:800px){.site-header{left:auto;width:auto}.home-hero{position:relative;display:block!important;min-height:clamp(440px,120vw,540px);padding:0!important;overflow:hidden;border-radius:10px;background:#17324d}.hero-photo{position:absolute;inset:0;max-width:none;width:100%;height:100%;margin:0}.hero-photo:after{content:"";display:block;position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,28,45,.90) 0%,rgba(10,28,45,.76) 48%,rgba(10,28,45,.28) 100%)}.hero-photo img{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:62% 48%;border:0;border-radius:0;box-shadow:none}.hero-copy{position:relative;z-index:1;max-width:none;padding:28px 22px 24px;color:#fff}.hero-copy h1{color:#fff;font-size:clamp(30px,8.5vw,38px);line-height:1.08;margin:0 0 13px}.hero-copy .eyebrow,.hero-copy .lead{color:#fff}.hero-copy .lead{font-size:16px;line-height:1.45;max-width:520px}.hero-copy .cta{background:#fff;color:#175b8c!important}.hero-copy .secondary-cta{border-color:rgba(255,255,255,.75);background:rgba(23,50,77,.3);color:#fff!important}}'
-          new='.mobile-hero-copy,.mobile-hero-lead{display:none}@media(max-width:800px){.site-header{left:auto;width:auto;margin-bottom:14px}.site-nav{padding:8px 0;min-height:0}.brand-row{gap:8px}.brand{font-size:1.08rem}.brand-free{font-size:.6rem;padding:4px 6px}.site-nav nav{justify-content:flex-start;margin-top:6px;gap:6px 12px}.site-nav nav a{font-size:.82rem;line-height:1.2}.home-hero{position:relative;display:block!important;min-height:300px;padding:0!important;overflow:hidden;border-radius:10px;background:#17324d}.hero-photo{position:absolute;inset:0;max-width:none;width:100%;height:100%;margin:0}.hero-photo:after{content:"";display:block;position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,28,45,.82) 0%,rgba(10,28,45,.58) 40%,rgba(10,28,45,.12) 72%,rgba(10,28,45,.03) 100%)}.hero-photo img{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:72% 52%;border:0;border-radius:0;box-shadow:none}.hero-copy{display:none}.mobile-hero-copy{display:flex;position:absolute;z-index:1;left:16px;right:16px;bottom:14px;max-width:none;padding:0;color:#fff;flex-direction:column;align-items:flex-start}.mobile-hero-copy h1{color:rgba(255,255,255,.82)!important;transform:translateY(-8px);font-size:clamp(20px,5.5vw,24px);line-height:1.05;margin:0 0 16px;max-width:285px}.mobile-hero-copy h1 .mobile-line{display:block;white-space:nowrap}.mobile-hero-copy .hero-actions{display:flex!important;justify-content:flex-start!important;align-items:stretch!important;align-self:flex-start!important;width:auto!important;flex-wrap:nowrap!important;gap:6px;margin:0!important}.mobile-hero-copy .cta,.mobile-hero-copy .secondary-cta{display:flex;align-items:center;box-sizing:border-box;height:34px;padding:0 9px;font-size:12px!important;line-height:1!important;border:1px solid rgba(255,255,255,.8);border-radius:6px;white-space:nowrap;background:rgba(23,50,77,.22);color:#fff!important}.mobile-hero-lead{display:block;margin:14px 2px 20px;color:#52677b;font-size:15px;line-height:1.45}}'
-          if old not in s: raise SystemExit('expected mobile hero block not found')
-          s=s.replace(old,new,1)
-          badge_old='.brand-free{font-size:.68rem;line-height:1;'
-          badge_new='.brand-free{display:inline-flex;align-items:center;justify-content:center;align-self:center;transform:translateY(-1px);font-size:.68rem;line-height:1;'
-          if badge_old not in s: raise SystemExit('expected free badge rule not found')
-          s=s.replace(badge_old,badge_new,1)
-          heading_old='.share-panel p{color:#52677b}'
-          heading_new='.share-panel p{color:#52677b}main h1,main h2,main h3{color:#315f7d!important}main .cta{padding:8px 13px;border-radius:7px;font-size:.9rem;font-weight:650}.home-hero .cta{padding:12px 18px;border-radius:9px;font-size:inherit;font-weight:750}main .eligibility-cta{display:inline-block!important;width:auto!important;padding:8px 13px;border-radius:7px;font-size:.9rem;font-weight:600}'
-          if heading_old not in s: raise SystemExit('expected heading insertion point not found')
-          s=s.replace(heading_old,heading_new,1)
-          hero_old='<div class="hero-copy"><p class="eyebrow">Clinical Trials &amp; Experimental Treatments for Dogs and Cats</p><h1>Find clinical trials and cancer treatment options for your pet</h1><p class="lead">Search current studies by diagnosis, check participating hospitals, and find other oncology options in one place. The site is free to use.</p><div class="hero-actions"><a class="cta" href="{FINDER}">Find Trials</a><a class="secondary-cta" href="{SITE}/help/">How it works</a></div></div></section><h2>Start here</h2>'
-          hero_new='<div class="hero-copy"><p class="eyebrow">Clinical Trials &amp; Experimental Treatments for Dogs and Cats</p><h1>Find clinical trials and cancer treatment options for your pet</h1><p class="lead">Search current studies by diagnosis, check participating hospitals, and find other oncology options in one place. The site is free to use.</p><div class="hero-actions"><a class="cta" href="{FINDER}">Find Trials</a><a class="secondary-cta" href="{SITE}/help/">How it works</a></div></div><div class="mobile-hero-copy"><h1><span class="mobile-line">Find cancer trials</span><span class="mobile-line">for your pet</span></h1><div class="hero-actions"><a class="cta" href="{FINDER}">Find Trials</a><a class="secondary-cta" href="{SITE}/help/">How it works</a></div></div></section><p class="mobile-hero-lead">Search current studies by diagnosis, check participating hospitals, and find other oncology options in one place. The site is free to use.</p><h2>Start here</h2>'
-          if hero_old not in s: raise SystemExit('expected homepage hero markup not found')
-          s=s.replace(hero_old,hero_new,1)
-          p.write_text(s,encoding='utf-8')
-          PY
-      - name: Build candidate
-        run: |
-          python seo/build_production_site.py
-          PYTHONPATH=seo python seo/validate_cancer_depth.py --site seo/site
-      - name: Include static files and restore About photos last
-        run: |
-          cp -a seo/static/. seo/site/
-          python - <<'PY'
-          import sys
-          from pathlib import Path
-          sys.path.insert(0, 'seo')
-          from about_page import _write_embedded_about_assets
-          _write_embedded_about_assets(Path('seo/site'))
-          PY
-      - name: Apply production search indexing policy
-        run: python seo_index_cleanup.py
-      - name: Update Help for current location features
-        run: python help_content_update.py
-      - name: Add real ZIP search to oncology-center directory
-        run: python center_zip_search.py
-      - name: Require audited photos, specific copy, and links on every center page
-        run: python seo/ensure_center_images.py
+      - name: Build production site from committed source
+        run: python scripts/build_static_site.py
       - name: Validate refined Kot design with current catalog
         run: |
           python - <<'PY'
