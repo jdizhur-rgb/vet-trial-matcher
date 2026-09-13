@@ -104,9 +104,15 @@ label, [data-testid="stWidgetLabel"] p {
     color: #45484b;
     font-size: .93rem;
     line-height: 1.35;
-    margin: .25rem 0 .45rem;
+    margin: .45rem 0 .6rem;
     padding: .55rem .7rem;
 }
+.finder-intro {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin: .55rem 0 .15rem;
+}
+.finder-intro strong { font-weight: 700; }
 @media (max-width: 600px) {
     div[data-testid="stMainBlockContainer"] [data-testid="stVerticalBlock"] {
         gap: .55rem !important;
@@ -120,7 +126,17 @@ label, [data-testid="stWidgetLabel"] p {
     .finder-note {
         font-size: .86rem;
         line-height: 1.3;
+        margin: .5rem 0 .65rem;
         padding: .48rem .6rem;
+    }
+    .finder-intro {
+        margin: .65rem 0 .2rem;
+    }
+    div[data-testid="stMainBlockContainer"] [data-testid="stCaptionContainer"] {
+        margin-bottom: .25rem !important;
+    }
+    div[data-testid="stMainBlockContainer"] [data-testid="stExpander"] {
+        margin-bottom: .75rem !important;
     }
 }
 </style>
@@ -156,7 +172,11 @@ st.caption(
     f"{len(_stats_countries)} countries"
 )
 
-st.markdown('Answer what you know. It is completely fine to choose **I don’t know**.')
+st.markdown(
+    '<div class="finder-intro">Answer what you know. It is completely fine to choose '
+    '<strong>I don’t know</strong>.</div>',
+    unsafe_allow_html=True,
+)
 st.markdown(
     '<div class="finder-note">This finder suggests potentially relevant options; '
     'the treating or study team confirms eligibility. It is not veterinary advice.</div>',
