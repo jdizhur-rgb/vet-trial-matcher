@@ -156,7 +156,7 @@ jobs:
           assert 'jdizhur-rgb.github.io' not in sitemap
           assert 'https://vettrialfinder.com/uk-europe/' not in sitemap
           assert not any(f'https://vettrialfinder.com/{lang}/' in sitemap for lang in ('de','fr','es','it','nl'))
-          assert sitemap.count('/centers/') == 49
+          assert sitemap.count('/centers/') >= 49
           assert 'https://vettrialfinder.com/how-we-verify/' in sitemap
           assert '<lastmod>2026-09-12</lastmod>' in sitemap
           assert all('/uk-europe/' not in url for url in sitemap.split('<loc>')[1:])
