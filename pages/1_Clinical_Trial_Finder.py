@@ -126,17 +126,17 @@ label, [data-testid="stWidgetLabel"] p {
     .finder-note {
         font-size: .86rem;
         line-height: 1.3;
-        margin: .5rem 0 .65rem;
+        margin: .25rem 0 .35rem;
         padding: .48rem .6rem;
     }
     .finder-intro {
-        margin: .65rem 0 .2rem;
+        margin: .15rem 0 .05rem;
     }
     div[data-testid="stMainBlockContainer"] [data-testid="stCaptionContainer"] {
-        margin-bottom: .25rem !important;
+        margin-bottom: 0 !important;
     }
     div[data-testid="stMainBlockContainer"] [data-testid="stExpander"] {
-        margin-bottom: .75rem !important;
+        margin-bottom: .2rem !important;
     }
 }
 </style>
