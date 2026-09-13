@@ -136,7 +136,7 @@ label, [data-testid="stWidgetLabel"] p {
         margin-bottom: 0 !important;
     }
     div[data-testid="stMainBlockContainer"] [data-testid="stExpander"] {
-        margin-top: .25rem !important;
+        margin-top: .6rem !important;
         margin-bottom: .2rem !important;
     }
 }
@@ -180,7 +180,7 @@ st.markdown(
 )
 st.markdown(
     '<div class="finder-intro">Answer what you know. It is completely fine to choose '
-    'I don’t know.</div>',
+    '“I don’t know”.</div>',
     unsafe_allow_html=True,
 )
 
