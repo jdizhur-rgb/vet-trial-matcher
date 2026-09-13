@@ -13,6 +13,7 @@ def main() -> None:
         'What do the result labels mean?',
         'Can I save or share the results?',
         '<h2>Trial Centers</h2>',
+        'What are Trial Centers?',
         'How do I find the nearest trial centers?',
         '<h2>Other Treatments</h2>',
         'What is included under Other Treatments?',
@@ -23,8 +24,8 @@ def main() -> None:
     if missing:
         raise AssertionError(f'Help content missing: {missing}')
     details = text.count('<details>')
-    if details != 21:
-        raise AssertionError(f'Expected 21 Help accordions, found {details}')
+    if details != 22:
+        raise AssertionError(f'Expected 22 Help accordions, found {details}')
     if 'help-actions' in text:
         raise AssertionError('Help page still contains redundant navigation buttons')
     print('HELP_CONTENT_OK details=', details)

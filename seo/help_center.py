@@ -47,6 +47,8 @@ def generate_help_center(root: Path) -> None:
              '<p>It is the most recent date we checked the listing against a source used for that record. It does not guarantee that a place is available today. The study team is always the final source for current enrollment.</p>'),
         ]),
         ('Trial Centers', [
+            ('What are Trial Centers?',
+             f'<p>These are universities, veterinary teaching hospitals, specialty hospitals, research organizations and multicenter programs connected to at least one current treatment opportunity in our catalog. A center page shows the cancer types currently listed there, where visits take place when that information is available, and the active studies or treatment programs linked to that institution. It is not a directory of every veterinary oncology clinic.</p>'),
             ('How do I find the nearest trial centers?',
              f'<p>Open <a href="{SITE}/centers/">Trial Centers</a>. Enter a five-digit US ZIP code to sort listed US centers by approximate straight-line distance. The mileage is not driving distance. You can also search by hospital, city, state or country. This is a directory of centers connected to current opportunities in our catalog, not every veterinary oncology hospital near you.</p>'),
         ]),
