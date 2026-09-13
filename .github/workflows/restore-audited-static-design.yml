@@ -128,12 +128,14 @@ jobs:
           assert senya.exists() and senya.stat().st_size>50000, senya.stat().st_size
           assert yasha.exists() and yasha.stat().st_size>50000, yasha.stat().st_size
           help_page=(root/'help/index.html').read_text(encoding='utf-8')
-          assert help_page.count('<details>') == 15
-          assert help_page.count('<summary>') == 15
-          assert 'class="help-faq"' in help_page
+          assert help_page.count('<details>') == 21
+          assert help_page.count('<summary>') == 21
+          assert 'class="help-section"' in help_page
           assert '.help-center .cta{padding:8px 13px' in help_page
-          assert 'Which countries are included?' in help_page
-          assert 'How do I find the nearest clinical trial centers?' in help_page
+          assert 'How do I use the trial finder?' in help_page
+          assert 'What do the result labels mean?' in help_page
+          assert 'How do I find the nearest trial centers?' in help_page
+          assert 'What is included under Other Treatments?' in help_page
           assert 'mailto:info@vettrialfinder.com' in help_page
           cancer=[]
           for species in ('dogs','cats'): cancer += list((root/'north-america'/species).glob('*/index.html'))

@@ -1,64 +1,138 @@
 #!/usr/bin/env python3
-"""Generate a plain-language Help Center and add it to the sitemap."""
+"""Generate Help content aligned with the current site and matcher."""
 from __future__ import annotations
+
+import json
+import re
 from pathlib import Path
+
 import generate_seo as g
 from site_config import SITE
 
 
+def _item(question: str, answer: str) -> str:
+    return f'<details><summary>{question}</summary><div class="help-answer">{answer}</div></details>'
+
+
 def generate_help_center(root: Path) -> None:
-    url=f'{SITE}/help/'
-    body=f'''<style>
-.help-center{{max-width:850px}}
-.help-faq{{margin:28px 0}}
-.help-faq details{{background:#fff;border:1px solid #d9e2ea;border-radius:12px;margin:0 0 10px;overflow:hidden}}
-.help-faq summary{{position:relative;padding:16px 48px 16px 18px;color:#315f7d;font-size:1.08rem;font-weight:680;line-height:1.35;cursor:pointer;list-style:none}}
-.help-faq summary::-webkit-details-marker{{display:none}}
-.help-faq summary::after{{content:'+';position:absolute;right:18px;top:50%;transform:translateY(-50%);color:#6b8193;font-size:1.45rem;font-weight:400}}
-.help-faq details[open] summary{{border-bottom:1px solid #e3e9ee}}
-.help-faq details[open] summary::after{{content:'−'}}
-.help-answer{{padding:15px 18px 17px}}
-.help-answer p{{margin:0 0 13px}}
+    url = f'{SITE}/help/'
+    finder = g.FINDER
+    sections = [
+        ('Using Vet Trial Finder', [
+            ('Where should I start?',
+             f'<p>Use <a href="{finder}">Find Trials</a> to compare one pet’s diagnosis and treatment history with current studies. Use <a href="{SITE}/cancer-types/">Cancer Types</a> to read about a diagnosis and see its current listings. Use <a href="{SITE}/centers/">Trial Centers</a> to browse hospitals connected to active opportunities. Use <a href="{SITE}/other-treatments/">Other Treatments</a> for electrochemotherapy, newer treatments and expanded-access programs.</p>'),
+            ('How do I use the trial finder?',
+             f'<p>Open <a href="{finder}">Find Trials</a> and complete the five sections:</p><ol><li><strong>Your pet:</strong> choose dog or cat and the country or region. Add age, weight and sex if known.</li><li><strong>Diagnosis:</strong> say whether it is confirmed by pathology or cytology, suspected, or unknown, then choose the cancer type.</li><li><strong>Current disease:</strong> enter whether the tumor is still present, removed, recurrent or not currently visible. Add what you know about margins, metastases and whether the disease is localized.</li><li><strong>Treatment:</strong> record surgery, chemotherapy, immunotherapy and radiation. Medication questions appear only when they matter to possible studies.</li><li><strong>Treatment options:</strong> leave selected only the kinds of treatment you would consider, then press <em>Find potential trials</em>.</li></ol><p>The form changes with the diagnosis. Lymphoma, mast cell tumor, osteosarcoma, hemangiosarcoma and some other cancers have additional questions because those details can change eligibility.</p>'),
+            ('What if I do not know an answer?',
+             '<p>Choose <em>I don’t know</em>. Unknown information does not automatically disqualify a pet, but it may keep a result in the “Possible match” category until the study team checks the missing detail. Do not guess at margins, metastases, grade or treatment history.</p>'),
+            ('What if the cancer type is not listed?',
+             '<p>Select <em>My cancer type isn’t listed</em> and enter the diagnosis exactly as it appears in the pathology report, if known. The matcher then shows only genuinely broad programs that may review multiple tumor types. It will not treat an unrelated cancer trial as a match.</p>'),
+            ('How does the country or region choice work?',
+             '<p>Choose one country to see studies there, or choose <em>Europe — all countries</em> to search across the European listings. A result in another country does not mean that the center accepts international patients. Confirm that directly before making travel plans.</p>'),
+            ('What does “Select all that you would consider” do?',
+             '<p>This is a preference filter, not a treatment recommendation. Selected choices are alternatives: choosing chemotherapy and immunotherapy means “show either,” not “the study must include both.” Removing a treatment type can hide otherwise relevant studies, so leave everything selected if you are still exploring.</p>'),
+        ]),
+        ('Understanding results', [
+            ('What do the result labels mean?',
+             '<p><strong>Likely match</strong> means the information entered agrees with the key criteria recorded for that study and no required answer is missing. <strong>Possible match</strong> means the study may fit but at least one point still needs confirmation. <strong>Prescreening required</strong> is used when eligibility cannot be decided from the short form. <strong>Other treatment-access opportunity</strong> is a real access pathway, but not a conventional experimental-treatment trial. None of these labels is final eligibility.</p>'),
+            ('What information is shown in a result?',
+             '<p>Each result shows the study center and title, why it may fit, facts that still need confirmation, contact details, participating sites when available, and a direct link to the official study page. Open <em>Study information</em> for the intervention, funding, recruitment status and the date we last checked the listing.</p>'),
+            ('Can I save or share the results?',
+             '<p>Yes. Use <em>Copy results</em> for a text summary or <em>Save as PDF</em> for a file you can send to a veterinarian, oncologist or family member. A saved result is a snapshot; recruitment and eligibility requirements can change later.</p>'),
+            ('What if the finder shows no matches?',
+             f'<p>It means the currently verified catalog did not find a plausible study for the information entered. It does not mean that your pet has no treatment choices. Check the country, diagnosis and treatment preferences, then look at <a href="{SITE}/centers/">Trial Centers</a> and <a href="{SITE}/other-treatments/">Other Treatments</a>. A clear “no matches” is more useful than showing a study that does not fit.</p>'),
+            ('Why can a trial disappear from the site?',
+             '<p>A study can fill, pause, close or change its criteria. We remove it from patient-facing matching when current enrollment cannot be confirmed. It may return if the study reopens or its status is verified again.</p>'),
+            ('What does “last verified” mean?',
+             '<p>It is the most recent date we checked the listing against a source used for that record. It does not guarantee that a place is available today. The study team is always the final source for current enrollment.</p>'),
+        ]),
+        ('Centers and other treatment options', [
+            ('How do I find the nearest trial centers?',
+             f'<p>Open <a href="{SITE}/centers/">Trial Centers</a>. Enter a five-digit US ZIP code to sort listed US centers by approximate straight-line distance. The mileage is not driving distance. You can also search by hospital, city, state or country. This is a directory of centers connected to current opportunities in our catalog, not every veterinary oncology hospital near you.</p>'),
+            ('What is included under Other Treatments?',
+             f'<p><a href="{SITE}/other-treatments/">Other Treatments</a> has three routes. <strong>Electrochemotherapy</strong> searches a separate US and Canadian center list by ZIP or postal code. <strong>Advanced / Novel Treatments</strong> filters currently accessible regulated, experimental, personalized or off-label options by species, country, cancer and clinical situation. <strong>Compassionate / Expanded Access</strong> lists verified programs that may review patients outside ordinary trial enrollment. These tools do not decide whether a treatment is medically appropriate.</p>'),
+        ]),
+        ('Contacting a study', [
+            ('Does a match mean my pet is eligible?',
+             '<p>No. The matcher is a prescreening tool. Final eligibility is decided by the research or treatment team after reviewing the diagnosis, records, previous treatment, current health and any tests required by the protocol.</p>'),
+            ('What should I have ready?',
+             '<p>Useful records include the pathology or cytology report, surgery report, recent imaging or staging, bloodwork, medication list, and the names and dates of cancer treatments. Exact dates can matter because some protocols require a waiting period after chemotherapy, radiation or another treatment.</p>'),
+            ('Who should contact the study?',
+             '<p>Use the contact shown in the result or the official study link. Owners can usually make the first inquiry. The team may then ask the regular veterinarian or oncologist to send records or discuss the case.</p>'),
+            ('Are clinical trials free?',
+             '<p>Sometimes, but not always. A study may cover the experimental treatment, selected tests or part of the visits while the owner pays for other care. Ask exactly what is covered, what is not, and whether costs change if the pet leaves the study.</p>'),
+            ('Will I have to travel?',
+             '<p>Possibly. Some protocols require repeated visits to one hospital; others have several participating sites. Confirm the exact hospital, number of visits and which visits must be in person before making plans. Distances shown on the site are estimates, not travel instructions.</p>'),
+            ('Do trials use placebos, and can I leave after enrolling?',
+             '<p>Some trials use randomization or a placebo group and many do not. The consent documents should explain the groups, what standard care remains available and what happens if the disease progresses. Participation is generally voluntary; ask how withdrawal works before enrolling.</p>'),
+            ('Is Vet Trial Finder free, and how do I contact you?',
+             '<p>The site, matcher and saved results are free. There is no paid report and no fee to reveal matches. For a correction, broken link or question about using the site, email <a href="mailto:info@vettrialfinder.com">info@vettrialfinder.com</a>. For eligibility or medical advice, contact the study team or your veterinarian.</p>'),
+        ]),
+    ]
+
+    section_html = ''.join(
+        f'<section class="help-section"><h2>{title}</h2>{"".join(_item(q, a) for q, a in items)}</section>'
+        for title, items in sections
+    )
+    body = f'''<style>
+.help-center{{max-width:900px}}
+.help-intro{{max-width:800px}}
+.help-actions{{display:flex;gap:9px;flex-wrap:wrap;margin:18px 0 30px}}
+.help-section{{margin:30px 0}}
+.help-section h2{{margin:0 0 12px}}
+.help-section details{{background:#fff;border:1px solid #d9e2ea;border-radius:10px;margin:0 0 9px;overflow:hidden}}
+.help-section summary{{position:relative;padding:14px 46px 14px 16px;color:#315f7d;font-size:1.03rem;font-weight:680;line-height:1.35;cursor:pointer;list-style:none}}
+.help-section summary::-webkit-details-marker{{display:none}}
+.help-section summary::after{{content:'+';position:absolute;right:16px;top:50%;transform:translateY(-50%);color:#6b8193;font-size:1.35rem;font-weight:400}}
+.help-section details[open] summary{{border-bottom:1px solid #e3e9ee}}
+.help-section details[open] summary::after{{content:'−'}}
+.help-answer{{padding:14px 17px 16px}}
+.help-answer p{{margin:0 0 11px}}
 .help-answer p:last-child{{margin-bottom:0}}
+.help-answer ol{{margin:0 0 12px;padding-left:22px}}
+.help-answer li{{margin:0 0 7px}}
 .help-center .cta{{padding:8px 13px;border-radius:7px;font-size:.9rem;font-weight:650}}
-@media(max-width:600px){{.help-faq{{margin-top:22px}}.help-faq summary{{padding:14px 42px 14px 15px;font-size:1rem}}.help-answer{{padding:13px 15px 15px}}.help-center .cta{{padding:7px 11px;font-size:.86rem}}}}
+.help-urgent{{border-left:4px solid #8aaec4;background:#edf4f8;padding:13px 15px;margin:30px 0 0}}
+@media(max-width:600px){{.help-actions{{margin-bottom:24px}}.help-section{{margin:25px 0}}.help-section summary{{padding:13px 41px 13px 14px;font-size:1rem}}.help-answer{{padding:13px 14px 15px}}}}
 </style>
 <div class="help-center"><h1>Help Center</h1>
-<p class="lead">Clinical trials can be confusing, especially when you are trying to make decisions for a dog or cat with cancer. This page explains how to use the finder and what to expect if you find a study that may fit.</p>
-<div class="help-faq">
-<details><summary>How do I use the trial finder?</summary><div class="help-answer"><p>Enter your pet's diagnosis and the information you know. The finder compares it with the requirements listed for current studies. You do not need to know every answer. If something is unknown, leave it unknown rather than guessing.</p><p><a class="cta" href="{g.FINDER}">Search clinical trials</a></p></div></details>
-<details><summary>Does a match mean my pet is eligible?</summary><div class="help-answer"><p>No. A match means the study looks worth checking based on the information available. The research team makes the final decision. They may need medical records, pathology, blood work, imaging or other tests before confirming eligibility.</p></div></details>
-<details><summary>What should I have ready?</summary><div class="help-answer"><p>Start with the pathology or cytology report if you have one. It also helps to have recent blood work, imaging reports, surgery reports and a list of treatments your pet has already received. Exact dates can matter because some studies require a waiting period after chemotherapy, radiation or other treatment.</p></div></details>
-<details><summary>Who do I contact?</summary><div class="help-answer"><p>Use the contact information or official study link shown with the trial. You can contact the study team yourself. Your regular veterinarian or oncologist can also send records or speak with the research team if needed.</p></div></details>
-<details><summary>Are clinical trials free?</summary><div class="help-answer"><p>Sometimes, but not always. A study may cover the experimental treatment, some tests, or part of the visit costs. Other expenses may still be your responsibility. The amount covered is different for every study, so ask exactly what is paid for before making travel or treatment plans.</p></div></details>
-<details><summary>Will I have to travel?</summary><div class="help-answer"><p>Possibly. Some studies require several visits to the same hospital. Others use multiple participating hospitals or need fewer visits. Check the location and visit schedule with the study team before enrolling.</p></div></details>
-<details><summary>Do veterinary cancer trials use placebos?</summary><div class="help-answer"><p>Some do, many do not. The study information should explain the treatment groups. If a placebo or randomized group is possible, ask what standard treatment your pet can still receive and whether you can leave the study if you change your mind.</p></div></details>
-<details><summary>Can I leave a study after enrolling?</summary><div class="help-answer"><p>In general, participation is voluntary. Before enrolling, read the consent form and ask the study team what happens if you decide to stop or if your pet's condition changes.</p></div></details>
-<details><summary>What if the finder shows no matches?</summary><div class="help-answer"><p>It does not mean there are no treatment choices for your pet. It only means our current catalog did not find a study that matched the information entered. New studies open and old studies close. You can also check oncology centers and other treatment options on this site, and discuss standard treatment with your veterinarian or veterinary oncologist.</p></div></details>
-<details><summary>Why can a trial disappear from the site?</summary><div class="help-answer"><p>Enrollment changes. A study can fill, pause, close or change its requirements. We update the catalog as we verify changes, but the research team is always the final source for current enrollment status.</p></div></details>
-<details><summary>What does "last verified" mean?</summary><div class="help-answer"><p>It is the most recent date we checked the study information against a source we use for that listing. It is not a promise that a spot is still available today. Contact the study team before making plans.</p></div></details>
-<details><summary>Do I need to pay to use this site?</summary><div class="help-answer"><p>No. The finder and the information on this site are free. There is no paid report and no fee to see the matches.</p></div></details>
-<details><summary>Still not sure what to do?</summary><div class="help-answer"><p>If you find a study that looks close, contact the study team even if you are unsure about one requirement. They can tell you what records they need and whether your pet can be screened.</p></div></details>
-</div></div>'''
-    dest=root/'help'; dest.mkdir(parents=True,exist_ok=True)
-    html=g.page('Veterinary Cancer Clinical Trials Help Center','Plain-language answers about finding veterinary cancer clinical trials, eligibility, costs, records, travel and contacting study teams.',body,url)
-    # FAQ structured data mirrors the visible questions and answers.
-    import json
-    faqs=[
-      ('Does a match mean my pet is eligible?','No. A match means the study looks worth checking based on the information available. The research team makes the final eligibility decision.'),
-      ('Are veterinary cancer clinical trials free?','Sometimes. A study may cover treatment, tests or part of the visit costs, but coverage is different for every study.'),
-      ('Will I have to travel for a veterinary clinical trial?','Possibly. Some studies require several visits to one hospital, while others use multiple participating hospitals or require fewer visits.'),
-      ('Do veterinary cancer trials use placebos?','Some do and many do not. The study information and consent process should explain the treatment groups.'),
-      ('What if the trial finder shows no matches?','It means the current catalog did not find a study matching the information entered. It does not mean there are no treatment choices for your pet.'),
-    ]
-    schema={'@context':'https://schema.org','@type':'FAQPage','mainEntity':[{'@type':'Question','name':q,'acceptedAnswer':{'@type':'Answer','text':a}} for q,a in faqs]}
-    html=html.replace('</head>',f'<script type="application/ld+json">{json.dumps(schema,ensure_ascii=False)}</script></head>',1)
-    (dest/'index.html').write_text(html,encoding='utf-8')
-    sm=root/'sitemap.xml'
-    if sm.exists():
-        text=sm.read_text(encoding='utf-8')
-        entry=f'<url><loc>{g.esc(url)}</loc></url>\n'
+<p class="lead help-intro">Use this page to choose the right part of Vet Trial Finder, complete the matcher without guessing, understand the results and contact a study with the right records.</p>
+<div class="help-actions"><a class="cta" href="{finder}">Find Trials</a><a class="secondary-cta" href="{SITE}/centers/">Trial Centers</a><a class="secondary-cta" href="{SITE}/cancer-types/">Cancer Types</a></div>
+{section_html}
+<p class="help-urgent"><strong>Urgent symptoms come first.</strong> Difficulty breathing, collapse, uncontrolled bleeding, severe pain or another emergency should be assessed by a veterinarian immediately rather than delayed for a trial search.</p>
+</div>'''
+
+    html = g.page(
+        'How to Use Vet Trial Finder | Help Center',
+        'How to use the veterinary cancer trial matcher, understand results, search trial centers and contact study teams.',
+        body,
+        url,
+    )
+    schema_items = [item for _, items in sections for item in items]
+    schema = {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        'mainEntity': [
+            {
+                '@type': 'Question',
+                'name': question,
+                'acceptedAnswer': {
+                    '@type': 'Answer',
+                    'text': re.sub(r'<[^>]+>', ' ', answer).replace('&amp;', '&'),
+                },
+            }
+            for question, answer in schema_items
+        ],
+    }
+    html = html.replace('</head>', f'<script type="application/ld+json">{json.dumps(schema, ensure_ascii=False)}</script></head>', 1)
+    dest = root / 'help'
+    dest.mkdir(parents=True, exist_ok=True)
+    (dest / 'index.html').write_text(html, encoding='utf-8')
+
+    sitemap = root / 'sitemap.xml'
+    if sitemap.exists():
+        text = sitemap.read_text(encoding='utf-8')
         if url not in text:
-            text=text.replace('</urlset>',entry+'</urlset>')
-            sm.write_text(text,encoding='utf-8')
-    print('HELP_CENTER_OK',url)
+            text = text.replace('</urlset>', f'<url><loc>{g.esc(url)}</loc></url>\n</urlset>')
+            sitemap.write_text(text, encoding='utf-8')
+    print('HELP_CENTER_OK', url)
