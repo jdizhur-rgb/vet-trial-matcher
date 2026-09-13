@@ -26,6 +26,8 @@ Every article uses this visible attribution:
 
 **Reviewed and edited by:** Yuliia Dizhur, Founder of Vet Trial Finder
 
+The accompanying bio identifies her as the founder of Vet Trial Finder and a dog owner with extensive firsthand experience of canine cancer. Personal experience provides context but must not be presented as medical expertise.
+
 Include publication and last-updated dates, followed by this disclosure:
 
 **Editorial disclosure:** Prepared with AI assistance from the sources listed below and reviewed by Yuliia Dizhur. It has not been independently reviewed by a veterinarian and does not replace veterinary advice.
