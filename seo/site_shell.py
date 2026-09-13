@@ -103,7 +103,7 @@ def add_home_stats(root, stats, rows):
  represented=sorted((key for key in counts if counts[key]),key=lambda key:(-counts[key],g.display_name(key)))
  cancer_stats=''.join(f'<span class="home-cancer-pill">{g.esc(g.display_name(key))} <b>{counts[key]}</b></span>' for key in represented)
  stats_items=(
-  (stats['opportunities'],f'clinical trials and treatment studies - {north_america_opportunities} in the USA and Canada'),
+  (stats['opportunities'],f'active cancer treatment studies - {north_america_opportunities} in the USA and Canada'),
   (stats['centers'],f'trial centers - {north_america_centers} in the USA and Canada'),
   (stats['countries'],'countries'),
  )
