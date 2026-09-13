@@ -158,6 +158,8 @@ def generate_cancer_vaccine_article(root: Path) -> None:
         url,
     )
     rendered = rendered.replace('</style>', VACCINE_CSS + '</style>', 1)
+    social = f'''<meta property="og:type" content="article"><meta property="og:site_name" content="Vet Trial Finder"><meta property="og:title" content="Cancer Vaccines for Dogs"><meta property="og:description" content="What is licensed, what remains experimental, and which veterinary cancer vaccine studies are enrolling."><meta property="og:url" content="{url}"><meta property="og:image" content="{SITE}/assets/og-cancer-vaccines.jpg"><meta property="og:image:secure_url" content="{SITE}/assets/og-cancer-vaccines.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Cancer vaccines for dogs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Cancer Vaccines for Dogs"><meta name="twitter:description" content="What is available, what is experimental, and which studies are enrolling."><meta name="twitter:image" content="{SITE}/assets/og-cancer-vaccines.jpg">'''
+    rendered = rendered.replace('</head>', social + '</head>', 1)
     schema = {
         '@context': 'https://schema.org',
         '@type': 'Article',

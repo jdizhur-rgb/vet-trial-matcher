@@ -63,6 +63,8 @@ def electrochemotherapy_article(root):
 <h2>Sources</h2><ul class="article-sources"><li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9363792/" rel="noopener">Veterinary Guidelines for Electrochemotherapy of Superficial Tumors</a></li><li><a href="https://www.jove.com/v/54760/operating-procedures-electrochemotherapy-for-treatment-tumor-dogs" rel="noopener">Operating Procedures of Electrochemotherapy for the Treatment of Tumor in Dogs and Cats</a></li><li><a href="https://pubmed.ncbi.nlm.nih.gov/42421602/" rel="noopener">Surgery and Adjuvant Electrochemotherapy Compared to Surgery Alone for Canine Incompletely Excised Soft Tissue Sarcomas</a></li></ul></article>'''
  dest=root/'articles'/'electrochemotherapy';dest.mkdir(parents=True,exist_ok=True)
  rendered=g.page('Electrochemotherapy for Dogs and Cats | Vet Trial Finder','How electrochemotherapy is used for tumors and incomplete surgical margins in dogs and cats, what treatment involves, and where to find ECT centers.',body,url)
+ social=f'''<meta property="og:type" content="article"><meta property="og:site_name" content="Vet Trial Finder"><meta property="og:title" content="Electrochemotherapy for Dogs and Cats"><meta property="og:description" content="How ECT is used for tumors and incomplete surgical margins, and where owners can find treatment centers."><meta property="og:url" content="{url}"><meta property="og:image" content="{SITE}/assets/og-electrochemotherapy.jpg"><meta property="og:image:secure_url" content="{SITE}/assets/og-electrochemotherapy.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Electrochemotherapy for dogs and cats"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Electrochemotherapy for Dogs and Cats"><meta name="twitter:description" content="How ECT is used and where owners can find treatment centers."><meta name="twitter:image" content="{SITE}/assets/og-electrochemotherapy.jpg">'''
+ rendered=rendered.replace('</head>',social+'</head>',1)
  schema={"@context":"https://schema.org","@type":"Article","headline":"Electrochemotherapy in Veterinary Oncology","image":[f"{SITE}/assets/ect-article-hero.jpg"],"datePublished":"2026-09-13","dateModified":"2026-09-13","author":{"@type":"Organization","name":"Vet Trial Finder","url":f"{SITE}/about/"},"publisher":{"@type":"Organization","name":"Vet Trial Finder","url":f"{SITE}/"},"mainEntityOfPage":url}
  rendered=rendered.replace('</head>',f'<script type="application/ld+json">{json.dumps(schema)}</script></head>',1)
  (dest/'index.html').write_text(rendered,encoding='utf-8')
@@ -82,7 +84,7 @@ def add_to_sitemap(root,urls):
  p.write_text(text,encoding='utf-8')
 def copy_assets(root):
  dest=root/'assets';dest.mkdir(parents=True,exist_ok=True)
- for name in ('kot-home.jpg','ect-article-hero.jpg'):
+ for name in ('kot-home.jpg','ect-article-hero.jpg','og-electrochemotherapy.jpg','og-cancer-vaccines.jpg'):
   source=Path(__file__).resolve().parent/'assets'/name
   if source.exists():shutil.copy2(source,dest/name)
 def add_home_stats(root, stats):
