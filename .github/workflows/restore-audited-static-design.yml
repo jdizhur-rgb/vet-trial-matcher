@@ -63,7 +63,7 @@ jobs:
           assert 'background:rgba(23,50,77,.22);color:#fff!important' in home
           assert 'class="mobile-hero-lead"' in home
           assert '.hero-copy{display:none}' in home
-          assert '<span class="desktop-line">Find clinical trials</span><span class="desktop-line">and cancer treatment options</span><span class="desktop-line">for your pet</span>' in home
+          assert '<span class="desktop-line">Find cancer clinical trials</span><span class="desktop-line">and treatment options</span><span class="desktop-line">for your pet</span>' in home
           assert 'jdizhur-rgb.github.io/vet-trial-matcher' not in home
           asset=root/'assets/kot-home.jpg'; assert asset.exists() and asset.stat().st_size>10000, asset
           about=(root/'about/index.html').read_text(encoding='utf-8')
