@@ -193,7 +193,7 @@ jobs:
           assert 'class="help-faq"' in help_page
           assert '.help-center .cta{padding:8px 13px' in help_page
           assert 'Which countries are included?' in help_page
-          assert 'How do I find the nearest oncology centers?' in help_page
+          assert 'How do I find the nearest clinical trial centers?' in help_page
           cancer=[]
           for region in ('north-america','uk-europe'):
             for species in ('dogs','cats'): cancer += list((root/region/species).glob('*/index.html'))
@@ -236,3 +236,5 @@ jobs:
 # state-name-center-search 2026-09-13
 
 # correct-ethos-state-label 2026-09-13
+
+# trial-centers-label 2026-09-13
