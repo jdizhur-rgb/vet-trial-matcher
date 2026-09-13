@@ -6,6 +6,7 @@
 - Use plain English and explain a technical term the first time it appears.
 - Prefer short sentences and ordinary punctuation. Avoid long em dashes.
 - Open with a direct explanation of the treatment or subject and why an owner may be considering it.
+- In every treatment subsection, begin with the practical answer: what it is, which cancer it concerns, whether it is available now and whether it is a standard treatment or research. Put platform names, biological targets and study design details afterward.
 - Use descriptive headings, short paragraphs and lists only where they make scanning easier.
 - Distinguish clearly between licensed treatment, treatment used in clinical practice, active clinical trials and preclinical research.
 - State important limitations, uncertainty and practical questions for the treating team.
