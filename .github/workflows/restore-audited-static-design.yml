@@ -189,12 +189,14 @@ jobs:
           assert all('<div class="center-facts">' in p.read_text(encoding='utf-8') for p in content_center_pages)
           aurelius=(root/'centers/aurelius-biotherapeutics/index.html').read_text(encoding='utf-8')
           assert 'HalfCircle-Dog.png' in aurelius
-          assert 'personalized immune-cell treatments for dogs with lymphoma' in aurelius
+          assert "uses a dog's own T cells" in aurelius
           assert 'This page brings together current cancer studies' not in aurelius
           auburn=next(p.read_text(encoding='utf-8') for p in content_center_pages if 'Auburn University College of Veterinary Medicine' in p.read_text(encoding='utf-8'))
           assert "Auburn's oncology research evaluates" not in auburn
           assert auburn.count('Auburn oncology service') == 1
           assert 'Auburn clinical trials' not in auburn
+          assert 'Bailey Small Animal Teaching Hospital, 1220 Wire Rd' in auburn
+          assert all('See each opportunity for its participating hospital or enrollment area.' not in p.read_text(encoding='utf-8') for p in content_center_pages)
           source=Path('seo/about_page.py').read_text(encoding='utf-8')
           assert not any(x in source for x in ('assets_embedded','base64','urllib.request','fallback_url'))
           senya=root/'assets/senya-about.jpg'; yasha=root/'assets/yasha-about.jpg'
@@ -252,7 +254,3 @@ jobs:
 # correct-ethos-state-label 2026-09-13
 
 # trial-centers-label 2026-09-13
-
-# plain-center-descriptions 2026-09-13
-
-# concrete-center-locations 2026-09-13
