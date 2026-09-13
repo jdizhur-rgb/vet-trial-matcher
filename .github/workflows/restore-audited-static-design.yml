@@ -191,8 +191,8 @@ jobs:
           assert 'HalfCircle-Dog.png' in aurelius
           assert "uses a dog's own T cells" in aurelius
           assert 'This page brings together current cancer studies' not in aurelius
-          auburn=next(p.read_text(encoding='utf-8') for p in content_center_pages if 'Auburn University College of Veterinary Medicine' in p.read_text(encoding='utf-8'))
-          assert "Auburn's oncology research evaluates" not in auburn
+          auburn=(root/'centers/auburn-university/index.html').read_text(encoding='utf-8')
+          assert "Auburn's Bailey Small Animal Teaching Hospital brings medical oncology" in auburn
           assert auburn.count('Auburn oncology service') == 1
           assert 'Auburn clinical trials' not in auburn
           assert 'Bailey Small Animal Teaching Hospital, 1220 Wire Rd' in auburn
