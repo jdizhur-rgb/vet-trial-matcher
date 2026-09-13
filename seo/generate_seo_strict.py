@@ -375,6 +375,7 @@ def audit(report):
     malformed=[]
     for p in center_pages:
         s=p.read_text(errors='replace')
+        if 'noindex,follow' in s and 'http-equiv="refresh"' in s:continue
         required=('class="center-kicker"','class="center-facts"','Before you contact the center','class="opportunity-list"')
         if any(marker not in s for marker in required) or s.count('<details class="opportunity">')!=s.count('<article class="card">'):
             malformed.append(str(p.relative_to(g.OUT)))
