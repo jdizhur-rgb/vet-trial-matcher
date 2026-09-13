@@ -73,28 +73,7 @@ CURRENT_STATUS_CONFIDENCE = {"current", "confirmed_current"}
 def load_trials(root: Path | None = None) -> list[dict[str, Any]]:
     root = root or Path(__file__).resolve().parent
     with (root / "data" / "trials_base.json").open(encoding="utf-8") as handle:
-        by_id = {trial["id"]: trial for trial in json.load(handle)}
-    paths = [root / "data" / "trial_updates.json"]
-    paths.extend(sorted((root / "data").glob("catalog_patch_*.json")))
-    for path in paths:
-        if not path.exists():
-            continue
-        with path.open(encoding="utf-8") as handle:
-            document = json.load(handle)
-        for trial_id in document.get("delete", []):
-            by_id.pop(trial_id, None)
-        for patch in document.get("upsert", []):
-            trial_id = patch["id"]
-            merged = dict(by_id.get(trial_id, {}))
-            for key, value in patch.items():
-                if key in {"requires", "excludes"} and isinstance(value, dict):
-                    nested = dict(merged.get(key, {}))
-                    nested.update(value)
-                    merged[key] = nested
-                else:
-                    merged[key] = value
-            by_id[trial_id] = merged
-    return list(by_id.values())
+        return json.load(handle)
 
 
 def species_matches(trial_species: Any, selected_species: str) -> bool:
@@ -147,4 +126,3 @@ def trial_modalities(trial: dict[str, Any]) -> set[str]:
     if any(word in text for word in ("phase i", "phase 1", "phase ii", "phase 2", "experimental", "investigational", "tigilanol", "oxc-101", "rimcazole", "gcn2", "oncofap", "nebumet", "cantrixil")):
         modalities.add("Experimental drug")
     return modalities
-
