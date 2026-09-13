@@ -371,7 +371,6 @@ def profile(center):
 def overview(center):
     p=profile(center);fig=''
     if p.get('image'):fig=f'<figure><img src="{g.esc(p["image"])}" alt="{g.esc(p.get("image_alt") or center)}" loading="lazy">'+(f'<figcaption>{g.esc(p.get("image_caption"))}</figcaption>' if p.get('image_caption') else '')+'</figure>'
-    # One substantive paragraph: the center's clinical role plus one concise
     # The overview is one self-contained paragraph. Trial counts, diagnoses and
     # current-study details already have their own structured sections below.
     primary_link=next(iter(p.get('links',[])),None)
@@ -401,14 +400,16 @@ def owner_summary(center,rows,cancers,addresses):
     species=species_for(rows)
     species_text=' and '.join(species) if species else 'companion animals'
     cancer_text=', '.join(g.display_name(c) for c in cancers) if cancers else 'Cancer diagnoses listed in the studies below'
-    has_study_sites=any(any(site_active(s) for s in r.get('sites',[]) if isinstance(s,dict)) for r in rows if isinstance(r.get('sites'),list))
-    location_text=('See each opportunity for its participating hospital or enrollment area.' if has_study_sites
-        else '<br>'.join(g.esc(x) for x in addresses) if addresses
-        else 'Confirm the visit location with the study team.')
+    location_fact=(
+        '<div class="center-fact"><strong>Where visits take place</strong>'
+        + '<br>'.join(g.esc(x) for x in addresses)
+        + '</div>'
+        if addresses else ''
+    )
     return ('<div class="center-facts">'
         f'<div class="center-fact"><strong>Who the current listings are for</strong>{g.esc(species_text.capitalize())}</div>'
         f'<div class="center-fact"><strong>Cancer types currently listed</strong>{g.esc(cancer_text)}</div>'
-        f'<div class="center-fact"><strong>Where visits take place</strong>{location_text}</div>'
+        f'{location_fact}'
         '</div>')
 
 
