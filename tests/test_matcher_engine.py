@@ -139,6 +139,27 @@ class MatcherEngineTests(unittest.TestCase):
         )
         self.assertEqual([], matches)
 
+    def test_one_cm_sts_excludes_multicenter_tcell_engager(self):
+        answers = SearchAnswers(
+            species="Dog",
+            cancer="Soft tissue sarcoma",
+            diagnosis_status="Confirmed by pathology/cytology",
+            weight_lb=20,
+            tumor_status="Tumor still present / measurable",
+            tumor_size_cm=1,
+            tumor_location="Skin / subcutaneous tissue — other area",
+            surface_or_oral_accessible="Yes",
+            preferences=ALL_TREATMENTS,
+        )
+        ids = [match.trial["id"] for match in run_real(answers)]
+        self.assertNotIn("wsu-sts-local-immunotherapy", ids)
+        self.assertNotIn("castr-vrcco-sts-tcell-engager", ids)
+
+    def test_multicenter_tcell_engager_is_not_duplicated(self):
+        ids = [trial["id"] for trial in load_trials()]
+        self.assertEqual(1, ids.count("wsu-sts-local-immunotherapy"))
+        self.assertNotIn("castr-vrcco-sts-tcell-engager", ids)
+
     def test_current_chemo_with_published_washout_remains_possible(self):
         trial = {
             "id": "washout-test", "species": "Dog", "country": "USA",
