@@ -15,9 +15,9 @@ def main() -> None:
         '<details><summary>Which countries are included?</summary><div class="help-answer">'
         '<p>The finder includes current opportunities in the United States and other countries that we can verify from official sources. The United States is selected by default, but you can choose another available country or region in the location section. A study in another country may require travel, and the study team must confirm whether it can accept an animal coming from abroad.</p>'
         '</div></details>\n'
-        '<details><summary>How do I find the nearest oncology centers?</summary><div class="help-answer">'
-        '<p>Open Oncology Centers and enter a five-digit US ZIP code. The directory sorts listed US centers by approximate straight-line distance and shows the mileage. It is not a driving-distance estimate. You can also search the directory by hospital, city, state or country; international centers are available through text search and browsing.</p>'
-        '<p><a href="https://vettrialfinder.com/centers/">Search oncology centers</a></p>'
+        '<details><summary>How do I find the nearest clinical trial centers?</summary><div class="help-answer">'
+        '<p>Open Trial Centers and enter a five-digit US ZIP code. The directory sorts listed US centers by approximate straight-line distance and shows the mileage. It is not a driving-distance estimate. You can also search the directory by hospital, city, state or country; international centers are available through text search and browsing.</p>'
+        '<p><a href="https://vettrialfinder.com/centers/">Search clinical trial centers</a></p>'
         '</div></details>\n'
     )
     if 'Which countries are included?' not in text:
