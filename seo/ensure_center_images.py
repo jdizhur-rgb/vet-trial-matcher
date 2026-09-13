@@ -19,10 +19,12 @@ def main():
     checked = []
     for page in centers:
         text = page.read_text(encoding="utf-8", errors="replace")
-        if 'noindex,follow' in text and 'http-equiv="refresh"' in text:
+        if 'noindex' in text and 'http-equiv="refresh"' in text:
             continue
         block = overview_block(text)
         if not block:
+            if 'noindex' in text or 'http-equiv="refresh"' in text:
+                continue
             raise RuntimeError(f"Missing center overview: {page}")
         section = block.group(0)
         if "<img " not in section:
