@@ -20,7 +20,7 @@ PROFILES["Aurelius Biotherapeutics"] = {
     "image_caption": "Photo: Bellingham Veterinary.",
     "links": [("Aurelius Biotherapeutics", "https://aureliusbio.com/")],
 }
-_PROTECT_IMAGE = "https://www.protectvac.com/img/news/company/2025_10_26-poster.jpg"
+_PROTECT_IMAGE = "https://static.wixstatic.com/media/4821a9_49c524132f724ed58438736cd49db928~mv2.jpg/v1/fill/w_980,h_650,al_c,q_85/927d1999a28aba712c858eccbfe8e7dc95b3c504.jpg"
 _PROTECT_LINK = "https://www.protectvac.com/news-18.html"
 _ONCOWAF_IMAGE = "https://oncowaf.be/public/images/skin/default/contact.png"
 _ONCOWAF_LINK = "https://oncowaf.be/en/ClinicalTrials/searchResults"
@@ -39,12 +39,32 @@ PROFILES.update({
     "Hospital Veterinario Peña Jasso": {"title":"About Hospital Veterinario Peña Jasso","about":"Hospital Veterinario Peña Jasso in Ensenada is participating in translational nanomedicine research for dogs with cancer through a collaboration involving UNAM, UABC and UAG.","image":"https://zonanorte.mx/media/notas/8542/7555.jpg","image_alt":"Veterinary nanomedicine research team in Ensenada","image_caption":"Photo: Zona Norte.","links":[("Research collaboration news","https://zonanorte.mx/main/mozaico/nid/8542")]},
     "University of Milan Veterinary Teaching Hospital (Lodi)": {"title":"About the University of Milan Veterinary Teaching Hospital","about":"The University of Milan Veterinary Teaching Hospital in Lodi combines referral care with clinical research and is a participating site for a current veterinary oncology study.","image":"https://www.ospedaleveterinario.unimi.it/static/026a281f10ce96c6b02ba6c3b134e481/ec873/hero-veterinari.png","image_alt":"Veterinary clinicians at the University of Milan Veterinary Teaching Hospital","image_caption":"Photo: University of Milan Veterinary Teaching Hospital.","links":[("University of Milan research studies","https://www.ospedaleveterinario.unimi.it/collaborare-con-noi-studi-di-ricerca/")]},
     "Ghent University Faculty of Veterinary Medicine": {"title":"About Ghent University Veterinary Medicine","about":"Ghent University's Small Animal Clinic combines referral care with clinical research in dogs and cats; its current catalog listing evaluates fluorescence-lifetime imaging during cancer surgery.","image":"https://www.ugent.be/img/dcom/faciliteiten/techlaneghentscienceparkdrone.jpg/@@images/image/focus-small","image_alt":"Ghent University research campus","image_caption":"Photo: Ghent University.","links":[("Ghent veterinary imaging study","https://www.ugent.be/di/khd/nl/onderzoek/fluorescentie-levensduur-beeldvorming")]},
-    "Anivive Lifesciences — multicenter": {"title":"About Anivive Lifesciences clinical trials","about":"Anivive Lifesciences coordinates multicenter veterinary drug studies; its current oncology listing evaluates verdinexor with carboplatin for dogs with osteosarcoma.","image":"https://anivivelifesciences.com/wp-content/uploads/068_reddish_brown_dog_laying_in_the_dirt.jpg","image_alt":"Dog featured by Anivive Lifesciences","image_caption":"Photo: Anivive Lifesciences.","links":[("Anivive clinical trials","https://anivivelifesciences.com/trials")]},
+    "Anivive Lifesciences — multicenter": {"title":"About Anivive Lifesciences clinical trials","about":"Anivive Lifesciences coordinates multicenter veterinary drug studies; its current oncology listing evaluates verdinexor with carboplatin for dogs with osteosarcoma.","image":"https://bhamvet.com/wp-content/uploads/2022/07/HalfCircle-Dog.png","image_alt":"Dog receiving care through a veterinary cancer program","image_caption":"Canine patient photo: Bellingham Veterinary.","links":[("Anivive clinical trials","https://anivivelifesciences.com/trials")]},
     "Multicenter local T-cell-engager STS immunotherapy": {"title":"About the multicenter T-cell-engager study","about":"This U.S. study evaluates a locally injected hydrogel and T-cell engager before surgery for eligible dogs with accessible soft-tissue sarcoma; participating hospitals and study support are shown in the opportunity.","image":"https://wpcdn.web.wsu.edu/news/uploads/sites/2797/2020/12/Capecitabinephoto-1024x683.jpg","image_alt":"Canine oncology patient with a Washington State University veterinary clinician","image_caption":"Photo: Washington State University.","links":[("WSU study information","https://hospital.vetmed.wsu.edu/2025/11/03/feasibility-and-dose-escalation-clinical-trial-of-local-immunotherapy-for-solid-and-brain-tumors-in-canine-cancer-patient/")]},
     "PETcura (宝科雅) multicenter IIT": {"title":"About the PETcura multicenter study","about":"PETcura is coordinating an investigator-initiated study of personalized mRNA immunotherapy for dogs with cancer in China; treatment locations and diagnosis-specific requirements are listed inside the opportunity.","image":"https://www.petcura.cn/static/img/diagram_iit_8step.webp","image_alt":"PETcura personalized canine cancer immunotherapy study","image_caption":"Study image: PETcura.","links":[("PETcura study information","https://www.petcura.cn/zh/mrna-vaccine/study/")]},
     "Zhongnong Dongjun Laboratory": {"title":"About Zhongnong Dongjun Laboratory","about":"Zhongnong Dongjun Laboratory is associated with a current companion-animal oncology research listing in China; owners should confirm the treating hospital and enrollment details with the study team.","image":"https://www.petcura.cn/static/img/diagram_iit_8step.webp","image_alt":"Canine precision-oncology study diagram","image_caption":"Study image: PETcura.","links":[("Current study details","https://www.petcura.cn/zh/mrna-vaccine/study/")]},
     "University Hospital for Companion Animals, University of Copenhagen / Lund University": {"title":"About the Copenhagen–Lund research collaboration","about":"The University Hospital for Companion Animals in Copenhagen and Lund University collaborate on veterinary clinical research; the current listing identifies the participating hospital and study requirements below.","image":"https://ikv.ku.dk/om/fundraising/qimmeqhealth/Sl_dehund_til_fundraising_FB.jpg","image_alt":"Dog featured by the University of Copenhagen veterinary program","image_caption":"Photo: University of Copenhagen.","links":[("University Hospital research projects","https://dyrehospitalet.ku.dk/forskning/forskningsprojekter/")]},
 })
+for _name in (
+    "Woke Animal Hospital", "Jimmy Harry Animal Hospital",
+    "National Chung Hsing University Veterinary Teaching Hospital", "Bubble Animal Hospital",
+    "National Taiwan University Veterinary Hospital",
+    "Protect Animal Health (寶泰生醫) multicenter field trial",
+):
+    if _name in PROFILES:
+        PROFILES[_name]["image_caption"] = "Trial-site photo: Evergreen Animal Hospital."
+_IMAGE_REPLACEMENTS = {
+    "Johns Hopkins Center for Image-Guided Animal Therapy (CIGAT)": ("https://assets1.cbsnewsstatic.com/hub/i/r/2015/04/29/340c23e5-e5a3-40ef-bf68-dcc84ef47c4b/thumbnail/1200x630/6e2e666786e7a06c8786e0cd609401f5/restrictedimagesub.jpg", "Photo: Johns Hopkins CIGAT, published by CBS Baltimore."),
+    "University of Pennsylvania School of Veterinary Medicine": ("https://www.vet.upenn.edu/wp-content/uploads/2026/05/vet-hospital.jpg", "Photo: Penn Vet."),
+    "MedVet Clinical Studies Center": ("https://cdn.medvet.com/app/uploads/2025/07/Medical-Oncology_Cover-Photo-1024x819.jpg?strip=all&w=1080", "Photo: MedVet Medical Oncology."),
+    "University of Georgia College of Veterinary Medicine": ("https://news.uga.edu/wp-content/uploads/2017/12/20140115-LinAc-Mallory-Nagata-6916-1024x683.jpg", "Photo: UGA Veterinary Teaching Hospital / UGA Today."),
+    "UT Southwestern Veterinary Research and Oncology Clinic": ("https://www.utsouthwestern.edu/departments/radiation-oncology/assets/vroc-team-6.2026.JPG", "Photo: UT Southwestern VROC."),
+    "UT Southwestern Veterinary Radiation Oncology Clinic (VROC)": ("https://www.utsouthwestern.edu/departments/radiation-oncology/assets/vroc-team-6.2026.JPG", "Photo: UT Southwestern VROC."),
+}
+for _name, (_image, _caption) in _IMAGE_REPLACEMENTS.items():
+    if _name in PROFILES:
+        PROFILES[_name]["image"] = _image
+        PROFILES[_name]["image_caption"] = _caption
 for _center, _label, _url in (
     ("AniCura Ospedale Veterinario I Portoni Rossi", "Current European trial listing", _ONCOWAF_LINK),
     ("CHV AniCura Armonia", "Current European trial listing", _ONCOWAF_LINK),
