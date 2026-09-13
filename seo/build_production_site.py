@@ -173,7 +173,7 @@ def main():
         "cancer_types": 56,
         "countries": len({country_aliases.get(str(row.get("country") or "USA").strip(), str(row.get("country") or "USA").strip()) for row in rows}),
     }
-    apply_site_shell(out, stats)
+    apply_site_shell(out, stats, rows)
     generate_cancer_vaccine_article(out)
     vaccine_page = out / "articles" / "cancer-vaccines" / "index.html"
     if vaccine_page.exists():
