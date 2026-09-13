@@ -21,6 +21,10 @@ class AppSmokeTests(unittest.TestCase):
         self.assertIsNone(values["Cancer type"])
         self.assertEqual("I don't know", values["How certain is the diagnosis?"])
         self.assertEqual("USA", values["Country / region"])
+        self.assertNotIn("Sex", values)
+        number_values = {widget.label: widget.value for widget in app.number_input}
+        self.assertIsNone(number_values["Age (years)"])
+        self.assertIsNone(number_values["Weight (lb)"])
         search = next(button for button in app.button if button.label == "Find potential trials")
         self.assertTrue(search.disabled)
 
@@ -66,6 +70,15 @@ class AppSmokeTests(unittest.TestCase):
         next(widget for widget in app.selectbox if widget.label == "Cancer type").select("Soft tissue sarcoma")
         app.run()
         self.assertTrue(any(box.label == "I know the tumor size" for box in app.checkbox))
+
+    def test_tumor_location_question_is_adaptive(self):
+        app = self.open_app()
+        self.assertFalse(any(widget.label == "Where is the tumor located?" for widget in app.selectbox))
+        next(widget for widget in app.selectbox if widget.label == "Cancer type").select("Soft tissue sarcoma")
+        app.run()
+        location = next(widget for widget in app.selectbox if widget.label == "Where is the tumor located?")
+        self.assertEqual("I don't know", location.value)
+        self.assertIn("Deeper soft tissue — limb", location.options)
 
     def test_medical_answers_do_not_default_to_positive_facts(self):
         app = self.open_app()
