@@ -51,10 +51,15 @@ def main() -> None:
             alias_page.write_text(alias_text, encoding="utf-8")
             aliases += 1
 
-        def first_location(url: str) -> str:
+        def page_source(url: str) -> str:
             slug = url.rstrip("/").split("/")[-1]
             page = PAGE.parent / slug / "index.html"
-            source = page.read_text(encoding="utf-8") if page.exists() else ""
+            return page.read_text(encoding="utf-8") if page.exists() else ""
+
+        def first_location(url: str, name: str) -> str:
+            if name == "Ethos Veterinary Health / Ethos Discovery":
+                return "Multiple locations, including Port City Veterinary Referral Hospital, Portsmouth, NH"
+            source = page_source(url)
             match = re.search(
                 r'<div class="study-locations">.*?<li>(.*?)</li>', source, flags=re.S
             )
@@ -64,10 +69,20 @@ def main() -> None:
                 html.unescape(re.sub(r"<.*?>", "", match.group(1))).split()
             )
 
+        def location_zips(url: str, name: str) -> list[str]:
+            source = page_source(url)
+            found = re.findall(
+                r"\b(?:AL|AK|AZ|AR|CA|CO|CT|DE|FL|GA|HI|ID|IL|IN|IA|KS|KY|LA|ME|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT|VT|VA|WA|WV|WI|WY|DC)\s+(\d{5})(?:-\d{4})?\b",
+                source,
+            )
+            if name == "Ethos Veterinary Health / Ethos Discovery":
+                found.append("03801")
+            return list(dict.fromkeys(found))
+
         cards_html = "".join(
-            f'<a class="directory-card" href="{url}"><strong>{name}</strong>'
+            f'<a class="directory-card" href="{url}" data-zips="{",".join(location_zips(url,name))}"><strong>{name}</strong>'
             f'<span>{count} current {"opportunity" if count == "1" else "opportunities"}'
-            f'{" · " + html.escape(first_location(url)) if first_location(url) else ""}</span></a>'
+            f'{" · " + html.escape(first_location(url,name)) if first_location(url,name) else ""}</span></a>'
             for url, name, count in items
         )
         rebuilt = (
@@ -89,12 +104,15 @@ def main() -> None:
         tag, body = match.group(1), match.group(2)
         # Only attach coordinates to US addresses. Five-digit postal codes also
         # exist in Europe and must not be mistaken for US ZIP codes.
+        if 'data-zips=' in tag:
+            cards += 1
+            return f'{tag}>{body}</a>'
         zips = re.findall(
             r"\b(?:AL|AK|AZ|AR|CA|CO|CT|DE|FL|GA|HI|ID|IL|IN|IA|KS|KY|LA|ME|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT|VT|VA|WA|WV|WI|WY|DC)\s+(\d{5})(?:-\d{4})?\b",
             body,
         )
         cards += 1
-        return f'{tag} data-zip="{zips[-1] if zips else ""}">{body}</a>'
+        return f'{tag} data-zips="{",".join(dict.fromkeys(zips))}">{body}</a>'
 
     text = re.sub(
         r'(<a class="directory-card"[^>]*)>(.*?)</a>', add_zip, text, flags=re.S
@@ -143,15 +161,20 @@ async function searchByZip(zip,sequence){
   status.textContent='Finding the nearest listed centers…';
   try{
     const origin=await zipPoint(zip);
-    const located=centerCards.filter(card=>card.dataset.zip);
-    const points=await Promise.all(located.map(async card=>({card,point:await zipPoint(card.dataset.zip)})));
+    const located=centerCards.filter(card=>card.dataset.zips);
+    const points=await Promise.all(located.map(async card=>{
+      const candidates=await Promise.all(card.dataset.zips.split(',').filter(Boolean).map(async zip=>({zip,point:await zipPoint(zip)})));
+      const nearest=candidates.map(x=>({...x,miles:milesBetween(origin,x.point)})).sort((a,b)=>a.miles-b.miles)[0];
+      return {card,nearest};
+    }));
     if(sequence!==centerSearchSequence)return;
     centerCards.forEach(card=>{card.style.display='none';clearDistance(card);});
-    points.map(item=>({card:item.card,miles:milesBetween(origin,item.point)}))
+    points.map(item=>({card:item.card,miles:item.nearest.miles,nearestZip:item.nearest.zip}))
       .sort((a,b)=>a.miles-b.miles).forEach(item=>{
         item.card.style.display='';
         const label=document.createElement('span');label.className='center-distance';
-        label.textContent=Math.round(item.miles)+' miles from '+zip;
+        const nearestName=item.nearestZip==='03801'?'Port City Veterinary Referral Hospital · ':'';
+        label.textContent=nearestName+Math.round(item.miles)+' miles from '+zip;
         item.card.appendChild(label);centerGrid.appendChild(item.card);
       });
     status.textContent='Centers with US locations, nearest to '+origin.place+', '+origin.state+'. Distances are approximate.';
