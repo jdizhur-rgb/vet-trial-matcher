@@ -219,9 +219,11 @@ def add_contact_footer_link(text: str) -> str:
     if link in text:
         return text
     marker = f'<a href="{SITE}/how-we-verify/">How We Verify</a>'
-    if marker not in text:
-        raise AssertionError("shared footer navigation marker not found")
-    return text.replace(marker, marker + link, 1)
+    if marker in text:
+        return text.replace(marker, marker + link, 1)
+    if '</footer>' in text:
+        return text.replace('</footer>', f'<p>{link}</p></footer>', 1)
+    return text
 
 
 def add_contact_section(text: str) -> str:
