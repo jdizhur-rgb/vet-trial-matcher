@@ -19,6 +19,8 @@ def main():
     with_images = []
     for page in centers:
         text = page.read_text(encoding="utf-8", errors="replace")
+        if 'noindex,follow' in text and 'http-equiv="refresh"' in text:
+            continue
         block = overview_block(text)
         if not block:
             raise RuntimeError(f"Missing center overview: {page}")
@@ -26,7 +28,7 @@ def main():
             with_images.append(page)
         if 'center-fallback.jpg' in text:
             raise RuntimeError(f"Generic fallback image survived: {page}")
-    print(f"CENTER_IMAGES_OK pages={len(centers)} verified_images={len(with_images)} no_stock_fallbacks=1")
+    print(f"CENTER_IMAGES_OK pages={len(centers)} verified_images={len(with_images)} redirects_skipped={len(centers)-len([p for p in centers if 'noindex,follow' not in p.read_text(encoding='utf-8',errors='replace')])} no_stock_fallbacks=1")
 
 
 if __name__ == "__main__":
