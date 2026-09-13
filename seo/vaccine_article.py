@@ -45,7 +45,7 @@ def generate_cancer_vaccine_article(root: Path) -> None:
             '''<p>ONCEPT is a USDA-licensed DNA vaccine used as an <strong>adjunct treatment</strong> for dogs with stage II or III oral melanoma after local control of the primary disease has been achieved. Local control usually means surgery and, in some cases, radiation.</p>
 <p>Each dose contains DNA encoding human tyrosinase. Tyrosinase is expressed by melanoma cells. The human version is different enough to attract the dog's immune system but similar enough that the resulting immune response can also recognize canine melanoma cells.</p>
 <p>The initial course is four doses given two weeks apart, followed by boosters every six months.</p>
-<p>The licensing evidence suggested longer survival than a historical control group, but this was not a modern randomized trial with a concurrent control arm. The published numbers should not be read as a promise of a specific survival gain for an individual dog.</p>
+<p>The study used for licensing suggested longer survival than a historical control group, but it was not a randomized trial with a concurrent control arm. Later studies have produced mixed results, and a review of the published evidence concluded that a survival benefit remains uncertain. The published numbers should not be read as a promise of a specific survival gain for an individual dog.</p>
 <p class="vaccine-status"><strong>Status:</strong> licensed veterinary cancer vaccine. It complements local treatment rather than replacing it.</p>
 <p><a href="https://animalhealth.boehringer-ingelheim.com/pets/canine/products/therapeutics/oncept" rel="noopener">Official ONCEPT information</a></p>'''
         ),
@@ -54,7 +54,7 @@ def generate_cancer_vaccine_article(root: Path) -> None:
             '''<p>This peptide vaccine was developed by the Yale group led by Mark Mamula and is being evaluated through TheraJan in a USDA-regulated study. It targets the EGFR/HER2 family of tumor proteins and is intended to stimulate antibodies and T cells against cancer cells carrying these targets.</p>
 <p>As of September 2026, the study is open to dogs with confirmed <strong>osteosarcoma, hemangiosarcoma, or transitional cell carcinoma (urothelial/bladder cancer)</strong>. Eligibility is decided by the individual clinical site, not by Yale and not by a preliminary online match.</p>
 <p>The vaccine itself is currently supplied without charge to participating sites and owners. The owner remains responsible for evaluation, testing, and vaccine administration costs because the study is not fully funded.</p>
-<p>More than 600 dogs have reportedly received the vaccine, and early reports include some striking long-term responders. Those individual cases are not proof that another dog will have the same result. The current program is still collecting efficacy data, and USDA has not established full safety and efficacy for this investigational product.</p>
+<p>Canine Cancer Alliance reports that more than 600 dogs have received the vaccine, and its updates include some striking long-term responders. Those individual cases are not proof that another dog will have the same result. The current program is still collecting efficacy data, and USDA has not established the product's safety and efficacy.</p>
 <p class="vaccine-status"><strong>Status:</strong> experimental vaccine in an active USDA-regulated clinical study.</p>
 <p><a href="https://therajan.com/joomla/" rel="noopener">TheraJan study information</a><br><a href="https://www.ccralliance.org/yale-status" rel="noopener">Current study locations and updates</a></p>'''
         ),
@@ -77,7 +77,7 @@ def generate_cancer_vaccine_article(root: Path) -> None:
         ),
         _accordion(
             'Autologous tumor vaccines | Personalized vaccines from the dog\'s own tumor',
-            '''<p>An autologous vaccine is made from the patient's own tumor. Fresh tumor or lymph-node tissue is collected, processed, and used to expose the immune system to antigens from that individual cancer.</p>
+            '''<p>An autologous vaccine is made from the patient's own tumor material. The protocol may require fresh tumor tissue, and some have also used affected lymph-node tissue. The material is processed and used to expose the immune system to antigens from that individual cancer.</p>
 <p>The idea is biologically attractive, but the word <em>personalized</em> does not mean the treatment has been proven better. A small K9-ACV study found an increased tumor-directed immune response in 17 of 20 dogs that completed vaccination. An immune response in a laboratory test is not the same outcome as longer survival.</p>
 <p>A 2026 systematic review evaluated 24 studies of autologous tumor vaccines in dogs. The treatments were generally well tolerated. The most encouraging clinical evidence was in lymphoma, while evidence for many solid tumors remained limited and heterogeneous.</p>
 <p>One example is APAVAC/Vaxkit, an autologous vaccine platform used with chemotherapy in canine B-cell lymphoma. Availability and regulatory status differ by product and country, so owners should ask exactly which product is being proposed and what evidence exists for that diagnosis.</p>
@@ -133,6 +133,7 @@ def generate_cancer_vaccine_article(root: Path) -> None:
 <h2>Sources</h2>
 <ul class="article-sources">
 <li><a href="https://animalhealth.boehringer-ingelheim.com/pets/canine/products/therapeutics/oncept" rel="noopener">Boehringer Ingelheim: ONCEPT Canine Melanoma Vaccine, DNA</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/36356074/" rel="noopener">Review of the published evidence for ONCEPT</a></li>
 <li><a href="https://therajan.com/joomla/" rel="noopener">TheraJan: Canine EGFR/HER2 Peptide Cancer Immunotherapeutic</a></li>
 <li><a href="https://www.ccralliance.org/yale-status" rel="noopener">Canine Cancer Alliance: EGFR/HER2 Vaccine Study Status</a></li>
 <li><a href="https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/new-vaccine" rel="noopener">University of Minnesota: AAV vaccine trial for oral melanoma</a></li>
