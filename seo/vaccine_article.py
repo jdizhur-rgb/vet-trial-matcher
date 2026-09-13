@@ -41,28 +41,30 @@ def generate_cancer_vaccine_article(root: Path) -> None:
 
     accordions = ''.join([
         _accordion(
-            'ONCEPT | Oral melanoma',
-            '''<p>ONCEPT is a USDA-licensed DNA vaccine used as an <strong>adjunct treatment</strong> for dogs with stage II or III oral melanoma after local control of the primary disease has been achieved. Local control usually means surgery and, in some cases, radiation.</p>
-<p>Each dose contains DNA encoding human tyrosinase. Tyrosinase is expressed by melanoma cells. The human version is different enough to attract the dog's immune system but similar enough that the resulting immune response can also recognize canine melanoma cells.</p>
+            'ONCEPT | Licensed vaccine for oral melanoma',
+            '''<p>ONCEPT is a licensed vaccine for dogs with stage II or III oral melanoma. It is given after the tumor in the mouth has been treated with surgery or radiation. It is intended to help control cancer cells that may remain elsewhere in the body. It does not replace treatment of the original tumor.</p>
+<p>The vaccine teaches the dog's immune system to recognize tyrosinase, a protein found in melanoma cells. It uses the human version of the protein because it is different enough to attract the immune system, but similar enough for the response to recognize canine melanoma cells too.</p>
 <p>The initial course is four doses given two weeks apart, followed by boosters every six months.</p>
 <p>The study used for licensing suggested longer survival than a historical control group, but it was not a randomized trial with a concurrent control arm. Later studies have produced mixed results, and a review of the published evidence concluded that a survival benefit remains uncertain. The published numbers should not be read as a promise of a specific survival gain for an individual dog.</p>
 <p class="vaccine-status"><strong>Status:</strong> licensed veterinary cancer vaccine. It complements local treatment rather than replacing it.</p>
 <p><a href="https://animalhealth.boehringer-ingelheim.com/pets/canine/products/therapeutics/oncept" rel="noopener">Official ONCEPT information</a></p>'''
         ),
         _accordion(
-            'Yale / TheraJan EGFR-HER2 vaccine | Osteosarcoma, hemangiosarcoma, TCC',
-            '''<p>This peptide vaccine was developed by the Yale group led by Mark Mamula and is being evaluated through TheraJan in a USDA-regulated study. It targets the EGFR/HER2 family of tumor proteins and is intended to stimulate antibodies and T cells against cancer cells carrying these targets.</p>
-<p>As of September 2026, the study is open to dogs with confirmed <strong>osteosarcoma, hemangiosarcoma, or transitional cell carcinoma (urothelial/bladder cancer)</strong>. Eligibility is decided by the individual clinical site, not by Yale and not by a preliminary online match.</p>
+            'Yale / TheraJan | Experimental vaccine for three cancers',
+            '''<p>This experimental vaccine is being studied in dogs with <strong>osteosarcoma, hemangiosarcoma, or transitional cell carcinoma, also called bladder or urothelial cancer</strong>. It is not an approved treatment and is available only through participating study sites.</p>
+<p>The vaccine was developed by a Yale team led by Mark Mamula and is now being evaluated through TheraJan in a USDA-regulated study. It trains the immune system to recognize two proteins, EGFR and HER2, that can be found on cancer cells.</p>
+<p>As of September 2026, the study is open. The individual clinical site decides whether a dog qualifies. Yale and an online trial match cannot make that decision.</p>
 <p>The vaccine itself is currently supplied without charge to participating sites and owners. The owner remains responsible for evaluation, testing, and vaccine administration costs because the study is not fully funded.</p>
 <p>Canine Cancer Alliance reports that more than 600 dogs have received the vaccine, and its updates include some striking long-term responders. Those individual cases are not proof that another dog will have the same result. The current program is still collecting efficacy data, and USDA has not established the product's safety and efficacy.</p>
 <p class="vaccine-status"><strong>Status:</strong> experimental vaccine in an active USDA-regulated clinical study.</p>
 <p><a href="https://therajan.com/joomla/" rel="noopener">TheraJan study information</a><br><a href="https://www.ccralliance.org/yale-status" rel="noopener">Current study locations and updates</a></p>'''
         ),
         _accordion(
-            'University of Minnesota AAV vaccine | Oral melanoma',
-            '''<p>The University of Minnesota is enrolling dogs in a study of a new adeno-associated virus (AAV) cancer vaccine for malignant oral melanoma.</p>
+            'University of Minnesota | Oral melanoma vaccine trial',
+            '''<p>The University of Minnesota is testing a new vaccine for dogs with malignant oral melanoma. This is an experimental treatment available only through the clinical trial.</p>
+<p>The vaccine uses an adeno-associated virus, or AAV, as a delivery vehicle. The modified virus carries instructions intended to help the immune system recognize the cancer. The study checks dogs for existing antibodies to AAV because those antibodies may interfere with the vaccine.</p>
 <p>Dogs must have biopsy-confirmed oral malignant melanoma, at least stage I, be at least one year old, weigh at least 5 kg (11 lb), and meet additional health criteria. Dogs that have already received ONCEPT are excluded. The study also tests for pre-existing neutralizing antibodies to the AAV delivery system.</p>
-<p>The protocol includes staging, local treatment of the melanoma with surgery or radiation as clinically appropriate, vaccination, and scheduled follow-up. The study covers trial-related visits and provides up to a $4,000 credit toward local therapy performed at the University of Minnesota Veterinary Medical Center. Costs beyond that credit remain the owner's responsibility.</p>
+<p>The protocol includes staging, treatment of the tumor with surgery or radiation when appropriate, vaccination and scheduled follow-up. The study covers trial-related visits and provides up to a $4,000 credit toward local treatment performed at the University of Minnesota Veterinary Medical Center. Costs beyond that credit remain the owner's responsibility.</p>
 <p class="vaccine-status"><strong>Status:</strong> active clinical trial, open and enrolling as of September 2026.</p>
 <p><a href="https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/new-vaccine" rel="noopener">University of Minnesota trial page</a></p>'''
         ),
@@ -76,32 +78,34 @@ def generate_cancer_vaccine_article(root: Path) -> None:
 <p><a href="https://eliasanimalhealth.com/elias-cancer-immunotherapy/" rel="noopener">Official ECI treatment information</a><br><a href="https://eliasanimalhealth.com/available-locations/" rel="noopener">Authorized ECI treatment centers</a><br><a href="https://eliasanimalhealth.com/clinical-studies/" rel="noopener">Current ELIAS clinical studies</a></p>'''
         ),
         _accordion(
-            'Autologous tumor vaccines | Personalized vaccines from the dog\'s own tumor',
-            '''<p>An autologous vaccine is made from the patient's own tumor material. The protocol may require fresh tumor tissue, and some have also used affected lymph-node tissue. The material is processed and used to expose the immune system to antigens from that individual cancer.</p>
-<p>The idea is biologically attractive, but the word <em>personalized</em> does not mean the treatment has been proven better. A small K9-ACV study found an increased tumor-directed immune response in 17 of 20 dogs that completed vaccination. An immune response in a laboratory test is not the same outcome as longer survival.</p>
-<p>A 2026 systematic review evaluated 24 studies of autologous tumor vaccines in dogs. The treatments were generally well tolerated. The most encouraging clinical evidence was in lymphoma, while evidence for many solid tumors remained limited and heterogeneous.</p>
+            'Personalized vaccines made from the dog\'s own tumor',
+            '''<p>Some cancer vaccines are made separately for each dog from tissue removed during surgery. These are called autologous tumor vaccines. If this option is being considered, the oncology team may need to arrange collection and handling of fresh tumor tissue before the operation.</p>
+<p>The processed tissue exposes the immune system to material from that dog's cancer. The idea is promising, but <em>personalized</em> does not mean proven to work better. In a small K9-ACV study, 17 of 20 dogs that completed vaccination developed a measurable immune response. A response in a laboratory test does not necessarily mean longer survival.</p>
+<p>A 2026 review examined 24 studies of these vaccines in dogs. They were generally well tolerated. The strongest signs of clinical benefit were in lymphoma, while the evidence for many solid tumors was still limited and difficult to compare.</p>
 <p>One example is APAVAC/Vaxkit, an autologous vaccine platform used with chemotherapy in canine B-cell lymphoma. Availability and regulatory status differ by product and country, so owners should ask exactly which product is being proposed and what evidence exists for that diagnosis.</p>
 <p class="vaccine-status"><strong>Status:</strong> varies by product. Some are veterinarian-directed products; others remain investigational.</p>
 <p><a href="https://vaxkit.com/" rel="noopener">APAVAC / Vaxkit information</a></p>'''
         ),
         _accordion(
-            'Listeria-HER2 vaccine | Osteosarcoma research',
-            '''<p>This experimental platform uses modified <em>Listeria monocytogenes</em> to stimulate an immune response against HER2.</p>
-<p>The first Phase I study included only 18 dogs with appendicular osteosarcoma after surgery and chemotherapy. Fifteen of 18 developed a HER2-specific immune response, and comparison with historical controls suggested fewer metastases and longer survival.</p>
+            'Listeria-HER2 | Osteosarcoma vaccine research',
+            '''<p>This experimental vaccine has been studied in dogs with osteosarcoma after amputation and chemotherapy. It is a research treatment, not a standard vaccine that an oncologist can routinely order.</p>
+<p>The vaccine uses a weakened form of <em>Listeria</em> bacteria to draw the immune system's attention to HER2, a protein found on some cancer cells.</p>
+<p>The first study included only 18 dogs. Fifteen developed an immune response to HER2, and comparison with dogs treated previously suggested fewer metastases and longer survival.</p>
 <p>A much larger prospective multicenter study then treated 118 dogs. It did <strong>not</strong> show a statistically significant improvement in disease-free interval or overall survival compared with the historical standard-treatment group.</p>
 <p>A 2026 pilot study combined palliative radiation with Listeria-HER2 immunotherapy in 15 dogs. Five had notably longer local control and survival associated with certain immune characteristics. That result is interesting, but 15 dogs are not enough to establish a new standard of care.</p>
 <p class="vaccine-status"><strong>Status:</strong> experimental research platform, not standard osteosarcoma treatment.</p>'''
         ),
         _accordion(
-            'Peptide vaccine | Hemangiosarcoma research',
-            '''<p>A Phase II study evaluated a peptide cancer vaccine in 28 dogs with aggressive hemangiosarcoma after standard surgery and doxorubicin chemotherapy.</p>
+            'Experimental vaccine | Hemangiosarcoma research',
+            '''<p>An experimental vaccine has been studied in 28 dogs with aggressive hemangiosarcoma. The dogs received it after standard surgery and doxorubicin chemotherapy. This vaccine is not currently a routine treatment.</p>
+<p>It was made from short pieces of proteins, called peptides, selected to help the immune system recognize the cancer.</p>
 <p>The investigators documented tumor-specific immune responses and did not observe serious vaccine-related toxicity. Outcomes were compared with a retrospective group of 32 dogs rather than a randomized concurrent control group.</p>
 <p>This is useful evidence that the vaccine can generate an immune response and appears feasible, but it is not enough to treat the approach as established therapy.</p>
 <p class="vaccine-status"><strong>Status:</strong> research evidence; not a standard commercially available hemangiosarcoma vaccine.</p>'''
         ),
         _accordion(
-            'Preventive cancer vaccines | VACCS and prevention research',
-            '''<p>Most cancer vaccines are therapeutic. They are given after cancer has already been diagnosed. Researchers have also tested whether vaccination could prevent cancer from developing in healthy dogs.</p>
+            'Can a vaccine prevent cancer? | VACCS research',
+            '''<p>Most cancer vaccines are given after a dog already has cancer. The VACCS project asked a different question: could a vaccine reduce the chance of cancer developing in a healthy dog?</p>
 <p>The Vaccination Against Canine Cancer Study (VACCS) enrolled 804 healthy dogs in a randomized, placebo-controlled study. Its purpose was to test a multivalent vaccine before cancer appeared and then follow the dogs for cancer development over time.</p>
 <p>This is fundamentally different from ONCEPT, the Yale vaccine, or an autologous tumor vaccine. There is currently no universal preventive cancer vaccine available for dogs in routine veterinary practice.</p>
 <p class="vaccine-status"><strong>Status:</strong> prevention research, not an available routine vaccine.</p>'''
