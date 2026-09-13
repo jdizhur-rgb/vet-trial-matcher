@@ -2,6 +2,10 @@ name: Weekly recruitment content review
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/weekly_content_audit.py'
+      - '.github/workflows/weekly-content-audit.yml'
   schedule:
     - cron: '37 13 * * 0'
 
