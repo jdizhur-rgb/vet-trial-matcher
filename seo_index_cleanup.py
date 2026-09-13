@@ -216,13 +216,15 @@ def add_verification_footer_link(text: str) -> str:
 def add_contact_footer_link(text: str) -> str:
     """Expose the project email in the shared footer without duplicating it."""
     link = f'<a href="mailto:{CONTACT_EMAIL}">Contact</a>'
-    if link in text:
+    footer_match = re.search(r'<footer>.*?</footer>', text, re.S)
+    if footer_match and link in footer_match.group(0):
         return text
     marker = f'<a href="{SITE}/how-we-verify/">How We Verify</a>'
+    if footer_match:
+        footer = footer_match.group(0).replace('</footer>', f'<p>{link}</p></footer>', 1)
+        return text[:footer_match.start()] + footer + text[footer_match.end():]
     if marker in text:
         return text.replace(marker, marker + link, 1)
-    if '</footer>' in text:
-        return text.replace('</footer>', f'<p>{link}</p></footer>', 1)
     return text
 
 
