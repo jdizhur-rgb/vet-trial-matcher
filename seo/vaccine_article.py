@@ -26,6 +26,8 @@ VACCINE_CSS = r'''
 @media(max-width:560px){.vaccine-accordion summary{padding:13px 14px;padding-right:38px}.vaccine-accordion summary:after{right:14px}.vaccine-accordion .accordion-body{padding:3px 14px 14px}}
 '''
 
+HERO = "https://www.vet.upenn.edu/wp-content/uploads/2025/01/mason-res-header.jpg"
+
 
 def _accordion(title: str, body: str) -> str:
     return f'''<details class="vaccine-accordion"><summary>{title}</summary><div class="accordion-body">{body}</div></details>'''
@@ -108,7 +110,7 @@ def generate_cancer_vaccine_article(root: Path) -> None:
 
     body = f'''<article class="article-page"><h1>Cancer Vaccines for Dogs</h1>
 <p class="article-deck">Cancer vaccines are already part of veterinary oncology, but the word <em>vaccine</em> covers very different treatments. One is licensed for oral melanoma. Some are personalized from a dog's own tumor. Others are available only through clinical trials.</p>
-<figure class="article-hero"><img src="{SITE}/assets/ect-article-hero.jpg" alt="A dog being examined by a veterinary oncology team" width="1600" height="891"><figcaption>Veterinary cancer immunotherapy may be used as standard, licensed, or experimental treatment depending on the product.</figcaption></figure>
+<figure class="article-hero"><img src="{HERO}" alt="Researchers working in a canine cancer immunotherapy laboratory" width="1600" height="891"><figcaption>Canine cancer immunotherapy research in the Mason Immunotherapy Research Laboratory. Photo: University of Pennsylvania School of Veterinary Medicine.</figcaption></figure>
 <p>Unlike routine vaccines against infectious disease, most cancer vaccines are not given to prevent cancer. They are used after a tumor has been diagnosed. Their goal is to help the immune system recognize tumor-associated targets and attack cancer cells more effectively.</p>
 <p>That does not make every cancer vaccine interchangeable. The diagnosis, stage, previous treatment, available tumor tissue, and the exact vaccine all matter.</p>
 <div class="article-note"><strong>One useful question before anything else:</strong> Is this a licensed treatment, a veterinarian-directed product, or an experimental vaccine available only through a clinical study?</div>
@@ -125,7 +127,7 @@ def generate_cancer_vaccine_article(root: Path) -> None:
 <div class="article-cta"><a href="{options_finder}">Search other oncology treatment options and centers</a></div>
 <p>A preliminary match in Vet Trial Finder is not final eligibility. The treating or research team makes that decision after reviewing the medical record.</p>
 <h2>The bottom line</h2>
-<p>There is no single "cancer vaccine." ONCEPT is a licensed melanoma vaccine. ELIAS ECI includes a personalized vaccine as part of a licensed multi-step cell therapy. Yale/ThreaJan and the University of Minnesota are testing different vaccine strategies in active studies. Other platforms remain research tools whose early results still need confirmation.</p>
+<p>There is no single "cancer vaccine." ONCEPT is a licensed melanoma vaccine. ELIAS ECI includes a personalized vaccine as part of a licensed multi-step cell therapy. Yale/TheraJan and the University of Minnesota are testing different vaccine strategies in active studies. Other platforms remain research tools whose early results still need confirmation.</p>
 <p>The useful question is not whether cancer vaccines work in general. It is whether a particular vaccine has meaningful evidence for a particular dog, cancer, stage, and treatment plan.</p>
 <div class="article-byline"><p><strong>Author:</strong> Yuliia Dizhur</p><p><strong>Published:</strong> September 13, 2026</p><p><strong>Last updated:</strong> September 13, 2026</p><p>This article is educational and does not replace consultation with a veterinary oncologist.</p></div>
 <h2>Sources</h2>
@@ -143,6 +145,7 @@ def generate_cancer_vaccine_article(root: Path) -> None:
 <li><a href="https://pubmed.ncbi.nlm.nih.gov/42291138/" rel="noopener">2026 radiation plus Listeria-HER2 pilot study</a></li>
 <li><a href="https://pubmed.ncbi.nlm.nih.gov/37686485/" rel="noopener">Hemangiosarcoma peptide vaccine Phase II study</a></li>
 <li><a href="https://pubmed.ncbi.nlm.nih.gov/38056066/" rel="noopener">Vaccination Against Canine Cancer Study (VACCS)</a></li>
+<li><a href="https://www.vet.upenn.edu/research/research-laboratories/mason-immunotherapy-research-laboratory/our-research/" rel="noopener">University of Pennsylvania School of Veterinary Medicine: Mason Immunotherapy Research Laboratory</a></li>
 </ul></article>'''
 
     dest = root / 'articles' / 'cancer-vaccines'
@@ -158,7 +161,7 @@ def generate_cancer_vaccine_article(root: Path) -> None:
         '@context': 'https://schema.org',
         '@type': 'Article',
         'headline': 'Cancer Vaccines for Dogs',
-        'image': [f'{SITE}/assets/ect-article-hero.jpg'],
+        'image': [HERO],
         'datePublished': '2026-09-13',
         'dateModified': '2026-09-13',
         'author': {'@type': 'Person', 'name': 'Yuliia Dizhur'},
