@@ -1,7 +1,7 @@
 from pathlib import Path
 import json,re,sys
 from difflib import SequenceMatcher
-BASE=Path('data/trials_base.json');UPD=Path('data/trial_updates.json');APPLY='--apply' in sys.argv
+BASE=Path('data/trials_base.json');APPLY='--apply' in sys.argv
 
 def norm(s):
  s=str(s or '').lower().replace('–','-').replace('—','-');s=re.sub(r'\b(university|college|school|veterinary|medicine|medical|center|centre|hospital|clinic|clinical|trial|study|current|recruiting|actively|canine|feline|dogs?|cats?|for|with|of|the|and|a|an|phase|pilot)\b',' ',s);return ' '.join(re.findall(r'[a-z0-9]+',s))
@@ -25,12 +25,9 @@ def same(a,b):
  return False,''
 def quality(x):return(bool(x.get('verified')),x.get('status_confidence') in {'confirmed_current','current'},bool(x.get('contacts')),len(str(x.get('notes',''))))
 def load():
- base=json.loads(BASE.read_text());base=base.get('trials',base.get('records',[])) if isinstance(base,dict) else base;upd=json.loads(UPD.read_text());deleted=set(upd.get('delete',[]));byid={x['id']:x for x in base}
- # Effective catalog semantics: partial upserts MERGE onto base records; delete has final precedence.
- for x in upd.get('upsert',[]):byid[x['id']]={**byid.get(x['id'],{}),**x}
- for rid in deleted:byid.pop(rid,None)
- return base,upd,[x for x in byid.values() if x.get('study_type')=='treatment' and x.get('available_for_matching') is True]
-base,upd,rows=load();pairs=[]
+ base=json.loads(BASE.read_text());base=base.get('trials',base.get('records',[])) if isinstance(base,dict) else base
+ return base,[x for x in base if x.get('study_type')=='treatment' and x.get('available_for_matching') is True]
+base,rows=load();pairs=[]
 for i,a in enumerate(rows):
  for b in rows[i+1:]:
   ok,why=same(a,b)
@@ -42,8 +39,8 @@ for a,b,why in pairs:
 print(json.dumps({'mode':'apply' if APPLY else 'audit','effective_matchable_treatments':len(rows),'probable_duplicates':len(report),'pairs':report},ensure_ascii=False,indent=2))
 if not APPLY:sys.exit(1 if report else 0)
 if removed:
- upd['upsert']=[x for x in upd.get('upsert',[]) if x.get('id') not in removed];upd['delete']=sorted(set(upd.get('delete',[]))|removed);UPD.write_text(json.dumps(upd,ensure_ascii=False,indent=2)+'\n')
-_,_,rows=load();left=[]
+ base=[x for x in base if x.get('id') not in removed];BASE.write_text(json.dumps(base,ensure_ascii=False,indent=2)+'\n')
+_,rows=load();left=[]
 for i,a in enumerate(rows):
  for b in rows[i+1:]:
   ok,why=same(a,b)

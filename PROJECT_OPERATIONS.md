@@ -27,13 +27,9 @@ Pipeline/watchlist records that do not yet have a usable owner-facing treatment 
 
 ## 3. Effective catalog
 
-Production matching is based on the effective catalog assembled from:
-- `data/trials_base.json`
-- `data/trial_updates.json`
+Production matching uses one canonical catalog: `data/trials_base.json`.
 
-Effective-catalog semantics are: start with base by ID; MERGE partial upserts onto the existing record; then apply delete markers with FINAL precedence. All consumers (matcher, SEO, dedupe, smoke tests) must use the same semantics. Never replace a base record with a partial upsert, and never apply deletes before upserts in a way that lets a deleted upsert be resurrected.
-
-A staging/research/catalog-patch file is NOT production. A script or workflow existing is NOT proof that its data reached production.
+Do not create or load `trial_updates.json`, `catalog_patch_*.json`, or other layered patch files. A verified catalog change must be merged directly into the canonical record set, followed by full-catalog dedupe and matcher/SEO validation. A script or workflow existing is not proof that its data reached production.
 
 For public treatment matching, records normally need:
 - `study_type == "treatment"`
@@ -47,9 +43,9 @@ Every catalog update must be treated as incomplete until this full loop succeeds
 
 1. Research and verify source/status/access.
 2. Build candidate record(s).
-3. Run semantic dedupe against the FULL effective catalog (`base + updates`), not only the staging patch.
+3. Run semantic dedupe against the full canonical catalog, not only the proposed records.
 4. Merge/update an existing record when the same real-world study/program already exists.
-5. Promote the record to `trial_updates.json` (or the canonical production source used by the app).
+5. Write the reviewed final record directly to `data/trials_base.json`.
 6. Rebuild/read the effective catalog.
 7. Run post-promotion duplicate checks again.
 8. Run matcher smoke tests for the affected species/country/cancer combinations.
@@ -96,22 +92,15 @@ For every newly promoted matchable record, automated validation should assert:
 
 A failed assertion means the update FAILED. It must not be described as completed.
 
-## 7. Staging patches
+## 7. Research staging
 
-Files such as `data/catalog_patch_*` are staging inputs. Their presence must never cause a country/filter option to imply that production contains matching records unless the effective catalog actually contains them.
-
-When multiple staging patches are created in one audit, promotion must be atomic or followed by a reconciliation that reports:
-- staged count
-- promoted count
-- merged-as-duplicate count
-- intentionally withheld count + reason
-- failed count + reason
+Do not stage catalog changes as patch files inside `data/`. Keep research notes outside the production catalog. Only reviewed final records belong in `data/trials_base.json`.
 
 ## 8. China/Asia incident — 2026-09-07
 
-China, Taiwan, and Korea were researched and staging patches were created. China had four dog treatment records in `data/catalog_patch_china_20260907.json`, but China showed 0 results in the live matcher because staging data had not actually reached `trial_updates.json` even though a merger script/workflow had been created.
+China, Taiwan, and Korea were previously researched through staging patch files. China once showed 0 results in the live matcher because those records had not reached the production catalog even though a merger workflow existed. The layered patch system was retired on 2026-09-13; all retained records now live directly in `data/trials_base.json`.
 
-Lesson: workflow creation/triggering is not final-state verification. Always fetch/search the resulting `trial_updates.json` / effective catalog after the workflow and then test matcher behavior.
+Lesson: workflow creation/triggering is not final-state verification. Always fetch/search the canonical catalog after the workflow and then test matcher behavior.
 
 Do NOT “fix” this class of bug by merely removing the country from the selector when genuine verified treatment records exist in staging. Reconcile and promote the records correctly.
 

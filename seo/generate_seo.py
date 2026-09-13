@@ -36,10 +36,8 @@ DISEASE_INFO={
 'chemodectoma':('Chemodectoma, also called aortic body tumor, usually arises at the heart base. Some tumors grow slowly, while others cause cardiac compression, pericardial effusion or metastasis.','Management depends on size, symptoms and resectability. Surgery is difficult for many heart-base tumors; radiation, including stereotactic approaches, may provide local control. Medical or targeted therapy and procedures for pericardial effusion may be used in selected patients.'),
 }
 def load_effective():
- base=json.loads((ROOT/'data'/'trials_base.json').read_text()); upd=json.loads((ROOT/'data'/'trial_updates.json').read_text()); rows={r['id']:r for r in base}
- for p in upd.get('upsert',[]): rows[p['id']]={**rows.get(p['id'],{}),**p}
- for rid in upd.get('delete',[]): rows.pop(rid,None)
- return [r for r in rows.values() if r.get('study_type')=='treatment' and r.get('available_for_matching') is True]
+ rows=json.loads((ROOT/'data'/'trials_base.json').read_text())
+ return [r for r in rows if r.get('study_type')=='treatment' and r.get('available_for_matching') is True]
 def esc(x): return html.escape(str(x or ''))
 def slugify(x): return re.sub(r'-+','-',re.sub(r'[^a-z0-9]+','-',x.lower())).strip('-')
 def norm(x): return re.sub(r'[^a-z0-9]+',' ',str(x).lower()).strip()

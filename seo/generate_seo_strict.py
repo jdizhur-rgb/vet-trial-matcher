@@ -194,14 +194,8 @@ def merge(old,patch):
 
 
 def load_effective():
-    base=json.loads((g.ROOT/'data'/'trials_base.json').read_text());rows={r['id']:r for r in base}
-    paths=[g.ROOT/'data'/'trial_updates.json']+sorted((g.ROOT/'data').glob('catalog_patch_*.json'))
-    for path in paths:
-        if not path.exists():continue
-        doc=json.loads(path.read_text())
-        for rid in doc.get('delete',[]):rows.pop(rid,None)
-        for p in doc.get('upsert',[]):rows[p['id']]=merge(rows.get(p['id'],{}),p)
-    return [r for r in rows.values() if r.get('study_type')=='treatment' and r.get('available_for_matching') is True and r.get('status_confidence') in CURRENT]
+    rows=json.loads((g.ROOT/'data'/'trials_base.json').read_text())
+    return [r for r in rows if r.get('study_type')=='treatment' and r.get('available_for_matching') is True and r.get('status_confidence') in CURRENT]
 g.load_effective=load_effective
 
 

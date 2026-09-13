@@ -21,14 +21,7 @@ def merge(old, patch):
     return out
 
 def load_worktree():
-    rows={r['id']:r for r in json.loads((DATA/'trials_base.json').read_text())}
-    paths=[DATA/'trial_updates.json']+sorted(DATA.glob('catalog_patch_*.json'))
-    for p in paths:
-        if not p.exists(): continue
-        d=json.loads(p.read_text())
-        for rid in d.get('delete',[]): rows.pop(rid,None)
-        for patch in d.get('upsert',[]): rows[patch['id']]=merge(rows.get(patch['id'],{}),patch)
-    return rows
+    return {r['id']:r for r in json.loads((DATA/'trials_base.json').read_text())}
 
 def git_text(ref,path):
     try: return subprocess.check_output(['git','show',f'{ref}:{path}'],text=True,stderr=subprocess.DEVNULL)
@@ -108,15 +101,6 @@ def main():
                 near.append((score,a['id'],b['id'],a.get('title',''),b.get('title','')))
     print('NEAR_DUP_CANDIDATES',len(near))
     for score,a,b,ta,tb in sorted(near,reverse=True): print('NEARDUP',f'{score:.3f}',a,b,'|',ta,'||',tb)
-
-    deleted=[]
-    for p in sorted(DATA.glob('catalog_patch_*.json')):
-        try: d=json.loads(p.read_text())
-        except Exception: continue
-        deleted += d.get('delete',[])
-    survivors=sorted(set(deleted)&set(cur))
-    print('DELETED_IDS_SURVIVING_EFFECTIVE',len(survivors))
-    for x in survivors: print('DELETE_SURVIVOR',x)
 
     required=('id','title','center','species','cancers','status_confidence')
     incomplete=[]

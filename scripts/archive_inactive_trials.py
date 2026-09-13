@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """Build a clean archive of inactive/closed studies from the effective catalog.
 
-The patient-facing working catalog remains unchanged. This script is the migration
-step for separating inactive history from current opportunities without losing
-provenance. It applies the same base + sorted patch merge semantics as the Finder.
+The patient-facing working catalog remains unchanged. This script separates
+inactive history from current opportunities without losing provenance.
 """
 from __future__ import annotations
 
@@ -18,27 +17,10 @@ CURRENT = {"current", "confirmed_current"}
 
 
 def merge_catalog():
-    rows = {x["id"]: x for x in json.loads((DATA / "trials_base.json").read_text(encoding="utf-8"))}
-    paths = [DATA / "trial_updates.json", *sorted(DATA.glob("catalog_patch_*.json"))]
-    for path in paths:
-        if not path.exists():
-            continue
-        doc = json.loads(path.read_text(encoding="utf-8"))
-        for trial_id in doc.get("delete", []):
-            rows.pop(str(trial_id), None)
-        for patch in doc.get("upsert", []):
-            trial_id = str(patch["id"])
-            if trial_id not in rows:
-                rows[trial_id] = patch
-                continue
-            merged = dict(rows[trial_id])
-            for key, value in patch.items():
-                if key in {"requires", "excludes"} and isinstance(value, dict):
-                    nested = dict(merged.get(key, {})); nested.update(value); merged[key] = nested
-                else:
-                    merged[key] = value
-            rows[trial_id] = merged
-    return rows
+    return {
+        x["id"]: x
+        for x in json.loads((DATA / "trials_base.json").read_text(encoding="utf-8"))
+    }
 
 
 def is_current(row):
