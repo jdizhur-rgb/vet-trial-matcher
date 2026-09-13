@@ -148,6 +148,7 @@ activate_feline_branches()
 
 
 def main():
+    rows = generate_seo.load_effective()
     generate_seo_strict.main()
     enhance_center_pages(SEO_DIR / "site")
     finalize_cancer_pages(SEO_DIR / "site")
@@ -164,7 +165,14 @@ def main():
         key=feline.parent.name.replace('-', ' ')
         has_guide='class="disease owner-guide"' in feline.read_text(encoding="utf-8")
         assert has_guide == (key in FELINE_PRACTICAL), feline
-    apply_site_shell(out)
+    country_aliases = {"United Kingdom": "UK", "The Netherlands": "Netherlands", "Czech Republic": "Czechia"}
+    stats = {
+        "opportunities": len(rows),
+        "centers": len({str(row.get("center") or "").strip() for row in rows if str(row.get("center") or "").strip()}),
+        "cancer_types": 56,
+        "countries": len({country_aliases.get(str(row.get("country") or "USA").strip(), str(row.get("country") or "USA").strip()) for row in rows}),
+    }
+    apply_site_shell(out, stats)
     home = out / "index.html"
     if home.exists():
         text = home.read_text(encoding="utf-8")
