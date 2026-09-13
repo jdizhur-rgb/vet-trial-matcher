@@ -30,9 +30,11 @@ jobs:
       - name: Restore production builder and refined Kot visual layer
         run: |
           cp seo/center_directory.py /tmp/main-center-directory.py
+          cp seo/generate_seo_strict.py /tmp/main-generate-seo-strict.py
           git fetch origin cancer-page-audit --depth=1
           git checkout FETCH_HEAD -- seo/
           cp /tmp/main-center-directory.py seo/center_directory.py
+          cp /tmp/main-generate-seo-strict.py seo/generate_seo_strict.py
           git fetch origin cancer-page-audit-depth --depth=1
           git checkout FETCH_HEAD -- \
             seo/cancer_benchmark_content.py \
@@ -93,6 +95,8 @@ jobs:
           PY
       - name: Apply production search indexing policy
         run: python seo_index_cleanup.py
+      - name: Update Help for current location features
+        run: python help_content_update.py
       - name: Add real ZIP search to oncology-center directory
         run: python center_zip_search.py
       - name: Validate refined Kot design with current catalog
@@ -164,16 +168,22 @@ jobs:
           assert 'async function searchByZip' in centers
           assert 'api.zippopotam.us/us/' in centers
           assert 'data-zip=' in centers and 'center-search-status' in centers
+          center_pages=list((root/'centers').glob('*/index.html'))
+          assert center_pages
+          assert all('Before you contact the center' in p.read_text(encoding='utf-8') for p in center_pages)
+          assert all('<div class="center-facts">' in p.read_text(encoding='utf-8') for p in center_pages)
           source=Path('seo/about_page.py').read_text(encoding='utf-8')
           assert not any(x in source for x in ('assets_embedded','base64','urllib.request','fallback_url'))
           senya=root/'assets/senya-about.jpg'; yasha=root/'assets/yasha-about.jpg'
           assert senya.exists() and senya.stat().st_size>50000, senya.stat().st_size
           assert yasha.exists() and yasha.stat().st_size>50000, yasha.stat().st_size
           help_page=(root/'help/index.html').read_text(encoding='utf-8')
-          assert help_page.count('<details>') == 13
-          assert help_page.count('<summary>') == 13
+          assert help_page.count('<details>') == 15
+          assert help_page.count('<summary>') == 15
           assert 'class="help-faq"' in help_page
           assert '.help-center .cta{padding:8px 13px' in help_page
+          assert 'Which countries are included?' in help_page
+          assert 'How do I find the nearest oncology centers?' in help_page
           cancer=[]
           for region in ('north-america','uk-europe'):
             for species in ('dogs','cats'): cancer += list((root/region/species).glob('*/index.html'))
