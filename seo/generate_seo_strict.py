@@ -199,6 +199,14 @@ ETHOS_HOSPITALS = {
     "Pet Emergency and Specialty Center of Marin", "SAGE Veterinary Centers",
     "Veterinary Specialty Hospital - North County", "Veterinary Specialty Hospital - Sorrento Valley",
     "WVRC Grafton", "WVRC Racine Kenosha", "WVRC Waukesha",
+    "Metropolitan Veterinary Hospital", "Metropolitan Veterinary Hospital - Akron",
+    "Summit Veterinary Referral Center", "Veterinary Specialty Hospital",
+    "Veterinary Specialty Hospital – North County", "Veterinary Specialty Hospital – Sorrento Valley",
+    "Overland Park Veterinary Emergency & Specialty",
+    "Southeast Veterinary Oncology & Internal Medicine",
+    "Veterinary Emergency + Referral Center",
+    "WVRC – Grafton", "WVRC – Racine/Kenosha", "WVRC – Waukesha",
+    "SAGE", "SAGE – San Francisco", "CASE",
 }
 
 CENTER_RULES=(
