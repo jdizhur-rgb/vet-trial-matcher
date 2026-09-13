@@ -497,7 +497,10 @@ if search_clicked:
                 if tr.get('intervention'):
                     st.markdown('**What is offered:** ' + tr['intervention'])
                 if tr.get('funding'):
-                    st.markdown('**Costs / coverage:** ' + tr['funding'])
+                    # Dollar amounts must stay plain text; otherwise Markdown
+                    # treats the text between two $ signs as inline mathematics.
+                    funding_text = str(tr['funding']).replace('$', r'\$')
+                    st.markdown('**Costs / coverage:** ' + funding_text)
                 if tr['id'] in _distances:
                     st.markdown(f"**Approximate distance:** {_distances[tr['id']]:.0f} miles")
                 st.markdown('**Why it may fit:** ' + '; '.join(_match.reasons) + '.')
