@@ -130,12 +130,13 @@ label, [data-testid="stWidgetLabel"] p {
         padding: .48rem .6rem;
     }
     .finder-intro {
-        margin: .15rem 0 .05rem;
+        margin: .55rem 0 .2rem;
     }
     div[data-testid="stMainBlockContainer"] [data-testid="stCaptionContainer"] {
         margin-bottom: 0 !important;
     }
     div[data-testid="stMainBlockContainer"] [data-testid="stExpander"] {
+        margin-top: .25rem !important;
         margin-bottom: .2rem !important;
     }
 }
@@ -190,24 +191,17 @@ st.header('1. Your pet')
 c1, c2 = st.columns(2)
 with c1:
     species = st.selectbox('Species', ['Dog','Cat'])
-    age_known = st.checkbox('I know the age', value=False)
-    age = st.number_input('Age (years)', 0.0, 30.0, value=None, step=0.5) if age_known else None
+    age = st.number_input('Age (years, optional)', 0.0, 30.0, value=None, step=0.5)
 with c2:
-    weight_known = st.checkbox('I know the weight')
-    weight_unit = st.radio('Weight unit', ['lb', 'kg'], horizontal=True) if weight_known else 'lb'
-    weight_value = None
-    if weight_known:
-        if weight_unit == 'kg':
-            weight_value = st.number_input('Weight (kg)', 0.1, 113.5, value=None, step=0.1)
-            weight_kg = weight_value
-            weight_lb = weight_value * 2.2046226218 if weight_value is not None else None
-        else:
-            weight_value = st.number_input('Weight (lb)', 0.2, 250.0, value=None, step=0.5)
-            weight_lb = weight_value
-            weight_kg = weight_value / 2.2046226218 if weight_value is not None else None
+    weight_unit = st.radio('Weight unit', ['lb', 'kg'], horizontal=True)
+    if weight_unit == 'kg':
+        weight_value = st.number_input('Weight (kg, optional)', 0.1, 113.5, value=None, step=0.1)
+        weight_kg = weight_value
+        weight_lb = weight_value * 2.2046226218 if weight_value is not None else None
     else:
-        weight_lb = None
-        weight_kg = None
+        weight_value = st.number_input('Weight (lb, optional)', 0.2, 250.0, value=None, step=0.5)
+        weight_lb = weight_value
+        weight_kg = weight_value / 2.2046226218 if weight_value is not None else None
     sex = UNKNOWN
 
 trial_countries = sorted({t.get('country', 'USA') for t in TRIALS}, key=lambda x: (x != 'USA', x))
@@ -477,8 +471,8 @@ if search_clicked:
         species=species,
         cancer=cancer,
         diagnosis_status=diagnosis_status,
-        age=age if age_known else None,
-        weight_lb=weight_lb if weight_known else None,
+        age=age,
+        weight_lb=weight_lb,
         sex=sex,
         tumor_status=tumor_status,
         metastasis=metastasis,
