@@ -62,6 +62,19 @@ class AppSmokeTests(unittest.TestCase):
         app.run()
         self.assertTrue(any(box.label == "I know the tumor size" for box in app.checkbox))
 
+    def test_medical_answers_do_not_default_to_positive_facts(self):
+        app = self.open_app()
+        next(widget for widget in app.selectbox if widget.label == "Cancer type").select("Oral melanoma")
+        app.run()
+        values = {widget.label: widget.value for widget in app.selectbox}
+        for label in (
+            "Current tumor status", "Metastases",
+            "Has your veterinarian said the disease is localized?",
+            "Surgery", "Chemotherapy", "Prior or current cancer immunotherapy",
+            "Radiation to this tumor",
+        ):
+            self.assertEqual("I don't know", values[label], label)
+
     def test_europe_has_a_country_submenu(self):
         app = self.open_app()
         next(widget for widget in app.selectbox if widget.label == "Country / region").select("Europe")

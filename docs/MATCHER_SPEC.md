@@ -14,7 +14,7 @@ This document defines the patient-facing matcher behavior. Changes to this contr
 ## Questions
 
 - Cancer type has no default and searching is disabled until it is selected.
-- `I don't know` is available wherever uncertainty is reasonable.
+- `I don't know` is available and selected by default for medical facts that the owner has not answered.
 - The form stays short. Extra questions appear only when a currently relevant protocol uses the answer in matching.
 - Specialist-only requirements are disclosed under `Needs confirmation`; they are not presented as owner-confirmed facts.
 

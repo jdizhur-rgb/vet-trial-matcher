@@ -77,6 +77,11 @@ UNLISTED_CANCER = "My cancer type isn't listed"
 TREATMENT_OPTIONS = ['Chemotherapy','Radiation','Surgery','Immunotherapy','Targeted therapy','Experimental drug']
 UNKNOWN = "I don't know"
 
+
+def _unknown_selectbox(label, options, **kwargs):
+    """Render a medical question without silently asserting a clinical fact."""
+    return st.selectbox(label, options, index=options.index(UNKNOWN), **kwargs)
+
 st.markdown('''
 <style>
 h1 { font-size: 2.15rem !important; line-height: 1.08 !important; }
@@ -241,7 +246,7 @@ elif hematologic:
     st.selectbox('Has your veterinarian said the disease is localized?', ['Not applicable'], disabled=True, key='na_localized')
     tumor_status = metastasis = localized = UNKNOWN
 elif brain_tumor:
-    brain_present = st.selectbox('Is the brain tumor currently present on imaging?', ['Yes','No visible tumor',UNKNOWN])
+    brain_present = _unknown_selectbox('Is the brain tumor currently present on imaging?', ['Yes','No visible tumor',UNKNOWN])
     tumor_status = 'Tumor still present / measurable' if brain_present == 'Yes' else ('No evidence of disease (NED)' if brain_present == 'No visible tumor' else UNKNOWN)
     st.selectbox('Metastases', ['Not applicable'], disabled=True, key='na_brain_metastases')
     st.selectbox('Has your veterinarian said the disease is localized?', ['Not applicable'], disabled=True, key='na_brain_localized')
@@ -252,9 +257,9 @@ else:
     # trial eligibility even when a public trial page has incomplete metadata.
     # Disabling these fields based on the currently selected trial subset caused
     # valid cancers (for example soft-tissue sarcoma) to lose essential answers.
-    tumor_status = st.selectbox('Current tumor status', ['Tumor still present / measurable','Completely removed — clean margins','Removed — incomplete/dirty margins','Removed — margins unknown','Local recurrence','No evidence of disease (NED)',UNKNOWN])
-    metastasis = st.selectbox('Metastases', ['No known metastases','Confirmed metastases','Suspected / staging incomplete',UNKNOWN])
-    localized = st.selectbox('Has your veterinarian said the disease is localized?', ['Yes','No',UNKNOWN])
+    tumor_status = _unknown_selectbox('Current tumor status', ['Tumor still present / measurable','Completely removed — clean margins','Removed — incomplete/dirty margins','Removed — margins unknown','Local recurrence','No evidence of disease (NED)',UNKNOWN])
+    metastasis = _unknown_selectbox('Metastases', ['No known metastases','Confirmed metastases','Suspected / staging incomplete',UNKNOWN])
+    localized = _unknown_selectbox('Has your veterinarian said the disease is localized?', ['Yes','No',UNKNOWN])
 
 if cancer in LYMPHOMA_CANCERS or cancer == 'Cutaneous epitheliotropic lymphoma':
     if cancer == 'Cutaneous epitheliotropic lymphoma':
@@ -262,7 +267,7 @@ if cancer in LYMPHOMA_CANCERS or cancer == 'Cutaneous epitheliotropic lymphoma':
     else:
         default_lymphoma_type = {'B-cell lymphoma': 0, 'T-cell lymphoma': 1, 'Lymphoma — other': 2}[cancer]
         lymphoma_type = st.selectbox('Lymphoma type', ['B-cell','T-cell','Other',UNKNOWN], index=default_lymphoma_type)
-    lymphoma_response = st.selectbox('Response/status', ['Newly diagnosed / untreated','Complete remission','Partial response','Progression during treatment','First relapse after remission','More than one relapse',UNKNOWN])
+    lymphoma_response = _unknown_selectbox('Response/status', ['Newly diagnosed / untreated','Complete remission','Partial response','Progression during treatment','First relapse after remission','More than one relapse',UNKNOWN])
     if lymphoma_response in ['Newly diagnosed / untreated','Partial response','Progression during treatment','First relapse after remission','More than one relapse']:
         tumor_status = 'Tumor still present / measurable'
     elif lymphoma_response == 'Complete remission':
@@ -271,7 +276,7 @@ else:
     lymphoma_type = lymphoma_response = UNKNOWN
 
 if cancer == 'Acute myeloid leukemia':
-    leukemia_status = st.selectbox('Leukemia status', ['Newly diagnosed / untreated','Responding to treatment / remission','Relapsed','Refractory / progressive',UNKNOWN])
+    leukemia_status = _unknown_selectbox('Leukemia status', ['Newly diagnosed / untreated','Responding to treatment / remission','Relapsed','Refractory / progressive',UNKNOWN])
     if leukemia_status in ['Newly diagnosed / untreated','Relapsed','Refractory / progressive']:
         tumor_status = 'Tumor still present / measurable'
     elif leukemia_status == 'Responding to treatment / remission':
@@ -280,18 +285,18 @@ else:
     leukemia_status = UNKNOWN
 
 if cancer == 'Mast cell tumor':
-    mct_grade = st.selectbox('Mast cell tumor grade', ['Low grade / Kiupel low','High grade / Kiupel high','Patnaik grade 1','Patnaik grade 2','Patnaik grade 3',UNKNOWN])
-    node_status = st.selectbox('Regional lymph node status', ['Negative','Positive','Not sampled/tested',UNKNOWN])
+    mct_grade = _unknown_selectbox('Mast cell tumor grade', ['Low grade / Kiupel low','High grade / Kiupel high','Patnaik grade 1','Patnaik grade 2','Patnaik grade 3',UNKNOWN])
+    node_status = _unknown_selectbox('Regional lymph node status', ['Negative','Positive','Not sampled/tested',UNKNOWN])
 else:
     mct_grade = node_status = UNKNOWN
 
 if cancer == 'Osteosarcoma':
-    osa_location = st.selectbox('Primary osteosarcoma location', ['Appendicular — limb bone','Axial — skull, spine, rib, or pelvis','Other',UNKNOWN])
+    osa_location = _unknown_selectbox('Primary osteosarcoma location', ['Appendicular — limb bone','Axial — skull, spine, rib, or pelvis','Other',UNKNOWN])
 else:
     osa_location = UNKNOWN
 
 if cancer == 'Hemangiosarcoma':
-    hsa_site = st.selectbox('Primary hemangiosarcoma site', ['Spleen','Heart / right atrium','Other',UNKNOWN])
+    hsa_site = _unknown_selectbox('Primary hemangiosarcoma site', ['Spleen','Heart / right atrium','Other',UNKNOWN])
 else:
     hsa_site = UNKNOWN
 
@@ -319,23 +324,23 @@ else:
     surface_or_oral_accessible = UNKNOWN
 
 # Protocol-specific disease constraints used by broad Zurich basket/local-therapy trials.
-standard_therapy_unavailable = st.selectbox(
+standard_therapy_unavailable = _unknown_selectbox(
     'Is standard anticancer treatment no longer appropriate or not feasible?',
     ['Yes','No',UNKNOWN],
     help='Includes cases where standard therapy is no longer indicated, the tumor is inoperable/metastatic, or standard treatment cannot be performed.'
 ) if (not any_cancer_browse and not unlisted_mode and 'standard_therapy_unavailable' in _form_req_keys) else UNKNOWN
 
-large_inoperable_or_rt_preferred = st.selectbox(
+large_inoperable_or_rt_preferred = _unknown_selectbox(
     'For a large tumor: is it inoperable, or is radiotherapy being chosen instead of surgery?',
     ['Yes','No',UNKNOWN]
 ) if (not any_cancer_browse and not unlisted_mode and 'large_inoperable_or_rt_preferred' in _form_req_keys) else UNKNOWN
 
-surgery_or_rt_not_possible = st.selectbox(
+surgery_or_rt_not_possible = _unknown_selectbox(
     'Are curative surgery and radiotherapy no longer possible for this tumor?',
     ['Yes','No',UNKNOWN]
 ) if (not any_cancer_browse and not unlisted_mode and 'surgery_or_rt_not_possible' in _form_req_keys) else UNKNOWN
 
-ct_and_current_biopsy = st.selectbox(
+ct_and_current_biopsy = _unknown_selectbox(
     'Can current CT imaging and a current tumor biopsy be provided/performed?',
     ['Yes','No',UNKNOWN]
 ) if (not any_cancer_browse and not unlisted_mode and 'ct_and_current_biopsy' in _form_req_keys) else UNKNOWN
@@ -357,22 +362,22 @@ immunotherapy_relevant = _specific_diagnosis
 steroids_relevant = _specific_diagnosis and ('current_steroids' in _form_exc_keys or 'steroid_washout_days' in _form_req_keys)
 immunosuppressive_relevant = _specific_diagnosis and ('immunosuppressive' in _form_exc_keys)
 
-surgery = st.selectbox('Surgery', ['No','Yes',UNKNOWN]) if surgery_relevant else UNKNOWN
+surgery = _unknown_selectbox('Surgery', ['No','Yes',UNKNOWN]) if surgery_relevant else UNKNOWN
 prior_procedure = UNKNOWN
 if surgery == 'Yes' and cancer == 'Osteosarcoma':
-    prior_procedure = st.selectbox('Osteosarcoma surgery', ['Amputation','Limb-sparing surgery','Other',UNKNOWN])
+    prior_procedure = _unknown_selectbox('Osteosarcoma surgery', ['Amputation','Limb-sparing surgery','Other',UNKNOWN])
 elif surgery == 'Yes' and cancer == 'Hemangiosarcoma':
-    prior_procedure = st.selectbox('Hemangiosarcoma surgery', ['Splenectomy','Other',UNKNOWN])
-chemo = st.selectbox('Chemotherapy', ['Never','Currently receiving','Previously received',UNKNOWN]) if chemo_relevant else UNKNOWN
-immunotherapy_history = st.selectbox('Prior or current cancer immunotherapy', ['Never','Currently receiving','Previously received',UNKNOWN]) if immunotherapy_relevant else UNKNOWN
-radiation = st.selectbox('Radiation to this tumor', ['Never','Previously received','Currently receiving',UNKNOWN]) if radiation_relevant else UNKNOWN
-steroids = st.selectbox('Prednisone / other corticosteroids', ['Never / no','Prescribed but NOT started','Currently taking','Previously took',UNKNOWN]) if steroids_relevant else UNKNOWN
-immunosuppressive = st.selectbox('Other immunosuppressive medication', ['No','Yes',UNKNOWN]) if immunosuppressive_relevant else UNKNOWN
+    prior_procedure = _unknown_selectbox('Hemangiosarcoma surgery', ['Splenectomy','Other',UNKNOWN])
+chemo = _unknown_selectbox('Chemotherapy', ['Never','Currently receiving','Previously received',UNKNOWN]) if chemo_relevant else UNKNOWN
+immunotherapy_history = _unknown_selectbox('Prior or current cancer immunotherapy', ['Never','Currently receiving','Previously received',UNKNOWN]) if immunotherapy_relevant else UNKNOWN
+radiation = _unknown_selectbox('Radiation to this tumor', ['Never','Previously received','Currently receiving',UNKNOWN]) if radiation_relevant else UNKNOWN
+steroids = _unknown_selectbox('Prednisone / other corticosteroids', ['Never / no','Prescribed but NOT started','Currently taking','Previously took',UNKNOWN]) if steroids_relevant else UNKNOWN
+immunosuppressive = _unknown_selectbox('Other immunosuppressive medication', ['No','Yes',UNKNOWN]) if immunosuppressive_relevant else UNKNOWN
 
 st.header('5. Treatment options')
 prefs = st.multiselect('Select all that you would consider', TREATMENT_OPTIONS, default=TREATMENT_OPTIONS)
 if not any_cancer_browse and 'planned_radiation' in _form_req_keys:
-    radiation_affordability = st.selectbox('If radiation is relevant', ['Would consider radiation','Would consider it if trial-funded','Would not consider radiation',UNKNOWN])
+    radiation_affordability = _unknown_selectbox('If radiation is relevant', ['Would consider radiation','Would consider it if trial-funded','Would not consider radiation',UNKNOWN])
 else:
     radiation_affordability = UNKNOWN
 
@@ -455,6 +460,10 @@ if search_clicked:
                 elif tr.get('city') or tr.get('state'):
                     st.markdown('**Where:** ' + ', '.join(
                         value for value in (tr.get('city'), tr.get('state')) if value
+                    ))
+                else:
+                    st.markdown('**Where:** ' + ', '.join(
+                        value for value in (tr.get('center'), tr.get('country')) if value
                     ))
                 if tr.get('intervention'):
                     st.markdown('**What is offered:** ' + tr['intervention'])
