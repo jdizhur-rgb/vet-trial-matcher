@@ -58,7 +58,7 @@ def main() -> None:
 
         def first_location(url: str, name: str) -> str:
             if name == "Ethos Veterinary Health / Ethos Discovery":
-                return "Multiple locations, including Port City Veterinary Referral Hospital, Portsmouth, NH"
+                return "Multiple locations across the US"
             source = page_source(url)
             match = re.search(
                 r'<div class="study-locations">.*?<li>(.*?)</li>', source, flags=re.S
@@ -79,15 +79,18 @@ def main() -> None:
                 found.append("03801")
             return list(dict.fromkeys(found))
 
-        def location_states(url: str) -> list[str]:
+        def location_states(url: str, name: str) -> list[str]:
             source = page_source(url)
-            return list(dict.fromkeys(re.findall(
+            found = re.findall(
                 r"\b(AL|AK|AZ|AR|CA|CO|CT|DE|FL|GA|HI|ID|IL|IN|IA|KS|KY|LA|ME|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT|VT|VA|WA|WV|WI|WY|DC)\s+\d{5}\b",
                 source,
-            )))
+            )
+            if name == "Ethos Veterinary Health / Ethos Discovery":
+                found.append("NH")
+            return list(dict.fromkeys(found))
 
         cards_html = "".join(
-            f'<a class="directory-card" href="{url}" data-zips="{",".join(location_zips(url,name))}" data-states="{",".join(location_states(url))}"><strong>{name}</strong>'
+            f'<a class="directory-card" href="{url}" data-zips="{",".join(location_zips(url,name))}" data-states="{",".join(location_states(url,name))}"><strong>{name}</strong>'
             f'<span>{count} current {"opportunity" if count == "1" else "opportunities"}'
             f'{" · " + html.escape(first_location(url,name)) if first_location(url,name) else ""}</span></a>'
             for url, name, count in items
@@ -180,7 +183,8 @@ async function searchByZip(zip,sequence){
       .sort((a,b)=>a.miles-b.miles).forEach(item=>{
         item.card.style.display='';
         const label=document.createElement('span');label.className='center-distance';
-        const nearestName=item.nearestZip==='03801'?'Port City Veterinary Referral Hospital · ':'';
+        const zipBranchNames={'01801':'Massachusetts Veterinary Referral Hospital, Woburn · ','03801':'Port City Veterinary Referral Hospital, Portsmouth · '};
+        const nearestName=zipBranchNames[item.nearestZip]||'';
         label.textContent=nearestName+Math.round(item.miles)+' miles from '+zip;
         item.card.appendChild(label);centerGrid.appendChild(item.card);
       });
@@ -192,6 +196,7 @@ async function searchByZip(zip,sequence){
 }
 const stateNames={alabama:'AL',alaska:'AK',arizona:'AZ',arkansas:'AR',california:'CA',colorado:'CO',connecticut:'CT',delaware:'DE',florida:'FL',georgia:'GA',hawaii:'HI',idaho:'ID',illinois:'IL',indiana:'IN',iowa:'IA',kansas:'KS',kentucky:'KY',louisiana:'LA',maine:'ME',maryland:'MD',massachusetts:'MA',michigan:'MI',minnesota:'MN',mississippi:'MS',missouri:'MO',montana:'MT',nebraska:'NE',nevada:'NV','new hampshire':'NH','new jersey':'NJ','new mexico':'NM','new york':'NY','north carolina':'NC','north dakota':'ND',ohio:'OH',oklahoma:'OK',oregon:'OR',pennsylvania:'PA','rhode island':'RI','south carolina':'SC','south dakota':'SD',tennessee:'TN',texas:'TX',utah:'UT',vermont:'VT',virginia:'VA',washington:'WA','west virginia':'WV',wisconsin:'WI',wyoming:'WY','district of columbia':'DC'};
 const stateCodes=new Set(Object.values(stateNames));
+const ethosStateBranches={MA:'Massachusetts Veterinary Referral Hospital, Woburn',NH:'Port City Veterinary Referral Hospital, Portsmouth'};
 function filterCenters(value){
   const sequence=++centerSearchSequence,q=value.toLowerCase().trim();
   const status=document.getElementById('center-search-status');
@@ -203,7 +208,12 @@ function filterCenters(value){
   centerCards.forEach(card=>{
     const states=(card.dataset.states||'').split(',');
     const show=requestedState?states.includes(requestedState):card.textContent.toLowerCase().includes(q);
-    card.style.display=show?'':'none';if(show)count++;
+    card.style.display=show?'':'none';
+    if(show&&requestedState&&card.querySelector('strong')?.textContent.includes('Ethos Veterinary Health')){
+      const branch=ethosStateBranches[requestedState];
+      if(branch){const label=document.createElement('span');label.className='center-distance';label.textContent=branch;card.appendChild(label);}
+    }
+    if(show)count++;
   });
   status.textContent=count?count+' matching '+(count===1?'center':'centers')+'.':'No listed centers match that search.';
 }
