@@ -15,6 +15,7 @@ from urllib.parse import urlparse
 
 
 SITE = "https://vettrialfinder.com"
+CONTACT_EMAIL = "info@vettrialfinder.com"
 LANGUAGE_PREFIXES = {"de", "fr", "es", "it", "nl"}
 LASTMOD = "2026-09-12"
 
@@ -212,6 +213,36 @@ def add_verification_footer_link(text: str) -> str:
     return text.replace(marker, marker + f'<a href="{SITE}/how-we-verify/">How We Verify</a>', 1)
 
 
+def add_contact_footer_link(text: str) -> str:
+    """Expose the project email in the shared footer without duplicating it."""
+    link = f'<a href="mailto:{CONTACT_EMAIL}">Contact</a>'
+    if link in text:
+        return text
+    marker = f'<a href="{SITE}/how-we-verify/">How We Verify</a>'
+    if marker not in text:
+        raise AssertionError("shared footer navigation marker not found")
+    return text.replace(marker, marker + link, 1)
+
+
+def add_contact_section(text: str) -> str:
+    """Add a small, useful contact block to About and Help."""
+    if 'class="site-contact"' in text:
+        return text
+    css = (
+        '.site-contact{margin-top:26px;padding:15px 17px;background:#fff;'
+        'border:1px solid #d9e2ea;border-radius:12px}'
+        '.site-contact h2{font-size:1.08rem;margin:0 0 5px}'
+        '.site-contact p{margin:0}'
+    )
+    text = text.replace('</style>', css + '</style>', 1)
+    section = (
+        '<section class="site-contact"><h2>Contact</h2>'
+        f'<p>Questions, corrections or a study we should add? '
+        f'<a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a></p></section>'
+    )
+    return text.replace('</main>', section + '</main>', 1)
+
+
 def main() -> None:
     root = Path(__file__).resolve().parent / "seo" / "site"
     if not root.exists():
@@ -237,6 +268,9 @@ def main() -> None:
             indexable.append(canonical)
         text = add_structured_data(text, path)
         text = add_verification_footer_link(text)
+        text = add_contact_footer_link(text)
+        if path in {"about", "help"}:
+            text = add_contact_section(text)
         page.write_text(text, encoding="utf-8")
 
     write_sitemap(root, indexable)
