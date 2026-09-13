@@ -68,7 +68,7 @@ def breadcrumbs(path: str, title: str) -> list[dict[str, str]]:
     if len(parts) >= 3 and parts[0] in {"north-america", "uk-europe"} and parts[1] in {"dogs", "cats"}:
         crumbs.append({"name": "Cancer Types", "item": f"{SITE}/cancer-types/"})
     elif parts[0] == "centers" and len(parts) > 1:
-        crumbs.append({"name": "Oncology Centers", "item": f"{SITE}/centers/"})
+        crumbs.append({"name": "Trial Centers", "item": f"{SITE}/centers/"})
     crumbs.append({"name": title, "item": f"{SITE}/{path.strip('/')}/"})
     return crumbs
 
@@ -226,6 +226,7 @@ def main() -> None:
         path = "" if relative == Path("index.html") else relative.parent.as_posix()
         text = page.read_text(encoding="utf-8")
         text = remove_unready_hreflang(text)
+        text = text.replace('>Oncology Centers</a>', '>Trial Centers</a>')
         canonical = canonical_url(text)
         if not canonical or urlparse(canonical).netloc != "vettrialfinder.com":
             raise AssertionError(f"invalid production canonical in {relative}: {canonical}")
