@@ -121,6 +121,24 @@ class MatcherEngineTests(unittest.TestCase):
         )
         self.assertEqual([], matches)
 
+    def test_known_non_extremity_location_excludes_extremity_trial(self):
+        trial = {
+            "id": "location-test", "species": "Dog", "country": "USA",
+            "cancers": ["Test cancer"], "status": "Recruiting",
+            "status_confidence": "confirmed_current", "study_type": "treatment",
+            "requires": {"extremity_sts": True},
+        }
+        answers = SearchAnswers(
+            species="Dog", cancer="Test cancer",
+            tumor_location="Deeper soft tissue — other area",
+        )
+        matches = match_trials(
+            [trial], answers,
+            accepts_diagnosis=lambda trial, cancer: (cancer in trial["cancers"], False),
+            trial_modalities=lambda trial: set(),
+        )
+        self.assertEqual([], matches)
+
     def test_current_chemo_with_published_washout_remains_possible(self):
         trial = {
             "id": "washout-test", "species": "Dog", "country": "USA",
@@ -141,4 +159,3 @@ class MatcherEngineTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
