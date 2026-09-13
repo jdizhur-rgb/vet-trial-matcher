@@ -23,8 +23,8 @@ class AppSmokeTests(unittest.TestCase):
         self.assertEqual("USA", values["Country / region"])
         self.assertNotIn("Sex", values)
         number_values = {widget.label: widget.value for widget in app.number_input}
-        self.assertIsNone(number_values["Age (years)"])
-        self.assertIsNone(number_values["Weight (lb)"])
+        self.assertNotIn("Age (years)", number_values)
+        self.assertNotIn("Weight (lb)", number_values)
         search = next(button for button in app.button if button.label == "Find potential trials")
         self.assertTrue(search.disabled)
 
