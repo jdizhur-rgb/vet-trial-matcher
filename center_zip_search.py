@@ -14,7 +14,7 @@ def main() -> None:
     old_input = (
         '<input class="catalog-search" type="search" '
         'placeholder="Search hospital, city or state" '
-        'aria-label="Search oncology centers" oninput="filterCenters(this.value)">'
+        'aria-label="Search clinical trial centers" oninput="filterCenters(this.value)">'
     )
     # The current owner-friendly center generator intentionally emits a plain
     # crawlable list. Turn that list into the visual/search directory here,
@@ -96,8 +96,8 @@ def main() -> None:
             for url, name, count in items
         )
         rebuilt = (
-            '<main><h1>Veterinary Oncology Centers</h1>'
-            '<p class="lead catalog-intro"><strong>Find hospitals and research centers that may have options beyond your local clinic.</strong> '
+            '<main><h1>Veterinary Clinical Trial Centers</h1>'
+            '<p class="lead catalog-intro"><strong>Find hospitals and research centers with current clinical trials or research treatment options.</strong> '
             'This directory includes universities, teaching hospitals, specialty oncology hospitals and other research programs with current cancer treatment opportunities. '
             'Search by hospital, city or state.</p>'
             + old_input
@@ -130,7 +130,7 @@ def main() -> None:
     new_input = (
         '<input class="catalog-search" type="search" inputmode="search" '
         'placeholder="ZIP code, hospital, city or state" '
-        'aria-label="Search oncology centers by ZIP code, hospital, city or state" '
+        'aria-label="Search clinical trial centers by ZIP code, hospital, city or state" '
         'oninput="filterCenters(this.value)">'
         '<p id="center-search-status" class="center-search-status" aria-live="polite"></p>'
     )
