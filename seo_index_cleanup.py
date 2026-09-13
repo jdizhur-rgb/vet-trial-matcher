@@ -109,6 +109,8 @@ def add_structured_data(text: str, path: str) -> str:
 
 
 def should_noindex(relative: Path, text: str) -> bool:
+    if re.search(r'<meta\s+name=["\']robots["\'][^>]*noindex', text, re.I):
+        return True
     parts = relative.parts
     if parts and parts[0] == "uk-europe":
         return True
