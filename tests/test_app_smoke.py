@@ -63,6 +63,8 @@ class AppSmokeTests(unittest.TestCase):
         self.assertFalse(app.exception)
         self.assertTrue(any("Costs / coverage:" in str(markdown.value) for markdown in app.markdown))
         self.assertTrue(any("Where:" in str(markdown.value) for markdown in app.markdown))
+        funding_rows = [str(markdown.value) for markdown in app.markdown if "Costs / coverage:" in str(markdown.value)]
+        self.assertTrue(all("\\$" in row or "$" not in row for row in funding_rows))
 
     def test_tumor_size_question_is_adaptive(self):
         app = self.open_app()
