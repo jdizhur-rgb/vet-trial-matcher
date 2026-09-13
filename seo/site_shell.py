@@ -97,12 +97,13 @@ def copy_assets(root):
 def add_home_stats(root, stats, rows):
  p=root/'index.html';text=p.read_text(encoding='utf-8')
  north_america=[r for r in rows if r.get('country') in {'USA','Canada'}]
+ north_america_opportunities=len(north_america)
  north_america_centers=len({str(r.get('center') or '').strip() for r in north_america if str(r.get('center') or '').strip()})
  counts={key:sum(1 for r in north_america if key in g.row_cancers(r)) for key in g.DISEASE_INFO}
  represented=sorted((key for key in counts if counts[key]),key=lambda key:(-counts[key],g.display_name(key)))
  cancer_stats=''.join(f'<span class="home-cancer-pill">{g.esc(g.display_name(key))} <b>{counts[key]}</b></span>' for key in represented)
  stats_items=(
-  (stats['opportunities'],'treatment opportunities'),
+  (stats['opportunities'],f'clinical trials and treatment studies - {north_america_opportunities} in the USA and Canada'),
   (stats['centers'],f'trial centers - {north_america_centers} in the USA and Canada'),
   (stats['countries'],'countries'),
  )
