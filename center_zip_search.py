@@ -79,8 +79,15 @@ def main() -> None:
                 found.append("03801")
             return list(dict.fromkeys(found))
 
+        def location_states(url: str) -> list[str]:
+            source = page_source(url)
+            return list(dict.fromkeys(re.findall(
+                r"\b(AL|AK|AZ|AR|CA|CO|CT|DE|FL|GA|HI|ID|IL|IN|IA|KS|KY|LA|ME|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT|VT|VA|WA|WV|WI|WY|DC)\s+\d{5}\b",
+                source,
+            )))
+
         cards_html = "".join(
-            f'<a class="directory-card" href="{url}" data-zips="{",".join(location_zips(url,name))}"><strong>{name}</strong>'
+            f'<a class="directory-card" href="{url}" data-zips="{",".join(location_zips(url,name))}" data-states="{",".join(location_states(url))}"><strong>{name}</strong>'
             f'<span>{count} current {"opportunity" if count == "1" else "opportunities"}'
             f'{" · " + html.escape(first_location(url,name)) if first_location(url,name) else ""}</span></a>'
             for url, name, count in items
@@ -183,14 +190,21 @@ async function searchByZip(zip,sequence){
     restoreCenters();status.textContent='We could not locate that ZIP code. Check the five digits or search by city, state or hospital name.';
   }
 }
+const stateNames={alabama:'AL',alaska:'AK',arizona:'AZ',arkansas:'AR',california:'CA',colorado:'CO',connecticut:'CT',delaware:'DE',florida:'FL',georgia:'GA',hawaii:'HI',idaho:'ID',illinois:'IL',indiana:'IN',iowa:'IA',kansas:'KS',kentucky:'KY',louisiana:'LA',maine:'ME',maryland:'MD',massachusetts:'MA',michigan:'MI',minnesota:'MN',mississippi:'MS',missouri:'MO',montana:'MT',nebraska:'NE',nevada:'NV','new hampshire':'NH','new jersey':'NJ','new mexico':'NM','new york':'NY','north carolina':'NC','north dakota':'ND',ohio:'OH',oklahoma:'OK',oregon:'OR',pennsylvania:'PA','rhode island':'RI','south carolina':'SC','south dakota':'SD',tennessee:'TN',texas:'TX',utah:'UT',vermont:'VT',virginia:'VA',washington:'WA','west virginia':'WV',wisconsin:'WI',wyoming:'WY','district of columbia':'DC'};
+const stateCodes=new Set(Object.values(stateNames));
 function filterCenters(value){
   const sequence=++centerSearchSequence,q=value.toLowerCase().trim();
   const status=document.getElementById('center-search-status');
   if(/^\d{5}$/.test(q)){searchByZip(q,sequence);return;}
   restoreCenters();
   if(!q){status.textContent='';return;}
+  const requestedState=stateNames[q]||(q.length===2&&stateCodes.has(q.toUpperCase())?q.toUpperCase():'');
   let count=0;
-  centerCards.forEach(card=>{const show=card.textContent.toLowerCase().includes(q);card.style.display=show?'':'none';if(show)count++;});
+  centerCards.forEach(card=>{
+    const states=(card.dataset.states||'').split(',');
+    const show=requestedState?states.includes(requestedState):card.textContent.toLowerCase().includes(q);
+    card.style.display=show?'':'none';if(show)count++;
+  });
   status.textContent=count?count+' matching '+(count===1?'center':'centers')+'.':'No listed centers match that search.';
 }
 </script>'''
