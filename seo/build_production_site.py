@@ -36,7 +36,7 @@ from feline_branch_integration import activate_feline_branches
 from hs_owner_page import apply_canine_hs_guide
 from help_center import generate_help_center
 from about_page import generate_about_page
-from site_shell import apply_site_shell
+from site_shell import apply_site_shell, wrap_html
 from vaccine_article import generate_cancer_vaccine_article
 from about_site_integration import integrate_about
 
@@ -175,6 +175,10 @@ def main():
     }
     apply_site_shell(out, stats)
     generate_cancer_vaccine_article(out)
+    vaccine_page = out / "articles" / "cancer-vaccines" / "index.html"
+    if vaccine_page.exists():
+        text = vaccine_page.read_text(encoding="utf-8").replace('Yale/ThreaJan', 'Yale/TheraJan')
+        vaccine_page.write_text(wrap_html(text), encoding="utf-8")
     home = out / "index.html"
     if home.exists():
         text = home.read_text(encoding="utf-8")
