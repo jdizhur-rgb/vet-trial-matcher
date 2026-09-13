@@ -167,8 +167,10 @@ jobs:
           assert not any(f'https://vettrialfinder.com/{lang}/' in sitemap for lang in ('de','fr','es','it','nl'))
           assert sitemap.count('/centers/') >= 49
           assert 'https://vettrialfinder.com/how-we-verify/' in sitemap
-          assert '<lastmod>2026-09-12</lastmod>' in sitemap
+          assert '<lastmod>2026-09-13</lastmod>' in sitemap
           assert all('/uk-europe/' not in url for url in sitemap.split('<loc>')[1:])
+          assert not (root/'uk-europe').exists()
+          assert not any((root/lang).exists() for lang in ('de','fr','es','it','nl'))
           assert '"@type": "WebSite"' in home and '"@type": "Organization"' in home
           assert 'BreadcrumbList' in (root/'north-america/dogs/lymphoma/index.html').read_text(encoding='utf-8')
           assert (root/'404.html').exists()
@@ -211,9 +213,13 @@ jobs:
           assert 'How do I find the nearest clinical trial centers?' in help_page
           assert 'mailto:info@vettrialfinder.com' in help_page
           cancer=[]
-          for region in ('north-america','uk-europe'):
-            for species in ('dogs','cats'): cancer += list((root/region/species).glob('*/index.html'))
-          assert len(cancer)>=88, len(cancer)
+          for species in ('dogs','cats'): cancer += list((root/'north-america'/species).glob('*/index.html'))
+          assert len(cancer)>=44, len(cancer)
+          program=(root/'centers/multicenter-local-t-cell-engager-sts-immunotherapy/index.html').read_text(encoding='utf-8')
+          assert 'Multicenter Study' in program and 'Veterinary Cancer Study | Vet Trial Finder' in program
+          sponsor=(root/'centers/anivive-lifesciences-multicenter/index.html').read_text(encoding='utf-8')
+          assert 'Research Organization' in sponsor and 'Veterinary Cancer Research | Vet Trial Finder' in sponsor
+          assert 'About this European multic multicenter study' not in ''.join(p.read_text(encoding='utf-8') for p in center_pages)
           print('ABOUT_STORY_V2_PRODUCTION_OK',len(pages),len(cancer),senya.stat().st_size,yasha.stat().st_size)
           PY
       - name: Save exact candidate artifact
@@ -254,3 +260,5 @@ jobs:
 # correct-ethos-state-label 2026-09-13
 
 # trial-centers-label 2026-09-13
+
+# retire-legacy-cancer-pages-and-label-programs 2026-09-13

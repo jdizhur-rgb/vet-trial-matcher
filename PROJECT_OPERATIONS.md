@@ -139,8 +139,9 @@ Support dogs/canine AND cats/feline. Avoid thin doorway pages and avoid implying
 
 Production indexing policy added 2026-09-12:
 - All canonical and sitemap URLs must use `https://vettrialfinder.com` only.
-- Partially translated `de`, `fr`, `es`, `it`, and `nl` pages remain available but are `noindex, follow` and excluded from the sitemap until each language is fully localized and reviewed.
-- All `/uk-europe/` cancer pages are excluded from the production search index and sitemap; North America is the active cancer-page SEO scope. Center pages remain indexable regardless of region because the directory is small and contains useful institution-specific programs, contacts and treatment information. Existing European cancer URLs remain available temporarily so shared links do not become abrupt 404s.
+- Partially translated `de`, `fr`, `es`, `it`, and `nl` cancer pages are retired and excluded from the deployment artifact until a language is fully localized and reviewed.
+- Legacy `/uk-europe/` and partially translated cancer pages are removed before deployment. They must remain absent from the production artifact and sitemap so retired URLs return the site's 404 page and leave the search index. North America is the active cancer-page SEO scope. Center pages remain indexable regardless of region because useful international institutions and active research programs are intentionally part of the directory.
+- The center directory includes real hospitals, research organizations and multicenter studies. These entities must be labeled by type and use type-appropriate page titles rather than presenting every program as a physical center.
 - Diagnosis/species/region pages with zero current treatment opportunities remain available to owners but are `noindex, follow` and excluded from the sitemap.
 - Search-indexing changes are applied after the static production build by `seo_index_cleanup.py`; they must not modify or couple to the Streamlit matcher runtime.
 - The indexed `/how-we-verify/` page explains sources, inclusion rules, status checks, conservative eligibility matching, funding language, duplicate handling and the limits of the site. It is linked from the footer on every static page.

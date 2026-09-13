@@ -10,6 +10,7 @@ from __future__ import annotations
 import html
 import json
 import re
+import shutil
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -17,7 +18,7 @@ from urllib.parse import urlparse
 SITE = "https://vettrialfinder.com"
 CONTACT_EMAIL = "info@vettrialfinder.com"
 LANGUAGE_PREFIXES = {"de", "fr", "es", "it", "nl"}
-LASTMOD = "2026-09-12"
+LASTMOD = "2026-09-13"
 
 
 def add_robots_noindex(text: str) -> str:
@@ -59,6 +60,39 @@ def page_title(text: str) -> str:
         match = re.search(r'<title>(.*?)</title>', text, re.I | re.S)
     value = re.sub(r'<[^>]+>', '', match.group(1) if match else "Vet Trial Finder")
     return html.unescape(value).strip()
+
+
+def polish_metadata(text: str) -> str:
+    """Apply final metadata after the visual/structured-page enhancement pass."""
+    text = re.sub(
+        r'Find ([2-9]\d*|1\d+) current ([^"<>]+?) clinical trial and treatment options',
+        r'Find \1 current \2 clinical trials and treatment options',
+        text,
+    )
+    h1 = re.search(r'<h1[^>]*>(.*?)</h1>', text, re.I | re.S)
+    kind = re.search(r'<p class="center-type">(.*?)</p>', text, re.I | re.S)
+    if not h1 or not kind:
+        return text
+    center = html.unescape(re.sub(r'<[^>]+>', '', h1.group(1))).strip()
+    entity_type = html.unescape(re.sub(r'<[^>]+>', '', kind.group(1))).strip()
+    if entity_type == "Multicenter Study":
+        title = f"{center} | Veterinary Cancer Study | Vet Trial Finder"
+        description = f"Current veterinary cancer treatment study information, participating locations, eligibility details and official links for {center}."
+    elif entity_type == "Research Organization":
+        title = f"{center} | Veterinary Cancer Research | Vet Trial Finder"
+        description = f"Current veterinary cancer research and treatment opportunities from {center}, with eligibility details, contacts and official links."
+    else:
+        title = f"{center} | Veterinary Oncology & Clinical Trials | Vet Trial Finder"
+        description = f"Veterinary oncology services, cancer clinical trials and current treatment opportunities at {center}."
+    text = re.sub(r'<title>.*?</title>', f'<title>{html.escape(title)}</title>', text, count=1, flags=re.I | re.S)
+    text = re.sub(
+        r'<meta name="description" content="[^"]*">',
+        f'<meta name="description" content="{html.escape(description, quote=True)}">',
+        text,
+        count=1,
+        flags=re.I,
+    )
+    return text
 
 
 def breadcrumbs(path: str, title: str) -> list[dict[str, str]]:
@@ -252,6 +286,12 @@ def main() -> None:
     if not root.exists():
         raise SystemExit(f"generated site not found: {root}")
 
+    # These retired cancer-page families must not reach the deployment artifact.
+    # International center and research-program pages remain intentionally intact.
+    shutil.rmtree(root / "uk-europe", ignore_errors=True)
+    for language in LANGUAGE_PREFIXES:
+        shutil.rmtree(root / language, ignore_errors=True)
+
     write_verification_page(root)
 
     indexable: list[str] = []
@@ -260,6 +300,7 @@ def main() -> None:
         relative = page.relative_to(root)
         path = "" if relative == Path("index.html") else relative.parent.as_posix()
         text = page.read_text(encoding="utf-8")
+        text = polish_metadata(text)
         text = remove_unready_hreflang(text)
         text = text.replace('>Oncology Centers</a>', '>Trial Centers</a>')
         canonical = canonical_url(text)
@@ -287,6 +328,8 @@ def main() -> None:
     assert "jdizhur-rgb.github.io" not in sitemap
     assert f"{SITE}/uk-europe/" not in sitemap
     assert not any(f"{SITE}/{lang}/" in sitemap for lang in LANGUAGE_PREFIXES)
+    assert not (root / "uk-europe").exists()
+    assert not any((root / lang).exists() for lang in LANGUAGE_PREFIXES)
     assert len(indexable) == len(set(indexable))
     print(f"SEO_INDEX_POLICY_OK indexable={len(indexable)} noindex={noindexed}")
 

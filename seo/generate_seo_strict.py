@@ -34,7 +34,7 @@ PROFILES.update({
     "Protect Animal Health (寶泰生醫) multicenter field trial": {"title":"About the Protect Animal Health field trial","about":"Protect Animal Health is coordinating a Taiwanese multicenter field trial of PT001, an investigational PD-L1/CTLA-4 recombinant-protein therapeutic vaccine for dogs with stage II–III oral malignant melanoma.","image":_PROTECT_IMAGE,"image_alt":"Recruitment notice for the PT001 canine oral melanoma field trial","image_caption":"Trial image: Protect Animal Health.","links":[("Official PT001 recruitment notice",_PROTECT_LINK)]},
     "University of Évora Veterinary Hospital": {"title":"About the University of Évora Veterinary Hospital","about":"The University of Évora Veterinary Hospital provides university-based veterinary care and participates in European clinical research; the current catalog listing is tied to an oncology study registered through OncoWAF.","image":"https://www.uevora.pt/var/uevora_responsive/storage/images/utilidades/destaques-banner/primeira-pagina-imagem/rececao-26/151524-2-por-PT/Rececao-26_frontpage_highlight_containerfluid.jpg","image_alt":"University of Évora campus","image_caption":"Photo: University of Évora.","links":[("OncoWAF clinical-trial listing",_ONCOWAF_LINK)]},
     "VetAgro Sup CHUVAC": {"title":"About VetAgro Sup CHUVAC","about":"VetAgro Sup's companion-animal university hospital near Lyon provides specialty care including oncology and participates in European veterinary clinical research.","image":"https://chuvac.vetagro-sup.fr/wp-content/uploads/2025/10/Vetagro_1094-1920x700.jpg","image_alt":"Companion-animal care at VetAgro Sup CHUVAC","image_caption":"Photo: VetAgro Sup CHUVAC.","links":[("VetAgro Sup CHUVAC","https://chuvac.vetagro-sup.fr/")]},
-    "European multicenter study — Floryne Buishand": {"title":"About this European multic multicenter study","about":"This European veterinary oncology study is coordinated across participating hospitals by the research team led by veterinary surgical oncologist Floryne Buishand; the active locations are listed inside the opportunity.","image":_ONCOWAF_IMAGE,"image_alt":"OncoWAF veterinary clinical-trials contact image","image_caption":"Image: OncoWAF.","links":[("European trial registry",_ONCOWAF_LINK)]},
+    "European multicenter study — Floryne Buishand": {"title":"About this European multicenter study","about":"This European veterinary oncology study is coordinated across participating hospitals by the research team led by veterinary surgical oncologist Floryne Buishand; the active locations are listed inside the opportunity.","image":_ONCOWAF_IMAGE,"image_alt":"OncoWAF veterinary clinical-trials contact image","image_caption":"Image: OncoWAF.","links":[("European trial registry",_ONCOWAF_LINK)]},
     "Duma Animal Hospital": {"title":"About Duma Animal Hospital","about":"Duma Animal Hospital is listed as a participating hospital in a current European veterinary oncology study; diagnosis-specific eligibility and the active visit site must be confirmed with the study team.","image":_ONCOWAF_IMAGE,"image_alt":"OncoWAF veterinary clinical-trials contact image","image_caption":"Image: OncoWAF.","links":[("OncoWAF clinical-trial listing",_ONCOWAF_LINK)]},
     "Hospital Veterinario Peña Jasso": {"title":"About Hospital Veterinario Peña Jasso","about":"Hospital Veterinario Peña Jasso in Ensenada is participating in translational nanomedicine research for dogs with cancer through a collaboration involving UNAM, UABC and UAG.","image":"https://zonanorte.mx/media/notas/8542/7555.jpg","image_alt":"Veterinary nanomedicine research team in Ensenada","image_caption":"Photo: Zona Norte.","links":[("Research collaboration news","https://zonanorte.mx/main/mozaico/nid/8542")]},
     "University of Milan Veterinary Teaching Hospital (Lodi)": {"title":"About the University of Milan Veterinary Teaching Hospital","about":"The University of Milan Veterinary Teaching Hospital in Lodi combines referral care with clinical research and is a participating site for a current veterinary oncology study.","image":"https://www.ospedaleveterinario.unimi.it/static/026a281f10ce96c6b02ba6c3b134e481/ec873/hero-veterinari.png","image_alt":"Veterinary clinicians at the University of Milan Veterinary Teaching Hospital","image_caption":"Photo: University of Milan Veterinary Teaching Hospital.","links":[("University of Milan research studies","https://www.ospedaleveterinario.unimi.it/collaborare-con-noi-studi-di-ricerca/")]},
@@ -142,6 +142,46 @@ for _name, _copy in CENTER_ABOUT.items():
     if _name in PROFILES:
         PROFILES[_name]["about"] = _copy
 CURRENT={'current','confirmed_current'}
+
+RESEARCH_ORGANIZATIONS = {
+    "Anivive Lifesciences — multicenter",
+    "Aurelius Biotherapeutics",
+    "Protect Animal Health (寶泰生醫) multicenter field trial",
+    "Zhongnong Dongjun Laboratory",
+}
+MULTICENTER_STUDIES = {
+    "European multicenter study — Floryne Buishand",
+    "Multicenter local T-cell-engager STS immunotherapy",
+    "PETcura (宝科雅) multicenter IIT",
+}
+
+
+def center_type(center):
+    if center in MULTICENTER_STUDIES:
+        return "Multicenter Study"
+    if center in RESEARCH_ORGANIZATIONS:
+        return "Research Organization"
+    if any(term in center for term in ("University", "College of Veterinary Medicine", "School of Veterinary Medicine")):
+        return "University / Teaching Hospital"
+    return "Specialty Hospital / Research Center"
+
+
+def center_page_title(center):
+    kind = center_type(center)
+    if kind == "Multicenter Study":
+        return f"{center} | Veterinary Cancer Study | Vet Trial Finder"
+    if kind == "Research Organization":
+        return f"{center} | Veterinary Cancer Research | Vet Trial Finder"
+    return f"{center} | Veterinary Oncology & Clinical Trials | Vet Trial Finder"
+
+
+def center_page_description(center):
+    kind = center_type(center)
+    if kind == "Multicenter Study":
+        return f"Current veterinary cancer treatment study information, participating locations, eligibility details and official links for {center}."
+    if kind == "Research Organization":
+        return f"Current veterinary cancer research and treatment opportunities from {center}, with eligibility details, contacts and official links."
+    return f"Veterinary oncology services, cancer clinical trials and current treatment opportunities at {center}."
 
 
 def merge(old,patch):
@@ -489,21 +529,21 @@ def generate_centers(rows):
         addrs=center_page_addresses(center,hit)
         count=len(hit);noun='opportunity' if count==1 else 'opportunities'
         body=('<div class="center-page">'
-            f'<h1>{g.esc(center)}</h1><p class="center-kicker">{count} current cancer treatment or research {noun}</p>'
+            f'<h1>{g.esc(center)}</h1><p class="center-type">{g.esc(center_type(center))}</p><p class="center-kicker">{count} current cancer treatment or research {noun}</p>'
             +overview(center)+owner_summary(center,hit,cancers,addrs)
             +(ethos_sections(hit) if center==ETHOS_NETWORK else f'<h2>Current options at {g.esc(center)}</h2><p class="source-note">Open an option to see who may qualify, locations, costs or coverage, contact details and the official source.</p>'+center_cards(hit))
             +'<details class="center-note"><summary>Before you contact the center</summary>'
             +'<p>A listing here does not mean every pet will qualify. Enrollment can change, and the study team makes the final decision after reviewing your pet’s diagnosis, records and previous treatment.</p>'
             +'<p>Have the pathology report, recent imaging and treatment history ready. Ask whether a referral is required, which visits must happen in person and what the study pays for before making travel plans.</p></details>'
             +f'<p><a class="center-search-link" href="{g.FINDER}">Check all options for your pet →</a></p><p class="free-note">Free to use. No registration or paid report.</p></div>')
-        desc=f'Dog and cat cancer treatment options, research studies and clinical trials at {center}.'
-        d=g.OUT/path;d.mkdir(parents=True,exist_ok=True);(d/'index.html').write_text(g.page(center,desc,body,url),encoding='utf-8');links.append(url);items.append((center,path,len(hit)))
+        title=center_page_title(center);desc=center_page_description(center)
+        d=g.OUT/path;d.mkdir(parents=True,exist_ok=True);(d/'index.html').write_text(g.page(title,desc,body,url),encoding='utf-8');links.append(url);items.append((center,path,len(hit),center_type(center)))
         if center==ETHOS_NETWORK:
             for hospital in ETHOS_HOSPITALS:
                 write_redirect(f'centers/{safe_center_slug(hospital,{})}/',url+'#'+g.slugify(hospital),hospital)
     assert len(used)==len(grouped),(len(used),len(grouped))
-    iu=f'{g.SITE}/centers/';ib='<h1>Veterinary Cancer Research Centers</h1><p class="lead">Browse universities, teaching hospitals, specialty hospitals and research centers with current cancer treatment opportunities.</p><ul>'+''.join(f'<li><a href="{g.SITE}/{p}">{g.esc(n)}</a> — {c} current opportunities</li>' for n,p,c in items)+'</ul>'
-    d=g.OUT/'centers';d.mkdir(parents=True,exist_ok=True);(d/'index.html').write_text(g.page('Veterinary Cancer Research Centers','Veterinary cancer research centers and current treatment studies.',ib,iu),encoding='utf-8')
+    iu=f'{g.SITE}/centers/';ib='<h1>Oncology Centers &amp; Research Programs</h1><p class="lead">Browse universities, teaching hospitals, specialty hospitals, research organizations and multicenter studies with current cancer treatment opportunities.</p><ul>'+''.join(f'<li><a href="{g.SITE}/{p}">{g.esc(n)}</a> <span class="entity-type">{g.esc(kind)}</span> — {c} current opportunities</li>' for n,p,c,kind in items)+'</ul>'
+    d=g.OUT/'centers';d.mkdir(parents=True,exist_ok=True);(d/'index.html').write_text(g.page('Veterinary Oncology Centers & Research Programs | Vet Trial Finder','Veterinary oncology centers, research organizations, multicenter studies and current cancer treatment opportunities.',ib,iu),encoding='utf-8')
     sm=g.OUT/'sitemap.xml';s=sm.read_text();sm.write_text(s.replace('</urlset>',''.join(f'<url><loc>{g.esc(u)}</loc></url>\n' for u in [iu]+links)+'</urlset>'))
     print('CENTER_PAGES_OK',len(grouped))
 

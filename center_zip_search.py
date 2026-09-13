@@ -21,17 +21,17 @@ def main() -> None:
     # while retaining the same links and opportunity counts.
     if old_input not in text:
         items = re.findall(
-            r'<li><a href="([^"]+)">(.*?)</a> — (\d+) current opportunities</li>',
+            r'<li><a href="([^"]+)">(.*?)</a> <span class="entity-type">(.*?)</span> — (\d+) current opportunities</li>',
             text,
             flags=re.S,
         )
         if not items:
             raise AssertionError("Center directory links not found")
-        current_slugs = {url.rstrip("/").split("/")[-1] for url, _, _ in items}
+        current_slugs = {url.rstrip("/").split("/")[-1] for url, _, _, _ in items}
 
         # Keep previously published full-name center URLs working when the
         # current generator chooses a shorter canonical slug.
-        for url, name, _ in items:
+        for url, name, _, _ in items:
             current_slug = url.rstrip("/").split("/")[-1]
             legacy_slug = re.sub(
                 r"[^a-z0-9]+", "-", html.unescape(name).lower()
@@ -91,9 +91,10 @@ def main() -> None:
 
         cards_html = "".join(
             f'<a class="directory-card" href="{url}" data-zips="{",".join(location_zips(url,name))}" data-states="{",".join(location_states(url,name))}"><strong>{name}</strong>'
+            f'<span class="directory-entity-type">{kind}</span>'
             f'<span>{count} current {"opportunity" if count == "1" else "opportunities"}'
             f'{" · " + html.escape(first_location(url,name)) if first_location(url,name) else ""}</span></a>'
-            for url, name, count in items
+            for url, name, kind, count in items
         )
         rebuilt = (
             '<main><h1>Veterinary Clinical Trial Centers</h1>'
