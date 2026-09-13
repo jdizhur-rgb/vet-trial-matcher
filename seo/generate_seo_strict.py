@@ -250,7 +250,6 @@ def owner_summary(center,rows,cancers,addresses):
     return ('<div class="center-facts">'
         f'<div class="center-fact"><strong>Who the current listings are for</strong>{g.esc(species_text.capitalize())}</div>'
         f'<div class="center-fact"><strong>Cancer types currently listed</strong>{g.esc(cancer_text)}</div>'
-        f'<div class="center-fact"><strong>Type of center</strong>{g.esc(center_kind(center,rows))}</div>'
         f'<div class="center-fact"><strong>Where visits take place</strong>{location_text}</div>'
         '</div>')
 
