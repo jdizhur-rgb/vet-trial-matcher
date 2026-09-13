@@ -173,6 +173,8 @@ jobs:
           assert '<h1>How We Verify Listings</h1>' in verification
           assert 'What this site does not do' in verification
           assert 'How We Verify</a>' in home
+          assert 'mailto:info@vettrialfinder.com' in home
+          assert 'mailto:info@vettrialfinder.com' in about
           centers=(root/'centers/index.html').read_text(encoding='utf-8')
           assert 'async function searchByZip' in centers
           assert 'api.zippopotam.us/us/' in centers
@@ -194,6 +196,7 @@ jobs:
           assert '.help-center .cta{padding:8px 13px' in help_page
           assert 'Which countries are included?' in help_page
           assert 'How do I find the nearest clinical trial centers?' in help_page
+          assert 'mailto:info@vettrialfinder.com' in help_page
           cancer=[]
           for region in ('north-america','uk-europe'):
             for species in ('dogs','cats'): cancer += list((root/region/species).glob('*/index.html'))
