@@ -173,13 +173,13 @@ st.caption(
 )
 
 st.markdown(
-    '<div class="finder-intro">Answer what you know. It is completely fine to choose '
-    '<strong>I don’t know</strong>.</div>',
+    '<div class="finder-note">This finder suggests potentially relevant options; '
+    'the treating or study team confirms eligibility. It is not veterinary advice.</div>',
     unsafe_allow_html=True,
 )
 st.markdown(
-    '<div class="finder-note">This finder suggests potentially relevant options; '
-    'the treating or study team confirms eligibility. It is not veterinary advice.</div>',
+    '<div class="finder-intro">Answer what you know. It is completely fine to choose '
+    'I don’t know.</div>',
     unsafe_allow_html=True,
 )
 
