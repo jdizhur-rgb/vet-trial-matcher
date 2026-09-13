@@ -7,10 +7,10 @@ This file is the persistent engineering/operations memory for the project. Updat
 ## 1. Production
 
 - Repository: `jdizhur-rgb/vet-trial-matcher`
-- Production branch: `main`
-- Live Streamlit app: `https://vet-cancer-trial-finder.streamlit.app/`
+- Production Streamlit branch: `streamlit-prod`
+- Live Streamlit app: `https://c-trials.streamlit.app/`
 - SEO site: `https://jdizhur-rgb.github.io/vet-trial-matcher/`
-- Streamlit deployment was verified on 2026-09-06 to deploy `main`. Do not assume another branch without fresh deployment evidence.
+- The Streamlit deployment uses `streamlit-prod`; the static website on `main` is maintained separately. Never merge the whole matcher branch into `main`.
 
 ## 2. Product scope
 
@@ -27,13 +27,9 @@ Pipeline/watchlist records that do not yet have a usable owner-facing treatment 
 
 ## 3. Effective catalog
 
-Production matching is based on the effective catalog assembled from:
-- `data/trials_base.json`
-- `data/trial_updates.json`
+Production matching has one canonical source: `data/trials_base.json`.
 
-Effective-catalog semantics are: start with base by ID; MERGE partial upserts onto the existing record; then apply delete markers with FINAL precedence. All consumers (matcher, SEO, dedupe, smoke tests) must use the same semantics. Never replace a base record with a partial upsert, and never apply deletes before upserts in a way that lets a deleted upsert be resurrected.
-
-A staging/research/catalog-patch file is NOT production. A script or workflow existing is NOT proof that its data reached production.
+All consumers (matcher, SEO, dedupe, audits and smoke tests) must read that same file. Do not add runtime overlays, update files or catalog patches. Research notes may remain separate, but a verified catalog change is complete only when the canonical record itself has been updated and tested.
 
 For public treatment matching, records normally need:
 - `study_type == "treatment"`
@@ -47,10 +43,10 @@ Every catalog update must be treated as incomplete until this full loop succeeds
 
 1. Research and verify source/status/access.
 2. Build candidate record(s).
-3. Run semantic dedupe against the FULL effective catalog (`base + updates`), not only the staging patch.
+3. Run semantic dedupe against the full canonical catalog.
 4. Merge/update an existing record when the same real-world study/program already exists.
-5. Promote the record to `trial_updates.json` (or the canonical production source used by the app).
-6. Rebuild/read the effective catalog.
+5. Update the canonical record in `data/trials_base.json`.
+6. Reload the canonical catalog.
 7. Run post-promotion duplicate checks again.
 8. Run matcher smoke tests for the affected species/country/cancer combinations.
 9. Verify the committed production data from `main` after the write.
@@ -96,22 +92,15 @@ For every newly promoted matchable record, automated validation should assert:
 
 A failed assertion means the update FAILED. It must not be described as completed.
 
-## 7. Staging patches
+## 7. Catalog updates
 
-Files such as `data/catalog_patch_*` are staging inputs. Their presence must never cause a country/filter option to imply that production contains matching records unless the effective catalog actually contains them.
-
-When multiple staging patches are created in one audit, promotion must be atomic or followed by a reconciliation that reports:
-- staged count
-- promoted count
-- merged-as-duplicate count
-- intentionally withheld count + reason
-- failed count + reason
+Do not create `data/catalog_patch_*` files or a separate runtime update layer. Keep unverified discoveries in research notes or watchlists. Once verified, edit the canonical record directly, run dedupe and matcher tests, and verify the final committed catalog.
 
 ## 8. China/Asia incident — 2026-09-07
 
-China, Taiwan, and Korea were researched and staging patches were created. China had four dog treatment records in `data/catalog_patch_china_20260907.json`, but China showed 0 results in the live matcher because staging data had not actually reached `trial_updates.json` even though a merger script/workflow had been created.
+China, Taiwan, and Korea were once researched through a layered patch workflow. China then showed 0 results because those layers were not consistently consumed by the live matcher.
 
-Lesson: workflow creation/triggering is not final-state verification. Always fetch/search the resulting `trial_updates.json` / effective catalog after the workflow and then test matcher behavior.
+Lesson: workflow creation/triggering is not final-state verification. Always inspect the committed canonical catalog and then test matcher behavior.
 
 Do NOT “fix” this class of bug by merely removing the country from the selector when genuine verified treatment records exist in staging. Reconcile and promote the records correctly.
 
@@ -135,11 +124,11 @@ Primary query clusters:
 
 Support dogs/canine AND cats/feline. Avoid thin doorway pages and avoid implying that a diagnosis page contains non-trial commercial/compassionate options unless those options are actually included in that page's data source.
 
-**SEO must use exactly the same effective-catalog merge/delete semantics as production.** A bug found 2026-09-07 applied delete markers before upserts, causing deleted duplicate records (including old Auburn palbociclib) to be resurrected on generated SEO pages even though the production catalog had deleted them. Delete markers now have final precedence, and SEO generation must smoke-test that known deleted records do not reappear.
+**SEO must read exactly the same canonical catalog as production.** The former overlay system once resurrected deleted duplicate records on generated pages; runtime catalog layers are therefore prohibited.
 
 ## 11. Deployment lessons
 
-- Production Streamlit branch is `main` unless fresh evidence proves otherwise.
+- Production Streamlit branch is `streamlit-prod`; `main` contains the separately maintained static website.
 - Back up before risky UI/deployment edits.
 - Verify the live app, not just repository source, for deployment/UI bugs.
 - Do not infer workflow success from workflow-file creation.

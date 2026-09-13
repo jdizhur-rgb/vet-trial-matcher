@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Move explicitly completed/closed trials out of the effective working catalog.
+"""Move explicitly completed/closed trials out of the canonical working catalog.
 
 The archive keeps the full merged record for history and duplicate prevention.
 On-hold and needs-reconfirmation records are deliberately NOT archived: they may
@@ -14,7 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 ARCHIVE = DATA / "archive" / "trials_closed.json"
-CLEANUP = DATA / "catalog_patch_zzzz_archive_closed.json"
+CATALOG = DATA / "trials_base.json"
 
 CLOSED_WORDS = (
     "closed",
@@ -31,30 +31,8 @@ CLOSED_WORDS = (
 )
 
 
-def merge(old: dict, patch: dict) -> dict:
-    out = dict(old)
-    for key, value in patch.items():
-        if key in {"requires", "excludes"} and isinstance(value, dict):
-            nested = dict(out.get(key, {}) if isinstance(out.get(key), dict) else {})
-            nested.update(value)
-            out[key] = nested
-        else:
-            out[key] = value
-    return out
-
-
 def load_prearchive_catalog() -> dict[str, dict]:
-    rows = {r["id"]: r for r in json.loads((DATA / "trials_base.json").read_text())}
-    paths = [DATA / "trial_updates.json"] + sorted(DATA.glob("catalog_patch_*.json"))
-    for path in paths:
-        if path.name == CLEANUP.name:
-            continue
-        doc = json.loads(path.read_text())
-        for rid in doc.get("delete", []):
-            rows.pop(rid, None)
-        for patch in doc.get("upsert", []):
-            rows[patch["id"]] = merge(rows.get(patch["id"], {}), patch)
-    return rows
+    return {r["id"]: r for r in json.loads(CATALOG.read_text())}
 
 
 def is_explicitly_closed(row: dict) -> bool:
@@ -85,12 +63,9 @@ def main() -> None:
     }
     ARCHIVE.write_text(json.dumps(archive_doc, ensure_ascii=False, indent=2) + "\n")
 
-    cleanup_doc = {
-        "note": "Applied last alphabetically. Removes only explicitly completed/closed studies from the effective working catalog; full records live in data/archive/trials_closed.json.",
-        "delete": [r["id"] for r in closed],
-        "upsert": [],
-    }
-    CLEANUP.write_text(json.dumps(cleanup_doc, ensure_ascii=False, indent=2) + "\n")
+    closed_ids = {r["id"] for r in closed}
+    active_rows = [r for r in rows.values() if r["id"] not in closed_ids]
+    CATALOG.write_text(json.dumps(active_rows, ensure_ascii=False, indent=2) + "\n")
 
     print(f"ARCHIVED_CLOSED {len(closed)}")
     print(f"WORKING_AFTER_ARCHIVE {len(rows) - len(closed)}")

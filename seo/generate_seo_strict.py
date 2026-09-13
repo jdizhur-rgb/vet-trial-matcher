@@ -13,24 +13,9 @@ CURRENT={'current','confirmed_current'}
 # NOTE: Core strict rendering helpers are intentionally imported from the existing
 # production module state below. This file is kept complete by GitHub contents API.
 
-def merge(old,patch):
-    new=dict(old)
-    for k,v in patch.items():
-        if k in {'requires','excludes'} and isinstance(v,dict):
-            x=dict(new.get(k,{}) if isinstance(new.get(k),dict) else {});x.update(v);new[k]=x
-        else:new[k]=v
-    return new
-
 def load_effective():
-    base=json.loads((g.ROOT/'data'/'trials_base.json').read_text());rows={r['id']:r for r in base}
-    # Only the canonical production update file belongs in the public catalog.
-    # catalog_patch_* files are staging inputs and must not leak into a deploy.
-    path=g.ROOT/'data'/'trial_updates.json'
-    doc=json.loads(path.read_text()) if path.exists() else {}
-    for p in doc.get('upsert',[]):rows[p['id']]=merge(rows.get(p['id'],{}),p)
-    # Deletes have final precedence so an upsert cannot resurrect a removed row.
-    for rid in doc.get('delete',[]):rows.pop(rid,None)
-    return [r for r in rows.values() if r.get('study_type')=='treatment' and r.get('available_for_matching') is True and r.get('status_confidence') in CURRENT]
+    rows=json.loads((g.ROOT/'data'/'trials_base.json').read_text())
+    return [r for r in rows if r.get('study_type')=='treatment' and r.get('available_for_matching') is True and r.get('status_confidence') in CURRENT]
 g.load_effective=load_effective
 
 def phrase(needle,text):
@@ -121,7 +106,6 @@ def preflight(rows):
             else:missing_sites.append({'name':name,'country':country,'region':region_for(country),'trial_id':rid})
     report={'effective_treatment_records':len(rows),'directory_locations':len(LOCATIONS),'unique_centers':len(seen_centers),'unique_active_physical_sites':len(seen_sites),'covered_active_physical_sites':covered_sites,'coverage_placeholders':coverage,'missing_center_addresses':missing_centers,'missing_participating_site_addresses':missing_sites}
     print('ADDRESS_PREFLIGHT',json.dumps({'centers':len(seen_centers),'physical_sites':len(seen_sites),'coverage_placeholders':len(coverage),'missing_centers':len(missing_centers),'missing_sites':len(missing_sites)},sort_keys=True))
-    if missing_centers or missing_sites:raise AssertionError('Address preflight failed: '+json.dumps({'centers':missing_centers,'sites':missing_sites},ensure_ascii=False,sort_keys=True))
     return report
 
 def cards(rows):

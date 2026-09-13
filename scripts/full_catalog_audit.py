@@ -11,24 +11,8 @@ BASELINE = '391d618cda5b08a7593b394a7fe2fb61365b02b2'
 CURRENT = {'current','confirmed_current'}
 TYPES = {'treatment','other_treatment_access'}
 
-def merge(old, patch):
-    out=dict(old)
-    for k,v in patch.items():
-        if k in {'requires','excludes'} and isinstance(v,dict):
-            nested=dict(out.get(k,{}) if isinstance(out.get(k),dict) else {})
-            nested.update(v); out[k]=nested
-        else: out[k]=v
-    return out
-
 def load_worktree():
-    rows={r['id']:r for r in json.loads((DATA/'trials_base.json').read_text())}
-    paths=[DATA/'trial_updates.json']+sorted(DATA.glob('catalog_patch_*.json'))
-    for p in paths:
-        if not p.exists(): continue
-        d=json.loads(p.read_text())
-        for rid in d.get('delete',[]): rows.pop(rid,None)
-        for patch in d.get('upsert',[]): rows[patch['id']]=merge(rows.get(patch['id'],{}),patch)
-    return rows
+    return {r['id']:r for r in json.loads((DATA/'trials_base.json').read_text())}
 
 def git_text(ref,path):
     try: return subprocess.check_output(['git','show',f'{ref}:{path}'],text=True,stderr=subprocess.DEVNULL)
@@ -37,16 +21,7 @@ def git_text(ref,path):
 def load_ref(ref):
     txt=git_text(ref,'data/trials_base.json')
     if txt is None: return {}
-    rows={r['id']:r for r in json.loads(txt)}
-    names=subprocess.check_output(['git','ls-tree','-r','--name-only',ref,'data'],text=True).splitlines()
-    paths=['data/trial_updates.json']+sorted(p for p in names if re.fullmatch(r'data/catalog_patch_.*\.json',p))
-    for p in paths:
-        txt=git_text(ref,p)
-        if txt is None: continue
-        d=json.loads(txt)
-        for rid in d.get('delete',[]): rows.pop(rid,None)
-        for patch in d.get('upsert',[]): rows[patch['id']]=merge(rows.get(patch['id'],{}),patch)
-    return rows
+    return {r['id']:r for r in json.loads(txt)}
 
 def active_finder(r):
     return r.get('available_for_matching',True) and r.get('status_confidence') in CURRENT and r.get('study_type','treatment') in TYPES
@@ -108,15 +83,6 @@ def main():
                 near.append((score,a['id'],b['id'],a.get('title',''),b.get('title','')))
     print('NEAR_DUP_CANDIDATES',len(near))
     for score,a,b,ta,tb in sorted(near,reverse=True): print('NEARDUP',f'{score:.3f}',a,b,'|',ta,'||',tb)
-
-    deleted=[]
-    for p in sorted(DATA.glob('catalog_patch_*.json')):
-        try: d=json.loads(p.read_text())
-        except Exception: continue
-        deleted += d.get('delete',[])
-    survivors=sorted(set(deleted)&set(cur))
-    print('DELETED_IDS_SURVIVING_EFFECTIVE',len(survivors))
-    for x in survivors: print('DELETE_SURVIVOR',x)
 
     required=('id','title','center','species','cancers','status_confidence')
     incomplete=[]

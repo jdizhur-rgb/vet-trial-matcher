@@ -25,14 +25,13 @@ This checklist is mandatory for every daily catalog update.
 
 ## Catalog structure — read this before editing
 
-- `data/trials_base.json` is the legacy/base catalog. Do **not** routinely append new discoveries to this large file.
-- `data/trial_updates.json` is a legacy consolidated patch file. Do **not** default to editing or rewriting it for new discoveries.
-- New audited additions/updates should be kept in **small modular JSON patch files** in `data/` (`{"upsert": [...], "delete": [...]}`), with descriptive/date-based names. Existing examples include `discovery_aurelius_20260905.json` and other audit/discovery patch files.
-- Before creating a new record, inspect the **effective catalog exactly as the patient-facing loader builds it**: base + legacy updates + every approved modular catalog patch, with deletes and ID upserts applied. Do not infer absence from one component file.
+- `data/trials_base.json` is the single canonical catalog used by the matcher and SEO generator.
+- Do **not** create runtime update layers or modular catalog patch files.
+- Keep unverified discoveries in research notes or watchlists. Promote only verified changes directly into the canonical catalog.
+- Before creating a new record, inspect the full canonical catalog exactly as the patient-facing loader reads it. Do not infer absence from code search or from a research-note file.
 - **GitHub code search is discovery/navigation only. A zero-result code search is never evidence that a protocol is absent from the catalog.** Large JSON files and generated/effective records may not be indexed or returned reliably.
 - Do not create institution-specific duplicate-avoidance exceptions or memory lists. The same effective-catalog semantic-dedup procedure applies to every university, hospital, company and registry.
-- A small discovery/audit patch is not useful to owners unless the patient-facing catalog loader actually consumes it. Every confirmed modular patch intended for matching must be connected to the effective catalog and then tested in the matcher.
-- Do not blindly load every JSON file in `data/`: the directory also contains statistics, watchlists, audit reports, ECT-center data and other non-catalog documents. Only explicitly approved catalog patch files belong in the matcher input set.
+- Do not load other JSON files in `data/` into the matcher. The directory also contains statistics, watchlists, audit reports and ECT-center data; only `trials_base.json` is catalog input.
 
 1. For the **daily** run, discover only material published/posted during the immediately preceding calendar day. Existing-record status sweeps belong to the weekly deep/control audit unless a new daily lead directly reveals a material status correction.
 2. Search for new dog/cat anticancer treatment opportunities across all required regions and source layers within that daily publication window.
@@ -42,7 +41,7 @@ This checklist is mandatory for every daily catalog update.
 3. Apply the treatment-scope filter. Keep true anticancer treatment opportunities in treatment matching; classify treatment-access/support programs separately; do not promote observational/diagnostic/sample-only/supportive/prevention-only research into treatment matching.
 4. Verify recruitment/access from a protocol-level primary source whenever available. If recruitment or protocol details are insufficient or conflicting, keep the lead on the watchlist rather than matching it.
 5. Normalize disease labels, species, geography, treatment modality and source URLs.
-6. **MANDATORY PRE-MERGE DEDUPLICATION:** compare every proposed new/upserted record against the full effective catalog: base + legacy updates + all approved modular catalog patches, after applying the same merge/delete semantics as the live loader.
+6. **MANDATORY PRE-MERGE DEDUPLICATION:** compare every proposed record or update against the full canonical catalog.
    - Check exact ID and normalized URL matches.
    - Check semantic similarity of protocol title/intervention, cancer, species, center/investigator and eligibility.
    - Treat different source URLs or different IDs as possible representations of the same protocol.
@@ -51,8 +50,8 @@ This checklist is mandatory for every daily catalog update.
    - When the same protocol appears through multiple sources, keep one canonical record and merge the freshest verified details/primary source into it.
    - Ambiguous candidate pairs require review; never auto-delete on similarity score alone.
    - **Never create a new record merely because GitHub code search, filename search, or a single catalog component returns no match. Absence must be established against the constructed effective catalog.**
-7. Only after deduplication, write confirmed additions/updates/deletes to a small modular catalog patch. Avoid growing the legacy consolidated file unless a migration/compaction is intentionally being performed.
-8. Ensure every approved modular patch intended for matching is included by the patient-facing catalog loader; verify at least one representative query after connecting it.
+7. Only after deduplication, write confirmed additions, updates or deletions directly to `data/trials_base.json`.
+8. Reload the canonical catalog and verify at least one representative matcher query.
 9. Recalculate catalog statistics from the deduplicated effective catalog. Treatment totals must count only records that actually qualify for strict treatment matching.
    - Every daily run must collect and report the post-run effective-catalog statistics: total effective records; current strict treatment opportunities (`study_type == treatment` and `available_for_matching == true`); treatment opportunities by country; treatment opportunities by species; and the IDs/counts added, substantively updated, deleted/closed, or left on the watchlist during that run. Statistics are reporting only and must be calculated from the same effective-catalog loader used by the patient-facing matcher; collecting statistics must not itself alter catalog records.
 10. Validate JSON and matcher behavior, including cancer aliases and visibility of any `Other` opportunity intended to be searchable.

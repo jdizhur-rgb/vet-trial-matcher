@@ -27,31 +27,10 @@ USER_AGENT = (
 TIMEOUT = 20
 
 
-def merge(old: dict, patch: dict) -> dict:
-    new = dict(old)
-    for key, value in patch.items():
-        if key in {"requires", "excludes"} and isinstance(value, dict):
-            nested = dict(new.get(key, {}) if isinstance(new.get(key), dict) else {})
-            nested.update(value)
-            new[key] = nested
-        else:
-            new[key] = value
-    return new
-
-
 def load_effective() -> list[dict]:
-    rows = {r["id"]: r for r in json.loads((DATA / "trials_base.json").read_text())}
-    paths = [DATA / "trial_updates.json"] + sorted(DATA.glob("catalog_patch_*.json"))
-    for path in paths:
-        if not path.exists():
-            continue
-        doc = json.loads(path.read_text())
-        for rid in doc.get("delete", []):
-            rows.pop(rid, None)
-        for patch in doc.get("upsert", []):
-            rows[patch["id"]] = merge(rows.get(patch["id"], {}), patch)
+    rows = json.loads((DATA / "trials_base.json").read_text())
     return [
-        r for r in rows.values()
+        r for r in rows
         # Match the patient-facing finder exactly: legacy records without an
         # explicit availability flag are considered available unless disabled.
         if r.get("available_for_matching", True)
