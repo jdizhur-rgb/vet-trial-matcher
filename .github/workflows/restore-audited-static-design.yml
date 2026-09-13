@@ -131,7 +131,10 @@ jobs:
           assert help_page.count('<details>') == 21
           assert help_page.count('<summary>') == 21
           assert 'class="help-section"' in help_page
-          assert '.help-center .cta{padding:8px 13px' in help_page
+          assert 'help-actions' not in help_page
+          assert '<h2>Trial Centers</h2>' in help_page
+          assert '<h2>Other Treatments</h2>' in help_page
+          assert '<h2>Centers and other treatment options</h2>' not in help_page
           assert 'How do I use the trial finder?' in help_page
           assert 'What do the result labels mean?' in help_page
           assert 'How do I find the nearest trial centers?' in help_page

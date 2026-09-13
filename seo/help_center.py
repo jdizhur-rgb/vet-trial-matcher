@@ -46,9 +46,11 @@ def generate_help_center(root: Path) -> None:
             ('What does “last verified” mean?',
              '<p>It is the most recent date we checked the listing against a source used for that record. It does not guarantee that a place is available today. The study team is always the final source for current enrollment.</p>'),
         ]),
-        ('Centers and other treatment options', [
+        ('Trial Centers', [
             ('How do I find the nearest trial centers?',
              f'<p>Open <a href="{SITE}/centers/">Trial Centers</a>. Enter a five-digit US ZIP code to sort listed US centers by approximate straight-line distance. The mileage is not driving distance. You can also search by hospital, city, state or country. This is a directory of centers connected to current opportunities in our catalog, not every veterinary oncology hospital near you.</p>'),
+        ]),
+        ('Other Treatments', [
             ('What is included under Other Treatments?',
              f'<p><a href="{SITE}/other-treatments/">Other Treatments</a> has three routes. <strong>Electrochemotherapy</strong> searches a separate US and Canadian center list by ZIP or postal code. <strong>Advanced / Novel Treatments</strong> filters currently accessible regulated, experimental, personalized or off-label options by species, country, cancer and clinical situation. <strong>Compassionate / Expanded Access</strong> lists verified programs that may review patients outside ordinary trial enrollment. These tools do not decide whether a treatment is medically appropriate.</p>'),
         ]),
@@ -75,29 +77,26 @@ def generate_help_center(root: Path) -> None:
         for title, items in sections
     )
     body = f'''<style>
-.help-center{{max-width:900px}}
+.help-center{{max-width:900px;font-family:inherit;font-size:1rem;line-height:1.58}}
 .help-intro{{max-width:800px}}
-.help-actions{{display:flex;gap:9px;flex-wrap:wrap;margin:18px 0 30px}}
 .help-section{{margin:30px 0}}
-.help-section h2{{margin:0 0 12px}}
+.help-section h2{{margin:0 0 12px;font-family:inherit;font-size:1.45rem;line-height:1.2;font-weight:700}}
 .help-section details{{background:#fff;border:1px solid #d9e2ea;border-radius:10px;margin:0 0 9px;overflow:hidden}}
-.help-section summary{{position:relative;padding:14px 46px 14px 16px;color:#315f7d;font-size:1.03rem;font-weight:680;line-height:1.35;cursor:pointer;list-style:none}}
+.help-section summary{{position:relative;padding:14px 46px 14px 16px;color:#315f7d;font-family:inherit;font-size:1rem;font-weight:700;line-height:1.4;cursor:pointer;list-style:none}}
 .help-section summary::-webkit-details-marker{{display:none}}
 .help-section summary::after{{content:'+';position:absolute;right:16px;top:50%;transform:translateY(-50%);color:#6b8193;font-size:1.35rem;font-weight:400}}
 .help-section details[open] summary{{border-bottom:1px solid #e3e9ee}}
 .help-section details[open] summary::after{{content:'−'}}
-.help-answer{{padding:14px 17px 16px}}
+.help-answer{{padding:14px 17px 16px;font-family:inherit;font-size:1rem;line-height:1.58}}
 .help-answer p{{margin:0 0 11px}}
 .help-answer p:last-child{{margin-bottom:0}}
 .help-answer ol{{margin:0 0 12px;padding-left:22px}}
 .help-answer li{{margin:0 0 7px}}
-.help-center .cta{{padding:8px 13px;border-radius:7px;font-size:.9rem;font-weight:650}}
 .help-urgent{{border-left:4px solid #8aaec4;background:#edf4f8;padding:13px 15px;margin:30px 0 0}}
-@media(max-width:600px){{.help-actions{{margin-bottom:24px}}.help-section{{margin:25px 0}}.help-section summary{{padding:13px 41px 13px 14px;font-size:1rem}}.help-answer{{padding:13px 14px 15px}}}}
+@media(max-width:600px){{.help-center{{font-size:1rem}}.help-section{{margin:25px 0}}.help-section h2{{font-size:1.28rem}}.help-section summary{{padding:13px 41px 13px 14px;font-size:1rem}}.help-answer{{padding:13px 14px 15px;font-size:1rem}}}}
 </style>
 <div class="help-center"><h1>Help Center</h1>
 <p class="lead help-intro">Use this page to choose the right part of Vet Trial Finder, complete the matcher without guessing, understand the results and contact a study with the right records.</p>
-<div class="help-actions"><a class="cta" href="{finder}">Find Trials</a><a class="secondary-cta" href="{SITE}/centers/">Trial Centers</a><a class="secondary-cta" href="{SITE}/cancer-types/">Cancer Types</a></div>
 {section_html}
 <p class="help-urgent"><strong>Urgent symptoms come first.</strong> Difficulty breathing, collapse, uncontrolled bleeding, severe pain or another emergency should be assessed by a veterinarian immediately rather than delayed for a trial search.</p>
 </div>'''
