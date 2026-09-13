@@ -3,6 +3,7 @@ import streamlit as st
 
 from location_sort import sort_matches_by_distance
 from matcher_engine import SearchAnswers, match_trials as _engine_match_trials
+from search_telemetry import record_search_outcome, tumor_size_bucket
 from trial_catalog import (
     CANCER_ALIASES,
     CANCERS,
@@ -507,6 +508,21 @@ if search_clicked:
     _distance_context = None
     if zip_code.strip():
         _engine_matches, _distance_context = sort_matches_by_distance(_engine_matches, zip_code)
+
+    record_search_outcome(
+        result_count=len(_engine_matches),
+        fields={
+            'species': species,
+            'cancer': cancer,
+            'country': country,
+            'diagnosis_status': diagnosis_status,
+            'tumor_status': tumor_status,
+            'metastasis': metastasis,
+            'localized': localized,
+            'tumor_size_bucket': tumor_size_bucket(tumor_size_cm),
+            'tumor_location': tumor_location,
+        },
+    )
 
     st.header('Results')
     if zip_code.strip() and _distance_context is None:

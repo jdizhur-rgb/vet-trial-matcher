@@ -20,4 +20,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Check direct study and registry links
-        run: python scripts/validate_trial_links.py
+        run: python scripts/validate_trial_links.py --markdown-report "$GITHUB_STEP_SUMMARY"

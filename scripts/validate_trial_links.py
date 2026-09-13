@@ -10,12 +10,14 @@ This validator intentionally uses the same active-treatment semantics as the Fin
 from __future__ import annotations
 
 import json
+import argparse
 import socket
 import sys
 import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
+from datetime import date, datetime
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
@@ -25,6 +27,53 @@ USER_AGENT = (
     "(KHTML, like Gecko) Chrome/126.0 Safari/537.36"
 )
 TIMEOUT = 20
+
+
+def verification_age_days(value: str) -> int | None:
+    try:
+        return (date.today() - datetime.strptime(value, "%Y-%m-%d").date()).days
+    except (TypeError, ValueError):
+        return None
+
+
+def markdown_report(rows, checks, missing_direct) -> str:
+    dead = [x for x in checks if x[0] == "dead"]
+    uncertain = [x for x in checks if x[0] == "uncertain"]
+    stale = []
+    for row in rows:
+        age = verification_age_days(row.get("verified", ""))
+        if age is None or age > 30:
+            stale.append((str(row.get("id") or "?"), row.get("verified") or "missing", age))
+
+    lines = [
+        "# Trial link review",
+        "",
+        f"Active records: **{len(rows)}**  ",
+        f"Dead links: **{len(dead)}** · Uncertain checks: **{len(uncertain)}** · "
+        f"Missing links: **{len(missing_direct)}** · Verification older than 30 days: **{len(stale)}**",
+        "",
+    ]
+
+    def section(title, items):
+        lines.extend([f"## {title}", ""])
+        if not items:
+            lines.extend(["None.", ""])
+            return
+        for item in items:
+            lines.append(f"- `{item[1]}` · {item[2]} · {item[4]} · {item[3]}")
+        lines.append("")
+
+    section("Dead links", dead)
+    section("Uncertain — manual review", uncertain)
+    lines.extend(["## Records without a link", ""])
+    lines.extend([f"- `{rid}` · {title}" for rid, title in missing_direct] or ["None."])
+    lines.extend(["", "## Stale verification dates", ""])
+    lines.extend([
+        f"- `{rid}` · verified: {verified}" + (f" · {age} days ago" if age is not None else "")
+        for rid, verified, age in stale
+    ] or ["None."])
+    lines.append("")
+    return "\n".join(lines)
 
 
 def load_effective() -> list[dict]:
@@ -74,6 +123,9 @@ def check_url(url: str) -> tuple[str, str]:
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--markdown-report", type=Path)
+    args = parser.parse_args()
     rows = load_effective()
     checks: list[tuple[str, str, str, str, str]] = []
     missing_direct = []
@@ -108,6 +160,12 @@ def main() -> int:
         print(f"{state.upper()}\t{rid}\t{field}\t{detail}\t{url}")
     for rid, title in missing_direct:
         print(f"MISSING\t{rid}\tno owner-facing study link\t{title}")
+
+    if args.markdown_report:
+        args.markdown_report.parent.mkdir(parents=True, exist_ok=True)
+        args.markdown_report.write_text(
+            markdown_report(rows, checks, missing_direct), encoding="utf-8"
+        )
 
     if dead or missing_direct:
         print("TRIAL_LINK_VALIDATION_FAILED", file=sys.stderr)
