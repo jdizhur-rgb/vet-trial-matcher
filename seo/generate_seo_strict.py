@@ -190,11 +190,23 @@ def page(title,desc,body,canonical,lang='en',alts=None):
     return rendered.replace('</style>',css+'</style>',1)
 g.page=page
 
+ETHOS_NETWORK = "Ethos Veterinary Health / Ethos Discovery"
+ETHOS_HOSPITALS = {
+    "Atlantic Veterinary Internal Medicine & Oncology", "CARE Center Cincinnati",
+    "Colorado Animal Specialty & Emergency (CASE)", "First Coast Veterinary Specialists & Emergency",
+    "Gulf Coast Veterinary Specialists", "Massachusetts Veterinary Referral Hospital",
+    "Mission Veterinary Emergency & Specialty", "Peak Veterinary Referral Center",
+    "Pet Emergency and Specialty Center of Marin", "SAGE Veterinary Centers",
+    "Veterinary Specialty Hospital - North County", "Veterinary Specialty Hospital - Sorrento Valley",
+    "WVRC Grafton", "WVRC Racine Kenosha", "WVRC Waukesha",
+}
+
 CENTER_RULES=(
 ('Hospital Veterinario Peña Jasso',('hospital veterinario peña jasso','hospital veterinario pena jasso')),('Colorado State University Flint Animal Cancer Center',('colorado state university','flint animal cancer center')),('University of Florida College of Veterinary Medicine',('university of florida',)),('Michigan State University College of Veterinary Medicine',('michigan state university',)),('Auburn University College of Veterinary Medicine',('auburn university',)),('University of Pennsylvania School of Veterinary Medicine',('university of pennsylvania','penn vet')),('Tufts University Cummings School of Veterinary Medicine',('tufts university','tufts cummings')),('NC State College of Veterinary Medicine',('nc state','north carolina state university')),('University of Missouri College of Veterinary Medicine',('university of missouri',)),('University of Illinois College of Veterinary Medicine',('university of illinois',)),('Purdue University College of Veterinary Medicine',('purdue university',)),('Cornell University College of Veterinary Medicine',('cornell university',)),('University of Minnesota College of Veterinary Medicine',('university of minnesota',)),('Ohio State University College of Veterinary Medicine',('ohio state university','the ohio state university')),('Texas A&M School of Veterinary Medicine',('texas a&m','texas a and m')),('Louisiana State University School of Veterinary Medicine',('louisiana state university','lsu')),('University of Georgia College of Veterinary Medicine',('university of georgia',)),('Washington State University College of Veterinary Medicine',('washington state university',)),('UC Davis Veterinary Center for Clinical Trials',('uc davis veterinary center for clinical trials','uc davis veterinary medical teaching hospital','uc davis')),('Aurelius Biotherapeutics',('aurelius biotherapeutics',)),('Ethos Veterinary Health / Ethos Discovery',('ethos veterinary health','ethos discovery')),('Colorado Animal Specialty & Emergency (CASE)',('colorado animal specialty','case / ethos discovery')),('Johns Hopkins Center for Image-Guided Animal Therapy (CIGAT)',('johns hopkins center for image-guided animal therapy',)),('SAGE Veterinary Centers',('sage san francisco','sage veterinary')),
 )
 def canonical_center(v):
     raw=str(v or '').strip()
+    if raw in ETHOS_HOSPITALS:return ETHOS_NETWORK
     known=canonical_name_for(raw)
     if known:return known
     text=normalize(raw)
@@ -291,6 +303,32 @@ def safe_center_slug(center,used):
     return slug
 
 
+def ethos_sections(hit):
+    branches={}
+    for r in hit:
+        for s in r.get('sites',[]) if isinstance(r.get('sites'),list) else []:
+            if not site_active(s) or site_is_coverage_placeholder(s):continue
+            name=str(s.get('hospital') or s.get('name') or '').strip()
+            if name not in ETHOS_HOSPITALS:continue
+            entry=branches.setdefault(name,{'rows':[],'locations':[]})
+            if not any(x.get('id')==r.get('id') for x in entry['rows']):entry['rows'].append(r)
+            for loc in site_labels(s,str(r.get('country') or '')):
+                if loc not in entry['locations']:entry['locations'].append(loc)
+    out=['<div class="network-branches"><h2>Participating Ethos hospitals</h2><p class="source-note">Open a hospital to see its current options and location.</p>']
+    for name,entry in sorted(branches.items()):
+        out.append(f'<section class="network-branch" id="{g.slugify(name)}"><h3>{g.esc(name)}</h3>')
+        if entry['locations']:out.append('<p class="branch-location">'+ '<br>'.join(g.esc(x) for x in entry['locations'])+'</p>')
+        out.append(center_cards(entry['rows'])+'</section>')
+    out.append('</div>')
+    return ''.join(out)
+
+
+def write_redirect(path,target,title):
+    d=g.OUT/path;d.mkdir(parents=True,exist_ok=True)
+    doc=f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,follow"><link rel="canonical" href="{g.esc(target)}"><meta http-equiv="refresh" content="0; url={g.esc(target)}"><title>{g.esc(title)}</title></head><body><p>This hospital is now listed on the <a href="{g.esc(target)}">Ethos Veterinary Health page</a>.</p></body></html>'
+    (d/'index.html').write_text(doc,encoding='utf-8')
+
+
 def generate_centers(rows):
     rows=[r for r in rows if str(r.get('center','')).strip()];grouped={}
     for r in rows:
@@ -306,14 +344,16 @@ def generate_centers(rows):
         body=('<div class="center-page">'
             f'<h1>{g.esc(center)}</h1><p class="center-kicker">{count} current cancer treatment or research {noun}</p>'
             +overview(center)+owner_summary(center,hit,cancers,addrs)
-            +f'<h2>Current options at {g.esc(center)}</h2><p class="source-note">Open an option to see who may qualify, locations, costs or coverage, contact details and the official source.</p>'
-            +center_cards(hit)
+            +(ethos_sections(hit) if center==ETHOS_NETWORK else f'<h2>Current options at {g.esc(center)}</h2><p class="source-note">Open an option to see who may qualify, locations, costs or coverage, contact details and the official source.</p>'+center_cards(hit))
             +'<details class="center-note"><summary>Before you contact the center</summary>'
             +'<p>A listing here does not mean every pet will qualify. Enrollment can change, and the study team makes the final decision after reviewing your pet’s diagnosis, records and previous treatment.</p>'
             +'<p>Have the pathology report, recent imaging and treatment history ready. Ask whether a referral is required, which visits must happen in person and what the study pays for before making travel plans.</p></details>'
             +f'<p><a class="center-search-link" href="{g.FINDER}">Check all options for your pet →</a></p><p class="free-note">Free to use. No registration or paid report.</p></div>')
         desc=f'Dog and cat cancer treatment options, research studies and clinical trials at {center}.'
         d=g.OUT/path;d.mkdir(parents=True,exist_ok=True);(d/'index.html').write_text(g.page(center,desc,body,url),encoding='utf-8');links.append(url);items.append((center,path,len(hit)))
+        if center==ETHOS_NETWORK:
+            for hospital in ETHOS_HOSPITALS:
+                write_redirect(f'centers/{safe_center_slug(hospital,{})}/',url+'#'+g.slugify(hospital),hospital)
     assert len(used)==len(grouped),(len(used),len(grouped))
     iu=f'{g.SITE}/centers/';ib='<h1>Veterinary Cancer Research Centers</h1><p class="lead">Browse universities, teaching hospitals, specialty hospitals and research centers with current cancer treatment opportunities.</p><ul>'+''.join(f'<li><a href="{g.SITE}/{p}">{g.esc(n)}</a> — {c} current opportunities</li>' for n,p,c in items)+'</ul>'
     d=g.OUT/'centers';d.mkdir(parents=True,exist_ok=True);(d/'index.html').write_text(g.page('Veterinary Cancer Research Centers','Veterinary cancer research centers and current treatment studies.',ib,iu),encoding='utf-8')
