@@ -37,6 +37,7 @@ from hs_owner_page import apply_canine_hs_guide
 from help_center import generate_help_center
 from about_page import generate_about_page
 from site_shell import apply_site_shell
+from vaccine_article import generate_cancer_vaccine_article
 from about_site_integration import integrate_about
 
 # Resolve program/alias names to canonical institutions before giving up on a
@@ -173,6 +174,7 @@ def main():
         "countries": len({country_aliases.get(str(row.get("country") or "USA").strip(), str(row.get("country") or "USA").strip()) for row in rows}),
     }
     apply_site_shell(out, stats)
+    generate_cancer_vaccine_article(out)
     home = out / "index.html"
     if home.exists():
         text = home.read_text(encoding="utf-8")
