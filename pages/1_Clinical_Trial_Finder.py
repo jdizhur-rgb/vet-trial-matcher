@@ -141,19 +141,19 @@ c1, c2 = st.columns(2)
 with c1:
     species = st.selectbox('Species', ['Dog','Cat'])
     age_known = st.checkbox('I know the age', value=False)
-    age = st.number_input('Age (years)', 0.0, 30.0, 8.0, 0.5, disabled=not age_known)
+    age = st.number_input('Age (years)', 0.0, 30.0, value=None, step=0.5, disabled=not age_known)
 with c2:
     weight_known = st.checkbox('I know the weight')
     weight_unit = st.radio('Weight unit', ['lb', 'kg'], horizontal=True, disabled=not weight_known)
     if weight_unit == 'kg':
-        weight_value = st.number_input('Weight (kg)', 0.1, 113.5, 20.0, 0.1, disabled=not weight_known)
-        weight_kg = weight_value if weight_known else None
-        weight_lb = weight_value * 2.2046226218 if weight_known else None
+        weight_value = st.number_input('Weight (kg)', 0.1, 113.5, value=None, step=0.1, disabled=not weight_known)
+        weight_kg = weight_value if weight_known and weight_value is not None else None
+        weight_lb = weight_value * 2.2046226218 if weight_known and weight_value is not None else None
     else:
-        weight_value = st.number_input('Weight (lb)', 0.2, 250.0, 44.0, 0.5, disabled=not weight_known)
-        weight_lb = weight_value if weight_known else None
-        weight_kg = weight_value / 2.2046226218 if weight_known else None
-    sex = st.selectbox('Sex', [UNKNOWN,'Female — spayed','Female — intact','Male — neutered','Male — intact'])
+        weight_value = st.number_input('Weight (lb)', 0.2, 250.0, value=None, step=0.5, disabled=not weight_known)
+        weight_lb = weight_value if weight_known and weight_value is not None else None
+        weight_kg = weight_value / 2.2046226218 if weight_known and weight_value is not None else None
+    sex = UNKNOWN
 
 trial_countries = sorted({t.get('country', 'USA') for t in TRIALS}, key=lambda x: (x != 'USA', x))
 EUROPE_COUNTRIES = {
@@ -315,12 +315,40 @@ if {'min_tumor_cm', 'max_tumor_cm'}.intersection(_form_req_keys):
 else:
     tumor_size_cm = None
 
-if {'superficial_accessible_tumor', 'superficial_or_oral_tumor'}.intersection(_form_req_keys):
-    surface_or_oral_accessible = st.selectbox(
-        'Is the tumor accessible from the body surface or mouth?',
-        [UNKNOWN, 'Yes', 'No'],
+_location_keys = {
+    'cutaneous_sts', 'extremity_sts',
+    'superficial_accessible_tumor', 'superficial_or_oral_tumor',
+}
+if _location_keys.intersection(_form_req_keys):
+    tumor_location = _unknown_selectbox(
+        'Where is the tumor located?',
+        [
+            'Skin / subcutaneous tissue — limb',
+            'Skin / subcutaneous tissue — other area',
+            'Deeper soft tissue — limb',
+            'Deeper soft tissue — other area',
+            'Mouth / oral cavity',
+            'Internal organ / body cavity',
+            'Other / not sure',
+            UNKNOWN,
+        ],
     )
+    if tumor_location in {
+        'Skin / subcutaneous tissue — limb',
+        'Skin / subcutaneous tissue — other area',
+        'Mouth / oral cavity',
+    }:
+        surface_or_oral_accessible = 'Yes'
+    elif tumor_location in {
+        'Deeper soft tissue — limb',
+        'Deeper soft tissue — other area',
+        'Internal organ / body cavity',
+    }:
+        surface_or_oral_accessible = 'No'
+    else:
+        surface_or_oral_accessible = UNKNOWN
 else:
+    tumor_location = UNKNOWN
     surface_or_oral_accessible = UNKNOWN
 
 # Protocol-specific disease constraints used by broad Zurich basket/local-therapy trials.
@@ -416,6 +444,7 @@ if search_clicked:
         ct_and_current_biopsy=ct_and_current_biopsy,
         tumor_size_cm=tumor_size_cm,
         osa_location=osa_location,
+        tumor_location=tumor_location,
         surface_or_oral_accessible=surface_or_oral_accessible,
         unlisted_diagnosis=unlisted_diagnosis,
     )
