@@ -3,6 +3,7 @@ import streamlit as st
 
 from location_sort import sort_matches_by_distance
 from matcher_engine import SearchAnswers, match_trials as _engine_match_trials
+from result_actions import contact_actions, verification_label
 from search_telemetry import record_search_outcome, tumor_size_bucket
 from trial_catalog import (
     CANCER_ALIASES,
@@ -571,16 +572,29 @@ if search_clicked:
                 st.markdown('**Why it may fit:** ' + '; '.join(_match.reasons) + '.')
                 if _match.needs_confirmation:
                     st.markdown('**Needs confirmation:** ' + '; '.join(_match.needs_confirmation) + '.')
-                st.write('**Contact:** ' + tr.get('contacts', tr.get('contact', 'Contact the study team through the official study page')))
+                st.caption(verification_label(tr.get('verified')))
+                contact_text = tr.get('contacts', tr.get('contact', 'Contact the study team through the official study page'))
+                st.write('**Contact:** ' + contact_text)
                 details_url = tr.get('registry_url') or tr.get('url', '')
+                email, phone = contact_actions(contact_text)
+                actions = []
+                if email:
+                    actions.append(('Email study team', f'mailto:{email}'))
+                if phone:
+                    actions.append(('Call', f'tel:{phone}'))
                 if details_url:
-                    st.link_button('View full study details →', details_url, use_container_width=True)
+                    actions.append(('Official study', details_url))
+                if actions:
+                    columns = st.columns(len(actions), gap='small')
+                    for column, (label, target) in zip(columns, actions):
+                        with column:
+                            st.link_button(label, target, use_container_width=True)
                 with st.expander('Study information'):
                     if tr.get('intervention'):
                         st.write('**Study intervention:** ' + tr['intervention'])
                     if tr.get('notes'):
                         st.write('**What the study says:** ' + tr['notes'])
-                    st.caption(f"Status: {tr['status']} · Last verified: {tr.get('verified', 'date not recorded')}")
+                    st.caption(f"Status: {tr['status']}")
         _render_result_save_controls(_engine_matches)
         with st.expander('Help us improve this finder'):
             st.write('If a trial team says your pet is not eligible, please save the reason they gave. This helps improve the matcher. Do not post private medical or contact information publicly.')
