@@ -119,6 +119,7 @@ class SearchAnswers:
     ct_and_current_biopsy: str = UNKNOWN
     tumor_size_cm: float | None = None
     osa_location: str = UNKNOWN
+    tumor_location: str = UNKNOWN
     surface_or_oral_accessible: str = UNKNOWN
     unlisted_diagnosis: str = ""
 
@@ -375,10 +376,34 @@ def match_trials(
             elif answers.osa_location == UNKNOWN:
                 _append_once(unknown, "appendicular limb-bone location requirement")
 
-        if req.get("superficial_accessible_tumor") or req.get("superficial_or_oral_tumor"):
-            if answers.surface_or_oral_accessible == "No":
+        skin_locations = {
+            "Skin / subcutaneous tissue — limb",
+            "Skin / subcutaneous tissue — other area",
+        }
+        limb_locations = {
+            "Skin / subcutaneous tissue — limb",
+            "Deeper soft tissue — limb",
+        }
+        superficial_or_oral_locations = skin_locations | {"Mouth / oral cavity"}
+        location_unknown = answers.tumor_location in {UNKNOWN, "Other / not sure"}
+
+        if req.get("cutaneous_sts"):
+            if not location_unknown and answers.tumor_location not in skin_locations:
                 excluded = True
-            elif answers.surface_or_oral_accessible == UNKNOWN:
+            elif location_unknown:
+                _append_once(unknown, "cutaneous/subcutaneous tumor-location requirement")
+        if req.get("extremity_sts"):
+            if not location_unknown and answers.tumor_location not in limb_locations:
+                excluded = True
+            elif location_unknown:
+                _append_once(unknown, "extremity tumor-location requirement")
+
+        if req.get("superficial_accessible_tumor") or req.get("superficial_or_oral_tumor"):
+            if not location_unknown and answers.tumor_location not in superficial_or_oral_locations:
+                excluded = True
+            elif location_unknown and answers.surface_or_oral_accessible == "No":
+                excluded = True
+            elif location_unknown and answers.surface_or_oral_accessible == UNKNOWN:
                 _append_once(unknown, "whether the tumor is accessible from the body surface or mouth")
 
         if min_age is not None and answers.age is None:
@@ -444,6 +469,8 @@ def match_trials(
         # Preserve the short questionnaire: unanswered protocol-specific fields
         # are disclosed as study-team prescreening items, never treated as passed.
         for key, wording in PRESCREEN_REQUIREMENTS.items():
+            if key in {"cutaneous_sts", "extremity_sts"}:
+                continue
             if req.get(key):
                 _append_once(unknown, wording)
         for key, wording in PRESCREEN_EXCLUSIONS.items():
@@ -481,4 +508,3 @@ def match_trials(
     }
     results.sort(key=lambda match: (priority.get(match.label, 3), bool(match.trial.get("early_phase"))))
     return results
-
