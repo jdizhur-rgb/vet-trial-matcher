@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Upgrade the static oncology-center directory with real US ZIP search."""
 from pathlib import Path
+import html
 import re
 
 
@@ -9,6 +10,54 @@ PAGE = Path(__file__).resolve().parent / "seo" / "site" / "centers" / "index.htm
 
 def main() -> None:
     text = PAGE.read_text(encoding="utf-8")
+    old_input = (
+        '<input class="catalog-search" type="search" '
+        'placeholder="Search hospital, city or state" '
+        'aria-label="Search oncology centers" oninput="filterCenters(this.value)">'
+    )
+    # The current owner-friendly center generator intentionally emits a plain
+    # crawlable list. Turn that list into the visual/search directory here,
+    # while retaining the same links and opportunity counts.
+    if old_input not in text:
+        items = re.findall(
+            r'<li><a href="([^"]+)">(.*?)</a> — (\d+) current opportunities</li>',
+            text,
+            flags=re.S,
+        )
+        if not items:
+            raise AssertionError("Center directory links not found")
+
+        def first_location(url: str) -> str:
+            slug = url.rstrip("/").split("/")[-1]
+            page = PAGE.parent / slug / "index.html"
+            source = page.read_text(encoding="utf-8") if page.exists() else ""
+            match = re.search(
+                r'<div class="study-locations">.*?<li>(.*?)</li>', source, flags=re.S
+            )
+            if not match:
+                return ""
+            return " ".join(
+                html.unescape(re.sub(r"<.*?>", "", match.group(1))).split()
+            )
+
+        cards_html = "".join(
+            f'<a class="directory-card" href="{url}"><strong>{name}</strong>'
+            f'<span>{count} current {"opportunity" if count == "1" else "opportunities"}'
+            f'{" · " + html.escape(first_location(url)) if first_location(url) else ""}</span></a>'
+            for url, name, count in items
+        )
+        rebuilt = (
+            '<main><h1>Veterinary Oncology Centers</h1>'
+            '<p class="lead catalog-intro"><strong>Find hospitals and research centers that may have options beyond your local clinic.</strong> '
+            'This directory includes universities, teaching hospitals, specialty oncology hospitals and other research programs with current cancer treatment opportunities. '
+            'Search by hospital, city or state.</p>'
+            + old_input
+            + '<div class="directory-grid">' + cards_html + '</div>'
+            + '<script>function filterCenters(q){q=q.toLowerCase().trim();document.querySelectorAll(".directory-card").forEach(function(x){x.style.display=!q||x.textContent.toLowerCase().includes(q)?"":"none";});}</script></main>'
+        )
+        text, replaced = re.subn(r'<main>.*?</main>', rebuilt, text, count=1, flags=re.S)
+        if replaced != 1:
+            raise AssertionError("Center directory main block not found")
     cards = 0
 
     def add_zip(match: re.Match[str]) -> str:
@@ -25,11 +74,6 @@ def main() -> None:
 
     text = re.sub(
         r'(<a class="directory-card"[^>]*)>(.*?)</a>', add_zip, text, flags=re.S
-    )
-    old_input = (
-        '<input class="catalog-search" type="search" '
-        'placeholder="Search hospital, city or state" '
-        'aria-label="Search oncology centers" oninput="filterCenters(this.value)">'
     )
     new_input = (
         '<input class="catalog-search" type="search" inputmode="search" '
