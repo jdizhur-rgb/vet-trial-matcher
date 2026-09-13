@@ -175,6 +175,7 @@ jobs:
           assert 'How We Verify</a>' in home
           assert 'mailto:info@vettrialfinder.com' in home
           assert 'mailto:info@vettrialfinder.com' in about
+          assert 'mailto:info@vettrialfinder.com' in home.split('<footer>',1)[1]
           centers=(root/'centers/index.html').read_text(encoding='utf-8')
           assert 'async function searchByZip' in centers
           assert 'api.zippopotam.us/us/' in centers
