@@ -192,7 +192,7 @@ jobs:
           assert 'uses a dog&#x27;s own T cells' in aurelius
           assert 'This page brings together current cancer studies' not in aurelius
           auburn=(root/'centers/auburn-university/index.html').read_text(encoding='utf-8')
-          assert "Auburn's Bailey Small Animal Teaching Hospital brings medical oncology" in auburn
+          assert 'Auburn&#x27;s Bailey Small Animal Teaching Hospital brings medical oncology' in auburn
           assert auburn.count('Auburn oncology service') == 1
           assert 'Auburn clinical trials' not in auburn
           assert 'Bailey Small Animal Teaching Hospital, 1220 Wire Rd' in auburn
