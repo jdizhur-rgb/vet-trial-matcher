@@ -10,6 +10,7 @@ PAGE = Path(__file__).resolve().parent / "seo" / "site" / "centers" / "index.htm
 
 def main() -> None:
     text = PAGE.read_text(encoding="utf-8")
+    aliases = 0
     old_input = (
         '<input class="catalog-search" type="search" '
         'placeholder="Search hospital, city or state" '
@@ -26,6 +27,29 @@ def main() -> None:
         )
         if not items:
             raise AssertionError("Center directory links not found")
+        current_slugs = {url.rstrip("/").split("/")[-1] for url, _, _ in items}
+
+        # Keep previously published full-name center URLs working when the
+        # current generator chooses a shorter canonical slug.
+        for url, name, _ in items:
+            current_slug = url.rstrip("/").split("/")[-1]
+            legacy_slug = re.sub(
+                r"[^a-z0-9]+", "-", html.unescape(name).lower()
+            ).strip("-")
+            if not legacy_slug or legacy_slug == current_slug or legacy_slug in current_slugs:
+                continue
+            current_page = PAGE.parent / current_slug / "index.html"
+            alias_page = PAGE.parent / legacy_slug / "index.html"
+            if not current_page.exists():
+                continue
+            alias_text = current_page.read_text(encoding="utf-8")
+            if 'name="robots"' not in alias_text:
+                alias_text = alias_text.replace(
+                    "</head>", '<meta name="robots" content="noindex, follow"></head>', 1
+                )
+            alias_page.parent.mkdir(parents=True, exist_ok=True)
+            alias_page.write_text(alias_text, encoding="utf-8")
+            aliases += 1
 
         def first_location(url: str) -> str:
             slug = url.rstrip("/").split("/")[-1]
@@ -156,7 +180,7 @@ function filterCenters(value){
         1,
     )
     PAGE.write_text(text, encoding="utf-8")
-    print(f"CENTER_ZIP_SEARCH_OK cards={cards}")
+    print(f"CENTER_ZIP_SEARCH_OK cards={cards} legacy_aliases={aliases}")
 
 
 if __name__ == "__main__":
