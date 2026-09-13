@@ -109,7 +109,7 @@ jobs:
         run: python help_content_update.py
       - name: Add real ZIP search to oncology-center directory
         run: python center_zip_search.py
-      - name: Require complete center profiles (content pages only)
+      - name: Require photos, credits, copy, and links on every center page
         run: python seo/ensure_center_images.py
       - name: Validate refined Kot design with current catalog
         run: |
