@@ -32,12 +32,16 @@ jobs:
         run: |
           cp seo/center_directory.py /tmp/main-center-directory.py
           cp seo/generate_seo_strict.py /tmp/main-generate-seo-strict.py
-          cp seo/ensure_center_images.py /tmp/main-ensure-center-images.py\n          cp seo/center_profiles.py /tmp/main-center-profiles.py\n          cp seo/center_profiles_extra.py /tmp/main-center-profiles-extra.py
+          cp seo/ensure_center_images.py /tmp/main-ensure-center-images.py
+          cp seo/center_profiles.py /tmp/main-center-profiles.py
+          cp seo/center_profiles_extra.py /tmp/main-center-profiles-extra.py
           git fetch origin cancer-page-audit --depth=1
           git checkout FETCH_HEAD -- seo/
           cp /tmp/main-center-directory.py seo/center_directory.py
           cp /tmp/main-generate-seo-strict.py seo/generate_seo_strict.py
-          cp /tmp/main-ensure-center-images.py seo/ensure_center_images.py\n          cp /tmp/main-center-profiles.py seo/center_profiles.py\n          cp /tmp/main-center-profiles-extra.py seo/center_profiles_extra.py
+          cp /tmp/main-ensure-center-images.py seo/ensure_center_images.py
+          cp /tmp/main-center-profiles.py seo/center_profiles.py
+          cp /tmp/main-center-profiles-extra.py seo/center_profiles_extra.py
           git fetch origin cancer-page-audit-depth --depth=1
           git checkout FETCH_HEAD -- \
             seo/cancer_benchmark_content.py \
