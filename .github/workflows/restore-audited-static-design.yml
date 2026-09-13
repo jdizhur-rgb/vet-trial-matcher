@@ -189,7 +189,7 @@ jobs:
           assert all('<div class="center-facts">' in p.read_text(encoding='utf-8') for p in content_center_pages)
           aurelius=(root/'centers/aurelius-biotherapeutics/index.html').read_text(encoding='utf-8')
           assert 'HalfCircle-Dog.png' in aurelius
-          assert "uses a dog's own T cells" in aurelius
+          assert 'uses a dog&#x27;s own T cells' in aurelius
           assert 'This page brings together current cancer studies' not in aurelius
           auburn=(root/'centers/auburn-university/index.html').read_text(encoding='utf-8')
           assert "Auburn's Bailey Small Animal Teaching Hospital brings medical oncology" in auburn
