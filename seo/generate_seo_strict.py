@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Single owner-facing SEO rendering layer with catalog-wide location preflight."""
 from __future__ import annotations
-import hashlib,html,json,re
+import hashlib,html,json,re,shutil
 import generate_seo as g
 from cancer_page_enhancements import enhance_cancer_pages
 from center_profiles import PROFILES
@@ -576,5 +576,10 @@ def audit(report):
 
 def main():
     rows=g.load_effective();report=preflight(rows)
-    g.main();enhance_cancer_pages(g.OUT);generate_centers(rows);audit(report)
+    g.main();enhance_cancer_pages(g.OUT)
+    # The base generator writes center pages from raw catalog names. Rebuild the
+    # directory from scratch after canonicalization so obsolete aliases cannot
+    # survive as malformed, indexable pages in a clean production build.
+    shutil.rmtree(g.OUT/'centers',ignore_errors=True)
+    generate_centers(rows);audit(report)
 if __name__=='__main__':main()
