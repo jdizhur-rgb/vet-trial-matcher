@@ -176,7 +176,7 @@ jobs:
           centers=(root/'centers/index.html').read_text(encoding='utf-8')
           assert 'async function searchByZip' in centers
           assert 'api.zippopotam.us/us/' in centers
-          assert 'data-zip=' in centers and 'center-search-status' in centers
+          assert 'data-zips=' in centers and 'center-search-status' in centers
           center_pages=list((root/'centers').glob('*/index.html'))
           assert center_pages
           content_center_pages=[p for p in center_pages if '<meta name="robots" content="noindex' not in p.read_text(encoding='utf-8')]
@@ -228,3 +228,5 @@ jobs:
 # sitemap-clean-deploy 2026-09-13-0333
 
 # network-zip-nearest-branch 2026-09-13
+
+# network-zip-nearest-branch-r2 2026-09-13
