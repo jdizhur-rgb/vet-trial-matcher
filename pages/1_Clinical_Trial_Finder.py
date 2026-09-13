@@ -97,6 +97,32 @@ label, [data-testid="stWidgetLabel"] p {
 [data-testid="stTextArea"] textarea {
     font-size: 1.05rem !important;
 }
+.finder-note {
+    background: #f5f8f9;
+    border: 1px solid #e5ebed;
+    border-radius: .55rem;
+    color: #45484b;
+    font-size: .93rem;
+    line-height: 1.35;
+    margin: .25rem 0 .45rem;
+    padding: .55rem .7rem;
+}
+@media (max-width: 600px) {
+    div[data-testid="stMainBlockContainer"] [data-testid="stVerticalBlock"] {
+        gap: .55rem !important;
+    }
+    div[data-testid="stMainBlockContainer"] h2 {
+        margin-top: .65rem !important;
+    }
+    div[data-testid="stMainBlockContainer"] [data-testid="stWidgetLabel"] {
+        margin-bottom: .15rem !important;
+    }
+    .finder-note {
+        font-size: .86rem;
+        line-height: 1.3;
+        padding: .48rem .6rem;
+    }
+}
 </style>
 ''', unsafe_allow_html=True)
 
@@ -131,7 +157,11 @@ st.caption(
 )
 
 st.markdown('Answer what you know. It is completely fine to choose **I don’t know**.')
-st.info('This finder identifies potentially relevant cancer treatment options. It does not determine eligibility. Final eligibility and treatment decisions are determined by the treating or research team. It is not a substitute for veterinary advice.')
+st.markdown(
+    '<div class="finder-note">This finder suggests potentially relevant options; '
+    'the treating or study team confirms eligibility. It is not veterinary advice.</div>',
+    unsafe_allow_html=True,
+)
 
 with st.expander('Before you start', expanded=False):
     st.write('Helpful records, if you have them: pathology/cytology report, surgery report, recent imaging/staging, bloodwork, and names/dates of cancer treatments. You do not need all of these to search.')
@@ -141,18 +171,23 @@ c1, c2 = st.columns(2)
 with c1:
     species = st.selectbox('Species', ['Dog','Cat'])
     age_known = st.checkbox('I know the age', value=False)
-    age = st.number_input('Age (years)', 0.0, 30.0, value=None, step=0.5, disabled=not age_known)
+    age = st.number_input('Age (years)', 0.0, 30.0, value=None, step=0.5) if age_known else None
 with c2:
     weight_known = st.checkbox('I know the weight')
-    weight_unit = st.radio('Weight unit', ['lb', 'kg'], horizontal=True, disabled=not weight_known)
-    if weight_unit == 'kg':
-        weight_value = st.number_input('Weight (kg)', 0.1, 113.5, value=None, step=0.1, disabled=not weight_known)
-        weight_kg = weight_value if weight_known and weight_value is not None else None
-        weight_lb = weight_value * 2.2046226218 if weight_known and weight_value is not None else None
+    weight_unit = st.radio('Weight unit', ['lb', 'kg'], horizontal=True) if weight_known else 'lb'
+    weight_value = None
+    if weight_known:
+        if weight_unit == 'kg':
+            weight_value = st.number_input('Weight (kg)', 0.1, 113.5, value=None, step=0.1)
+            weight_kg = weight_value
+            weight_lb = weight_value * 2.2046226218 if weight_value is not None else None
+        else:
+            weight_value = st.number_input('Weight (lb)', 0.2, 250.0, value=None, step=0.5)
+            weight_lb = weight_value
+            weight_kg = weight_value / 2.2046226218 if weight_value is not None else None
     else:
-        weight_value = st.number_input('Weight (lb)', 0.2, 250.0, value=None, step=0.5, disabled=not weight_known)
-        weight_lb = weight_value if weight_known and weight_value is not None else None
-        weight_kg = weight_value / 2.2046226218 if weight_known and weight_value is not None else None
+        weight_lb = None
+        weight_kg = None
     sex = UNKNOWN
 
 trial_countries = sorted({t.get('country', 'USA') for t in TRIALS}, key=lambda x: (x != 'USA', x))
