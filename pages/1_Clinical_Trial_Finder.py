@@ -3,7 +3,7 @@ import streamlit as st
 
 from location_sort import sort_matches_by_distance
 from matcher_engine import SearchAnswers, match_trials as _engine_match_trials
-from result_actions import clean_funding_text, compact_confirmations, contact_actions, verification_label
+from result_actions import contact_actions, verification_label
 from search_telemetry import record_search_outcome, tumor_size_bucket
 from trial_catalog import (
     CANCER_ALIASES,
@@ -78,6 +78,27 @@ TRIALS = load_trials()
 UNLISTED_CANCER = "My cancer type isn't listed"
 TREATMENT_OPTIONS = ['Chemotherapy','Radiation','Surgery','Immunotherapy','Targeted therapy','Experimental drug']
 UNKNOWN = "I don't know"
+
+_CONFIRMATION_PRIORITY = (
+    "pathology/cytology", "active treatment target", "measurable disease",
+    "minimum weight", "maximum weight", "visible tumor", "tumor location",
+    "current chemotherapy", "current radiation", "current steroid",
+)
+
+
+def _compact_confirmations(items, limit=3):
+    unique = list(dict.fromkeys(item.strip() for item in items if item.strip()))
+
+    def rank(item):
+        lowered = item.casefold()
+        for index, phrase in enumerate(_CONFIRMATION_PRIORITY):
+            if phrase in lowered:
+                return index, unique.index(item)
+        return len(_CONFIRMATION_PRIORITY), unique.index(item)
+
+    visible = sorted(unique, key=rank)[:limit]
+    visible_set = set(visible)
+    return visible, [item for item in unique if item not in visible_set]
 
 
 def _unknown_selectbox(label, options, **kwargs):
@@ -565,12 +586,12 @@ if search_clicked:
                 if tr.get('funding'):
                     # Dollar amounts must stay plain text; otherwise Markdown
                     # treats the text between two $ signs as inline mathematics.
-                    funding_text = clean_funding_text(tr['funding']).replace(chr(36), chr(92) + chr(36))
+                    funding_text = str(tr['funding']).lstrip('🟢🟡🟠🔴️ ').replace(chr(36), chr(92) + chr(36))
                     st.markdown('**Costs / coverage:** ' + funding_text)
                 if tr['id'] in _distances:
                     st.markdown(f"**Approximate distance:** {_distances[tr['id']]:.0f} miles")
                 st.markdown('**Why it may fit:** ' + '; '.join(_match.reasons) + '.')
-                visible_confirmations, additional_confirmations = compact_confirmations(
+                visible_confirmations, additional_confirmations = _compact_confirmations(
                     _match.needs_confirmation
                 )
                 if visible_confirmations:
