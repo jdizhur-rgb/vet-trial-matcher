@@ -1,4 +1,6 @@
 # EU cancer-by-cancer gap audit completed 2026-09-04: all UI cancer categories rechecked; no unverified lead promoted to matching.
+from html import escape
+
 import streamlit as st
 
 from location_sort import sort_matches_by_distance
@@ -96,8 +98,14 @@ def _compact_confirmations(items, limit=3):
                 return index, unique.index(item)
         return len(_CONFIRMATION_PRIORITY), unique.index(item)
 
-    visible = sorted(unique, key=rank)[:limit]
-    visible_set = set(visible)
+    visible_raw = sorted(unique, key=rank)[:limit]
+    visible_set = set(visible_raw)
+    visible = [
+        'whether the tumor is currently present'
+        if item == 'whether an active treatment target is present'
+        else item
+        for item in visible_raw
+    ]
     return visible, [item for item in unique if item not in visible_set]
 
 
@@ -136,6 +144,25 @@ label, [data-testid="stWidgetLabel"] p {
     margin: .55rem 0 .15rem;
 }
 .finder-intro strong { font-weight: 700; }
+.result-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .45rem;
+    margin-top: .35rem;
+}
+.result-actions a {
+    align-items: center;
+    border: 1px solid #d8d3cf;
+    border-radius: .55rem;
+    color: #35383b;
+    display: flex;
+    justify-content: center;
+    min-height: 2.65rem;
+    padding: .42rem .55rem;
+    text-align: center;
+    text-decoration: none;
+}
+.result-actions a:last-child:nth-child(odd) { grid-column: 1 / -1; }
 @media (max-width: 600px) {
     div[data-testid="stMainBlockContainer"] [data-testid="stVerticalBlock"] {
         gap: .55rem !important;
@@ -609,10 +636,13 @@ if search_clicked:
                 if details_url:
                     actions.append(('Official study', details_url))
                 if actions:
-                    columns = st.columns(len(actions), gap='small')
-                    for column, (label, target) in zip(columns, actions):
-                        with column:
-                            st.link_button(label, target, use_container_width=True)
+                    links = ''.join(
+                        f'<a href="{escape(target, quote=True)}"'
+                        + (' target="_blank" rel="noopener"' if label == 'Official study' else '')
+                        + f'>{escape(label)}</a>'
+                        for label, target in actions
+                    )
+                    st.markdown(f'<div class="result-actions">{links}</div>', unsafe_allow_html=True)
                 with st.expander('Study information'):
                     if additional_confirmations:
                         st.markdown(
