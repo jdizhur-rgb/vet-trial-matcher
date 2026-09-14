@@ -114,6 +114,12 @@ def add_structured_data(text: str, path: str) -> str:
     if 'type="application/ld+json"' in text:
         return text
     if not path:
+        if 'property="og:site_name"' not in text:
+            text = text.replace(
+                "</head>",
+                '<meta property="og:site_name" content="Vet Trial Finder"></head>',
+                1,
+            )
         data = {
             "@context": "https://schema.org",
             "@graph": [
@@ -122,6 +128,7 @@ def add_structured_data(text: str, path: str) -> str:
                     "@id": f"{SITE}/#website",
                     "url": f"{SITE}/",
                     "name": "Vet Trial Finder",
+                    "alternateName": "VetTrialFinder.com",
                     "description": "Free finder for cancer clinical trials and treatment options for dogs and cats.",
                 },
                 {
