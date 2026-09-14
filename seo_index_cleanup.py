@@ -42,6 +42,12 @@ def remove_unready_hreflang(text: str) -> str:
     )
 
 
+def open_matcher_links_in_new_tab(text: str) -> str:
+    """Keep the static site open when a visitor launches the matcher app."""
+    pattern = r'<a(?![^>]*\btarget=)([^>]*\bhref="https://(?:c-trials|vet-cancer-trial-finder)\.streamlit\.app/[^"]*"[^>]*)>'
+    return re.sub(pattern, r'<a\1 target="_blank" rel="noopener">', text, flags=re.I)
+
+
 def opportunity_count(text: str) -> int | None:
     match = re.search(r'class="opportunity-count"[^>]*>\s*(\d+)\s+current', text, re.I)
     if not match:
@@ -309,6 +315,7 @@ def main() -> None:
         text = page.read_text(encoding="utf-8")
         text = polish_metadata(text)
         text = remove_unready_hreflang(text)
+        text = open_matcher_links_in_new_tab(text)
         text = text.replace('>Oncology Centers</a>', '>Trial Centers</a>')
         canonical = canonical_url(text)
         if not canonical or urlparse(canonical).netloc != "vettrialfinder.com":
