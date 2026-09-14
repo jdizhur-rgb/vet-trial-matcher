@@ -48,11 +48,6 @@ def _render_result_save_controls(matches):
     lines += ["", "Recruitment and eligibility can change; confirm current status with the study team."]
     report_text = "\n".join(lines)
 
-    cols = st.columns(2, gap="small")
-    payload = json.dumps(report_text)
-    with cols[0]:
-        st.html(f"""<button id="copy-results-native" style="width:100%;padding:9px 12px;border:1px solid #d8d3cf;border-radius:9px;background:white;font-weight:600;color:#4b4642;cursor:pointer">📋 Copy results</button><div id="copy-msg" style="font:12px Arial;color:#55745d;margin-top:4px;min-height:14px"></div><script>(()=>{{const text={payload};const b=document.getElementById('copy-results-native'),m=document.getElementById('copy-msg');b.addEventListener('click',async()=>{{try{{await navigator.clipboard.writeText(text);m.textContent='Results copied.';return}}catch(e){{}}const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.select();try{{document.execCommand('copy');m.textContent='Results copied.'}}catch(e){{m.textContent='Copy is blocked by this browser.'}}ta.remove()}})}})();</script>""", unsafe_allow_javascript=True)
-
     buf = io.BytesIO()
     styles = getSampleStyleSheet()
     doc = SimpleDocTemplate(buf, pagesize=letter, rightMargin=.55*inch, leftMargin=.55*inch, topMargin=.55*inch, bottomMargin=.55*inch)
@@ -66,8 +61,13 @@ def _render_result_save_controls(matches):
             story.append(Paragraph(safe, style))
             story.append(Spacer(1, 4))
     doc.build(story)
-    with cols[1]:
-        st.download_button("📄 Save as PDF", data=buf.getvalue(), file_name="clinical_trial_results.pdf", mime="application/pdf", use_container_width=True, on_click="ignore")
+    payload = json.dumps(report_text)
+    with st.container(key="result_save_actions"):
+        cols = st.columns(2, gap="small")
+        with cols[0]:
+            st.html(f"""<button id="copy-results-native" style="width:100%;padding:9px 12px;border:1px solid #d8d3cf;border-radius:9px;background:white;font-weight:600;color:#4b4642;cursor:pointer">📋 Copy results</button><div id="copy-msg" style="font:12px Arial;color:#55745d;margin-top:4px;min-height:14px"></div><script>(()=>{{const text={payload};const b=document.getElementById('copy-results-native'),m=document.getElementById('copy-msg');b.addEventListener('click',async()=>{{try{{await navigator.clipboard.writeText(text);m.textContent='Results copied.';return}}catch(e){{}}const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.select();try{{document.execCommand('copy');m.textContent='Results copied.'}}catch(e){{m.textContent='Copy is blocked by this browser.'}}ta.remove()}})}})();</script>""", unsafe_allow_javascript=True)
+        with cols[1]:
+            st.download_button("📄 Save as PDF", data=buf.getvalue(), file_name="clinical_trial_results.pdf", mime="application/pdf", use_container_width=True, on_click="ignore")
 
 
 TRIALS = load_trials()
@@ -163,6 +163,15 @@ label, [data-testid="stWidgetLabel"] p {
     text-decoration: none;
 }
 .result-actions a:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.st-key-result_save_actions [data-testid="stHorizontalBlock"] {
+    flex-wrap: nowrap !important;
+    gap: .45rem !important;
+}
+.st-key-result_save_actions [data-testid="stColumn"] {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    width: 50% !important;
+}
 @media (max-width: 600px) {
     div[data-testid="stMainBlockContainer"] [data-testid="stVerticalBlock"] {
         gap: .55rem !important;
