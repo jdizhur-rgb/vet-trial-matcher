@@ -55,6 +55,7 @@ def generate_clinical_trials_for_pets_article(root: Path) -> None:
 <p>I think so. Not because experimental treatment is better than standard treatment. Usually, we simply do not know yet whether it is better.</p>
 <p>But if standard treatment has little to offer, the cancer has returned, or there is an option that offers real hope in your pet’s particular situation, I would want to know that it exists. Sometimes the best choice is the proven treatment. Sometimes it makes sense to take the risk.</p>
 <p>A clinical trial is not a promise. But sometimes this is how a treatment begins before, years later, it is no longer considered experimental.</p>
+<div class="article-byline"><p><strong>Reviewed and edited by:</strong> <a href="{SITE}/about/" rel="author">Yuliia Dizhur</a>, Founder of Vet Trial Finder</p><p><strong>Published:</strong> September 14, 2026</p><p><strong>Last updated:</strong> September 14, 2026</p><p>Yuliia Dizhur is the founder of Vet Trial Finder and a dog owner with extensive firsthand experience of canine cancer. She edits practical guides using peer-reviewed research, published clinical guidance and information from veterinary hospitals and research teams.</p><p><strong>Editorial disclosure:</strong> Prepared with AI assistance and reviewed by Yuliia Dizhur. It has not been independently reviewed by a veterinarian and does not replace veterinary advice.</p></div>
 <div class="article-cta"><a href="{finder}">Search current cancer treatment trials for your pet</a></div>
 </article>'''
 
@@ -91,6 +92,9 @@ def generate_clinical_trials_for_pets_article(root: Path) -> None:
         'My dog Yasha has histiocytic sarcoma.',
         'does not present a study as a treatment option if a pet could receive only placebo',
         'this option is worth checking.',
+        'Reviewed and edited by:',
+        'Yuliia Dizhur',
+        'Editorial disclosure:',
         'Search current cancer treatment trials for your pet',
         finder,
         f'<link rel="canonical" href="{url}">',
