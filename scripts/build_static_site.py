@@ -29,6 +29,10 @@ def main() -> None:
     if static.exists():
         shutil.copytree(static, SITE, dirs_exist_ok=True)
 
+    # Owner-facing articles generated here enter the same final indexing pass
+    # as the rest of the production site.
+    run("seo/clinical_trials_for_pets_article.py", pythonpath="seo")
+
     # These deterministic finishing stages operate on the generated HTML.
     run("seo_index_cleanup.py")
     run("help_content_update.py")
