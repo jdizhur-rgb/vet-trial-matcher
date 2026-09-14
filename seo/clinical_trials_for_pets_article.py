@@ -8,6 +8,9 @@ import generate_seo as g
 from site_config import SITE
 from site_shell import wrap_html
 
+g.SITE = SITE
+g.FINDER = "https://c-trials.streamlit.app/"
+
 
 def generate_clinical_trials_for_pets_article(root: Path) -> None:
     url = f"{SITE}/articles/clinical-trials-for-pets-with-cancer/"
