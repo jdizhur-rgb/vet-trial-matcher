@@ -1,6 +1,6 @@
 import unittest
 
-from result_actions import contact_actions, verification_label
+from result_actions import clean_funding_text, compact_confirmations, contact_actions, verification_label
 
 
 class ResultActionTests(unittest.TestCase):
@@ -14,6 +14,21 @@ class ResultActionTests(unittest.TestCase):
 
     def test_formats_verification_date(self):
         self.assertEqual(verification_label("2026-09-10"), "Last checked: Sep 10, 2026")
+
+    def test_removes_funding_badge(self):
+        self.assertEqual(clean_funding_text("🟢 Fully funded after enrollment."), "Fully funded after enrollment.")
+
+    def test_limits_visible_confirmation_items(self):
+        visible, hidden = compact_confirmations([
+            "whether current chemotherapy is excluded",
+            "minimum weight of 44.1 lb",
+            "whether measurable disease is present",
+            "pathology/cytology confirmation of the diagnosis",
+            "whether active wounds is excluded",
+        ])
+        self.assertEqual(len(visible), 3)
+        self.assertEqual(visible[0], "pathology/cytology confirmation of the diagnosis")
+        self.assertIn("whether active wounds is excluded", hidden)
 
 
 if __name__ == "__main__":
