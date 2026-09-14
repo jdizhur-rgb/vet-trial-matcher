@@ -95,7 +95,9 @@ def validate_built_site(root=Path('seo/site')):
     }
     literature_review_phrases = ('six-cat series', 'median survival was', 'range of 1 to', 'small published group')
     checked = 0
-    for region in ('north-america', 'uk-europe'):
+    # Only the reviewed North American cancer-page family is published. Useful
+    # international institutions remain available through the center directory.
+    for region in ('north-america',):
         for species in ('dogs', 'cats'):
             other_species = 'cats' if species == 'dogs' else 'dogs'
             for key in sorted(CANONICAL):
@@ -134,7 +136,7 @@ def validate_built_site(root=Path('seo/site')):
                 else:
                     assert not count and zero, f'{page}: empty trial state mismatch'
                 checked += 1
-    assert checked == 88, f'expected 88 built pages, checked {checked}'
+    assert checked == 44, f'expected 44 built pages, checked {checked}'
     return checked
 
 
