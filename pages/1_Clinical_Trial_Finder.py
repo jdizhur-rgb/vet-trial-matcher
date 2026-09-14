@@ -3,7 +3,7 @@ import streamlit as st
 
 from location_sort import sort_matches_by_distance
 from matcher_engine import SearchAnswers, match_trials as _engine_match_trials
-from result_actions import contact_actions, verification_label
+from result_actions import clean_funding_text, compact_confirmations, contact_actions, verification_label
 from search_telemetry import record_search_outcome, tumor_size_bucket
 from trial_catalog import (
     CANCER_ALIASES,
@@ -565,7 +565,99 @@ if search_clicked:
                 if tr.get('funding'):
                     # Dollar amounts must stay plain text; otherwise Markdown
                     # treats the text between two $ signs as inline mathematics.
-                    funding_text = str(tr['funding']).replace('$', r'\$')
+                    funding_text = clean_funding_text(tr['funding']).replace('
+                    st.markdown('**Costs / coverage:** ' + funding_text)
+                if tr['id'] in _distances:
+                    st.markdown(f"**Approximate distance:** {_distances[tr['id']]:.0f} miles")
+                st.markdown('**Why it may fit:** ' + '; '.join(_match.reasons) + '.')
+                visible_confirmations, additional_confirmations = compact_confirmations(
+                    _match.needs_confirmation
+                )
+                if visible_confirmations:
+                    st.markdown('**Needs confirmation:** ' + '; '.join(visible_confirmations) + '.')
+                st.caption(verification_label(tr.get('verified')))
+                contact_text = tr.get('contacts', tr.get('contact', 'Contact the study team through the official study page'))
+                st.write('**Contact:** ' + contact_text)
+                details_url = tr.get('registry_url') or tr.get('url', '')
+                email, phone = contact_actions(contact_text)
+                actions = []
+                if email:
+                    actions.append(('Email study team', f'mailto:{email}'))
+                if phone:
+                    actions.append(('Call', f'tel:{phone}'))
+                if details_url:
+                    actions.append(('Official study', details_url))
+                if actions:
+                    columns = st.columns(len(actions), gap='small')
+                    for column, (label, target) in zip(columns, actions):
+                        with column:
+                            st.link_button(label, target, use_container_width=True)
+                with st.expander('Study information'):
+                    if additional_confirmations:
+                        st.markdown(
+                            '**Additional eligibility questions:**\n- '
+                            + '\n- '.join(additional_confirmations)
+                        )
+                    if tr.get('intervention'):
+                        st.write('**Study intervention:** ' + tr['intervention'])
+                    if tr.get('notes'):
+                        st.write('**What the study says:** ' + tr['notes'])
+                    st.caption(f"Status: {tr['status']}")
+        _render_result_save_controls(_engine_matches)
+        with st.expander('Help us improve this finder'):
+            st.write('If a trial team says your pet is not eligible, please save the reason they gave. This helps improve the matcher. Do not post private medical or contact information publicly.')
+
+st.divider()
+st.markdown('**Urgent symptoms come first.** Difficulty breathing, collapse, uncontrolled bleeding, severe pain, or another emergency should be assessed by a veterinarian immediately rather than delayed for a clinical-trial search.')
+st.caption('Trial information can change. Always confirm recruiting status, eligibility, costs, travel requirements, and treatment details directly with the research or treatment team.')
+
+
+st.markdown("---")
+st.caption("Verified treatment trials and experimental treatment programs • International coverage • Updated daily")
+st.caption("This finder identifies potentially relevant cancer treatment options. It does not determine eligibility. Final eligibility and treatment decisions are determined by the treating or research team. It is not a substitute for veterinary advice.")
+, r'\
+                    st.markdown('**Costs / coverage:** ' + funding_text)
+                if tr['id'] in _distances:
+                    st.markdown(f"**Approximate distance:** {_distances[tr['id']]:.0f} miles")
+                st.markdown('**Why it may fit:** ' + '; '.join(_match.reasons) + '.')
+                if _match.needs_confirmation:
+                    st.markdown('**Needs confirmation:** ' + '; '.join(_match.needs_confirmation) + '.')
+                st.caption(verification_label(tr.get('verified')))
+                contact_text = tr.get('contacts', tr.get('contact', 'Contact the study team through the official study page'))
+                st.write('**Contact:** ' + contact_text)
+                details_url = tr.get('registry_url') or tr.get('url', '')
+                email, phone = contact_actions(contact_text)
+                actions = []
+                if email:
+                    actions.append(('Email study team', f'mailto:{email}'))
+                if phone:
+                    actions.append(('Call', f'tel:{phone}'))
+                if details_url:
+                    actions.append(('Official study', details_url))
+                if actions:
+                    columns = st.columns(len(actions), gap='small')
+                    for column, (label, target) in zip(columns, actions):
+                        with column:
+                            st.link_button(label, target, use_container_width=True)
+                with st.expander('Study information'):
+                    if tr.get('intervention'):
+                        st.write('**Study intervention:** ' + tr['intervention'])
+                    if tr.get('notes'):
+                        st.write('**What the study says:** ' + tr['notes'])
+                    st.caption(f"Status: {tr['status']}")
+        _render_result_save_controls(_engine_matches)
+        with st.expander('Help us improve this finder'):
+            st.write('If a trial team says your pet is not eligible, please save the reason they gave. This helps improve the matcher. Do not post private medical or contact information publicly.')
+
+st.divider()
+st.markdown('**Urgent symptoms come first.** Difficulty breathing, collapse, uncontrolled bleeding, severe pain, or another emergency should be assessed by a veterinarian immediately rather than delayed for a clinical-trial search.')
+st.caption('Trial information can change. Always confirm recruiting status, eligibility, costs, travel requirements, and treatment details directly with the research or treatment team.')
+
+
+st.markdown("---")
+st.caption("Verified treatment trials and experimental treatment programs • International coverage • Updated daily")
+st.caption("This finder identifies potentially relevant cancer treatment options. It does not determine eligibility. Final eligibility and treatment decisions are determined by the treating or research team. It is not a substitute for veterinary advice.")
+)
                     st.markdown('**Costs / coverage:** ' + funding_text)
                 if tr['id'] in _distances:
                     st.markdown(f"**Approximate distance:** {_distances[tr['id']]:.0f} miles")
