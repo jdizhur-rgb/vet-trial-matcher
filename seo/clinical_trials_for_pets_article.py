@@ -75,14 +75,14 @@ def generate_clinical_trials_for_pets_article(root: Path) -> None:
     text = index.read_text(encoding='utf-8')
     if url not in text:
         card = (
-            f'<a class="site-card" href="{url}">'
-            '<h3>Clinical Trials for Pets with Cancer</h3>'
-            '<p>What experimental treatment really means, how to weigh the risk, and what a trial match can — and cannot — tell you.</p>'
+            f'<a class="directory-card" href="{url}">'
+            '<strong>Clinical Trials for Pets with Cancer</strong>'
+            '<span>What experimental treatment really means, how to weigh the risk, and what a trial match can — and cannot — tell you.</span>'
             '</a>'
         )
-        if '<div class="site-grid">' not in text:
-            raise AssertionError('Articles index is missing the site-grid container')
-        text = text.replace('<div class="site-grid">', '<div class="site-grid">' + card, 1)
+        if '<div class="directory-grid">' not in text:
+            raise AssertionError('Articles index is missing the directory-grid container')
+        text = text.replace('<div class="directory-grid">', '<div class="directory-grid">' + card, 1)
         index.write_text(text, encoding='utf-8')
 
     article = (directory / 'index.html').read_text(encoding='utf-8')
