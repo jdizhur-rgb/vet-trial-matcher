@@ -143,6 +143,14 @@ Production indexing policy added 2026-09-12:
 - Verify the live app, not just repository source, for deployment/UI bugs.
 - Do not infer workflow success from workflow-file creation.
 
+## 11a. Private usage analytics
+
+- Privacy-friendly analytics use Umami Cloud website ID `20597fc4-68b1-4552-94c8-0771d1d74673`.
+- The dashboard is private to the owner's Umami account; no public counter or shared analytics URL is enabled.
+- Generated static pages receive the tracker through `seo/site_shell.py`.
+- The Streamlit finder records one `/matcher` pageview per Streamlit session and a `matcher-search` event when the search button is used.
+- Matcher analytics must never send diagnosis, location, treatment choices, or other form values. Streamlit widget reruns must not be counted as additional visits.
+
 ## 12. Working rule for future chats/agents
 
 Before touching this project:
