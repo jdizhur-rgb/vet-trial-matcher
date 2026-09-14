@@ -29,8 +29,14 @@ def main() -> None:
     if static.exists():
         shutil.copytree(static, SITE, dirs_exist_ok=True)
 
+    # Owner-facing article is generated before the indexing pass so it receives
+    # the same canonical, structured-data and sitemap validation as the site.
+    run("seo/dog_cancer_trials_article.py", pythonpath="seo")
+
     # These deterministic finishing stages operate on the generated HTML.
     run("seo_index_cleanup.py")
+    # TEST BRANCH ONLY. Fold this rule into seo_index_cleanup.py before main.
+    run("seo_index_review_preview.py")
     run("help_content_update.py")
     run("center_zip_search.py")
     run("seo/ensure_center_images.py")
