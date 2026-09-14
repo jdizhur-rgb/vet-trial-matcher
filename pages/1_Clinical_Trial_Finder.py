@@ -565,7 +565,7 @@ if search_clicked:
                 if tr.get('funding'):
                     # Dollar amounts must stay plain text; otherwise Markdown
                     # treats the text between two $ signs as inline mathematics.
-                    funding_text = clean_funding_text(tr['funding']).replace('
+                    funding_text = clean_funding_text(tr['funding']).replace(chr(36), chr(92) + chr(36))
                     st.markdown('**Costs / coverage:** ' + funding_text)
                 if tr['id'] in _distances:
                     st.markdown(f"**Approximate distance:** {_distances[tr['id']]:.0f} miles")
