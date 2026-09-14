@@ -34,7 +34,6 @@ def generate_clinical_trials_for_pets_article(root: Path) -> None:
 <p>That is why we created Vet Trial Finder. We bring together current studies in which a pet may actually receive an anticancer treatment.</p>
 <p>We are not trying to collect everything that happens to be called research. Observational studies, sample-collection studies, and diagnostic-only research are not presented as treatment options. In the matcher, you can enter your pet’s diagnosis and basic medical information and see studies that may fit based on the eligibility criteria that have been made public.</p>
 <p>That does not mean your pet will be accepted into the trial. It simply helps remove clearly unsuitable options and shows you which study teams may actually be worth contacting.</p>
-<div class="article-cta"><a href="{finder}">Search current cancer treatment trials for your pet</a></div>
 
 <h2>Why might your pet not qualify?</h2>
 <p>The diagnosis alone is not enough. A study may consider the stage of the cancer, whether the primary tumor has been removed, whether metastases are present, current and previous treatments, and other medical conditions. Having the “right” cancer does not automatically mean that a pet qualifies.</p>
@@ -56,6 +55,7 @@ def generate_clinical_trials_for_pets_article(root: Path) -> None:
 <p>I think so. Not because experimental treatment is better than standard treatment. Usually, we simply do not know yet whether it is better.</p>
 <p>But if standard treatment has little to offer, the cancer has returned, or there is an option that offers real hope in your pet’s particular situation, I would want to know that it exists. Sometimes the best choice is the proven treatment. Sometimes it makes sense to take the risk.</p>
 <p>A clinical trial is not a promise. But sometimes this is how a treatment begins before, years later, it is no longer considered experimental.</p>
+<div class="article-cta"><a href="{finder}">Search current cancer treatment trials for your pet</a></div>
 </article>'''
 
     directory = root / 'articles' / 'clinical-trials-for-pets-with-cancer'
@@ -91,6 +91,7 @@ def generate_clinical_trials_for_pets_article(root: Path) -> None:
         'My dog Yasha has histiocytic sarcoma.',
         'does not present a study as a treatment option if a pet could receive only placebo',
         'this option is worth checking.',
+        'Search current cancer treatment trials for your pet',
         finder,
         f'<link rel="canonical" href="{url}">',
     )
@@ -99,3 +100,11 @@ def generate_clinical_trials_for_pets_article(root: Path) -> None:
         raise AssertionError(f'Clinical-trials article validation failed: {missing}')
     if url not in index.read_text(encoding='utf-8'):
         raise AssertionError('Clinical-trials article card was not added to Articles')
+
+
+def main() -> None:
+    generate_clinical_trials_for_pets_article(Path(__file__).resolve().parent / 'site')
+
+
+if __name__ == '__main__':
+    main()
