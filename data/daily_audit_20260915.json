@@ -1,0 +1,95 @@
+{
+  "run_started": "2026-09-15T05:57:29-04:00",
+  "discovery_window": {
+    "start": "2026-09-14T00:00:00-04:00",
+    "end": "2026-09-15T00:00:00-04:00",
+    "timezone": "America/New_York"
+  },
+  "production": {
+    "branch": "streamlit-prod",
+    "pre_update_sha": "810fe872497cb2d75954c5c24a7d441cc0d1aaac",
+    "pre_update_commit": "Add private Umami analytics to live matcher"
+  },
+  "health_check": {
+    "overall": "PASS",
+    "public_app_shell": {
+      "result": "PASS",
+      "detail": "The public URL completed the Streamlit session-cookie redirect and returned the Streamlit HTML shell; /healthz returned HTTP 200 with status ok."
+    },
+    "repository": {
+      "result": "PASS",
+      "detail": "The repository, production branch, and latest production commit were readable through the connected GitHub repository."
+    },
+    "catalog_structure": {
+      "result": "PASS",
+      "effective_records": 261,
+      "matchable_treatment_or_access_opportunities": 141,
+      "strict_current_treatment_opportunities": 140,
+      "duplicate_ids": 0,
+      "active_records_missing_required_fields": 0,
+      "active_tag_errors": 0,
+      "active_status_confidence": {
+        "confirmed_current": 76,
+        "current": 65
+      },
+      "delete_wins": "PASS — the production loader reads one canonical data/trials_base.json file and no runtime upsert/delete overlays exist."
+    },
+    "compile_and_matcher_logic": {
+      "result": "PASS",
+      "python_compile": "PASS",
+      "tests": "34 passed, 125 subtests passed",
+      "usa_any_cancer_dog_matches": 112,
+      "usa_any_cancer_cat_matches": 9
+    },
+    "external_chromium": {
+      "result": "INCONCLUSIVE",
+      "detail": "No Chromium binary was available; the browser download timed out in the audit environment. This was not treated as a site failure because all primary signals passed."
+    },
+    "navigation_and_mobile": {
+      "top_navigation": "PASS — Streamlit AppTest verified the expected top navigation controls.",
+      "mobile": "INCONCLUSIVE — responsive CSS breakpoints were present, but a pixel-level mobile browser render could not be executed without Chromium."
+    }
+  },
+  "catalog_statistics": {
+    "effective_records": 261,
+    "strict_current_treatment_opportunities": 140,
+    "current_opportunities_by_country": {
+      "Belgium": 1,
+      "Canada": 3,
+      "China": 1,
+      "France": 2,
+      "Italy": 2,
+      "Mexico": 1,
+      "Portugal": 3,
+      "Switzerland": 4,
+      "Taiwan": 2,
+      "UK": 1,
+      "USA": 120
+    },
+    "current_opportunities_by_species_field": {
+      "Cat": 10,
+      "Dog": 125,
+      "Dog/Cat": 1,
+      "list:Dog": 3,
+      "list:Dog,Cat": 1
+    }
+  },
+  "discovery": {
+    "new_verified_live_additions": [],
+    "removals_or_status_corrections": [],
+    "duplicates_rejected": [],
+    "watchlist_additions": [
+      {
+        "id": "us-osu-telomir-zn-osa-preclinical",
+        "reason": "Published September 14, 2026, but limited to in-vitro canine osteosarcoma cell-line results; a possible in-vivo canine study is only being discussed and no owner access exists."
+      }
+    ]
+  },
+  "database_changes": {
+    "live_catalog": "none",
+    "watchlist_added": [
+      "us-osu-telomir-zn-osa-preclinical"
+    ],
+    "audit_receipt": "data/daily_audit_20260915.json"
+  }
+}
