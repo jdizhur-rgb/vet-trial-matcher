@@ -19,6 +19,11 @@ SITE = "https://vettrialfinder.com"
 CONTACT_EMAIL = "info@vettrialfinder.com"
 LANGUAGE_PREFIXES = {"de", "fr", "es", "it", "nl"}
 LASTMOD = "2026-09-13"
+HOME_TITLE = "Vet Trial Finder | Cancer Clinical Trials for Dogs and Cats"
+HOME_DESCRIPTION = (
+    "Free finder for veterinary cancer clinical trials, research centers and "
+    "other treatment options for dogs and cats."
+)
 
 
 def add_robots_noindex(text: str) -> str:
@@ -40,6 +45,38 @@ def remove_unready_hreflang(text: str) -> str:
         text,
         flags=re.I,
     )
+
+
+def reinforce_homepage_metadata(text: str) -> str:
+    """Keep every homepage title signal explicit and mutually consistent."""
+    text = re.sub(
+        r'<title>.*?</title>',
+        f'<title>{HOME_TITLE}</title>',
+        text,
+        count=1,
+        flags=re.I | re.S,
+    )
+    text = re.sub(
+        r'<meta name="description" content="[^"]*">',
+        f'<meta name="description" content="{HOME_DESCRIPTION}">',
+        text,
+        count=1,
+        flags=re.I,
+    )
+    social = (
+        '<meta property="og:type" content="website">'
+        '<meta property="og:site_name" content="Vet Trial Finder">'
+        f'<meta property="og:title" content="{HOME_TITLE}">'
+        f'<meta property="og:description" content="{HOME_DESCRIPTION}">'
+        f'<meta property="og:url" content="{SITE}/">'
+        '<meta name="twitter:card" content="summary">'
+        f'<meta name="twitter:title" content="{HOME_TITLE}">'
+        f'<meta name="twitter:description" content="{HOME_DESCRIPTION}">'
+    )
+    # Rebuilding must be idempotent even if generated input later gains social tags.
+    text = re.sub(r'<meta property="og:(?:type|site_name|title|description|url)"[^>]*>', '', text, flags=re.I)
+    text = re.sub(r'<meta name="twitter:(?:card|title|description)"[^>]*>', '', text, flags=re.I)
+    return text.replace('</head>', social + '</head>', 1)
 
 
 def open_matcher_links_in_new_tab(text: str) -> str:
@@ -313,6 +350,8 @@ def main() -> None:
         relative = page.relative_to(root)
         path = "" if relative == Path("index.html") else relative.parent.as_posix()
         text = page.read_text(encoding="utf-8")
+        if not path:
+            text = reinforce_homepage_metadata(text)
         text = polish_metadata(text)
         text = remove_unready_hreflang(text)
         text = open_matcher_links_in_new_tab(text)
@@ -345,6 +384,12 @@ def main() -> None:
     assert not (root / "uk-europe").exists()
     assert not any((root / lang).exists() for lang in LANGUAGE_PREFIXES)
     assert len(indexable) == len(set(indexable))
+    home = (root / "index.html").read_text(encoding="utf-8")
+    assert f'<title>{HOME_TITLE}</title>' in home
+    assert f'<link rel="canonical" href="{SITE}/">' in home
+    assert f'<meta property="og:title" content="{HOME_TITLE}">' in home
+    assert f'<meta property="og:url" content="{SITE}/">' in home
+    assert 'Lymphoma Clinical Trials for Cats' not in home
     print(f"SEO_INDEX_POLICY_OK indexable={len(indexable)} noindex={noindexed}")
 
 

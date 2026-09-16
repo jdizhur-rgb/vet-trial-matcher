@@ -22,6 +22,10 @@ def run(*args: str, pythonpath: str | None = None) -> None:
 
 
 def main() -> None:
+    # The deployment artifact is generated, not an incremental cache. Starting
+    # clean prevents retired pages committed by an older generator from being
+    # carried into the next build with stale canonicals or metadata.
+    shutil.rmtree(SITE, ignore_errors=True)
     run("seo/build_production_site.py")
     run("seo/validate_cancer_depth.py", "--site", "seo/site", pythonpath="seo")
 
