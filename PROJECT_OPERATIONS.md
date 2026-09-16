@@ -135,6 +135,7 @@ Production indexing policy added 2026-09-12:
 - Diagnosis/species/region pages with zero current treatment opportunities remain available to owners but are `noindex, follow` and excluded from the sitemap.
 - Search-indexing changes are applied after the static production build by `seo_index_cleanup.py`; they must not modify or couple to the Streamlit matcher runtime.
 - The indexed `/how-we-verify/` page explains sources, inclusion rules, status checks, conservative eligibility matching, funding language, duplicate handling and the limits of the site. It is linked from the footer on every static page.
+- The indexed `/veterinary-cancer-clinical-trials/` page is the central search landing page for general veterinary cancer trial queries. Its catalog counts and diagnosis links are generated from the current effective catalog, and it must remain linked from the shared navigation, homepage and footer.
 
 ## 11. Deployment lessons
 

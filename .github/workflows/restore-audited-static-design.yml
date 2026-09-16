@@ -90,6 +90,7 @@ jobs:
           assert not any(f'https://vettrialfinder.com/{lang}/' in sitemap for lang in ('de','fr','es','it','nl'))
           assert sitemap.count('/centers/') >= 49
           assert 'https://vettrialfinder.com/how-we-verify/' in sitemap
+          assert sitemap.count('https://vettrialfinder.com/veterinary-cancer-clinical-trials/') == 1
           assert '<lastmod>2026-09-13</lastmod>' in sitemap
           assert all('/uk-europe/' not in url for url in sitemap.split('<loc>')[1:])
           assert not (root/'uk-europe').exists()
@@ -101,6 +102,13 @@ jobs:
           assert '<h1>How We Verify Listings</h1>' in verification
           assert 'What this site does not do' in verification
           assert 'How We Verify</a>' in home
+          assert 'Browse the Trial Registry' in home
+          registry=(root/'veterinary-cancer-clinical-trials/index.html').read_text(encoding='utf-8')
+          assert '<h1>Free Veterinary Cancer Clinical Trial Finder for Dogs and Cats</h1>' in registry
+          assert 'Why we check more than one registry' in registry
+          assert 'Free means free' in registry
+          assert 'class="registry-diagnosis"' in registry
+          assert '<meta name="robots" content="noindex' not in registry
           assert 'mailto:info@vettrialfinder.com' in home
           assert 'mailto:info@vettrialfinder.com' in about
           centers=(root/'centers/index.html').read_text(encoding='utf-8')
