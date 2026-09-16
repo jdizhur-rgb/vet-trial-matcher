@@ -47,6 +47,31 @@ def cancer_index(root,rows):
   if cats:links.append(f'<a href="{SITE}/north-america/cats/{slug}/">Cats <span class="catalog-count">{cats}</span></a>')
   items.append(f'<div class="catalog-card"><strong>{g.esc(label)}</strong><div class="catalog-links">{"".join(links)}</div></div>')
  body=f'''<h1>Cancer Types</h1><p class="lead catalog-intro"><strong>Start with your pet’s diagnosis.</strong> Choose a cancer type below to see a plain-language overview, standard treatment options and current clinical trials for dogs or cats. If you are not sure of the exact diagnosis, use the Clinical Trial Finder and enter what you know.</p><div class="count-explainer"><strong>What the numbers mean.</strong> These are current treatment opportunities in our USA and Canada catalog, not numbers of hospitals or pets. Each study or treatment program is counted once for each species and cancer type it accepts, even if it has several participating hospitals. A program that accepts several diagnoses appears under each relevant cancer type. The study team still decides whether an individual pet qualifies.</div><input class="catalog-search" type="search" placeholder="Search cancer type" aria-label="Search cancer types" oninput="filterCatalog(this.value)"><div class="catalog-grid">{''.join(items)}</div>{filter_script('.catalog-card')}''';d=root/'cancer-types';d.mkdir(parents=True,exist_ok=True);(d/'index.html').write_text(g.page('Cancer Types | Vet Trial Finder','Browse dog and cat cancer types with current treatment studies and clinical trial listings.',body,f'{SITE}/cancer-types/'),encoding='utf-8')
+
+def species_trial_pages(root,rows):
+ north_america=[r for r in rows if r.get('country') in {'USA','Canada'}]
+ for slug,species,plural in (('dogs','Dog','dogs'),('cats','Cat','cats')):
+  species_rows=[r for r in north_america if g.species_ok(r,species)]
+  diagnoses=[]
+  for key in sorted(g.DISEASE_INFO,key=lambda value:g.display_name(value)):
+   count=sum(1 for r in species_rows if key in g.row_cancers(r))
+   if not count:continue
+   label=g.display_name(key)
+   diagnosis_slug=g.slugify(key)
+   diagnoses.append(f'<a class="registry-diagnosis" href="{SITE}/north-america/{slug}/{diagnosis_slug}/">{g.esc(label)}<span>{count} current {"option" if count==1 else "options"}</span></a>')
+  url=f'{SITE}/{slug}/cancer-clinical-trials/'
+  body=f'''<div class="registry-page"><h1>Cancer clinical trials for {plural}</h1>
+<p class="lead">Browse current cancer treatment studies for {plural} in the USA and Canada. Choose a diagnosis to see study details, locations, contacts, possible covered costs and links to the official sources.</p>
+<div class="registry-stats"><div class="registry-stat"><strong>{len(species_rows)}</strong><span>current treatment studies and programs for {plural}</span></div><div class="registry-stat"><strong>{len(diagnoses)}</strong><span>cancer types with current listings</span></div></div>
+<div class="registry-actions"><a class="cta" href="{FINDER}" target="_blank" rel="noopener">Check your pet against current trials</a><a class="secondary-cta" href="{SITE}/veterinary-cancer-clinical-trials/">About the trial registry</a></div>
+<h2>Browse by diagnosis</h2><p>One study may accept more than one cancer type, so it can appear on several diagnosis pages. The total above counts each study once.</p>
+<div class="registry-diagnoses">{''.join(diagnoses)}</div>
+<section class="registry-section"><h2>If the diagnosis is not listed</h2><p>The finder can also check broad solid-tumor studies and other programs that are not limited to one cancer type. Enter the diagnosis exactly as it appears in the pathology report when possible, and leave uncertain details unknown rather than guessing.</p></section>
+<section class="registry-section"><h2>Before contacting a study</h2><p>A listing is not a promise of eligibility. The research team will review the diagnosis, stage, previous treatment, current medications and required test results. Enrollment and available places can change.</p></section></div>'''
+  dest=root/slug/'cancer-clinical-trials';dest.mkdir(parents=True,exist_ok=True)
+  title=f'Cancer clinical trials for {plural} | Vet Trial Finder'
+  desc=f'Browse current cancer clinical trials and treatment studies for {plural} in the USA and Canada by diagnosis. Free access to study details and official links.'
+  (dest/'index.html').write_text(g.page(title,desc,body,url),encoding='utf-8')
 def other_treatments(root):
  body=f'''<h1>Other Cancer Treatment Options</h1><p class="lead catalog-intro"><strong>Some cancer treatments are difficult to find even when they are already being used in veterinary oncology.</strong> This section collects selected options beyond routine surgery, chemotherapy and radiation, including treatments available only at certain hospitals or through special programs.</p><div class="site-grid"><div class="site-card"><h3>Electrochemotherapy</h3><p>Find veterinary centers that offer ECT outside clinical trials.</p><p><a href="{FINDER.rstrip('/')}/Additional_Oncology_Options" target="_blank" rel="noopener">Find ECT centers</a> · <a href="{SITE}/articles/electrochemotherapy/">How ECT works</a></p></div><a class="site-card" href="{FINDER}" target="_blank" rel="noopener"><h3>Advanced Treatments</h3><p>Selected newer or less widely available oncology treatments.</p></a><a class="site-card" href="{FINDER}" target="_blank" rel="noopener"><h3>Expanded Access</h3><p>Programs that may provide access to treatment outside a standard clinical trial.</p></a></div><p>These options are not appropriate for every cancer or every pet. Use the listings to find a center or program, then confirm details with the treating team.</p>''';d=root/'other-treatments';d.mkdir(parents=True,exist_ok=True);(d/'index.html').write_text(g.page('Other Veterinary Cancer Treatments | Vet Trial Finder','Electrochemotherapy, advanced treatment options and expanded access programs for dogs and cats with cancer.',body,f'{SITE}/other-treatments/'),encoding='utf-8')
 
@@ -105,7 +130,7 @@ def trial_registry(root, stats, rows):
 <section class="registry-section"><h2>Free means free</h2><p>Owners can search the full catalog, read the results and see contacts without paying, creating an account or submitting an application through us. Vet Trial Finder does not charge research teams or veterinary hospitals to appear in the catalog.</p></section>
 <h2>Browse current trials by diagnosis</h2><p>Counts below are current treatment opportunities in the USA and Canada. One study may accept more than one diagnosis or enroll through several hospitals.</p><div class="registry-diagnoses">{''.join(diagnoses)}</div>
 <section class="registry-section"><h2>Before contacting a study</h2><p>Have the pathology report, staging results, treatment history and current medication list ready. Enrollment can change quickly, and only the research team can make the final eligibility decision after reviewing the medical record.</p></section>
-<div class="registry-actions"><a class="cta" href="{FINDER}" target="_blank" rel="noopener">Find trials for your pet</a><a class="secondary-cta" href="{SITE}/cancer-types/">Browse cancer types</a></div></div>'''
+<div class="registry-actions"><a class="cta" href="{FINDER}" target="_blank" rel="noopener">Find trials for your pet</a><a class="secondary-cta" href="{SITE}/dogs/cancer-clinical-trials/">Trials for dogs</a><a class="secondary-cta" href="{SITE}/cats/cancer-clinical-trials/">Trials for cats</a></div></div>'''
  dest=root/'veterinary-cancer-clinical-trials';dest.mkdir(parents=True,exist_ok=True)
  title='Free Veterinary Cancer Clinical Trial Finder for Dogs and Cats'
  desc='Search current veterinary cancer clinical trials for dogs and cats by diagnosis. Free access to eligibility details, locations, contacts and official study links.'
@@ -150,6 +175,6 @@ def add_home_stats(root, stats, rows):
  text=text.replace('<h2>Start here</h2>',summary+'<h2>Start here</h2>',1)
  p.write_text(text,encoding='utf-8')
 def apply_site_shell(root, stats, rows):
- copy_assets(root);homepage(root);add_home_stats(root,stats,rows);trial_registry(root,stats,rows);cancer_index(root,rows);other_treatments(root);articles_index(root);electrochemotherapy_article(root);add_to_sitemap(root,[f'{SITE}/veterinary-cancer-clinical-trials/',f'{SITE}/cancer-types/',f'{SITE}/other-treatments/',f'{SITE}/articles/',f'{SITE}/help/',f'{SITE}/centers/'])
+ copy_assets(root);homepage(root);add_home_stats(root,stats,rows);trial_registry(root,stats,rows);cancer_index(root,rows);species_trial_pages(root,rows);other_treatments(root);articles_index(root);electrochemotherapy_article(root);add_to_sitemap(root,[f'{SITE}/veterinary-cancer-clinical-trials/',f'{SITE}/dogs/cancer-clinical-trials/',f'{SITE}/cats/cancer-clinical-trials/',f'{SITE}/cancer-types/',f'{SITE}/other-treatments/',f'{SITE}/articles/',f'{SITE}/help/',f'{SITE}/centers/'])
  for p in root.rglob('index.html'):p.write_text(wrap_html(p.read_text(encoding='utf-8')),encoding='utf-8')
  print('SITE_SHELL_OK',len(list(root.rglob('index.html'))))
