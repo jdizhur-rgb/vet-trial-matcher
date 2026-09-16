@@ -186,10 +186,29 @@
     lines.push('','Recruitment and eligibility can change; confirm current status with the study team.'); return lines.filter(x => x !== '').join('\n');
   }
 
+  const milesBetween = (a, b) => {
+    const rad = n => n * Math.PI / 180, r = 3958.8;
+    const dLat=rad(b[0]-a[0]), dLon=rad(b[1]-a[1]), p1=rad(a[0]), p2=rad(b[0]);
+    return 2*r*Math.asin(Math.sqrt(Math.sin(dLat/2)**2+Math.cos(p1)*Math.cos(p2)*Math.sin(dLon/2)**2));
+  };
+  async function sortByZip(matches, zip) {
+    const cleaned=String(zip||'').replace(/\D/g,'').slice(0,5);
+    if(cleaned.length!==5) return {matches, origin:''};
+    try {
+      const response=await fetch(`https://api.zippopotam.us/us/${cleaned}`);
+      if(!response.ok) return {matches, origin:'ZIP code not recognized. Results are shown in their usual order.'};
+      const data=await response.json(), place=data.places[0], origin=[Number(place.latitude),Number(place.longitude)];
+      matches.forEach(m=>{const ds=(m.trial.sites||[]).filter(s=>Number.isFinite(s.lat)&&Number.isFinite(s.lon)).map(s=>milesBetween(origin,[s.lat,s.lon]));m.distance=ds.length?Math.min(...ds):null});
+      matches.sort((a,b)=>(a.distance??Infinity)-(b.distance??Infinity));
+      return {matches, origin:`Sorted by approximate distance from ${place['place name']}, ${place['state abbreviation']}.`};
+    } catch { return {matches, origin:'ZIP lookup is unavailable. Results are shown in their usual order.'}; }
+  }
+
   function render(matches) {
     if (!matches.length) { results.innerHTML='<h2>Results</h2><div class="no-results">No plausible matches were found among the currently verified trials. This does not mean that no suitable study exists — recruitment and eligibility can change. Review the treatment options you selected or check again as recruitment changes.</div>'; return; }
-    const cards = matches.map(m => { const t=m.trial, url=t.registry_url || t.url || '', sites=(t.sites || []).map(x=>esc(x.address || [x.hospital,x.city,x.state].filter(Boolean).join(', '))).join('; '), where=sites || esc(t.address || [t.center,t.country].filter(Boolean).join(', ')); return `<article class="result-card"><h3>${esc(m.confidence)} · ${esc(t.center)}</h3><h4>${esc(t.title)}</h4><p><strong>Where:</strong> ${where}</p>${t.intervention?`<p><strong>What is offered:</strong> ${esc(t.intervention)}</p>`:''}<p><strong>Costs / coverage:</strong> ${esc(t.funding || 'Ask the study team about covered study costs')}</p><p><strong>Study type:</strong> ${esc(String(t.study_type || 'treatment').replaceAll('_',' '))}</p><p><strong>Why it may fit:</strong> ${esc(m.reasons.join('; '))}.</p>${m.unknown.length?`<p><strong>Needs confirmation:</strong> ${esc(m.unknown.join('; '))}.</p>`:''}<p><strong>Contact:</strong> ${esc(t.contacts || t.contact || 'Contact the study team through the official study page')}</p>${url?`<a class="result-link" href="${esc(url)}" target="_blank" rel="noopener">View full study details →</a>`:''}<details><summary>Study information</summary><p><strong>What the study says:</strong> ${esc(t.notes || '')}</p><small>Status: ${esc(t.status || '')} · Last verified: ${esc(t.verified || 'date not recorded')}</small></details></article>`; }).join('');
-    results.innerHTML=`<h2>Results</h2><p class="result-summary">${matches.length} oncology opportunity(ies) may be worth contacting</p>${cards}<div class="result-actions"><button type="button" id="copy-results">Copy results</button><button type="button" id="print-results">Save / print PDF</button></div>`;
+    const cards = matches.map(m => { const t=m.trial, url=t.registry_url || t.url || '', sites=(t.sites || []).map(x=>esc(x.address || [x.hospital,x.city,x.state].filter(Boolean).join(', '))).join('; '), where=sites || esc(t.address || [t.center,t.country].filter(Boolean).join(', ')); return `<article class="result-card"><h3>${esc(m.confidence)} · ${esc(t.center)}</h3><h4>${esc(t.title)}</h4><p><strong>Where:</strong> ${where}</p>${m.distance!=null?`<p><strong>Approximate distance:</strong> ${Math.round(m.distance)} miles</p>`:''}${t.intervention?`<p><strong>What is offered:</strong> ${esc(t.intervention)}</p>`:''}<p><strong>Costs / coverage:</strong> ${esc(t.funding || 'Ask the study team about covered study costs')}</p><p><strong>Study type:</strong> ${esc(String(t.study_type || 'treatment').replaceAll('_',' '))}</p><p><strong>Why it may fit:</strong> ${esc(m.reasons.join('; '))}.</p>${m.unknown.length?`<p><strong>Needs confirmation:</strong> ${esc(m.unknown.join('; '))}.</p>`:''}<p><strong>Contact:</strong> ${esc(t.contacts || t.contact || 'Contact the study team through the official study page')}</p>${url?`<a class="result-link" href="${esc(url)}" target="_blank" rel="noopener">View full study details →</a>`:''}<details><summary>Study information</summary><p><strong>What the study says:</strong> ${esc(t.notes || '')}</p><small>Status: ${esc(t.status || '')} · Last verified: ${esc(t.verified || 'date not recorded')}</small></details></article>`; }).join('');
+    const distanceNote=matches.distanceNote?`<p class="distance-note">${esc(matches.distanceNote)}</p>`:'';
+    results.innerHTML=`<h2>Results</h2>${distanceNote}<p class="result-summary">${matches.length} oncology opportunity(ies) may be worth contacting</p>${cards}<div class="result-actions"><button type="button" id="copy-results">Copy results</button><button type="button" id="print-results">Save / print PDF</button></div>`;
     document.querySelector('#copy-results').addEventListener('click', async e => { await navigator.clipboard.writeText(resultText(matches)); e.currentTarget.textContent='Results copied'; });
     document.querySelector('#print-results').addEventListener('click', () => window.print());
   }
@@ -202,6 +221,7 @@
     const candidates=trials.filter(t=>speciesMatches(t.species,p.species)&&countryMatches(t.country||'USA',p.country)&&(browse||unlisted||diagnosisMatch(t,cancer)[0])); const req=new Set(candidates.flatMap(t=>Object.keys(t.requires||{}))), exc=new Set(candidates.flatMap(t=>Object.keys(t.excludes||{})));
     show('.protocol-standard',!browse&&!unlisted&&req.has('standard_therapy_unavailable')); show('.protocol-large',!browse&&!unlisted&&req.has('large_inoperable_or_rt_preferred')); show('.protocol-no-local',!browse&&!unlisted&&req.has('surgery_or_rt_not_possible')); show('.protocol-ct-biopsy',!browse&&!unlisted&&req.has('ct_and_current_biopsy'));
     show('.steroids-only',!browse&&!unlisted&&(exc.has('current_steroids')||req.has('steroid_washout_days'))); show('.immunosuppressive-only',!browse&&!unlisted&&exc.has('immunosuppressive')); show('.radiation-plan-only',!browse&&!unlisted&&req.has('planned_radiation'));
+    show('.zip-only',p.country==='USA');
     const note=document.querySelector('.browse-note'); note.hidden=!browse&&!unlisted; note.textContent=browse?'Browse mode: disease-specific eligibility is not used until a cancer type is selected.':'Unlisted diagnosis: only genuinely all-tumor treatment programs will be shown for investigator review.';
     form.querySelector('.matcher-submit').disabled=!cancer;
   }
@@ -209,6 +229,6 @@
   if (typeof window !== 'undefined') window.__MATCHER_TEST__ = {matchTrial, diagnosisMatch, modalities};
   if (!form || !results) return;
   form.addEventListener('change',updateForm);
-  form.addEventListener('submit',e=>{e.preventDefault(); const p=patient(), matches=trials.map(t=>matchTrial(t,p)).filter(Boolean); matches.sort((a,b)=>{const rank=x=>x==='Likely match'?0:x==='Possible match'?1:2; return rank(a.confidence)-rank(b.confidence)+(Number(Boolean(a.trial.early_phase))-Number(Boolean(b.trial.early_phase)));}); render(matches); results.scrollIntoView({behavior:'smooth',block:'start'}); if(window.umami) window.umami.track('matcher-search');});
+  form.addEventListener('submit',async e=>{e.preventDefault(); const p=patient(), matches=trials.map(t=>matchTrial(t,p)).filter(Boolean); matches.sort((a,b)=>{const rank=x=>x==='Likely match'?0:x==='Possible match'?1:2; return rank(a.confidence)-rank(b.confidence)+(Number(Boolean(a.trial.early_phase))-Number(Boolean(b.trial.early_phase)));}); const sorted=await sortByZip(matches,p.country==='USA'?p.zip_code:''); sorted.matches.distanceNote=sorted.origin; render(sorted.matches); results.scrollIntoView({behavior:'smooth',block:'start'}); if(window.umami) window.umami.track('matcher-search');});
   fetch(window.MATCHER_DATA_URL).then(r=>{if(!r.ok)throw new Error(`Catalog ${r.status}`);return r.json();}).then(data=>{trials=data;updateForm();}).catch(()=>{results.innerHTML='<div class="no-results">The trial catalog could not be loaded. Please try again shortly.</div>';});
 })();
