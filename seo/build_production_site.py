@@ -22,7 +22,7 @@ apply_aliases(center_directory)
 # the isolated Streamlit production branch or matcher runtime.
 import generate_seo
 generate_seo.SITE = SITE
-generate_seo.FINDER = "https://c-trials.streamlit.app/"
+generate_seo.FINDER = f"{SITE}/matcher/"
 
 import generate_seo_strict
 import generate_cancer_coverage
@@ -40,6 +40,7 @@ from site_shell import apply_site_shell, wrap_html
 from vaccine_article import generate_cancer_vaccine_article
 from surgical_margins_article import generate_surgical_margins_article
 from about_site_integration import integrate_about
+from static_matcher import build as build_static_matcher
 
 # Resolve program/alias names to canonical institutions before giving up on a
 # verified address. This fixes cases such as Penn Vet program names while
@@ -174,6 +175,7 @@ def main():
         "cancer_types": 56,
         "countries": len({country_aliases.get(str(row.get("country") or "USA").strip(), str(row.get("country") or "USA").strip()) for row in rows}),
     }
+    build_static_matcher(out)
     apply_site_shell(out, stats, rows)
     generate_cancer_vaccine_article(out)
     generate_surgical_margins_article(out)
