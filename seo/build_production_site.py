@@ -22,7 +22,7 @@ apply_aliases(center_directory)
 # the isolated Streamlit production branch or matcher runtime.
 import generate_seo
 generate_seo.SITE = SITE
-generate_seo.FINDER = "https://c-trials.streamlit.app/"
+generate_seo.FINDER = f"{SITE}/matcher/"
 
 import generate_seo_strict
 import generate_cancer_coverage

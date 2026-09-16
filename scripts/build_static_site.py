@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -28,10 +29,29 @@ def main() -> None:
     shutil.rmtree(SITE, ignore_errors=True)
     run("seo/build_production_site.py")
     run("seo/validate_cancer_depth.py", "--site", "seo/site", pythonpath="seo")
+    run("scripts/build_matcher_preview_data.py")
 
     static = ROOT / "seo" / "static"
     if static.exists():
         shutil.copytree(static, SITE, dirs_exist_ok=True)
+
+    # Promote the fully tested hidden matcher portal to its permanent URL.
+    # Keep the preview copy available as a rollback until the live deployment
+    # has been checked, but publish an indexable /matcher/ copy.
+    preview = static / "matcher-preview"
+    matcher = SITE / "matcher"
+    if preview.exists():
+        shutil.copytree(preview, matcher, dirs_exist_ok=True)
+        for page in matcher.rglob("*.html"):
+            text = page.read_text(encoding="utf-8")
+            text = text.replace("matcher-preview", "matcher")
+            text = re.sub(
+                r'<meta name="robots" content="noindex[^"]*">',
+                "",
+                text,
+                flags=re.IGNORECASE,
+            )
+            page.write_text(text, encoding="utf-8")
 
     # Owner-facing articles generated here enter the same final indexing pass
     # as the rest of the production site.

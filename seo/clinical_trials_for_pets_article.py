@@ -9,7 +9,7 @@ from site_config import SITE
 from site_shell import wrap_html
 
 g.SITE = SITE
-g.FINDER = "https://c-trials.streamlit.app/"
+g.FINDER = f"{SITE}/matcher/"
 
 
 def generate_clinical_trials_for_pets_article(root: Path) -> None:

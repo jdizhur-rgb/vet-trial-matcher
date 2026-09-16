@@ -37,7 +37,7 @@ def generate_cancer_vaccine_article(root: Path) -> None:
     """Create the article, link it from the Articles index, and add it to sitemap."""
     url = f'{SITE}/articles/cancer-vaccines/'
     trial_finder = f'{FINDER}/'
-    options_finder = f'{FINDER}/Additional_Oncology_Options'
+    options_finder = f'{SITE}/matcher/advanced/'
 
     accordions = ''.join([
         _accordion(
