@@ -210,5 +210,6 @@
   if (!form || !results) return;
   form.addEventListener('change',updateForm);
   form.addEventListener('submit',e=>{e.preventDefault(); const p=patient(), matches=trials.map(t=>matchTrial(t,p)).filter(Boolean); matches.sort((a,b)=>{const rank=x=>x==='Likely match'?0:x==='Possible match'?1:2; return rank(a.confidence)-rank(b.confidence)+(Number(Boolean(a.trial.early_phase))-Number(Boolean(b.trial.early_phase)));}); render(matches); results.scrollIntoView({behavior:'smooth',block:'start'}); if(window.umami) window.umami.track('matcher-search');});
-  fetch(window.MATCHER_DATA_URL).then(r=>{if(!r.ok)throw new Error(`Catalog ${r.status}`);return r.json();}).then(data=>{trials=data;updateForm();}).catch(()=>{results.innerHTML='<div class="no-results">The trial catalog could not be loaded. Please try again shortly.</div>';});
+  const catalog = window.MATCHER_INLINE_DATA ? Promise.resolve(window.MATCHER_INLINE_DATA) : fetch(window.MATCHER_DATA_URL).then(r=>{if(!r.ok)throw new Error(`Catalog ${r.status}`);return r.json();});
+  catalog.then(data=>{trials=data;updateForm();}).catch(()=>{results.innerHTML='<div class="no-results">The trial catalog could not be loaded. Please try again shortly.</div>';});
 })();
