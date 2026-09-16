@@ -52,6 +52,10 @@ SITE_COPY = {
     "Veterinary Clinical Trial centers": "Veterinary clinical trial centers",
     "Electrochemotherapy for Dogs and Cats": "Electrochemotherapy for dogs and cats",
     "Find clinical trials for Dogs and Cats": "Find clinical trials for dogs and cats",
+    # Component labels above may be normalized before these longer phrases.
+    "Browse the Trial registry": "Browse the trial registry",
+    "Browse Cancer types": "Browse cancer types",
+    "Find Oncology centers": "Find oncology centers",
 }
 
 
