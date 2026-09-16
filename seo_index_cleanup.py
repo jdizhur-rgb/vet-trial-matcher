@@ -291,25 +291,31 @@ def write_verification_page(root: Path) -> None:
 
 
 def add_verification_footer_link(text: str) -> str:
-    if f'href="{SITE}/how-we-verify/">How We Verify' in text:
+    footer_match = re.search(r'<footer\b[^>]*>.*?</footer>', text, re.S)
+    if not footer_match:
+        return text
+    footer = footer_match.group(0)
+    if re.search(r'href="[^"]*/how-we-verify/">How we verify</a>', footer, re.I):
         return text
     marker = f'<a href="{SITE}/help/">Help</a>'
-    return text.replace(marker, marker + f'<a href="{SITE}/how-we-verify/">How We Verify</a>', 1)
+    footer = footer.replace(
+        marker,
+        marker + f'<a href="{SITE}/how-we-verify/">How We Verify</a>',
+        1,
+    )
+    return text[:footer_match.start()] + footer + text[footer_match.end():]
 
 
 def add_contact_footer_link(text: str) -> str:
     """Expose the project email in the shared footer without duplicating it."""
     link = f'<a href="mailto:{CONTACT_EMAIL}">Contact</a>'
     footer_match = re.search(r'<footer\b[^>]*>.*?</footer>', text, re.S)
-    if footer_match and link in footer_match.group(0):
+    if not footer_match:
         return text
-    marker = f'<a href="{SITE}/how-we-verify/">How We Verify</a>'
-    if footer_match:
-        footer = footer_match.group(0).replace('</footer>', f'<p>{link}</p></footer>', 1)
-        return text[:footer_match.start()] + footer + text[footer_match.end():]
-    if marker in text:
-        return text.replace(marker, marker + link, 1)
-    return text
+    if link in footer_match.group(0):
+        return text
+    footer = footer_match.group(0).replace('</footer>', f'<p>{link}</p></footer>', 1)
+    return text[:footer_match.start()] + footer + text[footer_match.end():]
 
 
 def add_contact_section(text: str) -> str:
