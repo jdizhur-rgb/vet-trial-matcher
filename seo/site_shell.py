@@ -94,7 +94,7 @@ def add_to_sitemap(root,urls):
  p.write_text(text,encoding='utf-8')
 def copy_assets(root):
  dest=root/'assets';dest.mkdir(parents=True,exist_ok=True)
- for name in ('kot-home.jpg','ect-article-hero.jpg','og-electrochemotherapy.jpg','og-cancer-vaccines.jpg'):
+ for name in ('kot-home.jpg','ect-article-hero.jpg','og-electrochemotherapy.jpg','og-cancer-vaccines.jpg','surgical-margins-diagram.jpg'):
   source=Path(__file__).resolve().parent/'assets'/name
   if source.exists():shutil.copy2(source,dest/name)
 def add_home_stats(root, stats, rows):
