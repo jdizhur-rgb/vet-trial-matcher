@@ -4,6 +4,8 @@
 
 This file is the persistent engineering/operations memory for the project. Update it whenever a bug teaches us something, a workflow changes, or a new permanent rule is established. Do not rely on chat memory for operational knowledge.
 
+Editorial style rule: use sentence case for Vet Trial Finder navigation labels, page titles, headings, cards and buttons. Preserve capitalization in proper names, institution names, abbreviations and official study titles. The production build runs `seo/enforce_sentence_case.py` last so generated pages cannot silently reintroduce Title Case.
+
 ## 1. Production
 
 - Repository: `jdizhur-rgb/vet-trial-matcher`
