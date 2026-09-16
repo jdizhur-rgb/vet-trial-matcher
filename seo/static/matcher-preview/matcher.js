@@ -31,7 +31,7 @@
   const results = document.querySelector('#matcher-results');
   let trials = [];
 
-  const esc = value => String(value ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+  const esc = value => String(value ?? '').replace(/\*\*/g, '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
   const value = name => form.elements[name]?.value ?? UNKNOWN;
   const checked = name => Boolean(form.elements[name]?.checked);
   const show = (selector, yes) => document.querySelectorAll(selector).forEach(el => { el.hidden = !yes; });
