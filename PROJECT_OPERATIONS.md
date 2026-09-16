@@ -6,6 +6,8 @@ This file is the persistent engineering/operations memory for the project. Updat
 
 Editorial style rule: use sentence case for Vet Trial Finder navigation labels, page titles, headings, cards and buttons. Preserve capitalization in proper names, institution names, abbreviations and official study titles. The production build runs `seo/enforce_sentence_case.py` last so generated pages cannot silently reintroduce Title Case.
 
+Diagnosis landing pages use the existing canonical URLs and the heading pattern `{diagnosis} in {dogs|cats}: treatment, prognosis and clinical trials`. Do not add `costs` or a year unless the page contains sourced, maintainable information that supports those claims.
+
 ## 1. Production
 
 - Repository: `jdizhur-rgb/vet-trial-matcher`
