@@ -91,6 +91,11 @@ def main() -> None:
         html = read(page)
         assert "matcher-preview" not in html, f"Preview URL leaked into {page}"
         assert not re.search(r'<meta name="robots" content="noindex', html, re.I), f"Production matcher is noindex: {page}"
+        assert '<div class="nav-shell">' in html, f"Shared navigation missing from {page}"
+        assert '<button class="nav-toggle"' in html, f"Mobile menu missing from {page}"
+
+    registry = read(SITE / "veterinary-cancer-clinical-trials" / "index.html")
+    assert "background:#315f7d" in registry, "Primary button color regressed"
 
     generated_html = "\n".join(read(path) for path in SITE.rglob("*.html"))
     assert "c-trials.streamlit.app" not in generated_html
