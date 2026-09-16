@@ -64,7 +64,20 @@ def sentence_diagnosis(label: str) -> str:
     return " ".join([first, *(word.lower() for word in rest)])
 
 
-def normalize(text: str) -> str:
+def diagnosis_species(path: Path | None) -> str | None:
+    if path is None:
+        return None
+    parts = path.parts
+    if "north-america" not in parts:
+        return None
+    if "dogs" in parts:
+        return "dogs"
+    if "cats" in parts:
+        return "cats"
+    return None
+
+
+def normalize(text: str, path: Path | None = None) -> str:
     for old, new in SITE_COPY.items():
         text = text.replace(old, new)
     text = text.replace(" | Veterinary Oncology &amp; Clinical Trials |", " | Veterinary oncology and clinical trials |")
@@ -88,6 +101,15 @@ def normalize(text: str) -> str:
         text = text.replace(f"<h2>Understanding {label}</h2>", f"<h2>Understanding {sentence.lower()}</h2>")
         text = text.replace(f"{label} clinical trials for dogs", f"{sentence} clinical trials for dogs")
         text = text.replace(f"{label} clinical trials for cats", f"{sentence} clinical trials for cats")
+        species = diagnosis_species(path)
+        if species:
+            old_title = f"{sentence} clinical trials for {species}"
+            new_title = f"{sentence} in {species}: treatment, prognosis and clinical trials"
+            text = text.replace(old_title, new_title)
+            text = text.replace(
+                f"<h1>{sentence}</h1>",
+                f"<h1>{new_title}</h1>",
+            )
     text = text.replace("University / Teaching Hospital", "University / teaching hospital")
     text = text.replace("Specialty Hospital / Research Center", "Specialty hospital / research center")
     text = text.replace("Multicenter Study", "Multicenter study")
@@ -104,6 +126,15 @@ def validate(root: Path) -> None:
                 failures.append(f"{path.relative_to(root)}: {phrase}")
         if re.search(r" Clinical Trials for (Dogs|Cats)(?= \|)", text):
             failures.append(f"{path.relative_to(root)}: diagnosis SEO title")
+        species = diagnosis_species(path)
+        if species:
+            h1 = re.search(r"<h1>(.*?)</h1>", text, re.S)
+            title = re.search(r"<title>(.*?)</title>", text, re.S)
+            expected = f"in {species}: treatment, prognosis and clinical trials"
+            if not h1 or expected not in h1.group(1):
+                failures.append(f"{path.relative_to(root)}: diagnosis H1")
+            if not title or expected not in title.group(1):
+                failures.append(f"{path.relative_to(root)}: diagnosis SEO title")
     if failures:
         raise AssertionError("Sentence-case validation failed:\n" + "\n".join(failures[:40]))
 
@@ -114,7 +145,7 @@ def main() -> None:
     if not pages:
         raise AssertionError("Generated site is missing")
     for path in pages:
-        path.write_text(normalize(path.read_text(encoding="utf-8")), encoding="utf-8")
+        path.write_text(normalize(path.read_text(encoding="utf-8"), path), encoding="utf-8")
     validate(root)
     print(f"SENTENCE_CASE_OK pages={len(pages)}")
 
