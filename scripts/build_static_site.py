@@ -63,6 +63,12 @@ def main() -> None:
     run("center_zip_search.py")
     run("seo/ensure_center_images.py")
     run("seo/enforce_sentence_case.py", pythonpath="seo")
+    run("scripts/validate_production_sync.py")
+    subprocess.run(
+        ["node", "scripts/test_matcher_logic.js"],
+        cwd=ROOT,
+        check=True,
+    )
 
 
 if __name__ == "__main__":

@@ -13,22 +13,11 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from seo.center_directory import address_for  # noqa: E402
+from seo.catalog_selection import current_public  # noqa: E402
 
 
 SOURCE = ROOT / "data" / "trials_base.json"
 OUTPUT = ROOT / "seo" / "static" / "matcher-preview" / "trials.json"
-CURRENT = {"current", "confirmed_current"}
-PUBLIC_TYPES = {"treatment", "other_treatment_access"}
-
-
-def is_current(row: dict) -> bool:
-    return (
-        row.get("available_for_matching", True)
-        and row.get("status_confidence") in CURRENT
-        and row.get("study_type", "treatment") in PUBLIC_TYPES
-    )
-
-
 def looks_like_address(value: str) -> bool:
     return any(char.isdigit() for char in value) and "," in value
 
@@ -39,9 +28,7 @@ def main() -> None:
     old_by_id = {row["id"]: row for row in old}
     result = []
 
-    for source in rows:
-        if not is_current(source):
-            continue
+    for source in current_public(rows):
         row = copy.deepcopy(source)
         previous = old_by_id.get(row["id"], {})
         previous_sites = previous.get("sites", [])

@@ -6,6 +6,10 @@ from difflib import SequenceMatcher
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+import sys
+sys.path.insert(0, str(ROOT))
+from seo.catalog_selection import current_access, current_public, current_treatments  # noqa: E402
+
 DATA = ROOT / 'data'
 BASELINE = '391d618cda5b08a7593b394a7fe2fb61365b02b2'
 CURRENT = {'current','confirmed_current'}
@@ -53,11 +57,13 @@ def compact(r):
 
 def main():
     cur=load_worktree(); base=load_ref(BASELINE)
-    ca={k:v for k,v in cur.items() if active_finder(v)}
+    ca={r['id']:r for r in current_public(list(cur.values()))}
     ba={k:v for k,v in base.items() if active_finder(v)}
     print('CURRENT_EFFECTIVE_TOTAL',len(cur))
-    print('CURRENT_ACTIVE_TREATMENTS',len(ca))
-    print('BASELINE_ACTIVE_TREATMENTS',len(ba))
+    print('CURRENT_PUBLIC_TOTAL',len(ca))
+    print('CURRENT_ACTIVE_TREATMENTS',len(current_treatments(list(cur.values()))))
+    print('CURRENT_TREATMENT_ACCESS',len(current_access(list(cur.values()))))
+    print('BASELINE_PUBLIC_TOTAL',len(ba))
     added=sorted(set(ca)-set(ba)); removed=sorted(set(ba)-set(ca))
     print('ACTIVE_ADDED_SINCE_BASELINE',len(added))
     for x in added: print('ADD',x,'|',ca[x].get('center',''),'|',ca[x].get('title',''))

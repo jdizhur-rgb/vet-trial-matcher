@@ -19,7 +19,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
-CURRENT = {"current", "confirmed_current"}
+sys.path.insert(0, str(ROOT))
+from seo.catalog_selection import current_public  # noqa: E402
 USER_AGENT = (
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/126.0 Safari/537.36"
@@ -29,14 +30,7 @@ TIMEOUT = 20
 
 def load_effective() -> list[dict]:
     rows = json.loads((DATA / "trials_base.json").read_text(encoding="utf-8"))
-    return [
-        r for r in rows
-        # Match the patient-facing finder exactly: legacy records without an
-        # explicit availability flag are considered available unless disabled.
-        if r.get("available_for_matching", True)
-        and r.get("status_confidence") in CURRENT
-        and r.get("study_type", "treatment") in {"treatment", "other_treatment_access"}
-    ]
+    return current_public(rows)
 
 
 def check_url(url: str) -> tuple[str, str]:
