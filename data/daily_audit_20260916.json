@@ -1,0 +1,84 @@
+{
+  "run_started": "2026-09-16T06:00:01-04:00",
+  "discovery_window": {
+    "start": "2026-09-15T00:00:00-04:00",
+    "end": "2026-09-16T00:00:00-04:00",
+    "timezone": "America/New_York"
+  },
+  "production": {
+    "branch": "main",
+    "pre_update_sha": "3385b8fa96372f6d3bd0583b29dfa6cae04b478f",
+    "pre_update_commit": "Deploy simplified navigation"
+  },
+  "health_check": {
+    "overall": "PASS",
+    "public_app_shell": {
+      "result": "PASS",
+      "detail": "The public c-trials Streamlit URL returned HTTP 200 with the Streamlit application shell; /healthz returned HTTP 200 with status ok."
+    },
+    "repository": {
+      "result": "PASS",
+      "detail": "The connected GitHub repository, canonical main branch, latest commit and legacy streamlit-prod branch were readable."
+    },
+    "catalog_structure": {
+      "result": "PASS",
+      "effective_records": 259,
+      "matchable_treatment_or_access_opportunities": 139,
+      "static_matcher_records": 139,
+      "duplicate_ids": 0,
+      "active_records_missing_required_fields": 0,
+      "active_tag_errors": 0,
+      "active_status_confidence": {
+        "confirmed_current": 73,
+        "current": 66
+      },
+      "delete_wins": "PASS — not applicable at runtime because main uses one canonical data/trials_base.json and no patch/upsert/delete overlays exist."
+    },
+    "compile_and_matcher_logic": {
+      "result": "PASS",
+      "production_python_compile": "PASS — 55 app/page/SEO modules compiled",
+      "streamlit_regression_suite": "PASS — 34 tests passed",
+      "main_usa_any_cancer_dog_matches": 104,
+      "main_usa_any_cancer_cat_matches": 8,
+      "public_streamlit_usa_any_cancer": "PASS — live Chromium returned current treatment opportunity cards"
+    },
+    "external_chromium": {
+      "result": "PASS",
+      "detail": "The external browser established a full Streamlit session, confirmed USA, selected Cancer — any type, submitted the matcher and rendered treatment opportunity cards."
+    },
+    "navigation_and_mobile": {
+      "top_navigation": "PASS — the live browser rendered the four primary navigation controls.",
+      "mobile": "INCONCLUSIVE — responsive breakpoints and the mobile navigation layout are present in production CSS, but this browser surface did not expose viewport resizing for a fresh pixel-level mobile run."
+    },
+    "nonblocking_notes": [
+      "The public Streamlit surface reports 141 matchable opportunities while the canonical main website catalog contains 139; both effective catalogs are structurally valid, but their content sets are not identical during the branch transition.",
+      "A repository-wide compile scan also reaches one dormant historical repair script with a syntax error; all 55 production app/page/SEO Python modules compile successfully and the failing script is not imported or executed by the application."
+    ]
+  },
+  "discovery": {
+    "new_verified_live_additions": [],
+    "removals_or_status_corrections": [
+      {
+        "id": "bluepearl-hsa-paccal",
+        "change": "Kept unavailable for matching and updated with Vivesto's September 15 topline results; no current recruitment or owner access was announced."
+      }
+    ],
+    "duplicates_rejected": [
+      {
+        "lead": "Paccal Vet for canine splenic hemangiosarcoma",
+        "reason": "The sponsor, disease and intervention already exist as bluepearl-hsa-paccal; the September 15 publication reports results from that completed pilot rather than a new protocol or access pathway."
+      }
+    ],
+    "watchlist_leads": [
+      {
+        "id": "vivesto-paccal-vet-pivotal-planned",
+        "reason": "Vivesto says the pilot results support a future pivotal registration study, but no recruiting sites, eligibility criteria, opening date or owner access are public."
+      }
+    ]
+  },
+  "database_changes": {
+    "live_catalog": "No active listing added, removed or reopened.",
+    "inactive_record_updated": "bluepearl-hsa-paccal",
+    "audit_receipt": "data/daily_audit_20260916.json"
+  }
+}
