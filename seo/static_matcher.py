@@ -131,3 +131,13 @@ def build(root: Path) -> None:
     (destination / 'trials.json').write_text(json.dumps(rows, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
     shutil.copy2(SOURCE / 'matcher.js', destination / 'matcher.js')
     shutil.copy2(SOURCE / 'matcher.css', destination / 'matcher.css')
+
+    # A self-contained, noindex artifact lets the candidate branch be exercised
+    # in a real browser before any production URL is switched.
+    css = (SOURCE / 'matcher.css').read_text(encoding='utf-8')
+    js = (SOURCE / 'matcher.js').read_text(encoding='utf-8')
+    inline_data = json.dumps(rows, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
+    preview = page.replace('</head>', '<meta name="robots" content="noindex, nofollow"></head>', 1)
+    preview = preview.replace('<link rel="stylesheet" href="./matcher.css">', f'<style>{css}</style>', 1)
+    preview = preview.replace("<script>window.MATCHER_DATA_URL='./trials.json';</script><script src=\"./matcher.js\" defer></script>", f'<script>window.MATCHER_INLINE_DATA={inline_data};</script><script>{js}</script>', 1)
+    (destination / 'candidate-preview.html').write_text(preview, encoding='utf-8')
