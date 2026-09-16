@@ -1,7 +1,7 @@
 import streamlit as st
 
 st.set_page_config(
-    page_title="Vet Cancer Treatment Finder",
+    page_title="Vet Treatment Trial Finder",
     page_icon="🐾",
     layout="wide",
 )
@@ -9,13 +9,18 @@ st.set_page_config(
 PAGES = [
     st.Page(
         "pages/1_Clinical_Trial_Finder.py",
-        title="Clinical Trial Finder",
+        title="Cancer Trial Finder",
         icon="🐾",
         default=True,
     ),
     st.Page(
+        "pages/4_Osteoarthritis_Trial_Finder.py",
+        title="Osteoarthritis Trial Finder",
+        icon="🦴",
+    ),
+    st.Page(
         "pages/2_Additional_Oncology_Options.py",
-        title="More Treatment Options",
+        title="More Oncology Options",
         icon="💊",
     ),
 ]
