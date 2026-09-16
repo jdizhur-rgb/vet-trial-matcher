@@ -14,4 +14,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Validate OA catalog and matcher
-        run: python scripts/validate_oa_prototype.py
+        run: |
+          python scripts/validate_oa_prototype.py
+          python scripts/test_oa_matcher.py
+          python scripts/test_streamlit_pages.py
