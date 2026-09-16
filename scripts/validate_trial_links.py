@@ -15,6 +15,7 @@ import sys
 import urllib.error
 import urllib.parse
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -26,6 +27,7 @@ USER_AGENT = (
     "(KHTML, like Gecko) Chrome/126.0 Safari/537.36"
 )
 TIMEOUT = 20
+MAX_WORKERS = 12
 
 
 def load_effective() -> list[dict]:
@@ -69,7 +71,7 @@ def check_url(url: str) -> tuple[str, str]:
 
 def main() -> int:
     rows = load_effective()
-    checks: list[tuple[str, str, str, str, str]] = []
+    targets: list[tuple[str, str, str]] = []
     missing_direct = []
 
     for row in rows:
@@ -85,8 +87,16 @@ def main() -> int:
         for field, url in (("registry_url", registry), ("url", direct)):
             if not url:
                 continue
-            state, detail = check_url(url)
-            checks.append((state, rid, field, url, detail))
+            targets.append((rid, field, url))
+
+    # Network latency must not make this audit take one timeout per link.
+    # A bounded pool keeps the run fast without flooding source sites.
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+        results = executor.map(lambda target: check_url(target[2]), targets)
+        checks = [
+            (state, rid, field, url, detail)
+            for (rid, field, url), (state, detail) in zip(targets, results)
+        ]
 
     dead = [x for x in checks if x[0] == "dead"]
     uncertain = [x for x in checks if x[0] == "uncertain"]

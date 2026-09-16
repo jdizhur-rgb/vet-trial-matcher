@@ -23,6 +23,10 @@ def run(*args: str, pythonpath: str | None = None) -> None:
 
 
 def main() -> None:
+    # Production builds must remain reproducible from committed source. This
+    # rejects workflows that rewrite the repository after a push.
+    run("scripts/validate_repository_hygiene.py")
+
     # The deployment artifact is generated, not an incremental cache. Starting
     # clean prevents retired pages committed by an older generator from being
     # carried into the next build with stale canonicals or metadata.

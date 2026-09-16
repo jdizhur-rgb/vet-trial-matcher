@@ -34,7 +34,7 @@ jobs:
           python-version: '3.12'
       - name: Build production site from committed source
         run: python scripts/build_static_site.py
-      - name: Validate refined Kot design with current catalog
+      - name: Validate production site with current catalog
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -162,7 +162,7 @@ jobs:
       - name: Save exact candidate artifact
         uses: actions/upload-artifact@v4
         with:
-          name: refined-kot-design-candidate
+          name: production-site
           path: seo/site/
           retention-days: 3
       - uses: actions/configure-pages@v5
@@ -176,26 +176,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy refined Kot design
+      - name: Deploy production site
         id: deployment
         uses: actions/deploy-pages@v4
-
-# center-photo-audit 2026-09-13-batch-2
-
-# network-page-merge ethos-2026-09-13-r5
-
-# sitemap-clean-deploy 2026-09-13-0333
-
-# network-zip-nearest-branch 2026-09-13
-
-# network-zip-nearest-branch-r2 2026-09-13
-
-# merge-remaining-ethos-aliases 2026-09-13
-
-# state-name-center-search 2026-09-13
-
-# correct-ethos-state-label 2026-09-13
-
-# trial-centers-label 2026-09-13
-
-# retire-legacy-cancer-pages-and-label-programs 2026-09-13
