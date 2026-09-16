@@ -99,12 +99,12 @@ jobs:
           assert 'BreadcrumbList' in (root/'north-america/dogs/lymphoma/index.html').read_text(encoding='utf-8')
           assert (root/'404.html').exists()
           verification=(root/'how-we-verify/index.html').read_text(encoding='utf-8')
-          assert '<h1>How We Verify Listings</h1>' in verification
+          assert '<h1>How we verify listings</h1>' in verification
           assert 'What this site does not do' in verification
-          assert 'How We Verify</a>' in home
-          assert 'Browse the Trial Registry' in home
+          assert 'How we verify</a>' in home
+          assert 'Browse the trial registry' in home
           registry=(root/'veterinary-cancer-clinical-trials/index.html').read_text(encoding='utf-8')
-          assert '<h1>Free Veterinary Cancer Clinical Trial Finder for Dogs and Cats</h1>' in registry
+          assert '<h1>Free veterinary cancer clinical trial finder for dogs and cats</h1>' in registry
           assert 'Why we check more than one registry' in registry
           assert 'Free means free' in registry
           assert 'class="registry-diagnosis"' in registry
@@ -140,22 +140,22 @@ jobs:
           assert help_page.count('<summary>') == 22
           assert 'class="help-section"' in help_page
           assert 'help-actions' not in help_page
-          assert '<h2>Trial Centers</h2>' in help_page
-          assert 'What are Trial Centers?' in help_page
-          assert '<h2>Other Treatments</h2>' in help_page
+          assert '<h2>Trial centers</h2>' in help_page
+          assert 'What are Trial centers?' in help_page
+          assert '<h2>Other treatments</h2>' in help_page
           assert '<h2>Centers and other treatment options</h2>' not in help_page
           assert 'How do I use the trial finder?' in help_page
           assert 'What do the result labels mean?' in help_page
           assert 'How do I find the nearest trial centers?' in help_page
-          assert 'What is included under Other Treatments?' in help_page
+          assert 'What is included under Other treatments?' in help_page
           assert 'mailto:info@vettrialfinder.com' in help_page
           cancer=[]
           for species in ('dogs','cats'): cancer += list((root/'north-america'/species).glob('*/index.html'))
           assert len(cancer)>=44, len(cancer)
           program=(root/'centers/multicenter-local-t-cell-engager-sts-immunotherapy/index.html').read_text(encoding='utf-8')
-          assert 'Multicenter Study' in program and 'Veterinary Cancer Study | Vet Trial Finder' in program
+          assert 'Multicenter study' in program and 'Veterinary cancer study | Vet Trial Finder' in program
           sponsor=(root/'centers/anivive-lifesciences-multicenter/index.html').read_text(encoding='utf-8')
-          assert 'Research Organization' in sponsor and 'Veterinary Cancer Research | Vet Trial Finder' in sponsor
+          assert 'Research organization' in sponsor and 'Veterinary cancer research | Vet Trial Finder' in sponsor
           assert 'About this European multic multicenter study' not in ''.join(p.read_text(encoding='utf-8') for p in center_pages)
           print('ABOUT_STORY_V2_PRODUCTION_OK',len(pages),len(cancer),senya.stat().st_size,yasha.stat().st_size)
           PY
