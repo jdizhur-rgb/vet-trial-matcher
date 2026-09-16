@@ -70,8 +70,8 @@
     data.age = Number(value('age')); data.weight = Number(value('weight'));
     data.weight_lb = data.weight_known ? (value('weight_unit') === 'kg' ? data.weight * 2.2046226218 : data.weight) : null;
     data.prefs = new Set([...form.querySelectorAll('input[name="prefs"]:checked')].map(x => x.value));
-    if (data.brain_present === 'Yes') data.tumor_status = 'Tumor still present / measurable';
-    else if (data.brain_present === 'No visible tumor') data.tumor_status = 'No evidence of disease (NED)';
+    if (data.cancer === 'Brain tumor / glioma' && data.brain_present === 'Yes') data.tumor_status = 'Tumor still present / measurable';
+    else if (data.cancer === 'Brain tumor / glioma' && data.brain_present === 'No visible tumor') data.tumor_status = 'No evidence of disease (NED)';
     if (LYMPHOMA.has(data.cancer) || data.cancer === 'Cutaneous epitheliotropic lymphoma') {
       if (['Newly diagnosed / untreated','Partial response','Progression during treatment','First relapse after remission','More than one relapse'].includes(data.lymphoma_response)) data.tumor_status = 'Tumor still present / measurable';
       else if (data.lymphoma_response === 'Complete remission') data.tumor_status = 'No evidence of disease (NED)';
