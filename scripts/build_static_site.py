@@ -42,6 +42,7 @@ def main() -> None:
     run("help_content_update.py")
     run("center_zip_search.py")
     run("seo/ensure_center_images.py")
+    run("seo/enforce_sentence_case.py", pythonpath="seo")
 
 
 if __name__ == "__main__":
