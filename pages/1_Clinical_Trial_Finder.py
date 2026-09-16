@@ -283,6 +283,28 @@ cancer = st.selectbox('Cancer type', CANCERS)
 unlisted_mode = cancer == UNLISTED_CANCER
 unlisted_diagnosis = st.text_input('Enter the diagnosis as written in the pathology report, if known') if unlisted_mode else ''
 
+# Show the useful part of a quick diagnosis check without presenting a raw
+# disease count as an eligibility result. This count intentionally runs before
+# the patient-specific questions below and uses only the filters already known:
+# species, selected region, diagnosis, current status, and treatment-study type.
+_quick_count_excluded = {'Cancer — any type', 'Other / not sure', UNLISTED_CANCER}
+if cancer not in _quick_count_excluded:
+    _quick_diagnosis_count = sum(
+        1 for _tr in TRIALS
+        if _tr.get('available_for_matching', True)
+        and is_current_trial(_tr)
+        and _tr.get('study_type', 'treatment') in {'treatment', 'other_treatment_access'}
+        and species_matches(_tr.get('species', ''), species)
+        and country_matches(_tr.get('country', 'USA'), country)
+        and trial_accepts_diagnosis(_tr, cancer)[0]
+    )
+    _opportunity_word = 'listing' if _quick_diagnosis_count == 1 else 'listings'
+    st.info(
+        f'**{_quick_diagnosis_count} current {_opportunity_word} mention this diagnosis for {species.lower()}s '
+        f'in the selected region.** This is a diagnosis-level count, not an eligibility result. '
+        'Your answers below may narrow it to fewer — or no — plausible matches.'
+    )
+
 # Build the owner form from criteria that can actually affect matching for this
 # species/disease. Irrelevant disease-status rows stay visible but disabled so
 # the form does not jump around when the cancer type changes.
@@ -863,35 +885,64 @@ if search_clicked:
         )
     else:
         st.success(f'{len(matches)} oncology opportunity(ies) may be worth contacting')
-        for confidence,tr,reasons,unknown in matches:
-            with st.container(border=True):
-                st.markdown(f"### {confidence} · {tr['center']}")
-                st.markdown(f"**{tr['title']}**")
-                st.markdown('**Study type:** ' + tr.get('study_type', 'treatment').replace('_', ' ').title())
-                st.markdown('**Why it may fit:** ' + '; '.join(reasons) + '.')
-                if unknown:
-                    unresolved = list(dict.fromkeys(str(x) for x in unknown))
-                    st.markdown('**Needs confirmation:** ' + '; '.join(unresolved) + '.')
-                st.write(
-                    '**Contact:** ' + tr.get(
-                        'contacts',
-                        tr.get('contact', 'Contact the study team through the official study page')
+
+        def _result_group(confidence):
+            if confidence == 'Likely match':
+                return 'likely'
+            if confidence in {'Possible match', 'Potential broad-treatment trial — prescreening required'}:
+                return 'possible'
+            if confidence == 'Other treatment-access opportunity':
+                return 'other'
+            return 'review'
+
+        _group_config = [
+            ('likely', 'Likely matches', 'The information you entered meets every published criterion stored in our database. The study team still makes the final eligibility decision.'),
+            ('possible', 'Possible matches', 'The diagnosis fits, but at least one eligibility point is unknown or requires confirmation by the study team.'),
+            ('review', 'Trials to review', 'These records may be relevant, but the diagnosis or protocol fit cannot be established from the information entered.'),
+            ('other', 'Other treatment-access opportunities', 'These are funded or assisted treatment pathways rather than conventional experimental-treatment trials.'),
+        ]
+        _grouped_matches = {
+            key: [item for item in matches if _result_group(item[0]) == key]
+            for key, _, _ in _group_config
+        }
+        _visible_groups = [(key, label, help_text) for key, label, help_text in _group_config if _grouped_matches[key]]
+        _summary_columns = st.columns(len(_visible_groups))
+        for _column, (_key, _label, _) in zip(_summary_columns, _visible_groups):
+            _column.metric(_label, len(_grouped_matches[_key]))
+
+        for _key, _label, _help_text in _visible_groups:
+            st.subheader(_label)
+            st.caption(_help_text)
+            for confidence,tr,reasons,unknown in _grouped_matches[_key]:
+                with st.container(border=True):
+                    st.markdown(f"### {tr['center']}")
+                    st.markdown(f"**{tr['title']}**")
+                    st.markdown('**Result:** ' + confidence)
+                    st.markdown('**Study type:** ' + tr.get('study_type', 'treatment').replace('_', ' ').title())
+                    st.markdown('**Why it may fit:** ' + '; '.join(reasons) + '.')
+                    if unknown:
+                        unresolved = list(dict.fromkeys(str(x) for x in unknown))
+                        st.markdown('**Needs confirmation:** ' + '; '.join(unresolved) + '.')
+                    st.write(
+                        '**Contact:** ' + tr.get(
+                            'contacts',
+                            tr.get('contact', 'Contact the study team through the official study page')
+                        )
                     )
-                )
-                if tr.get('sites'):
-                    site_text = '; '.join(
-                        f"{x['hospital']} — {x['city']}, {x['state']}" for x in tr['sites']
-                    )
-                    st.write('**Participating sites:** ' + site_text)
-                details_url = tr.get('registry_url') or tr.get('url', '')
-                if details_url:
-                    st.link_button('View full study details →', details_url, use_container_width=True)
-                with st.expander('Study information'):
-                    if tr.get('intervention'):
-                        st.write('**Study intervention:** ' + tr['intervention'])
-                    st.write('**What the study says:** ' + tr['notes'])
-                    st.write('**Trial funding:** ' + tr.get('funding', 'Ask the study team about covered study costs'))
-                    st.caption(f"Status: {tr['status']} · Last verified: {tr.get('verified', 'date not recorded')}")
+                    if tr.get('sites'):
+                        site_text = '; '.join(
+                            f"{x['hospital']} — {x['city']}, {x['state']}" for x in tr['sites']
+                        )
+                        st.write('**Participating sites:** ' + site_text)
+                    details_url = tr.get('registry_url') or tr.get('url', '')
+                    if details_url:
+                        st.link_button('View full study details →', details_url, use_container_width=True)
+                    with st.expander('Study information'):
+                        if tr.get('intervention'):
+                            st.write('**Study intervention:** ' + tr['intervention'])
+                        st.write('**What the study says:** ' + tr['notes'])
+                        st.write('**Trial funding:** ' + tr.get('funding', 'Ask the study team about covered study costs'))
+                        st.caption(f"Status: {tr['status']} · Last verified: {tr.get('verified', 'date not recorded')}")
 
     _render_result_save_controls(matches)
 
