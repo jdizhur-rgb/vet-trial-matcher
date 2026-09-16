@@ -175,6 +175,20 @@ def main():
         "countries": len({country_aliases.get(str(row.get("country") or "USA").strip(), str(row.get("country") or "USA").strip()) for row in rows}),
     }
     apply_site_shell(out, stats, rows)
+    # Preserve the former long Mexico-center URL as a real redirect. The
+    # consolidated center page is the only indexable source of truth.
+    legacy_center = out / "centers" / "hospital-veterinario-pe-a-jasso-unam-uabc-uag-translational-nanomedicine-project" / "index.html"
+    if legacy_center.exists():
+        target = f"{SITE}/centers/hospital-veterinario-pe-a-jasso/"
+        legacy_center.write_text(
+            '<!doctype html><html lang="en"><head><meta charset="utf-8">'
+            '<meta name="robots" content="noindex, follow">'
+            f'<link rel="canonical" href="{target}">'
+            f'<meta http-equiv="refresh" content="0; url={target}">'
+            f'<title>Hospital Veterinario Peña Jasso</title></head>'
+            f'<body><p><a href="{target}">Continue to the center page</a></p></body></html>',
+            encoding="utf-8",
+        )
     generate_cancer_vaccine_article(out)
     generate_surgical_margins_article(out)
     vaccine_page = out / "articles" / "cancer-vaccines" / "index.html"

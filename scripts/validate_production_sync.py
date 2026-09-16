@@ -78,8 +78,12 @@ def main() -> None:
 
     mapping = json.loads(read(SITE / "mapping-audit.json"))
     assert mapping["effective_treatment_records"] == len(treatments)
-    assert first_stat(read(SITE / "index.html")) == len(treatments)
+    home = read(SITE / "index.html")
+    assert first_stat(home) == len(treatments)
     assert first_stat(read(SITE / "veterinary-cancer-clinical-trials" / "index.html")) == len(treatments)
+    assert '<div class="nav-shell">' in home
+    assert '<button class="nav-toggle"' in home
+    assert '<details class="nav-shell">' not in home
 
     matcher_routes = ("", "centers", "ect", "advanced", "expanded-access")
     for route in matcher_routes:
