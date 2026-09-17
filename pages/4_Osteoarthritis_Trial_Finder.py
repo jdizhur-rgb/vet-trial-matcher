@@ -16,7 +16,7 @@ with (ROOT / "data" / "oa_trials.json").open(encoding="utf-8") as fh:
     TRIALS = json.load(fh)
 
 st.title("Osteoarthritis / joint pain trial finder")
-st.caption(f"{len(TRIALS)} current treatment protocols in this research prototype")
+st.caption(f"{len(TRIALS)} current treatment protocols")
 st.write("Answer what you know. Choosing **I don't know** keeps a study for review instead of excluding it.")
 st.info("This tool compares public criteria only. The study team determines final eligibility.")
 
@@ -24,13 +24,11 @@ st.header("1. Your pet")
 c1, c2 = st.columns(2)
 with c1:
     species = st.selectbox("Species", ["Dog", "Cat"])
-    age_known = st.checkbox("I know the age", value=True)
-    age = st.number_input("Age (years)", 0.0, 30.0, 8.0, 0.5, disabled=not age_known)
+    age = st.number_input("Age (years, optional)", 0.0, 30.0, value=None, step=0.5)
 with c2:
-    weight_known = st.checkbox("I know the weight")
-    weight_unit = st.radio("Weight unit", ["lb", "kg"], horizontal=True, disabled=not weight_known)
-    weight = st.number_input(f"Weight ({weight_unit})", 0.1, 250.0, 40.0, 0.5, disabled=not weight_known)
-    weight_kg = None if not weight_known else (weight if weight_unit == "kg" else weight / 2.2046226218)
+    weight_unit = st.radio("Weight unit", ["lb", "kg"], horizontal=True)
+    weight = st.number_input(f"Weight ({weight_unit}, optional)", 0.1, 250.0, value=None, step=0.5)
+    weight_kg = None if weight is None else (weight if weight_unit == "kg" else weight / 2.2046226218)
 
 st.header("2. Joint problem")
 diagnosis = st.selectbox("Has osteoarthritis been diagnosed?", ["Yes", "No", UNKNOWN], index=2)
@@ -38,8 +36,7 @@ xray = st.selectbox("Has osteoarthritis been confirmed on X-rays?", ["Yes", "No"
 joints = st.multiselect("Affected joint(s), if known", ["Shoulder", "Elbow", "Hip", "Stifle / knee", "Carpus / wrist", "Tarsus / ankle", "Multiple / other", UNKNOWN])
 lameness = st.selectbox("Does your pet have visible lameness?", ["Yes", "No", UNKNOWN], index=2)
 mobility = st.selectbox("Does your pet have noticeable mobility problems?", ["Yes", "No", UNKNOWN], index=2)
-duration_known = st.checkbox("I know roughly how long symptoms have been present")
-symptom_months = st.number_input("Months with pain, lameness or mobility problems", 0, 240, 6, disabled=not duration_known)
+symptom_months = st.number_input("Months with pain, lameness or mobility problems (optional)", 0, 240, value=None)
 hip_dysplasia = st.selectbox("If hip arthritis: has hip dysplasia been diagnosed?", ["Yes", "No", UNKNOWN]) if "Hip" in joints else UNKNOWN
 
 st.header("3. Current and previous treatment")
@@ -60,9 +57,9 @@ oral_medication = st.selectbox("Can your pet take oral medication without major 
 
 if st.button("Find potential trials", type="primary", use_container_width=True):
     profile = PatientProfile(
-        species=species, age_years=age if age_known else None, weight_kg=weight_kg,
+        species=species, age_years=age, weight_kg=weight_kg,
         diagnosis=diagnosis, xray=xray, joints=tuple(joints), lameness=lameness,
-        mobility=mobility, symptom_months=symptom_months if duration_known else None,
+        mobility=mobility, symptom_months=symptom_months,
         hip_dysplasia=hip_dysplasia, librela=librela, solensia=solensia,
         current_meds=tuple(current_meds), prior_joint_surgery=prior_joint_surgery,
         prior_joint_injection=prior_joint_injection, prior_prp_or_stem_cells=prior_prp_or_stem_cells,
@@ -90,5 +87,3 @@ if st.button("Find potential trials", type="primary", use_container_width=True):
                 st.write(tr.get("notes", ""))
                 st.link_button("Official study page", tr["url"], use_container_width=True)
                 st.caption(f"Status: {tr.get('status', '')} · Last verified: {tr.get('verified', '')}")
-
-st.caption("Research prototype on the OA branch. Cancer eligibility logic and cancer data are unchanged.")

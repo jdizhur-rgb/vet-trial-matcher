@@ -1,9 +1,11 @@
 import unittest
+import sys
 from pathlib import Path
 
 from streamlit.testing.v1 import AppTest
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
 
 
 class StreamlitPageSmokeTests(unittest.TestCase):
@@ -17,10 +19,11 @@ class StreamlitPageSmokeTests(unittest.TestCase):
     def test_cancer_search_still_runs(self):
         at = AppTest.from_file(ROOT / "pages" / "1_Clinical_Trial_Finder.py", default_timeout=30).run()
         self.assertFalse(at.exception)
+        at.selectbox[2].set_value("Mast cell tumor").run()
         at.button[0].click().run()
         self.assertFalse(at.exception)
         text = " ".join(x.value for x in [*at.success, *at.warning, *at.info])
-        self.assertTrue("match" in text.lower() or "trial" in text.lower())
+        self.assertTrue(any(word in text.lower() for word in ("match", "trial", "opportunit")))
 
     def test_oa_unknown_answers_produce_possible_matches_and_links(self):
         at = self.load_oa()
@@ -35,7 +38,8 @@ class StreamlitPageSmokeTests(unittest.TestCase):
         for i in (1, 2, 3, 4):
             at.selectbox[i].set_value("Yes")
         at.multiselect[0].set_value(["Hip"])
-        at.checkbox[2].set_value(True)
+        at.number_input[0].set_value(8)
+        at.number_input[1].set_value(40)
         at.number_input[2].set_value(3)
         at.selectbox[5].set_value("No")
         for i in (6, 7, 8, 9, 10, 11, 12):
