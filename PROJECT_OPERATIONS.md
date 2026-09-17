@@ -142,3 +142,14 @@ Before touching this project:
 4. Add durable new lessons/rules to this file when the project changes.
 
 This file is the canonical engineering handoff. Chat summaries are secondary.
+
+## 13. Osteoarthritis research matcher
+
+- OA work remains isolated in `research/oa-matcher` until manual approval. Do not merge it to `main` as part of research or audit work.
+- `data/oa_trials.json` is protocol-level: one multicenter protocol has one record and a `sites` list. `protocol_key` is required and unique.
+- Patient-independent eligibility logic lives in `oa_matcher.py`; the Streamlit page only collects answers and renders results.
+- Every `requires` or `excludes` key must be declared and implemented in `oa_matcher.py`. Validation fails on an unknown key so catalog changes cannot silently bypass matching.
+- A known hard mismatch returns no result. An unknown answer or explicit study-team screening item remains a `Possible match — needs confirmation`. Records with limited public criteria can never be promoted to `Potential match`.
+- Lack of existing X-rays is not a hard exclusion when the official source says study screening can provide or confirm radiographs.
+- Run both `python scripts/validate_oa_prototype.py` and `python scripts/test_oa_matcher.py` after every OA catalog or matcher change.
+- Cancer data and eligibility remain in `data/trials_base.json` and `pages/1_Clinical_Trial_Finder.py`; OA rules must not be added to that page.

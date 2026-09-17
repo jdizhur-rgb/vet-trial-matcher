@@ -12,9 +12,14 @@ st.set_page_config(
 PAGES = [
     st.Page(
         "pages/1_Clinical_Trial_Finder.py",
-        title="Clinical Trial Finder",
+        title="Cancer",
         icon="🐾",
         default=True,
+    ),
+    st.Page(
+        "pages/4_Osteoarthritis_Trial_Finder.py",
+        title="Osteoarthritis / joint pain",
+        icon="🦴",
     ),
     st.Page(
         "pages/2_Additional_Oncology_Options.py",
@@ -28,8 +33,13 @@ page = st.navigation(PAGES, position="hidden")
 css_path = Path(__file__).resolve().parent / "styles" / "app.css"
 st.markdown(f"<style>{css_path.read_text(encoding='utf-8')}</style>", unsafe_allow_html=True)
 
-if st.button("🐾︎ Clinical Trials", key="nav_trials", use_container_width=True):
-    st.switch_page("pages/1_Clinical_Trial_Finder.py")
+finder_cancer, finder_oa = st.columns(2, gap="small")
+with finder_cancer:
+    if st.button("🐾 Cancer", key="nav_trials", use_container_width=True):
+        st.switch_page("pages/1_Clinical_Trial_Finder.py")
+with finder_oa:
+    if st.button("🦴 Osteoarthritis / joint pain", key="nav_oa", use_container_width=True):
+        st.switch_page("pages/4_Osteoarthritis_Trial_Finder.py")
 
 c1, c2, c3 = st.columns(3, gap="small")
 with c1:
