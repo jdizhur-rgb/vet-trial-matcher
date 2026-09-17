@@ -4,6 +4,7 @@ on:
     paths:
       - 'data/**'
       - 'scripts/full_catalog_audit.py'
+      - 'scripts/validate_source_inventory.py'
       - '.github/workflows/full-catalog-audit.yml'
   workflow_dispatch:
 permissions:
@@ -16,4 +17,6 @@ jobs:
         with:
           fetch-depth: 0
       - name: Run full catalog audit
-        run: python scripts/full_catalog_audit.py
+        run: |
+          python scripts/validate_source_inventory.py
+          python scripts/full_catalog_audit.py

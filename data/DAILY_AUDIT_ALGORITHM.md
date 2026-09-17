@@ -2,20 +2,28 @@
 
 This checklist is mandatory for every daily catalog update.
 
-## Daily cadence and search window
+## Daily cadence and coverage
 
 - The daily discovery run is scheduled for **06:00 America/New_York**.
-- Daily discovery is **incremental**: search only publications, posts, announcements and newly published pages from the **immediately preceding calendar day** in America/New_York.
-- Do not rerun the same broad historical discovery searches every morning and do not re-process older material already reviewed on previous days.
-- A source without a reliable publication/post date is not treated as a new daily-discovery item.
+- Daily discovery is a **full catalog and source audit**, not a preceding-day news search. It must reconcile the persistent source inventory, review current catalog sources, and search the open web for new sources every day.
+- Do not exclude an official page because it is old, undated, newly indexed or silently edited. Treat it as a lead and establish present recruitment/access from a current protocol-level official signal.
+- The weekly deep/control audit is an additional independent safety net; it never replaces or narrows the required daily sweep.
 - Every genuinely new lead must still be followed to the primary/current source and checked for current recruitment/access, eligibility, funding, contacts and treatment relevance before any catalog change.
 - Every proposed addition must be deduplicated against the **entire effective live catalog**, not merely against the previous day's discoveries.
-- If no qualifying new publication appeared during the preceding day, the daily result is simply: no new publication to add.
-- A separate **weekly deep/control audit** handles work that the 24-hour discovery window intentionally does not: status changes to existing trials, silently edited/undated pages, missed or late-indexed publications, complete institutional trial-index reconciliation, stale records and broader historical gap checks.
+- If the full source sweep and open-web expansion find no qualifying current opportunity, report that the complete daily discovery ran and found none.
+
+## Persistent source inventory
+
+- `data/source_inventory.json` is the canonical discovery-source inventory. It contains registries, directories, universities, hospitals, specialty networks, sponsors/CROs, foundations and investigator/lab master pages.
+- Every inventory entry is mandatory daily coverage. Record `last_checked`, `last_result` and a normalized-content SHA-256 fingerprint after each attempted visit. `unreachable` and `partial` are valid outcomes, but they must be reported; they are not permission to call the sweep complete without qualification.
+- Add every newly discovered official master/index source to the inventory in the same run, even when its immediate trial lead is a duplicate, closed, ineligible or unresolved. A useful source must not disappear because its first lead was not added to the matcher.
+- Never remove a source merely because it currently lists no eligible trials. Removal requires evidence that the source is permanently retired or replaced; preserve the replacement relationship in the audit record.
+- Run `python scripts/validate_source_inventory.py` before committing. IDs and normalized master URLs must be unique, required fields must be present, and checked-state metadata must be internally consistent.
+- Fingerprints detect a changed master page; they do not establish clinical meaning. A changed page must be opened and reconciled at protocol level before any catalog update.
 
 ## Required registry/source coverage
 
-- **AVMA Veterinary Clinical Trials Registry (veterinaryclinicaltrials.org) is a mandatory discovery and reconciliation source for U.S. veterinary oncology trials.** Check newly surfaced registry studies during daily discovery when they have a reliable new/updated date, and perform a full oncology reconciliation against the registry during the weekly deep/control audit.
+- **AVMA Veterinary Clinical Trials Registry (veterinaryclinicaltrials.org) is a mandatory daily discovery and reconciliation source for U.S. veterinary oncology trials.** Reconcile its current oncology set on every daily pass and repeat the reconciliation during the weekly deep/control audit.
 - Treat the AVMA registry as a discovery/structured-detail source, not as sufficient proof of current recruitment by itself. For every AVMA lead, verify current recruitment/access against the sponsoring university, hospital, investigator or study page whenever a current primary source is available.
 - **MANDATORY PROTOCOL-LEVEL CHECK:** follow a lead to the individual study/protocol page whenever one exists. Verify that the page describes the same intervention/protocol, not merely the same cancer, investigator or institution. Read the study-level status, eligibility, funding/support, contacts and recruitment timeline before classifying it.
 - An institutional trial index is navigation evidence, not definitive negative evidence. **Absence from a general university/hospital/center trial list is not proof that a study is closed.** Before moving a registry-listed study to inactive/watchlist for this reason, check the individual study page, PI/investigator page and current registry record; if those conflict, record the conflict rather than infer closure.
@@ -32,11 +40,11 @@ This checklist is mandatory for every daily catalog update.
 - Do not create institution-specific duplicate-avoidance exceptions or memory lists. The same effective-catalog semantic-dedup procedure applies to every university, hospital, company and registry.
 - Do not load other JSON files in `data/` into the matcher: the directory also contains statistics, watchlists, audit reports, ECT-center data and other non-catalog documents.
 
-1. For the **daily** run, discover only material published/posted during the immediately preceding calendar day. Existing-record status sweeps belong to the weekly deep/control audit unless a new daily lead directly reveals a material status correction.
-2. Search for new dog/cat anticancer treatment opportunities across all required regions and source layers within that daily publication window.
+1. For the **daily** run, first visit every source in `data/source_inventory.json`, enumerate its current/open/recruiting oncology protocols, and reconcile them against the canonical catalog. Then perform open-web discovery for sources and protocols not yet represented in the inventory.
+2. Search for dog/cat anticancer treatment opportunities across all required regions and source layers without a publication-date cutoff.
    - Include The Perseus Foundation / CRUSH public clinical-trial posts and trial listings as a **secondary discovery source**. Review newly surfaced studies/leads, then follow each lead to the originating university, hospital, investigator or registry page before making any catalog decision. Perseus/CRUSH is for discovery only and is never sufficient by itself to confirm recruitment status, eligibility, deadline, funding or treatment access.
    - Include the AVMA Veterinary Clinical Trials Registry under the required registry/source rules above.
-   - Complete center-wide reconciliation is part of the weekly deep/control audit. When a new daily publication points to a center/protocol, inspect the relevant individual protocol and primary source immediately.
+   - Complete master-page reconciliation is required daily. The weekly pass repeats it with deeper manual review, source-fingerprint comparison and unresolved-watchlist follow-up.
 3. Apply the treatment-scope filter. Keep true anticancer treatment opportunities in treatment matching; classify treatment-access/support programs separately; do not promote observational/diagnostic/sample-only/supportive/prevention-only research into treatment matching.
 4. Verify recruitment/access from a protocol-level primary source whenever available. If recruitment or protocol details are insufficient or conflicting, keep the lead on the watchlist rather than matching it.
 5. Normalize disease labels, species, geography, treatment modality and source URLs.
@@ -58,11 +66,11 @@ This checklist is mandatory for every daily catalog update.
 
 ## Weekly deep/control audit
 
-Once per week, perform a broader control pass independent of publication date. Recheck existing catalog records and institutional indexes against current primary sources; detect closures, pauses, recruitment/status changes, eligibility/contact/funding changes, silently edited or undated pages, late-indexed discoveries, stale records and historical gaps.
+Once per week, perform a broader independent control pass. Recheck existing catalog records and the entire persistent source inventory against current primary sources; detect closures, pauses, recruitment/status changes, eligibility/contact/funding changes, silently edited or undated pages, late-indexed discoveries, stale records and historical gaps.
 
-The weekly pass must use a maintained source inventory that includes the complete Veterinary Cancer Society resource list: the AVMA Veterinary Clinical Trials Registry, every listed university clinical-trial center, and every listed private/other center. For every reachable master/index page, enumerate all CURRENT, ACTIVE or RECRUITING oncology treatment protocols and reconcile every protocol against `data/trials_base.json`. Compare title and former title, intervention/drug, cancer type, center, participating sites, protocol identifiers and synonyms. A different title alone never makes a trial new. Preserve a protocol-level snapshot or fingerprint so that undated additions and silent page edits are detected by the next weekly diff. Report every unreachable or unchecked source explicitly; a partial pass must not be described as complete.
+The weekly pass must verify that `data/source_inventory.json` still includes the complete Veterinary Cancer Society resource list: the AVMA Veterinary Clinical Trials Registry, every listed university clinical-trial center, and every listed private/other center. For every reachable master/index page, enumerate all CURRENT, ACTIVE or RECRUITING oncology treatment protocols and reconcile every protocol against `data/trials_base.json`. Compare title and former title, intervention/drug, cancer type, center, participating sites, protocol identifiers and synonyms. A different title alone never makes a trial new. Compare current source fingerprints with the preceding recorded values so undated additions and silent edits are investigated. Report every unreachable or unchecked source explicitly; a partial pass must not be described as complete.
 
-**Reconcile the complete current AVMA Veterinary Clinical Trials Registry oncology set against the effective catalog, classifying each registry record as canonical match, genuinely new candidate, status/detail mismatch, or stale/unconfirmed registry entry. Apply the same classification to every active protocol found on institutional and private-center indexes. For each candidate or mismatch, drill down to the individual study/protocol page before changing live status.** Absence from an index, conflicting status labels, or a renamed cohort is evidence for investigation, not automatic closure or a new record. This weekly pass is the safety net for anything that cannot reliably be discovered through the preceding-day publication filter.
+**Reconcile the complete current AVMA Veterinary Clinical Trials Registry oncology set against the effective catalog, classifying each registry record as canonical match, genuinely new candidate, status/detail mismatch, or stale/unconfirmed registry entry. Apply the same classification to every active protocol found on institutional and private-center indexes. For each candidate or mismatch, drill down to the individual study/protocol page before changing live status.** Absence from an index, conflicting status labels, or a renamed cohort is evidence for investigation, not automatic closure or a new record. This weekly pass is an independent safety net for sources, changes and unresolved leads missed by daily discovery.
 
 ## Non-negotiable dedup rule
 
