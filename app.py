@@ -33,27 +33,18 @@ page = st.navigation(PAGES, position="hidden")
 css_path = Path(__file__).resolve().parent / "styles" / "app.css"
 st.markdown(f"<style>{css_path.read_text(encoding='utf-8')}</style>", unsafe_allow_html=True)
 
-finder_cancer, finder_oa = st.columns(2, gap="small")
-with finder_cancer:
-    if st.button("🐾 Cancer", key="nav_trials", use_container_width=True):
+active_finder = "Osteoarthritis / joint pain" if page.title == "Osteoarthritis / joint pain" else "Cancer"
+selected_finder = st.segmented_control(
+    "Find trials for",
+    ["Cancer", "Osteoarthritis / joint pain"],
+    default=active_finder,
+    key="condition_navigation",
+    label_visibility="collapsed",
+)
+if selected_finder != active_finder:
+    if selected_finder == "Cancer":
         st.switch_page("pages/1_Clinical_Trial_Finder.py")
-with finder_oa:
-    if st.button("🦴 Osteoarthritis / joint pain", key="nav_oa", use_container_width=True):
+    elif selected_finder == "Osteoarthritis / joint pain":
         st.switch_page("pages/4_Osteoarthritis_Trial_Finder.py")
-
-if page.title != "Osteoarthritis / joint pain":
-    c1, c2, c3 = st.columns(3, gap="small")
-    with c1:
-        if st.button("🏥 Oncology Centers", key="nav_centers", use_container_width=True):
-            st.session_state.main_treatment_route = "centers"
-            st.switch_page("pages/2_Additional_Oncology_Options.py")
-    with c2:
-        if st.button("🧬 Advanced Treatments", key="nav_advanced", use_container_width=True):
-            st.session_state.main_treatment_route = "advanced"
-            st.switch_page("pages/2_Additional_Oncology_Options.py")
-    with c3:
-        if st.button("🧪 Expanded Access", key="nav_expanded", use_container_width=True):
-            st.session_state.main_treatment_route = "compassionate"
-            st.switch_page("pages/2_Additional_Oncology_Options.py")
 
 page.run()

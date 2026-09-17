@@ -20,7 +20,7 @@ class StreamlitPageSmokeTests(unittest.TestCase):
         at = AppTest.from_file(ROOT / "pages" / "1_Clinical_Trial_Finder.py", default_timeout=30).run()
         self.assertFalse(at.exception)
         at.selectbox[2].set_value("Mast cell tumor").run()
-        at.button[0].click().run()
+        next(button for button in at.button if button.label == "Find potential trials").click().run()
         self.assertFalse(at.exception)
         text = " ".join(x.value for x in [*at.success, *at.warning, *at.info])
         self.assertTrue(any(word in text.lower() for word in ("match", "trial", "opportunit")))

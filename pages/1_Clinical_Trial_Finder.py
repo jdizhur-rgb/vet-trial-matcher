@@ -258,6 +258,20 @@ st.caption(
     f"{len(_stats_countries)} countries"
 )
 
+c1, c2, c3 = st.columns(3, gap="small")
+with c1:
+    if st.button("🏥 Oncology Centers", key="nav_centers", use_container_width=True):
+        st.session_state.main_treatment_route = "centers"
+        st.switch_page("pages/2_Additional_Oncology_Options.py")
+with c2:
+    if st.button("🧬 Advanced Treatments", key="nav_advanced", use_container_width=True):
+        st.session_state.main_treatment_route = "advanced"
+        st.switch_page("pages/2_Additional_Oncology_Options.py")
+with c3:
+    if st.button("🧪 Expanded Access", key="nav_expanded", use_container_width=True):
+        st.session_state.main_treatment_route = "compassionate"
+        st.switch_page("pages/2_Additional_Oncology_Options.py")
+
 st.markdown(
     '<div class="finder-note">This finder suggests potentially relevant options; '
     'the treating or study team confirms eligibility. It is not veterinary advice.</div>',
