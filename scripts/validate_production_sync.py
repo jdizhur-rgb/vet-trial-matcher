@@ -99,8 +99,16 @@ def main() -> None:
 
     news_index = read(SITE / "news" / "index.html")
     cornell_news = read(SITE / "news" / "cornell-smart-start-b-cell-lymphoma" / "index.html")
+    nc_state_news = read(SITE / "news" / "nc-state-il12-bladder-cancer-deadline" / "index.html")
+    wisconsin_news = read(SITE / "news" / "wisconsin-ptcl-radiopharmaceutical-trial" / "index.html")
     assert "Cornell opens Smart-Start trial" in news_index
+    assert "closes enrollment September 30" in news_index
+    assert "peripheral T-cell lymphoma" in news_index
     assert "There is no placebo." in cornell_news
+    assert "There is no placebo group." in nc_state_news
+    assert "Enrollment deadline · September 30, 2026" in nc_state_news
+    assert "initial screening visit and initial laboratory work are owner-paid" in wisconsin_news
+    assert "90Y-NM600" in wisconsin_news
     assert "https://www.vet.cornell.edu/hospitals/clinical-trials/smart-start-therapy-canine-b-cell-lymphoma" in cornell_news
     assert '<a href="https://vettrialfinder.com/news/">News</a>' in cornell_news
 
@@ -115,6 +123,8 @@ def main() -> None:
     for url in (
         "https://vettrialfinder.com/news/",
         "https://vettrialfinder.com/news/cornell-smart-start-b-cell-lymphoma/",
+        "https://vettrialfinder.com/news/nc-state-il12-bladder-cancer-deadline/",
+        "https://vettrialfinder.com/news/wisconsin-ptcl-radiopharmaceutical-trial/",
     ):
         assert url in sitemap, f"News route missing from sitemap: {url}"
 
