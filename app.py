@@ -41,18 +41,19 @@ with finder_oa:
     if st.button("🦴 Osteoarthritis / joint pain", key="nav_oa", use_container_width=True):
         st.switch_page("pages/4_Osteoarthritis_Trial_Finder.py")
 
-c1, c2, c3 = st.columns(3, gap="small")
-with c1:
-    if st.button("🏥 Oncology Centers", key="nav_centers", use_container_width=True):
-        st.session_state.main_treatment_route = "centers"
-        st.switch_page("pages/2_Additional_Oncology_Options.py")
-with c2:
-    if st.button("🧬 Advanced Treatments", key="nav_advanced", use_container_width=True):
-        st.session_state.main_treatment_route = "advanced"
-        st.switch_page("pages/2_Additional_Oncology_Options.py")
-with c3:
-    if st.button("🧪 Expanded Access", key="nav_expanded", use_container_width=True):
-        st.session_state.main_treatment_route = "compassionate"
-        st.switch_page("pages/2_Additional_Oncology_Options.py")
+if page.title != "Osteoarthritis / joint pain":
+    c1, c2, c3 = st.columns(3, gap="small")
+    with c1:
+        if st.button("🏥 Oncology Centers", key="nav_centers", use_container_width=True):
+            st.session_state.main_treatment_route = "centers"
+            st.switch_page("pages/2_Additional_Oncology_Options.py")
+    with c2:
+        if st.button("🧬 Advanced Treatments", key="nav_advanced", use_container_width=True):
+            st.session_state.main_treatment_route = "advanced"
+            st.switch_page("pages/2_Additional_Oncology_Options.py")
+    with c3:
+        if st.button("🧪 Expanded Access", key="nav_expanded", use_container_width=True):
+            st.session_state.main_treatment_route = "compassionate"
+            st.switch_page("pages/2_Additional_Oncology_Options.py")
 
 page.run()

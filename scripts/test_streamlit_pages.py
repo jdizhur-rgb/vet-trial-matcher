@@ -38,9 +38,8 @@ class StreamlitPageSmokeTests(unittest.TestCase):
         for i in (1, 2, 3, 4):
             at.selectbox[i].set_value("Yes")
         at.multiselect[0].set_value(["Hip"])
-        at.checkbox[1].set_value(True)
-        at.checkbox[2].set_value(True)
-        at.run()
+        at.number_input[0].set_value(8)
+        at.number_input[1].set_value(40)
         at.number_input[2].set_value(3)
         at.selectbox[5].set_value("No")
         for i in (6, 7, 8, 9, 10, 11, 12):
