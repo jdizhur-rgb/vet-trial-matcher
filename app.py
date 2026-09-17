@@ -1,5 +1,6 @@
 import streamlit as st
 
+# Training preview entry point: cancer and OA remain separate matchers.
 st.set_page_config(
     page_title="Vet Treatment Trial Finder",
     page_icon="🐾",
