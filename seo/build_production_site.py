@@ -39,6 +39,7 @@ from about_page import generate_about_page
 from site_shell import apply_site_shell, wrap_html
 from vaccine_article import generate_cancer_vaccine_article
 from surgical_margins_article import generate_surgical_margins_article
+from news_section import generate_news_section
 from about_site_integration import integrate_about
 
 # Resolve program/alias names to canonical institutions before giving up on a
@@ -191,6 +192,7 @@ def main():
         )
     generate_cancer_vaccine_article(out)
     generate_surgical_margins_article(out)
+    generate_news_section(out)
     vaccine_page = out / "articles" / "cancer-vaccines" / "index.html"
     if vaccine_page.exists():
         text = vaccine_page.read_text(encoding="utf-8").replace('Yale/ThreaJan', 'Yale/TheraJan')

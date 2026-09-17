@@ -97,6 +97,13 @@ def main() -> None:
     registry = read(SITE / "veterinary-cancer-clinical-trials" / "index.html")
     assert "background:#315f7d" in registry, "Primary button color regressed"
 
+    news_index = read(SITE / "news" / "index.html")
+    cornell_news = read(SITE / "news" / "cornell-smart-start-b-cell-lymphoma" / "index.html")
+    assert "Cornell opens Smart-Start trial" in news_index
+    assert "There is no placebo." in cornell_news
+    assert "https://www.vet.cornell.edu/hospitals/clinical-trials/smart-start-therapy-canine-b-cell-lymphoma" in cornell_news
+    assert '<a href="https://vettrialfinder.com/news/">News</a>' in cornell_news
+
     generated_html = "\n".join(read(path) for path in SITE.rglob("*.html"))
     assert "c-trials.streamlit.app" not in generated_html
     assert "vet-cancer-trial-finder.streamlit.app" not in generated_html
@@ -105,6 +112,11 @@ def main() -> None:
     for route in matcher_routes:
         url = "https://vettrialfinder.com/matcher/" + (f"{route}/" if route else "")
         assert url in sitemap, f"Matcher route missing from sitemap: {url}"
+    for url in (
+        "https://vettrialfinder.com/news/",
+        "https://vettrialfinder.com/news/cornell-smart-start-b-cell-lymphoma/",
+    ):
+        assert url in sitemap, f"News route missing from sitemap: {url}"
 
     checked_links = validate_internal_links()
     print(
