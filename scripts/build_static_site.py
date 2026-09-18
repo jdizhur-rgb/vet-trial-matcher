@@ -64,6 +64,7 @@ def main() -> None:
     # Owner-facing articles generated here enter the same final indexing pass
     # as the rest of the production site.
     run("seo/clinical_trials_for_pets_article.py", pythonpath="seo")
+    run("seo/lump_before_surgery_article.py", pythonpath="seo")
 
     # These deterministic finishing stages operate on the generated HTML.
     run("seo_index_cleanup.py")
