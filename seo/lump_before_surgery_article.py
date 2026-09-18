@@ -2,6 +2,7 @@
 """Generate the owner-facing article about diagnosing a new lump before surgery."""
 from __future__ import annotations
 
+import shutil
 from pathlib import Path
 
 import generate_seo as g
@@ -15,6 +16,15 @@ def generate_lump_before_surgery_article(root: Path) -> None:
     url = f"{SITE}/articles/pet-lump-diagnosis-before-surgery/"
     image = f"{SITE}/assets/nyura-lump-diagnosis.jpg"
     senya_image = f"{SITE}/assets/senya-second-surgery.jpg"
+
+    source_assets = Path(__file__).resolve().parent / "assets"
+    built_assets = root / "assets"
+    built_assets.mkdir(parents=True, exist_ok=True)
+    for name in ("nyura-lump-diagnosis.jpg", "senya-second-surgery.jpg"):
+        source = source_assets / name
+        if not source.exists():
+            raise RuntimeError(f"missing article image: {source}")
+        shutil.copy2(source, built_assets / name)
 
     body = f'''<article class="article-page">
 <h1>Diagnosis first, surgery second: what to do when you find a lump</h1>
