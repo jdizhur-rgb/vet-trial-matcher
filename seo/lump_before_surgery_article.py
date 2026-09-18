@@ -14,7 +14,7 @@ g.SITE = SITE
 
 def generate_lump_before_surgery_article(root: Path) -> None:
     url = f"{SITE}/articles/pet-lump-diagnosis-before-surgery/"
-    image = f"{SITE}/assets/nyura-lump-diagnosis.jpg"
+    image = f"{SITE}/assets/nyura-lump-diagnosis.jpg?v=nyura-landscape-v2"
     senya_image = f"{SITE}/assets/senya-second-surgery.jpg"
 
     source_assets = Path(__file__).resolve().parent / "assets"
