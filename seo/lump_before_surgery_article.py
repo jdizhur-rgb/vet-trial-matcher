@@ -28,6 +28,7 @@ def generate_lump_before_surgery_article(root: Path) -> None:
 
     body = f'''<article class="article-page">
 <h1>Diagnosis first, surgery second: what to do when you find a lump</h1>
+<p class="article-deck">Why every new lump on a dog or cat should be diagnosed before it is removed.</p>
 <figure class="article-hero"><img src="{image}" alt="Nyura, a senior dog whose new lump was diagnosed as a lipoma" loading="eager"><figcaption>Nyura. Her lump was checked with a fine-needle aspirate and identified as a lipoma.</figcaption></figure>
 <p>Not every lump on a dog or cat is cancer. But it is usually impossible to know what a lump is just by looking at it or feeling it. There is no need to panic, but there is a reason to check.</p>
 <p>I have several senior dogs, so I examine them regularly. Recently I found a lump on Nyura. We had a fine-needle aspirate performed. It was a lipoma. Now I know what it is, and I am not worried about it. That is what early diagnosis should do: it does not always uncover something frightening. Sometimes it simply ends the guessing.</p>
@@ -53,7 +54,7 @@ def generate_lump_before_surgery_article(root: Path) -> None:
     directory = root / 'articles' / 'pet-lump-diagnosis-before-surgery'
     directory.mkdir(parents=True, exist_ok=True)
     page = g.page(
-        'Diagnosis first, surgery second: what to do when you find a lump | Vet Trial Finder',
+        'Dog or cat lump: diagnosis before surgery | Vet Trial Finder',
         'What dog and cat owners should do after finding a new lump: fine-needle aspiration, oncology consultation, surgical planning, and cancellation lists.',
         body,
         url,
@@ -79,6 +80,7 @@ def generate_lump_before_surgery_article(root: Path) -> None:
     article = (directory / 'index.html').read_text(encoding='utf-8')
     checks = (
         '<h1>Diagnosis first, surgery second: what to do when you find a lump</h1>',
+        'Why every new lump on a dog or cat should be diagnosed before it is removed.',
         'I have several senior dogs',
         'fine-needle aspirate',
         'cancellation list',
