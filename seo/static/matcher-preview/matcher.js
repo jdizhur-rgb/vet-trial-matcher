@@ -36,7 +36,10 @@
   const checked = name => Boolean(form.elements[name]?.checked);
   const show = (selector, yes) => document.querySelectorAll(selector).forEach(el => { el.hidden = !yes; });
   const speciesMatches = (trialSpecies, selected) => (Array.isArray(trialSpecies) ? trialSpecies : String(trialSpecies || '').split('/')).map(x => String(x).trim()).includes(selected);
-  const countryMatches = (trialCountry, selected) => selected === 'All countries' ? true : selected === 'Europe — all countries' ? EUROPE.has(trialCountry) : trialCountry === selected;
+  const countryMatches = (trial, selected) => {
+    const countries = Array.isArray(trial.countries) && trial.countries.length ? trial.countries : [trial.country || 'USA'];
+    return selected === 'All countries' ? true : selected === 'Europe — all countries' ? countries.some(country => EUROPE.has(country)) : countries.includes(selected);
+  };
   const uniq = items => [...new Set(items.map(String))];
 
   function diagnosisMatch(trial, diagnosis) {
@@ -101,7 +104,7 @@
   }
 
   function matchTrial(trial, p) {
-    if (!CURRENT.has(trial.status_confidence) || !speciesMatches(trial.species, p.species) || !countryMatches(trial.country || 'USA', p.country)) return null;
+    if (!CURRENT.has(trial.status_confidence) || !speciesMatches(trial.species, p.species) || !countryMatches(trial, p.country)) return null;
     if (!['treatment','other_treatment_access'].includes(trial.study_type || 'treatment')) return null;
     if (BLOCKED.some(x => String(trial.status || '').toLowerCase().includes(x))) return null;
     const prefs = p.prefs; const mods = modalities(trial);
@@ -218,7 +221,7 @@
     show('.unlisted-only',unlisted); show('.specific-only',!browse&&!unlisted); show('.solid-only',!browse&&!unlisted&&!hematologic&&cancer!=='Brain tumor / glioma');
     show('.brain-only',cancer==='Brain tumor / glioma'); show('.lymphoma-only',LYMPHOMA.has(cancer)||cancer==='Cutaneous epitheliotropic lymphoma'); show('.aml-only',cancer==='Acute myeloid leukemia');
     show('.mct-only',cancer==='Mast cell tumor'); show('.osa-only',cancer==='Osteosarcoma'); show('.hsa-only',cancer==='Hemangiosarcoma'); show('.procedure-only',p.surgery==='Yes'&&['Osteosarcoma','Hemangiosarcoma'].includes(cancer));
-    const candidates=trials.filter(t=>speciesMatches(t.species,p.species)&&countryMatches(t.country||'USA',p.country)&&(browse||unlisted||diagnosisMatch(t,cancer)[0])); const req=new Set(candidates.flatMap(t=>Object.keys(t.requires||{}))), exc=new Set(candidates.flatMap(t=>Object.keys(t.excludes||{})));
+    const candidates=trials.filter(t=>speciesMatches(t.species,p.species)&&countryMatches(t,p.country)&&(browse||unlisted||diagnosisMatch(t,cancer)[0])); const req=new Set(candidates.flatMap(t=>Object.keys(t.requires||{}))), exc=new Set(candidates.flatMap(t=>Object.keys(t.excludes||{})));
     show('.protocol-standard',!browse&&!unlisted&&req.has('standard_therapy_unavailable')); show('.protocol-large',!browse&&!unlisted&&req.has('large_inoperable_or_rt_preferred')); show('.protocol-no-local',!browse&&!unlisted&&req.has('surgery_or_rt_not_possible')); show('.protocol-ct-biopsy',!browse&&!unlisted&&req.has('ct_and_current_biopsy'));
     show('.steroids-only',!browse&&!unlisted&&(exc.has('current_steroids')||req.has('steroid_washout_days'))); show('.immunosuppressive-only',!browse&&!unlisted&&exc.has('immunosuppressive')); show('.radiation-plan-only',!browse&&!unlisted&&req.has('planned_radiation'));
     show('.zip-only',p.country==='USA');
