@@ -58,6 +58,9 @@ LOCATIONS = {
     "Southfields Veterinary Specialists": "Southfields Veterinary Specialists, Cranes Point, Gardiners Lane South, Basildon, Essex SS14 3AP, UK",
     "Dick White Referrals": "Dick White Referrals, Station Farm, London Road, Six Mile Bottom, Cambridgeshire CB8 0UH, UK",
     "AniCura AOI - Animal Oncology and Imaging Center": "AniCura AOI - Animal Oncology and Imaging Center, Rothusstrasse 2a, 6331 Hünenberg, Switzerland",
+    "CHV Frégis": "Centre Hospitalier Vétérinaire Frégis, 9 rue de Verdun, 94250 Gentilly, France",
+    "Evidensia Veterinary Hospital Nieuwegein": "Evidensia Veterinary Hospital Nieuwegein, Yalelaan 108, 3584 CM Utrecht, Netherlands",
+    "Utrecht University Faculty of Veterinary Medicine": "University Clinic for Companion Animal Health, Yalelaan 108, 3584 CM Utrecht, Netherlands",
 
     # Independent / specialty / research centers
     "Aurelius Biotherapeutics": "Aurelius Biotherapeutics, 720 Virginia St, Bellingham, WA 98225",
