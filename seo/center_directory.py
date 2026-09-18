@@ -52,6 +52,11 @@ LOCATIONS = {
     "CHV AniCura Armonia": "CHV AniCura Armonia, 500 rue le Chatelier, 38090 Vaulx-Milieu, France",
     "VetAgro Sup CHUVAC": "Centre hospitalier universitaire vétérinaire des animaux de compagnie, 1 avenue Bourgelat, 69280 Marcy-l'Étoile, France",
     "North Downs Specialist Referrals": "North Downs Specialist Referrals, The Friesian Buildings 3 & 4, Brewerstreet Dairy Business Park, Brewer Street, Bletchingley, Surrey RH1 4QP, UK",
+    "Royal Veterinary College Queen Mother Hospital for Animals": "Queen Mother Hospital for Animals, Hawkshead Lane, North Mymms, Hatfield, Hertfordshire AL9 7TA, UK",
+    "University of Liverpool Small Animal Teaching Hospital": "Small Animal Teaching Hospital, Leahurst Campus, Chester High Road, Neston, Wirral CH64 7TE, UK",
+    "Royal (Dick) School of Veterinary Studies": "Royal (Dick) School of Veterinary Studies, Easter Bush Campus, Midlothian EH25 9RG, UK",
+    "Southfields Veterinary Specialists": "Southfields Veterinary Specialists, Cranes Point, Gardiners Lane South, Basildon, Essex SS14 3AP, UK",
+    "Dick White Referrals": "Dick White Referrals, Station Farm, London Road, Six Mile Bottom, Cambridgeshire CB8 0UH, UK",
     "AniCura AOI - Animal Oncology and Imaging Center": "AniCura AOI - Animal Oncology and Imaging Center, Rothusstrasse 2a, 6331 Hünenberg, Switzerland",
 
     # Independent / specialty / research centers
@@ -178,6 +183,8 @@ ALIASES = {
     "University Hospital for Companion Animals, University of Copenhagen": "University Hospital for Companion Animals — University of Copenhagen",
     "VetAgro Sup — Service of Cancerology": "VetAgro Sup CHUVAC",
     "North Downs Specialist Referrals (NDSR)": "North Downs Specialist Referrals",
+    "Royal (Dick) School of Veterinary Studies — Kelly Blacklock": "Royal (Dick) School of Veterinary Studies",
+    "UK multicenter study — Royal Veterinary College lead": "Royal Veterinary College Queen Mother Hospital for Animals",
     "AniCura AOI – Animal Oncology and Imaging Center / ETH Zürich": "AniCura AOI - Animal Oncology and Imaging Center",
     "Evergreen Animal Hospital (長青動物醫院), Taipei": "Evergreen Animal Hospital",
     "Evergreen Animal Hospital — Taipei": "Evergreen Animal Hospital",
