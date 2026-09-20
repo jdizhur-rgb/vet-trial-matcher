@@ -15,9 +15,11 @@ MATCHER_URL = f"{SITE}/matcher/"
 CORNELL_URL = f"{NEWS_URL}cornell-smart-start-b-cell-lymphoma/"
 NC_STATE_URL = f"{NEWS_URL}nc-state-il12-bladder-cancer-deadline/"
 WISCONSIN_URL = f"{NEWS_URL}wisconsin-ptcl-radiopharmaceutical-trial/"
+PURDUE_URL = f"{NEWS_URL}purdue-three-cancer-treatment-trials/"
 CORNELL_OFFICIAL = "https://www.vet.cornell.edu/hospitals/clinical-trials/smart-start-therapy-canine-b-cell-lymphoma"
 NC_STATE_OFFICIAL = "https://cvm.ncsu.edu/clinical-trial/now-enrolling-dogs-with-invasive-bladder-cancer/"
 WISCONSIN_OFFICIAL = "https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/"
+PURDUE_ABLATION_OFFICIAL = "https://vet.purdue.edu/wcorc/clinical-trials/tumor-ablation.php"
 
 
 def add_to_sitemap(root: Path, urls: tuple[str, ...]) -> None:
@@ -31,14 +33,14 @@ def add_to_sitemap(root: Path, urls: tuple[str, ...]) -> None:
     sitemap.write_text(text, encoding="utf-8")
 
 
-def write_article(root: Path, slug: str, title: str, description: str, body: str, source_name: str) -> None:
+def write_article(root: Path, slug: str, title: str, description: str, body: str, source_name: str, published: str = "September 17, 2026", published_iso: str = "2026-09-17") -> None:
     url = f"{NEWS_URL}{slug}/"
     article_dir = root / "news" / slug
     article_dir.mkdir(parents=True, exist_ok=True)
-    byline = f'''<div class="article-byline"><p><strong>Published:</strong> September 17, 2026</p><p><strong>Recruitment status checked:</strong> September 17, 2026</p><p><strong>Source:</strong> {source_name}.</p><p><strong>Editorial disclosure:</strong> Prepared with AI assistance and reviewed by Yuliia Dizhur. Trial eligibility and enrollment decisions are made by the study team.</p></div>'''
+    byline = f'''<div class="article-byline"><p><strong>Published:</strong> {published}</p><p><strong>Recruitment status checked:</strong> {published}</p><p><strong>Source:</strong> {source_name}.</p><p><strong>Editorial disclosure:</strong> Prepared with AI assistance and reviewed by Yuliia Dizhur. Trial eligibility and enrollment decisions are made by the study team.</p></div>'''
     page = g.page(f"{title} | Vet Trial Finder", description, f'<article class="article-page news-article">{body}{byline}</article>', url)
     social = f'''<meta property="og:type" content="article"><meta property="og:site_name" content="Vet Trial Finder"><meta property="og:title" content="{g.esc(title)}"><meta property="og:description" content="{g.esc(description)}"><meta property="og:url" content="{url}"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="{g.esc(title)}"><meta name="twitter:description" content="{g.esc(description)}">'''
-    schema = {"@context": "https://schema.org", "@type": "NewsArticle", "headline": title, "datePublished": "2026-09-17", "dateModified": "2026-09-17", "author": {"@type": "Person", "name": "Yuliia Dizhur", "url": f"{SITE}/about/"}, "publisher": {"@type": "Organization", "name": "Vet Trial Finder", "url": f"{SITE}/"}, "mainEntityOfPage": url}
+    schema = {"@context": "https://schema.org", "@type": "NewsArticle", "headline": title, "datePublished": published_iso, "dateModified": published_iso, "author": {"@type": "Person", "name": "Yuliia Dizhur", "url": f"{SITE}/about/"}, "publisher": {"@type": "Organization", "name": "Vet Trial Finder", "url": f"{SITE}/"}, "mainEntityOfPage": url}
     page = page.replace("</head>", social + f'<script type="application/ld+json">{json.dumps(schema)}</script></head>', 1)
     (article_dir / "index.html").write_text(wrap_html(page), encoding="utf-8")
 
@@ -48,6 +50,7 @@ def generate_news_section(root: Path) -> None:
 <h1>Veterinary oncology news</h1>
 <p class="lead">Newly opened treatment trials, meaningful recruitment changes and other developments that may matter to owners looking for cancer treatment options.</p>
 <div class="directory-grid">
+<a class="directory-card" href="{PURDUE_URL}"><strong>Purdue adds experimental tumor ablation to standard cancer treatment in three trials</strong><span>September 20, 2026. Standard treatment remains in place and part of the care is study-funded; additional clinical benefit from HIFU or H-FIRE has not been established.</span></a>
 <a class="directory-card" href="{NC_STATE_URL}"><strong>NC State bladder cancer immunotherapy trial closes enrollment September 30</strong><span>September 17, 2026. The fully funded eight-day IL-12 treatment study has no placebo group.</span></a>
 <a class="directory-card" href="{WISCONSIN_URL}"><strong>Wisconsin recruits dogs with peripheral T-cell lymphoma for 90Y-NM600 therapy</strong><span>September 17, 2026. All enrolled dogs receive targeted radiopharmaceutical therapy; most study costs are covered after screening.</span></a>
 <a class="directory-card" href="{CORNELL_URL}"><strong>Cornell opens Smart-Start trial for dogs with B-cell lymphoma</strong><span>September 17, 2026. A biology-guided pre-treatment is followed by standard CHOP chemotherapy; there is no placebo.</span></a>
@@ -86,9 +89,34 @@ def generate_news_section(root: Path) -> None:
 <div class="article-cta"><a href="{WISCONSIN_OFFICIAL}" target="_blank" rel="noopener">Read the official Wisconsin trial listing</a></div><p><a href="{MATCHER_URL}">Check current lymphoma trials in Vet Trial Finder</a></p>'''
     write_article(root, "wisconsin-ptcl-radiopharmaceutical-trial", "Wisconsin recruits dogs with peripheral T-cell lymphoma for 90Y-NM600 therapy", "UW Veterinary Care is recruiting dogs with peripheral T-cell lymphoma for a funded study of targeted 90Y-NM600 radiopharmaceutical therapy.", wisconsin_body, "UW Veterinary Care")
 
-    add_to_sitemap(root, (NEWS_URL, CORNELL_URL, NC_STATE_URL, WISCONSIN_URL))
-    rendered = "\n".join((root / "news" / slug / "index.html").read_text(encoding="utf-8") for slug in ("cornell-smart-start-b-cell-lymphoma", "nc-state-il12-bladder-cancer-deadline", "wisconsin-ptcl-radiopharmaceutical-trial"))
-    required = ("There is no placebo.", "$1,000 toward chemotherapy costs", "September 30, 2026", "There is no placebo group.", "90Y-NM600", "initial screening visit and initial laboratory work are owner-paid", CORNELL_OFFICIAL, NC_STATE_OFFICIAL, WISCONSIN_OFFICIAL, '"@type": "NewsArticle"')
+    purdue_body = f'''<p class="eyebrow">Three recruiting treatment trials · September 20, 2026</p>
+<h1>Purdue adds experimental tumor ablation to standard cancer treatment in three trials</h1>
+<p>Purdue University Veterinary Hospital in West Lafayette, Indiana, is recruiting dogs for three treatment studies: focused ultrasound plus CHOP for lymphoma, H-FIRE before liver-tumor surgery, and focused ultrasound before amputation and carboplatin for osteosarcoma. In each protocol, the experimental procedure is added to an established treatment plan rather than offered as an unsupported substitute.</p>
+<p>The experimental ablation itself has not been shown to improve remission, disease control or survival. The practical benefit for enrolled dogs is that standard treatment remains in place and part of the care is study-funded.</p>
+
+<h2>Lymphoma: HIFU followed by CHOP</h2>
+<p><strong>Who may qualify:</strong> Dogs at least 1 year old and over 8 kg (18 lb) with newly diagnosed, untreated intermediate- or large-cell multicentric B- or T-cell lymphoma. Small-cell, extranodal and stage V lymphoma are excluded. Dogs must be able to undergo sedation or anesthesia and must not have had recent chemotherapy, anticancer treatment or corticosteroids.</p>
+<p><strong>How it differs from standard treatment:</strong> Standard UW-25 CHOP chemotherapy still begins after the study procedure and continues for 25 weeks. Before CHOP, Purdue partially treats one enlarged lymph node with HIFU and samples treated and untreated nodes to look for an immune response. The experimental procedure is an addition to CHOP, not a replacement for it, and there is no placebo.</p>
+<p><strong>Study support:</strong> HIFU, sedation or anesthesia, study biopsies and laboratory work are covered. The study provides a $2,000 CHOP credit and up to $2,000 more for HIFU-related side effects or CHOP. Initial diagnostics and unrelated care remain owner-paid.</p>
+
+<h2>Liver cancer: H-FIRE before surgery</h2>
+<p><strong>Who may qualify:</strong> Dogs with one or more liver tumors that Purdue considers surgically removable. The dog must be able to undergo anesthesia, H-FIRE and the planned surgery. Coagulation disorders, severe systemic illness or declining tumor removal after H-FIRE exclude participation.</p>
+<p><strong>How it differs from standard treatment:</strong> Surgery remains the definitive treatment. The trial adds one image-guided H-FIRE procedure under general anesthesia, then repeats CT and removes the tumor about 5–7 days later. H-FIRE uses short electrical pulses to damage tumor cells and is experimental; it is not standard veterinary care.</p>
+<p><strong>Study support:</strong> H-FIRE, the post-treatment CT and study rechecks are covered, with a $2,000 credit toward surgery. Owners pay the remaining surgical cost and unrelated care.</p>
+
+<h2>Osteosarcoma: HIFU before amputation and carboplatin</h2>
+<p><strong>Who may qualify:</strong> Dogs at least 1 year old and over 8 kg (18 lb) with newly diagnosed appendicular osteosarcoma, no detected metastases and a tumor position that provides a safe ultrasound path. Dogs must be candidates for anesthesia, limb amputation and carboplatin.</p>
+<p><strong>How it differs from standard treatment:</strong> The standard plan of amputation followed by carboplatin remains in place. Purdue adds functional imaging and partial HIFU ablation, then performs amputation about 5–7 days later. The study is examining safety and biological effects; direct benefit from HIFU is not guaranteed.</p>
+<p><strong>Study support:</strong> HIFU and functional imaging are covered, up to $2,600 is provided toward amputation, and chemotherapy recheck visits are covered. Owners pay initial staging, remaining surgery costs and carboplatin administration.</p>
+
+<p>Owners and veterinarians can contact <a href="mailto:TumorAblation@purdue.edu">TumorAblation@purdue.edu</a>. Purdue requires a veterinary referral for the lymphoma evaluation.</p>
+<div class="article-cta"><a href="{PURDUE_ABLATION_OFFICIAL}" target="_blank" rel="noopener">Read Purdue’s three tumor-ablation protocols</a></div>
+<p><a href="{MATCHER_URL}">Check these and other current cancer treatment trials in Vet Trial Finder</a></p>'''
+    write_article(root, "purdue-three-cancer-treatment-trials", "Purdue adds experimental tumor ablation to standard cancer treatment in three trials", "Three Purdue studies add experimental ablation to standard treatment for lymphoma, liver cancer and osteosarcoma, with part of the care funded.", purdue_body, "Purdue University College of Veterinary Medicine", "September 20, 2026", "2026-09-20")
+
+    add_to_sitemap(root, (NEWS_URL, CORNELL_URL, NC_STATE_URL, WISCONSIN_URL, PURDUE_URL))
+    rendered = "\n".join((root / "news" / slug / "index.html").read_text(encoding="utf-8") for slug in ("cornell-smart-start-b-cell-lymphoma", "nc-state-il12-bladder-cancer-deadline", "wisconsin-ptcl-radiopharmaceutical-trial", "purdue-three-cancer-treatment-trials"))
+    required = ("There is no placebo.", "$1,000 toward chemotherapy costs", "September 30, 2026", "There is no placebo group.", "90Y-NM600", "initial screening visit and initial laboratory work are owner-paid", "HIFU followed by CHOP", "H-FIRE before surgery", "Osteosarcoma: HIFU", "has not been shown to improve remission, disease control or survival", PURDUE_ABLATION_OFFICIAL, CORNELL_OFFICIAL, NC_STATE_OFFICIAL, WISCONSIN_OFFICIAL, '"@type": "NewsArticle"')
     missing = [marker for marker in required if marker not in rendered]
     if missing:
         raise AssertionError(f"News validation failed: {missing}")
