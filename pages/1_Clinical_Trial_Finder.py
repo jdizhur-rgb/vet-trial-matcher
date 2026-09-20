@@ -122,10 +122,29 @@ TRIALS = _load_trials()
 
 CANCERS = ['Acute myeloid leukemia', 'Adrenal tumor', 'Anal sac adenocarcinoma (AGASACA)', 'B-cell lymphoma', 'Brain tumor / glioma', 'Chemodectoma', 'Chondrosarcoma', 'Colorectal / rectal cancer', 'Cutaneous epitheliotropic lymphoma', 'Esophageal cancer', 'Feline injection-site sarcoma', 'Feline mammary carcinoma', 'Fibrosarcoma', 'Gallbladder carcinoma', 'Gastric / stomach cancer', 'Gastrointestinal stromal tumor (GIST)', 'Hemangiosarcoma', 'Hepatocellular carcinoma', 'Histiocytic sarcoma', 'Insulinoma', 'Intestinal carcinoma', 'Leiomyosarcoma', 'Liposarcoma', 'Lymphoma — other', 'Mammary carcinoma', 'Mammary tumor — other', 'Mast cell tumor', 'Melanoma — other', 'Multiple myeloma / plasma cell cancer', 'Nasal tumor / nasal cancer', 'Ocular melanoma / iris melanocytic tumor', 'Oral melanoma', 'Oral squamous cell carcinoma', 'Oral tumor — other', 'Osteosarcoma', 'Other bone tumor', 'Other liver tumor', 'Other sarcoma', 'Other solid tumor', 'Pancreatic carcinoma', 'Peripheral nerve sheath tumor', 'Primary lung tumor', 'Prostate cancer', 'Renal tumor', 'Rhabdomyosarcoma', 'Salivary gland cancer', 'Sinonasal carcinoma', 'Soft tissue sarcoma', 'Spindle cell sarcoma', 'Squamous cell carcinoma', 'Squamous cell carcinoma — other', 'T-cell lymphoma', 'Thymoma / thymic tumor', 'Thyroid carcinoma', 'Thyroid tumor / carcinoma', 'Urothelial / transitional cell carcinoma', 'Urothelial carcinoma', 'Cancer — any type', 'Other / not sure', "My cancer type isn't listed"]
 DIAGNOSIS_FAMILIES = {
+    'Adrenal tumor': {'solid_tumor'}, 'Anal sac adenocarcinoma (AGASACA)': {'solid_tumor','carcinoma'},
+    'Brain tumor / glioma': {'solid_tumor'}, 'Chemodectoma': {'solid_tumor'},
+    'Feline injection-site sarcoma': {'solid_tumor','sarcoma','soft_tissue_sarcoma'},
+    'Feline mammary carcinoma': {'solid_tumor','carcinoma'}, 'Gallbladder carcinoma': {'solid_tumor','carcinoma'},
     'Gastric / stomach cancer': {'solid_tumor','carcinoma'},
     'Colorectal / rectal cancer': {'solid_tumor','carcinoma'},
     'Salivary gland cancer': {'solid_tumor','carcinoma'},
     'Esophageal cancer': {'solid_tumor','carcinoma'},
+    'Hemangiosarcoma': {'solid_tumor','sarcoma'}, 'Hepatocellular carcinoma': {'solid_tumor','carcinoma'},
+    'Histiocytic sarcoma': {'solid_tumor','sarcoma'}, 'Insulinoma': {'solid_tumor'},
+    'Intestinal carcinoma': {'solid_tumor','carcinoma'}, 'Mammary carcinoma': {'solid_tumor','carcinoma'},
+    'Mammary tumor — other': {'solid_tumor'}, 'Mast cell tumor': {'solid_tumor'},
+    'Melanoma — other': {'solid_tumor'}, 'Ocular melanoma / iris melanocytic tumor': {'solid_tumor'},
+    'Oral melanoma': {'solid_tumor'}, 'Oral squamous cell carcinoma': {'solid_tumor','carcinoma'},
+    'Oral tumor — other': {'solid_tumor'}, 'Osteosarcoma': {'solid_tumor','sarcoma'},
+    'Other bone tumor': {'solid_tumor'}, 'Other liver tumor': {'solid_tumor'},
+    'Other sarcoma': {'solid_tumor','sarcoma'}, 'Other solid tumor': {'solid_tumor'},
+    'Pancreatic carcinoma': {'solid_tumor','carcinoma'}, 'Primary lung tumor': {'solid_tumor','carcinoma'},
+    'Prostate cancer': {'solid_tumor','carcinoma'}, 'Renal tumor': {'solid_tumor'},
+    'Sinonasal carcinoma': {'solid_tumor','carcinoma','nasal_tumor'},
+    'Soft tissue sarcoma': {'solid_tumor','sarcoma','soft_tissue_sarcoma'},
+    'Spindle cell sarcoma': {'solid_tumor','sarcoma','soft_tissue_sarcoma'},
+    'Squamous cell carcinoma': {'solid_tumor','carcinoma'}, 'Squamous cell carcinoma — other': {'solid_tumor','carcinoma'},
     'Thymoma / thymic tumor': {'solid_tumor'},
     'Gastrointestinal stromal tumor (GIST)': {'solid_tumor','sarcoma'},
     'Peripheral nerve sheath tumor': {'solid_tumor','sarcoma','soft_tissue_sarcoma'},
@@ -135,7 +154,11 @@ DIAGNOSIS_FAMILIES = {
     'Rhabdomyosarcoma': {'solid_tumor','sarcoma','soft_tissue_sarcoma'},
     'Chondrosarcoma': {'solid_tumor','sarcoma'},
     'Nasal tumor / nasal cancer': {'solid_tumor','nasal_tumor'},
-    'Multiple myeloma / plasma cell cancer': {'hematologic'},
+    'Thyroid carcinoma': {'solid_tumor','carcinoma'}, 'Thyroid tumor / carcinoma': {'solid_tumor','carcinoma'},
+    'Urothelial / transitional cell carcinoma': {'solid_tumor','carcinoma'}, 'Urothelial carcinoma': {'solid_tumor','carcinoma'},
+    'Acute myeloid leukemia': {'hematologic'}, 'B-cell lymphoma': {'hematologic'},
+    'T-cell lymphoma': {'hematologic'}, 'Lymphoma — other': {'hematologic'},
+    'Cutaneous epitheliotropic lymphoma': {'hematologic'}, 'Multiple myeloma / plasma cell cancer': {'hematologic'},
 }
 UNLISTED_CANCER = "My cancer type isn't listed"
 TREATMENT_OPTIONS = ['Chemotherapy','Radiation','Surgery','Immunotherapy','Targeted therapy','Experimental drug']

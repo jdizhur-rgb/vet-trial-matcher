@@ -51,8 +51,8 @@ function patient(overrides = {}) {
 
 const matches = p => rows.map(row => matcher.matchTrial(row, p)).filter(Boolean);
 const mct = matches(patient());
-if (mct.length !== 6) {
-  throw new Error(`Mast-cell regression expected 6 matches, got ${mct.length}`);
+if (mct.length !== 11) {
+  throw new Error(`Mast-cell regression expected 11 matches, got ${mct.length}`);
 }
 
 const yasha = matches(patient({
@@ -77,6 +77,23 @@ const blocked = {
 };
 if (matcher.matchTrial(blocked, patient()) !== null) {
   throw new Error('Closed enrollment record was not blocked');
+}
+
+const broadSolid = {
+  id: 'broad-solid-test', species: 'Dog', country: 'USA',
+  cancers: ['Other solid tumor'], broad_disease_families: ['solid_tumor'],
+  status: 'Recruiting', status_confidence: 'confirmed_current', study_type: 'treatment',
+};
+if (!matcher.matchTrial(broadSolid, patient({cancer: 'Histiocytic sarcoma'}))) {
+  throw new Error('Broad solid-tumor protocol failed to match histiocytic sarcoma');
+}
+if (matcher.matchTrial(broadSolid, patient({cancer: 'B-cell lymphoma'})) !== null) {
+  throw new Error('Broad solid-tumor protocol incorrectly matched lymphoma');
+}
+
+const allTumors = {...broadSolid, id: 'all-tumors-test', cancers: ['Cancer — any type'], broad_disease_families: ['all_tumors']};
+if (!matcher.matchTrial(allTumors, patient({cancer: 'B-cell lymphoma'}))) {
+  throw new Error('All-tumors protocol failed to match lymphoma');
 }
 
 console.log(`MATCHER_LOGIC_OK trials=${rows.length} mct=${mct.length} yasha=${yasha.length}`);

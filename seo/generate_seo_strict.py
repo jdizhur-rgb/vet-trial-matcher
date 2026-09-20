@@ -209,7 +209,12 @@ def canonical_cancer(v):
     return None
 def cancer_values(r):
     v=r.get('cancers',[]);return [v] if isinstance(v,str) else list(v) if isinstance(v,(list,tuple,set)) else []
-def row_cancers(r):return {x for x in (canonical_cancer(v) for v in cancer_values(r)) if x}
+def row_cancers(r):
+    direct={x for x in (canonical_cancer(v) for v in cancer_values(r)) if x}
+    broad=set(r.get('broad_disease_families') or [])
+    if 'Cancer — any type' in cancer_values(r): broad.add('all_tumors')
+    if 'all_tumors' in broad:return direct | set(g.DISEASE_FAMILIES)
+    return direct | {key for key,families in g.DISEASE_FAMILIES.items() if broad & families}
 g.canonical_cancer=canonical_cancer;g.row_cancers=row_cancers
 
 

@@ -1,5 +1,7 @@
 name: Full catalog integrity audit
 on:
+  schedule:
+    - cron: '17 10 * * 6'
   push:
     paths:
       - 'data/**'
