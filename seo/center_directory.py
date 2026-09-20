@@ -136,6 +136,7 @@ ALIASES = {
     "University of Illinois Vet Med": "University of Illinois College of Veterinary Medicine",
     "University of Pennsylvania": "University of Pennsylvania School of Veterinary Medicine",
     "University of Pennsylvania School of Veterinary Medicine — Comparative Immunotherapy Program": "University of Pennsylvania School of Veterinary Medicine",
+    "University of Pennsylvania School of Veterinary Medicine — Atherton Laboratory": "University of Pennsylvania School of Veterinary Medicine",
     "Penn Vet": "University of Pennsylvania School of Veterinary Medicine",
     "University of Minnesota": "University of Minnesota College of Veterinary Medicine",
     "University of Minnesota Veterinary Medical Center": "University of Minnesota College of Veterinary Medicine",

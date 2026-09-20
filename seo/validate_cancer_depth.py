@@ -13,6 +13,7 @@ from owner_friendly_prognosis import DOG as DOG_PROGNOSIS, CAT as CAT_PROGNOSIS
 from owner_friendly_next_steps import DOG as DOG_NEXT_STEPS, CAT as CAT_NEXT_STEPS
 from owner_friendly_treatment_tests import DOG_TREATMENT, CAT_TREATMENT, DOG_TESTS, CAT_TESTS
 from owner_friendly_factors import DOG as DOG_OWNER_FACTORS, CAT as CAT_OWNER_FACTORS
+from owner_diagnostic_context import DOG_REPORT, CAT_REPORT, DOG_SIGNS, CAT_SIGNS
 
 CANONICAL = {
 'histiocytic sarcoma','lymphoma','mast cell tumor','soft tissue sarcoma','hemangiosarcoma',
@@ -62,6 +63,12 @@ def _validate_owner_layers():
         ('cat tests', CAT_TESTS), ('cat owner factors', CAT_OWNER_FACTORS),
     ):
         assert set(data) == CANONICAL, f'{name} coverage mismatch'
+    for name, data in (
+        ('dog report context', DOG_REPORT), ('cat report context', CAT_REPORT),
+        ('dog home signs', DOG_SIGNS), ('cat home signs', CAT_SIGNS),
+    ):
+        assert set(data) == CANONICAL, f'{name} coverage mismatch'
+        assert all(text.strip() for text in data.values()), f'{name} contains empty copy'
 
 
 def _plain(raw):
@@ -89,6 +96,7 @@ def validate_built_site(root=Path('seo/site')):
         'What does the prognosis look like?', 'What matters next', 'Where are you now?',
         'If you are waiting for oncology', 'Questions to ask your oncologist',
         'How it is usually treated', 'What can affect treatment choices', 'Tests that may matter',
+        'How the diagnosis may appear in the record', 'Changes to watch for at home',
     )
     generic_questions = GENERIC_QUESTIONS - {
         'Could treatment we start now affect clinical-trial eligibility later?'
