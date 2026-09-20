@@ -13,7 +13,7 @@ from site_shell import wrap_html
 def generate_repurposed_drugs_article(root: Path) -> None:
     url = f"{SITE}/articles/fenbendazole-ivermectin-dogs-with-cancer/"
     body = f'''<article class="article-page">
-<h1>Fenbendazole, Ivermectin, and Repurposed Drugs for Dogs With Cancer</h1>
+<h1>Fenbendazole, ivermectin, and repurposed drugs for dogs with cancer</h1>
 
 <p>When a dog is diagnosed with cancer, searching for another option is a natural response. Owners read PubMed, learn the vocabulary, compare protocols, and look closely at every good day. Fenbendazole and ivermectin did not appear in these discussions from nowhere. Both have attracted real scientific interest. The difficult part is deciding what that interest means for one particular dog.</p>
 
@@ -95,17 +95,17 @@ def generate_repurposed_drugs_article(root: Path) -> None:
     directory = root / 'articles' / 'fenbendazole-ivermectin-dogs-with-cancer'
     directory.mkdir(parents=True, exist_ok=True)
     rendered = g.page(
-        'Fenbendazole, Ivermectin, and Repurposed Drugs for Dogs With Cancer | Vet Trial Finder',
+        'Fenbendazole, ivermectin, and repurposed drugs for dogs with cancer | Vet Trial Finder',
         'What the evidence does and does not show about fenbendazole, ivermectin, and home cancer protocols for dogs, including practical safety considerations.',
         body,
         url,
     )
-    social = f'''<meta property="og:type" content="article"><meta property="og:site_name" content="Vet Trial Finder"><meta property="og:title" content="Fenbendazole, Ivermectin, and Repurposed Drugs for Dogs With Cancer"><meta property="og:description" content="What the evidence shows, why personal protocols are hard to interpret, and how to reduce avoidable risk."><meta property="og:url" content="{url}"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Fenbendazole, Ivermectin, and Repurposed Drugs for Dogs With Cancer"><meta name="twitter:description" content="What the evidence shows, why personal protocols are hard to interpret, and how to reduce avoidable risk.">'''
+    social = f'''<meta property="og:type" content="article"><meta property="og:site_name" content="Vet Trial Finder"><meta property="og:title" content="Fenbendazole, ivermectin, and repurposed drugs for dogs with cancer"><meta property="og:description" content="What the evidence shows, why personal protocols are hard to interpret, and how to reduce avoidable risk."><meta property="og:url" content="{url}"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Fenbendazole, ivermectin, and repurposed drugs for dogs with cancer"><meta name="twitter:description" content="What the evidence shows, why personal protocols are hard to interpret, and how to reduce avoidable risk.">'''
     rendered = rendered.replace('</head>', social + '</head>', 1)
     schema = {
         '@context': 'https://schema.org',
         '@type': 'Article',
-        'headline': 'Fenbendazole, Ivermectin, and Repurposed Drugs for Dogs With Cancer',
+        'headline': 'Fenbendazole, ivermectin, and repurposed drugs for dogs with cancer',
         'datePublished': '2026-09-20',
         'dateModified': '2026-09-20',
         'author': {'@type': 'Person', 'name': 'Yuliia Dizhur', 'url': f'{SITE}/about/', 'jobTitle': 'Founder of Vet Trial Finder'},
@@ -120,7 +120,7 @@ def generate_repurposed_drugs_article(root: Path) -> None:
         raise AssertionError('Articles index is required before adding the repurposed-drugs article')
     text = index.read_text(encoding='utf-8')
     if url not in text:
-        card = f'''<a class="directory-card" href="{url}"><strong>Fenbendazole, Ivermectin, and Repurposed Drugs for Dogs With Cancer</strong><span>What the evidence shows, why personal protocols are hard to interpret, and how to reduce avoidable risk.</span></a>'''
+        card = f'''<a class="directory-card" href="{url}"><strong>Fenbendazole, ivermectin, and repurposed drugs for dogs with cancer</strong><span>What the evidence shows, why personal protocols are hard to interpret, and how to reduce avoidable risk.</span></a>'''
         if '<div class="directory-grid">' not in text:
             raise AssertionError('Articles index is missing the directory-grid container')
         text = text.replace('<div class="directory-grid">', '<div class="directory-grid">' + card, 1)
@@ -135,7 +135,7 @@ def generate_repurposed_drugs_article(root: Path) -> None:
 
     article = (directory / 'index.html').read_text(encoding='utf-8')
     required = (
-        '<h1>Fenbendazole, Ivermectin, and Repurposed Drugs for Dogs With Cancer</h1>',
+        '<h1>Fenbendazole, ivermectin, and repurposed drugs for dogs with cancer</h1>',
         'About four in ten',
         'has yet to be established',
         'Why a home protocol can always appear to work',
