@@ -29,6 +29,8 @@ Potential public categories:
 
 Pipeline/watchlist records that do not yet have a usable owner-facing treatment route must remain non-matchable.
 
+New clinical outcome evidence is also an access-screening signal, not only a trial-discovery signal. Every daily and weekly evidence sweep must ask whether the studied treatment is currently reachable through veterinary prescribing (including lawful off-label use), a regulated product, a specialty center or a verified treatment-access program. When meaningful disease-specific clinical evidence and a real present access route coexist, evaluate it for the relevant cancer/treatment page or Additional Oncology Options. Keep it separate from recruiting-trial counts, state the evidence design and limitations, and require oncology supervision and relevant safety monitoring. Publication without current practical access remains watchlist only.
+
 ## 3. Effective catalog
 
 Production matching uses one canonical catalog: `data/trials_base.json`.

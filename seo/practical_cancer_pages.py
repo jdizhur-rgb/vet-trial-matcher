@@ -17,8 +17,9 @@ from owner_friendly_next_steps import DOG as DOG_NEXT_STEPS,CAT as CAT_NEXT_STEP
 from owner_friendly_treatment_tests import DOG_TREATMENT,CAT_TREATMENT,DOG_TESTS,CAT_TESTS
 from owner_friendly_factors import DOG as DOG_OWNER_FACTORS,CAT as CAT_OWNER_FACTORS
 from owner_diagnostic_context import DOG_REPORT,CAT_REPORT,DOG_SIGNS,CAT_SIGNS
+from off_label_cancer_evidence import render as render_off_label_evidence
 
-CSS=r'''.owner-guide,.owner-guide p,.owner-guide li{color:#263238!important}.owner-guide h2{margin-top:25px;color:#477ca8!important;font-size:1.2rem}.guide-reality,.guide-waiting{margin:19px 0;padding:16px 18px;border:1px solid #dbe7f0;border-radius:14px;background:#f8fbfd}.guide-reality h2,.guide-waiting h2{margin-top:0}.guide-accordions{display:grid;gap:9px;margin:12px 0 20px}.guide-accordions details{border:1px solid #dbe7f0;border-radius:12px;background:#fff;overflow:hidden}.guide-accordions summary{cursor:pointer;padding:13px 15px;color:#4d7da3!important;font-weight:650}.guide-detail{padding:2px 15px 13px}.guide-questions li{margin:.45rem 0}@media(max-width:600px){.owner-guide h2{font-size:1.08rem}.guide-reality,.guide-waiting{padding:13px 14px}}'''.strip()
+CSS=r'''.owner-guide,.owner-guide p,.owner-guide li{color:#263238!important}.owner-guide h2{margin-top:25px;color:#477ca8!important;font-size:1.2rem}.guide-reality,.guide-waiting{margin:19px 0;padding:16px 18px;border:1px solid #dbe7f0;border-radius:14px;background:#f8fbfd}.guide-reality h2,.guide-waiting h2{margin-top:0}.off-label-evidence{margin:21px 0;padding:17px 18px;border:1px solid #c9deee;border-left:4px solid #477ca8;border-radius:14px;background:#f5f9fc}.off-label-evidence h2{margin:0 0 9px}.off-label-evidence p{margin:.7rem 0}.off-label-evidence .evidence-source{margin-bottom:0;font-weight:650}.guide-accordions{display:grid;gap:9px;margin:12px 0 20px}.guide-accordions details{border:1px solid #dbe7f0;border-radius:12px;background:#fff;overflow:hidden}.guide-accordions summary{cursor:pointer;padding:13px 15px;color:#4d7da3!important;font-weight:650}.guide-detail{padding:2px 15px 13px}.guide-questions li{margin:.45rem 0}@media(max-width:600px){.owner-guide h2{font-size:1.08rem}.guide-reality,.guide-waiting,.off-label-evidence{padding:13px 14px}}'''.strip()
 BRANCHES=dict(ADDITIONAL_BRANCHES);BRANCHES.update(BENCHMARK_BRANCHES)
 
 def _e(x):return html.escape(x)
@@ -68,7 +69,8 @@ def section(label,key,pet,source):
  signs=(CAT_SIGNS if pet=='cat' else DOG_SIGNS).get(key,'').strip()
  more=q+_details('How the diagnosis may appear in the record',report)+_details('Changes to watch for at home',signs)+_details('How it is usually treated',treatment.strip())+_details('What can affect treatment choices',factors)+_details('Tests that may matter',p.get('tests','').strip())
  more=f'<div class="guide-accordions">{more}</div>' if more else ''
- return f'''<section class="disease owner-guide"><h2>Understanding {_e(label)}</h2><p>{_e(about)}</p><div class="guide-reality"><h2>What does the prognosis look like?</h2><p>{_e(p['prognosis'])}</p></div><h2>What matters next</h2><p>{_e(p['next'])}</p>{branch}{waiting}{more}</section>'''
+ off_label=render_off_label_evidence(key,pet)
+ return f'''<section class="disease owner-guide"><h2>Understanding {_e(label)}</h2><p>{_e(about)}</p><div class="guide-reality"><h2>What does the prognosis look like?</h2><p>{_e(p['prognosis'])}</p></div><h2>What matters next</h2><p>{_e(p['next'])}</p>{off_label}{branch}{waiting}{more}</section>'''
 
 def _apply(root,species,pet,source):
  root=Path(root);changed=0;keys=set(source)|(set(BENCHMARK) if pet=='dog' else set())
