@@ -19,7 +19,7 @@ class StreamlitPageSmokeTests(unittest.TestCase):
     def test_cancer_search_still_runs(self):
         at = AppTest.from_file(ROOT / "pages" / "1_Clinical_Trial_Finder.py", default_timeout=30).run()
         self.assertFalse(at.exception)
-        at.selectbox[2].set_value("Mast cell tumor").run()
+        cancer_box = next((w for w in at.selectbox if w.label == "Cancer type"), None)\n        self.assertIsNotNone(cancer_box, "Cancer type selectbox not found")\n        cancer_box.set_value("Mast cell tumor").run()
         at.button[0].click().run()
         self.assertFalse(at.exception)
         text = " ".join(x.value for x in [*at.success, *at.warning, *at.info])
