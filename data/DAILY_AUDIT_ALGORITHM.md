@@ -75,3 +75,16 @@ The weekly pass must verify that `data/source_inventory.json` still includes the
 ## Non-negotiable dedup rule
 
 No new catalog record is committed until it has been checked against the **entire canonical live catalog** for exact, fuzzy and semantic duplication. Candidate generation may be automated; destructive duplicate removal must be conservative and evidence-based. Search-index misses are not catalog misses, and institution-specific exception lists must not substitute for this universal check.
+
+
+## Health-gate severity for daily and weekly audits
+
+Health checks are diagnostic gates, not an all-or-nothing stop on any red signal.
+
+- **BLOCKING:** unreadable/invalid canonical JSON; failure of the canonical validator on a current public opportunity; matcher compile/import failure; material canonical-to-production mismatch; production matcher unavailable together with another independent core failure; or another defect that makes the current public catalog unsafe to interpret. Stop and report.
+- **NON-BLOCKING / INCONCLUSIVE:** stale UI-test assumptions, positional widget-selector failures, unavailable CI status, Chromium/session setup failure, or an isolated external-source/network failure while the core catalog/matcher checks pass. Record the problem and continue the source sweep.
+- **DATA ISSUE:** legacy/inactive/partial records or historical metadata defects. Reconcile them during the run. They block only the affected record unless they contaminate public matching or cannot be safely distinguished from a current protocol.
+
+Never terminate a weekly deep audit solely because one ancillary smoke test fails when production, canonical validation, compile/import, matcher logic and synchronization otherwise pass. The weekly run is complete only when mandatory source coverage has actually been attempted and reconciled.
+
+Smoke tests must identify Streamlit widgets by stable labels/semantics rather than positional indexes so harmless form reordering does not create false health-gate failures.
