@@ -165,6 +165,8 @@ def trial_accepts_diagnosis(tr, diagnosis):
     exact = {diagnosis, *CANCER_ALIASES.get(diagnosis, [])}
     if diagnosis == 'Spindle cell sarcoma':
         exact.add('Soft tissue sarcoma')
+    if exact.intersection(set(tr.get('excluded_cancers', []))):
+        return False, False
 
     if exact.intersection(tc):
         return True, False

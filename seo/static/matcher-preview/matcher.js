@@ -46,6 +46,8 @@
     const cancers = new Set(trial.cancers || []);
     const exact = new Set([diagnosis, ...(ALIASES[diagnosis] || [])]);
     if (diagnosis === 'Spindle cell sarcoma') exact.add('Soft tissue sarcoma');
+    const excluded = new Set(trial.excluded_cancers || []);
+    if ([...exact].some(x => excluded.has(x))) return [false, false];
     if ([...exact].some(x => cancers.has(x))) return [true, false];
     const family = FAMILIES[diagnosis];
     if (!family) return [false, false];
