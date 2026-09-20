@@ -33,7 +33,13 @@ page = st.navigation(PAGES, position="hidden")
 css_path = Path(__file__).resolve().parent / "styles" / "app.css"
 st.markdown(f"<style>{css_path.read_text(encoding='utf-8')}</style>", unsafe_allow_html=True)
 
-active_finder = "Osteoarthritis / joint pain" if page.title == "Osteoarthritis / joint pain" else "Cancer"
+if page.title == "Cancer":
+    active_finder = "Cancer"
+elif page.title == "Osteoarthritis / joint pain":
+    active_finder = "Osteoarthritis / joint pain"
+else:
+    active_finder = None
+
 selected_finder = st.segmented_control(
     "Find trials for",
     ["Cancer", "Osteoarthritis / joint pain"],
