@@ -40,17 +40,32 @@ elif page.title == "Osteoarthritis / joint pain":
 else:
     active_finder = None
 
-selected_finder = st.segmented_control(
-    "Find trials for",
-    ["Cancer", "Osteoarthritis / joint pain"],
-    default=active_finder,
-    key="condition_navigation_tools" if active_finder is None else "condition_navigation",
-    label_visibility="collapsed",
-)
-if selected_finder != active_finder:
-    if selected_finder == "Cancer":
-        st.switch_page("pages/1_Clinical_Trial_Finder.py")
-    elif selected_finder == "Osteoarthritis / joint pain":
-        st.switch_page("pages/4_Osteoarthritis_Trial_Finder.py")
+if active_finder is None:
+    cancer_nav, oa_nav = st.columns(2, gap="small")
+    with cancer_nav:
+        st.page_link(
+            "pages/1_Clinical_Trial_Finder.py",
+            label="Cancer",
+            use_container_width=True,
+        )
+    with oa_nav:
+        st.page_link(
+            "pages/4_Osteoarthritis_Trial_Finder.py",
+            label="Osteoarthritis / joint pain",
+            use_container_width=True,
+        )
+else:
+    selected_finder = st.segmented_control(
+        "Find trials for",
+        ["Cancer", "Osteoarthritis / joint pain"],
+        default=active_finder,
+        key="condition_navigation",
+        label_visibility="collapsed",
+    )
+    if selected_finder != active_finder:
+        if selected_finder == "Cancer":
+            st.switch_page("pages/1_Clinical_Trial_Finder.py")
+        elif selected_finder == "Osteoarthritis / joint pain":
+            st.switch_page("pages/4_Osteoarthritis_Trial_Finder.py")
 
 page.run()
