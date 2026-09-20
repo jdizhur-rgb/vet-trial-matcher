@@ -176,3 +176,19 @@ This file is the canonical engineering handoff. Chat summaries are secondary.
 - Lack of existing X-rays is not a hard exclusion when the official source says study screening can provide or confirm radiographs.
 - Run both `python scripts/validate_oa_prototype.py` and `python scripts/test_oa_matcher.py` after every OA catalog or matcher change.
 - Cancer data and eligibility remain in `data/trials_base.json` and `pages/1_Clinical_Trial_Finder.py`; OA rules must not be added to that page.
+
+
+## 14. Audit health-gate severity and repository sanitation
+
+The weekly/deep audit must not stop because of a single ancillary or stale test failure.
+
+Classify preflight findings before deciding whether to continue:
+- **BLOCKING:** canonical JSON cannot be parsed/read; canonical catalog validator fails on a current public record; production matcher cannot load; canonical/production synchronization is materially broken; matcher import/compile fails; or multiple independent core checks show production/data corruption. Stop before source reconciliation.
+- **NON-BLOCKING / INCONCLUSIVE:** a stale UI test selector/index, missing CI status, Chromium/session setup failure, one external page being unavailable, or another isolated harness/infrastructure issue when core catalog and matcher checks pass. Record it and continue the complete source audit.
+- **DATA ISSUE:** a legacy/inactive/partial row or questionable historical metadata. Investigate that record during the audit; do not abort the whole source sweep unless it contaminates current public matching or makes identity/status unsafe to resolve.
+
+Completion status is determined primarily by required source coverage and reconciliation. A full audit may finish with explicitly reported non-blocking/inconclusive items; it may not be called complete when mandatory source groups were not attempted.
+
+UI smoke tests must locate widgets by stable labels/semantics, never by positional indexes. Positional Streamlit widget indexes are considered test-harness debt and must not be introduced.
+
+Repository sanitation rule: data/trials_base.json is the only canonical cancer catalog. Metadata-only remnants from retired patch/overlay workflows are technical debt, not valid canonical records. Do not create new partial rows that contain only funding/status/contact metadata. Updates to an existing trial must merge into the complete canonical record. Any newly discovered metadata-only orphan must be either reconstructed from a verified primary source/full historical record or placed in unresolved; never silently treated as a complete trial.
