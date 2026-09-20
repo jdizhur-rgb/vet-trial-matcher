@@ -18,5 +18,6 @@ jobs:
           fetch-depth: 0
       - name: Run full catalog audit
         run: |
-          python scripts/validate_source_inventory.py
+          python scripts/audit_preflight.py
+          python scripts/validate_catalog_sanitation.py
           python scripts/full_catalog_audit.py
