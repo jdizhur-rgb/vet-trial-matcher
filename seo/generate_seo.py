@@ -9,18 +9,6 @@ FINDER='https://vet-cancer-trial-finder.streamlit.app/'; SITE='https://vettrialf
 REGIONS={'north-america':{'USA','Canada'}}; SPECIES={'dogs':'Dog','cats':'Cat'}
 LANGS={'en':('Clinical Trials and Cancer Treatment Studies','current treatment opportunities','Check your pet against these options')}
 CANONICAL_RULES=(('oral squamous cell carcinoma',('oral squamous cell carcinoma','oral scc','feline oral scc')),('squamous cell carcinoma',('squamous cell carcinoma','scc')),('oral melanoma',('oral melanoma','mucosal melanoma')),('melanoma',('melanoma',)),('mast cell tumor',('mast cell tumor','mast cell tumour','mct')),('soft tissue sarcoma',('soft tissue sarcoma','soft-tissue sarcoma','sts')),('histiocytic sarcoma',('histiocytic sarcoma',)),('hemangiosarcoma',('hemangiosarcoma','haemangiosarcoma','hsa')),('osteosarcoma',('osteosarcoma','bone cancer')),('urothelial carcinoma',('urothelial','transitional cell carcinoma','bladder cancer','tcc')),('hepatocellular carcinoma',('hepatocellular carcinoma','hepatic carcinoma')),('mammary carcinoma',('mammary carcinoma','mammary cancer','mammary tumor','mammary tumour')),('thyroid carcinoma',('thyroid carcinoma','thyroid cancer','thyroid tumor','thyroid tumour')),('prostate cancer',('prostate cancer','prostatic carcinoma')),('primary lung tumor',('primary lung tumor','primary lung tumour','pulmonary carcinoma','lung cancer')),('glioma',('glioma','brain tumor (glioma)','brain tumour (glioma)')),('meningioma',('meningioma',)),('nasal tumor',('nasal tumor','nasal tumour','nasal cancer','nasal carcinoma')),('lymphoma',('lymphoma','lymphosarcoma')),('leukemia',('leukemia','leukaemia')),('multiple myeloma',('multiple myeloma',)),('chemodectoma',('chemodectoma',)))
-DISEASE_FAMILIES={
- 'oral squamous cell carcinoma':{'solid_tumor','carcinoma'}, 'squamous cell carcinoma':{'solid_tumor','carcinoma'},
- 'oral melanoma':{'solid_tumor'}, 'melanoma':{'solid_tumor'}, 'mast cell tumor':{'solid_tumor'},
- 'soft tissue sarcoma':{'solid_tumor','sarcoma','soft_tissue_sarcoma'},
- 'histiocytic sarcoma':{'solid_tumor','sarcoma'}, 'hemangiosarcoma':{'solid_tumor','sarcoma'},
- 'osteosarcoma':{'solid_tumor','sarcoma'}, 'urothelial carcinoma':{'solid_tumor','carcinoma'},
- 'hepatocellular carcinoma':{'solid_tumor','carcinoma'}, 'mammary carcinoma':{'solid_tumor','carcinoma'},
- 'thyroid carcinoma':{'solid_tumor','carcinoma'}, 'prostate cancer':{'solid_tumor','carcinoma'},
- 'primary lung tumor':{'solid_tumor','carcinoma'}, 'glioma':{'solid_tumor'}, 'meningioma':{'solid_tumor'},
- 'nasal tumor':{'solid_tumor','nasal_tumor'}, 'chemodectoma':{'solid_tumor'},
- 'lymphoma':{'hematologic'}, 'leukemia':{'hematologic'}, 'multiple myeloma':{'hematologic'},
-}
 GENERIC_WORDS=('any type','other','multiple cancers','solid tumor','solid tumour','advanced unresectable')
 LABELS={'confirmed':'confirmed cancer diagnosis required','active_treatment_target':'active tumor required','measurable_disease':'measurable disease required','measurable_tumor':'measurable tumor required','prior_treatment_allowed':'prior treatment allowed','progressive_disease':'progressive disease required','chemo_washout_days':'chemotherapy washout','radiation_washout_days':'radiation washout','radiation_washout_weeks':'radiation washout','no_concurrent_anticancer':'no concurrent anticancer treatment','no_concurrent_anticancer_therapy':'no concurrent anticancer therapy','no_pregnant_household_members':'household pregnancy restriction'}
 DISEASE_INFO={
@@ -60,12 +48,7 @@ def canonical_cancer(c):
  for key,aliases in CANONICAL_RULES:
   if any(norm(a) in raw for a in aliases): return key
  return None
-def row_cancers(r):
- direct={x for x in (canonical_cancer(c) for c in r.get('cancers',[])) if x}
- broad=set(r.get('broad_disease_families') or [])
- if 'Cancer — any type' in r.get('cancers',[]): broad.add('all_tumors')
- if 'all_tumors' in broad: return direct | set(DISEASE_FAMILIES)
- return direct | {key for key,families in DISEASE_FAMILIES.items() if broad & families}
+def row_cancers(r): return {x for x in (canonical_cancer(c) for c in r.get('cancers',[])) if x}
 def display_name(k): return ' '.join({'scc':'SCC','aml':'AML'}.get(w,w.capitalize()) for w in k.split())
 def prose(v):
  if v is None or v is False or v=='': return ''

@@ -18,37 +18,13 @@
     'Chemodectoma':['Aortic body tumor','Aortic body tumors','Heart-base tumor','Heart base tumor','Paraganglioma','Non-chromaffin paraganglioma']
   };
   const FAMILIES = {
-    'Adrenal tumor':['solid_tumor'], 'Anal sac adenocarcinoma (AGASACA)':['solid_tumor','carcinoma'],
-    'Brain tumor / glioma':['solid_tumor'], 'Chemodectoma':['solid_tumor'],
-    'Feline injection-site sarcoma':['solid_tumor','sarcoma','soft_tissue_sarcoma'],
-    'Feline mammary carcinoma':['solid_tumor','carcinoma'], 'Gallbladder carcinoma':['solid_tumor','carcinoma'],
     'Gastric / stomach cancer':['solid_tumor','carcinoma'], 'Colorectal / rectal cancer':['solid_tumor','carcinoma'],
     'Salivary gland cancer':['solid_tumor','carcinoma'], 'Esophageal cancer':['solid_tumor','carcinoma'],
-    'Hemangiosarcoma':['solid_tumor','sarcoma'], 'Hepatocellular carcinoma':['solid_tumor','carcinoma'],
-    'Histiocytic sarcoma':['solid_tumor','sarcoma'], 'Insulinoma':['solid_tumor'],
-    'Intestinal carcinoma':['solid_tumor','carcinoma'], 'Mammary carcinoma':['solid_tumor','carcinoma'],
-    'Mammary tumor — other':['solid_tumor'], 'Mast cell tumor':['solid_tumor'],
-    'Melanoma — other':['solid_tumor'], 'Ocular melanoma / iris melanocytic tumor':['solid_tumor'],
-    'Oral melanoma':['solid_tumor'], 'Oral squamous cell carcinoma':['solid_tumor','carcinoma'],
-    'Oral tumor — other':['solid_tumor'], 'Osteosarcoma':['solid_tumor','sarcoma'],
-    'Other bone tumor':['solid_tumor'], 'Other liver tumor':['solid_tumor'],
-    'Other sarcoma':['solid_tumor','sarcoma'], 'Other solid tumor':['solid_tumor'],
-    'Pancreatic carcinoma':['solid_tumor','carcinoma'], 'Primary lung tumor':['solid_tumor','carcinoma'],
-    'Prostate cancer':['solid_tumor','carcinoma'], 'Renal tumor':['solid_tumor'],
-    'Sinonasal carcinoma':['solid_tumor','carcinoma','nasal_tumor'],
-    'Soft tissue sarcoma':['solid_tumor','sarcoma','soft_tissue_sarcoma'],
-    'Spindle cell sarcoma':['solid_tumor','sarcoma','soft_tissue_sarcoma'],
-    'Squamous cell carcinoma':['solid_tumor','carcinoma'], 'Squamous cell carcinoma — other':['solid_tumor','carcinoma'],
     'Thymoma / thymic tumor':['solid_tumor'], 'Gastrointestinal stromal tumor (GIST)':['solid_tumor','sarcoma'],
     'Peripheral nerve sheath tumor':['solid_tumor','sarcoma','soft_tissue_sarcoma'], 'Leiomyosarcoma':['solid_tumor','sarcoma','soft_tissue_sarcoma'],
     'Fibrosarcoma':['solid_tumor','sarcoma','soft_tissue_sarcoma'], 'Liposarcoma':['solid_tumor','sarcoma','soft_tissue_sarcoma'],
     'Rhabdomyosarcoma':['solid_tumor','sarcoma','soft_tissue_sarcoma'], 'Chondrosarcoma':['solid_tumor','sarcoma'],
-    'Nasal tumor / nasal cancer':['solid_tumor','nasal_tumor'],
-    'Thyroid carcinoma':['solid_tumor','carcinoma'], 'Thyroid tumor / carcinoma':['solid_tumor','carcinoma'],
-    'Urothelial / transitional cell carcinoma':['solid_tumor','carcinoma'], 'Urothelial carcinoma':['solid_tumor','carcinoma'],
-    'Acute myeloid leukemia':['hematologic'], 'B-cell lymphoma':['hematologic'],
-    'T-cell lymphoma':['hematologic'], 'Lymphoma — other':['hematologic'],
-    'Cutaneous epitheliotropic lymphoma':['hematologic'], 'Multiple myeloma / plasma cell cancer':['hematologic']
+    'Nasal tumor / nasal cancer':['solid_tumor','nasal_tumor'], 'Multiple myeloma / plasma cell cancer':['hematologic']
   };
   const BLOCKED = ['on hold','completed','closed enrollment','enrollment closed','closed for data review','suspended','past clinical study','not accepting','paused','not on current','do not match','coming soon','not yet independently confirmed','enrollment not confirmed','reconfirm before matching','previously active recruitment','sponsor page still lists study','current oncology archive listing','recent active trial; enrollment must be reconfirmed','patients needed; current enrollment should be reconfirmed','funded active-study evidence','current funded translational research'];
   const form = document.querySelector('#matcher-form');
