@@ -51,8 +51,8 @@ function patient(overrides = {}) {
 
 const matches = p => rows.map(row => matcher.matchTrial(row, p)).filter(Boolean);
 const mct = matches(patient());
-if (mct.length !== 5) {
-  throw new Error(`Mast-cell regression expected 5 matches, got ${mct.length}`);
+if (mct.length !== 6) {
+  throw new Error(`Mast-cell regression expected 6 matches, got ${mct.length}`);
 }
 
 const yasha = matches(patient({
