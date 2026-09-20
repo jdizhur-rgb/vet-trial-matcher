@@ -44,7 +44,7 @@ selected_finder = st.segmented_control(
     "Find trials for",
     ["Cancer", "Osteoarthritis / joint pain"],
     default=active_finder,
-    key="condition_navigation",
+    key="condition_navigation_tools" if active_finder is None else "condition_navigation",
     label_visibility="collapsed",
 )
 if selected_finder != active_finder:
