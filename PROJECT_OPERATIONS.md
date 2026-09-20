@@ -20,6 +20,8 @@ Diagnosis landing pages use the existing canonical URLs and the heading pattern 
 
 The matcher is treatment-focused. Include only opportunities that can provide an actual anticancer treatment option to a client-owned dog or cat.
 
+Owner benefit is the controlling inclusion test. Do not publicly match a first-in-animal or Phase I protocol whose primary purpose is safety, pharmacokinetics, target engagement or dose finding when clinical benefit is only exploratory and the protocol offers no defined standard-treatment backbone or other credible therapeutic benefit. Free experimental drug alone is not a treatment benefit. Keep such studies in research/watchlist status with `available_for_matching == false`. A Phase I study may remain matchable only when the protocol still provides a credible treatment opportunity for the patient, not merely research participation.
+
 Exclude observational, diagnostic/biomarker-only, sample collection/biobank, microbiome, research-only PK, and supportive-care studies without an anticancer treatment objective.
 
 Potential public categories:
