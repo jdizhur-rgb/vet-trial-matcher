@@ -17,6 +17,14 @@ def generate_repurposed_drugs_article(root: Path) -> None:
 
 <p>When a dog is diagnosed with cancer, searching for another option is a natural response. Owners read PubMed, learn the vocabulary, compare protocols, and look closely at every good day. Fenbendazole and ivermectin did not appear in these discussions from nowhere. Both have attracted real scientific interest. The difficult part is deciding what that interest means for one particular dog.</p>
 
+<h2>Why the conversation changed in 2025 and 2026</h2>
+
+<p>The recent attention is not simply recycled social-media speculation. In 2025 and 2026, new laboratory studies appeared, an early human trial tested ivermectin together with immunotherapy, and the U.S. National Cancer Institute confirmed that it had examined ivermectin in a more rigorous preclinical study. The American Cancer Society published patient guides on both drugs, and the American Society of Clinical Oncology issued a formal clinical notice after oncologists reported seeing growing interest among patients.</p>
+
+<p>The public response moved even faster. A celebrity claim on a major podcast was followed by a measurable rise in ivermectin and benzimidazole prescribing among people with cancer. A widely shared three-patient fenbendazole case series was published in 2025 and retracted in 2026 because of an undisclosed conflict of interest. BBC reporting then documented unproven products being sold directly to cancer patients.</p>
+
+<p>All of this shows that the scientific question is active and the demand is real. It does not establish a safe or effective cancer protocol for dogs. Human studies of a specific drug, cancer, dose, and combination cannot supply the missing canine evidence, but they do explain why owners are encountering more research headlines and more confident claims than they did only a few years ago.</p>
+
 <h2>One drug and many different cancers</h2>
 
 <p>Cancer is not one disease. Lymphoma, osteosarcoma, melanoma, and mammary carcinoma involve different cells, mutations, behavior, and treatment responses. We would not treat pneumonia with an asthma medicine simply because both diseases affect the lungs. In the same way, a substance that affects one cancer model cannot automatically be expected to treat every tumor.</p>
@@ -89,6 +97,10 @@ def generate_repurposed_drugs_article(root: Path) -> None:
 <li><a href="https://pubmed.ncbi.nlm.nih.gov/31375107/" rel="noopener">Diao H, et al. Ivermectin inhibits canine mammary tumor growth by regulating cell cycle progression and WNT signaling</a>. BMC Veterinary Research. 2019.</li>
 <li><a href="https://www.dogcancer.com/podcast/supplements/ivermectin-for-dogs-with-lymphoma-dr-brooke-britton-qa/" rel="noopener">Britton B. Ivermectin for Dogs with Lymphoma</a>. Dog Cancer Answers.</li>
 <li><a href="https://prime.vetmed.wsu.edu/2022/03/01/problem-medications-for-dogs/" rel="noopener">Washington State University College of Veterinary Medicine. Problem medications for dogs</a>. 2022.</li>
+<li><a href="https://www.uclahealth.org/news/release/ivermectin-prescriptions-more-doubled-after-celebrity" rel="noopener">UCLA Health. Ivermectin prescriptions more than doubled after a celebrity endorsed it as a cancer treatment</a>. 2026.</li>
+<li><a href="https://kffhealthnews.org/health-industry/ivermectin-cancer-treatment-nih-study-dewormer-offlabel-drug/" rel="noopener">KFF Health News. US Cancer Institute Studying Ivermectin’s “Ability To Kill Cancer Cells”</a>. 2026.</li>
+<li><a href="https://connection.asco.org/do/asco-clinical-notice-recommending-against-ivermectin-and-fenbendazole-cancer-treatment" rel="noopener">American Society of Clinical Oncology. Clinical Notice on ivermectin and fenbendazole for cancer treatment</a>. 2026.</li>
+<li><a href="https://karger.com/cro/article/19/1/169/941881/Retraction-StatementPaper-by-William-Makis-Ilyes" rel="noopener">Karger. Retraction statement for the 2025 fenbendazole case series</a>. 2026.</li>
 </ul>
 </article>'''
 
@@ -137,6 +149,7 @@ def generate_repurposed_drugs_article(root: Path) -> None:
     required = (
         '<h1>Fenbendazole, ivermectin, and repurposed drugs for dogs with cancer</h1>',
         'About four in ten',
+        'Why the conversation changed in 2025 and 2026',
         'has yet to be established',
         'Why a home protocol can always appear to work',
         'We don’t have any data to support using it in dogs with lymphoma',
