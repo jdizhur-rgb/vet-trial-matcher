@@ -41,6 +41,7 @@ from site_shell import apply_site_shell, wrap_html
 from vaccine_article import generate_cancer_vaccine_article
 from surgical_margins_article import generate_surgical_margins_article
 from repurposed_drugs_article import generate_repurposed_drugs_article
+from mushrooms_herbs_supplements_article import generate_mushrooms_herbs_supplements_article
 from news_section import generate_news_section
 from about_site_integration import integrate_about
 
@@ -196,6 +197,7 @@ def main():
     generate_cancer_vaccine_article(out)
     generate_surgical_margins_article(out)
     generate_repurposed_drugs_article(out)
+    generate_mushrooms_herbs_supplements_article(out)
     generate_news_section(out)
     vaccine_page = out / "articles" / "cancer-vaccines" / "index.html"
     if vaccine_page.exists():
