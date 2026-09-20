@@ -12,9 +12,16 @@ class StreamlitPageSmokeTests(unittest.TestCase):
     def load_oa(self):
         return AppTest.from_file(ROOT / "pages" / "4_Osteoarthritis_Trial_Finder.py", default_timeout=30).run()
 
-    def test_shared_navigation_loads(self):
+    def test_legacy_streamlit_app_redirects_to_current_matcher(self):
         at = AppTest.from_file(ROOT / "app.py", default_timeout=30).run()
         self.assertFalse(at.exception)
+        self.assertTrue(
+            any("https://vettrialfinder.com/matcher/" in item.value for item in at.markdown)
+        )
+        self.assertEqual(
+            at.get("link_button")[0].url,
+            "https://vettrialfinder.com/matcher/",
+        )
 
     def test_cancer_search_still_runs(self):
         at = AppTest.from_file(ROOT / "pages" / "1_Clinical_Trial_Finder.py", default_timeout=30).run()
