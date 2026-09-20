@@ -79,7 +79,7 @@ def _plain(raw):
 def _expected_layers(species, key):
     if species == 'dogs' and key == 'histiocytic sarcoma':
         item = BENCHMARK[key]
-        return {'prognosis': item['prognosis'], 'next': item['next'], 'tests': item['tests']}
+        return {'prognosis': item['prognosis'], 'next': item['next']}
     sources = (
         (DOG_DESCRIPTIONS, DOG_PROGNOSIS, DOG_NEXT_STEPS, DOG_TREATMENT, DOG_OWNER_FACTORS, DOG_TESTS)
         if species == 'dogs' else
@@ -95,7 +95,7 @@ def validate_built_site(root=Path('seo/site')):
     required = (
         'What does the prognosis look like?', 'What matters next', 'Where are you now?',
         'If you are waiting for oncology', 'Questions to ask your oncologist',
-        'How it is usually treated', 'What can affect treatment choices', 'Tests that may matter',
+        'How it is usually treated', 'What can affect treatment choices',
         'How the diagnosis may appear in the record', 'Changes to watch for at home',
     )
     generic_questions = GENERIC_QUESTIONS - {
@@ -117,6 +117,10 @@ def validate_built_site(root=Path('seo/site')):
                 for marker in required:
                     assert marker in text, f'{page}: missing {marker}'
                 expected_layers = _expected_layers(species, key)
+                if 'tests' in expected_layers:
+                    assert 'Tests that may matter' in text, f'{page}: missing Tests that may matter'
+                else:
+                    assert 'Tests that may matter' not in text, f'{page}: empty test section should be omitted'
                 for expected in expected_layers.values():
                     assert ' '.join(expected.split()) in text, f'{page}: owner-friendly layer was overridden'
                 for question in generic_questions:
