@@ -203,3 +203,15 @@ Use scripts/audit_preflight.py as the deterministic first gate. It distinguishes
 Persistent audit scheduling lives in data/audit_state.json. Source fingerprints remain in data/source_inventory.json. Deep audits should prioritize changed fingerprints, stale verification, unresolved items whose recheck_after is due, and a periodic forced full reread. An unchanged master page is a cost-saving signal, not proof that every protocol is current; forced rereads and protocol-level checks remain required on schedule.
 
 Do not repeatedly research the same unresolved item before recheck_after unless its source fingerprint changes or new evidence appears. This is the default credit-saving behavior.
+
+## 16. Integrity vs discovery audits
+
+Catalog integrity and external-source discovery are separate audit products.
+
+- `scripts/full_catalog_audit.py` audits records already present in the canonical catalog. It does not browse external sources and must never be described as a complete, global, or source-discovery audit.
+- A source-discovery audit must actually open every mandatory master source in `data/source_inventory.json`, extract its current recruiting/open/current oncology-treatment protocols, compare them semantically with the canonical catalog, and open protocol-level primary pages for every new, changed, ambiguous, or missing candidate.
+- Presence in the inventory is not evidence of coverage. `last_checked: null`, `last_result: pending`, or a source not opened during the current run means NOT CHECKED.
+- Every completed source-discovery audit must write a coverage row for each mandatory source: opened_this_run, master_result, protocols_seen, candidates_found, protocol_pages_checked, fingerprint_changed, and last_checked_written.
+- If any mandatory source was not opened or its current check metadata was not written, the source-discovery audit is INCOMPLETE and the overall run must be reported as NOT COMPLETE, even when all catalog validators pass.
+- Optimization begins only after each master page is opened. An unchanged fingerprint and unchanged extracted protocol roster may skip rereading known protocol pages, except for a forced full protocol-level reread at least once every four weeks. Changed, stale, due, and unresolved sources always require deep review.
+- Before protocol-level verification, describe an apparent absence from the catalog as a “candidate for review,” never as a confirmed new trial or planned addition.
