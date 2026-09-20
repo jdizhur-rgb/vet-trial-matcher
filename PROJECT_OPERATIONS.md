@@ -192,3 +192,12 @@ Completion status is determined primarily by required source coverage and reconc
 UI smoke tests must locate widgets by stable labels/semantics, never by positional indexes. Positional Streamlit widget indexes are considered test-harness debt and must not be introduced.
 
 Repository sanitation rule: data/trials_base.json is the only canonical cancer catalog. Metadata-only remnants from retired patch/overlay workflows are technical debt, not valid canonical records. Do not create new partial rows that contain only funding/status/contact metadata. Updates to an existing trial must merge into the complete canonical record. Any newly discovered metadata-only orphan must be either reconstructed from a verified primary source/full historical record or placed in unresolved; never silently treated as a complete trial.
+
+
+## 15. Cost-controlled audit state
+
+Use scripts/audit_preflight.py as the deterministic first gate. It distinguishes blocking core failures from ancillary/inconclusive smoke-test failures. Run scripts/validate_catalog_sanitation.py to reject any newly introduced partial canonical record while allowing explicitly tracked historical debt to remain quarantined in data/audit_unresolved.json until verified.
+
+Persistent audit scheduling lives in data/audit_state.json. Source fingerprints remain in data/source_inventory.json. Deep audits should prioritize changed fingerprints, stale verification, unresolved items whose recheck_after is due, and a periodic forced full reread. An unchanged master page is a cost-saving signal, not proof that every protocol is current; forced rereads and protocol-level checks remain required on schedule.
+
+Do not repeatedly research the same unresolved item before recheck_after unless its source fingerprint changes or new evidence appears. This is the default credit-saving behavior.
