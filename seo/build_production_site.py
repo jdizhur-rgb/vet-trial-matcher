@@ -30,6 +30,7 @@ import ensure_center_images
 from center_page_enhancements import enhance_center_pages
 from finalize_cancer_pages import finalize_cancer_pages
 from practical_cancer_pages import apply_practical_cancer_guides, apply_feline_practical_guides
+from off_label_cancer_evidence import move_blocks_to_treatment_options
 from feline_practical_content import FELINE_PRACTICAL
 from feline_practical_more import FELINE_MORE
 from feline_branch_integration import activate_feline_branches
@@ -157,6 +158,7 @@ def main():
     finalize_cancer_pages(SEO_DIR / "site")
     apply_practical_cancer_guides(SEO_DIR / "site")
     apply_feline_practical_guides(SEO_DIR / "site")
+    move_blocks_to_treatment_options(SEO_DIR / "site")
     apply_canine_hs_guide(SEO_DIR / "site")
     generate_cancer_coverage.main()
     generate_help_center(SEO_DIR / "site")

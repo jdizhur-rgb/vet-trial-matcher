@@ -140,13 +140,21 @@ def validate_built_site(root=Path('seo/site')):
                         assert ' '.join(theirs.split()) not in text, f'{page}: {other_species} content contamination'
 
                 cards = re.findall(r'<article class="card"><h3>(.*?)</h3>', raw, re.S)
-                count = re.search(r'<p class="option-count">(\d+) options? currently in our catalog\.</p>', raw)
+                count = re.search(r'<p class="option-count">(\d+) (?:options?|clinical trial listings) currently in our catalog\.</p>', raw)
                 zero = 'No active listings in our catalog right now.' in raw
                 if cards:
                     assert count and int(count.group(1)) == len(cards), f'{page}: trial card count mismatch'
                     assert not zero, f'{page}: cards and empty state both shown'
                 else:
                     assert not count and zero, f'{page}: empty trial state mismatch'
+                off_label = 'class="off-label-evidence"' in raw
+                if species == 'dogs' and key == 'urothelial carcinoma':
+                    assert off_label, f'{page}: missing off-label evidence'
+                    assert raw.index('class="options-transition"') < raw.index('class="off-label-evidence"'), f'{page}: off-label evidence is outside treatment options'
+                    if cards:
+                        assert raw.index('class="off-label-evidence"') < raw.index('<article class="card">'), f'{page}: off-label evidence should precede trial cards'
+                else:
+                    assert not off_label, f'{page}: unexpected off-label evidence'
                 checked += 1
     assert checked == 44, f'expected 44 built pages, checked {checked}'
     return checked

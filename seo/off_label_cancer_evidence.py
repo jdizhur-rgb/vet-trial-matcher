@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import html
+import re
+from pathlib import Path
 
 
 CANINE = {
@@ -44,3 +46,31 @@ def render(key: str, pet: str) -> str:
         f'<p class="evidence-source"><a href="{e(item["source_url"], quote=True)}" rel="noopener">{e(item["source_label"])} →</a></p>'
         '</aside>'
     )
+
+
+def move_blocks_to_treatment_options(root: Path) -> int:
+    """Place off-label evidence with current treatment listings, not in the guide flow."""
+    root = Path(root)
+    changed = 0
+    for path in root.glob("*/dogs/urothelial-carcinoma/index.html"):
+        text = path.read_text(encoding="utf-8")
+        block_match = re.search(r'<aside class="off-label-evidence">.*?</aside>', text, re.S)
+        if not block_match:
+            raise AssertionError(f"Missing off-label evidence block in {path}")
+        block = block_match.group(0)
+        revised = text[:block_match.start()] + text[block_match.end():]
+        transition = re.search(r'<section class="options-transition">.*?</section>', revised, re.S)
+        if not transition:
+            raise AssertionError(f"Missing treatment-options transition in {path}")
+        revised = revised[:transition.end()] + block + revised[transition.end():]
+        revised = re.sub(
+            r'<p class="option-count">(\d+) options? currently in our catalog\.</p>',
+            r'<p class="option-count">\1 clinical trial listings currently in our catalog.</p>',
+            revised,
+            count=1,
+        )
+        path.write_text(revised, encoding="utf-8")
+        changed += 1
+    if not changed:
+        raise AssertionError("No canine urothelial-carcinoma page found for off-label evidence")
+    return changed
