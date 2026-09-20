@@ -26,13 +26,6 @@ CANINE_PRACTICAL = {
             'treatment step, it is also worth checking whether a clinical trial requires '
             'measurable disease or limits previous treatment.'
         ),
-        'tests': (
-            'There is no single cancer test that tells every dog with HS which treatment '
-            'will work. If additional tumor testing or genomic profiling is available, '
-            'ask whether the result will change treatment or trial eligibility now. If '
-            'testing may be useful later, ask whether the pathology lab can retain the '
-            'tumor block or slides from surgery.'
-        ),
         'waiting': (
             'Waiting does not mean there is nothing to do. Ask about a cancellation list '
             'or another oncology center if the appointment is far away. Gather the '
