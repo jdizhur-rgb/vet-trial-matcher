@@ -12,7 +12,7 @@ ELIAS_URL="https://eliasanimalhealth.com/available-locations/"
 EXTRAS=[
  {"center":"Auburn University Bailey Small Animal Teaching Hospital","address":"1220 Wire Rd","city":"Auburn","region":"AL","zip":"36832","phone":"334-844-4690","website":"https://www.vetmed.auburn.edu/clinical-services/bailey-small-animal-teaching-hospital/oncology/","services":["Medical oncology","Surgical oncology","Radiation oncology","ECT","Immunotherapy","IMRT","SRT","Clinical trials"]},
  {"center":"UC Davis Veterinary Medical Teaching Hospital","address":"1 Garrod Dr","city":"Davis","region":"CA","zip":"95616","phone":"","website":"https://www.vetmed.ucdavis.edu/hospital/small-animal/oncology","services":["Medical oncology","Radiation oncology","Interventional radiology","IMRT","SRT","Clinical trials"]},
- {"center":"RISE Pet Health","address":"24721 Alicia Pkwy","city":"Laguna Hills","region":"CA","zip":"92653","phone":"949-787-7473","website":"https://risepethealth.com/oncology/","services":["Medical oncology","ECT","Immunotherapy","Gilvetmab","ELIAS ECI","ONCEPT","Intratumoral therapy","Targeted therapy","Genomic profiling"]},
+ {"center":"RISE Pet Health","address":"24721 Alicia Pkwy","city":"Laguna Hills","region":"CA","zip":"92653","phone":"949-787-7473","website":"https://risepethealth.com/oncology/","services":["Medical oncology","ECT","Immunotherapy","ELIAS ECI","ONCEPT","Intratumoral therapy","Targeted therapy","Genomic profiling"]},
  {"center":"VCA Animal Specialty Group – Los Angeles","address":"4641 Colorado Blvd","city":"Los Angeles","region":"CA","zip":"90039","phone":"818-244-7977","website":"https://vcahospitals.com/animal-specialty-group-los-angeles/departments/oncology/electrochemotherapy","services":["Medical oncology","ECT","Immunotherapy"]},
  {"center":"Animal Cancer Center of Monterey","address":"530 Ramona Ave","city":"Monterey","region":"CA","zip":"93940","phone":"831-242-0978","website":"https://www.animalcancercentermonterey.com/","services":["Medical oncology","Chemotherapy","Immunotherapy","Targeted therapy","ELIAS ECI"]},
  {"center":"Colorado Animal Specialty & Emergency (CASE)","address":"2972 Iris Ave","city":"Boulder","region":"CO","zip":"80301","phone":"303-545-2273","website":"https://www.coloradoanimalspecialty.com/services/medical-oncology","services":["Medical oncology","ECT","ELIAS ECI"]},
@@ -180,7 +180,7 @@ def render():
  country=st.selectbox("Country",["USA","Canada"],key="onc_country")
  zip_code=st.text_input("ZIP / postal code",placeholder="e.g. 01095 or M5V 3L9",key="onc_zip")
  available=sorted({s for x in rows if x.get("country")==country for s in x.get("services",[]) if s not in {"Medical oncology","Chemotherapy","Surgery","Surgical oncology"}})
- preferred=["ECT","Immunotherapy","ELIAS ECI","Stelfonta","Gilvetmab","ONCEPT","Radiation oncology","SRT","SBRT","IMRT","VMAT","Interventional radiology","Genomic profiling","Targeted therapy","Clinical trials"]
+ preferred=["ECT","Immunotherapy","ELIAS ECI","Stelfonta","ONCEPT","Radiation oncology","SRT","SBRT","IMRT","VMAT","Interventional radiology","Genomic profiling","Targeted therapy","Clinical trials"]
  options=[s for s in preferred if s in available]+[s for s in available if s not in preferred]
  selected=st.multiselect("Treatment / service (optional)",options,placeholder="Show all oncology centers",key="onc_services")
  if st.button("Find oncology centers",use_container_width=True,type="primary",key="onc_find"):
