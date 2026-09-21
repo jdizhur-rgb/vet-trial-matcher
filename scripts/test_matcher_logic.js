@@ -66,6 +66,26 @@ if (yasha.length !== 0) {
   throw new Error(`Post-surgery HS regression expected 0 matches, got ${yasha.length}`);
 }
 
+const mammary = matches(patient({
+  cancer: 'Mammary carcinoma',
+  sex: 'Female',
+  weight_lb: 45,
+}));
+if (!mammary.some(row => row.trial.id === 'ncsu-mammary-inspire')) {
+  throw new Error('USA/Dog/Mammary regression did not return ncsu-mammary-inspire');
+}
+if (mammary.some(row => row.trial.id === 'ncsu-liver-inspire')) {
+  throw new Error('USA/Dog/Mammary regression incorrectly returned ncsu-liver-inspire');
+}
+
+const osteosarcoma = matches(patient({cancer: 'Osteosarcoma'}));
+if (osteosarcoma.some(row => row.trial.id === 'vt-osa-histotripsy')) {
+  throw new Error('Closed Virginia Tech histotripsy cohort remained in treatment matching');
+}
+if (osteosarcoma.some(row => row.trial.id === 'vt-osa-standard')) {
+  throw new Error('Virginia Tech observational control appeared in treatment matching');
+}
+
 const blocked = {
   id: 'blocked-test',
   species: 'Dog',
@@ -79,4 +99,4 @@ if (matcher.matchTrial(blocked, patient()) !== null) {
   throw new Error('Closed enrollment record was not blocked');
 }
 
-console.log(`MATCHER_LOGIC_OK trials=${rows.length} mct=${mct.length} yasha=${yasha.length}`);
+console.log(`MATCHER_LOGIC_OK trials=${rows.length} mct=${mct.length} yasha=${yasha.length} mammary=${mammary.length} osteosarcoma=${osteosarcoma.length}`);
