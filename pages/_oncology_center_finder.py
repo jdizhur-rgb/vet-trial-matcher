@@ -179,10 +179,14 @@ def render():
  st.markdown("""<style>.onc-badges{display:flex;flex-wrap:wrap;gap:.32rem;margin:.35rem 0 .45rem}.onc-badge{display:inline-block;background:#eef5f7;border:1px solid #d5e5e9;color:#315b63;padding:.17rem .46rem;border-radius:999px;font-size:.78rem;font-weight:600}.onc-address{color:#5f5a56;font-size:.92rem;margin:.1rem 0 .28rem}</style>""",unsafe_allow_html=True)
  country=st.selectbox("Country",["USA","Canada"],key="onc_country")
  zip_code=st.text_input("ZIP / postal code",placeholder="e.g. 01095 or M5V 3L9",key="onc_zip")
- available=sorted({s for x in rows if x.get("country")==country for s in x.get("services",[]) if s not in {"Medical oncology","Chemotherapy","Surgery","Surgical oncology"}})
- preferred=["ECT","Immunotherapy","ELIAS ECI","Stelfonta","ONCEPT","Radiation oncology","SRT","SBRT","IMRT","VMAT","Interventional radiology","Genomic profiling","Targeted therapy","Clinical trials"]
- options=[s for s in preferred if s in available]+[s for s in available if s not in preferred]
+ # Only location-bound capabilities with hospital-level verification belong here.
+ # Broad therapies, send-out tests, widely orderable drugs and clinical trials have
+ # separate access paths; filtering them against this partial directory is misleading.
+ filterable=["ECT","Radiation oncology","SRT","SBRT","Interventional radiology"]
+ available={s for x in rows if x.get("country")==country for s in x.get("services",[])}
+ options=[s for s in filterable if s in available]
  selected=st.multiselect("Treatment / service (optional)",options,placeholder="Show all oncology centers",key="onc_services")
+ st.caption("This is a verified but not exhaustive directory. Drug availability should be confirmed directly with a veterinary oncologist.")
  if st.button("Find oncology centers",use_container_width=True,type="primary",key="onc_find"):
   loc=postal_coords(country,zip_code)
   if not loc:st.error("ZIP / postal code not found.");return
