@@ -111,8 +111,11 @@ jobs:
           assert 'Free means free' in registry
           assert 'class="registry-diagnosis"' in registry
           assert '<meta name="robots" content="noindex' not in registry
-          assert 'mailto:info@vettrialfinder.com' in home
-          assert 'mailto:info@vettrialfinder.com' in about
+          assert 'href="https://vettrialfinder.com/contact/"' in home
+          assert 'href="https://vettrialfinder.com/contact/"' in about
+          contact=(root/'contact/index.html').read_text(encoding='utf-8')
+          assert '<h1>Contact Vet Trial Finder</h1>' in contact
+          assert 'mailto:info@vettrialfinder.com' in contact
           centers=(root/'centers/index.html').read_text(encoding='utf-8')
           assert 'async function searchByZip' in centers
           assert 'api.zippopotam.us/us/' in centers
