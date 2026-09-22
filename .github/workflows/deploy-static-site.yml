@@ -50,7 +50,7 @@ jobs:
           assert 'transform:translateX(25%)' in home
           assert 'min-height:300px' in home
           assert 'object-position:72% 52%' in home
-          assert '<span class="mobile-line">Find cancer trials</span><span class="mobile-line">for your pet</span>' in home
+          assert '<span class="mobile-line">Find cancer trials</span><span class="mobile-line">and oncology centers</span>' in home
           assert 'color:rgba(255,255,255,.82)!important' in home
           assert 'transform:translateY(-8px)' in home
           assert 'font-size:.82rem' in home
@@ -65,7 +65,7 @@ jobs:
           assert 'background:rgba(23,50,77,.22);color:#fff!important' in home
           assert 'class="mobile-hero-lead"' in home
           assert '.hero-copy{display:none}' in home
-          assert '<span class="desktop-line">Find cancer clinical trials</span><span class="desktop-line">and treatment options</span><span class="desktop-line">for your pet</span>' in home
+          assert '<span class="desktop-line">Find cancer clinical trials</span><span class="desktop-line">and veterinary oncology centers</span>' in home
           assert 'jdizhur-rgb.github.io/vet-trial-matcher' not in home
           asset=root/'assets/kot-home.jpg'; assert asset.exists() and asset.stat().st_size>10000, asset
           about=(root/'about/index.html').read_text(encoding='utf-8')
@@ -104,7 +104,7 @@ jobs:
           assert '<h1>How we verify listings</h1>' in verification
           assert 'What this site does not do' in verification
           assert 'How we verify</a>' in home
-          assert 'Browse the trial registry' in home
+          assert 'Find an oncology center' in home
           registry=(root/'veterinary-cancer-clinical-trials/index.html').read_text(encoding='utf-8')
           assert '<h1>Free veterinary cancer clinical trial finder for dogs and cats</h1>' in registry
           assert 'Why we check more than one registry' in registry
