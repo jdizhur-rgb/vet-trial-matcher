@@ -36,8 +36,8 @@ UNIFIED_HEADER_STYLE='''<style id="unified-site-header">
 .site-header .brand-logo{display:block!important;width:50px!important;height:38px!important;object-fit:contain!important;flex:0 0 auto!important}
 @media(max-width:800px){
 .site-header .site-nav{position:relative!important;display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:center!important;justify-content:initial!important;column-gap:10px!important;min-height:68px!important;padding:7px 0!important}
-.site-header .brand-row{display:flex!important;align-items:center!important;justify-content:center!important;gap:0!important;min-width:0!important}
-.site-header .brand{font-size:1.18rem!important;line-height:1!important;gap:7px!important}
+.site-header .brand-row{display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:0!important;min-width:0!important}
+.site-header .brand{flex-direction:column!important;align-items:flex-start!important;font-size:1.18rem!important;line-height:1.05!important;gap:0!important}
 .site-header .brand-logo{width:46px!important;height:35px!important}
 .site-header .nav-shell{width:auto!important;margin:0!important}
 }
