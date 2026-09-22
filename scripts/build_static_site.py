@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "seo" / "site"
 sys.path.insert(0, str(ROOT / "seo"))
 
-from site_shell import apply_navigation  # noqa: E402
+from site_shell import wrap_html  # noqa: E402
 
 
 def run(*args: str, pythonpath: str | None = None) -> None:
@@ -52,7 +52,7 @@ def main() -> None:
         for page in matcher.rglob("*.html"):
             text = page.read_text(encoding="utf-8")
             text = text.replace("matcher-preview", "matcher")
-            text = apply_navigation(text)
+            text = wrap_html(text)
             text = re.sub(
                 r'<meta name="robots" content="noindex[^"]*">',
                 "",
