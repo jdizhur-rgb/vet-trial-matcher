@@ -1,0 +1,93 @@
+{
+  "last_updated": "2026-09-22",
+  "scope": "US veterinary oncology treatment locations; publication not approved",
+  "sources": [
+    {
+      "source": "ACVIM VetSpecialists oncology directory",
+      "status": "complete",
+      "records_reviewed": 458,
+      "physical_locations_extracted": 259,
+      "notes": "Consultants, research-only affiliations, mailing addresses and duplicate physical locations are excluded."
+    },
+    {
+      "source": "PetCure Oncology",
+      "status": "complete",
+      "locations_reviewed": 7,
+      "notes": "All current locations on the official location directory were reconciled by physical address."
+    },
+    {
+      "source": "MedVet and WestVet",
+      "status": "complete",
+      "locations_reviewed": 39,
+      "oncology_locations_confirmed": 19,
+      "notes": "Official location sitemap and each location's local services block were checked. Columbus and Worthington are the same physical location."
+    },
+    {
+      "source": "Thrive Pet Healthcare cancer-specific locations",
+      "status": "complete",
+      "locations_reviewed": 13,
+      "notes": "All PetCure and Veterinary Cancer Group locations exposed in the official sitemap were reconciled. General Thrive hospitals with ACVIM oncologists are also captured through ACVIM."
+    },
+    {
+      "source": "BluePearl",
+      "status": "substantially_complete",
+      "catalog_locations_before_supplemental_review": 23,
+      "oncology_locations_confirmed": 38,
+      "notes": "The supplied national and regional BluePearl oncology maps were reconciled marker by marker against current official hospital and oncology pages. Missing locations were added, Tacoma was updated to its Lakewood address, the former Waltham service was updated to Framingham, and the historical Franklin location was replaced by Brentwood. Fox Valley was not added because its current official services page no longer lists oncology. The interactive national catalog still cannot be exported directly because of Cloudflare, so future map changes should be checked periodically."
+    },
+    {
+      "source": "VCA",
+      "status": "partial",
+      "catalog_locations_before_supplemental_review": 23,
+      "official_locations_added_during_review": 2,
+      "notes": "ACVIM locations and indexed official oncology department pages are represented. Pearl City and VCA Colonial were added from official department pages. VCA's own Pet CancerCare filter requires an address and radius and exposes no national results/export, so a complete department-page inventory remains open."
+    },
+    {
+      "source": "Ethos Veterinary Health",
+      "status": "partial",
+      "notes": "ACVIM oncologists and known hospital brands are represented. The official hospital sitemap contains 144 pages, but automated page retrieval timed out; brand-by-brand reconciliation remains open."
+    },
+    {
+      "source": "University veterinary teaching hospitals",
+      "status": "substantially_complete",
+      "notes": "Teaching hospitals represented in ACVIM and the verified seed set were reconciled. Research-only University of Michigan and Case Western affiliations were removed; Cornell Ithaca was corrected to the patient-facing hospital."
+    }
+  ],
+  "local_clinic_gap": {
+    "status": "separate_follow_up_required",
+    "problem": "General-practice and mobile clinics that administer chemotherapy under an outside oncologist are not collected in a national structured directory.",
+    "problem_types": [
+      "The clinic says it collaborates with an oncologist but does not say whether treatment is administered on site.",
+      "The oncologist lists a mailing or home address rather than the partner hospitals where patients are treated.",
+      "A historical clinic name remains in a specialist profile after the patient-facing site has closed, moved or rebranded.",
+      "Mobile oncologists treat at several host hospitals, while their own website lists only a mailing address or a changing partner list."
+    ],
+    "confirmed_examples_added": [
+      "Mountain View Veterinary Health Center – North Logan",
+      "River Ridge Animal Hospital",
+      "Franklin Lakes Animal Hospital"
+    ],
+    "example_rejected": {
+      "name": "Whitney Veterinary Hospital",
+      "reason": "Official page confirms staging and blood-work monitoring with outside oncologists but does not clearly confirm chemotherapy administration."
+    },
+    "unverified_or_nonclinical_acvim_records_removed": [
+      {
+        "name": "Lisa G Barber, DVM",
+        "reason": "The directory address is not a patient-facing clinic; no current official treatment location was found."
+      },
+      {
+        "name": "Southern Veterinary Partners",
+        "reason": "The listed address is residential and is not a patient-facing hospital."
+      },
+      {
+        "name": "Peoria Area Veterinary Group Cancer Clinic",
+        "reason": "A historical reference exists, but no current official patient-facing clinic or treatment page could be verified."
+      }
+    ],
+    "states_with_targeted_searches_so_far": [
+      "AK", "AL", "AR", "DE", "HI", "ID", "IL", "KY", "MS", "MT", "ND", "NE", "NJ", "NV", "RI", "SD", "UT", "VT", "WV", "WY"
+    ],
+    "recommended_next_method": "Build a bounded local-clinic discovery workflow using exact service-page queries, state veterinary association directories and referral lists from confirmed oncology centers; keep it separate from specialist-network auditing."
+  }
+}

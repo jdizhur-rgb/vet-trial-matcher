@@ -37,6 +37,7 @@ def main() -> None:
     run("seo/build_production_site.py")
     run("seo/validate_cancer_depth.py", "--site", "seo/site", pythonpath="seo")
     run("scripts/build_matcher_preview_data.py")
+    run("scripts/build_oncology_center_catalog.py")
     run("seo/generate_oncology_center_finder.py")
     run("seo/validate_oncology_centers.py")
 
