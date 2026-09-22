@@ -171,7 +171,7 @@ def add_structured_data(text: str, path: str) -> str:
                     "@id": f"{SITE}/#website",
                     "url": f"{SITE}/",
                     "name": "Vet Trial Finder",
-                    "alternateName": "VetTrialFinder.com",
+                    "alternateName": ["VetTrialFinder", "vettrialfinder.com"],
                     "description": "Free finder for cancer clinical trials and treatment options for dogs and cats.",
                 },
                 {
