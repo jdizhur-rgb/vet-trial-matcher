@@ -217,3 +217,18 @@ Catalog integrity and external-source discovery are separate audit products.
 - If any mandatory source was not opened or its current check metadata was not written, the source-discovery audit is INCOMPLETE and the overall run must be reported as NOT COMPLETE, even when all catalog validators pass.
 - Optimization begins only after each master page is opened. An unchanged fingerprint and unchanged extracted protocol roster may skip rereading known protocol pages, except for a forced full protocol-level reread at least once every four weeks. Changed, stale, due, and unresolved sources always require deep review.
 - Before protocol-level verification, describe an apparent absence from the catalog as a “candidate for review,” never as a confirmed new trial or planned addition.
+
+## 17. New cancer-trial intake order
+
+Use this sequence for every newly reported cancer trial. A social post, news item, aggregator, or developer page is a discovery lead only; it is not sufficient evidence for publication.
+
+1. Record the item as a candidate and identify the actual study by intervention, cancer, institution/PI, protocol ID when available, and public eligibility—not by title alone.
+2. Check the effective canonical catalog for the same study before researching an addition. Compare `data/trials_base.json` semantically by protocol, center, diagnosis, intervention, and source URL. A shared drug or page does not by itself make two site-specific protocols duplicates.
+3. Open the institution's current-trials index or registry entry and the direct protocol page, PDF, or enrollment form. The primary center source controls over an aggregator when status conflicts.
+4. Confirm that enrollment is currently open, or that a real current entry path exists for new patients. Closed, on-hold, pipeline-only, and unconfirmed programs do not enter active matching.
+5. Extract and verify, without inference: species and disease scope, treatment, public inclusion/exclusion criteria, site, contact, study type, current status, verification date, and owner-facing prescreening limits.
+6. Verify funding and owner costs from the primary protocol source before publication. Distinguish precisely among fully funded, partially funded, treatment-only coverage, reimbursement, incentives, and costs not publicly stated; never convert any of these into a generic “free.”
+7. Classify the candidate as Active Treatment Trial, Other Treatment Access, Watchlist, or Reject. Add only a confirmed missing active record, preserving existing records and avoiding broad cleanup during intake.
+8. Update the complete canonical record in `data/trials_base.json`, then synchronize all production consumers: matcher logic, generated cancer pages, and any derived production catalog required by the repository.
+9. Run catalog/schema and sanitation validation, unique-ID checks, production synchronization checks, matcher regression cases for the new eligibility rules, and relevant page/build checks. Hard exclusions must hide a trial; an unknown material criterion remains `Possible` and requires study-team confirmation.
+10. Only after the checks pass, commit and push the completed change, then verify the SHA of the remote branch. Do not write partial research results to `main`.
