@@ -19,10 +19,10 @@ SITE = "https://vettrialfinder.com"
 CONTACT_EMAIL = "info@vettrialfinder.com"
 LANGUAGE_PREFIXES = {"de", "fr", "es", "it", "nl"}
 LASTMOD = "2026-09-13"
-HOME_TITLE = "Vet Trial Finder | Cancer Clinical Trials for Dogs and Cats"
+HOME_TITLE = "Vet Trial Finder | Veterinary Cancer Trials and Oncology Centers"
 HOME_DESCRIPTION = (
-    "Free finder for veterinary cancer clinical trials, research centers and "
-    "other treatment options for dogs and cats."
+    "Find veterinary cancer clinical trials and oncology centers for dogs and cats. "
+    "Free search with no registration, email or paywall."
 )
 
 
@@ -172,7 +172,7 @@ def add_structured_data(text: str, path: str) -> str:
                     "url": f"{SITE}/",
                     "name": "Vet Trial Finder",
                     "alternateName": ["VetTrialFinder", "vettrialfinder.com"],
-                    "description": "Free finder for cancer clinical trials and treatment options for dogs and cats.",
+                    "description": "Free search for veterinary cancer clinical trials, oncology centers and other treatment options for dogs and cats.",
                 },
                 {
                     "@type": "Organization",
