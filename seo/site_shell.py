@@ -54,7 +54,7 @@ def wrap_html(text:str)->str:
  if 'data-website-id="20597fc4-68b1-4552-94c8-0771d1d74673"' not in text:
   text=text.replace('</head>',UMAMI_TRACKER+'</head>',1)
  if 'rel="icon"' not in text:
-  icons=f'<link rel="icon" href="{SITE}/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="{SITE}/assets/favicon-32.png"><link rel="icon" type="image/png" sizes="16x16" href="{SITE}/assets/favicon-16.png"><link rel="apple-touch-icon" sizes="180x180" href="{SITE}/assets/apple-touch-icon.png">'
+  icons=f'<link rel="icon" href="{SITE}/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="180x180" href="{SITE}/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="{SITE}/assets/favicon-32.png"><link rel="icon" type="image/png" sizes="16x16" href="{SITE}/assets/favicon-16.png"><link rel="apple-touch-icon" sizes="180x180" href="{SITE}/assets/apple-touch-icon.png">'
   text=text.replace('</head>',icons+'</head>',1)
  text=text.replace('</style>',SHELL_CSS+STATS_CSS+DESKTOP_CSS+DESKTOP_MATCH_MOBILE_CSS+ARTICLE_CSS+REGISTRY_CSS+'</style>',1)
  text=apply_navigation(text)
