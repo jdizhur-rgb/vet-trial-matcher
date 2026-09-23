@@ -86,6 +86,27 @@ if (osteosarcoma.some(row => row.trial.id === 'vt-osa-standard')) {
   throw new Error('Virginia Tech observational control appeared in treatment matching');
 }
 
+const bladder = matches(patient({cancer: 'Urothelial carcinoma'}));
+const purdueBladderIds = bladder
+  .map(row => row.trial.id)
+  .filter(id => id.startsWith('purdue-bladder') || id === 'purdue-ucc-aks701d');
+if (JSON.stringify(purdueBladderIds) !== JSON.stringify(['purdue-bladder-pdl1-vinblastine-deracoxib'])) {
+  throw new Error(`USA/Dog/Bladder expected only the current Purdue combination protocol, got ${purdueBladderIds.join(', ')}`);
+}
+
+const brain = matches(patient({cancer: 'Brain tumor'}));
+const minnesotaBrainIds = brain
+  .map(row => row.trial.id)
+  .filter(id => id.startsWith('umn-'));
+for (const expected of ['umn-glioma-zika-autologous-vax', 'umn-glioma-nanoparticle-gene']) {
+  if (!minnesotaBrainIds.includes(expected)) {
+    throw new Error(`USA/Dog/Brain Tumor did not return ${expected}`);
+  }
+}
+if (minnesotaBrainIds.includes('umn-canine-brain-tumor-program')) {
+  throw new Error('Minnesota program umbrella remained in treatment matching');
+}
+
 const blocked = {
   id: 'blocked-test',
   species: 'Dog',
@@ -99,4 +120,4 @@ if (matcher.matchTrial(blocked, patient()) !== null) {
   throw new Error('Closed enrollment record was not blocked');
 }
 
-console.log(`MATCHER_LOGIC_OK trials=${rows.length} mct=${mct.length} yasha=${yasha.length} mammary=${mammary.length} osteosarcoma=${osteosarcoma.length}`);
+console.log(`MATCHER_LOGIC_OK trials=${rows.length} mct=${mct.length} yasha=${yasha.length} mammary=${mammary.length} osteosarcoma=${osteosarcoma.length} bladder=${bladder.length} brain=${brain.length}`);
