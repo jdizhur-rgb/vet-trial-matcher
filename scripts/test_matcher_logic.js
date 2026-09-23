@@ -51,8 +51,8 @@ function patient(overrides = {}) {
 
 const matches = p => rows.map(row => matcher.matchTrial(row, p)).filter(Boolean);
 const mct = matches(patient());
-if (mct.length !== 7) {
-  throw new Error(`Mast-cell regression expected 7 matches, got ${mct.length}`);
+if (mct.length !== 4) {
+  throw new Error(`Mast-cell regression expected 4 confirmed-current matches, got ${mct.length}`);
 }
 
 const yasha = matches(patient({
@@ -79,6 +79,9 @@ if (mammary.some(row => row.trial.id === 'ncsu-liver-inspire')) {
 }
 
 const osteosarcoma = matches(patient({cancer: 'Osteosarcoma'}));
+if (!osteosarcoma.some(row => row.trial.id === 'wisc-osa-flash-radiotherapy')) {
+  throw new Error('USA/Dog/Osteosarcoma regression did not return Wisconsin FLASH radiotherapy');
+}
 if (osteosarcoma.some(row => row.trial.id === 'vt-osa-histotripsy')) {
   throw new Error('Closed Virginia Tech histotripsy cohort remained in treatment matching');
 }
@@ -105,6 +108,15 @@ for (const expected of ['umn-glioma-zika-autologous-vax', 'umn-glioma-nanopartic
 }
 if (minnesotaBrainIds.includes('umn-canine-brain-tumor-program')) {
   throw new Error('Minnesota program umbrella remained in treatment matching');
+}
+
+if (rows.some(row => row.id === 'bluepearl-hsa-paccal')) {
+  throw new Error('Completed BluePearl Paccal Vet pilot remained in treatment matching');
+}
+
+const cotc033 = rows.find(row => row.id === 'csu-cotc033-vaccine-immunity');
+if (!cotc033 || !cotc033.sites.some(site => site.state === 'MO')) {
+  throw new Error('COTC033 matcher record is missing the confirmed Missouri site');
 }
 
 const blocked = {
