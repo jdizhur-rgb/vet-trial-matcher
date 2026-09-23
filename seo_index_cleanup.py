@@ -152,11 +152,13 @@ def breadcrumbs(path: str, title: str) -> list[dict[str, str]]:
 
 
 def add_structured_data(text: str, path: str) -> str:
-    # The cancer-page renderer already emits a richer WebPage/Breadcrumb graph.
-    # Never stack a second graph on pages which own their structured data.
-    if 'type="application/ld+json"' in text:
+    # Keep richer page-owned breadcrumb graphs, but do not let an existing
+    # WebSite/Organization graph prevent other pages from receiving breadcrumbs.
+    if '"BreadcrumbList"' in text:
         return text
     if not path:
+        if f'{SITE}/#website' in text:
+            return text
         if 'property="og:site_name"' not in text:
             text = text.replace(
                 "</head>",
@@ -188,7 +190,30 @@ def add_structured_data(text: str, path: str) -> str:
             {"@type": "ListItem", "position": i, "name": crumb["name"], "item": crumb["item"]}
             for i, crumb in enumerate(breadcrumbs(path, page_title(text)), 1)
         ]
-        data = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": items}
+        breadcrumb = {"@type": "BreadcrumbList", "itemListElement": items}
+        if f'{SITE}/#website' in text:
+            data = {"@context": "https://schema.org", **breadcrumb}
+        else:
+            data = {
+                "@context": "https://schema.org",
+                "@graph": [
+                    {
+                        "@type": "WebSite",
+                        "@id": f"{SITE}/#website",
+                        "url": f"{SITE}/",
+                        "name": "Vet Trial Finder",
+                        "alternateName": ["VetTrialFinder", "vettrialfinder.com"],
+                        "publisher": {"@id": f"{SITE}/#organization"},
+                    },
+                    {
+                        "@type": "Organization",
+                        "@id": f"{SITE}/#organization",
+                        "name": "Vet Trial Finder",
+                        "url": f"{SITE}/",
+                    },
+                    breadcrumb,
+                ],
+            }
     script = '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False) + '</script>'
     return text.replace("</head>", script + "</head>", 1)
 
