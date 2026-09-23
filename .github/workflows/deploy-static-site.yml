@@ -141,11 +141,12 @@ jobs:
           assert senya.exists() and senya.stat().st_size>50000, senya.stat().st_size
           assert yasha.exists() and yasha.stat().st_size>50000, yasha.stat().st_size
           help_page=(root/'help/index.html').read_text(encoding='utf-8')
-          assert help_page.count('<details>') == 22
-          assert help_page.count('<summary>') == 22
+          assert help_page.count('<details>') == 23
+          assert help_page.count('<summary>') == 23
           assert 'class="help-section"' in help_page
           assert 'help-actions' not in help_page
-          assert '<h2>Trial centers</h2>' in help_page
+          assert '<h2>Oncology centers and trial centers</h2>' in help_page
+          assert 'How do I find an oncologist or ECT center?' in help_page
           assert 'What are Trial centers?' in help_page
           assert '<h2>Other treatments</h2>' in help_page
           assert '<h2>Centers and other treatment options</h2>' not in help_page
