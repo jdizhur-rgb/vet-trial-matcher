@@ -20,7 +20,7 @@ def generate_help_center(root: Path) -> None:
     sections = [
         ('Using Vet Trial Finder', [
             ('Where should I start?',
-             f'<p>Use <a href="{finder}">Find Trials</a> to compare one pet’s diagnosis and treatment history with current studies. Use <a href="{SITE}/cancer-types/">Cancer Types</a> to read about a diagnosis and see its current listings. Use <a href="{SITE}/centers/">Trial Centers</a> to browse hospitals connected to active opportunities. Use <a href="{SITE}/other-treatments/">Other Treatments</a> for electrochemotherapy, newer treatments and expanded-access programs.</p>'),
+             f'<p>Use <a href="{finder}">Find trials</a> to compare one pet’s diagnosis and treatment history with current studies. Use <a href="{SITE}/matcher/centers/">Find an oncologist</a> to search veterinary oncology locations by service or US ZIP code, including centers offering electrochemotherapy. Use <a href="{SITE}/cancer-types/">Cancer types</a> to read about a diagnosis and see current listings. <a href="{SITE}/centers/">Trial centers</a> lists institutions connected to treatment opportunities in our catalog. <a href="{SITE}/other-treatments/">Other treatments</a> covers selected newer treatments and expanded-access programs.</p>'),
             ('How do I use the trial finder?',
              f'<p>Open <a href="{finder}">Find Trials</a> and complete the five sections:</p><ol><li><strong>Your pet:</strong> choose dog or cat and the country or region. Add age, weight and sex if known.</li><li><strong>Diagnosis:</strong> say whether it is confirmed by pathology or cytology, suspected, or unknown, then choose the cancer type.</li><li><strong>Current disease:</strong> enter whether the tumor is still present, removed, recurrent or not currently visible. Add what you know about margins, metastases and whether the disease is localized.</li><li><strong>Treatment:</strong> record surgery, chemotherapy, immunotherapy and radiation. Medication questions appear only when they matter to possible studies.</li><li><strong>Treatment options:</strong> leave selected only the kinds of treatment you would consider, then press <em>Find potential trials</em>.</li></ol><p>The form changes with the diagnosis. Lymphoma, mast cell tumor, osteosarcoma, hemangiosarcoma and some other cancers have additional questions because those details can change eligibility.</p>'),
             ('What if I do not know an answer?',
@@ -38,7 +38,7 @@ def generate_help_center(root: Path) -> None:
             ('What information is shown in a result?',
              '<p>Each result shows the study center and title, why it may fit, facts that still need confirmation, contact details, participating sites when available, and a direct link to the official study page. Open <em>Study information</em> for the intervention, funding, recruitment status and the date we last checked the listing.</p>'),
             ('Can I save or share the results?',
-             '<p>Yes. Use <em>Copy results</em> for a text summary or <em>Save as PDF</em> for a file you can send to a veterinarian, oncologist or family member. A saved result is a snapshot; recruitment and eligibility requirements can change later.</p>'),
+             '<p>Yes. Use <em>Copy results</em> for a text summary. <em>Save / print PDF</em> opens your browser’s print dialog, where you can choose to save a PDF or print the results. A saved result is a snapshot; recruitment and eligibility requirements can change later.</p>'),
             ('What if the finder shows no matches?',
              f'<p>It means the currently verified catalog did not find a plausible study for the information entered. It does not mean that your pet has no treatment choices. Check the country, diagnosis and treatment preferences, then look at <a href="{SITE}/centers/">Trial Centers</a> and <a href="{SITE}/other-treatments/">Other Treatments</a>. A clear “no matches” is more useful than showing a study that does not fit.</p>'),
             ('Why can a trial disappear from the site?',
@@ -46,7 +46,9 @@ def generate_help_center(root: Path) -> None:
             ('What does “last verified” mean?',
              '<p>It is the most recent date we checked the listing against a source used for that record. It does not guarantee that a place is available today. The study team is always the final source for current enrollment.</p>'),
         ]),
-        ('Trial Centers', [
+        ('Oncology centers and trial centers', [
+            ('How do I find an oncologist or ECT center?',
+             f'<p>Open <a href="{SITE}/matcher/centers/">Find an oncologist</a> to search veterinary oncology locations by hospital, city or state, or enter a five-digit US ZIP code to see nearby US locations first. Use the service filter and choose <em>Electrochemotherapy</em> for ECT centers. This broader directory also includes local cancer-care clinics; a listing does not mean a board-certified oncologist or ECT is available at every location. Confirm services with the hospital.</p>'),
             ('What are Trial Centers?',
              f'<p>These are universities, veterinary teaching hospitals, specialty hospitals, research organizations and multicenter programs connected to at least one current treatment opportunity in our catalog. A center page shows the cancer types currently listed there, where visits take place when that information is available, and the active studies or treatment programs linked to that institution. It is not a directory of every veterinary oncology clinic.</p>'),
             ('How do I find the nearest trial centers?',
@@ -54,7 +56,7 @@ def generate_help_center(root: Path) -> None:
         ]),
         ('Other Treatments', [
             ('What is included under Other Treatments?',
-             f'<p><a href="{SITE}/other-treatments/">Other Treatments</a> has three routes. <strong>Electrochemotherapy</strong> searches a separate US and Canadian center list by ZIP or postal code. <strong>Advanced / Novel Treatments</strong> filters currently accessible regulated, experimental, personalized or off-label options by species, country, cancer and clinical situation. <strong>Compassionate / Expanded Access</strong> lists verified programs that may review patients outside ordinary trial enrollment. These tools do not decide whether a treatment is medically appropriate.</p>'),
+             f'<p><a href="{SITE}/other-treatments/">Other treatments</a> links to <a href="{SITE}/matcher/centers/?service=electrochemotherapy">oncology centers offering electrochemotherapy</a>, selected <strong>advanced treatments</strong> you can filter by species, region and cancer type, and <strong>expanded access</strong> programs that may review patients outside ordinary trial enrollment. These listings do not decide whether a treatment is medically appropriate.</p>'),
         ]),
         ('Contacting a study', [
             ('Does a match mean my pet is eligible?',

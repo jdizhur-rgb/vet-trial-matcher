@@ -85,7 +85,7 @@ def main() -> None:
     assert '<button class="nav-toggle"' in home
     assert '<details class="nav-shell">' not in home
 
-    matcher_routes = ("", "centers", "ect", "advanced", "expanded-access")
+    matcher_routes = ("", "centers", "advanced", "expanded-access")
     for route in matcher_routes:
         page = MATCHER / route / "index.html" if route else MATCHER / "index.html"
         html = read(page)
@@ -93,6 +93,10 @@ def main() -> None:
         assert not re.search(r'<meta name="robots" content="noindex', html, re.I), f"Production matcher is noindex: {page}"
         assert '<div class="nav-shell">' in html, f"Shared navigation missing from {page}"
         assert '<button class="nav-toggle"' in html, f"Mobile menu missing from {page}"
+
+    old_ect = read(MATCHER / "ect" / "index.html")
+    assert '<meta name="robots" content="noindex' in old_ect
+    assert 'url=https://vettrialfinder.com/matcher/centers/?service=electrochemotherapy' in old_ect
 
     registry = read(SITE / "veterinary-cancer-clinical-trials" / "index.html")
     assert "background:#315f7d" in registry, "Primary button color regressed"

@@ -56,12 +56,13 @@ def main() -> None:
             text = page.read_text(encoding="utf-8")
             text = text.replace("matcher-preview", "matcher")
             text = wrap_html(text)
-            text = re.sub(
-                r'<meta name="robots" content="noindex[^"]*">',
-                "",
-                text,
-                flags=re.IGNORECASE,
-            )
+            if page.relative_to(matcher) != Path("ect/index.html"):
+                text = re.sub(
+                    r'<meta name="robots" content="noindex[^"]*">',
+                    "",
+                    text,
+                    flags=re.IGNORECASE,
+                )
             page.write_text(text, encoding="utf-8")
 
     # Owner-facing articles generated here enter the same final indexing pass

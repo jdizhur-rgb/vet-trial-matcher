@@ -108,6 +108,8 @@ function textFilter(){{const needle=norm(q.value),service=svc.value;let count=0;
 async function zipFilter(z,mySeq){{status.textContent='Finding the nearest listed centers…';try{{const origin=await zipPoint(z);if(mySeq!==seq)return;const service=svc.value,eligible=cards.filter(c=>hasService(c,service)),us=eligible.filter(c=>c.dataset.country==='USA'),other=eligible.filter(c=>c.dataset.country!=='USA');cards.forEach(c=>c.hidden=true);us.map(c=>({{c,d:miles(origin,{{lat:+c.dataset.lat,lon:+c.dataset.lon}})}})).sort((a,b)=>a.d-b.d).forEach(x=>{{x.c.hidden=false;const p=x.c.querySelector('.distance');p.textContent='Approximately '+Math.round(x.d)+' miles';p.hidden=false;grid.appendChild(x.c)}});other.forEach(c=>{{c.hidden=false;intlGrid.appendChild(c)}});intlN.textContent=other.length;intl.hidden=!other.length;n.textContent=us.length;status.textContent=us.length?'Nearest matching US centers first from '+origin.place+', '+origin.state+'. Straight-line distance.':'No listed US centers match that service filter.'}}catch{{if(mySeq!==seq)return;reset();textFilter();status.textContent='We could not locate that ZIP code. Check the five digits or search by city, state or hospital name.'}}}}
 function run(){{const mySeq=++seq,z=zip.value.trim();if(/^\\d{{5}}$/.test(z)){{q.value='';zipFilter(z,mySeq)}}else{{reset();textFilter()}}}}
 q.addEventListener('input',()=>{{zip.value='';run()}});zip.addEventListener('input',run);svc.addEventListener('change',run);
+const initialService=new URLSearchParams(location.search).get('service');
+if(initialService&&[...svc.options].some(option=>option.value===initialService)){{svc.value=initialService;run()}}
 </script></section>'''
 
 
