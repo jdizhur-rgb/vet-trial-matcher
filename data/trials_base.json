@@ -892,11 +892,11 @@
       "Squamous cell carcinoma",
       "Other solid tumor"
     ],
-    "status": "Current oncology trial",
+    "status": "Duplicate archival record — superseded by msu-sting-cmp002-solid-tumors",
     "species": "Dog",
     "url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2",
     "contacts": "MSU Veterinary Medical Center Oncology — 517-353-5420",
-    "funding": "Ask study team; subsidies may be available.",
+    "funding": "See canonical record msu-sting-cmp002-solid-tumors for confirmed coverage.",
     "requires": {
       "confirmed": true,
       "measurable": true,
@@ -906,8 +906,8 @@
       "current_chemo": true,
       "current_steroids": true
     },
-    "notes": "Dose-escalation study of a novel STING agonist in tumor-bearing dogs. Contact MSU for tumor-specific eligibility.",
-    "verified": "2026-09-01",
+    "notes": "Archival duplicate of msu-sting-cmp002-solid-tumors. The official MSU protocol identifies the agent as CMP-002, with or without PD-1 blockade; use the canonical record for intervention, eligibility, funding and contact details.",
+    "verified": "2026-09-22",
     "study_type": "treatment",
     "sites": [
       {
@@ -917,8 +917,8 @@
         "state": "MI"
       }
     ],
-    "available_for_matching": true,
-    "status_confidence": "needs_reconfirmation",
+    "available_for_matching": false,
+    "status_confidence": "confirmed_duplicate",
     "owner_prescreen_required": true,
     "location_source": "seo/center_directory.py"
   },
@@ -4435,20 +4435,20 @@
       "Glioma"
     ],
     "title": "Canine Brain Tumor Program — current clinical trial treatment options",
-    "status": "Open and enrolling",
-    "verified": "2026-09-02",
+    "status": "Program-level information — two specific active protocols are cataloged separately",
+    "verified": "2026-09-22",
     "study_type": "treatment",
-    "status_confidence": "needs_reconfirmation",
-    "available_for_matching": true,
+    "status_confidence": "confirmed_program_record",
+    "available_for_matching": false,
     "requires": {
       "active_treatment_target": true
     },
-    "why": "The current Clinical Investigation Center roster lists the Canine Brain Tumor Program as open and enrolling; the program offers multiple clinical-trial treatment options for pet dogs with brain tumors.",
+    "why": "The current Clinical Investigation Center roster lists the Canine Brain Tumor Program as open and enrolling, but the program page resolves that umbrella into two specific active protocols already cataloged separately.",
     "intervention": "Protocol depends on tumor type/workup and current program option; may involve surgery, radiation and/or investigational therapy",
     "funding": "Protocol-specific; contact program before referral",
     "contact": "University of Minnesota Clinical Investigation Center — 612-624-2485; Canine Brain Tumor Program clinical-trials coordinator Sara Pracht",
     "url": "https://vetmed.umn.edu/canine-brain-tumor-program/about",
-    "notes": "Program-level record only. Exact active protocol and eligibility are not exposed on the public roster, so this must never be shown as Likely without coordinator confirmation.",
+    "notes": "Non-matchable program record retained for source history. Do not surface it as a third treatment option: the two current protocols are umn-glioma-zika-autologous-vax and umn-glioma-nanoparticle-gene.",
     "excludes": {},
     "owner_prescreen_required": true,
     "country": "USA",
@@ -4763,12 +4763,12 @@
     "center": "Purdue University Veterinary Hospital / Werling Comparative Oncology Research Center",
     "city": "West Lafayette",
     "state": "IN",
-    "verified": "2026-09-02",
-    "status": "Active / recruiting",
-    "status_confidence": "current",
-    "available_for_matching": true,
+    "verified": "2026-09-22",
+    "status": "Completed — initial cPD-L1 monotherapy phase",
+    "status_confidence": "confirmed_completed",
+    "available_for_matching": false,
     "contact": "Purdue Werling Comparative Oncology Research Center / Veterinary Hospital — 765-494-1107",
-    "url": "https://vet.uga.edu/research/research-labs/canine-bladder-cancer-consortium/clinical-trials/",
+    "url": "https://vet.purdue.edu/wcorc/clinical-trials/canine-urinary-bladder-cancer.php",
     "id": "purdue-bladder-pdl1",
     "cancers": [
       "Bladder cancer",
@@ -4780,25 +4780,66 @@
       "confirmed": true,
       "active_treatment_target": true
     },
-    "why": "The Canine Bladder Cancer Consortium's current active-trials page lists this Purdue immunotherapy trial as recruiting dogs.",
+    "why": "Purdue's current protocol page says the initial cPD-L1 monotherapy study is completed and that its favorable results led to the current combination protocol.",
     "intervention": "Therapeutic canine PD-L1 monoclonal antibody",
-    "funding": "Confirm protocol-specific coverage with Purdue",
-    "notes": "Current consortium page confirms active recruitment; detailed stage/prior-treatment criteria should be confirmed by Purdue before a result is upgraded beyond Possible.",
+    "funding": "Historical protocol: owners paid $300 per month; Purdue covered the remaining study-related treatment, monitoring and potential side-effect management costs at Purdue.",
+    "notes": "Historical initial phase retained for provenance. It is not independently recruiting and must not appear in matching. The current successor protocol is purdue-bladder-pdl1-vinblastine-deracoxib.",
     "excludes": {},
     "owner_prescreen_required": true,
     "country": "USA"
+  },
+  {
+    "id": "purdue-bladder-pdl1-vinblastine-deracoxib",
+    "species": "Dog",
+    "center": "Purdue University Veterinary Hospital / Werling Comparative Oncology Research Center",
+    "city": "West Lafayette",
+    "state": "IN",
+    "country": "USA",
+    "verified": "2026-09-22",
+    "status": "Actively recruiting",
+    "status_confidence": "confirmed_current",
+    "available_for_matching": true,
+    "contacts": "Lindsey Fourez, Purdue clinical trials technician — lfourez@purdue.edu; 765-494-1130",
+    "url": "https://vet.purdue.edu/wcorc/clinical-trials/canine-urinary-bladder-cancer.php",
+    "cancers": [
+      "Bladder cancer",
+      "Urothelial carcinoma",
+      "Urothelial / transitional cell carcinoma"
+    ],
+    "title": "cPD-L1 immunotherapy with vinblastine and deracoxib for canine invasive urothelial carcinoma",
+    "study_type": "treatment",
+    "requires": {
+      "confirmed": true,
+      "active_treatment_target": true,
+      "serum_creatinine_lte_2": true,
+      "prior_chemo": false,
+      "prior_radiation": false
+    },
+    "excludes": {
+      "librela": true,
+      "cytopoint": true,
+      "current_supplements": true
+    },
+    "why": "Purdue lists one current urinary-bladder-cancer study: a three-arm, no-placebo protocol testing the sequence of cPD-L1 antibody, vinblastine and deracoxib.",
+    "intervention": "cPD-L1 monoclonal antibody, vinblastine and deracoxib in one of three treatment sequences; all dogs receive all three drugs",
+    "funding": "🟡 Partially funded. Owners pay $300 per Purdue study visit; the study covers the remaining Purdue costs for cancer treatment, response monitoring and management of potential treatment side effects.",
+    "funding_status": "Partially funded",
+    "funding_source": "https://vet.purdue.edu/wcorc/clinical-trials/canine-urinary-bladder-cancer.php",
+    "funding_verified": "2026-09-22",
+    "notes": "Good general health and creatinine ≤2.0 mg/dL required. Biopsy-confirmed InvUC or a strongly suspicious bladder/urethral mass may enter for confirmation during the study. No prior chemotherapy or radiation. Prior NSAIDs require a 5–14 day washout; supplements require a 2-week washout. Librela and Cytopoint are not allowed. Initial enrollment is a 2-day Purdue visit with staging and cystoscopy; all IV treatments must be given at Purdue.",
+    "owner_prescreen_required": true
   },
   {
     "species": "Dog",
     "center": "Purdue University Veterinary Hospital / Werling Comparative Oncology Research Center",
     "city": "West Lafayette",
     "state": "IN",
-    "verified": "2026-09-02",
-    "status": "Active / recruiting",
-    "status_confidence": "current",
-    "available_for_matching": true,
+    "verified": "2026-09-22",
+    "status": "Completed — enitociclib/CDK9 inhibitor phase",
+    "status_confidence": "confirmed_completed",
+    "available_for_matching": false,
     "contact": "Purdue Werling Comparative Oncology Research Center / Veterinary Hospital — 765-494-1107",
-    "url": "https://vet.uga.edu/research/research-labs/canine-bladder-cancer-consortium/clinical-trials/",
+    "url": "https://vet.purdue.edu/wcorc/clinical-trials/canine-urinary-bladder-cancer.php",
     "id": "purdue-bladder-cdk9",
     "cancers": [
       "Bladder cancer",
@@ -4810,10 +4851,10 @@
       "confirmed": true,
       "active_treatment_target": true
     },
-    "why": "The Canine Bladder Cancer Consortium's current active-trials page lists a Purdue CDK9-inhibitor bladder-cancer trial as recruiting.",
-    "intervention": "Investigational CDK9 inhibitor",
-    "funding": "Confirm protocol-specific coverage with Purdue",
-    "notes": "Current consortium page confirms active recruitment; detailed eligibility is not exposed on the consortium landing page, so individual matches remain Possible pending coordinator prescreen.",
+    "why": "Purdue's current urinary-bladder-cancer page explicitly marks the enitociclib/CDK9 inhibitor trial completed.",
+    "intervention": "Investigational CDK9 inhibitor enitociclib",
+    "funding": "Historical protocol: all trial diagnostics, treatments and follow-up care provided at Purdue were covered while the dog was enrolled and receiving enitociclib.",
+    "notes": "Historical completed protocol retained for provenance. It is not part of the current cPD-L1 plus vinblastine plus deracoxib study and must not appear in matching.",
     "excludes": {},
     "owner_prescreen_required": true,
     "country": "USA"
@@ -7304,10 +7345,10 @@
       "Urothelial / transitional cell carcinoma",
       "Urothelial carcinoma"
     ],
-    "status": "Enrollment ongoing in 2026",
-    "url": "https://cancer.research.purdue.edu/research/veterinary-medicine/",
+    "status": "Completed — same initial cPD-L1 monotherapy protocol as purdue-bladder-pdl1",
+    "url": "https://vet.purdue.edu/wcorc/clinical-trials/canine-urinary-bladder-cancer.php",
     "contacts": "Purdue Werling Comparative Oncology Research Center / Veterinary Hospital — 765-494-1107",
-    "funding": "NCI-funded research; owner-level covered costs are not publicly specified, so confirm with Purdue.",
+    "funding": "Historical protocol: owners paid $300 per month; Purdue covered the remaining study-related costs at Purdue.",
     "requires": {
       "confirmed": true,
       "active_treatment_target": true,
@@ -7319,14 +7360,14 @@
     "excludes": {
       "high_urethral_obstruction_risk": true
     },
-    "notes": "NCI-funded Purdue-directed exploratory treatment trial of the caninized anti-PD-L1 monoclonal antibody AKS-701d in client-owned dogs with histopathologically confirmed invasive urothelial carcinoma. Public 2026 development disclosures state enrollment is ongoing; Purdue's current cancer-research page identifies the anti-cPD-L1 bladder-cancer trial as active research.",
-    "verified": "2026-09-05",
+    "notes": "Historical sponsor/product-name record for the initial cPD-L1 monotherapy phase also represented by purdue-bladder-pdl1. Purdue now marks that phase completed. Retained for provenance only; the recruiting successor is purdue-bladder-pdl1-vinblastine-deracoxib.",
+    "verified": "2026-09-22",
     "study_type": "treatment",
-    "available_for_matching": true,
-    "status_confidence": "confirmed_current",
+    "available_for_matching": false,
+    "status_confidence": "confirmed_completed_duplicate",
     "owner_prescreen_required": true,
     "contact_source": "verified institution fallback",
-    "funding_status": "Not specified"
+    "funding_status": "Historical partially funded"
   },
   {
     "id": "castr-vrcco-sts-tcell-engager",
@@ -9371,8 +9412,8 @@
       "recent_anticancer_treatment_7d": true,
       "indolent_lymphoma": true
     },
-    "notes": "MSU dose-escalation treatment study for tumor-bearing dogs using CMP-002 alone or with PD-1 blockade. Public criteria require a visible tumor, adequate organ function, minimum 5 kg body weight, and no anticancer treatment including steroids within 7 days.",
-    "verified": "2026-09-19",
+    "notes": "MSU dose-escalation treatment study for tumor-bearing dogs using CMP-002 alone or with PD-1 blockade. Public criteria require one of five confirmed diagnoses (soft tissue sarcoma, lymphoma, osteosarcoma, histiocytic sarcoma or malignant melanoma), a visible tumor, adequate organ function, minimum 5 kg body weight, expected survival of at least 4 weeks with treatment, and no anticancer treatment including steroids within 7 days.",
+    "verified": "2026-09-22",
     "status_confidence": "confirmed_current",
     "owner_prescreen_required": true
   },
