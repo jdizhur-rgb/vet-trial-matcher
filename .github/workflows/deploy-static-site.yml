@@ -97,7 +97,7 @@ jobs:
           assert all('/uk-europe/' not in url for url in sitemap.split('<loc>')[1:])
           assert not (root/'uk-europe').exists()
           assert not any((root/lang).exists() for lang in ('de','fr','es','it','nl'))
-          assert '"@type": "WebSite"' in home and '"@type": "Organization"' in home
+          assert '"@type":"WebSite"' in home and '"@type":"Organization"' in home
           assert 'BreadcrumbList' in (root/'north-america/dogs/lymphoma/index.html').read_text(encoding='utf-8')
           assert (root/'404.html').exists()
           verification=(root/'how-we-verify/index.html').read_text(encoding='utf-8')
