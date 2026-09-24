@@ -10,6 +10,11 @@ st.set_page_config(
     layout="centered",
 )
 
+st.markdown(
+    f'<meta http-equiv="refresh" content="0; url={MATCHER_URL}">',
+    unsafe_allow_html=True,
+)
+
 # The legacy Streamlit address is still present in old posts and search results.
 # Send those visitors to the permanent matcher without maintaining two public
 # versions of the tool. The visible link remains as a fallback for browsers
