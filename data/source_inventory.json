@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-09-23",
+  "updated": "2026-09-24",
   "description": "Persistent discovery inventory for veterinary oncology treatment trials. Every source is checked daily; newly discovered official source pages are added even when their current lead is a duplicate, closed, ineligible or unresolved.",
   "sources": [
     {
@@ -420,6 +420,54 @@
       "last_checked": "2026-09-23",
       "last_result": "unchanged",
       "content_fingerprint": null
+    },
+    {
+      "id": "usa-kansas-state-vhc-oncology",
+      "name": "Kansas State Veterinary Health Center Oncology Service",
+      "country": "USA",
+      "source_type": "university",
+      "master_url": "https://www.ksvhc.org/services/specialty-services/oncology/",
+      "required_cadence": "daily",
+      "last_checked": "2026-09-24",
+      "last_result": "unchanged",
+      "content_fingerprint": null,
+      "notes": "Current oncology source review produced 0 owner-eligible treatment-trial records for the matcher."
+    },
+    {
+      "id": "usa-sage-veterinary-clinical-trials",
+      "name": "SAGE Veterinary Centers Clinical Trials",
+      "country": "USA",
+      "source_type": "specialty_network",
+      "master_url": "https://www.sagecenters.com/clinical-trials",
+      "required_cadence": "daily",
+      "last_checked": "2026-09-24",
+      "last_result": "partial",
+      "content_fingerprint": null,
+      "notes": "Current page contains stale or otherwise ineligible trial links; no new matchable trial record was created."
+    },
+    {
+      "id": "usa-petcure-oncology-clinical-trials",
+      "name": "PetCure Oncology Clinical Trials",
+      "country": "USA",
+      "source_type": "specialty_network",
+      "master_url": "https://petcureoncology.com/clinical-trials/",
+      "required_cadence": "daily",
+      "last_checked": "2026-09-24",
+      "last_result": "unchanged",
+      "content_fingerprint": null,
+      "notes": "Official page states that no active clinical trials are currently recruiting pets in the PetCure Oncology network."
+    },
+    {
+      "id": "usa-amcny-current-clinical-trials",
+      "name": "Schwarzman Animal Medical Center Clinical Trials",
+      "country": "USA",
+      "source_type": "hospital_program",
+      "master_url": "https://www.amcny.org/current-clinical-trials/",
+      "required_cadence": "daily",
+      "last_checked": "2026-09-24",
+      "last_result": "partial",
+      "content_fingerprint": null,
+      "notes": "Current-trials roster is reachable, but oncology treatment-trial eligibility and owner access remain unresolved; no new trial record was created."
     }
   ]
 }

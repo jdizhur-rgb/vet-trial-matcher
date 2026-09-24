@@ -810,7 +810,7 @@
     "species": "Dog",
     "url": "https://vet.tufts.edu/clinical-trials/optimizing-integration-veterinary-clinical-research-findings-human-health-systems-improve-strategies-early-detection-and",
     "contacts": "Tufts Clinical Trials Office — clinicaltrials@tufts.edu",
-    "funding": "🟡 Partially funded. The study provides up to $5,000 toward study treatment and supplies the study oral inhibitors at no cost.",
+    "funding": "🟡 Partially funded. All HSA treatment costs are covered up to $5,000; oral small-molecule inhibitors and care for treatment-related side effects are provided at no cost. A splenectomy performed at Tufts Foster Hospital qualifies for a $1,500 reimbursement only after histopathologic confirmation of HSA and confirmed trial enrollment.",
     "requires": {
       "confirmed": true,
       "no_metastasis": true,
@@ -821,8 +821,8 @@
       "post_splenectomy": true
     },
     "excludes": {},
-    "notes": "Splenic hemangiosarcoma without obvious spread; dogs cannot have received prior HSA treatment. Recent splenectomy elsewhere may be accepted after pathology confirmation.",
-    "verified": "2026-09-02",
+    "notes": "Dogs must weigh at least 10 kg, have splenic HSA without obvious spread beyond the spleen, have no serious heart, lung, kidney or liver disease, and have received no prior HSA treatment. Recent splenectomy elsewhere may be accepted after histopathology confirmation. Protocol combines doxorubicin with mutation-guided oral small-molecule inhibitors and serial liquid-biopsy/CT monitoring.",
+    "verified": "2026-09-24",
     "study_type": "treatment",
     "sites": [
       {
@@ -2503,28 +2503,29 @@
     "broad_disease_families": [
       "solid_tumor"
     ],
-    "title": "Subcutaneous canine anti-PD-L1 immunotherapy for metastatic cancer",
+    "title": "CAALM: UCD-PDL1 immunotherapy for oral melanoma metastatic to lung",
     "center": "UC Davis Veterinary Center for Clinical Trials",
     "country": "USA",
     "cancers": [
-      "Other solid tumor",
-      "Osteosarcoma",
-      "Oral melanoma",
-      "Melanoma — other",
-      "Soft tissue sarcoma",
-      "Spindle cell sarcoma"
+      "Oral melanoma"
     ],
-    "status": "Active clinical immunotherapy study",
+    "status": "Active - Recruiting",
     "species": "Dog",
-    "url": "https://ccah.vetmed.ucdavis.edu/ccah-newsletter/spring-2026/cover-story",
-    "contacts": "UC Davis VCCT — clinical trials team · 530-754-1954",
-    "funding": "Contact study team.",
+    "url": "https://studypages.com/s/innovative-immunotherapy-for-canine-lung-metastases-the-caalm-study-276511/",
+    "contacts": "UC Davis VCCT — vcct@ucdavis.edu; 530-754-1954",
+    "funding": "🟢 Study-supported. UCD-PDL1 treatments, required diagnostics and imaging, and management of study-related adverse events up to $2,000 are covered; owners pay pre-enrollment consultation and eligibility diagnostics.",
     "requires": {
       "confirmed": true,
-      "metastatic": true
+      "metastatic": true,
+      "min_weight_kg": 15,
+      "max_weight_kg": 36,
+      "min_expected_survival_weeks": 4,
+      "active_treatment_target": true
     },
-    "excludes": {},
-    "notes": "UC Davis reported in Spring 2026 that four additional dogs were actively being enrolled for subcutaneous canine PD-L1 antibody treatment. UC Davis published a fresh Aug 2026 feature on dogs treated in this canine PD-L1 antibody trial; Spring 2026 recruitment update stated four additional dogs were being enrolled.",
+    "excludes": {
+      "prior_checkpoint_inhibitor": true
+    },
+    "notes": "Protocol VCCT-24-012 enrolls dogs with cytology- or biopsy-confirmed oral melanoma and at least one lung nodule consistent with metastasis. Dogs receive up to six biweekly UCD-PDL1 antibody treatments over 98 days. Recent chemotherapy, immunotherapy or corticosteroids within two weeks and uncontrolled comorbidity may exclude enrollment.",
     "sites": [
       {
         "hospital": "UC Davis Veterinary Medical Teaching Hospital",
@@ -2533,12 +2534,14 @@
         "name": "UC Davis Veterinary Medical Teaching Hospital"
       }
     ],
-    "verified": "2026-09-02",
+    "verified": "2026-09-24",
     "study_type": "treatment",
     "available_for_matching": true,
-    "status_confidence": "current",
-    "contact": "UC Davis Veterinary Center for Clinical Trials — 530-754-1954",
-    "owner_prescreen_required": true
+    "status_confidence": "confirmed_current",
+    "contact": "UC Davis Veterinary Center for Clinical Trials — vcct@ucdavis.edu; 530-754-1954",
+    "owner_prescreen_required": true,
+    "funding_status": "Study-supported",
+    "registry_url": "https://studypages.com/s/innovative-immunotherapy-for-canine-lung-metastases-the-caalm-study-276511/"
   },
   {
     "id": "ucd-liver-rna",
@@ -2549,7 +2552,7 @@
       "Hepatocellular carcinoma",
       "Other liver tumor"
     ],
-    "status": "Active - Recruiting",
+    "status": "Enrollment unresolved — no corresponding RNA/microbubble protocol was present among the 13 current UC Davis cancer StudyPages cards",
     "species": "Dog",
     "url": "https://clinicaltrials.vetmed.ucdavis.edu/",
     "contacts": "UC Davis Veterinary Center for Clinical Trials — 530-754-1954",
@@ -2559,7 +2562,7 @@
       "measurable": true
     },
     "excludes": {},
-    "notes": "Active-recruiting UC Davis study evaluating IV microbubbles/nanoparticles containing RNA for liver tumors.",
+    "notes": "Historical UC Davis lead evaluating IV microbubbles/nanoparticles containing RNA for liver tumors. The 2026-09-24 StudyPages audit found two different active liver protocols, TAE and TACE, both led by Bill Culp; neither describes RNA or microbubble therapy. The record is retained for history but is not matchable without current protocol-level owner access.",
     "sites": [
       {
         "hospital": "UC Davis Veterinary Medical Teaching Hospital",
@@ -2568,10 +2571,10 @@
         "name": "UC Davis Veterinary Medical Teaching Hospital"
       }
     ],
-    "verified": "2026-09-01",
+    "verified": "2026-09-24",
     "study_type": "treatment",
-    "available_for_matching": true,
-    "status_confidence": "current"
+    "available_for_matching": false,
+    "status_confidence": "needs_reconfirmation"
   },
   {
     "id": "ucd-oral-margin",
@@ -2586,15 +2589,17 @@
     ],
     "status": "Active - Recruiting",
     "species": "Dog",
-    "url": "https://clinicaltrials.vetmed.ucdavis.edu/",
-    "contacts": "UC Davis Veterinary Center for Clinical Trials — 530-754-1954",
-    "funding": "🟡 Partially funded — AVMA lists expected owner cost over $1,000.",
+    "url": "https://studypages.com/s/fluorescence-imaging-with-pdl1-irdye800-to-guide-surgical-treatment-of-oral-cancer-in-dogs-679907/",
+    "contacts": "UC Davis VCCT — vcct@ucdavis.edu; 530-754-1954",
+    "funding": "🟡 Partially funded. The study covers the pre-operative biopsy and additional hospitalization time and provides a $1,500 incentive toward therapy; owners pay screening, oral-tumor workup and treatment costs beyond that incentive.",
     "requires": {
       "confirmed": true,
-      "active_treatment_target": true
+      "active_treatment_target": true,
+      "min_age_years": 1,
+      "anesthesia_eligible": true
     },
     "excludes": {},
-    "notes": "UC Davis intraoperative surgical-margin imaging study. Registry study VCCT-26-008 specifies anti-PDL1-IRDye800 given before near-infrared imaging and repeat biopsy or curative-intent surgery for canine oral SCC or malignant melanoma. The existing UC Davis oral-margin record is retained as the canonical record to avoid a duplicate card; full eligibility requires UC Davis prescreening.",
+    "notes": "Protocol VCCT-26-008 enrolls dogs over one year old with confirmed oral SCC or oral malignant melanoma that are healthy enough for anesthesia and repeated visits. Anti-PDL1-IRDye800 is administered IV twice before near-infrared imaging at 8, 24 and 48 hours and repeat biopsy or curative-intent surgery. Recruitment period: 2026-06-30 through 2028-06-29.",
     "sites": [
       {
         "hospital": "UC Davis Veterinary Medical Teaching Hospital",
@@ -2603,16 +2608,16 @@
         "name": "UC Davis Veterinary Medical Teaching Hospital"
       }
     ],
-    "verified": "2026-09-01",
+    "verified": "2026-09-24",
     "study_type": "treatment",
     "available_for_matching": true,
-    "status_confidence": "current",
+    "status_confidence": "confirmed_current",
     "owner_prescreen_required": true,
-    "funding_source": "https://veterinaryclinicaltrials.org/investigator/ca8c7953eb7e4634b06da9b50e27979f/",
-    "funding_verified": "2026-09-09",
+    "funding_source": "https://studypages.com/s/fluorescence-imaging-with-pdl1-irdye800-to-guide-surgical-treatment-of-oral-cancer-in-dogs-679907/",
+    "funding_verified": "2026-09-24",
     "funding_status": "Partially funded",
     "registry_url": "https://veterinaryclinicaltrials.org/s/combinatorial-imaging-with-pdl1-irdye800-to-guide-surgical-treatment-of-oral-cancer-738092/",
-    "registry_url_verified": "2026-09-09"
+    "registry_url_verified": "2026-09-24"
   },
   {
     "id": "ucd-prostate-liquid-treatment",
@@ -2622,17 +2627,17 @@
     "cancers": [
       "Prostate cancer"
     ],
-    "status": "Active - Recruiting",
+    "status": "StudyPages conflict — card is labeled active, but its stated recruitment period ended 2019-01-08 and it provides sampling only",
     "species": "Dog",
-    "url": "https://clinicaltrials.vetmed.ucdavis.edu/",
-    "contacts": "UC Davis Veterinary Center for Clinical Trials — 530-754-1954",
-    "funding": "Contact study team.",
+    "url": "https://studypages.com/s/looking-at-a-new-treatment-and-assessing-the-outcome-through-blood-and-urine-in-dogs-with-prostate-cancer-932892/",
+    "contacts": "Dr. Bill Culp — wculp@ucdavis.edu; 530-752-1393",
+    "funding": "Blood and urine sampling is covered; the protocol does not state that prostate embolization treatment is study-funded.",
     "requires": {
       "confirmed": true,
       "active_treatment_target": true
     },
     "excludes": {},
-    "notes": "Active-recruiting UC Davis prostate-cancer treatment study incorporating blood and urine research sampling.",
+    "notes": "Protocol AAHSD000039 collects blood and urine before and after owner-elected prostatic artery embolization; it does not itself provide the anticancer treatment. The page is labeled Active - Recruiting but states a recruitment period from 2017-01-08 to 2019-01-08. Retained as a nonmatchable research record pending owner confirmation.",
     "sites": [
       {
         "hospital": "UC Davis Veterinary Medical Teaching Hospital",
@@ -2641,10 +2646,10 @@
         "name": "UC Davis Veterinary Medical Teaching Hospital"
       }
     ],
-    "verified": "2026-09-01",
-    "study_type": "treatment",
-    "available_for_matching": true,
-    "status_confidence": "current",
+    "verified": "2026-09-24",
+    "study_type": "observational",
+    "available_for_matching": false,
+    "status_confidence": "conflicting_sources",
     "owner_prescreen_required": true
   },
   {
@@ -2658,14 +2663,14 @@
     ],
     "status": "Active - Recruiting",
     "species": "Dog",
-    "url": "https://clinicaltrials.vetmed.ucdavis.edu/",
+    "url": "https://studypages.com/s/surgical-technique-to-place-urethral-stents-in-dogs-with-prostate-bladder-andor-urethra-tumors-578213/",
     "contacts": "UC Davis Veterinary Center for Clinical Trials — 530-754-1954",
     "funding": "Contact study team.",
     "requires": {
       "confirmed": true
     },
     "excludes": {},
-    "notes": "Active-recruiting procedural study for dogs with obstruction caused by prostate, bladder and/or urethral tumors.",
+    "notes": "Active-recruiting procedural study led by Bill Culp for dogs with obstruction caused by prostate, bladder and/or urethral tumors. It evaluates transrectal-ultrasound guidance for urethral-stent placement and remains nonmatchable because it is supportive obstruction management rather than anticancer treatment.",
     "study_type": "supportive",
     "sites": [
       {
@@ -2675,7 +2680,7 @@
         "name": "UC Davis Veterinary Medical Teaching Hospital"
       }
     ],
-    "verified": "2026-09-01",
+    "verified": "2026-09-24",
     "available_for_matching": false,
     "status_confidence": "current"
   },
@@ -2689,7 +2694,7 @@
     ],
     "status": "Active - Recruiting",
     "species": "Dog",
-    "url": "https://clinicaltrials.vetmed.ucdavis.edu/",
+    "url": "https://studypages.com/s/characterization-of-naturally-occurring-osteosarcoma-in-dogs-765697/",
     "contacts": "UC Davis Veterinary Center for Clinical Trials — 530-754-1954",
     "funding": "Contact study team.",
     "requires": {
@@ -2697,7 +2702,7 @@
       "no_metastasis": true
     },
     "excludes": {},
-    "notes": "Active-recruiting study following dogs treated palliatively with standard amputation without chemotherapy.",
+    "notes": "Active-recruiting North American cohort following up to 120 dogs treated palliatively with standard amputation without chemotherapy. The record remains nonmatchable because the protocol characterizes outcomes after an owner-elected standard procedure and does not provide an experimental anticancer intervention.",
     "study_type": "observational",
     "sites": [
       {
@@ -2707,7 +2712,7 @@
         "name": "UC Davis Veterinary Medical Teaching Hospital"
       }
     ],
-    "verified": "2026-09-01",
+    "verified": "2026-09-24",
     "available_for_matching": false,
     "status_confidence": "current"
   },
@@ -6946,13 +6951,21 @@
     "status": "Actively recruiting — confirmed on the institution’s current clinical-trials page",
     "url": "https://vet.tufts.edu/clinical-trials/treatment-canine-soft-tissue-sarcoma-fap-car-t-cells",
     "contacts": "clinicaltrials@tufts.edu",
-    "funding": "Confirm current study-covered and owner-paid costs with the study team.",
+    "funding": "🟡 Partially funded. The study covers FAP CAR-T cancer treatment through Day 56, provides $2,000 toward tumor removal, and covers treatment of side effects related to biopsy, cyclophosphamide and FAP CAR-T administration; unrelated care is owner-paid.",
     "requires": {
-      "active_treatment_target": true
+      "active_treatment_target": true,
+      "min_tumor_cm": 2,
+      "max_tumor_cm": 8,
+      "min_weight_kg": 11,
+      "chemo_washout_days": 14
     },
-    "excludes": {},
-    "notes": "Recruiting interventional cellular-immunotherapy study targeting fibroblast activation protein in canine soft tissue sarcoma.",
-    "verified": "2026-09-05",
+    "excludes": {
+      "pregnant_or_lactating": true,
+      "autoimmune_disease": true,
+      "prior_checkpoint_inhibitor": true
+    },
+    "notes": "Dogs need a 2-8 cm soft tissue sarcoma, resectable or non-resectable, adequate CBC/chemistry/urinalysis and no incompatible major heart, liver or kidney disease. Untreated tumors and recurrent tumors after chemotherapy and/or radiation may qualify; chemotherapy must have ended at least 14 days before enrollment. Excludes metastatic disease predicting survival under three months, concurrent experimental cancer therapy, pregnancy/lactation, autoimmune disease other than atopic dermatitis, prior monoclonal checkpoint inhibitor such as gilvetmab, or personalized T-cell vaccine/immunotherapy.",
+    "verified": "2026-09-24",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",
@@ -6964,9 +6977,18 @@
         "name": "Tufts University Cummings School of Veterinary Medicine",
         "city": "North Grafton",
         "state": "MA"
+      },
+      {
+        "hospital": "UC Davis Veterinary Medical Teaching Hospital",
+        "name": "UC Davis School of Veterinary Medicine",
+        "city": "Davis",
+        "state": "CA",
+        "url": "https://studypages.com/s/treatment-of-canine-sarcoma-with-fap-car-t-cells-fap-car-t-study-621016/",
+        "contact": "UC Davis VCCT — vcct@ucdavis.edu; 530-754-1954"
       }
     ],
-    "location_source": "seo/center_directory.py"
+    "location_source": "official Tufts and UC Davis protocol pages",
+    "funding_status": "Partially funded"
   },
   {
     "id": "tufts-met-osa-vaccine-tme",
@@ -7332,7 +7354,7 @@
       "Squamous cell carcinoma",
       "Squamous cell carcinoma — other"
     ],
-    "status": "Actively recruiting — confirmed on the institution’s current clinical-trials page",
+    "status": "Enrollment unresolved — absent from LSU current trials and no current owner-accessible protocol was located",
     "url": "https://www.lsu.edu/vetmed/veterinary_hospital/clinical_trials.php",
     "contacts": "See official study page for current study contact and prescreening instructions",
     "funding": "Treatment is free and the study provides a $400 gift card upon completion.",
@@ -7348,11 +7370,11 @@
       "prior_immunotherapy": true,
       "prior_local_radiation": true
     },
-    "notes": "Direct intratumoral chemotherapy for confirmed non-metastatic SCC; lesion must be greater than 1 cm; no prior radiation, immunotherapy or chemotherapy.",
-    "verified": "2026-09-05",
+    "notes": "Historical direct intratumoral chemotherapy protocol for confirmed non-metastatic SCC; lesion greater than 1 cm; no prior radiation, immunotherapy or chemotherapy. The LSU current-trials page no longer lists it, and the 2026-09-24 reconciliation did not locate a current AVMA or owner-accessible protocol page proving active enrollment. Disappearance alone is not treated as proof of completion, so the record is retained with unresolved status but removed from matching.",
+    "verified": "2026-09-24",
     "study_type": "treatment",
-    "available_for_matching": true,
-    "status_confidence": "confirmed_current",
+    "available_for_matching": false,
+    "status_confidence": "needs_reconfirmation",
     "owner_prescreen_required": true,
     "sites": [
       {
@@ -8260,7 +8282,7 @@
       "Brain tumor — glioma"
     ],
     "status": "Actively recruiting — UC Davis recruitment announcement published September 3, 2026",
-    "url": "https://www.vetmed.ucdavis.edu/news/clinical-trials-dogs-glioma-brain-tumors",
+    "url": "https://studypages.com/s/care-trial-combined-autophagy-inhibition-and-radiation-therapy-to-improve-efficacy-in-canine-glioma-353022/",
     "contacts": "UC Davis Veterinary Center for Clinical Trials — (530) 754-1954; contact Dr. Christine Toedebusch / study team via the official UC Davis page",
     "funding": "🟡 Partially funded. All study procedures are covered and the study provides $4,000 toward radiation therapy; owners remain responsible for radiation costs beyond the study contribution.",
     "requires": {
@@ -8271,7 +8293,7 @@
     },
     "excludes": {},
     "notes": "Combined Autophagy inhibition and Radiation to improve Efficacy in canine glioma (CARE). Dogs receive an experimental IV autophagy-inhibiting drug twice weekly for four weeks concurrently with standard radiation therapy, with brain-tumor biopsy before and after treatment. Current UC Davis materials state dogs with MRI-suspected glioma may be screened; final eligibility is determined by the neuro-oncology team.",
-    "verified": "2026-09-06",
+    "verified": "2026-09-24",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",
@@ -9972,6 +9994,126 @@
       }
     ],
     "verified": "2026-09-20",
+    "study_type": "treatment",
+    "available_for_matching": true,
+    "status_confidence": "confirmed_current",
+    "owner_prescreen_required": true
+  },
+  {
+    "id": "ucd-nasal-chemo-radiation",
+    "title": "Radiation with or without intra-arterial chemotherapy for canine nasal cancer",
+    "center": "UC Davis Veterinary Medical Teaching Hospital",
+    "country": "USA",
+    "state": "California",
+    "species": "Dog",
+    "cancers": [
+      "Nasal tumor / nasal cancer",
+      "Sinonasal carcinoma"
+    ],
+    "status": "Active - Recruiting",
+    "url": "https://studypages.com/s/using-a-combination-of-therapies-for-treatment-of-nasal-cancer-in-dogs-217934/",
+    "contacts": "Dr. Bill Culp — wculp@ucdavis.edu; 530-752-1393",
+    "funding": "🟡 Partially funded. The study pays for CT scans, chemotherapy administration and part of radiation therapy.",
+    "funding_status": "Partially funded",
+    "requires": {
+      "confirmed": true,
+      "active_treatment_target": true,
+      "radiation_therapy": true
+    },
+    "excludes": {},
+    "notes": "Prospective protocol AAHSD000037 for dogs diagnosed with nasal tumors that are scheduled for radiation therapy. Dogs receive radiation alone or radiation plus intra-arterial chemotherapy; CT response is assessed before treatment and four weeks after treatment begins. Four study visits are described over six months.",
+    "intervention": "Radiation therapy alone or combined with intra-arterial chemotherapy",
+    "sites": [
+      {
+        "hospital": "UC Davis Veterinary Medical Teaching Hospital",
+        "name": "UC Davis School of Veterinary Medicine",
+        "city": "Davis",
+        "state": "CA"
+      }
+    ],
+    "verified": "2026-09-24",
+    "study_type": "treatment",
+    "available_for_matching": true,
+    "status_confidence": "confirmed_current",
+    "owner_prescreen_required": true
+  },
+  {
+    "id": "ucd-nasal-tae",
+    "title": "Transarterial embolization for canine nasal tumors",
+    "center": "UC Davis Veterinary Medical Teaching Hospital",
+    "country": "USA",
+    "state": "California",
+    "species": "Dog",
+    "cancers": [
+      "Nasal tumor / nasal cancer",
+      "Sinonasal carcinoma"
+    ],
+    "status": "Active - Recruiting",
+    "url": "https://studypages.com/s/novel-treatment-for-nasal-tumors-320455/",
+    "contacts": "Dr. William Culp — wculp@ucdavis.edu; 530-752-1393",
+    "funding": "🟡 Partially funded. The study covers two PET/CT scans and associated anesthesia; owners pay for TAE, the eligibility CT if the dog cannot enroll, and treatment of complications.",
+    "funding_status": "Partially funded",
+    "requires": {
+      "confirmed": true,
+      "active_treatment_target": true,
+      "ct_screening": true
+    },
+    "excludes": {
+      "adjacent_structure_invasion": true
+    },
+    "notes": "Dogs with diagnosed nasal cancer undergo transarterial embolization and PET/CT before and about one month after TAE. CT evidence of invasion into adjacent structures may prevent enrollment. Study duration is approximately four to five weeks.",
+    "intervention": "Transarterial embolization of the arterial supply to the nasal tumor",
+    "sites": [
+      {
+        "hospital": "UC Davis Veterinary Medical Teaching Hospital",
+        "name": "UC Davis School of Veterinary Medicine",
+        "city": "Davis",
+        "state": "CA"
+      }
+    ],
+    "verified": "2026-09-24",
+    "study_type": "treatment",
+    "available_for_matching": true,
+    "status_confidence": "confirmed_current",
+    "owner_prescreen_required": true
+  },
+  {
+    "id": "ucd-liver-tae-tace",
+    "title": "Transarterial embolization or chemoembolization for non-resectable canine liver tumors",
+    "center": "UC Davis Veterinary Medical Teaching Hospital",
+    "country": "USA",
+    "state": "California",
+    "species": "Dog",
+    "cancers": [
+      "Hepatocellular carcinoma",
+      "Other liver tumor"
+    ],
+    "status": "Active - Recruiting",
+    "url": "https://studypages.com/s/assessing-a-new-technique-to-shrink-liver-tumors-in-dogs-468706/",
+    "contacts": "Dr. Bill Culp — wculp@ucdavis.edu; 530-752-1393",
+    "funding": "🟡 Partially funded. The study covers study exams, diagnostic tests and CT scans; owners pay for the TAE/TACE procedure and treatment of procedure-related complications.",
+    "funding_status": "Partially funded",
+    "requires": {
+      "confirmed": true,
+      "active_treatment_target": true,
+      "nonresectable_or_high_surgical_risk": true,
+      "anesthesia_eligible": true
+    },
+    "excludes": {
+      "significant_other_organ_disease": true
+    },
+    "notes": "Canonical multi-arm record for UC Davis protocol VCCT-22-005. StudyPages publishes separate current cards for Arm 1 TAE (IACUC 21290/24645) and Arm 2 TACE with a novel treatment agent (IACUC 21290). Both enroll dogs with non-removable or high-surgical-risk liver cancer and are led by Bill Culp. This record intentionally combines the arms to avoid a semantic duplicate.",
+    "intervention": "Transarterial embolization (TAE) or transarterial chemoembolization (TACE), with CT-based response assessment about four weeks later",
+    "registry_url": "https://studypages.com/s/using-a-new-technique-to-shrink-liver-tumors-in-dogs-539845/",
+    "sites": [
+      {
+        "hospital": "UC Davis Veterinary Medical Teaching Hospital",
+        "name": "UC Davis School of Veterinary Medicine",
+        "city": "Davis",
+        "state": "CA"
+      }
+    ],
+    "verified": "2026-09-24",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",

@@ -110,6 +110,41 @@ if (minnesotaBrainIds.includes('umn-canine-brain-tumor-program')) {
   throw new Error('Minnesota program umbrella remained in treatment matching');
 }
 
+const scc = matches(patient({cancer: 'Squamous cell carcinoma'}));
+if (scc.some(row => row.trial.id === 'lsu-scc-intratumoral-chemo')) {
+  throw new Error('Unresolved LSU intratumoral SCC protocol remained in USA/Dog/SCC matching');
+}
+
+const oralScc = matches(patient({cancer: 'Oral squamous cell carcinoma'}));
+if (!oralScc.some(row => row.trial.id === 'ucd-oral-margin')) {
+  throw new Error('UC Davis PDL1-IRDye800 oral-cancer protocol is missing from matching');
+}
+
+const liver = matches(patient({cancer: 'Hepatocellular carcinoma'}));
+if (!liver.some(row => row.trial.id === 'ucd-liver-tae-tace')) {
+  throw new Error('Current UC Davis liver TAE/TACE protocol is missing from matching');
+}
+if (liver.some(row => row.trial.id === 'ucd-liver-rna')) {
+  throw new Error('Unconfirmed UC Davis liver RNA protocol remained in matching');
+}
+
+const prostate = matches(patient({cancer: 'Prostate cancer'}));
+if (prostate.some(row => row.trial.id === 'ucd-prostate-liquid-treatment')) {
+  throw new Error('UC Davis blood/urine sampling protocol appeared as a treatment match');
+}
+
+const nasal = matches(patient({cancer: 'Nasal tumor / nasal cancer'}));
+for (const expected of ['ucd-nasal-chemo-radiation', 'ucd-nasal-tae']) {
+  if (!nasal.some(row => row.trial.id === expected)) {
+    throw new Error(`USA/Dog/Nasal Tumor did not return ${expected}`);
+  }
+}
+
+const glioma = matches(patient({cancer: 'Glioma'}));
+if (!glioma.some(row => row.trial.id === 'ucd-care-canine-glioma')) {
+  throw new Error('UC Davis CARE glioma protocol is missing from brain-tumor matching');
+}
+
 if (rows.some(row => row.id === 'bluepearl-hsa-paccal')) {
   throw new Error('Completed BluePearl Paccal Vet pilot remained in treatment matching');
 }
