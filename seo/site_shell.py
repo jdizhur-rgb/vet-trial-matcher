@@ -55,7 +55,7 @@ def apply_navigation(text:str)->str:
  text=re.sub(r'<header(?:\s+class="site-header")?>.*?</header>',NAV,text,count=1,flags=re.S)
  if NAV not in text:text=text.replace('<main>',NAV+'<main>',1)
  if NAV_MENU_CSS not in text:text=text.replace('</style>',NAV_MENU_CSS+MOBILE_TYPE_CSS+'</style>',1)
- text=re.sub(r'<footer(?:\\s+[^>]*)?>.*?</footer>','',text,flags=re.S)
+ text=re.sub(r'<footer(?:\s+[^>]*)?>.*?</footer>','',text,flags=re.S)
  if FOOTER not in text:text=text.replace('</body>',FOOTER+'</body>',1)
  return text
 def wrap_html(text:str)->str:
@@ -76,7 +76,7 @@ def wrap_html(text:str)->str:
   text=text.replace('</head>',icons+'</head>',1)
  text=text.replace('</style>',SHELL_CSS+STATS_CSS+DESKTOP_CSS+DESKTOP_MATCH_MOBILE_CSS+ARTICLE_CSS+REGISTRY_CSS+'</style>',1)
  text=apply_navigation(text)
- text=re.sub(r'<footer(?:\\s+[^>]*)?>.*?</footer>',FOOTER,text,count=1,flags=re.S)
+ text=re.sub(r'<footer(?:\s+[^>]*)?>.*?</footer>',FOOTER,text,count=1,flags=re.S)
  if FOOTER not in text:text=text.replace('</main>','</main>'+FOOTER,1)
  text=text.replace('</body>',UNIFIED_HEADER_STYLE+'</body>',1)
  return text
