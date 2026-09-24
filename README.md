@@ -1,10 +1,12 @@
-# Vet Cancer Treatment Finder
+# Vet Trial Finder
 
-**Free veterinary oncology search tool for dog and cat cancer clinical trials and evidence-screened treatment options.**
+**Free veterinary cancer clinical trial finder for dogs and cats.**
 
-Vet Cancer Treatment Finder helps pet owners search for treatment-focused **canine cancer clinical trials**, **feline cancer clinical trials**, veterinary oncology studies, and selected non-routine cancer treatment options with current access. The database covers the USA, Canada, the UK, Europe, Brazil, and other locations represented by verified studies.
+Vet Trial Finder helps pet owners search for treatment-focused **canine cancer clinical trials**, **feline cancer clinical trials**, veterinary oncology studies, and selected non-routine cancer treatment options with current access. The database covers the USA, Canada, the UK, Europe, Brazil, and other locations represented by verified studies.
 
-**Live app:** https://vet-cancer-trial-finder.streamlit.app/
+**Live website:** https://vettrialfinder.com
+
+This repository contains the code and data used by Vet Trial Finder.
 
 ## What it does
 
