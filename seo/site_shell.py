@@ -74,8 +74,8 @@ def wrap_html(text:str)->str:
   text=text.replace('</head>',icons+'</head>',1)
  text=text.replace('</style>',SHELL_CSS+STATS_CSS+DESKTOP_CSS+DESKTOP_MATCH_MOBILE_CSS+ARTICLE_CSS+REGISTRY_CSS+'</style>',1)
  text=apply_navigation(text)
- text=re.sub(r'<footer>.*?</footer>',FOOTER,text,count=1,flags=re.S)
- if FOOTER not in text:text.replace('</main>','</main>'+FOOTER,1)
+ text=re.sub(r'<footer(?:\\s+[^>]*)?>.*?</footer>',FOOTER,text,count=1,flags=re.S)
+ if FOOTER not in text:text=text.replace('</main>','</main>'+FOOTER,1)
  text=text.replace('</body>',UNIFIED_HEADER_STYLE+'</body>',1)
  return text
 def filter_script(selector):return f'''<script>function filterCatalog(q){{q=q.toLowerCase().trim();document.querySelectorAll('{selector}').forEach(function(x){{x.style.display=!q||x.textContent.toLowerCase().includes(q)?'':'none';}});}}</script>'''
