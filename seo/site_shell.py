@@ -55,6 +55,8 @@ def apply_navigation(text:str)->str:
  text=re.sub(r'<header(?:\s+class="site-header")?>.*?</header>',NAV,text,count=1,flags=re.S)
  if NAV not in text:text=text.replace('<main>',NAV+'<main>',1)
  if NAV_MENU_CSS not in text:text=text.replace('</style>',NAV_MENU_CSS+MOBILE_TYPE_CSS+'</style>',1)
+ text=re.sub(r'<footer(?:\\s+[^>]*)?>.*?</footer>','',text,flags=re.S)
+ if FOOTER not in text:text=text.replace('</body>',FOOTER+'</body>',1)
  return text
 def wrap_html(text:str)->str:
  text=text.replace('https://jdizhur-rgb.github.io/vet-trial-matcher',SITE)
