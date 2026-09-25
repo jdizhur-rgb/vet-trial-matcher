@@ -126,7 +126,7 @@ jobs:
           assert all('Before you contact the center' in p.read_text(encoding='utf-8') for p in content_center_pages)
           assert all('<div class="center-facts">' in p.read_text(encoding='utf-8') for p in content_center_pages)
           aurelius=(root/'centers/aurelius-biotherapeutics/index.html').read_text(encoding='utf-8')
-          assert 'HalfCircle-Dog.png' in aurelius
+          assert '<figure' not in aurelius
           assert 'uses a dog&#x27;s own T cells' in aurelius
           assert 'This page brings together current cancer studies' not in aurelius
           auburn=(root/'centers/auburn-university/index.html').read_text(encoding='utf-8')
@@ -146,7 +146,7 @@ jobs:
           assert 'class="help-section"' in help_page
           assert 'help-actions' not in help_page
           assert '<h2>Oncology centers and trial centers</h2>' in help_page
-          assert 'How do I find an oncologist or ECT center?' in help_page
+          assert 'How do I find oncology care or an ECT center?' in help_page
           assert 'What are Trial centers?' in help_page
           assert '<h2>Other treatments</h2>' in help_page
           assert '<h2>Centers and other treatment options</h2>' not in help_page
