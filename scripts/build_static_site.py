@@ -49,8 +49,10 @@ def validate_no_tracking() -> None:
 def validate_public_page_shell() -> None:
     pages = list(SITE.rglob("*.html"))
     missing_title_component: list[str] = []
-    missing_care_links: list[str] = []
+    missing_header_links: list[str] = []
     expected_links = (
+        '<a href="https://vettrialfinder.com/matcher/">Find clinical trials</a>',
+        '<a href="https://vettrialfinder.com/veterinary-cancer-clinical-trials/">About clinical trials</a>',
         '<a href="https://vettrialfinder.com/matcher/centers/">Find oncology care near you</a>',
         '<a href="https://vettrialfinder.com/centers/">Browse all oncology centers</a>',
     )
@@ -62,16 +64,16 @@ def validate_public_page_shell() -> None:
         ):
             missing_title_component.append(str(path.relative_to(ROOT)))
         if '<header class="site-header">' in text and any(link not in text for link in expected_links):
-            missing_care_links.append(str(path.relative_to(ROOT)))
+            missing_header_links.append(str(path.relative_to(ROOT)))
     if missing_title_component:
         raise RuntimeError(
             "Public H1 missing shared page-title component:\n"
             + "\n".join(missing_title_component)
         )
-    if missing_care_links:
+    if missing_header_links:
         raise RuntimeError(
-            "Shared header missing oncology-care directory links:\n"
-            + "\n".join(missing_care_links)
+            "Shared header missing required trial or oncology-care links:\n"
+            + "\n".join(missing_header_links)
         )
     print("PUBLIC_PAGE_SHELL_OK", len(pages))
 
