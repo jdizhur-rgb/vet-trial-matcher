@@ -104,7 +104,7 @@ jobs:
           assert '<h1>How we verify listings</h1>' in verification
           assert 'What this site does not do' in verification
           assert 'How we verify</a>' in home
-          assert 'Find an oncology center' in home
+          assert 'Find oncology care' in home
           registry=(root/'veterinary-cancer-clinical-trials/index.html').read_text(encoding='utf-8')
           assert '<h1>Free veterinary cancer clinical trial finder for dogs and cats</h1>' in registry
           assert 'Why we check more than one registry' in registry
