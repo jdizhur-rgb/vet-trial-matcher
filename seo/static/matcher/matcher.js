@@ -247,7 +247,7 @@
   if (typeof window !== 'undefined') window.__MATCHER_TEST__ = {matchTrial, diagnosisMatch, modalities};
   if (!form || !results) return;
   const autoStart = applyUrlPreset();
-  form.addEventListener('change',updateForm);
+  form.addEventListener('change',event=>{ updateForm(); if(event.target.name==='country' && form.elements.cancer.value) form.requestSubmit(); });
   form.addEventListener('submit',async e=>{e.preventDefault(); const p=patient(), matches=trials.map(t=>matchTrial(t,p)).filter(Boolean); matches.sort((a,b)=>{const rank=x=>x==='Likely match'?0:x==='Possible match'?1:2; return rank(a.confidence)-rank(b.confidence)+(Number(Boolean(a.trial.early_phase))-Number(Boolean(b.trial.early_phase)));}); const sorted=await sortByZip(matches,p.country==='USA'?p.zip_code:''); sorted.matches.distanceNote=sorted.origin; render(sorted.matches); results.scrollIntoView({behavior:'smooth',block:'start'});});
   fetch(window.MATCHER_DATA_URL).then(r=>{if(!r.ok)throw new Error(`Catalog ${r.status}`);return r.json();}).then(data=>{trials=data;updateForm();if(autoStart)form.requestSubmit();}).catch(()=>{results.innerHTML='<div class="no-results">The trial catalog could not be loaded. Please try again shortly.</div>';});
 })();
