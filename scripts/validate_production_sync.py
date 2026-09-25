@@ -105,6 +105,7 @@ def main() -> None:
     cornell_news = read(SITE / "news" / "cornell-smart-start-b-cell-lymphoma" / "index.html")
     nc_state_news = read(SITE / "news" / "nc-state-il12-bladder-cancer-deadline" / "index.html")
     wisconsin_news = read(SITE / "news" / "wisconsin-ptcl-radiopharmaceutical-trial" / "index.html")
+    taiwan_il15_news = read(SITE / "news" / "taiwan-inhaled-il15-lung-metastases" / "index.html")
     assert "Cornell opens Smart-Start trial" in news_index
     assert "closes enrollment September 30" in news_index
     assert "peripheral T-cell lymphoma" in news_index
@@ -113,6 +114,8 @@ def main() -> None:
     assert "Enrollment deadline · September 30, 2026" in nc_state_news
     assert "initial screening visit and initial laboratory work are owner-paid" in wisconsin_news
     assert "90Y-NM600" in wisconsin_news
+    assert "objective response rate was 11%" in taiwan_il15_news
+    assert "phase, enrollment target and interim results have not been published" in taiwan_il15_news
     assert "https://www.vet.cornell.edu/hospitals/clinical-trials/smart-start-therapy-canine-b-cell-lymphoma" in cornell_news
     assert '<a href="https://vettrialfinder.com/news/">News</a>' in cornell_news
 
@@ -167,6 +170,7 @@ def main() -> None:
         "https://vettrialfinder.com/news/cornell-smart-start-b-cell-lymphoma/",
         "https://vettrialfinder.com/news/nc-state-il12-bladder-cancer-deadline/",
         "https://vettrialfinder.com/news/wisconsin-ptcl-radiopharmaceutical-trial/",
+        "https://vettrialfinder.com/news/taiwan-inhaled-il15-lung-metastases/",
     ):
         assert url in sitemap, f"News route missing from sitemap: {url}"
 

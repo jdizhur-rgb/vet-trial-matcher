@@ -17,10 +17,14 @@ CORNELL_URL = f"{NEWS_URL}cornell-smart-start-b-cell-lymphoma/"
 NC_STATE_URL = f"{NEWS_URL}nc-state-il12-bladder-cancer-deadline/"
 WISCONSIN_URL = f"{NEWS_URL}wisconsin-ptcl-radiopharmaceutical-trial/"
 PURDUE_URL = f"{NEWS_URL}purdue-three-cancer-treatment-trials/"
+TAIWAN_IL15_URL = f"{NEWS_URL}taiwan-inhaled-il15-lung-metastases/"
 CORNELL_OFFICIAL = "https://www.vet.cornell.edu/hospitals/clinical-trials/smart-start-therapy-canine-b-cell-lymphoma"
 NC_STATE_OFFICIAL = "https://cvm.ncsu.edu/clinical-trial/now-enrolling-dogs-with-invasive-bladder-cancer/"
 WISCONSIN_OFFICIAL = "https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/"
 PURDUE_ABLATION_OFFICIAL = "https://vet.purdue.edu/wcorc/clinical-trials/tumor-ablation.php"
+TAIWAN_IL15_OFFICIAL = "https://www.egah.com.tw/news/%E6%8B%9B%E5%8B%9F%E7%8A%AC%E9%BB%91%E8%89%B2%E7%B4%A0%E7%98%A4%E5%8F%8A%E9%AA%A8%E8%82%89%E7%98%A4%E8%87%A8%E5%BA%8A%E8%A9%A6%E9%A9%97"
+TAIWAN_IL15_PHASE1 = "https://jitc.bmj.com/content/10/6/e004493"
+TAIWAN_IL15_PHASE2 = "https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2025.1672790/full"
 PURDUE_SOCIAL_IMAGE = f"{SITE}/assets/social/purdue-ablation-1200x630.jpg"
 
 
@@ -59,6 +63,7 @@ def generate_news_section(root: Path) -> None:
 <h1>Veterinary oncology news</h1>
 <p class="lead">Newly opened treatment trials, meaningful recruitment changes and other developments that may matter to owners looking for cancer treatment options.</p>
 <div class="directory-grid">
+<a class="directory-card" href="{TAIWAN_IL15_URL}"><strong>Taiwan trial tests inhaled IL-15 for canine lung metastases</strong><span>September 25, 2026. A rare non-US study builds on mixed published evidence in dogs with melanoma or osteosarcoma.</span></a>
 <a class="directory-card" href="{PURDUE_URL}"><strong>Purdue adds experimental tumor ablation to standard cancer treatment in three trials</strong><span>September 20, 2026. Standard treatment remains in place and part of the care is study-funded; additional clinical benefit from HIFU or H-FIRE has not been established.</span></a>
 <a class="directory-card" href="{NC_STATE_URL}"><strong>NC State bladder cancer immunotherapy trial closes enrollment September 30</strong><span>September 17, 2026. The fully funded eight-day IL-12 treatment study has no placebo group.</span></a>
 <a class="directory-card" href="{WISCONSIN_URL}"><strong>Wisconsin recruits dogs with peripheral T-cell lymphoma for 90Y-NM600 therapy</strong><span>September 17, 2026. All enrolled dogs receive targeted radiopharmaceutical therapy; most study costs are covered after screening.</span></a>
@@ -123,9 +128,27 @@ def generate_news_section(root: Path) -> None:
 <p><a href="{MATCHER_URL}">Check these and other current cancer treatment trials in Vet Trial Finder</a></p>'''
     write_article(root, "purdue-three-cancer-treatment-trials", "Purdue adds experimental tumor ablation to standard cancer treatment in three trials", "Three Purdue studies add experimental ablation to standard treatment for lymphoma, liver cancer and osteosarcoma, with part of the care funded.", purdue_body, "Purdue University College of Veterinary Medicine", "September 20, 2026", "2026-09-20", PURDUE_SOCIAL_IMAGE)
 
-    add_to_sitemap(root, (NEWS_URL, CORNELL_URL, NC_STATE_URL, WISCONSIN_URL, PURDUE_URL))
-    rendered = "\n".join((root / "news" / slug / "index.html").read_text(encoding="utf-8") for slug in ("cornell-smart-start-b-cell-lymphoma", "nc-state-il12-bladder-cancer-deadline", "wisconsin-ptcl-radiopharmaceutical-trial", "purdue-three-cancer-treatment-trials"))
-    required = ("There is no placebo.", "$1,000 toward chemotherapy costs", "September 30, 2026", "There is no placebo group.", "90Y-NM600", "initial screening visit and initial laboratory work are owner-paid", "HIFU followed by CHOP", "H-FIRE before surgery", "Osteosarcoma: HIFU", "has not been shown to improve remission, disease control or survival", PURDUE_SOCIAL_IMAGE, 'summary_large_image', PURDUE_ABLATION_OFFICIAL, CORNELL_OFFICIAL, NC_STATE_OFFICIAL, WISCONSIN_OFFICIAL, '"@type": "NewsArticle"')
+    taiwan_il15_body = f'''<p class="eyebrow">Recruiting in Taiwan · September 25, 2026</p>
+<h1>Taiwan trial tests inhaled IL-15 for canine lung metastases</h1>
+<p>Evergreen Animal Hospital in Taipei is recruiting dogs with melanoma or osteosarcoma and measurable lung metastases for an IL-15 immunotherapy study.</p>
+<p>IL-15, or interleukin-15, is an immune-signaling protein. It does not attack cancer directly like chemotherapy. It stimulates natural killer cells and certain T cells that can recognize and destroy tumor cells.</p>
+<p>Dogs with pulmonary metastases receive IL-15 as an aerosol through a breathing mask while awake. The treatment is intended to deliver the immune-stimulating cytokine directly to the lungs, where these cancers commonly spread. The protocol also describes subcutaneous administration.</p>
+<p>This approach has published canine evidence, but the results are mixed. In a Phase I study of dogs with visible lung metastases from melanoma or osteosarcoma, the objective response rate was 11% and the clinical benefit rate was 39% among 18 evaluable dogs. A small number had durable responses, including one complete response lasting more than a year.</p>
+<p>A later Phase II study tested inhaled IL-15 in a different setting: dogs with localized osteosarcoma received it after amputation and before chemotherapy, when no visible metastases were present. That study was stopped for futility after outcomes were worse than the historical comparison group. These results do not directly answer whether IL-15 may help some dogs with established lung metastases, but they show that timing and treatment context matter.</p>
+<p>The Taiwanese study is closer to the original metastatic-disease trial, although its dosing schedule is different. Its phase, enrollment target and interim results have not been published, so the earlier response rates should not be assumed to apply to this protocol.</p>
+<h2>Who may qualify</h2>
+<p>Dogs must have confirmed melanoma or osteosarcoma, lung lesions larger than 1 cm, no life-threatening tumor-related symptoms, and no current steroid or other immunosuppressive treatment. The hospital describes weekly treatment for eight weeks, followed by reassessment.</p>
+<h2>What the study covers</h2>
+<p>IL-15 is provided at no charge. Owners are responsible for diagnostic testing, supportive medications and other veterinary expenses.</p>
+<p>IL-15 is also being studied in human cancer care, and an IL-15 receptor agonist has been approved for one form of bladder cancer. Inhaled IL-15, however, remains an experimental veterinary approach. This is an unusual example of dogs participating at the front edge of immunotherapy research rather than receiving a veterinary adaptation of an established human treatment.</p>
+<div class="article-cta"><a href="{TAIWAN_IL15_OFFICIAL}" target="_blank" rel="noopener">Read the official Evergreen recruitment page</a></div>
+<p><a href="{TAIWAN_IL15_PHASE1}" target="_blank" rel="noopener">Read the published Phase I study</a> · <a href="{TAIWAN_IL15_PHASE2}" target="_blank" rel="noopener">Read the published Phase II study</a></p>
+<p><a href="{MATCHER_URL}">Check this and other current cancer treatment trials in Vet Trial Finder</a></p>'''
+    write_article(root, "taiwan-inhaled-il15-lung-metastases", "Taiwan trial tests inhaled IL-15 for canine lung metastases", "A recruiting study in Taipei is testing inhaled IL-15 in dogs with melanoma or osteosarcoma and measurable lung metastases.", taiwan_il15_body, "Evergreen Animal Hospital and linked peer-reviewed studies", "September 25, 2026", "2026-09-25")
+
+    add_to_sitemap(root, (NEWS_URL, CORNELL_URL, NC_STATE_URL, WISCONSIN_URL, PURDUE_URL, TAIWAN_IL15_URL))
+    rendered = "\n".join((root / "news" / slug / "index.html").read_text(encoding="utf-8") for slug in ("cornell-smart-start-b-cell-lymphoma", "nc-state-il12-bladder-cancer-deadline", "wisconsin-ptcl-radiopharmaceutical-trial", "purdue-three-cancer-treatment-trials", "taiwan-inhaled-il15-lung-metastases"))
+    required = ("There is no placebo.", "$1,000 toward chemotherapy costs", "September 30, 2026", "There is no placebo group.", "90Y-NM600", "initial screening visit and initial laboratory work are owner-paid", "HIFU followed by CHOP", "H-FIRE before surgery", "Osteosarcoma: HIFU", "has not been shown to improve remission, disease control or survival", "objective response rate was 11%", "phase, enrollment target and interim results have not been published", PURDUE_SOCIAL_IMAGE, 'summary_large_image', PURDUE_ABLATION_OFFICIAL, TAIWAN_IL15_OFFICIAL, TAIWAN_IL15_PHASE1, TAIWAN_IL15_PHASE2, CORNELL_OFFICIAL, NC_STATE_OFFICIAL, WISCONSIN_OFFICIAL, '"@type": "NewsArticle"')
     missing = [marker for marker in required if marker not in rendered]
     if missing:
         raise AssertionError(f"News validation failed: {missing}")
