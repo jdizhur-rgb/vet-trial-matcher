@@ -59,6 +59,8 @@ def generate_help_center(root: Path) -> None:
              f'<p><a href="{SITE}/other-treatments/">Other treatments</a> links to <a href="{SITE}/matcher/centers/?service=electrochemotherapy">oncology centers offering electrochemotherapy</a>, selected <strong>advanced treatments</strong> you can filter by species, region and cancer type, and <strong>expanded access</strong> programs that may review patients outside ordinary trial enrollment. These listings do not decide whether a treatment is medically appropriate.</p>'),
         ]),
         ('Contacting a study', [
+            ('Is Vet Trial Finder really free?',
+             '<p>Yes. You can search the full catalog, view eligibility information, locations, contacts and official study links without creating an account or paying for a report. We do not ask for your name, email address or your pet’s medical records. Search answers are not stored or sent to analytics. Research teams and veterinary hospitals also do not pay to be listed. Vet Trial Finder is an independent public-service project.</p>'),
             ('Does a match mean my pet is eligible?',
              '<p>No. The matcher is a prescreening tool. Final eligibility is decided by the research or treatment team after reviewing the diagnosis, records, previous treatment, current health and any tests required by the protocol.</p>'),
             ('What should I have ready?',
@@ -71,8 +73,8 @@ def generate_help_center(root: Path) -> None:
              '<p>Possibly. Some protocols require repeated visits to one hospital; others have several participating sites. Confirm the exact hospital, number of visits and which visits must be in person before making plans. Distances shown on the site are estimates, not travel instructions.</p>'),
             ('Do trials use placebos, and can I leave after enrolling?',
              '<p>Some trials use randomization or a placebo group and many do not. The consent documents should explain the groups, what standard care remains available and what happens if the disease progresses. Participation is generally voluntary; ask how withdrawal works before enrolling.</p>'),
-            ('Is Vet Trial Finder free, and how do I contact you?',
-             '<p>The site, matcher and saved results are free. There is no paid report and no fee to reveal matches. For a correction, broken link or question about using the site, email <a href="mailto:info@vettrialfinder.com">info@vettrialfinder.com</a>. For eligibility or medical advice, contact the study team or your veterinarian.</p>'),
+            ('How do I contact Vet Trial Finder?',
+             '<p>For a correction, broken link or question about using the site, email <a href="mailto:info@vettrialfinder.com">info@vettrialfinder.com</a>. For eligibility or medical advice, contact the study team or your veterinarian.</p>'),
         ]),
     ]
 
