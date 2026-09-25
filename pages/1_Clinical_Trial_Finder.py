@@ -1,31 +1,5 @@
 # EU cancer-by-cancer gap audit completed 2026-09-04: all UI cancer categories rechecked; no unverified lead promoted to matching.
 import streamlit as st
-import streamlit.components.v1 as components
-
-UMAMI_WEBSITE_ID = '20597fc4-68b1-4552-94c8-0771d1d74673'
-
-
-def _track_umami_pageview_once():
-    """Count one matcher visit per Streamlit session, not every widget rerun."""
-    if st.session_state.get('_umami_matcher_visit_tracked'):
-        return
-    components.html(f'''
-<script defer src="https://cloud.umami.is/script.js"
-        data-website-id="{UMAMI_WEBSITE_ID}"
-        data-auto-pageview="false"
-        onload="umami.track({{website: '{UMAMI_WEBSITE_ID}', hostname: 'c-trials.streamlit.app', url: '/matcher', title: 'Vet Cancer Trial Finder'}})"></script>
-''', height=0, width=0)
-    st.session_state['_umami_matcher_visit_tracked'] = True
-
-
-def _track_umami_search():
-    """Record a completed search without sending diagnosis or other form data."""
-    components.html(f'''
-<script defer src="https://cloud.umami.is/script.js"
-        data-website-id="{UMAMI_WEBSITE_ID}"
-        data-auto-pageview="false"
-        onload="umami.track('matcher-search')"></script>
-''', height=0, width=0)
 
 CANCER_ALIASES = {
     # UI labels and protocol labels are not always identical. Keep these mappings
@@ -54,7 +28,6 @@ CANCER_ALIASES = {
 LYMPHOMA_CANCERS = {'B-cell lymphoma', 'T-cell lymphoma', 'Lymphoma — other'}
 
 st.set_page_config(page_title='Vet Cancer Treatment Finder', page_icon='🐾', layout='centered')
-_track_umami_pageview_once()
 
 
 def _render_result_save_controls(matches):
@@ -482,7 +455,6 @@ search_clicked = st.button('Find potential trials', type='primary', use_containe
 
 
 if search_clicked:
-    _track_umami_search()
     matches=[]
     for tr in TRIALS:
         if not tr.get('available_for_matching', True):

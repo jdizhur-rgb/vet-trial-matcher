@@ -18,11 +18,32 @@ sys.path.insert(0, str(ROOT / "seo"))
 from site_shell import wrap_html  # noqa: E402
 
 
+FORBIDDEN_TRACKING_MARKERS = (
+    "cloud.umami.is",
+    "window.umami",
+    "matcher-search",
+)
+
+
 def run(*args: str, pythonpath: str | None = None) -> None:
     env = os.environ.copy()
     if pythonpath:
         env["PYTHONPATH"] = str(ROOT / pythonpath)
     subprocess.run([sys.executable, *args], cwd=ROOT, env=env, check=True)
+
+
+def validate_no_tracking() -> None:
+    findings: list[str] = []
+    for path in SITE.rglob("*"):
+        if not path.is_file() or path.suffix.lower() not in {".html", ".js"}:
+            continue
+        text = path.read_text(encoding="utf-8")
+        for marker in FORBIDDEN_TRACKING_MARKERS:
+            if marker in text:
+                findings.append(f"{path.relative_to(ROOT)}: {marker}")
+    if findings:
+        raise RuntimeError("Tracking code found in production output:\n" + "\n".join(findings))
+    print("NO_TRACKING_OK")
 
 
 def main() -> None:
@@ -44,6 +65,13 @@ def main() -> None:
     static = ROOT / "seo" / "static"
     if static.exists():
         shutil.copytree(static, SITE, dirs_exist_ok=True)
+
+    # Static matcher templates may predate the current global shell. Sanitize
+    # every copied page so retired tracking snippets cannot reach production.
+    preview_site = SITE / "matcher-preview"
+    if preview_site.exists():
+        for page in preview_site.rglob("*.html"):
+            page.write_text(wrap_html(page.read_text(encoding="utf-8")), encoding="utf-8")
 
     # Promote the fully tested hidden matcher portal to its permanent URL.
     # Keep the preview copy available as a rollback until the live deployment
@@ -77,6 +105,7 @@ def main() -> None:
     run("seo/ensure_center_images.py")
     run("seo/enforce_sentence_case.py", pythonpath="seo")
     run("scripts/validate_production_sync.py")
+    validate_no_tracking()
     subprocess.run(
         ["node", "scripts/test_matcher_logic.js"],
         cwd=ROOT,

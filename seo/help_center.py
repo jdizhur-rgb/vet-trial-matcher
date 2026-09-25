@@ -60,7 +60,7 @@ def generate_help_center(root: Path) -> None:
         ]),
         ('Contacting a study', [
             ('Is Vet Trial Finder really free?',
-             '<p>Yes. You can search the full catalog, view eligibility information, locations, contacts and official study links without creating an account or paying for a report. We do not ask for your name, email address or your pet’s medical records. Search answers are not stored or sent to analytics. Research teams and veterinary hospitals also do not pay to be listed. Vet Trial Finder is an independent public-service project.</p>'),
+             f'<p>Yes. You can search the full catalog, view eligibility information, locations, contacts and official study links without creating an account or paying for a report. We do not ask for your name, email address or your pet’s medical records. Matcher answers are processed in your browser and are not stored or sent to analytics. Vet Trial Finder does not use an analytics or advertising tracker. Research teams and veterinary hospitals also do not pay to be listed. Read the <a href="{SITE}/privacy/">Privacy policy</a> for the separate ZIP-code lookup and email details.</p>'),
             ('Does a match mean my pet is eligible?',
              '<p>No. The matcher is a prescreening tool. Final eligibility is decided by the research or treatment team after reviewing the diagnosis, records, previous treatment, current health and any tests required by the protocol.</p>'),
             ('What should I have ready?',
@@ -74,7 +74,7 @@ def generate_help_center(root: Path) -> None:
             ('Do trials use placebos, and can I leave after enrolling?',
              '<p>Some trials use randomization or a placebo group and many do not. The consent documents should explain the groups, what standard care remains available and what happens if the disease progresses. Participation is generally voluntary; ask how withdrawal works before enrolling.</p>'),
             ('How do I contact Vet Trial Finder?',
-             '<p>For a correction, broken link or question about using the site, email <a href="mailto:info@vettrialfinder.com">info@vettrialfinder.com</a>. For eligibility or medical advice, contact the study team or your veterinarian.</p>'),
+             '<p>For a correction, broken link or question about using the site, email <a href="mailto:info@vettrialfinder.com">info@vettrialfinder.com</a>. Do not email medical records, diagnostic images, financial information or an emergency request. For eligibility or medical advice, contact the study team or your veterinarian.</p>'),
         ]),
     ]
 
