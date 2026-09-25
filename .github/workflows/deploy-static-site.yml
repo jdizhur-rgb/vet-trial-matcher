@@ -106,7 +106,7 @@ jobs:
           assert 'BreadcrumbList' in (root/'north-america/dogs/lymphoma/index.html').read_text(encoding='utf-8')
           assert (root/'404.html').exists()
           verification=(root/'how-we-verify/index.html').read_text(encoding='utf-8')
-          assert '<h1>How we verify listings</h1>' in verification
+          assert '<h1 class="page-title">How we verify listings</h1>' in verification
           assert 'What this site does not do' in verification
           assert 'How we verify</a>' in home
           assert 'Find oncology care' in home
@@ -114,7 +114,7 @@ jobs:
           assert 'verified trials' not in '\n'.join(p.read_text(encoding='utf-8').lower() for p in root.rglob('*.html'))
           assert not (root/'matcher-preview').exists()
           registry=(root/'veterinary-cancer-clinical-trials/index.html').read_text(encoding='utf-8')
-          assert '<h1>Free veterinary cancer clinical trial finder for dogs and cats</h1>' in registry
+          assert '<h1 class="page-title">Free veterinary cancer clinical trial finder for dogs and cats</h1>' in registry
           assert 'Why we check more than one registry' in registry
           assert 'Free means free' in registry
           assert 'class="registry-diagnosis"' in registry
@@ -122,7 +122,7 @@ jobs:
           assert 'href="https://vettrialfinder.com/contact/"' in home
           assert 'href="https://vettrialfinder.com/contact/"' in about
           contact=(root/'contact/index.html').read_text(encoding='utf-8')
-          assert '<h1>Contact Vet Trial Finder</h1>' in contact
+          assert '<h1 class="page-title">Contact Vet Trial Finder</h1>' in contact
           assert 'mailto:info@vettrialfinder.com' in contact
           centers=(root/'centers/index.html').read_text(encoding='utf-8')
           assert 'async function searchByZip' in centers
