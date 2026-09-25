@@ -57,41 +57,40 @@ def main() -> None:
     shutil.rmtree(SITE, ignore_errors=True)
     run("seo/build_production_site.py")
     run("seo/validate_cancer_depth.py", "--site", "seo/site", pythonpath="seo")
-    run("scripts/build_matcher_preview_data.py")
+    run("scripts/build_matcher_data.py")
     run("scripts/build_oncology_center_catalog.py")
     run("seo/generate_oncology_center_finder.py")
     run("seo/validate_oncology_centers.py")
 
+    # The committed matcher templates are the single source for /matcher/.
+    # Copy only that tree; preview and rollback routes are intentionally absent.
     static = ROOT / "seo" / "static"
-    if static.exists():
-        shutil.copytree(static, SITE, dirs_exist_ok=True)
-
-    # Static matcher templates may predate the current global shell. Sanitize
-    # every copied page so retired tracking snippets cannot reach production.
-    preview_site = SITE / "matcher-preview"
-    if preview_site.exists():
-        for page in preview_site.rglob("*.html"):
-            page.write_text(wrap_html(page.read_text(encoding="utf-8")), encoding="utf-8")
-
-    # Promote the fully tested hidden matcher portal to its permanent URL.
-    # Keep the preview copy available as a rollback until the live deployment
-    # has been checked, but publish an indexable /matcher/ copy.
-    preview = static / "matcher-preview"
+    matcher_source = static / "matcher"
     matcher = SITE / "matcher"
-    if preview.exists():
-        shutil.copytree(preview, matcher, dirs_exist_ok=True)
-        for page in matcher.rglob("*.html"):
-            text = page.read_text(encoding="utf-8")
-            text = text.replace("matcher-preview", "matcher")
-            text = wrap_html(text)
-            if page.relative_to(matcher) != Path("ect/index.html"):
-                text = re.sub(
-                    r'<meta name="robots" content="noindex[^"]*">',
-                    "",
-                    text,
-                    flags=re.IGNORECASE,
-                )
-            page.write_text(text, encoding="utf-8")
+    if not matcher_source.exists():
+        raise RuntimeError("Missing canonical matcher templates")
+    shutil.copytree(matcher_source, matcher)
+    for page in matcher.rglob("*.html"):
+        text = wrap_html(page.read_text(encoding="utf-8"))
+        if page.relative_to(matcher) != Path("ect/index.html"):
+            text = re.sub(
+                r'<meta name="robots" content="noindex[^"]*">',
+                "",
+                text,
+                flags=re.IGNORECASE,
+            )
+        page.write_text(text, encoding="utf-8")
+
+    # Copy immutable shared assets and verification files explicitly. This
+    # avoids treating seo/static as a second, implicit website generator.
+    for source in static.iterdir():
+        if source.name == "matcher":
+            continue
+        destination = SITE / source.name
+        if source.is_dir():
+            shutil.copytree(source, destination)
+        else:
+            shutil.copy2(source, destination)
 
     # Owner-facing articles generated here enter the same final indexing pass
     # as the rest of the production site.
@@ -102,7 +101,7 @@ def main() -> None:
     run("seo_index_cleanup.py")
     run("help_content_update.py")
     run("center_zip_search.py")
-    run("seo/ensure_center_images.py")
+    run("seo/validate_center_profiles.py")
     run("seo/enforce_sentence_case.py", pythonpath="seo")
     run("scripts/validate_production_sync.py")
     validate_no_tracking()

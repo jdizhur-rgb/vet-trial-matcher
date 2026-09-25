@@ -119,8 +119,46 @@ def main() -> None:
     generated_html = "\n".join(read(path) for path in SITE.rglob("*.html"))
     assert "c-trials.streamlit.app" not in generated_html
     assert "vet-cancer-trial-finder.streamlit.app" not in generated_html
+    for forbidden in (
+        "cloud.umami.is", "window.umami", "data-website-id=",
+        "Find an oncologist", "verified trials", "matcher-preview",
+    ):
+        assert forbidden.lower() not in generated_html.lower(), f"Retired content returned: {forbidden}"
+
+    centers = read(MATCHER / "centers" / "index.html")
+    required_directory_notice = (
+        "Service information is compiled from clinic websites and professional public directories. "
+        "Vet Trial Finder does not independently verify clinicians, licenses, credentials or quality of care, "
+        "and a listing is not a recommendation. Confirm the clinician, service, cost and current availability "
+        "directly with the clinic before making plans."
+    )
+    assert required_directory_notice in centers
+    assert '<figure' not in centers.lower(), "Oncology directory must remain text-only"
+    directory_images = re.findall(r'<img[^>]+src="(https?://[^"]+)', centers, re.I)
+    assert directory_images == ["https://vettrialfinder.com/assets/vet-trial-finder-logo.png"], directory_images
+    for page in (SITE / "centers").glob("*/index.html"):
+        center_html = read(page)
+        external_images = re.findall(r'<img[^>]+src="(https?://[^"]+)', center_html, re.I)
+        assert set(external_images) <= {"https://vettrialfinder.com/assets/vet-trial-finder-logo.png"}, (page.relative_to(ROOT), external_images)
+
+    advanced = read(MATCHER / "advanced" / "index.html")
+    assert "Inclusion in this catalog is not an endorsement or a treatment recommendation." in advanced
+
+    # Every ordinary generated page owns one production canonical. Redirects
+    # may canonically point at their destination, but no canonical may escape
+    # the production domain or refer to a retired preview route.
+    for page in SITE.rglob("index.html"):
+        page_html = read(page)
+        canonicals = re.findall(r'<link rel="canonical" href="([^"]+)">', page_html, re.I)
+        assert len(canonicals) == 1, (page.relative_to(ROOT), canonicals)
+        assert canonicals[0].startswith("https://vettrialfinder.com/")
+        assert "matcher-preview" not in canonicals[0]
 
     sitemap = read(SITE / "sitemap.xml")
+    robots = read(SITE / "robots.txt")
+    assert "Sitemap: https://vettrialfinder.com/sitemap.xml" in robots
+    assert "matcher-preview" not in sitemap
+    assert not (SITE / "matcher-preview").exists()
     for route in matcher_routes:
         url = "https://vettrialfinder.com/matcher/" + (f"{route}/" if route else "")
         assert url in sitemap, f"Matcher route missing from sitemap: {url}"

@@ -238,3 +238,17 @@ Use this sequence for every newly reported cancer trial. A social post, news ite
 8. Update the complete canonical record in `data/trials_base.json`, then synchronize all production consumers: matcher logic, generated cancer pages, and any derived production catalog required by the repository.
 9. Run catalog/schema and sanitation validation, unique-ID checks, production synchronization checks, matcher regression cases for the new eligibility rules, and relevant page/build checks. Hard exclusions must hide a trial; an unknown material criterion remains `Possible` and requires study-team confirmation.
 10. Only after the checks pass, commit and push the completed change, then verify the SHA of the remote branch. Do not write partial research results to `main`.
+
+## 18. Static-site source and artifact ownership
+
+The deployable static site has one build entry point: `python scripts/build_static_site.py`. It deletes and recreates `seo/site/`; that directory is a disposable build artifact, is ignored by Git, and must never be committed or edited as source.
+
+Source ownership is intentionally split by responsibility:
+- `data/trials_base.json` is the canonical cancer opportunity catalog.
+- `data/oncology_centers.json` is the canonical oncology-care directory; `data/acvim_oncology_profiles.json` provides its source profiles.
+- `seo/static/matcher/` contains the browser matcher HTML/CSS/JavaScript templates. There is no separate preview or rollback template tree.
+- `seo/generate_seo.py`, orchestrated only through `seo/build_production_site.py`, creates the SEO page base. The remaining named SEO modules are deterministic enrichment stages; they are not alternate deploy entry points.
+- `seo/site_shell.py` owns the shared header, desktop/mobile navigation, footer, privacy/terms pages and global structured data.
+- `scripts/build_static_site.py` assembles the artifact and then runs cleanup, sentence-case enforcement, production synchronization, link/asset checks and matcher regressions.
+
+Clinic pages and the oncology-care directory are text-only. Clinic-photo download/fallback code was retired; do not restore external clinic image fields or hotlinking helpers. Production validation rejects external images on center pages and retired preview routes, tracking markers, old navigation labels and obsolete claims.

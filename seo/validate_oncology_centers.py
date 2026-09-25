@@ -11,7 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "oncology_centers.json"
-PAGE = ROOT / "seo" / "static" / "matcher-preview" / "centers" / "index.html"
+PAGE = ROOT / "seo" / "static" / "matcher" / "centers" / "index.html"
 PROFILES = ROOT / "data" / "acvim_oncology_profiles.json"
 REQUIRED = {
     "name", "street", "city", "region", "postal_code", "country",

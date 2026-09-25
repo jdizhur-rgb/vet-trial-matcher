@@ -10,12 +10,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "oncology_centers.json"
-SOURCE = ROOT / "seo" / "static" / "matcher-preview" / "centers" / "index.html"
-OUTPUTS = (
-    (SOURCE, "https://vettrialfinder.com/matcher-preview/centers/"),
-    (ROOT / "seo" / "site" / "matcher-preview" / "centers" / "index.html", "https://vettrialfinder.com/matcher-preview/centers/"),
-    (ROOT / "seo" / "site" / "matcher" / "centers" / "index.html", "https://vettrialfinder.com/matcher/centers/"),
-)
+SOURCE = ROOT / "seo" / "static" / "matcher" / "centers" / "index.html"
+OUTPUTS = ((SOURCE, "https://vettrialfinder.com/matcher/centers/"),)
 
 STATE_NAMES = {
     "AL":"Alabama","AK":"Alaska","AZ":"Arizona","AR":"Arkansas","CA":"California","CO":"Colorado",

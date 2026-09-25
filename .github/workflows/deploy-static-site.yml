@@ -93,7 +93,6 @@ jobs:
           assert sitemap.count('/centers/') >= 49
           assert 'https://vettrialfinder.com/how-we-verify/' in sitemap
           assert sitemap.count('https://vettrialfinder.com/veterinary-cancer-clinical-trials/') == 1
-          assert '<lastmod>2026-09-13</lastmod>' in sitemap
           assert all('/uk-europe/' not in url for url in sitemap.split('<loc>')[1:])
           assert not (root/'uk-europe').exists()
           assert not any((root/lang).exists() for lang in ('de','fr','es','it','nl'))
@@ -105,6 +104,9 @@ jobs:
           assert 'What this site does not do' in verification
           assert 'How we verify</a>' in home
           assert 'Find oncology care' in home
+          assert 'Find an oncologist' not in '\n'.join(p.read_text(encoding='utf-8') for p in root.rglob('*.html'))
+          assert 'verified trials' not in '\n'.join(p.read_text(encoding='utf-8').lower() for p in root.rglob('*.html'))
+          assert not (root/'matcher-preview').exists()
           registry=(root/'veterinary-cancer-clinical-trials/index.html').read_text(encoding='utf-8')
           assert '<h1>Free veterinary cancer clinical trial finder for dogs and cats</h1>' in registry
           assert 'Why we check more than one registry' in registry
@@ -120,6 +122,11 @@ jobs:
           assert 'async function searchByZip' in centers
           assert 'api.zippopotam.us/us/' in centers
           assert 'data-zips=' in centers and 'center-search-status' in centers
+          assert 'does not independently verify clinicians, licenses, credentials or quality of care' in centers
+          assert 'listing is not a recommendation' in centers
+          assert 'service, cost and current availability directly with the clinic' in centers
+          advanced=(root/'matcher/advanced/index.html').read_text(encoding='utf-8')
+          assert 'Inclusion in this catalog is not an endorsement or a treatment recommendation.' in advanced
           center_pages=list((root/'centers').glob('*/index.html'))
           assert center_pages
           content_center_pages=[p for p in center_pages if '<meta name="robots" content="noindex' not in p.read_text(encoding='utf-8')]

@@ -26,7 +26,7 @@ generate_seo.FINDER = f"{SITE}/matcher/"
 
 import generate_seo_strict
 import generate_cancer_coverage
-import ensure_center_images
+import validate_center_profiles
 from center_page_enhancements import enhance_center_pages
 from finalize_cancer_pages import finalize_cancer_pages
 from practical_cancer_pages import apply_practical_cancer_guides, apply_feline_practical_guides
@@ -166,7 +166,7 @@ def main():
     generate_cancer_coverage.main()
     generate_help_center(SEO_DIR / "site")
     generate_about_page(SEO_DIR / "site")
-    ensure_center_images.main()
+    validate_center_profiles.main()
     out = SEO_DIR / "site"
     # Safety guard: only independently reviewed feline diagnoses may use the owner guide.
     for feline in out.glob("*/cats/*/index.html"):

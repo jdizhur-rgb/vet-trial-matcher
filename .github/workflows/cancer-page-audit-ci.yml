@@ -54,7 +54,7 @@ jobs:
           )
 
           checked = 0
-          for region in ('north-america', 'uk-europe'):
+          for region in ('north-america',):
               for species in ('dogs', 'cats'):
                   for key in sorted(g.DISEASE_INFO):
                       p = root / region / species / g.slugify(key) / 'index.html'
@@ -76,6 +76,6 @@ jobs:
                       else:
                           assert not m and zero, p
                       checked += 1
-          assert checked == 88, checked
+          assert checked == 44, checked
           print('CANCER_PAGE_AUDIT_BUILD_OK', checked, 'generated pages')
           PY

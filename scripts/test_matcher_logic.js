@@ -7,10 +7,10 @@ const path = require('path');
 const root = path.resolve(__dirname, '..');
 global.window = {};
 global.document = {querySelector: () => null, querySelectorAll: () => []};
-require(path.join(root, 'seo/static/matcher-preview/matcher.js'));
+require(path.join(root, 'seo/static/matcher/matcher.js'));
 
 const rows = JSON.parse(
-  fs.readFileSync(path.join(root, 'seo/static/matcher-preview/trials.json'), 'utf8')
+  fs.readFileSync(path.join(root, 'seo/static/matcher/trials.json'), 'utf8')
 );
 const matcher = window.__MATCHER_TEST__;
 if (!matcher) throw new Error('Matcher test API is unavailable');
