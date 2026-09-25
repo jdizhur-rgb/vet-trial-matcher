@@ -95,7 +95,7 @@ def generate_surgical_margins_article(root: Path) -> None:
 
     article = (directory / 'index.html').read_text(encoding='utf-8')
     required = (
-        '<h1>Clean, Close, and Dirty Margins After Tumor Removal</h1>',
+        '<h1 class="page-title">Clean, Close, and Dirty Margins After Tumor Removal</h1>',
         'A close margin means',
         'estimated local recurrence rate at three years was 7 percent',
         'this finding alone is not enough to decide',

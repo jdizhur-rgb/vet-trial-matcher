@@ -79,7 +79,7 @@ def generate_lump_before_surgery_article(root: Path) -> None:
 
     article = (directory / 'index.html').read_text(encoding='utf-8')
     checks = (
-        '<h1>Diagnosis first, surgery second: what to do when you find a lump</h1>',
+        '<h1 class="page-title">Diagnosis first, surgery second: what to do when you find a lump</h1>',
         'Why every new lump on a dog or cat should be diagnosed before it is removed.',
         'I have several senior dogs',
         'fine-needle aspirate',

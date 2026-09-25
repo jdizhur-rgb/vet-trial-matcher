@@ -147,7 +147,7 @@ def generate_repurposed_drugs_article(root: Path) -> None:
 
     article = (directory / 'index.html').read_text(encoding='utf-8')
     required = (
-        '<h1>Fenbendazole, ivermectin, and repurposed drugs for dogs with cancer</h1>',
+        '<h1 class="page-title">Fenbendazole, ivermectin, and repurposed drugs for dogs with cancer</h1>',
         'About four in ten',
         'Why the conversation changed in 2025 and 2026',
         'has yet to be established',

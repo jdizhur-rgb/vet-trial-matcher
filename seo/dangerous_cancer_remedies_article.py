@@ -151,7 +151,7 @@ def generate_dangerous_cancer_remedies_article(root: Path) -> None:
 
     article = (directory / 'index.html').read_text(encoding='utf-8')
     required = (
-        '<h1>When a cancer remedy causes visible harm</h1>',
+        '<h1 class="page-title">When a cancer remedy causes visible harm</h1>',
         'Black salve does not draw out cancer',
         'This exception does not apply to cats',
         'This is direct harm',

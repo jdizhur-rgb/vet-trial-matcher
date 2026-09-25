@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "seo" / "site"
 sys.path.insert(0, str(ROOT / "seo"))
 
-from site_shell import wrap_html  # noqa: E402
+from site_shell import apply_page_title_component, wrap_html  # noqa: E402
 
 
 FORBIDDEN_TRACKING_MARKERS = (
@@ -44,6 +44,36 @@ def validate_no_tracking() -> None:
     if findings:
         raise RuntimeError("Tracking code found in production output:\n" + "\n".join(findings))
     print("NO_TRACKING_OK")
+
+
+def validate_public_page_shell() -> None:
+    pages = list(SITE.rglob("*.html"))
+    missing_title_component: list[str] = []
+    missing_care_links: list[str] = []
+    expected_links = (
+        '<a href="https://vettrialfinder.com/matcher/centers/">Find oncology care near you</a>',
+        '<a href="https://vettrialfinder.com/centers/">Browse all oncology centers</a>',
+    )
+    for path in pages:
+        text = path.read_text(encoding="utf-8")
+        h1_tags = re.findall(r"<h1\b[^>]*>", text, flags=re.IGNORECASE)
+        if h1_tags and any(
+            not re.search(r'class=["\'][^"\']*\bpage-title\b', tag) for tag in h1_tags
+        ):
+            missing_title_component.append(str(path.relative_to(ROOT)))
+        if '<header class="site-header">' in text and any(link not in text for link in expected_links):
+            missing_care_links.append(str(path.relative_to(ROOT)))
+    if missing_title_component:
+        raise RuntimeError(
+            "Public H1 missing shared page-title component:\n"
+            + "\n".join(missing_title_component)
+        )
+    if missing_care_links:
+        raise RuntimeError(
+            "Shared header missing oncology-care directory links:\n"
+            + "\n".join(missing_care_links)
+        )
+    print("PUBLIC_PAGE_SHELL_OK", len(pages))
 
 
 def main() -> None:
@@ -104,7 +134,13 @@ def main() -> None:
     run("seo/validate_center_profiles.py")
     run("seo/enforce_sentence_case.py", pythonpath="seo")
     run("scripts/validate_production_sync.py")
+    for page in SITE.rglob("*.html"):
+        page.write_text(
+            apply_page_title_component(page.read_text(encoding="utf-8")),
+            encoding="utf-8",
+        )
     validate_no_tracking()
+    validate_public_page_shell()
     subprocess.run(
         ["node", "scripts/test_matcher_logic.js"],
         cwd=ROOT,

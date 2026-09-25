@@ -249,6 +249,7 @@ Source ownership is intentionally split by responsibility:
 - `seo/static/matcher/` contains the browser matcher HTML/CSS/JavaScript templates. There is no separate preview or rollback template tree.
 - `seo/generate_seo.py`, orchestrated only through `seo/build_production_site.py`, creates the SEO page base. The remaining named SEO modules are deterministic enrichment stages; they are not alternate deploy entry points.
 - `seo/site_shell.py` owns the shared header, desktop/mobile navigation, footer, privacy/terms pages and global structured data.
+- Every public static-page `<h1>` receives the shared `page-title` component in `seo/site_shell.py`; route-specific H1 typography must not be added. The shared “Find oncology care” navigation group must retain links to both the nearby-care matcher and the complete center directory.
 - `scripts/build_static_site.py` assembles the artifact and then runs cleanup, sentence-case enforcement, production synchronization, link/asset checks and matcher regressions.
 
 Clinic pages and the oncology-care directory are text-only. Clinic-photo download/fallback code was retired; do not restore external clinic image fields or hotlinking helpers. Production validation rejects external images on center pages and retired preview routes, tracking markers, old navigation labels and obsolete claims.

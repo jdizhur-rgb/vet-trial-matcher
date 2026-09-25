@@ -55,7 +55,7 @@ def generate_about_page(root: Path) -> None:
     body = '''
 <style>
 .about-story-v2{max-width:820px;margin:0 auto;color:#293b4d}
-.about-story-v2>h1{font-size:32px!important;line-height:1.14!important;color:#315f7d!important;font-weight:650!important;letter-spacing:-.02em;margin:22px 0 22px!important}
+.about-story-v2>h1{color:#315f7d!important;font-weight:650!important;letter-spacing:-.02em}
 .about-story-v2 p{font-size:16px;line-height:1.62;margin:0 0 18px}
 
 .story-scene{display:flow-root;margin:0 0 28px}
@@ -73,7 +73,7 @@ def generate_about_page(root: Path) -> None:
 .founder-signoff img{width:72px;height:72px;object-fit:cover;border-radius:50%;border:1px solid #d9e2ea}
 .founder-signoff strong,.founder-signoff span{display:block}.founder-signoff strong{color:#315f7d}.founder-signoff span{color:#60788e;font-size:14px;margin-top:2px}
 @media(max-width:800px){
-.about-story-v2{max-width:none}.about-story-v2>h1{font-size:1.65rem!important;line-height:1.14!important;margin:16px 0 17px!important;color:#315f7d!important}.about-story-v2 p{font-size:16px;line-height:1.58;margin-bottom:17px}.story-scene,.story-scene.yasha{display:flow-root;margin:0 0 22px}.story-scene.yasha{margin-top:28px}.story-photo{width:31%;max-width:140px;margin:0 15px 8px 0;border-radius:10px}.story-scene.yasha .story-photo{float:right;margin:0 0 8px 15px}.story-divider{clear:both;margin:24px 0}.story-purpose{margin-top:24px;padding:17px 16px}.story-close{margin:22px 0 20px!important;padding:14px 15px}.founder-signoff{margin-top:22px}.founder-signoff img{width:60px;height:60px}
+.about-story-v2{max-width:none}.about-story-v2>h1{color:#315f7d!important}.about-story-v2 p{font-size:16px;line-height:1.58;margin-bottom:17px}.story-scene,.story-scene.yasha{display:flow-root;margin:0 0 22px}.story-scene.yasha{margin-top:28px}.story-photo{width:31%;max-width:140px;margin:0 15px 8px 0;border-radius:10px}.story-scene.yasha .story-photo{float:right;margin:0 0 8px 15px}.story-divider{clear:both;margin:24px 0}.story-purpose{margin-top:24px;padding:17px 16px}.story-close{margin:22px 0 20px!important;padding:14px 15px}.founder-signoff{margin-top:22px}.founder-signoff img{width:60px;height:60px}
 }
 </style>
 <article class="about-story-v2">

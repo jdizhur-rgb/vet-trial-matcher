@@ -96,7 +96,11 @@ def normalize(text: str, path: Path | None = None) -> str:
     for key in g.DISEASE_INFO:
         label = g.display_name(key)
         sentence = sentence_diagnosis(label)
-        text = text.replace(f"<h1>{label}</h1>", f"<h1>{sentence}</h1>")
+        text = re.sub(
+            rf"(<h1\b[^>]*>){re.escape(label)}(</h1>)",
+            rf"\1{sentence}\2",
+            text,
+        )
         text = text.replace(f"<strong>{label}</strong>", f"<strong>{sentence}</strong>")
         text = text.replace(f"<h2>Understanding {label}</h2>", f"<h2>Understanding {sentence.lower()}</h2>")
         text = text.replace(f"{label} clinical trials for dogs", f"{sentence} clinical trials for dogs")
@@ -106,9 +110,10 @@ def normalize(text: str, path: Path | None = None) -> str:
             old_title = f"{sentence} clinical trials for {species}"
             new_title = f"{sentence} in {species}: treatment, prognosis and clinical trials"
             text = text.replace(old_title, new_title)
-            text = text.replace(
-                f"<h1>{sentence}</h1>",
-                f"<h1>{new_title}</h1>",
+            text = re.sub(
+                rf"(<h1\b[^>]*>){re.escape(sentence)}(</h1>)",
+                rf"\1{new_title}\2",
+                text,
             )
     text = text.replace("University / Teaching Hospital", "University / teaching hospital")
     text = text.replace("Specialty Hospital / Research Center", "Specialty hospital / research center")
@@ -128,7 +133,7 @@ def validate(root: Path) -> None:
             failures.append(f"{path.relative_to(root)}: diagnosis SEO title")
         species = diagnosis_species(path)
         if species:
-            h1 = re.search(r"<h1>(.*?)</h1>", text, re.S)
+            h1 = re.search(r"<h1\b[^>]*>(.*?)</h1>", text, re.S)
             title = re.search(r"<title>(.*?)</title>", text, re.S)
             expected = f"in {species}: treatment, prognosis and clinical trials"
             if not h1 or expected not in h1.group(1):

@@ -88,7 +88,7 @@ def generate_clinical_trials_for_pets_article(root: Path) -> None:
 
     article = (directory / 'index.html').read_text(encoding='utf-8')
     checks = (
-        '<h1>Clinical Trials for Pets with Cancer</h1>',
+        '<h1 class="page-title">Clinical Trials for Pets with Cancer</h1>',
         'My dog Yasha has histiocytic sarcoma.',
         'does not present a study as a treatment option if a pet could receive only placebo',
         'this option is worth checking.',

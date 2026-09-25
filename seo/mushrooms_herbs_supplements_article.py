@@ -149,7 +149,7 @@ def generate_mushrooms_herbs_supplements_article(root: Path) -> None:
 
     article = (directory / 'index.html').read_text(encoding='utf-8')
     required = (
-        '<h1>Mushrooms, herbs, and supplements for dogs with cancer</h1>',
+        '<h1 class="page-title">Mushrooms, herbs, and supplements for dogs with cancer</h1>',
         'individualized nature of each cancer diagnosis',
         'Traditional Chinese medicine begins with the patient',
         'The addition of PSP to doxorubicin',
