@@ -3,6 +3,7 @@
 from __future__ import annotations
 import json, re, shutil
 from pathlib import Path
+from urllib.parse import urlencode
 import generate_seo as g
 from site_config import SITE
 # The shared shell is also imported by standalone article generators. Keep its
@@ -208,17 +209,35 @@ def electrochemotherapy_article(root):
  redirect=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex, follow"><title>Electrochemotherapy | Vet Trial Finder</title><link rel="canonical" href="{url}"><meta http-equiv="refresh" content="0; url={url}"><script>location.replace({json.dumps(url)});</script></head><body><p><a href="{url}">Continue to the electrochemotherapy article</a></p></body></html>'''
  (legacy/'index.html').write_text(redirect,encoding='utf-8')
 
+MATCHER_CANCER_BY_DISEASE = {
+ 'chemodectoma':'Chemodectoma', 'glioma':'Brain tumor / glioma', 'hemangiosarcoma':'Hemangiosarcoma',
+ 'hepatocellular carcinoma':'Hepatocellular carcinoma', 'histiocytic sarcoma':'Histiocytic sarcoma',
+ 'leukemia':'Leukemia — other', 'lymphoma':'Lymphoma — any type',
+ 'mammary carcinoma':'Mammary carcinoma', 'mast cell tumor':'Mast cell tumor',
+ 'melanoma':'Melanoma — other', 'multiple myeloma':'Multiple myeloma / plasma cell cancer', 'nasal tumor':'Nasal tumor / nasal cancer',
+ 'oral melanoma':'Oral melanoma', 'oral squamous cell carcinoma':'Oral squamous cell carcinoma',
+ 'osteosarcoma':'Osteosarcoma', 'primary lung tumor':'Primary lung tumor',
+ 'prostate cancer':'Prostate cancer', 'soft tissue sarcoma':'Soft tissue sarcoma',
+ 'squamous cell carcinoma':'Squamous cell carcinoma — other', 'thyroid carcinoma':'Thyroid carcinoma',
+ 'urothelial carcinoma':'Urothelial carcinoma',
+}
+
+
+def matcher_diagnosis_url(species, disease):
+ return f'{FINDER}?{urlencode({"species": species, "country": "All countries", "cancer": MATCHER_CANCER_BY_DISEASE[disease], "autostart": "1"})}'
+
+
 def trial_registry(root, stats, rows):
  north_america=[r for r in rows if r.get('country') in {'USA','Canada'}]
  centers=len({str(r.get('center') or '').strip() for r in north_america if str(r.get('center') or '').strip()})
  diagnoses=[]
  for key in sorted(g.DISEASE_INFO,key=lambda value:g.display_name(value)):
-  dog_count=sum(1 for r in north_america if g.species_ok(r,'Dog') and key in g.row_cancers(r))
-  cat_count=sum(1 for r in north_america if g.species_ok(r,'Cat') and key in g.row_cancers(r))
+  dog_count=sum(1 for r in rows if g.species_ok(r,'Dog') and key in g.row_cancers(r))
+  cat_count=sum(1 for r in rows if g.species_ok(r,'Cat') and key in g.row_cancers(r))
   if not dog_count and not cat_count:continue
   links=[];slug=g.slugify(key);label=g.display_name(key)
-  if dog_count:links.append(f'<a class="registry-diagnosis" href="{SITE}/north-america/dogs/{slug}/">{g.esc(label)} in dogs<span>{dog_count} current {"option" if dog_count==1 else "options"}</span></a>')
-  if cat_count:links.append(f'<a class="registry-diagnosis" href="{SITE}/north-america/cats/{slug}/">{g.esc(label)} in cats<span>{cat_count} current {"option" if cat_count==1 else "options"}</span></a>')
+  if dog_count:links.append(f'<a class="registry-diagnosis" href="{matcher_diagnosis_url("Dog", key)}">{g.esc(label)} in dogs<span>{dog_count} current {"option" if dog_count==1 else "options"}</span></a>')
+  if cat_count:links.append(f'<a class="registry-diagnosis" href="{matcher_diagnosis_url("Cat", key)}">{g.esc(label)} in cats<span>{cat_count} current {"option" if cat_count==1 else "options"}</span></a>')
   diagnoses.extend(links)
  url=f'{SITE}/veterinary-cancer-clinical-trials/'
  body=f'''<div class="registry-page"><h1>Free Veterinary Cancer Clinical Trial Finder for Dogs and Cats</h1>
@@ -228,7 +247,7 @@ def trial_registry(root, stats, rows):
 <section class="registry-section"><h2>What is included</h2><p>Current cancer treatment options for client-owned dogs and cats: clinical trials, expanded-access programs and selected newer treatments. Each listing links to the official source and summarizes published eligibility, locations, contacts and stated costs. A match means worth asking about, not accepted.</p></section>
 <section class="registry-section"><h2>Why we check more than one registry</h2><p>We check the AVMA registry plus official university, hospital and research-program pages, because an opportunity may appear in only one place. The study team confirms current enrollment.</p></section>
 <section class="registry-section"><h2>Free means free</h2><p>No account, payment or application through us. We do not charge hospitals or research teams to appear.</p></section>
-<h2>Browse current trials by diagnosis</h2><p>Counts below are current treatment opportunities in the USA and Canada. Each study or program is counted once, even if listed for several diagnoses or hospitals.</p><div class="registry-diagnoses">{''.join(diagnoses)}</div>
+<h2>Browse current trials by diagnosis</h2><p>Counts below are current treatment opportunities in the catalog. Each study or program is counted once, even if listed for several diagnoses or hospitals.</p><div class="registry-diagnoses">{''.join(diagnoses)}</div>
 <section class="registry-section"><h2>Before contacting a study</h2><p>Have the pathology report, staging, treatment history and current medications ready. Only the study team can decide eligibility.</p></section>
 <div class="registry-actions"><a class="cta" href="{FINDER}" target="_blank" rel="noopener">Find trials for your pet</a><a class="secondary-cta" href="{SITE}/dogs/cancer-clinical-trials/">Trials for dogs</a><a class="secondary-cta" href="{SITE}/cats/cancer-clinical-trials/">Trials for cats</a><a class="secondary-cta" href="{SITE}/treatments/">Browse by treatment type</a></div></div>'''
  dest=root/'veterinary-cancer-clinical-trials';dest.mkdir(parents=True,exist_ok=True)
