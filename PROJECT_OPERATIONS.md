@@ -252,3 +252,5 @@ Source ownership is intentionally split by responsibility:
 - `scripts/build_static_site.py` assembles the artifact and then runs cleanup, sentence-case enforcement, production synchronization, link/asset checks and matcher regressions.
 
 Clinic pages and the oncology-care directory are text-only. Clinic-photo download/fallback code was retired; do not restore external clinic image fields or hotlinking helpers. Production validation rejects external images on center pages and retired preview routes, tracking markers, old navigation labels and obsolete claims.
+
+IndexNow notifications run only after a successful GitHub Pages deployment. The notifier derives eligible URLs from the generated production sitemap, rejects non-canonical, noindex and redirect pages, and compares generated-page hashes with the last successful submission so only changed `https://vettrialfinder.com` pages are sent. IndexNow availability must never block deployment.

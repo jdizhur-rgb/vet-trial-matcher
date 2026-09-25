@@ -97,6 +97,12 @@ jobs:
           assert not (root/'uk-europe').exists()
           assert not any((root/lang).exists() for lang in ('de','fr','es','it','nl'))
           assert '"@type":"WebSite"' in home and '"@type":"Organization"' in home
+          assert '"@type":"WebSite","@id":"https://vettrialfinder.com/#website","url":"https://vettrialfinder.com/","name":"Vet Trial Finder"' in home
+          assert '"@type":"Organization","@id":"https://vettrialfinder.com/#organization","name":"Vet Trial Finder","alternateName":"VetTrialFinder"' in home
+          assert '"sameAs":["https://www.facebook.com/share/19SH2uYyTb/"]' in home
+          assert '<a class="brand" href="https://vettrialfinder.com/" aria-label="Vet Trial Finder">' in home
+          indexnow_key='ca36635c41120f89495c9cd121d884744872420f261fc4e44272c6f5555d3b62'
+          assert (root/f'{indexnow_key}.txt').read_text(encoding='utf-8').strip() == indexnow_key
           assert 'BreadcrumbList' in (root/'north-america/dogs/lymphoma/index.html').read_text(encoding='utf-8')
           assert (root/'404.html').exists()
           verification=(root/'how-we-verify/index.html').read_text(encoding='utf-8')
@@ -195,3 +201,28 @@ jobs:
       - name: Deploy production site
         id: deployment
         uses: actions/deploy-pages@v4
+
+  notify-indexnow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: deploy
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download deployed static-site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: production-site
+          path: seo/site
+      - name: Restore last submitted page hashes
+        uses: actions/cache/restore@v4
+        with:
+          path: .indexnow-manifest.json
+          key: indexnow-manifest-${{ github.sha }}
+          restore-keys: indexnow-manifest-
+      - name: Submit changed canonical pages to IndexNow
+        run: python scripts/submit_indexnow.py
+      - name: Save submitted page hashes
+        uses: actions/cache/save@v4
+        with:
+          path: .indexnow-manifest.json
+          key: indexnow-manifest-${{ github.sha }}
