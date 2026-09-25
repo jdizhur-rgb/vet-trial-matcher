@@ -69,13 +69,20 @@ def reinforce_homepage_metadata(text: str) -> str:
         f'<meta property="og:title" content="{HOME_TITLE}">'
         f'<meta property="og:description" content="{HOME_DESCRIPTION}">'
         f'<meta property="og:url" content="{SITE}/">'
-        '<meta name="twitter:card" content="summary">'
+        f'<meta property="og:image" content="{SITE}/assets/vet-trial-finder-logo.png">'
+        f'<meta property="og:image:secure_url" content="{SITE}/assets/vet-trial-finder-logo.png">'
+        '<meta property="og:image:type" content="image/png">'
+        '<meta property="og:image:width" content="1208">'
+        '<meta property="og:image:height" content="920">'
+        '<meta property="og:image:alt" content="Vet Trial Finder dog logo">'
+        '<meta name="twitter:card" content="summary_large_image">'
         f'<meta name="twitter:title" content="{HOME_TITLE}">'
         f'<meta name="twitter:description" content="{HOME_DESCRIPTION}">'
+        f'<meta name="twitter:image" content="{SITE}/assets/vet-trial-finder-logo.png">'
     )
     # Rebuilding must be idempotent even if generated input later gains social tags.
-    text = re.sub(r'<meta property="og:(?:type|site_name|title|description|url)"[^>]*>', '', text, flags=re.I)
-    text = re.sub(r'<meta name="twitter:(?:card|title|description)"[^>]*>', '', text, flags=re.I)
+    text = re.sub(r'<meta property="og:(?:type|site_name|title|description|url|image(?::(?:secure_url|type|width|height|alt))?)"[^>]*>', '', text, flags=re.I)
+    text = re.sub(r'<meta name="twitter:(?:card|title|description|image)"[^>]*>', '', text, flags=re.I)
     return text.replace('</head>', social + '</head>', 1)
 
 
