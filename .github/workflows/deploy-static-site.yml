@@ -122,9 +122,10 @@ jobs:
           assert 'async function searchByZip' in centers
           assert 'api.zippopotam.us/us/' in centers
           assert 'data-zips=' in centers and 'center-search-status' in centers
-          assert 'does not independently verify clinicians, licenses, credentials or quality of care' in centers
-          assert 'listing is not a recommendation' in centers
-          assert 'service, cost and current availability directly with the clinic' in centers
+          oncology_care=(root/'matcher/centers/index.html').read_text(encoding='utf-8')
+          assert 'does not independently verify clinicians, licenses, credentials or quality of care' in oncology_care
+          assert 'listing is not a recommendation' in oncology_care
+          assert 'service, cost and current availability directly with the clinic' in oncology_care
           advanced=(root/'matcher/advanced/index.html').read_text(encoding='utf-8')
           assert 'Inclusion in this catalog is not an endorsement or a treatment recommendation.' in advanced
           center_pages=list((root/'centers').glob('*/index.html'))
