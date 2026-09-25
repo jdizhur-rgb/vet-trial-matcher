@@ -26,7 +26,7 @@ VACCINE_CSS = r'''
 @media(max-width:560px){.vaccine-accordion summary{padding:13px 14px;padding-right:38px}.vaccine-accordion summary:after{right:14px}.vaccine-accordion .accordion-body{padding:3px 14px 14px}}
 '''
 
-HERO = "https://www.vet.upenn.edu/wp-content/uploads/2025/01/mason-res-header.jpg"
+HERO = f"{SITE}/assets/og-cancer-vaccines.jpg"
 
 
 def _accordion(title: str, body: str) -> str:
@@ -114,7 +114,7 @@ def generate_cancer_vaccine_article(root: Path) -> None:
 
     body = f'''<article class="article-page"><h1>Cancer Vaccines for Dogs</h1>
 <p class="article-deck">Cancer vaccines are already part of veterinary oncology, but the word <em>vaccine</em> covers very different treatments. One is licensed for oral melanoma. Some are personalized from a dog's own tumor. Others are available only through clinical trials.</p>
-<figure class="article-hero"><img src="{HERO}" alt="Researchers working in a canine cancer immunotherapy laboratory" width="1600" height="891"><figcaption>Canine cancer immunotherapy research in the Mason Immunotherapy Research Laboratory. Photo: University of Pennsylvania School of Veterinary Medicine.</figcaption></figure>
+<figure class="article-hero"><img src="{HERO}" alt="Illustration for an article about canine cancer vaccines" width="1200" height="630"><figcaption>Vet Trial Finder illustration.</figcaption></figure>
 <p>Unlike routine vaccines against infectious disease, most cancer vaccines are not given to prevent cancer. They are used after a tumor has been diagnosed. Their goal is to help the immune system recognize tumor-associated targets and attack cancer cells more effectively.</p>
 <p>That does not make every cancer vaccine interchangeable. The diagnosis, stage, previous treatment, available tumor tissue, and the exact vaccine all matter.</p>
 <div class="article-note"><strong>One useful question before anything else:</strong> Is this a licensed treatment, a veterinarian-directed product, or an experimental vaccine available only through a clinical study?</div>

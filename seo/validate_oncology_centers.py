@@ -41,7 +41,9 @@ def main() -> None:
             assert center["latitude"] is not None and center["longitude"] is not None, center["name"]
 
     page = PAGE.read_text(encoding="utf-8")
-    assert "Find a veterinary oncologist near you" in page
+    assert "Find veterinary oncology care near you" in page
+    assert "Service information is compiled from clinic websites and professional public directories" in page
+    assert "does not independently verify clinicians, licenses, credentials or quality of care" in page
     assert "ZIP code for nearest centers" in page
     assert "All services" in page
     assert "api.zippopotam.us/us/" in page

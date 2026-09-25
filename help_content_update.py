@@ -13,7 +13,7 @@ def main() -> None:
         'What do the result labels mean?',
         'Can I save or share the results?',
         '<h2>Oncology centers and trial centers</h2>',
-        'How do I find an oncologist or ECT center?',
+        'How do I find oncology care or an ECT center?',
         'What are Trial Centers?',
         'How do I find the nearest trial centers?',
         '<h2>Other Treatments</h2>',

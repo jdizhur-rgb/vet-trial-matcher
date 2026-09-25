@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check center imagery without adding unrelated stock photography."""
+"""Enforce text-only clinic profiles and substantive sourced introductions."""
 from pathlib import Path
 import re
 
@@ -27,10 +27,8 @@ def main():
                 continue
             raise RuntimeError(f"Missing center overview: {page}")
         section = block.group(0)
-        if "<img " not in section:
-            raise RuntimeError(f"Missing center image: {page}")
-        if not re.search(r'<figcaption>[^<]{4,}</figcaption>', section):
-            raise RuntimeError(f"Missing image credit: {page}")
+        if "<img " in section or "<figure" in section:
+            raise RuntimeError(f"Clinic image must not be published: {page}")
         copy = re.search(r'<div class="center-overview-copy"><p>(.*?)</p>', section, re.S)
         if not copy or len(re.sub(r'<[^>]+>', '', copy.group(1)).strip()) < 70:
             raise RuntimeError(f"Missing substantive center introduction: {page}")
@@ -44,8 +42,6 @@ def main():
         if not re.search(r'<a href="https?://', section):
             raise RuntimeError(f"Missing official center or study link: {page}")
         checked.append(page)
-        if 'center-fallback.jpg' in text:
-            raise RuntimeError(f"Generic fallback image survived: {page}")
     print(f"CENTER_PROFILES_OK pages={len(centers)} verified_profiles={len(checked)} redirects_skipped={len(centers)-len(checked)}")
 
 

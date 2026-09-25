@@ -141,6 +141,14 @@ CENTER_ABOUT = {
 for _name, _copy in CENTER_ABOUT.items():
     if _name in PROFILES:
         PROFILES[_name]["about"] = _copy
+
+# Public availability and a photo credit do not establish republication rights.
+# Keep the clinic directory text-only unless a future asset has explicit,
+# documented reuse permission and the owner approves its publication.
+for _profile in PROFILES.values():
+    _profile.pop("image", None)
+    _profile.pop("image_alt", None)
+    _profile.pop("image_caption", None)
 CURRENT={'current','confirmed_current'}
 
 RESEARCH_ORGANIZATIONS = {
