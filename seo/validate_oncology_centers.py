@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import html
+import re
 import urllib.parse
 from pathlib import Path
 
@@ -37,6 +38,10 @@ def main() -> None:
         parsed = urllib.parse.urlparse(center["website"])
         assert "." in parsed.netloc and "@" not in parsed.netloc and parsed.netloc != "www", center["website"]
         assert center["services"] and all(isinstance(x, str) and x for x in center["services"]), center["name"]
+        phone = center.get("phone", "")
+        if phone and center["country"] in {"USA", "Canada"}:
+            digits = re.sub(r"\\D", "", phone)
+            assert len(digits) == 10, (center["name"], phone)
         if center["country"] == "USA":
             assert center["latitude"] is not None and center["longitude"] is not None, center["name"]
 
