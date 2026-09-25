@@ -3,11 +3,11 @@
 
   const UNKNOWN = "I don't know";
   const CURRENT = new Set(['current', 'confirmed_current']);
-  const LYMPHOMA = new Set(['B-cell lymphoma', 'T-cell lymphoma', 'Lymphoma — other']);
+  const LYMPHOMA = new Set(['B-cell lymphoma', 'T-cell lymphoma', 'Lymphoma — other', 'Lymphoma — any type']);
   const EUROPE = new Set(['UK','United Kingdom','France','Italy','Portugal','Switzerland','Netherlands','The Netherlands','Belgium','Sweden','Slovenia','Spain','Germany','Cyprus','Austria','Poland','Norway','Denmark','Finland','Ireland','Czech Republic','Czechia','Hungary','Greece','Romania','Croatia','Estonia','Latvia','Lithuania','Luxembourg','Iceland']);
   const ALIASES = {
     'B-cell lymphoma':['Lymphoma','Lymphoma — other'], 'T-cell lymphoma':['Lymphoma','Lymphoma — other','Enteropathy-associated T-cell lymphoma'],
-    'Lymphoma — other':['Lymphoma','Gastrointestinal lymphoma','Large cell lymphoma'], 'Brain tumor / glioma':['Brain tumor','Glioma'],
+    'Lymphoma — other':['Lymphoma','Gastrointestinal lymphoma','Large cell lymphoma'], 'Lymphoma — any type':['Lymphoma','B-cell lymphoma','T-cell lymphoma','Lymphoma — other','Gastrointestinal lymphoma','Large cell lymphoma','Enteropathy-associated T-cell lymphoma'], 'Leukemia — other':['Leukemia'], 'Brain tumor / glioma':['Brain tumor','Glioma'],
     'Feline mammary carcinoma':['Mammary carcinoma','Mammary tumor'], 'Mammary carcinoma':['Mammary tumor'], 'Mammary tumor — other':['Mammary tumor'],
     'Urothelial / transitional cell carcinoma':['Urothelial carcinoma','Transitional cell carcinoma'],
     'Urothelial carcinoma':['Urothelial / transitional cell carcinoma','Transitional cell carcinoma','Bladder cancer'],
@@ -15,7 +15,7 @@
     'Hepatocellular carcinoma':['Hepatic carcinoma'], 'Primary lung tumor':['Pulmonary carcinoma'],
     'Oral squamous cell carcinoma':['Feline oral SCC'], 'Squamous cell carcinoma — other':['Squamous cell carcinoma'],
     'Oral tumor — other':['Oral tumor'], 'Ocular melanoma / iris melanocytic tumor':['Ocular melanoma','Iris melanocytic tumor'],
-    'Chemodectoma':['Aortic body tumor','Aortic body tumors','Heart-base tumor','Heart base tumor','Paraganglioma','Non-chromaffin paraganglioma']
+    'Chemodectoma':['Aortic body tumor','Aortic body tumors','Heart-base tumor','Heart base tumor','Paraganglioma','Non-chromaffin paraganglioma'], 'Melanoma — other':['Melanoma']
   };
   const FAMILIES = {
     'Gastric / stomach cancer':['solid_tumor','carcinoma'], 'Colorectal / rectal cancer':['solid_tumor','carcinoma'],
@@ -27,6 +27,7 @@
     'Nasal tumor / nasal cancer':['solid_tumor','nasal_tumor'], 'Multiple myeloma / plasma cell cancer':['hematologic']
   };
   const BLOCKED = ['on hold','completed','closed enrollment','enrollment closed','closed for data review','suspended','past clinical study','not accepting','paused','not on current','do not match','coming soon','not yet independently confirmed','enrollment not confirmed','reconfirm before matching','previously active recruitment','sponsor page still lists study','current oncology archive listing','recent active trial; enrollment must be reconfirmed','patients needed; current enrollment should be reconfirmed','funded active-study evidence','current funded translational research'];
+  const URL_CANCER_LABELS = {'Leukemia — other':'Leukemia — other', 'Lymphoma — any type':'Lymphoma — any type'};
   const form = document.querySelector('#matcher-form');
   const results = document.querySelector('#matcher-results');
   let trials = [];
@@ -231,9 +232,22 @@
     form.querySelector('.matcher-submit').disabled=!cancer;
   }
 
+  function applyUrlPreset() {
+    const params = new URLSearchParams(window.location.search);
+    const species = params.get('species');
+    const country = params.get('country');
+    const cancer = params.get('cancer');
+    if (['Dog', 'Cat'].includes(species)) form.elements.species.value = species;
+    if ([...form.elements.country.options].some(option => option.value === country)) form.elements.country.value = country;
+    if (URL_CANCER_LABELS[cancer] && ![...form.elements.cancer.options].some(option => option.value === cancer)) form.elements.cancer.add(new Option(URL_CANCER_LABELS[cancer], cancer));
+    if ([...form.elements.cancer.options].some(option => option.value === cancer)) form.elements.cancer.value = cancer;
+    return params.get('autostart') === '1' && Boolean(form.elements.cancer.value);
+  }
+
   if (typeof window !== 'undefined') window.__MATCHER_TEST__ = {matchTrial, diagnosisMatch, modalities};
   if (!form || !results) return;
+  const autoStart = applyUrlPreset();
   form.addEventListener('change',updateForm);
   form.addEventListener('submit',async e=>{e.preventDefault(); const p=patient(), matches=trials.map(t=>matchTrial(t,p)).filter(Boolean); matches.sort((a,b)=>{const rank=x=>x==='Likely match'?0:x==='Possible match'?1:2; return rank(a.confidence)-rank(b.confidence)+(Number(Boolean(a.trial.early_phase))-Number(Boolean(b.trial.early_phase)));}); const sorted=await sortByZip(matches,p.country==='USA'?p.zip_code:''); sorted.matches.distanceNote=sorted.origin; render(sorted.matches); results.scrollIntoView({behavior:'smooth',block:'start'});});
-  fetch(window.MATCHER_DATA_URL).then(r=>{if(!r.ok)throw new Error(`Catalog ${r.status}`);return r.json();}).then(data=>{trials=data;updateForm();}).catch(()=>{results.innerHTML='<div class="no-results">The trial catalog could not be loaded. Please try again shortly.</div>';});
+  fetch(window.MATCHER_DATA_URL).then(r=>{if(!r.ok)throw new Error(`Catalog ${r.status}`);return r.json();}).then(data=>{trials=data;updateForm();if(autoStart)form.requestSubmit();}).catch(()=>{results.innerHTML='<div class="no-results">The trial catalog could not be loaded. Please try again shortly.</div>';});
 })();
