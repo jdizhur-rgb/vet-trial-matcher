@@ -224,16 +224,17 @@ MATCHER_CANCER_BY_DISEASE = {
 
 
 def matcher_diagnosis_url(species, disease):
- return f'{FINDER}?{urlencode({"species": species, "country": "All countries", "cancer": MATCHER_CANCER_BY_DISEASE[disease], "autostart": "1"})}'
+ return f'{FINDER}?{urlencode({"species": species, "country": "USA", "cancer": MATCHER_CANCER_BY_DISEASE[disease], "autostart": "1"})}'
 
 
 def trial_registry(root, stats, rows):
  north_america=[r for r in rows if r.get('country') in {'USA','Canada'}]
+ usa=[r for r in rows if r.get('country') == 'USA']
  centers=len({str(r.get('center') or '').strip() for r in north_america if str(r.get('center') or '').strip()})
  diagnoses=[]
  for key in sorted(g.DISEASE_INFO,key=lambda value:g.display_name(value)):
-  dog_count=sum(1 for r in rows if g.species_ok(r,'Dog') and key in g.row_cancers(r))
-  cat_count=sum(1 for r in rows if g.species_ok(r,'Cat') and key in g.row_cancers(r))
+  dog_count=sum(1 for r in usa if g.species_ok(r,'Dog') and key in g.row_cancers(r))
+  cat_count=sum(1 for r in usa if g.species_ok(r,'Cat') and key in g.row_cancers(r))
   if not dog_count and not cat_count:continue
   links=[];slug=g.slugify(key);label=g.display_name(key)
   if dog_count:links.append(f'<a class="registry-diagnosis" href="{matcher_diagnosis_url("Dog", key)}">{g.esc(label)} in dogs<span>{dog_count} current {"option" if dog_count==1 else "options"}</span></a>')
@@ -247,7 +248,7 @@ def trial_registry(root, stats, rows):
 <section class="registry-section"><h2>What is included</h2><p>Current cancer treatment options for client-owned dogs and cats: clinical trials, expanded-access programs and selected newer treatments. Each listing links to the official source and summarizes published eligibility, locations, contacts and stated costs. A match means worth asking about, not accepted.</p></section>
 <section class="registry-section"><h2>Why we check more than one registry</h2><p>We check the AVMA registry plus official university, hospital and research-program pages, because an opportunity may appear in only one place. The study team confirms current enrollment.</p></section>
 <section class="registry-section"><h2>Free means free</h2><p>No account, payment or application through us. We do not charge hospitals or research teams to appear.</p></section>
-<h2>Browse current trials by diagnosis</h2><p>Counts below are current treatment opportunities in the catalog. Each study or program is counted once, even if listed for several diagnoses or hospitals.</p><div class="registry-diagnoses">{''.join(diagnoses)}</div>
+<h2>Browse current trials by diagnosis</h2><p>Counts below are current treatment opportunities in the USA. Each study or program is counted once, even if listed for several diagnoses or hospitals.</p><p class="registry-note"><strong>Outside the USA:</strong> additional options may be available in Canada and other countries. Select a country in the finder to include them.</p><div class="registry-diagnoses">{''.join(diagnoses)}</div>
 <section class="registry-section"><h2>Before contacting a study</h2><p>Have the pathology report, staging, treatment history and current medications ready. Only the study team can decide eligibility.</p></section>
 <div class="registry-actions"><a class="cta" href="{FINDER}" target="_blank" rel="noopener">Find trials for your pet</a><a class="secondary-cta" href="{SITE}/dogs/cancer-clinical-trials/">Trials for dogs</a><a class="secondary-cta" href="{SITE}/cats/cancer-clinical-trials/">Trials for cats</a><a class="secondary-cta" href="{SITE}/treatments/">Browse by treatment type</a></div></div>'''
  dest=root/'veterinary-cancer-clinical-trials';dest.mkdir(parents=True,exist_ok=True)
