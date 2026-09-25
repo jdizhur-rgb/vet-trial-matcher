@@ -18,6 +18,7 @@ def main() -> None:
         'How do I find the nearest trial centers?',
         '<h2>Other Treatments</h2>',
         'What is included under Other Treatments?',
+        'Is Vet Trial Finder really free?',
         'A clear “no matches” is more useful than showing a study that does not fit.',
         'mailto:info@vettrialfinder.com',
     )
@@ -25,8 +26,8 @@ def main() -> None:
     if missing:
         raise AssertionError(f'Help content missing: {missing}')
     details = text.count('<details>')
-    if details != 23:
-        raise AssertionError(f'Expected 23 Help accordions, found {details}')
+    if details != 24:
+        raise AssertionError(f'Expected 24 Help accordions, found {details}')
     if 'help-actions' in text:
         raise AssertionError('Help page still contains redundant navigation buttons')
     print('HELP_CONTENT_OK details=', details)
