@@ -41,7 +41,7 @@ def main() -> None:
             assert center["latitude"] is not None and center["longitude"] is not None, center["name"]
 
     page = PAGE.read_text(encoding="utf-8")
-    assert "Find veterinary oncology centers near you" in page
+    assert "Find a veterinary oncologist near you" in page
     assert "ZIP code for nearest centers" in page
     assert "All services" in page
     assert "api.zippopotam.us/us/" in page
