@@ -51,7 +51,7 @@ UNIFIED_HEADER_STYLE='''<style id="unified-site-header">
 .site-header .nav-shell{width:auto!important;margin:0!important}
 }
 </style>'''
-FOOTER=f'''<footer class="site-footer"><p><a href="{SITE}/help/">Help</a><a href="{SITE}/veterinary-cancer-clinical-trials/">Trial Registry</a><a href="{SITE}/centers/">Oncology Centers</a><a href="{SITE}/cancer-types/">Cancer Types</a><a href="{SITE}/contact/">Contact</a><a href="https://www.facebook.com/share/19SH2uYyTb/" target="_blank" rel="noopener">Facebook</a></p><p data-nosnippet>Vet Trial Finder is free to use. Final eligibility and enrollment decisions are made by each research or treatment team.</p></footer>'''
+FOOTER=f'''<footer class="site-footer"><p><a href="{SITE}/help/">Help</a><a href="{SITE}/veterinary-cancer-clinical-trials/">Trial Registry</a><a href="{SITE}/centers/">Oncology Centers</a><a href="{SITE}/cancer-types/">Cancer Types</a><a href="{SITE}/contact/">Contact</a><a href="https://www.facebook.com/share/19SH2uYyTb/" target="_blank" rel="noopener">Facebook</a></p><p data-nosnippet>Vet Trial Finder is free to use. Final eligibility and enrollment decisions are made by each research or treatment team.</p><small style="display:block;margin-top:16px;color:#788796;font-size:.78rem">© 2026 Vet Trial Finder. An independent project.</small></footer>'''
 def apply_navigation(text:str)->str:
  text=re.sub(r'<header(?:\s+class="site-header")?>.*?</header>',NAV,text,count=1,flags=re.S)
  if NAV not in text:text=text.replace('<main>',NAV+'<main>',1)
