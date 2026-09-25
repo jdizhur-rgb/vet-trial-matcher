@@ -344,9 +344,10 @@ def add_contact_footer_link(text: str) -> str:
     footer_match = re.search(r'<footer\b[^>]*>.*?</footer>', text, re.S)
     if not footer_match:
         return text
-    if link in footer_match.group(0):
+    footer_html = footer_match.group(0)
+    if link in footer_html or f'href="{SITE}/contact/"' in footer_html:
         return text
-    footer = footer_match.group(0).replace('</footer>', f'<p>{link}</p></footer>', 1)
+    footer = footer_html.replace('</footer>', f'<p>{link}</p></footer>', 1)
     return text[:footer_match.start()] + footer + text[footer_match.end():]
 
 
