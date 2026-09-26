@@ -439,24 +439,6 @@ def profile(center):
     return {'title':'','about':about,'links':[]}
 
 
-def current_catalog_context(center,rows):
-    species=species_for(rows)
-    species_text=' and '.join(species) if species else 'companion animals'
-    cancers=sorted({c for r in rows for c in row_cancers(r)})
-    cancer_text=', '.join(g.display_name(c) for c in cancers) if cancers else 'the diagnoses described in the listings'
-    titles=list(dict.fromkeys(str(r.get('title') or '').strip() for r in rows if str(r.get('title') or '').strip()))
-    count=len(titles)
-    if count==1:
-        options=f'The current option is <em>{g.esc(titles[0])}</em>.'
-    elif count:
-        shown='; '.join(f'<em>{g.esc(x)}</em>' for x in titles[:3])
-        extra=(f'; and {count-3} additional current '+('option' if count-3==1 else 'options')) if count>3 else ''
-        options=f'Current options include {shown}{extra}.'
-    else:
-        options='Open the current listings below for treatment and enrollment details.'
-    return f'Vet Trial Finder currently connects this center with treatment opportunities for {g.esc(species_text)} with {g.esc(cancer_text)}. {options}'
-
-
 def overview(center,rows):
     p=profile(center)
     # The overview is one self-contained paragraph. Trial counts, diagnoses and
@@ -466,8 +448,7 @@ def overview(center,rows):
         if primary_link else '')
     heading=f'<h2>{g.esc(p["title"])}</h2>' if p.get('title') else ''
     intro=str(p.get('about') or '').strip()
-    context=current_catalog_context(center,rows)
-    copy=f'<div class="center-overview-copy"><p>{g.esc(intro)}</p><p>{context}</p>'+(f'<p class="center-source">{links}</p>' if links else '')+'</div>'
+    copy=f'<div class="center-overview-copy"><p>{g.esc(intro)}</p>'+(f'<p class="center-source">{links}</p>' if links else '')+'</div>'
     return f'<div class="center-overview">{heading}{copy}</div>'
 
 
