@@ -21,33 +21,32 @@ def generate_clinical_trials_for_pets_article(root: Path) -> None:
 <h1>Clinical Trials for Pets with Cancer</h1>
 <p>A veterinary cancer clinical trial may provide access to a treatment that is not otherwise available. That does not make experimental treatment better than standard care. It means the answer is not known yet.</p>
 <p>The first question is therefore not whether a new treatment sounds promising. It is what standard treatment can realistically accomplish for this particular animal. Is the goal a cure, durable control, more time, or relief of symptoms? A proven treatment should not be abandoned casually for an experiment.</p>
-<p>When my dog Yasha was diagnosed with histiocytic sarcoma, standard treatment could offer additional time but not a realistic chance of a cure. I spent weeks reading about the disease and wrote to researchers with my very nonprofessional questions. Every one of them replied. I was prepared to consider a clinical trial that genuinely fit his situation, but that was a decision about one dog with one aggressive cancer, not a general argument for experimental treatment.</p>
 <p>Early results can be worth taking seriously without being treated as promises. A response in a small group of animals is not proof that the same proportion of future patients will benefit. A laboratory result may provide a good reason to test a treatment in dogs, but it does not show that the treatment improves survival. The difficult part is making a decision before those answers exist.</p>
 
-<h2>What is a clinical trial?</h2>
+<h2>How veterinary cancer clinical trials work</h2>
 <p>A clinical trial is a study in which a treatment is tested in real patients under a defined protocol. It may involve a new drug, vaccine, immunotherapy, cell therapy, or a new combination of treatments that already exist.</p>
 <p>Experimental does not necessarily mean completely unknown. Sometimes dozens of animals have already received the treatment and there are preliminary results, but there may not yet be enough evidence to consider it standard treatment. That is also why early numbers need to be viewed carefully. If five out of ten animals respond well, that is interesting, but it does not mean that half of all pets with the same diagnosis will have the same result. A promising early result is a reason to pay attention, not a guarantee.</p>
 
-<h2>Where can you find cancer clinical trials for pets?</h2>
+<h2>Finding cancer clinical trials for pets</h2>
 <p>Vet Trial Finder brings together current studies and treatment-access programs in which a dog or cat may actually receive an anticancer treatment. The catalog includes universities, private specialty hospitals, multicenter studies and participating sites outside the United States.</p>
 <p>We are not trying to collect everything that happens to be called research. Observational studies, sample-collection studies and diagnostic-only research are not presented as treatment options.</p>
 <p>The service is free. It does not require registration, an email address or a paid report. Our sources, inclusion rules and status-checking process are explained on the <a href="{SITE}/how-we-verify/">How we verify</a> page.</p>
 
-<h2>Why might your pet not qualify?</h2>
+<h2>Eligibility for a clinical trial</h2>
 <p>The diagnosis alone is not enough. A study may consider the stage of the cancer, whether the primary tumor has been removed, whether metastases are present, current and previous treatments, and other medical conditions. Having the “right” cancer does not automatically mean that a pet qualifies.</p>
 
-<h2>What about placebo?</h2>
+<h2>Placebo-controlled cancer trials</h2>
 <p>Some cancer trials do include a placebo group. Vet Trial Finder does not present a study as a treatment option if a pet could receive only placebo instead of necessary anticancer treatment.</p>
 <p>The placebo-controlled studies that remain in our treatment matcher still provide real cancer treatment; the placebo is used to compare an additional experimental component. Before enrolling, it is still important to understand exactly what each group receives and what happens if your pet’s cancer progresses.</p>
 
-<h2>How would I make the decision?</h2>
-<p>I would start by asking the oncologist what standard treatment can realistically accomplish. What are the chances? Is the goal a cure, long-term control, or simply a few additional months? What is the cost of treatment, not only financially but in terms of what the pet has to go through?</p>
-<p>Only then would I look at the experimental option. What is already known about it? How many animals have received it? Are there actual results? What improved: tumor size, time before progression, or survival? What side effects were seen? Would participating mean giving up a proven treatment? And what could we lose if the experiment does not work?</p>
-<p>For me, that last question matters most. An experimental treatment can be worth trying. But sometimes you cannot get the time back.</p>
+<h2>Evaluating an experimental option</h2>
+<p>The starting point is what standard treatment can realistically accomplish: the chance of a cure or durable control, the likely amount of additional time, the side effects, the cost and what the animal would have to go through.</p>
+<p>The experimental option can then be judged against that baseline. Useful details include how many animals have received it, whether results exist in dogs or cats rather than only in a laboratory, what actually improved, which side effects occurred and whether participation would require delaying or giving up a proven treatment.</p>
+<p>An experimental treatment can be worth trying. But the possible benefit has to be weighed against what may be lost if it does not work, including time in which another treatment could have been given.</p>
 
-<h2>Is it worth looking for clinical trials at all?</h2>
-<p>I think so. Not because experimental treatment is better than standard treatment. Usually, we simply do not know yet whether it is better.</p>
-<p>But if standard treatment has little to offer, the cancer has returned, or there is an option that offers real hope in your pet’s particular situation, I would want to know that it exists. Sometimes the best choice is the proven treatment. Sometimes it makes sense to take the risk.</p>
+<h2>When a clinical trial may be worth considering</h2>
+<p>Experimental treatment is not automatically better than standard treatment. Usually, the evidence is not yet strong enough to know whether it is better.</p>
+<p>A trial may still be worth considering when standard treatment has little to offer, the cancer has returned, or the study has a reasonable scientific basis and fits the animal’s particular situation. Sometimes the best choice is the proven treatment. Sometimes taking the additional uncertainty may be reasonable.</p>
 <p>A clinical trial is not a promise. But sometimes this is how a treatment begins before, years later, it is no longer considered experimental.</p>
 <div class="article-cta"><a href="{finder}">Search current cancer treatment trials for your pet</a></div>
 <div class="article-byline"><p><strong>Reviewed and edited by:</strong> <a href="{SITE}/about/" rel="author">Yuliia Dizhur</a>, Founder of Vet Trial Finder</p><p><strong>Published:</strong> September 14, 2026</p><p><strong>Last updated:</strong> September 26, 2026</p><p>Yuliia Dizhur is the founder of Vet Trial Finder and a dog owner with extensive firsthand experience of canine cancer. She edits practical guides using peer-reviewed research, published clinical guidance and information from veterinary hospitals and research teams.</p><p><strong>Editorial disclosure:</strong> Prepared with AI assistance and reviewed by Yuliia Dizhur. It has not been independently reviewed by a veterinarian and does not replace veterinary advice.</p></div>
@@ -57,7 +56,7 @@ def generate_clinical_trials_for_pets_article(root: Path) -> None:
     directory.mkdir(parents=True, exist_ok=True)
     page = g.page(
         'Clinical Trials for Pets with Cancer | Vet Trial Finder',
-        'A practical owner guide to cancer clinical trials for dogs and cats: what experimental treatment means, eligibility, placebo, and what a match really means.',
+        'A practical owner guide to cancer clinical trials for dogs and cats: experimental treatment, eligibility, placebo and treatment decisions.',
         body,
         url,
     )
@@ -91,7 +90,7 @@ def generate_clinical_trials_for_pets_article(root: Path) -> None:
     article = (directory / 'index.html').read_text(encoding='utf-8')
     checks = (
         '<h1 class="page-title">Clinical Trials for Pets with Cancer</h1>',
-        'When my dog Yasha was diagnosed with histiocytic sarcoma',
+        'How veterinary cancer clinical trials work',
         'does not present a study as a treatment option if a pet could receive only placebo',
         'We are not trying to collect everything that happens to be called research.',
         'Reviewed and edited by:',
