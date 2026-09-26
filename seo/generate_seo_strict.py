@@ -339,7 +339,7 @@ base_page=g.page
 def page(title,desc,body,canonical,lang='en',alts=None):
     rendered=base_page(title,desc,body,canonical,lang,alts)
     css='body{font-size:16px}.center-page{max-width:860px}.center-page>h2{font-size:1.35rem;line-height:1.08;margin:22px 0 8px}.center-kicker{color:#607086;font-size:.95rem;font-weight:650;margin:0 0 20px}.center-overview{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,38%);grid-template-areas:"heading heading" "copy image";gap:10px 24px;align-items:start;margin:0 0 22px}.center-overview>h2{grid-area:heading;font-size:1.18rem;margin:0 0 4px}.center-overview-copy{grid-area:copy}.center-overview-copy p{margin:.55rem 0;line-height:1.55}.center-overview figure{grid-area:image;margin:0;width:100%}.center-overview figure img{width:100%!important;max-width:none!important;aspect-ratio:4/3;object-fit:cover;border-radius:12px;display:block}.center-overview figcaption{font-size:.78rem!important;line-height:1.3}.center-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:16px 0 22px}.center-fact{background:#fff;border:1px solid #d9e2ea;border-radius:10px;padding:12px 14px;font-size:.94rem;line-height:1.45}.center-fact strong{display:block;color:#356d89;margin-bottom:4px}.center-note{border-top:1px solid #d9e2ea;padding:10px 0 0;margin:18px 0 8px;color:#607086}.center-note summary{cursor:pointer;font-size:.82rem;font-weight:650;color:#607086}.center-note p{font-size:.8rem;line-height:1.45;margin:.45rem 0;max-width:720px}.opportunity-list{display:grid;gap:12px}.opportunity{background:#fff;border:1px solid #d9e2ea;border-radius:12px;overflow:hidden}.opportunity summary{cursor:pointer;list-style:none;padding:14px 16px;font-weight:700;color:#274f65}.opportunity summary::-webkit-details-marker{display:none}.opportunity summary:after{content:"+";float:right;font-size:1.25rem;font-weight:400}.opportunity[open] summary:after{content:"−"}.opportunity .card{border:0;border-top:1px solid #e2e9ee;border-radius:0;margin:0;box-shadow:none}.study-locations,.enrollment-areas{margin:14px 0 4px;padding:11px 13px;background:#f6f8fb;border-radius:9px}.study-locations ul,.enrollment-areas ul{margin:5px 0 0;padding-left:20px}.field-label{font-weight:750;margin:0}.coverage-note,.source-note{font-size:.84rem;color:#607086}.free-note{font-size:.8rem;color:#607086}.card p{margin:.65rem 0}.center-search-link{display:inline-block;margin-top:20px;font-weight:700}.center-directory-nav{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 30px}.center-directory-nav a{background:#edf4f8;border:1px solid #d5e2ea;border-radius:999px;padding:8px 12px;text-decoration:none;font-weight:650}.center-directory-section{margin:34px 0;scroll-margin-top:80px}.center-directory-section>h2{margin-bottom:6px}.center-directory-section>h3{margin:26px 0 8px;padding-bottom:7px;border-bottom:2px solid #d9e5ec}.center-region{margin:18px 0 26px}.center-region>h4{font-size:1.05rem;color:#315f7d;margin:0 0 10px}.center-directory-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0}.center-directory-card{display:block;background:#fff;border:1px solid #d9e2ea;border-radius:12px;padding:15px 16px;text-decoration:none!important;color:#1f2937!important}.center-directory-card:hover{border-color:#7ca6bc;box-shadow:0 3px 12px rgba(37,83,108,.1)}.center-directory-card strong{display:block;color:#315f7d;font-size:1.05rem;line-height:1.25;margin-bottom:7px}.center-directory-card span{display:block;color:#607086;font-size:.86rem;line-height:1.4}.center-directory-card .center-directory-location{color:#394b5a;margin-top:6px}@media(max-width:700px){.center-page{font-size:16px}.center-page>h2{font-size:1.28rem;line-height:1.08;margin-top:20px}.center-kicker{font-size:.95rem;margin-bottom:16px}.center-overview{display:flex;flex-direction:column;gap:0}.center-overview>h2{font-size:1.22rem;margin-bottom:10px}.center-overview figure{order:2;margin:0 0 10px}.center-overview-copy{order:3}.center-overview figure img{aspect-ratio:16/9;border-radius:10px}.center-overview-copy p{margin:.5rem 0;line-height:1.55;font-size:1rem}.center-facts{display:block;background:#fff;border:1px solid #d9e2ea;border-radius:11px;padding:2px 14px;margin:14px 0 20px}.center-fact{border:0;border-bottom:1px solid #e4eaee;border-radius:0;padding:11px 0;font-size:1rem}.center-fact:last-child{border-bottom:0}.center-fact strong{margin-bottom:2px}.center-note{margin:16px 0 6px}.opportunity summary{padding:14px;font-size:1rem}.center-directory-grid{grid-template-columns:1fr}.center-directory-nav{display:grid}.center-directory-nav a{text-align:center}}'
-    css += '.center-update,.center-story{display:grid;gap:4px;border-radius:8px;padding:13px 15px;margin:4px 0 22px}.center-update{background:#edf4f8;border-left:4px solid #315f7d}.center-story{background:#f7f4eb;border-left:4px solid #a6843d}.center-update strong,.center-story strong{color:#315f7d;font-size:.84rem}.center-update a,.center-story a{font-weight:700}.center-story span{color:#607086;font-size:.8rem;line-height:1.4}'
+    css += '.center-update,.center-story{display:grid;gap:4px;border-radius:8px;padding:13px 15px;margin:4px 0 22px}.center-update{background:#edf4f8;border-left:4px solid #315f7d}.center-story{background:#f7f4eb;border-left:4px solid #a6843d}.center-update strong,.center-story strong{color:#315f7d;font-size:.84rem}.center-update a,.center-story a{font-weight:700}.center-story span{color:#607086;font-size:.8rem;line-height:1.4}.center-story-item{display:grid;gap:2px;padding:7px 0;border-top:1px solid #e3dbc7}.center-story-item:first-of-type{border-top:0}'
     return rendered.replace('</style>',css+'</style>',1)
 g.page=page
 
@@ -483,16 +483,41 @@ PARTICIPANT_STORIES = {
     "Colorado State University Flint Animal Cancer Center": ("Duke’s osteosarcoma precision-treatment trial experience", "https://vetmedbiosci.colostate.edu/csuanimalcancercenter/wp-content/uploads/sites/24/2020/05/Spring-2018-Newsletter-Online.pdf", "Participant story published by Colorado State University"),
     "MedVet Clinical Studies Center": ("Ranger and Codi: reported tumor regression after the EGFR/HER2 vaccine", "https://www.ccralliance.org/yale-status", "Participant stories published by Canine Cancer Alliance for the Yale vaccine program"),
     "Tufts University Cummings School of Veterinary Medicine": ("Jellybean’s osteosarcoma trial experience", "https://www.wired.com/story/dog-cancer-treatments", "Independent reporting by WIRED"),
-    "Texas A&M School of Veterinary Medicine": ("Coco’s insulinoma clinical-trial treatment", "https://vetmed.tamu.edu/news/press-releases/coco/", "Patient story published by Texas A&M"),
-    "NC State College of Veterinary Medicine": ("What participation required for two dogs in a bladder-cancer study", "https://cvm.ncsu.edu/news/clinical-trials-explained-how-you-and-your-pet-can-help-save-lives-and-advance-veterinary-medicine/", "Participant story published by NC State"),
+    "Texas A&M School of Veterinary Medicine": [
+        ("Coco’s insulinoma clinical-trial treatment", "https://vetmed.tamu.edu/news/press-releases/coco/", "Patient story published by Texas A&M"),
+        ("Sadie’s glioma clinical-trial experience", "https://vetmed.tamu.edu/news/press-releases/texas-am-md-anderson-clinical-trial-helps-dogs-people/", "Participant story published by Texas A&M"),
+        ("Otis and an experimental therapy for metastatic hemangiosarcoma", "https://vetmed.tamu.edu/news/press-releases/creating-a-culture-to-cure/", "Participant story published by Texas A&M"),
+        ("Patches and an immunotherapy trial for glioma", "https://vetmed.tamu.edu/news/press-releases/canine-brain-cancer-treatments/", "Participant story published by Texas A&M"),
+    ],
+    "NC State College of Veterinary Medicine": [
+        ("What participation required for two dogs in a bladder-cancer study", "https://cvm.ncsu.edu/news/clinical-trials-explained-how-you-and-your-pet-can-help-save-lives-and-advance-veterinary-medicine/", "Participant story published by NC State"),
+        ("Eliza’s response during a clinical trial for oral cancer", "https://cvm.ncsu.edu/nc-state-cvm-duke-collaboration/", "Participant story published by NC State"),
+        ("Lucky’s rare-cancer clinical-trial experience", "https://cvm.ncsu.edu/news/lucky-dog/", "Participant story published by NC State"),
+        ("Zuzu’s lymphoma dosing-study experience", "https://cvm.ncsu.edu/news/zuzu-krebs-petco/", "Participant story published by NC State"),
+    ],
     "Schwarzman Animal Medical Center": ("Dutch’s hemangiosarcoma chemo-immunotherapy trial experience", "https://www.amcny.org/wp-content/uploads/2019/01/AMC_rDVM_Summer-2017_072017.pdf", "Participant story published by the Animal Medical Center"),
-    "University of Minnesota College of Veterinary Medicine": ("Hugo’s experience in a canine cancer-vaccine trial", "https://vetmed.umn.edu/news/gentle-giants-fight-tomorrow", "Participant story published by the University of Minnesota"),
-    "University of Florida College of Veterinary Medicine": ("Greta’s osteosarcoma vaccine-trial experience", "https://research.vetmed.ufl.edu/2025/08/11/gretas-story/", "Participant story published by the University of Florida"),
+    "University of Minnesota College of Veterinary Medicine": [
+        ("Hugo’s experience in a canine cancer-vaccine trial", "https://vetmed.umn.edu/news/gentle-giants-fight-tomorrow", "Participant story published by the University of Minnesota"),
+        ("Charlie’s hemangiosarcoma clinical-trial experience", "https://profiles-vetmed.umn.edu/article/brighter-future", "Participant story published by the University of Minnesota"),
+    ],
+    "University of Florida College of Veterinary Medicine": [
+        ("Greta’s osteosarcoma vaccine-trial experience", "https://research.vetmed.ufl.edu/2025/08/11/gretas-story/", "Participant story published by the University of Florida"),
+        ("Zoe’s melanoma-vaccine clinical-trial experience", "https://www.vetmed.ufl.edu/2013/06/26/club-community-support-help-service-dog-get-cancer-treatment/", "Participant story published by the University of Florida"),
+        ("Enzi and an osteosarcoma vaccine trial", "https://floridaveterinarian.vetmed.ufl.edu/2023/07/10/an-investment-of-love/", "Participant story published by the University of Florida"),
+    ],
     "University of Illinois College of Veterinary Medicine": ("Max and Dezzi’s melanoma immunotherapy trial experiences", "https://vetmed.illinois.edu/2022/08/06/canine-melanoma-the-max-and-dezzi-success-stories/", "Participant stories published by the University of Illinois"),
     "University of Missouri College of Veterinary Medicine": ("Sadie’s CAR-T lymphoma trial experience", "https://cvm.missouri.edu/new-therapy-for-dogs-with-cancer-shows-promise/", "Participant story published by the University of Missouri"),
     "University of Pennsylvania School of Veterinary Medicine": ("Maple’s experience as the first dog in a FLASH radiation trial", "https://www.vet.upenn.edu/about/news-room/bellwether/bellwether-magazine/bellwether-spring-2023/research-brief-spring-2023", "Participant story published by Penn Vet"),
     "University of Wisconsin–Madison School of Veterinary Medicine": ("Charger’s mast-cell-tumor clinical-study experience", "https://www.vetmed.wisc.edu/wp-content/uploads/2019/10/OnCall_F14-Web.pdf", "Participant story published by UW–Madison"),
     "UC Davis Veterinary Center for Clinical Trials": ("Snoopy’s metastatic-cancer immunotherapy trial response", "https://ccah.vetmed.ucdavis.edu/ccah-newsletter/spring-2026/cover-story", "Participant story published by UC Davis"),
+    "Virginia-Maryland College of Veterinary Medicine / Virginia Tech": [
+        ("Bambi’s oral-cancer clinical-trial experience", "https://vetmed.vt.edu/news/2023/accrc-success-story-bambi.html", "Participant story published by Virginia Tech"),
+        ("Helen’s osteosarcoma clinical-trial experience", "https://vetmed.vt.edu/news/2023/accrc-success-story-helen.html", "Participant story published by Virginia Tech"),
+        ("Buddha’s histotripsy trial for osteosarcoma", "https://vetmed.vt.edu/magazine/stories/spring-2026/legacy-of-hope.html", "Participant story published by Virginia Tech"),
+        ("Astro’s soft-tissue-sarcoma clinical-trial experience", "https://vetmed.vt.edu/news/2023/accrc-overview.html", "Participant story published by Virginia Tech"),
+        ("Scrappy’s clinical-trial treatment and two cancer-free years", "https://vetmed.vt.edu/news/2019/oncology-faculty-fight-cancer.html", "Participant story published by Virginia Tech"),
+    ],
+    "Washington State University College of Veterinary Medicine": ("Scout’s brain-tumor gene-therapy trial experience", "https://vetmed.wsu.edu/anne-hensley-and-scout/", "Participant story published by Washington State University"),
 }
 
 
@@ -504,10 +529,12 @@ def recent_center_update(center):
 
 
 def participant_story(center):
-    story=PARTICIPANT_STORIES.get(center)
-    if not story:return ''
-    title,url,source=story
-    return f'<aside class="center-story"><strong>Participant experience</strong><a href="{g.esc(url)}" rel="noopener">{g.esc(title)} →</a><span>{g.esc(source)}. One patient’s experience cannot predict another animal’s outcome.</span></aside>'
+    stories=PARTICIPANT_STORIES.get(center)
+    if not stories:return ''
+    if isinstance(stories[0],str):stories=[stories]
+    items=''.join(f'<div class="center-story-item"><a href="{g.esc(url)}" rel="noopener">{g.esc(title)} →</a><span>{g.esc(source)}.</span></div>' for title,url,source in stories)
+    heading='Participant experience' if len(stories)==1 else 'Participant experiences'
+    return f'<aside class="center-story"><strong>{heading}</strong>{items}<span>Individual patient experiences cannot predict another animal’s outcome.</span></aside>'
 
 
 def species_for(rows):
