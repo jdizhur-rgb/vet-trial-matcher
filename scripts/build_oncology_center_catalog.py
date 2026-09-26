@@ -50,6 +50,8 @@ NONCLINICAL_ORGANIZATIONS = {
     "joyful riches beyond grief", "n a", "self employed", "zoetis",
 }
 EXCLUDED_PROFILE_IDS = {
+    # Ally moved to Lincoln; current official address is in supplemental data.
+    "f1f24b52-a6ac-4373-a2eb-1d11a11824da",
     # Research-only/non-clinical affiliations, not patient-facing veterinary hospitals.
     "ffd34787-a279-4dca-a5ce-9600e1710e8e",  # University of Michigan NCRC
     "ed7125ae-ada5-44e2-8349-bef537b5edb3",  # Case Western biomedical research building
