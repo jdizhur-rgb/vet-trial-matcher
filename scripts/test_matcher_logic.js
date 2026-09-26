@@ -91,16 +91,26 @@ if (osteosarcoma.some(row => row.trial.id === 'vt-osa-standard')) {
 
 const auOsteosarcoma = matches(patient({country: 'Australia', cancer: 'Osteosarcoma'}));
 const auIds = new Set(auOsteosarcoma.map(row => row.trial.id));
-for (const id of ['au-uq-appendicular-osteosarcoma-vaccine', 'au-gamgee-personalized-mrna-vaccine']) {
+for (const id of ['au-uq-appendicular-osteosarcoma-vaccine']) {
   if (!auIds.has(id)) throw new Error(`Australia/Dog/Osteosarcoma did not return ${id}`);
 }
+if (auIds.has('au-gamgee-personalized-mrna-vaccine')) {
+  throw new Error('Gamgee expression-of-interest form appeared as a verified active treatment trial');
+}
 const auMct = matches(patient({country: 'Australia', cancer: 'Mast cell tumor'}));
-if (!auMct.some(row => row.trial.id === 'au-gamgee-personalized-mrna-vaccine')) {
-  throw new Error('Australia/Dog/Mast cell tumor did not return Gamgee');
+if (auMct.some(row => row.trial.id === 'au-gamgee-personalized-mrna-vaccine')) {
+  throw new Error('Australia/Dog/Mast cell tumor included an unconfirmed Gamgee trial');
 }
 const auBroad = matches(patient({country: 'Australia', cancer: 'Cancer — any type'}));
-if (!auBroad.some(row => row.trial.id === 'au-gamgee-personalized-mrna-vaccine')) {
-  throw new Error('Australia/Dog/Any cancer type omitted an active trial for diagnosis review');
+if (!auBroad.some(row => row.trial.id === 'au-melbourne-hsa-autologous-vaccine-multicenter')) {
+  throw new Error('Australia/Dog/Any cancer type omitted the Melbourne haemangiosarcoma trial');
+}
+const auHsa = matches(patient({country: 'Australia', cancer: 'Hemangiosarcoma', surgery: 'Yes', tumor_status: 'Completely removed — clean margins'}));
+if (!auHsa.some(row => row.trial.id === 'au-melbourne-hsa-autologous-vaccine-multicenter')) {
+  throw new Error('Australia/Dog/Hemangiosarcoma did not return the MediPaws site');
+}
+if (matches(patient({country: 'Australia', cancer: 'Hemangiosarcoma', metastasis: 'Confirmed metastases', surgery: 'Yes'})).some(row => row.trial.id === 'au-melbourne-hsa-autologous-vaccine-multicenter')) {
+  throw new Error('Melbourne nonmetastatic HSA protocol matched confirmed metastasis');
 }
 if (matches(patient({country: 'Australia', species: 'Cat', cancer: 'Osteosarcoma'})).length !== 0) {
   throw new Error('Australia cat search returned a dog-only trial');
