@@ -80,7 +80,9 @@ def main() -> None:
     assert mapping["effective_treatment_records"] == len(treatments)
     home = read(SITE / "index.html")
     assert first_stat(home) == len(treatments)
-    assert first_stat(read(SITE / "veterinary-cancer-clinical-trials" / "index.html")) == len(treatments)
+    registry = read(SITE / "veterinary-cancer-clinical-trials" / "index.html")
+    assert 'How Vet Trial Finder selects and counts trials' in registry
+    assert '<div class="registry-stats">' not in registry
     assert '<div class="nav-shell">' in home
     assert '<button class="nav-toggle"' in home
     assert '<details class="nav-shell">' not in home
@@ -98,7 +100,6 @@ def main() -> None:
     assert '<meta name="robots" content="noindex' in old_ect
     assert 'url=https://vettrialfinder.com/matcher/centers/?service=electrochemotherapy' in old_ect
 
-    registry = read(SITE / "veterinary-cancer-clinical-trials" / "index.html")
     assert "background:#315f7d" in registry, "Primary button color regressed"
 
     news_index = read(SITE / "news" / "index.html")
