@@ -338,7 +338,8 @@ g.cards=cards
 base_page=g.page
 def page(title,desc,body,canonical,lang='en',alts=None):
     rendered=base_page(title,desc,body,canonical,lang,alts)
-    css='body{font-size:16px}.center-page{max-width:860px}.center-page>h2{font-size:1.35rem;line-height:1.08;margin:22px 0 8px}.center-kicker{color:#607086;font-size:.95rem;font-weight:650;margin:0 0 20px}.center-overview{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,38%);grid-template-areas:"heading heading" "copy image";gap:10px 24px;align-items:start;margin:0 0 22px}.center-overview>h2{grid-area:heading;font-size:1.18rem;margin:0 0 4px}.center-overview-copy{grid-area:copy}.center-overview-copy p{margin:.55rem 0;line-height:1.55}.center-overview figure{grid-area:image;margin:0;width:100%}.center-overview figure img{width:100%!important;max-width:none!important;aspect-ratio:4/3;object-fit:cover;border-radius:12px;display:block}.center-overview figcaption{font-size:.78rem!important;line-height:1.3}.center-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:16px 0 22px}.center-fact{background:#fff;border:1px solid #d9e2ea;border-radius:10px;padding:12px 14px;font-size:.94rem;line-height:1.45}.center-fact strong{display:block;color:#356d89;margin-bottom:4px}.center-note{border-top:1px solid #d9e2ea;padding:10px 0 0;margin:18px 0 8px;color:#607086}.center-note summary{cursor:pointer;font-size:.82rem;font-weight:650;color:#607086}.center-note p{font-size:.8rem;line-height:1.45;margin:.45rem 0;max-width:720px}.opportunity-list{display:grid;gap:12px}.opportunity{background:#fff;border:1px solid #d9e2ea;border-radius:12px;overflow:hidden}.opportunity summary{cursor:pointer;list-style:none;padding:14px 16px;font-weight:700;color:#274f65}.opportunity summary::-webkit-details-marker{display:none}.opportunity summary:after{content:"+";float:right;font-size:1.25rem;font-weight:400}.opportunity[open] summary:after{content:"−"}.opportunity .card{border:0;border-top:1px solid #e2e9ee;border-radius:0;margin:0;box-shadow:none}.study-locations,.enrollment-areas{margin:14px 0 4px;padding:11px 13px;background:#f6f8fb;border-radius:9px}.study-locations ul,.enrollment-areas ul{margin:5px 0 0;padding-left:20px}.field-label{font-weight:750;margin:0}.coverage-note,.source-note{font-size:.84rem;color:#607086}.free-note{font-size:.8rem;color:#607086}.card p{margin:.65rem 0}.center-search-link{display:inline-block;margin-top:20px;font-weight:700}@media(max-width:700px){.center-page{font-size:16px}.center-page>h2{font-size:1.28rem;line-height:1.08;margin-top:20px}.center-kicker{font-size:.95rem;margin-bottom:16px}.center-overview{display:flex;flex-direction:column;gap:0}.center-overview>h2{font-size:1.22rem;margin-bottom:10px}.center-overview figure{order:2;margin:0 0 10px}.center-overview-copy{order:3}.center-overview figure img{aspect-ratio:16/9;border-radius:10px}.center-overview-copy p{margin:.5rem 0;line-height:1.55;font-size:1rem}.center-facts{display:block;background:#fff;border:1px solid #d9e2ea;border-radius:11px;padding:2px 14px;margin:14px 0 20px}.center-fact{border:0;border-bottom:1px solid #e4eaee;border-radius:0;padding:11px 0;font-size:1rem}.center-fact:last-child{border-bottom:0}.center-fact strong{margin-bottom:2px}.center-note{margin:16px 0 6px}.opportunity summary{padding:14px;font-size:1rem}}'
+    css='body{font-size:16px}.center-page{max-width:860px}.center-page>h2{font-size:1.35rem;line-height:1.08;margin:22px 0 8px}.center-kicker{color:#607086;font-size:.95rem;font-weight:650;margin:0 0 20px}.center-overview{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,38%);grid-template-areas:"heading heading" "copy image";gap:10px 24px;align-items:start;margin:0 0 22px}.center-overview>h2{grid-area:heading;font-size:1.18rem;margin:0 0 4px}.center-overview-copy{grid-area:copy}.center-overview-copy p{margin:.55rem 0;line-height:1.55}.center-overview figure{grid-area:image;margin:0;width:100%}.center-overview figure img{width:100%!important;max-width:none!important;aspect-ratio:4/3;object-fit:cover;border-radius:12px;display:block}.center-overview figcaption{font-size:.78rem!important;line-height:1.3}.center-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:16px 0 22px}.center-fact{background:#fff;border:1px solid #d9e2ea;border-radius:10px;padding:12px 14px;font-size:.94rem;line-height:1.45}.center-fact strong{display:block;color:#356d89;margin-bottom:4px}.center-note{border-top:1px solid #d9e2ea;padding:10px 0 0;margin:18px 0 8px;color:#607086}.center-note summary{cursor:pointer;font-size:.82rem;font-weight:650;color:#607086}.center-note p{font-size:.8rem;line-height:1.45;margin:.45rem 0;max-width:720px}.opportunity-list{display:grid;gap:12px}.opportunity{background:#fff;border:1px solid #d9e2ea;border-radius:12px;overflow:hidden}.opportunity summary{cursor:pointer;list-style:none;padding:14px 16px;font-weight:700;color:#274f65}.opportunity summary::-webkit-details-marker{display:none}.opportunity summary:after{content:"+";float:right;font-size:1.25rem;font-weight:400}.opportunity[open] summary:after{content:"−"}.opportunity .card{border:0;border-top:1px solid #e2e9ee;border-radius:0;margin:0;box-shadow:none}.study-locations,.enrollment-areas{margin:14px 0 4px;padding:11px 13px;background:#f6f8fb;border-radius:9px}.study-locations ul,.enrollment-areas ul{margin:5px 0 0;padding-left:20px}.field-label{font-weight:750;margin:0}.coverage-note,.source-note{font-size:.84rem;color:#607086}.free-note{font-size:.8rem;color:#607086}.card p{margin:.65rem 0}.center-search-link{display:inline-block;margin-top:20px;font-weight:700}.center-directory-nav{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 30px}.center-directory-nav a{background:#edf4f8;border:1px solid #d5e2ea;border-radius:999px;padding:8px 12px;text-decoration:none;font-weight:650}.center-directory-section{margin:34px 0;scroll-margin-top:80px}.center-directory-section>h2{margin-bottom:6px}.center-directory-section>h3{margin:26px 0 8px;padding-bottom:7px;border-bottom:2px solid #d9e5ec}.center-region{margin:18px 0 26px}.center-region>h4{font-size:1.05rem;color:#315f7d;margin:0 0 10px}.center-directory-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0}.center-directory-card{display:block;background:#fff;border:1px solid #d9e2ea;border-radius:12px;padding:15px 16px;text-decoration:none!important;color:#1f2937!important}.center-directory-card:hover{border-color:#7ca6bc;box-shadow:0 3px 12px rgba(37,83,108,.1)}.center-directory-card strong{display:block;color:#315f7d;font-size:1.05rem;line-height:1.25;margin-bottom:7px}.center-directory-card span{display:block;color:#607086;font-size:.86rem;line-height:1.4}.center-directory-card .center-directory-location{color:#394b5a;margin-top:6px}@media(max-width:700px){.center-page{font-size:16px}.center-page>h2{font-size:1.28rem;line-height:1.08;margin-top:20px}.center-kicker{font-size:.95rem;margin-bottom:16px}.center-overview{display:flex;flex-direction:column;gap:0}.center-overview>h2{font-size:1.22rem;margin-bottom:10px}.center-overview figure{order:2;margin:0 0 10px}.center-overview-copy{order:3}.center-overview figure img{aspect-ratio:16/9;border-radius:10px}.center-overview-copy p{margin:.5rem 0;line-height:1.55;font-size:1rem}.center-facts{display:block;background:#fff;border:1px solid #d9e2ea;border-radius:11px;padding:2px 14px;margin:14px 0 20px}.center-fact{border:0;border-bottom:1px solid #e4eaee;border-radius:0;padding:11px 0;font-size:1rem}.center-fact:last-child{border-bottom:0}.center-fact strong{margin-bottom:2px}.center-note{margin:16px 0 6px}.opportunity summary{padding:14px;font-size:1rem}.center-directory-grid{grid-template-columns:1fr}.center-directory-nav{display:grid}.center-directory-nav a{text-align:center}}'
+    css += '.center-update,.center-story{display:grid;gap:4px;border-radius:8px;padding:13px 15px;margin:4px 0 22px}.center-update{background:#edf4f8;border-left:4px solid #315f7d}.center-story{background:#f7f4eb;border-left:4px solid #a6843d}.center-update strong,.center-story strong{color:#315f7d;font-size:.84rem}.center-update a,.center-story a{font-weight:700}.center-story span{color:#607086;font-size:.8rem;line-height:1.4}'
     return rendered.replace('</style>',css+'</style>',1)
 g.page=page
 
@@ -361,14 +362,55 @@ ETHOS_HOSPITALS = {
     "SAGE", "SAGE – San Francisco", "CASE",
 }
 
+# Hospital-specific destinations.  Ethos coordinates the research, but owners
+# contact and visit the named hospital.  Never replace these with the generic
+# Ethos home page on a hospital profile.
+ETHOS_HOSPITAL_URLS = {
+    "Atlantic Veterinary Internal Medicine & Oncology": "https://www.avim.us/services/oncology-and-chemotherapy",
+    "CARE Center Cincinnati": "https://carecentervets.com/",
+    "Colorado Animal Specialty & Emergency (CASE)": "https://www.coloradoanimalspecialty.com/clinical-studies",
+    "First Coast Veterinary Specialists & Emergency": "https://www.fcvets.com/",
+    "Gulf Coast Veterinary Specialists": "https://gcvs.com/services/medical-oncology/",
+    "Massachusetts Veterinary Referral Hospital": "https://www.massvet.com/",
+    "Metropolitan Veterinary Hospital - Akron": "https://www.metropolitanvet.com/",
+    "Mission Veterinary Emergency & Specialty": "https://missionveterinaryspecialists.com/",
+    "Overland Park Veterinary Emergency & Specialty": "https://www.overlandparkveterinaryspecialists.com/",
+    "Peak Veterinary Referral Center": "https://www.peakveterinaryreferral.com/",
+    "Pet Emergency and Specialty Center of Marin": "https://pescm.com/",
+    "SAGE Veterinary Centers": "https://www.sagecenters.com/locations/san-francisco",
+    "Southeast Veterinary Oncology & Internal Medicine": "https://www.southeastveterinaryoncologyandinternalmedicine.com/",
+    "Summit Veterinary Referral Center": "https://www.summitvets.com/services/oncology",
+    "Veterinary Emergency + Referral Center": "https://www.verchawaii.com/services/oncology",
+    "Veterinary Specialty Hospital - North County": "https://www.vshsd.com/locations/north-county",
+    "Veterinary Specialty Hospital - Sorrento Valley": "https://www.vshsd.com/locations/sorrento-valley",
+    "WVRC Grafton": "https://www.wvrcwi.com/about-us/ozaukee",
+    "WVRC Racine Kenosha": "https://www.wvrcwi.com/about-us/racine",
+    "WVRC Waukesha": "https://www.wvrcwi.com/about-us/waukesha",
+}
+ETHOS_HOSPITAL_ALIASES = {
+    normalize("Care Center Cincinnati"): "CARE Center Cincinnati",
+    normalize("CASE"): "Colorado Animal Specialty & Emergency (CASE)",
+    normalize("SAGE"): "SAGE Veterinary Centers",
+    normalize("SAGE – San Francisco"): "SAGE Veterinary Centers",
+    normalize("Veterinary Specialty Hospital"): "Veterinary Specialty Hospital - Sorrento Valley",
+    normalize("Veterinary Specialty Hospital – North County"): "Veterinary Specialty Hospital - North County",
+    normalize("Veterinary Specialty Hospital – Sorrento Valley"): "Veterinary Specialty Hospital - Sorrento Valley",
+    normalize("WVRC – Grafton"): "WVRC Grafton",
+    normalize("WVRC – Racine/Kenosha"): "WVRC Racine Kenosha",
+    normalize("WVRC Racine/Kenosha"): "WVRC Racine Kenosha",
+    normalize("WVRC – Waukesha"): "WVRC Waukesha",
+}
+
 CENTER_RULES=(
 ('Hospital Veterinario Peña Jasso',('hospital veterinario peña jasso','hospital veterinario pena jasso')),('Colorado State University Flint Animal Cancer Center',('colorado state university','flint animal cancer center')),('University of Florida College of Veterinary Medicine',('university of florida',)),('Michigan State University College of Veterinary Medicine',('michigan state university',)),('Auburn University College of Veterinary Medicine',('auburn university',)),('University of Pennsylvania School of Veterinary Medicine',('university of pennsylvania','penn vet')),('Tufts University Cummings School of Veterinary Medicine',('tufts university','tufts cummings')),('NC State College of Veterinary Medicine',('nc state','north carolina state university')),('University of Missouri College of Veterinary Medicine',('university of missouri',)),('University of Illinois College of Veterinary Medicine',('university of illinois',)),('Purdue University College of Veterinary Medicine',('purdue university',)),('Cornell University College of Veterinary Medicine',('cornell university',)),('University of Minnesota College of Veterinary Medicine',('university of minnesota',)),('Ohio State University College of Veterinary Medicine',('ohio state university','the ohio state university')),('Texas A&M School of Veterinary Medicine',('texas a&m','texas a and m')),('Louisiana State University School of Veterinary Medicine',('louisiana state university','lsu')),('University of Georgia College of Veterinary Medicine',('university of georgia',)),('Washington State University College of Veterinary Medicine',('washington state university',)),('UC Davis Veterinary Center for Clinical Trials',('uc davis veterinary center for clinical trials','uc davis veterinary medical teaching hospital','uc davis')),('Aurelius Biotherapeutics',('aurelius biotherapeutics',)),('Ethos Veterinary Health / Ethos Discovery',('ethos veterinary health','ethos discovery')),('Colorado Animal Specialty & Emergency (CASE)',('colorado animal specialty','case / ethos discovery')),('Johns Hopkins Center for Image-Guided Animal Therapy (CIGAT)',('johns hopkins center for image-guided animal therapy',)),('SAGE Veterinary Centers',('sage san francisco','sage veterinary')),
 )
 def canonical_center(v):
     raw=str(v or '').strip()
-    if raw in ETHOS_HOSPITALS:return ETHOS_NETWORK
     known=canonical_name_for(raw)
     if known:return known
+    ethos_hospital=ETHOS_HOSPITAL_ALIASES.get(normalize(raw))
+    if ethos_hospital:return ethos_hospital
+    if raw in ETHOS_HOSPITALS:return re.sub(r'\s+',' ',raw)
     text=normalize(raw)
     for name,aliases in CENTER_RULES:
         if any(normalize(a) in text for a in aliases):return name
@@ -376,6 +418,16 @@ def canonical_center(v):
 
 
 def profile(center):
+    if center in ETHOS_HOSPITAL_URLS:
+        return {
+            'title':f'About {center}',
+            'about':(
+                f'{center} is the participating hospital named in the current study listing below. '
+                'The hospital is part of the Ethos Veterinary Health network, while Ethos Discovery coordinates the research program. '
+                'Screening, enrollment and required visits are handled by the participating hospital; owners should confirm that the location is still enrolling before making travel plans.'
+            ),
+            'links':[(f'{center} official website',ETHOS_HOSPITAL_URLS[center])],
+        }
     p=PROFILES.get(center)
     if p:return p
     if is_composite_center(center):
@@ -387,7 +439,25 @@ def profile(center):
     return {'title':'','about':about,'links':[]}
 
 
-def overview(center):
+def current_catalog_context(center,rows):
+    species=species_for(rows)
+    species_text=' and '.join(species) if species else 'companion animals'
+    cancers=sorted({c for r in rows for c in row_cancers(r)})
+    cancer_text=', '.join(g.display_name(c) for c in cancers) if cancers else 'the diagnoses described in the listings'
+    titles=list(dict.fromkeys(str(r.get('title') or '').strip() for r in rows if str(r.get('title') or '').strip()))
+    count=len(titles)
+    if count==1:
+        options=f'The current option is <em>{g.esc(titles[0])}</em>.'
+    elif count:
+        shown='; '.join(f'<em>{g.esc(x)}</em>' for x in titles[:3])
+        extra=(f'; and {count-3} additional current '+('option' if count-3==1 else 'options')) if count>3 else ''
+        options=f'Current options include {shown}{extra}.'
+    else:
+        options='Open the current listings below for treatment and enrollment details.'
+    return f'Vet Trial Finder currently connects this center with treatment opportunities for {g.esc(species_text)} with {g.esc(cancer_text)}. {options}'
+
+
+def overview(center,rows):
     p=profile(center)
     # The overview is one self-contained paragraph. Trial counts, diagnoses and
     # current-study details already have their own structured sections below.
@@ -396,8 +466,40 @@ def overview(center):
         if primary_link else '')
     heading=f'<h2>{g.esc(p["title"])}</h2>' if p.get('title') else ''
     intro=str(p.get('about') or '').strip()
-    copy=f'<div class="center-overview-copy"><p>{g.esc(intro)}</p>'+(f'<p class="center-source">{links}</p>' if links else '')+'</div>'
+    context=current_catalog_context(center,rows)
+    copy=f'<div class="center-overview-copy"><p>{g.esc(intro)}</p><p>{context}</p>'+(f'<p class="center-source">{links}</p>' if links else '')+'</div>'
     return f'<div class="center-overview">{heading}{copy}</div>'
+
+
+RECENT_CENTER_UPDATES = {
+    "Cornell University College of Veterinary Medicine": ("Cornell opens Smart-Start trial for dogs with B-cell lymphoma", "/news/cornell-smart-start-b-cell-lymphoma/", "September 17, 2026"),
+    "NC State College of Veterinary Medicine": ("NC State bladder cancer immunotherapy trial closes enrollment September 30", "/news/nc-state-il12-bladder-cancer-deadline/", "September 17, 2026"),
+    "Purdue University College of Veterinary Medicine": ("Purdue adds experimental tumor ablation to standard cancer treatment in three trials", "/news/purdue-three-cancer-treatment-trials/", "September 20, 2026"),
+    "University of Wisconsin–Madison School of Veterinary Medicine": ("Wisconsin recruits dogs with peripheral T-cell lymphoma for 90Y-NM600 therapy", "/news/wisconsin-ptcl-radiopharmaceutical-trial/", "September 17, 2026"),
+    "Evergreen Animal Hospital": ("Taiwan trial tests inhaled IL-15 for canine lung metastases", "/news/taiwan-inhaled-il15-lung-metastases/", "September 25, 2026"),
+}
+
+PARTICIPANT_STORIES = {
+    "MedVet Clinical Studies Center": ("Ranger and Codi: reported tumor regression after the EGFR/HER2 vaccine", "https://www.ccralliance.org/yale-status", "Participant stories published by Canine Cancer Alliance for the Yale vaccine program"),
+    "Tufts University Cummings School of Veterinary Medicine": ("Jellybean’s osteosarcoma trial experience", "https://www.wired.com/story/dog-cancer-treatments", "Independent reporting by WIRED"),
+    "Texas A&M School of Veterinary Medicine": ("Coco’s insulinoma clinical-trial treatment", "https://vetmed.tamu.edu/news/press-releases/coco/", "Patient story published by Texas A&M"),
+    "NC State College of Veterinary Medicine": ("What participation required for two dogs in a bladder-cancer study", "https://cvm.ncsu.edu/news/clinical-trials-explained-how-you-and-your-pet-can-help-save-lives-and-advance-veterinary-medicine/", "Participant story published by NC State"),
+    "University of Minnesota College of Veterinary Medicine": ("Hugo’s experience in a canine cancer-vaccine trial", "https://vetmed.umn.edu/news/gentle-giants-fight-tomorrow", "Participant story published by the University of Minnesota"),
+}
+
+
+def recent_center_update(center):
+    update=RECENT_CENTER_UPDATES.get(center)
+    if not update:return ''
+    title,path,date=update
+    return f'<aside class="center-update"><strong>Recent update · {g.esc(date)}</strong><a href="{g.SITE}{path}">{g.esc(title)} →</a></aside>'
+
+
+def participant_story(center):
+    story=PARTICIPANT_STORIES.get(center)
+    if not story:return ''
+    title,url,source=story
+    return f'<aside class="center-story"><strong>Participant experience</strong><a href="{g.esc(url)}" rel="noopener">{g.esc(title)} →</a><span>{g.esc(source)}. One patient’s experience cannot predict another animal’s outcome.</span></aside>'
 
 
 def species_for(rows):
@@ -431,11 +533,16 @@ def owner_summary(center,rows,cancers,addresses):
         '</div>')
 
 
-def center_cards(rows):
+def center_cards(rows,center=None):
     rendered=[]
     for row in rows:
+        shown=row
+        if center and isinstance(row.get('sites'),list):
+            matched=[s for s in row['sites'] if canonical_center(s.get('hospital') or s.get('name'))==center]
+            if matched and canonical_center(row.get('center'))!=center:
+                shown=dict(row);shown['sites']=matched
         title=g.esc(row.get('title') or 'Cancer treatment opportunity')
-        card=cards([row])
+        card=cards([shown])
         card=re.sub(r'(<article class="card">)<h3>.*?</h3>',r'\1',card,count=1,flags=re.S)
         rendered.append(f'<details class="opportunity"><summary>{title}</summary>{card}</details>')
     return '<div class="opportunity-list">'+''.join(rendered)+'</div>'
@@ -450,6 +557,15 @@ def add(grouped,name,row):
 
 def center_page_addresses(center,hit):
     country=str(hit[0].get('country') or '') if hit else ''
+    if center in ETHOS_HOSPITAL_URLS:
+        found=[]
+        for r in hit:
+            for s in r.get('sites',[]) if isinstance(r.get('sites'),list) else []:
+                raw=str(s.get('hospital') or s.get('name') or '').strip()
+                if canonical_center(raw)!=center:continue
+                for label in site_labels(s,str(r.get('country') or '')):
+                    if label not in found:found.append(label)
+        if found:return found
     known=[x for x in addresses_for(center) if address_is_complete(x,country)]
     if known:return known
     for r in hit:
@@ -509,19 +625,52 @@ def generate_centers(rows):
         count=len(hit);noun='opportunity' if count==1 else 'opportunities'
         body=('<div class="center-page">'
             f'<h1>{g.esc(center)}</h1><p class="center-type">{g.esc(center_type(center))}</p><p class="center-kicker">{count} current cancer treatment or research {noun}</p>'
-            +overview(center)+owner_summary(center,hit,cancers,addrs)
-            +(ethos_sections(hit) if center==ETHOS_NETWORK else f'<h2>Current options at {g.esc(center)}</h2><p class="source-note">Open an option to see who may qualify, locations, costs or coverage, contact details and the official source.</p>'+center_cards(hit))
+            +overview(center,hit)+owner_summary(center,hit,cancers,addrs)+recent_center_update(center)+participant_story(center)
+            +(ethos_sections(hit) if center==ETHOS_NETWORK else f'<h2>Current options at {g.esc(center)}</h2><p class="source-note">Open an option to see who may qualify, locations, costs or coverage, contact details and the official source.</p>'+center_cards(hit,center))
             +'<details class="center-note"><summary>Before you contact the center</summary>'
             +'<p>A listing here does not mean every pet will qualify. Enrollment can change, and the study team makes the final decision after reviewing your pet’s diagnosis, records and previous treatment.</p>'
             +'<p>Have the pathology report, recent imaging and treatment history ready. Ask whether a referral is required, which visits must happen in person and what the study pays for before making travel plans.</p></details>'
             +f'<p><a class="center-search-link" href="{g.FINDER}">Check all options for your pet →</a></p><p class="free-note">Free to use. No registration or paid report.</p></div>')
         title=center_page_title(center);desc=center_page_description(center)
         d=g.OUT/path;d.mkdir(parents=True,exist_ok=True);(d/'index.html').write_text(g.page(title,desc,body,url),encoding='utf-8');links.append(url);items.append((center,path,len(hit),center_type(center)))
-        if center==ETHOS_NETWORK:
-            for hospital in ETHOS_HOSPITALS:
-                write_redirect(f'centers/{safe_center_slug(hospital,{})}/',url+'#'+g.slugify(hospital),hospital)
     assert len(used)==len(grouped),(len(used),len(grouped))
-    iu=f'{g.SITE}/centers/';ib='<h1>Oncology Centers &amp; Research Programs</h1><p class="lead">Browse universities, teaching hospitals, specialty hospitals, research organizations and multicenter studies with current cancer treatment opportunities.</p><ul>'+''.join(f'<li><a href="{g.SITE}/{p}">{g.esc(n)}</a> <span class="entity-type">{g.esc(kind)}</span> — {c} current opportunities</li>' for n,p,c,kind in items)+'</ul>'
+    item_data=[]
+    for n,p,c,kind in items:
+        addresses=center_page_addresses(n,grouped[n])
+        location=addresses[0] if len(addresses)==1 else (f'{len(addresses)} participating locations' if addresses else '')
+        relationship='Ethos network hospital · research coordinated by Ethos Discovery' if n in ETHOS_HOSPITAL_URLS else kind
+        count_label=f'{c} current {"option" if c==1 else "options"}'
+        card=f'<a class="center-directory-card" href="{g.SITE}/{p}"><strong>{g.esc(n)}</strong><span>{g.esc(relationship)} · {count_label}</span>'+(f'<span class="center-directory-location">{g.esc(location)}</span>' if location else '')+'</a>'
+        countries=sorted({str(r.get('country') or '').strip() for r in grouped[n] if str(r.get('country') or '').strip()})
+        country='USA' if 'USA' in countries else (countries[0] if len(countries)==1 else 'International / multiple countries')
+        states=sorted({m.group(1) for address in addresses for m in [re.search(r',\s*([A-Z]{2})\s+\d{5}(?:-\d{4})?\b',address)] if m}) if country=='USA' else []
+        region=states[0] if len(states)==1 else ('Multiple states' if states else 'National / location varies')
+        category=('universities' if kind=='University / Teaching Hospital' else 'other' if kind in {'Research Organization','Multicenter Study'} or n==ETHOS_NETWORK else 'hospitals')
+        item_data.append({'name':n,'card':card,'country':country,'region':region,'category':category})
+
+    state_names={'AL':'Alabama','AK':'Alaska','AZ':'Arizona','AR':'Arkansas','CA':'California','CO':'Colorado','CT':'Connecticut','DE':'Delaware','DC':'District of Columbia','FL':'Florida','GA':'Georgia','HI':'Hawaii','ID':'Idaho','IL':'Illinois','IN':'Indiana','IA':'Iowa','KS':'Kansas','KY':'Kentucky','LA':'Louisiana','ME':'Maine','MD':'Maryland','MA':'Massachusetts','MI':'Michigan','MN':'Minnesota','MS':'Mississippi','MO':'Missouri','MT':'Montana','NE':'Nebraska','NV':'Nevada','NH':'New Hampshire','NJ':'New Jersey','NM':'New Mexico','NY':'New York','NC':'North Carolina','ND':'North Dakota','OH':'Ohio','OK':'Oklahoma','OR':'Oregon','PA':'Pennsylvania','RI':'Rhode Island','SC':'South Carolina','SD':'South Dakota','TN':'Tennessee','TX':'Texas','UT':'Utah','VT':'Vermont','VA':'Virginia','WA':'Washington','WV':'West Virginia','WI':'Wisconsin','WY':'Wyoming'}
+    def directory_section(key,title,intro):
+        selected=[x for x in item_data if x['category']==key]
+        out=[f'<section class="center-directory-section" id="{key}"><h2>{title}</h2><p>{intro}</p>']
+        us=[x for x in selected if x['country']=='USA'];international=[x for x in selected if x['country']!='USA']
+        if us:
+            out.append('<h3>United States</h3>')
+            for region in sorted({x['region'] for x in us},key=lambda value:(value.startswith(('National','Multiple')),state_names.get(value,value))):
+                group=sorted((x for x in us if x['region']==region),key=lambda x:x['name'])
+                out.append(f'<div class="center-region"><h4>{g.esc(state_names.get(region,region))}</h4><div class="center-directory-grid">'+''.join(x['card'] for x in group)+'</div></div>')
+        if international:
+            out.append('<h3>Outside the United States</h3>')
+            for country in sorted({x['country'] for x in international}):
+                group=sorted((x for x in international if x['country']==country),key=lambda x:x['name'])
+                out.append(f'<div class="center-region"><h4>{g.esc(country)}</h4><div class="center-directory-grid">'+''.join(x['card'] for x in group)+'</div></div>')
+        out.append('</section>');return ''.join(out)
+
+    iu=f'{g.SITE}/centers/'
+    ib=('<h1>Oncology centers &amp; research programs</h1><p class="lead">Browse the institutions and participating hospitals connected to current cancer treatment opportunities. Hospitals in the United States are grouped by state.</p>'
+        '<nav class="center-directory-nav" aria-label="Center types"><a href="#universities">Universities &amp; teaching hospitals</a><a href="#hospitals">Specialty hospitals</a><a href="#other">Research centers &amp; multicenter programs</a></nav>'
+        +directory_section('universities','Universities &amp; teaching hospitals','Academic veterinary hospitals that combine specialty care with clinical research.')
+        +directory_section('hospitals','Specialty hospitals','Independent and network hospitals named as active study locations.')
+        +directory_section('other','Research centers &amp; multicenter programs','Organizations and study networks that coordinate enrollment across one or more hospitals.'))
     d=g.OUT/'centers';d.mkdir(parents=True,exist_ok=True);(d/'index.html').write_text(g.page('Veterinary Oncology Centers & Research Programs | Vet Trial Finder','Veterinary oncology centers, research organizations, multicenter studies and current cancer treatment opportunities.',ib,iu),encoding='utf-8')
     sm=g.OUT/'sitemap.xml';s=sm.read_text();sm.write_text(s.replace('</urlset>',''.join(f'<url><loc>{g.esc(u)}</loc></url>\n' for u in [iu]+links)+'</urlset>'))
     print('CENTER_PAGES_OK',len(grouped))
