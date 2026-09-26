@@ -71,7 +71,7 @@
   }
 
   function researchApproaches(trial) {
-    if (Array.isArray(trial.treatment_approaches) && trial.treatment_approaches.length) return new Set(trial.treatment_approaches);
+    if (Array.isArray(trial.treatment_approaches)) return new Set(trial.treatment_approaches);
     const text = ['title','intervention','notes'].map(k => trial[k] || '').join(' ').toLowerCase();
     const out = new Set();
     const has = words => words.some(x => text.includes(x));
