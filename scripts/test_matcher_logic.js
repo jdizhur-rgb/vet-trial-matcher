@@ -89,6 +89,29 @@ if (osteosarcoma.some(row => row.trial.id === 'vt-osa-standard')) {
   throw new Error('Virginia Tech observational control appeared in treatment matching');
 }
 
+const auOsteosarcoma = matches(patient({country: 'Australia', cancer: 'Osteosarcoma'}));
+const auIds = new Set(auOsteosarcoma.map(row => row.trial.id));
+for (const id of ['au-uq-appendicular-osteosarcoma-vaccine', 'au-gamgee-personalized-mrna-vaccine']) {
+  if (!auIds.has(id)) throw new Error(`Australia/Dog/Osteosarcoma did not return ${id}`);
+}
+const auMct = matches(patient({country: 'Australia', cancer: 'Mast cell tumor'}));
+if (!auMct.some(row => row.trial.id === 'au-gamgee-personalized-mrna-vaccine')) {
+  throw new Error('Australia/Dog/Mast cell tumor did not return Gamgee');
+}
+const auBroad = matches(patient({country: 'Australia', cancer: 'Cancer — any type'}));
+if (!auBroad.some(row => row.trial.id === 'au-gamgee-personalized-mrna-vaccine')) {
+  throw new Error('Australia/Dog/Any cancer type omitted an active trial for diagnosis review');
+}
+if (matches(patient({country: 'Australia', species: 'Cat', cancer: 'Osteosarcoma'})).length !== 0) {
+  throw new Error('Australia cat search returned a dog-only trial');
+}
+if (matches(patient({country: 'Australia', cancer: 'Osteosarcoma', metastasis: 'Confirmed metastases'})).some(row => row.trial.id === 'au-uq-appendicular-osteosarcoma-vaccine')) {
+  throw new Error('UQ nonmetastatic vaccine trial matched metastatic osteosarcoma');
+}
+if (osteosarcoma.some(row => row.trial.id.startsWith('au-'))) {
+  throw new Error('Australia-only trial appeared in USA search');
+}
+
 const bladder = matches(patient({cancer: 'Urothelial carcinoma'}));
 const purdueBladderIds = bladder
   .map(row => row.trial.id)
