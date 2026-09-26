@@ -247,7 +247,13 @@ def coverage_areas(r):
         if not (site_active(s) and site_is_coverage_placeholder(s)):continue
         pieces=[str(s.get(k) or '').strip() for k in ('city','state')]
         label=', '.join(x for x in pieces if x)
-        if country and normalize(country) not in normalize(label):label=', '.join(x for x in (label,country) if x)
+        # A participating site's explicit country overrides the lead country.
+        # Historical rows can already include the country in the state field.
+        site_country=str(s.get('country') or '').strip()
+        named_countries={'usa','united states','canada','mexico','uk','united kingdom','england','scotland','wales','netherlands','france','germany','italy','spain','portugal','belgium','switzerland','taiwan','china','japan','brazil','australia','denmark','sweden'}
+        has_country=any(normalize(part) in named_countries for part in label.split(','))
+        suffix=site_country or ('' if has_country else country)
+        if suffix and normalize(suffix) not in normalize(label):label=', '.join(x for x in (label,suffix) if x)
         if not label:label='Participating hospital assigned by the study team'
         key=normalize(label)
         if key not in seen:seen.add(key);out.append(label)
@@ -484,7 +490,8 @@ def ethos_sections(hit):
 
 def write_redirect(path,target,title):
     d=g.OUT/path;d.mkdir(parents=True,exist_ok=True)
-    doc=f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,follow"><link rel="canonical" href="{g.esc(target)}"><meta http-equiv="refresh" content="0; url={g.esc(target)}"><title>{g.esc(title)}</title></head><body><p>This hospital is now listed on the <a href="{g.esc(target)}">Ethos Veterinary Health page</a>.</p></body></html>'
+    canonical=target.split('#',1)[0]
+    doc=f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,follow"><link rel="canonical" href="{g.esc(canonical)}"><meta http-equiv="refresh" content="0; url={g.esc(target)}"><title>{g.esc(title)}</title></head><body><p>This hospital is now listed on the <a href="{g.esc(target)}">Ethos Veterinary Health page</a>.</p></body></html>'
     (d/'index.html').write_text(doc,encoding='utf-8')
 
 

@@ -3,6 +3,7 @@
 from pathlib import Path
 import html
 import re
+from urllib.parse import urlparse
 
 
 PAGE = Path(__file__).resolve().parent / "seo" / "site" / "centers" / "index.html"
@@ -52,41 +53,62 @@ def main() -> None:
             aliases += 1
 
         def page_source(url: str) -> str:
-            slug = url.rstrip("/").split("/")[-1]
-            page = PAGE.parent / slug / "index.html"
-            return page.read_text(encoding="utf-8") if page.exists() else ""
+            parsed = urlparse(url)
+            page = PAGE.parent.parent / parsed.path.strip("/") / "index.html"
+            source = page.read_text(encoding="utf-8") if page.exists() else ""
+            if parsed.fragment:
+                branch = re.search(
+                    r'<section class="network-branch" id="' + re.escape(parsed.fragment) + r'">(.*?)</section>',
+                    source, flags=re.S,
+                )
+                return branch.group(1) if branch else ""
+            return source
+
+        # Keep branch names/counts, but link directly to their real destination.
+        resolved_items = []
+        for url, name, kind, count in items:
+            redirect = re.search(r'<meta http-equiv="refresh" content="0; url=([^"]+)"', page_source(url))
+            resolved_items.append((html.unescape(redirect.group(1)) if redirect else url, name, kind, count))
+        items = resolved_items
+
+        def center_locations(url: str, name: str) -> str:
+            source = page_source(url)
+            # A trial can list many institutions. Only the page-owned address
+            # describes this center; the first trial site may be another clinic.
+            match = re.search(
+                r'<div class="center-fact"><strong>Where visits take place</strong>(.*?)</div>',
+                source, flags=re.S,
+            )
+            if match:
+                return match.group(1)
+            if urlparse(url).fragment:
+                match = re.search(r'<p class="branch-location">(.*?)</p>', source, flags=re.S)
+                return match.group(1) if match else ""
+            if name == "Ethos Veterinary Health / Ethos Discovery":
+                return " ".join(re.findall(r'<p class="branch-location">(.*?)</p>', source, flags=re.S))
+            return ""
 
         def first_location(url: str, name: str) -> str:
             if name == "Ethos Veterinary Health / Ethos Discovery":
                 return "Multiple locations across the US"
-            source = page_source(url)
-            match = re.search(
-                r'<div class="study-locations">.*?<li>(.*?)</li>', source, flags=re.S
-            )
-            if not match:
-                return ""
             return " ".join(
-                html.unescape(re.sub(r"<.*?>", "", match.group(1))).split()
+                html.unescape(re.sub(r"<.*?>", " ", center_locations(url, name))).split()
             )
 
         def location_zips(url: str, name: str) -> list[str]:
-            source = page_source(url)
+            source = center_locations(url, name)
             found = re.findall(
                 r"\b(?:AL|AK|AZ|AR|CA|CO|CT|DE|FL|GA|HI|ID|IL|IN|IA|KS|KY|LA|ME|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT|VT|VA|WA|WV|WI|WY|DC)\s+(\d{5})(?:-\d{4})?\b",
                 source,
             )
-            if name == "Ethos Veterinary Health / Ethos Discovery":
-                found.append("03801")
             return list(dict.fromkeys(found))
 
         def location_states(url: str, name: str) -> list[str]:
-            source = page_source(url)
+            source = center_locations(url, name)
             found = re.findall(
                 r"\b(AL|AK|AZ|AR|CA|CO|CT|DE|FL|GA|HI|ID|IL|IN|IA|KS|KY|LA|ME|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT|VT|VA|WA|WV|WI|WY|DC)\s+\d{5}\b",
                 source,
             )
-            if name == "Ethos Veterinary Health / Ethos Discovery":
-                found.append("NH")
             return list(dict.fromkeys(found))
 
         cards_html = "".join(

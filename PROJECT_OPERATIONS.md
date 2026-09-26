@@ -255,3 +255,9 @@ Source ownership is intentionally split by responsibility:
 Clinic pages and the oncology-care directory are text-only. Clinic-photo download/fallback code was retired; do not restore external clinic image fields or hotlinking helpers. Production validation rejects external images on center pages and retired preview routes, tracking markers, old navigation labels and obsolete claims.
 
 IndexNow notifications run only after a successful GitHub Pages deployment. The notifier derives eligible URLs from the generated production sitemap, rejects non-canonical, noindex and redirect pages, and compares generated-page hashes with the last successful submission so only changed `https://vettrialfinder.com` pages are sent. IndexNow availability must never block deployment.
+
+## 19. Technical SEO regression safeguards
+
+Center directory addresses and ZIP/state filters must use the center's own location facts, never the first location of a multi-site study. Branch aliases should link directly to their destination; canonical URLs omit fragments. A participating site's stated country takes precedence over the study lead country.
+
+Breadcrumb structured-data destinations must resolve to existing production pages. Sitemap `lastmod` is omitted until reliable per-page content modification dates are available; neither a fixed date nor a fresh build timestamp represents a content update. The production synchronization validator checks breadcrumb destinations, fragment-free canonicals, article schema and the multi-site center-address regression.

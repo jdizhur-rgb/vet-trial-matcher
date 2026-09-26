@@ -2,6 +2,7 @@
 """Generate the owner-facing article about cancer clinical trials for pets."""
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 import generate_seo as g
@@ -67,6 +68,14 @@ def generate_clinical_trials_for_pets_article(root: Path) -> None:
         body,
         url,
     )
+    schema = {
+        "@context": "https://schema.org", "@type": "Article",
+        "headline": 'Clinical trials for pets with cancer', "datePublished": '2026-09-14',
+        "author": {"@type": "Person", "name": "Yuliia Dizhur", "url": f"{SITE}/about/"},
+        "publisher": {"@id": f"{SITE}/#organization"},
+        "mainEntityOfPage": url,
+    }
+    page = page.replace("</head>", '<script type="application/ld+json">' + json.dumps(schema) + '</script></head>', 1)
     rendered = wrap_html(page)
     (directory / 'index.html').write_text(rendered, encoding='utf-8')
 

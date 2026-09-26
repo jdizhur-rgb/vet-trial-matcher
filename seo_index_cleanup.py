@@ -18,7 +18,6 @@ from urllib.parse import urlparse
 SITE = "https://vettrialfinder.com"
 CONTACT_EMAIL = "info@vettrialfinder.com"
 LANGUAGE_PREFIXES = {"de", "fr", "es", "it", "nl"}
-LASTMOD = "2026-09-13"
 HOME_TITLE = "Vet Trial Finder | Veterinary Cancer Trials and Oncology Centers"
 HOME_DESCRIPTION = (
     "Find veterinary cancer clinical trials and oncology centers for dogs and cats. "
@@ -245,8 +244,10 @@ def should_noindex(relative: Path, text: str) -> bool:
 
 
 def write_sitemap(root: Path, indexable: list[str]) -> None:
+    # lastmod is optional. The disposable build has no per-page change history;
+    # neither a fixed date nor the build time represents a content update.
     entries = "".join(
-        f"  <url><loc>{html.escape(url)}</loc><lastmod>{LASTMOD}</lastmod></url>\n"
+        f"  <url><loc>{html.escape(url)}</loc></url>\n"
         for url in sorted(indexable, key=lambda value: (value != f"{SITE}/", value))
     )
     (root / "sitemap.xml").write_text(

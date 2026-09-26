@@ -156,6 +156,35 @@ def main() -> None:
         assert len(canonicals) == 1, (page.relative_to(ROOT), canonicals)
         assert canonicals[0].startswith("https://vettrialfinder.com/")
         assert "matcher-preview" not in canonicals[0]
+        assert "#" not in canonicals[0], f"Fragment in canonical: {page}"
+        for raw in re.findall(r'<script[^>]+type="application/ld\+json"[^>]*>(.*?)</script>', page_html, re.S):
+            document = json.loads(raw)
+            def check_breadcrumbs(node):
+                if isinstance(node, list):
+                    for child in node:
+                        check_breadcrumbs(child)
+                elif isinstance(node, dict):
+                    if node.get("@type") == "BreadcrumbList":
+                        for item in node.get("itemListElement", []):
+                            target = item.get("item", "")
+                            if isinstance(target, dict):
+                                target = target.get("@id", "")
+                            parsed = urlparse(target)
+                            if parsed.netloc == "vettrialfinder.com":
+                                destination = SITE / parsed.path.strip("/") / "index.html"
+                                assert destination.exists(), f"Broken breadcrumb in {page}: {target}"
+                    for child in node.values():
+                        if isinstance(child, (dict, list)):
+                            check_breadcrumbs(child)
+            check_breadcrumbs(document)
+
+    directory = read(SITE / "centers" / "index.html")
+    oregon_card = re.search(r'<a class="directory-card" href="https://vettrialfinder.com/centers/veterinary-referral-center-of-central-oregon/"(.*?)</a>', directory, re.S)
+    assert oregon_card and 'data-zips="97701" data-states="OR"' in oregon_card.group(1), "Center location must not come from another trial site"
+    assert 'href="https://vettrialfinder.com/centers/care-center-cincinnati/"' not in directory
+    for slug in ("clinical-trials-for-pets-with-cancer", "pet-lump-diagnosis-before-surgery"):
+        article = read(SITE / "articles" / slug / "index.html")
+        assert re.search(r'"@type"\s*:\s*"Article"', article), f"Missing Article schema: {slug}"
 
     sitemap = read(SITE / "sitemap.xml")
     robots = read(SITE / "robots.txt")

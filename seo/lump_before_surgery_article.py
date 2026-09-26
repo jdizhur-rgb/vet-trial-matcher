@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import shutil
+import json
 from pathlib import Path
 
 import generate_seo as g
@@ -59,6 +60,14 @@ def generate_lump_before_surgery_article(root: Path) -> None:
         body,
         url,
     )
+    schema = {
+        "@context": "https://schema.org", "@type": "Article",
+        "headline": 'Diagnosis first, surgery second: what to do when you find a lump', "datePublished": '2026-09-18',
+        "author": {"@type": "Person", "name": "Yuliia Dizhur", "url": f"{SITE}/about/"},
+        "publisher": {"@id": f"{SITE}/#organization"},
+        "mainEntityOfPage": url,
+    }
+    page = page.replace("</head>", '<script type="application/ld+json">' + json.dumps(schema) + '</script></head>', 1)
     (directory / 'index.html').write_text(wrap_html(page), encoding='utf-8')
 
     index = root / 'articles' / 'index.html'
