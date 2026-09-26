@@ -228,6 +228,7 @@ def matcher_diagnosis_url(species, disease):
 
 
 def trial_registry(root, stats, rows):
+ # Long-form guide; live catalog counts remain in the diagnosis links below.
  usa=[r for r in rows if r.get('country') == 'USA']
  diagnoses=[]
  for key in sorted(g.DISEASE_INFO,key=lambda value:g.display_name(value)):
