@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-09-24",
+  "updated": "2026-09-26",
   "description": "Persistent discovery inventory for veterinary oncology treatment trials. Every source is checked daily; newly discovered official source pages are added even when their current lead is a duplicate, closed, ineligible or unresolved.",
   "sources": [
     {
@@ -10,9 +10,12 @@
       "source_type": "registry",
       "master_url": "https://veterinaryclinicaltrials.org/",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "changed",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "partial",
+      "content_fingerprint": null,
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200,
+      "notes": "HTTP 200 returned only the JavaScript application shell (42 normalized characters); no protocol roster was exposed to the noninteractive fetcher."
     },
     {
       "id": "registry-uk-vcsr",
@@ -21,10 +24,12 @@
       "source_type": "registry",
       "master_url": "https://www.veterinarystudiesregistry.co.uk/studies",
       "required_cadence": "daily",
-      "last_checked": "2026-09-25",
-      "last_result": "partial",
-      "content_fingerprint": null,
-      "notes": "Public registry; on 2026-09-25 it displayed three explicitly AI-generated sample studies and one unlabelled equine allergy study marked Not yet recruiting. Its recruiting counter was 0. Exclude sample studies and independently verify investigator, sponsoring institution, exact protocol and current recruitment before promoting any lead; an unlabelled listing alone is not confirmation of a real trial."
+      "last_checked": "2026-09-26",
+      "last_result": "changed",
+      "content_fingerprint": "sha256:bc2d7a9b22f55c9cd45f0e657af211d893449b6dc5a34974b5cd4b0c81b40152",
+      "notes": "Public registry; on 2026-09-25 it displayed three explicitly AI-generated sample studies and one unlabelled equine allergy study marked Not yet recruiting. Its recruiting counter was 0. Exclude sample studies and independently verify investigator, sponsoring institution, exact protocol and current recruitment before promoting any lead; an unlabelled listing alone is not confirmation of a real trial.",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "directory-veterinary-cancer-society",
@@ -33,9 +38,12 @@
       "source_type": "directory",
       "master_url": "https://vetcancersociety.org/resources/clinical-trials/",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "changed",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "partial",
+      "content_fingerprint": null,
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 403,
+      "notes": "Direct request returned HTTP 403; current directory content was opened through the external web retriever and reconciled."
     },
     {
       "id": "usa-auburn-vet-clinical-trials",
@@ -44,9 +52,11 @@
       "source_type": "university",
       "master_url": "https://www.vetmed.auburn.edu/research/clinical-trials/",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "unchanged",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "changed",
+      "content_fingerprint": "sha256:7887e20bd857c3fbe6a4e5c2e53ffa833785f9bb7965ee379415c21c1e1ec178",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "usa-colorado-state-vth-clinical-trials",
@@ -55,9 +65,11 @@
       "source_type": "university",
       "master_url": "https://vetmedbiosci.colostate.edu/vth/clinical-trials/",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
+      "last_checked": "2026-09-26",
       "last_result": "changed",
-      "content_fingerprint": null
+      "content_fingerprint": "sha256:c6341411a0948e43a24fbcfbc457bc99304d08a05a4b718cd180a8b2f5106be6",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "usa-cornell-vet-clinical-trials",
@@ -66,9 +78,11 @@
       "source_type": "university",
       "master_url": "https://www.vet.cornell.edu/hospitals/clinical-trials",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "unchanged",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "changed",
+      "content_fingerprint": "sha256:7198acdc741fd5a08f7d640ca8c014cd2945ce57f3ef3b51e55abbae87ef2572",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "usa-iowa-state-vmc-clinical-trials",
@@ -77,9 +91,11 @@
       "source_type": "university",
       "master_url": "https://vetmed.iastate.edu/vmc/clinical-trials/",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "reachable",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "changed",
+      "content_fingerprint": "sha256:2379c8c608f70780cd4448e756810d09a2021a14e8f05e78b0ac333545b38d08",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "usa-johns-hopkins-cigat",
@@ -88,9 +104,12 @@
       "source_type": "hospital_program",
       "master_url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "reachable",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "partial",
+      "content_fingerprint": null,
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 403,
+      "notes": "Direct request returned HTTP 403; current protocol roster and protocol details were opened through the external web retriever and reconciled."
     },
     {
       "id": "usa-lsu-vet-clinical-trials",
@@ -99,9 +118,11 @@
       "source_type": "university",
       "master_url": "https://www.lsu.edu/vetmed/veterinary_hospital/clinical_trials.php",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "reachable",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "changed",
+      "content_fingerprint": "sha256:a0a2b9e0c3e3a66265b2c546aa103644adce64670fc58beced6329b2f5459f54",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "usa-michigan-state-oncology-trials",
@@ -110,9 +131,12 @@
       "source_type": "university",
       "master_url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "unchanged",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "partial",
+      "content_fingerprint": null,
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200,
+      "notes": "HTTP 200 returned no normalized visible content to the noninteractive fetcher; current canonical records remain subject to protocol-level checks."
     },
     {
       "id": "usa-minnesota-current-clinical-trials",
@@ -121,9 +145,11 @@
       "source_type": "university",
       "master_url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
+      "last_checked": "2026-09-26",
       "last_result": "changed",
-      "content_fingerprint": null
+      "content_fingerprint": "sha256:01fa1f661fb0520a081f65f61b2c82ea14c1fb5b4ec052c9738cece8a8278e7a",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "usa-missouri-oncology-clinical-trials",
@@ -132,9 +158,11 @@
       "source_type": "university",
       "master_url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "reachable",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "changed",
+      "content_fingerprint": "sha256:48b72e48d211dad62a3c3504cb40943e89e38f673179311ff921f06f00e18a8b",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "usa-nc-state-clinical-trials",
@@ -143,9 +171,11 @@
       "source_type": "university",
       "master_url": "https://cvm.ncsu.edu/research/clinical-trials/",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "reachable",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "changed",
+      "content_fingerprint": "sha256:5a694ffd0434aa80ab9be09bfb4cf82d674ef8173c7309806b00083218cdb1f6",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "usa-ohio-state-current-trials",
@@ -154,9 +184,11 @@
       "source_type": "university",
       "master_url": "https://vmc.vet.osu.edu/clinical-trials-office/current-trials",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "unchanged",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "changed",
+      "content_fingerprint": "sha256:22998322c76b2b21c7e76e80bfb1b25501063d8ca402d4522b1783e878118d87",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "usa-oregon-state-oncology-trials",
@@ -165,9 +197,11 @@
       "source_type": "university",
       "master_url": "https://vetmed.oregonstate.edu/research/oncology-clinical-trials",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "unchanged",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "changed",
+      "content_fingerprint": "sha256:db58eaccfc9b35361c5b583e2b2f2fd81708f20a0e05f85f6649db055f93d836",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "usa-penn-vet-clinical-trials",
@@ -176,9 +210,12 @@
       "source_type": "university",
       "master_url": "https://www.vet.upenn.edu/research/clinical-trials/",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "changed",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "partial",
+      "content_fingerprint": null,
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 403,
+      "notes": "Direct request returned HTTP 403; Penn current trials and the Comparative Immunotherapy program were opened through the external web retriever."
     },
     {
       "id": "usa-purdue-wcorc-clinical-trials",
@@ -187,9 +224,11 @@
       "source_type": "university",
       "master_url": "https://www.vet.purdue.edu/wcorc/clinical-trials/",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "unchanged",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "changed",
+      "content_fingerprint": "sha256:b6712d7beaa8553921c2bd84da062478926dcb7fb367acdcc05edcb4224937d5",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "usa-tennessee-vet-clinical-trials",
@@ -198,9 +237,11 @@
       "source_type": "university",
       "master_url": "https://vetmed.tennessee.edu/research/clinical-trials/",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
+      "last_checked": "2026-09-26",
       "last_result": "changed",
-      "content_fingerprint": null
+      "content_fingerprint": "sha256:7698931a2752c196992b706ad927b95a2c8eeda56718c829a3cd370906a25880",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "usa-tufts-clinical-trials",
@@ -209,9 +250,11 @@
       "source_type": "university",
       "master_url": "https://vet.tufts.edu/clinical-trials",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "unchanged",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "changed",
+      "content_fingerprint": "sha256:0b897e25ab4565768f138c7471bf104fc08bc0aa1b36314cd649123660390195",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "usa-uc-davis-vcct",
@@ -220,9 +263,12 @@
       "source_type": "university",
       "master_url": "https://clinicaltrials.vetmed.ucdavis.edu/",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "unchanged",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "partial",
+      "content_fingerprint": null,
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 403,
+      "notes": "Direct request returned HTTP 403; the current master page was opened through the external web retriever."
     },
     {
       "id": "usa-florida-oncology-trials",
@@ -231,9 +277,11 @@
       "source_type": "university",
       "master_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/oncology/",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "unchanged",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "changed",
+      "content_fingerprint": "sha256:8bd146ad90ea442a515fa7d310fbc33ea87b7369e07e850ed961a169e1977e4a",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "usa-georgia-clinical-trials",
@@ -242,9 +290,11 @@
       "source_type": "university",
       "master_url": "https://vet.uga.edu/research/clinical-trials/",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "unchanged",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "changed",
+      "content_fingerprint": "sha256:587a79c705fd856e4784864fb7a6114e39d8b9e54d305f64bf996e0d4ecf0279",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "usa-illinois-clinical-trials",
@@ -253,9 +303,11 @@
       "source_type": "university",
       "master_url": "https://vetmed.illinois.edu/research/clinical-trials/",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
+      "last_checked": "2026-09-26",
       "last_result": "changed",
-      "content_fingerprint": null
+      "content_fingerprint": "sha256:938a92cc27f007506ec11b7bab7e3fa9222d8a2f301e0de0bcd4779f50a72723",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "usa-bluepearl-science-clinical-studies",
@@ -264,9 +316,12 @@
       "source_type": "specialty_network",
       "master_url": "https://bluepearlvet.com/current-clinical-studies/",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "changed",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "partial",
+      "content_fingerprint": null,
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 403,
+      "notes": "Direct request returned HTTP 403; the current master roster was opened through the external web retriever and reconciled."
     },
     {
       "id": "usa-virginia-tech-current-studies",
@@ -275,9 +330,11 @@
       "source_type": "university",
       "master_url": "https://research.vetmed.vt.edu/clinical-trials/current-studies.html",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "unchanged",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "changed",
+      "content_fingerprint": "sha256:e709879493266f3ae3679da0d178b01d54fef066d07bed4390cc037fd2ed2291",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "usa-wisconsin-oncology-studies",
@@ -286,9 +343,11 @@
       "source_type": "university",
       "master_url": "https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
+      "last_checked": "2026-09-26",
       "last_result": "changed",
-      "content_fingerprint": null
+      "content_fingerprint": "sha256:3a7ec653449d7b805295ee8a038c9fee3b730f3b35929764a6e4cb127520a02d",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "usa-utsw-vroc-clinical-trials",
@@ -297,9 +356,11 @@
       "source_type": "hospital_program",
       "master_url": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-trials.html",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
+      "last_checked": "2026-09-26",
       "last_result": "changed",
-      "content_fingerprint": null
+      "content_fingerprint": "sha256:96c358f3d6eeafc874c638d2914a6847ba6fcb2d8bba589ea4881891dccab3b4",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "usa-ethos-clinical-studies",
@@ -308,9 +369,12 @@
       "source_type": "specialty_network",
       "master_url": "https://www.ethosvet.com/clinical-studies/",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "unchanged",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "unreachable",
+      "content_fingerprint": null,
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 404,
+      "notes": "Master URL returned HTTP 404. Search of current official/cached materials found no qualifying owner-facing oncology treatment roster."
     },
     {
       "id": "usa-ethos-discovery-studies",
@@ -319,9 +383,12 @@
       "source_type": "cro_sponsor",
       "master_url": "https://www.ethosdiscovery.org/clinical-studies/",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "unchanged",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "unreachable",
+      "content_fingerprint": null,
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 404,
+      "notes": "Master URL returned HTTP 404. Current owner-facing oncology treatment roster could not be recovered."
     },
     {
       "id": "usa-medvet-clinical-studies",
@@ -330,9 +397,11 @@
       "source_type": "specialty_network",
       "master_url": "https://www.medvet.com/clinical-studies/",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "unchanged",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "changed",
+      "content_fingerprint": "sha256:0a6f094f4662d22f48fae73760f99b7a9c38f858b663a994624ac0d32618b8c9",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "usa-castr-alliance-studies",
@@ -341,9 +410,11 @@
       "source_type": "cro_sponsor",
       "master_url": "https://castr-wa.com/",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "unchanged",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "changed",
+      "content_fingerprint": "sha256:a556cfeb2fa9fee70dca9fa4c2407f8d2aa699f40aaaf7492e7ec350b0c0c3ce",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "usa-anivive-trials",
@@ -352,9 +423,12 @@
       "source_type": "cro_sponsor",
       "master_url": "https://anivivelifesciences.com/trials",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "unchanged",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "unreachable",
+      "content_fingerprint": null,
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 525,
+      "notes": "Master URL returned HTTP 525 and the cached web open also failed; the canonical Anivive record remains inaccessible for direct current-status confirmation."
     },
     {
       "id": "canada-ovc-active-oncology-trials",
@@ -363,9 +437,11 @@
       "source_type": "university",
       "master_url": "https://ovcclinicaltrials.uoguelph.ca/",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "unchanged",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "changed",
+      "content_fingerprint": "sha256:29cd1dc0915a7f3ca0d082fc1cedf6cf164520d4b8b4252bdc943345230214bb",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "europe-esvonc-ongoing-trials",
@@ -374,9 +450,11 @@
       "source_type": "directory",
       "master_url": "https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "unchanged",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "changed",
+      "content_fingerprint": "sha256:c8389ad53d8ca1e4ee2cc97b60a41e14b81c8a4f6881ef517941b1f5e757c47e",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "europe-oncowaf-clinical-trials",
@@ -385,9 +463,11 @@
       "source_type": "registry",
       "master_url": "https://oncowaf.be/en/ClinicalTrials/searchResults",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "unchanged",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "changed",
+      "content_fingerprint": "sha256:78377447daf39eb86ea3924394480f8c45642c6f89e68fe5913cd3a254b15938",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "netherlands-utrecht-interventional-oncology",
@@ -396,9 +476,11 @@
       "source_type": "university",
       "master_url": "https://vetoncology.sites.uu.nl/research/interventional/",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "unchanged",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "changed",
+      "content_fingerprint": "sha256:74831f9ad439728681cd2342c2916971cab8ac3502a8cced6ec7430d2fc85cad",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "switzerland-zurich-clinical-studies",
@@ -407,9 +489,11 @@
       "source_type": "university",
       "master_url": "https://www.tierspital.uzh.ch/krebs-tumore/klinische-studien/",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "unchanged",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "changed",
+      "content_fingerprint": "sha256:c9af09aae9eeaa5e0b4aeb087a33aa30e19934b2844cbab8531b43c6eff98e14",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "italy-milan-veterinary-studies",
@@ -418,9 +502,11 @@
       "source_type": "university",
       "master_url": "https://www.ospedaleveterinario.unimi.it/collaborare-con-noi-studi-di-ricerca/",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "unchanged",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "changed",
+      "content_fingerprint": "sha256:cff4efd5c605422b83f76e608d1a8b18d572d5b5be23327caffae26c8b065cd6",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "uk-rvc-clinical-investigation-centre",
@@ -429,9 +515,12 @@
       "source_type": "university",
       "master_url": "https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre",
       "required_cadence": "daily",
-      "last_checked": "2026-09-23",
-      "last_result": "unchanged",
-      "content_fingerprint": null
+      "last_checked": "2026-09-26",
+      "last_result": "partial",
+      "content_fingerprint": null,
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 403,
+      "notes": "Direct request returned HTTP 403; current RVC oncology project pages were opened through the external web retriever, including the toceranib insulinoma study."
     },
     {
       "id": "usa-kansas-state-vhc-oncology",
@@ -440,10 +529,12 @@
       "source_type": "university",
       "master_url": "https://www.ksvhc.org/services/specialty-services/oncology/",
       "required_cadence": "daily",
-      "last_checked": "2026-09-24",
-      "last_result": "unchanged",
-      "content_fingerprint": null,
-      "notes": "Current oncology source review produced 0 owner-eligible treatment-trial records for the matcher."
+      "last_checked": "2026-09-26",
+      "last_result": "changed",
+      "content_fingerprint": "sha256:e9f5a33d381957e8259610f07128908c980d4c0a65b87a7f76b497b3ea96a3b2",
+      "notes": "Current oncology source review produced 0 owner-eligible treatment-trial records for the matcher.",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "usa-sage-veterinary-clinical-trials",
@@ -452,10 +543,12 @@
       "source_type": "specialty_network",
       "master_url": "https://www.sagecenters.com/clinical-trials",
       "required_cadence": "daily",
-      "last_checked": "2026-09-24",
-      "last_result": "partial",
-      "content_fingerprint": null,
-      "notes": "Current page contains stale or otherwise ineligible trial links; no new matchable trial record was created."
+      "last_checked": "2026-09-26",
+      "last_result": "changed",
+      "content_fingerprint": "sha256:9c12c18fa834c1e3577d0216cfba4a2a5714ccf6ef430264c499cfebf8c179a1",
+      "notes": "Current page contains stale or otherwise ineligible trial links; no new matchable trial record was created.",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "usa-petcure-oncology-clinical-trials",
@@ -464,10 +557,12 @@
       "source_type": "specialty_network",
       "master_url": "https://petcureoncology.com/clinical-trials/",
       "required_cadence": "daily",
-      "last_checked": "2026-09-24",
-      "last_result": "unchanged",
-      "content_fingerprint": null,
-      "notes": "Official page states that no active clinical trials are currently recruiting pets in the PetCure Oncology network."
+      "last_checked": "2026-09-26",
+      "last_result": "changed",
+      "content_fingerprint": "sha256:c19b6f589de72f32c71dc36f91ab5936cba0b3c618bfede1c0f98623b7efca4e",
+      "notes": "Official page states that no active clinical trials are currently recruiting pets in the PetCure Oncology network.",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
     },
     {
       "id": "usa-amcny-current-clinical-trials",
@@ -476,10 +571,26 @@
       "source_type": "hospital_program",
       "master_url": "https://www.amcny.org/current-clinical-trials/",
       "required_cadence": "daily",
-      "last_checked": "2026-09-24",
+      "last_checked": "2026-09-26",
+      "last_result": "changed",
+      "content_fingerprint": "sha256:f8aa4e2bd0f763f37763c27d5b2fadb68594d23fcf7cba2f4d24a3e5a88e6e37",
+      "notes": "Current-trials roster is reachable, but oncology treatment-trial eligibility and owner access remain unresolved; no new trial record was created.",
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 200
+    },
+    {
+      "id": "usa-penn-comparative-immunotherapy-trials",
+      "name": "Penn Vet Comparative Immunotherapy Program Clinical Trials",
+      "country": "USA",
+      "source_type": "investigator_lab",
+      "master_url": "https://www.vet.upenn.edu/research/research-programs/comparative-immunotherapy-program/clinical-trials/",
+      "required_cadence": "daily",
+      "last_checked": "2026-09-26",
       "last_result": "partial",
       "content_fingerprint": null,
-      "notes": "Current-trials roster is reachable, but oncology treatment-trial eligibility and owner access remain unresolved; no new trial record was created."
+      "last_checked_at": "2026-09-26T08:35:29-04:00",
+      "last_http_status": 403,
+      "notes": "Direct request returned HTTP 403; current content was opened through the external web retriever. It lists active CAR-iNKT, CAR-T and anti-PD-1 treatment trials and is required because the general Penn trial roster does not expose the complete program roster."
     }
   ]
 }

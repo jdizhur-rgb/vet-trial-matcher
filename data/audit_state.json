@@ -1,8 +1,16 @@
 {
   "schema_version": 1,
   "purpose": "Persistent state for incremental discovery and deep-audit cost control. Source fingerprints live in source_inventory.json; this file tracks audit scheduling and unresolved work.",
-  "last_full_deep_audit": null,
-  "last_incremental_audit": null,
+  "last_full_deep_audit": "2026-09-26",
+  "last_incremental_audit": "2026-09-26",
+  "last_full_deep_audit_summary": {
+    "mandatory_master_sources_opened": 44,
+    "mandatory_master_sources_total": 44,
+    "protocol_urls_checked": 224,
+    "protocol_urls_reachable": 210,
+    "protocol_urls_unreachable": 14,
+    "forced_protocol_reread": true
+  },
   "forced_full_reread_days": 28,
   "rules": {
     "unchanged_master": "Do not reread every protocol solely because the master page is unchanged; verify changed, stale, unresolved, or due-for-forced-reread items.",
