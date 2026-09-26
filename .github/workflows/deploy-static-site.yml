@@ -114,9 +114,11 @@ jobs:
           assert 'verified trials' not in '\n'.join(p.read_text(encoding='utf-8').lower() for p in root.rglob('*.html'))
           assert not (root/'matcher-preview').exists()
           registry=(root/'veterinary-cancer-clinical-trials/index.html').read_text(encoding='utf-8')
-          assert '<h1 class="page-title">Free veterinary cancer clinical trial finder for dogs and cats</h1>' in registry
-          assert 'Why we check more than one registry' in registry
-          assert 'Free means free' in registry
+          assert '<h1 class="page-title">Veterinary cancer clinical trials: what they are and how they work</h1>' in registry
+          assert 'class="registry-quick-links"' in registry
+          assert 'How Vet Trial Finder selects and counts trials' in registry
+          assert 'We search beyond universities' in registry
+          assert 'Sources and further reading' in registry
           assert 'class="registry-diagnosis"' in registry
           assert '<meta name="robots" content="noindex' not in registry
           assert 'href="https://vettrialfinder.com/contact/"' in home
