@@ -66,6 +66,7 @@ def generate_trial_directions_article(root: Path) -> None:
 <p>A phase I trial usually tells us mainly whether a treatment can be given safely and what dose should be studied next. Tumor shrinkage does not necessarily mean longer survival. An immune response proves that the immune system noticed something; it does not prove that the response controlled the cancer.</p>
 <p>The canine HER2 osteosarcoma vaccine is a useful example. The early study was exciting. The larger trial still found biological activity, but the apparent survival advantage did not hold up. That is exactly why larger clinical trials are necessary.</p>
 <p>For an owner considering a trial, the useful questions are simple: <strong>What is the experimental treatment supposed to do? What has actually been shown in dogs? What is still unknown? And what treatment would my dog receive if we did not enter this trial?</strong></p>
+<p>If you are deciding whether an experimental option is worth pursuing, read our guide to <a href="{SITE}/articles/clinical-trials-for-pets-with-cancer/">evaluating a veterinary cancer clinical trial</a>.</p>
 <div class="article-cta"><a href="{SITE}/matcher/">Search current cancer trials for your dog or cat</a></div>
 <h2>References</h2><ol class="article-sources">
 <li><a href="https://pubmed.ncbi.nlm.nih.gov/39955616/" rel="noopener">Mason NJ, et al. Immunological responses and clinical outcomes in dogs with osteosarcoma receiving standard therapy and a Listeria vaccine expressing HER2. Molecular Therapy. 2025.</a></li>
@@ -80,7 +81,17 @@ def generate_trial_directions_article(root: Path) -> None:
 <p class="article-note"><strong>Current-trial links:</strong> trial status changes faster than published literature. The links above open the live Vet Trial Finder catalog filtered by research approach. Final eligibility and enrollment are determined by each study team.</p>
 <div class="article-byline"><p><strong>Reviewed and edited by:</strong> <a href="{SITE}/about/" rel="author">Yuliia Dizhur</a>, Founder of Vet Trial Finder</p><p><strong>Published:</strong> September 26, 2026</p><p><strong>Editorial disclosure:</strong> Prepared with AI assistance from the sources listed above and reviewed by Yuliia Dizhur. It has not been independently reviewed by a veterinarian and does not replace veterinary advice.</p></div></article>'''
     dest=root/"articles"/"where-veterinary-cancer-trials-are-heading";dest.mkdir(parents=True,exist_ok=True)
-    rendered=wrap_html(g.page("Where Veterinary Cancer Trials Are Heading | Vet Trial Finder","An owner-friendly guide to current directions in veterinary cancer research: immunotherapy, vaccines, targeted drugs, engineered immune cells, ultrasound and new radiation approaches.",body,url))
+    rendered=g.page("Where Veterinary Cancer Trials Are Heading | Vet Trial Finder","An owner-friendly guide to current directions in veterinary cancer research: immunotherapy, vaccines, targeted drugs, engineered immune cells, ultrasound and new radiation approaches.",body,url)
+    schema = {
+        "@context": "https://schema.org", "@type": "Article",
+        "headline": "Where veterinary cancer trials are heading",
+        "datePublished": "2026-09-26", "dateModified": "2026-09-26",
+        "author": {"@type": "Person", "name": "Yuliia Dizhur", "url": f"{SITE}/about/"},
+        "publisher": {"@id": f"{SITE}/#organization"},
+        "mainEntityOfPage": url,
+    }
+    rendered=rendered.replace("</head>", f'<script type="application/ld+json">{json.dumps(schema)}</script></head>', 1)
+    rendered=wrap_html(rendered)
     (dest/"index.html").write_text(rendered,encoding="utf-8")
     index=root/"articles"/"index.html"
     if index.exists():
