@@ -40,6 +40,7 @@ ROWS = [
 ('Europe','United Kingdom','Davies Veterinary Specialists','Oncology team (consultant not named)','The service does not assign a specific clinician to virtual appointments on the reviewed page.','Owner with vet','Medical oncology','Virtual first discussion of treatment options; confirm referral requirements when booking.','https://www.vetspecialists.co.uk/services/oncology/','','Clinician not named'),
 ('Europe','Italy','Beatrice–Villa clinic','Laura Beatrice','ACVIM Diplomate in Small Animal Internal Medicine, with oncology clinical experience; this is not ACVIM Oncology certification.','Owner; vet only','Internal medicine with oncology practice','Video second opinion; Italian, English and German offered.','https://www.ambvetbeatricevilla.eu/en/telemedicina','https://www.ambvetbeatricevilla.eu/en/telemedicina','Named clinician'),
 ('Europe','Czechia','CottOncology','Dagmar Kotlíková','MVDr.; worked in the oncology department at VETUNI Brno; oncology practice since 2024. ECVIM oncology diplomate status is not claimed.','Owner','Oncology (credential not specified)','Online consultation to understand diagnosis and treatment options.','https://www.dagmarkotlikova.cz/','https://www.dagmarkotlikova.cz/','Named clinician'),
+('Europe','Czechia','Ondřej Škor / RegiaVet','Ondřej Škor','MVDr., DipECVIM-CA (Oncology), CertVO; European board-certified oncology specialist since 2017. Trained and worked at Vetmeduni Vienna, Animal Health Trust in the UK and Veterinary Cancer Specialists in California; interests include immunotherapy and genomics-guided treatment.','Owner','Medical oncology','Dr Škor publicly describes video consultations for owners. Contact the practice to confirm appointment format, records, fee, language and whether it accepts your location.','https://www.novinky.cz/clanek/lifestyle-osobnosti-veterinarni-onkolog-ondrej-skor-u-zvirat-chemoterapie-prodluzuje-zivot-bez-bolesti-a-potizi-40549659/','https://www.regiavet.cz/mvdr-ondrej-skor-decvim-ca-certvo','Named clinician; confirm booking'),
 ('Europe','Germany','Krebs beim Hund','Diana Schulenburg','Internal medicine specialist with GPcert Oncology and integrative approach; GPcert is not an ECVIM oncology diplomate.','Owner','Internal medicine with oncology practice','Second opinion by Teams or telephone, €119; German/English. Site lists both 40 and 45 min: confirm duration.','https://www.krebsbeimhund.com/service-page/tier%C3%A4rztliche-beratung-krebs','https://www.krebsbeimhund.com/service-page/tiermedizinische-onkologische-beratung','Named clinician'),
 ('Europe','Spain','Oncovet Online','Oncology team (Laura Arconada and Inés Álvarez)','Laura Arconada founded the service in 2010 and taught practical oncology at UCM; no ECVIM oncology diplomate credential is claimed.','Owner with vet','Medical oncology','Local veterinarian opens the case; initial remote discussion includes owner and vet, with written report.','https://www.online.oncovet.es/es','https://www.oncovet.es/quienes-somos','Team; confirm assigned clinician'),
 ('Europe','Spain','SOIVET','Oncology team (consultant not named)','Remote clinician and exact qualifications are not identified on the service page. Ask before booking.','Owner; vet only','Oncology (credential not specified)','Video with owner about diagnosis, options, prognosis or second opinion; separate colleague consultations and cytology reviews.','https://www.soivet.es/servicios/','','Clinician not named'),
@@ -76,11 +77,14 @@ def card(row: tuple[str, ...]) -> str:
     access = access_key(audience)
     search = ' '.join((country, service, clinician, bio, specialty, offer)).lower()
     kinds = '; '.join(x.strip() for x in specialty.split('; '))
-    source = f'<a href="{escape(url, quote=True)}" rel="noopener noreferrer">Consultation details</a>'
+    label = 'Clinician on video consultations' if service == 'Ondřej Škor / RegiaVet' else 'Consultation details'
+    source = f'<a href="{escape(url, quote=True)}" rel="noopener noreferrer">{label}</a>'
     if bio_url and bio_url != url:
         source += f'<a href="{escape(bio_url, quote=True)}" rel="noopener noreferrer">Clinician or team bio</a>'
     if service == 'MARS / Melbourne Animal Referral Services':
         source += '<a href="https://marsvets.com.au/wp-content/uploads/2025/08/MARS_Price-List-2025-26.pdf" rel="noopener noreferrer">2025–26 price list</a>'
+    if service == 'Ondřej Škor / RegiaVet':
+        source += '<a href="https://www.regiavet.cz/kontakt" rel="noopener noreferrer">Practice contact</a>'
     return (f'<article class="tele-card" data-access="{access}" data-specialty="{escape(specialty.lower(), quote=True)}" data-search="{escape(search, quote=True)}">'
             f'<h3>{escape(service)}</h3><p class="tele-clinician">{escape(clinician)} <span class="tele-country">· {escape(country)}</span></p>'
             f'<p><span class="tele-badge">{escape(audience)}</span><span class="tele-badge">{escape(kinds)}</span></p>'
@@ -89,9 +93,9 @@ def card(row: tuple[str, ...]) -> str:
 
 
 def build_page(root: Path) -> None:
-    assert len(ROWS) == 41
+    assert len(ROWS) == 42
     assert len({(row[1], row[2]) for row in ROWS}) == len(ROWS)
-    assert sum(not row[5].startswith('Vet only') for row in ROWS) == 32
+    assert sum(not row[5].startswith('Vet only') for row in ROWS) == 33
     jumps = ''.join(f'<a href="#{slug}">{escape(region)}</a>' for region, slug in zip(REGIONS, IDS))
     sections = ''.join(f'<section class="tele-region" id="{slug}"><h2>{escape(region)}</h2><div class="tele-grid">'
                        + ''.join(card(row) for row in ROWS if row[0] == region)
@@ -108,8 +112,8 @@ def build_page(root: Path) -> None:
             '<div class="tele-controls"><label>Search clinician, service or country<input id="tele-search" type="search" autocomplete="off" placeholder="Try oncology, Mexico or Malone"></label>'
             '<label>Who can request it?<select id="tele-audience"><option value="all">All access types</option><option value="owner">Owner involved in initial review</option><option value="vet">Through a veterinarian</option></select></label>'
             '<label>Clinical focus<select id="tele-specialty"><option value="all">All oncology fields</option><option value="medical oncology">Medical oncology</option><option value="radiation oncology">Radiation oncology</option><option value="surgery">Cancer surgery</option><option value="internal medicine">Internal medicine with oncology practice</option></select></label></div>'
-            '<p class="tele-count" id="tele-count" role="status" aria-live="polite">41 services shown</p>' + sections
-            + '<p class="tele-note">Editorial review: September 26, 2026. These are 41 distinct services (32 involving owners in an initial review, 8 veterinarian-only, and 1 in New Zealand with owner follow-up under conditions), not a complete world registry or a count of individual doctors. Prices are published examples at the time of review; confirm current fees directly.</p>' + SCRIPT)
+            '<p class="tele-count" id="tele-count" role="status" aria-live="polite">42 services shown</p>' + sections
+            + '<p class="tele-note">Editorial review: September 26, 2026. These are 42 distinct services (33 involving owners in an initial review, 8 veterinarian-only, and 1 in New Zealand with owner follow-up under conditions), not a complete world registry or a count of individual doctors. Prices are published examples at the time of review; confirm current fees directly.</p>' + SCRIPT)
     dest = root / 'online-oncology-consultations'
     dest.mkdir(parents=True, exist_ok=True)
     (dest / 'index.html').write_text(g.page('Online veterinary oncology consultations | Vet Trial Finder',
