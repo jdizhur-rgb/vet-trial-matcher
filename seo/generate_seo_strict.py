@@ -480,9 +480,27 @@ RECENT_CENTER_UPDATES = {
 }
 
 PARTICIPANT_STORIES = {
-    "Colorado State University Flint Animal Cancer Center": ("Duke’s osteosarcoma precision-treatment trial experience", "https://vetmedbiosci.colostate.edu/csuanimalcancercenter/wp-content/uploads/sites/24/2020/05/Spring-2018-Newsletter-Online.pdf", "Participant story published by Colorado State University"),
+    "Ethos Veterinary Health / Ethos Discovery": [
+        ("Bandit’s ETHOS-PUSH experience: active a year after treatment began", "https://www.ethosdiscovery.org/blog-post/bandit-an-ethos-push-story/", "Owner account published by Ethos Discovery; the treating hospital is not identified"),
+        ("Koey’s ETHOS-PUSH experience: more than a year after splenectomy before his death", "https://www.ethosdiscovery.org/blog-post/ethos-push-real-patient-stories-from-real-pet-owners/", "Owner account published by Ethos Discovery; the treating hospital is not identified"),
+    ],
+    "Colorado State University Flint Animal Cancer Center": [
+        ("Duke’s osteosarcoma precision-treatment trial experience", "https://vetmedbiosci.colostate.edu/csuanimalcancercenter/wp-content/uploads/sites/24/2020/05/Spring-2018-Newsletter-Online.pdf", "Participant story published by Colorado State University"),
+        ("Oban’s oral melanoma: two trials, with the tumor disappearing during the second", "https://www.vetspecialists.com/vet-blog-landing/success-stories/2026/05/27/how-advanced-oncology-research-helped-give-this-dog-another-chance", "Participant story published by VetSpecialists"),
+        ("Dane’s lymphoma trial experience with the drug later approved as Tanovea", "https://newsmediarelations.colostate.edu/2017/01/04/colorado-state-university-veterinarians-help-bring-groundbreaking-cancer-drug-to-market/", "Participant story published by Colorado State University"),
+    ],
     "MedVet Clinical Studies Center": ("Ranger and Codi: reported tumor regression after the EGFR/HER2 vaccine", "https://www.ccralliance.org/yale-status", "Participant stories published by Canine Cancer Alliance for the Yale vaccine program"),
-    "Tufts University Cummings School of Veterinary Medicine": ("Jellybean’s osteosarcoma trial experience", "https://www.wired.com/story/dog-cancer-treatments", "Independent reporting by WIRED"),
+    "Peak Veterinary Referral Center": ("Brielle’s lymphoma study participation during treatment; complete remission reported", "https://www.ethosvet.com/news-article/remission-what-clinical-studies-make-possible/", "Participant story published by Ethos Veterinary Health"),
+    "Colorado Animal Specialty & Emergency (CASE)": ("Rollo’s ETHOS-PUSH experience after emergency surgery; remission reported four months later", "https://www.ethosvet.com/news-article/practicing-medicine-that-moves-the-field-forward/", "Participant story published by Ethos Veterinary Health"),
+    "Veterinary Specialty Hospital - North County": [
+        ("JD’s hemangiosarcoma trial: 11 good months, followed by kidney failure at age 14", "https://www.dogsondeployment.org/jds-fund-transforming-despair-into-hope-against-canine-cancer/", "First-person account published by JD’s owner through Dogs on Deployment"),
+        ("Bubbly’s ETHOS-PUSH experience: 16 months after diagnosis before the cancer returned", "https://www.ethosdiscovery.org/blog-post/ethos-push-real-patient-stories-from-real-pet-owners/", "Owner account published by Ethos Discovery"),
+        ("Whiskey’s osteosarcoma lung-metastasis surgery trial and the outcome known at publication", "https://www.ethosdiscovery.org/blog-post/mimic-real-patient-story-from-a-real-pet-owner/", "Owner account published by Ethos Discovery"),
+    ],
+    "Tufts University Cummings School of Veterinary Medicine": [
+        ("Jellybean’s osteosarcoma trial experience", "https://www.wired.com/story/dog-cancer-treatments", "Independent reporting by WIRED"),
+        ("Rosie’s metastatic sarcoma: major response, followed by an arrhythmia that ended treatment", "https://vet.tufts.edu/news-events/news/novel-immunotherapy-shows-promise-clinical-trials-cummings-school", "Participant story published by Tufts University"),
+    ],
     "Texas A&M School of Veterinary Medicine": [
         ("Coco’s insulinoma clinical-trial treatment", "https://vetmed.tamu.edu/news/press-releases/coco/", "Patient story published by Texas A&M"),
         ("Sadie’s glioma clinical-trial experience", "https://vetmed.tamu.edu/news/press-releases/texas-am-md-anderson-clinical-trial-helps-dogs-people/", "Participant story published by Texas A&M"),
@@ -507,9 +525,22 @@ PARTICIPANT_STORIES = {
     ],
     "University of Illinois College of Veterinary Medicine": ("Max and Dezzi’s melanoma immunotherapy trial experiences", "https://vetmed.illinois.edu/2022/08/06/canine-melanoma-the-max-and-dezzi-success-stories/", "Participant stories published by the University of Illinois"),
     "University of Missouri College of Veterinary Medicine": ("Sadie’s CAR-T lymphoma trial experience", "https://cvm.missouri.edu/new-therapy-for-dogs-with-cancer-shows-promise/", "Participant story published by the University of Missouri"),
-    "University of Pennsylvania School of Veterinary Medicine": ("Maple’s experience as the first dog in a FLASH radiation trial", "https://www.vet.upenn.edu/about/news-room/bellwether/bellwether-magazine/bellwether-spring-2023/research-brief-spring-2023", "Participant story published by Penn Vet"),
+    "University of Pennsylvania School of Veterinary Medicine": [
+        ("Maple’s experience as the first dog in a FLASH radiation trial", "https://www.vet.upenn.edu/about/news-room/bellwether/bellwether-magazine/bellwether-spring-2023/research-brief-spring-2023", "Participant story published by Penn Vet"),
+        ("Kyra’s lymphoma vaccine trial: an early participant story without a reported outcome", "https://repository.upenn.edu/bitstreams/d278e011-0fb8-4de0-a8e2-e69289662b7b/download", "Archived participant story published by Penn Vet"),
+    ],
     "University of Wisconsin–Madison School of Veterinary Medicine": ("Charger’s mast-cell-tumor clinical-study experience", "https://www.vetmed.wisc.edu/wp-content/uploads/2019/10/OnCall_F14-Web.pdf", "Participant story published by UW–Madison"),
-    "UC Davis Veterinary Center for Clinical Trials": ("Snoopy’s metastatic-cancer immunotherapy trial response", "https://ccah.vetmed.ucdavis.edu/ccah-newsletter/spring-2026/cover-story", "Participant story published by UC Davis"),
+    "UC Davis Veterinary Center for Clinical Trials": [
+        ("Snoopy’s metastatic-cancer immunotherapy trial response", "https://ccah.vetmed.ucdavis.edu/ccah-newsletter/spring-2026/cover-story", "Participant story published by UC Davis"),
+        ("Lola’s metastatic melanoma: apparent progression followed by disappearance of the lung tumors", "https://www.vetmed.ucdavis.edu/news/dog-beats-cancer-odds-after-successful-completion-clinical-trial", "Participant story published by UC Davis"),
+        ("Boone’s oral melanoma: tumor response after experimental Zox plus radiation", "https://www.vetmed.ucdavis.edu/news/successful-cancer-clinical-trial-uc-davis-extends-dogs-life", "Participant story published by UC Davis"),
+        ("Jack’s nasal cancer: cryoablation plus radiation, followed by five additional years", "https://www.vetmed.ucdavis.edu/news/successful-clinical-trial-added-years-dogs-life", "Participant story published by UC Davis"),
+        ("Luna’s brain-tumor surgery trial and return to work as a therapy dog", "https://www.vetmed.ucdavis.edu/news/brain-tumor-clinical-trial-latest-neurosurgical-advancement", "Participant story published by UC Davis"),
+        ("Handsome’s metastatic-cancer immunotherapy trial: participation while the outcome remains unknown", "https://www.vetmed.ucdavis.edu/giving/giving-stories/meet-handsome-groundbreaking-studys-first-participant", "Participant story published by UC Davis"),
+        ("Jakiro’s oral cancer trial: more than eight months after a prognosis of six to eight weeks", "https://ccah.vetmed.ucdavis.edu/ccah-newsletter/spring-2026/cancer-drug-cats-may-help-humans", "Participant story published by UC Davis"),
+    ],
+    "Johns Hopkins Center for Image-Guided Animal Therapy (CIGAT)": ("Josie’s hemangiosarcoma trial: the first dog reported to complete the study", "https://www.dvm360.com/view/dog-survives-hemangiosarcoma-clinical-trial", "Independent veterinary reporting by dvm360"),
+    "Ontario Veterinary College — University of Guelph": ("Cujo’s osteosarcoma study: first OVC participant, with no outcome reported in the story", "https://news.uoguelph.ca/2016/04/helping-dogs-bone-cancer-aim-clinical-trial-u-s-cancer-institute/", "Participant story published by the University of Guelph"),
     "Virginia-Maryland College of Veterinary Medicine / Virginia Tech": [
         ("Bambi’s oral-cancer clinical-trial experience", "https://vetmed.vt.edu/news/2023/accrc-success-story-bambi.html", "Participant story published by Virginia Tech"),
         ("Helen’s osteosarcoma clinical-trial experience", "https://vetmed.vt.edu/news/2023/accrc-success-story-helen.html", "Participant story published by Virginia Tech"),
@@ -533,7 +564,7 @@ def participant_story(center):
     if not stories:return ''
     if isinstance(stories[0],str):stories=[stories]
     items=''.join(f'<div class="center-story-item"><a href="{g.esc(url)}" rel="noopener">{g.esc(title)} →</a><span>{g.esc(source)}.</span></div>' for title,url,source in stories)
-    heading='Participant experience' if len(stories)==1 else 'Participant experiences'
+    heading='Stories from trial participants'
     return f'<aside class="center-story"><strong>{heading}</strong>{items}<span>Individual patient experiences cannot predict another animal’s outcome.</span></aside>'
 
 
