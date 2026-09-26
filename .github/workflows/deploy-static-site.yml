@@ -127,9 +127,13 @@ jobs:
           assert '<h1 class="page-title">Contact Vet Trial Finder</h1>' in contact
           assert 'mailto:info@vettrialfinder.com' in contact
           centers=(root/'centers/index.html').read_text(encoding='utf-8')
-          assert 'async function searchByZip' in centers
-          assert 'api.zippopotam.us/us/' in centers
-          assert 'data-zips=' in centers and 'center-search-status' in centers
+          assert 'id="universities"' in centers
+          assert 'id="hospitals"' in centers
+          assert 'id="other"' in centers
+          assert 'class="center-directory-card"' in centers
+          assert 'data-zips=' in centers and 'data-states=' in centers
+          assert 'function filterCenters' in centers and 'center-search-status' in centers
+          assert 'Ethos network hospital · research coordinated by Ethos Discovery' in centers
           oncology_care=(root/'matcher/centers/index.html').read_text(encoding='utf-8')
           assert 'does not independently verify clinicians, licenses, credentials or quality of care' in oncology_care
           assert 'listing is not a recommendation' in oncology_care

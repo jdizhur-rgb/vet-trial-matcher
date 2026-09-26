@@ -480,11 +480,19 @@ RECENT_CENTER_UPDATES = {
 }
 
 PARTICIPANT_STORIES = {
+    "Colorado State University Flint Animal Cancer Center": ("Duke’s osteosarcoma precision-treatment trial experience", "https://vetmedbiosci.colostate.edu/csuanimalcancercenter/wp-content/uploads/sites/24/2020/05/Spring-2018-Newsletter-Online.pdf", "Participant story published by Colorado State University"),
     "MedVet Clinical Studies Center": ("Ranger and Codi: reported tumor regression after the EGFR/HER2 vaccine", "https://www.ccralliance.org/yale-status", "Participant stories published by Canine Cancer Alliance for the Yale vaccine program"),
     "Tufts University Cummings School of Veterinary Medicine": ("Jellybean’s osteosarcoma trial experience", "https://www.wired.com/story/dog-cancer-treatments", "Independent reporting by WIRED"),
     "Texas A&M School of Veterinary Medicine": ("Coco’s insulinoma clinical-trial treatment", "https://vetmed.tamu.edu/news/press-releases/coco/", "Patient story published by Texas A&M"),
     "NC State College of Veterinary Medicine": ("What participation required for two dogs in a bladder-cancer study", "https://cvm.ncsu.edu/news/clinical-trials-explained-how-you-and-your-pet-can-help-save-lives-and-advance-veterinary-medicine/", "Participant story published by NC State"),
+    "Schwarzman Animal Medical Center": ("Dutch’s hemangiosarcoma chemo-immunotherapy trial experience", "https://www.amcny.org/wp-content/uploads/2019/01/AMC_rDVM_Summer-2017_072017.pdf", "Participant story published by the Animal Medical Center"),
     "University of Minnesota College of Veterinary Medicine": ("Hugo’s experience in a canine cancer-vaccine trial", "https://vetmed.umn.edu/news/gentle-giants-fight-tomorrow", "Participant story published by the University of Minnesota"),
+    "University of Florida College of Veterinary Medicine": ("Greta’s osteosarcoma vaccine-trial experience", "https://research.vetmed.ufl.edu/2025/08/11/gretas-story/", "Participant story published by the University of Florida"),
+    "University of Illinois College of Veterinary Medicine": ("Max and Dezzi’s melanoma immunotherapy trial experiences", "https://vetmed.illinois.edu/2022/08/06/canine-melanoma-the-max-and-dezzi-success-stories/", "Participant stories published by the University of Illinois"),
+    "University of Missouri College of Veterinary Medicine": ("Sadie’s CAR-T lymphoma trial experience", "https://cvm.missouri.edu/new-therapy-for-dogs-with-cancer-shows-promise/", "Participant story published by the University of Missouri"),
+    "University of Pennsylvania School of Veterinary Medicine": ("Maple’s experience as the first dog in a FLASH radiation trial", "https://www.vet.upenn.edu/about/news-room/bellwether/bellwether-magazine/bellwether-spring-2023/research-brief-spring-2023", "Participant story published by Penn Vet"),
+    "University of Wisconsin–Madison School of Veterinary Medicine": ("Charger’s mast-cell-tumor clinical-study experience", "https://www.vetmed.wisc.edu/wp-content/uploads/2019/10/OnCall_F14-Web.pdf", "Participant story published by UW–Madison"),
+    "UC Davis Veterinary Center for Clinical Trials": ("Snoopy’s metastatic-cancer immunotherapy trial response", "https://ccah.vetmed.ucdavis.edu/ccah-newsletter/spring-2026/cover-story", "Participant story published by UC Davis"),
 }
 
 
@@ -677,7 +685,10 @@ def generate_centers(rows):
 
 
 def audit(report):
-    pages=list(g.OUT.rglob('index.html'));assert pages
+    # The managed preview synchronizer may briefly create .rsync-tmp paths
+    # while a local build is running. They are not site output and can vanish
+    # between rglob() and read_text().
+    pages=[p for p in g.OUT.rglob('index.html') if not any(part.startswith('.') for part in p.relative_to(g.OUT).parts)];assert pages
     invalid=[]
     for p in pages:
         s=p.read_text(errors='replace')

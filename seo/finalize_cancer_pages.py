@@ -4,7 +4,7 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-SUMMARY_COUNT_RE = re.compile(r'<p class="option-count">(?P<count>\d+) option(?:s)? currently in our catalog\.</p>')
+SUMMARY_COUNT_RE = re.compile(r'<p class="option-count">(?P<count>\d+) (?:option(?:s)?|clinical trial listings) currently in our catalog\.</p>')
 ZERO_SUMMARY = 'No active listings in our catalog right now.'
 CARD_RE = re.compile(r'<article class="card"><h3>')
 FREE_INLINE_RE = re.compile(r'<p class="free-inline">.*?</p>')
