@@ -70,6 +70,21 @@
     return mods;
   }
 
+  function researchApproaches(trial) {
+    if (Array.isArray(trial.treatment_approaches) && trial.treatment_approaches.length) return new Set(trial.treatment_approaches);
+    const text = ['title','intervention','notes'].map(k => trial[k] || '').join(' ').toLowerCase();
+    const out = new Set();
+    const has = words => words.some(x => text.includes(x));
+    if (has(['immunotherap','pd-1','pd-l1','checkpoint','vaccine','car-t','car t','car-inkt','car inkt','interleukin','il-2','il-12','trike','natural killer','sting','tlr agonist','bcg'])) out.add('immunotherapy');
+    if (has(['vaccine','vaccination','mrna'])) out.add('cancer_vaccine');
+    if (has(['car-t','car t','car-inkt','car inkt','engineered t cell','engineered immune cell'])) out.add('engineered_immune_cells');
+    if (has(['trametinib','mek inhibitor','kinase inhibitor','targeted therap','toceranib','sorafenib','inhibitor'])) out.add('targeted_therapy');
+    if (has(['oncolytic','listeria','vesicular stomatitis virus','vsv-'])) out.add('oncolytic_microbe');
+    if (has(['histotrips','hifu','high-intensity focused ultrasound','high intensity focused ultrasound','h-fire','hfire','focused ultrasound'])) out.add('focused_ultrasound');
+    if (has(['flash','proton','sbrt','stereotactic','lattice radiation','lattice radiotherapy'])) out.add('radiation_innovation');
+    return out;
+  }
+
   function patient() {
     const data = Object.fromEntries(new FormData(form).entries());
     data.age_known = value('age') !== '' && Number.isFinite(Number(value('age'))); data.weight_known = value('weight') !== '' && Number.isFinite(Number(value('weight')));
@@ -112,6 +127,7 @@
     if (BLOCKED.some(x => String(trial.status || '').toLowerCase().includes(x))) return null;
     const prefs = p.prefs; const mods = modalities(trial);
     if (prefs.size && mods.size && ![...mods].some(x => prefs.has(x))) return null;
+    if (p.approach && !researchApproaches(trial).has(p.approach)) return null;
     const unlisted = p.cancer === "My cancer type isn't listed";
     let broad = false;
     if (unlisted) {
@@ -237,14 +253,16 @@
     const species = params.get('species');
     const country = params.get('country');
     const cancer = params.get('cancer');
+    const approach = params.get('approach');
     if (['Dog', 'Cat'].includes(species)) form.elements.species.value = species;
     if ([...form.elements.country.options].some(option => option.value === country)) form.elements.country.value = country;
     if (URL_CANCER_LABELS[cancer] && ![...form.elements.cancer.options].some(option => option.value === cancer)) form.elements.cancer.add(new Option(URL_CANCER_LABELS[cancer], cancer));
     if ([...form.elements.cancer.options].some(option => option.value === cancer)) form.elements.cancer.value = cancer;
+    if (form.elements.approach && [...form.elements.approach.options].some(option => option.value === approach)) form.elements.approach.value = approach;
     return params.get('autostart') === '1' && Boolean(form.elements.cancer.value);
   }
 
-  if (typeof window !== 'undefined') window.__MATCHER_TEST__ = {matchTrial, diagnosisMatch, modalities};
+  if (typeof window !== 'undefined') window.__MATCHER_TEST__ = {matchTrial, diagnosisMatch, modalities, researchApproaches};
   if (!form || !results) return;
   const autoStart = applyUrlPreset();
   form.addEventListener('change',event=>{ updateForm(); if(event.target.name==='country' && form.elements.cancer.value) form.requestSubmit(); });
