@@ -50,6 +50,7 @@ def validate_public_page_shell() -> None:
     pages = list(SITE.rglob("*.html"))
     missing_title_component: list[str] = []
     missing_header_links: list[str] = []
+    missing_article_headers: list[str] = []
     expected_links = (
         '<a href="https://vettrialfinder.com/matcher/">Find clinical trials</a>',
         '<a href="https://vettrialfinder.com/veterinary-cancer-clinical-trials/">About clinical trials</a>',
@@ -65,6 +66,8 @@ def validate_public_page_shell() -> None:
             missing_title_component.append(str(path.relative_to(ROOT)))
         if '<header class="site-header">' in text and any(link not in text for link in expected_links):
             missing_header_links.append(str(path.relative_to(ROOT)))
+        if SITE / "articles" in path.parents and '<header class="site-header">' not in text:
+            missing_article_headers.append(str(path.relative_to(ROOT)))
     if missing_title_component:
         raise RuntimeError(
             "Public H1 missing shared page-title component:\n"
@@ -74,6 +77,11 @@ def validate_public_page_shell() -> None:
         raise RuntimeError(
             "Shared header missing required trial or oncology-care links:\n"
             + "\n".join(missing_header_links)
+        )
+    if missing_article_headers:
+        raise RuntimeError(
+            "Article page missing shared site header:\n"
+            + "\n".join(missing_article_headers)
         )
     print("PUBLIC_PAGE_SHELL_OK", len(pages))
 
@@ -131,6 +139,7 @@ def main() -> None:
     # as the rest of the production site.
     run("seo/clinical_trials_for_pets_article.py", pythonpath="seo")
     run("seo/lump_before_surgery_article.py", pythonpath="seo")
+    run("seo/article_catalog.py", pythonpath="seo")
 
     # These deterministic finishing stages operate on the generated HTML.
     run("seo_index_cleanup.py")

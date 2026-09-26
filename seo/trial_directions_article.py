@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 import generate_seo as g
 from site_config import SITE
+from site_shell import wrap_html
 
 def generate_trial_directions_article(root: Path) -> None:
     url=f"{SITE}/articles/where-veterinary-cancer-trials-are-heading/"
@@ -79,7 +80,7 @@ def generate_trial_directions_article(root: Path) -> None:
 <p class="article-note"><strong>Current-trial links:</strong> trial status changes faster than published literature. The links above open the live Vet Trial Finder catalog filtered by research approach. Final eligibility and enrollment are determined by each study team.</p>
 <div class="article-byline"><p><strong>Reviewed and edited by:</strong> <a href="{SITE}/about/" rel="author">Yuliia Dizhur</a>, Founder of Vet Trial Finder</p><p><strong>Published:</strong> September 26, 2026</p><p><strong>Editorial disclosure:</strong> Prepared with AI assistance from the sources listed above and reviewed by Yuliia Dizhur. It has not been independently reviewed by a veterinarian and does not replace veterinary advice.</p></div></article>'''
     dest=root/"articles"/"where-veterinary-cancer-trials-are-heading";dest.mkdir(parents=True,exist_ok=True)
-    rendered=g.page("Where Veterinary Cancer Trials Are Heading | Vet Trial Finder","An owner-friendly guide to current directions in veterinary cancer research: immunotherapy, vaccines, targeted drugs, engineered immune cells, ultrasound and new radiation approaches.",body,url)
+    rendered=wrap_html(g.page("Where Veterinary Cancer Trials Are Heading | Vet Trial Finder","An owner-friendly guide to current directions in veterinary cancer research: immunotherapy, vaccines, targeted drugs, engineered immune cells, ultrasound and new radiation approaches.",body,url))
     (dest/"index.html").write_text(rendered,encoding="utf-8")
     index=root/"articles"/"index.html"
     if index.exists():
