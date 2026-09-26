@@ -29,16 +29,19 @@ def main():
         section = block.group(0)
         if "<img " in section or "<figure" in section:
             raise RuntimeError(f"Clinic image must not be published: {page}")
-        copy = re.search(r'<div class="center-overview-copy"><p>(.*?)</p>', section, re.S)
-        if not copy or len(re.sub(r'<[^>]+>', '', copy.group(1)).strip()) < 70:
+        paragraphs = re.findall(r'<div class="center-overview-copy">(.*?)</div>', section, re.S)
+        copies = re.findall(r'<p>(.*?)</p>', paragraphs[0], re.S) if paragraphs else []
+        if len(copies) < 2 or len(re.sub(r'<[^>]+>', '', copies[0]).strip()) < 70:
             raise RuntimeError(f"Missing substantive center introduction: {page}")
+        if len(re.sub(r'<[^>]+>', '', copies[1]).strip()) < 100:
+            raise RuntimeError(f"Missing current catalog context: {page}")
         if 'This page brings together current cancer studies' in section or 'This page groups the current cancer studies' in section:
             raise RuntimeError(f"Generic center introduction survived: {page}")
         banned = ('represented in the current treatment catalog', 'is listed as a participating hospital')
         if any(phrase in section for phrase in banned):
             raise RuntimeError(f"Template center introduction survived: {page}")
-        if section.count('<div class="center-overview-copy"><p>') != 1:
-            raise RuntimeError(f"Center introduction must be one paragraph: {page}")
+        if section.count('<div class="center-overview-copy">') != 1:
+            raise RuntimeError(f"Center introduction wrapper duplicated: {page}")
         if not re.search(r'<a href="https?://', section):
             raise RuntimeError(f"Missing official center or study link: {page}")
         checked.append(page)
