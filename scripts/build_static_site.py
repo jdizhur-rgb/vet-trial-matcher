@@ -101,7 +101,10 @@ def main() -> None:
     matcher = SITE / "matcher"
     if not matcher_source.exists():
         raise RuntimeError("Missing canonical matcher templates")
-    shutil.copytree(matcher_source, matcher)
+    # A supervised/local preview may create the destination between the clean
+    # build and this copy. The matcher output is fully generated, so merge the
+    # freshly built files instead of failing on the pre-created directory.
+    shutil.copytree(matcher_source, matcher, dirs_exist_ok=True)
     for page in matcher.rglob("*.html"):
         text = wrap_html(page.read_text(encoding="utf-8"))
         if page.relative_to(matcher) != Path("ect/index.html"):
