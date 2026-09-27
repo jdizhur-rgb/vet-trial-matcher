@@ -266,6 +266,8 @@ Center directory addresses and ZIP/state filters must use the center's own locat
 
 The research-center directory's USA-by-state view and its three center-type views overlap intentionally. Include US centers in the type views as well as the state view. This directory uses category and state/country pickers, without a separate free-text search.
 
+Global site search is generated from indexable sitemap pages by `scripts/build_site_search.py` after the static site has been assembled. Search runs locally in the browser without transmitting queries. Keep the `/search/` entry in shared navigation and verify that a center such as UC Davis is discoverable by name; the research-center directory itself has no separate text search.
+
 Breadcrumb structured-data destinations must resolve to existing production pages. Sitemap `lastmod` is omitted until reliable per-page content modification dates are available; neither a fixed date nor a fresh build timestamp represents a content update. The production synchronization validator checks breadcrumb destinations, fragment-free canonicals, article schema and the multi-site center-address regression.
 
 When an official clinic relocation conflicts with the ACVIM snapshot, exclude the stale profile ID and retain the replacement in the existing supplemental source so rebuilds cannot restore the old address. Update distance coordinates together with the address; document ZIP-centroid precision when used. Ally Veterinary moved from Waltham to 16 Mill St., Lincoln, MA 01773, verified on its official site September 25, 2026.

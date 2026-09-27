@@ -52,6 +52,7 @@ def validate_public_page_shell() -> None:
     missing_header_links: list[str] = []
     missing_article_headers: list[str] = []
     expected_links = (
+        '<a href="https://vettrialfinder.com/search/">Search</a>',
         '<a href="https://vettrialfinder.com/matcher/">Find clinical trials</a>',
         '<a href="https://vettrialfinder.com/veterinary-cancer-clinical-trials/">About clinical trials</a>',
         '<a href="https://vettrialfinder.com/matcher/centers/">Find oncology care near you</a>',
@@ -147,6 +148,7 @@ def main() -> None:
     run("center_directory_picker.py")
     run("seo/validate_center_profiles.py")
     run("seo/enforce_sentence_case.py", pythonpath="seo")
+    run("scripts/build_site_search.py")
     run("scripts/validate_production_sync.py")
     for page in SITE.rglob("*.html"):
         page.write_text(
