@@ -720,7 +720,7 @@ def generate_centers(rows):
         out.append('</section>');return ''.join(out)
 
     def directory_section(key,title,intro):
-        selected=[x for x in item_data if x['category']==key and x['country']!='USA']
+        selected=[x for x in item_data if x['category']==key]
         out=[f'<section class="center-directory-section" id="{key}"><h2>{title}</h2><p>{intro}</p>']
         countries=sorted({x['country'] for x in selected})
         out.append(region_picker(key,[(country,country) for country in countries],'Country'))
