@@ -78,6 +78,8 @@ Pre-promotion and post-promotion dedupe must compare real-world identity using a
 
 Same study under a different ID or slightly different title = merge/update, not a second public record.
 
+When a clearly recruiting site publishes sufficient protocol and owner-access details but an older, non-matchable record at another institution may be the same protocol, do not suppress the confirmed recruiting opportunity while awaiting cross-institution identity confirmation. Match the verified site, keep the unverified site non-matchable, document the provisional identity in both records/source notes, and merge into one multisite record if the study teams later confirm a shared protocol. Do not report the inactive candidate as a second current opportunity.
+
 **Do not dedupe on shared URL alone.** Universities often use one master clinical-trials page for many unrelated protocols. URL equality is supporting evidence, never sufficient identity by itself. Likewise, a shared drug/agent name (for example Z-007) can represent different protocols/sites. Prefer explicit protocol IDs (for example COTC033), or same-institution + highly similar title + overlapping disease/intervention evidence.
 
 Dedupe automation is audit-first: identify conservative probable pairs, inspect the evidence, then apply. After applying, rebuild the full effective catalog and require the same detector to return zero remaining probable duplicates.

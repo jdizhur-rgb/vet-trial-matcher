@@ -179,6 +179,32 @@ if (minnesotaBrainIds.includes('umn-canine-brain-tumor-program')) {
 }
 
 const scc = matches(patient({cancer: 'Squamous cell carcinoma'}));
+const barcSccId = 'barc-scc-intratumoral-carboplatin-2026';
+const barcScc = rows.filter(row => row.id === barcSccId);
+if (barcScc.length !== 1 || barcScc[0].sites?.[0]?.city !== 'Edmonds' || barcScc[0].sites?.[0]?.state !== 'WA') {
+  throw new Error('BARC SCC must be one current Edmonds, Washington opportunity');
+}
+for (const cancer of ['Squamous cell carcinoma', 'Squamous cell carcinoma — other']) {
+  if (!matches(patient({species:'Dog',country:'USA',cancer})).some(row => row.trial.id === barcSccId)) {
+    throw new Error(`BARC SCC did not match USA/Washington Dog/${cancer}`);
+  }
+}
+for (const overrides of [
+  {species:'Cat',cancer:'Squamous cell carcinoma — other'},
+  {country:'Switzerland',cancer:'Squamous cell carcinoma — other'},
+  {cancer:'Oral squamous cell carcinoma'},
+  {cancer:'Squamous cell carcinoma — other',metastasis:'Confirmed metastases'},
+  {cancer:'Squamous cell carcinoma — other',chemo:'Previously received'},
+  {cancer:'Squamous cell carcinoma — other',immunotherapy_history:'Previously received'},
+  {cancer:'Squamous cell carcinoma — other',radiation:'Previously received'},
+]) {
+  if (matches(patient(overrides)).some(row => row.trial.id === barcSccId)) {
+    throw new Error(`BARC SCC falsely matched ${JSON.stringify(overrides)}`);
+  }
+}
+if (!matches(patient({species:'Dog',country:'USA',cancer:'Cancer — any type'})).some(row => row.trial.id === barcSccId)) {
+  throw new Error('BARC SCC missing from USA/Dog/Any cancer browse');
+}
 if (scc.some(row => row.trial.id === 'lsu-scc-intratumoral-chemo')) {
   throw new Error('Unresolved LSU intratumoral SCC protocol remained in USA/Dog/SCC matching');
 }
