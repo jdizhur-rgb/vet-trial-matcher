@@ -18,6 +18,7 @@ NC_STATE_URL = f"{NEWS_URL}nc-state-il12-bladder-cancer-deadline/"
 WISCONSIN_URL = f"{NEWS_URL}wisconsin-ptcl-radiopharmaceutical-trial/"
 PURDUE_URL = f"{NEWS_URL}purdue-three-cancer-treatment-trials/"
 TAIWAN_IL15_URL = f"{NEWS_URL}taiwan-inhaled-il15-lung-metastases/"
+BARC_TRIALS_URL = f"{NEWS_URL}barc-dog-cat-cancer-trials/"
 CORNELL_OFFICIAL = "https://www.vet.cornell.edu/hospitals/clinical-trials/smart-start-therapy-canine-b-cell-lymphoma"
 NC_STATE_OFFICIAL = "https://cvm.ncsu.edu/clinical-trial/now-enrolling-dogs-with-invasive-bladder-cancer/"
 WISCONSIN_OFFICIAL = "https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/"
@@ -25,6 +26,7 @@ PURDUE_ABLATION_OFFICIAL = "https://vet.purdue.edu/wcorc/clinical-trials/tumor-a
 TAIWAN_IL15_OFFICIAL = "https://www.egah.com.tw/news/%E6%8B%9B%E5%8B%9F%E7%8A%AC%E9%BB%91%E8%89%B2%E7%B4%A0%E7%98%A4%E5%8F%8A%E9%AA%A8%E8%82%89%E7%98%A4%E8%87%A8%E5%BA%8A%E8%A9%A6%E9%A9%97"
 TAIWAN_IL15_PHASE1 = "https://jitc.bmj.com/content/10/6/e004493"
 TAIWAN_IL15_PHASE2 = "https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2025.1672790/full"
+BARC_TRIALS_OFFICIAL = "https://www.barcseattle.com/clinical-trials-index"
 PURDUE_SOCIAL_IMAGE = f"{SITE}/assets/social/purdue-ablation-1200x630.jpg"
 
 
@@ -63,6 +65,7 @@ def generate_news_section(root: Path) -> None:
 <h1>Veterinary oncology news</h1>
 <p class="lead">Newly opened treatment trials, meaningful recruitment changes and other developments that may matter to owners looking for cancer treatment options.</p>
 <div class="directory-grid">
+<a class="directory-card" href="{BARC_TRIALS_URL}"><strong>BARC is recruiting dogs and cats for cancer treatment trials</strong><span>September 27, 2026. Gold nanoparticle treatment includes selected dog and cat tumors; two other recruiting studies are for dogs.</span></a>
 <a class="directory-card" href="{TAIWAN_IL15_URL}"><strong>Taiwan trial tests inhaled IL-15 for canine lung metastases</strong><span>September 25, 2026. A rare non-US study builds on mixed published evidence in dogs with melanoma or osteosarcoma.</span></a>
 <a class="directory-card" href="{PURDUE_URL}"><strong>Purdue adds experimental tumor ablation to standard cancer treatment in three trials</strong><span>September 20, 2026. Standard treatment remains in place and part of the care is study-funded; additional clinical benefit from HIFU or H-FIRE has not been established.</span></a>
 <a class="directory-card" href="{NC_STATE_URL}"><strong>NC State bladder cancer immunotherapy trial closes enrollment September 30</strong><span>September 17, 2026. The fully funded eight-day IL-12 treatment study has no placebo group.</span></a>
@@ -146,9 +149,24 @@ def generate_news_section(root: Path) -> None:
 <p><a href="{MATCHER_URL}">Check this and other current cancer treatment trials in Vet Trial Finder</a></p>'''
     write_article(root, "taiwan-inhaled-il15-lung-metastases", "Taiwan trial tests inhaled IL-15 for canine lung metastases", "A recruiting study in Taipei is testing inhaled IL-15 in dogs with melanoma or osteosarcoma and measurable lung metastases.", taiwan_il15_body, "Evergreen Animal Hospital and linked peer-reviewed studies", "September 25, 2026", "2026-09-25")
 
-    add_to_sitemap(root, (NEWS_URL, CORNELL_URL, NC_STATE_URL, WISCONSIN_URL, PURDUE_URL, TAIWAN_IL15_URL))
-    rendered = "\n".join((root / "news" / slug / "index.html").read_text(encoding="utf-8") for slug in ("cornell-smart-start-b-cell-lymphoma", "nc-state-il12-bladder-cancer-deadline", "wisconsin-ptcl-radiopharmaceutical-trial", "purdue-three-cancer-treatment-trials", "taiwan-inhaled-il15-lung-metastases"))
-    required = ("There is no placebo.", "$1,000 toward chemotherapy costs", "September 30, 2026", "There is no placebo group.", "90Y-NM600", "initial screening visit and initial laboratory work are owner-paid", "HIFU followed by CHOP", "H-FIRE before surgery", "Osteosarcoma: HIFU", "has not been shown to improve remission, disease control or survival", "objective response rate was 11%", "phase, enrollment target and interim results have not been published", PURDUE_SOCIAL_IMAGE, 'summary_large_image', PURDUE_ABLATION_OFFICIAL, TAIWAN_IL15_OFFICIAL, TAIWAN_IL15_PHASE1, TAIWAN_IL15_PHASE2, CORNELL_OFFICIAL, NC_STATE_OFFICIAL, WISCONSIN_OFFICIAL, '"@type": "NewsArticle"')
+    barc_trials_body = f'''<p class="eyebrow">Recruiting in Washington · September 27, 2026</p>
+<h1>BARC is recruiting dogs and cats for cancer treatment trials</h1>
+<p>Bridge Animal Referral Center (BARC) in Edmonds, Washington, lists three current cancer treatment studies. One accepts selected dogs and cats; the other two are for dogs. The diagnosis alone does not establish eligibility: tumor location, size, stage and previous treatment can matter.</p>
+<h2>Gold nanoparticles and laser heating: dogs and cats</h2>
+<p>In this study, gold nanoparticles are given intravenously, then the superficial tumor is heated with a near-infrared laser. BARC lists dogs with mast cell tumors, soft tissue sarcomas or selected melanomas, with different size limits for each. Eligible cats may have oral squamous cell carcinoma that does not involve bone, or certain other superficial skin tumors, including mast cell tumors, sarcomas and carcinomas. BARC has not published current funding terms for this study. Its clinical benefit has not been established.</p>
+<h2>Intratumoral carboplatin: dogs with superficial SCC</h2>
+<p>BARC is also enrolling dogs with non-metastatic superficial squamous cell carcinoma (SCC) to test a new carboplatin formulation injected directly into the tumor. It is designed for longer local activity, but whether it improves tumor control has not yet been established.</p>
+<p>Dogs need a confirmed SCC diagnosis and at least one measurable lesion 1 cm or larger. BARC requires chest imaging and lymph-node assessment to check for spread. Previous chemotherapy, immunotherapy or radiation for cancer excludes participation; significant illness or abnormal blood counts may also rule a dog out. BARC says study treatments and associated procedures are fully funded. The team can clarify any costs outside the study.</p>
+<h2>EGFR/HER2 vaccine: selected dog cancers</h2>
+<p>BARC also lists active enrollment for an experimental EGFR/HER2 peptide vaccine. The clinic names osteosarcoma, hemangiosarcoma and transitional cell carcinoma among the dog cancers it considers; some other tumor types require a records review. This is a participating site in a broader vaccine study already listed in Vet Trial Finder, not a second copy of that trial. Ask BARC about eligibility and costs for this site.</p>
+<p><strong>Location and contact:</strong> Bridge Animal Referral Center, Edmonds, Washington · 425-697-2272</p>
+<div class="article-cta"><a href="{BARC_TRIALS_OFFICIAL}" target="_blank" rel="noopener">Read the official BARC study information</a></div>
+<p><a href="{MATCHER_URL}">Check these and other current cancer treatment trials in Vet Trial Finder</a></p>'''
+    write_article(root, "barc-dog-cat-cancer-trials", "BARC is recruiting dogs and cats for cancer treatment trials", "BARC in Edmonds is recruiting dogs and cats for selected gold nanoparticle treatment and dogs for intratumoral carboplatin and an EGFR/HER2 vaccine.", barc_trials_body, "Bridge Animal Referral Center", "September 27, 2026", "2026-09-27")
+
+    add_to_sitemap(root, (NEWS_URL, CORNELL_URL, NC_STATE_URL, WISCONSIN_URL, PURDUE_URL, TAIWAN_IL15_URL, BARC_TRIALS_URL))
+    rendered = "\n".join((root / "news" / slug / "index.html").read_text(encoding="utf-8") for slug in ("cornell-smart-start-b-cell-lymphoma", "nc-state-il12-bladder-cancer-deadline", "wisconsin-ptcl-radiopharmaceutical-trial", "purdue-three-cancer-treatment-trials", "taiwan-inhaled-il15-lung-metastases", "barc-dog-cat-cancer-trials"))
+    required = ("There is no placebo.", "$1,000 toward chemotherapy costs", "September 30, 2026", "There is no placebo group.", "90Y-NM600", "initial screening visit and initial laboratory work are owner-paid", "HIFU followed by CHOP", "H-FIRE before surgery", "Osteosarcoma: HIFU", "has not been shown to improve remission, disease control or survival", "objective response rate was 11%", "phase, enrollment target and interim results have not been published", "whether it improves tumor control has not yet been established", "study treatments and associated procedures are fully funded", "Eligible cats may have oral squamous cell carcinoma that does not involve bone", BARC_TRIALS_OFFICIAL, PURDUE_SOCIAL_IMAGE, 'summary_large_image', PURDUE_ABLATION_OFFICIAL, TAIWAN_IL15_OFFICIAL, TAIWAN_IL15_PHASE1, TAIWAN_IL15_PHASE2, CORNELL_OFFICIAL, NC_STATE_OFFICIAL, WISCONSIN_OFFICIAL, '"@type": "NewsArticle"')
     missing = [marker for marker in required if marker not in rendered]
     if missing:
         raise AssertionError(f"News validation failed: {missing}")
