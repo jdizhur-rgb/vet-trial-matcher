@@ -20,7 +20,8 @@ def main() -> None:
         raise AssertionError("Grouped center directory cards not found")
     search = ('<div class="center-directory-search"><label for="center-search"><strong>Find a center in this directory</strong></label>'
         '<input id="center-search" class="catalog-search" type="search" inputmode="search" placeholder="Hospital, university, city or state" '
-        'aria-label="Search clinical trial centers" oninput="filterCenters(this.value)"><p id="center-search-status" aria-live="polite"></p></div>')
+        'aria-label="Search clinical trial centers" oninput="filterCenters(this.value)"><p id="center-search-status" aria-live="polite"></p>'
+        '<p><a href="https://vettrialfinder.com/matcher/centers/">Looking for oncology care near you? Search clinics by ZIP</a></p></div>')
     intro = re.search(r'(<p class="lead">.*?</p>)', text, flags=re.S)
     if not intro:
         raise AssertionError("Center directory introduction not found")
