@@ -281,3 +281,7 @@ ANZCVS Vet Science Week programs and proceedings are investigator/discovery sour
 ## 22. Archived expanded-access directory
 
 The owner-facing expanded-access directory was retired September 26, 2026 because its UT Southwestern entry duplicates a matchable clinical trial and the VMD Sciences listing is import assistance for a veterinarian-selected drug, not a named available cancer treatment. The former static page is preserved in `research/archive/expanded-access-2026-09-26.html` outside the deployable site. Do not restore a public navigation entry until a specific, currently accessible anticancer treatment and owner pathway have been verified. This archival decision does not change other verified treatment-access records in the canonical catalog.
+
+## 23. Separate genomic testing from treatment listings
+
+The owner-facing `/matcher/genomic-tests/` page contains tumor profiling services, while `/matcher/advanced/` contains treatments. A test that only provides diagnostic information or drug guidance must not appear as an administered treatment option or inflate treatment counts. Keep the separate navigation labels and deduplicate by actual service across regional entries. The retired Streamlit Additional Oncology Options page does not control the public static site.
