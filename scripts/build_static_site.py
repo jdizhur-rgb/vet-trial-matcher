@@ -55,7 +55,7 @@ def validate_public_page_shell() -> None:
         '<a href="https://vettrialfinder.com/matcher/">Find clinical trials</a>',
         '<a href="https://vettrialfinder.com/veterinary-cancer-clinical-trials/">About clinical trials</a>',
         '<a href="https://vettrialfinder.com/matcher/centers/">Find oncology care near you</a>',
-        '<a href="https://vettrialfinder.com/centers/">Browse all oncology centers</a>',
+        '<a href="https://vettrialfinder.com/centers/">Clinical trial centers &amp; research programs</a>',
     )
     for path in pages:
         text = path.read_text(encoding="utf-8")
