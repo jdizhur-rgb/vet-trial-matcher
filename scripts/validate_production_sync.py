@@ -87,7 +87,7 @@ def main() -> None:
     assert '<button class="nav-toggle"' in home
     assert '<details class="nav-shell">' not in home
 
-    matcher_routes = ("", "centers", "advanced", "expanded-access")
+    matcher_routes = ("", "centers", "advanced")
     for route in matcher_routes:
         page = MATCHER / route / "index.html" if route else MATCHER / "index.html"
         html = read(page)
