@@ -117,9 +117,9 @@ def main():
     print('ACTIVE_INCOMPLETE',len(incomplete))
     for rid,miss in incomplete: print('INCOMPLETE',rid,','.join(miss))
 
-    # Broad/basket protocols need an explicit disease-family mapping. Without
-    # it, a study can be present in the catalog but silently disappear for a
-    # named diagnosis in the patient matcher.
+    # Broad/basket protocols need an explicit disease-family mapping. An
+    # individually screened, species-scoped list of exact eligible diagnoses
+    # already maps those choices without implying a whole disease family.
     generic_cancers={
       'Other solid tumor','Solid tumor','Other cancer','Other sarcoma',
       'Advanced unresectable tumor'
@@ -129,7 +129,8 @@ def main():
         cancers=set(r.get('cancers') or [])
         if (cancers & generic_cancers and
                 'Cancer — any type' not in cancers and
-                not r.get('broad_disease_families')):
+                not r.get('broad_disease_families') and
+                not (r.get('cancers_by_species') and r.get('owner_prescreen_required'))):
             broad_unmapped.append(r['id'])
     print('ACTIVE_BROAD_PROTOCOLS_WITHOUT_FAMILY_MAPPING',len(broad_unmapped))
     for rid in sorted(broad_unmapped): print('BROAD_UNMAPPED',rid)
