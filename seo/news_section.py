@@ -28,7 +28,8 @@ TAIWAN_IL15_PHASE1 = "https://jitc.bmj.com/content/10/6/e004493"
 TAIWAN_IL15_PHASE2 = "https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2025.1672790/full"
 BARC_TRIALS_OFFICIAL = "https://www.barcseattle.com/clinical-trials-index"
 PURDUE_SOCIAL_IMAGE = f"{SITE}/assets/social/purdue-ablation-1200x630.jpg"
-BARC_SOCIAL_IMAGE = f"{SITE}/assets/social/barc-dog-cat-cancer-trials.jpg"
+BARC_ARTICLE_IMAGE = f"{SITE}/assets/social/barc-dog-cat-cancer-trials.jpg"
+BARC_SOCIAL_IMAGE = f"{SITE}/assets/social/barc-dog-cat-cancer-trials-square-safe.jpg"
 
 
 def add_to_sitemap(root: Path, urls: tuple[str, ...]) -> None:
@@ -60,7 +61,7 @@ def generate_news_section(root: Path) -> None:
     source_assets = Path(__file__).resolve().parent / "assets" / "social"
     built_assets = root / "assets" / "social"
     built_assets.mkdir(parents=True, exist_ok=True)
-    for name in ("purdue-ablation-1200x630.jpg", "purdue-ablation-story-1080x1920.jpg", "barc-dog-cat-cancer-trials.jpg"):
+    for name in ("purdue-ablation-1200x630.jpg", "purdue-ablation-story-1080x1920.jpg", "barc-dog-cat-cancer-trials.jpg", "barc-dog-cat-cancer-trials-square-safe.jpg"):
         shutil.copy2(source_assets / name, built_assets / name)
     index_body = f'''<div class="registry-page news-index">
 <h1>Veterinary oncology news</h1>
@@ -152,7 +153,7 @@ def generate_news_section(root: Path) -> None:
 
     barc_trials_body = f'''<p class="eyebrow">Recruiting in Washington · September 27, 2026</p>
 <h1>BARC is recruiting dogs and cats for cancer treatment trials</h1>
-<figure style="margin:18px 0 24px"><img src="{BARC_SOCIAL_IMAGE}" alt="Illustrative cover showing a dog and a cat beside the BARC cancer trials headline and Edmonds clinic address" width="1733" height="908" style="display:block;width:100%;height:auto;border-radius:12px"></figure>
+<figure style="margin:18px 0 24px"><img src="{BARC_ARTICLE_IMAGE}" alt="Illustrative cover showing a dog and a cat beside the BARC cancer trials headline and Edmonds clinic address" width="1733" height="908" style="display:block;width:100%;height:auto;border-radius:12px"></figure>
 <p>Bridge Animal Referral Center (BARC) in Edmonds, Washington, lists three current cancer treatment studies. One accepts selected dogs and cats; the other two are for dogs. The diagnosis alone does not establish eligibility: tumor location, size, stage and previous treatment can matter.</p>
 <h2>Gold nanoparticles and laser heating: dogs and cats</h2>
 <p>In this study, gold nanoparticles are given intravenously, then the superficial tumor is heated with a near-infrared laser. BARC lists dogs with mast cell tumors, soft tissue sarcomas or selected melanomas, with different size limits for each. Eligible cats may have oral squamous cell carcinoma that does not involve bone, or certain other superficial skin tumors, including mast cell tumors, sarcomas and carcinomas. BARC has not published current funding terms for this study. Its clinical benefit has not been established.</p>
@@ -164,7 +165,7 @@ def generate_news_section(root: Path) -> None:
 <p><strong>Location and contact:</strong> Bridge Animal Referral Center, Edmonds, Washington · 425-697-2272</p>
 <div class="article-cta"><a href="{BARC_TRIALS_OFFICIAL}" target="_blank" rel="noopener">Read the official BARC study information</a></div>
 <p><a href="{MATCHER_URL}">Check these and other current cancer treatment trials in Vet Trial Finder</a></p>'''
-    write_article(root, "barc-dog-cat-cancer-trials", "BARC is recruiting dogs and cats for cancer treatment trials", "BARC in Edmonds is recruiting dogs and cats for selected gold nanoparticle treatment and dogs for intratumoral carboplatin and an EGFR/HER2 vaccine.", barc_trials_body, "Bridge Animal Referral Center", "September 27, 2026", "2026-09-27", BARC_SOCIAL_IMAGE, (1733, 908))
+    write_article(root, "barc-dog-cat-cancer-trials", "BARC is recruiting dogs and cats for cancer treatment trials", "BARC in Edmonds is recruiting dogs and cats for selected gold nanoparticle treatment and dogs for intratumoral carboplatin and an EGFR/HER2 vaccine.", barc_trials_body, "Bridge Animal Referral Center", "September 27, 2026", "2026-09-27", BARC_SOCIAL_IMAGE, (1733, 907))
 
     add_to_sitemap(root, (NEWS_URL, CORNELL_URL, NC_STATE_URL, WISCONSIN_URL, PURDUE_URL, TAIWAN_IL15_URL, BARC_TRIALS_URL))
     rendered = "\n".join((root / "news" / slug / "index.html").read_text(encoding="utf-8") for slug in ("cornell-smart-start-b-cell-lymphoma", "nc-state-il12-bladder-cancer-deadline", "wisconsin-ptcl-radiopharmaceutical-trial", "purdue-three-cancer-treatment-trials", "taiwan-inhaled-il15-lung-metastases", "barc-dog-cat-cancer-trials"))
