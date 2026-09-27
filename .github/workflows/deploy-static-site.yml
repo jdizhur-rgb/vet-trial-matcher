@@ -139,7 +139,11 @@ jobs:
           assert 'listing is not a recommendation' in oncology_care
           assert 'service, cost and current availability directly with the clinic' in oncology_care
           advanced=(root/'matcher/advanced/index.html').read_text(encoding='utf-8')
-          assert 'Inclusion in this catalog is not an endorsement or a treatment recommendation.' in advanced
+          genomic_tests=(root/'matcher/genomic-tests/index.html').read_text(encoding='utf-8')
+          assert 'Inclusion is not an endorsement or a recommendation.' in advanced
+          assert advanced.count('<article class="p-card"') == 6
+          assert genomic_tests.count('<article class="p-card"') == 3
+          assert 'Testing does not treat cancer' in genomic_tests
           center_pages=list((root/'centers').glob('*/index.html'))
           assert center_pages
           content_center_pages=[p for p in center_pages if '<meta name="robots" content="noindex' not in p.read_text(encoding='utf-8')]
