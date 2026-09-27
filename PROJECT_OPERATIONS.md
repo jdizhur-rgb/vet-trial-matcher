@@ -114,6 +114,8 @@ Do NOT “fix” this class of bug by merely removing the country from the selec
 
 Species may be stored as a string (`Dog`, `Dog/Cat`) or a list (`["Dog"]`, `["Dog","Cat"]`). All matching, filtering, SEO/import logic and smoke tests must normalize both forms.
 
+For a single protocol with different eligible cancers in dogs and cats, retain one canonical record and supply `cancers_by_species` with exact `Dog` and `Cat` lists; `cancers` is their union for general catalog display. Both browser matching and species-specific cancer-page counts must use the scoped lists. A general cancer union alone would produce false cross-species matches, while splitting the same protocol into two IDs would inflate study counts. Requirements such as tumor size or anatomical involvement that the owner form cannot capture remain explicit prescreening conditions in the record rather than inferred matches.
+
 ## 9. Safety / false-hope rule
 
 Eligibility matching must be conservative. A broad cancer label must not override explicit exclusions. If a program excludes a diagnosis (for example a particular lymphoma or brain tumor), do not map that excluded diagnosis merely because the program otherwise accepts many malignant tumors.

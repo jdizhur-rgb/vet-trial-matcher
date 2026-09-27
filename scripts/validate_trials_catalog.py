@@ -46,6 +46,16 @@ def validate(path: Path) -> tuple[int, int]:
         if trial_id in ids:
             raise AssertionError(f"Duplicate trial id: {trial_id}")
         ids.add(trial_id)
+        scoped = row.get("cancers_by_species")
+        if scoped is not None:
+            species = row.get("species", [])
+            species = species if isinstance(species, list) else species.split("/")
+            if not isinstance(scoped, dict) or set(scoped) != {s.strip() for s in species}:
+                raise AssertionError(f"{trial_id}: cancers_by_species must cover exactly the listed species")
+            if any(not isinstance(cancers, list) or not cancers for cancers in scoped.values()):
+                raise AssertionError(f"{trial_id}: every species needs a nonempty cancer list")
+            if set(row.get("cancers", [])) != {c for cancers in scoped.values() for c in cancers}:
+                raise AssertionError(f"{trial_id}: cancers must equal the union of species-specific cancers")
 
     active = current_public(rows)
     for row in active:

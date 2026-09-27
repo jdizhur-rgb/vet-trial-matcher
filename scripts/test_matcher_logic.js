@@ -51,8 +51,43 @@ function patient(overrides = {}) {
 
 const matches = p => rows.map(row => matcher.matchTrial(row, p)).filter(Boolean);
 const mct = matches(patient());
-if (mct.length !== 4) {
-  throw new Error(`Mast-cell regression expected 4 confirmed-current matches, got ${mct.length}`);
+if (mct.length !== 5) {
+  throw new Error(`Mast-cell regression expected 5 confirmed-current matches, got ${mct.length}`);
+}
+
+const goldId = 'barc-gold-nanoparticle-photothermal-2026';
+const gold = rows.filter(row => row.id === goldId);
+if (gold.length !== 1 || gold[0].sites[0]?.state !== 'WA' || gold[0].sites[0]?.city !== 'Edmonds') {
+  throw new Error('BARC gold trial must be one record at the Edmonds, Washington site');
+}
+for (const cancer of ['Mast cell tumor', 'Soft tissue sarcoma', 'Oral melanoma', 'Melanoma — other']) {
+  if (!matches(patient({species: 'Dog', cancer})).some(row => row.trial.id === goldId)) {
+    throw new Error(`BARC gold did not match its canine ${cancer} cohort`);
+  }
+}
+for (const cancer of ['Oral squamous cell carcinoma', 'Mast cell tumor', 'Soft tissue sarcoma', 'Squamous cell carcinoma — other', 'Other sarcoma']) {
+  if (!matches(patient({species: 'Cat', cancer})).some(row => row.trial.id === goldId)) {
+    throw new Error(`BARC gold did not match its feline ${cancer} cohort`);
+  }
+}
+for (const [species, cancer] of [['Dog','Oral squamous cell carcinoma'],['Cat','Oral melanoma'],['Cat','Melanoma — other']]) {
+  if (matches(patient({species,cancer})).some(row => row.trial.id === goldId)) {
+    throw new Error(`BARC gold incorrectly crossed species for ${species}/${cancer}`);
+  }
+}
+if (matches(patient({species:'Dog',cancer:'Mast cell tumor',country:'Switzerland'})).some(row => row.trial.id === goldId)) {
+  throw new Error('BARC gold appeared outside the USA');
+}
+for (const [species,slug,expected] of [
+  ['dogs','oral-melanoma',true],
+  ['cats','oral-melanoma',false],
+  ['dogs','oral-squamous-cell-carcinoma',false],
+  ['cats','oral-squamous-cell-carcinoma',true],
+]) {
+  const page = fs.readFileSync(path.join(root,'seo/site/north-america',species,slug,'index.html'),'utf8');
+  if (page.includes(gold[0].title) !== expected) {
+    throw new Error(`BARC gold has an incorrect ${species}/${slug} cancer-page listing`);
+  }
 }
 
 const yasha = matches(patient({
@@ -146,6 +181,29 @@ if (minnesotaBrainIds.includes('umn-canine-brain-tumor-program')) {
 const scc = matches(patient({cancer: 'Squamous cell carcinoma'}));
 if (scc.some(row => row.trial.id === 'lsu-scc-intratumoral-chemo')) {
   throw new Error('Unresolved LSU intratumoral SCC protocol remained in USA/Dog/SCC matching');
+}
+if (scc.some(row => row.trial.id === goldId)) {
+  throw new Error('BARC gold trial matched canine SCC, a feline-only cohort');
+}
+
+const medvetVaccine = rows.find(row => row.id === 'medvet-egfr-her2-vaccine-2026');
+if (!medvetVaccine?.sites?.some(site => site.state === 'WA' && site.city === 'Edmonds')) {
+  throw new Error('Existing EGFR/HER2 trial is missing its BARC Edmonds site');
+}
+for (const cancer of ['Osteosarcoma','Hemangiosarcoma','Urothelial carcinoma']) {
+  if (!matches(patient({cancer})).some(row => row.trial.id === medvetVaccine.id)) {
+    throw new Error(`EGFR/HER2 vaccine did not match its USA/Washington ${cancer} cohort`);
+  }
+}
+for (const species of ['Dog','Cat']) {
+  if (matches(patient({species,cancer:'Hemangiosarcoma'})).some(row => row.trial.id.includes('paccal'))) {
+    throw new Error(`${species} Paccal falsely appears as recruiting`);
+  }
+}
+for (const cancer of ['Cancer — any type','Hemangiosarcoma']) {
+  if (matches(patient({country:'Switzerland',species:'Dog',cancer})).some(row => row.trial.id === 'ch-zurich-oral-vinorelbine-phase1-2026')) {
+    throw new Error(`Single-dose Zurich Phase I falsely matches Switzerland/Dog/${cancer}`);
+  }
 }
 
 const oralScc = matches(patient({cancer: 'Oral squamous cell carcinoma'}));

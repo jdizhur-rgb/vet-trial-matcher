@@ -48,7 +48,10 @@ def canonical_cancer(c):
  for key,aliases in CANONICAL_RULES:
   if any(norm(a) in raw for a in aliases): return key
  return None
-def row_cancers(r): return {x for x in (canonical_cancer(c) for c in r.get('cancers',[])) if x}
+def row_cancers(r,species=None):
+ scoped=r.get('cancers_by_species')
+ cancers=scoped.get(species,[]) if scoped and species else r.get('cancers',[])
+ return {x for x in (canonical_cancer(c) for c in cancers) if x}
 def display_name(k): return ' '.join({'scc':'SCC','aml':'AML'}.get(w,w.capitalize()) for w in k.split())
 def prose(v):
  if v is None or v is False or v=='': return ''
@@ -105,7 +108,7 @@ def main():
   for skey,sname in SPECIES.items():
    srows=[r for r in rrows if species_ok(r,sname)]
    for key in cancers:
-    hit=[r for r in srows if key in row_cancers(r)]
+    hit=[r for r in srows if key in row_cancers(r,sname)]
     label=display_name(key); slug=slugify(key)
     for lang in langs:
      prefix='' if lang=='en' else lang+'/'; path=f'{prefix}{region}/{skey}/{slug}/'; url=f'{SITE}/{path}'; alts={l:f'{SITE}/{"" if l=="en" else l+"/"}{region}/{skey}/{slug}/' for l in langs}; alts['x-default']=f'{SITE}/{region}/{skey}/{slug}/'

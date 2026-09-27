@@ -98,8 +98,8 @@ def cancer_index(root,rows):
  north_america=[r for r in rows if r.get('country') in {'USA','Canada'}]
  for key in sorted(g.DISEASE_INFO):
   label=g.display_name(key);slug=g.slugify(key)
-  dogs=sum(1 for r in north_america if g.species_ok(r,'Dog') and key in g.row_cancers(r))
-  cats=sum(1 for r in north_america if g.species_ok(r,'Cat') and key in g.row_cancers(r))
+  dogs=sum(1 for r in north_america if g.species_ok(r,'Dog') and key in g.row_cancers(r,'Dog'))
+  cats=sum(1 for r in north_america if g.species_ok(r,'Cat') and key in g.row_cancers(r,'Cat'))
   links=[f'<a href="{SITE}/north-america/dogs/{slug}/">Dogs <span class="catalog-count">{dogs}</span></a>',f'<a href="{SITE}/north-america/cats/{slug}/">Cats <span class="catalog-count">{cats}</span></a>']
   items.append(f'<div class="catalog-card"><strong>{g.esc(label)}</strong><div class="catalog-links">{"".join(links)}</div></div>')
  body=f'''<h1>Cancer Types</h1><p class="lead catalog-intro"><strong>Start with your pet’s diagnosis.</strong> Choose a cancer type below to see a plain-language overview, standard treatment options and current clinical trials for dogs or cats. If you are not sure of the exact diagnosis, use the Clinical Trial Finder and enter what you know.</p><div class="count-explainer"><strong>What the numbers mean.</strong> These are current treatment opportunities in our USA and Canada catalog, not numbers of hospitals or pets. Each study or treatment program is counted once for each species and cancer type it accepts, even if it has several participating hospitals. A program that accepts several diagnoses appears under each relevant cancer type. The study team still decides whether an individual pet qualifies.</div><input class="catalog-search" type="search" placeholder="Search cancer type" aria-label="Search cancer types" oninput="filterCatalog(this.value)"><div class="catalog-grid">{''.join(items)}</div>{filter_script('.catalog-card')}''';d=root/'cancer-types';d.mkdir(parents=True,exist_ok=True);(d/'index.html').write_text(g.page('Find veterinary cancer trials for dogs and cats | Vet Trial Finder','Free matching connects pet owners with active veterinary cancer trials and treatment centers. Search by diagnosis and location, then contact study teams directly.',body,f'{SITE}/cancer-types/'),encoding='utf-8')
@@ -110,7 +110,7 @@ def species_trial_pages(root,rows):
   species_rows=[r for r in north_america if g.species_ok(r,species)]
   diagnoses=[]
   for key in sorted(g.DISEASE_INFO,key=lambda value:g.display_name(value)):
-   count=sum(1 for r in species_rows if key in g.row_cancers(r))
+   count=sum(1 for r in species_rows if key in g.row_cancers(r,species))
    if not count:continue
    label=g.display_name(key)
    diagnosis_slug=g.slugify(key)
@@ -232,8 +232,8 @@ def trial_registry(root, stats, rows):
  usa=[r for r in rows if r.get('country') == 'USA']
  diagnoses=[]
  for key in sorted(g.DISEASE_INFO,key=lambda value:g.display_name(value)):
-  dog_count=sum(1 for r in usa if g.species_ok(r,'Dog') and key in g.row_cancers(r))
-  cat_count=sum(1 for r in usa if g.species_ok(r,'Cat') and key in g.row_cancers(r))
+  dog_count=sum(1 for r in usa if g.species_ok(r,'Dog') and key in g.row_cancers(r,'Dog'))
+  cat_count=sum(1 for r in usa if g.species_ok(r,'Cat') and key in g.row_cancers(r,'Cat'))
   if not dog_count and not cat_count:continue
   links=[];slug=g.slugify(key);label=g.display_name(key)
   if dog_count:links.append(f'<a class="registry-diagnosis" href="{matcher_diagnosis_url("Dog", key)}">{g.esc(label)} in dogs<span>{dog_count} current {"option" if dog_count==1 else "options"}</span></a>')

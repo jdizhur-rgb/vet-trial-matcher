@@ -186,9 +186,11 @@ def canonical_cancer(v):
     for key,aliases in g.CANONICAL_RULES:
         if any(phrase(a,raw) for a in aliases):return key
     return None
-def cancer_values(r):
-    v=r.get('cancers',[]);return [v] if isinstance(v,str) else list(v) if isinstance(v,(list,tuple,set)) else []
-def row_cancers(r):return {x for x in (canonical_cancer(v) for v in cancer_values(r)) if x}
+def cancer_values(r,species=None):
+    scoped=r.get('cancers_by_species')
+    v=scoped.get(species,[]) if scoped and species else r.get('cancers',[])
+    return [v] if isinstance(v,str) else list(v) if isinstance(v,(list,tuple,set)) else []
+def row_cancers(r,species=None):return {x for x in (canonical_cancer(v) for v in cancer_values(r,species)) if x}
 g.canonical_cancer=canonical_cancer;g.row_cancers=row_cancers
 
 

@@ -43,8 +43,10 @@
   };
   const uniq = items => [...new Set(items.map(String))];
 
-  function diagnosisMatch(trial, diagnosis) {
-    const cancers = new Set(trial.cancers || []);
+  function diagnosisMatch(trial, diagnosis, species) {
+    const scoped = trial.cancers_by_species;
+    const allowed = scoped ? scoped[species] || [] : trial.cancers || [];
+    const cancers = new Set(allowed);
     const exact = new Set([diagnosis, ...(ALIASES[diagnosis] || [])]);
     if (diagnosis === 'Spindle cell sarcoma') exact.add('Soft tissue sarcoma');
     const excluded = new Set(trial.excluded_cancers || []);
@@ -131,7 +133,7 @@
     const unlisted = p.cancer === "My cancer type isn't listed";
     let broad = false;
     if (unlisted) {
-      if (!(trial.broad_disease_families || []).includes('all_tumors') && !(trial.cancers || []).includes('Cancer — any type')) return null;
+      if (!(trial.broad_disease_families || []).includes('all_tumors') && !(trial.cancers_by_species ? trial.cancers_by_species[p.species] || [] : trial.cancers || []).includes('Cancer — any type')) return null;
       if (!universalLimitPass(trial.requires || {}, p)) return null;
       const shown = String(p.unlisted_diagnosis || '').trim() || 'unlisted diagnosis';
       return {confidence:'Trial to review — diagnosis requires prescreening', trial, reasons:[`${shown} has not been mapped to a trial disease category`], unknown:['investigator must confirm diagnosis-specific eligibility']};
@@ -143,7 +145,7 @@
       if (p.weight_known) reasons.push('weight is within any published study limit');
       return {confidence:'Trial to review — cancer type not specified', trial, reasons, unknown:['disease-specific and protocol-specific eligibility requires prescreening']};
     }
-    [broad] = [false]; const dm = diagnosisMatch(trial, p.cancer); if (!dm[0]) return null; broad = dm[1];
+    [broad] = [false]; const dm = diagnosisMatch(trial, p.cancer, p.species); if (!dm[0]) return null; broad = dm[1];
     const trialText = `${trial.title || ''} ${trial.notes || ''}`.toLowerCase();
     if ((trialText.includes('epitheliotropic') || trialText.includes('cutaneous lymphoma')) && p.cancer !== 'Cutaneous epitheliotropic lymphoma') return null;
 
@@ -240,7 +242,7 @@
     show('.unlisted-only',unlisted); show('.specific-only',!browse&&!unlisted); show('.solid-only',!browse&&!unlisted&&!hematologic&&cancer!=='Brain tumor / glioma');
     show('.brain-only',cancer==='Brain tumor / glioma'); show('.lymphoma-only',LYMPHOMA.has(cancer)||cancer==='Cutaneous epitheliotropic lymphoma'); show('.aml-only',cancer==='Acute myeloid leukemia');
     show('.mct-only',cancer==='Mast cell tumor'); show('.osa-only',cancer==='Osteosarcoma'); show('.hsa-only',cancer==='Hemangiosarcoma'); show('.procedure-only',p.surgery==='Yes'&&['Osteosarcoma','Hemangiosarcoma'].includes(cancer));
-    const candidates=trials.filter(t=>speciesMatches(t.species,p.species)&&countryMatches(t,p.country)&&(browse||unlisted||diagnosisMatch(t,cancer)[0])); const req=new Set(candidates.flatMap(t=>Object.keys(t.requires||{}))), exc=new Set(candidates.flatMap(t=>Object.keys(t.excludes||{})));
+    const candidates=trials.filter(t=>speciesMatches(t.species,p.species)&&countryMatches(t,p.country)&&(browse||unlisted||diagnosisMatch(t,cancer,p.species)[0])); const req=new Set(candidates.flatMap(t=>Object.keys(t.requires||{}))), exc=new Set(candidates.flatMap(t=>Object.keys(t.excludes||{})));
     show('.protocol-standard',!browse&&!unlisted&&req.has('standard_therapy_unavailable')); show('.protocol-large',!browse&&!unlisted&&req.has('large_inoperable_or_rt_preferred')); show('.protocol-no-local',!browse&&!unlisted&&req.has('surgery_or_rt_not_possible')); show('.protocol-ct-biopsy',!browse&&!unlisted&&req.has('ct_and_current_biopsy'));
     show('.steroids-only',!browse&&!unlisted&&(exc.has('current_steroids')||req.has('steroid_washout_days'))); show('.immunosuppressive-only',!browse&&!unlisted&&exc.has('immunosuppressive')); show('.radiation-plan-only',!browse&&!unlisted&&req.has('planned_radiation'));
     show('.zip-only',p.country==='USA');

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-09-26",
+  "updated": "2026-09-27",
   "description": "Persistent discovery inventory for veterinary oncology treatment trials. Every source is checked daily; newly discovered official source pages are added even when their current lead is a duplicate, closed, ineligible or unresolved.",
   "sources": [
     {
@@ -699,6 +699,30 @@
       "last_result": "partial",
       "content_fingerprint": null,
       "notes": "Oncology chapter news points to a member-gated repository and current-trials information, but visible news includes legacy posts. Public 2025 proceedings at anzcvs.com.au/vsw-2025-proceedings/ include CAR-T canine osteosarcoma laboratory work (not owner enrollment), Sita Withers immune-profiling and lymphoma half-body irradiation. The downloadable 2026 Vet Science Week program at vetscienceweek.com.au/wp-content/uploads/2026/07/ANZCVS-2026-Program-Book-Website.pdf provides investigator/topic leads but not patient-enrollment protocols. Resolve every lead with a contemporary organizer recruitment page before matching."
+    },
+    {
+      "id": "usa-barc-clinical-trials",
+      "name": "Bridge Animal Referral Center clinical trials",
+      "country": "USA",
+      "source_type": "hospital_program",
+      "master_url": "https://www.barcseattle.com/clinical-trials-index",
+      "required_cadence": "daily",
+      "last_checked": "2026-09-27",
+      "last_result": "reachable",
+      "content_fingerprint": null,
+      "notes": "Official Edmonds, Washington trial roster. Gold nanoparticle photothermal treatment is recruiting in species- and tumor-specific cohorts; current roster does not publish funding. Intratumoral long-acting carboplatin for canine superficial SCC is recruiting and fully funded, but possible same-protocol LSU study remains unresolved: do not create a duplicate before sponsor/protocol verification. EGFR/HER2 peptide vaccination is a MedVet-catalog study site; the older Gilvetmab combination is closed. Canine and feline paclitaxel/Paccal studies are closed for data review. Verify cohort-specific eligibility and funding at the protocol level."
+    },
+    {
+      "id": "sponsor-vivesto-paccal-status",
+      "name": "Vivesto Paccal Vet sponsor results and recruitment status",
+      "country": "Global",
+      "source_type": "cro_sponsor",
+      "master_url": "https://www.vivesto.com/en/section/media/press-releases/",
+      "required_cadence": "daily",
+      "last_checked": "2026-09-27",
+      "last_result": "reachable",
+      "content_fingerprint": null,
+      "notes": "Sponsor reported feline dose-finding recruitment complete July 1, 2026 (21 cats), cat topline September 17, 2026, and canine splenic hemangiosarcoma pilot topline September 15, 2026 (26 dogs). Clinic directory lists both cohorts closed for data review. Older feline owner enrollment and sponsor project pages still link to applications; treat those as stale until a new cohort is explicitly confirmed by sponsor and recruiting site. Future dog pivotal planning is not current enrollment."
     }
   ]
 }
