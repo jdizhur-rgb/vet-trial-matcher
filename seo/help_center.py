@@ -56,7 +56,7 @@ def generate_help_center(root: Path) -> None:
         ]),
         ('Other Treatments', [
             ('What is included under Other Treatments?',
-             f'<p><a href="{SITE}/other-treatments/">Other treatments</a> links to <a href="{SITE}/matcher/centers/?service=electrochemotherapy">oncology centers offering electrochemotherapy</a>, selected <strong>advanced treatments</strong> you can filter by species, region and cancer type. These listings do not decide whether a treatment is medically appropriate.</p>'),
+             f'<p><a href="{SITE}/other-treatments/">Other treatments</a> links to <a href="{SITE}/matcher/centers/?service=electrochemotherapy">oncology centers offering electrochemotherapy</a>, <strong>selected treatments</strong> and a separate list of <strong>genomic tests</strong> you can filter by species, region and cancer type. A genomic test is not itself a treatment, and these listings do not decide what is medically appropriate.</p>'),
         ]),
         ('Contacting a study', [
             ('Is Vet Trial Finder really free?',

@@ -87,7 +87,7 @@ def main() -> None:
     assert '<button class="nav-toggle"' in home
     assert '<details class="nav-shell">' not in home
 
-    matcher_routes = ("", "centers", "advanced")
+    matcher_routes = ("", "centers", "advanced", "genomic-tests")
     for route in matcher_routes:
         page = MATCHER / route / "index.html" if route else MATCHER / "index.html"
         html = read(page)
@@ -146,7 +146,13 @@ def main() -> None:
         assert set(external_images) <= {"https://vettrialfinder.com/assets/vet-trial-finder-logo.png"}, (page.relative_to(ROOT), external_images)
 
     advanced = read(MATCHER / "advanced" / "index.html")
-    assert "Inclusion in this catalog is not an endorsement or a treatment recommendation." in advanced
+    genomic_tests = read(MATCHER / "genomic-tests" / "index.html")
+    assert "Inclusion is not an endorsement or a recommendation." in advanced
+    assert "Testing does not treat cancer" in genomic_tests
+    assert "Vidium SearchLight DNA" not in advanced
+    assert genomic_tests.count("<h2>Vidium SearchLight DNA</h2>") == 1
+    assert advanced.count('<article class="p-card"') == 6
+    assert genomic_tests.count('<article class="p-card"') == 3
 
     # Every ordinary generated page owns one production canonical. Redirects
     # may canonically point at their destination, but no canonical may escape
