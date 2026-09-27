@@ -144,7 +144,7 @@ def main() -> None:
     # These deterministic finishing stages operate on the generated HTML.
     run("seo_index_cleanup.py")
     run("help_content_update.py")
-    run("center_zip_search.py")
+    run("center_directory_picker.py")
     run("seo/validate_center_profiles.py")
     run("seo/enforce_sentence_case.py", pythonpath="seo")
     run("scripts/validate_production_sync.py")

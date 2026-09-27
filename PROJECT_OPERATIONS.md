@@ -264,7 +264,7 @@ IndexNow notifications run only after a successful GitHub Pages deployment. The 
 
 Center directory addresses and ZIP/state filters must use the center's own location facts, never the first location of a multi-site study. Branch aliases should link directly to their destination; canonical URLs omit fragments. A participating site's stated country takes precedence over the study lead country.
 
-The research-center directory's USA-by-state view and its three center-type views overlap intentionally. Include US centers in the type views as well as the state view; the free-text search should display/count each US center once.
+The research-center directory's USA-by-state view and its three center-type views overlap intentionally. Include US centers in the type views as well as the state view. This directory uses category and state/country pickers, without a separate free-text search.
 
 Breadcrumb structured-data destinations must resolve to existing production pages. Sitemap `lastmod` is omitted until reliable per-page content modification dates are available; neither a fixed date nor a fresh build timestamp represents a content update. The production synchronization validator checks breadcrumb destinations, fragment-free canonicals, article schema and the multi-site center-address regression.
 

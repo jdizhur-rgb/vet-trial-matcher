@@ -187,7 +187,7 @@ def main() -> None:
 
     directory = read(SITE / "centers" / "index.html")
     oregon_card = re.search(r'<a class="center-directory-card" href="https://vettrialfinder.com/centers/veterinary-referral-center-of-central-oregon/"(.*?)</a>', directory, re.S)
-    assert oregon_card and 'data-zips="97701" data-states="OR"' in oregon_card.group(1), "Center location must not come from another trial site"
+    assert oregon_card and 'Bend, OR 97701' in oregon_card.group(1), "Center location must not come from another trial site"
     assert 'href="https://vettrialfinder.com/centers/care-center-cincinnati/"' in directory
     assert 'Ethos network hospital · research coordinated by Ethos Discovery' in directory
     for slug in ("clinical-trials-for-pets-with-cancer", "pet-lump-diagnosis-before-surgery"):
