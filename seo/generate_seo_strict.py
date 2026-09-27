@@ -730,13 +730,13 @@ def generate_centers(rows):
         out.append('</section>');return ''.join(out)
 
     iu=f'{g.SITE}/centers/'
-    ib=('<h1>Oncology centers &amp; research programs</h1><p class="lead">Browse the institutions and participating hospitals connected to current cancer treatment opportunities. Hospitals in the United States are grouped by state.</p>'
+    ib=('<h1>Clinical trial centers &amp; research programs</h1><p class="lead">Browse the institutions and participating hospitals connected to current cancer treatment opportunities. Hospitals in the United States are grouped by state.</p>'
         '<nav class="center-directory-nav" aria-label="Choose how to browse centers"><button type="button" data-directory-target="usa" aria-pressed="true">USA by state</button><button type="button" data-directory-target="universities" aria-pressed="false">Universities &amp; teaching hospitals</button><button type="button" data-directory-target="hospitals" aria-pressed="false">Specialty hospitals</button><button type="button" data-directory-target="other" aria-pressed="false">Research centers &amp; multicenter programs</button></nav>'
         +usa_section()
         +directory_section('universities','Universities &amp; teaching hospitals','Academic veterinary hospitals that combine specialty care with clinical research.')
         +directory_section('hospitals','Specialty hospitals','Independent and network hospitals named as active study locations.')
         +directory_section('other','Research centers &amp; multicenter programs','Organizations and study networks that coordinate enrollment across one or more hospitals.'))
-    d=g.OUT/'centers';d.mkdir(parents=True,exist_ok=True);(d/'index.html').write_text(g.page('Veterinary Oncology Centers & Research Programs | Vet Trial Finder','Veterinary oncology centers, research organizations, multicenter studies and current cancer treatment opportunities.',ib,iu),encoding='utf-8')
+    d=g.OUT/'centers';d.mkdir(parents=True,exist_ok=True);(d/'index.html').write_text(g.page('Clinical trial centers & research programs | Vet Trial Finder','Veterinary oncology centers, research organizations, multicenter studies and current cancer treatment opportunities.',ib,iu),encoding='utf-8')
     sm=g.OUT/'sitemap.xml';s=sm.read_text();sm.write_text(s.replace('</urlset>',''.join(f'<url><loc>{g.esc(u)}</loc></url>\n' for u in [iu]+links)+'</urlset>'))
     print('CENTER_PAGES_OK',len(grouped))
 
