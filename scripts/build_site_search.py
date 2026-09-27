@@ -91,7 +91,7 @@ const matches=prepared.map(row=>{const all=row.name+' '+row.descriptionNorm+' '+
 status.textContent=matches.length?matches.length+' matching '+(matches.length===1?'page.':'pages.'):'No pages match that search.';
 for(const {row} of matches.slice(0,30)){const item=document.createElement('article');item.className='site-search-result';const heading=document.createElement('h2'),link=document.createElement('a');link.href=row.url;link.textContent=row.title;heading.append(link);const summary=document.createElement('p');summary.textContent=row.description||row.body.slice(0,180);item.append(heading,summary);results.append(item);}
 }
-input.addEventListener('input',render);const initial=new URLSearchParams(location.search).get('q');if(initial){input.value=initial;render();}
+input.addEventListener('input',render);let stored='';try{stored=sessionStorage.getItem('siteSearchQuery')||'';sessionStorage.removeItem('siteSearchQuery')}catch{}const initial=stored||new URLSearchParams(location.search).get('q');if(initial){input.value=initial;render();}
 })();</script>'''.replace("__INDEX__", payload)
     target = SITE / "search"
     target.mkdir(exist_ok=True)
