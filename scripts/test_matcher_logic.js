@@ -114,6 +114,26 @@ if (mammary.some(row => row.trial.id === 'ncsu-liver-inspire')) {
 }
 
 const osteosarcoma = matches(patient({cancer: 'Osteosarcoma'}));
+const ufOsaIds = ['uf-osa-vaccine', 'uf-osa-mrna'];
+const ufOsaRecords = rows.filter(row => row.center === 'University of Florida' && row.species === 'Dog' && row.cancers.includes('Osteosarcoma'));
+if (JSON.stringify(ufOsaRecords.map(row => row.id).sort()) !== JSON.stringify([...ufOsaIds].sort()) ||
+    ufOsaRecords.some(row => row.sites?.[0]?.state !== 'FL')) {
+  throw new Error(`USA/Florida/Dog/Osteosarcoma expected exactly two distinct UF protocols: ${ufOsaRecords.map(row => row.id).join(', ')}`);
+}
+const ufPreAmputation = matches(patient({cancer: 'Osteosarcoma'})).filter(row => ufOsaIds.includes(row.trial.id));
+if (JSON.stringify(ufPreAmputation.map(row => row.trial.id).sort()) !== JSON.stringify([...ufOsaIds].sort())) {
+  throw new Error('Florida osteosarcoma prescreening did not return both UF protocols');
+}
+const ufPostAmputation = matches(patient({cancer: 'Osteosarcoma', surgery: 'Yes', prior_procedure: 'Amputation', tumor_status: 'No evidence of disease (NED)'}));
+if (!ufPostAmputation.some(row => row.trial.id === 'uf-osa-vaccine') ||
+    ufPostAmputation.some(row => row.trial.id === 'uf-osa-mrna')) {
+  throw new Error('UF post-amputation chemotherapy/vaccine protocol was conflated with radiation/RNA protocol');
+}
+const ufNoRadiation = matches(patient({cancer: 'Osteosarcoma', radiation_affordability: 'Would not consider radiation'}));
+if (!ufNoRadiation.some(row => row.trial.id === 'uf-osa-vaccine') ||
+    ufNoRadiation.some(row => row.trial.id === 'uf-osa-mrna')) {
+  throw new Error('UF RNA protocol must require radiation; separate post-amputation protocol must remain');
+}
 if (!osteosarcoma.some(row => row.trial.id === 'wisc-osa-flash-radiotherapy')) {
   throw new Error('USA/Dog/Osteosarcoma regression did not return Wisconsin FLASH radiotherapy');
 }
