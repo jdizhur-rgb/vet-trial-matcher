@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-09-27",
+  "updated": "2026-09-29",
   "description": "Persistent discovery inventory for veterinary oncology treatment trials. Every source is checked daily; newly discovered official source pages are added even when their current lead is a duplicate, closed, ineligible or unresolved.",
   "sources": [
     {
@@ -722,10 +722,10 @@
       "source_type": "hospital_program",
       "master_url": "https://www.barcseattle.com/clinical-trials-index",
       "required_cadence": "daily",
-      "last_checked": "2026-09-27",
+      "last_checked": "2026-09-29",
       "last_result": "reachable",
       "content_fingerprint": null,
-      "notes": "Official Edmonds, Washington trial roster. Gold nanoparticle photothermal treatment is recruiting in species- and tumor-specific cohorts; current roster does not publish funding. Intratumoral long-acting carboplatin for canine superficial SCC is recruiting and fully funded; BARC is matched as a verified open site while possible common-protocol LSU identity remains unresolved and LSU is non-matchable. Merge the records if the study teams confirm a shared protocol. EGFR/HER2 peptide vaccination is a MedVet-catalog study site; the older Gilvetmab combination is closed. Canine and feline paclitaxel/Paccal studies are closed for data review. Verify cohort-specific eligibility and funding at the protocol level."
+      "notes": "Official Edmonds, Washington trial roster. Gold nanoparticle photothermal treatment is recruiting in species- and tumor-specific cohorts; current roster does not publish funding. Intratumoral long-acting carboplatin for canine superficial SCC is recruiting and fully funded; BARC is matched as a verified open site while possible common-protocol LSU identity remains unresolved and LSU is non-matchable. Merge the records if the study teams confirm a shared protocol. EGFR/HER2 peptide vaccination is a MedVet-catalog study site; the older Gilvetmab combination is closed. Canine and feline paclitaxel/Paccal studies are closed for data review. Verify cohort-specific eligibility and funding at the protocol level. Rechecked 2026-09-29: current gold and SCC cohorts have no published sponsor, investigator or protocol ID; the separate older gold page conflicts on size/funding. BARC also names pulmonary carcinoma and high-grade MCT for its EGFR vaccine with records review; these site-only diagnoses must not be applied to MedVet sites."
     },
     {
       "id": "sponsor-vivesto-paccal-status",
@@ -738,6 +738,18 @@
       "last_result": "reachable",
       "content_fingerprint": null,
       "notes": "Sponsor reported feline dose-finding recruitment complete July 1, 2026 (21 cats), cat topline September 17, 2026, and canine splenic hemangiosarcoma pilot topline September 15, 2026 (26 dogs). Clinic directory lists both cohorts closed for data review. Older feline owner enrollment and sponsor project pages still link to applications; treat those as stale until a new cohort is explicitly confirmed by sponsor and recruiting site. Future dog pivotal planning is not current enrollment."
+    },
+    {
+      "id": "usa-penn-atherton-laboratory",
+      "name": "Penn Vet Atherton Laboratory clinical trials",
+      "country": "USA",
+      "source_type": "investigator_lab",
+      "master_url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+      "required_cadence": "daily",
+      "last_checked": "2026-09-29",
+      "last_result": "reachable",
+      "content_fingerprint": null,
+      "notes": "Current clinical-trials section lists autologous CAR T therapy for canine histiocytic sarcoma and mattath@upenn.edu. On 2026-09-29, investigator Matthew Atherton directly confirmed open but limited enrollment, measurable disease required, archived tissue usable for STEAP1 screening, prior treatments allowed and concurrent chemotherapy excluded. Owner-provided prior consent form identifies POAP735 / IACUC807805 / IBC22-287 & 25-312 and study coverage; Penn says the form is being revised. Ryan Hospital site is 3900 Spruce Street, Philadelphia, PA 19104. This HS CAR-T protocol is separate from bendamustine for relapsed lymphoma. Bendamustine remains needs_reconfirmation; its absence from the current trials section does not establish closure."
     }
   ]
 }

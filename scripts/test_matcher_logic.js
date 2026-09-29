@@ -236,10 +236,46 @@ const medvetVaccine = rows.find(row => row.id === 'medvet-egfr-her2-vaccine-2026
 if (!medvetVaccine?.sites?.some(site => site.state === 'WA' && site.city === 'Edmonds')) {
   throw new Error('Existing EGFR/HER2 trial is missing its BARC Edmonds site');
 }
+if (!medvetVaccine.sites.find(site => site.city === 'Edmonds')?.notes?.includes('records review')) {
+  throw new Error('BARC-specific EGFR screening details are missing from its site');
+}
 for (const cancer of ['Osteosarcoma','Hemangiosarcoma','Urothelial carcinoma']) {
   if (!matches(patient({cancer})).some(row => row.trial.id === medvetVaccine.id)) {
     throw new Error(`EGFR/HER2 vaccine did not match its USA/Washington ${cancer} cohort`);
   }
+}
+for (const cancer of ['Pulmonary carcinoma','Mast cell tumor']) {
+  if (matches(patient({cancer})).some(row => row.trial.id === medvetVaccine.id)) {
+    throw new Error(`BARC-only EGFR indication leaked into the shared ${cancer} cohort`);
+  }
+}
+if (rows.some(row => row.id === 'penn-bendamustine-relapsed-lymphoma')) {
+  throw new Error('Unconfirmed Penn bendamustine enrollment remained in matcher data');
+}
+const pennHsId = 'penn-atherton-steap1-car-t-hs';
+const pennHs = rows.filter(row => row.id === pennHsId);
+if (pennHs.length !== 1 || pennHs[0].sites?.[0]?.address !== '3900 Spruce Street, Philadelphia, PA 19104') {
+  throw new Error('Penn Atherton HS CAR-T is missing or has an incorrect site');
+}
+for (const cancer of ['Histiocytic sarcoma', 'Cancer — any type']) {
+  if (!matches(patient({species:'Dog', country:'USA', cancer})).some(row => row.trial.id === pennHsId)) {
+    throw new Error(`Penn Atherton CAR-T missing from USA/Dog/${cancer}`);
+  }
+}
+for (const overrides of [
+  {species:'Cat', cancer:'Histiocytic sarcoma'},
+  {country:'Canada', cancer:'Histiocytic sarcoma'},
+  {cancer:'Lymphoma'},
+  {cancer:'Histiocytic sarcoma', tumor_status:'Removed — incomplete/dirty margins'},
+  {cancer:'Histiocytic sarcoma', tumor_status:'No evidence of disease (NED)'},
+  {cancer:'Histiocytic sarcoma', chemo:'Currently receiving'},
+]) {
+  if (matches(patient(overrides)).some(row => row.trial.id === pennHsId)) {
+    throw new Error(`Penn Atherton CAR-T falsely matched ${JSON.stringify(overrides)}`);
+  }
+}
+if (!matches(patient({cancer:'Histiocytic sarcoma', tumor_status:'Local recurrence', chemo:'Previously received'})).some(row => row.trial.id === pennHsId)) {
+  throw new Error('Penn Atherton CAR-T missing for measurable recurrence after prior chemotherapy');
 }
 for (const species of ['Dog','Cat']) {
   if (matches(patient({species,cancer:'Hemangiosarcoma'})).some(row => row.trial.id.includes('paccal'))) {
