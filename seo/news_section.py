@@ -20,6 +20,7 @@ PURDUE_URL = f"{NEWS_URL}purdue-three-cancer-treatment-trials/"
 TAIWAN_IL15_URL = f"{NEWS_URL}taiwan-inhaled-il15-lung-metastases/"
 BARC_TRIALS_URL = f"{NEWS_URL}barc-dog-cat-cancer-trials/"
 PENN_CAR_T_URL = f"{NEWS_URL}penn-car-t-histiocytic-sarcoma/"
+LAVERDIA_URL = f"{NEWS_URL}laverdia-canine-lymphoma/"
 CORNELL_OFFICIAL = "https://www.vet.cornell.edu/hospitals/clinical-trials/smart-start-therapy-canine-b-cell-lymphoma"
 NC_STATE_OFFICIAL = "https://cvm.ncsu.edu/clinical-trial/now-enrolling-dogs-with-invasive-bladder-cancer/"
 WISCONSIN_OFFICIAL = "https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/"
@@ -30,6 +31,9 @@ TAIWAN_IL15_PHASE2 = "https://www.frontiersin.org/journals/immunology/articles/1
 BARC_TRIALS_OFFICIAL = "https://www.barcseattle.com/clinical-trials-index"
 PENN_CAR_T_OFFICIAL = "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/"
 UF_HS_TRAMETINIB_OFFICIAL = "https://research.vetmed.ufl.edu/phase-ii-open-label-non-randomized-multicenter-clinical-trial-of-trametinib-for-dogs-with-histiocytic-sarcoma/"
+LAVERDIA_OFFICIAL = "https://www.dechra-us.com/our-products/us/companion-animal/dog/prescription/laverdia-verdinexor-tablets"
+LAVERDIA_SOURCE = "https://www.dechra-us.com/news/2026/september/dechra-brings-laverdia-verdinexor-tablets-the-first-and-only-fda-approved-oral-treatment-for-dogs-diagnosed-with-lymphoma"
+LAVERDIA_IMAGE = "https://www.dechra-us.com/admin/public/getimage.ashx?AlternativeImage=%2Ffiles%2FImages%2Fplaceholder-image.png&Crop=0&Format=jpg&Image=%2FFiles%2FImages%2FEcom%2FProducts%2FUS%2FLaverdia-Group-Cartons-Bottles_February2026.png&Quality=75&Width=600"
 PENN_CAR_T_IMAGE = f"{SITE}/assets/social/penn-car-t-histiocytic-sarcoma-1200x630.jpg"
 PURDUE_SOCIAL_IMAGE = f"{SITE}/assets/social/purdue-ablation-1200x630.jpg"
 BARC_ARTICLE_IMAGE = f"{SITE}/assets/social/barc-dog-cat-cancer-trials.jpg"
@@ -71,6 +75,7 @@ def generate_news_section(root: Path) -> None:
 <h1>Veterinary oncology news</h1>
 <p class="lead">Newly opened treatment trials, meaningful recruitment changes and other developments that may matter to owners looking for cancer treatment options.</p>
 <div class="directory-grid">
+<a class="directory-card" href="{LAVERDIA_URL}"><strong>How Laverdia works</strong><span>September 29, 2026. An oral FDA-approved treatment for canine lymphoma that can be given at home, but should not be mistaken for an equivalent replacement for CHOP.</span></a>
 <a class="directory-card" href="{PENN_CAR_T_URL}"><strong>Penn Vet opens a CAR-T study for dogs with histiocytic sarcoma</strong><span>September 29, 2026. The pilot requires measurable disease and STEAP1 screening; we compare its early evidence with the trametinib trial.</span></a>
 <a class="directory-card" href="{BARC_TRIALS_URL}"><strong>BARC is recruiting dogs and cats for cancer treatment trials</strong><span>September 27, 2026. Gold nanoparticle treatment includes selected dog and cat tumors; two other recruiting studies are for dogs.</span></a>
 <a class="directory-card" href="{TAIWAN_IL15_URL}"><strong>Taiwan trial tests inhaled IL-15 for canine lung metastases</strong><span>September 25, 2026. A rare non-US study builds on mixed published evidence in dogs with melanoma or osteosarcoma.</span></a>
@@ -184,9 +189,29 @@ def generate_news_section(root: Path) -> None:
 <p>Study details and investigator contact are on the <a href="{PENN_CAR_T_OFFICIAL}" target="_blank" rel="noopener">Atherton Laboratory's official page</a>: <a href="mailto:mattath@upenn.edu">mattath@upenn.edu</a>. To review trials that may fit a particular dog, use <a href="{MATCHER_URL}?autostart=1&amp;cancer=Histiocytic+sarcoma&amp;country=USA&amp;species=Dog">Vet Trial Finder's free HS search</a>. A search result is only a starting point; the study team makes the final eligibility decision.</p>'''
     write_article(root, "penn-car-t-histiocytic-sarcoma", "Penn Vet opens a CAR-T study for dogs with histiocytic sarcoma", "Penn Vet is enrolling dogs with measurable histiocytic sarcoma in a pilot anti-STEAP1 CAR-T study. We compare its early evidence with the trametinib trial.", penn_car_t_body, "Penn Vet Atherton Laboratory, direct investigator correspondence and prior consent form; University of Florida trametinib trial", "September 29, 2026", "2026-09-29", PENN_CAR_T_IMAGE)
 
-    add_to_sitemap(root, (NEWS_URL, CORNELL_URL, NC_STATE_URL, WISCONSIN_URL, PURDUE_URL, TAIWAN_IL15_URL, BARC_TRIALS_URL, PENN_CAR_T_URL))
-    rendered = "\n".join((root / "news" / slug / "index.html").read_text(encoding="utf-8") for slug in ("cornell-smart-start-b-cell-lymphoma", "nc-state-il12-bladder-cancer-deadline", "wisconsin-ptcl-radiopharmaceutical-trial", "purdue-three-cancer-treatment-trials", "taiwan-inhaled-il15-lung-metastases", "barc-dog-cat-cancer-trials", "penn-car-t-histiocytic-sarcoma"))
-    required = ("There is no placebo.", "$1,000 toward chemotherapy costs", "September 30, 2026", "There is no placebo group.", "90Y-NM600", "initial screening visit and initial laboratory work are owner-paid", "HIFU followed by CHOP", "H-FIRE before surgery", "Osteosarcoma: HIFU", "has not been shown to improve remission, disease control or survival", "objective response rate was 11%", "phase, enrollment target and interim results have not been published", "whether it improves tumor control has not yet been established", "study treatments and associated procedures are fully funded", "Eligible cats may have oral squamous cell carcinoma that does not involve bone", "A measurable tumor is required for enrollment", "neither has yet demonstrated a clinical benefit in dogs with HS", PENN_CAR_T_OFFICIAL, UF_HS_TRAMETINIB_OFFICIAL, PENN_CAR_T_IMAGE, BARC_TRIALS_OFFICIAL, BARC_SOCIAL_IMAGE, PURDUE_SOCIAL_IMAGE, 'summary_large_image', PURDUE_ABLATION_OFFICIAL, TAIWAN_IL15_OFFICIAL, TAIWAN_IL15_PHASE1, TAIWAN_IL15_PHASE2, CORNELL_OFFICIAL, NC_STATE_OFFICIAL, WISCONSIN_OFFICIAL, '"@type": "NewsArticle"')
+    laverdia_body = f'''<p class="eyebrow">Treatment update · September 29, 2026</p>
+<h1>How Laverdia works</h1>
+<figure style="margin:18px 0 24px"><img src="{LAVERDIA_IMAGE}" alt="Laverdia verdinexor tablets packaging from Dechra" width="600" height="600" style="display:block;width:100%;height:auto;border-radius:12px"></figure>
+
+<p>Laverdia (verdinexor) is an oral treatment for dogs with lymphoma.</p>
+
+<p>In simple terms, lymphoma cells rely on a protein called XPO1 to move important growth-control proteins out of the cell nucleus. Verdinexor blocks XPO1, so those proteins stay where they can help slow cell growth and trigger cancer-cell death.</p>
+
+<p>The practical advantage is that it is given at home as a tablet, usually twice a week.</p>
+
+<p>But it is important not to confuse convenience with effectiveness. Laverdia is <strong>not a replacement for CHOP</strong> in dogs that are good candidates for standard multi-drug chemotherapy. Responses are generally less deep and less durable.</p>
+
+<p>It may be useful when an owner does not choose CHOP, when a dog cannot tolerate a more intensive protocol, or as another systemic treatment option depending on the case.</p>
+
+<p>It is a real anticancer drug with FDA approval, but not a “simple pill that controls lymphoma just as well as chemotherapy.”</p>
+
+<div class="article-cta"><a href="{LAVERDIA_OFFICIAL}" target="_blank" rel="noopener">Official Laverdia information from Dechra</a></div>
+<p><a href="{LAVERDIA_SOURCE}" target="_blank" rel="noopener">Dechra's September 2026 availability announcement</a></p>'''
+    write_article(root, "laverdia-canine-lymphoma", "How Laverdia works", "Laverdia is an oral FDA-approved treatment for canine lymphoma. It can be given at home, but convenience should not be confused with CHOP-equivalent effectiveness.", laverdia_body, "Dechra official product information and September 2026 availability announcement", "September 29, 2026", "2026-09-29", LAVERDIA_IMAGE, (600, 600))
+
+    add_to_sitemap(root, (NEWS_URL, CORNELL_URL, NC_STATE_URL, WISCONSIN_URL, PURDUE_URL, TAIWAN_IL15_URL, BARC_TRIALS_URL, PENN_CAR_T_URL, LAVERDIA_URL))
+    rendered = "\n".join((root / "news" / slug / "index.html").read_text(encoding="utf-8") for slug in ("cornell-smart-start-b-cell-lymphoma", "nc-state-il12-bladder-cancer-deadline", "wisconsin-ptcl-radiopharmaceutical-trial", "purdue-three-cancer-treatment-trials", "taiwan-inhaled-il15-lung-metastases", "barc-dog-cat-cancer-trials", "penn-car-t-histiocytic-sarcoma", "laverdia-canine-lymphoma"))
+    required = ("There is no placebo.", "$1,000 toward chemotherapy costs", "September 30, 2026", "There is no placebo group.", "90Y-NM600", "initial screening visit and initial laboratory work are owner-paid", "HIFU followed by CHOP", "H-FIRE before surgery", "Osteosarcoma: HIFU", "has not been shown to improve remission, disease control or survival", "objective response rate was 11%", "phase, enrollment target and interim results have not been published", "whether it improves tumor control has not yet been established", "study treatments and associated procedures are fully funded", "Eligible cats may have oral squamous cell carcinoma that does not involve bone", "A measurable tumor is required for enrollment", "neither has yet demonstrated a clinical benefit in dogs with HS", PENN_CAR_T_OFFICIAL, UF_HS_TRAMETINIB_OFFICIAL, PENN_CAR_T_IMAGE, BARC_TRIALS_OFFICIAL, BARC_SOCIAL_IMAGE, PURDUE_SOCIAL_IMAGE, 'summary_large_image', PURDUE_ABLATION_OFFICIAL, TAIWAN_IL15_OFFICIAL, TAIWAN_IL15_PHASE1, TAIWAN_IL15_PHASE2, CORNELL_OFFICIAL, NC_STATE_OFFICIAL, WISCONSIN_OFFICIAL, '"@type": "NewsArticle"', "Laverdia (verdinexor) is an oral treatment for dogs with lymphoma.", "not a replacement for CHOP", LAVERDIA_OFFICIAL, LAVERDIA_IMAGE)
     missing = [marker for marker in required if marker not in rendered]
     if missing:
         raise AssertionError(f"News validation failed: {missing}")
