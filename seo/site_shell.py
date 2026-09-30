@@ -231,7 +231,7 @@ MATCHER_CANCER_BY_DISEASE = {
 
 
 def matcher_diagnosis_url(species, disease):
- return f'{FINDER}?{urlencode({"species": species, "country": "USA", "cancer": MATCHER_CANCER_BY_DISEASE[disease], "autostart": "1"})}'
+ return f'{FINDER}#{urlencode({"species": species, "country": "USA", "cancer": MATCHER_CANCER_BY_DISEASE[disease], "autostart": "1"})}'
 
 
 def trial_registry(root, stats, rows):
