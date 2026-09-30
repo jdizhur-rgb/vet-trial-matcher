@@ -12,7 +12,7 @@ FINDER=f"{SITE}/matcher/"
 BRAND_SCHEMA='<script type="application/ld+json">'+json.dumps({
  "@context":"https://schema.org",
  "@graph":[
-  {"@type":"WebSite","@id":f"{SITE}/#website","url":f"{SITE}/","name":"Vet Trial Finder","alternateName":"VetTrialFinder","publisher":{"@id":f"{SITE}/#organization"}},
+  {"@type":"WebSite","@id":f"{SITE}/#website","url":f"{SITE}/","name":"Vet Trial Finder","alternateName":["VetTrialFinder","vettrialfinder.com"],"publisher":{"@id":f"{SITE}/#organization"}},
   {"@type":"Organization","@id":f"{SITE}/#organization","name":"Vet Trial Finder","alternateName":"VetTrialFinder","url":f"{SITE}/","logo":{"@type":"ImageObject","url":f"{SITE}/assets/vet-trial-finder-logo.png"},"sameAs":["https://www.facebook.com/share/19SH2uYyTb/"]}
  ]
 },separators=(',',':'))+'</script>'
