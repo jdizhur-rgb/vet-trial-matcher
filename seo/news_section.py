@@ -22,6 +22,8 @@ TAIWAN_IL15_URL = f"{NEWS_URL}taiwan-inhaled-il15-lung-metastases/"
 BARC_TRIALS_URL = f"{NEWS_URL}barc-dog-cat-cancer-trials/"
 PENN_CAR_T_URL = f"{NEWS_URL}penn-car-t-histiocytic-sarcoma/"
 LAVERDIA_URL = f"{NEWS_URL}laverdia-canine-lymphoma/"
+TAMU_GI_URL = f"{NEWS_URL}texas-am-feline-gi-lymphoma-radiation/"
+REACHGLIO_URL = f"{NEWS_URL}reachglio-canine-glioma-madrid/"
 CORNELL_OFFICIAL = "https://www.vet.cornell.edu/hospitals/clinical-trials/smart-start-therapy-canine-b-cell-lymphoma"
 NC_STATE_OFFICIAL = "https://cvm.ncsu.edu/clinical-trial/now-enrolling-dogs-with-invasive-bladder-cancer/"
 WISCONSIN_OFFICIAL = "https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/"
@@ -37,6 +39,10 @@ LAVERDIA_SOURCE = "https://www.dechra-us.com/news/2026/september/dechra-brings-l
 FDA_LAVERDIA_FOI = "https://animaldrugsatfda.fda.gov/adafda/app/search/public/document/downloadFoi/17795"
 FDA_LAVERDIA_APPROVAL = "https://www.fda.gov/animal-veterinary/cvm-updates/fda-grants-full-approval-first-oral-treatment-lymphoma-dogs"
 LAVERDIA_IMAGE = "https://www.dechra-us.com/admin/public/getimage.ashx?AlternativeImage=%2Ffiles%2FImages%2Fplaceholder-image.png&Crop=0&Format=jpg&Image=%2FFiles%2FImages%2FEcom%2FProducts%2FUS%2FLaverdia-Group-Cartons-Bottles_February2026.png&Quality=75&Width=600"
+TAMU_GI_OFFICIAL = "https://studypages.com/s/evaluating-whole-abdomen-radiation-therapy-as-a-treatment-for-feline-small-cell-gastrointestinal-lymphoma-358215/"
+REACHGLIO_OFFICIAL = "https://veterinarios.hospitalveterinariopuchol.com/blog/reachglio-ensayo-clinico-glioma-perros/"
+HOPKINS_GLIOMA_OFFICIAL = "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials"
+UCD_CARE_OFFICIAL = "https://studypages.com/s/care-trial-combined-autophagy-inhibition-and-radiation-therapy-to-improve-efficacy-in-canine-glioma-353022/"
 PENN_CAR_T_IMAGE = f"{SITE}/assets/social/penn-car-t-histiocytic-sarcoma-1200x630.jpg"
 PURDUE_SOCIAL_IMAGE = f"{SITE}/assets/social/purdue-ablation-1200x630.jpg"
 BARC_ARTICLE_IMAGE = f"{SITE}/assets/social/barc-dog-cat-cancer-trials.jpg"
@@ -80,6 +86,8 @@ def generate_news_section(root: Path) -> None:
 <h1>Veterinary oncology news</h1>
 <p class="lead">Newly opened treatment trials, meaningful recruitment changes and other developments that may matter to owners looking for cancer treatment options.</p>
 <div class="directory-grid">
+<a class="directory-card" href="{REACHGLIO_URL}"><strong>ReachGlio opens in Madrid for dogs with high-grade glioma</strong><span>September 30, 2026. A new trial combines SNGR-TNF with temozolomide and tackles the same glioma problem from a different angle than current U.S. studies.</span></a>
+<a class="directory-card" href="{TAMU_GI_URL}"><strong>Texas A&M opens radiation trial for feline GI lymphoma</strong><span>September 30, 2026. Whole-abdomen radiation is being studied for cats with small-cell GI lymphoma that has relapsed or not responded sufficiently to standard chemotherapy.</span></a>
 <a class="directory-card" href="{LAVERDIA_URL}"><strong>How Laverdia works</strong><span>September 29, 2026. An oral FDA-approved treatment for canine lymphoma that can be given at home, but should not be mistaken for an equivalent replacement for CHOP.</span></a>
 <a class="directory-card" href="{PENN_CAR_T_URL}"><strong>Penn Vet opens a CAR-T study for dogs with histiocytic sarcoma</strong><span>September 29, 2026. The pilot requires measurable disease and STEAP1 screening; we compare its early evidence with the trametinib trial.</span></a>
 <a class="directory-card" href="{BARC_TRIALS_URL}"><strong>BARC is recruiting dogs and cats for cancer treatment trials</strong><span>September 27, 2026. Gold nanoparticle treatment includes selected dog and cat tumors; two other recruiting studies are for dogs.</span></a>
@@ -194,6 +202,48 @@ def generate_news_section(root: Path) -> None:
 <p>Study details and investigator contact are on the <a href="{PENN_CAR_T_OFFICIAL}" target="_blank" rel="noopener">Atherton Laboratory's official page</a>: <a href="mailto:mattath@upenn.edu">mattath@upenn.edu</a>. To review trials that may fit a particular dog, use <a href="{MATCHER_URL}#autostart=1&amp;cancer=Histiocytic+sarcoma&amp;country=USA&amp;species=Dog">Vet Trial Finder's free HS search</a>. A search result is only a starting point; the study team makes the final eligibility decision.</p>'''
     write_article(root, "penn-car-t-histiocytic-sarcoma", "Penn Vet opens a CAR-T study for dogs with histiocytic sarcoma", "Penn Vet is enrolling dogs with measurable histiocytic sarcoma in a pilot anti-STEAP1 CAR-T study. We compare its early evidence with the trametinib trial.", penn_car_t_body, "Penn Vet Atherton Laboratory, direct investigator correspondence and prior consent form; University of Florida trametinib trial", "September 29, 2026", "2026-09-29", PENN_CAR_T_IMAGE)
 
+    tamu_gi_body = f'''<p class="eyebrow">Recruiting in Texas · September 30, 2026</p>
+<h1>Texas A&M opens radiation trial for feline GI lymphoma</h1>
+<p>Texas A&M is recruiting cats with small-cell gastrointestinal lymphoma for a clinical trial testing whole-abdomen radiation therapy.</p>
+<p>Small-cell GI lymphoma is usually treated with long-term oral chemotherapy, most commonly chlorambucil together with a steroid. The Texas A&M study is testing a different approach: treating the abdomen with radiation instead of relying only on systemic medication.</p>
+<p>The reason is that GI lymphoma may involve multiple areas of the intestinal tract rather than one clearly defined tumor. Whole-abdomen radiation is intended to treat that broader area at once.</p>
+<p>The study is aimed at cats whose lymphoma has relapsed or has not improved sufficiently with standard chemotherapy. Researchers are evaluating how well cats tolerate the treatment and whether the disease responds.</p>
+<p>Texas A&M is currently recruiting. Public information gives only limited details about the exact radiation schedule, full eligibility criteria and owner costs, so those need to be confirmed directly with the study team.</p>
+<h2>Official source</h2>
+<p><a href="{TAMU_GI_OFFICIAL}" target="_blank" rel="noopener">Texas A&M / StudyPages trial page</a></p>
+<p><a href="{MATCHER_URL}">Check this and other current feline lymphoma treatment trials in Vet Trial Finder</a></p>'''
+    write_article(root, "texas-am-feline-gi-lymphoma-radiation", "Texas A&M opens radiation trial for feline GI lymphoma", "Texas A&M is recruiting cats with small-cell gastrointestinal lymphoma for a trial of whole-abdomen radiation therapy.", tamu_gi_body, "Texas A&M / StudyPages", "September 30, 2026", "2026-09-30")
+
+    reachglio_body = f'''<p class="eyebrow">Recruiting in Madrid · September 30, 2026</p>
+<h1>ReachGlio tests a different way to treat canine glioma</h1>
+<p>A new canine glioma trial has opened in Madrid, and the basic idea behind it is fairly simple: sometimes the problem is not only finding a drug that can damage cancer cells. The problem is getting enough of that drug into the brain tumor in the first place.</p>
+<p>Hospital Veterinario Puchol began recruiting dogs for the ReachGlio trial on September 1, 2026. The study is for dogs weighing at least 7 kg with MRI findings consistent with a high-grade glioma. It is testing SNGR-TNF together with temozolomide, a chemotherapy drug used in glioma treatment.</p>
+<h2>Why getting drugs into glioma is difficult</h2>
+<p>The brain is protected by the blood-brain barrier, which limits what can pass from the bloodstream into brain tissue.</p>
+<p>That is normally useful. In cancer treatment, it can become a problem.</p>
+<p>A drug may be capable of killing tumor cells but still have limited effect if too little of it actually reaches the tumor. Gliomas make this more complicated because the barrier is not equally disrupted throughout the whole tumor.</p>
+<p>ReachGlio is testing whether SNGR-TNF can temporarily change the tumor blood vessels in a way that allows more temozolomide to reach the glioma.</p>
+<p>The study is still exploratory. It is looking at safety, tolerability, pharmacodynamic effects and dosing, rather than starting from the assumption that this combination is already better than existing treatment.</p>
+<p>Dogs receive six treatment cycles, 21 days apart, with intravenous treatment at Puchol and oral medication at home. Follow-up includes neurological examinations, blood tests and contrast MRI scans. Study-related treatment, follow-up MRI and laboratory testing are funded through the TRANSCAN-3 project.</p>
+<h2>Similar problem, different approaches in the U.S.</h2>
+<p>Johns Hopkins is currently recruiting dogs with suspected glioma for a trial combining radiation therapy with temozolomide.</p>
+<p>This approach does not try to change the blood-brain barrier with SNGR-TNF. Instead, it combines two different ways of damaging the tumor: radiation plus chemotherapy. Dogs receive radiation on five consecutive workdays with temozolomide given at the same time. Radiation, chemotherapy, follow-up MRI and blood testing are covered by the study.</p>
+<p>UC Davis is taking another approach in its CARE trial.</p>
+<p>There, dogs receive standard radiation together with an experimental intravenous drug that blocks autophagy. Autophagy is one of the processes cells can use to survive stress. Cancer cells can use it to withstand treatment.</p>
+<p>The idea is therefore different again: instead of improving chemotherapy delivery, researchers are trying to remove one of the tumor cell’s survival mechanisms and make it more vulnerable to radiation. The study is also checking whether the experimental drug actually reaches the brain tumor after being given intravenously.</p>
+<h2>Why so many glioma trials use combinations</h2>
+<p>Glioma creates several problems at once.</p>
+<p>A treatment has to reach the tumor. It has to damage the cancer cells once it gets there. And those cells may still have ways of surviving that damage.</p>
+<p>That is why many current glioma trials are not simply testing one new drug on its own.</p>
+<p>ReachGlio is trying to improve access of chemotherapy to the tumor. Johns Hopkins combines chemotherapy with radiation. UC Davis CARE tries to make tumor cells less able to protect themselves from radiation.</p>
+<p>Different mechanisms, but essentially the same problem from different directions.</p>
+<h2>Official trial pages</h2>
+<p><a href="{REACHGLIO_OFFICIAL}" target="_blank" rel="noopener">ReachGlio — Hospital Veterinario Puchol</a><br>
+<a href="{HOPKINS_GLIOMA_OFFICIAL}" target="_blank" rel="noopener">Johns Hopkins canine glioma trial</a><br>
+<a href="{UCD_CARE_OFFICIAL}" target="_blank" rel="noopener">UC Davis CARE trial</a></p>
+<p><a href="{MATCHER_URL}">Check current canine glioma treatment trials in Vet Trial Finder</a></p>'''
+    write_article(root, "reachglio-canine-glioma-madrid", "ReachGlio tests a different way to treat canine glioma", "A new Madrid trial combines SNGR-TNF with temozolomide for canine high-grade glioma. We compare its mechanism with current U.S. glioma trials.", reachglio_body, "Hospital Veterinario Puchol, Johns Hopkins CIGAT and UC Davis CARE", "September 30, 2026", "2026-09-30")
+
     laverdia_body = f'''<p class="eyebrow">Treatment update · September 29, 2026</p>
 <h1>How Laverdia works</h1>
 <figure style="margin:18px 0 24px"><img src="{LAVERDIA_IMAGE}" alt="Laverdia verdinexor tablets packaging from Dechra" width="600" height="600" style="display:block;width:100%;height:auto;border-radius:12px"></figure>
@@ -237,9 +287,9 @@ def generate_news_section(root: Path) -> None:
             articles_text = articles_text.replace('<div class="directory-grid">', '<div class="directory-grid">' + card, 1)
             articles_index.write_text(articles_text, encoding="utf-8")
 
-    add_to_sitemap(root, (NEWS_URL, CORNELL_URL, NC_STATE_URL, WISCONSIN_URL, PURDUE_URL, TAIWAN_IL15_URL, BARC_TRIALS_URL, PENN_CAR_T_URL, LAVERDIA_URL))
-    rendered = "\n".join((root / "news" / slug / "index.html").read_text(encoding="utf-8") for slug in ("cornell-smart-start-b-cell-lymphoma", "nc-state-il12-bladder-cancer-deadline", "wisconsin-ptcl-radiopharmaceutical-trial", "purdue-three-cancer-treatment-trials", "taiwan-inhaled-il15-lung-metastases", "barc-dog-cat-cancer-trials", "penn-car-t-histiocytic-sarcoma", "laverdia-canine-lymphoma"))
-    required = ("There is no placebo.", "$1,000 toward chemotherapy costs", "September 30, 2026", "There is no placebo group.", "90Y-NM600", "initial screening visit and initial laboratory work are owner-paid", "HIFU followed by CHOP", "H-FIRE before surgery", "Osteosarcoma: HIFU", "has not been shown to improve remission, disease control or survival", "objective response rate was 11%", "phase, enrollment target and interim results have not been published", "whether it improves tumor control has not yet been established", "study treatments and associated procedures are fully funded", "Eligible cats may have oral squamous cell carcinoma that does not involve bone", "A measurable tumor is required for enrollment", "neither has yet demonstrated a clinical benefit in dogs with HS", PENN_CAR_T_OFFICIAL, UF_HS_TRAMETINIB_OFFICIAL, PENN_CAR_T_IMAGE, BARC_TRIALS_OFFICIAL, BARC_SOCIAL_IMAGE, PURDUE_SOCIAL_IMAGE, 'summary_large_image', PURDUE_ABLATION_OFFICIAL, TAIWAN_IL15_OFFICIAL, TAIWAN_IL15_PHASE1, TAIWAN_IL15_PHASE2, CORNELL_OFFICIAL, NC_STATE_OFFICIAL, WISCONSIN_OFFICIAL, '"@type": "NewsArticle"', "Laverdia (verdinexor) is an oral treatment for dogs with lymphoma.", "do not show that it is equivalent to a multi-drug chemotherapy protocol such as CHOP", LAVERDIA_OFFICIAL, LAVERDIA_IMAGE)
+    add_to_sitemap(root, (NEWS_URL, REACHGLIO_URL, TAMU_GI_URL, CORNELL_URL, NC_STATE_URL, WISCONSIN_URL, PURDUE_URL, TAIWAN_IL15_URL, BARC_TRIALS_URL, PENN_CAR_T_URL, LAVERDIA_URL))
+    rendered = "\n".join((root / "news" / slug / "index.html").read_text(encoding="utf-8") for slug in ("reachglio-canine-glioma-madrid", "texas-am-feline-gi-lymphoma-radiation", "cornell-smart-start-b-cell-lymphoma", "nc-state-il12-bladder-cancer-deadline", "wisconsin-ptcl-radiopharmaceutical-trial", "purdue-three-cancer-treatment-trials", "taiwan-inhaled-il15-lung-metastases", "barc-dog-cat-cancer-trials", "penn-car-t-histiocytic-sarcoma", "laverdia-canine-lymphoma"))
+    required = ("There is no placebo.", "$1,000 toward chemotherapy costs", "September 30, 2026", "There is no placebo group.", "90Y-NM600", "initial screening visit and initial laboratory work are owner-paid", "HIFU followed by CHOP", "H-FIRE before surgery", "Osteosarcoma: HIFU", "has not been shown to improve remission, disease control or survival", "objective response rate was 11%", "phase, enrollment target and interim results have not been published", "whether it improves tumor control has not yet been established", "study treatments and associated procedures are fully funded", "Eligible cats may have oral squamous cell carcinoma that does not involve bone", "A measurable tumor is required for enrollment", "neither has yet demonstrated a clinical benefit in dogs with HS", PENN_CAR_T_OFFICIAL, UF_HS_TRAMETINIB_OFFICIAL, PENN_CAR_T_IMAGE, BARC_TRIALS_OFFICIAL, BARC_SOCIAL_IMAGE, PURDUE_SOCIAL_IMAGE, 'summary_large_image', PURDUE_ABLATION_OFFICIAL, TAIWAN_IL15_OFFICIAL, TAIWAN_IL15_PHASE1, TAIWAN_IL15_PHASE2, CORNELL_OFFICIAL, NC_STATE_OFFICIAL, WISCONSIN_OFFICIAL, '"@type": "NewsArticle"', "Texas A&M is recruiting cats with small-cell gastrointestinal lymphoma", "ReachGlio is testing whether SNGR-TNF can temporarily change the tumor blood vessels", TAMU_GI_OFFICIAL, REACHGLIO_OFFICIAL, HOPKINS_GLIOMA_OFFICIAL, UCD_CARE_OFFICIAL, "Laverdia (verdinexor) is an oral treatment for dogs with lymphoma.", "do not show that it is equivalent to a multi-drug chemotherapy protocol such as CHOP", LAVERDIA_OFFICIAL, LAVERDIA_IMAGE)
     missing = [marker for marker in required if marker not in rendered]
     if missing:
         raise AssertionError(f"News validation failed: {missing}")
