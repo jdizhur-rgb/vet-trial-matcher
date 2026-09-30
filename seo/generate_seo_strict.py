@@ -667,8 +667,14 @@ def generate_centers(rows):
         add(grouped,r.get('center'),r)
         for s in r.get('sites',[]) if isinstance(r.get('sites'),list) else []:
             if site_active(s) and not site_is_coverage_placeholder(s) and (s.get('hospital') or s.get('name')):add(grouped,s.get('hospital') or s.get('name'),r)
-    links=[];items=[];used={}
+    links=[];items=[];used={};skipped_unprofiled=[]
     for center,hit in sorted(grouped.items()):
+        # Never publish the generic fallback as a new owner-facing center page.
+        # Newly discovered centers remain available through trial/matcher pages
+        # until a sourced center profile has been reviewed and added.
+        if center not in PROFILES and center not in ETHOS_HOSPITAL_URLS:
+            skipped_unprofiled.append(center)
+            continue
         slug=safe_center_slug(center,used);used[slug]=center;path=f'centers/{slug}/';url=f'{g.SITE}/{path}'
         cancers=sorted({c for r in hit for c in row_cancers(r)});ct=', '.join(g.display_name(c) for c in cancers) or 'multiple cancer types'
         addrs=center_page_addresses(center,hit)
@@ -683,7 +689,9 @@ def generate_centers(rows):
             +f'<p><a class="center-search-link" href="{g.FINDER}">Check all options for your pet →</a></p><p class="free-note">Free to use. No registration or paid report.</p></div>')
         title=center_page_title(center);desc=center_page_description(center)
         d=g.OUT/path;d.mkdir(parents=True,exist_ok=True);(d/'index.html').write_text(g.page(title,desc,body,url),encoding='utf-8');links.append(url);items.append((center,path,len(hit),center_type(center)))
-    assert len(used)==len(grouped),(len(used),len(grouped))
+    assert len(used)+len(skipped_unprofiled)==len(grouped),(len(used),len(skipped_unprofiled),len(grouped))
+    if skipped_unprofiled:
+        print('CENTER_PAGES_SKIPPED_UNPROFILED',len(skipped_unprofiled),'|','; '.join(skipped_unprofiled))
     item_data=[]
     for n,p,c,kind in items:
         addresses=center_page_addresses(n,grouped[n])
