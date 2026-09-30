@@ -1,4 +1,16 @@
 EXTRA_PROFILES = {
+    "Hospital Veterinario Puchol": {
+        "title": "About Hospital Veterinario Puchol",
+        "about": (
+            "Hospital Veterinario Puchol in Madrid provides specialist veterinary oncology and neurology care and is the clinical site for ReachGlio, "
+            "a regulated veterinary trial for dogs with presumptive high-grade glioma. The hospital's oncology service works alongside surgery, diagnostic imaging, "
+            "internal medicine and clinical pathology, and the ReachGlio protocol uses its neurology and imaging services for treatment and follow-up."
+        ),
+        "links": [
+            ("Hospital Veterinario Puchol oncology", "https://hospitalveterinariopuchol.com/servicios-veterinarios/oncologia-veterinaria/"),
+            ("ReachGlio clinical trial", "https://veterinarios.hospitalveterinariopuchol.com/blog/reachglio-ensayo-clinico-glioma-perros/"),
+        ],
+    },
     "MedVet Salt Lake City": {"title":"About MedVet Salt Lake City","about":"MedVet Salt Lake City is one of the hospitals currently enrolling dogs in MedVet's experimental EGFR/HER2 vaccine study for osteosarcoma, hemangiosarcoma and transitional cell carcinoma.","research":"MedVet provides the investigational vaccine at no charge but states that owners pay for hospital visits, diagnostics and vaccine administration. Its clinical-studies page gives the study's screening requirements and follow-up schedule.","links":[("MedVet clinical studies","https://www.medvet.com/clinical-studies/")]},
     "MedVet Cincinnati": {"title":"About MedVet Cincinnati","about":"MedVet Cincinnati is a participating hospital for MedVet's experimental EGFR/HER2 tumor vaccine study. Its current enrollment is limited to established patients, with treatment and follow-up at the same hospital.","research":"The published MedVet study includes dogs with selected confirmed cancers who receive appropriate standard care. Owners pay hospital visits, diagnostics and vaccine administration; the investigational vaccine is supplied without charge.","links":[("MedVet clinical studies","https://www.medvet.com/clinical-studies/")]},
     "MedVet Cleveland": {"title":"About MedVet Cleveland","about":"MedVet Cleveland is a participating hospital for MedVet's experimental EGFR/HER2 tumor vaccine study. Its current enrollment is limited to established patients, with treatment and follow-up at the same hospital.","research":"The published MedVet study includes dogs with selected confirmed cancers who receive appropriate standard care. Owners pay hospital visits, diagnostics and vaccine administration; the investigational vaccine is supplied without charge.","links":[("MedVet clinical studies","https://www.medvet.com/clinical-studies/")]},
