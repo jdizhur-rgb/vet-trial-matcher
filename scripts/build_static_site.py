@@ -98,6 +98,16 @@ def validate_public_page_shell() -> None:
     )
     if canonical_tags != ["https://vettrialfinder.com/matcher/"]:
         raise RuntimeError(f"Matcher canonical must be clean and unique: {canonical_tags}")
+    internal_query_links = []
+    for page in SITE.rglob("*.html"):
+        text = page.read_text(encoding="utf-8")
+        if "https://vettrialfinder.com/matcher/?" in text:
+            internal_query_links.append(str(page.relative_to(ROOT)))
+    if internal_query_links:
+        raise RuntimeError(
+            "Internal pages must not link to crawlable matcher query URLs:\n"
+            + "\n".join(internal_query_links)
+        )
 
     print("PUBLIC_PAGE_SHELL_OK", len(pages))
 
