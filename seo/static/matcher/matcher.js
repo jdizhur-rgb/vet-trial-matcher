@@ -251,7 +251,8 @@
   }
 
   function applyUrlPreset() {
-    const params = new URLSearchParams(window.location.search);
+    const hash = window.location.hash.startsWith('#') ? window.location.hash.slice(1) : '';
+    const params = new URLSearchParams(hash || window.location.search);
     const species = params.get('species');
     const country = params.get('country');
     const cancer = params.get('cancer');
