@@ -43,6 +43,7 @@ CATEGORIES = {
 ARTICLE_CATEGORIES = {
     "pet-lump-diagnosis-before-surgery": "diagnosis",
     "surgical-margins-after-tumor-removal": "diagnosis",
+    "cancer-dx-screening-older-dogs": "diagnosis",
     "electrochemotherapy": "treatment",
     "cancer-vaccines": "treatment",
     "clinical-trials-for-pets-with-cancer": "trials",
