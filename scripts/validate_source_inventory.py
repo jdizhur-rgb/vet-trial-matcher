@@ -94,6 +94,23 @@ def main() -> None:
             fail(f"duplicate master_url: {url}")
         urls.add(normalized_url)
 
+        fallback_urls = source.get("fallback_urls", [])
+        if not isinstance(fallback_urls, list):
+            fail(f"{source_id}: fallback_urls must be a list")
+        local_fallbacks: set[str] = set()
+        for fallback in fallback_urls:
+            if not isinstance(fallback, str):
+                fail(f"{source_id}: fallback URL must be a string")
+            parsed_fallback = urlsplit(fallback)
+            if parsed_fallback.scheme != "https" or not parsed_fallback.netloc:
+                fail(f"{source_id}: fallback URL must be an absolute HTTPS URL: {fallback}")
+            normalized_fallback = canonical_url(fallback)
+            if normalized_fallback == normalized_url:
+                fail(f"{source_id}: fallback URL duplicates master_url: {fallback}")
+            if normalized_fallback in local_fallbacks:
+                fail(f"{source_id}: duplicate fallback URL: {fallback}")
+            local_fallbacks.add(normalized_fallback)
+
         checked = source["last_checked"]
         if checked is not None:
             try:
