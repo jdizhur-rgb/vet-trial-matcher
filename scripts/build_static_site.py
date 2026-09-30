@@ -84,6 +84,21 @@ def validate_public_page_shell() -> None:
             "Article page missing shared site header:\n"
             + "\n".join(missing_article_headers)
         )
+    homepage = SITE / "index.html"
+    home_text = homepage.read_text(encoding="utf-8")
+    if len(re.findall(r"<h1\\b", home_text, flags=re.IGNORECASE)) != 1:
+        raise RuntimeError("Homepage must contain exactly one H1")
+
+    matcher = SITE / "matcher" / "index.html"
+    matcher_text = matcher.read_text(encoding="utf-8")
+    canonical_tags = re.findall(
+        r'<link\\s+rel=["\\']canonical["\\']\\s+href=["\\']([^"\\']+)["\\']',
+        matcher_text,
+        flags=re.IGNORECASE,
+    )
+    if canonical_tags != ["https://vettrialfinder.com/matcher/"]:
+        raise RuntimeError(f"Matcher canonical must be clean and unique: {canonical_tags}")
+
     print("PUBLIC_PAGE_SHELL_OK", len(pages))
 
 
