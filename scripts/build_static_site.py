@@ -86,13 +86,13 @@ def validate_public_page_shell() -> None:
         )
     homepage = SITE / "index.html"
     home_text = homepage.read_text(encoding="utf-8")
-    if len(re.findall(r"<h1\\b", home_text, flags=re.IGNORECASE)) != 1:
+    if len(re.findall(r"<h1\b", home_text, flags=re.IGNORECASE)) != 1:
         raise RuntimeError("Homepage must contain exactly one H1")
 
     matcher = SITE / "matcher" / "index.html"
     matcher_text = matcher.read_text(encoding="utf-8")
     canonical_tags = re.findall(
-        r'<link\\s+rel=["\\']canonical["\\']\\s+href=["\\']([^"\\']+)["\\']',
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']',
         matcher_text,
         flags=re.IGNORECASE,
     )
