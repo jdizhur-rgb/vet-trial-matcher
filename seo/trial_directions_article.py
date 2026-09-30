@@ -8,7 +8,7 @@ from site_shell import wrap_html
 
 def generate_trial_directions_article(root: Path) -> None:
     url=f"{SITE}/articles/where-veterinary-cancer-trials-are-heading/"
-    m=f"{SITE}/matcher/?cancer=Cancer%20%E2%80%94%20any%20type&autostart=1"
+    m=f"{SITE}/matcher/#cancer=Cancer%20%E2%80%94%20any%20type&autostart=1"
     links={
       "immune":m+"&approach=immunotherapy","vaccines":m+"&approach=cancer_vaccine",
       "cells":m+"&approach=engineered_immune_cells","targeted":m+"&approach=targeted_therapy",
