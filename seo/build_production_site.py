@@ -40,6 +40,7 @@ from about_page import generate_about_page
 from site_shell import apply_site_shell, wrap_html
 from vaccine_article import generate_cancer_vaccine_article
 from surgical_margins_article import generate_surgical_margins_article
+from cancer_dx_article import generate_cancer_dx_article
 from repurposed_drugs_article import generate_repurposed_drugs_article
 from mushrooms_herbs_supplements_article import generate_mushrooms_herbs_supplements_article
 from dangerous_cancer_remedies_article import generate_dangerous_cancer_remedies_article
@@ -198,6 +199,7 @@ def main():
         )
     generate_cancer_vaccine_article(out)
     generate_surgical_margins_article(out)
+    generate_cancer_dx_article(out)
     generate_repurposed_drugs_article(out)
     generate_mushrooms_herbs_supplements_article(out)
     generate_dangerous_cancer_remedies_article(out)
