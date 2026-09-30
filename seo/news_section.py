@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Generate the Vet Trial Finder news index and current trial updates."""
+# Pages deploy refresh: 2026-09-29 Laverdia
 
 from __future__ import annotations
 
