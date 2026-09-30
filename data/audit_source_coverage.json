@@ -1,0 +1,1377 @@
+{
+  "schema_version": 1,
+  "run_id": "daily-20260930T172002-0400",
+  "audit_mode": "DAILY GLOBAL WORK AUDIT",
+  "started_at": "2026-09-30T17:20:02-04:00",
+  "finished_at": "2026-09-30T17:54:25-04:00",
+  "timezone": "America/New_York",
+  "base_commit": "58a43318fcb8814522ada2846860d4991f21a353",
+  "source_total": 68,
+  "attempted_total": 68,
+  "content_sufficient_total": 65,
+  "local_persistence_verified_total": 68,
+  "remote_persistence_verification": "performed after commit; report records remote SHA",
+  "sources": [
+    {
+      "id": "registry-avma-veterinary-clinical-trials",
+      "name": "AVMA Veterinary Clinical Trials Registry",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://veterinaryclinicaltrials.org/",
+          "http_status": 200,
+          "result": "insufficient"
+        },
+        {
+          "url": "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1",
+          "http_status": 200,
+          "result": "sufficient",
+          "transport": "Chromium-rendered official roster"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "registry-uk-vcsr",
+      "name": "UK Veterinary Clinical Studies Registry",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.veterinarystudiesregistry.co.uk/studies",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "directory-veterinary-cancer-society",
+      "name": "Veterinary Cancer Society clinical-trial resources",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://vetcancersociety.org/resources/clinical-trials/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-auburn-vet-clinical-trials",
+      "name": "Auburn University College of Veterinary Medicine",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.vetmed.auburn.edu/research/clinical-trials/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-colorado-state-vth-clinical-trials",
+      "name": "Colorado State University Veterinary Teaching Hospital",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://csuveterinaryhealth.org/clinical-trials/",
+          "http_status": 200,
+          "result": "insufficient",
+          "note": "navigation page without complete roster"
+        },
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/studies/?term~sc_paths=primary-field_cancer",
+          "http_status": 200,
+          "result": "sufficient",
+          "transport": "Chromium-rendered official roster"
+        }
+      ],
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T07:45:00-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-cornell-vet-clinical-trials",
+      "name": "Cornell University College of Veterinary Medicine",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.vet.cornell.edu/hospitals/clinical-trials",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-iowa-state-vmc-clinical-trials",
+      "name": "Iowa State University Veterinary Medical Center",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://vetmed.iastate.edu/vmc/clinical-trials/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-johns-hopkins-cigat",
+      "name": "Johns Hopkins Center for Image-Guided Animal Therapy",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+          "http_status": 403,
+          "result": "insufficient"
+        },
+        {
+          "url": "https://www.hopkinsmedicine.org/radiology/vctn",
+          "http_status": 403,
+          "result": "insufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-lsu-vet-clinical-trials",
+      "name": "LSU Veterinary Teaching Hospital",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.lsu.edu/vetmed/veterinary_hospital/clinical_trials.php",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-michigan-state-oncology-trials",
+      "name": "Michigan State University Veterinary Medical Center Oncology",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2",
+          "http_status": 200,
+          "result": "insufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-minnesota-current-clinical-trials",
+      "name": "University of Minnesota Clinical Investigation Center",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-missouri-oncology-clinical-trials",
+      "name": "University of Missouri Veterinary Health Center Oncology",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-nc-state-clinical-trials",
+      "name": "NC State College of Veterinary Medicine",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://cvm.ncsu.edu/research/clinical-trials/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-ohio-state-current-trials",
+      "name": "Ohio State Veterinary Medical Center Clinical Trials Office",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://vmc.vet.osu.edu/clinical-trials-office/current-trials",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-oregon-state-oncology-trials",
+      "name": "Oregon State University Oncology Clinical Trials",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://vetmed.oregonstate.edu/research/oncology-clinical-trials",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "unchanged",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-penn-vet-clinical-trials",
+      "name": "University of Pennsylvania School of Veterinary Medicine",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.vet.upenn.edu/research/clinical-trials/",
+          "http_status": 403,
+          "result": "insufficient"
+        },
+        {
+          "url": "https://www.vet.upenn.edu/clinical-trial/",
+          "http_status": 403,
+          "result": "insufficient"
+        },
+        {
+          "url": "https://www.vet.upenn.edu/veterinary_specialty/oncology/",
+          "http_status": 403,
+          "result": "insufficient"
+        },
+        {
+          "url": "https://www.vet.upenn.edu/ryan-hospital/clinical-trials/",
+          "http_status": 200,
+          "result": "sufficient",
+          "transport": "external web retriever"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-purdue-wcorc-clinical-trials",
+      "name": "Purdue Werling Comparative Oncology Research Center",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.vet.purdue.edu/wcorc/clinical-trials/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-tennessee-vet-clinical-trials",
+      "name": "University of Tennessee College of Veterinary Medicine",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://vetmed.tennessee.edu/research/clinical-trials/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-tufts-clinical-trials",
+      "name": "Tufts Cummings School of Veterinary Medicine",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://vet.tufts.edu/clinical-trials",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-uc-davis-vcct",
+      "name": "UC Davis Veterinary Center for Clinical Trials",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://clinicaltrials.vetmed.ucdavis.edu/",
+          "http_status": 403,
+          "result": "insufficient"
+        },
+        {
+          "url": "https://clinicaltrials.vetmed.ucdavis.edu/clinical-trial-articles-news",
+          "http_status": 403,
+          "result": "insufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-florida-oncology-trials",
+      "name": "University of Florida canine oncology clinical trials",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/oncology/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-28",
+      "previous_last_checked_at": "2026-09-28T06:25:35-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-florida-feline-oncology-trials",
+      "name": "University of Florida feline oncology clinical trials",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/oncology/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-28",
+      "previous_last_checked_at": "2026-09-28T06:25:35-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-georgia-clinical-trials",
+      "name": "University of Georgia College of Veterinary Medicine",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://vet.uga.edu/research/clinical-trials/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-illinois-clinical-trials",
+      "name": "University of Illinois College of Veterinary Medicine",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://vetmed.illinois.edu/research/clinical-trials/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T07:45:00-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-bluepearl-science-clinical-studies",
+      "name": "BluePearl Science Clinical Studies",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://bluepearlvet.com/current-clinical-studies/",
+          "http_status": 403,
+          "result": "insufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-virginia-tech-current-studies",
+      "name": "Virginia-Maryland College of Veterinary Medicine",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://research.vetmed.vt.edu/clinical-trials/current-studies.html",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-wisconsin-oncology-studies",
+      "name": "University of Wisconsin Veterinary Care Oncology",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-utsw-vroc-clinical-trials",
+      "name": "UT Southwestern Veterinary Research and Oncology Clinic",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-trials.html",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-ethos-clinical-studies",
+      "name": "Ethos Veterinary Health Clinical Studies",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.ethosvet.com/clinical-studies/",
+          "http_status": 404,
+          "result": "insufficient"
+        },
+        {
+          "url": "https://www.ethosvet.com/medical-professionals/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-ethos-discovery-studies",
+      "name": "Ethos Discovery Clinical Studies",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.ethosdiscovery.org/clinical-studies/",
+          "http_status": 404,
+          "result": "insufficient"
+        },
+        {
+          "url": "https://www.ethosdiscovery.org/scientific-programs/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-medvet-clinical-studies",
+      "name": "MedVet Clinical Studies Center",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.medvet.com/clinical-studies/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-castr-alliance-studies",
+      "name": "CASTR Alliance",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://castr-wa.com/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-anivive-trials",
+      "name": "Anivive Lifesciences",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://anivivelifesciences.com/trials",
+          "http_status": 525,
+          "result": "insufficient"
+        },
+        {
+          "url": "https://anivivelifesciences.com/treatments",
+          "http_status": 525,
+          "result": "insufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "partial",
+      "content_sufficient": false,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "canada-ovc-active-oncology-trials",
+      "name": "Ontario Veterinary College Clinical Trials",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://ovcclinicaltrials.uoguelph.ca/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "europe-esvonc-ongoing-trials",
+      "name": "European Society of Veterinary Oncology ongoing trials",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "europe-oncowaf-clinical-trials",
+      "name": "ONCOWAF veterinary oncology trials",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://oncowaf.be/en/ClinicalTrials/searchResults",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "netherlands-utrecht-interventional-oncology",
+      "name": "Utrecht University Veterinary Oncology Group",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://vetoncology.sites.uu.nl/research/interventional/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "switzerland-zurich-clinical-studies",
+      "name": "University of Zurich Veterinary Hospital oncology studies",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.tierspital.uzh.ch/krebs-tumore/klinische-studien/",
+          "http_status": 200,
+          "result": "insufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "italy-milan-veterinary-studies",
+      "name": "University of Milan Veterinary Teaching Hospital",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.ospedaleveterinario.unimi.it/collaborare-con-noi-studi-di-ricerca/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "uk-rvc-clinical-investigation-centre",
+      "name": "Royal Veterinary College Clinical Investigation Centre",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-kansas-state-vhc-oncology",
+      "name": "Kansas State Veterinary Health Center Oncology Service",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.ksvhc.org/services/specialty-services/oncology/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-sage-veterinary-clinical-trials",
+      "name": "SAGE Veterinary Centers Clinical Trials",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.sagecenters.com/clinical-trials",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-petcure-oncology-clinical-trials",
+      "name": "PetCure Oncology Clinical Trials",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://petcureoncology.com/clinical-trials/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-amcny-current-clinical-trials",
+      "name": "Schwarzman Animal Medical Center Clinical Trials",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.amcny.org/current-clinical-trials/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "unchanged",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-penn-comparative-immunotherapy-trials",
+      "name": "Penn Vet Comparative Immunotherapy Program Clinical Trials",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.vet.upenn.edu/research/research-programs/comparative-immunotherapy-program/clinical-trials/",
+          "http_status": 403,
+          "result": "insufficient"
+        },
+        {
+          "url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+          "http_status": 403,
+          "result": "insufficient"
+        },
+        {
+          "url": "https://www.vet.upenn.edu/clinical-trial/",
+          "http_status": 403,
+          "result": "insufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "australia-uq-school-veterinary-clinical-trials",
+      "name": "University of Queensland School of Veterinary Science clinical trials",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://veterinary-science.uq.edu.au/community/clinical-trials",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": null,
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "australia-uq-vets-clinical-research-trials",
+      "name": "UQ VETS clinical research trials",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://uqvets.com.au/about/clinical-research-trials",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": null,
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "australia-gamgee-cancer-vaccine-trial",
+      "name": "Gamgee Australian canine cancer vaccine trial",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.gamgee.io/trial/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": null,
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "australia-pettrials-directory",
+      "name": "PetTrials Australian veterinary clinical trial directory",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://pettrials.com.au/trials/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": null,
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "australia-sash-clinical-research",
+      "name": "SASH clinical research",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://sashvets.com/services/sash-research/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": null,
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "australia-caninecancer-state-research-guide",
+      "name": "CanineCancer.org.au Australian Research State Guide",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.caninecancer.org.au/ausresearch.html",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": null,
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "australia-medipaws-clinical-research",
+      "name": "MediPaws clinical research",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://medipaws.com.au/clinical-research",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": null,
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "australia-bvsc-foundation",
+      "name": "Brisbane Veterinary Specialist Centre foundation projects",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.bvsc.com.au/foundation/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": null,
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "australia-anzcvs-science-week-oncology",
+      "name": "ANZCVS Veterinary Oncology news and Vet Science Week proceedings",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.anzcvs.org.au/chapters/veterinary%2Boncology/news",
+          "http_status": 200,
+          "result": "insufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-26",
+      "previous_last_checked_at": null,
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-barc-clinical-trials",
+      "name": "Bridge Animal Referral Center clinical trials",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.barcseattle.com/clinical-trials-index",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-29",
+      "previous_last_checked_at": null,
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "sponsor-vivesto-paccal-status",
+      "name": "Vivesto Paccal Vet sponsor results and recruitment status",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.vivesto.com/en/section/media/press-releases/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-27",
+      "previous_last_checked_at": null,
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-penn-atherton-laboratory",
+      "name": "Penn Vet Atherton Laboratory clinical trials",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+          "http_status": 403,
+          "result": "insufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-29",
+      "previous_last_checked_at": null,
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-canine-cancer-alliance-research",
+      "name": "Canine Cancer Alliance research and study-status pages",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.ccralliance.org/research-projects",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T07:45:00-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-vrcco-clinical-trials",
+      "name": "Veterinary Referral Center of Central Oregon clinical trials",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://vrcvet.com/clinical-trials/",
+          "http_status": 403,
+          "result": "insufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T07:45:00-04:00",
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-wsu-vth-clinical-studies",
+      "name": "Washington State University Veterinary Teaching Hospital clinical studies",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://hospital.vetmed.wsu.edu/appointments/",
+          "http_status": 403,
+          "result": "insufficient"
+        },
+        {
+          "url": "https://hospital.vetmed.wsu.edu/small-animal/cats-and-dogs/oncology/",
+          "http_status": 403,
+          "result": "insufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": null,
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "partial",
+      "content_sufficient": false,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-tamu-hayburn-oncology-studies",
+      "name": "Texas A&M Oncology — Regina Hayburn StudyPages",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://studypages.com/investigator/1cff202c91db48f6acceb2c14cff5418/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": null,
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "china-dongjun-oncology-trials",
+      "name": "Zhongnong Dongjun Laboratory oncology recruitment",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.caudjlab.com/newdetail.aspx?id=73",
+          "http_status": 200,
+          "result": "insufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": null,
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "china-petcura-mrna-iit",
+      "name": "PETcura personalized mRNA canine cancer studies",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.petcura.cn/zh/mrna-vaccine/study/",
+          "http_status": 200,
+          "result": "insufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": null,
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "spain-puchol-reachglio",
+      "name": "Hospital Veterinario Puchol oncology clinical trials",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://veterinarios.hospitalveterinariopuchol.com/blog/reachglio-ensayo-clinico-glioma-perros/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": null,
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "usa-nci-comparative-oncology-trials",
+      "name": "NCI Comparative Oncology Program open trials",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://ccr.cancer.gov/comparative-oncology-program/trials",
+          "http_status": 403,
+          "result": "insufficient"
+        }
+      ],
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": null,
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "partial",
+      "content_sufficient": false,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "japan-university-of-tokyo-vmc-clinical-research",
+      "name": "University of Tokyo Veterinary Medical Center clinical research",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": null,
+      "previous_last_checked_at": null,
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "japan-kamogawa-oncology-news",
+      "name": "Kamogawa Animal Medical Center oncology notices",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.kamogawa-ac.jp/category/%E7%97%85%E6%B0%97%E3%82%84%E4%BA%88%E9%98%B2/%E8%85%AB%E7%98%8D%EF%BC%88%E3%82%AC%E3%83%B3%EF%BC%89/",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": null,
+      "previous_last_checked_at": null,
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "japan-yamaguchi-vmc-clinical-trials",
+      "name": "Yamaguchi University Veterinary Medical Center clinical trials",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html",
+          "http_status": 200,
+          "result": "sufficient"
+        }
+      ],
+      "previous_last_checked": null,
+      "previous_last_checked_at": null,
+      "saved_last_checked": "2026-09-30",
+      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "local_persistence_verified": true
+    }
+  ]
+}
