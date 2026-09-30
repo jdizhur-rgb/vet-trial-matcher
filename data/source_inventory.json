@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-09-29",
+  "updated": "2026-09-30",
   "description": "Persistent discovery inventory for veterinary oncology treatment trials. Every source is checked daily; newly discovered official source pages are added even when their current lead is a duplicate, closed, ineligible or unresolved.",
   "sources": [
     {
@@ -63,13 +63,14 @@
       "name": "Colorado State University Veterinary Teaching Hospital",
       "country": "USA",
       "source_type": "university",
-      "master_url": "https://vetmedbiosci.colostate.edu/vth/clinical-trials/",
+      "master_url": "https://csuveterinaryhealth.org/clinical-trials/",
       "required_cadence": "daily",
-      "last_checked": "2026-09-26",
+      "last_checked": "2026-09-30",
       "last_result": "changed",
-      "content_fingerprint": "sha256:c6341411a0948e43a24fbcfbc457bc99304d08a05a4b718cd180a8b2f5106be6",
-      "last_checked_at": "2026-09-26T08:35:29-04:00",
-      "last_http_status": 200
+      "content_fingerprint": null,
+      "last_checked_at": "2026-09-30T07:45:00-04:00",
+      "last_http_status": 200,
+      "notes": "CSU moved its current clinical-trials master to the CSU Veterinary Health domain. Protocols on this mixed diagnostic/therapeutic roster require classification by actual intervention before matching."
     },
     {
       "id": "usa-cornell-vet-clinical-trials",
@@ -318,11 +319,12 @@
       "source_type": "university",
       "master_url": "https://vetmed.illinois.edu/research/clinical-trials/",
       "required_cadence": "daily",
-      "last_checked": "2026-09-26",
+      "last_checked": "2026-09-30",
       "last_result": "changed",
-      "content_fingerprint": "sha256:938a92cc27f007506ec11b7bab7e3fa9222d8a2f301e0de0bcd4779f50a72723",
-      "last_checked_at": "2026-09-26T08:35:29-04:00",
-      "last_http_status": 200
+      "content_fingerprint": null,
+      "last_checked_at": "2026-09-30T07:45:00-04:00",
+      "last_http_status": 200,
+      "notes": "Current Illinois oncology roster does not list the older B7-H3 CAR-T solid-tumor protocol. CCA currently says the study is enrolling dogs with hemangiosarcoma but links to the old Illinois PDF. Keep this lead unresolved and non-matchable until Illinois or clinical-trials manager Rebecca Kamerer confirms 2026 enrollment."
     },
     {
       "id": "usa-bluepearl-science-clinical-studies",
@@ -750,6 +752,40 @@
       "last_result": "reachable",
       "content_fingerprint": null,
       "notes": "Current clinical-trials section lists autologous CAR T therapy for canine histiocytic sarcoma and mattath@upenn.edu. On 2026-09-29, investigator Matthew Atherton directly confirmed open but limited enrollment, measurable disease required, archived tissue usable for STEAP1 screening, prior treatments allowed and concurrent chemotherapy excluded. Owner-provided prior consent form identifies POAP735 / IACUC807805 / IBC22-287 & 25-312 and study coverage; Penn says the form is being revised. Ryan Hospital site is 3900 Spruce Street, Philadelphia, PA 19104. This HS CAR-T protocol is separate from bendamustine for relapsed lymphoma. Bendamustine remains needs_reconfirmation; its absence from the current trials section does not establish closure."
+    },
+    {
+      "id": "usa-canine-cancer-alliance-research",
+      "name": "Canine Cancer Alliance research and study-status pages",
+      "country": "USA",
+      "source_type": "foundation",
+      "master_url": "https://www.ccralliance.org/research-projects",
+      "required_cadence": "daily",
+      "last_checked": "2026-09-30",
+      "last_result": "reachable",
+      "content_fingerprint": null,
+      "last_checked_at": "2026-09-30T07:45:00-04:00",
+      "last_http_status": 200,
+      "linked_trial_ids": [
+        "medvet-egfr-her2-vaccine-2026"
+      ],
+      "notes": "Secondary official funder and study-status source. Use it to discover sponsor-supported protocols and reconcile site status, but verify treatment, eligibility, funding and current enrollment with the direct sponsor or treatment center. Current directions requiring primary-center confirmation include B7-H3 CAR-T for hemangiosarcoma, Immunocidin solid-tumor protocols, immune-checkpoint combinations, and IL-12 solid-tumor studies. The EGFR/HER2 status page is maintained as the protocol location roster; site-specific details still require the named center."
+    },
+    {
+      "id": "usa-vrcco-clinical-trials",
+      "name": "Veterinary Referral Center of Central Oregon clinical trials",
+      "country": "USA",
+      "source_type": "specialty_network",
+      "master_url": "https://vrcvet.com/clinical-trials/",
+      "required_cadence": "daily",
+      "last_checked": "2026-09-30",
+      "last_result": "reachable",
+      "content_fingerprint": null,
+      "last_checked_at": "2026-09-30T07:45:00-04:00",
+      "last_http_status": 200,
+      "linked_trial_ids": [
+        "castr-vrcco-sts-tcell-engager"
+      ],
+      "notes": "Direct treatment-center master source. Its enrolling intratumoral T-cell engager study is already represented by castr-vrcco-sts-tcell-engager; do not create a second record from the VRCCO listing."
     }
   ]
 }

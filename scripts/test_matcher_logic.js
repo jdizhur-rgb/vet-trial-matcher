@@ -178,6 +178,10 @@ if (osteosarcoma.some(row => row.trial.id.startsWith('au-'))) {
 }
 
 const bladder = matches(patient({cancer: 'Urothelial carcinoma'}));
+if (rows.some(row => row.id === 'csu-ucc-icg-surgery') ||
+    bladder.some(row => row.trial.id === 'csu-ucc-icg-surgery')) {
+  throw new Error('CSU ICG diagnostic imaging protocol remained in USA/Dog/Bladder matching');
+}
 const purdueBladderIds = bladder
   .map(row => row.trial.id)
   .filter(id => id.startsWith('purdue-bladder') || id === 'purdue-ucc-aks701d');
@@ -238,6 +242,34 @@ if (!medvetVaccine?.sites?.some(site => site.state === 'WA' && site.city === 'Ed
 }
 if (!medvetVaccine.sites.find(site => site.city === 'Edmonds')?.notes?.includes('records review')) {
   throw new Error('BARC-specific EGFR screening details are missing from its site');
+}
+const egfrActiveCities = new Set(medvetVaccine.sites.map(site => site.city));
+for (const city of ['Ventura','Edmonds','Pullman','Salt Lake City','Cleveland','McMurray','Fairfax','Phoenix','Stamford']) {
+  if (!egfrActiveCities.has(city)) throw new Error(`EGFR/HER2 active site missing: ${city}`);
+}
+for (const city of ['Chicago','Richmond','Columbia']) {
+  if (egfrActiveCities.has(city)) throw new Error(`EGFR/HER2 inactive site remained active: ${city}`);
+  if (!medvetVaccine.inactive_sites?.some(site => site.city === city && /not enrolling/i.test(site.status || ''))) {
+    throw new Error(`EGFR/HER2 inactive site status missing: ${city}`);
+  }
+}
+if (!medvetVaccine.sites.find(site => site.city === 'Stamford')?.source_url?.includes('vetcancerconcierge.com')) {
+  throw new Error('EGFR/HER2 Stamford site lacks separate treatment-center confirmation');
+}
+const siteKey = site => [site.hospital || site.name || '', site.city || '', site.state || ''].join('|').toLowerCase();
+for (const trial of [medvetVaccine, rows.find(row => row.id === 'leah-bcell-cart-2026')]) {
+  const active = trial?.sites || [], inactive = trial?.inactive_sites || [];
+  if (new Set(active.map(siteKey)).size !== active.length || new Set(inactive.map(siteKey)).size !== inactive.length) {
+    throw new Error(`${trial?.id} contains duplicate site rows`);
+  }
+  if (active.some(site => new Set(inactive.map(siteKey)).has(siteKey(site)))) {
+    throw new Error(`${trial?.id} lists the same site as active and inactive`);
+  }
+}
+const leah = rows.find(row => row.id === 'leah-bcell-cart-2026');
+if (!leah || leah.sites.length !== 2 || leah.sites.some(site => site.state === 'MO') ||
+    !leah.inactive_sites?.some(site => site.state === 'MO' && /hold/i.test(site.status || ''))) {
+  throw new Error('LEAH site reconciliation must keep Minnesota/Ohio active and Missouri on hold');
 }
 for (const cancer of ['Osteosarcoma','Hemangiosarcoma','Urothelial carcinoma']) {
   if (!matches(patient({cancer})).some(row => row.trial.id === medvetVaccine.id)) {
