@@ -33,6 +33,8 @@ PENN_CAR_T_OFFICIAL = "https://www.vet.upenn.edu/research/research-laboratories/
 UF_HS_TRAMETINIB_OFFICIAL = "https://research.vetmed.ufl.edu/phase-ii-open-label-non-randomized-multicenter-clinical-trial-of-trametinib-for-dogs-with-histiocytic-sarcoma/"
 LAVERDIA_OFFICIAL = "https://www.dechra-us.com/our-products/us/companion-animal/dog/prescription/laverdia-verdinexor-tablets"
 LAVERDIA_SOURCE = "https://www.dechra-us.com/news/2026/september/dechra-brings-laverdia-verdinexor-tablets-the-first-and-only-fda-approved-oral-treatment-for-dogs-diagnosed-with-lymphoma"
+FDA_LAVERDIA_FOI = "https://animaldrugsatfda.fda.gov/adafda/app/search/public/document/downloadFoi/17795"
+FDA_LAVERDIA_APPROVAL = "https://www.fda.gov/animal-veterinary/cvm-updates/fda-grants-full-approval-first-oral-treatment-lymphoma-dogs"
 LAVERDIA_IMAGE = "https://www.dechra-us.com/admin/public/getimage.ashx?AlternativeImage=%2Ffiles%2FImages%2Fplaceholder-image.png&Crop=0&Format=jpg&Image=%2FFiles%2FImages%2FEcom%2FProducts%2FUS%2FLaverdia-Group-Cartons-Bottles_February2026.png&Quality=75&Width=600"
 PENN_CAR_T_IMAGE = f"{SITE}/assets/social/penn-car-t-histiocytic-sarcoma-1200x630.jpg"
 PURDUE_SOCIAL_IMAGE = f"{SITE}/assets/social/purdue-ablation-1200x630.jpg"
@@ -193,21 +195,35 @@ def generate_news_section(root: Path) -> None:
 <h1>How Laverdia works</h1>
 <figure style="margin:18px 0 24px"><img src="{LAVERDIA_IMAGE}" alt="Laverdia verdinexor tablets packaging from Dechra" width="600" height="600" style="display:block;width:100%;height:auto;border-radius:12px"></figure>
 
-<p>Laverdia (verdinexor) is an oral treatment for dogs with lymphoma.</p>
+<p>Laverdia (verdinexor) is an oral treatment for dogs with lymphoma. It blocks XPO1, a protein involved in moving growth-control proteins out of the cell nucleus. By inhibiting XPO1, verdinexor can keep those proteins in the nucleus, where they may help slow cancer-cell growth and promote cell death.</p>
 
-<p>In simple terms, lymphoma cells rely on a protein called XPO1 to move important growth-control proteins out of the cell nucleus. Verdinexor blocks XPO1, so those proteins stay where they can help slow cell growth and trigger cancer-cell death.</p>
+<p>The practical advantage is that it is given at home as a tablet twice a week, with at least 72 hours between doses.</p>
 
-<p>The practical advantage is that it is given at home as a tablet, usually twice a week.</p>
+<h2>What the FDA study showed</h2>
 
-<p>But it is important not to confuse convenience with effectiveness. Laverdia is <strong>not a replacement for CHOP</strong> in dogs that are good candidates for standard multi-drug chemotherapy. Responses are generally less deep and less durable.</p>
+<p>The field study supporting full FDA approval was prospective, randomized, masked and placebo-controlled. It enrolled 160 dogs with measurable B-cell or T-cell lymphoma. Sixty percent were newly diagnosed and 40% had relapsed after previous chemotherapy. All 160 dogs were included in the safety analysis; 134 were included in the effectiveness analysis: 106 received Laverdia and 28 received placebo tablets.</p>
 
-<p>It may be useful when an owner does not choose CHOP, when a dog cannot tolerate a more intensive protocol, or as another systemic treatment option depending on the case.</p>
+<p>The primary endpoint was time to progression. The median was <strong>37 days with Laverdia and 23 days with placebo</strong>. The difference was statistically significant.</p>
 
-<p>It is a real anticancer drug with FDA approval, but not a “simple pill that controls lymphoma just as well as chemotherapy.”</p>
+<p>An earlier single-arm study included 58 dogs. An objective response was reported in 20 dogs, or 34.5%, with a median response duration of 18 days. That study used earlier formulations and was not a direct comparison with standard chemotherapy.</p>
 
-<div class="article-cta"><a href="{LAVERDIA_OFFICIAL}" target="_blank" rel="noopener">Official Laverdia information from Dechra</a></div>
-<p><a href="{LAVERDIA_SOURCE}" target="_blank" rel="noopener">Dechra's September 2026 availability announcement</a></p>'''
-    write_article(root, "laverdia-canine-lymphoma", "How Laverdia works", "Laverdia is an oral FDA-approved treatment for canine lymphoma. It can be given at home, but convenience should not be confused with CHOP-equivalent effectiveness.", laverdia_body, "Dechra official product information and September 2026 availability announcement", "September 29, 2026", "2026-09-29", LAVERDIA_IMAGE, (600, 600))
+<p>These studies show that verdinexor has measurable anticancer activity in canine lymphoma. They do not show that it is equivalent to a multi-drug chemotherapy protocol such as CHOP.</p>
+
+<h2>Side effects reported in the study</h2>
+
+<p>Among 127 dogs treated with Laverdia in the pivotal study, anorexia was reported in 74%, vomiting in 61%, lethargy in 61%, weight loss in 52%, and diarrhea in 43%. Elevated ALT was reported in 22% and thrombocytopenia in 18%. Serious adverse events were reported in 22% of treated dogs.</p>
+
+<p>More than half of the dogs that developed anorexia received additional medication to support appetite. The prescribing information also calls for regular blood and chemistry monitoring. Because verdinexor is an antineoplastic drug, owners are instructed to use chemotherapy-resistant gloves when handling the tablets and when cleaning up urine, feces, saliva or vomit during treatment and for three days after the last dose.</p>
+
+<h2>Where it may fit</h2>
+
+<p>Laverdia may be considered when an owner does not choose multi-drug chemotherapy, when a dog is not a good candidate for a more intensive protocol, or when an oncologist is looking for another systemic treatment option.</p>
+
+<p>For owners comparing Laverdia with a standard lymphoma protocol, the useful numbers are in the FDA data: how many dogs were treated, how long disease control lasted, and how often side effects occurred.</p>
+
+<div class="article-cta"><a href="{FDA_LAVERDIA_FOI}" target="_blank" rel="noopener">Read the FDA Freedom of Information summary</a></div>
+<p><a href="{FDA_LAVERDIA_APPROVAL}" target="_blank" rel="noopener">FDA full-approval announcement</a> · <a href="{LAVERDIA_OFFICIAL}" target="_blank" rel="noopener">Official prescribing information from Dechra</a></p>'''
+    write_article(root, "laverdia-canine-lymphoma", "How Laverdia works", "Laverdia is an oral FDA-approved treatment for canine lymphoma. The pivotal trial showed a median time to progression of 37 days versus 23 days with placebo.", laverdia_body, "FDA Freedom of Information Summary, FDA approval announcement and Dechra prescribing information", "September 29, 2026", "2026-09-29", LAVERDIA_IMAGE, (600, 600))
 
     add_to_sitemap(root, (NEWS_URL, CORNELL_URL, NC_STATE_URL, WISCONSIN_URL, PURDUE_URL, TAIWAN_IL15_URL, BARC_TRIALS_URL, PENN_CAR_T_URL, LAVERDIA_URL))
     rendered = "\n".join((root / "news" / slug / "index.html").read_text(encoding="utf-8") for slug in ("cornell-smart-start-b-cell-lymphoma", "nc-state-il12-bladder-cancer-deadline", "wisconsin-ptcl-radiopharmaceutical-trial", "purdue-three-cancer-treatment-trials", "taiwan-inhaled-il15-lung-metastases", "barc-dog-cat-cancer-trials", "penn-car-t-histiocytic-sarcoma", "laverdia-canine-lymphoma"))
