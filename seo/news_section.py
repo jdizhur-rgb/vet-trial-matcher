@@ -54,11 +54,13 @@ def add_to_sitemap(root: Path, urls: tuple[str, ...]) -> None:
     sitemap.write_text(text, encoding="utf-8")
 
 
-def write_article(root: Path, slug: str, title: str, description: str, body: str, source_name: str, published: str = "September 17, 2026", published_iso: str = "2026-09-17", social_image: str | None = None, social_image_size: tuple[int, int] = (1200, 630)) -> None:
+def write_article(root: Path, slug: str, title: str, description: str, body: str, source_name: str, published: str = "September 17, 2026", published_iso: str = "2026-09-17", social_image: str | None = None, social_image_size: tuple[int, int] = (1200, 630), trial_news: bool = True) -> None:
     url = f"{NEWS_URL}{slug}/"
     article_dir = root / "news" / slug
     article_dir.mkdir(parents=True, exist_ok=True)
-    byline = f'''<div class="article-byline"><p><strong>Published:</strong> {published}</p><p><strong>Recruitment status checked:</strong> {published}</p><p><strong>Source:</strong> {source_name}.</p><p><strong>Editorial disclosure:</strong> Prepared with AI assistance and reviewed by Yuliia Dizhur. Trial eligibility and enrollment decisions are made by the study team.</p></div>'''
+    disclosure = "Prepared with AI assistance and reviewed by Yuliia Dizhur." + (" Trial eligibility and enrollment decisions are made by the study team." if trial_news else "")
+    status_line = f"<p><strong>Recruitment status checked:</strong> {published}</p>" if trial_news else ""
+    byline = f'''<div class="article-byline"><p><strong>Published:</strong> {published}</p>{status_line}<p><strong>Source:</strong> {source_name}.</p><p><strong>Editorial disclosure:</strong> {disclosure}</p></div>'''
     page = g.page(f"{title} | Vet Trial Finder", description, f'<article class="article-page news-article">{body}{byline}</article>', url)
     social = f'''<meta property="og:type" content="article"><meta property="og:site_name" content="Vet Trial Finder"><meta property="og:title" content="{g.esc(title)}"><meta property="og:description" content="{g.esc(description)}"><meta property="og:url" content="{url}"><meta name="twitter:card" content="{'summary_large_image' if social_image else 'summary'}"><meta name="twitter:title" content="{g.esc(title)}"><meta name="twitter:description" content="{g.esc(description)}">'''
     if social_image:
@@ -224,7 +226,7 @@ def generate_news_section(root: Path) -> None:
 
 <div class="article-cta"><a href="{FDA_LAVERDIA_FOI}" target="_blank" rel="noopener">Read the FDA Freedom of Information summary</a></div>
 <p><a href="{FDA_LAVERDIA_APPROVAL}" target="_blank" rel="noopener">FDA full-approval announcement</a> · <a href="{LAVERDIA_OFFICIAL}" target="_blank" rel="noopener">Official prescribing information from Dechra</a></p>'''
-    write_article(root, "laverdia-canine-lymphoma", "How Laverdia works", "Laverdia is an oral FDA-approved treatment for canine lymphoma. The pivotal trial showed a median time to progression of 37 days versus 23 days with placebo.", laverdia_body, "FDA Freedom of Information Summary, FDA approval announcement and Dechra prescribing information", "September 29, 2026", "2026-09-29", LAVERDIA_IMAGE, (600, 600))
+    write_article(root, "laverdia-canine-lymphoma", "How Laverdia works", "Laverdia is an oral FDA-approved treatment for canine lymphoma. The pivotal trial showed a median time to progression of 37 days versus 23 days with placebo.", laverdia_body, "FDA Freedom of Information Summary, FDA approval announcement and Dechra prescribing information", "September 29, 2026", "2026-09-29", LAVERDIA_IMAGE, (600, 600), False)
 
     add_to_sitemap(root, (NEWS_URL, CORNELL_URL, NC_STATE_URL, WISCONSIN_URL, PURDUE_URL, TAIWAN_IL15_URL, BARC_TRIALS_URL, PENN_CAR_T_URL, LAVERDIA_URL))
     rendered = "\n".join((root / "news" / slug / "index.html").read_text(encoding="utf-8") for slug in ("cornell-smart-start-b-cell-lymphoma", "nc-state-il12-bladder-cancer-deadline", "wisconsin-ptcl-radiopharmaceutical-trial", "purdue-three-cancer-treatment-trials", "taiwan-inhaled-il15-lung-metastases", "barc-dog-cat-cancer-trials", "penn-car-t-histiocytic-sarcoma", "laverdia-canine-lymphoma"))
