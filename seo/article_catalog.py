@@ -46,6 +46,7 @@ ARTICLE_CATEGORIES = {
     "cancer-dx-screening-older-dogs": "diagnosis",
     "electrochemotherapy": "treatment",
     "cancer-vaccines": "treatment",
+    "laverdia-canine-lymphoma": "treatment",
     "clinical-trials-for-pets-with-cancer": "trials",
     "where-veterinary-cancer-trials-are-heading": "trials",
     "when-cancer-remedies-cause-harm": "safety",
