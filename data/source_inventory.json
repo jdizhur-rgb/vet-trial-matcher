@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated": "2026-09-30",
-  "description": "Persistent discovery inventory for veterinary oncology treatment trials. Every source is checked daily; newly discovered official source pages are added even when their current lead is a duplicate, closed, ineligible or unresolved.",
+  "description": "Persistent discovery inventory for veterinary oncology treatment trials. Every source is checked daily. If master_url is inaccessible or incomplete, official fallback_urls must be tried before the source is marked NOT CHECKED. Newly discovered official source pages are added even when their current lead is a duplicate, closed, ineligible or unresolved.",
   "sources": [
     {
       "id": "registry-avma-veterinary-clinical-trials",
@@ -110,7 +110,10 @@
       "content_fingerprint": null,
       "last_checked_at": "2026-09-26T08:35:29-04:00",
       "last_http_status": 403,
-      "notes": "Direct request returned HTTP 403; current protocol roster and protocol details were opened through the external web retriever and reconciled."
+      "notes": "Direct request returned HTTP 403; current protocol roster and protocol details were opened through the external web retriever and reconciled.",
+      "fallback_urls": [
+        "https://www.hopkinsmedicine.org/radiology/vctn"
+      ]
     },
     {
       "id": "usa-lsu-vet-clinical-trials",
@@ -216,7 +219,11 @@
       "content_fingerprint": null,
       "last_checked_at": "2026-09-26T08:35:29-04:00",
       "last_http_status": 403,
-      "notes": "Direct request returned HTTP 403; Penn current trials and the Comparative Immunotherapy program were opened through the external web retriever."
+      "notes": "Direct request returned HTTP 403; Penn current trials and the Comparative Immunotherapy program were opened through the external web retriever.",
+      "fallback_urls": [
+        "https://www.vet.upenn.edu/clinical-trial/",
+        "https://www.vet.upenn.edu/veterinary_specialty/oncology/"
+      ]
     },
     {
       "id": "usa-purdue-wcorc-clinical-trials",
@@ -269,7 +276,10 @@
       "content_fingerprint": null,
       "last_checked_at": "2026-09-26T08:35:29-04:00",
       "last_http_status": 403,
-      "notes": "Direct request returned HTTP 403; the current master page was opened through the external web retriever."
+      "notes": "Direct request returned HTTP 403; the current master page was opened through the external web retriever.",
+      "fallback_urls": [
+        "https://clinicaltrials.vetmed.ucdavis.edu/clinical-trial-articles-news"
+      ]
     },
     {
       "id": "usa-florida-oncology-trials",
@@ -310,7 +320,10 @@
       "last_result": "changed",
       "content_fingerprint": "sha256:587a79c705fd856e4784864fb7a6114e39d8b9e54d305f64bf996e0d4ecf0279",
       "last_checked_at": "2026-09-26T08:35:29-04:00",
-      "last_http_status": 200
+      "last_http_status": 200,
+      "fallback_urls": [
+        "https://vet.uga.edu/clinical-trial/"
+      ]
     },
     {
       "id": "usa-illinois-clinical-trials",
@@ -391,7 +404,11 @@
       "content_fingerprint": null,
       "last_checked_at": "2026-09-26T08:35:29-04:00",
       "last_http_status": 404,
-      "notes": "Master URL returned HTTP 404. Search of current official/cached materials found no qualifying owner-facing oncology treatment roster."
+      "notes": "Master URL returned HTTP 404. Search of current official/cached materials found no qualifying owner-facing oncology treatment roster.",
+      "fallback_urls": [
+        "https://www.ethosvet.com/medical-professionals/",
+        "https://www.ethosvet.com/faqs-clinical-studies-at-ethos/"
+      ]
     },
     {
       "id": "usa-ethos-discovery-studies",
@@ -405,7 +422,11 @@
       "content_fingerprint": null,
       "last_checked_at": "2026-09-26T08:35:29-04:00",
       "last_http_status": 404,
-      "notes": "Master URL returned HTTP 404. Current owner-facing oncology treatment roster could not be recovered."
+      "notes": "Master URL returned HTTP 404. Current owner-facing oncology treatment roster could not be recovered.",
+      "fallback_urls": [
+        "https://www.ethosdiscovery.org/scientific-programs/",
+        "https://www.ethosdiscovery.org/scientific-programs/page/2/"
+      ]
     },
     {
       "id": "usa-medvet-clinical-studies",
@@ -445,7 +466,10 @@
       "content_fingerprint": null,
       "last_checked_at": "2026-09-26T08:35:29-04:00",
       "last_http_status": 525,
-      "notes": "Master URL returned HTTP 525 and the cached web open also failed; the canonical Anivive record remains inaccessible for direct current-status confirmation."
+      "notes": "Master URL returned HTTP 525 and the cached web open also failed; the canonical Anivive record remains inaccessible for direct current-status confirmation.",
+      "fallback_urls": [
+        "https://anivivelifesciences.com/treatments"
+      ]
     },
     {
       "id": "canada-ovc-active-oncology-trials",
@@ -607,7 +631,11 @@
       "content_fingerprint": null,
       "last_checked_at": "2026-09-26T08:35:29-04:00",
       "last_http_status": 403,
-      "notes": "Direct request returned HTTP 403; current content was opened through the external web retriever. It lists active CAR-iNKT, CAR-T and anti-PD-1 treatment trials and is required because the general Penn trial roster does not expose the complete program roster."
+      "notes": "Direct request returned HTTP 403; current content was opened through the external web retriever. It lists active CAR-iNKT, CAR-T and anti-PD-1 treatment trials and is required because the general Penn trial roster does not expose the complete program roster.",
+      "fallback_urls": [
+        "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+        "https://www.vet.upenn.edu/clinical-trial/"
+      ]
     },
     {
       "id": "australia-uq-school-veterinary-clinical-trials",
