@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
-  "run_id": "daily-20261001T060207-0400",
+  "run_id": "daily-20261001T064052-0400",
   "audit_mode": "DAILY GLOBAL WORK AUDIT",
-  "started_at": "2026-10-01T06:02:07-04:00",
-  "finished_at": "2026-10-01T06:19:30-04:00",
+  "started_at": "2026-10-01T06:40:52-04:00",
+  "finished_at": "2026-10-01T06:51:43-04:00",
   "timezone": "America/New_York",
-  "base_commit": "d27c8fd6bf94fbaba7c98f2a35b32fc91c1d25a2",
+  "base_commit": "046c3d4874d7ee005ae7cab64d5dff46b6e6cd73",
   "source_total": 71,
   "attempted_total": 71,
-  "content_sufficient_total": 68,
+  "content_sufficient_total": 67,
   "local_persistence_verified_total": 71,
-  "remote_persistence_verification": "performed after commit; report records remote SHA",
-  "fingerprint_note": "Direct-fetch normalization changed from the previous run; fingerprint changes without roster differences are recorded as normalization refreshes, not inferred protocol changes.",
+  "remote_persistence_verification": "required after commit; verified remote SHA and timestamp evidence are recorded in the run report",
+  "fingerprint_note": "Each master route was freshly attempted. Direct-fetch fingerprints use normalized response text; rendered-only sources retain their last comparable normalized fingerprint unless a new comparable text extraction was available. Partial sources have no fingerprint.",
   "sources": [
     {
       "id": "registry-avma-veterinary-clinical-trials",
@@ -23,14 +23,18 @@
           "final_url": "https://veterinaryclinicaltrials.org/",
           "http_status": 200,
           "result": "insufficient",
-          "normalized_chars": 42
+          "normalized_chars": 42,
+          "fingerprint": "sha256:605aedf8fd117af4d02796e02210feccea535eb8ba69abb4bac47cf197a5df7e",
+          "sample": "Home - Veterinary Clinical Trials Registry"
         },
         {
           "url": "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1",
           "final_url": "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1",
           "http_status": 200,
           "result": "insufficient",
-          "normalized_chars": 45
+          "normalized_chars": 45,
+          "fingerprint": "sha256:f82038990f98f3052aa0f6a4b55479c15105731ced7081e40639d0ac047f5fc0",
+          "sample": "Studies - Veterinary Clinical Trials Registry"
         },
         {
           "url": "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1",
@@ -39,16 +43,16 @@
           "transport": "Chromium-rendered official roster"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 57,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -62,19 +66,21 @@
           "final_url": "https://www.veterinarystudiesregistry.co.uk/studies",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 1994
+          "normalized_chars": 1994,
+          "fingerprint": "sha256:78dc119c86a06652e7d3a55dc8ab61d40b1703fc2f99704043ac73a0522a20f1",
+          "sample": "Browse studies | UK-VCSR Home About Browse studies Governance Resources Resources Researchers / professionals Register studies, minimum dataset, and six-monthly updates General public / animal guardians Plain-language guides to veterinary clinical research FAQs FAQs General FAQs What the registry is and why transparency matters Animal guardians Taking part in research and understanding studies Veterinary professionals & researchers Submitting and maintaining study records Study sponsors & industry partners Commercial studies and deferred registration Researcher login Browse studies Search and filter veterinary clinical studies registered in the UK. Loading filters... 4 studies found Not yet recruiting UK-VCSR-2026-00013 Evaluating use of immune therapy in equine allergic reactions Investigator: Dr Sally Gallop Interventional · equine allergies Other Equine Published 24 July 2026 Recruiting Sample study (AI-generated) UK-VCSR-2026-00006 Equine gastric ulceration management trial Investi"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -88,7 +94,9 @@
           "final_url": "https://vetcancersociety.org/resources/clinical-trials/",
           "http_status": 403,
           "result": "insufficient",
-          "normalized_chars": 105
+          "normalized_chars": 105,
+          "fingerprint": "sha256:d8a80316617008f0b57ec40f8fa5a38ffdc77ebfb637fe957a1982d57b404869",
+          "sample": "403 - Forbidden bg_error_lines circle_dots 403 - Forbidden Access to this page is forbidden. clouds_shape"
         },
         {
           "url": "https://vetcancersociety.org/resources/clinical-trials/",
@@ -97,16 +105,16 @@
           "transport": "external web retriever"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -120,19 +128,21 @@
           "final_url": "https://www.vetmed.auburn.edu/research/clinical-trials/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 2813
+          "normalized_chars": 2813,
+          "fingerprint": "sha256:bb8d8d76dc4f0cd50d1ce394ab1908db2aea3c7981c49f735775ebcfec9d06fd",
+          "sample": "Clinical Trials | Auburn University College of Veterinary Medicine Skip to main content Directory | Careers | Directions | CVM Community | Emergencies Search Search --> Menu About Academics Research Clinical Services Departments Veterinarians Raptor Center Give Cookie Acknowledgement This website uses cookies to collect information to improve your browsing experience. Please review our Privacy Statement for more information. I Understand Home Research Clinical Trials Clinical Trials .entry-header --> Clinical Trials The medical and surgical diagnostic tests and treatments of animals are similar to those in human medicine. In order to advance knowledge, researchers and clinicians at the College of Veterinary Medicine perform studies that investigate new diagnostics and treatments. These discoveries can often be applied to medicine across all species. Most clinical trials are based on preliminary laboratory research data that indicate that the new approach is better than what is already "
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -146,26 +156,21 @@
           "final_url": "https://csuveterinaryhealth.org/clinical-trials/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 8540
-        },
-        {
-          "url": "https://clinicaltrials.csuveterinaryhealth.org/studies/?term~sc_paths=primary-field_cancer",
-          "final_url": "https://clinicaltrials.csuveterinaryhealth.org/studies/?term~sc_paths=primary-field_cancer",
-          "http_status": 200,
-          "result": "insufficient",
-          "normalized_chars": 37
+          "normalized_chars": 8540,
+          "fingerprint": "sha256:1cb5cc8e1793a7bd079de1bff43000fe6d53b69de1859dda5832d3bf0df54b86",
+          "sample": "Clinical Trials – CSU Veterinary Health System pets For Veterinarians business_center Careers person Client Portal contract Pay My Bill badge Staff Directory volunteer_activism Give Your Visit Plan your visit Book an appointment Prepare for your visit Construction updates Locations Owner resources Client portal Counseling and support Client rights and responsibilities Pay my bill Payment policy Pharmacy and refills Our expertise About your care team Animal Care Find a service by animal Cats and dogs Exotics Equine Livestock Care resources Book an appointment Pharmacy and refills Counseling and support News and health tips Emergency Care Get help now Call us 24/7 Directions Prepare Care by animal Cats and dogs Exotics Equine Livestock Diagnostic Laboratories Submit and order Learn about the laboratory Find a diagnostic test Find a form Submit a sample Check lab results Pay my bill Diagnostic services Avian diagnostics Bacteriology Chemistry and toxicology Clinical hematopathology Clinic"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -179,19 +184,21 @@
           "final_url": "https://www.vet.cornell.edu/hospitals/clinical-trials",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 2816
+          "normalized_chars": 2816,
+          "fingerprint": "sha256:b7f8e5238c83b6a486ac9bdb05354c104fa45fba1a172dd92519dd7970815d84",
+          "sample": "Clinical Trials | Cornell University College of Veterinary Medicine Skip to main content Search: Submit Search Search Filters Search This Site Search Cornell Menu Search Cornell College of Veterinary Medicine Home Directions Contact Us Emergency Phone Numbers Routine and Emergency Care Companion Animal Hospital in Ithaca, NY for cats, dogs, exotics, and wildlife 607.253.3060 Directions Equine and Nemo Farm Animal Hospitals in Ithaca, NY for horses and farm animals 607.253.3100 Directions Cornell Ruffian Equine Specialists, on Long Island for every horse 516.488.4510 Directions Ambulatory and Production Medicine for service on farms within 30 miles of Ithaca, NY 607.253.3140 Directions Animal Health Diagnostic Center New York State Veterinary Diagnostic Laboratory 607.253.3900 Directions General Information Cornell University College of Veterinary Medicine Ithaca, New York 14853-6401 607.253.3000 Directions Questions? Email Us Emergencies Support Us Hospitals Comprehensive Care + 24 Hou"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -205,19 +212,21 @@
           "final_url": "https://vetmed.iastate.edu/vmc/clinical-trials/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 3330
+          "normalized_chars": 3330,
+          "fingerprint": "sha256:3af00d492aab1127d8e4c2c6530801a5d31f58839e2ccce6a4fe41c8908f9b80",
+          "sample": "Clinical Trials - Lloyd Veterinary Medical Center Skip To Main Content College of Veterinary Medicine Lloyd Veterinary Medical Center ISU CVM News CVM Directory Contacts Give Now Sign Ons Search Close Search Search Submit Search Referring DVM Login Toggle Menu Lloyd Veterinary Medical Center Clients Emergency Services Map & Directions Make an Appointment What to Expect Payment Policies Discount for ISU Employees, Students and Working Dogs Giving Dr. W. Eugene and Linda Lloyd LVMC Client Newsletter Small Animal Primary Care Specialty Care Support Services Emergency Services Staff Directory Clinical Trials Center Hixson-Lied Small Animal Hospital Video Large Animal Food Animal & Camelid Veterinary Field Services Support Services Staff Directory Equine Equine Field Services Equine Internal Medicine Equine Intensive Care Unit & Neonatal Intensive Care Unit Equine Surgery Equine Reproduction Farrier Staff Directory Services Blood Donor Program Infectious Disease Information Support Services"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -231,26 +240,30 @@
           "final_url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
           "http_status": 403,
           "result": "insufficient",
-          "normalized_chars": 774
+          "normalized_chars": 774,
+          "fingerprint": "sha256:9291a75aba2a371031270fc69cee02ac98ec17854d5c57ad304a0697f0438de1",
+          "sample": "Attention Required! | Cloudflare Please enable cookies. Sorry, you have been blocked You are unable to access hopkinsmedicine.org Why have I been blocked? This website is using a security service to protect itself from online attacks. The action you just performed triggered the security solution. There are several actions that could trigger this block including submitting a certain word or phrase, a SQL command or malformed data. What can I do to resolve this? You can email the site owner to let them know you were blocked. Please include what you were doing when this page came up and the Cloudflare Ray ID found at the bottom of this page. Cloudflare Ray ID: a43adbb51c01118b • Your IP: Click to reveal 2a13:9500:1e4:165::292:bb • Performance & security by Cloudflare"
         },
         {
           "url": "https://www.hopkinsmedicine.org/radiology/vctn",
           "final_url": "https://www.hopkinsmedicine.org/radiology/vctn",
           "http_status": 403,
           "result": "insufficient",
-          "normalized_chars": 774
+          "normalized_chars": 774,
+          "fingerprint": "sha256:8e2c11224ad02fc6b2eb5f0d18d6c8734077ff1c745fa79e6f3d23344e8ac2ef",
+          "sample": "Attention Required! | Cloudflare Please enable cookies. Sorry, you have been blocked You are unable to access hopkinsmedicine.org Why have I been blocked? This website is using a security service to protect itself from online attacks. The action you just performed triggered the security solution. There are several actions that could trigger this block including submitting a certain word or phrase, a SQL command or malformed data. What can I do to resolve this? You can email the site owner to let them know you were blocked. Please include what you were doing when this page came up and the Cloudflare Ray ID found at the bottom of this page. Cloudflare Ray ID: a43adbd3790a118b • Your IP: Click to reveal 2a13:9500:1e4:165::292:bb • Performance & security by Cloudflare"
         },
         {
-          "url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+          "url": "https://www.hopkinsmedicine.org/radiology/research/divisions/cigat/comparative-medicine/veterinary-clinical-trials",
           "http_status": 200,
           "result": "sufficient",
           "transport": "external web retriever"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 4,
@@ -270,19 +283,21 @@
           "final_url": "https://www.lsu.edu/vetmed/veterinary_hospital/clinical_trials.php",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 4931
+          "normalized_chars": 4931,
+          "fingerprint": "sha256:f0c3f1c175dcd1b8fd3f476bcbd474dd2e3322bd448b3258fc7edf44a1efb5c9",
+          "sample": "Clinical Trials Skip to main content myLSU Apply Visit Give Search Menu Search LSU.edu Close Menu Veterinary Hospital myLSU Apply Visit Give Search Search LSU.edu Close Emergencies Pets Pets Anesthesiology Cardiology Community Practice (Primary Care) Counseling Services Dentistry and Oral Surgery Dermatology, Ear and Allergy Diagnostic Imaging Emergency and Critical Care Integrative Medicine Internal Medicine Neurology Oncology Ophthalmology Physical Rehabilitation Surgery Theriogenology (Reproduction) All Hospital Services Exotics & Wildlife Exotics & Wildlife Zoological Medicine (Exotics) Wildlife All Hospital Services Horses Horses Ambulatory Service Internal Medicine Integrative Medicine Ophthalmology Surgery Anesthesiology Dermatology Diagnostic Imaging Ophthalmology Theriogenology (Reproduction) All Hospital Services Food Animals (Livestock) Food Animals (Livestock) Food Animal All Hospital Services Owners Owners Information for Pet and Animal Owners Hospital Services Veterinaria"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -296,7 +311,9 @@
           "final_url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2",
           "http_status": 200,
           "result": "insufficient",
-          "normalized_chars": 0
+          "normalized_chars": 0,
+          "fingerprint": null,
+          "sample": ""
         },
         {
           "url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2",
@@ -305,16 +322,16 @@
           "transport": "external web retriever"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 5,
-      "candidates_found": 0,
-      "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "candidates_found": 1,
+      "protocol_pages_checked": 1,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -328,19 +345,21 @@
           "final_url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 9407
+          "normalized_chars": 9407,
+          "fingerprint": "sha256:896a9269805315d32d7c35546214c55990320c3b8bb1ac047c0063f3e0f85867",
+          "sample": "Current clinical trials | College of Veterinary Medicine Skip to main content Go to the University of Minnesota Twin Cities home page One Stop MyU Search College of Veterinary Medicine Hospitals & care Current students Menu About us About Inclusive Excellence Inclusive excellence overview Commitment to inclusive excellence Diversity, Equity and Inclusion committee Community Resources Reporting bias or sexual misconduct Employment Our faculty & staff Strategic plan 2023-2026 Impact report Education What we offer Doctor of Veterinary Medicine Graduate Programs Dual degree programs DVM/MPH Internship & Residency Programs Accreditation Departments Departments overview Department of Veterinary and Biomedical Sciences Veterinary Clinical Sciences Veterinary Population Medicine Department of Veterinary Population Medicine Our faculty & staff Research Contact us Teaching STEMMA Centers and programs Centers & programs overview Center for Animal Health and Food Safety Canine Brain Tumor Program "
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -354,19 +373,21 @@
           "final_url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 24507
+          "normalized_chars": 24507,
+          "fingerprint": "sha256:dff507e952f1c97f232e5218e512c9891b0186ba37c9c1e29c80cd1d876976d0",
+          "sample": "Current Clinical Trials Emergencies Menu About About the VHC Faculty and Staff Directory Our Mission Our Location Contact Us Academic Department Close Clients Client Information Make an Appointment FAQs Client Billing Client Portal Pay Your Bill Online CareCredit Pharmacy Services Client Portal Instructions Client Support Client Satisfaction Survey Touring the VHC Lodging Our Location Columbia Resources: Ways to Refresh While You Wait Contact Us Close Small Animal Hospital Overview 573-882-7821 After Hours: 573-882-4589 Directions Contact Us Anesthesiology Cardiology Community Practice Dentistry Emergency and Critical Care Internal Medicine Neurology/Neurosurgery Nutrition Oncology Ophthalmology Sports Medicine and Rehabilitation Radiology Reproduction (Theriogenology) Shelter Medicine Surgery Canine Genetics Laboratory Feline Genetics and Comparative Medicine Laboratory Close Equine Hospital Overview 573-882-3513 After Hours: 573-882-4589 Directions Contact Us Ambulatory Service Anest"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -380,19 +401,21 @@
           "final_url": "https://cvm.ncsu.edu/research/clinical-trials/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 12793
+          "normalized_chars": 12793,
+          "fingerprint": "sha256:6d7174b728208e5176bf1dbd6b222d94fb71a673ba4463f6b2890ae45103035a",
+          "sample": "Clinical Trials | College of Veterinary Medicine Skip to main content NC State Home College of Veterinary Medicine Menu Close About CVM History Shaping the Future of Veterinary Medicine College Values Departments Community and Culture Dean’s Office Giving Virtual Tour News Spaces Careers Awards & Honors Contact Us Academics Admissions DVM Program Graduate Program Undergraduate Engagement Student Experience Student Development Student Enrichment Career Preparation Counseling Services Financial Wellness Research Areas of Emphasis Research Centers, Consortia and Institutes Diagnostic and Research Labs Clinical Trials Industry Partnerships Postdocs LAR Contacts Outreach Alumni NC State Community Access Program Continuing Education CVM Visitor Program Clinical-Year Externships Open House Resources Human Resources Faculty and Staff Current Students Aspiring Veterinarians Directory Library of Veterinary Medicine Communications and Marketing CVM IT CVM Internal International Community Resource"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -406,19 +429,21 @@
           "final_url": "https://vmc.vet.osu.edu/clinical-trials-office/current-trials",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 12304
+          "normalized_chars": 12304,
+          "fingerprint": "sha256:22262b74f358c1ced134a95248674cf66d14d0627823e513d333e3771a2bb4d3",
+          "sample": "Current Clinical Trials | Veterinary Medical Center Skip to main content It looks like you're using an unsupported browser For the best experience please switch to a supported browser Chrome Safari Firefox Edge Ohio State nav bar The Ohio State University BuckeyeLink Find People Webmail Search Ohio State OSU More Action Veterinary Medical Center College of Veterinary Medicine Locations Giving Open Search Menu Search Veterinary Medical Center Search Site Close Search Close Search 'I am a' Menu with links to the OSU Veterinary Medical Center and the College of Veterinary Medicine I am a... I am a... Close I am a... Menu Veterinary Medical Center Companion Animal Owner Companion Animal Services Hummel & Trueman Hospital for Companion Animals Frank Stanton Veterinary Spectrum of Care Clinic Veterinary Medical Center at Dublin Clinical Trials Farm Animal or Horse Owner Farm Animal Services Hospital for Farm Animal Large Animal Services at Marysville Equine Services Galbreath Equine Center R"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -432,19 +457,21 @@
           "final_url": "https://vetmed.oregonstate.edu/research/oncology-clinical-trials",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 7257
+          "normalized_chars": 7257,
+          "fingerprint": "sha256:87e4576b4f51a9ea4413955177f2e2138a8c4f337aa5bf29df1e0bbaf818c3f7",
+          "sample": "Oncology Clinical Trials | Research | Gary R. Carlson, MD, College of Veterinary Medicine | Oregon State University Skip to main content Gary R. Carlson, MD, College of Veterinary Medicine Research Search Search Open Search Page About Directory Dean's Message Administration Fact Sheet Advisory Council History Previous Deans Veterinary Reporting Form for Animals Injured by Trapping Devices Academics DVM Program Comparative Health Sciences Graduate Program One Health Undergraduate Certificate Fellowships, Residencies and Internships Teaching Hospital Diagnostic Laboratory Research Departments Department of Biomedical Sciences Department of Clinical Sciences Community Alumni Apparel Recruit at CCVM FURst Aid Animal Lover Education Series Giving High School Summer Veterinary Experience Pet Memorial Pet Day Tours Continuing Education Veterinary Pulse Newsletter Sign-up Alphabetized Research Lab List Arnold Lab (Biomedical Sciences) Beechler Lab (Biomedical Sciences) Bermudez Lab (Biomedical"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -458,45 +485,53 @@
           "final_url": "https://www.vet.upenn.edu/research/clinical-trials/",
           "http_status": 403,
           "result": "insufficient",
-          "normalized_chars": 16
+          "normalized_chars": 16,
+          "fingerprint": "sha256:301dc171e5fa8c5fdeb69592a92a5c378f5f758f68d2338200235d60eb04b9ad",
+          "sample": "Just a moment..."
         },
         {
           "url": "https://www.vet.upenn.edu/clinical-trial/",
           "final_url": "https://www.vet.upenn.edu/clinical-trial/",
           "http_status": 403,
           "result": "insufficient",
-          "normalized_chars": 16
+          "normalized_chars": 16,
+          "fingerprint": "sha256:301dc171e5fa8c5fdeb69592a92a5c378f5f758f68d2338200235d60eb04b9ad",
+          "sample": "Just a moment..."
         },
         {
           "url": "https://www.vet.upenn.edu/veterinary_specialty/oncology/",
           "final_url": "https://www.vet.upenn.edu/veterinary_specialty/oncology/",
           "http_status": 403,
           "result": "insufficient",
-          "normalized_chars": 16
+          "normalized_chars": 16,
+          "fingerprint": "sha256:301dc171e5fa8c5fdeb69592a92a5c378f5f758f68d2338200235d60eb04b9ad",
+          "sample": "Just a moment..."
         },
         {
           "url": "https://www.vet.upenn.edu/ryan-hospital/clinical-trials/",
           "final_url": "https://www.vet.upenn.edu/ryan-hospital/clinical-trials/",
           "http_status": 403,
           "result": "insufficient",
-          "normalized_chars": 16
+          "normalized_chars": 16,
+          "fingerprint": "sha256:301dc171e5fa8c5fdeb69592a92a5c378f5f758f68d2338200235d60eb04b9ad",
+          "sample": "Just a moment..."
         },
         {
-          "url": "https://www.vet.upenn.edu/ryan-hospital/clinical-trials/",
+          "url": "https://www.vet.upenn.edu/clinical-trial/",
           "http_status": 200,
           "result": "sufficient",
           "transport": "external web retriever"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
-      "candidates_found": 0,
-      "protocol_pages_checked": 0,
+      "candidates_found": 1,
+      "protocol_pages_checked": 1,
       "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
@@ -511,19 +546,21 @@
           "final_url": "https://vet.purdue.edu/wcorc/clinical-trials/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 6063
+          "normalized_chars": 6063,
+          "fingerprint": "sha256:e950f9ec2d13332de6b5f12d45cbec752c032d4bd9e19e31eb5408d0257862c8",
+          "sample": "Current Oncology Clinical Trials | Purdue Veterinary Medicine Skip to main content College of Veterinary Medicine Leave Your Print Donate Today! Main Menu PVM Homepage Apply Doctor of Veterinary Medicine (DVM) Veterinary Technology Distance Learning Veterinary Technology On-Campus Financial Aid Boiler Vet Camp Vet Up! Veterinary Research Scholars Summer Program Job Opportunities About About Purdue Veterinary Medicine Leadership Academic Departments Administration & Service Units Community Engagement Global Engagement Awards & Recognition Faculty & Staff Directory Contact & Directions Career Resources Education Educational Programs Doctor of Veterinary Medicine (DVM) Program Veterinary Technology Program Undergraduate & Post-Baccalaureate Programs Graduate & Postgraduate Programs Internship & Residency Programs Continuing Education Students & Alumni Alumni Association Alumni Events Career Resources Counseling & Wellness PVM Yearbook Student Organizations Student Success Transcripts Vete"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -537,19 +574,21 @@
           "final_url": "https://vetmed.tennessee.edu/research/clinical-trials/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 9130
+          "normalized_chars": 9130,
+          "fingerprint": "sha256:2ebefcc00ea5796d09dffc5733eb4a6d6b67bc9ca1f41e4cf1d8d2ef69623bca",
+          "sample": "Clinical Trials | College of Veterinary Medicine Skip to content MENU UT INSTITUTE OF AGRICULTURE A-Z Search for: Search for: OUR INSTITUTE Leadership Directory AgResearch Extension Herbert College of Agriculture College of Veterinary Medicine Departments Smith International Center State Botanical Garden Find Us Employment Support Us News ACADEMICS Undergraduate Students Graduate Students Veterinary Students Study Abroad RESEARCH AgResearch and Education Centers Student Research OUTREACH Agriculture and Natural Resources Community Economic Development Family and Consumer Sciences 4-H Youth Development Herbert Outreach Veterinary Resource Library Calendar GIVE A-Z College of Veterinary Medicine About Accreditation 50th Anniversary Contact Us/Directions CVM News Publications Access & Engagement Resources Facilities Faculty/Staff Administrative Personnel BDS Personnel Hospital Operations Personnel LACS Personnel SACS Personnel Mission, Vision, Values: Veterinary Medicine for the Future Ne"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -563,19 +602,21 @@
           "final_url": "https://vet.tufts.edu/clinical-trials",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 7168
+          "normalized_chars": 7168,
+          "fingerprint": "sha256:44ce51267942c3bea6226dce95735aa7c2010849597ba7f807100c17832a5154",
+          "sample": "Clinical Trials | Cummings School of Veterinary Medicine Skip to main content Skip to search Cummings School of Veterinary Medicine Apply Events Faculty Give Information for Alumni Faculty Staff Students Referring Veterinarians Open search Close search Open menu Close menu About About Cummings School Accreditation Community Engagement and Outreach Strategic Vision 2030 Weather Update Welcome Working at Cummings School Leadership & Faculty Dean's Bio Emeriti Faculty Faculty Faculty Excellence Leadership Named Professorships News & Events Community Events Events Calendar News Center Admissions & Aid Admissions & Aid Applying D.V.M. Admissions Graduate Admissions Virtual Tour Visits & Tours Financial Aid Financial Aid Overview Applying for Financial Aid FAQs Policies, Forms, & Scholarship Resources Tuition & Fees Types of Aid Academics Academics D.V.M. D.V.M. Program Overview Dual Degree Programs Entrance Requirements Legacy D.V.M. Curriculum New D.V.M. Curriculum Special Programs Veterin"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -589,26 +630,30 @@
           "final_url": "https://clinicaltrials.vetmed.ucdavis.edu/",
           "http_status": 403,
           "result": "insufficient",
-          "normalized_chars": 771
+          "normalized_chars": 771,
+          "fingerprint": "sha256:5e1082ad12c0d9dcc22b23abcb089806e5b0de9483c203849863b8d03bf05d7a",
+          "sample": "Attention Required! | Cloudflare Please enable cookies. Sorry, you have been blocked You are unable to access sfcf.ucdavis.edu Why have I been blocked? This website is using a security service to protect itself from online attacks. The action you just performed triggered the security solution. There are several actions that could trigger this block including submitting a certain word or phrase, a SQL command or malformed data. What can I do to resolve this? You can email the site owner to let them know you were blocked. Please include what you were doing when this page came up and the Cloudflare Ray ID found at the bottom of this page. Cloudflare Ray ID: a43adbdfc931118b • Your IP: Click to reveal 2a13:9500:1e4:165::292:bb • Performance & security by Cloudflare"
         },
         {
           "url": "https://clinicaltrials.vetmed.ucdavis.edu/clinical-trial-articles-news",
           "final_url": "https://clinicaltrials.vetmed.ucdavis.edu/clinical-trial-articles-news",
           "http_status": 403,
           "result": "insufficient",
-          "normalized_chars": 771
+          "normalized_chars": 771,
+          "fingerprint": "sha256:feef3c4598375b82fbbd5980e7aaafe08f74a3eebe45aac5cf60100a2eeeb21c",
+          "sample": "Attention Required! | Cloudflare Please enable cookies. Sorry, you have been blocked You are unable to access sfcf.ucdavis.edu Why have I been blocked? This website is using a security service to protect itself from online attacks. The action you just performed triggered the security solution. There are several actions that could trigger this block including submitting a certain word or phrase, a SQL command or malformed data. What can I do to resolve this? You can email the site owner to let them know you were blocked. Please include what you were doing when this page came up and the Cloudflare Ray ID found at the bottom of this page. Cloudflare Ray ID: a43adbf7f82d118b • Your IP: Click to reveal 2a13:9500:1e4:165::292:bb • Performance & security by Cloudflare"
         },
         {
-          "url": "https://clinicaltrials.vetmed.ucdavis.edu/",
+          "url": "https://studypages.com/ucdavisvet/studies/",
           "http_status": 200,
           "result": "sufficient",
-          "transport": "external web retriever"
+          "transport": "Chromium-rendered official roster"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
@@ -628,19 +673,21 @@
           "final_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/oncology/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 4940
+          "normalized_chars": 4940,
+          "fingerprint": "sha256:01acd67c89073db95257cebb03b6b8e5103896a71c784d5e226b2aeb7ca708d6",
+          "sample": "Oncology » Veterinary Research and Graduate Studies » College of Veterinary Medicine » University of Florida Skip to main content Skip to main menu UF Health University of Florida Veterinary Research and Graduate Studies College of Veterinary Medicine Currently Enrolling Clinical Studies Open Search Open Main Menu Home About Show submenu for About About Overview Our Team Contact UF CVM Research Graduate Education Show submenu for Graduate Education Graduate Education Overview Applications and Admissions Transfers of Credit FAQs Graduate Student Funding Opportunities 2027-2028 UF CVM Competitive Block Grant Awards for New PhD Students University Scholars Program: Undergraduate Students The Linda F. Hayward Florida Veterinary Scholars Program Graduate Programs Comparative Biomedical Sciences: Master's Program Comparative Biomedical Sciences: PhD Program Preventative Veterinary Medicine: Master's Program (MPVM) Veterinary Medical Sciences: Master's Program Veterinary Medical Sciences: Ph."
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -654,19 +701,21 @@
           "final_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/oncology/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 4240
+          "normalized_chars": 4240,
+          "fingerprint": "sha256:d4c108413ce9e8fc434ddb887ae3f669b50ed5536cafdf7f6426427ab5010c95",
+          "sample": "Oncology » Veterinary Research and Graduate Studies » College of Veterinary Medicine » University of Florida Skip to main content Skip to main menu UF Health University of Florida Veterinary Research and Graduate Studies College of Veterinary Medicine Currently Enrolling Clinical Studies Open Search Open Main Menu Home About Show submenu for About About Overview Our Team Contact UF CVM Research Graduate Education Show submenu for Graduate Education Graduate Education Overview Applications and Admissions Transfers of Credit FAQs Graduate Student Funding Opportunities 2027-2028 UF CVM Competitive Block Grant Awards for New PhD Students University Scholars Program: Undergraduate Students The Linda F. Hayward Florida Veterinary Scholars Program Graduate Programs Comparative Biomedical Sciences: Master's Program Comparative Biomedical Sciences: PhD Program Preventative Veterinary Medicine: Master's Program (MPVM) Veterinary Medical Sciences: Master's Program Veterinary Medical Sciences: Ph."
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -680,19 +729,21 @@
           "final_url": "https://vet.uga.edu/research/clinical-trials/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 6632
+          "normalized_chars": 6632,
+          "fingerprint": "sha256:29d56031f6069257eac57ab6c8d8fb333a6191bdbfd51363dde07bdc6352faed",
+          "sample": "Clinical Trials - UGA VetMed University of Georgia News Give Search Search Submit Menu Education Research Hospital & Primary Care Diagnostic Services Home > Research > Clinical Trials Clinical Trials Providing compassionate care while advancing the field of veterinary medicine Clinical trials are where patient care and innovation intersect. They allow us to offer our hospital clients unique treatment options for their pets while simultaneously making groundbreaking advancements in veterinary medicine. They are often conducted as part of the development of new medications, procedures, or therapies, and all animals participating in trials receive excellent clinical care. Clinical trials are conducted with approval from the Clinical Research Committee, the Hospital Board, and the University of Georgia Research Foundation. This is often the end-stage testing to determine the safety and degree of effectiveness for new drugs or treatments before FDA approval. Search Clinical Trials Frequentl"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -706,19 +757,21 @@
           "final_url": "https://vetmed.illinois.edu/research/clinical-trials/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 6222
+          "normalized_chars": 6222,
+          "fingerprint": "sha256:0147535f57ced8e495a85525f530ac88e3dec7165bad35b0fd7fab08ad7ffe62",
+          "sample": "Clinical Trials - Veterinary Medicine at Illinois Skip to content Header Top UNIVERSITY OF ILLINOIS URBANA-CHAMPAIGN Header Main College of Veterinary Medicine News Directory Library Intranet Emergency Search Bar Header Nav Primary Menu --> About About Go to Overview Office of the Dean Comparative Biosciences Faculty Graduate Program Histology Laboratory Pathobiology Pathobiology Faculty Graduate Programs Veterinary Clinical Medicine Faculty Grad Programs and Resident Internships Graduates of the IZAAR and IZCAR Residencies History of the College Zuschlag Collection Diversity, Equity and Inclusion Careers at Vet Med Veterinary Technician Career Opportunities Center for One Health Open House Strategic Plan Academics Academics Go to Overview DVM Program Accreditation Info DVM Admissions DVM Curriculum Core Courses Elective Streams Animal Use Policy Clinical Skills DVM PhD Program DVM MPH Program MS & PhD Degrees Residencies & Internships Zoo & Aquatic Program Illlinois Zoo Companion Prog"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -732,19 +785,21 @@
           "final_url": "https://bluepearlvet.com/current-clinical-studies/",
           "http_status": 403,
           "result": "insufficient",
-          "normalized_chars": 16
+          "normalized_chars": 16,
+          "fingerprint": "sha256:301dc171e5fa8c5fdeb69592a92a5c378f5f758f68d2338200235d60eb04b9ad",
+          "sample": "Just a moment..."
         },
         {
-          "url": "https://bluepearlvet.com/current-clinical-studies/",
+          "url": "https://bluepearlvet.com/clinical-trials/",
           "http_status": 200,
           "result": "sufficient",
           "transport": "external web retriever"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
@@ -764,19 +819,21 @@
           "final_url": "https://research.vetmed.vt.edu/clinical-trials/current-studies.html",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 12208
+          "normalized_chars": 12208,
+          "fingerprint": "sha256:61916ad6aaf84390998dbff955b51ff8f4a5090ccb1bef22a3b4acdcea852cf2",
+          "sample": "Current Studies Our clinical research program involves both primary research focused on advancing the treatment and diagnosis of diseases through animal clinical trials and comparative research in which spontaneous diseases in animals can be used as models of human disease. general-page --> Current Studies | Research | Virginia Tech Skip to main content Skip to search Virginia Tech® home Universal Access Toggle Universal Access Close Universal Access dialog Universal Access Options Report a barrier Accessibility portal Pause all background videos Underline all links Apply Visit Give Shop Hokie Sports Shop Apparel, clothing, gear and merchandise Hokie Shop University Bookstore, merchandise and gifts Hokie Gear Everything you need to know about Hokie gear Hokie License Plates Part of every Virginia Tech plate purchase funds scholarships Resources for Future Students Current Students Parents and Families Faculty and Staff Alumni Industry and Partners Research at Virginia-Maryland College "
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -790,19 +847,21 @@
           "final_url": "https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 9675
+          "normalized_chars": 9675,
+          "fingerprint": "sha256:ca8188bf8c529b3178825380d38fe181c9817ddb099b5311b25f11eb129d3891",
+          "sample": "Clinical Studies in Oncology - UW Veterinary Care U niversity of W isconsin –Madison UW Veterinary Care University of Wisconsin - Madison 608-263-7600 Get Directions MENU MENU Emergency Small Animal Clinic Cats and Dogs Cardiology Critical Care Dentistry and Oromaxillofacial Surgery Dermatology Internal Medicine Neurology & Neurosurgery Oncology & Cancer Care Ophthalmology & Eye Care Physical Rehabilitation Primary Care Surgery - Oncology Surgery - Orthopedic Surgery - Soft Tissue Exotic Species Birds Rabbits & Small Mammals Reptiles Zoo Medicine Large Animal Equine Farrier Foal Neonatal Care Internal Medicine Sports Medicine Surgical Livestock 360 Support Our Team Veterinarians Veterinary Technicians Staff Residents/Interns Acupuncture Anesthesia Blood Bank Diagnostic Imaging Extracorporeal Therapies Hospital Pharmacy Laboratory & Pathology Pain Management Veterinary Support Services Client Learning & Lending Clinical Studies Cardiology Clinical Pathology Critical Care Dentistry and O"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -816,19 +875,21 @@
           "final_url": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-trials.html",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 5680
+          "normalized_chars": 5680,
+          "fingerprint": "sha256:94d330dcefc51088fb9333f7b2d8589a49dfad2f127d4a785f2beccab2a2fff1",
+          "sample": "Veterinary Clinical Trials, Veterinary Research and Oncology Clinic: UT Southwestern Medical Center, Dallas, TX Skip to Main Optimized for Internet Explorer 11 As of January 8, 2016, the standard browser for UT Southwestern will be IE 11 . To ensure the best web experience, please upgrade to the latest standard browser for your computer. Upgrade your browser Faculty Resources Employee Resources Back to UT Southwestern Home Departments & Centers Back to Departments & Centers UT Southwestern Sites UT Southwestern Home Home - EDU Research Education & Training Patient Care Faculty Directory Departments & Centers Innovation Hub Careers Media About Us All Patient Care Education & Training Research Faculty Departments & Centers Newsroom Events About Us Employees Home Departments & Centers Radiation Oncology Veterinary Research and Oncology Clinic Radiation Oncology Who We Are Education & Training Research Veterinary Research and Oncology Clinic Core Facilities & Equipment Divisions & Sections"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -842,26 +903,30 @@
           "final_url": "https://www.ethosvet.com/current-studies/",
           "http_status": 404,
           "result": "insufficient",
-          "normalized_chars": 1173
+          "normalized_chars": 1173,
+          "fingerprint": "sha256:2518218551656bc9c64f518b48254ebf8302df38bf0293438587ded9f413b44b",
+          "sample": "Page not found - Ethos Veterinary Health NVA Group About Us About Us Our Hospitals Advancing Medicine Medical Excellence Medical Operations New Product Committee Specialty Advisory Board Ethos Science Blood Bank Programs Veterinary Nursing Ethos Discovery Ethos Updates Careers + Development Ethos is Hiring Careers Opportunities Employee Benefits Internships & Residencies Meet Our Talent Teams Referral Program Training Programs Veterinary Training Programs Veterinary Nursing Programs Careers Unleashed VetBloom Veterinary Conferences --> About Us About Us Our Hospitals Advancing Medicine Medical Excellence Medical Operations New Product Committee Specialty Advisory Board Ethos Science Blood Bank Programs Veterinary Nursing Ethos Discovery Ethos Updates Careers + Development Ethos is Hiring Careers Opportunities Employee Benefits Internships & Residencies Meet Our Talent Teams Referral Program Training Programs Veterinary Training Programs Veterinary Nursing Programs Careers Unleashed Vet"
         },
         {
           "url": "https://www.ethosvet.com/medical-professionals/",
           "final_url": "https://www.ethosvet.com/medical-professionals/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 1401
+          "normalized_chars": 1401,
+          "fingerprint": "sha256:ad4ce98b51fc281342a91731bab230f07d78b32567cb74b9456f9beea28b37a7",
+          "sample": "Medical Professionals - Ethos Veterinary Health NVA Group About Us About Us Our Hospitals Advancing Medicine Medical Excellence Medical Operations New Product Committee Specialty Advisory Board Ethos Science Blood Bank Programs Veterinary Nursing Ethos Discovery Ethos Updates Careers + Development Ethos is Hiring Careers Opportunities Employee Benefits Internships & Residencies Meet Our Talent Teams Referral Program Training Programs Veterinary Training Programs Veterinary Nursing Programs Careers Unleashed VetBloom Veterinary Conferences --> About Us About Us Our Hospitals Advancing Medicine Medical Excellence Medical Operations New Product Committee Specialty Advisory Board Ethos Science Blood Bank Programs Veterinary Nursing Ethos Discovery Ethos Updates Careers + Development Ethos is Hiring Careers Opportunities Employee Benefits Internships & Residencies Meet Our Talent Teams Referral Program Training Programs Veterinary Training Programs Veterinary Nursing Programs Careers Unleas"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -875,26 +940,30 @@
           "final_url": "https://www.ethosdiscovery.org/clinical-studies/",
           "http_status": 404,
           "result": "insufficient",
-          "normalized_chars": 1155
+          "normalized_chars": 1155,
+          "fingerprint": "sha256:4e34823deefa401e0ad664d74564db7630e27cb0bae58f712516fc075c1d00d5",
+          "sample": "Page not found - Ethos Discovery Contact Us About Us About Us Philanthropic Strategy IRS Form 990 Our Team Scientific Collaboration Ethos Veterinary Health Ethos Veterinary Training Programs Scientific Programs Our Studies Study Guides Chronic Enteropathy Study FICUSS Study Hemangiosarcoma Program Inflammatory CNS Disease Program Innovations in Surgery Intestinal Dysbiosis Program Novel Therapeutics Program Sepsis Program FAQs Donate News + Articles Press Releases Our Blog Contact Us Our Hospital Network Contact Us --> About Us About Us Philanthropic Strategy IRS Form 990 Our Team Scientific Collaboration Ethos Veterinary Health Ethos Veterinary Training Programs Scientific Programs Our Studies Study Guides Chronic Enteropathy Study FICUSS Study Hemangiosarcoma Program Inflammatory CNS Disease Program Innovations in Surgery Intestinal Dysbiosis Program Novel Therapeutics Program Sepsis Program FAQs Donate News + Articles Press Releases Our Blog Contact Us Our Hospital Network Contact U"
         },
         {
           "url": "https://www.ethosdiscovery.org/scientific-programs/",
           "final_url": "https://www.ethosdiscovery.org/scientific-programs/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 8615
+          "normalized_chars": 8615,
+          "fingerprint": "sha256:af6d415b9a84bffacd51711c913a918d727b9e549e21be058dd93c685d59d0d8",
+          "sample": "Veterinary Clinical Trials and Treatments for Pet Cancer and Other Conditions - Ethos Discovery Contact Us About Us About Us Philanthropic Strategy IRS Form 990 Our Team Scientific Collaboration Ethos Veterinary Health Ethos Veterinary Training Programs Scientific Programs Our Studies Study Guides Chronic Enteropathy Study FICUSS Study Hemangiosarcoma Program Inflammatory CNS Disease Program Innovations in Surgery Intestinal Dysbiosis Program Novel Therapeutics Program Sepsis Program FAQs Donate News + Articles Press Releases Our Blog Contact Us Our Hospital Network Contact Us --> About Us About Us Philanthropic Strategy IRS Form 990 Our Team Scientific Collaboration Ethos Veterinary Health Ethos Veterinary Training Programs Scientific Programs Our Studies Study Guides Chronic Enteropathy Study FICUSS Study Hemangiosarcoma Program Inflammatory CNS Disease Program Innovations in Surgery Intestinal Dysbiosis Program Novel Therapeutics Program Sepsis Program FAQs Donate News + Articles Pr"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -908,19 +977,21 @@
           "final_url": "https://www.medvet.com/clinical-studies/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 19769
+          "normalized_chars": 19769,
+          "fingerprint": "sha256:209a5468e5f111b058ccfae7f1ed1399a1040ea82a6afdf6f1b5a90bd2637c3f",
+          "sample": "Clinical Studies at MedVet | Emergency & Specialty Pet Care For Pet Parents For Veterinarians Work at MedVet Emergency Care Find Care Specialties Resources About Find a Clinic Specialties Vet Resources About MedVet Training Programs Find a Clinic Referral Partner Login Refer a Patient Locations Find A Doctor Anesthesia & Pain Management Avian & Exotics Cardiology Critical Care Dentistry & Oral Surgery Dermatology Emergency Medicine Integrative Medicine Internal Medicine Interventional Radiology Medical Oncology Neurology & Neurosurgery Ophthalmology Radiation Oncology Radiology Rehabilitation Social Work Sports Medicine Surgery Urgent Care We Are MedVet MedVet Experience Our Leaders Our Founders Newsroom Diversity, Inclusion, & Belonging Community Support FAQs Anesthesia & Pain Management Avian & Exotics Cardiology Critical Care Dentistry & Oral Surgery Dermatology Emergency Medicine Integrative Medicine Internal Medicine Interventional Radiology Medical Oncology Neurology & Neurosurge"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -934,19 +1005,21 @@
           "final_url": "https://castr-wa.com/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 7378
+          "normalized_chars": 7378,
+          "fingerprint": "sha256:e6a65a8721e1e9c281fac019613d938344e5f1cf82f397138492d33bc9832e7a",
+          "sample": "CASTR Alliance Skip to content Menu Home Mission Services Team News Testimonials Contact |Accelerating medical discovery | Advancing veterinary care CASTR: Companion Animal Studies for Translational Research Ongoing Studies Contact What we do CASTR Alliance aims to advance human and veterinary medicine by facilitating the discovery of innovative treatments through the management of high-quality veterinary clinical studies and collaboration with industry leaders and veterinary hospitals. We provide turnkey management of sponsored veterinary clinical studies to pharmaceutical and medical device development teams worldwide. We partner with state-of-the-art veterinary specialty and referral hospitals throughout the Pacific Northwest and beyond to enroll patients on sponsored clinical studies. We manage sponsored clinical trials that abide by Good Clinical Practice (GCP) standards for veterinary studies and are designed to ensure the collection of high-quality data. We submit all CASTR-run "
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -960,20 +1033,24 @@
           "final_url": "https://anivivelifesciences.com/trials",
           "http_status": 525,
           "result": "insufficient",
-          "normalized_chars": 899
+          "normalized_chars": 15,
+          "fingerprint": "sha256:76478b17bcbcfac7a7137d534cf5fb8ce7d0d81290eeabe0d25b5f514e25b44c",
+          "sample": "error code: 525"
         },
         {
           "url": "https://anivivelifesciences.com/treatments",
           "final_url": "https://anivivelifesciences.com/treatments",
           "http_status": 525,
           "result": "insufficient",
-          "normalized_chars": 899
+          "normalized_chars": 15,
+          "fingerprint": "sha256:76478b17bcbcfac7a7137d534cf5fb8ce7d0d81290eeabe0d25b5f514e25b44c",
+          "sample": "error code: 525"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "partial",
       "content_sufficient": false,
       "protocols_seen": 0,
@@ -993,19 +1070,21 @@
           "final_url": "https://ovcclinicaltrials.uoguelph.ca/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 2567
+          "normalized_chars": 2567,
+          "fingerprint": "sha256:0955d42623518fa9e7222d8e8ed8b7731ce2e9473277fdffef65501bed87921e",
+          "sample": "OVC Clinical Trials Skip to content OVC Clinical Trials About Us Our Team Location of Facilities Support Us Join a Study Canine Clinical Trials Feline Clinical Trials Large Animal Clinical Trials Research Surveys Research Clinical Trials Superheroes Research Highlights and Publications Participant Stories FAQ’s Contact Us OVC Clinical Trials Toggle Menu OVC Clinical Trials About Us Our Team Location of Facilities Support Us Join a Study Canine Clinical Trials Feline Clinical Trials Large Animal Clinical Trials Research Surveys Research Clinical Trials Superheroes Research Highlights and Publications Participant Stories FAQ’s Contact Us Play Slideshow Pause Slideshow Previous Slide Next Slide div\" data-cycle-pager=\".header-pager ul\" data-cycle-pager-template=\" Slide {{slideNum}} \" data-cycle-prev=\".header-control--prev\" data-cycle-next=\".header-control--next\"> Actively Recruiting Participants Start exploring studies that your pet or patient may be eligible for - Click Here. Have a Quest"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -1019,19 +1098,21 @@
           "final_url": "https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 5602
+          "normalized_chars": 5602,
+          "fingerprint": "sha256:9877515c0d75ceae398a00eccacce893eafb08895d2ac4fb19e01e572a499507",
+          "sample": "ESVONC CONGRESS | Clinical Trials - Ongoing EU Clinical Trials Menu Home Discover our society Objectives Board Become a ESVONC member History Other Societies National Veterinary Oncology Societies Veterinary Oncology Societies in the world Congress Venue City Scotland Accessibility Congress Venue Hotels Registration Social Program Sponsors and Exhibitors Sponsorship information Speakers Awards Congress Calendar Picture Gallery Nurses ESVONC Nurses Membership Education Portal How to get involved Clinical Research Ongoing Clinical trials Clinical Research Fund News Job offers Education Courses Clinical Trials Internship Framework Contact Members Log-In Ongoing EU Clinical Trials ESVONC attaches great importance to innovation and evidence-based medicine in the field of veterinary oncology. Therefore, we are happy to share with you with a monthly overview of ongoing canine and feline oncology trials in Europe. We are convinced that knowledge of these trials will enhance collaboration betwe"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -1045,19 +1126,21 @@
           "final_url": "https://oncowaf.be/en/ClinicalTrials/searchResults",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 12175
+          "normalized_chars": 12175,
+          "fingerprint": "sha256:fb931d312d99cbfff108d09e9642f024e7ac1189e23175adbcd02c659d501a52",
+          "sample": "Oncowaf what is cancer The basics Causes Side effects FAQ Tumour types what does the veterinarian do Diagnosis Treatment what can I do Recognizing symptoms Communicating with the veterinarian Pain relief Support End of life clinical trials breed & tumour DE | EN | FR | NL | PT --> EN Deutsch English Français Nederlands Português Clinical trials How can I find an ongoing clinical trial? Via the search button, you can perform a targeted search for canine clinical trials. In order to do this, tick -if known- the box of your dog’s tumour type (‘Select tumour type’) and/or the countries (‘Select location’) for which you wish to know whether clinical trials are ongoing. Afterwards, a list of trials for which your dog might be eligible will appear. The listed information is limited to Treatment centre where the trial is available In/exclusion criteria. Inclusion criteria describe the criteria necessary for your dog to participate in the trial (e.g. inoperable tumour). Exclusion criteria descr"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -1071,19 +1154,21 @@
           "final_url": "https://vetoncology.sites.uu.nl/research/interventional/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 7087
+          "normalized_chars": 7087,
+          "fingerprint": "sha256:77bb07b08607e41d33451129ad18bbcc3153e6644870fb102c85746e927c58e7",
+          "sample": "Veterinary Oncology Group - OnGo | Interventional Navigation Veterinary Oncology Group – OnGo ' Veterinary On cology G r o up - OnGo Skip to content Home News Agenda Media People Current team Collaborators Research Selected publications Tissue Bank Contact IF-5 BAS07763 marit en microscoop 2-1 crop IF-6 BAS07772 Sara en Marit bij microscoop 2-1 crop IF-1 Foto rondleiding_2014_v02 (pdt)_BvN_klein 2-1 crop IF organoid IF-4 Screenshot IF-3 Screenshot IF-2 Maurice Zandvliet 2022 met versneller 2-1 crop C1 20x different focus organoid crop 2-1 beide organoids Research sections Endocrine Oncology Interventional Medical Oncology Interventional Brain Squama cell carcinoma Interventional Show sidebar Brain Brain tumors are one of the emerging problems in human and veterinary medicine. In general, the prognosis is guarded, and the average life expectancy is short. For both, veterinary and human patients the current treatment options involve surgery and radiation therapy, which rarely result in c"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -1097,19 +1182,21 @@
           "final_url": "https://www.tierspital.uzh.ch/kleintiere/kleintierkliniken-onkologie/krebs-tumore-klinische-studien/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 5326
+          "normalized_chars": 5326,
+          "fingerprint": "sha256:3f38c7e74aa87f90177c17dfe8a0ae3e0a8d684e1b876ce51c63c07b8c6f8b3c",
+          "sample": "Klinische Studien | Universitäres Tierspital Zürich Zum Inhalt springen Universitäres Tierspital Search ... Treffer Alle Treffer sehen DE Notfall 24h Termin & Besuch vorbereiten Kleintiere Übersicht Notfall Termin & Besuch vorbereiten Kliniken & Fachbereiche Teamübersicht Kurse & Infos für Tierhalter:innen Zoo-, Heim- & Wildtiere Übersicht Notfall Termin & Besuch vorbereiten Teamübersicht Pferde Übersicht Notfall Termin & Besuch vorbereiten Krankheiten & Behandlungsmethoden Teamübersicht Nutztiere Übersicht Notfall Termin & Besuch vorbereiten Klinische Diagnostik und Services Übersicht Anästhesiologie Klinik für Bildgebende Diagnostik Veterinärmedizinisches Labor Tierärzt:innen Übersicht Überweisungen Beratung & Services Weiterbildungsangebot Über uns Übersicht Das Tierspital in den Medien Mitarbeitende Zentrale Angebote Pflege der Patienten Augenheilkunde Offene Stellen Kontakt & Anfahrt Lehre und Forschung Termin & Besuch vorbereiten Kleintiere Übersicht Notfall Termin & Besuch vorbe"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -1123,19 +1210,21 @@
           "final_url": "https://www.ospedaleveterinario.unimi.it/collaborare-con-noi-studi-di-ricerca/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 12174
+          "normalized_chars": 12174,
+          "fingerprint": "sha256:50cdd0c2a7ed5ee14ef8df0959a1b93007ff1cf497852e103d622b82b3d6d88f",
+          "sample": "Vuoi collaborare con noi ai nostri studi di ricerca | Ospedale Veterinario Universitario di Lodi Emergenze UniMi | Ospedale Vetrinario Universitario UniMi Home Chi siamo Reparti Staff Dove siamo News ed Eventi Ospedale Veterinario Universitario studi di ricerca Home / Opportunità lavorative / Vuoi collaborare con noi ai nostri studi di ricerca Terapia a base di piccole molecole organiche aventi come target la Proteina di Attivazione dei Fibroblasti (PAF) per il trattamento di tumori spontanei del cane (Studio clinico di Fase I-II) Studio Clinico approvato da: Organismo Preposto al Benessere degli Animali- Università degli Studi di Milano. Numero approvazione: OPBA 82 2022. Perché conduciamo questo studio? Le neoplasie del cane a comportamento aggressivo e prognosi infausta sono per la maggior parte orfane di terapie efficaci e dedicate a questa specie. L’azienda Philochem ha progettato e reso disponibile la molecola OncoFAP, un vero e proprio carrier (o “trasportatore”) in grado di vei"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -1149,25 +1238,36 @@
           "final_url": "https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre",
           "http_status": 403,
           "result": "insufficient",
-          "normalized_chars": 88
+          "normalized_chars": 88,
+          "fingerprint": "sha256:d4d21c2c9ebca043f7919cd759e25b91c8b4d7f70348ac4321e6b60abd9760b4",
+          "sample": "Request Blocked Access Denied Your request was blocked by the website's security policy."
         },
         {
           "url": "https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre/projects",
+          "final_url": "https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre/projects",
+          "http_status": 403,
+          "result": "insufficient",
+          "normalized_chars": 88,
+          "fingerprint": "sha256:d4d21c2c9ebca043f7919cd759e25b91c8b4d7f70348ac4321e6b60abd9760b4",
+          "sample": "Request Blocked Access Denied Your request was blocked by the website's security policy."
+        },
+        {
+          "url": "https://www.rvc.ac.uk/review/clinical-investigation-centre/projects",
           "http_status": 200,
           "result": "sufficient",
           "transport": "Chromium-rendered official roster"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 8,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -1181,19 +1281,21 @@
           "final_url": "https://www.ksvhc.org/services/specialty-services/oncology/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 1715
+          "normalized_chars": 1715,
+          "fingerprint": "sha256:c164ab7601ad336072a89c64e22beaba51d96c59416a713c896948104927363e",
+          "sample": "Oncology Service | K-State Veterinary Health Center Powercat chevron double-chevron chat-purple home computer window with a question mark close facebook linkedin menu search twitter youtube apply-purple apply-white chat-white request-purple request-white Jump to main content Jump to footer Kansas State University Canvas OrgCentral Navigate KSIS Time & Leave HRIS Webmail Sign in Browse A-Z Veterinary Health Center Search Search K-State home College of Veterinary Medicine Veterinary Health Center VHC Services Specialty Services Oncology Veterinary Oncology (Cancer) The staff of the Veterinary Health Center Oncology (Cancer) Service is dedicated to the prevention, diagnosis and treatment of cancer in your pet. Through research and education the VHC Oncology Program not only helps treat current cancer patients but also trains future veterinarians in the area of oncology (cancer biology) and performs clinical research to investigate innovative and more effective ways to treat patients with "
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -1207,13 +1309,15 @@
           "final_url": "https://www.sagecenters.com/clinical-trials",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 2267
+          "normalized_chars": 2265,
+          "fingerprint": "sha256:d93c2d8de8fa12f05c6b1e62a594acf6958af5ee47f7a52b035c42f69f0c3fef",
+          "sample": "Clinical Trials | SAGE Veterinary Centers Skip to Primary Content Give Us a Call Emergency Emergency Contact Us Contact Us Who We Are About Us Giving Back Share Your Story Our Team - Campbell Our Team - Concord Our Team - Dublin Our Team - Redwood City Our Team - San Francisco Services View all Services Campbell Services Concord Services Dublin Services Redwood City Services San Francisco Services For Pet Owners For Pet Owners Self-Service Portal Appointment Information Online Pharmacy Grief Support Pet Owner FAQs For Veterinarians For Veterinarians E-Learning Portal Clinical Trials Request Records Veterinarian FAQs Careers Give Us a Call Emergency Contact Us Clinical Trials SAGE Veterinary Centers' veterinarians and patients participate in a variety of clinical studies. SAGE Oncology has a robust Oncology service that includes 8 Medical Oncologists and 1 Radiation Oncologist. The Oncology teams are committed to contributing to the advancement of medicine, and to helping their patients"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
@@ -1233,19 +1337,21 @@
           "final_url": "https://petcureoncology.com/clinical-trials/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 4173
+          "normalized_chars": 4173,
+          "fingerprint": "sha256:408fcbf03abd4f3d9d60dcc592535b4768c1c306c798b53296609ffe79aa9655",
+          "sample": "Clinical Trials for Dogs & Cats with Cancer | PetCure Oncology --> PetCure Oncology Pet Parents: Get Help Now! Veterinarians: Refer A Patient Search Search PetCure Oncology Cancel Call us at 833-738-4376 Pet Cancer Pet Cancer In Dogs Pet Cancer In Cats Pet Cancer Treatment Options Making A Pet Cancer Treatment Decision Pet Cancer Treatment Stereotactic Radiation (SRS/SRT) Treatment FAQ What Makes Us Different? What To Expect from Treatment Medical Oncology Telehealth Clinical Trials & Research Payment Resources Locations PetCure Chicago PetCure Clifton, NJ PetCure Dallas Fort Worth PetCure Phoenix PetCure Pittsburgh PetCure San Antonio PetCure San Jose Traveling For Cancer Treatment Pet Stories Pet Parent Stories Share Your Pet Story For Vets Refer a Patient Complimentary Imaging Reviews About Radiation Oncology Primary Care Veterinarians B-Cell Lymphoma in Dogs Non-Cancerous Conditions Post Surgical Radiation Clinical Information Case Studies Non-Urgent Questions Veterinary FAQ About "
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -1259,19 +1365,21 @@
           "final_url": "https://www.amcny.org/current-clinical-trials/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 16686
+          "normalized_chars": 16686,
+          "fingerprint": "sha256:710d561d081fc5b3e5a0c7055f27dd535ed3f878760b58f77ef8d8b9ab25ea2f",
+          "sample": "Clinical Trials - The Animal Medical Center --> Skip to content Meet AMC About Us Mission and Values Leadership Join our Team Events Press 2025 Impact Report Visit AMC Contact Us Appointments About Your Visit Find A Doctor Referrals Donate Make a Gift Membership Planned Giving Other Ways to Give Pet Owner Education Search Search for: Pet Owner Education 24-Hour Emergency Services (212) 838-8100 510 East 62nd Street New York, NY 10065 Contact Us Pet Owners Veterinary Community Supporters Close Pet Owners Specialties & Services Find A Doctor About Your Visit Financial Assistance Our Blog Ask the Vet Podcast Pet Stories Social Work Services Pet Health Resources Specialties & Services With more than 20 specialties and services under one roof, the Schwarzman Animal Medical Center is able to provide high quality collaborative care. Anesthesia & Pain Management Behavior Cardiology Dentistry & Oral Surgery Dermatology Diagnostic Imaging Emergency & Critical Care Exotic Pet Medicine Hemodialysi"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -1285,33 +1393,39 @@
           "final_url": "https://www.vet.upenn.edu/research/research-programs/comparative-immunotherapy-program/clinical-trials/",
           "http_status": 403,
           "result": "insufficient",
-          "normalized_chars": 16
+          "normalized_chars": 16,
+          "fingerprint": "sha256:301dc171e5fa8c5fdeb69592a92a5c378f5f758f68d2338200235d60eb04b9ad",
+          "sample": "Just a moment..."
         },
         {
           "url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
           "final_url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
           "http_status": 403,
           "result": "insufficient",
-          "normalized_chars": 16
+          "normalized_chars": 16,
+          "fingerprint": "sha256:301dc171e5fa8c5fdeb69592a92a5c378f5f758f68d2338200235d60eb04b9ad",
+          "sample": "Just a moment..."
         },
         {
           "url": "https://www.vet.upenn.edu/clinical-trial/",
           "final_url": "https://www.vet.upenn.edu/clinical-trial/",
           "http_status": 403,
           "result": "insufficient",
-          "normalized_chars": 16
+          "normalized_chars": 16,
+          "fingerprint": "sha256:301dc171e5fa8c5fdeb69592a92a5c378f5f758f68d2338200235d60eb04b9ad",
+          "sample": "Just a moment..."
         },
         {
-          "url": "https://www.vet.upenn.edu/research/research-programs/comparative-immunotherapy-program/clinical-trials/",
+          "url": "https://www.vet.upenn.edu/research/centers-laboratories/center/comparative-immunotherapy-program/clinical-trials",
           "http_status": 200,
           "result": "sufficient",
           "transport": "external web retriever"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
@@ -1331,19 +1445,21 @@
           "final_url": "https://veterinary-science.uq.edu.au/community/clinical-trials",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 6950
+          "normalized_chars": 6950,
+          "fingerprint": "sha256:1b8e358fd0682cd89381f042503a159afa52a8baf99a142841d9641f17ea01a2",
+          "sample": "Clinical trials - School of Veterinary Science - University of Queensland Skip to menu Skip to content Skip to footer Menu Study Research Partners and community About Search School of Veterinary Science Home About About Welcome\" > Welcome Our people\" > Our people Accreditation\" > Accreditation History\" > History News\" > News Events\" > Events Strategic plan\" > Strategic plan Equity, diversity and inclusion\" > Equity, diversity and inclusion Staff intranet\" > Staff intranet Study Study Undergraduate\" > Undergraduate Honours\" > Honours Higher Degree by Research (HDR)\" > Higher Degree by Research (HDR) Research Research Research themes\" > Research themes Collaborations and partnerships\" > Collaborations and partnerships Facilities\" > Facilities Services and hospitals Services and hospitals UQ VETS Equine Specialist Hospital\" > UQ VETS Equine Specialist Hospital UQ VETS Production Animal Service\" > UQ VETS Production Animal Service UQ VETS Small Animal Hospital\" > UQ VETS Small Animal Hospi"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -1357,19 +1473,21 @@
           "final_url": "https://uqvets.com.au/about/clinical-research-trials",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 4286
+          "normalized_chars": 4286,
+          "fingerprint": "sha256:7bfa82f33d1a9f930a2b57176ccfa3ce5b22c8ae6c79dd504f559a6f54dbcf94",
+          "sample": "Clinical research trials - UQ VETS - University of Queensland Skip to menu Skip to content Skip to footer Menu Study Research Partners and community About Search UQ VETS Home Small Animal Hospital Small Animal Hospital Emergency\" > Emergency Services\" > Services Appointments\" > Appointments Blood donor program for dogs\" > Blood donor program for dogs Referring vets\" > Referring vets Animal care and advice\" > Animal care and advice About\" > About Equine Specialist Hospital Equine Specialist Hospital Emergency\" > Emergency Services\" > Services Appointments\" > Appointments Visitors\" > Visitors Referring vets\" > Referring vets General advice\" > General advice About\" > About Production Animal Service Production Animal Service Emergency\" > Emergency Services\" > Services Appointments\" > Appointments Animal care and advice\" > Animal care and advice About\" > About About About Contact\" > Contact Getting to UQ VETS\" > Getting to UQ VETS Payments\" > Payments Our team\" > Our team Giving\" > Giving C"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -1383,19 +1501,21 @@
           "final_url": "https://www.gamgee.io/trial/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 3552
+          "normalized_chars": 3552,
+          "fingerprint": "sha256:6560b7f6a01e332a21cd6782d5139b094e08a4cc6b81797387de60377d5404f4",
+          "sample": "Register Interest in Our Dog Cancer Trial | Gamgee GAMGEE Our mission Our story In the media For vets Register interest Our mission Our story In the media For vets Register interest Trial now recruiting · Australia Register your interest in our dog cancer trial We are recruiting dogs with mast cell cancer in Australia for an investigational trial of personalised mRNA cancer vaccines. Register your interest and share a few details about your dog. Our team will contact you about further screening. Register your interest → See how it works → Why we are running this trial From Rosie’s story to a future for more dogs. Rosie The first dog treated with a personalised neoantigen vaccine. It began with Rosie. Her experience with a personalised neoantigen vaccine encouraged Paul to explore how this approach could one day be made available to every dog with cancer. Before an approach like this can become broadly available, we must study it carefully and support it by evidence for review by the re"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
-      "saved_last_result": "unchanged",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
+      "saved_last_result": "changed",
       "content_sufficient": true,
       "protocols_seen": 0,
-      "candidates_found": 0,
-      "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "candidates_found": 1,
+      "protocol_pages_checked": 3,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -1409,13 +1529,15 @@
           "final_url": "https://pettrials.com.au/trials/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 2930
+          "normalized_chars": 2923,
+          "fingerprint": "sha256:5ab788423a5f26d949e77a5cfc47ae31ea7d8fc00698de5b2046908f236c92f6",
+          "sample": "Find Veterinary Clinical Trials | PetTrials Australia How it works Find trials Research areas About FAQ Sign in Upload vet history Find trials Search veterinary clinical trials in Australia. Browse active and upcoming clinical trials for dogs and cats across Australian universities and research institutions. PetTrials aggregates trial opportunities from veterinary schools nationwide, so you can find the right study for your pet in one place. Searching is always free. 7 Trials listed 7 Institutions tracked Free To search and register All species Dogs Cats All conditions Cancer / Oncology Arthritis / Joint disease Skin / Dermatology Neurology / Cognitive Gastrointestinal Endocrine / Diabetes Infectious disease Ageing / Longevity All states Queensland New South Wales Victoria Western Australia South Australia National All status Recruiting now Coming soon No trials match your search Try adjusting your filters or search terms. New trials are added regularly, so check back often or register"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
@@ -1435,19 +1557,21 @@
           "final_url": "https://sashvets.com/services/sash-research/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 9150
+          "normalized_chars": 9150,
+          "fingerprint": "sha256:95dfacbdfa67614cdabcfb8ea44bd27a77762836649fffc0483e31e516497bce",
+          "sample": "Clinical Research - SASH Vets Skip to main content Skip to footer Opens in a new tab Vet Login Find your closest SASH vet Emergency Info Call SASH 24/7 Search ... See all results Our Services Departments 24/7 Emergency Anaesthesia Avian and Exotics Behaviour Cardiology Critical Care Dentistry Dermatology Diagnostic Imaging Internal Medicine Neurology & Neurosurgery Oncology (Medical) Oncology (Radiation) Oncology (Surgical) Ophthalmology Pathology Reproduction Sports Medicine & Rehabilitation Surgery Other Services Blood Bank Bladder & Kidney Centre Cancer Centre Clinical Research Pituitary Centre Radioiodine Trauma Centre Facilities CT Scanner Dialysis & Extracorporeal Therapies Fluoroscopy Hydrotherapy Linear Accelerator (LINAC) MRI Scanner Therapeutic Laser View All Services For Pet Owners Resources Pet Advice & How tos Diseases, Conditions & Treatments Patient Stories Inside SASH: The Specialist Vets Visiting SASH Fees, Costs & Estimates Payment Options Meet the SASH Team Browse SA"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -1461,19 +1585,21 @@
           "final_url": "https://www.caninecancer.org.au/ausresearch.html",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 2072
+          "normalized_chars": 2072,
+          "fingerprint": "sha256:ddbe6807b84d9760e4fcceffaaad6b3043176653c160b963378f47de0e2a0f50",
+          "sample": "﻿ Australian Home About Types of Cancer Treatment Oncologists Research Links Forum Contact Us Return To Top Copyright © 2013 CanineCancer.org.au All rights reserved. Return To Top Australian Research State Guide Treatment of Metastic Osteosarcoma New clinical trials have commenced at five Veterinary Oncology Specialist Centres within Australia for the trial of a drug to inhibit the spread of bone cancer. The drug Auranofin has been tested in a mouse model with results showing a significant reduction in the spread of osteosarcoma to the lungs without any side effects. It is hoped that similar results in the reduction of metastasis will be found with dogs. Auranofin also has the potential for the prevention and treatment of osteosarcoma in humans as well as dogs. Human hospitals are also participating in this study and are listed on the information sheet. The drug Auranofin will be free but there will be costs that owners will need to pay for themselves. These other costs include those f"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -1487,19 +1613,21 @@
           "final_url": "https://medipaws.com.au/clinical-research",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 7389
+          "normalized_chars": 7389,
+          "fingerprint": "sha256:79ec0fbd45c0268b21e8dfa39bbc862cfde0037935dac869bd4a7a97544b97c5",
+          "sample": "MediPaws | Clinical Research About Close About Open About About MediPaws Our Story Meet Our Team Our Events Media Hub Our Facilities Cat Friendly Care Join Our Newsletter Careers With Us Where to Find Us Services Close Services Open Services Departments 24/7 Emergency Care Anaesthesia Surgery Internal Medicine Diagnostic Imaging Dermatology Oncology Ophthalmology Rehabilitation Other Services Nuclear Medicine Feline Medicine Kidney & Urinary Medicine TPLO Surgery THR Surgery Hydrotherapy Feline Radioiodine Bone Scan Clinic Departments 24/7 Emergency Care Anaesthesia Surgery Internal Medicine Diagnostic Imaging Dermatology Oncology Ophthalmology Rehabilitation Medical Centres Nuclear Medicine Feline Medicine Kidney & Urinary Medicine Main Procedures TPLO Surgery THR Surgery Hydrotherapy Feline Radioiodine Bone Scan Clinic Clinical Research All Services Meet Our Team Pet Owners Close Pet Owners Open Pet Owners For Pet Owners Your Visit At MediPaws Register Your Pet Fees & Payment Options"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -1513,19 +1641,21 @@
           "final_url": "https://www.bvsc.com.au/foundation/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 3249
+          "normalized_chars": 3249,
+          "fingerprint": "sha256:534993cee1790e0bf4940ccc5c18697e6f376a9f6af207923b901c724e75698f",
+          "sample": "The BVSC Foundation | Advancing Veterinary Research & Care Skip to content Referring Vets Refer Online Contact Us Toggle Navigation Services Surgery Orthopaedic Surgery Soft Tissue Surgery Neurological Surgery Minimally Invasive Surgery Surgical Oncology Internal Medicine Radiation Therapy Oncology Ophthalmology Physiotherapy Diagnostic Services I-131 Treatment Dermatology Behaviour Hyperbaric Oxygen Treatment Emergency Services For Vets Refer Online Continuing Education Information Sheets Visit Us How to refer to us? Patient stories For Pet Owners Visiting BVSC + The Animal Hospital Visiting BVSC + The Specialist Clinic Your Pet’s Stay Cat Friendly Grief Counselling Information Sheets Patient stories About Us About Us Our Team Careers Foundation Pet-CT Osteosarcoma Study Lymphosarcoma – Half Body Irradiation Squamous Cell Carcinoma Prostate Cancer Canine Soft Tissue Sarcomas Our Environment Contact Repeat Medications 07 3264 9400 Foundation Foundation Foundation admin 2026-06-02T00:38"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -1538,20 +1668,28 @@
           "url": "https://www.anzcvs.org.au/chapters/veterinary%2Boncology/news",
           "final_url": "https://www.anzcvs.org.au/chapters/veterinary%2Boncology/news",
           "http_status": 200,
+          "result": "insufficient",
+          "normalized_chars": 470,
+          "fingerprint": "sha256:7cd6c42555ff8dd311f84805efff8b48d583b1f5973c4d864ce8a8a5a8d473af",
+          "sample": "Australian and New Zealand College of Veterinary Scientists Toggle navigation Chapters Examination Information About Us Contact Us Search Member Donate Login Toggle Dropdown Forgot Password Australian and New Zealand College of Veterinary Scientists Chapter veterinary oncology Chapter Home Administration Events News Chapter Repository Back to ANZCVS News There are no news at this time. © 2026 Australian and New Zealand College of Veterinary Scientists Please wait..."
+        },
+        {
+          "url": "https://www.anzcvs.org.au/chapters/veterinary%2Boncology/news/oncology-clinical-trials/",
+          "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 470
+          "transport": "external web retriever"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -1565,19 +1703,21 @@
           "final_url": "https://www.barcseattle.com/clinical-trials-index",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 7408
+          "normalized_chars": 7408,
+          "fingerprint": "sha256:afa23afae36671a7d0df966f209a94105ced515befd8fcfb5d800f5a66a03259",
+          "sample": "Clinical Trials Index — BRIDGE ANIMAL REFERRAL CENTER Our Practice Services For New Patients For Veterinarians Contact FAQ's Back ALL Services Oncology Surgery Clinical Trials Our Practice Services ALL Services Oncology Surgery Clinical Trials For New Patients For Veterinarians Contact FAQ's BARC Scroll Gold Nanoparticles - Active Enrollment We are conducting a trial for utilizing gold nanoparticles paired with infrared laser heat. Eligible patients have to have superficial tumors. We are treating the following types: Dogs with large mast cell tumors (>2 cm) Dogs with soft tissue sarcomas (<2cm in diameter) Dogs with oral melanoma (2-3cm diameter) Dogs with cutaneous or footpad melanoma (<2cm) Cats with oral squamous cell carcinoma not involving the bone Cats with other cutaneous tumors like Mast cell tumors, Sarcomas or Carcinomas This clinical trial utilizes gold nanoparticles in a gross disease setting. Gold Nanoparticles are inert and are given IV to the patient and after a period "
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -1591,19 +1731,21 @@
           "final_url": "https://www.vivesto.com/en/section/media/press-releases/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 3785
+          "normalized_chars": 3785,
+          "fingerprint": "sha256:3e0a5090a02850d8ee64e181a62f00cb623a354a9cbf1c6a789e547e93ac7892",
+          "sample": "--> Press releases – Vivesto You are using an outdated browser. Please upgrade your browser to improve your experience. Vivesto About Us Projects and Technology Governance Investors Media Contact About Us CEO corner Organisation Management Board of Directors Partnering Career Vacant positions Sustainability / Corporate Responsibility Projects and Technology Veterinary Medicine Paccal Vet – Dog Paccal Vet – Cat Project Portfolio – Human Pharmaceuticals Cantrixil Apealea XR Drug Delivery Platform Advantages Patent Protection Corporate Governance Governance reports General Meeting Management Board of Directors Nomination Committee Remuneration Auditor Code of Conduct Articles of Association Documents Investors The Share Ownership Structure Financial Reports and Presentations Analyst coverage Share Issues Archive US listing SEC Filings Info regarding delisting of ADS from NASDAQ US Press releases Financial calendar Subscribe Contact Media Press releases Events Subscribe Image Bank Contact "
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -1617,19 +1759,21 @@
           "final_url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
           "http_status": 403,
           "result": "insufficient",
-          "normalized_chars": 16
+          "normalized_chars": 16,
+          "fingerprint": "sha256:301dc171e5fa8c5fdeb69592a92a5c378f5f758f68d2338200235d60eb04b9ad",
+          "sample": "Just a moment..."
         },
         {
-          "url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+          "url": "https://www.vet.upenn.edu/research/academic-departments/pathobiology/atherton-laboratory/clinical-trials",
           "http_status": 200,
           "result": "sufficient",
           "transport": "external web retriever"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 1,
@@ -1649,19 +1793,21 @@
           "final_url": "https://www.ccralliance.org/research-projects",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 4751
+          "normalized_chars": 4751,
+          "fingerprint": "sha256:283543882d64b9d0042d2ddc0a5c2c2c1e0f52c17bb1a12485ad96cc3de28b56",
+          "sample": "--> Research | Canine Cancer Alliance top of page Give in Honor & Memorial Donate Projects Canine Cancer Alliance accelerates the discovery of safer and much more effective treatments for dogs with cancer. ​ By funding research, supporting clinical trials, and empowering families with the latest findings, CCA is helping end dog cancer as we know it today. Prof. Mamula with Ranger who became cancer-free after his metastatic osteosarcoma was treated with the vaccine. ​ EGFR/HE R2 C anine Cancer Vaccine ​ A clinical trial is open at ten locations for canine patients with osteosarcoma, hemangiosarcoma and TCC which are cancer types often associated with EGFR/HER2 overexpression. See the status page to find out which clinics are participating in the study. Please contact the clinic directly to find out the requirement and to request an appointment. ​ Learn more about the potential benefits of the vaccine including prevention of metastasis here. ​ ​ Immune Checkpoint Inhibitor Combination Th"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -1675,7 +1821,9 @@
           "final_url": "https://vrcvet.com/clinical-trials/",
           "http_status": 403,
           "result": "insufficient",
-          "normalized_chars": 765
+          "normalized_chars": 765,
+          "fingerprint": "sha256:c52c0cc3825dc36e01b2594982b056b32d775298c5bdc253cccdbf76a55b3645",
+          "sample": "Attention Required! | Cloudflare Please enable cookies. Sorry, you have been blocked You are unable to access vrcvet.com Why have I been blocked? This website is using a security service to protect itself from online attacks. The action you just performed triggered the security solution. There are several actions that could trigger this block including submitting a certain word or phrase, a SQL command or malformed data. What can I do to resolve this? You can email the site owner to let them know you were blocked. Please include what you were doing when this page came up and the Cloudflare Ray ID found at the bottom of this page. Cloudflare Ray ID: a43adc6dddbf118b • Your IP: Click to reveal 2a13:9500:1e4:165::292:bb • Performance & security by Cloudflare"
         },
         {
           "url": "https://vrcvet.com/clinical-trials/",
@@ -1684,16 +1832,16 @@
           "transport": "external web retriever"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 1,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -1707,20 +1855,24 @@
           "final_url": "https://hospital.vetmed.wsu.edu/appointments/",
           "http_status": 403,
           "result": "insufficient",
-          "normalized_chars": 27
+          "normalized_chars": 27,
+          "fingerprint": "sha256:570481825b6fa423ab84bb1581a756937d7c5080f1c868afdf3b93c8a63bb6a8",
+          "sample": "403 Forbidden 403 Forbidden"
         },
         {
           "url": "https://hospital.vetmed.wsu.edu/small-animal/cats-and-dogs/oncology/",
           "final_url": "https://hospital.vetmed.wsu.edu/small-animal/cats-and-dogs/oncology/",
           "http_status": 403,
           "result": "insufficient",
-          "normalized_chars": 27
+          "normalized_chars": 27,
+          "fingerprint": "sha256:570481825b6fa423ab84bb1581a756937d7c5080f1c868afdf3b93c8a63bb6a8",
+          "sample": "403 Forbidden 403 Forbidden"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "partial",
       "content_sufficient": false,
       "protocols_seen": 0,
@@ -1740,19 +1892,21 @@
           "final_url": "https://studypages.com/investigator/1cff202c91db48f6acceb2c14cff5418/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 1386
+          "normalized_chars": 1386,
+          "fingerprint": "sha256:9087764bee064ae90d88ac208466355bf7cbcdda3e435b2e01e0ceb05ea4ac4d",
+          "sample": "Profile --> Regina Hayburn, DVM, DACVIM (oncology) Texas A&M College of Veterinary Medicine , Oncology Studies Evaluating whole abdomen radiation therapy as a treatment for feline small cell gastrointestinal lymphoma Help us determine if whole abdomen radiation therapy helps cats with small cell gastrointestinal lymphoma Evaluating whole abdomen radiation therapy as a treatment for feline small cell gastrointestinal lymphoma Help us determine if whole abdomen radiation therapy helps cats with small cell gastrointestinal lymphoma This study will evaluate how well-tolerated whole abdomen radiation is for cats diagnosed with small cell lymphoma.&nbsp;The goal of this study is to establish a safe and practical radiation protocol and to monitor treatment response in cats with gastrointestinal small cell lymphoma (i.e., cancer involving the stomach or intestines). Active - Recruiting oncology All, age any This study will evaluate how well-tolerated whole abdomen radiation is for cats diagnos"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -1766,19 +1920,21 @@
           "final_url": "https://www.caudjlab.com/newdetail.aspx?id=73",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 1167
+          "normalized_chars": 1167,
+          "fingerprint": "sha256:eada16f8ca38567d7867ae8ce62f95ae0eeb5d85693c42fc12640b6df2e1ea73",
+          "sample": "新闻详细页 - 中农董军实验室 - 用户服务系统 注册 | 登录 首页 实验室 送检流程 学习园地 新闻资讯 下载专区 联系我们 登录 注册 最新新闻资讯 炎症未必是细菌，培养请搭配细胞学 2026-09-16 实验室检验课程合集 | 中农董军实验室 2026-09-10 全新上线 | 犬猫认知功能障碍症（CDS）精准诊断方案 2026-09-09 2026年度宠物医院合作赋能计划 2026-09-08 新闻资讯详情 临床招募｜犬三类肿瘤新药免费临床试验 2026-08-18 家里狗狗确诊 肥大细胞瘤、骨肉瘤、口腔鳞癌 ？ 各位接诊此类病例的宠物医师请注意！ 中农董军实验室 抗肿瘤新药临床试验 正式开启全国招募，符合条件的 患病犬可免费使用抗肿瘤新药 。 本次临床试验，既能大幅减轻宠物主人高额用药的经济压力，同时也会为犬类肿瘤治疗研发更安全有效的全新方案。 诚邀全国宠物医生积极推荐适配病例，也欢迎患病犬主咨询报名，推动小动物肿瘤诊疗水平持续提升。 三大实验组招募 （名额有限） 试验 组 1：犬肥大细胞瘤 本次试验为新药初步临床效果研究，通过规范给药、定期复查监测，客观评估抗肿瘤药物对 犬肥大细胞瘤 的临床效果治疗新方案。 肿瘤状态：复发/未切除 试验组2：犬骨肉瘤 本次试验为新药初步临床效果研究，通过规范给药、定期复查监测，客观评估抗肿瘤药物对 骨肉瘤 的临床效果治疗新方案。 肿瘤状态：未截肢/肺部转移 试验组3：犬口腔鳞癌 本次试验为新药初步临床效果研究，通过规范给药、定期复查监测，客观评估抗肿瘤药物对 口腔鳞癌 的临床效果治疗新方案。 参与福利 1.试验周期内，抗肿瘤 新药免费使用 ，无需承担药费； 2.全程实验室专业技术团队跟进，定期免费肿瘤相关指标复查、病灶评估； 犬只入组要求（带瘤病例） 1.确诊依据： 经 组织病理检测确诊 为肥大细胞瘤 / 骨肉瘤 / 口腔鳞癌（需提供病理报告）； 2.年龄 ：1 岁以上，无严重心肝肾衰竭、重度贫血等终末期基础重病； 3.主人配合度： 可按要求按时送犬复查、配合采血、病灶影像学记录，完整完成全试验周期； 试验流程 1.报名登记： 医师 / 主人联系对接人，提交病理报告、犬只基础病历； 2.初筛评估 ：实验室审核病例，确认符合入组标准后通知； 3.基线检查： 入组前完成基础血液、肿瘤病灶基线检测； 4.规范给药： 按照试验"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -1792,19 +1948,21 @@
           "final_url": "https://www.petcura.cn/zh/mrna-vaccine/study/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 2311
+          "normalized_chars": 2311,
+          "fingerprint": "sha256:bb9a45d91dcfa5a059e2289a81296cc7ca1cba89bb6f3fe90efa9f6a13b67beb",
+          "sample": "犬肿瘤mRNA个体化免疫疗法 — 研究详情与入组标准 宝科雅 宠物肿瘤精准医疗先行者 ☰ 首页 了解精准方案 犬肿瘤mRNA个体化免疫疗法 宠物肿瘤类器官药敏测试 犬肿瘤基因测序靶向药预测 宠物家长 宠物家长决策地图 狗狗肿瘤决策手册（17篇） 手术留样准备 兽医合作 关于 关于我们 联系我们 EN mRNA免疫疗法 谁能入组、流程怎么走、费用怎么算——入组前先看懂这些 犬肿瘤mRNA个体化免疫疗法 — 研究详情与入组标准 谁能入组、流程怎么走、费用怎么算——入组前先看懂这些 首页 › mRNA免疫疗法 › 本文 犬肿瘤mRNA个体化免疫疗法IIT研究，是宝科雅（PETcura）发起并资助的研究者发起多中心临床转化研究（IIT），联合创模生物与前沿mRNA技术研发机构，探索为犬类恶性肿瘤患犬定制个体化mRNA免疫制剂的安全性、可行性与初步疗效。本项目为探索性研究， 不是已获批上市的商业化兽药产品 。 研究状态：限额招募中 ——目前在北京、上海、广州、杭州、南京、深圳、沈阳、成都、重庆9个城市、12家合作医院开展入组评估。 研究目的 通过超高深度RNA测序（≥50G）精准鉴定犬肿瘤特异性新生抗原（含基因突变、基因融合、可变剪接） 为每只患犬定制个体化mRNA-LNP免疫制剂 激发新生抗原特异性CD8⁺ T细胞免疫应答 验证\"5针密集初免+淋巴结休整+3针强化\"共8针给药方案的安全性 建立系统化给药前基线、全程采血监测及末次给药后综合评估的标准化检测体系 入组标准（须全部满足） 病理确诊 ：组织学或细胞学确诊的犬类恶性肿瘤（实体瘤及淋巴瘤等；排除T细胞淋巴瘤、脑瘤） 年龄体重 ：年龄≥2岁；体重≥5kg（小型犬可个案评估，如泰妮） 样本可获取 ：可获取新鲜肿瘤组织及配对癌旁正常组织（手术当天留取） 体况达标 ：由主治医生评估体况（改良ECOG≤2）与肝肾血液指标（ALT/AST < 3×ULN，肌酐 < 2×ULN，Hb > 80 g/L） LNP肌注耐受度评估通过 ：注射与制剂相同LNP体系的测试制剂，院内留观1小时无全身性过敏反应（入组必要条件） 知情同意 ：主人充分知情并签署知情同意书，能配合完成全程观察与采血 排除：T细胞淋巴瘤、脑瘤；近2周内接受化疗/放疗/大剂量皮质激素；合并严重感染、自身免疫病或免疫缺陷；妊娠哺乳期；预期生存期<6个月。 治疗与随访时间线 "
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -1818,19 +1976,21 @@
           "final_url": "https://veterinarios.hospitalveterinariopuchol.com/blog/reachglio-ensayo-clinico-glioma-perros/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 16183
+          "normalized_chars": 16183,
+          "fingerprint": "sha256:df133b4c157c9d7e8f5bda53d7809677caee4af4afbd62f7a385454555a38a2b",
+          "sample": "ReachGlio: ensayo clínico para perros con glioma cerebral +34 912 90 06 40 Abierto 24h esta web es exclusiva para profesionales veterinarios Remitir un caso veterinario Carrito Facebook Instagram Youtube Formación Formación Veterinarios Formación Auxiliares Internados y Estancias Sala de Conferencias Remitir caso Blog Trabaja con nosotros Contacto Formación Formación Veterinarios Formación Auxiliares Internados y Estancias Sala de Conferencias Remitir caso Blog Trabaja con nosotros Contacto Formación Formación Veterinarios Formación Auxiliares Internados y Estancias Sala de Conferencias Remitir caso Blog Contacto Hospital Formación Formación Veterinarios Formación Auxiliares Internados y Estancias Sala de Conferencias Remitir caso Blog Contacto Hospital Propietarios ReachGlio: nuevo ensayo clínico para perros con glioma de alto grado 17 septiembre, 2026 Hospital Veterinario Puchol Neurologia El Hospital Veterinario Puchol ha iniciado el reclutamiento de pacientes para ReachGlio, un Ens"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
-      "candidates_found": 0,
-      "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "candidates_found": 1,
+      "protocol_pages_checked": 1,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -1844,13 +2004,15 @@
           "final_url": "https://ccr.cancer.gov/comparative-oncology-program/trials",
           "http_status": 403,
           "result": "insufficient",
-          "normalized_chars": 27
+          "normalized_chars": 27,
+          "fingerprint": "sha256:570481825b6fa423ab84bb1581a756937d7c5080f1c868afdf3b93c8a63bb6a8",
+          "sample": "403 Forbidden 403 Forbidden"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "partial",
       "content_sufficient": false,
       "protocols_seen": 0,
@@ -1870,19 +2032,21 @@
           "final_url": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 8225
+          "normalized_chars": 8225,
+          "fingerprint": "sha256:00f01b5f6840086d06d370f863b19f1d25639783f80fa8861b98afdd79fa2ad0",
+          "sample": "臨床研究情報 | 東京大学大学院農学生命科学研究科 附属動物医療センター | 文京区弥生 診療受付時間 09:00-11:30／13:30-15:30 休診日 土日祝、他 03-5841-5420 当センターについて About us 当センターについて お知らせ ご挨拶 病院の理念・基本方針・目標 設備紹介 スタッフ紹介 研修獣医師の生活 臨床研究情報 ニュースレター・年報 研修医プログラム 実習・見学のお問い合わせ 研修医・スタッフ募集 飼い主の皆様へ For Owners 飼い主の皆様へ ご予約から診療の流れ 外来診療表 診療科のご案内 お支払い・保険について 再診について 入院と手術について 臨床研究情報 よくあるご質問 設備紹介 交通アクセス ご寄付のお願い 動物病院の先生方へ For Veterinarians 動物病院の先生方へ ご紹介の流れ 外来診療表 診療科のご案内 臨床研究情報 設備紹介 公開セミナー 研修医プログラム 研修医・スタッフ募集 診療科のご案内 Department 診療科のご案内 総合診療科 呼吸器内科 血液・免疫科 腫瘍内科 消化器内科 腎泌尿器科 内分泌内科 神経内科 循環器科 軟部組織外科 整形外科・神経外科 眼科 エキゾチック動物診療科 行動診療科 集中治療・麻酔科 歯科 画像診断部 病理・遺伝子検査部 産業動物診療科 看護部 会員ページ Member 会員ページについて 交通アクセス Access 交通アクセス 臨床研究情報 ホーム > 当センターについて > 臨床研究情報 臨床試験について 本院で行っている、もしくは行う予定の臨床試験についてです。臨床試験とは、安全で有効となりうることが期待される医薬品もしくは医療機器を用いた治療です。 飼い主様への十分な説明と、飼い主様の同意の下で実施します。現在実施している臨床試験は以下の通りです。 慢性腸症罹患犬に対する乳酸菌およびオリゴ糖の有効性に関する臨床試験 犬の組織球性肉腫に対する抗PD-1抗体を用いた臨床試験 犬猫の固形腫瘍に対するがんオルガノイドスクリーニング検査に基づく分子標的薬投与の安全性と有効性検証のための臨床試験 ネコの移行上皮癌に対するラパチニブの獣医師主導臨床試験 犬の膀胱・尿道移行上皮癌および前立腺癌に対する臨床試験 犬の膀胱癌に対するIDO1阻害剤の臨床"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -1896,19 +2060,21 @@
           "final_url": "https://www.kamogawa-ac.jp/category/%E7%97%85%E6%B0%97%E3%82%84%E4%BA%88%E9%98%B2/%E8%85%AB%E7%98%8D%EF%BC%88%E3%82%AC%E3%83%B3%EF%BC%89/",
           "http_status": 200,
           "result": "sufficient",
-          "normalized_chars": 2997
+          "normalized_chars": 2997,
+          "fingerprint": "sha256:3011a288c288844d2310e182d87a6f0f203923ec70a7a4904d63fe40f304bee1",
+          "sample": "腫瘍（ガン） - 京都市左京区の動物病院｜かもがわ動物医療センター｜腫瘍科・CT・年中無休 TEL 075-600-2552 ＜ 年中無休・時間帯予約優先制 ＞ 既存患者様専用 電話相談専用ダイアル 050-2018-6612 初めての方へ 初めての方へ 飼い始めた方 ワクチン ノミ・マダニ・フィラリア 避妊・去勢 健康診断 シニアケアと病気 よくある質問 病院案内 医療センター案内 クリニック案内 当院の特徴 院長インタビュー スタッフ紹介 獣医師出勤表 動物病院様からのご紹介について 診療案内 診療案内 腫瘍科専門外来 犬と猫のがん がんの緩和治療 細胞治療 皮膚科専門外来 歯科 手術 レーザー治療 セカンドオピニオン 料金表 お知らせ お知らせ ブログ 本日の一症例 病気紹介 みどりのあしあと 飼い主様の声 飼い主様の声(手術) 飼い主様の声(歯石除去) 飼い主様の声(避妊・去勢) 飼い主様の声（輸血） 飼い主様の声(健康診断) 虹の橋の声 HOME 出勤表 病気紹介 アクセス MENU TEL 075-600-2552 ＜ 年中無休・時間帯予約優先制 ＞ ■提携獣医師との電話相談窓口■ 050-2018-6612 ＜24時間365日電話相談専用ダイヤル＞ HOME 初めての方へ 初めての方へ 飼い始めた方 ワクチン ノミ・マダニ・フィラリア 避妊・去勢 健康診断 シニアケアと病気 よくある質問 病院案内 医療センター案内 クリニック案内 当院の特徴 院長インタビュー スタッフ紹介 求人情報 獣医師出勤表 動物病院様からのご紹介について 診療案内 診療案内 腫瘍科専門外来 犬と猫のがん がんの緩和治療 細胞治療 皮膚科専門外来 歯科 手術 レーザー治療 セカンドオピニオン 料金表 お知らせ お知らせ ブログ 本日の一症例 病気紹介 みどりのあしあと 飼い主様の声 飼い主様の声(手術) 飼い主様の声(歯石除去) 飼い主様の声(避妊・去勢) 飼い主様の声(健康診断) 虹の橋の声 メールでのご相談 飼い主様・ご予約 ／お問い合わせ 動物病院様 紹介フォーム 出勤表 腫瘍（ガン） HOME 病気や予防 腫瘍（ガン） 犬の口腔内悪性黒色腫(メラノーマ)に対する抗イヌPD-1抗体の企業治験について 2026.09.30 お知らせ/腫瘍（ガン） 2026年9月30日 公開当"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 0,
-      "candidates_found": 0,
-      "protocol_pages_checked": 0,
-      "fingerprint_changed": true,
+      "candidates_found": 1,
+      "protocol_pages_checked": 1,
+      "fingerprint_changed": false,
       "last_checked_written": true,
       "local_persistence_verified": true
     },
@@ -1921,27 +2087,16 @@
           "url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html",
           "final_url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html",
           "http_status": 200,
-          "result": "insufficient",
-          "normalized_chars": 7158
-        },
-        {
-          "url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/",
-          "final_url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/",
-          "http_status": 200,
-          "result": "insufficient",
-          "normalized_chars": 3887
-        },
-        {
-          "url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html",
-          "http_status": 200,
           "result": "sufficient",
-          "transport": "Chromium-rendered official roster"
+          "normalized_chars": 2721,
+          "fingerprint": "sha256:77c4f43c0e8c5068cdda183a93d176689dd1be0b78c337205c2d042c9a7dec5d",
+          "sample": "治験・臨床試験情報案内｜治験・臨床試験情報｜山口大学動物医療センター 交通のご案内 お問い合わせ サイトマップ ホーム 病院概要 診療のご案内 治験・臨床試験情報 飼い主の皆様へ 獣医療関係者の皆様へ 有給看護師・動物看護師募集 HOME SITEMAP 病院概要 病院沿革および概要 センター長あいさつ スタッフ紹介 施設のご案内 診療のご案内 診療のご案内 外科・獣医師紹介 外科症例紹介 内科・獣医師紹介 内科症例紹介 放射線治療科・獣医師紹介 放射線治療科症例紹介 大動物診療科・獣医師紹介 繁殖科・獣医師紹介 夜間相談のご案内（夜間救急診療は中止しました） 治験・臨床試験情報 治験・臨床試験とは？ 治験・臨床試験情報案内 その他 献血ボランティア 交通のご案内 当センターからのお願い 関連リンク プライバシーポリシー お問い合わせ 治験・臨床試験情報案内 犬のリンパ系腫瘍に対する抗CD20抗体による臨床試験 犬のリンパ系腫瘍（リンパ腫、白血病など）に対する新規治療法として、抗CD20抗体による臨床試験を行っております。 この治療法は、通常の抗がん剤治療とは異なり、分子標的療法に分類されます。 抗CD20抗体は、医療ではリツキサン®という名前の薬剤が1998年よりすでに使用されており、リンパ腫などの患者さんに対して多大な貢献をしている薬ですが、これを 我々の研究室において 犬用に独自に開発した同様の薬剤です。 対象となる腫瘍、試験内容などについての条件がございますので、ご興味ある方は水野（ mizutaku@yamaguchi-u.ac.jp ）までご一報いただきますよう宜しくお願い致します。 犬の免疫介在性疾患に対する他家脂肪由来幹細胞による臨床試験 犬のさまざまな難治性免疫介在性疾患に対する新規治療法として、他家脂肪由来幹細胞を用いた臨床試験を行っております。 この治療法は、再生医療に分類される新しい治療法で、脂肪由来幹細胞によって免疫調節することを目的としております。アニコム先進医療研究所株式会社（ https://www.anicom.co.jp ）との共同で行っております。 対象となる疾患、試験内容などについての条件がございますので、ご興味ある方は水野（ mizutaku@yamaguchi-u.ac.jp ）までご一報いただきますよう宜しくお願い致しま"
         }
       ],
-      "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 4,
@@ -1958,16 +2113,19 @@
       "attempts": [
         {
           "url": "https://www.jvcs.jp/research/clinical-trials/",
+          "final_url": "https://www.jvcs.jp/research/clinical-trials/",
           "http_status": 200,
           "result": "sufficient",
-          "transport": "direct_fetch"
+          "normalized_chars": 2772,
+          "fingerprint": "sha256:32b2c526a65b931637fb045abb389c59c826fce65c4b653caecc693e8ad20028",
+          "sample": "臨床試験情報 | 研究｜日本獣医がん学会 お知らせ お知らせ 事務連絡 学会開催 認定資格 研究 学会雑誌 事務手続 学会開催 学会開催の詳細なご案内 演題募集 講演要旨集 アワード受賞 認定資格 認定資格 《 獣医腫瘍科認定医 》 認定医について 受験要綱 【試験実施要項】 認定医II種試験 認定医I種一次試験 認定医I種二次試験 認定医試験合格者発表 【現在の取得者】 認定医II種 認定医I種 認定医更新について 認定医に関するよくある質問 《 腫瘍科認定愛玩動物看護師 》 研究 研究 学会発表 研究助成 臨床試験情報 発表、研究支援 学会雑誌 学会雑誌 これまでの学会雑誌発行号 投稿規程 論文掲載までの流れ よくあるご質問とその回答 会員専用 事務手続 入会案内・特典のご案内 獣医腫瘍学テキスト第2版 【その他のお手続き】 年会費・学会参加費 登録情報変更 会員証再発行 動物とご家族へ JVCSについて あらまし あゆみ 会長挨拶 定款・細則 組織 事務報告 事務報告 総会 理事会 委員 その他 English ホーム > 研究 > 臨床試験情報 --> 学会発表 一般口演 症例検討 ポスター発表 研究助成 2026年度 募集要項 2026年度 授与者 生命倫理に関する規程 臨床試験情報 臨床試験とは 掲載方法について 発表、研究支援 教育講演動画 FAQ 臨床試験情報 臨床試験情報 臨床試験とは（PDF） 臨床試験情報の掲載方法について 日本国内での腫瘍性疾患に関する臨床試験情報を掲載しています。 掲載する疾患は腫瘍性疾患に限定され、臨床試験主導獣医師は日本獣医がん学会の正会員(獣医師)であり、かつ、獣医腫瘍科認定医（I種・II種）または大学教員、欧・米・アジアの専門医資格のいずれかを有する方を対象としています。所属する組織の事務機関または臨床試験の代表者を通じて、掲載情報をご提出ください。 本学会の審査を経た上で、掲載が可能です。 本ページに掲載されている臨床試験情報は、日本獣医がん学会が推奨する臨床試験ではなく、登録のご依頼をいただいた情報を掲載しています。 本学会では個別の臨床試験に関する問い合わせは一切お受けできません。個別の相談についてはそれぞれの臨床試験情報に記載された連絡先へご連絡ください。 本学会では掲載されている臨床試験情報に関連する一切の"
         }
       ],
-      "previous_last_checked": null,
-      "previous_last_checked_at": null,
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
-      "saved_last_result": "changed",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 2,
       "candidates_found": 0,
@@ -1983,20 +2141,23 @@
       "attempts": [
         {
           "url": "https://www.jsamc.jp/dr_info/clinical/clinical07.html",
+          "final_url": "https://www.jsamc.jp/dr_info/clinical/clinical07.html",
           "http_status": 200,
           "result": "sufficient",
-          "transport": "Chromium-rendered official roster"
+          "normalized_chars": 3364,
+          "fingerprint": "sha256:82451cd15d2683325cfb62cf3e524d94e8d5c8846009e3db297e25ee4a457e13",
+          "sample": "�񎟐f�ÁE��ԋ~�}�����a�@�b���{��������ÃZ���^�[�b��ʌ� �z�[�� �Z���^�[�T�v �������j �f�×\\�� �f�ÉȖ� �Տ����� �l�ވ琬 ��ʌ������ ���ƔL�ɑ΂��錻�ݎ��{���̗Տ����� �z�[�� > �Տ����� > ���ƔL�ɑ΂��錻�ݎ��{���̗Տ����� �Տ������Ƃ́H �Տ������́A�V��������Ë@�����ʐf�ÂŎg����悤�ɂ��邽�߂ɁA���ۂ̓�����ΏۂɌ��ʂƈ��S����]��������̂��w���܂��B�Ȋw�I�Ȍ��؂�ʂ��āA�L�����ƕ���p�𖾂炩�ɂ��܂��B �Տ������Ƃ́A�b��t�哱�Տ������̗��ł���A�{�Z���^�[�Ŏ��{����邷�ׂĂ̏b��t�哱�Տ������́A�_�ѐ��Y�ȏ���E���S�ǒ��ɂ��u �Տ������ɂ����Ďg�p����関���F�����p���i���̒񋟓��ɌW����i�A��Ë@�퓙�̕i���A�L�����y�ш��S���̊m�ۓ��Ɋւ���@���̓K�p�ɂ��� �v�ɏ����āA�Z���^�[�̗Տ������ϗ��ψ���̏��F�̂��Ǝ��{����Ă��܂��B ���L�̗Տ���������{��������ÃZ���^�[�������{����������Z���^�[�Ŏ��{���ł��B ���ꂼ��̎����ɂ͑g�ݓ���̏����Ȃǂ��������܂����A�ڍׂɂ��܂��ẮA �e�S���҂܂ł��C�y�ɂ��₢���킹���������B �RPD-1�R�̂�p�������̂���ɑ΂���Տ����� �RPD-1�R�̂́A��Âɂ����Ă̓I�v�W�[�{�A�L�C�g���[�_�Ƃ����򂪎g�p����A�ł����ʂ̍����Ɖu�Ö@�ƍl�����Ă��܂��B ���p�̍RPD-1�R�̂�p�������̂���ɑ΂���Տ������ɂ��Ă͐ӔC�҂̐����炪�A2018�N���R����w�ł���܂Ŏ��{���Ă��Ă���A�ꕔ�̌��ʂɂ��Ă͘_�����\\"
         }
       ],
-      "previous_last_checked": null,
-      "previous_last_checked_at": null,
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
-      "saved_last_result": "changed",
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
       "protocols_seen": 5,
-      "candidates_found": 1,
-      "protocol_pages_checked": 1,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
       "fingerprint_changed": true,
       "last_checked_written": true,
       "local_persistence_verified": true
@@ -2008,17 +2169,26 @@
       "attempts": [
         {
           "url": "https://vettrials.org/",
+          "final_url": "https://vettrials.org/",
           "http_status": 200,
-          "result": "sufficient",
-          "transport": "direct_fetch"
+          "result": "insufficient",
+          "normalized_chars": 449,
+          "fingerprint": "sha256:d6cf04b7ba4f5e67240c986833b93b9ea167a46b286fa04da112a65f85dcffee",
+          "sample": "VetTrials: Search Veterinary Clinical Trials VetTrials Veterinary Clinical Trials Search Search Alerts Status About Find veterinary clinical trials Search recruiting studies for dogs, cats, horses, and other animals across more than 30 veterinary schools and research institutions. VetTrials aggregates clinical trial listings from 30+ veterinary institutions. Not a substitute for veterinary advice. About Legal & Takedown Request a feature Contact"
+        },
+        {
+          "url": "https://vettrials.org/",
+          "http_status": 200,
+          "result": "insufficient",
+          "transport": "Chromium-rendered landing page; no current study roster or search results"
         }
       ],
-      "previous_last_checked": null,
-      "previous_last_checked_at": null,
+      "previous_last_checked": "2026-10-01",
+      "previous_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_checked": "2026-10-01",
-      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
-      "saved_last_result": "changed",
-      "content_sufficient": true,
+      "saved_last_checked_at": "2026-10-01T06:48:20-04:00",
+      "saved_last_result": "partial",
+      "content_sufficient": false,
       "protocols_seen": 0,
       "candidates_found": 0,
       "protocol_pages_checked": 0,

@@ -150,11 +150,11 @@ for (const id of ['au-uq-appendicular-osteosarcoma-vaccine']) {
   if (!auIds.has(id)) throw new Error(`Australia/Dog/Osteosarcoma did not return ${id}`);
 }
 if (auIds.has('au-gamgee-personalized-mrna-vaccine')) {
-  throw new Error('Gamgee expression-of-interest form appeared as a verified active treatment trial');
+  throw new Error('Gamgee mast-cell-only trial incorrectly matched osteosarcoma');
 }
 const auMct = matches(patient({country: 'Australia', cancer: 'Mast cell tumor'}));
-if (auMct.some(row => row.trial.id === 'au-gamgee-personalized-mrna-vaccine')) {
-  throw new Error('Australia/Dog/Mast cell tumor included an unconfirmed Gamgee trial');
+if (!auMct.some(row => row.trial.id === 'au-gamgee-personalized-mrna-vaccine')) {
+  throw new Error('Australia/Dog/Mast cell tumor omitted the confirmed-current Gamgee trial');
 }
 const auBroad = matches(patient({country: 'Australia', cancer: 'Cancer — any type'}));
 if (!auBroad.some(row => row.trial.id === 'au-melbourne-hsa-autologous-vaccine-multicenter')) {
