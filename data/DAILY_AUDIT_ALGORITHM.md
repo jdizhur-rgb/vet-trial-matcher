@@ -4,10 +4,10 @@ This checklist is mandatory for every daily catalog update.
 
 ## Daily cadence and coverage
 
-- The daily discovery run is scheduled for **06:00 America/New_York**.
+- The daily discovery run is scheduled for **05:00 America/New_York**.
 - Daily discovery is a **full catalog and source audit**, not a preceding-day news search. It must reconcile the persistent source inventory, review current catalog sources, and search the open web for new sources every day.
 - Do not exclude an official page because it is old, undated, newly indexed or silently edited. Treat it as a lead and establish present recruitment/access from a current protocol-level official signal.
-- The weekly deep/control audit is an additional independent safety net; it never replaces or narrows the required daily sweep.
+- The daily audit is the single enabled scheduled monitoring task. Weekly control procedures below are reference procedures for an explicitly requested control pass; they do not authorize a second recurring task.
 - Every genuinely new lead must still be followed to the primary/current source and checked for current recruitment/access, eligibility, funding, contacts and treatment relevance before any catalog change.
 - Every proposed addition must be deduplicated against the **entire effective live catalog**, not merely against the previous day's discoveries.
 - If the full source sweep and open-web expansion find no qualifying current opportunity, report that the complete daily discovery ran and found none.
@@ -104,3 +104,14 @@ Health checks are diagnostic gates, not an all-or-nothing stop on any red signal
 Never terminate a weekly deep audit solely because one ancillary smoke test fails when production, canonical validation, compile/import, matcher logic and synchronization otherwise pass. The weekly run is complete only when mandatory source coverage has actually been attempted and reconciled.
 
 Smoke tests must identify Streamlit widgets by stable labels/semantics rather than positional indexes so harmless form reordering does not create false health-gate failures.
+
+## Mandatory daily execution and global discovery receipts
+
+- Before visiting sources, read the current algorithm, inventory, full canonical catalog and last persisted audit receipt from remote main. Record the actual catalog revision and distinguish scheduled/requested, started, incomplete, completed and failed states. An accepted automation request is never evidence of source coverage or completed execution.
+- Every daily run must cover USA, Canada, UK, continental Europe, Mexico/Central America/Caribbean/South America, Australia/New Zealand, East/South/Southeast Asia, Middle East and Africa. Use English and relevant local-language queries. Report the actual queries, regions attempted, official URLs opened and gaps; do not claim an exhaustive search of the world.
+- Use two complementary discovery passes: fresh signals since the last evidenced run with a rolling seven-day overlap, and current/undated master pages and recruitment pathways without a publication-date cutoff. Search for new recruiting protocols, new participating centers/sites for known protocols, and new official source indexes. Do not limit searches to names already in the inventory.
+- Every daily run must reconcile the complete official site roster for known multicenter trials, not only a newly surfaced site. Follow sponsor/coordinator and direct center sources, retain inactive sites and unresolved conflicts, and merge verified locations into one canonical protocol record.
+- If a master route is blocked, a JS shell, incomplete or lacks a reliable roster, attempt its recorded official fallback routes and record each URL/result. Protocol pages can confirm individual records but must not be presented as a complete institutional roster unless completeness is evidenced. Do not fabricate a fingerprint for unavailable content.
+- Write coverage evidence incrementally, preserving actual visit timestamps and a resumable checkpoint. Never advance dates for unvisited sources. If interrupted or blocked, deliver a visible Russian INCOMPLETE/FAILED receipt with completed coverage, remaining sources/regions, saved revision and the exact blocker. NO CHANGE is a catalog outcome, not proof of full coverage.
+- Always deliver the Russian final report, including coverage, discovery, NEW/UPDATE/CLOSE/HIDE/NEW SOURCES/UNRESOLVED/REJECTED, exact effective-catalog counts, persisted-date verification, validators and commit/deployment/production results. If the environment lacks a required execution or write capability, state that precisely; do not replace the audit with a reminder or claim publication.
+- Ordinary officially verified data and technical changes are authorized for direct tested publication to main and production. Ambiguous medical/identity/status decisions and user-facing editorial text, articles, UI/CSS/navigation changes require Yulia's decision. New evidence about an off-label treatment is a discovery lead; medical/editorial inclusion must not be published automatically.
