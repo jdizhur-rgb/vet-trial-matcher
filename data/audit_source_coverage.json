@@ -1,16 +1,17 @@
 {
   "schema_version": 1,
-  "run_id": "daily-20260930T172002-0400",
+  "run_id": "daily-20261001T060207-0400",
   "audit_mode": "DAILY GLOBAL WORK AUDIT",
-  "started_at": "2026-09-30T17:20:02-04:00",
-  "finished_at": "2026-09-30T18:00:30-04:00",
+  "started_at": "2026-10-01T06:02:07-04:00",
+  "finished_at": "2026-10-01T06:19:30-04:00",
   "timezone": "America/New_York",
-  "base_commit": "58a43318fcb8814522ada2846860d4991f21a353",
-  "source_total": 68,
-  "attempted_total": 68,
-  "content_sufficient_total": 65,
-  "local_persistence_verified_total": 68,
+  "base_commit": "d27c8fd6bf94fbaba7c98f2a35b32fc91c1d25a2",
+  "source_total": 71,
+  "attempted_total": 71,
+  "content_sufficient_total": 68,
+  "local_persistence_verified_total": 71,
   "remote_persistence_verification": "performed after commit; report records remote SHA",
+  "fingerprint_note": "Direct-fetch normalization changed from the previous run; fingerprint changes without roster differences are recorded as normalization refreshes, not inferred protocol changes.",
   "sources": [
     {
       "id": "registry-avma-veterinary-clinical-trials",
@@ -19,8 +20,17 @@
       "attempts": [
         {
           "url": "https://veterinaryclinicaltrials.org/",
+          "final_url": "https://veterinaryclinicaltrials.org/",
           "http_status": 200,
-          "result": "insufficient"
+          "result": "insufficient",
+          "normalized_chars": 42
+        },
+        {
+          "url": "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1",
+          "final_url": "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1",
+          "http_status": 200,
+          "result": "insufficient",
+          "normalized_chars": 45
         },
         {
           "url": "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1",
@@ -29,12 +39,17 @@
           "transport": "Chromium-rendered official roster"
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 57,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -44,16 +59,23 @@
       "attempts": [
         {
           "url": "https://www.veterinarystudiesregistry.co.uk/studies",
+          "final_url": "https://www.veterinarystudiesregistry.co.uk/studies",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 1994
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -63,16 +85,29 @@
       "attempts": [
         {
           "url": "https://vetcancersociety.org/resources/clinical-trials/",
+          "final_url": "https://vetcancersociety.org/resources/clinical-trials/",
+          "http_status": 403,
+          "result": "insufficient",
+          "normalized_chars": 105
+        },
+        {
+          "url": "https://vetcancersociety.org/resources/clinical-trials/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "transport": "external web retriever"
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -82,16 +117,23 @@
       "attempts": [
         {
           "url": "https://www.vetmed.auburn.edu/research/clinical-trials/",
+          "final_url": "https://www.vetmed.auburn.edu/research/clinical-trials/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 2813
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -101,23 +143,30 @@
       "attempts": [
         {
           "url": "https://csuveterinaryhealth.org/clinical-trials/",
+          "final_url": "https://csuveterinaryhealth.org/clinical-trials/",
           "http_status": 200,
-          "result": "insufficient",
-          "note": "navigation page without complete roster"
+          "result": "sufficient",
+          "normalized_chars": 8540
         },
         {
           "url": "https://clinicaltrials.csuveterinaryhealth.org/studies/?term~sc_paths=primary-field_cancer",
+          "final_url": "https://clinicaltrials.csuveterinaryhealth.org/studies/?term~sc_paths=primary-field_cancer",
           "http_status": 200,
-          "result": "sufficient",
-          "transport": "Chromium-rendered official roster"
+          "result": "insufficient",
+          "normalized_chars": 37
         }
       ],
       "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T07:45:00-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -127,16 +176,23 @@
       "attempts": [
         {
           "url": "https://www.vet.cornell.edu/hospitals/clinical-trials",
+          "final_url": "https://www.vet.cornell.edu/hospitals/clinical-trials",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 2816
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -146,16 +202,23 @@
       "attempts": [
         {
           "url": "https://vetmed.iastate.edu/vmc/clinical-trials/",
+          "final_url": "https://vetmed.iastate.edu/vmc/clinical-trials/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 3330
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -165,13 +228,17 @@
       "attempts": [
         {
           "url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+          "final_url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
           "http_status": 403,
-          "result": "insufficient"
+          "result": "insufficient",
+          "normalized_chars": 774
         },
         {
           "url": "https://www.hopkinsmedicine.org/radiology/vctn",
+          "final_url": "https://www.hopkinsmedicine.org/radiology/vctn",
           "http_status": 403,
-          "result": "insufficient"
+          "result": "insufficient",
+          "normalized_chars": 774
         },
         {
           "url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
@@ -180,12 +247,17 @@
           "transport": "external web retriever"
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 4,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": false,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -195,16 +267,23 @@
       "attempts": [
         {
           "url": "https://www.lsu.edu/vetmed/veterinary_hospital/clinical_trials.php",
+          "final_url": "https://www.lsu.edu/vetmed/veterinary_hospital/clinical_trials.php",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 4931
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -214,8 +293,10 @@
       "attempts": [
         {
           "url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2",
+          "final_url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2",
           "http_status": 200,
-          "result": "insufficient"
+          "result": "insufficient",
+          "normalized_chars": 0
         },
         {
           "url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2",
@@ -224,12 +305,17 @@
           "transport": "external web retriever"
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 5,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -239,16 +325,23 @@
       "attempts": [
         {
           "url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials",
+          "final_url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 9407
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -258,16 +351,23 @@
       "attempts": [
         {
           "url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+          "final_url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 24507
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -277,16 +377,23 @@
       "attempts": [
         {
           "url": "https://cvm.ncsu.edu/research/clinical-trials/",
+          "final_url": "https://cvm.ncsu.edu/research/clinical-trials/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 12793
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -296,16 +403,23 @@
       "attempts": [
         {
           "url": "https://vmc.vet.osu.edu/clinical-trials-office/current-trials",
+          "final_url": "https://vmc.vet.osu.edu/clinical-trials-office/current-trials",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 12304
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -315,16 +429,23 @@
       "attempts": [
         {
           "url": "https://vetmed.oregonstate.edu/research/oncology-clinical-trials",
+          "final_url": "https://vetmed.oregonstate.edu/research/oncology-clinical-trials",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 7257
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -334,18 +455,31 @@
       "attempts": [
         {
           "url": "https://www.vet.upenn.edu/research/clinical-trials/",
+          "final_url": "https://www.vet.upenn.edu/research/clinical-trials/",
           "http_status": 403,
-          "result": "insufficient"
+          "result": "insufficient",
+          "normalized_chars": 16
         },
         {
           "url": "https://www.vet.upenn.edu/clinical-trial/",
+          "final_url": "https://www.vet.upenn.edu/clinical-trial/",
           "http_status": 403,
-          "result": "insufficient"
+          "result": "insufficient",
+          "normalized_chars": 16
         },
         {
           "url": "https://www.vet.upenn.edu/veterinary_specialty/oncology/",
+          "final_url": "https://www.vet.upenn.edu/veterinary_specialty/oncology/",
           "http_status": 403,
-          "result": "insufficient"
+          "result": "insufficient",
+          "normalized_chars": 16
+        },
+        {
+          "url": "https://www.vet.upenn.edu/ryan-hospital/clinical-trials/",
+          "final_url": "https://www.vet.upenn.edu/ryan-hospital/clinical-trials/",
+          "http_status": 403,
+          "result": "insufficient",
+          "normalized_chars": 16
         },
         {
           "url": "https://www.vet.upenn.edu/ryan-hospital/clinical-trials/",
@@ -354,12 +488,17 @@
           "transport": "external web retriever"
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": false,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -369,16 +508,23 @@
       "attempts": [
         {
           "url": "https://www.vet.purdue.edu/wcorc/clinical-trials/",
+          "final_url": "https://vet.purdue.edu/wcorc/clinical-trials/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 6063
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -388,16 +534,23 @@
       "attempts": [
         {
           "url": "https://vetmed.tennessee.edu/research/clinical-trials/",
+          "final_url": "https://vetmed.tennessee.edu/research/clinical-trials/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 9130
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -407,16 +560,23 @@
       "attempts": [
         {
           "url": "https://vet.tufts.edu/clinical-trials",
+          "final_url": "https://vet.tufts.edu/clinical-trials",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 7168
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -426,13 +586,17 @@
       "attempts": [
         {
           "url": "https://clinicaltrials.vetmed.ucdavis.edu/",
+          "final_url": "https://clinicaltrials.vetmed.ucdavis.edu/",
           "http_status": 403,
-          "result": "insufficient"
+          "result": "insufficient",
+          "normalized_chars": 771
         },
         {
           "url": "https://clinicaltrials.vetmed.ucdavis.edu/clinical-trial-articles-news",
+          "final_url": "https://clinicaltrials.vetmed.ucdavis.edu/clinical-trial-articles-news",
           "http_status": 403,
-          "result": "insufficient"
+          "result": "insufficient",
+          "normalized_chars": 771
         },
         {
           "url": "https://clinicaltrials.vetmed.ucdavis.edu/",
@@ -441,12 +605,17 @@
           "transport": "external web retriever"
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": false,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -456,16 +625,23 @@
       "attempts": [
         {
           "url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/oncology/",
+          "final_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/oncology/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 4940
         }
       ],
-      "previous_last_checked": "2026-09-28",
-      "previous_last_checked_at": "2026-09-28T06:25:35-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -475,16 +651,23 @@
       "attempts": [
         {
           "url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/oncology/",
+          "final_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/oncology/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 4240
         }
       ],
-      "previous_last_checked": "2026-09-28",
-      "previous_last_checked_at": "2026-09-28T06:25:35-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -494,16 +677,23 @@
       "attempts": [
         {
           "url": "https://vet.uga.edu/research/clinical-trials/",
+          "final_url": "https://vet.uga.edu/research/clinical-trials/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 6632
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -513,16 +703,23 @@
       "attempts": [
         {
           "url": "https://vetmed.illinois.edu/research/clinical-trials/",
+          "final_url": "https://vetmed.illinois.edu/research/clinical-trials/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 6222
         }
       ],
       "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T07:45:00-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -532,8 +729,10 @@
       "attempts": [
         {
           "url": "https://bluepearlvet.com/current-clinical-studies/",
+          "final_url": "https://bluepearlvet.com/current-clinical-studies/",
           "http_status": 403,
-          "result": "insufficient"
+          "result": "insufficient",
+          "normalized_chars": 16
         },
         {
           "url": "https://bluepearlvet.com/current-clinical-studies/",
@@ -542,12 +741,17 @@
           "transport": "external web retriever"
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": false,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -557,16 +761,23 @@
       "attempts": [
         {
           "url": "https://research.vetmed.vt.edu/clinical-trials/current-studies.html",
+          "final_url": "https://research.vetmed.vt.edu/clinical-trials/current-studies.html",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 12208
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -576,16 +787,23 @@
       "attempts": [
         {
           "url": "https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/",
+          "final_url": "https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 9675
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -595,16 +813,23 @@
       "attempts": [
         {
           "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-trials.html",
+          "final_url": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-trials.html",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 5680
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -614,21 +839,30 @@
       "attempts": [
         {
           "url": "https://www.ethosvet.com/clinical-studies/",
+          "final_url": "https://www.ethosvet.com/current-studies/",
           "http_status": 404,
-          "result": "insufficient"
+          "result": "insufficient",
+          "normalized_chars": 1173
         },
         {
           "url": "https://www.ethosvet.com/medical-professionals/",
+          "final_url": "https://www.ethosvet.com/medical-professionals/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 1401
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -638,21 +872,30 @@
       "attempts": [
         {
           "url": "https://www.ethosdiscovery.org/clinical-studies/",
+          "final_url": "https://www.ethosdiscovery.org/clinical-studies/",
           "http_status": 404,
-          "result": "insufficient"
+          "result": "insufficient",
+          "normalized_chars": 1155
         },
         {
           "url": "https://www.ethosdiscovery.org/scientific-programs/",
+          "final_url": "https://www.ethosdiscovery.org/scientific-programs/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 8615
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -662,16 +905,23 @@
       "attempts": [
         {
           "url": "https://www.medvet.com/clinical-studies/",
+          "final_url": "https://www.medvet.com/clinical-studies/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 19769
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -681,16 +931,23 @@
       "attempts": [
         {
           "url": "https://castr-wa.com/",
+          "final_url": "https://castr-wa.com/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 7378
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -700,21 +957,30 @@
       "attempts": [
         {
           "url": "https://anivivelifesciences.com/trials",
+          "final_url": "https://anivivelifesciences.com/trials",
           "http_status": 525,
-          "result": "insufficient"
+          "result": "insufficient",
+          "normalized_chars": 899
         },
         {
           "url": "https://anivivelifesciences.com/treatments",
+          "final_url": "https://anivivelifesciences.com/treatments",
           "http_status": 525,
-          "result": "insufficient"
+          "result": "insufficient",
+          "normalized_chars": 899
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_result": "partial",
       "content_sufficient": false,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": false,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -724,16 +990,23 @@
       "attempts": [
         {
           "url": "https://ovcclinicaltrials.uoguelph.ca/",
+          "final_url": "https://ovcclinicaltrials.uoguelph.ca/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 2567
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -743,16 +1016,23 @@
       "attempts": [
         {
           "url": "https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials",
+          "final_url": "https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 5602
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -762,16 +1042,23 @@
       "attempts": [
         {
           "url": "https://oncowaf.be/en/ClinicalTrials/searchResults",
+          "final_url": "https://oncowaf.be/en/ClinicalTrials/searchResults",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 12175
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -781,16 +1068,23 @@
       "attempts": [
         {
           "url": "https://vetoncology.sites.uu.nl/research/interventional/",
+          "final_url": "https://vetoncology.sites.uu.nl/research/interventional/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 7087
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -800,17 +1094,23 @@
       "attempts": [
         {
           "url": "https://www.tierspital.uzh.ch/krebs-tumore/klinische-studien/",
+          "final_url": "https://www.tierspital.uzh.ch/kleintiere/kleintierkliniken-onkologie/krebs-tumore-klinische-studien/",
           "http_status": 200,
           "result": "sufficient",
-          "transport": "direct fetch with manual local-language review"
+          "normalized_chars": 5326
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -820,16 +1120,23 @@
       "attempts": [
         {
           "url": "https://www.ospedaleveterinario.unimi.it/collaborare-con-noi-studi-di-ricerca/",
+          "final_url": "https://www.ospedaleveterinario.unimi.it/collaborare-con-noi-studi-di-ricerca/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 12174
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -839,16 +1146,29 @@
       "attempts": [
         {
           "url": "https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre",
+          "final_url": "https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre",
+          "http_status": 403,
+          "result": "insufficient",
+          "normalized_chars": 88
+        },
+        {
+          "url": "https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre/projects",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "transport": "Chromium-rendered official roster"
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 8,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -858,16 +1178,23 @@
       "attempts": [
         {
           "url": "https://www.ksvhc.org/services/specialty-services/oncology/",
+          "final_url": "https://www.ksvhc.org/services/specialty-services/oncology/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 1715
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -877,16 +1204,23 @@
       "attempts": [
         {
           "url": "https://www.sagecenters.com/clinical-trials",
+          "final_url": "https://www.sagecenters.com/clinical-trials",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 2267
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -896,16 +1230,23 @@
       "attempts": [
         {
           "url": "https://petcureoncology.com/clinical-trials/",
+          "final_url": "https://petcureoncology.com/clinical-trials/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 4173
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -915,16 +1256,23 @@
       "attempts": [
         {
           "url": "https://www.amcny.org/current-clinical-trials/",
+          "final_url": "https://www.amcny.org/current-clinical-trials/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 16686
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -934,18 +1282,24 @@
       "attempts": [
         {
           "url": "https://www.vet.upenn.edu/research/research-programs/comparative-immunotherapy-program/clinical-trials/",
+          "final_url": "https://www.vet.upenn.edu/research/research-programs/comparative-immunotherapy-program/clinical-trials/",
           "http_status": 403,
-          "result": "insufficient"
+          "result": "insufficient",
+          "normalized_chars": 16
         },
         {
           "url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+          "final_url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
           "http_status": 403,
-          "result": "insufficient"
+          "result": "insufficient",
+          "normalized_chars": 16
         },
         {
           "url": "https://www.vet.upenn.edu/clinical-trial/",
+          "final_url": "https://www.vet.upenn.edu/clinical-trial/",
           "http_status": 403,
-          "result": "insufficient"
+          "result": "insufficient",
+          "normalized_chars": 16
         },
         {
           "url": "https://www.vet.upenn.edu/research/research-programs/comparative-immunotherapy-program/clinical-trials/",
@@ -954,12 +1308,17 @@
           "transport": "external web retriever"
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": "2026-09-26T08:35:29-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": false,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -969,16 +1328,23 @@
       "attempts": [
         {
           "url": "https://veterinary-science.uq.edu.au/community/clinical-trials",
+          "final_url": "https://veterinary-science.uq.edu.au/community/clinical-trials",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 6950
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": null,
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -988,16 +1354,23 @@
       "attempts": [
         {
           "url": "https://uqvets.com.au/about/clinical-research-trials",
+          "final_url": "https://uqvets.com.au/about/clinical-research-trials",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 4286
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": null,
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -1007,16 +1380,23 @@
       "attempts": [
         {
           "url": "https://www.gamgee.io/trial/",
+          "final_url": "https://www.gamgee.io/trial/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 3552
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": null,
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -1026,16 +1406,23 @@
       "attempts": [
         {
           "url": "https://pettrials.com.au/trials/",
+          "final_url": "https://pettrials.com.au/trials/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 2930
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": null,
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -1045,16 +1432,23 @@
       "attempts": [
         {
           "url": "https://sashvets.com/services/sash-research/",
+          "final_url": "https://sashvets.com/services/sash-research/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 9150
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": null,
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -1064,16 +1458,23 @@
       "attempts": [
         {
           "url": "https://www.caninecancer.org.au/ausresearch.html",
+          "final_url": "https://www.caninecancer.org.au/ausresearch.html",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 2072
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": null,
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -1083,16 +1484,23 @@
       "attempts": [
         {
           "url": "https://medipaws.com.au/clinical-research",
+          "final_url": "https://medipaws.com.au/clinical-research",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 7389
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": null,
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -1102,16 +1510,23 @@
       "attempts": [
         {
           "url": "https://www.bvsc.com.au/foundation/",
+          "final_url": "https://www.bvsc.com.au/foundation/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 3249
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": null,
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -1121,17 +1536,23 @@
       "attempts": [
         {
           "url": "https://www.anzcvs.org.au/chapters/veterinary%2Boncology/news",
+          "final_url": "https://www.anzcvs.org.au/chapters/veterinary%2Boncology/news",
           "http_status": 200,
           "result": "sufficient",
-          "transport": "direct fetch with manual local-language review"
+          "normalized_chars": 470
         }
       ],
-      "previous_last_checked": "2026-09-26",
-      "previous_last_checked_at": null,
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -1141,16 +1562,23 @@
       "attempts": [
         {
           "url": "https://www.barcseattle.com/clinical-trials-index",
+          "final_url": "https://www.barcseattle.com/clinical-trials-index",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 7408
         }
       ],
-      "previous_last_checked": "2026-09-29",
-      "previous_last_checked_at": null,
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -1160,16 +1588,23 @@
       "attempts": [
         {
           "url": "https://www.vivesto.com/en/section/media/press-releases/",
+          "final_url": "https://www.vivesto.com/en/section/media/press-releases/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 3785
         }
       ],
-      "previous_last_checked": "2026-09-27",
-      "previous_last_checked_at": null,
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -1179,8 +1614,10 @@
       "attempts": [
         {
           "url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+          "final_url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
           "http_status": 403,
-          "result": "insufficient"
+          "result": "insufficient",
+          "normalized_chars": 16
         },
         {
           "url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
@@ -1189,12 +1626,17 @@
           "transport": "external web retriever"
         }
       ],
-      "previous_last_checked": "2026-09-29",
-      "previous_last_checked_at": null,
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 1,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": false,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -1204,16 +1646,23 @@
       "attempts": [
         {
           "url": "https://www.ccralliance.org/research-projects",
+          "final_url": "https://www.ccralliance.org/research-projects",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 4751
         }
       ],
       "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T07:45:00-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -1223,8 +1672,10 @@
       "attempts": [
         {
           "url": "https://vrcvet.com/clinical-trials/",
+          "final_url": "https://vrcvet.com/clinical-trials/",
           "http_status": 403,
-          "result": "insufficient"
+          "result": "insufficient",
+          "normalized_chars": 765
         },
         {
           "url": "https://vrcvet.com/clinical-trials/",
@@ -1234,11 +1685,16 @@
         }
       ],
       "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": "2026-09-30T07:45:00-04:00",
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 1,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -1248,21 +1704,30 @@
       "attempts": [
         {
           "url": "https://hospital.vetmed.wsu.edu/appointments/",
+          "final_url": "https://hospital.vetmed.wsu.edu/appointments/",
           "http_status": 403,
-          "result": "insufficient"
+          "result": "insufficient",
+          "normalized_chars": 27
         },
         {
           "url": "https://hospital.vetmed.wsu.edu/small-animal/cats-and-dogs/oncology/",
+          "final_url": "https://hospital.vetmed.wsu.edu/small-animal/cats-and-dogs/oncology/",
           "http_status": 403,
-          "result": "insufficient"
+          "result": "insufficient",
+          "normalized_chars": 27
         }
       ],
       "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": null,
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_result": "partial",
       "content_sufficient": false,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": false,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -1272,16 +1737,23 @@
       "attempts": [
         {
           "url": "https://studypages.com/investigator/1cff202c91db48f6acceb2c14cff5418/",
+          "final_url": "https://studypages.com/investigator/1cff202c91db48f6acceb2c14cff5418/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 1386
         }
       ],
       "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": null,
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -1291,17 +1763,23 @@
       "attempts": [
         {
           "url": "https://www.caudjlab.com/newdetail.aspx?id=73",
+          "final_url": "https://www.caudjlab.com/newdetail.aspx?id=73",
           "http_status": 200,
           "result": "sufficient",
-          "transport": "direct fetch with manual local-language review"
+          "normalized_chars": 1167
         }
       ],
       "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": null,
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -1311,17 +1789,23 @@
       "attempts": [
         {
           "url": "https://www.petcura.cn/zh/mrna-vaccine/study/",
+          "final_url": "https://www.petcura.cn/zh/mrna-vaccine/study/",
           "http_status": 200,
           "result": "sufficient",
-          "transport": "direct fetch with manual local-language review"
+          "normalized_chars": 2311
         }
       ],
       "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": null,
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -1331,16 +1815,23 @@
       "attempts": [
         {
           "url": "https://veterinarios.hospitalveterinariopuchol.com/blog/reachglio-ensayo-clinico-glioma-perros/",
+          "final_url": "https://veterinarios.hospitalveterinariopuchol.com/blog/reachglio-ensayo-clinico-glioma-perros/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 16183
         }
       ],
       "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": null,
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -1350,16 +1841,23 @@
       "attempts": [
         {
           "url": "https://ccr.cancer.gov/comparative-oncology-program/trials",
+          "final_url": "https://ccr.cancer.gov/comparative-oncology-program/trials",
           "http_status": 403,
-          "result": "insufficient"
+          "result": "insufficient",
+          "normalized_chars": 27
         }
       ],
       "previous_last_checked": "2026-09-30",
-      "previous_last_checked_at": null,
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_result": "partial",
       "content_sufficient": false,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": false,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -1369,16 +1867,23 @@
       "attempts": [
         {
           "url": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
+          "final_url": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 8225
         }
       ],
-      "previous_last_checked": null,
-      "previous_last_checked_at": null,
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -1388,16 +1893,23 @@
       "attempts": [
         {
           "url": "https://www.kamogawa-ac.jp/category/%E7%97%85%E6%B0%97%E3%82%84%E4%BA%88%E9%98%B2/%E8%85%AB%E7%98%8D%EF%BC%88%E3%82%AC%E3%83%B3%EF%BC%89/",
+          "final_url": "https://www.kamogawa-ac.jp/category/%E7%97%85%E6%B0%97%E3%82%84%E4%BA%88%E9%98%B2/%E8%85%AB%E7%98%8D%EF%BC%88%E3%82%AC%E3%83%B3%EF%BC%89/",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "sufficient",
+          "normalized_chars": 2997
         }
       ],
-      "previous_last_checked": null,
-      "previous_last_checked_at": null,
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
-      "saved_last_result": "changed",
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
       "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     },
     {
@@ -1407,16 +1919,111 @@
       "attempts": [
         {
           "url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html",
+          "final_url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html",
           "http_status": 200,
-          "result": "sufficient"
+          "result": "insufficient",
+          "normalized_chars": 7158
+        },
+        {
+          "url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/",
+          "final_url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/",
+          "http_status": 200,
+          "result": "insufficient",
+          "normalized_chars": 3887
+        },
+        {
+          "url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html",
+          "http_status": 200,
+          "result": "sufficient",
+          "transport": "Chromium-rendered official roster"
+        }
+      ],
+      "previous_last_checked": "2026-09-30",
+      "previous_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "unchanged",
+      "content_sufficient": true,
+      "protocols_seen": 4,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "japan-veterinary-cancer-society-clinical-trials",
+      "name": "Japan Veterinary Cancer Society clinical trials",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.jvcs.jp/research/clinical-trials/",
+          "http_status": 200,
+          "result": "sufficient",
+          "transport": "direct_fetch"
         }
       ],
       "previous_last_checked": null,
       "previous_last_checked_at": null,
-      "saved_last_checked": "2026-09-30",
-      "saved_last_checked_at": "2026-09-30T17:23:12-04:00",
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
       "saved_last_result": "changed",
       "content_sufficient": true,
+      "protocols_seen": 2,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "japan-jsamc-current-clinical-trials",
+      "name": "Japan Small Animal Medical Center current clinical trials",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://www.jsamc.jp/dr_info/clinical/clinical07.html",
+          "http_status": 200,
+          "result": "sufficient",
+          "transport": "Chromium-rendered official roster"
+        }
+      ],
+      "previous_last_checked": null,
+      "previous_last_checked_at": null,
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "protocols_seen": 5,
+      "candidates_found": 1,
+      "protocol_pages_checked": 1,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
+      "local_persistence_verified": true
+    },
+    {
+      "id": "global-vettrials-directory",
+      "name": "VetTrials global veterinary clinical-trial directory",
+      "attempted": true,
+      "attempts": [
+        {
+          "url": "https://vettrials.org/",
+          "http_status": 200,
+          "result": "sufficient",
+          "transport": "direct_fetch"
+        }
+      ],
+      "previous_last_checked": null,
+      "previous_last_checked_at": null,
+      "saved_last_checked": "2026-10-01",
+      "saved_last_checked_at": "2026-10-01T06:15:11-04:00",
+      "saved_last_result": "changed",
+      "content_sufficient": true,
+      "protocols_seen": 0,
+      "candidates_found": 0,
+      "protocol_pages_checked": 0,
+      "fingerprint_changed": true,
+      "last_checked_written": true,
       "local_persistence_verified": true
     }
   ]
