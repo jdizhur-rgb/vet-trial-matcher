@@ -23,6 +23,8 @@ BARC_TRIALS_URL = f"{NEWS_URL}barc-dog-cat-cancer-trials/"
 PENN_CAR_T_URL = f"{NEWS_URL}penn-car-t-histiocytic-sarcoma/"
 LAVERDIA_URL = f"{NEWS_URL}laverdia-canine-lymphoma/"
 TAMU_GI_URL = f"{NEWS_URL}texas-am-feline-gi-lymphoma-radiation/"
+CANCAN_URL = f"{NEWS_URL}cancan-k9-liquidx-liquid-biopsy/"
+CANCAN_IMAGE = f"{SITE}/assets/social/cancan-k9-liquidx.png"
 REACHGLIO_URL = f"{NEWS_URL}reachglio-canine-glioma-madrid/"
 CORNELL_OFFICIAL = "https://www.vet.cornell.edu/hospitals/clinical-trials/smart-start-therapy-canine-b-cell-lymphoma"
 NC_STATE_OFFICIAL = "https://cvm.ncsu.edu/clinical-trial/now-enrolling-dogs-with-invasive-bladder-cancer/"
@@ -80,12 +82,13 @@ def generate_news_section(root: Path) -> None:
     source_assets = Path(__file__).resolve().parent / "assets" / "social"
     built_assets = root / "assets" / "social"
     built_assets.mkdir(parents=True, exist_ok=True)
-    for name in ("purdue-ablation-1200x630.jpg", "purdue-ablation-story-1080x1920.jpg", "barc-dog-cat-cancer-trials.jpg", "barc-dog-cat-cancer-trials-square-safe.jpg", "penn-car-t-histiocytic-sarcoma-1200x630.jpg"):
+    for name in ("cancan-k9-liquidx.png", "purdue-ablation-1200x630.jpg", "purdue-ablation-story-1080x1920.jpg", "barc-dog-cat-cancer-trials.jpg", "barc-dog-cat-cancer-trials-square-safe.jpg", "penn-car-t-histiocytic-sarcoma-1200x630.jpg"):
         shutil.copy2(source_assets / name, built_assets / name)
     index_body = f'''<div class="registry-page news-index">
 <h1>Veterinary oncology news</h1>
 <p class="lead">Newly opened treatment trials, meaningful recruitment changes and other developments that may matter to owners looking for cancer treatment options.</p>
 <div class="directory-grid">
+<a class="directory-card" href="{CANCAN_URL}"><strong>K9-LiquiDX: looking for canine cancer signals in the blood</strong><span>October 1, 2026. What CanCan’s blood test is offered for, early clinical experience, costs and ordering through your veterinarian.</span></a>
 <a class="directory-card" href="{REACHGLIO_URL}"><strong>ReachGlio opens in Madrid for dogs with high-grade glioma</strong><span>September 30, 2026. A new trial combines SNGR-TNF with temozolomide and tackles the same glioma problem from a different angle than current U.S. studies.</span></a>
 <a class="directory-card" href="{TAMU_GI_URL}"><strong>Texas A&M opens radiation trial for feline GI lymphoma</strong><span>September 30, 2026. Whole-abdomen radiation is being studied for cats with small-cell GI lymphoma that has relapsed or not responded sufficiently to standard chemotherapy.</span></a>
 <a class="directory-card" href="{LAVERDIA_URL}"><strong>How Laverdia works</strong><span>September 29, 2026. An oral FDA-approved treatment for canine lymphoma that can be given at home, but should not be mistaken for an equivalent replacement for CHOP.</span></a>
@@ -101,6 +104,20 @@ def generate_news_section(root: Path) -> None:
     index_dir.mkdir(parents=True, exist_ok=True)
     index_page = g.page("Veterinary Oncology News | Vet Trial Finder", "New veterinary cancer treatment trials, recruitment changes and other oncology developments for dogs and cats.", index_body, NEWS_URL)
     (index_dir / "index.html").write_text(wrap_html(index_page), encoding="utf-8")
+
+    cancan_body = f'''<p class="eyebrow">Canine cancer testing · October 1, 2026</p>
+<h1>K9-LiquiDX: looking for canine cancer signals in the blood</h1>
+<figure style="margin:18px 0 24px"><img src="{CANCAN_IMAGE}" alt="CanCan illustration of DNA fragments and blood cells" width="2250" height="2250" style="display:block;width:100%;max-width:440px;height:auto;margin:auto"><figcaption>Illustration: <a href="https://cancandiagnostics.com/">CanCan Diagnostics</a>.</figcaption></figure>
+<p>A blood sample can carry information about a dog’s cancer. As cells die, they release fragments of DNA into the bloodstream. <a href="https://cancandiagnostics.com/">K9-LiquiDX</a>, developed by University of Edinburgh spinout CanCan Diagnostics, uses next-generation sequencing to look for cancer-related genetic changes in those fragments.</p>
+<p>The test launched commercially in 2024. Its appeal is straightforward: a blood draw may provide information about disease that is difficult to sample directly, and repeated testing may help track changes during or after treatment.</p>
+<p>In its <a href="https://cancandiagnostics.com/wp-content/uploads/2024/04/CanCan-Diagnostics-K9-LiquiDX.pdf">official brochure</a>, CanCan describes uses ranging from helping with diagnosis to monitoring cancer, detecting early relapse and identifying genetic changes that may inform treatment selection. One focus is minimal residual disease, the small amount of cancer that may remain after treatment. These are the company’s intended applications; how well the test performs depends on the cancer type and stage.</p>
+<p>There is already some published experience from everyday oncology practice. In a <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/vco.70050">conference report from VCS 2025</a>, the Eiffelvet clinic in Paris described using K9-LiquiDX in 55 dogs. Their patients had carcinomas, soft tissue sarcomas, lymphoma, melanoma, mast cell tumours, osteosarcoma, haemangiosarcoma and a heart-base tumour.</p>
+<p>Among 45 completed results, the reports identified potential treatment options in 37 cases, and clinicians used the recommendations in 18. Seven dogs underwent repeat testing for residual-disease monitoring. In two dogs with soft tissue sarcoma, the blood signal disappeared after treatment, matching what clinicians were seeing.</p>
+<p>That is useful early evidence of how the test can fit into clinical care. It does not yet tell us how often it catches recurrence before imaging or whether choosing treatment based on its findings improves survival. The report’s lead author is also a <a href="https://cancandiagnostics.com/the-team/">clinical scientific advisor to CanCan</a>.</p>
+<p>For owners interested in testing, the starting point is their own veterinarian. The vet can arrange the test with CanCan, collect blood in the company’s special stabilizing tube and send it to the laboratory in the UK. Results go back to the veterinarian for interpretation. The company explains the process in its <a href="https://cancandiagnostics.com/faqs/">FAQ</a>.</p>
+<p>CanCan also offers sequencing of stored tumour tissue to help interpret the blood findings. According to information provided directly by the company in October 2026, a blood test costs <strong>$600</strong>, with approximately <strong>$60 shipping from the U.S.</strong> Tumour sequencing combined with the first blood test costs <strong>$1,000 plus shipping</strong>. Owners should confirm any additional veterinary collection or pathology preparation fees.</p>
+<p>Veterinarians can request ordering information at <a href="mailto:enquiries@cancandiagnostics.com">enquiries@cancandiagnostics.com</a> or through CanCan’s <a href="https://cancandiagnostics.com/contact-us/">contact page</a>.</p>'''
+    write_article(root, "cancan-k9-liquidx-liquid-biopsy", "K9-LiquiDX: looking for canine cancer signals in the blood", "CanCan’s K9-LiquiDX blood test: intended uses, early clinical experience, costs and ordering through your veterinarian.", cancan_body, "CanCan Diagnostics brochure, FAQ and team page; VCS 2025 conference report; manufacturer correspondence for pricing", "October 1, 2026", "2026-10-01", CANCAN_IMAGE, (2250, 2250), False)
 
     cornell_body = f'''<p class="eyebrow">Trial opening · September 17, 2026</p>
 <h1>Cornell opens Smart-Start trial for dogs with B-cell lymphoma</h1>
@@ -287,7 +304,7 @@ def generate_news_section(root: Path) -> None:
             articles_text = articles_text.replace('<div class="directory-grid">', '<div class="directory-grid">' + card, 1)
             articles_index.write_text(articles_text, encoding="utf-8")
 
-    add_to_sitemap(root, (NEWS_URL, REACHGLIO_URL, TAMU_GI_URL, CORNELL_URL, NC_STATE_URL, WISCONSIN_URL, PURDUE_URL, TAIWAN_IL15_URL, BARC_TRIALS_URL, PENN_CAR_T_URL, LAVERDIA_URL))
+    add_to_sitemap(root, (NEWS_URL, CANCAN_URL, REACHGLIO_URL, TAMU_GI_URL, CORNELL_URL, NC_STATE_URL, WISCONSIN_URL, PURDUE_URL, TAIWAN_IL15_URL, BARC_TRIALS_URL, PENN_CAR_T_URL, LAVERDIA_URL))
     rendered = "\n".join((root / "news" / slug / "index.html").read_text(encoding="utf-8") for slug in ("reachglio-canine-glioma-madrid", "texas-am-feline-gi-lymphoma-radiation", "cornell-smart-start-b-cell-lymphoma", "nc-state-il12-bladder-cancer-deadline", "wisconsin-ptcl-radiopharmaceutical-trial", "purdue-three-cancer-treatment-trials", "taiwan-inhaled-il15-lung-metastases", "barc-dog-cat-cancer-trials", "penn-car-t-histiocytic-sarcoma", "laverdia-canine-lymphoma"))
     required = ("There is no placebo.", "$1,000 toward chemotherapy costs", "September 30, 2026", "There is no placebo group.", "90Y-NM600", "initial screening visit and initial laboratory work are owner-paid", "HIFU followed by CHOP", "H-FIRE before surgery", "Osteosarcoma: HIFU", "has not been shown to improve remission, disease control or survival", "objective response rate was 11%", "phase, enrollment target and interim results have not been published", "whether it improves tumor control has not yet been established", "study treatments and associated procedures are fully funded", "Eligible cats may have oral squamous cell carcinoma that does not involve bone", "A measurable tumor is required for enrollment", "neither has yet demonstrated a clinical benefit in dogs with HS", PENN_CAR_T_OFFICIAL, UF_HS_TRAMETINIB_OFFICIAL, PENN_CAR_T_IMAGE, BARC_TRIALS_OFFICIAL, BARC_SOCIAL_IMAGE, PURDUE_SOCIAL_IMAGE, 'summary_large_image', PURDUE_ABLATION_OFFICIAL, TAIWAN_IL15_OFFICIAL, TAIWAN_IL15_PHASE1, TAIWAN_IL15_PHASE2, CORNELL_OFFICIAL, NC_STATE_OFFICIAL, WISCONSIN_OFFICIAL, '"@type": "NewsArticle"', "Texas A&M is recruiting cats with small-cell gastrointestinal lymphoma", "ReachGlio is testing whether SNGR-TNF can temporarily change the tumor blood vessels", TAMU_GI_OFFICIAL, REACHGLIO_OFFICIAL, HOPKINS_GLIOMA_OFFICIAL, UCD_CARE_OFFICIAL, "Laverdia (verdinexor) is an oral treatment for dogs with lymphoma.", "do not show that it is equivalent to a multi-drug chemotherapy protocol such as CHOP", LAVERDIA_OFFICIAL, LAVERDIA_IMAGE)
     missing = [marker for marker in required if marker not in rendered]
