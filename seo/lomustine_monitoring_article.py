@@ -13,7 +13,7 @@ from site_shell import wrap_html
 
 SLUG = "lomustine-ccnu-cbc-monitoring"
 URL = f"{SITE}/articles/{SLUG}/"
-IMAGE = f"{SITE}/assets/social/lomustine-cbc-monitoring.jpg?v=20261003-2"
+IMAGE = f"{SITE}/assets/social/lomustine-cbc-monitoring-facebook.jpg"
 CBC_IMAGE = f"{SITE}/assets/social/lomustine-cbc-result.jpg"
 
 
@@ -24,8 +24,8 @@ def generate_lomustine_monitoring_article(root: Path) -> None:
     source_assets = Path(__file__).resolve().parent / "assets" / "social"
     built_assets = root / "assets" / "social"
     built_assets.mkdir(parents=True, exist_ok=True)
-    for name in ("lomustine-cbc-monitoring.jpg", "lomustine-cbc-result.jpg"):
-        shutil.copy2(source_assets / name, built_assets / name)
+    shutil.copy2(source_assets / "lomustine-cbc-monitoring.jpg", built_assets / "lomustine-cbc-monitoring-facebook.jpg")
+    shutil.copy2(source_assets / "lomustine-cbc-result.jpg", built_assets / "lomustine-cbc-result.jpg")
 
     body = f'''<article class="article-page news-article">
 <p class="eyebrow">Chemotherapy monitoring · October 3, 2026</p>
@@ -69,7 +69,7 @@ def generate_lomustine_monitoring_article(root: Path) -> None:
     directory = root / "articles" / SLUG
     directory.mkdir(parents=True, exist_ok=True)
     rendered = g.page(f"{title} | Vet Trial Finder", description, body, URL)
-    social = f'''<meta property="og:type" content="article"><meta property="og:site_name" content="Vet Trial Finder"><meta property="og:title" content="{g.esc(title)}"><meta property="og:description" content="{g.esc(description)}"><meta property="og:url" content="{URL}"><meta property="og:image" content="{IMAGE}"><meta property="og:image:secure_url" content="{IMAGE}"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1774"><meta property="og:image:height" content="887"><meta property="og:image:alt" content="A dog with an owner during a veterinary blood test"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{g.esc(title)}"><meta name="twitter:description" content="{g.esc(description)}"><meta name="twitter:image" content="{IMAGE}">'''
+    social = f'''<meta property="og:type" content="article"><meta property="og:site_name" content="Vet Trial Finder"><meta property="og:title" content="{g.esc(title)}"><meta property="og:description" content="{g.esc(description)}"><meta property="og:url" content="{URL}"><meta property="og:image" content="{IMAGE}"><meta property="og:image:url" content="{IMAGE}"><meta property="og:image:secure_url" content="{IMAGE}"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1774"><meta property="og:image:height" content="887"><meta property="og:image:alt" content="A dog with an owner during a veterinary blood test"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{g.esc(title)}"><meta name="twitter:description" content="{g.esc(description)}"><meta name="twitter:image" content="{IMAGE}">'''
     schema = {
         "@context": "https://schema.org",
         "@type": "Article",
