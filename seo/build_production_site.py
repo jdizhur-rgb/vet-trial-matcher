@@ -45,6 +45,7 @@ from repurposed_drugs_article import generate_repurposed_drugs_article
 from mushrooms_herbs_supplements_article import generate_mushrooms_herbs_supplements_article
 from dangerous_cancer_remedies_article import generate_dangerous_cancer_remedies_article
 from trial_directions_article import generate_trial_directions_article
+from lomustine_monitoring_article import generate_lomustine_monitoring_article
 from news_section import generate_news_section
 from about_site_integration import integrate_about
 
@@ -204,6 +205,7 @@ def main():
     generate_mushrooms_herbs_supplements_article(out)
     generate_dangerous_cancer_remedies_article(out)
     generate_trial_directions_article(out)
+    generate_lomustine_monitoring_article(out)
     generate_news_section(out)
     vaccine_page = out / "articles" / "cancer-vaccines" / "index.html"
     if vaccine_page.exists():

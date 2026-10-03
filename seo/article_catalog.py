@@ -47,6 +47,7 @@ ARTICLE_CATEGORIES = {
     "electrochemotherapy": "treatment",
     "cancer-vaccines": "treatment",
     "laverdia-canine-lymphoma": "treatment",
+    "lomustine-ccnu-cbc-monitoring": "treatment",
     "clinical-trials-for-pets-with-cancer": "trials",
     "where-veterinary-cancer-trials-are-heading": "trials",
     "when-cancer-remedies-cause-harm": "safety",
