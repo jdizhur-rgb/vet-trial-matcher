@@ -1,6 +1,3 @@
-Warning: truncated output (original token count: 23681)
-Total output lines: 403
-
 #!/usr/bin/env python3
 """Give the generated SEO site one shared navigation, homepage and section pages."""
 from __future__ import annotations
@@ -167,7 +164,94 @@ def cancer_index(root,rows):
  for key in sorted(g.DISEASE_INFO):
   label=g.display_name(key);slug=g.slugify(key)
   dogs=sum(1 for r in north_america if g.species_ok(r,'Dog') and key in g.row_cancers(r,'Dog'))
-  cats=sum(1 for r in north_amer…3681 tokens truncated…eding, painful or ulcerated tumor;</li><li>together with other cancer treatments.</li></ul>
+  cats=sum(1 for r in north_america if g.species_ok(r,'Cat') and key in g.row_cancers(r,'Cat'))
+  links=[f'<a href="{SITE}/north-america/dogs/{slug}/">Dogs <span class="catalog-count">{dogs}</span></a>',f'<a href="{SITE}/north-america/cats/{slug}/">Cats <span class="catalog-count">{cats}</span></a>']
+  items.append(f'<div class="catalog-card"><strong>{g.esc(label)}</strong><div class="catalog-links">{"".join(links)}</div></div>')
+ body=f'''<h1>Cancer Types</h1><p class="lead catalog-intro"><strong>Start with your pet’s diagnosis.</strong> Choose a cancer type below to see a plain-language overview, standard treatment options and current clinical trials for dogs or cats. If you are not sure of the exact diagnosis, use the Clinical Trial Finder and enter what you know.</p><div class="count-explainer"><strong>What the numbers mean.</strong> These are current treatment opportunities in our USA and Canada catalog, not numbers of hospitals or pets. Each study or treatment program is counted once for each species and cancer type it accepts, even if it has several participating hospitals. A program that accepts several diagnoses appears under each relevant cancer type. The study team still decides whether an individual pet qualifies.</div><input class="catalog-search" type="search" placeholder="Search cancer type" aria-label="Search cancer types" oninput="filterCatalog(this.value)"><div class="catalog-grid">{''.join(items)}</div>{filter_script('.catalog-card')}''';d=root/'cancer-types';d.mkdir(parents=True,exist_ok=True);(d/'index.html').write_text(g.page('Find veterinary cancer trials for dogs and cats | Vet Trial Finder','Free matching connects pet owners with active veterinary cancer trials and treatment centers. Search by diagnosis and location, then contact study teams directly.',body,f'{SITE}/cancer-types/'),encoding='utf-8')
+
+def species_trial_pages(root,rows):
+ north_america=[r for r in rows if r.get('country') in {'USA','Canada'}]
+ for slug,species,plural in (('dogs','Dog','dogs'),('cats','Cat','cats')):
+  species_rows=[r for r in north_america if g.species_ok(r,species)]
+  diagnoses=[]
+  for key in sorted(g.DISEASE_INFO,key=lambda value:g.display_name(value)):
+   count=sum(1 for r in species_rows if key in g.row_cancers(r,species))
+   if not count:continue
+   label=g.display_name(key)
+   diagnosis_slug=g.slugify(key)
+   diagnoses.append(f'<a class="registry-diagnosis" href="{SITE}/north-america/{slug}/{diagnosis_slug}/">{g.esc(label)}<span>{count} current {"option" if count==1 else "options"}</span></a>')
+  url=f'{SITE}/{slug}/cancer-clinical-trials/'
+  body=f'''<div class="registry-page"><h1>Cancer clinical trials for {plural}</h1>
+<p class="lead">Browse current cancer treatment studies for {plural} in the USA and Canada. Choose a diagnosis to see study details, locations, contacts, possible covered costs and links to the official sources.</p>
+<div class="registry-stats"><div class="registry-stat"><strong>{len(species_rows)}</strong><span>current treatment studies and programs for {plural}</span></div><div class="registry-stat"><strong>{len(diagnoses)}</strong><span>cancer types with current listings</span></div></div>
+<div class="registry-actions"><a class="cta" href="{FINDER}" target="_blank" rel="noopener">Check your pet against current trials</a><a class="secondary-cta" href="{SITE}/veterinary-cancer-clinical-trials/">About the trial registry</a></div>
+<h2>Browse by diagnosis</h2><p>One study may accept more than one cancer type, so it can appear on several diagnosis pages. The total above counts each study once.</p>
+<div class="registry-diagnoses">{''.join(diagnoses)}</div>
+<section class="registry-section"><h2>If the diagnosis is not listed</h2><p>The finder can also check broad solid-tumor studies and other programs that are not limited to one cancer type. Enter the diagnosis exactly as it appears in the pathology report when possible, and leave uncertain details unknown rather than guessing.</p></section>
+<section class="registry-section"><h2>Before contacting a study</h2><p>A listing is not a promise of eligibility. The research team will review the diagnosis, stage, previous treatment, current medications and required test results. Enrollment and available places can change.</p></section></div>'''
+  dest=root/slug/'cancer-clinical-trials';dest.mkdir(parents=True,exist_ok=True)
+  title=f'Cancer clinical trials for {plural} | Vet Trial Finder'
+  desc=f'Browse current cancer clinical trials and treatment studies for {plural} in the USA and Canada by diagnosis. Free access to study details and official links.'
+  (dest/'index.html').write_text(g.page(title,desc,body,url),encoding='utf-8')
+
+TREATMENT_CATEGORIES=(
+ ('immunotherapy','Immunotherapy',re.compile(r'immunotherap\w*|anti[- ]?pd|pd[- ]?1|pd[- ]?l1|car[- ]?(?:t|inkt)|t[- ]?cell engager|nk[- ]?cell|tlr agonist|gilvetmab|aks-701|trike|xcs.?gel|il-12|oncolytic peptide',re.I),
+  'Immunotherapy is not one treatment. The listings here include checkpoint inhibitors, engineered immune cells, intratumoral immune treatments and other approaches intended to help the immune system recognize or attack cancer.',
+  'Some studies combine immunotherapy with surgery, chemotherapy or radiation. The exact drug or cell product, diagnosis, disease stage and previous treatment all matter.'),
+ ('cancer-vaccines','Cancer vaccines',re.compile(r'vaccin\w*|mrna',re.I),
+  'Cancer vaccines are treatment, not routine vaccination against an infectious disease. Some use a shared tumor target. Others are made from an individual animal’s tumor or are given as part of a larger immune-treatment protocol.',
+  'A vaccine study may require saved tumor tissue, measurable disease, surgery or standard chemotherapy. The word vaccine alone does not tell us whether a study is appropriate or how much evidence supports it.'),
+ ('targeted-therapy','Targeted therapy',re.compile(r'toceranib|palladia|trametinib|palbociclib|verdinexor|laverdia|btk inhibitor|cdk9 inhibitor|rapamycin|sapanisertib|lapatinib|pevonedistat|olaparib|oncofap|psma-mmae|stress protein inhibitor',re.I),
+  'Targeted therapies are drugs or drug combinations chosen to interfere with a particular cancer pathway or molecular target. This section includes both established veterinary drugs being studied in new settings and experimental agents.',
+  'A drug being called targeted does not mean it will work for every tumor with the same diagnosis. Some studies require a biopsy, measurable progression or a specific molecular finding.'),
+ ('radiation-therapy','Radiation therapy',re.compile(r'radiation|radiotherap|sbrt|flash',re.I),
+  'These studies test radiation protocols, radiation combined with another treatment and newer approaches such as FLASH or lattice radiotherapy.',
+  'This is not a directory of every hospital that offers standard radiation therapy. It contains current treatment studies in the Vet Trial Finder catalog.'),
+ ('tumor-ablation','Tumor ablation',re.compile(r'hifu|histotripsy|thermoablation|microwave treatment|radiofrequency|cryotherap|h-fire',re.I),
+  'Tumor ablation destroys tissue locally using focused ultrasound, mechanical energy, freezing, heat or another physical method. Current listings include HIFU, histotripsy, cryotherapy, microwave and radiofrequency approaches.',
+  'These are local treatments. Their usefulness depends on the tumor’s size, location and accessibility, and they do not automatically address cancer elsewhere in the body.'),
+)
+
+def treatment_trial_pages(root,rows):
+ summaries=[]
+ for slug,label,pattern,intro,note in TREATMENT_CATEGORIES:
+  matched=[r for r in rows if pattern.search(str(r.get('title') or ''))]
+  if slug=='immunotherapy':
+   matched=[r for r in matched if 'imaging to guide surgery' not in str(r.get('title') or '').lower()]
+  if not matched:continue
+  url=f'{SITE}/treatments/{slug}/'
+  article_link=''
+  if slug=='cancer-vaccines':
+   article_link=f'<p><a href="{SITE}/articles/cancer-vaccines/">Read the practical guide to veterinary cancer vaccines</a></p>'
+  body=f'''<div class="registry-page"><h1>{label} clinical trials for dogs and cats</h1><p class="lead">{intro}</p>
+<div class="registry-stats"><div class="registry-stat"><strong>{len(matched)}</strong><span>current studies and treatment programs in this category</span></div></div>
+<section class="registry-section"><p>{note}</p>{article_link}</section>
+<div class="registry-actions"><a class="cta" href="{FINDER}" target="_blank" rel="noopener">Check your pet against current trials</a><a class="secondary-cta" href="{SITE}/treatments/">Browse treatment types</a></div>
+<h2>Current listings</h2><p>One study may appear under more than one treatment type when it combines approaches. Review the full eligibility criteria and confirm current enrollment with the study team.</p>{g.cards(matched)}</div>'''
+  dest=root/'treatments'/slug;dest.mkdir(parents=True,exist_ok=True)
+  title=f'{label} clinical trials for dogs and cats | Vet Trial Finder'
+  desc=f'Browse {len(matched)} current veterinary cancer {label.lower()} studies for dogs and cats, with eligibility details, contacts and official source links.'
+  (dest/'index.html').write_text(g.page(title,desc,body,url),encoding='utf-8')
+  summaries.append(f'<a class="directory-card" href="{url}"><strong>{label}</strong><span>{len(matched)} current {"listing" if len(matched)==1 else "listings"}</span></a>')
+ index_url=f'{SITE}/treatments/'
+ index_body=f'''<div class="registry-page"><h1>Cancer treatment trials by treatment type</h1><p class="lead">Browse current veterinary cancer studies by the kind of treatment being investigated. These categories overlap because many studies combine more than one approach.</p><div class="directory-grid">{''.join(summaries)}</div><section class="registry-section"><p>These pages organize the current catalog. They do not compare treatments or recommend one approach for an individual animal. Use the matcher to check diagnosis-specific criteria, then confirm eligibility with the study team.</p></section></div>'''
+ dest=root/'treatments';dest.mkdir(parents=True,exist_ok=True)
+ (dest/'index.html').write_text(g.page('Cancer treatment trials by treatment type | Vet Trial Finder','Browse current veterinary cancer clinical trials by treatment type, including immunotherapy, vaccines, targeted therapy, radiation and tumor ablation.',index_body,index_url),encoding='utf-8')
+def other_treatments(root):
+ body=f'''<h1>Other Cancer Treatment Options</h1><p class="lead catalog-intro"><strong>Some cancer treatments are difficult to find even when they are already being used in veterinary oncology.</strong> This section links to selected options beyond routine care: electrochemotherapy centers, less widely available treatments and genomic tests that may guide decisions. The tests do not treat cancer.</p><div class="site-grid"><div class="site-card"><h3>Electrochemotherapy</h3><p>Find veterinary centers that offer ECT outside clinical trials.</p><p><a href="{SITE}/matcher/centers/?service=electrochemotherapy">Find centers offering ECT</a> · <a href="{SITE}/articles/electrochemotherapy/">How ECT works</a></p></div><a class="site-card" href="{SITE}/matcher/advanced/" target="_blank" rel="noopener"><h3>Advanced treatments</h3><p>Selected cancer therapies available outside ordinary clinical trials.</p></a><a class="site-card" href="{SITE}/matcher/genomic-tests/" target="_blank" rel="noopener"><h3>Genomic tests</h3><p>Tumor DNA tests that may help guide treatment decisions.</p></a></div><p>These options are not appropriate for every cancer or every pet. Use the listings to find a center or program, then confirm details with the treating team.</p>''';d=root/'other-treatments';d.mkdir(parents=True,exist_ok=True);(d/'index.html').write_text(g.page('Other Veterinary Cancer Treatments | Vet Trial Finder','Electrochemotherapy, selected cancer treatments and genomic tests for dogs and cats.',body,f'{SITE}/other-treatments/'),encoding='utf-8')
+
+def articles_index(root):
+ body=f'''<h1>Veterinary Cancer Articles</h1><p class="lead catalog-intro">Clear, practical explanations of cancer treatments and decisions owners may need to discuss with a veterinary oncologist.</p><div class="directory-grid"><a class="directory-card" href="{SITE}/articles/electrochemotherapy/"><strong>Electrochemotherapy in Veterinary Oncology</strong><span>How ECT works, when it is used, dirty surgical margins, recovery and finding a treatment center.</span></a></div>'''
+ dest=root/'articles';dest.mkdir(parents=True,exist_ok=True)
+ (dest/'index.html').write_text(g.page('Veterinary Cancer Articles | Vet Trial Finder','Practical, evidence-based articles about veterinary cancer treatments for dogs and cats.',body,f'{SITE}/articles/'),encoding='utf-8')
+
+def electrochemotherapy_article(root):
+ url=f'{SITE}/articles/electrochemotherapy/'
+ finder=f'{SITE}/matcher/centers/?service=electrochemotherapy'
+ body=f'''<article class="article-page"><h1>Electrochemotherapy in Veterinary Oncology</h1><p class="article-deck">Electrochemotherapy, or ECT, is a local cancer treatment used for selected tumors in dogs and cats. It can treat a visible tumor or a surgical site where cancer cells may remain after an incomplete excision.</p><figure class="article-hero"><img src="{SITE}/assets/ect-article-hero.jpg" alt="A veterinary oncologist examining a dog in a specialty hospital" width="1600" height="891"><figcaption>Illustrative image.</figcaption></figure>
+<p>During ECT, an anticancer drug, most often bleomycin, is given before short electrical pulses are applied to the treatment area. The pulses temporarily make cell membranes more permeable, allowing much more of the drug to enter tumor cells. Unlike conventional systemic chemotherapy, the main effect is concentrated in the tissue reached by the electrodes.</p>
+<h2>Which tumors are treated with ECT?</h2><p>In dogs and cats, ECT is used for mast cell tumors, soft tissue sarcomas, squamous cell carcinoma, melanoma, fibrosarcoma and some other solid tumors. This is not a complete list. ECT may be considered for other cancers when the tumor, or the area where microscopic cancer cells may remain, can be reached and fully covered by the electrodes.</p><p>It can be particularly useful for tumors on the head, limbs, inside the mouth, or close to the nose, eyelids or anus. In these locations, wide surgery may remove a large amount of healthy tissue or affect normal function.</p>
+<p>ECT may be used:</p><ul><li>as the main local treatment for a small accessible tumor;</li><li>before surgery to reduce the tumor;</li><li>during surgery to treat the tumor bed;</li><li>after surgery when excision is incomplete;</li><li>for a local recurrence;</li><li>to control a bleeding, painful or ulcerated tumor;</li><li>together with other cancer treatments.</li></ul>
 <h2>ECT after dirty surgical margins</h2><p>If a pathology report describes incomplete or dirty margins, cancer cells may remain in the surrounding tissue even when the visible tumor has been removed.</p><p>ECT can be used to treat the surgical scar, tumor bed and nearby tissues. For some patients, it may be an alternative to another surgery or radiation therapy, especially when obtaining wider surgical margins would be difficult.</p><p>ECT is not a substitute for radiation in every case. The electrical field must cover the entire area at risk. Radiation may be more appropriate when possible residual disease extends too deeply or the full treatment area cannot be reached with electrodes. The decision depends on the tumor type and grade, pathology findings, location of the scar, likely depth of residual disease and metastatic risk.</p>
 <h2>What happens during treatment?</h2><p>ECT in dogs and cats is performed under general anesthesia. The electrical pulses cause muscle contractions and can be painful, so the pet must remain anesthetized and still while they are delivered.</p><p>The anticancer drug may be given intravenously or injected directly into the tumor. Intravenous bleomycin is the preferred approach in published veterinary guidelines; other drugs and routes are used in selected cases. The clinician then treats the planned area with electrodes selected for the tumor's size, shape, depth and location. One session may be sufficient, but larger tumors, an incomplete response or a new lesion can require additional treatment.</p>
 <h2>What should owners expect afterward?</h2><p>The treated tumor does not necessarily disappear immediately. Swelling, soreness, redness, discharge, crusting and gradual breakdown of tumor tissue can occur during the first days. A large or ulcerated tumor may leave an area of dead tissue that needs time and wound care to heal.</p><p>Tumors near the airway require particular caution because post-treatment swelling can interfere with breathing. The treatment team should explain pain control, wound care, possible complications and the signs that require urgent attention.</p>
