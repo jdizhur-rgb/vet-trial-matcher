@@ -49,6 +49,7 @@ ARTICLE_CATEGORIES = {
     "laverdia-canine-lymphoma": "treatment",
     "lomustine-ccnu-cbc-monitoring": "treatment",
     "clinical-trials-for-pets-with-cancer": "trials",
+    "informed-consent-veterinary-cancer-trials": "trials",
     "where-veterinary-cancer-trials-are-heading": "trials",
     "when-cancer-remedies-cause-harm": "safety",
     "mushrooms-herbs-supplements-dogs-with-cancer": "safety",
