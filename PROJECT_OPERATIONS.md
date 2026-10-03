@@ -155,7 +155,7 @@ Production indexing policy added 2026-09-12:
 - Back up before risky UI/deployment edits.
 - Verify the live app, not just repository source, for deployment/UI bugs.
 - Do not infer workflow success from workflow-file creation.
-- The static site's canonical header navigation lives in `seo/site_shell.py`. Keep desktop dropdowns mutually exclusive and close them on pointer exit, outside click, link activation, focus exit and Escape; preserve native click-to-expand behavior at mobile widths.
+- The static site's canonical header navigation lives in `seo/site_shell.py`. Keep desktop dropdowns mutually exclusive and close them on pointer exit, outside click, link activation, focus exit and Escape; At mobile widths, the owner-approved navigation is a centered, scrollable blue panel below the existing white header; show bold group headings with native click-to-expand submenus, as requested by the owner. Opening locks background scrolling and makes page content inert. Close on the toggle, link activation or Escape, restore focus on Escape, and reset on the desktop breakpoint. Desktop dropdown behavior stays separate.
 
 ## 11a. Privacy and usage tracking
 
