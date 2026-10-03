@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-10-02",
+  "updated": "2026-10-03",
   "items": [
     {
       "id": "legacy-partial-records-20260920",
@@ -41,17 +41,17 @@
     {
       "id": "anivive-osa-trial-source-unreachable-20260926",
       "status": "open",
-      "reason": "The Anivive trial master and protocol URL returned HTTP 525 and the external web retriever could not open the cached page. A single technical failure is not sufficient to close the canonical trial, but current recruitment could not be independently reconfirmed in this run.",
+      "reason": "The Anivive trials master again returned HTTP 525 on October 3, 2026. Its official Treatments fallback is reachable and lists the canine osteosarcoma candidate as In Development, but supplies no current owner enrollment or trial protocol. A technical failure plus a development listing is not sufficient to close or reopen a canonical cohort.",
       "record_ids": [],
-      "recheck_after": "2026-10-03",
+      "recheck_after": "2026-10-10",
       "candidate_record_id": "anivive-sine-osa-carboplatin"
     },
     {
       "id": "amc-neobladder-long-running-reconfirm-20260926",
       "status": "open",
-      "reason": "AMC currently lists the artificial neobladder study, but the same protocol has appeared in AMC materials since at least 2018. Do not expose it to matching until the study team directly confirms active enrollment in 2026.",
+      "reason": "AMC's October 3, 2026 current-trials master still lists artificial neobladder placement for dogs with resectable lower urinary tract tumors, but the same protocol has appeared since at least 2018 and the public listing does not establish fresh 2026 enrollment. Do not expose it to matching without direct study-team confirmation.",
       "record_ids": [],
-      "recheck_after": "2026-10-03",
+      "recheck_after": "2026-10-10",
       "candidate_record_id": "amc-neobladder-lower-urinary-tract-tumors"
     },
     {
@@ -94,10 +94,12 @@
     },
     {
       "id": "veterinary-cancer-care-current-trial-placement-20261002",
-      "status": "open",
-      "reason": "The official Veterinary Cancer Care page places Current Trials and Past Trials headings before Immunocidin and Canalevia cards, but the extracted page structure does not show which cards are current. It provides no protocol-level eligibility, sponsor, or study contact. Do not add Immunocidin as a recruiting treatment trial until the center supplies an unambiguous current owner-access pathway; Canalevia is supportive-care/antidiarrheal and ineligible for the treatment finder.",
+      "status": "resolved",
+      "reason": "Resolved October 3, 2026: the current official page explicitly says no trials are currently enrolling and places Immunocidin and Canalevia under Past Trials.",
       "record_ids": [],
-      "recheck_after": "2026-10-09"
+      "recheck_after": "2026-10-09",
+      "resolved_at": "2026-10-03",
+      "resolution_source": "https://vetcancercare.com/clinical-trials/"
     },
     {
       "id": "jvcog-unnamed-anticancer-drug-status-20261002",
@@ -105,6 +107,24 @@
       "reason": "JVCOG labels an unnamed canine anticancer-drug protocol ongoing and publishes eligibility plus a 17-site roster, but the page's only cohort date is June 8, 2016 and it does not identify the agent. Current recruitment and semantic identity cannot be established safely; do not add or merge until an official dated confirmation names the drug and current enrolling sites.",
       "record_ids": [],
       "recheck_after": "2026-10-09"
+    },
+    {
+      "id": "usp-loct-oncolytic-virus-access-20261003",
+      "status": "open",
+      "reason": "The official University of São Paulo LOCT page confirms a canine phase-I NDV oncolytic-virus study and feline lymphoma NDV-GM-CSF treatment research, but does not state current recruiting status, protocol eligibility, treatment sites, costs, or an owner enrollment pathway. Do not publish until an official owner-facing access route is available.",
+      "record_ids": [],
+      "recheck_after": "2026-10-10",
+      "candidate_record_id": "br-usp-loct-ndv-oncolytic-virus",
+      "source_url": "https://loct.fzea.usp.br/?page_id=848"
+    },
+    {
+      "id": "unlp-cutaneous-scc-mtor-access-20261003",
+      "status": "open",
+      "reason": "A July 2026 Argentine veterinary-industry report describes FCV-UNLP recruitment of dogs and cats with actinic keratosis or in-situ cutaneous squamous-cell carcinoma for an mTOR-pathway project, but no current official FCV-UNLP owner-facing protocol, intervention details, or access pathway was located. Treat as a discovery signal only.",
+      "record_ids": [],
+      "recheck_after": "2026-10-10",
+      "candidate_record_id": "ar-unlp-cutaneous-scc-mtor",
+      "source_url": "https://vetmarketportal.com.ar/nota/3224/convocan-a-perros-y-gatos-con-diagnóstico-queratosis-actínica-y-carcinoma-de-células-escamosas-cutáneo/"
     }
   ]
 }
