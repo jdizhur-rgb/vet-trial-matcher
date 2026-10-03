@@ -93,7 +93,7 @@ NAV_MENU_CSS='''.nav-shell{margin:0}.nav-toggle{display:none}.nav-shell>nav{disp
 .nav-toggle:before{content:"☰";margin-right:0;font-size:1.25rem}.nav-toggle:after{display:none}
 .nav-shell.is-open>.nav-toggle:before{content:"×";margin:0;font-size:2rem;font-weight:400}
 .site-header .nav-shell:not(.is-open)>nav{display:none}
-.site-header .nav-shell>nav{position:fixed;z-index:50;top:var(--mobile-nav-top,130px);bottom:0;left:0;right:0;display:flex;margin:0;padding:22px 20px max(28px,env(safe-area-inset-bottom));box-sizing:border-box;overflow-y:auto;overscroll-behavior:contain;background:#315f7d;border:0;border-radius:0;box-shadow:0 10px 22px rgba(23,36,59,.12);flex-direction:column;align-items:center;justify-content:flex-start;gap:24px;text-align:center}
+.site-header .nav-shell>nav{position:fixed;z-index:50;top:var(--mobile-nav-top,130px);bottom:0;left:0;right:0;display:flex;margin:0;padding:22px 20px max(28px,env(safe-area-inset-bottom));box-sizing:border-box;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;background:#315f7d;border:0;border-radius:0;box-shadow:0 10px 22px rgba(23,36,59,.12);flex-direction:column;flex-wrap:nowrap;align-items:center;justify-content:flex-start;gap:24px;text-align:center}
 .site-header .nav-group{width:100%;max-width:560px;flex-shrink:0}
 .site-header .nav-group>summary{display:block;width:auto;padding:4px 0 8px;color:#fff;font:750 1.2rem/1.4 system-ui,-apple-system,sans-serif;white-space:normal;cursor:pointer}
 .site-header .nav-group>summary:after{display:inline-block;content:"▾";margin-left:9px;font-size:.7em}
