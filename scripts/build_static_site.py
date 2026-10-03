@@ -52,7 +52,7 @@ def validate_public_page_shell() -> None:
     missing_header_links: list[str] = []
     missing_article_headers: list[str] = []
     expected_links = (
-        '<form class="header-search" role="search" action="https://vettrialfinder.com/search/" method="get">',
+        '<form id="header-site-search" class="header-search" role="search" action="https://vettrialfinder.com/search/" method="get">',
         '<a href="https://vettrialfinder.com/matcher/">Find clinical trials</a>',
         '<a href="https://vettrialfinder.com/veterinary-cancer-clinical-trials/">About clinical trials</a>',
         '<a href="https://vettrialfinder.com/matcher/centers/">Find oncology care near you</a>',
