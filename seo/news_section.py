@@ -25,6 +25,9 @@ LAVERDIA_URL = f"{NEWS_URL}laverdia-canine-lymphoma/"
 TAMU_GI_URL = f"{NEWS_URL}texas-am-feline-gi-lymphoma-radiation/"
 CANCAN_URL = f"{NEWS_URL}cancan-k9-liquidx-liquid-biopsy/"
 CANCAN_IMAGE = f"{SITE}/assets/social/cancan-k9-liquidx.png"
+LOMUSTINE_URL = f"{NEWS_URL}lomustine-ccnu-cbc-monitoring/"
+LOMUSTINE_IMAGE = f"{SITE}/assets/social/lomustine-cbc-monitoring.jpg"
+LOMUSTINE_CBC_IMAGE = f"{SITE}/assets/social/lomustine-cbc-result.jpg"
 REACHGLIO_URL = f"{NEWS_URL}reachglio-canine-glioma-madrid/"
 CORNELL_OFFICIAL = "https://www.vet.cornell.edu/hospitals/clinical-trials/smart-start-therapy-canine-b-cell-lymphoma"
 NC_STATE_OFFICIAL = "https://cvm.ncsu.edu/clinical-trial/now-enrolling-dogs-with-invasive-bladder-cancer/"
@@ -82,12 +85,13 @@ def generate_news_section(root: Path) -> None:
     source_assets = Path(__file__).resolve().parent / "assets" / "social"
     built_assets = root / "assets" / "social"
     built_assets.mkdir(parents=True, exist_ok=True)
-    for name in ("cancan-k9-liquidx.png", "purdue-ablation-1200x630.jpg", "purdue-ablation-story-1080x1920.jpg", "barc-dog-cat-cancer-trials.jpg", "barc-dog-cat-cancer-trials-square-safe.jpg", "penn-car-t-histiocytic-sarcoma-1200x630.jpg"):
+    for name in ("cancan-k9-liquidx.png", "lomustine-cbc-monitoring.jpg", "lomustine-cbc-result.jpg", "purdue-ablation-1200x630.jpg", "purdue-ablation-story-1080x1920.jpg", "barc-dog-cat-cancer-trials.jpg", "barc-dog-cat-cancer-trials-square-safe.jpg", "penn-car-t-histiocytic-sarcoma-1200x630.jpg"):
         shutil.copy2(source_assets / name, built_assets / name)
     index_body = f'''<div class="registry-page news-index">
 <h1>Veterinary oncology news</h1>
 <p class="lead">Newly opened treatment trials, meaningful recruitment changes and other developments that may matter to owners looking for cancer treatment options.</p>
 <div class="directory-grid">
+<a class="directory-card" href="{LOMUSTINE_URL}"><strong>Lomustine dose changes are common. Monitoring should be too.</strong><span>October 3, 2026. A large VCS study shows why owners need a clear plan for the post-treatment CBC, neutrophil nadir and liver monitoring.</span></a>
 <a class="directory-card" href="{CANCAN_URL}"><strong>K9-LiquiDX: looking for canine cancer signals in the blood</strong><span>October 1, 2026. What CanCan’s blood test is offered for, early clinical experience, costs and ordering through your veterinarian.</span></a>
 <a class="directory-card" href="{REACHGLIO_URL}"><strong>ReachGlio opens in Madrid for dogs with high-grade glioma</strong><span>September 30, 2026. A new trial combines SNGR-TNF with temozolomide and tackles the same glioma problem from a different angle than current U.S. studies.</span></a>
 <a class="directory-card" href="{TAMU_GI_URL}"><strong>Texas A&M opens radiation trial for feline GI lymphoma</strong><span>September 30, 2026. Whole-abdomen radiation is being studied for cats with small-cell GI lymphoma that has relapsed or not responded sufficiently to standard chemotherapy.</span></a>
@@ -104,6 +108,39 @@ def generate_news_section(root: Path) -> None:
     index_dir.mkdir(parents=True, exist_ok=True)
     index_page = g.page("Veterinary Oncology News | Vet Trial Finder", "New veterinary cancer treatment trials, recruitment changes and other oncology developments for dogs and cats.", index_body, NEWS_URL)
     (index_dir / "index.html").write_text(wrap_html(index_page), encoding="utf-8")
+
+    lomustine_body = f'''<p class="eyebrow">Chemotherapy monitoring · October 3, 2026</p>
+<h1>Lomustine dose changes are common. Monitoring should be too.</h1>
+<figure style="margin:18px 0 24px"><img src="{LOMUSTINE_IMAGE}" alt="A senior dog with an owner while a veterinary professional prepares a blood sample" width="1774" height="887" style="display:block;width:100%;height:auto;border-radius:12px"><figcaption>Illustration. The dog shown is not a patient.</figcaption></figure>
+<p>A preliminary study presented at the 2026 Veterinary Cancer Society conference reviewed 1,136 dogs treated with single-agent lomustine, also called CCNU, for lymphoma, mast cell tumor or histiocytic sarcoma. Treatment was delayed, the dose was reduced, or both in <strong>47.7% of dogs</strong>. When a reason was documented, 94.5% of the changes were related to toxicity. Neutropenia accounted for 51.2% and hepatobiliary abnormalities for 36.0%.</p>
+<p>That does not mean lomustine is an inappropriate treatment. It means the starting dose is not a promise that every dog can safely continue at the same dose. Bloodwork is how the oncology team learns how that individual dog handles it.</p>
+
+<h2>CBC and the nadir</h2>
+<p>A <strong>CBC</strong>, or complete blood count, measures red blood cells, white blood cells and platelets. For chemotherapy monitoring, the absolute neutrophil count is especially important. Neutrophils are white blood cells that help fight bacterial infection.</p>
+<p>The <strong>nadir</strong> is the period when blood-cell counts are expected to reach their lowest point after chemotherapy. The 2026 AAHA oncology guidelines say that the CBC nadir after lomustine generally occurs around day 7 in dogs, but it can vary from one to three weeks. The exact schedule should be set by the treating team for that dog and protocol. A dog acting normal at home does not show what the neutrophil count is.</p>
+
+<h2>What low neutrophils mean</h2>
+<p>A low neutrophil count is called neutropenia. The lower the count, the less protection the dog has against bacterial infection. Mild neutropenia may require monitoring and a treatment delay rather than antibiotics. The AAHA action plan says that a dog with 1,000–2,000 neutrophils/µL and no fever can usually be monitored; below 1,000/µL, oral antibiotics are recommended. A dog with fever or signs of illness and fewer than 1,500 neutrophils/µL should be hospitalized for intravenous fluids and antibiotics. <strong>Febrile neutropenia is an oncology emergency.</strong> These are clinical guidelines, not instructions to start leftover antibiotics at home.</p>
+
+<figure style="margin:22px auto;max-width:720px"><img src="{LOMUSTINE_CBC_IMAGE}" alt="Anonymized CBC excerpt showing WBC 3.50 and neutrophils 0.48 K per microliter, both below the reference range" width="1040" height="810" style="display:block;width:100%;height:auto;border:1px solid #d9e1ea;border-radius:10px"><figcaption>Yasha’s CBC one week after his first lomustine dose. His absolute neutrophil count was 0.48 K/µL, or 480/µL, despite normal behavior and no fever. Identifying information has been removed.</figcaption></figure>
+<p>This is why the nadir CBC matters in practice. My dog Yasha looked well one week after his first lomustine dose, but his CBC showed grade 4 neutropenia at 480 neutrophils/µL. He received antibiotics, and the next lomustine dose was reduced. Without the scheduled blood test, there was no reliable outward sign that his count had fallen that far.</p>
+<p>I recently spoke with another owner whose dog had been switched from CHOP to lomustine through an oncology service. She had not been told to arrange bloodwork around the expected nadir and planned to raise it with the oncologist. There may have been a communication failure or a different intended schedule, but an owner should not have to guess whether and when a post-treatment CBC is needed.</p>
+
+<h2>The monitoring plan to ask for</h2>
+<ul>
+<li>When should the CBC be checked after each dose, including the expected nadir check?</li>
+<li>Which neutrophil result would trigger antibiotics, a delay or a dose reduction?</li>
+<li>Which symptoms or temperature require an immediate emergency call?</li>
+<li>Can the primary veterinarian draw the CBC and send the result to oncology?</li>
+<li>When will a chemistry panel be checked?</li>
+</ul>
+<p><strong>Liver values must also be monitored throughout lomustine treatment.</strong> Liver injury may appear after earlier tests were normal and can become cumulative with repeated doses. ALT and ALP are among the values commonly followed, but the oncology team should specify the full chemistry schedule.</p>
+<p>The practical point is simple: before the first lomustine dose, or immediately when a dog is switched to it, the owner should leave with a written plan for the nadir CBC, liver testing and urgent warning signs, not only the date of the next chemotherapy appointment.</p>
+<h2>Sources</h2>
+<p><a href="https://onlinelibrary.wiley.com/doi/full/10.1111/vco.70098" target="_blank" rel="noopener">2026 VCS conference abstracts: multi-institutional lomustine study</a><br>
+<a href="https://www.aaha.org/resources/2026-aaha-oncology-guidelines-for-dogs-and-cats/section-5-therapeutic-interventions/therapeutic-modalities-chemotherapy/" target="_blank" rel="noopener">2026 AAHA oncology guidelines: chemotherapy monitoring and nadir action plan</a><br>
+<a href="https://pubmed.ncbi.nlm.nih.gov/32969725/" target="_blank" rel="noopener">Biochemical, functional and histopathologic characterization of lomustine-induced liver injury in dogs</a></p>'''
+    write_article(root, "lomustine-ccnu-cbc-monitoring", "Lomustine dose changes are common. Monitoring should be too.", "Nearly half of 1,136 dogs treated with lomustine needed a dose delay or reduction. What owners should know about CBC nadirs, neutropenia and liver monitoring.", lomustine_body, "2026 Veterinary Cancer Society conference abstract; 2026 AAHA oncology guidelines; published canine lomustine liver-injury study", "October 3, 2026", "2026-10-03", LOMUSTINE_IMAGE, (1774, 887), False)
 
     cancan_body = f'''<p class="eyebrow">Canine cancer testing · October 1, 2026</p>
 <h1>K9-LiquiDX: looking for canine cancer signals in the blood</h1>
@@ -304,9 +341,9 @@ def generate_news_section(root: Path) -> None:
             articles_text = articles_text.replace('<div class="directory-grid">', '<div class="directory-grid">' + card, 1)
             articles_index.write_text(articles_text, encoding="utf-8")
 
-    add_to_sitemap(root, (NEWS_URL, CANCAN_URL, REACHGLIO_URL, TAMU_GI_URL, CORNELL_URL, NC_STATE_URL, WISCONSIN_URL, PURDUE_URL, TAIWAN_IL15_URL, BARC_TRIALS_URL, PENN_CAR_T_URL, LAVERDIA_URL))
-    rendered = "\n".join((root / "news" / slug / "index.html").read_text(encoding="utf-8") for slug in ("reachglio-canine-glioma-madrid", "texas-am-feline-gi-lymphoma-radiation", "cornell-smart-start-b-cell-lymphoma", "nc-state-il12-bladder-cancer-deadline", "wisconsin-ptcl-radiopharmaceutical-trial", "purdue-three-cancer-treatment-trials", "taiwan-inhaled-il15-lung-metastases", "barc-dog-cat-cancer-trials", "penn-car-t-histiocytic-sarcoma", "laverdia-canine-lymphoma"))
-    required = ("There is no placebo.", "$1,000 toward chemotherapy costs", "September 30, 2026", "There is no placebo group.", "90Y-NM600", "initial screening visit and initial laboratory work are owner-paid", "HIFU followed by CHOP", "H-FIRE before surgery", "Osteosarcoma: HIFU", "has not been shown to improve remission, disease control or survival", "objective response rate was 11%", "phase, enrollment target and interim results have not been published", "whether it improves tumor control has not yet been established", "study treatments and associated procedures are fully funded", "Eligible cats may have oral squamous cell carcinoma that does not involve bone", "A measurable tumor is required for enrollment", "neither has yet demonstrated a clinical benefit in dogs with HS", PENN_CAR_T_OFFICIAL, UF_HS_TRAMETINIB_OFFICIAL, PENN_CAR_T_IMAGE, BARC_TRIALS_OFFICIAL, BARC_SOCIAL_IMAGE, PURDUE_SOCIAL_IMAGE, 'summary_large_image', PURDUE_ABLATION_OFFICIAL, TAIWAN_IL15_OFFICIAL, TAIWAN_IL15_PHASE1, TAIWAN_IL15_PHASE2, CORNELL_OFFICIAL, NC_STATE_OFFICIAL, WISCONSIN_OFFICIAL, '"@type": "NewsArticle"', "Texas A&M is recruiting cats with small-cell gastrointestinal lymphoma", "ReachGlio is testing whether SNGR-TNF can temporarily change the tumor blood vessels", TAMU_GI_OFFICIAL, REACHGLIO_OFFICIAL, HOPKINS_GLIOMA_OFFICIAL, UCD_CARE_OFFICIAL, "Laverdia (verdinexor) is an oral treatment for dogs with lymphoma.", "do not show that it is equivalent to a multi-drug chemotherapy protocol such as CHOP", LAVERDIA_OFFICIAL, LAVERDIA_IMAGE)
+    add_to_sitemap(root, (NEWS_URL, LOMUSTINE_URL, CANCAN_URL, REACHGLIO_URL, TAMU_GI_URL, CORNELL_URL, NC_STATE_URL, WISCONSIN_URL, PURDUE_URL, TAIWAN_IL15_URL, BARC_TRIALS_URL, PENN_CAR_T_URL, LAVERDIA_URL))
+    rendered = "\n".join((root / "news" / slug / "index.html").read_text(encoding="utf-8") for slug in ("lomustine-ccnu-cbc-monitoring", "reachglio-canine-glioma-madrid", "texas-am-feline-gi-lymphoma-radiation", "cornell-smart-start-b-cell-lymphoma", "nc-state-il12-bladder-cancer-deadline", "wisconsin-ptcl-radiopharmaceutical-trial", "purdue-three-cancer-treatment-trials", "taiwan-inhaled-il15-lung-metastases", "barc-dog-cat-cancer-trials", "penn-car-t-histiocytic-sarcoma", "laverdia-canine-lymphoma"))
+    required = ("47.7% of dogs", "0.48 K/µL", "Febrile neutropenia is an oncology emergency", LOMUSTINE_IMAGE, LOMUSTINE_CBC_IMAGE, "There is no placebo.", "$1,000 toward chemotherapy costs", "September 30, 2026", "There is no placebo group.", "90Y-NM600", "initial screening visit and initial laboratory work are owner-paid", "HIFU followed by CHOP", "H-FIRE before surgery", "Osteosarcoma: HIFU", "has not been shown to improve remission, disease control or survival", "objective response rate was 11%", "phase, enrollment target and interim results have not been published", "whether it improves tumor control has not yet been established", "study treatments and associated procedures are fully funded", "Eligible cats may have oral squamous cell carcinoma that does not involve bone", "A measurable tumor is required for enrollment", "neither has yet demonstrated a clinical benefit in dogs with HS", PENN_CAR_T_OFFICIAL, UF_HS_TRAMETINIB_OFFICIAL, PENN_CAR_T_IMAGE, BARC_TRIALS_OFFICIAL, BARC_SOCIAL_IMAGE, PURDUE_SOCIAL_IMAGE, 'summary_large_image', PURDUE_ABLATION_OFFICIAL, TAIWAN_IL15_OFFICIAL, TAIWAN_IL15_PHASE1, TAIWAN_IL15_PHASE2, CORNELL_OFFICIAL, NC_STATE_OFFICIAL, WISCONSIN_OFFICIAL, '"@type": "NewsArticle"', "Texas A&M is recruiting cats with small-cell gastrointestinal lymphoma", "ReachGlio is testing whether SNGR-TNF can temporarily change the tumor blood vessels", TAMU_GI_OFFICIAL, REACHGLIO_OFFICIAL, HOPKINS_GLIOMA_OFFICIAL, UCD_CARE_OFFICIAL, "Laverdia (verdinexor) is an oral treatment for dogs with lymphoma.", "do not show that it is equivalent to a multi-drug chemotherapy protocol such as CHOP", LAVERDIA_OFFICIAL, LAVERDIA_IMAGE)
     missing = [marker for marker in required if marker not in rendered]
     if missing:
         raise AssertionError(f"News validation failed: {missing}")
