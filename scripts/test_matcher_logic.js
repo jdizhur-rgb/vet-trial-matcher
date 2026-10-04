@@ -15,6 +15,11 @@ const rows = JSON.parse(
 const matcher = window.__MATCHER_TEST__;
 if (!matcher) throw new Error('Matcher test API is unavailable');
 
+const matcherHtml = fs.readFileSync(path.join(root, 'seo/static/matcher/index.html'), 'utf8');
+if (!matcherHtml.includes('<option value="Japan">Japan</option>')) {
+  throw new Error('Matcher country selector is missing Japan');
+}
+
 const UNKNOWN = "I don't know";
 function patient(overrides = {}) {
   return {
