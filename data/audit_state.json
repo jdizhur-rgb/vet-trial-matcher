@@ -2,29 +2,31 @@
   "schema_version": 1,
   "purpose": "Persistent state for incremental discovery and deep-audit cost control. Source fingerprints live in source_inventory.json; this file tracks audit scheduling and unresolved work.",
   "last_full_deep_audit": null,
-  "last_incremental_audit": "2026-10-03",
+  "last_incremental_audit": "2026-10-04T05:14:57-04:00",
   "last_source_discovery_attempt": {
-    "run_id": "daily-20261003T045631-0400",
-    "status": "INCOMPLETE",
-    "mandatory_master_sources_opened": 75,
-    "mandatory_master_sources_total": 75,
-    "mandatory_master_sources_content_checked": 71,
-    "mandatory_master_sources_unavailable_or_unreadable": 4,
-    "protocol_urls_checked": 6,
-    "protocol_urls_reachable": 6,
-    "protocol_urls_unreachable": 0,
-    "forced_protocol_reread_attempted": false,
-    "started_at": "2026-10-03T04:56:31-04:00",
-    "checked_at": "2026-10-03T05:19:05-04:00",
-    "finished_at": "2026-10-03T05:19:05-04:00",
+    "run_id": "daily-20261004T050228-0400",
+    "started_at": "2026-10-04T05:02:28-04:00",
+    "finished_at": "2026-10-04T05:14:57-04:00",
+    "status": "source_sweep_incomplete",
+    "attempted": 76,
+    "sufficient": 71,
+    "source_total": 76,
     "coverage_receipt": "data/audit_source_coverage.json",
-    "local_source_date_persistence_verified": 75,
-    "uncovered_source_ids": [
-      "usa-anivive-trials",
-      "netherlands-utrecht-interventional-oncology",
-      "uk-rvc-clinical-investigation-centre",
-      "usa-wsu-vth-clinical-studies"
-    ]
+    "new_sources": [
+      "japan-nvlu-vmc-clinical-research"
+    ],
+    "global_discovery_regions": [
+      "USA",
+      "Canada",
+      "United Kingdom",
+      "continental Europe",
+      "Mexico/Central America/Caribbean/South America",
+      "Australia/New Zealand",
+      "East/South/Southeast Asia",
+      "Middle East",
+      "Africa"
+    ],
+    "global_discovery_outcome": "One new durable official source and one confirmed treatment opportunity; five known sources remained without a sufficient official roster."
   },
   "forced_full_reread_days": 28,
   "rules": {
