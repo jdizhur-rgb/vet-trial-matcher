@@ -182,6 +182,11 @@ if (osteosarcoma.some(row => row.trial.id.startsWith('au-'))) {
   throw new Error('Australia-only trial appeared in USA search');
 }
 
+const japanBroad = matches(patient({country: 'Japan', cancer: 'Cancer — any type'}));
+if (!japanBroad.some(row => row.trial.id === 'jp-nvlu-survivin-peptide-vaccine-2026')) {
+  throw new Error('Japan/Dog/Any cancer type omitted the NVLU survivin vaccine trial');
+}
+
 const bladder = matches(patient({cancer: 'Urothelial carcinoma'}));
 if (rows.some(row => row.id === 'csu-ucc-icg-surgery') ||
     bladder.some(row => row.trial.id === 'csu-ucc-icg-surgery')) {
