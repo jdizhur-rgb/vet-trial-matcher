@@ -4,10 +4,10 @@ This checklist is mandatory for every daily catalog update.
 
 ## Daily cadence and coverage
 
-- The daily trial discovery run is scheduled for **05:00 America/New_York**. It contains only the trial known-source audit and global new-source discovery. Oncology-care directories, clinics, specialists, services, ECT and teleconsultations are explicitly excluded from the 05:00 run and are audited separately once a week on Sunday at 07:00 America/New_York.
+- The daily trial discovery run is scheduled for **05:00 America/New_York**. It contains only the trial known-source audit and global new-source discovery. Oncology-care directories, clinics, specialists, services, ECT and teleconsultations are explicitly excluded from the 05:00 run and are audited separately once a week on Saturday at 01:00 America/New_York.
 - Daily discovery is a **full catalog and source audit**, not a preceding-day news search. It must reconcile the persistent source inventory, review current catalog sources, and search the open web for new sources every day.
 - Do not exclude an official page because it is old, undated, newly indexed or silently edited. Treat it as a lead and establish present recruitment/access from a current protocol-level official signal.
-- Two scheduled monitoring tasks are authorized: the daily 05:00 trial audit and the separate Sunday 07:00 oncology-care audit. The weekly trial deep/control procedure below remains a reference/control procedure and is not an additional schedule.
+- Two scheduled monitoring tasks are authorized: the daily 05:00 trial audit and the separate Saturday 01:00 oncology-care audit. The weekly trial deep/control procedure below remains a reference/control procedure and is not an additional schedule.
 - Every genuinely new lead must still be followed to the primary/current source and checked for current recruitment/access, eligibility, funding, contacts and treatment relevance before any catalog change.
 - Every proposed addition must be deduplicated against the **entire effective live catalog**, not merely against the previous day's discoveries.
 - If the full source sweep and open-web expansion find no qualifying current opportunity, report that the complete daily discovery ran and found none.
@@ -117,9 +117,9 @@ Smoke tests must identify Streamlit widgets by stable labels/semantics rather th
 - Ordinary officially verified data and technical changes are authorized for direct tested publication to main and production. Ambiguous medical/identity/status decisions and user-facing editorial text, articles, UI/CSS/navigation changes require Yulia's decision. New evidence about an off-label treatment is a discovery lead; medical/editorial inclusion must not be published automatically.
 
 
-## Mandatory weekly oncology-care deep pass — Sunday 07:00, separated 2026-10-05
+## Mandatory weekly oncology-care deep pass — Saturday 01:00, separated 2026-10-05
 
-This is a separate weekly audit scheduled for Sunday at 07:00 America/New_York. It is not part of the daily 05:00 trial run. Audit care services independently of trial participation, using the deep methodology below. Do not reintroduce care-directory checks into the daily trial task.
+This is a separate weekly audit scheduled for Saturday at 01:00 America/New_York. It is not part of the daily 05:00 trial run. Audit care services independently of trial participation, using the deep methodology below. Do not reintroduce care-directory checks into the daily trial task.
 
 ### Preserved evidence and source ownership
 
@@ -163,3 +163,13 @@ Update original seed/supplemental/profile inputs and explicit exclusions as appr
 Publish officially verified factual care-directory changes autonomously after relevant JSON/schema, location/duplicate, service/filter/search and build checks. Ambiguous identity/status/medical interpretation and user-facing editorial, article, UI/CSS/navigation changes require Yulia's decision. Documentation-only algorithm edits do not require a site build; care-data/site changes do. Report exact validations, commit and production evidence, never just an accepted request.
 
 Add a separate Russian report section «Клиники, онкологи и удалённые консультации»: existing-source/network coverage; actual sitemap/map/state/global routes and gaps; NEW/UPDATE/CLOSE/UNRESOLVED for hospitals, specialists, services and remote consultations; official evidence, before/after counts, persisted-date PASS/FAIL, files/SHA and deployment/production results. Historical partial VCA/Ethos/local-clinic coverage must not be relabeled complete without new evidence. Missing mandatory care coverage makes the overall run INCOMPLETE even if the trial layers completed.
+
+
+## Execution and report gate — repaired 2026-10-05
+
+- Daily trials and weekly oncology care have separate run IDs, receipts, checkpoints and reports. Do not overwrite one with the other or restart both because report delivery or persistence failed. Keep immutable per-run snapshots under `research/audit-runs/<run_id>/` before updating latest-receipt pointers.
+- An HTTP 200, page title, keyword hit, unchanged historical fingerprint or successful timestamp write does not establish roster coverage. For every sufficient trial source, save `protocols_seen` as an integer (including a verified zero), the actual current roster/identifiers or explicit current-run comparison evidence, and the official route used. Unknown roster counts stay null and make that source partial. A prior fingerprint must never be labeled a newly verified unchanged fingerprint.
+- Run `python scripts/validate_audit_receipt.py` before final reporting. A failed receipt gate means INCOMPLETE; save and report the failure, without blocking independently verified catalog fixes. This gate checks internal evidence consistency, not the truth of external medical facts.
+- Record progress/checkpoints at least every 15 minutes. Use finite request timeouts and at most one retry per failing route; move to official fallbacks, then record the gap. Do not loop on blocked websites or repeat the whole sweep to repair dates/reporting. At 60 minutes for the daily run, save progress and issue an INCOMPLETE report if necessary; resume unfinished work from the checkpoint rather than silently running for hours. Never reduce mandatory coverage or claim complete coverage merely to meet this limit.
+- Always produce a user-visible Russian final report on success, NO CHANGE, INCOMPLETE, FAILED or timeout. Save its exact text as `research/audit-runs/<run_id>/report.md` and include the run ID, local start/end, actual source/region coverage, unresolved gaps, catalog changes/counts, validation/persistence SHA and deploy evidence. A saved report is not proof of delivery: record delivery as unconfirmed unless a visible final response was actually emitted. If delivery failed, resend the existing report without rerunning the audit.
+- Do not assert that push/email notifications are enabled or disabled without current platform evidence. The automation update API does not expose notification preferences. A prompt can require a final response but cannot repair account-level push/email settings.
