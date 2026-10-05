@@ -2,31 +2,32 @@
   "schema_version": 1,
   "purpose": "Persistent state for incremental discovery and deep-audit cost control. Source fingerprints live in source_inventory.json; this file tracks audit scheduling and unresolved work.",
   "last_full_deep_audit": null,
-  "last_incremental_audit": "2026-10-04T05:14:57-04:00",
+  "last_incremental_audit": "2026-10-05T05:46:34-04:00",
   "last_source_discovery_attempt": {
-    "run_id": "daily-20261004T050228-0400",
-    "started_at": "2026-10-04T05:02:28-04:00",
-    "finished_at": "2026-10-04T05:14:57-04:00",
-    "status": "source_sweep_incomplete",
+    "run_id": "daily-20261005T050044-0400",
+    "started_at": "2026-10-05T05:00:44-04:00",
+    "finished_at": "2026-10-05T05:46:34-04:00",
+    "status": "three_layer_audit_incomplete",
     "attempted": 76,
     "sufficient": 71,
     "source_total": 76,
     "coverage_receipt": "data/audit_source_coverage.json",
-    "new_sources": [
-      "japan-nvlu-vmc-clinical-research"
-    ],
+    "care_source_total": 485,
+    "care_attempted": 485,
+    "care_sufficient": 475,
+    "care_coverage_receipt": "data/oncology_care_audit_coverage.json",
     "global_discovery_regions": [
-      "USA",
+      "United States",
       "Canada",
       "United Kingdom",
       "continental Europe",
-      "Mexico/Central America/Caribbean/South America",
-      "Australia/New Zealand",
-      "East/South/Southeast Asia",
+      "Mexico, Central America and Caribbean",
+      "South America",
+      "Australia and New Zealand",
+      "East, South and Southeast Asia",
       "Middle East",
       "Africa"
-    ],
-    "global_discovery_outcome": "One new durable official source and one confirmed treatment opportunity; five known sources remained without a sufficient official roster."
+    ]
   },
   "forced_full_reread_days": 28,
   "rules": {

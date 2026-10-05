@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-10-04",
+  "updated": "2026-10-05",
   "items": [
     {
       "id": "legacy-partial-records-20260920",
@@ -134,6 +134,38 @@
       "candidate_record_id": "penn-mammary-margin-imaging-2026",
       "recheck_after": "2026-10-10",
       "source_url": "https://www.vet.upenn.edu/clinical-trial/"
+    },
+    {
+      "id": "care-acvim-seven-field-anomalies-20261005",
+      "status": "open",
+      "reason": "The complete current ACVIM/VetSpecialists oncology roster still contains 458 profiles, but the October 5 import proposed seven field-only changes: removed affiliations or websites, one middle-initial change, and two malformed telephone values. The stable prior canonical profiles were retained because these changes cannot safely be interpreted as clinician departures or valid contact updates without profile-level confirmation.",
+      "record_ids": [],
+      "recheck_after": "2026-10-09",
+      "source_url": "https://www.vetspecialists.com/specialties/oncology"
+    },
+    {
+      "id": "care-vroc-identity-access-schema-20261005",
+      "status": "open",
+      "reason": "UT Southwestern's official Veterinary Radiation Oncology Clinic page confirms oncology and radiation services at 5801 Forest Park Road, but says it accepts only patients enrolled in a clinical trial. The generated directory currently inherits a different ACVIM affiliation name at the same address, and the present public center schema cannot accurately express the trial-enrollment-only access restriction. Do not rename or expose this as ordinary oncology access until identity and access can be represented safely.",
+      "record_ids": [],
+      "recheck_after": "2026-10-12",
+      "source_url": "https://utswmed.org/locations/veterinary-radiation-oncology-clinic/"
+    },
+    {
+      "id": "care-vcg-las-vegas-status-20261005",
+      "status": "open",
+      "reason": "The exact official Veterinary Cancer Group Las Vegas location URL returns 404, while the current Thrive Veterinary Cancer Group page names only Los Angeles, Orange County, San Fernando Valley and South Bay. Disappearance alone does not prove closure; retain the existing record pending direct confirmation or a current replacement page.",
+      "record_ids": [],
+      "recheck_after": "2026-10-12",
+      "source_url": "https://www.thrivepetcare.com/veterinary-groups/veterinary-cancer-group"
+    },
+    {
+      "id": "care-mount-anthony-oncology-status-20261005",
+      "status": "open",
+      "reason": "Mount Anthony Veterinary Hospital's exact chemotherapy service URL returns 404 and no current official replacement confirming oncology treatment access was found. A missing page is not sufficient evidence of service closure, so the existing record was not removed or altered.",
+      "record_ids": [],
+      "recheck_after": "2026-10-12",
+      "source_url": "https://mtanthonyvet.com/services/pet-chemotherapy"
     }
   ]
 }
