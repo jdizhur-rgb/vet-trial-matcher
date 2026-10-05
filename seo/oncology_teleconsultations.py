@@ -18,6 +18,7 @@ from site_config import SITE
 ROWS = [
 ('United States','United States','Malone Veterinary Cancer Consulting','Erin Malone','DVM, DACVIM (Oncology); Cornell medical oncology residency. Focuses on treatment choices and quality of life.','Owner; owner with vet','Medical oncology','First case review or second opinion; video or phone, 60 min, US$250; urgent US$350. Records and written summary.','https://www.malonecancervet.com/owners','https://www.malonecancervet.com/meet-dr-erin-malone','Named consultant'),
 ('United States','United States','Harris Veterinary Oncology','Krystal Harris','DVM, MS, DACVIM (Oncology); over a decade in oncology and experience developing specialty oncology services.','Owner','Medical oncology','Second opinion with records; referral not required. No new diagnosis or prescriptions online.','https://www.harris.vet/new-page','https://www.harris.vet/about','Named consultant'),
+('United States','United States','HEAL Cancer Care for Pets','Nick Szigetvari','DVM, DACVIM (Oncology); board-certified veterinary medical oncologist leading HEAL’s Seattle medical oncology service.','Owner; owner with vet','Medical oncology','Teleconsultation is available through HEAL’s New Patient Form; HEAL coordinates medical records with the primary veterinarian. Fee, duration and geographic eligibility are not published; confirm when booking.','https://healpetcancer.com/our-approach/','https://healpetcancer.com/cancer-care/','Named consultant; confirm booking'),
 ('United States','United States','Mobile Veterinary Cancer Care','Chamisa Herrera','DVM, DACVIM (Oncology); research in mast cell tumors, lung cancer, histiocytic sarcoma and Palladia.','Owner with vet','Medical oncology','Review with the owner using information from the local veterinarian; confirm scheduling and fees.','https://www.mobileveterinarycancercare.com/vets','https://www.mobileveterinarycancercare.com/about','Named consultant'),
 ('United States','United States','Veterinary Cancer Concierge','Lindsay Thalheim','VMD, DACVIM (Oncology); NC State oncology residency. Team also includes Brooke Britton, DACVIM, and Kari Rosen, DACVR (Radiation Oncology).','Owner','Medical oncology; radiation oncology','Phone/video case review with written summary; referral optional. Confirm which team member will consult.','https://vetcancerconcierge.com/telehealth-services/','https://vetcancerconcierge.com/about/','Team; confirm assigned clinician'),
 ('United States','United States','Pet Cancer Care Consulting','Rachel Venable','DVM, MS, DACVIM (Oncology); coordinates a treatment plan with the family veterinarian.','Owner with vet','Medical oncology','Joint video consultation at the local veterinarian’s practice; that practice arranges the appointment. Written summary.','https://petcancercareconsulting.com/for-vets/','https://petcancercareconsulting.com/','Named consultant'),
@@ -111,9 +112,9 @@ def card(row: tuple[str, ...]) -> str:
 
 
 def build_page(root: Path) -> None:
-    assert len(ROWS) == 55
+    assert len(ROWS) == 56
     assert len({(row[1], row[2]) for row in ROWS}) == len(ROWS)
-    assert sum(not row[5].startswith('Vet only') for row in ROWS) == 43
+    assert sum(not row[5].startswith('Vet only') for row in ROWS) == 44
     jumps = ''.join(f'<a href="#{slug}">{escape(region)}</a>' for region, slug in zip(REGIONS, IDS))
     sections = ''.join(f'<section class="tele-region" id="{slug}"><h2>{escape(region)}</h2><div class="tele-grid">'
                        + ''.join(card(row) for row in ROWS if row[0] == region)
@@ -130,8 +131,8 @@ def build_page(root: Path) -> None:
             '<div class="tele-controls"><label>Search clinician, service or country<input id="tele-search" type="search" autocomplete="off" placeholder="Try oncology, Mexico or Malone"></label>'
             '<label>Who can request it?<select id="tele-audience"><option value="all">All access types</option><option value="owner">Owner involved in initial review</option><option value="vet">Through a veterinarian</option></select></label>'
             '<label>Clinical focus<select id="tele-specialty"><option value="all">All oncology fields</option><option value="medical oncology">Medical oncology</option><option value="radiation oncology">Radiation oncology</option><option value="surgery">Cancer surgery</option><option value="internal medicine">Internal medicine with oncology practice</option></select></label></div>'
-            '<p class="tele-count" id="tele-count" role="status" aria-live="polite">55 services shown</p>' + sections
-            + '<p class="tele-note">Editorial review: September 26, 2026. These are 55 distinct services (43 involving owners in an initial review, 11 veterinarian-only, and 1 in New Zealand with owner follow-up under conditions), not a complete world registry or a count of individual doctors. Prices are published examples at the time of review; confirm current fees directly.</p>' + SCRIPT)
+            '<p class="tele-count" id="tele-count" role="status" aria-live="polite">56 services shown</p>' + sections
+            + '<p class="tele-note">Editorial review: September 26, 2026. These are 56 distinct services (44 involving owners in an initial review, 11 veterinarian-only, and 1 in New Zealand with owner follow-up under conditions), not a complete world registry or a count of individual doctors. Prices are published examples at the time of review; confirm current fees directly.</p>' + SCRIPT)
     dest = root / 'online-oncology-consultations'
     dest.mkdir(parents=True, exist_ok=True)
     (dest / 'index.html').write_text(g.page('Online veterinary oncology consultations | Vet Trial Finder',
