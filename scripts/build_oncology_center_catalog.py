@@ -68,6 +68,9 @@ EXCLUDED_PROFILE_IDS = {
     "706e1ce9-99c9-4db0-b2bc-c933da75fa67",
     # Historical BluePearl Franklin address; the oncology service moved to Brentwood.
     "2ad235b1-8572-4512-bb8e-82237b0c284b",
+    # AVES moved in 2026; current official oncology pages and address are retained in supplemental data.
+    "109599c1-82fd-40de-8cb5-1bfeaa9f2ae2",
+    "457439a0-b477-455b-a4a2-d94efe77f904",
 }
 
 
