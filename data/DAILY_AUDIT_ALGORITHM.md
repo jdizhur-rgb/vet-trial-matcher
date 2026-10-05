@@ -1,13 +1,13 @@
-# Daily Veterinary Oncology Trial and Care Audit Algorithm
+# Daily Veterinary Oncology Trial Audit Algorithm
 
 This checklist is mandatory for every daily catalog update.
 
 ## Daily cadence and coverage
 
-- The daily discovery run is scheduled for **05:00 America/New_York**.
+- The daily trial discovery run is scheduled for **05:00 America/New_York**. It contains only the trial known-source audit and global new-source discovery. Oncology-care directories, clinics, specialists, services, ECT and teleconsultations are explicitly excluded from the 05:00 run and are audited separately once a week on Sunday at 07:00 America/New_York.
 - Daily discovery is a **full catalog and source audit**, not a preceding-day news search. It must reconcile the persistent source inventory, review current catalog sources, and search the open web for new sources every day.
 - Do not exclude an official page because it is old, undated, newly indexed or silently edited. Treat it as a lead and establish present recruitment/access from a current protocol-level official signal.
-- The daily audit is the single enabled scheduled monitoring task. Weekly control procedures below are reference procedures for an explicitly requested control pass; they do not authorize a second recurring task.
+- Two scheduled monitoring tasks are authorized: the daily 05:00 trial audit and the separate Sunday 07:00 oncology-care audit. The weekly trial deep/control procedure below remains a reference/control procedure and is not an additional schedule.
 - Every genuinely new lead must still be followed to the primary/current source and checked for current recruitment/access, eligibility, funding, contacts and treatment relevance before any catalog change.
 - Every proposed addition must be deduplicated against the **entire effective live catalog**, not merely against the previous day's discoveries.
 - If the full source sweep and open-web expansion find no qualifying current opportunity, report that the complete daily discovery ran and found none.
@@ -117,9 +117,9 @@ Smoke tests must identify Streamlit widgets by stable labels/semantics rather th
 - Ordinary officially verified data and technical changes are authorized for direct tested publication to main and production. Ambiguous medical/identity/status decisions and user-facing editorial text, articles, UI/CSS/navigation changes require Yulia's decision. New evidence about an off-label treatment is a discovery lead; medical/editorial inclusion must not be published automatically.
 
 
-## Mandatory daily oncology-care deep pass — restored 2026-10-04
+## Mandatory weekly oncology-care deep pass — Sunday 07:00, separated 2026-10-05
 
-This is the third mandatory layer of the existing 05:00 America/New_York run, alongside known trial sources and global trial discovery. Do not create another schedule. Audit care services independently of trial participation.
+This is a separate weekly audit scheduled for Sunday at 07:00 America/New_York. It is not part of the daily 05:00 trial run. Audit care services independently of trial participation, using the deep methodology below. Do not reintroduce care-directory checks into the daily trial task.
 
 ### Preserved evidence and source ownership
 
@@ -154,7 +154,7 @@ The reconstruction below distinguishes routes evidenced in the saved audit/scrip
 
 ### Persistence, publication and completion
 
-Open every known care source during the daily pass; compare current rosters/fingerprints with the prior receipt. Deeply reconcile changed, missing, ambiguous and due items. An unchanged roster may avoid redundant reading of unchanged detail pages, but cannot substitute for opening the source; require a full detail reread at least every four weeks. Perform separate fresh-signal discovery with seven-day overlap and current/undated discovery across all required global regions, explicitly Japan.
+Open every known care source during the weekly pass; compare current rosters/fingerprints with the prior receipt. Deeply reconcile changed, missing, ambiguous and due items. An unchanged roster may avoid redundant reading of unchanged detail pages, but cannot substitute for opening the source; require a full detail reread at least every four weeks. Perform separate fresh-signal discovery with seven-day overlap and current/undated discovery across all required global regions, explicitly Japan.
 
 Persist a care-source inventory and per-run evidence in the existing audit structures where compatible; otherwise use clearly separated care-audit metadata outside the trial catalog. Record actual attempted URLs, source/branch/profile identity, roster completeness, previous/current values, fingerprints when readable, timezone-aware timestamps, outcome, exclusions, unresolved conflicts and resumable checkpoint. Never mark a build date, importer execution or unchanged historical report as a source visit. Verify receipts and check dates from remote main after commit, including NO CHANGE and interrupted runs.
 
