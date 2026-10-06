@@ -407,6 +407,12 @@ for (const overrides of [{species:'Dog', country:'Japan', cancer:'Oral squamous 
 const hokkaidoId = 'jp-hokkaido-canine-oral-melanoma-anti-pdl1';
 if (!hasTrial(hokkaidoId, {country:'Japan', cancer:'Oral melanoma', metastasis:'Confirmed metastases'})) throw new Error('Hokkaido metastatic oral melanoma trial missing');
 if (hasTrial(hokkaidoId, {country:'Japan', cancer:'Oral melanoma'})) throw new Error('Hokkaido must not match dogs without known metastases');
+for (const id of ['ucd-care-canine-glioma','ucd-prism-canine-glioma']) {
+  if (!hasTrial(id, {cancer:'Glioma'})) throw new Error(`UC Davis radiation pathway missing ${id}`);
+  for (const overrides of [{cancer:'Glioma', prefs:new Set(['Chemotherapy'])}, {cancer:'Glioma', radiation_affordability:'Would not consider radiation'}]) {
+    if (hasTrial(id, overrides)) throw new Error(`UC Davis radiation requirement leaked for ${id}`);
+  }
+}
 if (matcher.matchTrial(blocked, patient()) !== null) {
   throw new Error('Closed enrollment record was not blocked');
 }
