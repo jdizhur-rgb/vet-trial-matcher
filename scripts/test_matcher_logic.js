@@ -380,6 +380,33 @@ const blocked = {
   status_confidence: 'confirmed_current',
   study_type: 'treatment',
 };
+
+// Current primary protocols checked on 2026-10-06: prevent disease, species,
+// treatment-response and procedure requirements from leaking into matching.
+const hasTrial = (id, overrides) => matches(patient(overrides)).some(row => row.trial.id === id);
+const csuStsId = 'csu-sarcoma-engineered-tcells';
+if (!hasTrial(csuStsId, {cancer:'Soft tissue sarcoma'})) throw new Error('CSU current STS cohort missing');
+for (const overrides of [{cancer:'Osteosarcoma'}, {cancer:'Soft tissue sarcoma', weight_lb:20}, {cancer:'Soft tissue sarcoma', immunotherapy_history:'Previously received'}]) {
+  if (hasTrial(csuStsId, overrides)) throw new Error(`CSU STS falsely matched ${JSON.stringify(overrides)}`);
+}
+const hbrtId = 'wisc-lymphoma-half-body-rt-chop';
+for (const response of ['Partial response','Complete remission']) {
+  if (!hasTrial(hbrtId, {cancer:'Lymphoma', chemo:'Currently receiving', lymphoma_response:response})) throw new Error(`UW HBRT missing ${response}`);
+}
+for (const response of ['Newly diagnosed / untreated','Progression during treatment','First relapse after remission']) {
+  if (hasTrial(hbrtId, {cancer:'Lymphoma', chemo:'Currently receiving', lymphoma_response:response})) throw new Error(`UW HBRT falsely matched ${response}`);
+}
+const unknownResponse = matcher.matchTrial(rows.find(t => t.id === hbrtId), patient({cancer:'Lymphoma', chemo:'Currently receiving'}));
+if (!unknownResponse?.unknown.includes('required lymphoma response to treatment')) throw new Error('UW HBRT unknown response must require prescreening');
+if (hasTrial('wisc-osa-flash-radiotherapy', {cancer:'Osteosarcoma', prefs:new Set(['Radiation'])})) throw new Error('UW FLASH must respect current consent amputation requirement');
+const gifuId = 'jp-gifu-feline-oscc-radiotherapy-lavurchin';
+if (!hasTrial(gifuId, {species:'Cat', country:'Japan', cancer:'Oral squamous cell carcinoma'})) throw new Error('Gifu feline OSCC trial missing');
+for (const overrides of [{species:'Dog', country:'Japan', cancer:'Oral squamous cell carcinoma'}, {species:'Cat', country:'Japan', cancer:'Oral squamous cell carcinoma', prefs:new Set(['Immunotherapy'])}]) {
+  if (hasTrial(gifuId, overrides)) throw new Error('Gifu species/radiation requirement leaked');
+}
+const hokkaidoId = 'jp-hokkaido-canine-oral-melanoma-anti-pdl1';
+if (!hasTrial(hokkaidoId, {country:'Japan', cancer:'Oral melanoma', metastasis:'Confirmed metastases'})) throw new Error('Hokkaido metastatic oral melanoma trial missing');
+if (hasTrial(hokkaidoId, {country:'Japan', cancer:'Oral melanoma'})) throw new Error('Hokkaido must not match dogs without known metastases');
 if (matcher.matchTrial(blocked, patient()) !== null) {
   throw new Error('Closed enrollment record was not blocked');
 }

@@ -2,19 +2,19 @@
   "schema_version": 1,
   "purpose": "Persistent state for incremental discovery and deep-audit cost control. Source fingerprints live in source_inventory.json; this file tracks audit scheduling and unresolved work.",
   "last_full_deep_audit": null,
-  "last_incremental_audit": "2026-10-05T19:33:39.239110-04:00",
+  "last_incremental_audit": "2026-10-06T05:00:15.811191-04:00",
   "last_source_discovery_attempt": {
-    "run_id": "daily-20261005T183318-0400",
-    "started_at": "2026-10-05T18:33:18.522036-04:00",
-    "finished_at": "2026-10-05T19:33:39.239110-04:00",
+    "run_id": "daily-20261006T040619-0400",
+    "started_at": "2026-10-06T04:06:19.499179-04:00",
+    "checkpoint_at": "2026-10-06T05:00:15.811191-04:00",
     "status": "daily_trial_only_incomplete",
-    "attempted": 82,
-    "sufficient": 31,
-    "source_total": 82,
-    "coverage_receipt": "research/audit-runs/daily-20261005T183318-0400/receipt.json",
+    "attempted": 91,
+    "sufficient": 38,
+    "source_total": 91,
+    "coverage_receipt": "research/audit-runs/daily-20261006T040619-0400/receipt.json",
     "latest_receipt": "data/audit_source_coverage.json",
     "catalog_changes": 5,
-    "new_source_entries": 4,
+    "new_source_entries": 9,
     "global_discovery_regions": [
       "United States",
       "Canada",
@@ -30,28 +30,21 @@
       "Africa"
     ],
     "remote_persistence_verification": {
-      "status": "pass",
-      "verified_at": "2026-10-05T19:35:16.624421-04:00",
-      "verified_commit": "3da5c0caa899339baa2dbc7a05f86d83c3db965f",
-      "verified_source_count": 82,
-      "evidence_file": "research/audit-runs/daily-20261005T183318-0400/remote-readback.json"
+      "status": "pending"
     },
     "pending_source_ids": [
       "registry-avma-veterinary-clinical-trials",
       "directory-veterinary-cancer-society",
       "usa-colorado-state-vth-clinical-trials",
       "usa-johns-hopkins-cigat",
+      "usa-michigan-state-oncology-trials",
       "usa-missouri-oncology-clinical-trials",
-      "usa-penn-vet-clinical-trials",
-      "usa-purdue-wcorc-clinical-trials",
       "usa-tufts-clinical-trials",
       "usa-uc-davis-vcct",
       "usa-florida-oncology-trials",
       "usa-florida-feline-oncology-trials",
       "usa-georgia-clinical-trials",
       "usa-bluepearl-science-clinical-studies",
-      "usa-virginia-tech-current-studies",
-      "usa-wisconsin-oncology-studies",
       "usa-utsw-vroc-clinical-trials",
       "usa-ethos-clinical-studies",
       "usa-ethos-discovery-studies",
@@ -62,7 +55,6 @@
       "netherlands-utrecht-interventional-oncology",
       "switzerland-zurich-clinical-studies",
       "uk-rvc-clinical-investigation-centre",
-      "usa-sage-veterinary-clinical-trials",
       "usa-penn-comparative-immunotherapy-trials",
       "australia-gamgee-cancer-vaccine-trial",
       "australia-sash-clinical-research",
@@ -87,25 +79,14 @@
       "sponsor-ardent-oncology-clinical-trial",
       "france-alfort-innovative-clinical-trials",
       "france-oniris-biokera-osa-trial",
-      "foundation-perseus-clinical-trial-discovery"
-    ],
-    "changes": {
-      "NEW": 0,
-      "UPDATE": 3,
-      "CLOSE_HIDE": 2,
-      "SITE_HIDE": 1,
-      "NEW_SOURCES": 4,
-      "SOURCE_URL_UPDATE": 1,
-      "UNRESOLVED_NEW": 4,
-      "UNRESOLVED_RESOLVED": 1
-    },
-    "deploy": {
-      "catalog_commit": "27e1cdb4ca62a7a8da221da306f9c990bd27a5ed",
-      "static_site_workflow": "success",
-      "catalog_audit_workflow": "success",
-      "production_full_catalog_matches": true,
-      "production_records": 161
-    }
+      "foundation-perseus-clinical-trial-discovery",
+      "sponsor-evvivax-clinical-trials",
+      "sponsor-curelab-veterinary-research",
+      "india-the-cancer-vet-clinical-trials",
+      "foundation-dog-cancer-foundation-trial-directory",
+      "sponsor-benno-therapeutics-research",
+      "korea-seoul-vmth-clinical-recruitment"
+    ]
   },
   "forced_full_reread_days": 28,
   "rules": {

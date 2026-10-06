@@ -2049,16 +2049,23 @@
     "status": "Recruiting — new UW cohort posted September 1, 2026",
     "species": "Dog",
     "url": "https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/",
-    "contacts": "UW Veterinary Care Oncology Service — oncclinicaltrials@vetmed.wisc.edu · 608-890-0422",
-    "funding": "All dogs receive standard-of-care CHOP. The public UW listing does not state which CHOP, radiation, screening, or follow-up costs are study-funded; confirm costs with the study team.",
+    "contacts": "UW Radiation Oncology — radonc@vetmed.wisc.edu · 608-263-7600; Dr. Michelle Turek / Dr. Rey Chi",
+    "funding": "Study covers radiation, radiation anesthesia, associated boarding if needed, two CBCs, two chemistry panels and two urinalyses. Owners pay CHOP chemotherapy, routine follow-up, additional testing, adverse-event treatment and other costs not specifically covered.",
     "requires": {
-      "confirmed": true
+      "confirmed": true,
+      "lymphoma_response": [
+        "Partial response",
+        "Complete remission"
+      ],
+      "prior_chemo": true,
+      "planned_radiation": true,
+      "planned_doxorubicin": true
     },
     "excludes": {},
-    "notes": "UW is recruiting dogs with at least stage III large-cell multicentric lymphoma. All enrolled dogs receive CHOP chemotherapy plus two half-body radiation treatments at specified intervals. The official public listing does not provide additional eligibility exclusions.",
-    "intervention": "Standard-of-care CHOP chemotherapy plus two half-body radiation therapy treatments",
+    "notes": "Confirmed large-cell multicentric lymphoma, stage III or higher, either B- or T-cell phenotype, initially treatment-naive at diagnosis. Enrollment is at CHOP week 9 after two cycles with partial or complete remission; progressive disease after two cycles is excluded. Current CHOP treatment is required. Four radiation visits comprise two consecutive daily fractions to each body half, in weeks 11 and 15, with chemotherapy breaks around radiation. Comorbidities preventing safe anesthesia or standard CHOP exclude participation. Study-team prescreening must confirm stage, cell size, exact CHOP schedule and remission.",
+    "intervention": "25-week CHOP chemotherapy with four high-dose-rate half-body radiation fractions: two cranial fractions in week 11 and two caudal fractions in week 15",
     "study_type": "treatment",
-    "verified": "2026-09-16",
+    "verified": "2026-10-06",
     "sites": [
       {
         "hospital": "📍 University of Wisconsin–Madison School of Veterinary Medicine",
@@ -2072,8 +2079,13 @@
     "owner_prescreen_required": true,
     "contact_source": "official UW Veterinary Care oncology clinical-studies page",
     "treatment_approaches": [
-      "immunotherapy"
-    ]
+      "radiation_innovation"
+    ],
+    "protocol_url": "https://uwveterinarycare.wisc.edu/wp-content/uploads/2026/09/HDR-HBRT_Reference-Sheet.docx",
+    "consent_url": "https://uwveterinarycare.wisc.edu/wp-content/uploads/2026/09/Half-Body-Radiotherapy-CHOP-25-Consent-Form.docx",
+    "funding_status": "Partially funded",
+    "funding_source": "https://uwveterinarycare.wisc.edu/wp-content/uploads/2026/09/HDR-HBRT_Reference-Sheet.docx",
+    "funding_verified": "2026-10-06"
   },
   {
     "id": "wisc-ptcl-90y-nm600-rpt",
@@ -2132,19 +2144,21 @@
     "consent_url": "https://uwveterinarycare.wisc.edu/wp-content/uploads/2026/04/FLASH-Consent-Form-1.docx",
     "master_url": "https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/",
     "contacts": "Dr. Tricia Hu — tghu@wisc.edu; Dr. Nathaniel Van Asselt — nvanasselt@wisc.edu; UW Oncology Service — 608-890-0422",
-    "funding": "If amputation is elected, the study covers the amputation performed one month after study start. Confirm screening and other owner-paid costs with the study team.",
+    "funding": "Study covers radiation therapy and amputation scheduled one month after study start. Medications prescribed for study-related side effects are not covered. Confirm screening and other owner-paid costs with the study team.",
     "funding_status": "Partially funded",
-    "funding_source": "https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/",
-    "funding_verified": "2026-09-23",
+    "funding_source": "https://uwveterinarycare.wisc.edu/wp-content/uploads/2026/04/FLASH-Consent-Form-1.docx",
+    "funding_verified": "2026-10-06",
     "requires": {
       "active_treatment_target": true,
-      "appendicular_location": true
+      "appendicular_location": true,
+      "planned_amputation": true,
+      "planned_radiation": true
     },
     "excludes": {},
-    "notes": "UW states that any dog with suspected osteosarcoma of a limb may qualify. Each enrolled dog receives one radiation treatment and is randomized to ultra-high-dose-rate FLASH or conventional-dose-rate radiation, followed by four once-weekly visits. Optional amputation is scheduled one month after study start and is study-covered. This is the sole Wisconsin FLASH/osteosarcoma catalog record; no semantic duplicate was found in trials_base.json.",
-    "intervention": "One randomized radiation treatment using either ultra-high-dose-rate FLASH or conventional-dose-rate radiotherapy, with four weekly follow-ups and optional study-covered amputation at one month",
+    "notes": "Suspected appendicular osteosarcoma may qualify. Dogs receive one randomized FLASH or conventional radiation treatment with weekly follow-ups. The April 2026 study consent requires amputation approximately one month after radiation and states that radiation and amputation are study-covered; study-related side-effect medications are owner-paid. The summary listing describes amputation as optional, which conflicts with the current consent. Matching conservatively requires willingness to undergo study amputation pending the study team’s confirmation of the current cohort. No separate or duplicate Wisconsin FLASH record was added.",
+    "intervention": "One randomized FLASH or conventional-dose-rate radiation treatment, weekly follow-ups, and amputation at approximately one month under the current study consent",
     "study_type": "treatment",
-    "verified": "2026-09-23",
+    "verified": "2026-10-06",
     "sites": [
       {
         "hospital": "University of Wisconsin–Madison School of Veterinary Medicine",
@@ -7315,26 +7329,31 @@
   },
   {
     "id": "csu-sarcoma-engineered-tcells",
-    "title": "Engineered canine T cells plus oral immunotherapy for osteosarcoma and soft tissue sarcoma",
+    "title": "Engineered canine T cells with oral immunotherapy for soft tissue sarcoma",
     "center": "Colorado State University Flint Animal Cancer Center",
     "country": "USA",
     "state": "Colorado",
     "species": "Dog",
     "cancers": [
-      "Osteosarcoma",
       "Soft tissue sarcoma"
     ],
     "status": "Actively recruiting — listed on CSU current clinical trials page",
-    "url": "https://www.csuanimalcancercenter.org/clinical-trial/clinical-testing-of-canine-t-cells-engineered-to-target-osteosarcoma-and-soft-tissue-sarcoma-in-combination-with-oral-immunotherapy/",
+    "url": "https://clinicaltrials.csuveterinaryhealth.org/s/clinical-testing-of-canine-t-cells-engineered-to-target-soft-tissue-sarcoma-with-oral-immunotherapy-511687/",
     "contacts": "CSU Flint Animal Cancer Center Clinical Trials — (970) 297-4001; online clinical-trial consult form",
-    "funding": "Confirm current study-covered and owner-paid costs with CSU Clinical Trials.",
+    "funding": "Study support includes up to $3,200 in study-related treatment costs, $2,000 toward surgery or other treatment, oral immunotherapy medications excluding dispensing fees, and up to $500 for study-related side effects. Owners pay the initial exam/diagnostic testing and surgery costs beyond study support; screening-test assistance is available. Confirm the individual cost estimate with CSU.",
     "requires": {
       "confirmed": true,
-      "active_treatment_target": true
+      "active_treatment_target": true,
+      "min_weight_kg": 11,
+      "chemo_washout_days": 14,
+      "pretreatment_biopsy": true
     },
-    "excludes": {},
-    "notes": "Interventional cellular-immunotherapy study using engineered canine T cells targeting osteosarcoma/soft tissue sarcoma in combination with oral immunotherapy. Full eligibility requires CSU prescreening.",
-    "verified": "2026-09-05",
+    "excludes": {
+      "prior_immunotherapy": true,
+      "current_chemo": true
+    },
+    "notes": "Current CSU protocol specifies soft tissue sarcoma only, with tumor available for biopsy, weight at least 11 kg, adequate bloodwork, no anticancer treatment within the preceding two weeks, and no prior immunotherapy or uncontrolled immune-related disease. Treatment includes pretreatment oral chemotherapy, a one-day infusion admission, tumor removal or repeat biopsy approximately one week later, and rechecks; participation lasts approximately 6–8 weeks. The online prescreen asks about a skin soft tissue sarcoma, an unremoved tumor and residence within 150 miles of Fort Collins. Investigator prescreening must confirm these details. The older AVMA card retains osteosarcoma in its title and different scheduling; the current institution protocol governs this record. Possible FAP CAR-T program overlap with Tufts/UC Davis remains unresolved; no unverified merger was made.",
+    "verified": "2026-10-06",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",
@@ -7348,11 +7367,17 @@
       }
     ],
     "location_source": "seo/center_directory.py",
-    "registry_url": "https://veterinaryclinicaltrials.org/s/clinical-testing-of-canine-t-cells-engineered-to-target-osteosarcoma-and-soft-tissue-sarcoma-in-combination-with-oral-immunotherapy-737440/",
-    "registry_url_verified": "2026-09-09",
+    "registry_url": "https://clinicaltrials.csuveterinaryhealth.org/s/clinical-testing-of-canine-t-cells-engineered-to-target-soft-tissue-sarcoma-with-oral-immunotherapy-511687/",
+    "registry_url_verified": "2026-10-06",
     "treatment_approaches": [
       "immunotherapy"
-    ]
+    ],
+    "master_url": "https://www.csuanimalcancercenter.org/current-clinical-trials/",
+    "intervention": "Autologous engineered CAR T-cell infusion with oral immunotherapy; tumor resection or repeat biopsy and follow-up",
+    "funding_status": "Partially funded",
+    "funding_source": "https://clinicaltrials.csuveterinaryhealth.org/s/clinical-testing-of-canine-t-cells-engineered-to-target-soft-tissue-sarcoma-with-oral-immunotherapy-511687/",
+    "funding_verified": "2026-10-06",
+    "legacy_registry_url": "https://veterinaryclinicaltrials.org/s/clinical-testing-of-canine-t-cells-engineered-to-target-osteosarcoma-and-soft-tissue-sarcoma-in-combination-with-oral-immunotherapy-737440/"
   },
   {
     "id": "csu-cotc033-vaccine-immunity",
@@ -11833,6 +11858,104 @@
     ],
     "address": "1-7-1 Kyonancho, Musashino, Tokyo 180-8602, Japan",
     "location_source": "official NVLU clinical-research and Veterinary Medical Center pages",
+    "treatment_approaches": [
+      "immunotherapy"
+    ]
+  },
+  {
+    "id": "jp-gifu-feline-oscc-radiotherapy-lavurchin",
+    "title": "Radiotherapy plus Lavurchin (SQAP) radiosensitizer for feline oral squamous cell carcinoma",
+    "center": "Animal Medical Center, Gifu University",
+    "country": "Japan",
+    "state": "Gifu",
+    "city": "Gifu",
+    "species": "Cat",
+    "cancers": [
+      "Oral squamous cell carcinoma"
+    ],
+    "status": "Recruiting on the official oncology clinical-trial index and individual protocol page",
+    "url": "https://www.animalhospital.gifu-u.ac.jp/cancer/clinical_trial/202508.html",
+    "master_url": "https://www.animalhospital.gifu-u.ac.jp/cancer/clinical_trial/index.html",
+    "contacts": "Gifu University oncology — 058-293-2962; vethsptl@t.gifu-u.ac.jp",
+    "funding": "Lavurchin (SQAP) study-drug costs are covered. Ordinary treatment costs, including radiotherapy, remain owner-paid; confirm the full estimate with the center.",
+    "funding_status": "Study drug provided; standard treatment owner-paid",
+    "funding_source": "https://www.animalhospital.gifu-u.ac.jp/cancer/clinical_trial/202508.html",
+    "funding_verified": "2026-10-06",
+    "requires": {
+      "confirmed": true,
+      "active_treatment_target": true,
+      "planned_radiation": true
+    },
+    "excludes": {},
+    "notes": "Official protocol for cats with oral squamous cell carcinoma uses Lavurchin (SQAP) during five days of radiotherapy. Follow-up visits are required one, three and six months after radiotherapy. The recruitment page was published August 18, 2025 and remains explicitly listed as recruiting on the current oncology trial index. Full staging, prior-treatment and medical eligibility are not publicly specified and require study-team prescreening. This is a treatment study with a standard radiotherapy backbone, not drug-only safety or diagnostic research.",
+    "intervention": "Five-day radiotherapy course with Lavurchin (SQAP) radiosensitizer, followed by visits at months 1, 3 and 6",
+    "verified": "2026-10-06",
+    "study_type": "treatment",
+    "available_for_matching": true,
+    "status_confidence": "confirmed_current",
+    "owner_prescreen_required": true,
+    "address": "1-1 Yanagido, Gifu, Gifu 501-1193, Japan",
+    "sites": [
+      {
+        "hospital": "Animal Medical Center, Gifu University",
+        "name": "Animal Medical Center, Gifu University",
+        "city": "Gifu",
+        "state": "Gifu",
+        "country": "Japan",
+        "address": "1-1 Yanagido, Gifu, Gifu 501-1193, Japan",
+        "source_url": "https://www.animalhospital.gifu-u.ac.jp/about/gaiyo.html"
+      }
+    ],
+    "location_source": "Official Gifu University animal-hospital overview and access pages",
+    "treatment_approaches": [
+      "radiation_innovation"
+    ],
+    "drug_name_source": "https://www.mt3.co.jp/en/news-lavurchin/"
+  },
+  {
+    "id": "jp-hokkaido-canine-oral-melanoma-anti-pdl1",
+    "title": "Canine anti-PD-L1 antibody immunotherapy for oral melanoma with lung metastases",
+    "center": "Hokkaido University Veterinary Teaching Hospital",
+    "country": "Japan",
+    "state": "Hokkaido",
+    "city": "Sapporo",
+    "species": "Dog",
+    "cancers": [
+      "Oral melanoma"
+    ],
+    "status": "Patients sought on the official current clinical-research page; investigator prescreening required",
+    "url": "https://www.vetmed.hokudai.ac.jp/VMTH/aboutus/research/",
+    "contacts": "Clinical research team, Dr. Satoru Konnai — huvcr@vetmed.hokudai.ac.jp; hospital appointments 011-706-5239",
+    "funding": "The official clinical-research page does not state study-covered or owner-paid costs; confirm all antibody, screening, monitoring and routine-care costs with the investigator.",
+    "funding_status": "Contact center",
+    "funding_source": "https://www.vetmed.hokudai.ac.jp/VMTH/aboutus/research/",
+    "funding_verified": "2026-10-06",
+    "requires": {
+      "confirmed": true,
+      "active_treatment_target": true,
+      "metastatic": true
+    },
+    "excludes": {},
+    "notes": "The hospital explicitly seeks participants for therapeutic canine anti-PD-L1 antibody research, particularly dogs with oral malignant melanoma and lung metastases. This catalog entry is conservatively scoped to that named population; other malignant tumor types mentioned generally on the page are not mapped. Regular visits and safety/efficacy assessments at Hokkaido are required. Full health, prior-treatment, dosing and cost rules are not published and require investigator prescreening. Confirm that metastases involve the lungs. The current enrollment invitation is distinct from the dated historical results linked below it. This is the Hokkaido anti-PD-L1 program, not the Nippon Zenyaku anti-PD-1 oral-melanoma registration trial at three other Japanese sites.",
+    "intervention": "Investigational canine anti-PD-L1 antibody with regular on-site safety and therapeutic-response assessments",
+    "verified": "2026-10-06",
+    "study_type": "treatment",
+    "available_for_matching": true,
+    "status_confidence": "confirmed_current",
+    "owner_prescreen_required": true,
+    "address": "Kita 19, Nishi 10, Kita-ku, Sapporo 060-0819, Japan",
+    "sites": [
+      {
+        "hospital": "Hokkaido University Veterinary Teaching Hospital",
+        "name": "Hokkaido University Veterinary Teaching Hospital",
+        "city": "Sapporo",
+        "state": "Hokkaido",
+        "country": "Japan",
+        "address": "Kita 19, Nishi 10, Kita-ku, Sapporo 060-0819, Japan",
+        "source_url": "https://www.vetmed.hokudai.ac.jp/VMTH/access/"
+      }
+    ],
+    "location_source": "Official veterinary-hospital access page hospital footer; faculty address is different",
     "treatment_approaches": [
       "immunotherapy"
     ]

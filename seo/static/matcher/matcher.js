@@ -185,6 +185,7 @@
     if (req.resectable_or_minimal) addUnknown('whether disease is resectable/minimal as required');
     if (req.progressive) { if (LYMPHOMA.has(p.cancer) && p.lymphoma_response !== 'Progression during treatment') { if (p.lymphoma_response === UNKNOWN) addUnknown('whether disease is progressive'); else excluded = true; } else if (!LYMPHOMA.has(p.cancer)) addUnknown('whether disease is progressive'); }
     if (req.relapsed_or_refractory) { if (LYMPHOMA.has(p.cancer)) { if (!['Progression during treatment','First relapse after remission','More than one relapse'].includes(p.lymphoma_response)) { if (p.lymphoma_response === UNKNOWN) addUnknown('whether lymphoma is relapsed/refractory'); else excluded = true; } } else addUnknown('whether disease is relapsed/refractory'); }
+    if (Array.isArray(req.lymphoma_response)) { if (p.lymphoma_response === UNKNOWN || p.lymphoma_response == null) addUnknown('required lymphoma response to treatment'); else if (!req.lymphoma_response.includes(p.lymphoma_response)) excluded = true; }
     if (excluded) return null;
     reasons.push(broad ? 'broad disease-family eligibility supports investigator review' : `${p.cancer} matches the study disease category`);
     if (p.diagnosis_status === 'Confirmed by pathology/cytology') reasons.push('diagnosis reported as confirmed');
