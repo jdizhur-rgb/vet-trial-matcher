@@ -1,0 +1,28 @@
+{
+  "verified_at": "2026-10-06T05:30:37.077943-04:00",
+  "data_commit": "92550ec1d6241ec249a3af6631a9c740d6e1f4ce",
+  "deploy_run_id": 37443285004,
+  "deploy_conclusion": "success",
+  "status": "FAIL",
+  "checks": [
+    {
+      "url": "https://vettrialfinder.com/matcher/trials.json",
+      "http_status": 200,
+      "sha256": "29e0cf693417843ff155c06a68141e747e28f9059d80b41a138f4d91500207c6",
+      "matches_built_artifact": true
+    },
+    {
+      "url": "https://vettrialfinder.com/matcher/matcher.js",
+      "http_status": 200,
+      "sha256": "147325ba81369972e0e84942443a62be34f03e4adc0a95b2af715da61c4b8a24",
+      "matches_built_artifact": true
+    },
+    {
+      "url": "https://vettrialfinder.com/matcher/",
+      "http_status": 200,
+      "sha256": "515a7878f6b49a438266f738141497d235ac560a14552e04a80d6c1e7a1eb561",
+      "matches_built_artifact": false
+    }
+  ],
+  "verification_error": "HTML was compared against the unwrapped canonical template instead of generated seo/site/matcher/index.html. Catalog and JS matched; this was a local verification-path error."
+}
