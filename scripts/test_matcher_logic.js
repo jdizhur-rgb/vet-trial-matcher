@@ -56,8 +56,22 @@ function patient(overrides = {}) {
 
 const matches = p => rows.map(row => matcher.matchTrial(row, p)).filter(Boolean);
 const mct = matches(patient());
-if (mct.length !== 5) {
-  throw new Error(`Mast-cell regression expected 5 confirmed-current matches, got ${mct.length}`);
+if (mct.length !== 4) {
+  throw new Error(`Mast-cell regression expected 4 confirmed-current matches, got ${mct.length}`);
+}
+
+if (rows.some(row => row.id === 'uf-mct')) {
+  throw new Error('UF toceranib biomarker study must remain outside treatment matching');
+}
+const boxerGliomaId = 'uf-boxer-glioma-autogenic-vaccine';
+for (const species of ['Dog', 'Cat']) {
+  const found = matches(patient({species, cancer:'Brain tumor'})).some(row => row.trial.id === boxerGliomaId);
+  if (found !== (species === 'Dog')) throw new Error('UF Boxer glioma vaccine has incorrect species/cancer matching');
+}
+const sineId = 'anivive-sine-osa-carboplatin';
+for (const [surgery, chemo, expected] of [['No','Never',false], ['Yes','Never',true], ['Yes','Previously received',false]]) {
+  const found = matches(patient({cancer:'Osteosarcoma', surgery, chemo, tumor_status:'Completely removed — clean margins'})).some(row => row.trial.id === sineId);
+  if (found !== expected) throw new Error('Cornell SINE must require amputation and exclude previous chemotherapy');
 }
 
 const goldId = 'barc-gold-nanoparticle-photothermal-2026';
@@ -384,6 +398,9 @@ const blocked = {
 // Current primary protocols checked on 2026-10-06: prevent disease, species,
 // treatment-response and procedure requirements from leaking into matching.
 const hasTrial = (id, overrides) => matches(patient(overrides)).some(row => row.trial.id === id);
+for (const cancer of ['Soft tissue sarcoma', 'Spindle cell sarcoma']) {
+  if (hasTrial('ucd-oral-margin', {cancer})) throw new Error('UC Davis oral SCC/melanoma protocol falsely matches sarcoma');
+}
 const csuStsId = 'csu-sarcoma-engineered-tcells';
 if (!hasTrial(csuStsId, {cancer:'Soft tissue sarcoma'})) throw new Error('CSU current STS cohort missing');
 for (const overrides of [{cancer:'Osteosarcoma'}, {cancer:'Soft tissue sarcoma', weight_lb:20}, {cancer:'Soft tissue sarcoma', immunotherapy_history:'Previously received'}]) {

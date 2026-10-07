@@ -1,0 +1,30 @@
+{
+  "status": "PASS_WITH_INCONCLUSIVE",
+  "safe_to_continue": true,
+  "checks": [
+    {
+      "name": "catalog",
+      "ok": true,
+      "returncode": 0,
+      "output": "TRIAL_CATALOG_VALIDATION_OK records=301 unique_ids=301 active=163 required_active_fields=11"
+    },
+    {
+      "name": "sources",
+      "ok": true,
+      "returncode": 0,
+      "output": "SOURCE_INVENTORY_VALIDATION_OK sources=91 digest=547a94ad78eb"
+    },
+    {
+      "name": "hygiene",
+      "ok": true,
+      "returncode": 0,
+      "output": "REPOSITORY_HYGIENE_OK"
+    },
+    {
+      "name": "streamlit",
+      "ok": false,
+      "returncode": 1,
+      "output": "Traceback (most recent call last):\n  File \"/workspace/scratch/0856bb16a45a/vet-trial-matcher/scripts/test_streamlit_pages.py\", line 5, in <module>\n    from streamlit.testing.v1 import AppTest\nModuleNotFoundError: No module named 'streamlit'"
+    }
+  ]
+}
