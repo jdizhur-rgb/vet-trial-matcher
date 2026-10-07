@@ -4,14 +4,14 @@
   "audit_mode": "daily_trial_only_global_work_audit",
   "status": "INCOMPLETE",
   "started_at": "2026-10-07T04:01:55.772388-04:00",
-  "checkpoint_at": "2026-10-07T05:17:36.548011-04:00",
+  "checkpoint_at": "2026-10-07T05:54:44.996862-04:00",
   "timezone": "America/New_York",
   "base_commit": "3818a06427eeafeb46fce3a2670c0e68b580c13d",
   "resumes_run_id": "daily-20261006T040619-0400",
-  "source_total": 93,
-  "attempted_total": 93,
-  "content_sufficient_total": 41,
-  "local_persistence_verified_total": 93,
+  "source_total": 97,
+  "attempted_total": 97,
+  "content_sufficient_total": 42,
+  "local_persistence_verified_total": 97,
   "remote_persistence_verification": {
     "status": "PENDING"
   },
@@ -749,13 +749,29 @@
           "result": "fetched_requires_roster_review",
           "fingerprint": "sha256:e0e6d77e1b6b3832429d3f2e83c913bce3c4fda5af4d435044522024a5c0fed6",
           "normalized_chars": 1184428
+        },
+        {
+          "url": "http://www.petcancerinformation.com",
+          "attempted_at": "2026-10-07T05:25:54.580984-04:00",
+          "method": "urllib_current_run",
+          "http_status": 502,
+          "result": "unreachable",
+          "error": "HTTP Error 502: Bad Gateway"
+        },
+        {
+          "url": "https://www.petcancerinformation.com",
+          "attempted_at": "2026-10-07T05:25:54.581882-04:00",
+          "method": "urllib_current_run",
+          "http_status": 502,
+          "result": "unreachable",
+          "error": "HTTP Error 502: Bad Gateway"
         }
       ],
       "route_used": "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=500&take=500",
       "previous_last_checked": "2026-10-06",
       "previous_last_checked_at": "2026-10-06T04:09:02.065300-04:00",
       "saved_last_checked": "2026-10-07",
-      "saved_last_checked_at": "2026-10-07T04:19:16.887675-04:00",
+      "saved_last_checked_at": "2026-10-07T05:25:54.581882-04:00",
       "previous_last_result": "partial",
       "saved_last_result": "partial",
       "previous_fingerprint": "sha256:e0e6d77e1b6b3832429d3f2e83c913bce3c4fda5af4d435044522024a5c0fed6",
@@ -896,22 +912,259 @@
           "http_status": 403,
           "result": "unreachable",
           "error": "HTTP Error 403: Forbidden"
+        },
+        {
+          "url": "http://www.petcancerinformation.com",
+          "attempted_at": "2026-10-07T05:25:54.580984-04:00",
+          "method": "urllib_current_run",
+          "http_status": 502,
+          "result": "unreachable",
+          "error": "HTTP Error 502: Bad Gateway"
+        },
+        {
+          "url": "https://www.petcancerinformation.com",
+          "attempted_at": "2026-10-07T05:25:54.581882-04:00",
+          "method": "urllib_current_run",
+          "http_status": 502,
+          "result": "unreachable",
+          "error": "HTTP Error 502: Bad Gateway"
+        },
+        {
+          "url": "https://vetmed.okstate.edu/clinical-trials",
+          "attempted_at": "2026-10-07T05:50:03.342730-04:00",
+          "method": "urllib_current_run",
+          "http_status": 404,
+          "result": "unreachable",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "url": "https://vsso.org/research-trials",
+          "attempted_at": "2026-10-07T05:50:03.343952-04:00",
+          "method": "urllib_current_run",
+          "http_status": 200,
+          "final_url": "https://vsso.org/research-trials",
+          "content_type": "text/html;charset=utf-8",
+          "result": "fetched_requires_roster_review",
+          "fingerprint": "sha256:2536b1a1e990deaae4e99f0cc99718788276ea97c4a2eed0db12692996e18c27",
+          "normalized_chars": 14653
+        },
+        {
+          "url": "https://vethospital.okstate.edu/info-for-researchers/clinical-trials",
+          "attempted_at": "2026-10-07T05:51:49.248535-04:00",
+          "method": "urllib_current_run",
+          "http_status": 403,
+          "result": "unreachable",
+          "error": "HTTP Error 403: Forbidden"
+        },
+        {
+          "url": "https://vetcancersociety.org/resources/clinical-trials/",
+          "attempted_at": "2026-10-07T05:52:37-04:00",
+          "method": "official_web_reader",
+          "http_status": null,
+          "result": "current_resource_roster_read"
+        },
+        {
+          "url": "https://vsso.org/research-trials",
+          "attempted_at": "2026-10-07T05:52:37-04:00",
+          "method": "official_web_reader",
+          "http_status": null,
+          "result": "current_open_research_roster_read"
+        },
+        {
+          "url": "https://vethospital.okstate.edu/info-for-researchers/clinical-trials",
+          "attempted_at": "2026-10-07T05:52:37-04:00",
+          "method": "official_web_reader",
+          "http_status": 404,
+          "result": "unreachable"
+        },
+        {
+          "url": "https://vethospital.okstate.edu/info-for-researchers/clinical-trials.html",
+          "attempted_at": "2026-10-07T05:52:47.701144-04:00",
+          "method": "urllib_current_run",
+          "http_status": 403,
+          "result": "unreachable",
+          "error": "HTTP Error 403: Forbidden"
         }
       ],
-      "route_used": "https://vetcancersociety.org/resources/clinical-trials/",
+      "route_used": "https://vsso.org/research-trials",
       "previous_last_checked": "2026-10-06",
       "previous_last_checked_at": "2026-10-06T05:24:22-04:00",
       "saved_last_checked": "2026-10-07",
-      "saved_last_checked_at": "2026-10-07T04:02:34.069533-04:00",
+      "saved_last_checked_at": "2026-10-07T05:52:47.701144-04:00",
       "previous_last_result": "partial",
       "saved_last_result": "partial",
       "previous_fingerprint": null,
-      "saved_fingerprint": null,
-      "fresh_fingerprint_written": false,
-      "fingerprint_preserved_from_prior_same_day_visit": true,
-      "roster_evidence": null,
-      "coverage_gap": "Native403;officialwebreaderobtained41currentexternalresource links. Links areinstitution/registryresources,not41protocols. Someadditionalresourcecentersoutsideinventoryandcurrentprimaryrostersnotreconciled; keepseparateweeklycompletenessgap,notzero.",
-      "coverage_gap_kind": "secondary_directory_primary_gaps",
+      "saved_fingerprint": "sha256:2536b1a1e990deaae4e99f0cc99718788276ea97c4a2eed0db12692996e18c27",
+      "fresh_fingerprint_written": true,
+      "fingerprint_preserved_from_prior_same_day_visit": false,
+      "roster_evidence": [
+        {
+          "resource_name": "AVMA",
+          "canonical_source_alias": "registry-avma-veterinary-clinical-trials"
+        },
+        {
+          "resource_name": "Colorado State",
+          "canonical_source_alias": "usa-colorado-state-vth-clinical-trials"
+        },
+        {
+          "resource_name": "Auburn",
+          "canonical_source_alias": "usa-auburn-vet-clinical-trials"
+        },
+        {
+          "resource_name": "Cornell",
+          "canonical_source_alias": "usa-cornell-vet-clinical-trials"
+        },
+        {
+          "resource_name": "Iowa State",
+          "canonical_source_alias": "usa-iowa-state-vmc-clinical-trials"
+        },
+        {
+          "resource_name": "Kansas State",
+          "canonical_source_alias": "usa-kansas-state-vhc-oncology"
+        },
+        {
+          "resource_name": "Louisiana State",
+          "canonical_source_alias": "usa-lsu-vet-clinical-trials"
+        },
+        {
+          "resource_name": "Michigan State",
+          "canonical_source_alias": "usa-michigan-state-oncology-trials"
+        },
+        {
+          "resource_name": "North Carolina State",
+          "canonical_source_alias": "usa-nc-state-clinical-trials"
+        },
+        {
+          "resource_name": "Ohio State",
+          "canonical_source_alias": "usa-ohio-state-current-trials"
+        },
+        {
+          "resource_name": "Oklahoma State",
+          "canonical_source_alias": "usa-oklahoma-state-clinical-trials"
+        },
+        {
+          "resource_name": "Oregon State",
+          "canonical_source_alias": "usa-oregon-state-oncology-trials"
+        },
+        {
+          "resource_name": "Ontario Veterinary College",
+          "canonical_source_alias": "canada-ovc-active-oncology-trials"
+        },
+        {
+          "resource_name": "Purdue",
+          "canonical_source_alias": "usa-purdue-wcorc-clinical-trials"
+        },
+        {
+          "resource_name": "UC Davis",
+          "canonical_source_alias": "usa-uc-davis-vcct"
+        },
+        {
+          "resource_name": "Florida",
+          "canonical_source_alias": "usa-florida-oncology-trials"
+        },
+        {
+          "resource_name": "Georgia",
+          "canonical_source_alias": "usa-georgia-clinical-trials"
+        },
+        {
+          "resource_name": "Illinois",
+          "canonical_source_alias": "usa-illinois-clinical-trials"
+        },
+        {
+          "resource_name": "Minnesota",
+          "canonical_source_alias": "usa-minnesota-current-clinical-trials"
+        },
+        {
+          "resource_name": "Missouri",
+          "canonical_source_alias": "usa-missouri-oncology-clinical-trials"
+        },
+        {
+          "resource_name": "Texas A&M",
+          "canonical_source_alias": "usa-tamu-hayburn-oncology-studies"
+        },
+        {
+          "resource_name": "Tufts",
+          "canonical_source_alias": "usa-tufts-clinical-trials"
+        },
+        {
+          "resource_name": "Pennsylvania",
+          "canonical_source_alias": "usa-penn-vet-clinical-trials"
+        },
+        {
+          "resource_name": "Wisconsin",
+          "canonical_source_alias": "usa-wisconsin-oncology-studies"
+        },
+        {
+          "resource_name": "Virginia-Maryland",
+          "canonical_source_alias": "usa-virginia-tech-current-studies"
+        },
+        {
+          "resource_name": "Washington State",
+          "canonical_source_alias": "usa-wsu-vth-clinical-studies"
+        },
+        {
+          "resource_name": "Bridge Animal Referral Center",
+          "canonical_source_alias": "usa-barc-clinical-trials"
+        },
+        {
+          "resource_name": "Animal Clinical Investigation",
+          "canonical_source_alias": "sponsor-aci-biosciences-open-studies"
+        },
+        {
+          "resource_name": "Animal Medical Center",
+          "canonical_source_alias": "usa-amcny-current-clinical-trials"
+        },
+        {
+          "resource_name": "Guardian",
+          "canonical_source_alias": null
+        },
+        {
+          "resource_name": "Gulf Coast",
+          "canonical_source_alias": null
+        },
+        {
+          "resource_name": "Hope",
+          "canonical_source_alias": null
+        },
+        {
+          "resource_name": "National Cancer Institute",
+          "canonical_source_alias": "usa-nci-comparative-oncology-trials"
+        },
+        {
+          "resource_name": "Policy Lab",
+          "canonical_source_alias": null
+        },
+        {
+          "resource_name": "PetCure",
+          "canonical_source_alias": "usa-petcure-oncology-clinical-trials"
+        },
+        {
+          "resource_name": "Red Bank",
+          "canonical_source_alias": null
+        },
+        {
+          "resource_name": "SAGE",
+          "canonical_source_alias": "usa-sage-veterinary-clinical-trials"
+        },
+        {
+          "resource_name": "Veterinary Cancer Care",
+          "canonical_source_alias": "usa-veterinary-cancer-care-clinical-trials"
+        },
+        {
+          "resource_name": "Veterinary Care Center",
+          "canonical_source_alias": "usa-medvet-clinical-studies"
+        },
+        {
+          "resource_name": "Veterinary Oncology Services",
+          "canonical_source_alias": "usa-veterinary-oncology-services-trials"
+        },
+        {
+          "resource_name": "VSSO",
+          "canonical_source_alias": "global-vsso-open-research-trials"
+        }
+      ],
+      "coverage_gap": "Current official reader enumerated all 41 external resource entries. Every resource classified: current-run known source aliases, three added trial-source routes, obsolete trial404, generic redirects or educational guide. Source/resource traversal finished; independent primary protocol/site-status gaps remain (including Oklahoma current endpoint, VOS502, VSSO melanoma recruitment). Forty-one resources are not forty-one protocols; no care roster audit.",
+      "coverage_gap_kind": "dependent_primary_protocol_coverage_gaps",
       "local_persistence_verified": true,
       "route_traversal_status": "specific primary/roster gap retained; see review and pending queue"
     },
@@ -1186,7 +1439,7 @@
         "Carboplatin pain/activity osteosarcoma",
         "Diet observational program"
       ],
-      "coverage_gap": "Current index enumerates 12, individual public structured fields reread. Treatment-only exclusions applied; no old CAR-T OSA/STS title conflation. COTC033 VPL complete shared active-site/cohort identity not reconciled across all six candidate institutions.",
+      "coverage_gap": "Current index enumerates 12, individual public structured fields reread. Treatment-only exclusions applied; no old CAR-T OSA/STS title conflation. COTC033 VPL complete shared active-site/cohort identity not reconciled across all currently published registry sites plus Missouri.",
       "coverage_gap_kind": "whole_roster_reconciliation_pending",
       "local_persistence_verified": true,
       "route_traversal_status": "specific primary/roster gap retained; see review and pending queue"
@@ -1822,7 +2075,7 @@
         "ThyroidNIS",
         "Vinorelbineinsulinoma"
       ],
-      "coverage_gap": "Full12inlineprotocolsread,explicitpausedCu64/LEAH. BTKnaive10-50kgstageII-IVfullystudyfunded,COTC033VPLnotFAPCAR-T,COT027pureMTD/PK excluded. Complete6siteVPL/7siteLEAH activationandBTKsponsorwhole-roster insufficient.",
+      "coverage_gap": "Full12inlineprotocolsread,explicitpausedCu64/LEAH. BTKnaive10-50kgstageII-IVfullystudyfunded,COTC033VPLnotFAPCAR-T,COT027pureMTD/PK excluded. CompletepublishedVPLroster/LEAHthree-sites activationandBTKsponsorwhole-roster insufficient.",
       "coverage_gap_kind": "whole_roster_reconciliation_pending",
       "local_persistence_verified": true,
       "route_traversal_status": "specific primary/roster gap retained; see review and pending queue"
@@ -2196,6 +2449,17 @@
       "protocols_seen": 6,
       "master_result": "reachable",
       "attempted_urls": [
+        {
+          "url": "https://www.vet.upenn.edu/clinical-trial/",
+          "attempted_at": "2026-10-07T04:02:53.239843-04:00",
+          "method": "urllib_current_run",
+          "http_status": 200,
+          "final_url": "https://www.vet.upenn.edu/clinical-trial/",
+          "content_type": "text/html; charset=UTF-8",
+          "result": "fetched_requires_roster_review",
+          "fingerprint": "sha256:d4a8e1de70e0ed61822127c2aa1627017d45d261a7f70eed68fcbc69a8124ad7",
+          "normalized_chars": 3114
+        },
         {
           "url": "https://www.vet.upenn.edu/research/clinical-trials/",
           "attempted_at": "2026-10-07T04:03:16.533415-04:00",
@@ -3233,7 +3497,7 @@
         "MetOSATME+vaccine",
         "HSAliquidbiopsy"
       ],
-      "coverage_gap": "Ninecurrentoncology-relatedcardsreadwithindividualprotocolroutes. No newtitlealone;HSA diagnostic,COTC034observational,safetyresearch conservative. FAPCAR-Tidentification acrossCSU/UCD/Tufts andcurrent sharedsiteactivationnotresolved.",
+      "coverage_gap": "Ninecurrentoncology-relatedcardsreadwithindividualprotocolroutes. No newtitlealone;HSA diagnostic,COTC034observational,safetyresearch conservative. FAPCAR-Tidentification acrossCSU/UCD/Tufts andcurrent sharedsiteactivationnotresolved. Current UCD StudyPages links explicitly identify CSU and Tufts as related FAP program sites. Three primary cohorts compared; different oral co-treatment and resectability/funding criteria remain cohort-identity uncertainty, not permission to merge by title.",
       "coverage_gap_kind": "whole_roster_reconciliation_pending",
       "local_persistence_verified": true,
       "route_traversal_status": "specific primary/roster gap retained; see review and pending queue"
@@ -3576,7 +3840,7 @@
         "Characterization of naturally occurring osteosarcoma in dogs",
         "Fluorescence Imaging with PDL1-IRDye800 to Guide Surgical Treatment of Oral Cancer in Dogs"
       ],
-      "coverage_gap": "Actual official public gallery API paginated38total,14dog/catoncology-relatedcards. Everycardprimaryvisited;12uniqueprimarypublicclinicaldetailfields read,2legacy pagesdeliveremptypublicdetails despiteRecruitingcards. FAPCAR-Twhole-rosteridentity remainsunresolved;felinepituitarysurgeryeligibilityprimaryendocrine malignancyscopenotestablished, notautoadded. CAREandPRISMdistinct, ownerinitialscreen/CAR-Tsurgerycredits keptseparate.",
+      "coverage_gap": "Actual official public gallery API paginated38total,14dog/catoncology-relatedcards. Everycardprimaryvisited;12uniqueprimarypublicclinicaldetailfields read,2legacy pagesdeliveremptypublicdetails despiteRecruitingcards. FAPCAR-Twhole-rosteridentity remainsunresolved;felinepituitarysurgeryeligibilityprimaryendocrine malignancyscopenotestablished, notautoadded. CAREandPRISMdistinct, ownerinitialscreen/CAR-Tsurgerycredits keptseparate. Current UCD StudyPages links explicitly identify CSU and Tufts as related FAP program sites. Three primary cohorts compared; different oral co-treatment and resectability/funding criteria remain cohort-identity uncertainty, not permission to merge by title.",
       "coverage_gap_kind": "primary_and_multicenter_status_gaps",
       "local_persistence_verified": true,
       "route_traversal_status": "specific primary/roster gap retained; see review and pending queue"
@@ -3841,7 +4105,7 @@
         "Trametinibhistiocytic sarcoma",
         "ClosedBiocera+SBRTOSA"
       ],
-      "coverage_gap": "Whole7itemindexandindividualprotocolsread, MCTbiomarkerhiddenconfirmed. CurrentHS trametinibexplicitmulticenter,completeotheractivatingcentersnotyetprimaryreconciled. LocalUFstatusnotusedtoactivateallroster.",
+      "coverage_gap": "Whole7itemindexandindividualprotocolsread, MCTbiomarkerhiddenconfirmed. CurrentHS trametinibexplicitmulticenter,current primary/registry inspected and targeted search found no full named Phase-II site roster; historical Wisconsin/Tufts trametinib studies cannot establish identical cohort activation. LocalUFstatusnotusedtoactivateallroster.",
       "coverage_gap_kind": "whole_roster_reconciliation_pending",
       "local_persistence_verified": true,
       "route_traversal_status": "specific primary/roster gap retained; see review and pending queue"
@@ -6418,7 +6682,7 @@
       "source_name": "ONCOWAF veterinary oncology trials",
       "opened_this_run": true,
       "content_sufficient": false,
-      "protocols_seen": null,
+      "protocols_seen": 24,
       "master_result": "partial",
       "attempted_urls": [
         {
@@ -6499,8 +6763,33 @@
       "saved_fingerprint": "sha256:2d123763ceea078093337d552333ebd9c1999baff973d81cd4d82f73a0d1767a",
       "fresh_fingerprint_written": true,
       "fingerprint_preserved_from_prior_same_day_visit": false,
-      "roster_evidence": null,
-      "coverage_gap": "Currenttable26HTMLrows reviewed: header+25rows includes extraTeramo site row,so24uniqueprotocolrefs; countmustdeduplicate mergedrows/species/sourceidentity before sufficientclaim. Primarylocaltriallinksread whereavailable, butinsulinomaRVC/Utrechtblocked andoldvinorelbine/status/multisitereconciliation unresolved.",
+      "roster_evidence": [
+        "Comparison of dyes Indocyanine Green and AngiostampTM to improve surgical therapy",
+        "Comparison of dyes (anti-αvβ3 integrin NIR fluorescent probe and Indocyanin green) for precision surgical resection",
+        "Prospective evaluation of palliative and adjuvant toceranib phosphate therapy in dogs diagnosed with metastatic or recurrent insulinomas",
+        "Research into the characteristics of dogs with a phaeochromocytoma in order to develop new treatment methods",
+        "Radiotherapy with heterogenous dose treatment",
+        "Chemoradiation for high-grade glioma",
+        "Conventional vs. stereotactic radiation therapy",
+        "Treatment via thermoablation by microwaves or radiofrequency",
+        "Treatment by local application of microwaves",
+        "Characterisation of biomarkers and immune response to improve diagnosis, prognosis and treatment",
+        "Focused ultrasound anti-cancer treatment at high intensity: evaluation of tolerance and efficacy",
+        "Sample collection of Flat-coated retrievers to study histiocytic sarcoma and develop DNA test",
+        "Viral therapy for bone cancer",
+        "Intra-tumoral immunotherapy with oral malignant tumours",
+        "Cardiac ultrasound to explore the effects of chemotherapy on the heart (diagnostic trial)",
+        "New imaging technique to guide surgery",
+        "Treatment of hepatic tumours via thermoablation",
+        "Treatment by local thermoablation either echoguided or via open surgery with concomitant pericardiectomy",
+        "Embolization/chemoembolization of hepatic tumours and metastases",
+        "Lattice or SBRT radiotherapy for large tumours",
+        "Use of autologous hydroxyapatite-based cancer vaccine",
+        "Photodynamic therapy",
+        "Investigation into the link between tumour genetics and radiotherapy efficiency",
+        "Oral chemotherapy"
+      ],
+      "coverage_gap": "Current table full 24 unique protocol references reconciled from 25 data rows; Teramo continuation belongs to hydroxyapatite melanoma vaccine, not a new study. Source inline criteria/sites/contacts read. Several primary institution current recruitment, costs and multicenter activation remain unpublished/blocked; index alone not used to reactivate treatment matches.",
       "coverage_gap_kind": "primary_and_multicenter_status_gaps",
       "local_persistence_verified": true,
       "route_traversal_status": "specific primary/roster gap retained; see review and pending queue"
@@ -6869,13 +7158,35 @@
           "result": "fetched_requires_roster_review",
           "fingerprint": "sha256:8bad4b09e3c2f352e300df4d340f87b39d35a2efae9eb8b7bfbea35068668725",
           "normalized_chars": 7567
+        },
+        {
+          "url": "https://www.ksvhc.org/services/clinical-trials/current-trials/probiotic-prevention-of-gi-hyperpermeability.html",
+          "attempted_at": "2026-10-07T05:37:51.091976-04:00",
+          "method": "urllib_current_run",
+          "http_status": 200,
+          "final_url": "https://www.ksvhc.org/services/clinical-trials/current-trials/probiotic-prevention-of-gi-hyperpermeability.html",
+          "content_type": "text/html",
+          "result": "fetched_requires_roster_review",
+          "fingerprint": "sha256:8bad4b09e3c2f352e300df4d340f87b39d35a2efae9eb8b7bfbea35068668725",
+          "normalized_chars": 7567
+        },
+        {
+          "url": "https://www.ksvhc.org/services/clinical-trials/current-trials/pain-activity-monitoring-dogs.html",
+          "attempted_at": "2026-10-07T05:37:51.092903-04:00",
+          "method": "urllib_current_run",
+          "http_status": 200,
+          "final_url": "https://www.ksvhc.org/services/clinical-trials/current-trials/pain-activity-monitoring-dogs.html",
+          "content_type": "text/html",
+          "result": "fetched_requires_roster_review",
+          "fingerprint": "sha256:0f18ae674ec41fef16e664fb056ab828ac4f6e0003a114dbcfc2dc6d266b5c8b",
+          "normalized_chars": 4336
         }
       ],
       "route_used": "https://www.ksvhc.org/services/specialty-services/oncology/",
       "previous_last_checked": "2026-10-06",
       "previous_last_checked_at": "2026-10-06T04:11:11.937156-04:00",
       "saved_last_checked": "2026-10-07",
-      "saved_last_checked_at": "2026-10-07T04:08:57.105321-04:00",
+      "saved_last_checked_at": "2026-10-07T05:37:51.092903-04:00",
       "previous_last_result": "unchanged",
       "saved_last_result": "reachable",
       "previous_fingerprint": "sha256:751371cb77d6ea68b7c085202931f67d4384f3992aaab42bedf43f51a44cf6e1",
@@ -7106,8 +7417,30 @@
           "normalized_chars": 5626
         },
         {
+          "url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+          "attempted_at": "2026-10-07T04:02:52.035782-04:00",
+          "method": "urllib_current_run",
+          "http_status": 200,
+          "final_url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+          "content_type": "text/html; charset=UTF-8",
+          "result": "fetched_requires_roster_review",
+          "fingerprint": "sha256:fdd2d4b415e0dfc6fd0f4e952cfd7f59d28904badaaeeb6ac64fa8021113c5c4",
+          "normalized_chars": 5626
+        },
+        {
           "url": "https://www.vet.upenn.edu/clinical-trial/",
           "attempted_at": "2026-10-07T04:02:53.239843-04:00",
+          "method": "urllib_current_run",
+          "http_status": 200,
+          "final_url": "https://www.vet.upenn.edu/clinical-trial/",
+          "content_type": "text/html; charset=UTF-8",
+          "result": "fetched_requires_roster_review",
+          "fingerprint": "sha256:d4a8e1de70e0ed61822127c2aa1627017d45d261a7f70eed68fcbc69a8124ad7",
+          "normalized_chars": 3114
+        },
+        {
+          "url": "https://www.vet.upenn.edu/clinical-trial/",
+          "attempted_at": "2026-10-07T04:03:22.681178-04:00",
           "method": "urllib_current_run",
           "http_status": 200,
           "final_url": "https://www.vet.upenn.edu/clinical-trial/",
@@ -7285,13 +7618,24 @@
           "result": "pdf_requires_review",
           "fingerprint": "sha256:e18a00abc563027942d74fcef7e314dbc231efbd3da851ae78d036f51772ba52",
           "normalized_chars": 236598
+        },
+        {
+          "url": "https://leahlabs.com/",
+          "attempted_at": "2026-10-07T05:29:20.813083-04:00",
+          "method": "urllib_current_run",
+          "http_status": 200,
+          "final_url": "https://leahlabs.com/",
+          "content_type": "text/html; charset=UTF-8",
+          "result": "fetched_requires_roster_review",
+          "fingerprint": "sha256:b24210c2079770daaea166049e6d6a0406864824374083f78f25e39595acf7f9",
+          "normalized_chars": 5326
         }
       ],
       "route_used": "https://www.vet.upenn.edu/research/research-programs/comparative-immunotherapy-program/clinical-trials/",
       "previous_last_checked": "2026-10-06",
       "previous_last_checked_at": "2026-10-06T04:25:31.149695-04:00",
       "saved_last_checked": "2026-10-07",
-      "saved_last_checked_at": "2026-10-07T04:05:15.632639-04:00",
+      "saved_last_checked_at": "2026-10-07T05:29:20.813083-04:00",
       "previous_last_result": "partial",
       "saved_last_result": "partial",
       "previous_fingerprint": "sha256:04e8ee34882656e6166195bf6528110e843d7a9730f7094f06f03929f61073be",
@@ -7304,7 +7648,7 @@
         "BcellLEAHCAR-T",
         "DogbladderPD1 atVSHNorthCounty+CASE"
       ],
-      "coverage_gap": "Fullinline4individualprotocolsread inclnaivefundedamp/carbo,metOSAphaseIsafetyexcluded; bladder2publishedsitesnotPenn treatmentcenter. Shared7centerLEAHroster withMinnesota/Missouri hold/currentregistryconflict unresolved; localfunding/restrictions notgeneralized.",
+      "coverage_gap": "Fullinline4individualprotocolsread inclnaivefundedamp/carbo,metOSAphaseIsafetyexcluded; bladder2publishedsitesnotPenn treatmentcenter. SharedLEAHthree-centerroster withMinnesota/Missouri hold/currentregistryconflict unresolved; localfunding/restrictions notgeneralized.",
       "coverage_gap_kind": "whole_roster_reconciliation_pending",
       "local_persistence_verified": true,
       "route_traversal_status": "specific primary/roster gap retained; see review and pending queue"
@@ -7993,6 +8337,17 @@
       "attempted_urls": [
         {
           "url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+          "attempted_at": "2026-10-07T04:02:47.772409-04:00",
+          "method": "urllib_current_run",
+          "http_status": 200,
+          "final_url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+          "content_type": "text/html; charset=UTF-8",
+          "result": "fetched_requires_roster_review",
+          "fingerprint": "sha256:fdd2d4b415e0dfc6fd0f4e952cfd7f59d28904badaaeeb6ac64fa8021113c5c4",
+          "normalized_chars": 5626
+        },
+        {
+          "url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
           "attempted_at": "2026-10-07T04:02:52.035782-04:00",
           "method": "urllib_current_run",
           "http_status": 200,
@@ -8246,13 +8601,61 @@
           "result": "fetched_requires_roster_review",
           "fingerprint": "sha256:a7da2575b1714d475a3cd3020e59dc44e97e91052f2389830100e88d23d70bfb",
           "normalized_chars": 21
+        },
+        {
+          "url": "https://ardentanimalhealth.com/clinical-trials/",
+          "attempted_at": "2026-10-07T05:26:16.790278-04:00",
+          "method": "urllib_current_run",
+          "http_status": 404,
+          "result": "unreachable",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "url": "https://uwveterinarycare.wisc.edu/wp-content/uploads/2025/03/Ardent-Clinical-Trial.pdf",
+          "attempted_at": "2026-10-07T05:29:20.813933-04:00",
+          "method": "urllib_current_run",
+          "http_status": 200,
+          "final_url": "https://uwveterinarycare.wisc.edu/wp-content/uploads/2025/03/Ardent-Clinical-Trial.pdf",
+          "content_type": "application/pdf",
+          "result": "pdf_requires_review",
+          "normalized_chars": 0
+        },
+        {
+          "url": "https://www.unleashtx.com/",
+          "attempted_at": "2026-10-07T05:30:46.773699-04:00",
+          "method": "urllib_current_run",
+          "http_status": 200,
+          "final_url": "https://www.unleashtx.com/",
+          "content_type": "text/html;charset=utf-8",
+          "result": "fetched_requires_roster_review",
+          "fingerprint": "sha256:ecf0911e3258afc48e9caa652ee26fb6c59967c178d6d20db3ca6677ee1196ce",
+          "normalized_chars": 2249
+        },
+        {
+          "url": "https://carecentervets.com/wp-content/uploads/2025/10/Osteosarcoma-Clinical-Trial-Flyer.pdf",
+          "attempted_at": "2026-10-07T05:30:46.774803-04:00",
+          "method": "urllib_current_run",
+          "http_status": 403,
+          "result": "unreachable",
+          "error": "HTTP Error 403: Forbidden"
+        },
+        {
+          "url": "https://www.coloradoanimalspecialty.com/clinical-studies/autologous-canine-cancer-vaccine",
+          "attempted_at": "2026-10-07T05:30:46.775224-04:00",
+          "method": "urllib_current_run",
+          "http_status": 200,
+          "final_url": "https://www.coloradoanimalspecialty.com/clinical-studies/autologous-canine-cancer-vaccine",
+          "content_type": "text/html",
+          "result": "fetched_requires_roster_review",
+          "fingerprint": "sha256:c01f2ab4d568fd91416fd88e6bbac63c31cc44603389d1dbc12efdf7eca0c144",
+          "normalized_chars": 2912
         }
       ],
       "route_used": "https://www.ccralliance.org/research-projects",
       "previous_last_checked": "2026-10-06",
       "previous_last_checked_at": "2026-10-06T05:13:15.329496-04:00",
       "saved_last_checked": "2026-10-07",
-      "saved_last_checked_at": "2026-10-07T04:07:07.176526-04:00",
+      "saved_last_checked_at": "2026-10-07T05:30:46.775224-04:00",
       "previous_last_result": "partial",
       "saved_last_result": "partial",
       "previous_fingerprint": "sha256:a5e4da627fe440d25dbeba5a2a64e8532713a668fdff896d94a77563361f6ad8",
@@ -8270,7 +8673,7 @@
         "BladderMCWF",
         "IL12STS"
       ],
-      "coverage_gap": "Currentprogrammeoverviewallsectionsread;publicrostersenumerated forEGFR9active3inactive andVPL6candidates, currentprimaryWSUblocked andsomecoordinatingsiterostersconflict. Broadfundingresearchnotpromotedtreatment; medicalidentityandactualactivationheldunresolved.",
+      "coverage_gap": "Currentprogrammeoverviewallsectionsread;publicrostersenumerated forEGFR9active3inactive andCOTC033publishedcandidate-sites, currentprimaryWSUblocked andsomecoordinatingsiterostersconflict. Broadfundingresearchnotpromotedtreatment; medicalidentityandactualactivationheldunresolved.",
       "coverage_gap_kind": "whole_roster_reconciliation_pending",
       "local_persistence_verified": true,
       "route_traversal_status": "specific primary/roster gap retained; see review and pending queue"
@@ -9097,6 +9500,28 @@
           "normalized_chars": 202665
         },
         {
+          "url": "https://www.ksvhc.org/services/clinical-trials/current-trials/pain-activity-monitoring-dogs.html",
+          "attempted_at": "2026-10-07T04:08:57.074919-04:00",
+          "method": "urllib_current_run",
+          "http_status": 200,
+          "final_url": "https://www.ksvhc.org/services/clinical-trials/current-trials/pain-activity-monitoring-dogs.html",
+          "content_type": "text/html",
+          "result": "fetched_requires_roster_review",
+          "fingerprint": "sha256:0f18ae674ec41fef16e664fb056ab828ac4f6e0003a114dbcfc2dc6d266b5c8b",
+          "normalized_chars": 4336
+        },
+        {
+          "url": "https://www.ksvhc.org/services/clinical-trials/current-trials/probiotic-prevention-of-gi-hyperpermeability.html",
+          "attempted_at": "2026-10-07T04:08:57.105321-04:00",
+          "method": "urllib_current_run",
+          "http_status": 200,
+          "final_url": "https://www.ksvhc.org/services/clinical-trials/current-trials/probiotic-prevention-of-gi-hyperpermeability.html",
+          "content_type": "text/html",
+          "result": "fetched_requires_roster_review",
+          "fingerprint": "sha256:8bad4b09e3c2f352e300df4d340f87b39d35a2efae9eb8b7bfbea35068668725",
+          "normalized_chars": 7567
+        },
+        {
           "url": "http://vetmed-research-a2-new.sites.medinfo.ufl.edu/clinical-trials/small-animal/melanoma-vaccine-study-for-dogs/",
           "attempted_at": "2026-10-07T04:45:15.676797-04:00",
           "method": "urllib_current_run",
@@ -9183,13 +9608,35 @@
           "result": "fetched_requires_roster_review",
           "fingerprint": "sha256:45e94b5257c57411697c6ea6a195c619057da92288637649243b2503c5c12cae",
           "normalized_chars": 4635
+        },
+        {
+          "url": "https://www.ksvhc.org/services/clinical-trials/current-trials/probiotic-prevention-of-gi-hyperpermeability.html",
+          "attempted_at": "2026-10-07T05:37:51.091976-04:00",
+          "method": "urllib_current_run",
+          "http_status": 200,
+          "final_url": "https://www.ksvhc.org/services/clinical-trials/current-trials/probiotic-prevention-of-gi-hyperpermeability.html",
+          "content_type": "text/html",
+          "result": "fetched_requires_roster_review",
+          "fingerprint": "sha256:8bad4b09e3c2f352e300df4d340f87b39d35a2efae9eb8b7bfbea35068668725",
+          "normalized_chars": 7567
+        },
+        {
+          "url": "https://www.ksvhc.org/services/clinical-trials/current-trials/pain-activity-monitoring-dogs.html",
+          "attempted_at": "2026-10-07T05:37:51.092903-04:00",
+          "method": "urllib_current_run",
+          "http_status": 200,
+          "final_url": "https://www.ksvhc.org/services/clinical-trials/current-trials/pain-activity-monitoring-dogs.html",
+          "content_type": "text/html",
+          "result": "fetched_requires_roster_review",
+          "fingerprint": "sha256:0f18ae674ec41fef16e664fb056ab828ac4f6e0003a114dbcfc2dc6d266b5c8b",
+          "normalized_chars": 4336
         }
       ],
       "route_used": "https://vettrials.org/",
       "previous_last_checked": "2026-10-06",
       "previous_last_checked_at": "2026-10-06T04:12:04.765411-04:00",
       "saved_last_checked": "2026-10-07",
-      "saved_last_checked_at": "2026-10-07T04:45:15.681953-04:00",
+      "saved_last_checked_at": "2026-10-07T05:37:51.092903-04:00",
       "previous_last_result": "partial",
       "saved_last_result": "partial",
       "previous_fingerprint": "sha256:6ce18a76939457c14f6ca59377b5b5bd4f81aaeffeef36697eeadadde4a020e5",
@@ -9305,7 +9752,7 @@
         "Evaluation of new optical imaging tracer FLUOROCOXIB A in dogs with naturally-occurring bladder"
       ],
       "coverage_gap": "106 current secondary leads classified against full canonical catalog and current primary responses: 87 existing protocols, 16 out-of-scope or not-recruiting, 3 unresolved identities/recruitment. Published secondary timestamps are not new primary visits. Generic ELIAS and Illinois radiation descriptors require cohort-level identity; OVC canine porphysome on hold. See vettrials-canonical-reconciliation.json.",
-      "coverage_gap_kind": "executor_reconciliation_pending",
+      "coverage_gap_kind": "primary_protocol_identity_and_status_gaps",
       "local_persistence_verified": true,
       "route_traversal_status": "specific primary/roster gap retained; see review and pending queue"
     },
@@ -9787,9 +10234,9 @@
       "source_id": "sponsor-ardent-oncology-clinical-trial",
       "source_name": "Ardent Animal Health K9-ACV checkpoint trial",
       "opened_this_run": true,
-      "content_sufficient": false,
+      "content_sufficient": true,
       "protocols_seen": 1,
-      "master_result": "partial",
+      "master_result": "reachable",
       "attempted_urls": [
         {
           "url": "https://ardentanimalhealth.com/k9-acv-checkpoint-inhibitor-trial/",
@@ -9812,26 +10259,74 @@
           "result": "fetched_requires_roster_review",
           "fingerprint": "sha256:fde0f273a4037790b70a573d6d922994772d837136c46391a057ab8b748e65cf",
           "normalized_chars": 121
+        },
+        {
+          "url": "https://ardentanimalhealth.com/clinical-trials/",
+          "attempted_at": "2026-10-07T05:26:16.790278-04:00",
+          "method": "urllib_current_run",
+          "http_status": 404,
+          "result": "unreachable",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "url": "https://uwveterinarycare.wisc.edu/wp-content/uploads/2025/03/Ardent-Clinical-Trial.pdf",
+          "attempted_at": "2026-10-07T05:29:20.813933-04:00",
+          "method": "urllib_current_run",
+          "http_status": 200,
+          "final_url": "https://uwveterinarycare.wisc.edu/wp-content/uploads/2025/03/Ardent-Clinical-Trial.pdf",
+          "content_type": "application/pdf",
+          "result": "pdf_requires_review",
+          "normalized_chars": 0
+        },
+        {
+          "url": "https://www.unleashtx.com/",
+          "attempted_at": "2026-10-07T05:30:46.773699-04:00",
+          "method": "urllib_current_run",
+          "http_status": 200,
+          "final_url": "https://www.unleashtx.com/",
+          "content_type": "text/html;charset=utf-8",
+          "result": "fetched_requires_roster_review",
+          "fingerprint": "sha256:ecf0911e3258afc48e9caa652ee26fb6c59967c178d6d20db3ca6677ee1196ce",
+          "normalized_chars": 2249
+        },
+        {
+          "url": "https://carecentervets.com/wp-content/uploads/2025/10/Osteosarcoma-Clinical-Trial-Flyer.pdf",
+          "attempted_at": "2026-10-07T05:30:46.774803-04:00",
+          "method": "urllib_current_run",
+          "http_status": 403,
+          "result": "unreachable",
+          "error": "HTTP Error 403: Forbidden"
+        },
+        {
+          "url": "https://www.coloradoanimalspecialty.com/clinical-studies/autologous-canine-cancer-vaccine",
+          "attempted_at": "2026-10-07T05:30:46.775224-04:00",
+          "method": "urllib_current_run",
+          "http_status": 200,
+          "final_url": "https://www.coloradoanimalspecialty.com/clinical-studies/autologous-canine-cancer-vaccine",
+          "content_type": "text/html",
+          "result": "fetched_requires_roster_review",
+          "fingerprint": "sha256:c01f2ab4d568fd91416fd88e6bbac63c31cc44603389d1dbc12efdf7eca0c144",
+          "normalized_chars": 2912
         }
       ],
-      "route_used": "https://ardentanimalhealth.com/k9-acv-checkpoint-inhibitor-trial/",
+      "route_used": "https://www.unleashtx.com/",
       "previous_last_checked": "2026-10-06",
       "previous_last_checked_at": "2026-10-06T04:07:28.500670-04:00",
       "saved_last_checked": "2026-10-07",
-      "saved_last_checked_at": "2026-10-07T04:03:09.803609-04:00",
+      "saved_last_checked_at": "2026-10-07T05:30:46.775224-04:00",
       "previous_last_result": "partial",
-      "saved_last_result": "partial",
+      "saved_last_result": "reachable",
       "previous_fingerprint": "sha256:024a3057b613e3a97ba26504bd60643d5a4bc8ecd26d0ce60e82c5ac49901bc3",
-      "saved_fingerprint": "sha256:6fa3b15e5fa4f0072350ca2b7f523da2de464280bf0f770429dbe0451eef74be",
+      "saved_fingerprint": "sha256:ecf0911e3258afc48e9caa652ee26fb6c59967c178d6d20db3ca6677ee1196ce",
       "fresh_fingerprint_written": true,
       "fingerprint_preserved_from_prior_same_day_visit": false,
       "roster_evidence": [
         "K9ACV+CD200ARL versus carboplatin osteosarcoma"
       ],
-      "coverage_gap": "Full sponsor current protocol and structured 19-site published roster read; amputation stageIIB ≥20kg,30day washout. All19 named sites enumerated but each local current recruiting status not primary-confirmed; Illinois address conflict remains.",
-      "coverage_gap_kind": "whole_roster_reconciliation_pending",
+      "coverage_gap": "",
+      "coverage_gap_kind": null,
       "local_persistence_verified": true,
-      "route_traversal_status": "specific primary/roster gap retained; see review and pending queue"
+      "route_traversal_status": "current roster reconciled"
     },
     {
       "source_id": "france-alfort-innovative-clinical-trials",
@@ -10572,6 +11067,226 @@
       "coverage_gap_kind": null,
       "local_persistence_verified": true,
       "route_traversal_status": "current roster reconciled"
+    },
+    {
+      "source_id": "sponsor-leah-labs-clinical-trial",
+      "source_name": "LEAH Labs — funded canine B-cell lymphoma CAR-T clinical trial",
+      "opened_this_run": true,
+      "content_sufficient": false,
+      "protocols_seen": 1,
+      "master_result": "partial",
+      "attempted_urls": [
+        {
+          "url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+          "attempted_at": "2026-10-07T04:02:34.071475-04:00",
+          "method": "urllib_current_run",
+          "http_status": 200,
+          "final_url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+          "content_type": "text/html; charset=UTF-8",
+          "result": "fetched_requires_roster_review",
+          "fingerprint": "sha256:2e7922510d8f97f2741d62ae4ed2cfdf997189a5d0feab8e16760518189595af",
+          "normalized_chars": 21327
+        },
+        {
+          "url": "https://vmc.vet.osu.edu/clinical-trials-office/current-trials",
+          "attempted_at": "2026-10-07T04:03:15.834166-04:00",
+          "method": "urllib_current_run",
+          "http_status": 200,
+          "final_url": "https://vmc.vet.osu.edu/clinical-trials-office/current-trials",
+          "content_type": "text/html; charset=UTF-8",
+          "result": "fetched_requires_roster_review",
+          "fingerprint": "sha256:e71a5e33977ffd1cd7e6dde98d2fe63faa62d11b2d4cd4e903d0921ecc8e0de8",
+          "normalized_chars": 12190
+        },
+        {
+          "url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/car-t-cell",
+          "attempted_at": "2026-10-07T04:07:43.731567-04:00",
+          "method": "urllib_current_run",
+          "http_status": 200,
+          "final_url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/car-t-cell",
+          "content_type": "text/html; charset=UTF-8",
+          "result": "fetched_requires_roster_review",
+          "fingerprint": "sha256:36bd4f7ee2e94e0416a239cd889ec61f260b3877aafa32ceac8de078d9251c28",
+          "normalized_chars": 4483
+        },
+        {
+          "url": "https://leahlabs.com/",
+          "attempted_at": "2026-10-07T05:29:20.813083-04:00",
+          "method": "urllib_current_run",
+          "http_status": 200,
+          "final_url": "https://leahlabs.com/",
+          "content_type": "text/html; charset=UTF-8",
+          "result": "fetched_requires_roster_review",
+          "fingerprint": "sha256:b24210c2079770daaea166049e6d6a0406864824374083f78f25e39595acf7f9",
+          "normalized_chars": 5326
+        }
+      ],
+      "route_used": "https://leahlabs.com/",
+      "previous_last_checked": null,
+      "previous_last_checked_at": null,
+      "saved_last_checked": "2026-10-07",
+      "saved_last_checked_at": "2026-10-07T05:29:20.813083-04:00",
+      "previous_last_result": null,
+      "saved_last_result": "partial",
+      "previous_fingerprint": null,
+      "saved_fingerprint": "sha256:b24210c2079770daaea166049e6d6a0406864824374083f78f25e39595acf7f9",
+      "fresh_fingerprint_written": true,
+      "fingerprint_preserved_from_prior_same_day_visit": false,
+      "roster_evidence": [
+        "LEAH funded CAR-T B-cell lymphoma; coordinator names Minnesota, Ohio State, Missouri"
+      ],
+      "coverage_gap": "Actual current sponsor protocol section says open and fully funded, three sites. Same canonical leah-bcell-cart-2026; not a new trial. Current Minnesota/Missouri institution protocols say On hold; Ohio current institution index does not establish active LEAH slot. Sponsor cannot override institution pause; current complete activation/cost/contact reconciliation remains partial.",
+      "coverage_gap_kind": "primary_status_conflict",
+      "local_persistence_verified": true,
+      "route_traversal_status": "specific primary/roster gap retained; see review and pending queue"
+    },
+    {
+      "source_id": "usa-oklahoma-state-clinical-trials",
+      "source_name": "Oklahoma State University — Clinical Trials",
+      "opened_this_run": true,
+      "content_sufficient": false,
+      "protocols_seen": null,
+      "master_result": "partial",
+      "attempted_urls": [
+        {
+          "url": "https://vetmed.okstate.edu/clinical-trials",
+          "attempted_at": "2026-10-07T05:50:03.342730-04:00",
+          "method": "urllib_current_run",
+          "http_status": 404,
+          "result": "unreachable",
+          "error": "HTTP Error 404: Not Found"
+        },
+        {
+          "url": "https://vethospital.okstate.edu/info-for-researchers/clinical-trials",
+          "attempted_at": "2026-10-07T05:51:49.248535-04:00",
+          "method": "urllib_current_run",
+          "http_status": 403,
+          "result": "unreachable",
+          "error": "HTTP Error 403: Forbidden"
+        },
+        {
+          "url": "https://vethospital.okstate.edu/info-for-researchers/clinical-trials",
+          "attempted_at": "2026-10-07T05:52:37-04:00",
+          "method": "official_web_reader",
+          "http_status": 404,
+          "result": "unreachable"
+        },
+        {
+          "url": "https://vethospital.okstate.edu/info-for-researchers/clinical-trials.html",
+          "attempted_at": "2026-10-07T05:52:47.701144-04:00",
+          "method": "urllib_current_run",
+          "http_status": 403,
+          "result": "unreachable",
+          "error": "HTTP Error 403: Forbidden"
+        }
+      ],
+      "route_used": "https://vethospital.okstate.edu/info-for-researchers/clinical-trials.html",
+      "previous_last_checked": null,
+      "previous_last_checked_at": null,
+      "saved_last_checked": "2026-10-07",
+      "saved_last_checked_at": "2026-10-07T05:52:47.701144-04:00",
+      "previous_last_result": null,
+      "saved_last_result": "partial",
+      "previous_fingerprint": null,
+      "saved_fingerprint": null,
+      "fresh_fingerprint_written": false,
+      "fingerprint_preserved_from_prior_same_day_visit": true,
+      "roster_evidence": null,
+      "coverage_gap": "Old VCS target redirects to obsolete 404. Current research-page clinical-trials navigation followed. Reader exposed four old trial labels (equine sarcoids; canine hygroma and disc disease; feline histoplasmosis), but direct current endpoint subsequently returned 403 natively/404 in web reader. No verified current dog/cat oncology roster; cached list is not current negative evidence.",
+      "coverage_gap_kind": "current_primary_route_inaccessible",
+      "local_persistence_verified": true,
+      "route_traversal_status": "specific primary/roster gap retained; see review and pending queue"
+    },
+    {
+      "source_id": "global-vsso-open-research-trials",
+      "source_name": "Veterinary Society of Surgical Oncology — Open Research Trials",
+      "opened_this_run": true,
+      "content_sufficient": false,
+      "protocols_seen": 4,
+      "master_result": "partial",
+      "attempted_urls": [
+        {
+          "url": "https://vsso.org/research-trials",
+          "attempted_at": "2026-10-07T05:50:03.343952-04:00",
+          "method": "urllib_current_run",
+          "http_status": 200,
+          "final_url": "https://vsso.org/research-trials",
+          "content_type": "text/html;charset=utf-8",
+          "result": "fetched_requires_roster_review",
+          "fingerprint": "sha256:2536b1a1e990deaae4e99f0cc99718788276ea97c4a2eed0db12692996e18c27",
+          "normalized_chars": 14653
+        },
+        {
+          "url": "https://vsso.org/research-trials",
+          "attempted_at": "2026-10-07T05:52:37-04:00",
+          "method": "official_web_reader",
+          "http_status": null,
+          "result": "current_open_research_roster_read"
+        }
+      ],
+      "route_used": "https://vsso.org/research-trials",
+      "previous_last_checked": null,
+      "previous_last_checked_at": null,
+      "saved_last_checked": "2026-10-07",
+      "saved_last_checked_at": "2026-10-07T05:52:37-04:00",
+      "previous_last_result": null,
+      "saved_last_result": "partial",
+      "previous_fingerprint": null,
+      "saved_fingerprint": "sha256:2536b1a1e990deaae4e99f0cc99718788276ea97c4a2eed0db12692996e18c27",
+      "fresh_fingerprint_written": true,
+      "fingerprint_preserved_from_prior_same_day_visit": false,
+      "roster_evidence": [
+        "2026 canine neoplastic limb-amputation infection risk",
+        "2025 retrospective canine MCT lymphadenectomy outcomes",
+        "2022 canine oral melanoma lymph-node excision outcomes",
+        "2021 retrospective canine intramuscular HSA outcomes"
+      ],
+      "coverage_gap": "All four OPEN RESEARCH entries read from current native primary. Infection-risk and two retrospective projects excluded. The 2022 melanoma surgical-comparison research requests data/contact but lacks current patient enrollment, owner costs and participating-site activation; preserved unresolved, not an active treatment opportunity.",
+      "coverage_gap_kind": "primary_patient_recruitment_and_site_activation_unpublished",
+      "local_persistence_verified": true,
+      "route_traversal_status": "specific primary/roster gap retained; see review and pending queue"
+    },
+    {
+      "source_id": "usa-veterinary-oncology-services-trials",
+      "source_name": "Veterinary Oncology Services — VCS-listed trial source",
+      "opened_this_run": true,
+      "content_sufficient": false,
+      "protocols_seen": null,
+      "master_result": "unreachable",
+      "attempted_urls": [
+        {
+          "url": "http://www.petcancerinformation.com",
+          "attempted_at": "2026-10-07T05:25:54.580984-04:00",
+          "method": "urllib_current_run",
+          "http_status": 502,
+          "result": "unreachable",
+          "error": "HTTP Error 502: Bad Gateway"
+        },
+        {
+          "url": "https://www.petcancerinformation.com",
+          "attempted_at": "2026-10-07T05:25:54.581882-04:00",
+          "method": "urllib_current_run",
+          "http_status": 502,
+          "result": "unreachable",
+          "error": "HTTP Error 502: Bad Gateway"
+        }
+      ],
+      "route_used": "https://www.petcancerinformation.com",
+      "previous_last_checked": null,
+      "previous_last_checked_at": null,
+      "saved_last_checked": "2026-10-07",
+      "saved_last_checked_at": "2026-10-07T05:25:54.581882-04:00",
+      "previous_last_result": null,
+      "saved_last_result": "unreachable",
+      "previous_fingerprint": null,
+      "saved_fingerprint": null,
+      "fresh_fingerprint_written": false,
+      "fingerprint_preserved_from_prior_same_day_visit": true,
+      "roster_evidence": null,
+      "coverage_gap": "VCS official resource list names this exact primary domain; seven AVMA leads refer to this provider. Both HTTPS and HTTP actual current attempts returned 502. Specific current protocol identity, criteria, funding and recruitment cannot be verified.",
+      "coverage_gap_kind": "primary_domain_unreachable",
+      "local_persistence_verified": true,
+      "route_traversal_status": "specific primary/roster gap retained; see review and pending queue"
     }
   ]
 }
