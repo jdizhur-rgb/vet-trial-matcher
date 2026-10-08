@@ -1,0 +1,59 @@
+[
+  {
+    "command": [
+      "python",
+      "scripts/validate_trials_catalog.py"
+    ],
+    "exit_code": 0,
+    "output": "TRIAL_CATALOG_VALIDATION_OK records=302 unique_ids=302 active=163 required_active_fields=11\n"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_catalog_sanitation.py"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"records\": 302,\n  \"partial_records\": 6,\n  \"known_unresolved\": 6,\n  \"new_partial_records\": [],\n  \"resolved_but_still_queued\": []\n}\n"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_source_inventory.py"
+    ],
+    "exit_code": 0,
+    "output": "SOURCE_INVENTORY_VALIDATION_OK sources=98 digest=9c27b74f6489\n"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/semantic_dedupe_catalog.py"
+    ],
+    "exit_code": 0,
+    "output": "{\n  \"mode\": \"audit\",\n  \"effective_matchable_treatments\": 160,\n  \"probable_duplicates\": 0,\n  \"pairs\": []\n}\n"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/test_matcher_logic.js"
+    ],
+    "exit_code": 0,
+    "output": "MATCHER_LOGIC_OK trials=163 mct=4 yasha=0 mammary=3 osteosarcoma=19 bladder=5 brain=8\n"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_production_sync.py"
+    ],
+    "exit_code": 0,
+    "output": "PRODUCTION_SYNC_OK total=163 treatment=158 access=5 matcher_ids=163 internal_links=6554\n"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_audit_receipt.py",
+      "research/audit-runs/daily-20261008T080207-0400/receipt-working.json"
+    ],
+    "exit_code": 1,
+    "output": "{\n  \"status\": \"INCOMPLETE\",\n  \"receipt\": \"research/audit-runs/daily-20261008T080207-0400/receipt-working.json\",\n  \"inventory\": \"/workspace/scratch/0856bb16a45a/daily-audit-20261008/data/source_inventory.json\",\n  \"errors\": [],\n  \"coverage_gaps\": [\n    \"registry-avma-veterinary-clinical-trials: current roster/status not proven despite protocols_seen=62\",\n    \"directory-veterinary-cancer-society: current roster/status not proven despite protocols_seen=0\",\n    \"usa-colorado-state-vth-clinical-trials: current roster/status not proven despite protocols_seen=16\",\n    \"usa-minnesota-current-clinical-trials: current roster/status not proven despite protocols_seen=11\",\n    \"usa-missouri-oncology-clinical-trials: current roster/status not proven despite protocols_seen=12\",\n    \"usa-tufts-clinical-trials: current roster/status not proven despite protocols_seen=9\",\n    \"usa-uc-davis-vcct: current roster/status not proven despite protocols_seen=14\",\n    \"usa-florida-oncology-trials: current roster/status not proven despite protocols_seen=7\",\n    \"usa-georgia-clinical-trials: current roster/status not proven despite protocols_seen=1\",\n    \"usa-ethos-clinical-studies: mandatory source was not attempted this run\",\n    \"usa-ethos-discovery-studies: current roster/status not proven despite protocols_seen=9\",\n    \"usa-medvet-clinical-studies: current roster/status not proven despite protocols_seen=1\",\n    \"europe-esvonc-ongoing-trials: current roster/status not proven despite protocols_seen=27\",\n    \"europe-oncowaf-clinical-trials: current roster/status not proven despite protocols_seen=24\",\n    \"netherlands-utrecht-interventional-oncology: current roster/status not proven\",\n    \"uk-rvc-clinical-investigation-centre: current roster/status not proven\",\n    \"usa-penn-comparative-immunotherapy-trials: current roster/status not proven despite protocols_seen=4\",\n    \"australia-gamgee-cancer-vaccine-trial: current roster/status not proven despite protocols_seen=1\",\n    \"australia-pettrials-directory: current roster/status not proven despite protocols_seen=2\",\n    \"australia-sash-clinical-research: current roster/status not proven despite protocols_seen=2\",\n    \"australia-caninecancer-state-research-guide: current roster/status not proven despite protocols_seen=1\",\n    \"australia-medipaws-clinical-research: current roster/status not proven despite protocols_seen=1\",\n    \"australia-bvsc-foundation: current roster/status not proven despite protocols_seen=5\",\n    \"usa-barc-clinical-trials: current roster/status not proven despite protocols_seen=9\",\n    \"usa-canine-cancer-alliance-research: current roster/status not proven despite protocols_seen=9\",\n    \"usa-wsu-vth-clinical-studies: current roster/status not proven\",\n    \"china-dongjun-oncology-trials: current roster/status not proven despite protocols_seen=3\",\n    \"china-petcura-mrna-iit: current roster/status not proven despite protocols_seen=1\",\n    \"usa-nci-comparative-oncology-trials: current roster/status not proven\",\n    \"japan-jsamc-current-clinical-trials: current roster/status not proven despite protocols_seen=6\",\n    \"global-vettrials-directory: current roster/status not proven despite protocols_seen=106\",\n    \"japan-jvcog-current-clinical-trials: current roster/status not proven despite protocols_seen=1\",\n    \"brazil-usp-loct-oncolytic-virus-program: current roster/status not proven despite protocols_seen=3\",\n    \"japan-nvlu-vmc-clinical-research: current roster/status not proven despite protocols_seen=2\",\n    \"sponsor-paccal-vet-owner-trials: current roster/status not proven despite protocols_seen=2\",\n    \"brazil-estima-coe-clinical-studies: current roster/status not proven despite protocols_seen=0\",\n    \"sponsor-ardent-oncology-clinical-trial: current roster/status not proven despite protocols_seen=1\",\n    \"france-alfort-innovative-clinical-trials: current roster/status not proven despite protocols_seen=3\",\n    \"france-oniris-biokera-osa-trial: current roster/status not proven despite protocols_seen=1\",\n    \"foundation-perseus-clinical-trial-discovery: current roster/status not proven despite protocols_seen=0\",\n    \"sponsor-evvivax-clinical-trials: current roster/status not proven despite protocols_seen=4\",\n    \"sponsor-curelab-veterinary-research: current roster/status not proven despite protocols_seen=1\",\n    \"india-the-cancer-vet-clinical-trials: current roster/status not proven despite protocols_seen=0\",\n    \"foundation-dog-cancer-foundation-trial-directory: current roster/status not proven despite protocols_seen=0\",\n    \"sponsor-benno-therapeutics-research: current roster/status not proven despite protocols_seen=3\",\n    \"korea-seoul-vmth-clinical-recruitment: current roster/status not proven despite protocols_seen=1\",\n    \"sponsor-leah-labs-clinical-trial: current roster/status not proven despite protocols_seen=1\",\n    \"usa-oklahoma-state-clinical-trials: current roster/status not proven\",\n    \"global-vsso-open-research-trials: current roster/status not proven despite protocols_seen=4\",\n    \"usa-veterinary-oncology-services-trials: current roster/status not proven\"\n  ],\n  \"coverage_gap_count\": 50\n}\n"
+  }
+]
