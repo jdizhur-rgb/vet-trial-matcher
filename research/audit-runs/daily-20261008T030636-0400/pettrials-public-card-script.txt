@@ -1,0 +1,227 @@
+
+(function(){
+  var trials = [
+    {
+      id: 'uq-osteosarcoma',
+      title: 'Canine Osteosarcoma Vaccine Trial',
+      institution: 'University of Queensland, School of Veterinary Science',
+      description: 'Experimental vaccine trial for dogs recently diagnosed with appendicular osteosarcoma. Two vaccine formulations being assessed. Dogs must be proceeding to surgery with no evidence of metastasis. All breeds eligible.',
+      condition: 'cancer',
+      conditionLabel: 'Cancer',
+      species: 'dog',
+      speciesLabel: 'All dogs',
+      state: 'QLD',
+      status: 'recruiting',
+      statusLabel: 'Recruiting',
+      timeline: 'Open now',
+      participants: 'Ongoing enrolment',
+      contact: 'Dr José Granados Soler',
+      contactEmail: 'j.granados@uq.edu.au',
+      source: 'UQ Vet School',
+      sourceUrl: 'https://veterinary-science.uq.edu.au/community/clinical-trials',
+      keywords: 'osteosarcoma bone cancer vaccine immunotherapy surgery tumour tumor UQ Queensland Gatton'
+    },
+    {
+      id: 'uq-diabetes-cat',
+      title: 'Feline Diabetes Treatment and Monitoring Studies',
+      institution: 'University of Queensland, School of Veterinary Science',
+      description: 'Three concurrent studies for diabetic cats and cats in diabetic remission. Two studies investigate exenatide (Bydureon), a long-acting synthetic drug. A third evaluates continuous glucose monitors that provide readings without needles. No cost to owners for diagnostics, study drugs, or monitoring.',
+      condition: 'endocrine',
+      conditionLabel: 'Endocrine / Diabetes',
+      species: 'cat',
+      speciesLabel: 'Cats',
+      state: 'QLD',
+      status: 'recruiting',
+      statusLabel: 'Recruiting',
+      timeline: 'Open now',
+      participants: 'Diabetic cats needed',
+      contact: 'Dr Aaron M.',
+      contactEmail: '',
+      source: 'UQ Vet School',
+      sourceUrl: 'https://veterinary-science.uq.edu.au/community/clinical-trials',
+      keywords: 'diabetes diabetic cat feline exenatide Bydureon glucose monitor insulin remission UQ Queensland Gatton endocrine'
+    },
+    {
+      id: 'usyd-osteoarthritis',
+      title: 'Canine Osteoarthritis Pain Management Study',
+      institution: 'University of Sydney, Veterinary Teaching Hospital',
+      description: 'Evaluating a novel anti-inflammatory compound for management of chronic osteoarthritis pain in dogs aged 5 years and older. Multi-site, placebo-controlled study design.',
+      condition: 'arthritis',
+      conditionLabel: 'Arthritis',
+      species: 'dog',
+      speciesLabel: 'Dogs 5+ yrs',
+      state: 'NSW',
+      status: 'coming-soon',
+      statusLabel: 'Coming soon',
+      timeline: 'Expected Q3 2026',
+      participants: '60 dogs needed',
+      contact: 'PetTrials',
+      contactEmail: '',
+      source: 'PetTrials',
+      sourceUrl: '',
+      keywords: 'osteoarthritis arthritis joint pain NSAID anti-inflammatory Sydney Camden NSW orthopaedic'
+    },
+    {
+      id: 'umelb-cognitive',
+      title: 'Canine Cognitive Decline and Gut Microbiome Study',
+      institution: 'University of Melbourne, Veterinary School',
+      description: 'Longitudinal observational study examining the relationship between gut microbiome composition and cognitive function in ageing dogs. Involves stool collection and cognitive assessments over 12 months.',
+      condition: 'neurology',
+      conditionLabel: 'Neurology',
+      species: 'dog',
+      speciesLabel: 'Dogs 8+ yrs',
+      state: 'VIC',
+      status: 'coming-soon',
+      statusLabel: 'Coming soon',
+      timeline: 'Expected Q2 2026',
+      participants: '100 dogs needed',
+      contact: 'PetTrials',
+      contactEmail: '',
+      source: 'PetTrials',
+      sourceUrl: '',
+      keywords: 'cognitive decline dementia ageing aging microbiome gut brain Melbourne Werribee VIC neurology senior elderly'
+    },
+    {
+      id: 'umelb-amr-uti',
+      title: 'Antimicrobial Prescribing in Companion Animal UTI',
+      institution: 'University of Melbourne, Asia-Pacific Centre for Animal Health',
+      description: 'Prospective intervention study examining antimicrobial prescribing behaviour for urinary tract disease in dogs and cats. Evaluating the impact of free culture and susceptibility testing and decision support tools on antibiotic use in general practice clinics across metropolitan Melbourne.',
+      condition: 'infectious',
+      conditionLabel: 'Infectious disease',
+      species: 'dog',
+      speciesLabel: 'Dogs & cats',
+      state: 'VIC',
+      status: 'recruiting',
+      statusLabel: 'Recruiting',
+      timeline: 'Active 2024-2026',
+      participants: '21 clinics enrolled',
+      contact: 'Amy W. Hii',
+      contactEmail: 'amy.hii@unimelb.edu.au',
+      source: 'Published study (JVIM 2026)',
+      sourceUrl: 'https://academic.oup.com/jvim/article/40/1/aalaf054/8429710',
+      keywords: 'antimicrobial antibiotic resistance UTI urinary tract infection culture susceptibility prescribing stewardship Melbourne VIC cat'
+    },
+    {
+      id: 'murdoch-immunotherapy',
+      title: 'Immunotherapy for Solid Tumours in Dogs',
+      institution: 'Murdoch University, The Animal Hospital',
+      description: 'Clinical research into immunotherapeutic approaches for solid tumours in companion animals. Led by the oncology service at The Animal Hospital at Murdoch University, with particular focus on novel checkpoint inhibitor combinations.',
+      condition: 'cancer',
+      conditionLabel: 'Cancer / Oncology',
+      species: 'dog',
+      speciesLabel: 'Dogs',
+      state: 'WA',
+      status: 'coming-soon',
+      statusLabel: 'Coming soon',
+      timeline: 'Anticipated 2026',
+      participants: 'TBC',
+      contact: 'Murdoch Vet Oncology',
+      contactEmail: '',
+      source: 'Murdoch University',
+      sourceUrl: 'https://www.murdoch.edu.au/theanimalhospital/services/small-animal-services/small-animal-medicine',
+      keywords: 'immunotherapy cancer tumour tumor oncology Murdoch Perth WA checkpoint inhibitor solid'
+    },
+    {
+      id: 'generic-rapamycin',
+      title: 'Rapamycin and Canine Ageing, Expression of Interest',
+      institution: 'Australian universities (multi-site TBC)',
+      description: 'PetTrials is tracking interest in Australian participation for rapamycin-based longevity studies in dogs, following the success of the US Dog Aging Project TRIAD trial. Register your interest to help demonstrate demand for Australian-based lifespan extension research.',
+      condition: 'ageing',
+      conditionLabel: 'Ageing / Longevity',
+      species: 'dog',
+      speciesLabel: 'Dogs 7+ yrs',
+      state: 'National',
+      status: 'coming-soon',
+      statusLabel: 'Expression of interest',
+      timeline: 'Gauging interest',
+      participants: 'Register interest',
+      contact: 'PetTrials',
+      contactEmail: '',
+      source: 'PetTrials',
+      sourceUrl: '',
+      keywords: 'rapamycin ageing aging longevity lifespan extension Dog Aging Project mTOR senior elderly'
+    }
+  ];
+
+  var grid = document.getElementById('trialsGrid');
+  var noResults = document.getElementById('noResults');
+  var resultCount = document.getElementById('resultCount');
+  var searchInput = document.getElementById('searchInput');
+  var filterSpecies = document.getElementById('filterSpecies');
+  var filterCondition = document.getElementById('filterCondition');
+  var filterState = document.getElementById('filterState');
+  var filterStatus = document.getElementById('filterStatus');
+  var statTotal = document.getElementById('stat-total');
+
+  if (statTotal) statTotal.textContent = trials.length;
+
+  function renderTrials(filtered) {
+    grid.innerHTML = '';
+    if (filtered.length === 0) {
+      grid.style.display = 'none';
+      noResults.style.display = 'block';
+      resultCount.innerHTML = 'No trials match your current filters.';
+      return;
+    }
+    grid.style.display = '';
+    noResults.style.display = 'none';
+    resultCount.innerHTML = 'Showing <strong>' + filtered.length + '</strong> of ' + trials.length + ' trials';
+
+    filtered.forEach(function(t) {
+      var card = document.createElement('article');
+      card.className = 'trial-card';
+      var statusClass = t.status === 'recruiting' ? 'recruiting' : (t.status === 'closed' ? 'closed' : 'coming-soon');
+      card.innerHTML =
+        '<div class="status-bar ' + statusClass + '">' + t.statusLabel + '</div>' +
+        '<div class="card-body">' +
+          '<h3>' + t.title + '</h3>' +
+          '<div class="institution"><span class="ic">●</span> ' + t.institution + '</div>' +
+          '<p class="description">' + t.description + '</p>' +
+          '<div class="tags">' +
+            '<span class="tag-condition">' + t.conditionLabel + '</span>' +
+            '<span class="tag-species">' + t.speciesLabel + '</span>' +
+            '<span class="tag-location">' + t.state + '</span>' +
+          '</div>' +
+          '<div class="meta">' +
+            '<i>📅</i>' + t.timeline +
+            (t.participants ? ' &nbsp;·&nbsp; <i>🐾</i>' + t.participants : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="card-actions">' +
+          (t.sourceUrl ? '<a href="' + t.sourceUrl + '" target="_blank" rel="noopener">View source →</a>' : '<a href="../account.html">Register for alerts →</a>') +
+          '<span class="source">' + t.source + '</span>' +
+        '</div>';
+      grid.appendChild(card);
+    });
+  }
+
+  function applyFilters() {
+    var q = searchInput.value.toLowerCase().trim();
+    var sp = filterSpecies.value;
+    var cond = filterCondition.value;
+    var st = filterState.value;
+    var stat = filterStatus.value;
+
+    var filtered = trials.filter(function(t) {
+      if (sp && t.species !== sp && t.speciesLabel.toLowerCase().indexOf(sp) === -1) return false;
+      if (cond && t.condition !== cond) return false;
+      if (st && t.state !== st) return false;
+      if (stat && t.status !== stat) return false;
+      if (q) {
+        var searchable = (t.title + ' ' + t.institution + ' ' + t.description + ' ' + t.conditionLabel + ' ' + t.keywords).toLowerCase();
+        return searchable.indexOf(q) !== -1;
+      }
+      return true;
+    });
+
+    renderTrials(filtered);
+  }
+
+  searchInput.addEventListener('input', applyFilters);
+  filterSpecies.addEventListener('change', applyFilters);
+  filterCondition.addEventListener('change', applyFilters);
+  filterState.addEventListener('change', applyFilters);
+  filterStatus.addEventListener('change', applyFilters);
+
+  renderTrials(trials);
+})();

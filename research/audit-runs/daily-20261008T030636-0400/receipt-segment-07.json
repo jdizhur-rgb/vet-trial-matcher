@@ -4,13 +4,13 @@
   "audit_mode": "daily_trial_only_global_work_audit",
   "status": "INCOMPLETE",
   "started_at": "2026-10-08T03:06:36.179558-04:00",
-  "checkpoint_at": "2026-10-08T04:56:51.682886-04:00",
+  "checkpoint_at": "2026-10-08T04:47:31.699931-04:00",
   "timezone": "America/New_York",
   "base_commit": "72734ca9aa1f98fab89773767633422027461ddb",
   "resumes_run_id": "daily-20261007T040155-0400",
   "source_total": 98,
   "attempted_total": 97,
-  "content_sufficient_total": 46,
+  "content_sufficient_total": 44,
   "local_persistence_verified_total": 97,
   "remote_persistence_verification": {
     "status": "NOT_YET_CHECKED"
@@ -4902,10 +4902,10 @@
       "source_id": "switzerland-zurich-clinical-studies",
       "source_name": "University of Zurich Veterinary Hospital oncology studies",
       "opened_this_run": true,
-      "content_sufficient": true,
+      "content_sufficient": false,
       "protocols_seen": 9,
-      "status": "fully_reconciled",
-      "master_result": "reachable",
+      "status": "partial",
+      "master_result": "partial",
       "attempted_urls": [
         {
           "url": "https://www.tierspital.uzh.ch/kleintiere/onkologie/krebs-tumore-klinische-studien/",
@@ -5297,8 +5297,8 @@
       "route_used": "official master/fallback and published protocol routes",
       "roster_evidence": {
         "source_id": "switzerland-zurich-clinical-studies",
-        "status": "fully_reconciled",
-        "content_sufficient": true,
+        "status": "partial",
+        "content_sufficient": false,
         "protocols_seen": 9,
         "current_roster": [
           "Oralchemo",
@@ -5311,15 +5311,15 @@
           "SarcomaPETCT",
           "STSfluorosurgery"
         ],
-        "review_notes": "Nine current oncology protocols and all named primary leaves reconciled. Current July2025 FLASH and Lattice study PDFs read: Zurich is enrollment/inpatient center, PSI is the irradiation partner rather than a second enrollment site. Four existing treatment records corrected for published funding, eligibility and direct primary URLs; single-dose vinorelbine safety, ADAM12 Phase0 vaccine and diagnostic-only entries excluded. No new protocol identity.",
+        "review_notes": "Current oncology roster plus complete research fallback and specific protocol leaves read; nine clinical oncology protocols distinguished from broader26research entries. Oral single-dose vinorelbine safety and ADAM12 Phase0 vaccine excluded. Zurich/PSI FLASH exact current site-specific costs/eligibility/activation not yet independently reconciled.",
         "evidence_basis": "Actual current-run official source body, named protocol leaves/public structured fields and PDF extraction, reconciled against full canonical identities. Current receipts/clinical snapshots retain URL/timestamp proof.",
-        "gap_kind": null
+        "gap_kind": "executor_whole_roster_reconciliation_pending"
       },
       "previous_last_checked": "2026-10-07",
       "previous_last_checked_at": "2026-10-07T04:06:49.572973-04:00",
       "saved_last_checked": "2026-10-08",
       "saved_last_checked_at": "2026-10-08T04:43:40.285105-04:00",
-      "saved_last_result": "reachable",
+      "saved_last_result": "partial",
       "fingerprint_preserved_from_prior_same_day_visit": false,
       "local_persistence_verification": "PASS"
     },
@@ -7052,10 +7052,10 @@
       "source_id": "japan-kamogawa-oncology-news",
       "source_name": "Kamogawa Animal Medical Center oncology notices",
       "opened_this_run": true,
-      "content_sufficient": true,
+      "content_sufficient": false,
       "protocols_seen": 1,
-      "status": "fully_reconciled",
-      "master_result": "reachable",
+      "status": "partial",
+      "master_result": "partial",
       "attempted_urls": [
         {
           "url": "https://www.kamogawa-ac.jp/category/%E7%97%85%E6%B0%97%E3%82%84%E4%BA%88%E9%98%B2/%E8%85%AB%E7%98%8D%EF%BC%88%E3%82%AC%E3%83%B3%EF%BC%89/",
@@ -7090,33 +7090,26 @@
           "content_type": "application/pdf",
           "raw_sha256": "d10ff1255c72ea6799cbf8f12e5def56b3812848f8ae5b2ac79f4b64e77e5b90",
           "result": "pdf_requires_review"
-        },
-        {
-          "url": "https://www.yamaguchi-u.ac.jp/weekly/52376/index.html",
-          "attempted_at": "2026-10-08T04:54:37.947232-04:00",
-          "method": "bounded_trial_only_http",
-          "result": "unreachable",
-          "error": "URLError: <urlopen error timed out>"
         }
       ],
       "route_used": "official master/fallback and published protocol routes",
       "roster_evidence": {
         "source_id": "japan-kamogawa-oncology-news",
-        "status": "fully_reconciled",
-        "content_sufficient": true,
+        "status": "partial",
+        "content_sufficient": false,
         "protocols_seen": 1,
         "current_roster": [
           "September2026 corporate canine PD1 oral melanoma approval trial"
         ],
-        "review_notes": "One current corporate anti-PD1 oral melanoma protocol reconciled against existing jp-multicenter-oral-melanoma-anti-pd1-2026. September2026 joint official primary PDF names complete three-center roster (JSAMC Tokorozawa, Yamaguchi University Yamaguchi, Kamogawa Kyoto), confirms August2026 start, diagnosis requirement, six q2-week visits and medication restrictions. Eligibility and costs explicitly explained individually by sites; canonical contact-center/prescreen policy retained without invented free coverage. Separate Yamaguchi announcement timed out, but the joint primary PDF itself establishes all three institutions and contacts. Historical150-dog academic results are not a new recruiting trial.",
+        "review_notes": "Current September30 protocol article fully read: started August2026 at JSAMC,Yamaguchi,Kamogawa three named centers, six visits every two weeks; cost/adverse effects explained individually. Distinct from historical150dog academic outcomes. Exact corporate cohort full primary site-specific admission criteria/funding not all published; current press PDF being verified.",
         "evidence_basis": "Actual current-run official source body, named protocol leaves/public structured fields and PDF extraction, reconciled against full canonical identities. Current receipts/clinical snapshots retain URL/timestamp proof.",
-        "gap_kind": null
+        "gap_kind": "whole_roster_primary_details_pending"
       },
       "previous_last_checked": "2026-10-07",
       "previous_last_checked_at": "2026-10-07T04:09:05.302767-04:00",
       "saved_last_checked": "2026-10-08",
-      "saved_last_checked_at": "2026-10-08T04:54:37.947232-04:00",
-      "saved_last_result": "reachable",
+      "saved_last_checked_at": "2026-10-08T04:38:37.530294-04:00",
+      "saved_last_result": "partial",
       "fingerprint_preserved_from_prior_same_day_visit": false,
       "local_persistence_verification": "PASS"
     },
