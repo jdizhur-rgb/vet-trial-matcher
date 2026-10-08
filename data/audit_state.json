@@ -2,23 +2,23 @@
   "schema_version": 1,
   "purpose": "Persistent state for incremental discovery and deep-audit cost control. Source fingerprints live in source_inventory.json; this file tracks audit scheduling and unresolved work.",
   "last_full_deep_audit": null,
-  "last_incremental_audit": "2026-10-08T05:18:56.537660-04:00",
+  "last_incremental_audit": "2026-10-08T08:23:22.196368-04:00",
   "last_source_discovery_attempt": {
-    "run_id": "daily-20261008T030636-0400",
-    "started_at": "2026-10-08T03:06:36.179558-04:00",
-    "checkpoint_at": "2026-10-08T05:18:56.537660-04:00",
+    "run_id": "daily-20261008T080207-0400",
+    "started_at": "2026-10-08T08:02:07.647026-04:00",
+    "checkpoint_at": "2026-10-08T08:23:22.196368-04:00",
     "status": "daily_trial_only_incomplete",
     "attempted": 97,
-    "sufficient": 46,
+    "sufficient": 48,
     "source_total": 98,
-    "coverage_receipt": "research/audit-runs/daily-20261008T030636-0400/receipt-segment-10.json",
+    "coverage_receipt": "research/audit-runs/daily-20261008T080207-0400/receipt-final.json",
     "latest_receipt": "data/audit_source_coverage.json",
-    "catalog_changes": 8,
-    "new_source_entries": 1,
+    "catalog_changes": 3,
+    "new_source_entries": 0,
     "global_discovery_regions": [
-      "United States",
+      "USA",
       "Canada",
-      "United Kingdom",
+      "UK",
       "continental Europe",
       "Mexico/Central America/Caribbean",
       "South America",
@@ -27,27 +27,18 @@
       "South Asia",
       "Southeast Asia",
       "Middle East",
-      "Africa"
+      "Africa (North and sub-Saharan)"
     ],
-    "remote_persistence_verification": {
-      "status": "PASS",
-      "remote_main_sha": "391af1d4044e8dd525e1c6ecc451e35095ae526f",
-      "checked_at": "2026-10-08T05:15:20.078243-04:00",
-      "scope": "current source dates/results/run/roster metadata; remote receipt-segment-09 source rows verified; checkpoint wrapper changes are separate",
-      "source_inventory_sha256": "8d08661ce09cd5b263f7781c1de3309c2a4d9c0a2ce675b0247353afb206a980"
-    },
     "pending_source_ids": [
       "registry-avma-veterinary-clinical-trials",
       "directory-veterinary-cancer-society",
       "usa-colorado-state-vth-clinical-trials",
-      "usa-michigan-state-oncology-trials",
       "usa-minnesota-current-clinical-trials",
       "usa-missouri-oncology-clinical-trials",
       "usa-tufts-clinical-trials",
       "usa-uc-davis-vcct",
       "usa-florida-oncology-trials",
       "usa-georgia-clinical-trials",
-      "usa-bluepearl-science-clinical-studies",
       "usa-ethos-clinical-studies",
       "usa-ethos-discovery-studies",
       "usa-medvet-clinical-studies",
@@ -89,7 +80,9 @@
       "usa-oklahoma-state-clinical-trials",
       "global-vsso-open-research-trials",
       "usa-veterinary-oncology-services-trials"
-    ]
+    ],
+    "executor_unfinished_total": 0,
+    "terminal_external_gaps_no_automatic_requeue": true
   },
   "forced_full_reread_days": 28,
   "rules": {
