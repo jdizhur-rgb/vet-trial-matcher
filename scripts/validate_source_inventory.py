@@ -8,7 +8,7 @@ import json
 import re
 from datetime import date
 from pathlib import Path
-from urllib.parse import urlsplit, urlunsplit
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -39,7 +39,14 @@ RESULTS = {"pending", "reachable", "changed", "unchanged", "unreachable", "parti
 
 def canonical_url(raw: str) -> str:
     parts = urlsplit(raw)
-    return urlunsplit((parts.scheme.lower(), parts.netloc.lower(), parts.path.rstrip("/") or "/", "", ""))
+    # WordPress page_id and other identity-bearing queries can identify different
+    # official protocol pages on the same path. Ignore tracking, not identity.
+    query = urlencode(sorted(
+        (key, value) for key, value in parse_qsl(parts.query, keep_blank_values=True)
+        if not key.lower().startswith("utm_")
+        and key.lower() not in {"fbclid", "gclid", "ref"}
+    ))
+    return urlunsplit((parts.scheme.lower(), parts.netloc.lower(), parts.path.rstrip("/") or "/", query, ""))
 
 
 def fail(message: str) -> None:

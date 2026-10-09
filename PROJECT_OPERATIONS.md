@@ -349,3 +349,7 @@ Keep Work shell/Python/Git for files, validators, canonical edits, publication a
 ### StudyPages managed-location extraction — 2026-10-08
 
 For StudyPages v3, empty initial HTML location/investigator islands do not establish that sites are unpublished. Follow the public page frontend’s current-content and public-study-locations GET routes; reconcile `managed_locations` when `org_study_sites_management_enabled` is true. Save the public protocol content and whole managed-site roster separately. The MVH HIFU/doxorubicin lymphoma protocol 140763 exposed VCA Dallas and its investigators through this public data while its HTML islands were empty. Never claim the page has no locations after reading only the HTML shell.
+
+### Source URL identity — 2026-10-09
+
+Source-inventory URL validation preserves identity-bearing query parameters (for example WordPress `page_id`). Different official protocol pages on the same path must not be rejected as duplicate URLs. Known tracking parameters and fragments are ignored; query order is normalized. Verified by query-identity regression checks during the 2026-10-09 audit.
