@@ -353,3 +353,7 @@ For StudyPages v3, empty initial HTML location/investigator islands do not estab
 ### Source URL identity — 2026-10-09
 
 Source-inventory URL validation preserves identity-bearing query parameters (for example WordPress `page_id`). Different official protocol pages on the same path must not be rejected as duplicate URLs. Known tracking parameters and fragments are ignored; query order is normalized. Verified by query-identity regression checks during the 2026-10-09 audit.
+
+### Matcher catalog loading — 2026-10-09
+
+Manual search and country-change auto-submit must await the catalog-loading promise. A pending request previously searched the initial empty array and rendered false zero results that persisted after loading. Reproduced with delayed catalog responses for Japan and USA; failed loading must retain the existing load-error message rather than render no matches. Test the submit event path with `node scripts/test_matcher_catalog_loading.js`, not just the pure matchTrial function. Refresh the matcher JS asset version for this fix.

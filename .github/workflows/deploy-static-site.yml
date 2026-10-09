@@ -9,6 +9,7 @@ on:
       - 'scripts/build_static_site.py'
       - 'scripts/build_site_search.py'
       - 'scripts/test_matcher_logic.js'
+      - 'scripts/test_matcher_catalog_loading.js'
       - 'seo/**'
       - 'data/**'
       - 'seo_index_cleanup.py'
@@ -37,6 +38,11 @@ jobs:
           python-version: '3.12'
       - name: Build production site from committed source
         run: python scripts/build_static_site.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verify searches wait for catalog loading
+        run: node scripts/test_matcher_catalog_loading.js
       - name: Validate production site with current catalog
         run: |
           python - <<'PY'
