@@ -1,0 +1,56 @@
+[
+  {
+    "command": [
+      "python",
+      "scripts/validate_trials_catalog.py"
+    ],
+    "exit_code": 0,
+    "stdout": "TRIAL_CATALOG_VALIDATION_OK records=305 unique_ids=305 active=166 required_active_fields=11\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_catalog_sanitation.py"
+    ],
+    "exit_code": 0,
+    "stdout": "{\n  \"records\": 305,\n  \"partial_records\": 6,\n  \"known_unresolved\": 6,\n  \"new_partial_records\": [],\n  \"resolved_but_still_queued\": []\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python",
+      "scripts/semantic_dedupe_catalog.py"
+    ],
+    "exit_code": 0,
+    "stdout": "{\n  \"mode\": \"audit\",\n  \"effective_matchable_treatments\": 163,\n  \"probable_duplicates\": 0,\n  \"pairs\": []\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "node",
+      "scripts/test_matcher_logic.js"
+    ],
+    "exit_code": 0,
+    "stdout": "MATCHER_LOGIC_OK trials=166 mct=4 yasha=0 mammary=3 osteosarcoma=19 bladder=5 brain=8\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "node",
+      "research/audit-runs/daily-20261009T025843-0400/matcher-nihon-smoke.js"
+    ],
+    "exit_code": 0,
+    "stdout": "NIHON_MATCHER_SMOKE_PASS cases=20; qualifying mutation remains investigator-prescreened\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_production_sync.py"
+    ],
+    "exit_code": 0,
+    "stdout": "PRODUCTION_SYNC_OK total=166 treatment=161 access=5 matcher_ids=166 internal_links=6554\n",
+    "stderr": ""
+  }
+]

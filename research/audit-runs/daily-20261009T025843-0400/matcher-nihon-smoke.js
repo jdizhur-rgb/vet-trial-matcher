@@ -11,6 +11,8 @@ let cases=0;
 function check(r,overrides,expected){const match=api.matchTrial(r,{...base,...overrides});assert.strictEqual(Boolean(match),expected,JSON.stringify(overrides));if(match)assert.strictEqual(match.confidence,'Possible match');cases++;}
 for(const species of ['Dog','Cat']){check(b,{species},true);check(b,{species,cancer:'Multiple myeloma / plasma cell cancer'},true);check(b,{species,cancer:'Chronic lymphocytic leukemia'},true);check(b,{species,cancer:'T-cell lymphoma'},false);check(b,{species,country:'USA'},false);}
 check(b,{approach:'targeted_therapy'},true);
+check(b,{cancer:'Leukemia — other'},true);
+check(b,{cancer:'Acute myeloid leukemia'},false);
 check(l,{cancer:'Primary lung tumor'},true);
 check(l,{cancer:'Primary lung tumor',approach:'targeted_therapy'},true);
 check(l,{cancer:'Primary lung tumor',species:'Cat'},false);

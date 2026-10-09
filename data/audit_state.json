@@ -100,8 +100,49 @@
     "terminal_external_gaps_no_automatic_requeue": true,
     "previous_checkpoint": "research/audit-runs/daily-20261008T080207-0400/receipt-final.json",
     "remote_persistence_verification": {
-      "status": "not_checked",
-      "reason": "Publication not yet executed; no prior SHA reused"
+      "status": "PASS",
+      "checked_at": "2026-10-09T04:25:28.311754-04:00",
+      "remote_main_sha": "f50633a6fe567362fae180dad040ecbdd009908c",
+      "source_count": 107,
+      "all_previous_new_dates_verified": true,
+      "checks": [
+        {
+          "file": "PROJECT_OPERATIONS.md",
+          "sha256": "bb8fa8837177fdb3115ce3cd7608de8ff336df0be044a419b08515f7835a3286",
+          "status": "PASS"
+        },
+        {
+          "file": "data/audit_source_coverage.json",
+          "sha256": "0301d047dc2823e592afb16b5b9c52ab034de444a16f3051b9015769a6897fdf",
+          "status": "PASS"
+        },
+        {
+          "file": "data/audit_state.json",
+          "sha256": "422c9c8d7c9d4e1669658ffd491841cee2ca34e4db827ad94a8f0861aa28ed7a",
+          "status": "PASS"
+        },
+        {
+          "file": "data/source_inventory.json",
+          "sha256": "66b36608205adc493e11234dacb273be931e342935a357eec5aa2c96998dd9c1",
+          "status": "PASS"
+        },
+        {
+          "file": "data/trials_base.json",
+          "sha256": "c5ac21073c0e62fec726c3a5ea3de53f4f61bc443d9c4d7060a67eba21b353ef",
+          "status": "PASS"
+        },
+        {
+          "file": "scripts/validate_source_inventory.py",
+          "sha256": "a2e5f4b9d1fbae84dec30aed0ee17107259343aab8983031b3b2491702620459",
+          "status": "PASS"
+        },
+        {
+          "file": "seo/static/matcher/trials.json",
+          "sha256": "965092c569c81eaf4c9c46348cb267a11762e187f253ac65dda95f8fcdf8a0f3",
+          "status": "PASS"
+        }
+      ],
+      "scope": "Seven changed canonical/technical/derived files byte-identical; all107 per-source dates/results read back from remote main"
     }
   },
   "forced_full_reread_days": 28,
