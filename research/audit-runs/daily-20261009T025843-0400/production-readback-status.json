@@ -1,0 +1,56 @@
+{
+  "checked_at": "2026-10-09 08:36:18 UTC",
+  "status": "NOT_CONFIRMED",
+  "expected": {
+    "public_matchable": 166,
+    "treatment": 161,
+    "other_access": 5
+  },
+  "first_read": {
+    "file": "production-trials-first.json",
+    "records": 164,
+    "interpretation": "Earlier version retrieved before deployment was verified, not proof of current production"
+  },
+  "subsequent_attempts": [
+    {
+      "method": "curl",
+      "url": "https://vettrialfinder.com/matcher/trials.json?audit_run=daily-20261009T025843-0400&readback=2",
+      "result": "Proxy CONNECT timeout; exit28"
+    },
+    {
+      "method": "curl",
+      "url": "https://vettrialfinder.com/matcher/?audit_run=daily-20261009T025843-0400",
+      "result": "Proxy CONNECT timeout; exit28"
+    },
+    {
+      "method": "curl",
+      "url": "https://vettrialfinder.com/matcher/trials.json?audit_run=daily-20261009T025843-0400-readback2",
+      "result": "Proxy CONNECT timeout; exit28"
+    },
+    {
+      "method": "curl",
+      "url": "https://vettrialfinder.com/matcher/trials.json",
+      "attempts": 2,
+      "result": "Proxy CONNECT timeout; exit28"
+    },
+    {
+      "method": "Web_open",
+      "url": "https://vettrialfinder.com/matcher/trials.json?audit_run=daily-20261009T025843-0400",
+      "reference": "turn362view0",
+      "result": "URL not accessible via this tool"
+    },
+    {
+      "method": "Web_open",
+      "url": "https://vettrialfinder.com/matcher/",
+      "reference": "turn362view1",
+      "result": "Readable HTML with known today crawl; does not expose dataset"
+    },
+    {
+      "method": "curl",
+      "url": "https://jdizhur-rgb.github.io/vet-trial-matcher/matcher/trials.json",
+      "result": "Proxy CONNECT timeout; exit28"
+    }
+  ],
+  "timeout_policy": "connect5s,total20s; no escalation or access-control bypass",
+  "deployment": "GitHub build/deploy completed successfully for7ba5df2; direct current production data equality remains unverified"
+}
