@@ -20,15 +20,15 @@ HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; VetTrialFinder/1.0; research 
 
 def fetch(url: str) -> tuple[str, str, str]:
     error = ""
-    for attempt in range(3):
+    for attempt in range(2):
         try:
             request = urllib.request.Request(url, headers=HEADERS)
-            with urllib.request.urlopen(request, timeout=60) as response:
+            with urllib.request.urlopen(request, timeout=20) as response:
                 return url, response.read().decode("utf-8", "ignore"), ""
         except Exception as exc:  # noqa: BLE001 - audit records every network failure
             error = repr(exc)
-            if attempt < 2:
-                time.sleep(2 + attempt * 2)
+            if attempt < 1:
+                time.sleep(2)
     return url, "", error
 
 
@@ -79,12 +79,15 @@ def verification_url(urls: list[str]) -> str:
 def main() -> None:
     _, root, error = fetch(ROOT_SITEMAP)
     if error:
-        raise SystemExit(error)
+        OUTPUT.write_text(json.dumps({"source": ROOT_SITEMAP, "status": "incomplete", "root_error": error, "state_sitemaps": 0, "records": []}, indent=2) + "\\n", encoding="utf-8")
+        raise SystemExit(f"VCA_ONCOLOGY_SCAN_INCOMPLETE root={error!r} output={OUTPUT}")
     state_sitemaps = locations(root)
     all_urls: list[str] = []
     sitemap_errors: list[dict[str, str]] = []
+    state_sitemap_attempts: list[dict[str, str | int]] = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=6) as executor:
         for url, body, error in executor.map(fetch, state_sitemaps):
+            state_sitemap_attempts.append({"url": url, "urls_seen": len(locations(body)), "error": error})
             if error:
                 sitemap_errors.append({"url": url, "error": error})
             all_urls.extend(locations(body))
@@ -138,7 +141,12 @@ def main() -> None:
     payload = {
         "audited": date.today().isoformat(),
         "source": ROOT_SITEMAP,
+        "status": "incomplete" if sitemap_errors or any(x["fetch_error"] for x in records) or any(not x["name"] or not x["street"] for x in records) else "collected_candidates_pending_service_confirmation",
         "state_sitemaps": len(state_sitemaps),
+        "state_sitemaps_checked": len(state_sitemaps) - len(sitemap_errors),
+        "state_sitemap_attempts": state_sitemap_attempts,
+        "candidate_branch_pages": len(targets),
+        "branch_pages_checked": sum(not r["fetch_error"] for r in records),
         "sitemap_urls": len(set(all_urls)),
         "sitemap_errors": sitemap_errors,
         "records": records,
