@@ -7,7 +7,7 @@
     "run_id": "daily-20261010T030027-0400",
     "started_at": "2026-10-10T03:00:27-04:00",
     "checkpoint_at": "2026-10-10T04:08:38.012672-04:00",
-    "status": "daily_trial_only_incomplete_external_gaps",
+    "status": "daily_trial_only_incomplete_gap_diagnosis",
     "attempted": 108,
     "sufficient": 36,
     "source_total": 108,
@@ -30,7 +30,12 @@
       "Sub Saharan Africa"
     ],
     "pending_source_ids": [],
-    "external_gap_source_ids": [
+    "external_gap_source_ids": [],
+    "executor_unfinished_total": null,
+    "terminal_external_gaps_no_automatic_requeue": true,
+    "previous_checkpoint": "research/audit-runs/daily-20261009T025843-0400/receipt-final.json",
+    "processing_completion": "NOT_VERIFIED",
+    "unclassified_execution_source_ids": [
       "registry-avma-veterinary-clinical-trials",
       "directory-veterinary-cancer-society",
       "usa-colorado-state-vth-clinical-trials",
@@ -104,9 +109,8 @@
       "uk-edinburgh-small-animal-clinical-trials",
       "sponsor-akston-oncology-pipeline"
     ],
-    "executor_unfinished_total": 0,
-    "terminal_external_gaps_no_automatic_requeue": true,
-    "previous_checkpoint": "research/audit-runs/daily-20261009T025843-0400/receipt-final.json"
+    "gap_review": "research/audit-runs/gap-diagnosis-20261010T090429-0400/gap-review.json",
+    "retrospective_correction": "The historical save_receipt.py hardcoded completed processing for all sources. Missing proof is not zero unfinished work. Source visit dates and original receipts are unchanged."
   },
   "forced_full_reread_days": 28,
   "rules": {

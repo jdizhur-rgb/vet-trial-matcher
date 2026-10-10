@@ -1,0 +1,1268 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-10T09:04:29.485855-04:00",
+  "original_run_id": "daily-20261010T030027-0400",
+  "original_receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+  "scope": "Retrospective diagnosis of saved evidence; no new source visits, no source date refresh, no retrospective PASS",
+  "rows": [
+    {
+      "source_id": "registry-avma-veterinary-clinical-trials",
+      "category": "roster_unestablished",
+      "original_status": "partial",
+      "protocols_seen": null,
+      "question": "AVMA gallery JS; investigator primary lists current studies, but entire registry oncology roster cannot be obtained from permitted public master/gallery routes.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "attempted_urls": [
+          "https://veterinaryclinicaltrials.org/",
+          "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Inspect current official navigation/pagination/public frontend data routes and document exactly which permitted roster steps remain."
+    },
+    {
+      "source_id": "directory-veterinary-cancer-society",
+      "category": "discovery_source_not_trial_roster",
+      "original_status": "partial",
+      "protocols_seen": null,
+      "question": "41 institution/provider links are a source directory, not 41 current protocols; no complete protocol roster published here.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "directory-veterinary-cancer-society",
+        "attempted_urls": [
+          "https://vetcancersociety.org/resources/clinical-trials/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Review actual links/news/pipeline for changed leads; document discovery coverage without demanding a nonexistent full recruiting-trial roster."
+    },
+    {
+      "source_id": "usa-colorado-state-vth-clinical-trials",
+      "category": "roster_unestablished",
+      "original_status": "partial",
+      "protocols_seen": 12,
+      "question": "Twelve legacy oncology titles on Flint master; current StudyPages portal cannot expose its entire roster through master/Web. Six old active primary protocols recovered through public content route; eight cost/eligibility details adjudicated separately, no invented closure from index absence.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-colorado-state-vth-clinical-trials",
+        "attempted_urls": [
+          "https://csuveterinaryhealth.org/clinical-trials/",
+          "https://clinicaltrials.csuveterinaryhealth.org/studies/?term~sc_paths=primary-field_cancer"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Inspect current official navigation/pagination/public frontend data routes and document exactly which permitted roster steps remain."
+    },
+    {
+      "source_id": "usa-johns-hopkins-cigat",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 8,
+      "question": "Five CIGAT programs plus VCTN PET and IF7-SN38 metastatic/brain cohorts; IF7 primary recovered but enrollment/owner benefit/funding and final participating sites not sufficiently defined.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-johns-hopkins-cigat",
+        "attempted_urls": [
+          "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+          "https://www.hopkinsmedicine.org/radiology/vctn"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "usa-michigan-state-oncology-trials",
+      "category": "freshness_uncertain",
+      "original_status": "partial",
+      "protocols_seen": 5,
+      "question": "CHOP/LOPP, CMP002, Quasi hemangiosarcoma, MCT steroids, feline miR10b; current titles reconciled to canonical. Current master reader has cache-age uncertainty and no independent fresh master roster confirmation; not counted successfully checked.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-michigan-state-oncology-trials",
+        "attempted_urls": [
+          "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate retrieved roster content from present enrollment confirmation; retain cache-age limitation and identify independent permitted current primary route."
+    },
+    {
+      "source_id": "usa-minnesota-current-clinical-trials",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 11,
+      "question": "Eleven named cohorts; LEAH institution-on-hold conflicts with sponsor recruitment. Brain, oral AAV and feline mammary primary reread; conflict preserved.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-minnesota-current-clinical-trials",
+        "attempted_urls": [
+          "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials",
+          "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/car-t-cell"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "usa-missouri-oncology-clinical-trials",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 12,
+      "question": "Twelve named current/closed protocols; LEAH institution-on-hold conflicts with sponsor. No activation or closure inferred from conflict.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-missouri-oncology-clinical-trials",
+        "attempted_urls": [
+          "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "usa-nc-state-clinical-trials",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 7,
+      "question": "Seven dog/cat oncology protocols. XCSgel primary confirms funded surgery+radiation. PIVOT-C primary confirms pilot injections and 28-day surgery/radiation prohibition; costs and controlling owner-benefit qualification unresolved, existing record preserved pending sufficient correction.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-nc-state-clinical-trials",
+        "attempted_urls": [
+          "https://cvm.ncsu.edu/research/clinical-trials/",
+          "https://cvm.ncsu.edu/research/clinical-trials/oncology/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "usa-penn-vet-clinical-trials",
+      "category": "roster_unestablished",
+      "original_status": "partial",
+      "protocols_seen": 6,
+      "question": "Six reachable oncology archive records, five recruiting labels; main route fails and archive pagination prevents proof of entire roster. FLASH, PSMA and osteosarcoma iNKT primaries read.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-penn-vet-clinical-trials",
+        "attempted_urls": [
+          "https://www.vet.upenn.edu/research/clinical-trials/",
+          "https://www.vet.upenn.edu/research/research-programs/comparative-immunotherapy-program/clinical-trials/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Inspect current official navigation/pagination/public frontend data routes and document exactly which permitted roster steps remain."
+    },
+    {
+      "source_id": "usa-purdue-wcorc-clinical-trials",
+      "category": "roster_unestablished",
+      "original_status": "partial",
+      "protocols_seen": 10,
+      "question": "Ten named identities in six official disease-category pages. Lymphoma page describes additional ongoing studies without full identities; do not equate observed list with complete roster.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-purdue-wcorc-clinical-trials",
+        "attempted_urls": [
+          "https://www.vet.purdue.edu/wcorc/clinical-trials/",
+          "https://vet.purdue.edu/pcop/canine-lymphoma.php"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Inspect current official navigation/pagination/public frontend data routes and document exactly which permitted roster steps remain."
+    },
+    {
+      "source_id": "usa-tufts-clinical-trials",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 8,
+      "question": "Eight named oncology programs; complete current multi-institution/cohort rosters and some funding not published. Z007 and metastatic OSA primaries reread.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-tufts-clinical-trials",
+        "attempted_urls": [
+          "https://vet.tufts.edu/clinical-trials",
+          "https://vet.tufts.edu/clinical-trials/evaluation-tlr-agonist-z-007-dogs-cancer"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "usa-uc-davis-vcct",
+      "category": "roster_unestablished",
+      "original_status": "partial",
+      "protocols_seen": null,
+      "question": "VCCT portal JS yields no complete trial list; official alternatives and Web do not independently establish current roster.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-uc-davis-vcct",
+        "attempted_urls": [
+          "https://clinicaltrials.vetmed.ucdavis.edu/",
+          "https://clinicaltrials.vetmed.ucdavis.edu/clinical-trial-articles-news"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Inspect current official navigation/pagination/public frontend data routes and document exactly which permitted roster steps remain."
+    },
+    {
+      "source_id": "usa-florida-oncology-trials",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 7,
+      "question": "Six current plus closed Biocera program; oral melanoma primary reread. Some vaccine cohorts/site rosters not fully published.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-florida-oncology-trials",
+        "attempted_urls": [
+          "https://research.vetmed.ufl.edu/research-programs/clinical-trials/oncology/",
+          "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/oncology/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "usa-georgia-clinical-trials",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 2,
+      "question": "Current OPEN B-cell IVP and OPEN sorafenib/placebo plus standard radiation for pituitary macroadenoma; latter added. Complete IVP multicenter roster is not published.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-georgia-clinical-trials",
+        "attempted_urls": [
+          "https://vet.uga.edu/research/clinical-trials/",
+          "https://vet.uga.edu/clinical-trial/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "usa-bluepearl-science-clinical-studies",
+      "category": "source_unavailable",
+      "original_status": "unreachable",
+      "protocols_seen": null,
+      "question": "Actual master shell attempt returned CONNECT 403; subsequent automatic approval review prohibited this action, no Web switching or repeat. Same attempt is shared as Mars official fallback provenance.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-bluepearl-science-clinical-studies",
+        "attempted_urls": [
+          "https://bluepearlvet.com/current-clinical-studies/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Inspect recorded attempted routes, transport results and action denials; identify any permitted unperformed route without retrying denied actions."
+    },
+    {
+      "source_id": "usa-virginia-tech-current-studies",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 4,
+      "question": "Four programs. Current CED primary does NOT say closed; old concluded label belongs to feline cardiac study. CED exclusion for previous radiation added. Full separate histotripsy cohort/arms are not published clearly.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-virginia-tech-current-studies",
+        "attempted_urls": [
+          "https://research.vetmed.vt.edu/clinical-trials/current-studies.html",
+          "https://research.vetmed.vt.edu/clinical-trials/current-studies/histotripsy-osteo-no-amputation.html"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "usa-wisconsin-oncology-studies",
+      "category": "source_unavailable",
+      "original_status": "unreachable",
+      "protocols_seen": null,
+      "question": "Institution master and official Patients Needed route return 403; no repeat or access bypass.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-wisconsin-oncology-studies",
+        "attempted_urls": [
+          "https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Inspect recorded attempted routes, transport results and action denials; identify any permitted unperformed route without retrying denied actions."
+    },
+    {
+      "source_id": "usa-utsw-vroc-clinical-trials",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 9,
+      "question": "Eight master identities plus current recruiting temozolomide/propranolol HSA on direct investigator registry. Current institution/registry difference retained; whole individual cohort roster cannot be established.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-utsw-vroc-clinical-trials",
+        "attempted_urls": [
+          "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-trials.html"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "usa-ethos-clinical-studies",
+      "category": "roster_unestablished",
+      "original_status": "partial",
+      "protocols_seen": null,
+      "question": "Old Ethos master 404, coordinating Ethos Discovery and direct protocol routes reviewed with shared current provenance. Their combined list is not proof of complete Ethos umbrella roster.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-ethos-clinical-studies",
+        "attempted_urls": [
+          "https://www.ethosvet.com/clinical-studies/",
+          "https://www.ethosvet.com/medical-professionals/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Inspect current official navigation/pagination/public frontend data routes and document exactly which permitted roster steps remain."
+    },
+    {
+      "source_id": "usa-ethos-discovery-studies",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 9,
+      "question": "Nine named identities, MIMIC phases grouped by real-world identity. Entire published MIMIC two-site and PUSH twelve-site rosters reconciled; Akron direct current primary adds a thirteenth PUSH site and sponsor omission is recorded.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-ethos-discovery-studies",
+        "attempted_urls": [
+          "https://www.ethosdiscovery.org/clinical-studies/",
+          "https://www.ethosdiscovery.org/scientific-programs/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "usa-medvet-clinical-studies",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 1,
+      "question": "EGFR/HER2 melanoma primary roster reconciled: nine active and three not-enrolling sites; official narrative still says ten active. No fabricated ten-site roster.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-medvet-clinical-studies",
+        "attempted_urls": [
+          "https://www.medvet.com/clinical-studies/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "usa-castr-alliance-studies",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 4,
+      "question": "TCE current at VRCCO, historical Paccal feline/dog and completed gefitinib; WSU current participation unavailable. Same registry 534230 proves TCE duplicate identity.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-castr-alliance-studies",
+        "attempted_urls": [
+          "https://castr-wa.com/",
+          "https://castr-wa.com/?p=2021"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "europe-esvonc-ongoing-trials",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 27,
+      "question": "Twenty-nine registry entries grouped to twenty-seven protocol identities; provider statuses/primary completeness vary, no blanket recruiting claim.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "europe-esvonc-ongoing-trials",
+        "attempted_urls": [
+          "https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "europe-oncowaf-clinical-trials",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 24,
+      "question": "Twenty-four published protocol identities; RVC route blocked and several old listings lack current primary enrollment. Entire seven-site insulinoma roster compared to existing canonical.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "europe-oncowaf-clinical-trials",
+        "attempted_urls": [
+          "https://oncowaf.be/en/ClinicalTrials/searchResults"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "netherlands-utrecht-interventional-oncology",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 3,
+      "question": "OSA oncolytic virus access, holmium brain tumor and feline SCC programs. OSA study full but treatment access may continue, existing separate access preserved; current complete cohort terms not published.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "netherlands-utrecht-interventional-oncology",
+        "attempted_urls": [
+          "https://vetoncology.sites.uu.nl/research/interventional/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "uk-rvc-clinical-investigation-centre",
+      "category": "source_unavailable",
+      "original_status": "unreachable",
+      "protocols_seen": null,
+      "question": "RVC master shell/Web 403. Official fallback actual timeout was followed by automatic review rejection for prohibited retry; no additional transport or authorization bypass.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "uk-rvc-clinical-investigation-centre",
+        "attempted_urls": [
+          "https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre",
+          "https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre/projects"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Inspect recorded attempted routes, transport results and action denials; identify any permitted unperformed route without retrying denied actions."
+    },
+    {
+      "source_id": "usa-sage-veterinary-clinical-trials",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 4,
+      "question": "OSA, PetCure closed, MCT Imprimed hold, feline lymphoma diagnostic program. Published OSA multicenter primary details remain incomplete.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-sage-veterinary-clinical-trials",
+        "attempted_urls": [
+          "https://www.sagecenters.com/clinical-trials"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "usa-amcny-current-clinical-trials",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 1,
+      "question": "Neobladder protocol is dated 2018; no sufficient current enrollment/owner access confirmation.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-amcny-current-clinical-trials",
+        "attempted_urls": [
+          "https://www.amcny.org/current-clinical-trials/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "usa-penn-comparative-immunotherapy-trials",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 4,
+      "question": "Four immunotherapy program identities including Atherton research; cohort access and whole current rosters incompletely published.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-penn-comparative-immunotherapy-trials",
+        "attempted_urls": [
+          "https://www.vet.upenn.edu/research/clinical-trials/",
+          "https://www.vet.upenn.edu/research/research-programs/comparative-immunotherapy-program/clinical-trials/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "australia-gamgee-cancer-vaccine-trial",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 1,
+      "question": "Personalized mRNA MCT expression of interest lacks final approved patient cohort/site/owner access terms.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "australia-gamgee-cancer-vaccine-trial",
+        "attempted_urls": [
+          "https://www.gamgee.io/trial/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "australia-pettrials-directory",
+      "category": "roster_unestablished",
+      "original_status": "partial",
+      "protocols_seen": null,
+      "question": "PetTrials master is JS shell; permitted Web yields no full current search results; not verified zero.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "australia-pettrials-directory",
+        "attempted_urls": [
+          "https://pettrials.com.au/trials/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Inspect current official navigation/pagination/public frontend data routes and document exactly which permitted roster steps remain."
+    },
+    {
+      "source_id": "australia-sash-clinical-research",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 2,
+      "question": "Exercise observational example and MCT drug example; latter lacks confirmed current enrollment details.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "australia-sash-clinical-research",
+        "attempted_urls": [
+          "https://sashvets.com/services/sash-research/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "australia-caninecancer-state-research-guide",
+      "category": "discovery_source_not_trial_roster",
+      "original_status": "partial",
+      "protocols_seen": 1,
+      "question": "Auranofin guide is historical 2013; no current official entry/cohort confirmation.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "australia-caninecancer-state-research-guide",
+        "attempted_urls": [
+          "https://www.caninecancer.org.au/ausresearch.html"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Review actual links/news/pipeline for changed leads; document discovery coverage without demanding a nonexistent full recruiting-trial roster."
+    },
+    {
+      "source_id": "australia-medipaws-clinical-research",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 1,
+      "question": "Hemangiosarcoma autovaccine alongside standard doxorubicin confirmed; vaccine free but standard care owner-paid. Complete participating-center roster not published.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "australia-medipaws-clinical-research",
+        "attempted_urls": [
+          "https://medipaws.com.au/clinical-research",
+          "https://medipaws.com.au/clinical-research/dogs-with-splenic-haemangiosarcoma"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "australia-bvsc-foundation",
+      "category": "source_unavailable",
+      "original_status": "unreachable",
+      "protocols_seen": null,
+      "question": "BVSC Foundation master unreadable by permitted shell/Web methods; no source roster established.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "australia-bvsc-foundation",
+        "attempted_urls": [
+          "https://www.bvsc.com.au/foundation/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Inspect recorded attempted routes, transport results and action denials; identify any permitted unperformed route without retrying denied actions."
+    },
+    {
+      "source_id": "australia-anzcvs-science-week-oncology",
+      "category": "discovery_source_not_trial_roster",
+      "original_status": "partial",
+      "protocols_seen": null,
+      "question": "Science Week/news material and member repository do not publish owner-access trial roster. No login attempted.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "australia-anzcvs-science-week-oncology",
+        "attempted_urls": [
+          "https://www.anzcvs.org.au/chapters/veterinary%2Boncology/news"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Review actual links/news/pipeline for changed leads; document discovery coverage without demanding a nonexistent full recruiting-trial roster."
+    },
+    {
+      "source_id": "usa-barc-clinical-trials",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 9,
+      "question": "Nine research identities: current gold/SCC carboplatin/EGFR plus past/upcoming work. EGFR entire twelve-site list matched; complete current owner access for other program cohorts not published.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-barc-clinical-trials",
+        "attempted_urls": [
+          "https://www.barcseattle.com/clinical-trials-index"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "usa-canine-cancer-alliance-research",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 8,
+      "question": "Eight research cohorts; EGFR twelve-location/nine-active roster reconciled, other cohort access/location terms incompletely published.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-canine-cancer-alliance-research",
+        "attempted_urls": [
+          "https://www.ccralliance.org/research-projects",
+          "https://www.ccralliance.org/yale-status"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "usa-vrcco-clinical-trials",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 3,
+      "question": "TCE active, Paccal feline and dog historical/closed. Same 534230 registry identifies WSU duplicate; WSU participation not currently reconfirmed.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-vrcco-clinical-trials",
+        "attempted_urls": [
+          "https://vrcvet.com/clinical-trials/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "usa-wsu-vth-clinical-studies",
+      "category": "source_unavailable",
+      "original_status": "unreachable",
+      "protocols_seen": null,
+      "question": "WSU master/fallback unavailable; current TCE primary shell timeout and Web 403. No repeat after 403, no closure inferred.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-wsu-vth-clinical-studies",
+        "attempted_urls": [
+          "https://hospital.vetmed.wsu.edu/appointments/",
+          "https://hospital.vetmed.wsu.edu/small-animal/cats-and-dogs/oncology/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Inspect recorded attempted routes, transport results and action denials; identify any permitted unperformed route without retrying denied actions."
+    },
+    {
+      "source_id": "usa-tamu-hayburn-oncology-studies",
+      "category": "freshness_uncertain",
+      "original_status": "partial",
+      "protocols_seen": 2,
+      "question": "Hayburn feline small-cell GI lymphoma radiation plus direct GI-lab MCT study. MCT placebo/acid-suppressant cytotoxic research includes standard resection and $1,000 surgical credit; treatment benefit retained. Current master reader has cache-age uncertainty and no independent fresh master roster confirmation; not counted successfully checked.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-tamu-hayburn-oncology-studies",
+        "attempted_urls": [
+          "https://studypages.com/investigator/1cff202c91db48f6acceb2c14cff5418/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate retrieved roster content from present enrollment confirmation; retain cache-age limitation and identify independent permitted current primary route."
+    },
+    {
+      "source_id": "china-dongjun-oncology-trials",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 3,
+      "question": "Three oncology drug programs (MCT, OSA, oral SCC) without complete public protocol identities/nationwide roster.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "china-dongjun-oncology-trials",
+        "attempted_urls": [
+          "https://www.caudjlab.com/newdetail.aspx?id=73"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "china-petcura-mrna-iit",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 1,
+      "question": "mRNA investigator-initiated program claims nine cities/twelve hospitals but does not publish all hospital identities.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "china-petcura-mrna-iit",
+        "attempted_urls": [
+          "https://www.petcura.cn/zh/mrna-vaccine/study/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "usa-nci-comparative-oncology-trials",
+      "category": "source_unavailable",
+      "original_status": "unreachable",
+      "protocols_seen": null,
+      "question": "NCI official master returns 403. Search snippets do not establish current whole COTC roster; no repeat after block.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-nci-comparative-oncology-trials",
+        "attempted_urls": [
+          "https://ccr.cancer.gov/comparative-oncology-program/trials"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Inspect recorded attempted routes, transport results and action denials; identify any permitted unperformed route without retrying denied actions."
+    },
+    {
+      "source_id": "japan-kamogawa-oncology-news",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 1,
+      "question": "September 30 PD-1 signal and three hospital names; primary lacks final current cohort eligibility/owner access details.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "japan-kamogawa-oncology-news",
+        "attempted_urls": [
+          "https://www.kamogawa-ac.jp/category/%E7%97%85%E6%B0%97%E3%82%84%E4%BA%88%E9%98%B2/%E8%85%AB%E7%98%8D%EF%BC%88%E3%82%AC%E3%83%B3%EF%BC%89/",
+          "https://www.kamogawa-ac.jp/2026/09/30/24722/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "japan-yamaguchi-vmc-clinical-trials",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 5,
+      "question": "CD20, blood research, PD-1, unnamed virus and unnamed drug programs; blank protocol sections prevent full clinical qualification.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "japan-yamaguchi-vmc-clinical-trials",
+        "attempted_urls": [
+          "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html",
+          "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "japan-jsamc-current-clinical-trials",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 5,
+      "question": "Dog anti-PD1 umbrella, cat PD1, CD20 lymphoma, HIFU title and supplementary PetVoice program; full subgroup/site terms not published. 2025 feline subsidy date is not today enrollment evidence.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "japan-jsamc-current-clinical-trials",
+        "attempted_urls": [
+          "https://www.jsamc.jp/dr_info/clinical/clinical07.html",
+          "https://www.cure-cancer.jp/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "global-vettrials-directory",
+      "category": "roster_unestablished",
+      "original_status": "partial",
+      "protocols_seen": null,
+      "question": "VetTrials directory shell lacks readable current program roster; Web alternatives insufficient.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "global-vettrials-directory",
+        "attempted_urls": [
+          "https://vettrials.org/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Inspect current official navigation/pagination/public frontend data routes and document exactly which permitted roster steps remain."
+    },
+    {
+      "source_id": "japan-jvcog-current-clinical-trials",
+      "category": "source_unavailable",
+      "original_status": "unreachable",
+      "protocols_seen": null,
+      "question": "JVCOG professional attestation yes/no gate; no credentials or false professional affirmation used. Accessible leaf insufficient.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "japan-jvcog-current-clinical-trials",
+        "attempted_urls": [
+          "https://www.jvcog.jp/clinical/index.html",
+          "https://www.jvcog.jp/clinical/03rinsho.html"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Inspect recorded attempted routes, transport results and action denials; identify any permitted unperformed route without retrying denied actions."
+    },
+    {
+      "source_id": "brazil-usp-loct-oncolytic-virus-program",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 3,
+      "question": "NDV melanoma, GM-CSF preclinical and feline lymphoma research descriptions lack confirmed current owner entry.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "brazil-usp-loct-oncolytic-virus-program",
+        "attempted_urls": [
+          "https://loct.fzea.usp.br/?page_id=848"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "japan-nvlu-vmc-clinical-research",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 2,
+      "question": "Personalized canine treatment 2021–2027 and BCNU brain project ended March 2026; whole current owner cohort access undefined.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "japan-nvlu-vmc-clinical-research",
+        "attempted_urls": [
+          "https://www.nvlu.ac.jp/amedical/clinical-research/index.html"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "brazil-estima-coe-clinical-studies",
+      "category": "discovery_source_not_trial_roster",
+      "original_status": "partial",
+      "protocols_seen": null,
+      "question": "Estima generic clinical-research description publishes no enumerable current trials.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "brazil-estima-coe-clinical-studies",
+        "attempted_urls": [
+          "https://estima.com.br/coe/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Review actual links/news/pipeline for changed leads; document discovery coverage without demanding a nonexistent full recruiting-trial roster."
+    },
+    {
+      "source_id": "sponsor-ardent-oncology-clinical-trial",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 1,
+      "question": "CD200AR-L OSA alongside standard amputation; current program confirmed but full managed site roster not public.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "sponsor-ardent-oncology-clinical-trial",
+        "attempted_urls": [
+          "https://ardentanimalhealth.com/k9-acv-checkpoint-inhibitor-trial/",
+          "https://studypages.com/s/autologous-cancer-vaccine-with-checkpoint-inhibitor-for-treatment-of-canine-osteosarcoma-565406/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "france-alfort-innovative-clinical-trials",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 3,
+      "question": "Colorectal observational study, legacy TG6002 and CARBOPOP ended 2022. Current TG6002 patient access not sufficiently published.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "france-alfort-innovative-clinical-trials",
+        "attempted_urls": [
+          "https://www.vet-alfort.fr/services-cliniques/hopital-des-animaux-de-compagnie/les-traitements-innovants"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "france-oniris-biokera-osa-trial",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 1,
+      "question": "Biocera/Oniris historical multicenter bone-cement work; current full participating enrollment roster not confirmed.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "france-oniris-biokera-osa-trial",
+        "attempted_urls": [
+          "https://chuv.oniris-nantes.fr/animaux-de-compagnie/chirurgie/osteosarcomes-appendiculaires-chez-le-chien/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "foundation-perseus-clinical-trial-discovery",
+      "category": "discovery_source_not_trial_roster",
+      "original_status": "partial",
+      "protocols_seen": 1,
+      "question": "Perseus T-cell infusion program and old trial-discovery material; new public searches performed, originating protocol/status/costs needed. Secondary discovery alone cannot activate treatment.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "foundation-perseus-clinical-trial-discovery",
+        "attempted_urls": [
+          "https://www.theperseusfoundation.com/clinical-trials",
+          "https://www.theperseusfoundation.com/t-cell-infusion-project"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Review actual links/news/pipeline for changed leads; document discovery coverage without demanding a nonexistent full recruiting-trial roster."
+    },
+    {
+      "source_id": "sponsor-evvivax-clinical-trials",
+      "category": "discovery_source_not_trial_roster",
+      "original_status": "partial",
+      "protocols_seen": 4,
+      "question": "Four pipeline/research identities including cat melanoma; no sufficiently defined current owner-access cohorts.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "sponsor-evvivax-clinical-trials",
+        "attempted_urls": [
+          "https://www.evvivax.com/clinical-trials.html"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Review actual links/news/pipeline for changed leads; document discovery coverage without demanding a nonexistent full recruiting-trial roster."
+    },
+    {
+      "source_id": "sponsor-curelab-veterinary-research",
+      "category": "discovery_source_not_trial_roster",
+      "original_status": "partial",
+      "protocols_seen": 1,
+      "question": "Elenagen historical pilot without current patient enrollment/location confirmation.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "sponsor-curelab-veterinary-research",
+        "attempted_urls": [
+          "https://www.curelaboncology.com/comparative-medicine-and-veterinary-research/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Review actual links/news/pipeline for changed leads; document discovery coverage without demanding a nonexistent full recruiting-trial roster."
+    },
+    {
+      "source_id": "india-the-cancer-vet-clinical-trials",
+      "category": "discovery_source_not_trial_roster",
+      "original_status": "partial",
+      "protocols_seen": null,
+      "question": "Cancer Vet generic trial service has no named enumerable current oncology protocols.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "india-the-cancer-vet-clinical-trials",
+        "attempted_urls": [
+          "https://thecancer.vet/clinical-trials/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Review actual links/news/pipeline for changed leads; document discovery coverage without demanding a nonexistent full recruiting-trial roster."
+    },
+    {
+      "source_id": "foundation-dog-cancer-foundation-trial-directory",
+      "category": "discovery_source_not_trial_roster",
+      "original_status": "partial",
+      "protocols_seen": null,
+      "question": "Thirty-three resources are directory links, not thirty-three current trials; no protocol roster published.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "foundation-dog-cancer-foundation-trial-directory",
+        "attempted_urls": [
+          "https://www.dogcancerfoundation.org/clinical-trials-for-dogs-with-cancer"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Review actual links/news/pipeline for changed leads; document discovery coverage without demanding a nonexistent full recruiting-trial roster."
+    },
+    {
+      "source_id": "japan-gifu-oncology-clinical-trials",
+      "category": "freshness_uncertain",
+      "original_status": "partial",
+      "protocols_seen": 1,
+      "question": "Feline OSCC Lewritin plus radiation current institution primary agrees with canonical. Current master reader has cache-age uncertainty and no independent fresh master roster confirmation; not counted successfully checked.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "japan-gifu-oncology-clinical-trials",
+        "attempted_urls": [
+          "https://www.animalhospital.gifu-u.ac.jp/cancer/clinical_trial/index.html",
+          "https://www.animalhospital.gifu-u.ac.jp/cancer/clinical_trial/202508.html"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate retrieved roster content from present enrollment confirmation; retain cache-age limitation and identify independent permitted current primary route."
+    },
+    {
+      "source_id": "sponsor-benno-therapeutics-research",
+      "category": "discovery_source_not_trial_roster",
+      "original_status": "partial",
+      "protocols_seen": 3,
+      "question": "BTX001 TCC, HSA/doxorubicin and OSA pipeline programs lack final current owner cohorts.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "sponsor-benno-therapeutics-research",
+        "attempted_urls": [
+          "https://www.bennotx.com/research/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Review actual links/news/pipeline for changed leads; document discovery coverage without demanding a nonexistent full recruiting-trial roster."
+    },
+    {
+      "source_id": "sponsor-leah-labs-clinical-trial",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 1,
+      "question": "Sponsor open three sites vs two current university on-hold statuses; conflict retained, no fabricated uniformly active roster.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "sponsor-leah-labs-clinical-trial",
+        "attempted_urls": [
+          "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials",
+          "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "usa-oklahoma-state-clinical-trials",
+      "category": "source_unavailable",
+      "original_status": "unreachable",
+      "protocols_seen": null,
+      "question": "Oklahoma current routes 404/403; no primary roster obtained or absence-based closure.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-oklahoma-state-clinical-trials",
+        "attempted_urls": [
+          "https://vethospital.okstate.edu/info-for-researchers/clinical-trials.html",
+          "https://vethospital.okstate.edu/info-for-researchers/clinical-trials"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Inspect recorded attempted routes, transport results and action denials; identify any permitted unperformed route without retrying denied actions."
+    },
+    {
+      "source_id": "usa-veterinary-oncology-services-trials",
+      "category": "source_unavailable",
+      "original_status": "unreachable",
+      "protocols_seen": null,
+      "question": "Veterinary Oncology Services master unavailable via shell and Web; transient server failure recorded without endless retries.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-veterinary-oncology-services-trials",
+        "attempted_urls": [
+          "https://www.petcancerinformation.com"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Inspect recorded attempted routes, transport results and action denials; identify any permitted unperformed route without retrying denied actions."
+    },
+    {
+      "source_id": "usa-mars-veterinary-health-clinical-trials",
+      "category": "roster_unestablished",
+      "original_status": "partial",
+      "protocols_seen": null,
+      "question": "Mars oncology master JS; official BluePearl fallback prohibited by review and actual shared 403 attempt documented. HIFU lymphoma 140763 primary/managed locations read: Dallas only, five study-covered doxorubicin doses, existing canonical match.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "usa-mars-veterinary-health-clinical-trials",
+        "attempted_urls": [
+          "https://bluepearlvet.com/current-clinical-studies/",
+          "https://studypages.com/marsveterinaryclinicaltrials/home/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Inspect current official navigation/pagination/public frontend data routes and document exactly which permitted roster steps remain."
+    },
+    {
+      "source_id": "belgium-ghent-small-animal-clinical-research",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 4,
+      "question": "Four institutional oncology programs including GCN2, cardiac surgery, FLIM and nanobody; current intake details vary/incomplete. Only study drug funding cannot become free care.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "belgium-ghent-small-animal-clinical-research",
+        "attempted_urls": [
+          "https://www.ugent.be/plone_portal/di/khd/nl/onderzoek",
+          "https://www.ugent.be/di/khd/nl/onderzoek/katten_met_borstkanker-info-dierenartsen_eng"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "japan-nihon-anmec-clinical-research",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 4,
+      "question": "Four Japanese research programs; cat proteasome B-cell and canine mutation-positive lung records already added yesterday. Magnetic/IL12 owner-benefit/cohort terms unresolved.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "japan-nihon-anmec-clinical-research",
+        "attempted_urls": [
+          "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=1427",
+          "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=4502"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "germany-lmu-small-animal-research",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 2,
+      "question": "Palladia side effects and nerve-block titles; publisher copied nerve-block body into Palladia page, protocol-specific evidence unavailable rather than silently guessed.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "germany-lmu-small-animal-research",
+        "attempted_urls": [
+          "https://www.vetmed.lmu.de/kleintierklinik/de/forschung/",
+          "https://www.vetmed.lmu.de/kleintierklinik/de/forschung/studie-zur-palliativen-linderung-von-osteosarkombedingten-schmerzen-durch-periphere-nervenbloecke/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "germany-dvg-veterinary-clinical-studies",
+      "category": "protocol_uncertainty",
+      "original_status": "partial",
+      "protocols_seen": 8,
+      "question": "Eight DVG study PDF entries; old individual routes and current provider/cohort statuses not all available.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "germany-dvg-veterinary-clinical-studies",
+        "attempted_urls": [
+          "https://www.tierspital.uzh.ch/kleintiere/onkologie/krebs-tumore-klinische-studien/",
+          "https://www.dvg.de/klinische-studien-in-der-veterinaermedizin/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data."
+    },
+    {
+      "source_id": "uk-edinburgh-small-animal-clinical-trials",
+      "category": "source_unavailable",
+      "original_status": "unreachable",
+      "protocols_seen": null,
+      "question": "Edinburgh official current study master unavailable through permitted shell/Web; no inferred zero.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "uk-edinburgh-small-animal-clinical-trials",
+        "attempted_urls": [
+          "https://vet.ed.ac.uk/clinical/small-animal/our-research/better-treatments/clinical-trials-programme"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Inspect recorded attempted routes, transport results and action denials; identify any permitted unperformed route without retrying denied actions."
+    },
+    {
+      "source_id": "sponsor-akston-oncology-pipeline",
+      "category": "discovery_source_not_trial_roster",
+      "original_status": "partial",
+      "protocols_seen": 4,
+      "question": "AKS701d/197d/427c/619c pipeline. Newly indexed article is dated October 29, 2025, not new today; first-animal safety alone remains watchlist.",
+      "evidence": {
+        "receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
+        "source_id": "sponsor-akston-oncology-pipeline",
+        "attempted_urls": [
+          "https://www.akstonbio.com/pipeline/",
+          "https://www.akstonbio.com/news/"
+        ]
+      },
+      "processing_assessment": "not_established",
+      "reason": "Historical generator assigns processing_complete=True and executor_incomplete=False to every row; it provides no source-specific completion decision. This diagnostic does not invent exhausted routes or new visits.",
+      "next_action": "Review actual links/news/pipeline for changed leads; document discovery coverage without demanding a nonexistent full recruiting-trial roster."
+    }
+  ]
+}

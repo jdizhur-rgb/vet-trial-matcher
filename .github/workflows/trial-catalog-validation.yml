@@ -6,12 +6,16 @@ on:
     paths:
       - 'data/trials_base.json'
       - 'scripts/validate_trials_catalog.py'
+      - 'scripts/validate_audit_gap_review.py'
+      - 'scripts/test_audit_gap_review.py'
       - '.github/workflows/trial-catalog-validation.yml'
   push:
     branches: [main]
     paths:
       - 'data/trials_base.json'
       - 'scripts/validate_trials_catalog.py'
+      - 'scripts/validate_audit_gap_review.py'
+      - 'scripts/test_audit_gap_review.py'
       - '.github/workflows/trial-catalog-validation.yml'
   workflow_dispatch:
 
@@ -28,3 +32,5 @@ jobs:
           python-version: '3.12'
       - name: Validate canonical trial catalog
         run: python scripts/validate_trials_catalog.py
+      - name: Reject unsupported external-gap completion claims
+        run: python scripts/test_audit_gap_review.py
