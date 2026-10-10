@@ -79,7 +79,7 @@ def verification_url(urls: list[str]) -> str:
 def main() -> None:
     _, root, error = fetch(ROOT_SITEMAP)
     if error:
-        OUTPUT.write_text(json.dumps({"source": ROOT_SITEMAP, "status": "incomplete", "root_error": error, "state_sitemaps": 0, "records": []}, indent=2) + "\\n", encoding="utf-8")
+        OUTPUT.write_text(json.dumps({"source": ROOT_SITEMAP, "status": "incomplete", "root_error": error, "state_sitemaps": 0, "records": []}, indent=2) + "\n", encoding="utf-8")
         raise SystemExit(f"VCA_ONCOLOGY_SCAN_INCOMPLETE root={error!r} output={OUTPUT}")
     state_sitemaps = locations(root)
     all_urls: list[str] = []
