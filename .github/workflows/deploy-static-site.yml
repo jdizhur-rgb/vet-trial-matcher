@@ -148,8 +148,8 @@ jobs:
           advanced=(root/'matcher/advanced/index.html').read_text(encoding='utf-8')
           genomic_tests=(root/'matcher/genomic-tests/index.html').read_text(encoding='utf-8')
           assert 'Inclusion is not an endorsement or a recommendation.' in advanced
-          assert advanced.count('<article class="p-card"') == 6
-          assert genomic_tests.count('<article class="p-card"') == 3
+          assert advanced.count('<article class="p-card"') == 9
+          assert genomic_tests.count('<article class="p-card"') == 4
           assert 'Testing does not treat cancer' in genomic_tests
           center_pages=list((root/'centers').glob('*/index.html'))
           assert center_pages

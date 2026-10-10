@@ -379,3 +379,7 @@ BluePearl/VCA/Ethos *clinical trial* pages remain in scope of the daily trial au
 ## Cancer scope: UGA pituitary macroadenoma — 2026-10-10
 
 By the owner’s decision, `uga-sorafenib-radiation-pituitary-macroadenoma` remains outside active cancer matching. The official protocol names macroadenomas with Cushing’s disease and does not confirm malignant pituitary-tumor eligibility. Radiation and an anticancer drug do not by themselves establish a cancer diagnosis. Preserve the open recruitment status and historical record, but set `available_for_matching=false`; do not classify the study as closed or restore it from an unchanged master listing. Reactivation requires official protocol-level malignant-tumor eligibility evidence and the owner’s decision.
+
+## Directory cards — 2026-10-10
+
+The owner authorized publication of CanCan K9-LiquiDX under genomic tests and Oncept, Laverdia and Tanovea under advanced treatments. Both directories are authored in `seo/static/matcher/`; preserve their filters and separate evidence/access disclosures. Visible card copy explains what the option is, how it works and why it is used in a short owner-facing paragraph. Blood-based cancer monitoring belongs with tests, never with administered therapies or trial counts. Cancer-wide test filtering describes service scope, not validated sensitivity for every diagnosis. Keep Oncept limited to oral melanoma with stage/local-control limits, and show Tanovea’s major pulmonary warning. Approval or commercial access must not imply superiority to standard care.
