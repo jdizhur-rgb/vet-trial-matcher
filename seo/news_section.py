@@ -25,7 +25,7 @@ LAVERDIA_URL = f"{NEWS_URL}laverdia-canine-lymphoma/"
 TAMU_GI_URL = f"{NEWS_URL}texas-am-feline-gi-lymphoma-radiation/"
 CANCAN_URL = f"{NEWS_URL}cancan-k9-liquidx-liquid-biopsy/"
 CANOS_URL = f"{NEWS_URL}canos-cancer-blood-test/"
-CANOS_IMAGE = f"{SITE}/assets/social/canos-cancer-blood-test.png"
+CANOS_IMAGE = "https://www.canos.ai/brand/canos-golden-retriever-v1.1.png"
 CANCAN_IMAGE = f"{SITE}/assets/social/cancan-k9-liquidx.png"
 REACHGLIO_URL = f"{NEWS_URL}reachglio-canine-glioma-madrid/"
 CORNELL_OFFICIAL = "https://www.vet.cornell.edu/hospitals/clinical-trials/smart-start-therapy-canine-b-cell-lymphoma"
@@ -84,7 +84,6 @@ def generate_news_section(root: Path) -> None:
     source_assets = Path(__file__).resolve().parent / "assets" / "social"
     built_assets = root / "assets" / "social"
     built_assets.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(source_assets / "canos-cancer-blood-test.png", built_assets / "canos-cancer-blood-test.png")
     for name in ("cancan-k9-liquidx.png", "purdue-ablation-1200x630.jpg", "purdue-ablation-story-1080x1920.jpg", "barc-dog-cat-cancer-trials.jpg", "barc-dog-cat-cancer-trials-square-safe.jpg", "penn-car-t-histiocytic-sarcoma-1200x630.jpg"):
         shutil.copy2(source_assets / name, built_assets / name)
     index_body = f'''<div class="registry-page news-index">
@@ -112,14 +111,14 @@ def generate_news_section(root: Path) -> None:
 
     canos_body = f'''<p class="eyebrow">Canine cancer testing · October 10, 2026</p>
 <h1>Canos studies a blood test for monitoring canine cancer</h1>
-<figure><img src="{CANOS_IMAGE}" alt="Canos cancer blood testing: treatment and follow-up" width="1200" height="630" style="display:block;width:100%;height:auto;border-radius:12px"></figure>
-<p>Canos is developing a blood test to follow cancer during treatment and remission. Its OncoTrack research program compares repeated blood samples to study whether changes in cancer-associated DNA signals reflect changes in the disease.</p>
+<figure><img src="{CANOS_IMAGE}" alt="Golden retriever in red and blue light, illustration from Canos" width="1024" height="768" style="display:block;width:100%;height:auto;border-radius:12px"><figcaption>Image: <a href="https://www.canos.ai/" target="_blank" rel="noopener">Canos</a>.</figcaption></figure>
+<p>Canos is a startup founded by epigenetics researcher Ming-Shan Tsai and biomedical engineer Bin Li, both with backgrounds at the University of Oxford. The company is developing a blood test to follow cancer during treatment and remission. Its OncoTrack research program compares repeated blood samples to study whether changes in cancer-associated DNA signals reflect changes in the disease.</p>
 <p>The test examines DNA fragments released into the bloodstream. Canos describes combining fragment characteristics, chemical marks called methylation and genome-wide information to look for patterns associated with cancer. No tumor sample is required. Blood taken at diagnosis provides a starting point for later comparisons; a blood sample from before the dog became ill is not required.</p>
 <p>The aim is to see whether the signal falls with treatment, persists or returns, potentially flagging disease that needs further investigation. A returning signal does not establish relapse or show where a tumor or metastasis is located. A negative result cannot rule out cancer.</p>
 <p>The team has advertised free testing for dogs with lymphoma. Its current <a href="https://www.canos.ai/signup" target="_blank" rel="noopener">application form</a> accepts applications from owners of dogs with a cancer diagnosis more broadly. Participation is subject to review; accepted dogs receive a free blood draw and test. Owners should confirm eligibility, collection arrangements and the follow-up schedule directly with Canos.</p>
 <p>This is exploratory testing. The team's <a href="https://www.researchsquare.com/article/rs-11113122/latest" target="_blank" rel="noopener">September 2026 preprint</a> reanalyses existing canine sequencing datasets, primarily using DNA fragmentation features. It does not establish how reliably the current product detects early recurrence. Results should be interpreted alongside veterinary examinations, laboratory testing and imaging.</p>
 <div class="article-cta"><a href="https://www.canos.ai/relapse-monitoring" target="_blank" rel="noopener">Read about OncoTrack and apply</a></div>'''
-    write_article(root, "canos-cancer-blood-test", "Canos studies a blood test for monitoring canine cancer", "Canos is studying cancer-associated DNA changes in dogs through OncoTrack, with free blood collection and testing for accepted participants.", canos_body, "Canos science, OncoTrack and application pages; September 2026 preprint", "October 10, 2026", "2026-10-10", CANOS_IMAGE, (1200, 630), False)
+    write_article(root, "canos-cancer-blood-test", "Canos studies a blood test for monitoring canine cancer", "Canos is studying cancer-associated DNA changes in dogs through OncoTrack, with free blood collection and testing for accepted participants.", canos_body, "Canos science, OncoTrack and application pages; September 2026 preprint", "October 10, 2026", "2026-10-10", CANOS_IMAGE, (1024, 768), False)
     add_to_sitemap(root, (CANOS_URL,))
 
     cancan_body = f'''<p class="eyebrow">Canine cancer testing · October 1, 2026</p>
