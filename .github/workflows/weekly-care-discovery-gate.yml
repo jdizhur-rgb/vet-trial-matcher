@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'scripts/validate_weekly_care_discovery.py'
+      - 'scripts/research_vca_oncology.py'
       - '.github/workflows/weekly-care-discovery-gate.yml'
   workflow_dispatch:
 
@@ -16,6 +17,6 @@ jobs:
         with:
           python-version: '3.11'
       - name: Compile discovery validator
-        run: python -m py_compile scripts/validate_weekly_care_discovery.py
+        run: python -m py_compile scripts/validate_weekly_care_discovery.py scripts/research_vca_oncology.py
       - name: Test complete and incomplete receipt detection
         run: python scripts/validate_weekly_care_discovery.py --self-test
