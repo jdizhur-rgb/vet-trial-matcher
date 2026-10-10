@@ -1,0 +1,21 @@
+name: Weekly oncology-care discovery gate
+
+on:
+  push:
+    paths:
+      - 'scripts/validate_weekly_care_discovery.py'
+      - '.github/workflows/weekly-care-discovery-gate.yml'
+  workflow_dispatch:
+
+jobs:
+  discovery-schema-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile discovery validator
+        run: python -m py_compile scripts/validate_weekly_care_discovery.py
+      - name: Test complete and incomplete receipt detection
+        run: python scripts/validate_weekly_care_discovery.py --self-test
