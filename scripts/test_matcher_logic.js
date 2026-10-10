@@ -63,6 +63,9 @@ if (mct.length !== 4) {
 if (rows.some(row => row.id === 'uf-mct')) {
   throw new Error('UF toceranib biomarker study must remain outside treatment matching');
 }
+if (rows.some(row => row.id === 'uga-sorafenib-radiation-pituitary-macroadenoma')) {
+  throw new Error('UGA pituitary macroadenoma trial lacks confirmed malignant-tumor eligibility and must stay outside cancer matching');
+}
 const boxerGliomaId = 'uf-boxer-glioma-autogenic-vaccine';
 for (const species of ['Dog', 'Cat']) {
   const found = matches(patient({species, cancer:'Brain tumor'})).some(row => row.trial.id === boxerGliomaId);
@@ -444,13 +447,6 @@ for (const overrides of [{species:'Cat'}, {country:'Canada'}, {chemo:'Previously
 for (const steroids of ['Prescribed but NOT started', UNKNOWN]) {
   if (!hasTrial(daunoId,{...daunoPatient,steroids})) throw new Error('Unknown or unstarted steroids must allow prescreening, not imply completed exposure');
 }
-const pituitaryId = 'uga-sorafenib-radiation-pituitary-macroadenoma';
-if (!hasTrial(pituitaryId,{cancer:'Brain tumor'})) throw new Error('Pituitary treatment study missing from dog brain-tumor prescreening');
-for (const overrides of [{species:'Cat'}, {country:'Canada'}, {prefs:new Set(['Chemotherapy'])}]) {
-  if (hasTrial(pituitaryId,{cancer:'Brain tumor',...overrides})) throw new Error('Pituitary study crossed species/country or lost required radiation');
-}
-const pituitaryMatch=matches(patient({cancer:'Brain tumor'})).find(x=>x.trial.id===pituitaryId);
-if (!pituitaryMatch.unknown.some(x=>/pituitary|Cushing/i.test(x))) throw new Error('Broad brain label must retain pituitary/Cushing-specific prescreen');
 if (rows.some(x=>['castr-vrcco-sts-tcell-engager','elias-eci-novel-adjuvant-osa'].includes(x.id))) throw new Error('Closed ECIP-OSA-01 and confirmed TCE duplicate must not be public');
 if (rows.filter(x=>/534230/.test(x.registry_url||'')).length!==1) throw new Error('Registry 534230 must have exactly one public protocol');
 if (hasTrial('vt-canine-glioma-ced',{cancer:'Brain tumor',radiation:'Previously received'})) throw new Error('VT CED must exclude prior radiation');
