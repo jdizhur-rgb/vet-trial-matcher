@@ -361,3 +361,7 @@ Source-inventory URL validation preserves identity-bearing query parameters (for
 ### Matcher catalog loading — 2026-10-09
 
 Manual search and country-change auto-submit must await the catalog-loading promise. A pending request previously searched the initial empty array and rendered false zero results that persisted after loading. Reproduced with delayed catalog responses for Japan and USA; failed loading must retain the existing load-error message rather than render no matches. Test the submit event path with `node scripts/test_matcher_catalog_loading.js`, not just the pure matchTrial function. Refresh the matcher JS asset version for this fix.
+
+## 2026-10-10: Direct protocol status, public primary JSON and prior steroids
+
+A direct current sponsor protocol can explicitly close one cohort while the sponsor master still labels it open. Resolve by protocol identity: ECIP-OSA-01 closure does not close the separate ECI-plus-chemotherapy cohort or commercial ECI access. CSU public StudyPages content endpoints recovered from real official redirects provide study-specific eligibility, funding and locations despite a JS text shell; persist only public study fields, never unrelated embedded service keys. Recognized direct registry study IDs can establish semantic duplicate identity; generic shared master URLs cannot. The matcher must enforce explicit previous systemic-steroid exclusion (Daunomustine); topical-only exceptions remain for study-team review. Retain the catalog-loading regression gate and verify rendered USA/Japan searches after deployment.

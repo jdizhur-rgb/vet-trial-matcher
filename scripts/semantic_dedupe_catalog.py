@@ -17,6 +17,9 @@ def same(a,b):
  ta,tb=title(a),title(b);ca,cb=center(a),center(b)
  if not ta or not tb:return False,''
  ts=SequenceMatcher(None,ta,tb).ratio();cs=SequenceMatcher(None,ca,cb).ratio() if ca and cb else 0;sp=bool(vals(a,'species')&vals(b,'species'));ct=ov(vals(a,'cancers'),vals(b,'cancers')) if vals(a,'cancers') and vals(b,'cancers') else 0;common=ids(a)&ids(b)
+ registry_a=re.search(r'^https?://(?:www\.)?veterinaryclinicaltrials\.org/s/[^/?]+-(\d{6})(?:/|$|\?)',str(a.get('registry_url','')))
+ registry_b=re.search(r'^https?://(?:www\.)?veterinaryclinicaltrials\.org/s/[^/?]+-(\d{6})(?:/|$|\?)',str(b.get('registry_url','')))
+ if sp and ct>=.5 and registry_a and registry_b and registry_a.group(1)==registry_b.group(1):return True,f'registry-protocol:{registry_a.group(1)}'
  if sp and any(x.startswith('COTC') for x in common):return True,f'protocol:{sorted(common)}'
  if sp and common and cs>=.72 and ct>=.5:return True,f'id+center+cancer:{sorted(common)}'
  if sp and cs>=.78 and ts>=.84 and ct>=.5:return True,f'center+title+cancer:{cs:.2f}/{ts:.2f}/{ct:.2f}'

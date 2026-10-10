@@ -434,4 +434,29 @@ if (matcher.matchTrial(blocked, patient()) !== null) {
   throw new Error('Closed enrollment record was not blocked');
 }
 
+// Oct10: protocol-specific treatment history, species, country and closure regressions.
+const daunoId = 'illinois-daunomustine-multicentric-lymphoma';
+const daunoPatient = {cancer:'B-cell lymphoma', lymphoma_response:'Newly diagnosed / untreated', steroids:'Never / no'};
+if (!hasTrial(daunoId, daunoPatient)) throw new Error('Daunomustine must allow an untreated eligible dog');
+for (const overrides of [{species:'Cat'}, {country:'Canada'}, {chemo:'Previously received'}, {chemo:'Currently receiving'}, {steroids:'Previously took'}, {steroids:'Currently taking'}, {age:0.5}, {weight_lb:7}]) {
+  if (hasTrial(daunoId, {...daunoPatient,...overrides})) throw new Error(`Daunomustine exclusion failed: ${JSON.stringify(overrides)}`);
+}
+for (const steroids of ['Prescribed but NOT started', UNKNOWN]) {
+  if (!hasTrial(daunoId,{...daunoPatient,steroids})) throw new Error('Unknown or unstarted steroids must allow prescreening, not imply completed exposure');
+}
+const pituitaryId = 'uga-sorafenib-radiation-pituitary-macroadenoma';
+if (!hasTrial(pituitaryId,{cancer:'Brain tumor'})) throw new Error('Pituitary treatment study missing from dog brain-tumor prescreening');
+for (const overrides of [{species:'Cat'}, {country:'Canada'}, {prefs:new Set(['Chemotherapy'])}]) {
+  if (hasTrial(pituitaryId,{cancer:'Brain tumor',...overrides})) throw new Error('Pituitary study crossed species/country or lost required radiation');
+}
+const pituitaryMatch=matches(patient({cancer:'Brain tumor'})).find(x=>x.trial.id===pituitaryId);
+if (!pituitaryMatch.unknown.some(x=>/pituitary|Cushing/i.test(x))) throw new Error('Broad brain label must retain pituitary/Cushing-specific prescreen');
+if (rows.some(x=>['castr-vrcco-sts-tcell-engager','elias-eci-novel-adjuvant-osa'].includes(x.id))) throw new Error('Closed ECIP-OSA-01 and confirmed TCE duplicate must not be public');
+if (rows.filter(x=>/534230/.test(x.registry_url||'')).length!==1) throw new Error('Registry 534230 must have exactly one public protocol');
+if (hasTrial('vt-canine-glioma-ced',{cancer:'Brain tumor',radiation:'Previously received'})) throw new Error('VT CED must exclude prior radiation');
+if (hasTrial('csu-osa-3d-limb-spare',{cancer:'Osteosarcoma',metastasis:'Confirmed metastases'})) throw new Error('CSU limb-sparing study must exclude metastases');
+if (hasTrial('csu-feline-oscc-immunotherapy',{species:'Cat',cancer:'Oral squamous cell carcinoma',immunosuppressive:'Yes'})) throw new Error('CSU feline immunotherapy must exclude immunosuppressive drugs');
+for (const overrides of [{surgery:'Yes'}, {chemo:'Previously received'}, {metastasis:'Confirmed metastases'}]) {
+  if (hasTrial('elias-eci-chemo-osa',{cancer:'Osteosarcoma',...overrides})) throw new Error('ELIAS chemo cohort must require pretreatment nonmetastatic enrollment');
+}
 console.log(`MATCHER_LOGIC_OK trials=${rows.length} mct=${mct.length} yasha=${yasha.length} mammary=${mammary.length} osteosarcoma=${osteosarcoma.length} bladder=${bladder.length} brain=${brain.length}`);
