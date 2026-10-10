@@ -383,3 +383,7 @@ By the owner’s decision, `uga-sorafenib-radiation-pituitary-macroadenoma` rema
 ## Directory cards — 2026-10-10
 
 The owner authorized publication of CanCan K9-LiquiDX under genomic tests and Oncept, Laverdia and Tanovea under advanced treatments. Both directories are authored in `seo/static/matcher/`; preserve their filters and separate evidence/access disclosures. Visible card copy explains what the option is, how it works and why it is used in a short owner-facing paragraph. Blood-based cancer monitoring belongs with tests, never with administered therapies or trial counts. Cancer-wide test filtering describes service scope, not validated sensitivity for every diagnosis. Keep Oncept limited to oral melanoma with stage/local-control limits, and show Tanovea’s major pulmonary warning. Approval or commercial access must not imply superiority to standard care.
+
+## Evidence disclosure quality — 2026-10-10
+
+An Evidence disclosure must explain what was studied, the observed result and the practical limitation in plain language. Naming the study design or regulatory approval and then repeating that evidence exists is insufficient. Keep response, stable disease, progression time and survival separate; a complete response is not a cure. State when controls were historical, no comparison exists or publication is pending. Link the specific study/approval assessment inside the disclosure. Test validation and finding a potential drug target do not by themselves prove improved survival.
