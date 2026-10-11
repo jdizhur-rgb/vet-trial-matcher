@@ -454,3 +454,8 @@ A03 evidence, baseline and separate owner decisions are in `research/audit-runs/
 Owner approved A04 branch corrections. The imported Allstadt profile mixes VSNT's organization with UTSW's Dallas address/phone; exclude that raw profile from regeneration and retain UTSW Veterinary Research and Oncology Clinic at 5801 Forest Park Road with current official sources. Allstadt's current VSNT biography describes her return from UTSW. Do not reassign her to Dallas, infer medical-oncology board certification for Jonathan Maddox, or turn research-dependent drug access into unrestricted chemotherapy access.
 
 Westbridge lists tumor removals/oncologic procedures; the owner approved surgery-only representation after reviewing the current roster. Townsend is a DACVS surgeon, without an inferred surgical-oncology credential. Preserve local RT at VSNT Fort Worth, VSC Bannockburn and WAVES San Leandro; VSC Feinmehl is residency-trained, not represented as board-certified. Manhattan and Violet Crown explicitly do not deliver radiation locally. Keep San Marcos radiation location and VSS clinician/modality allocation unresolved. The owner's likely-both-sites assessment is not branch-level proof. A04 receipt is research/audit-runs/a04-approved-20261011/review.json; historical raw ACVIM profiles and source visit timestamps remain intact.
+
+
+## Explore navigation — 2026-10-11
+
+The owner approved direct Advanced treatments and Genomic tests links in the shared Explore menu, targeting `/matcher/advanced/` and `/matcher/genomic-tests/`. Remove Browse clinical trials, which duplicated the About clinical trials destination. Keep the separate Other treatments overview and existing navigation behavior.
