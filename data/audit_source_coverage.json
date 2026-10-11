@@ -4,14 +4,14 @@
   "audit_mode": "linked_daily_resume_cumulative_evidence",
   "status": "INCOMPLETE",
   "started_at": "2026-10-10T03:00:27-04:00",
-  "checkpoint_at": "2026-10-10T20:28:10-04:00",
+  "checkpoint_at": "2026-10-10T20:46:21.101019-04:00",
   "timezone": "America/New_York",
   "base_commit": "73de702f14dfff37efe711ce27914e2bd979165c",
   "previous_receipt": "research/audit-runs/daily-20261010T030027-0400/receipt-final.json",
   "source_total": 108,
   "original_source_total": 107,
   "attempted_total": 108,
-  "processing_total": 12,
+  "processing_total": 16,
   "executor_unfinished_total": null,
   "content_sufficient_total": 46,
   "global_discovery_regions": 12,
@@ -6359,12 +6359,12 @@
       "source_id": "australia-bvsc-foundation",
       "source_name": "Brisbane Veterinary Specialist Centre foundation projects",
       "opened_this_run": true,
-      "processing_complete": null,
-      "executor_incomplete": null,
+      "processing_complete": true,
+      "executor_incomplete": false,
       "content_sufficient": false,
-      "protocols_seen": null,
-      "status": "unreachable",
-      "master_result": "unreachable",
+      "protocols_seen": 5,
+      "status": "partial",
+      "master_result": "partial",
       "attempted_urls": [
         {
           "url": "https://www.bvsc.com.au/foundation/",
@@ -6390,33 +6390,192 @@
           "crawl_label": null,
           "full_text_available": true,
           "timestamp_precision": "recorded tool batch start/completion as labeled in evidence file"
+        },
+        {
+          "url": "https://www.bvsc.com.au/foundation/",
+          "attempted_at": "2026-10-10T20:40:28.837881-04:00",
+          "method": "shell_curl",
+          "result": "retrieved_public_content_for_review",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261010T201219-0400/remaining-native-evidence.json",
+          "evidence_id": "australia-bvsc-foundation-resume",
+          "reader_text_sha256": "1f9e29bc2de20cdd1691d353413ff54237b4f62180759209d6bfd021989156e4",
+          "raw_sha256": "e2c2b3d24cbaed7c70c791c604e60f1c300f2ddbadbd76044bd50d8cc1ea9a3a",
+          "timestamp_precision": "actual request start"
+        },
+        {
+          "url": "https://animalcancer.com.au/",
+          "attempted_at": "2026-10-10T20:41:10.744022-04:00",
+          "method": "shell_curl",
+          "result": "retrieved_public_content_for_review",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261010T201219-0400/remaining-native-evidence.json",
+          "evidence_id": "bvsc-foundation-current",
+          "reader_text_sha256": "c7a43472a5afde98dd14af57f9d315295b62ca445e286731ae3645b36b5ce4f8",
+          "raw_sha256": "b4bb75206f7c3ec8846b3660c101288629712c71bd161cef67e850b0c8a51c93",
+          "timestamp_precision": "actual request start"
+        },
+        {
+          "url": "https://www.bvsc.com.au/vet-services/canine-soft-tissue-sarcomas/",
+          "attempted_at": "2026-10-10T20:41:38.769290-04:00",
+          "method": "shell_curl",
+          "result": "retrieved_public_content_for_review",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261010T201219-0400/remaining-native-evidence.json",
+          "evidence_id": "bvsc-sts-primary",
+          "reader_text_sha256": "d8abcd6f8363bf6d0d92e97e9023784c14ddbfbd1e31571d9c580521e68c945f",
+          "raw_sha256": "d92a6ff1c8d013ed0481a3b5e799e9f8c58c3d20ea7b4a14f423d0e3cc98e6a4",
+          "timestamp_precision": "actual request start"
+        },
+        {
+          "url": "https://www.bvsc.com.au/vet-services/pet-ct-osteosarcoma-study/",
+          "attempted_at": "2026-10-10T20:41:10.743593-04:00",
+          "method": "shell_curl",
+          "result": "retrieved_public_content_for_review",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261010T201219-0400/remaining-native-evidence.json",
+          "evidence_id": "bvsc-petct-osa-primary",
+          "reader_text_sha256": "93ae88fa00ae8c2303ed4abf78699e2c2f6f32450cef5c8d7d110d5b7845c269",
+          "raw_sha256": "e0bd3a79a2ec84595205595c64f09951d485502cae0088dcc1ffd7439ea9f1cd",
+          "timestamp_precision": "actual request start"
+        },
+        {
+          "url": "https://www.bvsc.com.au/vet-services/lymphosarcoma-half-body-irradiation/",
+          "attempted_at": "2026-10-10T20:41:38.769413-04:00",
+          "method": "shell_curl",
+          "result": "retrieved_public_content_for_review",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261010T201219-0400/remaining-native-evidence.json",
+          "evidence_id": "bvsc-lymphoma-primary",
+          "reader_text_sha256": "f8485e02897f9b090b3ec39fb8fc1b6627acdb6e2feac746a059bfb6da219ad0",
+          "raw_sha256": "fe8a2ec56b474c699007243362ce32cb7ab96c684aec6dddc62cc1d45570b15e",
+          "timestamp_precision": "actual request start"
+        },
+        {
+          "url": "https://www.bvsc.com.au/information/half-body-irradiation/",
+          "attempted_at": "2026-10-10T20:44:22.544058-04:00",
+          "method": "shell_curl",
+          "result": "unavailable_or_empty",
+          "http_status": 0,
+          "evidence_file": "research/audit-runs/resume-20261010T201219-0400/remaining-native-evidence.json",
+          "evidence_id": "bvsc-halfbody-information",
+          "reader_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "timestamp_precision": "actual request start"
+        },
+        {
+          "url": "https://www.bvsc.com.au/vet-services/squamous-cell-carcinoma/",
+          "attempted_at": "2026-10-10T20:41:57.115579-04:00",
+          "method": "shell_curl",
+          "result": "retrieved_public_content_for_review",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261010T201219-0400/remaining-native-evidence.json",
+          "evidence_id": "bvsc-scc-primary",
+          "reader_text_sha256": "1f705569415980ba019d2fe25ff88ace066ba7abf4d4eeefbd78af39d20f85b9",
+          "raw_sha256": "10962723fd5987f4fa59f0b80cf82fb89a7a46ad4a3120bd886c49fa658e2574",
+          "timestamp_precision": "actual request start"
+        },
+        {
+          "url": "https://www.bvsc.com.au/vet-services/prostate-cancer/",
+          "attempted_at": "2026-10-10T20:41:57.115812-04:00",
+          "method": "shell_curl",
+          "result": "retrieved_public_content_for_review",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261010T201219-0400/remaining-native-evidence.json",
+          "evidence_id": "bvsc-prostate-primary",
+          "reader_text_sha256": "a79eed34c7993aaa2e0bfbe503ffad064878116b0d4d8e57a8973fc138e1cff8",
+          "raw_sha256": "eb030c6050910f86a03b3f885556888fe9dd41597bbccf891f17986b7462a47e",
+          "timestamp_precision": "actual request start"
+        },
+        {
+          "url": "https://www.bvsc.com.au/information/half-body-irradiation/",
+          "attempted_at": "2026-10-10T20:45:29.981000-04:00",
+          "method": "Web_open",
+          "result": "retrieved_public_content_for_review",
+          "web_reference": "turn75view0",
+          "evidence_file": "research/audit-runs/resume-20261010T201219-0400/remaining-web-evidence.json",
+          "timestamp_precision": "recorded after tool completion; exact request start unavailable"
         }
       ],
-      "route_used": "Actual official master, required official fallbacks and current individual primary routes; shell/Web/shared provenance retained",
+      "route_used": "Fresh official master and advertised programme/protocol links; permitted same-URL Web fallback",
       "roster_evidence": {
         "current_roster": [
-          "BVSC Foundation"
+          "Canine soft tissue sarcoma / tigilanol tiglate (completed)",
+          "PET-CT osteosarcoma (completed diagnostic study)",
+          "Lymphoma half-body irradiation (ordinary treatment)",
+          "Skin SCC bacteria research (intake unconfirmed)",
+          "Prostate target research (intake unconfirmed)"
         ],
-        "review_notes": "BVSC Foundation master unreadable by permitted shell/Web methods; no source roster established.",
-        "current_evidence_references": [],
-        "count_unit": "Named oncology identities including closed/non-treatment programs; partial integer is observed count, null means whole roster cannot be counted",
-        "baseline_catalog": "trials_base-before.json (305 canonical records)",
-        "unchanged_detail_provenance": "Previous immutable Oct8/Oct9 primary receipt is comparison only. Today master/fallback roster revisited; unchanged details skip only with primary read within28 days. All39 older primary URLs actually attempted today, with6 CSU public primary JSON replacements and2 ELIAS individual leaves."
+        "review_notes": "Five foundation oncology identities recovered. STS tigilanol tiglate and PET-CT OSA studies explicitly completed. Half-body irradiation is presently offered as ordinary clinic treatment, not a verified recruiting funded trial. SCC skin-bacteria and prostate-target research do not publish current owner enrollment, eligibility or coverage. No trial activated.",
+        "current_evidence_references": [
+          {
+            "file": "research/audit-runs/resume-20261010T201219-0400/remaining-native-evidence.json",
+            "id": "australia-bvsc-foundation-resume",
+            "url": "https://www.bvsc.com.au/foundation/"
+          },
+          {
+            "file": "research/audit-runs/resume-20261010T201219-0400/remaining-native-evidence.json",
+            "id": "bvsc-foundation-current",
+            "url": "https://animalcancer.com.au/"
+          },
+          {
+            "file": "research/audit-runs/resume-20261010T201219-0400/remaining-native-evidence.json",
+            "id": "bvsc-sts-primary",
+            "url": "https://www.bvsc.com.au/vet-services/canine-soft-tissue-sarcomas/"
+          },
+          {
+            "file": "research/audit-runs/resume-20261010T201219-0400/remaining-native-evidence.json",
+            "id": "bvsc-petct-osa-primary",
+            "url": "https://www.bvsc.com.au/vet-services/pet-ct-osteosarcoma-study/"
+          },
+          {
+            "file": "research/audit-runs/resume-20261010T201219-0400/remaining-native-evidence.json",
+            "id": "bvsc-lymphoma-primary",
+            "url": "https://www.bvsc.com.au/vet-services/lymphosarcoma-half-body-irradiation/"
+          },
+          {
+            "file": "research/audit-runs/resume-20261010T201219-0400/remaining-native-evidence.json",
+            "id": "bvsc-halfbody-information",
+            "url": "https://www.bvsc.com.au/information/half-body-irradiation/"
+          },
+          {
+            "file": "research/audit-runs/resume-20261010T201219-0400/remaining-native-evidence.json",
+            "id": "bvsc-scc-primary",
+            "url": "https://www.bvsc.com.au/vet-services/squamous-cell-carcinoma/"
+          },
+          {
+            "file": "research/audit-runs/resume-20261010T201219-0400/remaining-native-evidence.json",
+            "id": "bvsc-prostate-primary",
+            "url": "https://www.bvsc.com.au/vet-services/prostate-cancer/"
+          },
+          {
+            "file": "research/audit-runs/resume-20261010T201219-0400/remaining-web-evidence.json",
+            "id": "turn75view0",
+            "url": "https://www.bvsc.com.au/information/half-body-irradiation/"
+          }
+        ],
+        "reconciliation_file": "research/audit-runs/resume-20261010T201219-0400/remaining-source-reconciliation.json"
       },
       "previous_last_checked": "2026-10-09",
       "previous_last_checked_at": "2026-10-09T03:47:25-04:00",
       "previous_last_result": "unreachable",
       "previous_fingerprint": null,
       "saved_last_checked": "2026-10-10",
-      "saved_last_checked_at": "2026-10-10T03:09:24-04:00",
-      "saved_last_result": "unreachable",
-      "current_fingerprint": null,
+      "saved_last_checked_at": "2026-10-10T20:45:29.981000-04:00",
+      "saved_last_result": "partial",
+      "current_fingerprint": "sha256:7440c3847d9dd14168fa619e348cc9554fc8dc920681284f571d035c8eeb2687",
       "fingerprint_method": "SHA256 of current-run retrieved reader evidence manifest; insufficient content remains insufficient",
       "fingerprint_preserved_from_prior_same_day_visit": false,
-      "external_gap": "BVSC Foundation master unreadable by permitted shell/Web methods; no source roster established.",
+      "external_gap": "Five foundation oncology identities recovered. STS tigilanol tiglate and PET-CT OSA studies explicitly completed. Half-body irradiation is presently offered as ordinary clinic treatment, not a verified recruiting funded trial. SCC skin-bacteria and prostate-target research do not publish current owner enrollment, eligibility or coverage. No trial activated.",
       "recheck_after": "2026-10-17",
       "inherited_from_run_id": "daily-20261010T030027-0400",
-      "reopened_in_resume": false
+      "reopened_in_resume": true,
+      "resume_previous_metadata": {
+        "last_checked": "2026-10-10",
+        "last_checked_at": "2026-10-10T03:09:24-04:00",
+        "last_result": "unreachable",
+        "content_fingerprint": null
+      }
     },
     {
       "source_id": "australia-anzcvs-science-week-oncology",
@@ -10827,8 +10986,8 @@
       "source_id": "usa-oklahoma-state-clinical-trials",
       "source_name": "Oklahoma State University — Clinical Trials",
       "opened_this_run": true,
-      "processing_complete": null,
-      "executor_incomplete": null,
+      "processing_complete": true,
+      "executor_incomplete": false,
       "content_sufficient": false,
       "protocols_seen": null,
       "status": "unreachable",
@@ -10908,33 +11067,67 @@
           "crawl_label": null,
           "full_text_available": true,
           "timestamp_precision": "recorded tool batch start/completion as labeled in evidence file"
+        },
+        {
+          "url": "https://vethospital.okstate.edu/info-for-researchers/clinical-trials.html",
+          "attempted_at": "2026-10-10T20:40:28.838173-04:00",
+          "method": "shell_curl",
+          "result": "unavailable_or_empty",
+          "http_status": 404,
+          "evidence_file": "research/audit-runs/resume-20261010T201219-0400/remaining-native-evidence.json",
+          "evidence_id": "usa-oklahoma-state-clinical-trials-resume",
+          "reader_text_sha256": "a204e5097a6b3ada4bf366237a99904f3a5af8601b5bf39255c3184907ec099f",
+          "raw_sha256": "34a7c3ece2a9760ed535128be85c4a2813ddd4a1940cd0d7cab712611fd15b96",
+          "timestamp_precision": "actual request start"
+        },
+        {
+          "url": "https://vethospital.okstate.edu/info-for-researchers/clinical-trials.html",
+          "attempted_at": "2026-10-10T20:45:29.981000-04:00",
+          "method": "Web_open",
+          "result": "unavailable_or_empty",
+          "web_reference": "turn74view1",
+          "evidence_file": "research/audit-runs/resume-20261010T201219-0400/remaining-web-evidence.json",
+          "timestamp_precision": "recorded after tool completion; exact request start unavailable"
         }
       ],
-      "route_used": "Actual official master, required official fallbacks and current individual primary routes; shell/Web/shared provenance retained",
+      "route_used": "Fresh official master and advertised programme/protocol links; permitted same-URL Web fallback",
       "roster_evidence": {
-        "current_roster": [
-          "Oklahoma State"
+        "current_roster": [],
+        "review_notes": "Fresh same master returns 404 by shell and Web. Prior official fallbacks remain documented 404/403 and are not repeated. No current primary roster obtained; no closure inferred.",
+        "current_evidence_references": [
+          {
+            "file": "research/audit-runs/resume-20261010T201219-0400/remaining-native-evidence.json",
+            "id": "usa-oklahoma-state-clinical-trials-resume",
+            "url": "https://vethospital.okstate.edu/info-for-researchers/clinical-trials.html"
+          },
+          {
+            "file": "research/audit-runs/resume-20261010T201219-0400/remaining-web-evidence.json",
+            "id": "turn74view1",
+            "url": "https://vethospital.okstate.edu/info-for-researchers/clinical-trials.html"
+          }
         ],
-        "review_notes": "Oklahoma current routes 404/403; no primary roster obtained or absence-based closure.",
-        "current_evidence_references": [],
-        "count_unit": "Named oncology identities including closed/non-treatment programs; partial integer is observed count, null means whole roster cannot be counted",
-        "baseline_catalog": "trials_base-before.json (305 canonical records)",
-        "unchanged_detail_provenance": "Previous immutable Oct8/Oct9 primary receipt is comparison only. Today master/fallback roster revisited; unchanged details skip only with primary read within28 days. All39 older primary URLs actually attempted today, with6 CSU public primary JSON replacements and2 ELIAS individual leaves."
+        "reconciliation_file": "research/audit-runs/resume-20261010T201219-0400/remaining-source-reconciliation.json"
       },
       "previous_last_checked": "2026-10-09",
       "previous_last_checked_at": "2026-10-09T03:09:26-04:00",
       "previous_last_result": "unreachable",
       "previous_fingerprint": null,
       "saved_last_checked": "2026-10-10",
-      "saved_last_checked_at": "2026-10-10T03:13:27-04:00",
+      "saved_last_checked_at": "2026-10-10T20:45:29.981000-04:00",
       "saved_last_result": "unreachable",
       "current_fingerprint": null,
       "fingerprint_method": "SHA256 of current-run retrieved reader evidence manifest; insufficient content remains insufficient",
       "fingerprint_preserved_from_prior_same_day_visit": false,
-      "external_gap": "Oklahoma current routes 404/403; no primary roster obtained or absence-based closure.",
+      "external_gap": "Fresh same master returns 404 by shell and Web. Prior official fallbacks remain documented 404/403 and are not repeated. No current primary roster obtained; no closure inferred.",
       "recheck_after": "2026-10-17",
       "inherited_from_run_id": "daily-20261010T030027-0400",
-      "reopened_in_resume": false
+      "reopened_in_resume": true,
+      "resume_previous_metadata": {
+        "last_checked": "2026-10-10",
+        "last_checked_at": "2026-10-10T03:13:27-04:00",
+        "last_result": "unreachable",
+        "content_fingerprint": null
+      }
     },
     {
       "source_id": "global-vsso-open-research-trials",
@@ -11000,8 +11193,8 @@
       "source_id": "usa-veterinary-oncology-services-trials",
       "source_name": "Veterinary Oncology Services — VCS-listed trial source",
       "opened_this_run": true,
-      "processing_complete": null,
-      "executor_incomplete": null,
+      "processing_complete": true,
+      "executor_incomplete": false,
       "content_sufficient": false,
       "protocols_seen": null,
       "status": "unreachable",
@@ -11031,33 +11224,67 @@
           "crawl_label": null,
           "full_text_available": true,
           "timestamp_precision": "recorded tool batch start/completion as labeled in evidence file"
+        },
+        {
+          "url": "https://www.petcancerinformation.com",
+          "attempted_at": "2026-10-10T20:40:28.839154-04:00",
+          "method": "shell_curl",
+          "result": "unavailable_or_empty",
+          "http_status": 502,
+          "evidence_file": "research/audit-runs/resume-20261010T201219-0400/remaining-native-evidence.json",
+          "evidence_id": "usa-veterinary-oncology-services-trials-resume",
+          "reader_text_sha256": "3e64c09d3aea50e5b8fe2ba87ae2a985a8c564f674ad5c9ca49a75ef80fbd2ae",
+          "raw_sha256": "81074a9c8dfb24290e8fc4af14d20f67f5304618d27ac713628b1126e41dbd8e",
+          "timestamp_precision": "actual request start"
+        },
+        {
+          "url": "https://www.petcancerinformation.com",
+          "attempted_at": "2026-10-10T20:45:29.981000-04:00",
+          "method": "Web_open",
+          "result": "unavailable_or_empty",
+          "web_reference": "turn74view0",
+          "evidence_file": "research/audit-runs/resume-20261010T201219-0400/remaining-web-evidence.json",
+          "timestamp_precision": "recorded after tool completion; exact request start unavailable"
         }
       ],
-      "route_used": "Actual official master, required official fallbacks and current individual primary routes; shell/Web/shared provenance retained",
+      "route_used": "Fresh official master and advertised programme/protocol links; permitted same-URL Web fallback",
       "roster_evidence": {
-        "current_roster": [
-          "VOS trial registry"
+        "current_roster": [],
+        "review_notes": "Fresh official master returns 502 by shell and Web. No official fallback is listed; seven AVMA secondary leads cannot establish provider enrollment. No activation or closure inferred.",
+        "current_evidence_references": [
+          {
+            "file": "research/audit-runs/resume-20261010T201219-0400/remaining-native-evidence.json",
+            "id": "usa-veterinary-oncology-services-trials-resume",
+            "url": "https://www.petcancerinformation.com"
+          },
+          {
+            "file": "research/audit-runs/resume-20261010T201219-0400/remaining-web-evidence.json",
+            "id": "turn74view0",
+            "url": "https://www.petcancerinformation.com"
+          }
         ],
-        "review_notes": "Veterinary Oncology Services master unavailable via shell and Web; transient server failure recorded without endless retries.",
-        "current_evidence_references": [],
-        "count_unit": "Named oncology identities including closed/non-treatment programs; partial integer is observed count, null means whole roster cannot be counted",
-        "baseline_catalog": "trials_base-before.json (305 canonical records)",
-        "unchanged_detail_provenance": "Previous immutable Oct8/Oct9 primary receipt is comparison only. Today master/fallback roster revisited; unchanged details skip only with primary read within28 days. All39 older primary URLs actually attempted today, with6 CSU public primary JSON replacements and2 ELIAS individual leaves."
+        "reconciliation_file": "research/audit-runs/resume-20261010T201219-0400/remaining-source-reconciliation.json"
       },
       "previous_last_checked": "2026-10-09",
       "previous_last_checked_at": "2026-10-09T03:27:41-04:00",
       "previous_last_result": "unreachable",
       "previous_fingerprint": null,
       "saved_last_checked": "2026-10-10",
-      "saved_last_checked_at": "2026-10-10T03:10:07-04:00",
+      "saved_last_checked_at": "2026-10-10T20:45:29.981000-04:00",
       "saved_last_result": "unreachable",
       "current_fingerprint": null,
       "fingerprint_method": "SHA256 of current-run retrieved reader evidence manifest; insufficient content remains insufficient",
       "fingerprint_preserved_from_prior_same_day_visit": false,
-      "external_gap": "Veterinary Oncology Services master unavailable via shell and Web; transient server failure recorded without endless retries.",
+      "external_gap": "Fresh official master returns 502 by shell and Web. No official fallback is listed; seven AVMA secondary leads cannot establish provider enrollment. No activation or closure inferred.",
       "recheck_after": "2026-10-17",
       "inherited_from_run_id": "daily-20261010T030027-0400",
-      "reopened_in_resume": false
+      "reopened_in_resume": true,
+      "resume_previous_metadata": {
+        "last_checked": "2026-10-10",
+        "last_checked_at": "2026-10-10T03:10:07-04:00",
+        "last_result": "unreachable",
+        "content_fingerprint": null
+      }
     },
     {
       "source_id": "italy-bologna-oncology-clinical-trials",
@@ -11943,12 +12170,12 @@
       "source_id": "uk-edinburgh-small-animal-clinical-trials",
       "source_name": "University of Edinburgh small-animal clinical-trials programme",
       "opened_this_run": true,
-      "processing_complete": null,
-      "executor_incomplete": null,
+      "processing_complete": true,
+      "executor_incomplete": false,
       "content_sufficient": false,
       "protocols_seen": null,
-      "status": "unreachable",
-      "master_result": "unreachable",
+      "status": "partial",
+      "master_result": "partial",
       "attempted_urls": [
         {
           "url": "https://vet.ed.ac.uk/clinical/small-animal/our-research/better-treatments/clinical-trials-programme",
@@ -11974,33 +12201,87 @@
           "crawl_label": null,
           "full_text_available": true,
           "timestamp_precision": "recorded tool batch start/completion as labeled in evidence file"
+        },
+        {
+          "url": "https://vet.ed.ac.uk/clinical/small-animal/our-research/better-treatments/clinical-trials-programme",
+          "attempted_at": "2026-10-10T20:40:28.839454-04:00",
+          "method": "shell_curl",
+          "result": "retrieved_public_content_for_review",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261010T201219-0400/remaining-native-evidence.json",
+          "evidence_id": "uk-edinburgh-small-animal-clinical-trials-resume",
+          "reader_text_sha256": "758be0e2384a621ce5032dc76fbf19e0ff432c9c431f905107cdbe6937b6a8c1",
+          "raw_sha256": "ec2fab072a4beccdb331ec0b4eb4014f45338baa7a2323519ca25a6fc2c2213c",
+          "timestamp_precision": "actual request start"
+        },
+        {
+          "url": "https://vet.ed.ac.uk/clinical/small-animal/our-research/better-treatments",
+          "attempted_at": "2026-10-10T20:41:38.770117-04:00",
+          "method": "shell_curl",
+          "result": "retrieved_public_content_for_review",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261010T201219-0400/remaining-native-evidence.json",
+          "evidence_id": "edinburgh-treatment-master",
+          "reader_text_sha256": "ad02caf5386c4613dcb37198782d34c3775d6a3008650516cb34afb3d2b45bd6",
+          "raw_sha256": "63d4bd001da0f05a0e45f5b144c32a734eec01bfbfce3c91e11c022352c74000",
+          "timestamp_precision": "actual request start"
+        },
+        {
+          "url": "https://vet.ed.ac.uk/clinical/small-animal/our-research/how-you-can-help/developing-new-treatments",
+          "attempted_at": "2026-10-10T20:41:38.770739-04:00",
+          "method": "shell_curl",
+          "result": "retrieved_public_content_for_review",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261010T201219-0400/remaining-native-evidence.json",
+          "evidence_id": "edinburgh-treatment-development",
+          "reader_text_sha256": "b03cb96260869e22fb85df12a3627909ba611e5a34b989df5725f69fb1a73168",
+          "raw_sha256": "99b4be4946cd3e3b11c0ddfc495f0089f83a6cd8d2d178bde25142d7e31ded3f",
+          "timestamp_precision": "actual request start"
         }
       ],
-      "route_used": "Actual official master, required official fallbacks and current individual primary routes; shell/Web/shared provenance retained",
+      "route_used": "Fresh official master and advertised programme/protocol links; permitted same-URL Web fallback",
       "roster_evidence": {
-        "current_roster": [
-          "Clinical-trials programme including cancer"
+        "current_roster": [],
+        "review_notes": "Programme brochure and two linked treatment-research pages are readable (published September 2, 2024). They publish no enumerable current oncology intake roster or patient access terms. Better Treatments navigation screened; named programmes are non-oncology. Existing Edinburgh melanoma record preserved; absence from brochure is not closure.",
+        "current_evidence_references": [
+          {
+            "file": "research/audit-runs/resume-20261010T201219-0400/remaining-native-evidence.json",
+            "id": "uk-edinburgh-small-animal-clinical-trials-resume",
+            "url": "https://vet.ed.ac.uk/clinical/small-animal/our-research/better-treatments/clinical-trials-programme"
+          },
+          {
+            "file": "research/audit-runs/resume-20261010T201219-0400/remaining-native-evidence.json",
+            "id": "edinburgh-treatment-master",
+            "url": "https://vet.ed.ac.uk/clinical/small-animal/our-research/better-treatments"
+          },
+          {
+            "file": "research/audit-runs/resume-20261010T201219-0400/remaining-native-evidence.json",
+            "id": "edinburgh-treatment-development",
+            "url": "https://vet.ed.ac.uk/clinical/small-animal/our-research/how-you-can-help/developing-new-treatments"
+          }
         ],
-        "review_notes": "Edinburgh official current study master unavailable through permitted shell/Web; no inferred zero.",
-        "current_evidence_references": [],
-        "count_unit": "Named oncology identities including closed/non-treatment programs; partial integer is observed count, null means whole roster cannot be counted",
-        "baseline_catalog": "trials_base-before.json (305 canonical records)",
-        "unchanged_detail_provenance": "Previous immutable Oct8/Oct9 primary receipt is comparison only. Today master/fallback roster revisited; unchanged details skip only with primary read within28 days. All39 older primary URLs actually attempted today, with6 CSU public primary JSON replacements and2 ELIAS individual leaves."
+        "reconciliation_file": "research/audit-runs/resume-20261010T201219-0400/remaining-source-reconciliation.json"
       },
       "previous_last_checked": "2026-10-09",
       "previous_last_checked_at": "2026-10-09T03:41:22-04:00",
       "previous_last_result": "partial",
       "previous_fingerprint": "sha256:d7240a493acd256c639d12655b096393265f4db4f9e4e86f56515a5cbf5b4950",
       "saved_last_checked": "2026-10-10",
-      "saved_last_checked_at": "2026-10-10T03:10:07-04:00",
-      "saved_last_result": "unreachable",
-      "current_fingerprint": null,
+      "saved_last_checked_at": "2026-10-10T20:41:38.770739-04:00",
+      "saved_last_result": "partial",
+      "current_fingerprint": "sha256:ca832fc910b42986db26a781ba8e3c0088ee00df3bf7380566e0e9d6640bdad7",
       "fingerprint_method": "SHA256 of current-run retrieved reader evidence manifest; insufficient content remains insufficient",
       "fingerprint_preserved_from_prior_same_day_visit": false,
-      "external_gap": "Edinburgh official current study master unavailable through permitted shell/Web; no inferred zero.",
+      "external_gap": "Programme brochure and two linked treatment-research pages are readable (published September 2, 2024). They publish no enumerable current oncology intake roster or patient access terms. Better Treatments navigation screened; named programmes are non-oncology. Existing Edinburgh melanoma record preserved; absence from brochure is not closure.",
       "recheck_after": "2026-10-17",
       "inherited_from_run_id": "daily-20261010T030027-0400",
-      "reopened_in_resume": false
+      "reopened_in_resume": true,
+      "resume_previous_metadata": {
+        "last_checked": "2026-10-10",
+        "last_checked_at": "2026-10-10T03:10:07-04:00",
+        "last_result": "unreachable",
+        "content_fingerprint": null
+      }
     },
     {
       "source_id": "sponsor-akston-oncology-pipeline",
@@ -12427,8 +12708,8 @@
     }
   ],
   "resume_started_at": "2026-10-10T20:12:19.869010-04:00",
-  "newly_attempted_source_total": 12,
+  "newly_attempted_source_total": 16,
   "inherited_source_total": 108,
-  "evidence_semantics": "opened_this_run and coverage below describe the linked morning + resume evidence set; inherited morning timestamps are preserved, not new visits. Only twelve insufficient sources received new requests; 36 already sufficient sources were not reopened.",
-  "completion_not_established_total": 60
+  "evidence_semantics": "Cumulative linked morning + resume coverage. Sixteen insufficient sources received new requests; 36 already sufficient sources were not reopened. Inherited real timestamps preserved; fresh attempt is not sufficient coverage.",
+  "completion_not_established_total": 56
 }
