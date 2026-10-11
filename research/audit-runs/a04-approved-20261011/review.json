@@ -1,0 +1,1035 @@
+{
+  "package": "A04",
+  "reviewed_at": "2026-10-11T19:00:07.985641-04:00",
+  "base_sha": "ea77970d30187af2f905c32dc29bb24ab4ac3dbf",
+  "scope": "11 care records only; no trial audit or trial changes",
+  "owner_decisions": {
+    "Dallas": "Correct VSNT/UTSW identity after official contact and current clinician reconciliation",
+    "VSS": "Both sites likely, not proof; keep branch-allocation uncertainty",
+    "Westbridge": "Remove medical oncology/chemotherapy; confirmed tumor surgery; Townsend is a surgeon, no oncology specialization inferred"
+  },
+  "source_dates": "Reuse actual same-day evidence. No historical attempt timestamp/fingerprint rewrite. last_reviewed_at records integration review.",
+  "proposed_changes": [
+    {
+      "source_id": "veterinary-specialists-of-north-texas-3cbba709",
+      "field": "services",
+      "old_value": [
+        "Medical oncology"
+      ],
+      "new_value": [
+        "Medical oncology",
+        "Chemotherapy",
+        "Electrochemotherapy",
+        "Immunotherapy",
+        "Radiation oncology",
+        "Radiation therapy",
+        "SRT",
+        "SBRT",
+        "GRID radiotherapy"
+      ],
+      "evidence_url": "https://vsnt.com/services/radiation-oncology/",
+      "supporting_quote": "We also use Stereotactic Radiotherapy (SRT) and GRID Radiotherapy",
+      "checked_at": "2026-10-11",
+      "branch_scope": "Veterinary Specialists of North Texas — Fort Worth, TX, 76132",
+      "target_file": "data/oncology_centers.json (derived; persist via oncology_centers_supplemental.json and appropriate profile exclusion/override during integration)",
+      "old_value_origin": "available: repository snapshot e810b14073d5cc13ff76db014a5bddac200fcae6",
+      "additional_evidence": [
+        {
+          "evidence_url": "https://vsnt.com/services/medical-oncology/",
+          "supporting_quote": "Oral chemotherapy\nIntralesional\nInjectable chemotherapy\nElectrochemotherapy\nInnovative intracavitary\nImmunotherapy",
+          "checked_at": "2026-10-11"
+        },
+        {
+          "evidence_url": "https://vsnt.com/contact/",
+          "supporting_quote": "4631 Citylake Blvd. West\nFt. Worth, TX 76132",
+          "checked_at": "2026-10-11"
+        }
+      ]
+    },
+    {
+      "source_id": "veterinary-specialty-center",
+      "field": "services",
+      "old_value": [
+        "Medical oncology"
+      ],
+      "new_value": [
+        "Medical oncology",
+        "Chemotherapy",
+        "Radiation oncology",
+        "Radiation therapy"
+      ],
+      "evidence_url": "https://www.vetspecialty.com/specialties/medical-and-radiation-oncology/",
+      "supporting_quote": "treatment options may include surgery, chemotherapy, radiation therapy, immunotherapy",
+      "checked_at": "2026-10-11",
+      "branch_scope": "Veterinary Specialty Center — Bannockburn, IL, 60015",
+      "target_file": "data/oncology_centers.json (derived; persist via oncology_centers_supplemental.json and appropriate profile exclusion/override during integration)",
+      "old_value_origin": "available: repository snapshot e810b14073d5cc13ff76db014a5bddac200fcae6",
+      "additional_evidence": [
+        {
+          "evidence_url": "https://www.vetspecialty.com/specialties/medical-and-radiation-oncology/radiation-therapy/",
+          "supporting_quote": "Veterinary Specialty Center is proud to be one of only a few facilities in the Chicagoland area to provide radiation therapy",
+          "checked_at": "2026-10-11"
+        }
+      ]
+    },
+    {
+      "source_id": "veterinary-specialty-hospital",
+      "field": "website",
+      "old_value": "http://www.vssstl.com/",
+      "new_value": "https://www.vshnorthcounty.com/",
+      "evidence_url": "https://www.vshnorthcounty.com/staff",
+      "supporting_quote": "Veterinary Specialty Hospital - North County\n2055 Montiel Rd\nSan Marcos",
+      "checked_at": "2026-10-11",
+      "branch_scope": "Veterinary Specialty Hospital — San Marcos, CA, 92069",
+      "target_file": "data/oncology_centers.json (derived; persist via oncology_centers_supplemental.json and appropriate profile exclusion/override during integration)",
+      "old_value_origin": "available: repository snapshot e810b14073d5cc13ff76db014a5bddac200fcae6"
+    },
+    {
+      "source_id": "veterinary-specialty-hospital",
+      "field": "inventory.working_url",
+      "old_value": "https://www.vssstl.com/",
+      "new_value": "https://www.vshnorthcounty.com/services/oncology",
+      "evidence_url": "https://www.vshnorthcounty.com/services/oncology",
+      "supporting_quote": "Mairin Miller\nDVM, DACVIM (Medical Oncology)",
+      "checked_at": "2026-10-11",
+      "branch_scope": "Veterinary Specialty Hospital — San Marcos, CA, 92069",
+      "target_file": "data/oncology_care_source_inventory.json",
+      "old_value_origin": "available: repository snapshot e810b14073d5cc13ff76db014a5bddac200fcae6"
+    },
+    {
+      "source_id": "veterinary-specialty-hospital",
+      "field": "services",
+      "old_value": [
+        "Medical oncology"
+      ],
+      "new_value": [
+        "Medical oncology",
+        "Chemotherapy",
+        "Immunotherapy",
+        "Surgical oncology"
+      ],
+      "evidence_url": "https://www.vshnorthcounty.com/services/oncology",
+      "supporting_quote": "Chemotherapy and immunotherapy",
+      "checked_at": "2026-10-11",
+      "branch_scope": "Veterinary Specialty Hospital — San Marcos, CA, 92069",
+      "target_file": "data/oncology_centers.json (derived; persist via oncology_centers_supplemental.json and appropriate profile exclusion/override during integration)",
+      "old_value_origin": "available: repository snapshot e810b14073d5cc13ff76db014a5bddac200fcae6",
+      "additional_evidence": [
+        {
+          "evidence_url": "https://www.vshnorthcounty.com/services/surgery",
+          "supporting_quote": "At our North County hospital in San Marcos, we have the ability to perform near infrared fluorescence imaging during surgery.",
+          "checked_at": "2026-10-11"
+        }
+      ]
+    },
+    {
+      "source_id": "veterinary-specialty-referral-center-of-manhattan",
+      "field": "services",
+      "old_value": [
+        "Medical oncology",
+        "ECT"
+      ],
+      "new_value": [
+        "Medical oncology",
+        "ECT",
+        "Chemotherapy",
+        "Immunotherapy",
+        "Targeted therapy"
+      ],
+      "evidence_url": "https://vsrcmanhattan.com/chemotherapy-immunotherapy/",
+      "supporting_quote": "We offer a comprehensive palette of chemotherapeutic, small molecule inhibitor and immunotherapy options for your pet.",
+      "checked_at": "2026-10-11",
+      "branch_scope": "Veterinary Specialty Referral Center of Manhattan — New York, NY, 10011",
+      "target_file": "data/oncology_centers.json (derived; persist via oncology_centers_supplemental.json and appropriate profile exclusion/override during integration)",
+      "old_value_origin": "available: repository snapshot e810b14073d5cc13ff76db014a5bddac200fcae6"
+    },
+    {
+      "source_id": "violet-crown-veterinary-specialists",
+      "field": "website",
+      "old_value": "http://violetcrownvet.com",
+      "new_value": "https://www.violetcrownvet.com/",
+      "evidence_url": "https://www.violetcrownvet.com/contact",
+      "supporting_quote": "14360 Falcon Head Blvd.\nBee Cave, TX 78738",
+      "checked_at": "2026-10-11",
+      "branch_scope": "Violet Crown Veterinary Specialists — Bee Cave, TX, 78738",
+      "target_file": "data/oncology_centers.json (derived; persist via oncology_centers_supplemental.json and appropriate profile exclusion/override during integration)",
+      "old_value_origin": "available: repository snapshot e810b14073d5cc13ff76db014a5bddac200fcae6"
+    },
+    {
+      "source_id": "violet-crown-veterinary-specialists",
+      "field": "services",
+      "old_value": [
+        "Medical oncology"
+      ],
+      "new_value": [
+        "Medical oncology",
+        "Chemotherapy",
+        "Immunotherapy",
+        "Surgical oncology"
+      ],
+      "evidence_url": "https://www.violetcrownvet.com/oncology",
+      "supporting_quote": "Chemotherapy\nImmunotherapy\nSurgical Oncology",
+      "checked_at": "2026-10-11",
+      "branch_scope": "Violet Crown Veterinary Specialists — Bee Cave, TX, 78738",
+      "target_file": "data/oncology_centers.json (derived; persist via oncology_centers_supplemental.json and appropriate profile exclusion/override during integration)",
+      "old_value_origin": "available: repository snapshot e810b14073d5cc13ff76db014a5bddac200fcae6",
+      "additional_evidence": [
+        {
+          "evidence_url": "https://www.violetcrownvet.com/team",
+          "supporting_quote": "Katie Kennedy, DVM, MS\nCo-Founder; Surgeon\nDiplomate, American College of Veterinary Surgeons; ACVS Fellow Surgical Oncology",
+          "checked_at": "2026-10-11"
+        }
+      ]
+    },
+    {
+      "source_id": "waves-specialty-and-emergency",
+      "field": "services",
+      "old_value": [
+        "Medical oncology"
+      ],
+      "new_value": [
+        "Medical oncology",
+        "Chemotherapy",
+        "Immunotherapy",
+        "Targeted therapy",
+        "Radiation oncology",
+        "Radiation therapy"
+      ],
+      "evidence_url": "https://wavesvetcare.com/radonco/",
+      "supporting_quote": "Advanced Radiation Therapy with the Varian Halcyon",
+      "checked_at": "2026-10-11",
+      "branch_scope": "WAVES Specialty and Emergency — San Leandro, CA, 94578",
+      "target_file": "data/oncology_centers.json (derived; persist via oncology_centers_supplemental.json and appropriate profile exclusion/override during integration)",
+      "old_value_origin": "available: repository snapshot e810b14073d5cc13ff76db014a5bddac200fcae6",
+      "additional_evidence": [
+        {
+          "evidence_url": "https://wavesvetcare.com/oncology/",
+          "supporting_quote": "Chemotherapy\nImmunotherapy\nTargeted therapy",
+          "checked_at": "2026-10-11"
+        },
+        {
+          "evidence_url": "https://wavesvetcare.com/radonco/",
+          "supporting_quote": "14790 Washington Ave,\nSan Leandro, CA 94578",
+          "checked_at": "2026-10-11"
+        }
+      ]
+    },
+    {
+      "source_id": "wcvm-veterinary-medical-centre",
+      "field": "inventory.supporting_urls",
+      "old_value": [
+        "https://vmc.usask.ca/services/oncology-radiation.php",
+        "https://vmc.usask.ca/about/contact.php"
+      ],
+      "new_value": [
+        "https://vmc.usask.ca/services/oncology-radiation.php",
+        "https://vmc.usask.ca/about/contact-us.php",
+        "https://vmc.usask.ca/about/our-teams.php"
+      ],
+      "evidence_url": "https://vmc.usask.ca/about/contact-us.php",
+      "supporting_quote": "52 Campus Drive, University of Saskatchewan, Saskatoon, Sask.",
+      "checked_at": "2026-10-11",
+      "branch_scope": "WCVM Veterinary Medical Centre — Saskatoon, SK, S7N 5B4",
+      "target_file": "data/oncology_care_source_inventory.json",
+      "old_value_origin": "available: repository snapshot e810b14073d5cc13ff76db014a5bddac200fcae6"
+    }
+  ],
+  "records": {
+    "veterinary-specialists-of-north-texas": {
+      "name": "UT Southwestern Veterinary Research and Oncology Clinic",
+      "branch_scope": "Dallas, TX 75235",
+      "status": "verified",
+      "confirmed_sources": [
+        "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/contact-us.html",
+        "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/meet-the-team.html",
+        "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-infrastructure.html",
+        "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/resources.html",
+        "https://profiles.utsouthwestern.edu/profile/248854/jonathan-maddox.html",
+        "https://profiles.utsouthwestern.edu/profile/236540/isabelle-vanhaezebrouck.html"
+      ],
+      "unresolved_questions": [
+        "Routine non-research medical-oncology/chemotherapy access not separately established; no generic chemotherapy tag added from research access statements."
+      ],
+      "old_value": {
+        "name": "Veterinary Specialists of North Texas",
+        "street": "UT Southwestern Veterinary Research & Oncology Cli 5801 Forest Park Road",
+        "city": "Dallas",
+        "region": "TX",
+        "postal_code": "75235",
+        "country": "USA",
+        "phone": "214.645.6221",
+        "website": "https://www.vsnt.com",
+        "services": [
+          "Medical oncology"
+        ],
+        "latitude": 32.8252,
+        "longitude": -96.8388,
+        "source": "ACVIM VetSpecialists directory",
+        "verification_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=68de357e-56dd-413b-88c1-b9d3fcd7466c",
+        "oncologist_count": 1
+      },
+      "new_value": {
+        "name": "UT Southwestern Veterinary Research and Oncology Clinic",
+        "street": "5801 Forest Park Road",
+        "city": "Dallas",
+        "region": "TX",
+        "postal_code": "75235",
+        "country": "USA",
+        "phone": "214-645-6221",
+        "website": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/contact-us.html",
+        "services": [
+          "Local oncology care",
+          "Radiation oncology",
+          "Radiation therapy"
+        ],
+        "latitude": 32.8252,
+        "longitude": -96.8388,
+        "source": "A04 official branch reconciliation and owner-reviewed decisions, 2026-10-11",
+        "verification_url": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/contact-us.html",
+        "source_id": "veterinary-specialists-of-north-texas",
+        "last_verified": "2026-10-11",
+        "source_date": "2026-10-11",
+        "supporting_urls": [
+          "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/contact-us.html",
+          "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/meet-the-team.html",
+          "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-infrastructure.html",
+          "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/resources.html",
+          "https://profiles.utsouthwestern.edu/profile/248854/jonathan-maddox.html",
+          "https://profiles.utsouthwestern.edu/profile/236540/isabelle-vanhaezebrouck.html"
+        ],
+        "clinicians": [
+          "Jonathan Maddox, DVM — clinical veterinarian; oncology board certification not established",
+          "Isabelle Vanhaezebrouck, DVM, MS — board-certified radiation oncologist (ACVR/ECVDI)"
+        ],
+        "oncologists": [
+          "Isabelle Vanhaezebrouck, DVM, MS — radiation oncology"
+        ],
+        "oncologist_count": 1,
+        "availability_note": "By appointment. Owners may contact the clinic directly or through their veterinarian. Confirm the treatment pathway and eligibility before booking",
+        "review_status": "verified",
+        "unresolved_questions": [
+          "Routine non-research medical-oncology/chemotherapy access not separately established; no generic chemotherapy tag added from research access statements."
+        ]
+      },
+      "checked_at": "2026-10-11",
+      "reviewed_at": "2026-10-11T19:00:07.985641-04:00"
+    },
+    "veterinary-specialists-of-north-texas-3cbba709": {
+      "name": "Veterinary Specialists of North Texas",
+      "branch_scope": "Fort Worth, TX 76132",
+      "status": "verified",
+      "confirmed_sources": [
+        "https://vsnt.com/contact/",
+        "https://vsnt.com/services/medical-oncology/",
+        "https://vsnt.com/services/radiation-oncology/",
+        "https://vsnt.com/pet-owners/faqs/",
+        "https://vsnt.com/specialists/sara-allstadt/",
+        "https://vsnt.com/specialists/carlos-rodriguez-jr/",
+        "https://vsnt.com/specialists/stephanie-cook/",
+        "https://vsnt.com/specialists/nicholas-rancilio/"
+      ],
+      "unresolved_questions": [],
+      "old_value": {
+        "name": "Veterinary Specialists of North Texas",
+        "street": "4631 Citylake Blvd W",
+        "city": "Fort Worth",
+        "region": "TX",
+        "postal_code": "76132",
+        "country": "USA",
+        "phone": "817.263.4300",
+        "website": "https://vsnt.com/",
+        "services": [
+          "Medical oncology"
+        ],
+        "latitude": 32.6711,
+        "longitude": -97.4056,
+        "source": "ACVIM VetSpecialists directory",
+        "verification_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=379ebf6a-99b1-4816-9086-41af366e71f4",
+        "oncologist_count": 1
+      },
+      "new_value": {
+        "name": "Veterinary Specialists of North Texas",
+        "street": "4631 Citylake Blvd W",
+        "city": "Fort Worth",
+        "region": "TX",
+        "postal_code": "76132",
+        "country": "USA",
+        "phone": "817.263.4300",
+        "website": "https://vsnt.com/",
+        "services": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Electrochemotherapy",
+          "Immunotherapy",
+          "Radiation oncology",
+          "Radiation therapy",
+          "SRT",
+          "SBRT",
+          "GRID radiotherapy"
+        ],
+        "latitude": 32.6711,
+        "longitude": -97.4056,
+        "source": "A04 official branch reconciliation and owner-reviewed decisions, 2026-10-11",
+        "verification_url": "https://vsnt.com/contact/",
+        "source_id": "veterinary-specialists-of-north-texas-3cbba709",
+        "last_verified": "2026-10-11",
+        "source_date": "2026-10-11",
+        "supporting_urls": [
+          "https://vsnt.com/contact/",
+          "https://vsnt.com/services/medical-oncology/",
+          "https://vsnt.com/services/radiation-oncology/",
+          "https://vsnt.com/pet-owners/faqs/",
+          "https://vsnt.com/specialists/sara-allstadt/",
+          "https://vsnt.com/specialists/carlos-rodriguez-jr/",
+          "https://vsnt.com/specialists/stephanie-cook/",
+          "https://vsnt.com/specialists/nicholas-rancilio/"
+        ],
+        "oncologists": [
+          "Sara Allstadt, DVM, DACVIM (Oncology)",
+          "Carlos Rodriguez Jr., DVM, PhD, DACVIM (Oncology) — listed provider; relief schedule requires confirmation",
+          "Stephanie Cook, DVM, DACVR (Radiation Oncology)",
+          "Nicholas Rancilio, DVM, MS, DACVR (Radiation Oncology)"
+        ],
+        "availability_note": "Referral required; new-patient form and appointment required. Surgery is provided by the co-located Dallas Veterinary Surgical Center",
+        "review_status": "verified",
+        "unresolved_questions": [],
+        "oncologist_count": 4
+      },
+      "checked_at": "2026-10-11",
+      "reviewed_at": "2026-10-11T19:00:07.985641-04:00"
+    },
+    "veterinary-specialty-center": {
+      "name": "Veterinary Specialty Center",
+      "branch_scope": "Bannockburn, IL 60015",
+      "status": "verified",
+      "confirmed_sources": [
+        "https://www.vetspecialty.com/specialties/medical-and-radiation-oncology/",
+        "https://www.vetspecialty.com/specialties/medical-and-radiation-oncology/radiation-therapy/",
+        "https://www.vetspecialty.com/our-team/page/3/",
+        "https://www.vetspecialty.com/pet-owners/preparing-for-your-visit/"
+      ],
+      "unresolved_questions": [],
+      "old_value": {
+        "name": "Veterinary Specialty Center",
+        "street": "2051 Waukegan rd",
+        "city": "Bannockburn",
+        "region": "IL",
+        "postal_code": "60015",
+        "country": "USA",
+        "phone": "847.459.7535",
+        "website": "https://www.vetspecialty.com/",
+        "services": [
+          "Medical oncology"
+        ],
+        "latitude": 42.1705,
+        "longitude": -87.859,
+        "source": "ACVIM VetSpecialists directory",
+        "verification_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=baacfa98-d741-4e28-a82d-8aca52eb2aa9",
+        "oncologist_count": 2
+      },
+      "new_value": {
+        "name": "Veterinary Specialty Center",
+        "street": "2051 Waukegan rd",
+        "city": "Bannockburn",
+        "region": "IL",
+        "postal_code": "60015",
+        "country": "USA",
+        "phone": "847.459.7535",
+        "website": "https://www.vetspecialty.com/",
+        "services": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Radiation oncology",
+          "Radiation therapy"
+        ],
+        "latitude": 42.1705,
+        "longitude": -87.859,
+        "source": "A04 official branch reconciliation and owner-reviewed decisions, 2026-10-11",
+        "verification_url": "https://www.vetspecialty.com/specialties/medical-and-radiation-oncology/",
+        "source_id": "veterinary-specialty-center",
+        "last_verified": "2026-10-11",
+        "source_date": "2026-10-11",
+        "supporting_urls": [
+          "https://www.vetspecialty.com/specialties/medical-and-radiation-oncology/",
+          "https://www.vetspecialty.com/specialties/medical-and-radiation-oncology/radiation-therapy/",
+          "https://www.vetspecialty.com/our-team/page/3/",
+          "https://www.vetspecialty.com/pet-owners/preparing-for-your-visit/"
+        ],
+        "oncologists": [
+          "Blake Marcum, DVM, MS, DACVIM (Oncology)",
+          "Richard Sheng, DVM, DACVIM (Oncology)",
+          "Rhonda Feinmehl, DVM — residency-trained in oncology; not represented as board-certified",
+          "Hayley Ashworth, BVSc, MS, DACVR-RO",
+          "Carolynne Kruckman-Gatesy, DVM, MS, DACVR-RO"
+        ],
+        "availability_note": "Specialty care by appointment Monday–Friday; primary-veterinarian records requested before the visit",
+        "review_status": "verified",
+        "unresolved_questions": [],
+        "oncologist_count": 4
+      },
+      "checked_at": "2026-10-11",
+      "reviewed_at": "2026-10-11T19:00:07.985641-04:00"
+    },
+    "veterinary-specialty-hospital": {
+      "name": "Veterinary Specialty Hospital",
+      "branch_scope": "San Marcos, CA 92069",
+      "status": "partial",
+      "confirmed_sources": [
+        "https://www.vshnorthcounty.com/services/oncology",
+        "https://www.vshnorthcounty.com/staff",
+        "https://www.vshnorthcounty.com/services/surgery",
+        "https://www.vshnorthcounty.com/appointments-and-emergencies"
+      ],
+      "unresolved_questions": [
+        "Radiation delivery at San Marcos is not confirmed; the oncology page lists radiation without a branch-specific equipment/delivery explanation. Do not add local radiation."
+      ],
+      "old_value": {
+        "name": "Veterinary Specialty Hospital",
+        "street": "2055 Montiel Rd STE 104",
+        "city": "San Marcos",
+        "region": "CA",
+        "postal_code": "92069",
+        "country": "USA",
+        "phone": "760.466.0600",
+        "website": "http://www.vssstl.com/",
+        "services": [
+          "Medical oncology"
+        ],
+        "latitude": 33.1444,
+        "longitude": -117.1697,
+        "source": "ACVIM VetSpecialists directory",
+        "verification_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=0193909f-b626-49b1-9fc9-9b839432c8e5",
+        "oncologist_count": 1
+      },
+      "new_value": {
+        "name": "Veterinary Specialty Hospital",
+        "street": "2055 Montiel Rd STE 104",
+        "city": "San Marcos",
+        "region": "CA",
+        "postal_code": "92069",
+        "country": "USA",
+        "phone": "760.466.0600",
+        "website": "https://www.vshnorthcounty.com/",
+        "services": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Immunotherapy",
+          "Surgical oncology"
+        ],
+        "latitude": 33.1444,
+        "longitude": -117.1697,
+        "source": "A04 official branch reconciliation and owner-reviewed decisions, 2026-10-11",
+        "verification_url": "https://www.vshnorthcounty.com/services/oncology",
+        "source_id": "veterinary-specialty-hospital",
+        "last_verified": "2026-10-11",
+        "source_date": "2026-10-11",
+        "supporting_urls": [
+          "https://www.vshnorthcounty.com/services/oncology",
+          "https://www.vshnorthcounty.com/staff",
+          "https://www.vshnorthcounty.com/services/surgery",
+          "https://www.vshnorthcounty.com/appointments-and-emergencies"
+        ],
+        "oncologists": [
+          "Mairin Miller, DVM, DACVIM (Medical Oncology)"
+        ],
+        "surgeons": [
+          "Chris Thomson, DVM, DACVS-SA, ACVS Fellow — Surgical Oncology"
+        ],
+        "review_status": "partial",
+        "unresolved_questions": [
+          "Radiation delivery at San Marcos is not confirmed; the oncology page lists radiation without a branch-specific equipment/delivery explanation. Do not add local radiation."
+        ],
+        "oncologist_count": 1
+      },
+      "checked_at": "2026-10-11",
+      "reviewed_at": "2026-10-11T19:00:07.985641-04:00"
+    },
+    "veterinary-specialty-referral-center-of-manhattan": {
+      "name": "Veterinary Specialty Referral Center of Manhattan",
+      "branch_scope": "New York, NY 10011",
+      "status": "verified",
+      "confirmed_sources": [
+        "https://vsrcmanhattan.com/our-team/",
+        "https://vsrcmanhattan.com/electrochemotherapy/",
+        "https://vsrcmanhattan.com/chemotherapy-immunotherapy/",
+        "https://vsrcmanhattan.com/radiation-therapy/",
+        "https://vsrcmanhattan.com/concierge-telehealth-support/"
+      ],
+      "unresolved_questions": [],
+      "old_value": {
+        "name": "Veterinary Specialty Referral Center of Manhattan",
+        "street": "217 7th Ave",
+        "city": "New York",
+        "region": "NY",
+        "postal_code": "10011",
+        "country": "USA",
+        "phone": "646-632-2538",
+        "services": [
+          "Medical oncology",
+          "ECT"
+        ],
+        "website": "https://vsrcmanhattan.com/electrochemotherapy/",
+        "latitude": 40.7441,
+        "longitude": -74.0046,
+        "source": "Existing verified directory"
+      },
+      "new_value": {
+        "name": "Veterinary Specialty Referral Center of Manhattan",
+        "street": "217 7th Ave",
+        "city": "New York",
+        "region": "NY",
+        "postal_code": "10011",
+        "country": "USA",
+        "phone": "646-632-2538",
+        "services": [
+          "Medical oncology",
+          "ECT",
+          "Chemotherapy",
+          "Immunotherapy",
+          "Targeted therapy"
+        ],
+        "website": "https://vsrcmanhattan.com/electrochemotherapy/",
+        "latitude": 40.7441,
+        "longitude": -74.0046,
+        "source": "A04 official branch reconciliation and owner-reviewed decisions, 2026-10-11",
+        "source_id": "veterinary-specialty-referral-center-of-manhattan",
+        "last_verified": "2026-10-11",
+        "source_date": "2026-10-11",
+        "verification_url": "https://vsrcmanhattan.com/our-team/",
+        "supporting_urls": [
+          "https://vsrcmanhattan.com/our-team/",
+          "https://vsrcmanhattan.com/electrochemotherapy/",
+          "https://vsrcmanhattan.com/chemotherapy-immunotherapy/",
+          "https://vsrcmanhattan.com/radiation-therapy/",
+          "https://vsrcmanhattan.com/concierge-telehealth-support/"
+        ],
+        "oncologists": [
+          "Brooke Britton, DVM, DACVIM (Oncology)"
+        ],
+        "availability_note": "By appointment. Radiation therapy is referred to external providers; telehealth and concierge support are described for referring veterinarians",
+        "review_status": "verified",
+        "unresolved_questions": [],
+        "oncologist_count": 1
+      },
+      "checked_at": "2026-10-11",
+      "reviewed_at": "2026-10-11T19:00:07.985641-04:00"
+    },
+    "veterinary-specialty-services": {
+      "name": "Veterinary Specialty Services",
+      "branch_scope": "Manchester, MO 63021",
+      "status": "partial",
+      "confirmed_sources": [
+        "https://www.vssstl.com/locations/veterinary-specialty-services",
+        "https://www.vssstl.com/services/oncology",
+        "https://www.vssstl.com/about-us/staff/veterinarians/bonnie-smith-dvm-dacvim",
+        "https://www.vssstl.com/about-us/staff/veterinarians/shirley-chu-dvm-phd-dacvim",
+        "https://www.vssstl.com/scheduling-specialty-service-appointment"
+      ],
+      "unresolved_questions": [
+        "Owner considers both Manchester and O’Fallon likely; current public pages do not establish clinician/treatment allocation by branch. No O’Fallon oncology row or new Manchester modality inferred."
+      ],
+      "old_value": {
+        "name": "Veterinary Specialty Services",
+        "street": "1021 Howard George Dr.",
+        "city": "Manchester",
+        "region": "MO",
+        "postal_code": "63021",
+        "country": "USA",
+        "phone": "636.227.9400",
+        "website": "http://www.vssstl.com",
+        "services": [
+          "Medical oncology"
+        ],
+        "latitude": 38.577,
+        "longitude": -90.5255,
+        "source": "ACVIM VetSpecialists directory",
+        "verification_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=de631221-1bf4-4009-b541-fca486398c24",
+        "oncologist_count": 2
+      },
+      "new_value": {
+        "name": "Veterinary Specialty Services",
+        "street": "1021 Howard George Dr.",
+        "city": "Manchester",
+        "region": "MO",
+        "postal_code": "63021",
+        "country": "USA",
+        "phone": "636.227.9400",
+        "website": "http://www.vssstl.com",
+        "services": [
+          "Medical oncology"
+        ],
+        "latitude": 38.577,
+        "longitude": -90.5255,
+        "source": "A04 official branch reconciliation and owner-reviewed decisions, 2026-10-11",
+        "verification_url": "https://www.vssstl.com/locations/veterinary-specialty-services",
+        "source_id": "veterinary-specialty-services",
+        "last_verified": "2026-10-11",
+        "source_date": "2026-10-11",
+        "supporting_urls": [
+          "https://www.vssstl.com/locations/veterinary-specialty-services",
+          "https://www.vssstl.com/services/oncology",
+          "https://www.vssstl.com/about-us/staff/veterinarians/bonnie-smith-dvm-dacvim",
+          "https://www.vssstl.com/about-us/staff/veterinarians/shirley-chu-dvm-phd-dacvim",
+          "https://www.vssstl.com/scheduling-specialty-service-appointment"
+        ],
+        "network_oncologists": [
+          "Bonnie Smith, DVM, DACVIM (Oncology)",
+          "Shirley Chu, DVM, PhD, DACVIM (Oncology)"
+        ],
+        "availability_note": "Referral required; the appointment confirmation specifies the veterinarian and hospital location",
+        "review_status": "partial",
+        "unresolved_questions": [
+          "Owner considers both Manchester and O’Fallon likely; current public pages do not establish clinician/treatment allocation by branch. No O’Fallon oncology row or new Manchester modality inferred."
+        ]
+      },
+      "checked_at": "2026-10-11",
+      "reviewed_at": "2026-10-11T19:00:07.985641-04:00"
+    },
+    "violet-crown-veterinary-specialists": {
+      "name": "Violet Crown Veterinary Specialists",
+      "branch_scope": "Bee Cave, TX 78738",
+      "status": "verified",
+      "confirmed_sources": [
+        "https://www.violetcrownvet.com/contact",
+        "https://www.violetcrownvet.com/team",
+        "https://www.violetcrownvet.com/oncology"
+      ],
+      "unresolved_questions": [],
+      "old_value": {
+        "name": "Violet Crown Veterinary Specialists",
+        "street": "14360 Falcon Head Blvd Ste. 140",
+        "city": "Bee Cave",
+        "region": "TX",
+        "postal_code": "78738",
+        "country": "USA",
+        "phone": "512.284.2877",
+        "website": "http://violetcrownvet.com",
+        "services": [
+          "Medical oncology"
+        ],
+        "latitude": 30.3337,
+        "longitude": -97.9824,
+        "source": "ACVIM VetSpecialists directory",
+        "verification_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=447b72e4-08c9-490d-85db-27495b796601",
+        "oncologist_count": 1
+      },
+      "new_value": {
+        "name": "Violet Crown Veterinary Specialists",
+        "street": "14360 Falcon Head Blvd Ste. 140",
+        "city": "Bee Cave",
+        "region": "TX",
+        "postal_code": "78738",
+        "country": "USA",
+        "phone": "512.284.2877",
+        "website": "https://www.violetcrownvet.com/",
+        "services": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Immunotherapy",
+          "Surgical oncology"
+        ],
+        "latitude": 30.3337,
+        "longitude": -97.9824,
+        "source": "A04 official branch reconciliation and owner-reviewed decisions, 2026-10-11",
+        "verification_url": "https://www.violetcrownvet.com/contact",
+        "source_id": "violet-crown-veterinary-specialists",
+        "last_verified": "2026-10-11",
+        "source_date": "2026-10-11",
+        "supporting_urls": [
+          "https://www.violetcrownvet.com/contact",
+          "https://www.violetcrownvet.com/team",
+          "https://www.violetcrownvet.com/oncology"
+        ],
+        "oncologists": [
+          "Amanda Brehm Dolan, DVM, DACVIM (Oncology)"
+        ],
+        "surgeons": [
+          "Katie Kennedy, DVM, MS, DACVS, ACVS Fellow — Surgical Oncology"
+        ],
+        "availability_note": "Contact the hospital to schedule specialty care. Radiation therapy is not available at this hospital; 24/7 walk-in access is for emergency care",
+        "review_status": "verified",
+        "unresolved_questions": [],
+        "oncologist_count": 1
+      },
+      "checked_at": "2026-10-11",
+      "reviewed_at": "2026-10-11T19:00:07.985641-04:00"
+    },
+    "waves-specialty-and-emergency": {
+      "name": "WAVES Specialty and Emergency",
+      "branch_scope": "San Leandro, CA 94578",
+      "status": "verified",
+      "confirmed_sources": [
+        "https://wavesvetcare.com/oncology/",
+        "https://wavesvetcare.com/radonco/",
+        "https://wavesvetcare.com/our-team/"
+      ],
+      "unresolved_questions": [],
+      "old_value": {
+        "name": "WAVES Specialty and Emergency",
+        "street": "14790 Washington Ave",
+        "city": "San Leandro",
+        "region": "CA",
+        "postal_code": "94578",
+        "country": "USA",
+        "phone": "510.462.2070",
+        "website": "https://wavesvetcare.com/",
+        "services": [
+          "Medical oncology"
+        ],
+        "latitude": 37.7024,
+        "longitude": -122.124,
+        "source": "ACVIM VetSpecialists directory",
+        "verification_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=0f4a4cc5-86f9-4fd6-92d7-b53bd123198f",
+        "oncologist_count": 1
+      },
+      "new_value": {
+        "name": "WAVES Specialty and Emergency",
+        "street": "14790 Washington Ave",
+        "city": "San Leandro",
+        "region": "CA",
+        "postal_code": "94578",
+        "country": "USA",
+        "phone": "510.462.2070",
+        "website": "https://wavesvetcare.com/",
+        "services": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Immunotherapy",
+          "Targeted therapy",
+          "Radiation oncology",
+          "Radiation therapy"
+        ],
+        "latitude": 37.7024,
+        "longitude": -122.124,
+        "source": "A04 official branch reconciliation and owner-reviewed decisions, 2026-10-11",
+        "verification_url": "https://wavesvetcare.com/oncology/",
+        "source_id": "waves-specialty-and-emergency",
+        "last_verified": "2026-10-11",
+        "source_date": "2026-10-11",
+        "supporting_urls": [
+          "https://wavesvetcare.com/oncology/",
+          "https://wavesvetcare.com/radonco/",
+          "https://wavesvetcare.com/our-team/"
+        ],
+        "oncologists": [
+          "Alana Kuzmik, DVM, DACVIM (Oncology)",
+          "Lyndsay Kubicek, DVM, DACVR (Radiation Oncology)",
+          "Ira Gordon, DVM, DACVR (Radiation Oncology)"
+        ],
+        "availability_note": "Specialty care by appointment Monday–Thursday, 8am–6pm",
+        "review_status": "verified",
+        "unresolved_questions": [],
+        "oncologist_count": 3
+      },
+      "checked_at": "2026-10-11",
+      "reviewed_at": "2026-10-11T19:00:07.985641-04:00"
+    },
+    "wcvm-veterinary-medical-centre": {
+      "name": "WCVM Veterinary Medical Centre",
+      "branch_scope": "Saskatoon, SK S7N 5B4",
+      "status": "verified",
+      "confirmed_sources": [
+        "https://vmc.usask.ca/services/oncology.php",
+        "https://vmc.usask.ca/services/oncology-radiation.php",
+        "https://vmc.usask.ca/about/contact-us.php",
+        "https://vmc.usask.ca/about/our-teams.php",
+        "https://vmc.usask.ca/about/emergency.php",
+        "https://wcvm.usask.ca/people/vmc/MEDoncology-list.json",
+        "https://wcvm.usask.ca/people/vmc/RADoncology-list.json"
+      ],
+      "unresolved_questions": [],
+      "old_value": {
+        "name": "WCVM Veterinary Medical Centre",
+        "street": "52 Campus Drive",
+        "city": "Saskatoon",
+        "region": "SK",
+        "postal_code": "S7N 5B4",
+        "country": "Canada",
+        "phone": "306-966-7126",
+        "website": "https://vmc.usask.ca/services/oncology.php",
+        "latitude": 52.1334,
+        "longitude": -106.6308,
+        "services": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Radiation oncology",
+          "Surgical oncology"
+        ],
+        "source": "Official WCVM Veterinary Medical Centre oncology and radiation-oncology pages; coordinates are an approximate campus address point",
+        "verification_url": "https://vmc.usask.ca/services/oncology.php",
+        "last_verified": "2026-10-05"
+      },
+      "new_value": {
+        "name": "WCVM Veterinary Medical Centre",
+        "street": "52 Campus Drive",
+        "city": "Saskatoon",
+        "region": "SK",
+        "postal_code": "S7N 5B4",
+        "country": "Canada",
+        "phone": "306-966-7126",
+        "website": "https://vmc.usask.ca/services/oncology.php",
+        "latitude": 52.1334,
+        "longitude": -106.6308,
+        "services": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Radiation oncology",
+          "Surgical oncology"
+        ],
+        "source": "A04 official branch reconciliation and owner-reviewed decisions, 2026-10-11",
+        "verification_url": "https://vmc.usask.ca/services/oncology.php",
+        "last_verified": "2026-10-11",
+        "source_id": "wcvm-veterinary-medical-centre",
+        "source_date": "2026-10-11",
+        "supporting_urls": [
+          "https://vmc.usask.ca/services/oncology.php",
+          "https://vmc.usask.ca/services/oncology-radiation.php",
+          "https://vmc.usask.ca/about/contact-us.php",
+          "https://vmc.usask.ca/about/our-teams.php",
+          "https://vmc.usask.ca/about/emergency.php",
+          "https://wcvm.usask.ca/people/vmc/MEDoncology-list.json",
+          "https://wcvm.usask.ca/people/vmc/RADoncology-list.json"
+        ],
+        "oncologists": [
+          "Valerie MacDonald-Dickinson — DACVIM (Oncology)",
+          "Monique Mayer — DACVR (Radiation Oncology)",
+          "Eric Walther — board-certified radiation oncology"
+        ],
+        "review_status": "verified",
+        "unresolved_questions": [],
+        "oncologist_count": 3
+      },
+      "checked_at": "2026-10-11",
+      "reviewed_at": "2026-10-11T19:00:07.985641-04:00"
+    },
+    "westbridge-veterinary-referral-hospital": {
+      "name": "Westbridge Veterinary Referral Hospital",
+      "branch_scope": "West Bridgewater, MA 02379",
+      "status": "verified",
+      "confirmed_sources": [
+        "https://www.westbridgevets.com/staff",
+        "https://www.westbridgevets.com/veterinary-specialists/internal-medicine",
+        "https://www.westbridgevets.com/veterinary-specialists/surgery"
+      ],
+      "unresolved_questions": [],
+      "old_value": {
+        "name": "Westbridge Veterinary Referral Hospital",
+        "street": "595 W Center Street",
+        "city": "West Bridgewater",
+        "region": "MA",
+        "postal_code": "02379",
+        "country": "USA",
+        "phone": "508-584-1600",
+        "website": "https://www.westbridgevets.com/",
+        "latitude": 42.01301641,
+        "longitude": -71.04991288,
+        "services": [
+          "Medical oncology",
+          "Chemotherapy"
+        ],
+        "source": "Official hospital page and specialist listing",
+        "verification_url": "https://www.westbridgevets.com/"
+      },
+      "new_value": {
+        "name": "Westbridge Veterinary Referral Hospital",
+        "street": "595 W Center Street",
+        "city": "West Bridgewater",
+        "region": "MA",
+        "postal_code": "02379",
+        "country": "USA",
+        "phone": "508-584-1600",
+        "website": "https://www.westbridgevets.com/",
+        "latitude": 42.01301641,
+        "longitude": -71.04991288,
+        "services": [
+          "Surgery"
+        ],
+        "source": "A04 official branch reconciliation and owner-reviewed decisions, 2026-10-11",
+        "verification_url": "https://www.westbridgevets.com/staff",
+        "source_id": "westbridge-veterinary-referral-hospital",
+        "last_verified": "2026-10-11",
+        "source_date": "2026-10-11",
+        "supporting_urls": [
+          "https://www.westbridgevets.com/staff",
+          "https://www.westbridgevets.com/veterinary-specialists/internal-medicine",
+          "https://www.westbridgevets.com/veterinary-specialists/surgery"
+        ],
+        "surgeons": [
+          "Forrest I. Townsend III, DVM, DACVS — surgeon"
+        ],
+        "oncologists": [],
+        "oncologist_count": 0,
+        "availability_note": "Tumor surgery is listed. Elective surgery requires a referral and consultation. No current medical-oncology or chemotherapy listing retained",
+        "owner_review_note": "Owner reviewed current roster and approved removing medical oncology/chemotherapy; preserve confirmed tumor surgery, surgeon without surgical-oncology credential.",
+        "review_status": "verified",
+        "unresolved_questions": []
+      },
+      "checked_at": "2026-10-11",
+      "reviewed_at": "2026-10-11T19:00:07.985641-04:00"
+    },
+    "yucca-veterinary-medical-center": {
+      "name": "Yucca Veterinary Medical Center",
+      "branch_scope": "Belen, NM 87002",
+      "status": "verified",
+      "confirmed_sources": [
+        "https://yuccavet.com/veterinary-oncology-belen-nm/",
+        "https://yuccavet.com/veterinarian-belen-nm/"
+      ],
+      "unresolved_questions": [],
+      "old_value": {
+        "name": "Yucca Veterinary Medical Center",
+        "street": "1837 Camino Del Llano",
+        "city": "Belen",
+        "region": "NM",
+        "postal_code": "87002",
+        "country": "USA",
+        "phone": "505-864-6001",
+        "website": "https://yuccavet.com/",
+        "latitude": 34.6511,
+        "longitude": -106.6952,
+        "services": [
+          "Local oncology care",
+          "Chemotherapy"
+        ],
+        "source": "Official hospital oncology page",
+        "verification_url": "https://yuccavet.com/veterinary-oncology-belen-nm/"
+      },
+      "new_value": {
+        "name": "Yucca Veterinary Medical Center",
+        "street": "1837 Camino Del Llano",
+        "city": "Belen",
+        "region": "NM",
+        "postal_code": "87002",
+        "country": "USA",
+        "phone": "505-864-6001",
+        "website": "https://yuccavet.com/",
+        "latitude": 34.6511,
+        "longitude": -106.6952,
+        "services": [
+          "Local oncology care",
+          "Chemotherapy"
+        ],
+        "source": "A04 official branch reconciliation and owner-reviewed decisions, 2026-10-11",
+        "verification_url": "https://yuccavet.com/veterinary-oncology-belen-nm/",
+        "source_id": "yucca-veterinary-medical-center",
+        "last_verified": "2026-10-11",
+        "source_date": "2026-10-11",
+        "supporting_urls": [
+          "https://yuccavet.com/veterinary-oncology-belen-nm/",
+          "https://yuccavet.com/veterinarian-belen-nm/"
+        ],
+        "clinicians": [
+          "Florian H. Sanchez, DVM",
+          "Brandon Jones, DVM",
+          "Chloe Reiter, DVM"
+        ],
+        "oncologist_count": 0,
+        "availability_note": "Call or request an oncology consultation online. Local cancer care is listed; board-certified oncology credentials are not established",
+        "review_status": "verified",
+        "unresolved_questions": []
+      },
+      "checked_at": "2026-10-11",
+      "reviewed_at": "2026-10-11T19:00:07.985641-04:00"
+    }
+  }
+}

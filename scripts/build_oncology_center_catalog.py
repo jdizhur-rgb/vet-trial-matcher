@@ -50,6 +50,9 @@ NONCLINICAL_ORGANIZATIONS = {
     "joyful riches beyond grief", "n a", "self employed", "zoetis",
 }
 EXCLUDED_PROFILE_IDS = {
+    # A04: Allstadt returned to VSNT Fort Worth; preserve the current UTSW
+    # treatment site in supplemental without stale VSNT/medical-oncologist identity.
+    "68de357e-56dd-413b-88c1-b9d3fcd7466c",
     # A02: preserve raw evidence; retired Hammer and Breit's stale Renton
     # location must not reappear. Current NWVOS host locations are supplemental.
     "e59ef28d-0075-484b-9c12-b7b709decbc1",  # Hammer retired (owner decision)
