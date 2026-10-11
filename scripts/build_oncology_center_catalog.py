@@ -50,6 +50,10 @@ NONCLINICAL_ORGANIZATIONS = {
     "joyful riches beyond grief", "n a", "self employed", "zoetis",
 }
 EXCLUDED_PROFILE_IDS = {
+    # A02: preserve raw evidence; retired Hammer and Breit's stale Renton
+    # location must not reappear. Current NWVOS host locations are supplemental.
+    "e59ef28d-0075-484b-9c12-b7b709decbc1",  # Hammer retired (owner decision)
+    "832cface-e0f4-405b-a7c4-34ce3d5ad40b",  # Breit now at partner hospitals
     # A01 owner-approved reconciliation, 2026-10-11. Preserve raw profiles;
     # supplemental retains current treatment sites or mobile service areas.
     "738a7647-a210-47c7-93a3-05eda2d9a580",  # Four Seasons old 3120 address
@@ -365,6 +369,10 @@ def main() -> None:
         if existing:
             supplemental_matched += 1
             existing.update({key: value for key, value in candidate.items() if key not in {"latitude", "longitude"}})
+            if candidate.get("replace_coordinates") or candidate.get("location_type") == "mobile":
+                # Address corrections and mobile conversions must replace the
+                # old coordinate point as well as the displayed address.
+                existing.update({key: coordinates[key] for key in ("latitude", "longitude")})
         else:
             supplemental_added += 1
             centers.append(candidate)
