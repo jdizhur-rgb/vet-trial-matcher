@@ -44,12 +44,21 @@ def first(pattern: str, page: str) -> str:
 def address_parts(value: str) -> tuple[str, str, str, str]:
     parts = [x.strip() for x in re.split(r"\s{2,}", value) if x.strip()]
     if len(parts) < 2:
+        # These two branch pages publish a single-space address with the
+        # suite before the locality. The suite boundary makes it unambiguous.
+        match = re.fullmatch(r"(.+?)\s+((?:Suite|Ste\.?|Unit)\s+\S+)\s+(.+?)\s+([A-Z]{2})\s+(\d{5})(?:-\d{4})?", value.strip(), re.I)
+        if match:
+            return " ".join(match.group(1, 2)), match.group(3), match.group(4).upper(), match.group(5)
         return "", "", "", ""
-    locality = parts[-1]
-    match = re.match(r"(.+?)\s+([A-Z]{2})\s+(\d{5})(?:-\d{4})?$", locality)
-    if not match:
-        return "", "", "", ""
-    return " ".join(parts[:-1]), match.group(1), match.group(2), match.group(3)
+    # VCA sometimes places a suite after the city/state/postcode block.
+    # Find the locality block rather than assuming it is the last block.
+    for index, locality in enumerate(parts):
+        match = re.fullmatch(r"(.+?)\s+([A-Z]{2})\s+(\d{5})(?:-\d{4})?", locality)
+        if match:
+            street = " ".join(parts[:index] + parts[index + 1:])
+            return street, match.group(1), match.group(2), match.group(3)
+    return "", "", "", ""
+
 
 
 def services_for(urls: list[str]) -> list[str]:
