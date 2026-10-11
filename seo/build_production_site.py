@@ -14,6 +14,7 @@ import center_directory
 from production_aliases import apply_aliases
 from site_config import DOMAIN, SITE
 from center_url_redirects import preserve_center_urls
+from retained_center_profiles import restore_center_profiles
 
 apply_aliases(center_directory)
 
@@ -220,6 +221,7 @@ def main():
         text = re.sub(r'<section class="share-panel">.*?</section>', '', text, count=1, flags=re.S)
         home.write_text(text, encoding="utf-8")
     integrate_about(out)
+    restore_center_profiles(out, rows)
     preserve_center_urls(out)
     (out / "CNAME").write_text(f"{DOMAIN}\n", encoding="utf-8")
 
