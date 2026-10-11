@@ -459,3 +459,8 @@ Westbridge lists tumor removals/oncologic procedures; the owner approved surgery
 ## Explore navigation — 2026-10-11
 
 The owner approved direct Advanced treatments and Genomic tests links in the shared Explore menu, targeting `/matcher/advanced/` and `/matcher/genomic-tests/`. Remove Browse clinical trials, which duplicated the About clinical trials destination. Keep the separate Other treatments overview and existing navigation behavior.
+
+
+## Focused molecular cancer tests — 2026-10-11
+
+Owner approved CADET BRAF/BRAF-PLUS and LABOKLIN c-KIT as two service cards under Genomic tests. CADET is urine-based canine bladder/prostate testing, grouped once across verified USA/Canada/UK access. LABOKLIN sequences KIT exons 8/9/11 from canine mast-cell tumor tissue, with verified Europe/UK access. Keep diagnosis-specific filter tags and limitations; neither is a broad pan-cancer panel or proof of drug benefit. The page now has six cards; update both production count gates together.
