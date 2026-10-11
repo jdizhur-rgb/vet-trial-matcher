@@ -38,6 +38,7 @@ FILTER_GROUPS = {
     },
     "Cancer surgery": {"Surgery", "Surgical oncology"},
     "Electrochemotherapy": {"ECT", "Electrochemotherapy"},
+    "Tumour specific electroporation (TSE)": {"Tumour specific electroporation (TSE)"},
     "Immunotherapy": {"Immunotherapy", "ELIAS ECI", "ONCEPT", "T-cell therapy"},
     "Targeted therapy": {"Targeted therapy"},
     "Interventional radiology": {"Interventional radiology"},

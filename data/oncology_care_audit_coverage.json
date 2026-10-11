@@ -7,10 +7,10 @@
   "actual_invocation": "Sunday manual invocation",
   "ended_at": null,
   "status": "IN_PROGRESS",
-  "source_total": 509,
+  "source_total": 510,
   "original_source_total": 487,
-  "attempted_total": 54,
-  "content_sufficient_total": 80,
+  "attempted_total": 63,
+  "content_sufficient_total": 99,
   "sources": [
     {
       "source_id": "405-vet-animal-hospital",
@@ -247,8 +247,8 @@
       "before_last_checked": "2026-10-11",
       "before_last_checked_at": "2026-10-11T07:29:17.953870-04:00",
       "after_last_checked": "2026-10-11",
-      "after_last_checked_at": "2026-10-11T07:29:17.953870-04:00",
-      "opened_this_run": false,
+      "after_last_checked_at": "2026-10-11T15:19:17.783013-04:00",
+      "opened_this_run": true,
       "attempted_urls": [
         {
           "url": "https://www.avscvets.com/",
@@ -280,19 +280,87 @@
           "evidence_file": "inventory-web-fallback-1.json",
           "semantic_review": "fallback may be cached or empty; not blanket success",
           "inherited_visit": true
+        },
+        {
+          "url": "https://www.avscvets.com/assets/MedicalOncology-DYOJ2Iw4.js",
+          "attempted_at": "2026-10-11T15:13:02.030974-04:00",
+          "method": "shell.urllib + static published client route reading; no execution",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "6376263f3894443a3f7a6d0b8c7fa455d35742cd2cf333abf4ac4b72bfd7098f",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/74e2028785f3af8c28.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
+        },
+        {
+          "url": "https://www.avscvets.com/assets/About-CBBb65iV.js",
+          "attempted_at": "2026-10-11T15:13:09.597193-04:00",
+          "method": "shell.urllib + static published client route reading; no execution",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "afe29dbdb3fdc6f7470e72b4e647f1710ce7548e12ce167f899912775b1147c8",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/9e2e32269c52c4b7d2.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
+        },
+        {
+          "url": "https://www.avscvets.com/assets/OurDoctors-CH3HkPQO.js",
+          "attempted_at": "2026-10-11T15:19:13.779684-04:00",
+          "method": "shell.urllib + static published client route reading; no execution",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "62d7b660bd813da5e4afd11322e2a2f73a52d2bd43e3eeb6704e3bab22083b37",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/a8f513ff2b83d76b72.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
+        },
+        {
+          "url": "https://www.avscvets.com/assets/Appointments-DLOgdMYj.js",
+          "attempted_at": "2026-10-11T15:19:17.783013-04:00",
+          "method": "shell.urllib + static published client route reading; no execution",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "394e755c30e8a33e2678de1016af5b82f48d574fff6d0aa23274c93a72c609dd",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/851f1c5efd679dc84a.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
+        },
+        {
+          "url": "https://www.avscvets.com/assets/RadiationOncology-ChbLOZz2.js",
+          "attempted_at": "2026-10-11T15:13:05.536722-04:00",
+          "method": "shell.urllib + static published client route reading; no execution",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "b53a670a406bcdd766ca795c02daf68b7f2f994c8c6b8be43f89c323ad63b1ca",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/830b7507f88ba387e5.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
+        },
+        {
+          "url": "https://www.avscvets.com/assets/OurTeam-NGSNCz_k.js",
+          "attempted_at": "2026-10-11T15:13:13.075261-04:00",
+          "method": "shell.urllib + static published client route reading; no execution",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "1779dbe6924d39556d1a42ca299a641db95c97ce6c5c7e398bd5b57413a40e3b",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/1bc992e770dd6c73f1.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
         }
       ],
-      "master_result": "partial",
-      "content_sufficient": false,
+      "master_result": "success",
+      "content_sufficient": true,
       "protocols_seen": null,
       "route_used": "https://www.avscvets.com/",
       "care_service_count": null,
       "count_semantics": "individual care-service source, not a trial protocol",
-      "processing_complete": false,
+      "processing_complete": true,
       "inherited_content_sufficient": false,
       "before_last_result": "partial",
-      "reviewed_this_resume": false,
-      "visit_date_changed": false
+      "reviewed_this_resume": true,
+      "visit_date_changed": true,
+      "semantic_review_file": "research/audit-runs/care-batched-20261011T143110-0400/reviews.json",
+      "review_note": "Current published client route modules were read statically, without execution. Medical oncology explicitly offers traditional/metronomic chemotherapy, ECT and immunotherapy at Walpole. Radiation route explicitly confirms on-site TrueBeam, IMRT and stereotactic treatment. Current roster names Keyerleber DACVR RO and Walz dual DACVIM/DACVR; Segaloff is DVM without an asserted board credential. Walz historical VMAT experience is not branch capability proof. Current address 2250A and telephone 5089211018 retained. Specialty appointments usually require referring-vet records; no forms submitted."
     },
     {
       "source_id": "allied-veterinary-emergency-referral",
@@ -637,7 +705,7 @@
       "before_last_checked": "2026-10-11",
       "before_last_checked_at": "2026-10-11T08:54:47.502357-04:00",
       "after_last_checked": "2026-10-11",
-      "after_last_checked_at": "2026-10-11T08:54:47.502357-04:00",
+      "after_last_checked_at": "2026-10-11T14:55:19.726130-04:00",
       "opened_this_run": true,
       "attempted_urls": [
         {
@@ -674,6 +742,16 @@
           "inherited_visit": false,
           "outcome": "captured_for_review",
           "semantic_review": "pending unless separately adjudicated in reviews.json"
+        },
+        {
+          "url": "https://pearlandvetreferral.com/referrals/",
+          "attempted_at": "2026-10-11T14:55:19.726130-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/e9bbf9c1b862e0950d.json",
+          "inherited_visit": false,
+          "semantic_review": "Physical location reconciled; branch modality scope unresolved"
         }
       ],
       "master_result": "partial",
@@ -686,7 +764,9 @@
       "inherited_content_sufficient": false,
       "before_last_result": "partial",
       "reviewed_this_resume": false,
-      "visit_date_changed": false
+      "visit_date_changed": true,
+      "review_note": "ACRC prior Pearland location has moved: preserved full official historical referral page explicitly states relocation; current master/contact/referral pages list only Woodlands and Texas Medical Center. Current Parsons-Doherty biography explicitly dates second TMC opening to2026; footer NOW OPEN and77030 resolve stale contact-body COMING SOON/77380. Current Kaiser/Parsons-Doherty roster and public referrals confirm access. Consolidate old Pearland with existing Woodlands representation, correct Oak Ridger typo and phone, add TMC as separate physical center. Practice-wide chemotherapy/immunotherapy/surgery are published, but branch-specific delivery is not resolved: retain Medical oncology only pending branch-level confirmation. Radiation introduction has no unambiguous local equipment/provider scope; do not propagate to either branch.",
+      "semantic_review_file": "research/audit-runs/care-batched-20261011T143110-0400/reviews.json"
     },
     {
       "source_id": "animal-cancer-care-clinic",
@@ -1030,7 +1110,7 @@
       "before_last_checked": "2026-10-11",
       "before_last_checked_at": "2026-10-11T08:36:58.122625-04:00",
       "after_last_checked": "2026-10-11",
-      "after_last_checked_at": "2026-10-11T08:36:58.122625-04:00",
+      "after_last_checked_at": "2026-10-11T14:55:19.619579-04:00",
       "opened_this_run": true,
       "attempted_urls": [
         {
@@ -1079,19 +1159,32 @@
           "inherited_visit": false,
           "outcome": "captured_for_review",
           "semantic_review": "pending unless separately adjudicated in reviews.json"
+        },
+        {
+          "url": "https://eliasanimalhealth.com/available-locations/",
+          "attempted_at": "2026-10-11T14:55:19.619579-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "e8191da88a3c9f14963ecb7ae33e42555d072b7c95114f76f25c844f79b1bedf",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/3160b636fabc6b5db6.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
         }
       ],
-      "master_result": "partial",
-      "content_sufficient": false,
+      "master_result": "success",
+      "content_sufficient": true,
       "protocols_seen": null,
       "route_used": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=c37b46a7-d25f-4a47-8130-942d5cade3ca",
       "care_service_count": null,
       "count_semantics": "individual care-service source, not a trial protocol",
-      "processing_complete": false,
+      "processing_complete": true,
       "inherited_content_sufficient": false,
       "before_last_result": "partial",
-      "reviewed_this_resume": false,
-      "visit_date_changed": false
+      "reviewed_this_resume": true,
+      "visit_date_changed": true,
+      "semantic_review_file": "research/audit-runs/care-batched-20261011T143110-0400/reviews.json",
+      "review_note": "Monterey official chemotherapy body explicitly advertises ECT and consultation access; immunotherapy page names ONCEPT. Current contact and Theresa Arteaga DACVIM biography match physical site. ELIAS sponsor locator independently confirms this exact Monterey provider for ECI; older clinic wording alone was not treated as ECI proof. Targeted therapy retained. No unsupported success-rate claims or FidoCure test-as-treatment copied."
     },
     {
       "source_id": "animal-cancer-center-of-texas",
@@ -1184,7 +1277,7 @@
       "before_last_checked": "2026-10-11",
       "before_last_checked_at": "2026-10-11T08:55:36.354231-04:00",
       "after_last_checked": "2026-10-11",
-      "after_last_checked_at": "2026-10-11T08:55:36.354231-04:00",
+      "after_last_checked_at": "2026-10-11T14:37:45.958145-04:00",
       "opened_this_run": true,
       "attempted_urls": [
         {
@@ -1281,19 +1374,43 @@
           "inherited_visit": false,
           "outcome": "captured_for_review",
           "semantic_review": "pending unless separately adjudicated in reviews.json"
+        },
+        {
+          "url": "https://www.veterinarycancer.com/surgery",
+          "attempted_at": "2026-10-11T14:37:45.958145-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "a71000bb35b4281496e71eea89cee396f2bc583ac8284cdfae3d4571bbfd8fcb",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/50e64a06a0e3dcda83.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
+        },
+        {
+          "url": "https://www.veterinarycancer.com/radiation-therapy",
+          "attempted_at": "2026-10-11T14:37:43.001869-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "12627ca23bc1660741eab335e8ab2cede31be68b2be1c74a6f6d03b1e2e2d1f1",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/c93c0e1fe8623a413b.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
         }
       ],
-      "master_result": "partial",
-      "content_sufficient": false,
+      "master_result": "success",
+      "content_sufficient": true,
       "protocols_seen": null,
       "route_used": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=a65064ae-9e7d-49af-a459-e53a5afba487",
       "care_service_count": null,
       "count_semantics": "individual care-service source, not a trial protocol",
-      "processing_complete": false,
+      "processing_complete": true,
       "inherited_content_sufficient": false,
       "before_last_result": "partial",
-      "reviewed_this_resume": false,
-      "visit_date_changed": false
+      "reviewed_this_resume": true,
+      "visit_date_changed": true,
+      "semantic_review_file": "research/audit-runs/care-batched-20261011T143110-0400/reviews.json",
+      "review_note": "ACIC contact matches Canton48187; correct missing phone and North street qualifier. Current staff pages identify Joyce Obradovich ACVIM oncology, Susan LaRue radiation program director and Christine Warzee ACVS surgical oncology. Service bodies explicitly describe chemotherapy administration, linear accelerator at ACIC, major oncologic surgeries performed at ACIC, appointment schedule and postoperative care. No unmentioned SRT/IMRT/ECT inferred."
     },
     {
       "source_id": "animal-center-for-emergency-and-specialty",
@@ -1302,7 +1419,7 @@
       "before_last_checked": "2026-10-11",
       "before_last_checked_at": "2026-10-11T08:36:51.712860-04:00",
       "after_last_checked": "2026-10-11",
-      "after_last_checked_at": "2026-10-11T08:36:51.712860-04:00",
+      "after_last_checked_at": "2026-10-11T14:33:00.051662-04:00",
       "opened_this_run": true,
       "attempted_urls": [
         {
@@ -1341,17 +1458,19 @@
           "semantic_review": "pending unless separately adjudicated in reviews.json"
         }
       ],
-      "master_result": "partial",
-      "content_sufficient": false,
+      "master_result": "success",
+      "content_sufficient": true,
       "protocols_seen": null,
       "route_used": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=18ff3424-fcee-4980-a37c-42f6058eeda5",
       "care_service_count": null,
       "count_semantics": "individual care-service source, not a trial protocol",
-      "processing_complete": false,
+      "processing_complete": true,
       "inherited_content_sufficient": false,
       "before_last_result": "partial",
-      "reviewed_this_resume": false,
-      "visit_date_changed": false
+      "reviewed_this_resume": true,
+      "visit_date_changed": true,
+      "semantic_review_file": "research/audit-runs/care-batched-20261011T143110-0400/reviews.json",
+      "review_note": "ACES current oncology page gives board-certified Breann Sommer, injectable chemotherapy at the clinic, oral chemotherapy and immunotherapy under services offered. Limited cancer surgery performed by general team; explicitly no boarded surgeon and complex surgery referral. Classify Surgery, not specialist Surgical oncology. Radiation referral only. Published Mon-Thu oncology schedule and booking route match Madison53718. Remove organization text from street."
     },
     {
       "source_id": "animal-emergency-and-specialty-clinic",
@@ -1360,7 +1479,7 @@
       "before_last_checked": "2026-10-11",
       "before_last_checked_at": "2026-10-11T08:56:29.646344-04:00",
       "after_last_checked": "2026-10-11",
-      "after_last_checked_at": "2026-10-11T08:56:29.646344-04:00",
+      "after_last_checked_at": "2026-10-11T14:57:30.256570-04:00",
       "opened_this_run": true,
       "attempted_urls": [
         {
@@ -1421,19 +1540,65 @@
           "inherited_visit": false,
           "outcome": "captured_for_review",
           "semantic_review": "pending unless separately adjudicated in reviews.json"
+        },
+        {
+          "url": "https://www.aescparker.com/staff",
+          "attempted_at": "2026-10-11T14:57:25.749684-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "14c718269ca6cbd46f3ea3fa7e89e3cef96e703e510d91ec824766f3b652ae90",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/6cc4f808a13ba97298.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
+        },
+        {
+          "url": "https://www.aescparker.com/staff/janet-lori",
+          "attempted_at": "2026-10-11T14:57:30.169023-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "955b00ddbf4a1f3ab2f4dd7c5b9a7dd8b42e03ecaf8dfbf99e2f40b1999217d1",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/1fb569db7996f54fae.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
+        },
+        {
+          "url": "https://www.aescparker.com/services/oncology",
+          "attempted_at": "2026-10-11T14:57:25.749130-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "11013d0dc864aacb0ca0cd38b2efa372bbc27c3c5b6614e5e2df44a70ddd139b",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/85e3eaa7ed18d1327f.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
+        },
+        {
+          "url": "https://www.aescparker.com/contact-us",
+          "attempted_at": "2026-10-11T14:57:30.256570-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "8e69f934e020e85d850a5fbfea24a6764db63488a96a472145e4e4a427cb8ff9",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/c056adbb6a53100e4b.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
         }
       ],
-      "master_result": "partial",
-      "content_sufficient": false,
+      "master_result": "success",
+      "content_sufficient": true,
       "protocols_seen": null,
       "route_used": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=cc1c69c3-929f-48ce-ad0d-de87cd67ee71",
       "care_service_count": null,
       "count_semantics": "individual care-service source, not a trial protocol",
-      "processing_complete": false,
+      "processing_complete": true,
       "inherited_content_sufficient": false,
       "before_last_result": "partial",
-      "reviewed_this_resume": false,
-      "visit_date_changed": false
+      "reviewed_this_resume": true,
+      "visit_date_changed": true,
+      "semantic_review_file": "research/audit-runs/care-batched-20261011T143110-0400/reviews.json",
+      "review_note": "AESC Parker profile linked unrelated VSS Missouri site. Independently resolved true entity via exact Janet Lori biography/current Parker roster and unchanged17701 Cottonwood80134. Current primary service body confirms local chemotherapy and tumor removal with boarded surgeons, active consultation route and phone. Janet Lori DACVIM oncology2010 and Molly Gasparini on current oncology team. Unrelated VSS facts are not applied to Colorado; no radiation inferred."
     },
     {
       "source_id": "animal-emergency-referral-associates",
@@ -1442,8 +1607,8 @@
       "before_last_checked": "2026-10-11",
       "before_last_checked_at": "2026-10-11T08:52:15.025317-04:00",
       "after_last_checked": "2026-10-11",
-      "after_last_checked_at": "2026-10-11T08:52:15.025317-04:00",
-      "opened_this_run": false,
+      "after_last_checked_at": "2026-10-11T14:55:14.833986-04:00",
+      "opened_this_run": true,
       "attempted_urls": [
         {
           "url": "https://www.animalerc.com/services/radiation-oncology",
@@ -1467,19 +1632,43 @@
           "evidence_file": "research/audit-runs/care-resume-20261011T083538-0400/pages/2ae021b2bfe5c4c801.json",
           "inherited_visit": true,
           "semantic_review": "Clinical verification or explicit pending status in semantic-reconciliation.json"
+        },
+        {
+          "url": "https://www.aeravet.com/staff",
+          "attempted_at": "2026-10-11T14:55:14.833986-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "b544ed27394b3f7bd117cc3cf8c15071e9cdc7586c66dbd3e296d003e8b0b3bc",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/9f1f358458f62d0ffd.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
+        },
+        {
+          "url": "https://www.aeravet.com/services/radiation-oncology",
+          "attempted_at": "2026-10-11T14:55:14.833260-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "11cf12d76a2d8390e68d63e755fbe3c4cccaa846d2a77fccbcfbd222425db5a3",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/2c2c9da26021bf4270.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
         }
       ],
-      "master_result": "partial",
-      "content_sufficient": false,
+      "master_result": "success",
+      "content_sufficient": true,
       "protocols_seen": null,
       "route_used": "https://www.animalerc.com/services/radiation-oncology",
       "care_service_count": null,
       "count_semantics": "individual care-service source, not a trial protocol",
-      "processing_complete": false,
+      "processing_complete": true,
       "inherited_content_sufficient": false,
       "before_last_result": "partial",
-      "reviewed_this_resume": false,
-      "visit_date_changed": false
+      "reviewed_this_resume": true,
+      "visit_date_changed": true,
+      "semantic_review_file": "research/audit-runs/care-batched-20261011T143110-0400/reviews.json",
+      "review_note": "Old animalerc service URL lands on home and is not service proof. Actual current aeravet department page confirms West Caldwell975 Bloomfield07006 phone973-788-0500, Theodore Chang DACVR radiation oncology, Varian Halcyon linear accelerator and SRT protocols. Current staff corroborates Chang. Add SRT and correct source URL; generic mentions of surgery/chemotherapy are not standalone service additions."
     },
     {
       "source_id": "animal-emergency-referral-center-of-minnesota-oakdale",
@@ -1539,17 +1728,19 @@
           "semantic_review": "pending unless separately adjudicated in reviews.json"
         }
       ],
-      "master_result": "partial",
-      "content_sufficient": false,
+      "master_result": "success",
+      "content_sufficient": true,
       "protocols_seen": null,
       "route_used": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=14f1c4b0-fa4c-4ff6-b572-bd789a880853",
       "care_service_count": null,
       "count_semantics": "individual care-service source, not a trial protocol",
-      "processing_complete": false,
+      "processing_complete": true,
       "inherited_content_sufficient": false,
       "before_last_result": "partial",
-      "reviewed_this_resume": false,
-      "visit_date_changed": false
+      "reviewed_this_resume": true,
+      "visit_date_changed": false,
+      "semantic_review_file": "research/audit-runs/care-batched-20261011T143110-0400/reviews.json",
+      "review_note": "AERC current service explicitly assigns oncology to Oakdale1160 Helmo55128 and offers chemotherapy, ECT, boarded surgical treatment and oral-melanoma immunotherapy. Current team includes Briana Keller DACVIM Oncology; ECT already present, retained. St Paul is emergency/urgent care, not copied oncology. Radiation explicitly not on-site. No vaccine brand assumed. Current appointment/referral access and phone match."
     },
     {
       "source_id": "animal-emergency-specialty-center-knoxville",
@@ -1558,7 +1749,7 @@
       "before_last_checked": "2026-10-11",
       "before_last_checked_at": "2026-10-11T08:52:15.090321-04:00",
       "after_last_checked": "2026-10-11",
-      "after_last_checked_at": "2026-10-11T08:52:15.090321-04:00",
+      "after_last_checked_at": "2026-10-11T14:56:26.037671-04:00",
       "opened_this_run": true,
       "attempted_urls": [
         {
@@ -1595,19 +1786,43 @@
           "inherited_visit": false,
           "outcome": "captured_for_review",
           "semantic_review": "pending unless separately adjudicated in reviews.json"
+        },
+        {
+          "url": "https://animalerspecialty.com/surgery/",
+          "attempted_at": "2026-10-11T14:56:26.037671-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "a8e7d5400c0038a694a4dff2cd463c045adb1a9df25fa524faa1b9efe9fc3e9f",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/faebee2ff846487cfd.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
+        },
+        {
+          "url": "https://animalerspecialty.com/our-doctors/",
+          "attempted_at": "2026-10-11T14:56:26.037115-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "b8bec1c055a2ca0bcd003bce50555e59dd91f05660819685cb0266b7418da9f1",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/dab33fb23ab7fcbd7e.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
         }
       ],
-      "master_result": "partial",
-      "content_sufficient": false,
+      "master_result": "success",
+      "content_sufficient": true,
       "protocols_seen": null,
       "route_used": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=521ba531-a576-4db3-a534-74db43ec7986",
       "care_service_count": null,
       "count_semantics": "individual care-service source, not a trial protocol",
-      "processing_complete": false,
+      "processing_complete": true,
       "inherited_content_sufficient": false,
       "before_last_result": "partial",
-      "reviewed_this_resume": false,
-      "visit_date_changed": false
+      "reviewed_this_resume": true,
+      "visit_date_changed": true,
+      "semantic_review_file": "research/audit-runs/care-batched-20261011T143110-0400/reviews.json",
+      "review_note": "Knoxville official oncology body describes services provided by Jeff Phillips board-certified oncology team including chemotherapy/radiation/immunotherapy; branch10213 Kingston37922 and phone confirmed. Current doctor and surgical service pages confirm Mark Bohling DACVS and Megan Mitchell DACVS-SA, surgical oncology/mass removal/biopsy performed here. Generic trial availability does not establish a specific trial, and no advanced radiation modality or ECT is assumed."
     },
     {
       "source_id": "animal-medical-center-of-seattle",
@@ -1616,7 +1831,7 @@
       "before_last_checked": "2026-10-11",
       "before_last_checked_at": "2026-10-11T08:36:58.438033-04:00",
       "after_last_checked": "2026-10-11",
-      "after_last_checked_at": "2026-10-11T08:36:58.438033-04:00",
+      "after_last_checked_at": "2026-10-11T14:55:14.834445-04:00",
       "opened_this_run": true,
       "attempted_urls": [
         {
@@ -1664,19 +1879,32 @@
           "inherited_visit": false,
           "outcome": "captured_for_review",
           "semantic_review": "pending unless separately adjudicated in reviews.json"
+        },
+        {
+          "url": "https://www.animalmedicalspecialists.com/services/oncology",
+          "attempted_at": "2026-10-11T14:55:14.834445-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "269e3dc690847f099da94afbef5dd2a136d47d161937bc2b5637a856355ea703",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/3eccfb7aa9e9d1d731.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
         }
       ],
-      "master_result": "partial",
-      "content_sufficient": false,
+      "master_result": "success",
+      "content_sufficient": true,
       "protocols_seen": null,
       "route_used": "https://animalmedicalspecialists.com/services/oncology",
       "care_service_count": null,
       "count_semantics": "individual care-service source, not a trial protocol",
-      "processing_complete": false,
+      "processing_complete": true,
       "inherited_content_sufficient": false,
       "before_last_result": "partial",
-      "reviewed_this_resume": false,
-      "visit_date_changed": false
+      "reviewed_this_resume": true,
+      "visit_date_changed": true,
+      "semantic_review_file": "research/audit-runs/care-batched-20261011T143110-0400/reviews.json",
+      "review_note": "Current AMCS oncology and staff confirm Brittany Evans DVM MS DACVIM, local chemotherapy,17518 15th Ave NE Shoreline98155 and206-204-3366. Radiation is referrals, surgery consultation and unspecified novel therapies do not establish new on-site modalities. Existing medical oncology/chemotherapy retained; use working www clinical URL instead of naked-domain route that returned home."
     },
     {
       "source_id": "animal-oncology-consults",
@@ -1685,8 +1913,8 @@
       "before_last_checked": "2026-10-11",
       "before_last_checked_at": "2026-10-11T07:05:18.243410-04:00",
       "after_last_checked": "2026-10-11",
-      "after_last_checked_at": "2026-10-11T07:05:18.243410-04:00",
-      "opened_this_run": false,
+      "after_last_checked_at": "2026-10-11T15:06:03.553646-04:00",
+      "opened_this_run": true,
       "attempted_urls": [
         {
           "url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=1dabc90a-3f69-4fd4-b4a5-4d2d8114ae39",
@@ -1698,19 +1926,54 @@
           "fingerprint_sha256": "ca6d171e0a6fe148e6e3a17684b386cb024c7019c9362df286bbd5090c1b909b",
           "semantic_review": "not completed",
           "inherited_visit": true
+        },
+        {
+          "url": "https://bluepearlvet.com/hospital/olympia-wa/our-vets/",
+          "attempted_at": "2026-10-11T15:03:45.243180-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "d7db89829096381213dd4ad6583c2d8ca64a1fb075554a221027a99cba854fda",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/2977e0afcc6d087401.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
+        },
+        {
+          "url": "https://bluepearlvet.com/hospital/olympia-wa-oncology/",
+          "attempted_at": "2026-10-11T15:06:03.553113-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "9db04bdb9a55eb289507549ac0d81f84cd7f2ee792cc723e81c2b35755242af2",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/dccf077f9c862d548c.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
+        },
+        {
+          "url": "https://bluepearlvet.com/hospital/olympia-wa/specialties-services/oncology/",
+          "attempted_at": "2026-10-11T15:06:03.553646-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "bf402dc4359a11722c428e74c3e1b3f1b187298684d6020cddc299ab27e605af",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/7226a399352db7ce54.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
         }
       ],
-      "master_result": "partial",
-      "content_sufficient": false,
+      "master_result": "success",
+      "content_sufficient": true,
       "protocols_seen": null,
       "route_used": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=1dabc90a-3f69-4fd4-b4a5-4d2d8114ae39",
       "care_service_count": null,
       "count_semantics": "individual care-service source, not a trial protocol",
-      "processing_complete": false,
+      "processing_complete": true,
       "inherited_content_sufficient": false,
       "before_last_result": "partial",
-      "reviewed_this_resume": false,
-      "visit_date_changed": false
+      "reviewed_this_resume": true,
+      "visit_date_changed": true,
+      "semantic_review_file": "research/audit-runs/care-batched-20261011T143110-0400/reviews.json",
+      "review_note": "Resolve historical115 Eastside Olympia cancer practice representation with OVS successor. Company-owned OVS public profile identifies old115 Eastside cancer location; official old Olympia oncology URL redirects to current BluePearl Olympia. Official current master explicitly confirms OVS acquisition2023 and hospital move2024;2432 Heritage98502 phone360-810-8885. Current local oncology lists chemotherapy/surgery and residency-trained Rebecca Weiske/Caitlin Yung, not Lisa Parshley. Do not imply current Parshley employment or boarded status. Exclude stale physical ACVIM profile and consolidate existing current BluePearl; generic network FAQ radiation not local equipment proof."
     },
     {
       "source_id": "animal-samaritans",
@@ -1719,7 +1982,7 @@
       "before_last_checked": "2026-10-11",
       "before_last_checked_at": "2026-10-11T08:36:59.396093-04:00",
       "after_last_checked": "2026-10-11",
-      "after_last_checked_at": "2026-10-11T08:36:59.396093-04:00",
+      "after_last_checked_at": "2026-10-11T15:06:03.554646-04:00",
       "opened_this_run": true,
       "attempted_urls": [
         {
@@ -1756,19 +2019,76 @@
           "inherited_visit": false,
           "outcome": "captured_for_review",
           "semantic_review": "pending unless separately adjudicated in reviews.json"
+        },
+        {
+          "url": "https://vetiqure.com/our-products/",
+          "attempted_at": "2026-10-11T15:02:54.698534-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "2336489bf6939021dd5df91752be58ab649d704e62943d8cc6ee49007f17f8cf",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/bdd94540c58591c888.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
+        },
+        {
+          "url": "https://animalsamaritans.org/contact-us",
+          "attempted_at": "2026-10-11T15:06:03.554646-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "e350358043b580aaa6a24f8ea5ee3abbabf3dccfe24e1b9f0a56ba8013160132",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/86c4d4ab29d2d6306a.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
+        },
+        {
+          "url": "https://animalsamaritans.org/about-our-clinics",
+          "attempted_at": "2026-10-11T15:03:45.241940-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "1c4eb85633e320416e00235862ba16b988ae9eba862e179b8b0a6620a74b55fe",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/cdc84e639b089e94d1.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
+        },
+        {
+          "url": "https://animalsamaritans.org/media/a-new-home-for-pet-oncology",
+          "attempted_at": "2026-10-11T15:06:03.554078-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "f4657bb9d99a440f0f3462e86be38bdb7bf87a6008fee047b61c10c4c04c49ac",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/e6b7be65966158e430.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
+        },
+        {
+          "url": "https://animalsamaritans.org/veterinary-specialists",
+          "attempted_at": "2026-10-11T15:02:54.698010-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "bcf89cb759e6880cb88bd493007564732eddac83b2a2e8b3de433e191b98c472",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/4cd3f549289cfae422.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
         }
       ],
-      "master_result": "partial",
-      "content_sufficient": false,
+      "master_result": "success",
+      "content_sufficient": true,
       "protocols_seen": null,
       "route_used": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=a34f17b6-41d5-421e-a283-15845c480ab0",
       "care_service_count": null,
       "count_semantics": "individual care-service source, not a trial protocol",
-      "processing_complete": false,
+      "processing_complete": true,
       "inherited_content_sufficient": false,
       "before_last_result": "partial",
-      "reviewed_this_resume": false,
-      "visit_date_changed": false
+      "reviewed_this_resume": true,
+      "visit_date_changed": true,
+      "semantic_review_file": "research/audit-runs/care-batched-20261011T143110-0400/reviews.json",
+      "review_note": "Animal Samaritans current local oncology offers chemotherapy/lump removal/vetIQure TSE and direct oncology booking760-332-5030. Current Vincent Baldanza VMD DACVIM biography corroborates clinical team. Thousand Palms72120 Pet Land Place remains current official clinic address; official historical oncology launch ties same oncology number to this clinic, current specialties/clinic/contact confirm ongoing service and address. Do not spread specialty services to Indio or shelter. Preserve precise TSE brand/modality as separate service label/filter; manufacturer description confirms cytotoxic-drug plus reversible electroporation but no equivalence/outcome promises copied. Other radiation/immunotherapy/targeted discussion is generic possibilities, not local offering proof."
     },
     {
       "source_id": "animal-specialty-center",
@@ -1777,7 +2097,7 @@
       "before_last_checked": "2026-10-11",
       "before_last_checked_at": "2026-10-11T08:52:16.557003-04:00",
       "after_last_checked": "2026-10-11",
-      "after_last_checked_at": "2026-10-11T08:52:16.557003-04:00",
+      "after_last_checked_at": "2026-10-11T15:02:54.699240-04:00",
       "opened_this_run": true,
       "attempted_urls": [
         {
@@ -1838,19 +2158,32 @@
           "inherited_visit": false,
           "outcome": "captured_for_review",
           "semantic_review": "pending unless separately adjudicated in reviews.json"
+        },
+        {
+          "url": "https://www.animalspecialtycenter.com/specialties/surgery",
+          "attempted_at": "2026-10-11T15:02:54.699240-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "d6d98f5a7f7718a8014961348be3eb3f30a8514ac106a0242b45150199fae13d",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/d749a6f4d6a3b383a9.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
         }
       ],
-      "master_result": "partial",
-      "content_sufficient": false,
+      "master_result": "success",
+      "content_sufficient": true,
       "protocols_seen": null,
       "route_used": "https://www.animalspecialtycenter.com/specialties/oncology",
       "care_service_count": null,
       "count_semantics": "individual care-service source, not a trial protocol",
-      "processing_complete": false,
+      "processing_complete": true,
       "inherited_content_sufficient": false,
       "before_last_result": "partial",
-      "reviewed_this_resume": false,
-      "visit_date_changed": false
+      "reviewed_this_resume": true,
+      "visit_date_changed": true,
+      "semantic_review_file": "research/audit-runs/care-batched-20261011T143110-0400/reviews.json",
+      "review_note": "ASC Yonkers9 Odell10701 phone914-457-4000 confirmed. Primary radiation body explicitly uses Varian TrueBeam and lists IMRT/SRT/SBRT; current Kari Rosen DACVR radiation2010 biography explicitly offers VMAT. Staff corroborates Rosen, Brianne Karten and Audrey Ghanian DACVIM Oncology. Local surgery page explicitly offers oncologic cancer surgery with specialist surgical team. Medical chemotherapy retained; generic definition of medical oncology not used to infer immunotherapy/targeted delivery. Current consultation/referral access available."
     },
     {
       "source_id": "arise-veterinary-center",
@@ -1919,7 +2252,7 @@
       "before_last_checked": "2026-10-11",
       "before_last_checked_at": "2026-10-11T08:37:02.658345-04:00",
       "after_last_checked": "2026-10-11",
-      "after_last_checked_at": "2026-10-11T08:37:02.658345-04:00",
+      "after_last_checked_at": "2026-10-11T15:03:13.897336-04:00",
       "opened_this_run": true,
       "attempted_urls": [
         {
@@ -1992,19 +2325,43 @@
           "inherited_visit": false,
           "outcome": "captured_for_review",
           "semantic_review": "pending unless separately adjudicated in reviews.json"
+        },
+        {
+          "url": "https://aristapetcare.com/arista-locations/atlanta/",
+          "attempted_at": "2026-10-11T15:03:13.896527-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "89e4db77b432bf6b00830527ee536f50794dc95b5123a78079b8984b71771d46",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/d9d22c7fe9649432ce.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
+        },
+        {
+          "url": "https://aristapetcare.com/locations/",
+          "attempted_at": "2026-10-11T15:03:13.897336-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "cfeac433ad568587c259a68da73ec4d5623e2440df76b5fe282093d096fbf4c2",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/a530f455e24e35ccda.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
         }
       ],
-      "master_result": "partial",
-      "content_sufficient": false,
+      "master_result": "success",
+      "content_sufficient": true,
       "protocols_seen": null,
       "route_used": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=3325e93d-9773-473b-8ab7-d99ea475ea11",
       "care_service_count": null,
       "count_semantics": "individual care-service source, not a trial protocol",
-      "processing_complete": false,
+      "processing_complete": true,
       "inherited_content_sufficient": false,
       "before_last_result": "partial",
-      "reviewed_this_resume": false,
-      "visit_date_changed": false
+      "reviewed_this_resume": true,
+      "visit_date_changed": true,
+      "semantic_review_file": "research/audit-runs/care-batched-20261011T143110-0400/reviews.json",
+      "review_note": "Arista old location path404; actual current Atlanta branch route contains full services and doctor biographies.5525 Interstate North30328 phone404-882-3011 match. Current department offers chemotherapy/immunotherapy/ECT; Brolin Evans DACVIM Oncology credential, treatment roster and appointment/referral routes corroborate. His interest sentence alone was not ECT proof; local service body independently describes it. I131 hyperthyroidism and diagnostic radiology are not cancer radiation therapy. Generic surgical service does not alone establish surgical oncology."
     },
     {
       "source_id": "arizona-veterinary-oncology",
@@ -2071,8 +2428,8 @@
       "before_last_checked": "2026-10-11",
       "before_last_checked_at": "2026-10-11T07:29:18.017938-04:00",
       "after_last_checked": "2026-10-11",
-      "after_last_checked_at": "2026-10-11T07:29:18.017938-04:00",
-      "opened_this_run": false,
+      "after_last_checked_at": "2026-10-11T15:03:45.241406-04:00",
+      "opened_this_run": true,
       "attempted_urls": [
         {
           "url": "https://www.avim.us/services/oncology-and-chemotherapy",
@@ -2107,19 +2464,43 @@
           "evidence_file": "research/audit-runs/care-resume-20261011T083538-0400/pages/c1a98706d5deef0266.json",
           "inherited_visit": true,
           "semantic_review": "Clinical verification or explicit pending status in semantic-reconciliation.json"
+        },
+        {
+          "url": "https://www.avim.us/hunt-valley-location",
+          "attempted_at": "2026-10-11T15:03:45.240827-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "e46b3eb8aeea51eb9ddb062a731ffd2ada4093b01972c4ecddcac5881c8d5681",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/c685f7b1be97587a3c.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
+        },
+        {
+          "url": "https://www.avim.us/hunt-valley-team",
+          "attempted_at": "2026-10-11T15:03:45.241406-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "030110cfe4e6f85cde1ae1122034efef265ccb58ad8e99c6717503a590aa32d8",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/4f002ed4a80ebe1daf.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
         }
       ],
-      "master_result": "partial",
-      "content_sufficient": false,
+      "master_result": "success",
+      "content_sufficient": true,
       "protocols_seen": null,
       "route_used": "https://www.avim.us/services/oncology-and-chemotherapy",
       "care_service_count": null,
       "count_semantics": "individual care-service source, not a trial protocol",
-      "processing_complete": false,
+      "processing_complete": true,
       "inherited_content_sufficient": false,
       "before_last_result": "partial",
-      "reviewed_this_resume": false,
-      "visit_date_changed": false
+      "reviewed_this_resume": true,
+      "visit_date_changed": true,
+      "semantic_review_file": "research/audit-runs/care-batched-20261011T143110-0400/reviews.json",
+      "review_note": "AVIMO official ECT body explicitly restricts ECT to Hunt Valley, retained. Current Hunt Valley master10626 YorkCockeysville21030 phone410-828-0911 and direct appointment access verified. Current roster Tony Rusk DVM (not assumed boarded) and Laura Chadsey Dresher DVM DACVIM Oncology. Generic discussion of gold-standard radiation/surgery not local-delivery proof. No clinical protocol inferred from navigation link. Correct missing phone only; medical oncology/chemotherapy/ECT retained."
     },
     {
       "source_id": "auburn-university-bailey-small-animal-teaching-hospital",
@@ -2128,7 +2509,7 @@
       "before_last_checked": "2026-10-11",
       "before_last_checked_at": "2026-10-11T08:55:40.447310-04:00",
       "after_last_checked": "2026-10-11",
-      "after_last_checked_at": "2026-10-11T08:55:40.447310-04:00",
+      "after_last_checked_at": "2026-10-11T15:05:20.303212-04:00",
       "opened_this_run": true,
       "attempted_urls": [
         {
@@ -2261,19 +2642,32 @@
           "inherited_visit": false,
           "outcome": "captured_for_review",
           "semantic_review": "pending unless separately adjudicated in reviews.json"
+        },
+        {
+          "url": "https://www.vetmed.auburn.edu/clinical-services/bailey-small-animal-teaching-hospital/",
+          "attempted_at": "2026-10-11T15:05:20.303212-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "47251f81c0d101886a15245e4254393e6f817fccbe3eccb17a2936be68a9e06a",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/36b5b20eff4b53fe7f.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
         }
       ],
-      "master_result": "partial",
-      "content_sufficient": false,
+      "master_result": "success",
+      "content_sufficient": true,
       "protocols_seen": null,
       "route_used": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=db38a040-ded5-40c3-a771-ef0b6d8fc865",
       "care_service_count": null,
       "count_semantics": "individual care-service source, not a trial protocol",
-      "processing_complete": false,
+      "processing_complete": true,
       "inherited_content_sufficient": false,
       "before_last_result": "partial",
-      "reviewed_this_resume": false,
-      "visit_date_changed": false
+      "reviewed_this_resume": true,
+      "visit_date_changed": true,
+      "semantic_review_file": "research/audit-runs/care-batched-20261011T143110-0400/reviews.json",
+      "review_note": "Auburn current oncology team Bergman/Lindley DACVIM, Matz ACVS fellow, Almond/Castro DACVR. Body explicitly offers local chemo/ECT/immunotherapy/surgery and Varian Edge IMRT/SRT. Add missing chemotherapy/radiation-therapy tags; existing modalities retained. Actual hospital master confirms1220 Wire36832, distinct from college global footer1130 Wire36849. Primary referral and oncology contact334-844-4690 confirm access. Clinical-trial service/program link is retained; specific active protocols not created or audited in this care run."
     },
     {
       "source_id": "austin-veterinary-emergency-and-specialty",
@@ -2282,7 +2676,7 @@
       "before_last_checked": "2026-10-11",
       "before_last_checked_at": "2026-10-11T07:05:28.760817-04:00",
       "after_last_checked": "2026-10-11",
-      "after_last_checked_at": "2026-10-11T07:05:28.760817-04:00",
+      "after_last_checked_at": "2026-10-11T14:55:19.619579-04:00",
       "opened_this_run": true,
       "attempted_urls": [
         {
@@ -2424,19 +2818,32 @@
           "inherited_visit": false,
           "outcome": "captured_for_review",
           "semantic_review": "pending unless separately adjudicated in reviews.json"
+        },
+        {
+          "url": "https://eliasanimalhealth.com/available-locations/",
+          "attempted_at": "2026-10-11T14:55:19.619579-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "e8191da88a3c9f14963ecb7ae33e42555d072b7c95114f76f25c844f79b1bedf",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/3160b636fabc6b5db6.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
         }
       ],
-      "master_result": "partial",
-      "content_sufficient": false,
+      "master_result": "success",
+      "content_sufficient": true,
       "protocols_seen": null,
       "route_used": "https://www.austinvets.com/services/oncology",
       "care_service_count": null,
       "count_semantics": "individual care-service source, not a trial protocol",
-      "processing_complete": false,
+      "processing_complete": true,
       "inherited_content_sufficient": false,
       "before_last_result": "partial",
-      "reviewed_this_resume": false,
-      "visit_date_changed": false
+      "reviewed_this_resume": true,
+      "visit_date_changed": true,
+      "semantic_review_file": "research/audit-runs/care-batched-20261011T143110-0400/reviews.json",
+      "review_note": "AVES current relocated7501 N CapitalBuildingA78731 and512-343-2837 already correct. Local surgical oncology service confirms boarded surgeons working with medical/radiation teams. Radiation body explicitly describes outpatient radiation delivered at AVES, installed Radixact and stereotactic/SBRT protocols. Current medical Dolan/Stein and radiation Smith-Oskrochi/Deveau roster/biographies corroborate. ELIAS current sponsor locator confirms AVES Austin with matching phone as ECI treatment provider. Generic trials or earlier staff helical-IMRT experience are not unmentioned current local modality proof."
     },
     {
       "source_id": "avets-specialty-emergency-trauma-center",
@@ -2536,8 +2943,8 @@
       "before_last_checked": "2026-10-11",
       "before_last_checked_at": "2026-10-11T07:05:37.783802-04:00",
       "after_last_checked": "2026-10-11",
-      "after_last_checked_at": "2026-10-11T07:05:37.783802-04:00",
-      "opened_this_run": false,
+      "after_last_checked_at": "2026-10-11T15:19:25.590577-04:00",
+      "opened_this_run": true,
       "attempted_urls": [
         {
           "url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=5a883725-1890-43bc-befb-4ab4369908aa",
@@ -2549,19 +2956,61 @@
           "fingerprint_sha256": "af8e68b8d01b661d96bd661ab2106e396a290f3171b0eb08b4f96cd6cef8639e",
           "semantic_review": "not completed",
           "inherited_visit": true
+        },
+        {
+          "url": "https://bellevueveterspecialty.com/our-location/",
+          "attempted_at": "2026-10-11T15:11:35.930204-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/cf655293970e1297c8.json",
+          "inherited_visit": false,
+          "semantic_review": "Current shared physical clinic identity reconciled"
+        },
+        {
+          "url": "https://bellevueveterspecialty.com/our-services/board-certified-veterinary-surgeon/",
+          "attempted_at": "2026-10-11T15:19:25.590577-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/42f588d32431246fa1.json",
+          "inherited_visit": false,
+          "semantic_review": "Current shared physical clinic identity reconciled"
+        },
+        {
+          "url": "https://bellevueveterspecialty.com/our-doctors/",
+          "attempted_at": "2026-10-11T15:11:32.480891-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/7abc0d97b073a87150.json",
+          "inherited_visit": false,
+          "semantic_review": "Current shared physical clinic identity reconciled"
+        },
+        {
+          "url": "https://bellevueveterspecialty.com/our-services/pet-oncologist/",
+          "attempted_at": "2026-10-11T15:11:32.480277-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/dab5815b04408f65c5.json",
+          "inherited_visit": false,
+          "semantic_review": "Current shared physical clinic identity reconciled"
         }
       ],
-      "master_result": "partial",
-      "content_sufficient": false,
+      "master_result": "success",
+      "content_sufficient": true,
       "protocols_seen": null,
       "route_used": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=5a883725-1890-43bc-befb-4ab4369908aa",
       "care_service_count": null,
       "count_semantics": "individual care-service source, not a trial protocol",
-      "processing_complete": false,
+      "processing_complete": true,
       "inherited_content_sufficient": false,
       "before_last_result": "partial",
-      "reviewed_this_resume": false,
-      "visit_date_changed": false
+      "reviewed_this_resume": true,
+      "visit_date_changed": true,
+      "semantic_review_file": "research/audit-runs/care-batched-20261011T143110-0400/reviews.json",
+      "review_note": "Raw Ripoll ACVIM profile mixes Bellevue organization with old Ventura 2199 Sperry address. Current official Bellevue oncology/team roster identifies Alexandra Ripoll at Bellevue WA alongside Akiko Koshino. Exclude erroneous Ventura physical representation, retain raw profile and verified Bellevue WA replacement. Do not relabel it as VMSG or infer local bone-marrow treatment from fellowship."
     },
     {
       "source_id": "bellevue-veterinary-emergency-specialty-3d5151b4",
@@ -2570,8 +3019,8 @@
       "before_last_checked": "2026-10-11",
       "before_last_checked_at": "2026-10-11T07:05:40.817497-04:00",
       "after_last_checked": "2026-10-11",
-      "after_last_checked_at": "2026-10-11T07:05:40.817497-04:00",
-      "opened_this_run": false,
+      "after_last_checked_at": "2026-10-11T15:19:25.590577-04:00",
+      "opened_this_run": true,
       "attempted_urls": [
         {
           "url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=480e940f-2c96-4e0b-af53-024fc37d3cf6",
@@ -2583,19 +3032,65 @@
           "fingerprint_sha256": "cf3337d858246ed297fc0d7c001e45fdb3ba0a148e78f0da7e3fd7a05c342610",
           "semantic_review": "not completed",
           "inherited_visit": true
+        },
+        {
+          "url": "https://bellevueveterspecialty.com/our-location/",
+          "attempted_at": "2026-10-11T15:11:35.930204-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "df5fd6ebd1ba2cc816729718dcebe59b55e4afb57eba7d9783a846f804a48f30",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/cf655293970e1297c8.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
+        },
+        {
+          "url": "https://bellevueveterspecialty.com/our-services/board-certified-veterinary-surgeon/",
+          "attempted_at": "2026-10-11T15:19:25.590577-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "ecf421658c34b2a235cdd1ac26cf189ca1eaa6d60d11e51c51751dfd0052331f",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/42f588d32431246fa1.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
+        },
+        {
+          "url": "https://bellevueveterspecialty.com/our-doctors/",
+          "attempted_at": "2026-10-11T15:11:32.480891-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "699d36c8dd47f548afefa364ab10c51f931252d7acafc89931f30719f638db14",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/7abc0d97b073a87150.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
+        },
+        {
+          "url": "https://bellevueveterspecialty.com/our-services/pet-oncologist/",
+          "attempted_at": "2026-10-11T15:11:32.480277-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "6cf46ad628a89860be1a2447137ebb9a169ba824558edf98a6705e8279074053",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/dab5815b04408f65c5.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
         }
       ],
-      "master_result": "partial",
-      "content_sufficient": false,
+      "master_result": "success",
+      "content_sufficient": true,
       "protocols_seen": null,
       "route_used": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=480e940f-2c96-4e0b-af53-024fc37d3cf6",
       "care_service_count": null,
       "count_semantics": "individual care-service source, not a trial protocol",
-      "processing_complete": false,
+      "processing_complete": true,
       "inherited_content_sufficient": false,
       "before_last_result": "partial",
-      "reviewed_this_resume": false,
-      "visit_date_changed": false
+      "reviewed_this_resume": true,
+      "visit_date_changed": true,
+      "semantic_review_file": "research/audit-runs/care-batched-20261011T143110-0400/reviews.json",
+      "review_note": "Current Bellevue WA oncology roster confirms Akiko Koshino and Alexandra Ripoll DACVIM Oncology; consultation phone and current physical address match 98005. Generic treatment descriptions do not establish on-site radiation or immunotherapy. Ripoll historical bone-marrow fellowship is not current transplant availability. Surgeon oncologic interests alone were not added as a discrete cancer-surgery program."
     },
     {
       "source_id": "blue-pearl-summerville",
@@ -5166,8 +5661,8 @@
       "before_last_checked": "2026-10-11",
       "before_last_checked_at": "2026-10-11T07:25:42.796873-04:00",
       "after_last_checked": "2026-10-11",
-      "after_last_checked_at": "2026-10-11T07:25:42.796873-04:00",
-      "opened_this_run": false,
+      "after_last_checked_at": "2026-10-11T15:06:03.553646-04:00",
+      "opened_this_run": true,
       "attempted_urls": [
         {
           "url": "https://bluepearlvet.com/hospital/olympia-wa/specialties-services/oncology/",
@@ -5322,19 +5817,65 @@
           "evidence_file": "research/audit-runs/care-resume-20261011T083538-0400/pages/125eea225ca1e87d5c.json",
           "inherited_visit": true,
           "semantic_review": "Clinical verification or explicit pending status in semantic-reconciliation.json"
+        },
+        {
+          "url": "https://bluepearlvet.com/hospital/olympia-wa/our-vets/",
+          "attempted_at": "2026-10-11T15:03:45.243180-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "d7db89829096381213dd4ad6583c2d8ca64a1fb075554a221027a99cba854fda",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/2977e0afcc6d087401.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
+        },
+        {
+          "url": "https://bluepearlvet.com/hospital/olympia-wa-oncology/",
+          "attempted_at": "2026-10-11T15:06:03.553113-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "9db04bdb9a55eb289507549ac0d81f84cd7f2ee792cc723e81c2b35755242af2",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/dccf077f9c862d548c.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
+        },
+        {
+          "url": "https://bluepearlvet.com/hospital/olympia-wa/specialties-services/oncology/",
+          "attempted_at": "2026-10-11T15:06:03.553646-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "bf402dc4359a11722c428e74c3e1b3f1b187298684d6020cddc299ab27e605af",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/7226a399352db7ce54.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
+        },
+        {
+          "url": "https://bluepearlvet.com/hospital/olympia-wa/specialties-services/",
+          "attempted_at": "2026-10-11T15:03:45.242458-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "fingerprint_sha256": "0ca64a52eea1e265012d4f0295c7c10d27355429064bb7b2d0dd072231bef5aa",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/c51fd11793facd04a0.json",
+          "inherited_visit": false,
+          "semantic_review": "Completed individual reconciliation"
         }
       ],
-      "master_result": "partial",
-      "content_sufficient": false,
+      "master_result": "success",
+      "content_sufficient": true,
       "protocols_seen": null,
       "route_used": "https://bluepearlvet.com/hospital/olympia-wa/specialties-services/oncology/",
       "care_service_count": null,
       "count_semantics": "individual care-service source, not a trial protocol",
-      "processing_complete": false,
+      "processing_complete": true,
       "inherited_content_sufficient": false,
       "before_last_result": "partial",
-      "reviewed_this_resume": false,
-      "visit_date_changed": false
+      "reviewed_this_resume": true,
+      "visit_date_changed": true,
+      "semantic_review_file": "research/audit-runs/care-batched-20261011T143110-0400/reviews.json",
+      "review_note": "BluePearl Olympia exact local services body lists chemo and surgery only; current providers are residency trained Weiske/Yung. Existing radiation tag traced to generic network FAQ shared across oncology pages, not actual local radiation facility/provider service. Remove unsupported on-site radiation filter tag; radiation availability remains a hospital question, no closure of verified historical radiation department asserted. Current address/phone and2024move confirmed; current appointment route available. Consolidate old Olympia115 Eastside ACVIM representation without claiming Lisa Parshley current employment."
     },
     {
       "source_id": "bluepearl-pet-hospital-orlando-maitland",
@@ -31102,8 +31643,8 @@
       "before_last_checked": "2026-10-11",
       "before_last_checked_at": "2026-10-11T08:55:09.715538-04:00",
       "after_last_checked": "2026-10-11",
-      "after_last_checked_at": "2026-10-11T08:55:09.715538-04:00",
-      "opened_this_run": false,
+      "after_last_checked_at": "2026-10-11T14:55:19.726130-04:00",
+      "opened_this_run": true,
       "attempted_urls": [
         {
           "url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=eb260cf6-2a08-49e3-9289-05b842e2130d",
@@ -31127,6 +31668,16 @@
           "evidence_file": "research/audit-runs/care-resume-20261011T083538-0400/pages/cf1b564b96912181c4.json",
           "inherited_visit": true,
           "semantic_review": "Clinical verification or explicit pending status in semantic-reconciliation.json"
+        },
+        {
+          "url": "https://pearlandvetreferral.com/referrals/",
+          "attempted_at": "2026-10-11T14:55:19.726130-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "success",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/e9bbf9c1b862e0950d.json",
+          "inherited_visit": false,
+          "semantic_review": "Physical location reconciled; branch modality scope unresolved"
         }
       ],
       "master_result": "partial",
@@ -31139,7 +31690,9 @@
       "inherited_content_sufficient": false,
       "before_last_result": "partial",
       "reviewed_this_resume": false,
-      "visit_date_changed": false
+      "visit_date_changed": true,
+      "review_note": "ACRC prior Pearland location has moved: preserved full official historical referral page explicitly states relocation; current master/contact/referral pages list only Woodlands and Texas Medical Center. Current Parsons-Doherty biography explicitly dates second TMC opening to2026; footer NOW OPEN and77030 resolve stale contact-body COMING SOON/77380. Current Kaiser/Parsons-Doherty roster and public referrals confirm access. Consolidate old Pearland with existing Woodlands representation, correct Oak Ridger typo and phone, add TMC as separate physical center. Practice-wide chemotherapy/immunotherapy/surgery are published, but branch-specific delivery is not resolved: retain Medical oncology only pending branch-level confirmation. Radiation introduction has no unambiguous local equipment/provider scope; do not propagate to either branch.",
+      "semantic_review_file": "research/audit-runs/care-batched-20261011T143110-0400/reviews.json"
     },
     {
       "source_id": "yucca-veterinary-medical-center",
@@ -36426,15 +36979,67 @@
       "inherited_content_sufficient": true,
       "reviewed_this_resume": false,
       "visit_date_changed": false
+    },
+    {
+      "source_id": "animal-cancer-and-referral-center-texas-medical-center",
+      "name": "Animal Cancer and Referral Center – Texas Medical Center",
+      "master_url": "https://pearlandvetreferral.com/",
+      "opened_this_run": true,
+      "attempted_urls": [
+        {
+          "url": "https://pearlandvetreferral.com/our-services/",
+          "attempted_at": "2026-10-11T14:37:40.157574-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "partial",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/eed8d3e43aa25bb4b9.json",
+          "inherited_visit": false
+        },
+        {
+          "url": "https://pearlandvetreferral.com/contact-us/",
+          "attempted_at": "2026-10-11T14:37:43.002119-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "partial",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/e98c687b392d49a328.json",
+          "inherited_visit": false
+        },
+        {
+          "url": "https://pearlandvetreferral.com/about-us/",
+          "attempted_at": "2026-10-11T14:37:40.158284-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "partial",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/484179d47e8da4f4b7.json",
+          "inherited_visit": false
+        },
+        {
+          "url": "https://pearlandvetreferral.com/referrals/",
+          "attempted_at": "2026-10-11T14:55:19.726130-04:00",
+          "method": "shell.urllib",
+          "http_status": 200,
+          "outcome": "partial",
+          "evidence_file": "research/audit-runs/care-batched-20261011T143110-0400/pages/e9bbf9c1b862e0950d.json",
+          "inherited_visit": false
+        }
+      ],
+      "content_sufficient": false,
+      "processing_complete": false,
+      "master_result": "partial",
+      "review_note": "ACRC prior Pearland location has moved: preserved full official historical referral page explicitly states relocation; current master/contact/referral pages list only Woodlands and Texas Medical Center. Current Parsons-Doherty biography explicitly dates second TMC opening to2026; footer NOW OPEN and77030 resolve stale contact-body COMING SOON/77380. Current Kaiser/Parsons-Doherty roster and public referrals confirm access. Consolidate old Pearland with existing Woodlands representation, correct Oak Ridger typo and phone, add TMC as separate physical center. Practice-wide chemotherapy/immunotherapy/surgery are published, but branch-specific delivery is not resolved: retain Medical oncology only pending branch-level confirmation. Radiation introduction has no unambiguous local equipment/provider scope; do not propagate to either branch.",
+      "semantic_review_file": "research/audit-runs/care-batched-20261011T143110-0400/reviews.json",
+      "after_last_checked": "2026-10-11",
+      "after_last_checked_at": "2026-10-11T14:55:19.726130-04:00",
+      "visit_date_changed": true
     }
   ],
   "parent_run_id": "care-resume-20261011T083538-0400",
   "resumed_at": "2026-10-11T14:41:18.836253-04:00",
-  "visit_semantics": "Cumulative actual captures inherited with their original dates; new captures distinct; semantic review and publication checkpoints do not manufacture visits. Only twelve individually reviewed sources completed at this checkpoint.",
-  "checkpoint_at": "2026-10-11T14:41:18.836253-04:00",
-  "newly_completed_sources": 12,
-  "newly_attempted_sources": 54,
-  "remaining_known_sources": 429,
+  "visit_semantics": "Actual captures preserve their own timestamps. Individual semantic review and publication are separate; unfinished sources are not marked complete.",
+  "checkpoint_at": "2026-10-11T15:30:03.307982-04:00",
+  "newly_completed_sources": 31,
+  "newly_attempted_sources": 63,
+  "remaining_known_sources": 411,
   "discovery_unresolved_total": 1481,
   "cumulative_attempted_total": 509
 }

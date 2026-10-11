@@ -30,7 +30,7 @@ WEBSITE_OVERRIDES = {
     "SAGE Veterinary Centers|Redwood City|CA": "https://www.sagecenters.com/",
     "VCA Sacramento Veterinary Referral Center|Sacramento|CA": "https://vcahospitals.com/",
     "MedVet Silicon Valley|San Jose|CA": "https://www.medvet.com/",
-    "Arista Advanced Pet Care Atlanta|Atlanta|GA": "https://aristapetcare.com/",
+    "Arista Advanced Pet Care Atlanta|Atlanta|GA": "https://aristapetcare.com/arista-locations/atlanta/",
     "University of Minnesota|St. Paul|MN": "https://vetmed.umn.edu/",
     "Garden State Veterinary Specialists and Veterinary Emergency and Referral Group|BROOKLYN|NY": "https://www.verg-brooklyn.com/",
     "VCA Veterinary Emergency Referral Center of Westbury|Westbury|NY": "https://vcahospitals.com/",
@@ -50,6 +50,16 @@ NONCLINICAL_ORGANIZATIONS = {
     "joyful riches beyond grief", "n a", "self employed", "zoetis",
 }
 EXCLUDED_PROFILE_IDS = {
+    # Current official roster confirms Ripoll at Bellevue WA; this raw profile
+    # incorrectly combines Bellevue organization with the old Ventura address.
+    "5a883725-1890-43bc-befb-4ab4369908aa",
+    # Historical Olympia cancer-center address; official oncology route now
+    # redirects to the verified BluePearl successor that moved in 2024.
+    "1dabc90a-3f69-4fd4-b4a5-4d2d8114ae39",
+    # ACRC official relocation notice and current two-location master replace
+    # old Pearland with Woodlands and Texas Medical Center; preserve raw profiles.
+    "1b35c69e-31e9-4dff-b796-21304c20c340",
+    "d54203e4-328e-4ec5-8f94-dc035acd8f13",
     # Current official Fetch roster places Victoria Costa at Brandon. The
     # directory's Riverview address is not an official treatment location.
     "703f0037-e40f-4c7d-86e6-94a5172c26fc",
