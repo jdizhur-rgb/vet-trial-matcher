@@ -2,7 +2,7 @@
   "schema_version": 1,
   "purpose": "Persistent state for incremental discovery and deep-audit cost control. Source fingerprints live in source_inventory.json; this file tracks audit scheduling and unresolved work.",
   "last_full_deep_audit": null,
-  "last_incremental_audit": "2026-10-10T04:08:38.012672-04:00",
+  "last_incremental_audit": "2026-10-10T20:29:20-04:00",
   "last_source_discovery_attempt": {
     "run_id": "daily-20261010T030027-0400",
     "started_at": "2026-10-10T03:00:27-04:00",
@@ -128,5 +128,15 @@
     "sources_successful": 474,
     "sources_partial_or_unreachable": 13,
     "coverage_receipt": "research/audit-runs/weekly-care-20261010T005822-0400/coverage-receipt.json"
+  },
+  "last_incremental_resume": {
+    "run_id": "resume-20261010T201219-0400",
+    "parent_run_id": "daily-20261010T030027-0400",
+    "status": "INCOMPLETE",
+    "already_checked_sources_reopened": 0,
+    "newly_attempted_sources": 12,
+    "sufficient_sources_cumulative": 46,
+    "evidence_gaps_remaining": 62,
+    "processing_completion": "NOT_VERIFIED"
   }
 }
