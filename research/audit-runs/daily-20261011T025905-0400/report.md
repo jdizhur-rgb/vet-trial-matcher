@@ -75,10 +75,10 @@
 
 ## Подробные артефакты
 
-- `receipt-final.json` — per-source receipt и доказательства маршрутов.
-- `gap-review.json` — разбор 62 пробелов.
-- `native-reader-evidence.json` и `web-fallback-evidence.json` — фактические визиты.
-- `global-discovery-evidence.json` — два мировых прохода и решения по leads.
-- `validation-summary.json` — результаты validators и тестов.
-- `production-ui-readback.json` — deploy, hashes и живой поиск USA/Japan.
-- `run-finalization.json` — фактические start/end и итоговые состояния.
+- [receipt-final.json](sandbox:/workspace/scratch/2226bbb8952f/vet-trial-matcher/research/audit-runs/daily-20261011T025905-0400/receipt-final.json) — per-source receipt и доказательства маршрутов.
+- [gap-review.json](sandbox:/workspace/scratch/2226bbb8952f/vet-trial-matcher/research/audit-runs/daily-20261011T025905-0400/gap-review.json) — разбор 62 пробелов.
+- [native-reader-evidence.json](sandbox:/workspace/scratch/2226bbb8952f/vet-trial-matcher/research/audit-runs/daily-20261011T025905-0400/native-reader-evidence.json) и [web-fallback-evidence.json](sandbox:/workspace/scratch/2226bbb8952f/vet-trial-matcher/research/audit-runs/daily-20261011T025905-0400/web-fallback-evidence.json) — фактические визиты.
+- [global-discovery-evidence.json](sandbox:/workspace/scratch/2226bbb8952f/vet-trial-matcher/research/audit-runs/daily-20261011T025905-0400/global-discovery-evidence.json) — два мировых прохода и решения по leads.
+- [validation-summary.json](sandbox:/workspace/scratch/2226bbb8952f/vet-trial-matcher/research/audit-runs/daily-20261011T025905-0400/validation-summary.json) — результаты validators и тестов.
+- [production-ui-readback.json](sandbox:/workspace/scratch/2226bbb8952f/vet-trial-matcher/research/audit-runs/daily-20261011T025905-0400/production-ui-readback.json) — deploy, hashes и живой поиск USA/Japan.
+- [run-finalization.json](sandbox:/workspace/scratch/2226bbb8952f/vet-trial-matcher/research/audit-runs/daily-20261011T025905-0400/run-finalization.json) — фактические start/end и итоговые состояния.
