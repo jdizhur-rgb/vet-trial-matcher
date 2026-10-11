@@ -1,0 +1,69 @@
+{
+  "run_id": "daily-20261011T025905-0400",
+  "started_at": "2026-10-11T03:00:00-04:00",
+  "method": "Web search with current/undated and seven-day-overlap passes, followed by official-primary comparison",
+  "passes": [
+    {
+      "name": "current_or_undated",
+      "tool_batches": ["turn423", "turn424", "turn425", "turn426"],
+      "regions": [
+        {"region": "USA", "languages": ["English"], "result": "complete"},
+        {"region": "Canada", "languages": ["English", "French"], "result": "complete"},
+        {"region": "UK", "languages": ["English"], "result": "complete"},
+        {"region": "Continental Europe", "languages": ["English", "German", "French"], "result": "complete"},
+        {"region": "Latin America Caribbean", "languages": ["Spanish", "Portuguese"], "result": "complete"},
+        {"region": "Australia New Zealand", "languages": ["English"], "result": "complete"},
+        {"region": "East Asia", "languages": ["Chinese", "Japanese", "Korean", "English"], "result": "complete"},
+        {"region": "South Asia", "languages": ["English", "Hindi"], "result": "complete"},
+        {"region": "Southeast Asia", "languages": ["English", "Thai"], "result": "complete"},
+        {"region": "Middle East", "languages": ["English", "Arabic", "Turkish"], "result": "complete"},
+        {"region": "North Africa", "languages": ["English", "French", "Arabic"], "result": "complete"},
+        {"region": "Sub Saharan Africa", "languages": ["English", "French", "Portuguese"], "result": "complete"}
+      ]
+    },
+    {
+      "name": "fresh_signals_seven_day_overlap",
+      "recency_days": 7,
+      "tool_batches": ["turn427", "turn428", "turn429"],
+      "regions_completed": 12,
+      "result": "complete"
+    }
+  ],
+  "leads_reviewed": [
+    {
+      "lead": "Paccal Vet owner pages for canine splenic hemangiosarcoma and feline solid tumors",
+      "search_reference": "turn425search9",
+      "primary_references": ["turn430view0", "turn430view1"],
+      "decision": "known source and known conflict; owner page still says two studies, but sponsor topline states canine pilot completed and only future pivotal development is contemplated; existing non-matchable record retained"
+    },
+    {
+      "lead": "Texas A&M whole-abdomen radiation for feline small-cell GI lymphoma",
+      "search_reference": "turn427news20",
+      "decision": "existing canonical trial and existing Texas A&M source; no new identity"
+    },
+    {
+      "lead": "University of Tokyo organoid-guided targeted therapy",
+      "search_reference": "turn424search3",
+      "decision": "existing canonical trial jp-tokyo-organoid-guided-targeted-therapy-2026"
+    },
+    {
+      "lead": "Penn proton FLASH trials",
+      "search_reference": "turn423search36",
+      "decision": "existing Penn FLASH soft-tissue-sarcoma and glioma identities"
+    },
+    {
+      "lead": "Recent feline electrochemotherapy and canine hemangiosarcoma papers",
+      "search_references": ["turn426search0", "turn426search4", "turn429search0"],
+      "decision": "completed/published studies, not current owner-access recruiting trials"
+    },
+    {
+      "lead": "2026 veterinary oncology conference abstracts",
+      "search_reference": "turn429search3",
+      "decision": "results and research signals without a current owner-access primary protocol; no catalog activation"
+    }
+  ],
+  "new_trials": 0,
+  "trial_updates": 0,
+  "new_sources": 0,
+  "rejected_or_duplicate_leads": 6
+}
