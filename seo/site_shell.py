@@ -146,10 +146,6 @@ def wrap_html(text:str)->str:
  text=re.sub(r'<script[^>]+(?:cloud\.)?umami\.is/script\.js[^>]*></script>','',text,flags=re.I)
  text=text.replace('https://jdizhur-rgb.github.io/vet-trial-matcher',SITE)
  text=text.replace('https://vet-cancer-trial-finder.streamlit.app/',FINDER)
- title_match=re.search(r'<title>(.*?)</title>',text,flags=re.S)
- if title_match and 'Vet Trial Finder' not in title_match.group(1):
-  branded_title=title_match.group(1).strip()+' | Vet Trial Finder'
-  text=text[:title_match.start(1)]+branded_title+text[title_match.end(1):]
  if 'property="og:site_name"' not in text:
   text=text.replace('</head>','<meta property="og:site_name" content="Vet Trial Finder"></head>',1)
  if f'{SITE}/#website' not in text:

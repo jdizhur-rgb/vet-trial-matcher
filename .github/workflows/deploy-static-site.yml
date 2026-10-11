@@ -194,8 +194,8 @@ jobs:
           for species in ('dogs','cats'): cancer += list((root/'north-america'/species).glob('*/index.html'))
           assert len(cancer)>=44, len(cancer)
           program=(root/'centers/multicenter-local-t-cell-engager-sts-immunotherapy/index.html').read_text(encoding='utf-8')
-          assert 'Multicenter study' in program and 'Veterinary cancer study | Vet Trial Finder' in program
-          assert 'Research organization' in aurelius and 'Veterinary cancer research | Vet Trial Finder' in aurelius
+          assert 'Multicenter study' in program and 'Veterinary cancer study' in program
+          assert 'Research organization' in aurelius and 'Veterinary cancer research' in aurelius
           assert 'About this European multic multicenter study' not in ''.join(p.read_text(encoding='utf-8') for p in center_pages)
           print('ABOUT_STORY_V2_PRODUCTION_OK',len(pages),len(cancer),senya.stat().st_size,yasha.stat().st_size)
           PY

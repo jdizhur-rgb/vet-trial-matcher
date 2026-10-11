@@ -77,6 +77,28 @@ def diagnosis_species(path: Path | None) -> str | None:
     return None
 
 
+SEARCH_TITLES = {
+    "index.html": "Find cancer care for dogs and cats",
+    "matcher/index.html": "Find cancer clinical trials for dogs and cats",
+    "matcher/centers/index.html": "Find a veterinary oncologist near you",
+    "about/index.html": "About this project",
+    "help/index.html": "How to use this site | Help center",
+    "contact/index.html": "Contact",
+}
+
+
+def search_title(text: str, path: Path | None) -> str:
+    if path is not None:
+        parts = path.parts
+        if "site" in parts:
+            route = "/".join(parts[parts.index("site") + 1:])
+            if route in SEARCH_TITLES:
+                return SEARCH_TITLES[route]
+    text = re.sub(r"\s*\|\s*Vet Trial Finder\s*$", "", text)
+    text = re.sub(r"^Vet Trial Finder\s*\|\s*", "", text)
+    return text.replace("Vet Trial Finder", "this project").strip()
+
+
 def normalize(text: str, path: Path | None = None) -> str:
     for old, new in SITE_COPY.items():
         text = text.replace(old, new)
@@ -119,6 +141,11 @@ def normalize(text: str, path: Path | None = None) -> str:
     text = text.replace("Specialty Hospital / Research Center", "Specialty hospital / research center")
     text = text.replace("Multicenter Study", "Multicenter study")
     text = text.replace("Research Organization", "Research organization")
+    # Change page-title metadata only; keep site identity and visible copy intact.
+    text = re.sub(r"(<title>)(.*?)(</title>)",
+                  lambda m: m[1] + search_title(m[2], path) + m[3], text, flags=re.S)
+    text = re.sub(r'(<meta\b[^>]*(?:property|name)="(?:og:title|twitter:title)"[^>]*content=")([^"]*)(")',
+                  lambda m: m[1] + search_title(m[2], path) + m[3], text)
     return text
 
 
@@ -131,6 +158,12 @@ def validate(root: Path) -> None:
                 failures.append(f"{path.relative_to(root)}: {phrase}")
         if re.search(r" Clinical Trials for (Dogs|Cats)(?= \|)", text):
             failures.append(f"{path.relative_to(root)}: diagnosis SEO title")
+        title = re.search(r"<title>(.*?)</title>", text, re.S)
+        if title and (not title[1].strip() or "Vet Trial Finder" in title[1]):
+            failures.append(f"{path.relative_to(root)}: empty or branded search title")
+        expected_title = SEARCH_TITLES.get(path.relative_to(root).as_posix())
+        if expected_title and (not title or title[1] != expected_title):
+            failures.append(f"{path.relative_to(root)}: search title override")
         species = diagnosis_species(path)
         if species:
             h1 = re.search(r"<h1\b[^>]*>(.*?)</h1>", text, re.S)

@@ -403,3 +403,8 @@ Use `scripts.check_evidence_keys.redact_text` before writing public-page payload
 Preserve sealed manifests as historical receipts. Security redactions made after sealing require an append-only amendment recording affected paths, previous/new hashes, reason and actual remediation timestamp; never rewrite the original visit dates or pretend the original hashes describe redacted bytes. The October 11 amendment is `research/audit-runs/care-20261011T065613-0400/evidence-redaction-amendment.json`.
 
 Removing values from main does not remove old Git history or automatically resolve GitHub secret alerts. Rotation belongs to the third-party key owner. History rewriting requires a separately reviewed action; do not force-push an unrelated audit/security cleanup.
+
+
+## Page search titles — 2026-10-11
+
+By the owner's request, omit Vet Trial Finder from all page `<title>` and matching social-title metadata. Keep the site name, WebSite/Organization schema, og:site_name, visible headings, navigation and body copy unchanged. `seo/enforce_sentence_case.py` applies this policy in the final build pass, including the approved homepage, trial-matcher and oncology-care-finder title overrides. Do not restore automatic title branding in the shared shell.
