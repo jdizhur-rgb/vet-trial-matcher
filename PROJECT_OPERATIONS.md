@@ -418,3 +418,9 @@ By the owner's subsequent explicit restoration request, retain the historical AM
 ## Fetch branch-specific ECT correction — 2026-10-11
 
 Fetch lists ECT explicitly on its Clearwater, Fort Myers and Bonita Springs branch pages. Preserve these branch URLs in the care inventory and the supplemental records so rebuilds do not reduce services to ACVIM specialty labels. The corrected Fort Myers phone is 239-308-9770; 239-260-4100 belongs to Bonita Springs. Targeted service reconciliation does not establish a completed network/credentials audit; retain the inventory partial status.
+
+## Resumable care reconciliation — 2026-10-11
+
+The owner authorized completion in independently published batches, without manual hospital checks. The durable queue is `research/audit-runs/care-batched-20261011T143110-0400/queue.json`; it references immutable prior source plans and discovery leads instead of duplicating them. Record individual semantic decisions in `reviews.json`; a fetched page or linked URL is not a completed source. Publish verified intermediate corrections while keeping the unfinished batch and global receipt visibly in progress.
+
+Public-page extraction must retain relative hyperlinks as well as absolute and root-relative links. Follow actual local service and clinician links; the previous parser discarded plain relative hrefs. Separate current branch treatment from network navigation, referral-only services, research possibilities and clinicians listed at more than one site. Fetch radiation explicitly names Brandon and Bonita Springs; a radiation specialist on Fort Myers' team does not establish local radiation equipment. Preserve raw ACVIM profiles; exclude a stale/unverified physical-address representation only after retaining its confirmed current treatment location in supplemental data.

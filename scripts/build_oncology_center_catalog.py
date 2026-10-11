@@ -50,6 +50,12 @@ NONCLINICAL_ORGANIZATIONS = {
     "joyful riches beyond grief", "n a", "self employed", "zoetis",
 }
 EXCLUDED_PROFILE_IDS = {
+    # Current official Fetch roster places Victoria Costa at Brandon. The
+    # directory's Riverview address is not an official treatment location.
+    "703f0037-e40f-4c7d-86e6-94a5172c26fc",
+    # AVCC's current cancer department is at 8864 W State Road 84; retain the
+    # verified replacement in supplemental data, not the stale 8920 address.
+    "6cc55410-8adc-46e9-8f10-e304c782a22e",
     # Current 2026-10-11 national roster places Romansik in Littleton; the
     # retained seed record covers that location. Do not resurrect old Acton.
     "5063304a-4421-445d-97dc-cdf5100a19d7",
