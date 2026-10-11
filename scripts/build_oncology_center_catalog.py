@@ -50,6 +50,15 @@ NONCLINICAL_ORGANIZATIONS = {
     "joyful riches beyond grief", "n a", "self employed", "zoetis",
 }
 EXCLUDED_PROFILE_IDS = {
+    # A01 owner-approved reconciliation, 2026-10-11. Preserve raw profiles;
+    # supplemental retains current treatment sites or mobile service areas.
+    "738a7647-a210-47c7-93a3-05eda2d9a580",  # Four Seasons old 3120 address
+    "1c1548ea-d273-49b8-b0a8-0a4d8f36dc89",  # same Four Seasons replacement site
+    "f7f617b7-2ee6-4f20-b268-dcf94bc705f0",  # Upton: current host is 4055
+    "90e2d1d4-3193-492d-9d70-0713df5a60e8",  # Hope WA mailing address
+    "3935c200-6335-4680-9dcf-b03ad4f2bb74",  # Mobile Cancer Care mailbox
+    "f25f8ffa-fba7-4778-bd6d-9ef48580f8cf",  # Ivaoes pharmaceutical company
+    "44c4b36e-4420-40be-be7a-937169dd6780",  # LAVet: no current local oncology established
     # Current official roster confirms Ripoll at Bellevue WA; this raw profile
     # incorrectly combines Bellevue organization with the old Ventura address.
     "5a883725-1890-43bc-befb-4ab4369908aa",
@@ -343,6 +352,9 @@ def main() -> None:
                 "latitude": candidate["latitude"],
                 "longitude": candidate["longitude"],
             }
+        elif candidate.get("location_type") == "mobile":
+            # A service area/mailbox is not a fixed treatment or distance pin.
+            coordinates = {"latitude": None, "longitude": None}
         elif candidate["country"] == "USA":
             coordinates = zip_coordinates.get(candidate["postal_code"])
         if not coordinates:

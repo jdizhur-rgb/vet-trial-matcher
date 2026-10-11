@@ -1,0 +1,1446 @@
+{
+  "batch": "A01",
+  "reviewed_at": "2026-10-11T18:01:34.338004-04:00",
+  "scope": "25 assigned oncology-care records; no trial audit",
+  "owner_approved_decisions": {
+    "four-seasons-veterinary-specialist": "Use current official 4120 Clydesdale Parkway, Loveland 80538.",
+    "hope-veterinary-oncology-services": "Mobile oncology: South Puget Sound plus Poulsbo/Gig Harbor/Sumner; mailing address is not a treatment site. Also retain the remote service.",
+    "ivaoes": "Exclude pharmaceutical organization from clinic directory.",
+    "melinda-lou-upton-dvm-pllc": "Use official host address 4055, oncology direct phone.",
+    "dr-sue-cancer-vet-pllc": "One Guardian location; Sue Ettinger is an oncologist there, not a separate physical hospital.",
+    "colorado-veterinary-oncology": "One VCA Deer Creek treatment location; invited oncologist Phyllis Glawe on Fridays.",
+    "kentuckiana-animal-clinic": "Referral-only oncology routing; no confirmed local chemotherapy flag.",
+    "hillcrest-animal-hospital": "Local oncology care; no confirmed chemotherapy or board-certified oncology flag.",
+    "long-island-veterinary-specialists": "Confirmed surgical oncology; medical oncology and chemotherapy need evidence.",
+    "lavet-hospital": "Do not show current local oncology from a historical physician biography.",
+    "integrative-vet-oncology-pc": "Retain clinic and chemotherapy. Undated COVID notice is not confirmed current intake restriction."
+  },
+  "source_visit_dates": "Evidence collected 2026-10-11 in the A01 audit; approval does not create new source visits.",
+  "records": [
+    {
+      "source_id": "cherry-hill-animal-hospital",
+      "name": "Cherry Hill Animal Hospital",
+      "checked_date": "2026-10-11",
+      "status": "Подтверждено с указанными ограничениями",
+      "contact": "1425 Marlton Pike East, Cherry Hill, NJ 08034; 856-325-2100. Официальный сайт cherryhillanimalhospital.com. Филиал опубликован как действующая практика [E1].",
+      "doctors": "Dorothy Girimonte — DACVIM (Oncology), указана на местной странице oncology и в ACVIM. Общий roster содержит Kristan Slotterback, James German, Jaclyn Bird, Allison Bichoupan; Girimonte там не перечислена [E1–E3].",
+      "local_services": "В специальном блоке этого филиала: инъекционная химиотерапия, пероральная таргетная терапия, иммунотерапия, паллиативная/hospice помощь. Acupuncture/herbal therapy описаны как дополнительные подходы. Общий вводный текст о radiation не подтверждает местное облучение [E1].",
+      "access": "Запись на консультацию Girimonte через клинику. Обязательность направления, мобильная и удалённая онкология не установлены [E1].",
+      "proposed_changes": [
+        "Добавить официальный branch oncology URL в inventory.supporting_urls; working_url может указывать на этот сайт [E1].",
+        "Предложение для карточки: Medical oncology; Chemotherapy; Targeted therapy; Immunotherapy; Palliative care — только специальные местные пункты [E1,E3].",
+        "Не добавлять Radiation therapy по общему вводному тексту [E1]."
+      ],
+      "unresolved_questions": [
+        "Каков текущий график Girimonte и почему её нет на общей странице staff? Её отсутствие там не означает ухода.",
+        "Требуется ли направление на oncology?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "url": "https://www.cherryhillanimalhospital.com/services/oncology",
+          "quote": "Traditional, injectable chemotherapy",
+          "scope": "Контакты, врач и конкретный блок Treatment Options We Provide",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E2",
+          "url": "https://www.cherryhillanimalhospital.com/staff",
+          "quote": "Kristan Slotterback",
+          "scope": "Общий текущий roster",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E3",
+          "url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=afc246c9-4ed9-4a16-988d-8a693aa04251",
+          "quote": "Dorothy Girimonte",
+          "scope": "Профессиональная специальность; URL подставлен из inventory",
+          "checked_date": "2026-10-11"
+        }
+      ],
+      "baseline_inventory": {
+        "id": "cherry-hill-animal-hospital",
+        "name": "Cherry Hill Animal Hospital",
+        "master_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=afc246c9-4ed9-4a16-988d-8a693aa04251",
+        "supporting_urls": [],
+        "working_url": "https://www.cherryhillanimalhospital.com/",
+        "last_result": "partial",
+        "content_sufficient": false
+      },
+      "baseline_supplemental": null
+    },
+    {
+      "source_id": "coastal-veterinary-oncology-savannah",
+      "name": "Coastal Veterinary Oncology — Savannah",
+      "checked_date": "2026-10-11",
+      "status": "Официальные сведения найдены; свежесть и часть branch scope нерешены",
+      "contact": "335 Stephenson Avenue, Savannah, GA 31405; 912-355-5791. Новый официальный домен cvo.vet. Отдельный Bluffton не переносится в запись Savannah. Контактная страница доступна в поисковой копии официального сайта; прямое чтение домена завершилось ошибкой [E1].",
+      "doctors": "Andrew Daters — board-certified medical oncologist; Brittany Feldhaeusser — board-certified oncologist с 2021 года. Официальная about связывает обоих с CVO; распределение графика между Savannah и Bluffton не опубликовано [E2].",
+      "local_services": "Официальная страница практики описывает injectable/intralesional chemotherapy, electrochemotherapy, immunotherapy, staging и diagnostic imaging. Страница не разделяет все процедуры по двум адресам: ECT и распределение врачей помечены как требующие проверки Savannah. Лучевая терапия не подтверждена [E3].",
+      "access": "Referral-only, запись через практику; Savannah опубликован Mon–Fri 8–5. Наличие общей круглосуточной госпитализации не означает круглосуточного онколога. Мобильный/удалённый приём не установлен [E1,E4].",
+      "proposed_changes": [
+        "Добавить cvo.vet/contact и about как официальные supporting_urls; предложить замену устаревшего working_url на cvo.vet с пометкой ошибки прямого доступа [E1,E2].",
+        "Подтвердить опубликованные Savannah контакты и referral-only; не присваивать local ECT без отдельной привязки к Savannah [E1,E3,E4]."
+      ],
+      "unresolved_questions": [
+        "Какой из двух филиалов выполняет electrochemotherapy и в какие дни каждый врач работает в Savannah?",
+        "В referral PDF указан 912-335-5791, на contact — 912-355-5791: требуется исправление формы/подтверждение [E1,E5].",
+        "Можно ли повторно прочитать живые страницы и подтвердить актуальность поисковых копий?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "url": "https://cvo.vet/contact/",
+          "quote": "335 Stephenson Ave",
+          "scope": "Официальная поисковая копия: адрес, телефон, часы Savannah",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E2",
+          "url": "https://cvo.vet/about/",
+          "quote": "Brittany Feldhaeusser",
+          "scope": "Официальная поисковая копия: команда",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E3",
+          "url": "https://cvo.vet/oncology-services/",
+          "quote": "Electrochemotherapy",
+          "scope": "Официальная поисковая копия: процедуры сети; ограничение branch scope",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E4",
+          "url": "https://cvo.vet/",
+          "quote": "referral-only",
+          "scope": "Официальная поисковая копия: условия обращения",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E5",
+          "url": "https://cvo.vet/wp-content/uploads/2015/12/cvo-referral-form.pdf",
+          "quote": "Phone: (912)335-5791",
+          "scope": "Официальная индексированная referral форма: phone conflict",
+          "checked_date": "2026-10-11"
+        }
+      ],
+      "baseline_inventory": {
+        "id": "coastal-veterinary-oncology-savannah",
+        "name": "Coastal Veterinary Oncology – Savannah",
+        "master_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=e681b693-392f-42c1-bd28-80dfef0f86c3",
+        "supporting_urls": [],
+        "working_url": "https://www.coastalveterinaryoncology.com",
+        "last_result": "partial",
+        "content_sufficient": false
+      },
+      "baseline_supplemental": null
+    },
+    {
+      "source_id": "colorado-veterinary-oncology",
+      "name": "Colorado Veterinary Oncology",
+      "checked_date": "2026-10-11",
+      "status": "Identity и актуальность расписания нерешены",
+      "contact": "ACVIM: 10148 W Chatfield Avenue, Littleton, CO 80127. Тот же адрес у VCA Deer Creek Animal Hospital; официальный branch phone 303-973-4200 [E1,E2].",
+      "doctors": "Phyllis Ciekot Glawe — DACVIM (Oncology) в ACVIM; страница местной chemotherapy VCA называет Phyllis C. Glawe. На прочитанном primary-team roster её нет; отдельный/приглашённый онколог возможен, отсутствие не доказывает ухода [E1–E3].",
+      "local_services": "VCA branch page описывает cancer consultation, diagnostics, planning и chemotherapy. Radiation направляется в соответствующий внешний центр. Связь самостоятельного названия Colorado Veterinary Oncology с VCA — совпадение врача и адреса, а не подтверждённое юридическое переименование [E1,E2].",
+      "access": "На chemotherapy page опубликованы oncology appointments по пятницам; запись через клинику. Текущий график и направление требуют уточнения. Мобильный/удалённый приём не установлен [E2].",
+      "proposed_changes": [
+        "Добавить VCA branch chemotherapy URL как supporting_url и 303-973-4200 как контакт принимающей площадки [E2].",
+        "Сохранить исходный source_id/название до разрешения identity; не выполнять merge/rename автоматически [E1,E2].",
+        "Локальная Chemotherapy опубликована; Radiation therapy — external referral; текущее назначение Glawe оставить с оговоркой [E2,E3]."
+      ],
+      "unresolved_questions": [
+        "Colorado Veterinary Oncology — самостоятельная практика внутри VCA или прежнее название записи?",
+        "Действует ли пятничный приём Glawe сейчас и требуется ли направление?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=8a1bd5eb-1b67-42d0-8f68-9ee1ce41b7fe",
+          "quote": "Phyllis Ciekot Glawe",
+          "scope": "Специальность и исходная привязка",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E2",
+          "url": "https://vcahospitals.com/deer-creek-littleton/primary/services/advanced-care/chemotherapy",
+          "quote": "Appointments with our pet oncologist take place on Fridays.",
+          "scope": "Локальная услуга, врач, контакты и referral radiation",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E3",
+          "url": "https://vcahospitals.com/deer-creek-littleton/primary/team",
+          "quote": "Cheney Lupe",
+          "scope": "Текущий общий roster, онколог там не найден",
+          "checked_date": "2026-10-11"
+        }
+      ],
+      "baseline_inventory": {
+        "id": "colorado-veterinary-oncology",
+        "name": "colorado veterinary oncology",
+        "master_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=8a1bd5eb-1b67-42d0-8f68-9ee1ce41b7fe",
+        "supporting_urls": [],
+        "working_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=8a1bd5eb-1b67-42d0-8f68-9ee1ce41b7fe",
+        "last_result": "partial",
+        "content_sufficient": false
+      },
+      "baseline_supplemental": null
+    },
+    {
+      "source_id": "community-care-veterinary-specialists",
+      "name": "Community Care Veterinary Specialists",
+      "checked_date": "2026-10-11",
+      "status": "Подтверждено с указанными ограничениями",
+      "contact": "Онкология: Meadowbrook, 3515 NW 98th Street, Gainesville, FL 32606; 352-225-3501. Tower Hill, 310 NW 76th Drive Suite C, — отдельная outpatient площадка; не назначать ей oncology по общей сети [E1].",
+      "doctors": "Stacey Fox-Alvarez, DVM MPH DACVIM (Oncology) — medical oncology Meadowbrook. Alex Fox-Alvarez DACVS-SA — surgery; Erin Porter DACVR/DACVR-EDI — диагностическая радиология, не radiation oncology [E1,E2].",
+      "local_services": "Консультации, staging/diagnostics, chemotherapy и non-chemotherapy oral/injectable options, surgery for cancer с хирургической командой, паллиативная помощь [E1]. Местная Radiation therapy не установлена.",
+      "access": "Consultation appointment; Walk-in Wednesday с приоритетной очередью, предварительно позвонить для правил. Есть provider referral form, но обязательность направления не доказана. Мобильный/удалённый oncology не установлен [E1].",
+      "proposed_changes": [
+        "Добавить pets-with-cancer и профиль врача в supporting_urls; закрепить branch_scope=Meadowbrook [E1,E2].",
+        "Предложить Medical oncology, Chemotherapy, Surgical oncology/team, Palliative care; указать Wednesday walk-in с требованием звонка [E1]."
+      ],
+      "unresolved_questions": [
+        "Обязательно ли направление для первого oncology-приёма?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "url": "https://www.ccvetspecialists.com/pets-with-cancer",
+          "quote": "Oncology- Meadowbrook",
+          "scope": "Привязка, контакты, процедуры и доступ",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E2",
+          "url": "https://www.ccvetspecialists.com/stacey-fox-alvarez-dvm-mph-dacvim-oncology",
+          "quote": "Stacey Fox-Alvarez, DVM, MPH, DACVIM",
+          "scope": "Текущий medical oncologist",
+          "checked_date": "2026-10-11"
+        }
+      ],
+      "baseline_inventory": {
+        "id": "community-care-veterinary-specialists",
+        "name": "Community Care Veterinary Specialists",
+        "master_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=a289cd78-5d7a-425a-baa6-673d6a07540b",
+        "supporting_urls": [],
+        "working_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=a289cd78-5d7a-425a-baa6-673d6a07540b",
+        "last_result": "partial",
+        "content_sufficient": false
+      },
+      "baseline_supplemental": null
+    },
+    {
+      "source_id": "crown-veterinary-specialists",
+      "name": "Crown Veterinary Specialists",
+      "checked_date": "2026-10-11",
+      "status": "Подтверждено с указанными ограничениями",
+      "contact": "23 Blossom Hill Road, Lebanon, NJ 08833; 908-236-4120; crownvet.com [E1].",
+      "doctors": "Gabrielle Angelo DVM DACVIM — Oncology; официальная биография подтверждает board certification 2017. Surgery: Wendy Ross и Theresa Hess — DACVS/DACVS-SA; не присваивать board certification каждому хирургу без биографии [E2].",
+      "local_services": "Dedicated chemotherapy suite, chemotherapy, surgical coordination внутри команды, immunotherapy/targeted подходы при показаниях, pain/palliative care. Radiation координируется с внешними партнёрами [E3].",
+      "access": "Specialty appointment, взаимодействие с primary veterinarian/передача истории. Очный осмотр перед назначением лечения. Наличие referral процесса не доказывает запрет self-referral; это правило не установлено. Мобильная/remote oncology не установлена [E3].",
+      "proposed_changes": [
+        "Добавить official oncology и staff URLs как supporting_urls [E2,E3].",
+        "Предложить Medical oncology; Chemotherapy; Palliative care; доступные по показаниям immunotherapy/targeted therapy. Radiation пометить external referral, не local [E3]."
+      ],
+      "unresolved_questions": [
+        "Обязательно ли направление для нового oncology пациента и какой текущий график Angelo?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "url": "https://crownvet.com/",
+          "quote": "23 Blossom Hill Rd",
+          "scope": "Филиал и контакты",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E2",
+          "url": "https://crownvet.com/our-veterinary-staff/",
+          "quote": "Gabrielle Angelo",
+          "scope": "Текущий врач oncology и specialty",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E3",
+          "url": "https://crownvet.com/veterinary-services/oncology/",
+          "quote": "Radiation therapy can also be coordinated with trusted partner facilities when appropriate.",
+          "scope": "Местная oncology и external radiation",
+          "checked_date": "2026-10-11"
+        }
+      ],
+      "baseline_inventory": {
+        "id": "crown-veterinary-specialists",
+        "name": "Crown Veterinary Specialists",
+        "master_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=2734edf6-55ca-4c62-babe-1bfcbac1675c",
+        "supporting_urls": [],
+        "working_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=2734edf6-55ca-4c62-babe-1bfcbac1675c",
+        "last_result": "partial",
+        "content_sufficient": false
+      },
+      "baseline_supplemental": null
+    },
+    {
+      "source_id": "dr-sue-cancer-vet-pllc",
+      "name": "Dr. Sue Cancer Vet PLLC",
+      "checked_date": "2026-10-11",
+      "status": "Местный приём подтверждён; entity/дублирование нерешены",
+      "contact": "Подтверждённая принимающая площадка — Guardian Veterinary Specialists, 4 Hardscrabble Heights, Brewster, NY 10509; 914-704-3400 [E1,E3]. Самостоятельный стационар PLLC отдельно не установлен.",
+      "doctors": "Sue Ettinger, DVM DACVIM (Oncology), текущая oncology team Guardian. Josephine McKnight, DVM DACVIM (Oncology), вновь присоединилась к тому же отделению в ноябре 2025 [E2]. Не переносить McKnight в личный staff PLLC.",
+      "local_services": "На площадке Guardian опубликованы chemotherapy protocols, molecular tumor profiling, melanoma vaccine и intratumoral Stelfonta. Это услуги Guardian, где указан приём Sue, а не доказательство отдельной клиники PLLC [E2]. Radiation здесь не установлена.",
+      "access": "Запись через Guardian; есть referral pathway. Страница new clients содержит незаполненный шаблон, поэтому её общий текст не используется для вывода «направление не требуется». 24/7 относятся к больнице. Мобильный ultrasound не означает мобильную oncology [E1,E2].",
+      "proposed_changes": [
+        "Добавить профиль Sue и oncology Guardian в supporting_urls; привязать к принимающей площадке [E2,E3].",
+        "Предложить entity note: clinician practice at Guardian; не создавать второй физический центр и не объединять записи без identity review [E1–E3]."
+      ],
+      "unresolved_questions": [
+        "Как каталог должен учитывать PLLC и принимающую больницу, чтобы не показывать две независимые площадки?",
+        "Нужно ли направление непосредственно к Sue и возможен ли remote oncology-приём?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "url": "https://guardianveterinaryspecialists.com/new-clients/",
+          "quote": "4 Hardscrabble Heights",
+          "scope": "Официальные контакты принимающей площадки; шаблонные условия не использованы",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E2",
+          "url": "https://guardianveterinaryspecialists.com/oncology/",
+          "quote": "The latest, most advanced chemotherapy protocols for dogs and cats.",
+          "scope": "Текущие специалисты и местные процедуры",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E3",
+          "url": "https://guardianveterinaryspecialists.com/specialists/dr-sue-ettinger/",
+          "quote": "Sue Ettinger, DVM, DACVIM",
+          "scope": "Профиль врача принимающего учреждения",
+          "checked_date": "2026-10-11"
+        }
+      ],
+      "baseline_inventory": {
+        "id": "dr-sue-cancer-vet-pllc",
+        "name": "Dr. Sue Cancer Vet PLLC",
+        "master_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=af7f4d8d-f061-4006-af99-7ab25224fe9f",
+        "supporting_urls": [],
+        "working_url": "https://www.drsuecancervet.com",
+        "last_result": "partial",
+        "content_sufficient": false
+      },
+      "baseline_supplemental": null
+    },
+    {
+      "source_id": "four-seasons-veterinary-specialist",
+      "name": "Four Seasons Veterinary Specialists",
+      "checked_date": "2026-10-11",
+      "status": "Подтверждено с указанными ограничениями",
+      "contact": "Официальный текущий адрес: 4120 Clydesdale Parkway, Loveland, CO 80538; 970-800-1106. ACVIM ещё показывает 3120 Clydesdale Pkwy, ZIP 80537 [E1,E4].",
+      "doctors": "Erica Faulhaber DVM MS и Emily Janik DVM — DACVIM Medical Oncology; обе названы в местном отделении. Tara Britt — DACVS-SA, Founding Fellow Surgical Oncology [E5]; не путать с radiologist Jennifer Lowry [E2,E3].",
+      "local_services": "IV/oral chemotherapy, immunotherapy, targeted treatment/genomic planning, electrochemotherapy, surgery через команду, palliative care [E2]. Radiation delivery не установлена.",
+      "access": "Опубликованы in-person и virtual consultations; запись через клинику. Обязательность направления не установлена [E2].",
+      "proposed_changes": [
+        "Предложить адрес 3120/80537 → 4120/80538; city Loveland сохраняется. Координаты заново проверять, не вычислять по старой точке [E1,E4].",
+        "Отображаемое название привести к Four Seasons Veterinary Specialists, source_id сохранить [E1].",
+        "Добавить обеих онкологов, local electrochemotherapy и virtual consultation; supporting_urls по отделению/врачам [E2,E3]."
+      ],
+      "unresolved_questions": [
+        "Есть ли условия допуска к virtual consultation и обязательно ли направление?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "url": "https://4seasonsvetspecialists.com/",
+          "quote": "4120 Clydesdale Pkwy",
+          "scope": "Официальный текущий адрес и телефон",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E2",
+          "url": "https://4seasonsvetspecialists.com/services/oncology/",
+          "quote": "Electrochemotherapy",
+          "scope": "Местное отделение, два онколога, услуги и virtual consultations",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E3",
+          "url": "https://4seasonsvetspecialists.com/emily-janik/",
+          "quote": "Diplomate, American College of Veterinary Internal Medicine – Medical Oncology",
+          "scope": "Текущая специальность Janik",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E4",
+          "url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=738a7647-a210-47c7-93a3-05eda2d9a580",
+          "quote": "3120 Clydesdale Pkwy",
+          "scope": "Старый адрес профессионального профиля",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E5",
+          "url": "https://4seasonsvetspecialists.com/tara-britt/",
+          "quote": "Founding Fellow Surgical Oncology",
+          "scope": "Текущая surgical specialty Britt",
+          "checked_date": "2026-10-11"
+        }
+      ],
+      "baseline_inventory": {
+        "id": "four-seasons-veterinary-specialist",
+        "name": "Four Seasons Veterinary Specialist",
+        "master_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=738a7647-a210-47c7-93a3-05eda2d9a580",
+        "supporting_urls": [],
+        "working_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=738a7647-a210-47c7-93a3-05eda2d9a580",
+        "last_result": "partial",
+        "content_sufficient": false
+      },
+      "baseline_supplemental": null
+    },
+    {
+      "source_id": "gulfcoast-veterinary-oncology",
+      "name": "Gulfcoast Veterinary Oncology",
+      "checked_date": "2026-10-11",
+      "status": "Свежесть работы филиала/услуг не подтверждена",
+      "contact": "Официальная contact page в поисковой копии: 7519 South Tamiami Trail, Sarasota, FL 34231; 941-926-1920; gulfcoastvetoncology.com. ACVIM совпадает. Прямое чтение home/contact/services завершилось TLS/502/timeout [E1,E4].",
+      "doctors": "Heidi Ward — DVM, DACVIM (Oncology) в ACVIM; официальный about представляет её врачом практики. Свежий roster не получен [E3,E4].",
+      "local_services": "В индексированной официальной services странице chemotherapy, bone marrow biopsy, cytology, transfusion и другие diagnostics. Это опубликованное описание практики, не свежая проверка фактического расписания процедур [E2]. Radiation не подтверждена.",
+      "access": "По официальной appointment page: referral-only, все записи через regular veterinarian. Часы contact: Mon–Fri 8–5. Мобильный/remote oncology не установлен [E1,E5].",
+      "proposed_changes": [
+        "Добавить официальные contact/services/appointment URLs в supporting_urls; сохранить partial с конкретной причиной: fresh official read not obtained [E1,E2,E5].",
+        "Не менять статус на closed и не удалять chemotherapy из-за недоступности сайта; contact и услуги хранить как published/awaiting freshness [E1–E5]."
+      ],
+      "unresolved_questions": [
+        "Действуют ли сейчас приём Ward, адрес Sarasota, referral-only и chemotherapy? Нужен актуальный доступный источник."
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "url": "https://www.gulfcoastvetoncology.com/contactus.html",
+          "quote": "Phone: 941.926.1920",
+          "scope": "Официальная поисковая копия контактов",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E2",
+          "url": "https://www.gulfcoastvetoncology.com/services.html",
+          "quote": "Chemotherapy",
+          "scope": "Официальная поисковая копия услуг",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E3",
+          "url": "https://www.gulfcoastvetoncology.com/aboutus.html",
+          "quote": "Meet our doctor, Heidi Ward.",
+          "scope": "Официальная поисковая копия врача",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E4",
+          "url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=9076a10f-222a-48bf-a1b3-801172eef8a4",
+          "quote": "Heidi Ward",
+          "scope": "Сертификация и адрес профиля",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E5",
+          "url": "https://www.gulfcoastvetoncology.com/appointment.html",
+          "quote": "all appointments must be made though your regular veterinarian",
+          "scope": "Официальная поисковая копия условий",
+          "checked_date": "2026-10-11"
+        }
+      ],
+      "baseline_inventory": {
+        "id": "gulfcoast-veterinary-oncology",
+        "name": "Gulfcoast Veterinary Oncology",
+        "master_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=9076a10f-222a-48bf-a1b3-801172eef8a4",
+        "supporting_urls": [],
+        "working_url": "https://www.gulfcoastvetoncology.com",
+        "last_result": "partial",
+        "content_sufficient": false
+      },
+      "baseline_supplemental": null
+    },
+    {
+      "source_id": "hillcrest-animal-hospital",
+      "name": "Hillcrest Animal Hospital",
+      "checked_date": "2026-10-11",
+      "status": "Местная oncology заявлена; chemotherapy и специалист нерешены",
+      "contact": "2900 Kavanaugh Blvd, Little Rock, AR 72205; 501-663-1284; hillcrestanimalhospital.org. Контакты совпадают с supplemental [E1].",
+      "doctors": "Andrea Razer — managing veterinarian; Anna Clark, Jeremy Hodges, Caroline Pennington, Faye Stephens — associates; Larry и Joan Nafe — founders. На roster не подтверждён специалист DACVIM Oncology [E2].",
+      "local_services": "Oncology включена в местный service directory. Отдельная oncology page — общий шаблон, совпадающий по chemotherapy/radiation с другими клиниками; нет branch-specific врача/протокола/описания лечения. Фактическое местное введение chemotherapy по одному этому тексту оставлено нерешённым [E3,E4].",
+      "access": "Телефон/Book Appointment. Условия направления и конкретно удалённой oncology не установлены. COVID-era telemedicine для select services не подтверждает нынешний remote oncology [E3].",
+      "proposed_changes": [
+        "Supplemental services: Medical oncology → кандидат Local oncology care; board-certified oncology не подтверждена [E2,E3].",
+        "Существующую Chemotherapy перенести в review-needed, не утверждать её отсутствие и не считать шаблон достаточным подтверждением [E4].",
+        "Сохранить адрес/телефон; дополнить verification evidence местным roster и directory [E1–E3]."
+      ],
+      "unresolved_questions": [
+        "Кто ведёт cancer care, какие chemotherapy protocols действительно вводятся на Kavanaugh Blvd и является ли врач boarded oncologist?",
+        "Действуют ли oncology teleconsultations и нужно ли направление?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "url": "https://www.hillcrestanimalhospital.org/contact-us",
+          "quote": "2900 Kavanaugh Blvd.",
+          "scope": "Контакты филиала",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E2",
+          "url": "https://www.hillcrestanimalhospital.org/staff",
+          "quote": "Dr. Andrea Razer",
+          "scope": "Текущая команда",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E3",
+          "url": "https://www.hillcrestanimalhospital.org/services",
+          "quote": "Special Health Services",
+          "scope": "Oncology находится в местном перечне",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E4",
+          "url": "https://www.hillcrestanimalhospital.org/services/oncology",
+          "quote": "Chemotherapy drugs are injected either into the vein or under the skin",
+          "scope": "Общий шаблон, недостаточная локальная конкретность",
+          "checked_date": "2026-10-11"
+        }
+      ],
+      "baseline_inventory": {
+        "id": "hillcrest-animal-hospital",
+        "name": "Hillcrest Animal Hospital",
+        "master_url": "https://www.hillcrestanimalhospital.org/services/oncology",
+        "supporting_urls": [],
+        "working_url": "https://www.hillcrestanimalhospital.org/services/oncology",
+        "last_result": "partial",
+        "content_sufficient": false
+      },
+      "baseline_supplemental": {
+        "name": "Hillcrest Animal Hospital",
+        "street": "2900 Kavanaugh Boulevard",
+        "city": "Little Rock",
+        "region": "AR",
+        "postal_code": "72205",
+        "country": "USA",
+        "phone": "501-663-1284",
+        "website": "https://www.hillcrestanimalhospital.org/services/oncology",
+        "services": [
+          "Medical oncology",
+          "Chemotherapy"
+        ],
+        "source": "Official hospital oncology page",
+        "verification_url": "https://www.hillcrestanimalhospital.org/services/oncology"
+      }
+    },
+    {
+      "source_id": "holland-s-veterinary-referral-hospital",
+      "name": "Holland’s Veterinary Referral Hospital",
+      "checked_date": "2026-10-11",
+      "status": "Подтверждено с указанными ограничениями",
+      "contact": "9421 North Robinson Avenue, Oklahoma City, OK 73114; 405-842-2275; hollandsveterinaryreferralhospital.com [E1].",
+      "doctors": "Mollyann Holland DVM, Diplomate ACVIM; биография описывает small-animal internal medicine residency. Специальность internal medicine, не DACVIM Oncology [E2].",
+      "local_services": "Chemotherapy прямо включена в услуги; chemotherapy consultations отдельно названы в FAQ. Supplemental Local oncology care + Chemotherapy подтверждаются, без specialty inflation [E3,E4]. Radiation не установлена.",
+      "access": "Referral-only internal medicine hospital. Направление regular vet требуется; chemotherapy consultation около часа; диагностические/лечебные drop-off визиты описаны отдельно. Mon–Fri 8–5; remote/mobile oncology не установлены [E1,E4].",
+      "proposed_changes": [
+        "Сохранить Local oncology care и Chemotherapy; добавить internal-medicine квалификацию Holland и referral-only [E2–E4].",
+        "Дополнить supporting_urls services/doctors/faqs вместо опоры только на homepage [E2–E4]."
+      ],
+      "unresolved_questions": [
+        "Есть ли отдельные ограничения для первого chemotherapy визита? Дистанционный и мобильный oncology не опубликованы."
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "url": "https://www.hollandsveterinaryreferralhospital.com/",
+          "quote": "referral-only veterinary hospital",
+          "scope": "Филиал, контакты и routing",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E2",
+          "url": "https://www.hollandsveterinaryreferralhospital.com/doctors",
+          "quote": "Mollyann Holland",
+          "scope": "Текущий врач, биография internal medicine",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E3",
+          "url": "https://www.hollandsveterinaryreferralhospital.com/services",
+          "quote": "Chemotherapy",
+          "scope": "Местная услуга",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E4",
+          "url": "https://www.hollandsveterinaryreferralhospital.com/faqs",
+          "quote": "chemotherapy",
+          "scope": "Направление, consultation/drop-off",
+          "checked_date": "2026-10-11"
+        }
+      ],
+      "baseline_inventory": {
+        "id": "holland-s-veterinary-referral-hospital",
+        "name": "Holland's Veterinary Referral Hospital",
+        "master_url": "https://www.hollandsveterinaryreferralhospital.com/services",
+        "supporting_urls": [],
+        "working_url": "https://www.hollandsveterinaryreferralhospital.com/",
+        "last_result": "partial",
+        "content_sufficient": false
+      },
+      "baseline_supplemental": {
+        "name": "Holland's Veterinary Referral Hospital",
+        "street": "9421 North Robinson Avenue",
+        "city": "Oklahoma City",
+        "region": "OK",
+        "postal_code": "73114",
+        "country": "USA",
+        "phone": "405-842-2275",
+        "website": "https://www.hollandsveterinaryreferralhospital.com/",
+        "latitude": 35.5704,
+        "longitude": -97.5257,
+        "services": [
+          "Local oncology care",
+          "Chemotherapy"
+        ],
+        "source": "Official referral hospital services page",
+        "verification_url": "https://www.hollandsveterinaryreferralhospital.com/services"
+      }
+    },
+    {
+      "source_id": "hope-veterinary-oncology",
+      "name": "Hope Veterinary Oncology — Ventura",
+      "checked_date": "2026-10-11",
+      "status": "Подтверждено с указанными ограничениями",
+      "contact": "1885 Knoll Drive, Ventura, CA 93003; 805-626-6551 (call/text); hopeveterinaryoncology.com [E1].",
+      "doctors": "Lori Cesario DVM DACVIM (Oncology) — текущий oncologist/основатель [E2].",
+      "local_services": "Chemotherapy, targeted oral therapeutics, immunotherapy, Tumor-Specific Electroporation (TSE; сайт называет advanced form of electrochemotherapy), diagnostics и поддерживающие подходы. Surgery/radiation требуют внешнего referral, не местные modalities [E3].",
+      "access": "Owner booking request подтверждается клиникой; опубликован deposit $285. Очные appts Mon–Thu 8–5:30, Fri phone support. Обязательность направления, mobile/remote oncology не установлены [E1,E4].",
+      "proposed_changes": [
+        "Добавить официальный contact/about/services/booking в supporting_urls [E1–E4].",
+        "Предложить Medical oncology, Chemotherapy, Targeted therapy, Immunotherapy, TSE/electrochemotherapy с точным названием. Surgery/Radiation — referral only [E3]."
+      ],
+      "unresolved_questions": [
+        "Нужно ли veterinary referral и есть ли remote consultation? Не считать Friday phone support отдельной tele-oncology услугой."
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "url": "https://www.hopeveterinaryoncology.com/contact",
+          "quote": "Call or text 805-626-6551",
+          "scope": "Адрес и appointment hours",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E2",
+          "url": "https://www.hopeveterinaryoncology.com/about",
+          "quote": "Lori Cesario",
+          "scope": "Текущий врач и специальность",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E3",
+          "url": "https://www.hopeveterinaryoncology.com/services",
+          "quote": "Tumor-Specific Electroporation",
+          "scope": "Местные treatments; surgery/radiation external",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E4",
+          "url": "https://www.hopeveterinaryoncology.com/consultationbooking",
+          "quote": "collect a $285 deposit",
+          "scope": "Owner request/deposit, не факт свободного слота",
+          "checked_date": "2026-10-11"
+        }
+      ],
+      "baseline_inventory": {
+        "id": "hope-veterinary-oncology",
+        "name": "Hope Veterinary Oncology",
+        "master_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=31829d70-5aa6-49eb-bee7-da0ab1069a9a",
+        "supporting_urls": [],
+        "working_url": "https://www.hopeveterinaryoncology.com",
+        "last_result": "partial",
+        "content_sufficient": false
+      },
+      "baseline_supplemental": null
+    },
+    {
+      "source_id": "hope-veterinary-oncology-services",
+      "name": "Hope Veterinary Oncology Services — mobile WA",
+      "checked_date": "2026-10-11",
+      "status": "Формат подтверждён; host addresses/roster/часы нерешены",
+      "contact": "1420 Marvin Road NE, Suite C #316, Lacey, WA 98516 обозначен MAILING ADDRESS. Не использовать его как treatment location. 253-341-5835; hopevetoncology.com. Опубликованы приёмные площадки: Poulsbo Marina Veterinary Clinic (Poulsbo), Gig Harbor Veterinary Hospital (Gig Harbor), Sumner Veterinary Hospital (Sumner) [E1,E2].",
+      "doctors": "Vanessa L. Rizzo — DACVIM (Oncology) по ACVIM; текущая местная биография описывает oncology residency [E7]. Choose Hope также упоминает Dr. Sullivan без однозначного roster/полного имени; текущая роль нерешена [E3,E6].",
+      "local_services": "Мобильные очные cancer treatment visits: IV и oral chemotherapy, targeted therapy, immunotherapies, pain/nutrition support. Не приписывать IV chemotherapy дистанционному Cancer Care Plan [E4,E5]. Radiation delivery не установлена.",
+      "access": "Очный приём в mobile unit у host clinics, консультация по заявке. Remote owner Zoom — разъяснение диагноза/опций, без remote diagnosis/prescribing; vet-to-vet Cancer Care Plan выполняет local vet, без IV chemotherapy. Обязательность направления на очный визит не установлена. На странице veterinarians body часы Sun–Fri против footer Fri closed — не переносить этот график как разрешённый [E4,E5].",
+      "proposed_changes": [
+        "Предложить entity/mobile note; street в Lacey вынести как mailing_address, не geocode физическое лечение [E1,E2].",
+        "Добавить published host locations отдельно, не создавать 3 независимых source_id; Текущие адреса самих host clinics: Poulsbo —19362 Powder Hill Pl NE, WA98370; Gig Harbor —5606 Soundview Drive, WA98335; Sumner/PetOne —16024 60th Street E, WA98390 [E8–E10]. Это привязка по имени host, не отдельное подтверждение нынешнего места RV после переезда Poulsbo.",
+        "Добавить mobile oncology и ограниченный remote consulting, отдельно от местного введения препаратов [E4,E5]."
+      ],
+      "unresolved_questions": [
+        "Подтверждается ли место RV у нынешних адресов host clinics, особенно после переезда Poulsbo, и каков график Hope?",
+        "Кто Dr. Sullivan и выполняет ли сейчас приём?",
+        "Какие дни/часы действуют и требуется ли referral для очного приёма?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "url": "https://hopevetoncology.com/contact/",
+          "quote": "Mailing Address",
+          "scope": "Lacey — почтовый адрес и контакт",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E2",
+          "url": "https://hopevetoncology.com/",
+          "quote": "Gig Harbor Veterinary Hospital",
+          "scope": "Текущие host locations",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E3",
+          "url": "https://hopevetoncology.com/veterinarian-lacey-wa/",
+          "quote": "Dr. Rizzo",
+          "scope": "Основной oncologist",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E4",
+          "url": "https://hopevetoncology.com/pet-veterinarians-lacey-wa/",
+          "quote": "traditional intravenous chemotherapy",
+          "scope": "Мобильные treatments; body/footer hours conflict",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E5",
+          "url": "https://hopevetoncology.com/remote-consulting/",
+          "quote": "While we can’t diagnose or prescribe remotely",
+          "scope": "Ограничения teleconsulting",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E6",
+          "url": "https://hopevetoncology.com/choose-hope/",
+          "quote": "Dr. Sullivan",
+          "scope": "Не полностью идентифицированный врач",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E7",
+          "url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=90e2d1d4-3193-492d-9d70-0713df5a60e8",
+          "quote": "Vanessa L. Rizzo, DVM, DACVIM (Oncology)",
+          "scope": "Квалификация Rizzo",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E8",
+          "url": "https://www.poulsbomarinavet.com/",
+          "quote": "Our new address is 19362 Powder Hill Pl. NE Poulsbo, WA 98370.",
+          "scope": "Текущий адрес host clinic после переезда",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E9",
+          "url": "https://www.gigharborveterinaryhospital.com/location",
+          "quote": "5606 Soundview Drive",
+          "scope": "Текущий адрес host clinic Gig Harbor",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E10",
+          "url": "https://www.petonesumner.com/",
+          "quote": "16024 60th Street E, Sumner, WA, 98390",
+          "scope": "Текущий официальный host site; sumnervet.com перенаправляет сюда",
+          "checked_date": "2026-10-11"
+        }
+      ],
+      "baseline_inventory": {
+        "id": "hope-veterinary-oncology-services",
+        "name": "Hope Veterinary Oncology Services",
+        "master_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=90e2d1d4-3193-492d-9d70-0713df5a60e8",
+        "supporting_urls": [],
+        "working_url": "https://hopevetoncology.com",
+        "last_result": "partial",
+        "content_sufficient": false
+      },
+      "baseline_supplemental": null
+    },
+    {
+      "source_id": "indyvet-emergency-and-specialty-hospital",
+      "name": "IndyVet Emergency and Specialty Hospital",
+      "checked_date": "2026-10-11",
+      "status": "Подтверждено с указанными ограничениями",
+      "contact": "5425 Victory Drive, Indianapolis, IN 46203; 317-782-4484; indyvet.com [E1].",
+      "doctors": "Lorin Hillman DVM DACVIM (Oncology) — текущий oncology specialist; Heather Kloft и Russell White DACVS-SA — surgery team [E2].",
+      "local_services": "Dedicated chemotherapy area, chemotherapy, targeted therapy (Palladia), immunotherapy (Oncept), surgical tumor excision/debulking через team, palliative care. Diagnostic X-ray/US/CT не означают RT [E1].",
+      "access": "Specialty visits by appointment; hospital accepts emergency/referral problems. Referring veterinarian направляет case/records через portal/form. Не расширять emergency 24/7 на график oncology. Mobile/remote oncology не установлены [E3].",
+      "proposed_changes": [
+        "Добавить official oncology и staff/referral URLs в supporting_urls; предложить Medical oncology/Chemotherapy/Targeted therapy/Immunotherapy и surgery team с branch evidence [E1,E2].",
+        "Указать appointment/referral pathway, не oncology walk-in24/7 [E3]."
+      ],
+      "unresolved_questions": [
+        "Допускается ли self-referral на oncology и есть ли remote visits?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "url": "https://www.indyvet.com/services/oncology",
+          "quote": "Chemotherapy",
+          "scope": "Местный oncology service и контакты",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E2",
+          "url": "https://www.indyvet.com/staff",
+          "quote": "DVM, DACVIM (Oncology)",
+          "scope": "Текущие специалисты",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E3",
+          "url": "https://www.indyvet.com/referring-veterinarians",
+          "quote": "appointment",
+          "scope": "Specialty referral/appointments",
+          "checked_date": "2026-10-11"
+        }
+      ],
+      "baseline_inventory": {
+        "id": "indyvet-emergency-and-specialty-hospital",
+        "name": "IndyVet Emergency and Specialty Hospital",
+        "master_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=0206dfbf-2698-43a9-9e40-6f6fef13e939",
+        "supporting_urls": [],
+        "working_url": "https://www.indyvet.com",
+        "last_result": "partial",
+        "content_sufficient": false
+      },
+      "baseline_supplemental": null
+    },
+    {
+      "source_id": "integrative-vet-oncology-pc",
+      "name": "Integrative Veterinary Oncology, PC",
+      "checked_date": "2026-10-11",
+      "status": "Контакты/квалификация подтверждены; intake нерешён",
+      "contact": "2501 N 32nd Street, Phoenix, AZ 85008; 602-841-0626. Официальный сайт сообщает новый домен IVOCancerCare.com; старый integrativeveterinaryoncology.com не дал содержимое [E1].",
+      "doctors": "Elizabeth (Betsy) Hershey DVM DACVIM (Oncology), CVA, прямо названа в FAQ [E2].",
+      "local_services": "Опубликованы chemotherapy, immunotherapy, cryosurgery, photodynamic therapy и complementary support. FAQ описывает возможность начать chemotherapy в первый визит. Актуальная доступность новых appointments не разрешена; список на homepage сам по себе не означает доступный слот [E1,E2]. Radiation не установлена.",
+      "access": "FAQ: referral не нужен; для рекомендаций необходим очный осмотр/VCPR. Homepage содержит недатированное COVID-era сообщение «not accepting new patients». Поэтому нынешний intake не подтверждён; не объявлять практику закрытой и не обещать запись [E1,E2].",
+      "proposed_changes": [
+        "working_url предложить https://ivocancercare.com/; добавить FAQ в supporting_urls; сохранить прежний source_id [E1,E2].",
+        "Контакты и квалификацию подтвердить; availability_new_patients=unresolved, published referral_not_required отделить от фактического intake [E1,E2]."
+      ],
+      "unresolved_questions": [
+        "Действует ли недатированное ограничение на новых пациентов и какие опубликованные процедуры сейчас доступны?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "url": "https://ivocancercare.com/",
+          "quote": "are not accepting new patients at this time",
+          "scope": "Новый домен/контакты, published services и undated intake notice",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E2",
+          "url": "https://ivocancercare.com/questions_to_ask.html",
+          "quote": "Elizabeth (Betsy) Hershey, DVM, DACVIM (Oncology), CVA",
+          "scope": "Квалификация, no-referral, очный VCPR и chemotherapy",
+          "checked_date": "2026-10-11"
+        }
+      ],
+      "baseline_inventory": {
+        "id": "integrative-vet-oncology-pc",
+        "name": "Integrative Vet. Oncology, PC",
+        "master_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=9e6dc134-17f4-4dd3-adeb-479f7e83a737",
+        "supporting_urls": [],
+        "working_url": "https://www.integrativeveterinaryoncology.com",
+        "last_result": "partial",
+        "content_sufficient": false
+      },
+      "baseline_supplemental": null
+    },
+    {
+      "source_id": "integrity-veterinary-center",
+      "name": "Integrity Veterinary Center",
+      "checked_date": "2026-10-11",
+      "status": "Подтверждено с указанными ограничениями",
+      "contact": "518 Pleasant Street, Northampton, MA 01060; 413-614-0039; integrityvetcenter.com [E1].",
+      "doctors": "Martha MaloneyHuss и David Hunley — DVM DACVIM (Oncology), оба в текущем specialist roster. Anna Dunlap DACVS-SA — хирург [E2].",
+      "local_services": "Medical oncology, local in-hospital chemotherapy и palliative oncology. Клиническая памятка обращается к своим пациентам и описывает medication после каждого in-hospital chemotherapy treatment, в сочетании с местной oncology page это подтверждает branch service [E1,E3]. RT не установлена.",
+      "access": "Сначала call Schedule Your Visit, затем intake form; limited same-/next-day urgent oncology drop-off consultations. Emergency department24/7 ≠ oncology24/7. Referral mandatory и remote/mobile oncology не установлены [E1].",
+      "proposed_changes": [
+        "Добавить supporting_urls department, roster и собственную clinical chemotherapy памятку [E1–E3].",
+        "Предложить Medical oncology; Chemotherapy; Palliative care, оба текущих oncologists, appointment/intake procedure [E1–E3]."
+      ],
+      "unresolved_questions": [
+        "Нужно ли направление и какие условия первичного/remote визита?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "url": "https://integrityvetcenter.com/services/oncology/",
+          "quote": "Schedule Your Visit: 413-614-0039",
+          "scope": "Местный приём, контакты и palliative care",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E2",
+          "url": "https://integrityvetcenter.com/meet-the-specialists/",
+          "quote": "Martha MaloneyHuss",
+          "scope": "Текущий specialist roster",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E3",
+          "url": "https://integrityvetcenter.com/chemotherapy/",
+          "quote": "after each in-hospital chemotherapy treatment",
+          "scope": "Собственная памятка пациентам о местном лечении",
+          "checked_date": "2026-10-11"
+        }
+      ],
+      "baseline_inventory": {
+        "id": "integrity-veterinary-center",
+        "name": "Integrity Veterinary Center",
+        "master_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=c28a3d36-066a-4451-a585-a6bc63d66dd8",
+        "supporting_urls": [],
+        "working_url": "https://integrityvetcenter.com",
+        "last_result": "partial",
+        "content_sufficient": false
+      },
+      "baseline_supplemental": null
+    },
+    {
+      "source_id": "ivaoes",
+      "name": "Ivaoes",
+      "checked_date": "2026-10-11",
+      "status": "Клиническая сущность/адрес не установлены",
+      "contact": "Исходный ACVIM: 4011 SW29th Street #336, Topeka, KS 66614; 844-696-4667. Официальный ivaoes.com представляет pharmaceutical company, corporate office 1200 NW78th Avenue Suite200-D, Doral, FL33126; main844-243-4968. Doral не является подтверждённым treatment location [E1,E2].",
+      "doctors": "Kevin August Hahn DVM PhD DACVIM (Oncology) — профессиональный профиль ACVIM. На сайте фирмы не подтверждён текущий клинический приём в Topeka [E1,E2].",
+      "local_services": "Подтверждены manufacturing/distribution animal-health pharmaceuticals, не местная cancer clinic. Никакая конкретная oncology treatment service Topeka по официальному сайту не подтверждена [E2].",
+      "access": "Форма corporate contact/Medical Affairs относится к продуктам, не к записи пациента. Referral, clinical appointments, mobile/remote oncology — unknown [E2].",
+      "proposed_changes": [
+        "Пометить identity/type review: corporate affiliation не равна physical oncology center; не подменять Topeka адресом Doral [E1,E2].",
+        "Не предлагать новые клинические услуги или phone Medical Affairs как patient booking. Сохранить исходные данные до разрешения identity; physical-care representation требует review [E2]."
+      ],
+      "unresolved_questions": [
+        "Ведёт ли Hahn сейчас clinical oncology practice, как она называется и где реально принимает пациентов?",
+        "Адрес #336 Topeka — treatment location или mailing address?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=f25f8ffa-fba7-4778-bd6d-9ef48580f8cf",
+          "quote": "Kevin August Hahn",
+          "scope": "Исходная professional affiliation/адрес",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E2",
+          "url": "https://ivaoes.com/",
+          "quote": "dedicated to manufacturing safe and high-quality pharmaceuticals",
+          "scope": "Тип организации и corporate contact",
+          "checked_date": "2026-10-11"
+        }
+      ],
+      "baseline_inventory": {
+        "id": "ivaoes",
+        "name": "Ivaoes",
+        "master_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=f25f8ffa-fba7-4778-bd6d-9ef48580f8cf",
+        "supporting_urls": [],
+        "working_url": "https://ivaoes.com/",
+        "last_result": "partial",
+        "content_sufficient": false
+      },
+      "baseline_supplemental": null
+    },
+    {
+      "source_id": "kentuckiana-animal-clinic",
+      "name": "Kentuckiana Animal Clinic",
+      "checked_date": "2026-10-11",
+      "status": "Referral подтверждён; local chemotherapy противоречива",
+      "contact": "1500 E18th Street, Owensboro, KY42303; 270-684-2949; kentuckianaanimalclinic.com. Контакты совпадают с supplemental [E1].",
+      "doctors": "Текущий roster: Dr. Basham (Managing DVM), Dr. Flener, Dr. Savannah, Dr. Simms (DVM). Oncology certification не подтверждена; имена не расширять догадками [E2].",
+      "local_services": "Service directory прямо относит Oncology к Special Health Service Referrals, off-site specialists. Отдельная generic oncology page описывает chemotherapy и radiation, но не разрешает противоречие по local delivery [E1,E3].",
+      "access": "Обычная запись клиники phone/Book Appointment; oncology routing к внешнему специалисту. Remote/mobile oncology не установлены [E1].",
+      "proposed_changes": [
+        "Supplemental Local oncology care + Chemotherapy: предложить oncology referral routing; local chemotherapy перевести в unresolved review, не утверждать отсутствие [E1,E3].",
+        "verification_url дополнить /services как источник конкретного off-site routing; добавить staff [E1,E2]."
+      ],
+      "unresolved_questions": [
+        "Выполняет ли клиника какую-либо chemotherapy на E18thStreet, несмотря на off-site oncology раздел, кем и по каким протоколам?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "url": "https://www.kentuckianaanimalclinic.com/services",
+          "quote": "We'd be happy to provide referrals to off-site specialists for the following services:",
+          "scope": "Прямое off-site routing Oncology; контакты",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E2",
+          "url": "https://www.kentuckianaanimalclinic.com/staff",
+          "quote": "Dr. Basham",
+          "scope": "Текущий общий roster",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E3",
+          "url": "https://www.kentuckianaanimalclinic.com/services/oncology",
+          "quote": "Chemotherapy",
+          "scope": "Общий текст, конфликт с конкретным service directory",
+          "checked_date": "2026-10-11"
+        }
+      ],
+      "baseline_inventory": {
+        "id": "kentuckiana-animal-clinic",
+        "name": "Kentuckiana Animal Clinic",
+        "master_url": "https://www.kentuckianaanimalclinic.com/services/oncology",
+        "supporting_urls": [],
+        "working_url": "https://www.kentuckianaanimalclinic.com/",
+        "last_result": "partial",
+        "content_sufficient": false
+      },
+      "baseline_supplemental": {
+        "name": "Kentuckiana Animal Clinic",
+        "street": "1500 E. 18th Street",
+        "city": "Owensboro",
+        "region": "KY",
+        "postal_code": "42303",
+        "country": "USA",
+        "phone": "270-684-2949",
+        "website": "https://www.kentuckianaanimalclinic.com/",
+        "latitude": 37.7559,
+        "longitude": -87.0803,
+        "services": [
+          "Local oncology care",
+          "Chemotherapy"
+        ],
+        "source": "Official hospital oncology page",
+        "verification_url": "https://www.kentuckianaanimalclinic.com/services/oncology"
+      }
+    },
+    {
+      "source_id": "las-vegas-veterinary-specialty-center",
+      "name": "Las Vegas Veterinary Specialty Center",
+      "checked_date": "2026-10-11",
+      "status": "Подтверждено с указанными ограничениями",
+      "contact": "Tropicana/Durango SPECIALTY: 8650 W Tropicana Avenue, B-107, Las Vegas, NV89147; 702-871-1152. Не путать specialty suite с emergency площадкой/номером [E1].",
+      "doctors": "Holly Burr, Katherine Robinson, Bradley Schmidt — DVM DACVIM (Oncology), current roster oncology branch [E2].",
+      "local_services": "Chemotherapy, Zometa/pain support, immunotherapy, electrochemotherapy, staging/diagnostics. Diagnostic radiology не подтверждает Radiation therapy [E2].",
+      "access": "Запись phone/patient portal; нужны медицинские records. Mandatory referral отдельно не доказан. Mobile/remote oncology не установлены [E2].",
+      "proposed_changes": [
+        "Привязать запись к specialty branch и её телефону/suite; official branch/oncology supporting_urls [E1,E2].",
+        "Предложить Medical oncology; Chemotherapy; Immunotherapy; Electrochemotherapy; добавить трёх онкологов [E2]."
+      ],
+      "unresolved_questions": [
+        "Нужно ли направление, как распределяются текущие часы трёх oncologists?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "url": "https://lvvetspecialtyer.com/las-vegas-nv/tropicana-durango-specialty/",
+          "quote": "B-107",
+          "scope": "Контакты именно specialty branch",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E2",
+          "url": "https://lvvetspecialtyer.com/las-vegas-nv/tropicana-durango-specialty/veterinary-oncology/",
+          "quote": "Electrochemotherapy",
+          "scope": "Текущий roster и местные procedures",
+          "checked_date": "2026-10-11"
+        }
+      ],
+      "baseline_inventory": {
+        "id": "las-vegas-veterinary-specialty-center",
+        "name": "Las Vegas Veterinary Specialty Center",
+        "master_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=7d524b60-a2e1-422d-bf74-96047d4b4935",
+        "supporting_urls": [],
+        "working_url": "https://lvvetspecialtyer.com",
+        "last_result": "partial",
+        "content_sufficient": false
+      },
+      "baseline_supplemental": null
+    },
+    {
+      "source_id": "lavet-hospital",
+      "name": "LAVet Hospital",
+      "checked_date": "2026-10-11",
+      "status": "Филиал подтверждён; местная oncology не установлена",
+      "contact": "908 North Canal Boulevard, Thibodaux, LA70301; 985-492-6777. Рабочий официальный маршрут https://lavethospital.com/Home; не использовать найденный lavet.com как клинику [E1].",
+      "doctors": "Blake Marcello, Bill Marcello, Buffy Ackman-Schatzle — врачи общего hospital roster. Astrid Bigio Marcello DACVIM (Medical Oncology), board-certified2014; bio говорит о завершении работы MedVet New Orleans для семьи. Текущий oncology schedule в LAVet не указан [E1,E2].",
+      "local_services": "Подтверждены общая практика, surgery/diagnostics. Прошлая oncology работа Astrid не подтверждает chemotherapy либо oncology consultations на NorthCanal. Local oncology modalities оставлены unknown [E1,E2].",
+      "access": "Обычная appointment route/phone. Oncology referral rules, mobile/remote приём не установлены [E1].",
+      "proposed_changes": [
+        "Добавить рабочий официальный Home и Astrid bio в supporting_urls; подтвердить адрес/телефон [E1,E2].",
+        "Не добавлять Medical oncology/Chemotherapy по одной qualification; отметить local clinical role=unresolved [E2]."
+      ],
+      "unresolved_questions": [
+        "Принимает ли Astrid сейчас oncology пациентов в LAVet; выполняются ли здесь chemotherapy и какие другие cancer treatments?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "url": "https://lavethospital.com/Home",
+          "quote": "908 North Canal Boulevard",
+          "scope": "Официальная действующая hospital page, контакты и roster",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E2",
+          "url": "https://lavethospital.com/AboutUs/DrAstridBigioMarcello.aspx",
+          "quote": "board-certified in Medical Oncology",
+          "scope": "Квалификация/биография; не доказательство текущей local услуги",
+          "checked_date": "2026-10-11"
+        }
+      ],
+      "baseline_inventory": {
+        "id": "lavet-hospital",
+        "name": "LAVet Hospital",
+        "master_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=44c4b36e-4420-40be-be7a-937169dd6780",
+        "supporting_urls": [],
+        "working_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=44c4b36e-4420-40be-be7a-937169dd6780",
+        "last_result": "partial",
+        "content_sufficient": false
+      },
+      "baseline_supplemental": null
+    },
+    {
+      "source_id": "long-island-veterinary-specialists",
+      "name": "Long Island Veterinary Specialists",
+      "checked_date": "2026-10-11",
+      "status": "Surgical oncology подтверждена; прежние medical/chemo поля нерешены",
+      "contact": "163 South Service Road, Plainview, NY11803; 516-501-1700; livs.org [E1].",
+      "doctors": "Catherine Loughin DACVS, Dominic Marino DACVS, Robert Waddell DACVS-SA — surgical team. Joshua Tumulty DACVIM — INTERNAL MEDICINE. На прочитанном roster не подтверждён DACVIM Oncology; не превращать internist в oncologist [E2,E3].",
+      "local_services": "Местная Oncologic Surgery прямо названа: tumor removal, amputations/limb-sparing/reconstructive approaches. Internal medicine рассматривает oncologic disease, но это не достаточное подтверждение local chemotherapy. Supplemental Medical oncology + Chemotherapy требует review [E1,E3].",
+      "access": "Specialty appointments через phone/clinic, передача records/referral. 24/7 emergency/referral не означает oncology walk-in. Mandatory referral и remote/mobile oncology не установлены [E1].",
+      "proposed_changes": [
+        "Предложить добавить Surgical oncology с local surgery URL [E1].",
+        "Существующие Medical oncology/Chemotherapy в supplemental — pending evidence, не удаление на основании отсутствия слова в меню. Local oncology care можно описать как surgical/internist care без board specialty inflation [E2,E3].",
+        "verification_url уточнить до services/surgery и internal-medicine вместо общего homepage [E1,E3]."
+      ],
+      "unresolved_questions": [
+        "Кто ведёт лекарственную oncology, выполняется ли chemotherapy здесь и есть ли текущий DACVIM Oncology специалист?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "url": "https://www.livs.org/services/surgery",
+          "quote": "Oncologic Surgery",
+          "scope": "Местная cancer surgery и контакты",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E2",
+          "url": "https://www.livs.org/staff",
+          "quote": "Joshua W. Tumulty",
+          "scope": "Текущий roster; internal medicine отдельно",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E3",
+          "url": "https://www.livs.org/services/internal-medicine",
+          "quote": "oncologic",
+          "scope": "Cancer care internist; chemotherapy не конкретизирована",
+          "checked_date": "2026-10-11"
+        }
+      ],
+      "baseline_inventory": {
+        "id": "long-island-veterinary-specialists",
+        "name": "Long Island Veterinary Specialists",
+        "master_url": "https://www.livs.org/",
+        "supporting_urls": [],
+        "working_url": "https://www.livs.org/",
+        "last_result": "partial",
+        "content_sufficient": false
+      },
+      "baseline_supplemental": {
+        "name": "Long Island Veterinary Specialists",
+        "street": "163 South Service Road",
+        "city": "Plainview",
+        "region": "NY",
+        "postal_code": "11803",
+        "country": "USA",
+        "phone": "516-501-1700",
+        "website": "https://www.livs.org/",
+        "latitude": 40.78546,
+        "longitude": -73.44924,
+        "services": [
+          "Medical oncology",
+          "Chemotherapy"
+        ],
+        "source": "Official hospital service and oncology team pages",
+        "verification_url": "https://www.livs.org/"
+      }
+    },
+    {
+      "source_id": "marqueen-pet-emergency-and-specialty",
+      "name": "MarQueen Pet Emergency and Specialty — Roseville",
+      "checked_date": "2026-10-11",
+      "status": "Услуги/площадка подтверждены; полный текущий roster нерешён",
+      "contact": "SPECIALTY appointments: 9205 Sierra College Boulevard #120, Roseville, CA95661; 916-757-6600. Emergency/Surgery receiving: 9213 SierraCollegeBlvd#150 — другой вход/назначение [E1].",
+      "doctors": "Erica Moore DVM DACVIM (Oncology) имеет официальный physician profile и ACVIM affiliation. Department говорит о двух boarded oncologists, а current team page ещё без полного roster; второй и текущий график Moore нерешены [E1,E2,E3].",
+      "local_services": "На местной department page chemotherapy, immunotherapy, palliative support и surgical care team. Прямо заявлено, что radiation не выполняется на MarQueen и организуется внешне. Не смешивать Roseville с Upland [E2].",
+      "access": "Specialty appointment/referral form, call clinic. Mandatory referral, mobile/remote oncology не установлены. Surgery receiving address отличается от oncology appointments [E1,E2].",
+      "proposed_changes": [
+        "Сохранить отдельный Roseville source_id; закрепить specialty appointment address и различие surgery receiving [E1].",
+        "Добавить department и Moore profile в supporting_urls; RT=external referral [E1,E2].",
+        "Врач Moore: official profile confirmed, current availability unresolved; второго не выдумывать [E1–E3]."
+      ],
+      "unresolved_questions": [
+        "Кто второй действующий oncologist и какие дни приёма Moore?",
+        "Обязательно ли направление на oncology?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "url": "https://marqueenanimalclinic.com/team/erica-moore/",
+          "quote": "Specialty Appointments: 9205 Sierra College Blvd. #120",
+          "scope": "Филиал, контакты и physician profile",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E2",
+          "url": "https://marqueenanimalclinic.com/oncology/",
+          "quote": "two board-certified veterinary oncologists",
+          "scope": "Local department, услуги и external radiation",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E3",
+          "url": "https://marqueenanimalclinic.com/our-team/",
+          "quote": "Stay tuned",
+          "scope": "Неполный текущий roster",
+          "checked_date": "2026-10-11"
+        }
+      ],
+      "baseline_inventory": {
+        "id": "marqueen-pet-emergency-and-specialty",
+        "name": "MarQueen Pet Emergency and Specialty",
+        "master_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=250b2c5c-0dad-49e2-81dc-4252746ae129",
+        "supporting_urls": [],
+        "working_url": "https://marqueenanimalclinic.com/",
+        "last_result": "partial",
+        "content_sufficient": false
+      },
+      "baseline_supplemental": null
+    },
+    {
+      "source_id": "marqueen-pet-emergency-and-specialty-1cf5c115",
+      "name": "MarQueen Veterinary ER and Specialty — Upland",
+      "checked_date": "2026-10-11",
+      "status": "Подтверждено с указанными ограничениями",
+      "contact": "1582 North Benson Avenue, Upland, CA91786; 909-303-1700; marqueenveterinary.com. Самостоятельная филиальная запись, не дубль Roseville [E1,E2].",
+      "doctors": "William FitzPatrick DVM DACVIM (Oncology) — current department head, подтверждён oncology и Local Crew pages. Internal medicine: Erica Queen, Polina Vishkautsan, Katarina Yi — отдельная specialty [E2].",
+      "local_services": "Local chemotherapy oral и длительные infusions, melanoma vaccine/immunotherapy, palliative/pain management. Обсуждение radiation среди опций не доказывает local delivery [E1].",
+      "access": "Официальная oncology page сообщает, что referral не требуется; запись через клинику. Mobile/remote oncology не установлены [E1].",
+      "proposed_changes": [
+        "Сохранить отдельный source_id 1cf5c115; добавить local oncology/crew supporting_urls [E1,E2].",
+        "Предложить Medical oncology; Chemotherapy; Immunotherapy; Palliative care и no-referral appointment route [E1].",
+        "Не добавлять Radiation therapy по перечню возможных treatments [E1]."
+      ],
+      "unresolved_questions": [
+        "Есть ли remote oncology и какое текущее расписание FitzPatrick?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "url": "https://marqueenveterinary.com/oncology/",
+          "quote": "While we do not require a referral",
+          "scope": "Местная oncology, chemotherapy, owner access",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E2",
+          "url": "https://marqueenveterinary.com/local-crew/",
+          "quote": "William FitzPatrick, DVM, DACVIM",
+          "scope": "Текущий oncologist; Upland address/phone",
+          "checked_date": "2026-10-11"
+        }
+      ],
+      "baseline_inventory": {
+        "id": "marqueen-pet-emergency-and-specialty-1cf5c115",
+        "name": "Marqueen Pet Emergency and Specialty",
+        "master_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=8af4d85d-c304-483f-ab63-11c9d4513834",
+        "supporting_urls": [],
+        "working_url": "https://marqueenveterinary.com",
+        "last_result": "partial",
+        "content_sufficient": false
+      },
+      "baseline_supplemental": null
+    },
+    {
+      "source_id": "melinda-lou-upton-dvm-pllc",
+      "name": "Melinda Lou Upton, DVM, PLLC",
+      "checked_date": "2026-10-11",
+      "status": "Адрес4005/4055 нерешён",
+      "contact": "ACVIM: 4005 S102nd E Avenue, Tulsa, OK74146; 918-663-3994. Официальная oncology страница Animal Emergency Center Tulsa: DrUpton в том же здании, footer4055 S102nd E Avenue. Расхождение4005/4055 остаётся нерешённым. Oncology phone918-663-3994, не emergency main [E1,E2].",
+      "doctors": "Melinda Upton DVM DACVIM (Oncology) — professional profile; принимающий hospital прямо называет её локальную oncology practice [E1,E2].",
+      "local_services": "Официальный local oncology route описывает chemotherapy/immunotherapy и cancer planning. Surgery среди доступных методов нельзя автоматически присвоить лично Upton; radiation delivery не доказана [E2].",
+      "access": "Обращение непосредственно в oncology practice по918-663-3994. Mandatory referral, mobile/remote oncology не установлены официально [E2].",
+      "proposed_changes": [
+        "Добавить AEC oncology page как supporting_url, сохранить прямой specialty phone [E2].",
+        "Предложить Medical oncology/Chemotherapy/Immunotherapy с clinician-at-host note [E1,E2].",
+        "4005 →4055 только candidate correction, не готовое изменение: unresolved address conflict [E1,E2]."
+      ],
+      "unresolved_questions": [
+        "Каков точный treatment address Upton:4005 или4055, и совпадает ли он с main AEC building?",
+        "Требуется ли referral и кто выполняет cancer surgery?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=f7f617b7-2ee6-4f20-b268-dcf94bc705f0",
+          "quote": "4005 S. 102nd E. Ave.",
+          "scope": "Исходный physician practice адрес/credential",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E2",
+          "url": "https://aectulsa.com/oncology/",
+          "quote": "Dr. Upton works in the same building with us",
+          "scope": "Конкретная принимающая площадка, oncology phone и footer4055",
+          "checked_date": "2026-10-11"
+        }
+      ],
+      "baseline_inventory": {
+        "id": "melinda-lou-upton-dvm-pllc",
+        "name": "Melinda Lou Upton, DVM, PLLC",
+        "master_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=f7f617b7-2ee6-4f20-b268-dcf94bc705f0",
+        "supporting_urls": [],
+        "working_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=f7f617b7-2ee6-4f20-b268-dcf94bc705f0",
+        "last_result": "partial",
+        "content_sufficient": false
+      },
+      "baseline_supplemental": null
+    },
+    {
+      "source_id": "mission-valley-veterinary-clinic",
+      "name": "Mission Valley Veterinary Clinic",
+      "checked_date": "2026-10-11",
+      "status": "Подтверждено с указанными ограничениями",
+      "contact": "37058 Timberlane Road, Ronan, MT59864; 406-676-4251; missionvalleyvetclinicmt.com. Контакты совпадают с supplemental [E1].",
+      "doctors": "Kevin R. Detwiler DVM — owner and sole veterinarian. Общая смешанная практика; oncology board certification не подтверждена [E2].",
+      "local_services": "Small Animal Services прямо перечисляет Chemotherapy and cancer treatment. Это конкретный местный перечень услуг, не только обсуждение возможных методов. Supplemental Local oncology care + Chemotherapy оставить. Diagnostic radiology неRT [E1].",
+      "access": "Запись phone/clinic. Есть house-call/mobile services и home euthanasia, однако нет прямого утверждения mobile chemotherapy. Нельзя приписывать cancer infusions выезду. Referral rules и remote oncology не установлены [E1].",
+      "proposed_changes": [
+        "Сохранить существующие Local oncology care/Chemotherapy и контакты; уточнить врача general practice DVM [E1,E2].",
+        "Добавить branch-specific services/roster в supporting_urls; oncology_mobile_delivery=unknown вместо вывода из общей мобильной услуги [E1]."
+      ],
+      "unresolved_questions": [
+        "Какие chemotherapy protocols доступны и выполняется ли cancer treatment при house calls?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "url": "https://www.missionvalleyvetclinicmt.com/services.pml",
+          "quote": "Chemotherapy and cancer treatment",
+          "scope": "Конкретный местный small-animal перечень и контакты",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E2",
+          "url": "https://www.missionvalleyvetclinicmt.com/our-team.pml",
+          "quote": "owner and sole veterinarian",
+          "scope": "Текущий врач/роль",
+          "checked_date": "2026-10-11"
+        }
+      ],
+      "baseline_inventory": {
+        "id": "mission-valley-veterinary-clinic",
+        "name": "Mission Valley Veterinary Clinic",
+        "master_url": "https://www.missionvalleyvetclinicmt.com/services.pml",
+        "supporting_urls": [],
+        "working_url": "https://www.missionvalleyvetclinicmt.com/",
+        "last_result": "partial",
+        "content_sufficient": false
+      },
+      "baseline_supplemental": {
+        "name": "Mission Valley Veterinary Clinic",
+        "street": "37058 Timberlane Road",
+        "city": "Ronan",
+        "region": "MT",
+        "postal_code": "59864",
+        "country": "USA",
+        "phone": "406-676-4251",
+        "website": "https://www.missionvalleyvetclinicmt.com/",
+        "latitude": 47.5525,
+        "longitude": -114.1054,
+        "services": [
+          "Local oncology care",
+          "Chemotherapy"
+        ],
+        "source": "Official hospital services page",
+        "verification_url": "https://www.missionvalleyvetclinicmt.com/services.pml"
+      }
+    },
+    {
+      "source_id": "mobile-veterinary-cancer-care",
+      "name": "Mobile Veterinary Cancer Care",
+      "checked_date": "2026-10-11",
+      "status": "Подтверждено с указанными ограничениями",
+      "contact": "360-920-9586; mobileveterinarycancercare.com. Мобильная практика; Bellingham — одна площадка, не единственный постоянный стационар. Mon: 6220 Portal Way, Ferndale, WA 98248; Tue: 405 32nd St #103, Bellingham, WA 98225 (gravel lot); Wed: 14434 Avon Allen Rd, Mount Vernon, WA 98273; Thu: 2730 172nd St NE, Marysville, WA 98271 [E1,E2].",
+      "doctors": "Chamisa Herrera DVM DACVIM (Oncology), founder/current specialist; независимая practice основана2024 [E3].",
+      "local_services": "Mobile chemotherapy (individualized/oral), immunotherapy, palliative/pain/nutrition care и diagnostics/staging. Radiation/surgery — только консультации о целесообразности; не delivery. Referral ultrasound отдельно от собственной диагностики [E4].",
+      "access": "Request appointment и telehealth consult через portal; контакт Mon–Thu8–5, Fri telehealth only. Возможность remote consult подтверждена, право prescribing и допустимая география из одной ссылки не установлены. Mandatory referral не опубликован [E1,E5].",
+      "proposed_changes": [
+        "Предложить mobile entity с четырьмя published locations/schedule; не геокодировать только исходный Bellingham адрес и не создавать четыре независимые practices [E2].",
+        "Добавить current Herrera, Mobile oncology/Chemotherapy/Immunotherapy/Palliative care и telehealth consultation [E3–E5].",
+        "Radiation/Surgery пометить consultation/referral, не местное выполнение [E4]."
+      ],
+      "unresolved_questions": [
+        "Каковы условия remote консультаций/VCPR и требуется ли referral?",
+        "Подтверждается ли опубликованный недельный mobile schedule на дату конкретной записи?"
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "url": "https://www.mobileveterinarycancercare.com/contact",
+          "quote": "Friday: By telehealth appointment only",
+          "scope": "Телефон и формат обращения",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E2",
+          "url": "https://www.mobileveterinarycancercare.com/locations",
+          "quote": "6220 Portal Way",
+          "scope": "Все четыре mobile locations и дни",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E3",
+          "url": "https://www.mobileveterinarycancercare.com/about",
+          "quote": "Chamisa Herrera",
+          "scope": "Текущий врач и oncology qualification",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E4",
+          "url": "https://www.mobileveterinarycancercare.com/services",
+          "quote": "Consults regarding appropriateness of radiation or surgery",
+          "scope": "Локальные процедуры и ограничение radiation/surgery",
+          "checked_date": "2026-10-11"
+        },
+        {
+          "evidence_id": "E5",
+          "url": "https://www.mobileveterinarycancercare.com/",
+          "quote": "Request a telehealth consult.",
+          "scope": "Опубликованный удалённый consultation pathway",
+          "checked_date": "2026-10-11"
+        }
+      ],
+      "baseline_inventory": {
+        "id": "mobile-veterinary-cancer-care",
+        "name": "Mobile Veterinary Cancer Care",
+        "master_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=3935c200-6335-4680-9dcf-b03ad4f2bb74",
+        "supporting_urls": [],
+        "working_url": "https://www.mobileveterinarycancercare.com/",
+        "last_result": "partial",
+        "content_sufficient": false
+      },
+      "baseline_supplemental": null
+    }
+  ]
+}

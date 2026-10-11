@@ -42,7 +42,10 @@ def main() -> None:
         if phone and center["country"] in {"USA", "Canada"}:
             digits = re.sub(r"\D", "", phone)
             assert len(digits) == 10, (center["name"], phone)
-        if center["country"] == "USA":
+        if center.get("location_type") == "mobile":
+            assert center["latitude"] is None and center["longitude"] is None, center["name"]
+            assert center.get("service_area"), center["name"]
+        elif center["country"] == "USA":
             assert center["latitude"] is not None and center["longitude"] is not None, center["name"]
 
     page = PAGE.read_text(encoding="utf-8")
