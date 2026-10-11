@@ -408,3 +408,7 @@ Removing values from main does not remove old Git history or automatically resol
 ## Page search titles — 2026-10-11
 
 By the owner's request, omit Vet Trial Finder from all page `<title>` and matching social-title metadata. Keep the site name, WebSite/Organization schema, og:site_name, visible headings, navigation and body copy unchanged. `seo/enforce_sentence_case.py` applies this policy in the final build pass, including the approved homepage, trial-matcher and oncology-care-finder title overrides. Do not restore automatic title branding in the shared shell.
+
+## Historical center URLs — 2026-10-11
+
+The strict center generator shortens university names in slugs and removes raw-name pages. Preserve former full-name URLs with `seo/center_url_redirects.py`, run by the production builder after center enrichment. The BARC historical suffix has an explicit same-center mapping. GitHub Pages uses instant HTML meta refresh plus destination canonical, not an HTTP 301. Redirect stubs are noindex and excluded from the sitemap/internal search; never overwrite a live page, guess a replacement, or redirect a retired institution to another hospital. Pages absent because the effective catalog no longer supplies their center require separate reconciliation, not an invented URL equivalence. Validate source/destination identity, real targets, absence of chains and final production responses.

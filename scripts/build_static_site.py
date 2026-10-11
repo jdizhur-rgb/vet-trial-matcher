@@ -174,6 +174,7 @@ def main() -> None:
     run("seo/validate_center_profiles.py")
     run("seo/enforce_sentence_case.py", pythonpath="seo")
     run("scripts/build_site_search.py")
+    run("scripts/test_center_url_redirects.py")
     run("scripts/validate_production_sync.py")
     for page in SITE.rglob("*.html"):
         page.write_text(
