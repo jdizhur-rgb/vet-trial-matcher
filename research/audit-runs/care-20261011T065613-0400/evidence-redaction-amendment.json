@@ -1,0 +1,44 @@
+{
+  "remediated_at": "2026-10-11T08:05:52.087127-04:00",
+  "parent_commit": "b1d327f7fa4317945e86a1e0cb7330750fb4e000",
+  "original_manifest": "evidence-manifest.json",
+  "note": "Original seal and source visit timestamps preserved. These paths intentionally differ from the pre-redaction sealed bytes. No source reconciliation claims changed.",
+  "changes": [
+    {
+      "path": "network-roster-payload-bluepearl.json",
+      "previous_sha256": "a9bf48d80c7f1b659c23911c2e5c25579a4a95024cf7c3515144257ac94faaf3",
+      "new_sha256": "2b82a459f59b4a6ab8772119be120ce2e8ebe8b74ccb3c5be8e50933fc07ebb3",
+      "previous_bytes": 136092,
+      "new_bytes": 136064,
+      "reason": "Redact copied Google API key values only"
+    },
+    {
+      "path": "pages/77a15dab43b3e1539a.json",
+      "previous_sha256": "eebfa2492b47ea34a21b287d74417a171dae517a059dd981d765f68db8164094",
+      "new_sha256": "27da534830319399d66a7aa30752875a90092d757fe2ecddea614beaec637b40",
+      "previous_bytes": 13029,
+      "new_bytes": 13015,
+      "reason": "Redact copied Google API key values only"
+    },
+    {
+      "path": "pages/b95103f321e58e00ac.json",
+      "previous_sha256": "45f3b499238d0f686eb77f327e1989a032f9cd82de7717003df60bf4260586d1",
+      "new_sha256": "cf6222aacf141220f1912d036def2832b0fd59995d023540d22c4edd6a6abac5",
+      "previous_bytes": 31370,
+      "new_bytes": 31356,
+      "reason": "Redact copied Google API key values only"
+    },
+    {
+      "path": "fetch_evidence.py",
+      "previous_sha256": "75f792682428b4246338421f06542ea9f3be91365ce0b3ace54729b7432f6ad9",
+      "new_sha256": "585fa4cfbf6da299e8bfa42ee11613c12b0513b946f1fd2c36b9193b2a665591",
+      "previous_bytes": 3215,
+      "new_bytes": 3355,
+      "reason": "Add write-time redaction"
+    }
+  ],
+  "source_provenance": "All three stored unique key values were found in current HTTP-200 official public pages during this remediation. No keys were called, tested for validity or printed.",
+  "google_key_occurrences_redacted": 4,
+  "unique_keys": 3,
+  "remaining": "Original Git history and GitHub secret-scanning alerts are not removed/resolved by this amendment."
+}

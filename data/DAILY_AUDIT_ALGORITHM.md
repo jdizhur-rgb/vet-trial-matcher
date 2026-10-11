@@ -184,6 +184,10 @@ The reconstruction below distinguishes routes evidenced in the saved audit/scrip
 - For Japan, distinguish an oncology-specific second-opinion menu from generic online appointments; include published reservation fees in total cost. Preserve native names with transliterations. Keep the established exclusion of Russia-based practices from the public teleconsultation directory.
 - Do not send messages, booking forms or inquiries on Yulia's behalf.
 
+### Evidence credential redaction — 2026-10-11 (daily and weekly)
+
+Never persist unrelated embedded service keys from public HTML, scripts, JSON islands, map embeds or linked URLs. Redact Google API key values with `scripts.check_evidence_keys.redact_text` before saving payloads. For ad hoc evidence exports, run `python scripts/check_evidence_keys.py --redact research/audit-runs/<run_id>` before sealing the manifest, then `python scripts/check_evidence_keys.py` before commit/push. A failed key check blocks publication until the evidence is redacted; it does not block permitted source research. Do not print, test or use copied third-party keys. If a sealed file requires security redaction, preserve the original manifest and append a timestamped amendment with old/new hashes; do not alter source-check dates. See PROJECT_OPERATIONS.md section 39.
+
 ### Persistence, publication and completion
 
 Open every known care source during the weekly pass; compare current rosters/fingerprints with the prior receipt. Deeply reconcile changed, missing, ambiguous and due items. An unchanged roster may avoid redundant reading of unchanged detail pages, but cannot substitute for opening the source; require a full detail reread at least every four weeks. Perform separate fresh-signal discovery with seven-day overlap and current/undated discovery across all required global regions, explicitly Japan.

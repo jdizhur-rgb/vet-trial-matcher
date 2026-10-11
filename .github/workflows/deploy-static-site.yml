@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/deploy-static-site.yml'
+      - 'scripts/check_evidence_keys.py'
       - 'scripts/build_static_site.py'
       - 'scripts/build_site_search.py'
       - 'scripts/test_matcher_logic.js'
@@ -36,6 +37,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Reject copied Google API keys before building
+        run: python scripts/check_evidence_keys.py
       - name: Build production site from committed source
         run: python scripts/build_static_site.py
       - uses: actions/setup-node@v4

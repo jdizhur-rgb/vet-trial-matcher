@@ -6,6 +6,9 @@ from zoneinfo import ZoneInfo
 import urllib.request, urllib.error
 from bs4 import BeautifulSoup
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from scripts.check_evidence_keys import redact_text
+
 BASE=Path(__file__).resolve().parent
 locks={}
 lock=threading.Lock()
@@ -37,7 +40,7 @@ def fetch(url):
         target=BASE/'pages'/f'{key}.json';target.parent.mkdir(exist_ok=True)
         if target.exists():
             key+='-'+datetime.now().strftime('%H%M%S%f');target=BASE/'pages'/f'{key}.json'
-        target.write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n')
+        target.write_text(redact_text(json.dumps(out,ensure_ascii=False,indent=2))+'\n')
         return {'url':url,'evidence_file':str(target.relative_to(BASE)),'attempted_at':at,'http_status':out['http_status'],'error':out['error'],'characters':len(out['text'])}
 
 if __name__=='__main__':
@@ -45,4 +48,4 @@ if __name__=='__main__':
     with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
         results=[]
         for result in pool.map(fetch,urls):results.append(result);print(json.dumps(result,ensure_ascii=False),flush=True)
-    Path(sys.argv[2]).write_text(json.dumps(results,indent=2)+'\n')
+    Path(sys.argv[2]).write_text(redact_text(json.dumps(results,indent=2))+'\n')
