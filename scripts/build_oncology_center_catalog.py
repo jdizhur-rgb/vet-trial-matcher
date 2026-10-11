@@ -50,6 +50,9 @@ NONCLINICAL_ORGANIZATIONS = {
     "joyful riches beyond grief", "n a", "self employed", "zoetis",
 }
 EXCLUDED_PROFILE_IDS = {
+    # Current 2026-10-11 national roster places Romansik in Littleton; the
+    # retained seed record covers that location. Do not resurrect old Acton.
+    "5063304a-4421-445d-97dc-cdf5100a19d7",
     # Ally moved to Lincoln; current official address is in supplemental data.
     "f1f24b52-a6ac-4373-a2eb-1d11a11824da",
     # Research-only/non-clinical affiliations, not patient-facing veterinary hospitals.
@@ -251,6 +254,19 @@ def center_match(seed: dict, candidate: dict) -> bool:
         return False
     same_zip = bool(seed["postal_code"] and seed["postal_code"] == candidate["postal_code"])
     same_city = bool(seed["city"] and seed["city"].casefold() == candidate["city"].casefold())
+    # The two Akron hospitals are distinct despite similar names in one ZIP.
+    # Limit this verified correction to their identities; other conflicts need
+    # primary-source reconciliation before changing historical merge behavior.
+    left_number, right_number = street_key(seed["street"])[0], street_key(candidate["street"])[0]
+    akron_names = (norm(seed["name"]), norm(candidate["name"]))
+    separate_akron_hospitals = (any(name.startswith("medvet") for name in akron_names)
+                               and any(name.startswith("metropolitan") for name in akron_names))
+    if (same_zip and seed["postal_code"] == "44321" and separate_akron_hospitals
+            and left_number and right_number and left_number != right_number
+            and phone_key(seed.get("phone", "")) and phone_key(candidate.get("phone", ""))
+            and phone_key(seed["phone"]) != phone_key(candidate["phone"])
+            and similarity(seed["name"], candidate["name"]) < 0.84):
+        return False
     if (
         phone_key(seed.get("phone", ""))
         and phone_key(seed.get("phone", "")) == phone_key(candidate.get("phone", ""))
