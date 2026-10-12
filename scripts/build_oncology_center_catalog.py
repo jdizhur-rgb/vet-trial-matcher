@@ -297,6 +297,13 @@ def center_match(seed: dict, candidate: dict) -> bool:
     # Limit this verified correction to their identities; other conflicts need
     # primary-source reconciliation before changing historical merge behavior.
     left_number, right_number = street_key(seed["street"])[0], street_key(candidate["street"])[0]
+    # B01: the Malvern hospital (40 Three Tun Rd.) and radiation center
+    # (50 Three Tun Rd.) share a telephone and ZIP but are separate sites.
+    if (same_zip and seed["postal_code"] == "19355"
+            and {left_number, right_number} == {"40", "50"}
+            and all("bluepearl" in compact(x["name"]) for x in (seed, candidate))
+            and all("threetun" in compact(x["street"]) for x in (seed, candidate))):
+        return False
     akron_names = (norm(seed["name"]), norm(candidate["name"]))
     separate_akron_hospitals = (any(name.startswith("medvet") for name in akron_names)
                                and any(name.startswith("metropolitan") for name in akron_names))
