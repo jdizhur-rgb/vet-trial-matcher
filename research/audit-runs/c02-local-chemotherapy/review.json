@@ -1,0 +1,79 @@
+{
+  "package": "C02",
+  "scope": "Owner authorized chemotherapy at branches with current oncologists; leave remaining claims/services as they are; no publication.",
+  "prepared_at": "2026-10-11T21:25:40-04:00",
+  "base_sha": "6d70a739babe40e534a295cb8c06f7bda14501ae",
+  "changes": [
+    {
+      "source_id": "vca-encina-veterinary-medical-center",
+      "field": "services",
+      "old_value": [
+        "Medical oncology"
+      ],
+      "new_value": [
+        "Medical oncology",
+        "Chemotherapy"
+      ],
+      "evidence_url": "https://vcahospitals.com/encina/specialty/departments/oncology",
+      "supporting_quote": "Our oncology services include cancer screening, chemotherapy, and surgery.",
+      "checked_at": "2026-10-11T21:25:40-04:00",
+      "branch_scope": {
+        "name": "VCA Encina Veterinary Medical Center",
+        "street": "2803 Ygnacio Valley Road",
+        "city": "Walnut Creek",
+        "region": "CA"
+      },
+      "current_oncologists": [
+        "Stephen Atwater — DVM, MS, DACVIM; local Oncology team",
+        "Ashley Bennett — DVM, DACVIM; biography confirms Oncology board certification"
+      ],
+      "team_url": "https://vcahospitals.com/encina/specialty/team",
+      "supplemental_action": "Add same-location override; baseline supplemental record absent. Preserve all existing contact/location fields and unrelated services."
+    },
+    {
+      "source_id": "vca-great-lakes-veterinary-specialists",
+      "field": "services",
+      "old_value": [
+        "Medical oncology"
+      ],
+      "new_value": [
+        "Medical oncology",
+        "Chemotherapy"
+      ],
+      "evidence_url": "https://vcahospitals.com/great-lakes/specialty/departments/oncology",
+      "supporting_quote": "Our Oncology department specializes in the diagnosis of cancer, staging of tumors, the development of treatment plans, and the administration of chemotherapy.",
+      "checked_at": "2026-10-11T21:25:40-04:00",
+      "branch_scope": {
+        "name": "VCA Great Lakes Veterinary Specialists",
+        "street": "4760 Richmond Road",
+        "city": "Warrensville Heights",
+        "region": "OH"
+      },
+      "current_oncologists": [
+        "Morgan Clark — DVM, DACVIM (Oncology)"
+      ],
+      "team_url": "https://vcahospitals.com/great-lakes/specialty/team",
+      "supplemental_action": "Add same-location override; baseline supplemental record absent. Preserve all existing contact/location fields and unrelated services."
+    }
+  ],
+  "already_present": [
+    "VCA Dallas Animal Specialty Hospital",
+    "VCA Capital Area Veterinary Specialists",
+    "VCA Colonial Animal Hospital",
+    "VCA Family and Oahu Veterinary Specialty Center"
+  ],
+  "unchanged": "Every other branch and service, including existing disputed chemotherapy/radiation/immunotherapy tags. No global audit completion or contact re-verification claimed.",
+  "published": false,
+  "validation": {
+    "catalog_builder": "PASS: 438 centers; only two records changed, service/source/provenance fields",
+    "catalog_validator": "PASS: 438 centers, 52 states/territories",
+    "finder_scope": "PASS: exactly two cards acquire chemotherapy tag/filter; template unchanged",
+    "dedupe": "PASS: no new center identities; center count remains 438",
+    "evidence_key_scan": "PASS",
+    "publication": "Authorized; remote and live readback pending",
+    "combined_regressions": "PASS: B01, B02, C01, A02, A01",
+    "full_static_build": "PASS: production sync, matcher, oncology finder, no tracking and page shell"
+  },
+  "publication_authorized": true,
+  "integration_base_sha": "3cf10fd685e27ef628cf3620b3f54af708deed8a"
+}
