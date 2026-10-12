@@ -50,6 +50,10 @@ NONCLINICAL_ORGANIZATIONS = {
     "joyful riches beyond grief", "n a", "self employed", "zoetis",
 }
 EXCLUDED_PROFILE_IDS = {
+    # C01: current Holly Avenue/87122 site is retained in supplemental.
+    # Preserve the raw old Montgomery and wrong-ZIP Holly profiles as history.
+    "bf7bb6ec-d5f5-4049-9216-89f536f7b17d",
+    "563a9e4c-d9fe-49a9-a10a-0667ad60b958",
     # A04: Allstadt returned to VSNT Fort Worth; preserve the current UTSW
     # treatment site in supplemental without stale VSNT/medical-oncologist identity.
     "68de357e-56dd-413b-88c1-b9d3fcd7466c",

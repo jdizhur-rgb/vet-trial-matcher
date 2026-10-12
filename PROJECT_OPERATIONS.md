@@ -464,3 +464,12 @@ The owner approved direct Advanced treatments and Genomic tests links in the sha
 ## Focused molecular cancer tests — 2026-10-11
 
 Owner approved CADET BRAF/BRAF-PLUS and LABOKLIN c-KIT as two service cards under Genomic tests. CADET is urine-based canine bladder/prostate testing, grouped once across verified USA/Canada/UK access. LABOKLIN sequences KIT exons 8/9/11 from canine mast-cell tumor tissue, with verified Europe/UK access. Keep diagnosis-specific filter tags and limitations; neither is a broad pan-cancer panel or proof of drug benefit. The page now has six cards; update both production count gates together.
+
+
+## C01 VCA branch reconciliation — 2026-10-11
+
+Owner approved publication of the 25-source C01 audit and conservative conclusions. Retain the network sitemap as discovery-only, not a clinic or proof of branch services. Replace the unnamed San Francisco VCA representation with SAGE San Francisco and its dedicated Fenger/Trang-Hoang roster; retain the conflicting Andres source without declaring departure. Replace both stale Albuquerque ACVIM representations with the current 8850 Holly Avenue NE, Suite K / 87122 branch, main 505-292-5353 and the current official branch JSON-LD coordinate point; preserve raw profiles and the separately published referral number in evidence.
+
+Keep hospital-listed chemotherapy at Airport Irvine, Amherst VA, AMC NE Alabama, Aventura and Bering Sea. At Aledo, Alpine, Amherst MT, Animal Care Clinic, Richland, Bath and Boonsboro retain Local oncology care and suppress only the unsupported Chemotherapy filter. Generic Oncology text is not modality proof; a branch Available Services/Chemotherapy entry is an explicit hospital offering, without proving a named specialist or every treatment protocol. Preserve residency-trained wording for Anne Skope and Sonia Honkisz.
+
+Keep local Halcyon RT at Fishers/Aurora and current hospital-listed RT at Albuquerque without inventing its device or assigned radiation clinician. ASG Los Angeles explicitly has no local RT; retain chemotherapy, surgical oncology, targeted therapy, immunotherapy and ECT. San Diego explicitly offers ONCEPT; Baring's unnamed melanoma therapy is not enough to assign a product. Evidence/decisions are in research/audit-runs/c01-approved-20261011/review.json. This is targeted C01 coverage, not a completed national VCA audit.
