@@ -1,5 +1,15 @@
 # Vet Cancer Treatment Finder — Project Operations / Single Source of Truth
 
+## C03/C04/D01/D02 combined reconciliation — 2026-10-12
+
+The owner authorized joint publication of the four reviewed packages (95 assigned source identities). Preserve current P00 and previous A/B/C decisions; integrate field values against current main rather than replace whole snapshots. Evidence, proposals, unresolved questions and per-field integration results are in `research/audit-runs/c03-c04-d01-d02-20261012/`.
+
+C03 retains local chemotherapy independently of credentials, removes only unsupported confirmed chemotherapy tags at Highlands/Pahle/Roswell/Rutherford, adds verified branch immunotherapy and ONCEPT, and retains Mountain View radiation as delivery-unconfirmed. Northwest's local IMRT/SRT and Palm Beach's local IMRT have equipment evidence. Keep current clinician information separate from services; residency-trained is not board-certified.
+
+C04 corrects the mixed Norwalk CT/Bedford Hills NY representation. Exclude the stale Jessica Chin imported physical profile while preserving raw history. Norwalk is 123 W. Cedar Street, CT 06854, 203-854-9960, with official branch JSON-LD coordinates 41.105345/-73.431517. The remaining NY ACVIM cluster can choose the non-clinical Focused Ultrasound Foundation label and disappear; retain the distinct current VCA Katonah Bedford branch at 546 Bedford Road, 914-241-7700 in supplemental. Its retained distance point is an existing ZIP centroid, not a building geocode. This preservation correction does not expand its modality list.
+
+D01/D02 distinguish owner, owner-with-vet and veterinarian-only access, written review and live consultation, geography and actual assignment. Sarah Boston's current remote route is unconfirmed and excluded from public cards, preserving inventory/watchlist evidence; the active remote count is 60. Keep both count gates and the exclusion assertion aligned. D01 actual attempt timestamps are inherited from its receipt; D02 supplies date-only review evidence, so do not invent a time or overwrite its older visit timestamp with integration time. Source review completion and actual fresh visit dates remain separate.
+
 **READ THIS FILE FIRST before modifying the app, catalog, workflows, SEO, or deployment.**
 
 This file is the persistent engineering/operations memory for the project. Update it whenever a bug teaches us something, a workflow changes, or a new permanent rule is established. Do not rely on chat memory for operational knowledge.

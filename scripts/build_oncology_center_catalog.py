@@ -28,12 +28,12 @@ US_STATES = {
 
 WEBSITE_OVERRIDES = {
     "SAGE Veterinary Centers|Redwood City|CA": "https://www.sagecenters.com/",
-    "VCA Sacramento Veterinary Referral Center|Sacramento|CA": "https://vcahospitals.com/",
+    "VCA Sacramento Veterinary Referral Center|Sacramento|CA": "https://vcahospitals.com/sacramento-veterinary-referral-center",
     "MedVet Silicon Valley|San Jose|CA": "https://www.medvet.com/",
     "Arista Advanced Pet Care Atlanta|Atlanta|GA": "https://aristapetcare.com/arista-locations/atlanta/",
     "University of Minnesota|St. Paul|MN": "https://vetmed.umn.edu/",
     "Garden State Veterinary Specialists and Veterinary Emergency and Referral Group|BROOKLYN|NY": "https://www.verg-brooklyn.com/",
-    "VCA Veterinary Emergency Referral Center of Westbury|Westbury|NY": "https://vcahospitals.com/",
+    "VCA Veterinary Emergency Referral Center of Westbury|Westbury|NY": "https://vcahospitals.com/westbury",
     "Penn Vet Ryan Veterinary Hospital|Philadelphia|PA": "https://www.vet.upenn.edu/veterinary-hospitals/ryan-veterinary-hospital/",
 }
 
@@ -50,6 +50,9 @@ NONCLINICAL_ORGANIZATIONS = {
     "joyful riches beyond grief", "n a", "self employed", "zoetis",
 }
 EXCLUDED_PROFILE_IDS = {
+    # C04: Jessica Chin's imported CT profile has another branch's NY address.
+    # Keep raw history; current Norwalk service is retained in supplemental.
+    "1973c738-08aa-4f6a-8af0-76b95e9677c5",
     # B02: Greenbrier/Chesapeake reception moved to Town Center Virginia Beach.
     # Keep the raw Brewer profile as history; supplemental retains current care.
     "23c8fa8f-68ba-4cad-a686-2c872c371136",

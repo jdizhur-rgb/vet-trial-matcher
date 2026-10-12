@@ -1,0 +1,941 @@
+{
+  "package": "D02",
+  "checked_at": "2026-10-12",
+  "status": "research decisions only; not applied or published",
+  "target_file": "seo/oncology_teleconsultations.py",
+  "field_map": {
+    "region": 0,
+    "country": 1,
+    "service": 2,
+    "clinician_label": 3,
+    "credentials_context": 4,
+    "access": 5,
+    "specialty": 6,
+    "consultation_details": 7,
+    "service_url": 8,
+    "clinician_url": 9,
+    "assignment": 10
+  },
+  "baseline_note": "Original values read from GitHub default branch at start of this task; source IDs mapped by exact master/service URL, never by row position. Re-read current values before integration; row positions are not stable identifiers.",
+  "changes": [
+    {
+      "source_id": "tele-27",
+      "field": "clinician_label",
+      "old_value": "Oncology team (consultant not named)",
+      "new_value": "Oncology team: Mark Goodfellow, Sarah Benjamin, Petros Odatzoglou and Luca Schiavo; confirm remote assignment",
+      "evidence_url": "https://www.vetspecialists.co.uk/services/oncology/",
+      "supporting_quote": "Meet the Team",
+      "checked_at": "2026-10-12",
+      "branch_scope": "Davies Veterinary Specialists — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Заменить неопределённую команду текущим опубликованным составом; назначение на teleconsult остаётся неизвестным.",
+      "confidence": "high",
+      "evidence_type": "primary"
+    },
+    {
+      "source_id": "tele-27",
+      "field": "credentials_context",
+      "old_value": "The service does not assign a specific clinician to virtual appointments on the reviewed page.",
+      "new_value": "Current team includes RCVS-recognised oncology specialist Mark Goodfellow (DipECVIM-CA), Sarah Benjamin (DipACVIM Oncology), Petros Odatzoglou and Luca Schiavo (DipECVIM-CA Oncology). The remote appointment page does not assign a particular clinician.",
+      "evidence_url": "https://www.vetspecialists.co.uk/services/oncology/",
+      "supporting_quote": "DipACVIM (Oncology)",
+      "checked_at": "2026-10-12",
+      "branch_scope": "Davies Veterinary Specialists — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Точная квалификация отделена от назначения.",
+      "confidence": "high",
+      "evidence_type": "primary"
+    },
+    {
+      "source_id": "tele-27",
+      "field": "clinician_url",
+      "old_value": "",
+      "new_value": "https://www.vetspecialists.co.uk/services/oncology/",
+      "evidence_url": "https://www.vetspecialists.co.uk/services/oncology/",
+      "supporting_quote": "Meet the Team",
+      "checked_at": "2026-10-12",
+      "branch_scope": "Davies Veterinary Specialists — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Добавить существующий официальный roster URL.",
+      "confidence": "high",
+      "evidence_type": "primary"
+    },
+    {
+      "source_id": "tele-28",
+      "field": "consultation_details",
+      "old_value": "Video second opinion; Italian, English and German offered.",
+      "new_value": "Owner oncology second opinions by video; veterinarians may also request a written or telephone review. Submit reports, tests, images or videos via the service form, then arrange the method and appointment. Italian, English and German offered. International owners and foreign clinics are invited, but eligible countries and prescribing limits are not listed. Fee not published.",
+      "evidence_url": "https://www.ambvetbeatricevilla.eu/en/telemedicina",
+      "supporting_quote": "written or telephone",
+      "checked_at": "2026-10-12",
+      "branch_scope": "Beatrice–Villa clinic — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Добавить реальный профессиональный формат и процедуру, сохранив ограничения географии.",
+      "confidence": "high",
+      "evidence_type": "primary"
+    },
+    {
+      "source_id": "tele-29",
+      "field": "consultation_details",
+      "old_value": "Online consultation to understand diagnosis and treatment options.",
+      "new_value": "Owner Google Meets consultation for oncology/internal medicine cases. Complete a questionnaire and attach up to three records or images; the first 10–15 minutes are used to review them. Published fee: CZK 3,000, payable at least 24 hours ahead; late cancellation forfeits payment. Current contact page asks for booking at oncology@dagmarkotlikova.cz. Eligible countries and consultation languages are not published.",
+      "evidence_url": "https://www.dagmarkotlikova.cz/konzultace/",
+      "supporting_quote": "3.000,- Kč",
+      "checked_at": "2026-10-12",
+      "branch_scope": "CottOncology — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Опубликованные формат, цена и условия оплаты; email подтверждён отдельной контактной страницей.",
+      "confidence": "high",
+      "evidence_type": "primary",
+      "corroborating_evidence": [
+        {
+          "evidence_url": "https://www.dagmarkotlikova.cz/kontakt/",
+          "supporting_quote": "oncology@dagmarkotlikova.cz",
+          "checked_at": "2026-10-12",
+          "branch_scope": "CottOncology — remote oncology consultation only",
+          "evidence_type": "primary"
+        }
+      ]
+    },
+    {
+      "source_id": "tele-31",
+      "field": "consultation_details",
+      "old_value": "Second opinion by Teams or telephone, €119; German/English. Site lists both 40 and 45 min: confirm duration.",
+      "new_value": "Veterinary oncology second opinion by Teams or telephone, EUR 119, in German or English. Submit findings and medical records beforehand; platform registration is required. Published duration is inconsistent (45 minutes on the main booking card, 30–60 in its description, 40 on the alternative card); confirm when booking. Geographic eligibility is not published.",
+      "evidence_url": "https://www.krebsbeimhund.com/service-page/tier%C3%A4rztliche-beratung-krebs",
+      "supporting_quote": "Deutsch/Englisch",
+      "checked_at": "2026-10-12",
+      "branch_scope": "Krebs beim Hund — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Сохранить подтверждённую цену/языки и явно зафиксировать все несовместимые длительности.",
+      "confidence": "high",
+      "evidence_type": "primary"
+    },
+    {
+      "source_id": "tele-32",
+      "field": "access",
+      "old_value": "Owner with vet",
+      "new_value": "Owner with vet; vet only",
+      "evidence_url": "https://www.online.oncovet.es/es",
+      "supporting_quote": "Asesoramiento Oncológico",
+      "checked_at": "2026-10-12",
+      "branch_scope": "Oncovet Online — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Добавить отдельный vet-only путь, не открывая прямую самостоятельную owner booking.",
+      "confidence": "high",
+      "evidence_type": "primary"
+    },
+    {
+      "source_id": "tele-32",
+      "field": "consultation_details",
+      "old_value": "Local veterinarian opens the case; initial remote discussion includes owner and vet, with written report.",
+      "new_value": "A registered veterinarian opens the case. Initial and follow-up video consultations include the owner and local veterinarian, with a written report. A separate veterinarian-only oncology advice service uses portal chat, as a single consultation or subscription. Contact online@oncovet.es or +34 695 32 56 31. Published fees and eligible countries are not listed.",
+      "evidence_url": "https://www.online.oncovet.es/es",
+      "supporting_quote": "iniciaremos un chat",
+      "checked_at": "2026-10-12",
+      "branch_scope": "Oncovet Online — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Добавить реально опубликованный второй формат; не обещать бесплатное лечение.",
+      "confidence": "high",
+      "evidence_type": "primary"
+    },
+    {
+      "source_id": "tele-34",
+      "field": "consultation_details",
+      "old_value": "Owner teleconsult request with option to attach medical records; confirm assigned clinician.",
+      "new_value": "Owner teleconsultation requests are offered across India throughout the week. Submit the request form and attach available medical records. The assigned doctor, video versus phone format, duration and fee are not specified. Service outside India is not established.",
+      "evidence_url": "https://thecancer.vet/tele-consults/",
+      "supporting_quote": "across India",
+      "checked_at": "2026-10-12",
+      "branch_scope": "The Cancer Vet — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Добавить явно установленную географию и не обещать международный доступ.",
+      "confidence": "high",
+      "evidence_type": "primary"
+    },
+    {
+      "source_id": "tele-42",
+      "field": "consultation_details",
+      "old_value": "Video case review with written plan; offered Thursday/Friday on reviewed page. 2025–26 price list: A$300.",
+      "new_value": "Secure video case review for owners and referring veterinarians, followed by an individual written plan sent to both. Email history and test results to enquiries@marsvets.com.au; the service page schedules Thursday/Friday. Official 2025–26 oncology tariff: AUD 300 including GST (confirm current price). Eligible countries and the assigned clinician are not specified.",
+      "evidence_url": "https://marsvets.com.au/services/vet-cancer-care-telehealth/",
+      "supporting_quote": "Thursday and Friday",
+      "checked_at": "2026-10-12",
+      "branch_scope": "MARS / Melbourne Animal Referral Services — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Уточнить документы/контакт, scope совместного приёма и отсутствие доказанной глобальной доступности; цену подтверждает отдельный PDF.",
+      "confidence": "high",
+      "evidence_type": "primary",
+      "corroborating_evidence": [
+        {
+          "evidence_url": "https://marsvets.com.au/wp-content/uploads/2025/09/MARS-2025-26-Price-List.pdf",
+          "supporting_quote": "Telehealth consultation 300",
+          "checked_at": "2026-10-12",
+          "branch_scope": "MARS / Melbourne Animal Referral Services — remote oncology consultation only",
+          "evidence_type": "primary"
+        }
+      ]
+    },
+    {
+      "source_id": "tele-43",
+      "field": "consultation_details",
+      "old_value": "Zoom for most cases, including remote areas through the local veterinarian; confirm geographic access.",
+      "new_value": "Referral-based Zoom consultations for most cases; this specialist practice does not accept primary-care consultations. Initial consultations are 45 minutes; Zoom recordings are available in the patient portal with permission. Booking may precede receipt of referral records. Contact (08) 6556 9901 or letstalk@animalcancercentrewa.com.au. Fee and cross-border eligibility are not published.",
+      "evidence_url": "https://animalcancercentrewa.com.au/the-journey/",
+      "supporting_quote": "does not accept primary care consultations",
+      "checked_at": "2026-10-12",
+      "branch_scope": "Animal Cancer Centre WA — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Уточнить обязательную модель направления, опубликованную длительность и роль записи.",
+      "confidence": "high",
+      "evidence_type": "primary"
+    },
+    {
+      "source_id": "tele-44",
+      "field": "clinician_label",
+      "old_value": "Specialist team (consultant not named)",
+      "new_value": "Oncology team: Ashleigh Cappello (Cournoyer) and Ariana Verrilli; confirm remote assignment",
+      "evidence_url": "https://www.uvsonline.com/specialty/oncology/",
+      "supporting_quote": "Dr. Ariana Verrilli",
+      "checked_at": "2026-10-12",
+      "branch_scope": "Upstate Veterinary Specialties — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Заменить неназванную команду текущим официальным oncology roster.",
+      "confidence": "high",
+      "evidence_type": "primary"
+    },
+    {
+      "source_id": "tele-44",
+      "field": "credentials_context",
+      "old_value": "Referral specialist team includes oncology; individual remote consultant is not named.",
+      "new_value": "Ashleigh Cappello (Cournoyer), DVM, DACVIM (Oncology), board-certified in 2023; Ariana Verrilli, DVM, DACVIM (Oncology), board-certified in 2021. Individual remote consultant assignment is not specified.",
+      "evidence_url": "https://www.uvsonline.com/doctors/ashleigh-cappello-cournoyer/",
+      "supporting_quote": "board-certified in Oncology",
+      "checked_at": "2026-10-12",
+      "branch_scope": "Upstate Veterinary Specialties — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Квалификация Cournoyer подтверждена биографией; Verrilli отдельной linked biography в report.",
+      "confidence": "high",
+      "evidence_type": "primary",
+      "corroborating_evidence": [
+        {
+          "evidence_url": "https://www.uvsonline.com/doctors/ariana-verrilli/",
+          "supporting_quote": "board certification",
+          "checked_at": "2026-10-12",
+          "branch_scope": "Upstate Veterinary Specialties — remote oncology consultation only",
+          "evidence_type": "primary"
+        }
+      ]
+    },
+    {
+      "source_id": "tele-44",
+      "field": "clinician_url",
+      "old_value": "",
+      "new_value": "https://www.uvsonline.com/specialty/oncology/",
+      "evidence_url": "https://www.uvsonline.com/specialty/oncology/",
+      "supporting_quote": "Our Oncologists",
+      "checked_at": "2026-10-12",
+      "branch_scope": "Upstate Veterinary Specialties — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Добавить официальный roster URL.",
+      "confidence": "high",
+      "evidence_type": "primary"
+    },
+    {
+      "source_id": "tele-44",
+      "field": "consultation_details",
+      "old_value": "Veterinarian consults a specialist; direct owner access is not advertised.",
+      "new_value": "Veterinarians may request an oncology telemedicine consultation by calling 518-783-3198 and asking for the oncology department. Direct owner teleconsultation is not advertised. Written versus live format, fee, required records and eligible states/countries are not specified.",
+      "evidence_url": "https://www.uvsonline.com/referring-veterinarians/",
+      "supporting_quote": "request the department",
+      "checked_at": "2026-10-12",
+      "branch_scope": "Upstate Veterinary Specialties — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Добавить точный путь обращения, не приписывать очные referral требования remote услуге.",
+      "confidence": "high",
+      "evidence_type": "primary"
+    },
+    {
+      "source_id": "tele-45",
+      "field": "consultation_details",
+      "old_value": "Only a treating veterinarian can request the specialist case review; confirm live call versus written options and fee.",
+      "new_value": "Treating veterinarians submit patient history, diagnostics, images and clinical questions through the clinic platform. Oncology review includes a tailored written staging and treatment report, with follow-up case support. Telephone options use the service STAT line (833-386-7828); confirm oncology availability. Fee and eligible countries/states are not published.",
+      "evidence_url": "https://www.dvmstat.com/oncology",
+      "supporting_quote": "comprehensive written report",
+      "checked_at": "2026-10-12",
+      "branch_scope": "DVM STAT — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Письменный формат теперь явно подтверждён; не оставлять его как полностью неизвестный.",
+      "confidence": "high",
+      "evidence_type": "primary"
+    },
+    {
+      "source_id": "tele-46",
+      "field": "consultation_details",
+      "old_value": "Referring veterinarian may request a patient-specific oncology consultation by phone or email. Upload records and diagnostic results; owner participation and the consultation fee are not stated.",
+      "new_value": "Referring veterinarians can request a patient-specific oncology consultation by phone or email using the medical oncology form. Upload relevant records as one compressed ZIP (maximum 125 MB); send ultrasound/CT DICOM files in reply to the confirmation email. The responding clinician, owner participation, fee and geographic eligibility are not specified.",
+      "evidence_url": "https://smallanimal.vethospital.ufl.edu/contact-us/referring-veterinarians/for-referring-veterinarians-medical-oncology-referral-form/",
+      "supporting_quote": "compressed into a ZIP file",
+      "checked_at": "2026-10-12",
+      "branch_scope": "University of Florida Small Animal Hospital — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Добавить точные опубликованные требования документов вместо общей рекомендации.",
+      "confidence": "high",
+      "evidence_type": "primary"
+    },
+    {
+      "source_id": "tele-48",
+      "field": "consultation_details",
+      "old_value": "Written individual cancer review and treatment recommendations delivered to the primary veterinarian; available to partner clinics in West Texas and Eastern New Mexico. No direct owner call. Fee on request.",
+      "new_value": "Veterinarian-only written oncology review using history, physical examination findings, diagnostics and imaging. The local veterinarian discusses the report and provides hands-on care. WTVS serves West Texas practices and explicitly offers teleconsultations to practices outside its mobile travel area; eligible states/countries are not enumerated. Contact info@txvetspecialty.com or use the consultation portal. Fee not published.",
+      "evidence_url": "https://txvetspecialty.com/about-our-practice/",
+      "supporting_quote": "outside our travel area",
+      "checked_at": "2026-10-12",
+      "branch_scope": "West Texas Veterinary Specialists — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Удалить неподтверждённый конкретный Eastern New Mexico promise; не ограничивать teleconsult мобильным радиусом.",
+      "confidence": "high",
+      "evidence_type": "primary"
+    },
+    {
+      "source_id": "tele-50",
+      "field": "clinician_label",
+      "old_value": "Anthony Moore, Angela Frimberger, Penny Thomas and Amy Lane",
+      "new_value": "Penny Thomas and Amy Lane (current profiled consulting team); Anthony Moore and Angela Frimberger are identified as founders",
+      "evidence_url": "https://www.vetoncologyconsults.com/about/",
+      "supporting_quote": "Penny Thomas",
+      "checked_at": "2026-10-12",
+      "branch_scope": "Veterinary Oncology Consultants — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Убрать впечатление, что все четыре имени одинаково подтверждены как текущие консультанты; не утверждать уход основателей.",
+      "confidence": "high",
+      "evidence_type": "primary"
+    },
+    {
+      "source_id": "tele-50",
+      "field": "consultation_details",
+      "old_value": "Telephone/email case consultation for veterinarians worldwide; confirm currency and current price.",
+      "new_value": "Worldwide veterinarian-only case review with a written report. Initial email consultation AUD 300; report plus veterinarian phone consultation AUD 350; follow-up AUD 35 per contact; individual chemotherapy protocol AUD 50. Australian fees include 10% GST. New clinic clients should contact the service before submitting the form and send relevant test results. Consulting hours: Monday–Friday, 8am–3pm NSW time.",
+      "evidence_url": "https://www.vetoncologyconsults.com/oncology-consulting/",
+      "supporting_quote": "Email $300, Phone $350",
+      "checked_at": "2026-10-12",
+      "branch_scope": "Veterinary Oncology Consultants — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Добавить опубликованные цены/валюту/налог/формат вместо неподтверждённой цены.",
+      "confidence": "high",
+      "evidence_type": "primary"
+    },
+    {
+      "source_id": "tele-51",
+      "field": "consultation_details",
+      "old_value": "Veterinary case consultation; Hong Kong offering describes a Teams-based subscription.",
+      "new_value": "Veterinarian-only oncology consulting. Hong Kong tariff: HKD 1,800 per case; follow-up HKD 500 and chemotherapy protocol HKD 250 are separate. Monthly plans: HKD 7,000 for three cases or HKD 10,000 for five, including follow-up, protocols and handouts. Subscriber Microsoft Teams messaging support is advertised Monday–Friday, 9am–5pm AEST; this is not a promised owner video appointment. HK contact: joseph@onlineoncologist.vet / WhatsApp +852 5741 9350. Other country eligibility requires a region-specific offering.",
+      "evidence_url": "https://www.onlineoncologist.vet/hong-kong",
+      "supporting_quote": "HKD $1800 / case",
+      "checked_at": "2026-10-12",
+      "branch_scope": "Online Oncologist — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Добавить literal HK-specific тариф и отделить messaging от видео.",
+      "confidence": "high",
+      "evidence_type": "primary"
+    },
+    {
+      "source_id": "tele-52",
+      "field": "clinician_label",
+      "old_value": "Oncology team (consultant not named)",
+      "new_value": "Gabriela Clezar (practice lead); confirm assigned remote consultant",
+      "evidence_url": "https://www.oncocats.com/conhe%C3%A7a-mais",
+      "supporting_quote": "Dra. Gabriela Clezar",
+      "checked_at": "2026-10-12",
+      "branch_scope": "Onco Cats — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Указать подтверждённого руководителя, сохранив неизвестное назначение.",
+      "confidence": "high",
+      "evidence_type": "primary"
+    },
+    {
+      "source_id": "tele-52",
+      "field": "credentials_context",
+      "old_value": "Feline oncology consultation is arranged through a veterinary colleague; confirm assigned consultant’s credentials.",
+      "new_value": "Gabriela Clezar is a veterinarian with published specializations in veterinary oncology and feline medicine. An ACVIM/ECVIM oncology board credential is not established; confirm the assigned consultant.",
+      "evidence_url": "https://www.oncocats.com/conhe%C3%A7a-mais",
+      "supporting_quote": "especializações em Oncologia Veterinária",
+      "checked_at": "2026-10-12",
+      "branch_scope": "Onco Cats — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Не приписывать board qualification из местного слова especialização.",
+      "confidence": "high",
+      "evidence_type": "primary"
+    },
+    {
+      "source_id": "tele-52",
+      "field": "consultation_details",
+      "old_value": "Feline case consultation through the treating veterinarian.",
+      "new_value": "Veterinarian-facing online oncology and feline-medicine consultancy/teleinterconsultation through the treating veterinarian. Contact WhatsApp +55 (48) 99800-4811. The exact remote format, fee and eligible countries are not published; no direct owner video appointment is established.",
+      "evidence_url": "https://www.oncocats.com/",
+      "supporting_quote": "através de outros colegas veterinários",
+      "checked_at": "2026-10-12",
+      "branch_scope": "Onco Cats — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Убрать неподтверждённое feline-only ограничение онкологического case review.",
+      "confidence": "high",
+      "evidence_type": "primary"
+    },
+    {
+      "source_id": "tele-52",
+      "field": "clinician_url",
+      "old_value": "",
+      "new_value": "https://www.oncocats.com/conhe%C3%A7a-mais",
+      "evidence_url": "https://www.oncocats.com/conhe%C3%A7a-mais",
+      "supporting_quote": "Dra. Gabriela Clezar",
+      "checked_at": "2026-10-12",
+      "branch_scope": "Onco Cats — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Добавить official biography URL.",
+      "confidence": "high",
+      "evidence_type": "primary"
+    },
+    {
+      "source_id": "tele-53",
+      "field": "consultation_details",
+      "old_value": "Veterinarian-facing case review; direct owner teleconsultation is not advertised.",
+      "new_value": "Veterinarian-facing oncology case review by email or telephone, including interpretation of findings, staging, treatment options and prognosis. Contact info@vetonc.de. Direct owner teleconsultation is not advertised; fee, required document checklist and eligible countries are not published.",
+      "evidence_url": "https://vetonc.de/",
+      "supporting_quote": "per Mail oder telefonisch",
+      "checked_at": "2026-10-12",
+      "branch_scope": "Vetonc — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Добавить подтверждённые formats/contact.",
+      "confidence": "high",
+      "evidence_type": "primary"
+    },
+    {
+      "source_id": "tele-54",
+      "field": "access",
+      "old_value": "Vet only",
+      "new_value": "Owner with vet; vet only",
+      "evidence_url": "https://www.onkolia.fr/",
+      "supporting_quote": "Vous êtes propriétaire",
+      "checked_at": "2026-10-12",
+      "branch_scope": "Onkolia — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Owner dossier submission подтвержден; сохранили обязательную связь с treating vet.",
+      "confidence": "high",
+      "evidence_type": "primary"
+    },
+    {
+      "source_id": "tele-54",
+      "field": "clinician_label",
+      "old_value": "Oncology team (consultant not named)",
+      "new_value": "Paul Ghislain",
+      "evidence_url": "https://www.onkolia.fr/tarifs",
+      "supporting_quote": "Dr Paul GHISLAIN",
+      "checked_at": "2026-10-12",
+      "branch_scope": "Onkolia — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Reviewer named explicitly, not unnamed oncology team.",
+      "confidence": "high",
+      "evidence_type": "primary"
+    },
+    {
+      "source_id": "tele-54",
+      "field": "credentials_context",
+      "old_value": "Service provides oncology opinions to veterinary colleagues; remote clinician is not individually identified on the reviewed page.",
+      "new_value": "Veterinarian, CEAV de Médecine Interne des Animaux de Compagnie; Diplôme d’École en Cancérologie / Capacité en chimiothérapie anticancéreuse vétérinaire; ESVONC member. These are not an established ECVIM/ACVIM oncology diplomate credential.",
+      "evidence_url": "https://www.onkolia.fr/a-propos",
+      "supporting_quote": "CEAV de Médecine Interne",
+      "checked_at": "2026-10-12",
+      "branch_scope": "Onkolia — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Указать literal qualifications, отделить их от oncology boards.",
+      "confidence": "high",
+      "evidence_type": "primary"
+    },
+    {
+      "source_id": "tele-54",
+      "field": "specialty",
+      "old_value": "Medical oncology",
+      "new_value": "Oncology advice (internal-medicine and cancer-training qualifications; oncology board certification not established)",
+      "evidence_url": "https://www.onkolia.fr/a-propos",
+      "supporting_quote": "Capacité en chimiothérapie",
+      "checked_at": "2026-10-12",
+      "branch_scope": "Onkolia — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Убрать впечатление verified oncology diplomate.",
+      "confidence": "high",
+      "evidence_type": "primary"
+    },
+    {
+      "source_id": "tele-54",
+      "field": "consultation_details",
+      "old_value": "Written oncology opinion for the treating veterinarian; not a direct owner video appointment.",
+      "new_value": "Owners referred by their veterinarian may submit the medical dossier; veterinarians may request an opinion directly. A written PDF opinion goes to the treating veterinarian; it is not a direct owner video appointment, remote diagnosis or prescription. Single opinion EUR 129 including VAT, advertised within five working days with one Q&A exchange; three-month package EUR 389, annual package EUR 649. Contact contact@onkolia.fr. Eligible countries are not listed.",
+      "evidence_url": "https://www.onkolia.fr/tarifs",
+      "supporting_quote": "129 €",
+      "checked_at": "2026-10-12",
+      "branch_scope": "Onkolia — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Добавить published tariffs; owner pathway documented on home, PDF/no diagnosis/no prescription on linked service article.",
+      "confidence": "high",
+      "evidence_type": "primary",
+      "corroborating_evidence": [
+        {
+          "evidence_url": "https://www.onkolia.fr/",
+          "supporting_quote": "Vous êtes propriétaire",
+          "checked_at": "2026-10-12",
+          "branch_scope": "Onkolia — remote oncology consultation only",
+          "evidence_type": "primary"
+        },
+        {
+          "evidence_url": "https://www.onkolia.fr/articles/avis-cancerologique-veterinaire-distance-confrere",
+          "supporting_quote": "format PDF sécurisé",
+          "checked_at": "2026-10-12",
+          "branch_scope": "Onkolia — remote oncology consultation only",
+          "evidence_type": "primary"
+        }
+      ]
+    },
+    {
+      "source_id": "tele-54",
+      "field": "clinician_url",
+      "old_value": "",
+      "new_value": "https://www.onkolia.fr/a-propos",
+      "evidence_url": "https://www.onkolia.fr/a-propos",
+      "supporting_quote": "Dr Paul GHISLAIN",
+      "checked_at": "2026-10-12",
+      "branch_scope": "Onkolia — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Добавить named reviewer biography.",
+      "confidence": "high",
+      "evidence_type": "primary"
+    },
+    {
+      "source_id": "tele-54",
+      "field": "assignment",
+      "old_value": "Clinician not named",
+      "new_value": "Named reviewer; written opinion in support of treating veterinarian",
+      "evidence_url": "https://www.onkolia.fr/tarifs",
+      "supporting_quote": "rédigés par Dr Paul GHISLAIN",
+      "checked_at": "2026-10-12",
+      "branch_scope": "Onkolia — remote oncology consultation only",
+      "target_file": "seo/oncology_teleconsultations.py",
+      "old_value_status": "available",
+      "decision_reason": "Заменить неназванное assignment подтверждённым автором.",
+      "confidence": "high",
+      "evidence_type": "primary"
+    }
+  ],
+  "unchanged_source_ids": [
+    "tele-26",
+    "tele-30",
+    "tele-33",
+    "tele-41",
+    "tele-47",
+    "tele-49",
+    "tele-55",
+    "tele-56"
+  ],
+  "reviews": {
+    "tele-26": {
+      "source_id": "tele-26",
+      "service": "Royal Veterinary College",
+      "summary": "Официальная сохранённая страница прямо предлагает владельцам консультацию до поездки/решения о лечении. Andy Yale указан в сохранённом составе команды как DipECVIM-CA (Oncology); назначение на конкретную удалённую консультацию не установлено. Сохранить существующую запись без усиления обещаний.",
+      "geography": "Практика UK; международный приём не установлен.",
+      "contact": "Сохранённая страница команды: +44 (0)1707 666333, AYALE7@rvc.ac.uk — контакт врача, не отдельная служба записи.",
+      "fee": "Удалённый тариф не установлен.",
+      "unresolved": "Прямые страницы услуги и Andy Yale возвращают 403; официальные поисковые копии возрастом 4–5 месяцев. Текущий состав команды и доступность расписания не подтверждены свежим чтением. Это ограничение свежести, не доказательство закрытия.",
+      "sources": [
+        "https://www.rvc.ac.uk/small-animal-vet/specialist-referrals/clinical-services/veterinary-oncology",
+        "https://www.rvc.ac.uk/small-animal-vet/specialist-referrals/clinical-services/veterinary-oncology/team",
+        "https://www.rvc.ac.uk/about/our-people/andy-yale"
+      ],
+      "confidence": "medium"
+    },
+    "tele-27": {
+      "source_id": "tele-27",
+      "service": "Davies Veterinary Specialists",
+      "summary": "Действующий oncology service прямо предлагает virtual initial discussions. Команда: Mark Goodfellow (DipECVIM-CA, RCVS oncology specialist), Sarah Benjamin (DipACVIM Oncology), Petros Odatzoglou и Luca Schiavo (DipECVIM-CA Oncology). Кто проводит удалённый разговор, не назначен заранее. Доступ владельца через referral pathway сохранён.",
+      "geography": "UK; перечень допустимых стран/лицензий для remote service отсутствует.",
+      "contact": "01582 883950; официальный Refer Now на service page.",
+      "fee": "Не опубликован отдельный виртуальный тариф.",
+      "unresolved": "Не переносить общие 60 минут очного приёма на виртуальный. Видео/телефон, дистанционный тариф и границы доступа не уточнены.",
+      "sources": [
+        "https://www.vetspecialists.co.uk/services/oncology/"
+      ],
+      "confidence": "high"
+    },
+    "tele-28": {
+      "source_id": "tele-28",
+      "service": "Beatrice–Villa clinic",
+      "summary": "Laura Beatrice: ACVIM SAIM / internal medicine, не Oncology diplomate. Прямые owner video second opinions и отдельные профессиональные письменные/телефонные разборы. Отправляются результаты, изображения и видео, затем согласуется время.",
+      "geography": "Italy; сайт прямо приглашает international owners/foreign clinics, но список разрешённых стран/право prescribing не опубликованы. Языки: Italian, English, German.",
+      "contact": "+39 0522 541919; ambulatorio.beatvill@gmail.com; service request form.",
+      "fee": "Не опубликована.",
+      "unresolved": "Не представлять SAIM как oncology board certification; конкретную страну и режим медицинской ответственности согласует сервис.",
+      "sources": [
+        "https://www.ambvetbeatricevilla.eu/en/telemedicina",
+        "https://www.ambvetbeatricevilla.eu/en/copia-di-chi-siamo"
+      ],
+      "confidence": "high"
+    },
+    "tele-29": {
+      "source_id": "tele-29",
+      "service": "CottOncology",
+      "summary": "Dagmar Kotlíková MVDr., oncology/internal medicine practice. Owner Google Meets review; 10–15 минут подготовки входят в консультацию. Анкета и до трёх файлов. Самостоятельная ECVIM/ACVIM oncology certification не заявлена. Сотрудничество со Škor датировано 2023–8/2025, не текущая гарантия supervision.",
+      "geography": "Czechia; международное обслуживание и языки отдельно не установлены.",
+      "contact": "oncology@dagmarkotlikova.cz; consultation form/calendar.",
+      "fee": "3 000 Kč; оплатить минимум за 24 часа; отмена позднее 24 часов без возврата.",
+      "unresolved": "Контактная страница просит сейчас записываться по email; уточнение календаря остаётся у сервиса, не подавать форму. Продолжительность всей встречи не опубликована.",
+      "sources": [
+        "https://www.dagmarkotlikova.cz/",
+        "https://www.dagmarkotlikova.cz/konzultace/",
+        "https://www.dagmarkotlikova.cz/kontakt/"
+      ],
+      "confidence": "high"
+    },
+    "tele-30": {
+      "source_id": "tele-30",
+      "service": "Ondřej Škor / RegiaVet",
+      "summary": "Ondřej Škor: официальный RegiaVet profile подтверждает DECVIM-CA Oncology/CertVO и руководство медицинской службой с 7/2026. Его собственное высказывание в интервью подтверждает owner video consultations. Сохранить запись; это атрибутированное высказывание врача в СМИ, а не официальная страница бронирования.",
+      "geography": "Czechia; перечень допустимых стран/языков не установлен.",
+      "contact": "info@regiavet.cz; +420 724 804 804 / +420 271 750 991.",
+      "fee": "Публичный teleconsult тариф не найден. Цена из личной переписки не использована.",
+      "unresolved": "Расписание, форма записи, документы, тариф и cross-border limits не опубликованы в прочитанных источниках. Нет оснований удалять услугу только из-за отсутствия booking page.",
+      "sources": [
+        "https://www.novinky.cz/clanek/lifestyle-osobnosti-veterinarni-onkolog-ondrej-skor-u-zvirat-chemoterapie-prodluzuje-zivot-bez-bolesti-a-potizi-40549659/",
+        "https://www.regiavet.cz/mvdr-ondrej-skor-decvim-ca-certvo",
+        "https://www.regiavet.cz/kontakt"
+      ],
+      "confidence": "high"
+    },
+    "tele-31": {
+      "source_id": "tele-31",
+      "service": "Krebs beim Hund",
+      "summary": "Dr Diana Schulenburg: Fachtierärztin Innere Medizin + GP Certificate Oncology; не ECVIM Oncology. Действующий veterinary oncology second opinion через Teams или телефон, Deutsch/English. Документы необходимо прислать заранее. Отдельные услуги Tierheilpraktiker не приписаны ветеринарному врачу.",
+      "geography": "Germany; нет установленного списка других стран.",
+      "contact": "krebsbeimhund@gmx.de; booking link; бесплатная регистрация на платформе нужна для использования услуг.",
+      "fee": "€119; основной экран 45 минут, описание 30–60 минут, альтернативная карточка 40 минут.",
+      "unresolved": "Противоречие длительности сохраняется; не выбирать одну цифру как окончательную. Ограничения по странам не опубликованы.",
+      "sources": [
+        "https://www.krebsbeimhund.com/service-page/tier%C3%A4rztliche-beratung-krebs",
+        "https://www.krebsbeimhund.com/service-page/tiermedizinische-onkologische-beratung",
+        "https://www.krebsbeimhund.com/experten-krebs-beim-hund",
+        "https://www.krebsbeimhund.com/"
+      ],
+      "confidence": "high"
+    },
+    "tele-32": {
+      "source_id": "tele-32",
+      "service": "Oncovet Online",
+      "summary": "Онкологический, не общий telemedicine portal. Laura Arconada/Inés Álvarez в официальном roster, без подтверждения board oncology. Два пути: joint owner+vet video appointment через зарегистрированного ветеринара и отдельный vet-only chat advice (разовый/подписка).",
+      "geography": "Spain; международный приём не установлен.",
+      "contact": "online@oncovet.es; +34 695 32 56 31; бесплатная регистрация ветеринара.",
+      "fee": "Публичная сумма не обнаружена на открытой странице. Регистрация free не означает free consultation.",
+      "unresolved": "Нет публичных точных board credentials/назначения врача на конкретный случай; тарифы и страны могут быть доступны только после входа.",
+      "sources": [
+        "https://www.online.oncovet.es/es",
+        "https://www.oncovet.es/quienes-somos"
+      ],
+      "confidence": "high"
+    },
+    "tele-33": {
+      "source_id": "tele-33",
+      "service": "SOIVET",
+      "summary": "Официальная страница подтверждает owner video second opinion и professional teleoncology/cytology support. SOIVET также выездная очная практика, но это отдельный раздел услуг. Консультант teleoncology и сертификаты на прочитанной service page не названы. Сохранить нынешние access/specialty с неопределёнными credentials.",
+      "geography": "Spain; удалённые страны/региональное покрытие не опубликованы.",
+      "contact": "Официальный сайт и service page работают; отдельный contact route выдаёт interstitial, извлекаемый проверенный телефон/email не установлен.",
+      "fee": "Не опубликована.",
+      "unresolved": "Home/contact/team пути нестабильны (502/interstitial); имя консультанта, квалификация и прямые контакты не подтверждены. Это пробел данных, не закрытие.",
+      "sources": [
+        "https://www.soivet.es/servicios/",
+        "https://www.soivet.es/",
+        "https://www.soivet.es/contactar/"
+      ],
+      "confidence": "medium"
+    },
+    "tele-34": {
+      "source_id": "tele-34",
+      "service": "The Cancer Vet",
+      "summary": "Teleconsults для owners прямо заявлены across India throughout the week; форма разрешает прикрепить файл. Founder Noopur Desai: BVSc, MVSc Surgery, DACVR Radiation Oncology. Advisors Vail/Turek/Selmic не автоматически проводят remote appointments.",
+      "geography": "Подтверждена India; другие страны не подтверждены.",
+      "contact": "Официальная teleconsult request form; Mumbai +91 87999 49294 / mumbai@thecancer.vet, Pune +91 87999 49295 / pune@thecancer.vet на contact page (поисковая копия 5 месяцев). Это филиальные контакты, не отдельная международная hotline.",
+      "fee": "Не опубликована.",
+      "unresolved": "Конкретный doctor, видео/телефон, длительность и cross-border service не названы. Medical/radiation oncology — scope практики, не гарантия двух сертификатов назначенного консультанта.",
+      "sources": [
+        "https://thecancer.vet/tele-consults/",
+        "https://thecancer.vet/team/",
+        "https://thecancer.vet/contact-us/"
+      ],
+      "confidence": "high"
+    },
+    "tele-41": {
+      "source_id": "tele-41",
+      "service": "Harvest Veterinary Oncology Centre",
+      "summary": "Действующий cancer centre. Telemedicine section предлагает владельцу digital meeting с overseas expert. Личность и board qualification именно overseas remote expert не названы; нынешние местные специалисты не автоматически remote consultant. Сохранить запись с неизвестным назначением.",
+      "geography": "Организатор Hong Kong; overseas expert означает местонахождение врача, не глобальную доступность пациентам.",
+      "contact": "24-hour hospital hotline 3102 8528; oncology WhatsApp и referral form доступны на странице.",
+      "fee": "Не опубликована.",
+      "unresolved": "Видео vs иной digital channel, имя зарубежного консультанта, fee и eligibility не установлены. Заявление сайта о diagnosis/prescription не расширено до международного prescribing.",
+      "sources": [
+        "https://hvoc.com.hk/en/oncology-services/"
+      ],
+      "confidence": "high"
+    },
+    "tele-42": {
+      "source_id": "tele-42",
+      "service": "MARS / Melbourne Animal Referral Services",
+      "summary": "Owner и referring vet secure video conferencing + индивидуальный письменный план обоим. В истории current team есть Paul Crocker как Lead Oncology Veterinarian (в изображении/alt); собственная Oncology board qualification и personal telehealth assignment не подтверждены. Thursday/Friday опубликованы.",
+      "geography": "Australia; фраза no matter where you are не устанавливает все страны. Не переносить географию mobile surgery на telehealth.",
+      "contact": "enquiries@marsvets.com.au; 03 9050 0671. Медицинская история и результаты email перед записью.",
+      "fee": "Официальный PDF 2025–26, oncology page 9: A$300, hospital prices incl. GST; текущую цену при записи подтвердить.",
+      "unresolved": "PDF содержит прежний физический адрес; использовать только tariff scope, не адрес лечения. Cross-border eligibility и exact oncologist credential неизвестны.",
+      "sources": [
+        "https://marsvets.com.au/services/vet-cancer-care-telehealth/",
+        "https://marsvets.com.au/about-us/meet-the-team/",
+        "https://marsvets.com.au/wp-content/uploads/2025/09/MARS-2025-26-Price-List.pdf"
+      ],
+      "confidence": "high"
+    },
+    "tele-43": {
+      "source_id": "tele-43",
+      "service": "Animal Cancer Centre WA",
+      "summary": "Jessica Finlay BVSc MVS FANZCVS, Registered Specialist Veterinary Oncology. Referral-only specialist practice: Zoom most cases, initial consultations 45 минут; по согласию запись доступна в patient portal. Запись можно запросить до получения referral papers.",
+      "geography": "Australia/Western Australia — опубликован региональный pathway; международный доступ не установлен.",
+      "contact": "(08) 6556 9901; letstalk@animalcancercentrewa.com.au; bookings.",
+      "fee": "Не опубликована.",
+      "unresolved": "Не гарантировать, что Finlay лично ведёт каждый Zoom; имя team lead не заменяет booking assignment. География Zoom/тариф не перечислены.",
+      "sources": [
+        "https://animalcancercentrewa.com.au/the-journey/",
+        "https://animalcancercentrewa.com.au/the-family/"
+      ],
+      "confidence": "high"
+    },
+    "tele-44": {
+      "source_id": "tele-44",
+      "service": "Upstate Veterinary Specialties",
+      "summary": "Vet-to-vet consults с любым специалистом прямо предлагаются на referral page. Current oncology service names Ashleigh Cappello (Cournoyer), DVM DACVIM Oncology (2023), Ariana Verrilli DVM DACVIM Oncology (2021). Team member ≠ заранее назначенный remote clinician.",
+      "geography": "US/New York practice; teleconsult accepted states/countries not listed.",
+      "contact": "518-783-3198: request oncology department.",
+      "fee": "Не опубликована.",
+      "unresolved": "Live/written format, fee, required document set for teleconsult не перечислены; 12 months records относится к очному specialty referral, не автоматически teleconsult.",
+      "sources": [
+        "https://www.uvsonline.com/referring-veterinarians/",
+        "https://www.uvsonline.com/specialty/oncology/",
+        "https://www.uvsonline.com/doctors/ashleigh-cappello-cournoyer/",
+        "https://www.uvsonline.com/doctors/ariana-verrilli/"
+      ],
+      "confidence": "high"
+    },
+    "tele-45": {
+      "source_id": "tele-45",
+      "service": "DVM STAT",
+      "summary": "Действующий vet-only oncology case review. Michelle Silver DVM DACVIM Oncology / Ester Yang VMD MS DACVIM Oncology. Written tailored report: staging/diagnosis/treatment options; follow-up specialist support. Инъекционные препараты рекомендуются local practice, не вводятся онлайн провайдером.",
+      "geography": "US practice; всемирная/всештатная доступность публично не установлена.",
+      "contact": "833-386-7828; info@dvmstat.com; clinic registration/platform.",
+      "fee": "Не установлена публичная сумма.",
+      "unresolved": "Не переносить общие 24/7 или STAT line гарантии на немедленный oncology ответ. Конкретный assigned oncologist и доступные юрисдикции не перечислены.",
+      "sources": [
+        "https://www.dvmstat.com/oncology",
+        "https://www.dvmstat.com/specialists"
+      ],
+      "confidence": "high"
+    },
+    "tele-46": {
+      "source_id": "tele-46",
+      "service": "University of Florida Small Animal Hospital",
+      "summary": "Форма прямо предлагает vet-to-vet consultation via phone/email. Paulo Vilar Saavedra — chief, DVM MSc PhD DACVIM Oncology; responding doctor not guaranteed.",
+      "geography": "US/Florida; географические границы remote support не перечислены.",
+      "contact": "(352) 392-2235; official referral/consult form; chief biography pvilarsaavedra@ufl.edu.",
+      "fee": "Не опубликована.",
+      "unresolved": "Нужно ZIP all relevant records (max 125 MB); ultrasound/CT DICOM отправлять reply к confirmation email. Owner participation отдельно не подтверждено.",
+      "sources": [
+        "https://smallanimal.vethospital.ufl.edu/contact-us/referring-veterinarians/for-referring-veterinarians-medical-oncology-referral-form/",
+        "https://www.vetmed.ufl.edu/profile/vilar-saavedra-paulo/"
+      ],
+      "confidence": "high"
+    },
+    "tele-47": {
+      "source_id": "tele-47",
+      "service": "Veterinary Oncology Partners",
+      "summary": "Vet-only written case reports; direct owner consultation expressly not offered. M.J. Hamilton DVM DACVIM Oncology; founders Rizzo/Clark SAIM, не oncology boards. Consulting all US states, chemotherapy fulfilment subset states. Никакого дистанционного введения препаратов. Сохранить существующую запись.",
+      "geography": "Все US states — прямо опубликовано для consulting; не переносить на shipping/other countries.",
+      "contact": "Online Submit a Consult; owner form только передаёт контакт своего veterinarian.",
+      "fee": "Fee on request; публичная сумма на прочитанных страницах не найдена.",
+      "unresolved": "Нынешний subset states для fulfilment не является scope этой audit задачи и не добавлен в remote availability.",
+      "sources": [
+        "https://www.veterinaryoncologypartners.com/pet-owners.html",
+        "https://www.veterinaryoncologypartners.com/our-story.html"
+      ],
+      "confidence": "high"
+    },
+    "tele-48": {
+      "source_id": "tele-48",
+      "service": "West Texas Veterinary Specialists",
+      "summary": "Vet-only oncology written review; Avenelle Turner DVM DACVIM Oncology официально listed collaborator. История, examination findings, diagnostics/images; рекомендации local vet. Mobile medicine/surgery отделены от oncology teleconsult.",
+      "geography": "Опубликована West Texas practice; about page прямо допускает teleconsults вне travel area. Eastern New Mexico как гарантированный teleconsult регион не подтверждён.",
+      "contact": "info@txvetspecialty.com; Consultation Request official portal.",
+      "fee": "Не опубликована.",
+      "unresolved": "Доступ за пределами travel area подтверждён в принципе, но конкретные states/countries не перечислены; не заменять это всемирной доступностью.",
+      "sources": [
+        "https://txvetspecialty.com/services/oncology/",
+        "https://txvetspecialty.com/dr-turner/",
+        "https://txvetspecialty.com/about-our-practice/",
+        "https://txvetspecialty.com/contact/"
+      ],
+      "confidence": "high"
+    },
+    "tele-49": {
+      "source_id": "tele-49",
+      "service": "Balto / ANI.ML Health",
+      "summary": "HTML reader видит JS shell. Статическое чтение реально опубликованного /assets/index-D63pDWWF.js, без исполнения/входа/API, подтверждает vet-to-vet written opinion within 24 hours и Oncology в service menu. Pinard DVM DVSc DACVIM Oncology/cofounder подтверждён Guelph; headshot asset сам по себе не доказательство assigned reviewer. Существующие cautious clinician/assignment fields сохранить.",
+      "geography": "Canada в официальных meta; UI country options CA/US не доказательство доступности во всех states или cross-border лицензий.",
+      "contact": "we.care@animl.health — публичная support ссылка в модуле; case platform.",
+      "fee": "Публичный фиксированный oncology tariff не установлен.",
+      "unresolved": "Live roster/оплата требуют account. Не извлекать из приложения административные/пользовательские данные, не подавать case. 24h — рекламируемый срок, не независимая гарантия.",
+      "sources": [
+        "https://consult.animl.health/",
+        "https://consult.animl.health/assets/index-D63pDWWF.js",
+        "https://www.uoguelph.ca/ovc/clinical-studies/faculty/christopher-pinard"
+      ],
+      "confidence": "high"
+    },
+    "tele-50": {
+      "source_id": "tele-50",
+      "service": "Veterinary Oncology Consultants",
+      "summary": "Current consulting team page подробно представляет Penny Thomas и Amy Lane, FANZCVS Veterinary Oncology. Moore/Frimberger указаны как основатели, без доказательства нынешнего назначения на случаи. Written report, optional phone to veterinarian only, not owner.",
+      "geography": "Worldwide прямо опубликовано, any species/any cancer; Australia, NZ, Singapore, Hong Kong, Malaysia, USA, Canada, UAE, Vanuatu приведены как примеры.",
+      "contact": "+61 0459 952 124; request form. Новые clinic clients сначала связываются с сервисом. Мedical/test reports прикрепляются/отправляются email.",
+      "fee": "AUD 300 written/email; AUD 350 report+phone; AUD 35 follow-up contact; protocol AUD 50. Australia fees include 10% GST.",
+      "unresolved": "Не считать исторических основателей текущими assigned consultants. Рабочее время 8–15 NSW Mon–Fri; response до конца следующего consulting day — не круглосуточно.",
+      "sources": [
+        "https://www.vetoncologyconsults.com/oncology-consulting/",
+        "https://www.vetoncologyconsults.com/about/"
+      ],
+      "confidence": "high"
+    },
+    "tele-51": {
+      "source_id": "tele-51",
+      "service": "Online Oncologist",
+      "summary": "Sonya Yu BVSc MANZCVS FANZCVS Veterinary Oncology, registered specialist. Veterinary primary care consulting; Hong Kong single case и подписки, Teams messaging support—not automatically video visit.",
+      "geography": "Practice Australia; конкретно Hong Kong опубликован service tariff. Main site ведёт также на Australia; не заявлять весь мир.",
+      "contact": "sonya@onlineoncologist.vet; HK-specific joseph@onlineoncologist.vet, WhatsApp +852 5741 9350.",
+      "fee": "HKD 1,800 single case; standard 7,000/3 cases monthly; premium 10,000/5. Single-case add-ons: protocol 250, handout 150, drug sheet 150, follow-up 500.",
+      "unresolved": "Teams scope Mon–Fri 9–17 AEST stated by provider; не обещать видеоприём, скорость ответа сверх terms или перевод timestamps на своё расписание.",
+      "sources": [
+        "https://www.onlineoncologist.vet/hong-kong",
+        "https://www.onlineoncologist.vet/about",
+        "https://www.onlineoncologist.vet/"
+      ],
+      "confidence": "high"
+    },
+    "tele-52": {
+      "source_id": "tele-52",
+      "service": "Onco Cats",
+      "summary": "OncoCats основан/ведётся Gabriela Clezar, ветеринар с oncology/feline postgraduate specializations (без подтверждённого ACVIM/ECVIM board). Онлайн teleinterconsulta для ветеринаров. Local oncology treats dogs and cats, поэтому не ограничивать remote description только кошками без основания.",
+      "geography": "Practice South Santa Catarina/North coast Rio Grande do Sul; online отдельно, международная география не названа.",
+      "contact": "WhatsApp +55 (48) 99800-4811; Mon–Fri 9–18.",
+      "fee": "Не опубликована.",
+      "unresolved": "Не гарантировано личное назначение Gabriela; exact remote format и country limits не опубликованы. Local chemo/surgery/ECT не добавлены как выполняемые remotely.",
+      "sources": [
+        "https://www.oncocats.com/",
+        "https://www.oncocats.com/conhe%C3%A7a-mais"
+      ],
+      "confidence": "high"
+    },
+    "tele-53": {
+      "source_id": "tele-53",
+      "service": "Vetonc",
+      "summary": "Franziska Hergt DipECVIM-CA Oncology, EBVS European specialist прямо опубликованы. Vet-only email/phone oncology case review and staging/prognosis. Не owner consultation.",
+      "geography": "Germany; перечень стран не опубликован.",
+      "contact": "info@vetonc.de; official contact form.",
+      "fee": "Не опубликована.",
+      "unresolved": "Отдельное board-registry подтверждение current registration не получено; на сайте credential stated, employment timeline может быть старым. Не трактовать дату ©2019 как закрытие.",
+      "sources": [
+        "https://vetonc.de/"
+      ],
+      "confidence": "high"
+    },
+    "tele-54": {
+      "source_id": "tele-54",
+      "service": "Onkolia",
+      "summary": "Paul GHISLAIN назван автором всех avis; CEAV Internal Medicine и école cancer/chemotherapy capacity, не ECVIM/ACVIM Oncology board. Владельцы по направлению своего врача могут создать account/submit documents; заключение адресуется treating vet. Это не owner video consult, remote diagnosis или prescription.",
+      "geography": "France; international eligibility not enumerated.",
+      "contact": "contact@onkolia.fr; account/clinical dossier portal.",
+      "fee": "€129 incl VAT single avis (до 5 рабочих дней + один Q&A); €389 three-month / €649 annual packages.",
+      "unresolved": "Страницы по-разному формулируют медицинскую степень учреждения, поэтому точные опубликованные credential названия без дополнительного university attribution. Не воспроизводить правовые выводы из маркетинговой статьи как независимо проверенное право.",
+      "sources": [
+        "https://www.onkolia.fr/articles/avis-cancerologique-veterinaire-distance-confrere",
+        "https://www.onkolia.fr/",
+        "https://www.onkolia.fr/a-propos",
+        "https://www.onkolia.fr/tarifs"
+      ],
+      "confidence": "high"
+    },
+    "tele-55": {
+      "source_id": "tele-55",
+      "service": "ARC Vets",
+      "summary": "Patrick Smith BSc BVMS MRCVS DECVIM Oncology, Registered Specialist. Initial remote consultation through referring veterinarian explicitly offered; after-discharge remote follow-up conditional. Эти два пути и нынешнее access уже верны.",
+      "geography": "New Zealand national referrals published; международный remote доступ не подтверждён.",
+      "contact": "Official Talk to our team/contact Central/North links; initial teleconsult via referring vet.",
+      "fee": "Не опубликована.",
+      "unresolved": "Конкретный remote format, fee и exact document set не перечислены; не переносить local ECT/chemo/partner radiation в услуги remote administration.",
+      "sources": [
+        "https://arcvets.co.nz/services/oncology-cancer-care/"
+      ],
+      "confidence": "high"
+    },
+    "tele-56": {
+      "source_id": "tele-56",
+      "service": "HEAL Cancer Care for Pets",
+      "summary": "Nick Szigetvari DVM DACVIM Oncology в действующем team HTML; teleconsultation New Patient Form прямо на approach/cancer-care/team pages. Мedical records coordination with primary veterinarian. Существующий осторожный текст правильный.",
+      "geography": "Practice Seattle/WA; geographic eligible states/countries not published.",
+      "contact": "206-888-4325; info@healpetcancer.com; New Patient Form.",
+      "fee": "Не опубликована.",
+      "unresolved": "Каналы video/phone/written, длительность, referral requirements и eligibility не определены публично. Не превращать физический Seattle address в teleconsult service limit.",
+      "sources": [
+        "https://healpetcancer.com/our-approach/",
+        "https://healpetcancer.com/cancer-care/",
+        "https://healpetcancer.com/meet-the-veterinary-team/",
+        "https://healpetcancer.com/veterinary-colleagues/"
+      ],
+      "confidence": "high"
+    }
+  },
+  "baseline_blob_sha": {
+    "seo/oncology_teleconsultations.py": "23e8efbe2159fbd2793661884a16fc39e19b0b64",
+    "data/oncology_care_source_inventory.json": "335a91cfef29ca890c49a931fda8668dec7a522b",
+    "PROJECT_OPERATIONS.md": "ba3240a876e02c5347aadd29de228d31225bf717"
+  }
+}

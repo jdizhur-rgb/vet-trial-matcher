@@ -1,0 +1,3688 @@
+{
+  "package": "C04",
+  "scope_count": 20,
+  "prepared_at": "2026-10-12T22:39:08.096239+00:00",
+  "publication": "NOT PERFORMED; no shared database modifications",
+  "baseline_files": {
+    "baseline/data/oncology_centers_supplemental.json": {
+      "sha256": "86f251866232be6dac31c3bcb9b62166891c56cad512680365205fce23a1f5b1"
+    },
+    "baseline/data/oncology_care_source_inventory.json": {
+      "sha256": "8f6bf0010a20b86737e27779b0470509a56e06e9c68ffd9d05f21b8d78fcae87"
+    },
+    "baseline/data/acvim_oncology_profiles.json": {
+      "sha256": "2bfe109e7f2690faee02fb0b44e730117ccef2d4dbeb6c00d1d462f6f450e914"
+    },
+    "baseline/data/oncology_centers.json": {
+      "sha256": "e076764c02aa6d8a0413151b3db5fa9e8ea6abd33a415e8a2cbcb6869c37fe65"
+    }
+  },
+  "old_value_policy": "Existing services/contact values come from fetched derived oncology_centers.json when absent in supplemental. null with origin field absent means no such field exists, not unknown actual historical value. Preserve raw ACVIM; recheck old_value against remote main before integration because other chats work in parallel.",
+  "changes": [
+    {
+      "source_id": "vca-sacramento-veterinary-referral-center",
+      "field": "services",
+      "old_value": [
+        "Medical oncology"
+      ],
+      "new_value": [
+        "Medical oncology",
+        "Chemotherapy",
+        "Immunotherapy",
+        "Radiation oncology"
+      ],
+      "evidence_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/departments/medical-oncology",
+      "supporting_quote": "Chemotherapy",
+      "checked_at": "2026-10-12T22:30:40.027190+00:00",
+      "branch_scope": "VCA Sacramento Veterinary Referral Center — 9801 Old Winery Place, Sacramento, CA 95827",
+      "old_value_origin": "data/oncology_centers.json derived record; supplemental matched by name when present",
+      "confidence": "high",
+      "decision_basis": "Исправить официальный URL и заполнить телефон; добавить местную химиотерапию, опубликованную иммунотерапию и RT Halcyon. Сохранить медицинскую онкологию. Не выводить surgical oncology из обычного отделения Surgery.",
+      "source_type": "official clinic website",
+      "additional_evidence": [
+        {
+          "evidence_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/departments/radiation-oncology",
+          "supporting_quote": "Halcyon",
+          "checked_at": "2026-10-12T22:30:58.304471+00:00",
+          "branch_scope": "VCA Sacramento Veterinary Referral Center — 9801 Old Winery Place, Sacramento, CA 95827"
+        },
+        {
+          "evidence_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/departments/medical-oncology/immunotherapy",
+          "supporting_quote": "Immunotherapy",
+          "checked_at": "2026-10-12T22:30:40.507222+00:00",
+          "branch_scope": "VCA Sacramento Veterinary Referral Center — 9801 Old Winery Place, Sacramento, CA 95827"
+        }
+      ]
+    },
+    {
+      "source_id": "vca-sacramento-veterinary-referral-center",
+      "field": "website",
+      "old_value": "https://vcahospitals.com/",
+      "new_value": "https://vcahospitals.com/sacramento-veterinary-referral-center",
+      "evidence_url": "https://vcahospitals.com/sacramento-veterinary-referral-center",
+      "supporting_quote": "Specialty Veterinarians in Sacramento, CA | VCA Sacramento Veterinary Referral Center",
+      "checked_at": "2026-10-12T22:29:49.093892+00:00",
+      "branch_scope": "VCA Sacramento Veterinary Referral Center — 9801 Old Winery Place, Sacramento, CA 95827",
+      "old_value_origin": "data/oncology_centers.json",
+      "confidence": "high",
+      "decision_basis": "Current official branch URL; remove generic/stale/network or tracking URL.",
+      "source_type": "official clinic website"
+    },
+    {
+      "source_id": "vca-sacramento-veterinary-referral-center",
+      "field": "phone",
+      "old_value": "",
+      "new_value": "916-362-3111",
+      "evidence_url": "https://vcahospitals.com/sacramento-veterinary-referral-center",
+      "supporting_quote": "916-362-3111",
+      "checked_at": "2026-10-12T22:29:49.093892+00:00",
+      "branch_scope": "VCA Sacramento Veterinary Referral Center — 9801 Old Winery Place, Sacramento, CA 95827",
+      "old_value_origin": "data/oncology_centers.json",
+      "confidence": "high",
+      "decision_basis": "",
+      "source_type": "official clinic website"
+    },
+    {
+      "source_id": "vca-sacramento-veterinary-referral-center",
+      "field": "clinicians",
+      "old_value": null,
+      "new_value": [
+        {
+          "name": "Danielle O'Brien",
+          "specialty": "Medical oncology",
+          "credentials": "DVM, DACVIM/Oncology, cVMA"
+        },
+        {
+          "name": "Jenny Schutte",
+          "specialty": "Radiation oncology",
+          "credentials": "DVM, DACVR-RO"
+        }
+      ],
+      "evidence_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/team",
+      "supporting_quote": "Danielle O'Brien",
+      "checked_at": "2026-10-12T22:29:53.071738+00:00",
+      "branch_scope": "VCA Sacramento Veterinary Referral Center — 9801 Old Winery Place, Sacramento, CA 95827",
+      "old_value_origin": "field absent in fetched supplemental and derived record",
+      "confidence": "high",
+      "decision_basis": "New structured clinician field proposal; none exists in fetched branch records. Current roster, with specialist biographies where available; not a license/quality audit.",
+      "source_type": "official clinic website",
+      "additional_evidence": [
+        {
+          "evidence_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/team/danielle-obrien",
+          "supporting_quote": "Veterinarian Specialist - Oncology",
+          "checked_at": "2026-10-12T22:31:33.379947+00:00",
+          "branch_scope": "VCA Sacramento Veterinary Referral Center — 9801 Old Winery Place, Sacramento, CA 95827"
+        },
+        {
+          "evidence_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/team/jenny-schutte",
+          "supporting_quote": "Veterinarian Specialist - Radiation Oncology",
+          "checked_at": "2026-10-12T22:31:40.941033+00:00",
+          "branch_scope": "VCA Sacramento Veterinary Referral Center — 9801 Old Winery Place, Sacramento, CA 95827"
+        },
+        {
+          "evidence_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/team/danielle-obrien",
+          "supporting_quote": "Veterinarian Specialist - Oncology",
+          "checked_at": "2026-10-12T22:33:35.798620+00:00",
+          "branch_scope": "VCA Sacramento Veterinary Referral Center — 9801 Old Winery Place, Sacramento, CA 95827"
+        },
+        {
+          "evidence_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/team/jenny-schutte",
+          "supporting_quote": "Veterinarian Specialist - Radiation Oncology",
+          "checked_at": "2026-10-12T22:33:35.799063+00:00",
+          "branch_scope": "VCA Sacramento Veterinary Referral Center — 9801 Old Winery Place, Sacramento, CA 95827"
+        }
+      ]
+    },
+    {
+      "source_id": "vca-sacramento-veterinary-referral-center",
+      "field": "inventory.master_url",
+      "old_value": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=3b73a562-393a-4105-87ce-d253899adc0e",
+      "new_value": "https://vcahospitals.com/sacramento-veterinary-referral-center",
+      "evidence_url": "https://vcahospitals.com/sacramento-veterinary-referral-center",
+      "supporting_quote": "Location",
+      "checked_at": "2026-10-12T22:29:49.093892+00:00",
+      "branch_scope": "VCA Sacramento Veterinary Referral Center — 9801 Old Winery Place, Sacramento, CA 95827",
+      "old_value_origin": "data/oncology_care_source_inventory.json",
+      "confidence": "high",
+      "decision_basis": "Primary audit entry point is now the current branch; retain original ACVIM URL as provenance/supporting URL.",
+      "source_type": "official clinic website"
+    },
+    {
+      "source_id": "vca-sacramento-veterinary-referral-center",
+      "field": "inventory.working_url",
+      "old_value": "https://vcahospitals.com/sacramento-veterinary-ref",
+      "new_value": "https://vcahospitals.com/sacramento-veterinary-referral-center",
+      "evidence_url": "https://vcahospitals.com/sacramento-veterinary-referral-center",
+      "supporting_quote": "Location",
+      "checked_at": "2026-10-12T22:29:49.093892+00:00",
+      "branch_scope": "VCA Sacramento Veterinary Referral Center — 9801 Old Winery Place, Sacramento, CA 95827",
+      "old_value_origin": "data/oncology_care_source_inventory.json",
+      "confidence": "high",
+      "decision_basis": "",
+      "source_type": "official clinic website"
+    },
+    {
+      "source_id": "vca-sacramento-veterinary-referral-center",
+      "field": "inventory.supporting_urls",
+      "old_value": [],
+      "new_value": [
+        "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=3b73a562-393a-4105-87ce-d253899adc0e",
+        "https://vcahospitals.com/sacramento-veterinary-referral-center",
+        "https://vcahospitals.com/sacramento-veterinary-referral-center/team",
+        "https://vcahospitals.com/sacramento-veterinary-referral-center/contact-us",
+        "https://vcahospitals.com/sacramento-veterinary-referral-center/departments/medical-oncology",
+        "https://vcahospitals.com/sacramento-veterinary-referral-center/departments/medical-oncology/chemotherapy",
+        "https://vcahospitals.com/sacramento-veterinary-referral-center/departments/medical-oncology/immunotherapy",
+        "https://vcahospitals.com/sacramento-veterinary-referral-center/departments/radiation-oncology",
+        "https://vcahospitals.com/sacramento-veterinary-referral-center/for-vets/referral-forms",
+        "https://vcahospitals.com/sacramento-veterinary-referral-center/team/danielle-obrien",
+        "https://vcahospitals.com/sacramento-veterinary-referral-center/team/jenny-schutte"
+      ],
+      "evidence_url": "https://vcahospitals.com/sacramento-veterinary-referral-center",
+      "supporting_quote": "Location",
+      "checked_at": "2026-10-12T22:29:49.093892+00:00",
+      "branch_scope": "VCA Sacramento Veterinary Referral Center — 9801 Old Winery Place, Sacramento, CA 95827",
+      "old_value_origin": "data/oncology_care_source_inventory.json",
+      "confidence": "high",
+      "decision_basis": "Preserve historical source and newly verified current branch service/roster routes.",
+      "source_type": "official clinic website"
+    },
+    {
+      "source_id": "vca-shoreline-veterinary-referral-and-emergency-center",
+      "field": "services",
+      "old_value": [
+        "Medical oncology"
+      ],
+      "new_value": [
+        "Medical oncology",
+        "Chemotherapy"
+      ],
+      "evidence_url": "https://vcahospitals.com/shoreline/departments/oncology",
+      "supporting_quote": "Chemotherapy",
+      "checked_at": "2026-10-12T22:29:56.600266+00:00",
+      "branch_scope": "VCA Shoreline Veterinary Referral and Emergency Center — 895 Bridgeport Ave, Shelton, CT 06484",
+      "old_value_origin": "data/oncology_centers.json derived record; supplemental matched by name when present",
+      "confidence": "high",
+      "decision_basis": "Добавить Chemotherapy: она прямо включена в Our Oncology Services. Сохранить текущего сертифицированного онколога Kate Taikowski. Не добавлять RT, immunotherapy или ONCEPT из общей образовательной части страницы.",
+      "source_type": "official clinic website"
+    },
+    {
+      "source_id": "vca-shoreline-veterinary-referral-and-emergency-center",
+      "field": "clinicians",
+      "old_value": null,
+      "new_value": [
+        {
+          "name": "Kate Taikowski",
+          "specialty": "Medical oncology",
+          "credentials": "DVM, MS, DACVIM/Oncology"
+        }
+      ],
+      "evidence_url": "https://vcahospitals.com/shoreline/team",
+      "supporting_quote": "Kate Taikowski",
+      "checked_at": "2026-10-12T22:29:54.737307+00:00",
+      "branch_scope": "VCA Shoreline Veterinary Referral and Emergency Center — 895 Bridgeport Ave, Shelton, CT 06484",
+      "old_value_origin": "field absent in fetched supplemental and derived record",
+      "confidence": "high",
+      "decision_basis": "New structured clinician field proposal; none exists in fetched branch records. Current roster, with specialist biographies where available; not a license/quality audit.",
+      "source_type": "official clinic website",
+      "additional_evidence": [
+        {
+          "evidence_url": "https://vcahospitals.com/shoreline/team/kate-taikowski",
+          "supporting_quote": "Veterinary Specialist",
+          "checked_at": "2026-10-12T22:30:05.053819+00:00",
+          "branch_scope": "VCA Shoreline Veterinary Referral and Emergency Center — 895 Bridgeport Ave, Shelton, CT 06484"
+        },
+        {
+          "evidence_url": "https://vcahospitals.com/shoreline/team/kate-taikowski",
+          "supporting_quote": "Veterinary Specialist",
+          "checked_at": "2026-10-12T22:33:35.802698+00:00",
+          "branch_scope": "VCA Shoreline Veterinary Referral and Emergency Center — 895 Bridgeport Ave, Shelton, CT 06484"
+        }
+      ]
+    },
+    {
+      "source_id": "vca-south-shore-weymouth-animal-hospital",
+      "field": "services",
+      "old_value": [
+        "Medical oncology",
+        "Chemotherapy",
+        "ECT",
+        "Immunotherapy",
+        "ONCEPT"
+      ],
+      "new_value": [
+        "Medical oncology",
+        "Chemotherapy",
+        "ECT",
+        "Immunotherapy",
+        "ONCEPT",
+        "Surgical oncology"
+      ],
+      "evidence_url": "https://vcahospitals.com/south-shore-weymouth/specialty/departments/surgical-oncology",
+      "supporting_quote": "we offer surgical management",
+      "checked_at": "2026-10-12T22:30:04.733440+00:00",
+      "branch_scope": "VCA South Shore (Weymouth) Animal Hospital — 595 Columbian St, South Weymouth, MA 02190",
+      "old_value_origin": "data/oncology_centers.json derived record; supplemental matched by name when present",
+      "confidence": "high",
+      "decision_basis": "Сохранить исходные пять услуг и добавить Surgical oncology: филиал прямо заявляет surgical management опухолей; William Snell имеет ACVS fellowship. Specialty phone 781-337-6622 оставить; 781-534-7455 относится к Primary Care. Kelly Hicks не включать в текущий roster: персональная ссылка перенаправляет на team, а в текущем списке её нет.",
+      "source_type": "official clinic website"
+    },
+    {
+      "source_id": "vca-south-shore-weymouth-animal-hospital",
+      "field": "clinicians",
+      "old_value": null,
+      "new_value": [
+        {
+          "name": "Torri Cicchirillo",
+          "specialty": "Medical oncology",
+          "credentials": "DVM, DACVIM (Oncology)"
+        },
+        {
+          "name": "Meredith Gumash",
+          "specialty": "Medical oncology",
+          "credentials": "DVM, DACVIM (Oncology)"
+        },
+        {
+          "name": "William Snell",
+          "specialty": "Surgical oncology",
+          "credentials": "DVM, DACVS-SA, ACVS Fellow (Surgical Oncology)"
+        }
+      ],
+      "evidence_url": "https://vcahospitals.com/south-shore-weymouth/specialty/team",
+      "supporting_quote": "Torri Cicchirillo",
+      "checked_at": "2026-10-12T22:29:53.505197+00:00",
+      "branch_scope": "VCA South Shore (Weymouth) Animal Hospital — 595 Columbian St, South Weymouth, MA 02190",
+      "old_value_origin": "field absent in fetched supplemental and derived record",
+      "confidence": "high",
+      "decision_basis": "New structured clinician field proposal; none exists in fetched branch records. Current roster, with specialist biographies where available; not a license/quality audit.",
+      "source_type": "official clinic website",
+      "additional_evidence": [
+        {
+          "evidence_url": "https://vcahospitals.com/south-shore-weymouth/specialty/team/torri-cicchirillo",
+          "supporting_quote": "Veterinary Specialist",
+          "checked_at": "2026-10-12T22:30:05.020657+00:00",
+          "branch_scope": "VCA South Shore (Weymouth) Animal Hospital — 595 Columbian St, South Weymouth, MA 02190"
+        },
+        {
+          "evidence_url": "https://vcahospitals.com/south-shore-weymouth/specialty/team/meredith-gumash",
+          "supporting_quote": "Veterinary Specialist",
+          "checked_at": "2026-10-12T22:30:08.427503+00:00",
+          "branch_scope": "VCA South Shore (Weymouth) Animal Hospital — 595 Columbian St, South Weymouth, MA 02190"
+        },
+        {
+          "evidence_url": "https://vcahospitals.com/south-shore-weymouth/specialty/team/william-snell",
+          "supporting_quote": "Medical Director",
+          "checked_at": "2026-10-12T22:30:09.284801+00:00",
+          "branch_scope": "VCA South Shore (Weymouth) Animal Hospital — 595 Columbian St, South Weymouth, MA 02190"
+        },
+        {
+          "evidence_url": "https://vcahospitals.com/south-shore-weymouth/specialty/team/torri-cicchirillo",
+          "supporting_quote": "Veterinary Specialist",
+          "checked_at": "2026-10-12T22:31:20.879482+00:00",
+          "branch_scope": "VCA South Shore (Weymouth) Animal Hospital — 595 Columbian St, South Weymouth, MA 02190"
+        },
+        {
+          "evidence_url": "https://vcahospitals.com/south-shore-weymouth/specialty/team/meredith-gumash",
+          "supporting_quote": "Veterinary Specialist",
+          "checked_at": "2026-10-12T22:31:27.833724+00:00",
+          "branch_scope": "VCA South Shore (Weymouth) Animal Hospital — 595 Columbian St, South Weymouth, MA 02190"
+        }
+      ]
+    },
+    {
+      "source_id": "vca-southpaws-veterinary-specialists-and-emergency",
+      "field": "services",
+      "old_value": [
+        "Medical oncology"
+      ],
+      "new_value": [
+        "Medical oncology",
+        "Chemotherapy",
+        "Immunotherapy",
+        "Radiation oncology"
+      ],
+      "evidence_url": "https://vcahospitals.com/southpaws/departments/oncology",
+      "supporting_quote": "Chemotherapy",
+      "checked_at": "2026-10-12T22:29:56.908595+00:00",
+      "branch_scope": "VCA SouthPaws Veterinary Specialists and Emergency — 8500 Arlington Blvd, Fairfax, VA 22031",
+      "old_value_origin": "data/oncology_centers.json derived record; supplemental matched by name when present",
+      "confidence": "high",
+      "decision_basis": "Добавить Chemotherapy, Immunotherapy и местную RT: отдельный местный аппарат Varian 2100 EX/IMRT и текущая Lily Thorsen. Metronomic Therapy отражена как режим химиотерапии, без нового отдельного filter tag. ECT в specialties Alyssa Przydrozny — обоснованное указание её местной компетенции, но фактическая доступность аппарата/сеансов здесь не подтверждена; пока вне confirmed services.",
+      "source_type": "official clinic website",
+      "additional_evidence": [
+        {
+          "evidence_url": "https://vcahospitals.com/southpaws/departments/radiation-oncology",
+          "supporting_quote": "Varian 2100 EX",
+          "checked_at": "2026-10-12T22:30:12.405315+00:00",
+          "branch_scope": "VCA SouthPaws Veterinary Specialists and Emergency — 8500 Arlington Blvd, Fairfax, VA 22031"
+        },
+        {
+          "evidence_url": "https://vcahospitals.com/southpaws/departments/oncology/immunotherapy",
+          "supporting_quote": "Immunotherapy",
+          "checked_at": "2026-10-12T22:30:04.480624+00:00",
+          "branch_scope": "VCA SouthPaws Veterinary Specialists and Emergency — 8500 Arlington Blvd, Fairfax, VA 22031"
+        }
+      ]
+    },
+    {
+      "source_id": "vca-southpaws-veterinary-specialists-and-emergency",
+      "field": "website",
+      "old_value": "https://vcahospitals.com/southpaws?utm_source=maps&utm_medium=organic&utm_campaign=VCA_SouthPaws_Vet",
+      "new_value": "https://vcahospitals.com/southpaws",
+      "evidence_url": "https://vcahospitals.com/southpaws",
+      "supporting_quote": "Specialty Veterinarians in Fairfax, VA | VCA SouthPaws Veterinary Specialists & Emergency Center",
+      "checked_at": "2026-10-12T22:29:49.099211+00:00",
+      "branch_scope": "VCA SouthPaws Veterinary Specialists and Emergency — 8500 Arlington Blvd, Fairfax, VA 22031",
+      "old_value_origin": "data/oncology_centers.json",
+      "confidence": "high",
+      "decision_basis": "Current official branch URL; remove generic/stale/network or tracking URL.",
+      "source_type": "official clinic website"
+    },
+    {
+      "source_id": "vca-southpaws-veterinary-specialists-and-emergency",
+      "field": "clinicians",
+      "old_value": null,
+      "new_value": [
+        {
+          "name": "Daniela Korec",
+          "specialty": "Medical oncology",
+          "credentials": "DVM, DACVIM (Oncology)"
+        },
+        {
+          "name": "Jack O'Day",
+          "specialty": "Medical oncology",
+          "credentials": "DVM, DACVIM (Oncology)"
+        },
+        {
+          "name": "Alyssa Przydrozny",
+          "specialty": "Medical oncology",
+          "credentials": "DVM, DACVIM (Oncology)"
+        },
+        {
+          "name": "Sarah Sheafor",
+          "specialty": "Medical oncology",
+          "credentials": "DVM, DACVIM (Oncology)"
+        },
+        {
+          "name": "Lily Thorsen",
+          "specialty": "Radiation oncology",
+          "credentials": "DVM, DACVR (RO)"
+        }
+      ],
+      "evidence_url": "https://vcahospitals.com/southpaws/team",
+      "supporting_quote": "Daniela Korec",
+      "checked_at": "2026-10-12T22:29:53.014570+00:00",
+      "branch_scope": "VCA SouthPaws Veterinary Specialists and Emergency — 8500 Arlington Blvd, Fairfax, VA 22031",
+      "old_value_origin": "field absent in fetched supplemental and derived record",
+      "confidence": "high",
+      "decision_basis": "New structured clinician field proposal; none exists in fetched branch records. Current roster, with specialist biographies where available; not a license/quality audit.",
+      "source_type": "official clinic website",
+      "additional_evidence": [
+        {
+          "evidence_url": "https://vcahospitals.com/southpaws/team/daniela-korec",
+          "supporting_quote": "Veterinarian Specialist - Oncology",
+          "checked_at": "2026-10-12T22:30:12.896782+00:00",
+          "branch_scope": "VCA SouthPaws Veterinary Specialists and Emergency — 8500 Arlington Blvd, Fairfax, VA 22031"
+        },
+        {
+          "evidence_url": "https://vcahospitals.com/southpaws/team/jack-oday",
+          "supporting_quote": "Veterinarian Specialist - Oncology",
+          "checked_at": "2026-10-12T22:30:15.371087+00:00",
+          "branch_scope": "VCA SouthPaws Veterinary Specialists and Emergency — 8500 Arlington Blvd, Fairfax, VA 22031"
+        },
+        {
+          "evidence_url": "https://vcahospitals.com/southpaws/team/alyssa-przydrozny",
+          "supporting_quote": "Veterinarian Specialist - Oncology",
+          "checked_at": "2026-10-12T22:30:15.398475+00:00",
+          "branch_scope": "VCA SouthPaws Veterinary Specialists and Emergency — 8500 Arlington Blvd, Fairfax, VA 22031"
+        },
+        {
+          "evidence_url": "https://vcahospitals.com/southpaws/team/sarah-sheafor",
+          "supporting_quote": "Co-Medical Director",
+          "checked_at": "2026-10-12T22:30:15.579815+00:00",
+          "branch_scope": "VCA SouthPaws Veterinary Specialists and Emergency — 8500 Arlington Blvd, Fairfax, VA 22031"
+        },
+        {
+          "evidence_url": "https://vcahospitals.com/southpaws/team/lily-thorsen",
+          "supporting_quote": "Veterinarian Specialist - Radiation Oncology",
+          "checked_at": "2026-10-12T22:30:17.582358+00:00",
+          "branch_scope": "VCA SouthPaws Veterinary Specialists and Emergency — 8500 Arlington Blvd, Fairfax, VA 22031"
+        }
+      ]
+    },
+    {
+      "source_id": "vca-stirling-square-animal-hospital",
+      "field": "services",
+      "old_value": [
+        "Local oncology care",
+        "Chemotherapy"
+      ],
+      "new_value": [
+        "Local oncology care"
+      ],
+      "evidence_url": "https://vcahospitals.com/stirling-square/services/advanced-care/oncology",
+      "supporting_quote": "Oncology",
+      "checked_at": "2026-10-12T22:30:10.482097+00:00",
+      "branch_scope": "VCA Stirling Square Animal Hospital — 3000 Stirling Road, Suite 132, Hollywood, FL 33021",
+      "old_value_origin": "data/oncology_centers.json derived record; supplemental matched by name when present",
+      "confidence": "high for catalog correction; actual chemotherapy availability unknown",
+      "decision_basis": "Убрать Chemotherapy только из подтверждённых услуг. Oncology есть в филиальном списке, но текст не описывает местную химиотерапию. Сохранить клинику, адрес, контакты и Local oncology care.",
+      "source_type": "official clinic website"
+    },
+    {
+      "source_id": "vca-veterinary-emergency-and-referral-center-ct",
+      "field": "services",
+      "old_value": [
+        "Medical oncology"
+      ],
+      "new_value": [
+        "Medical oncology",
+        "Chemotherapy",
+        "Targeted therapy",
+        "Intratumoral therapy",
+        "Stelfonta"
+      ],
+      "evidence_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/team/jessica-chin",
+      "supporting_quote": "She also offers individual therapy using FidoCure's precision medicine platform and Stelfonta for mast cell tumors.",
+      "checked_at": "2026-10-12T22:31:29.933313+00:00",
+      "branch_scope": "VCA Veterinary Referral and Emergency Center — 123 W. Cedar Street, Norwalk, CT 06854; mixed old Bedford Hills representation corrected",
+      "old_value_origin": "data/oncology_centers.json derived record; supplemental matched by name when present",
+      "confidence": "high for identity/address/phone and FidoCure/Stelfonta; moderate for chemotherapy",
+      "decision_basis": "Исправить смешанную запись на VCA Veterinary Referral and Emergency Center, Norwalk CT, 123 W. Cedar Street / 06854 / 203-854-9960. Исторический ACVIM профиль Jessica Chin сохранить, но не регенерировать из него адрес Bedford Hills. Не объединять с Katonah Bedford. FidoCure и Stelfonta прямо предложены в нынешней биографии Chin; Chemotherapy — вывод moderate из текущего oncology department, двух врачей и описанной Chin сочетанной терапии. Старые координаты NY обнулить до проверенного geocode.",
+      "source_type": "official clinic website"
+    },
+    {
+      "source_id": "vca-veterinary-emergency-and-referral-center-ct",
+      "field": "street",
+      "old_value": "546 N Bedford Rd",
+      "new_value": "123 W. Cedar Street",
+      "evidence_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center",
+      "supporting_quote": "123 W. Cedar Street",
+      "checked_at": "2026-10-12T22:30:13.429447+00:00",
+      "branch_scope": "VCA Veterinary Referral and Emergency Center — 123 W. Cedar Street, Norwalk, CT 06854; mixed old Bedford Hills representation corrected",
+      "old_value_origin": "data/oncology_centers.json",
+      "confidence": "high",
+      "decision_basis": "Correct cross-branch ACVIM address/telephone contamination; historical raw profile preserved.",
+      "source_type": "official clinic website"
+    },
+    {
+      "source_id": "vca-veterinary-emergency-and-referral-center-ct",
+      "field": "city",
+      "old_value": "Bedford Hills",
+      "new_value": "Norwalk",
+      "evidence_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center",
+      "supporting_quote": "Norwalk",
+      "checked_at": "2026-10-12T22:30:13.429447+00:00",
+      "branch_scope": "VCA Veterinary Referral and Emergency Center — 123 W. Cedar Street, Norwalk, CT 06854; mixed old Bedford Hills representation corrected",
+      "old_value_origin": "data/oncology_centers.json",
+      "confidence": "high",
+      "decision_basis": "Correct cross-branch ACVIM address/telephone contamination; historical raw profile preserved.",
+      "source_type": "official clinic website"
+    },
+    {
+      "source_id": "vca-veterinary-emergency-and-referral-center-ct",
+      "field": "region",
+      "old_value": "NY",
+      "new_value": "CT",
+      "evidence_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center",
+      "supporting_quote": "CT",
+      "checked_at": "2026-10-12T22:30:13.429447+00:00",
+      "branch_scope": "VCA Veterinary Referral and Emergency Center — 123 W. Cedar Street, Norwalk, CT 06854; mixed old Bedford Hills representation corrected",
+      "old_value_origin": "data/oncology_centers.json",
+      "confidence": "high",
+      "decision_basis": "Correct cross-branch ACVIM address/telephone contamination; historical raw profile preserved.",
+      "source_type": "official clinic website"
+    },
+    {
+      "source_id": "vca-veterinary-emergency-and-referral-center-ct",
+      "field": "postal_code",
+      "old_value": "10507",
+      "new_value": "06854",
+      "evidence_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center",
+      "supporting_quote": "06854",
+      "checked_at": "2026-10-12T22:30:13.429447+00:00",
+      "branch_scope": "VCA Veterinary Referral and Emergency Center — 123 W. Cedar Street, Norwalk, CT 06854; mixed old Bedford Hills representation corrected",
+      "old_value_origin": "data/oncology_centers.json",
+      "confidence": "high",
+      "decision_basis": "Correct cross-branch ACVIM address/telephone contamination; historical raw profile preserved.",
+      "source_type": "official clinic website"
+    },
+    {
+      "source_id": "vca-veterinary-emergency-and-referral-center-ct",
+      "field": "phone",
+      "old_value": "914.214.7700",
+      "new_value": "203-854-9960",
+      "evidence_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center",
+      "supporting_quote": "203-854-9960",
+      "checked_at": "2026-10-12T22:30:13.429447+00:00",
+      "branch_scope": "VCA Veterinary Referral and Emergency Center — 123 W. Cedar Street, Norwalk, CT 06854; mixed old Bedford Hills representation corrected",
+      "old_value_origin": "data/oncology_centers.json",
+      "confidence": "high",
+      "decision_basis": "Correct cross-branch ACVIM address/telephone contamination; historical raw profile preserved.",
+      "source_type": "official clinic website"
+    },
+    {
+      "source_id": "vca-veterinary-emergency-and-referral-center-ct",
+      "field": "name",
+      "old_value": "VCA Veterinary Emergency and Referral Center CT",
+      "new_value": "VCA Veterinary Referral and Emergency Center",
+      "evidence_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center",
+      "supporting_quote": "VCA Veterinary Referral and Emergency Center",
+      "checked_at": "2026-10-12T22:30:13.429447+00:00",
+      "branch_scope": "VCA Veterinary Referral and Emergency Center — 123 W. Cedar Street, Norwalk, CT 06854; mixed old Bedford Hills representation corrected",
+      "old_value_origin": "data/oncology_centers.json",
+      "confidence": "high",
+      "decision_basis": "",
+      "source_type": "official clinic website"
+    },
+    {
+      "source_id": "vca-veterinary-emergency-and-referral-center-ct",
+      "field": "latitude",
+      "old_value": 41.2344,
+      "new_value": null,
+      "evidence_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center",
+      "supporting_quote": "123 W. Cedar Street",
+      "checked_at": "2026-10-12T22:30:13.429447+00:00",
+      "branch_scope": "VCA Veterinary Referral and Emergency Center — 123 W. Cedar Street, Norwalk, CT 06854; mixed old Bedford Hills representation corrected",
+      "old_value_origin": "data/oncology_centers.json",
+      "confidence": "high",
+      "decision_basis": "Old coordinates describe NY, not Norwalk. Leave null until verified new geocode; no distance point at zero.",
+      "source_type": "official clinic website"
+    },
+    {
+      "source_id": "vca-veterinary-emergency-and-referral-center-ct",
+      "field": "longitude",
+      "old_value": -73.6915,
+      "new_value": null,
+      "evidence_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center",
+      "supporting_quote": "123 W. Cedar Street",
+      "checked_at": "2026-10-12T22:30:13.429447+00:00",
+      "branch_scope": "VCA Veterinary Referral and Emergency Center — 123 W. Cedar Street, Norwalk, CT 06854; mixed old Bedford Hills representation corrected",
+      "old_value_origin": "data/oncology_centers.json",
+      "confidence": "high",
+      "decision_basis": "Old coordinates describe NY, not Norwalk. Leave null until verified new geocode; no distance point at zero.",
+      "source_type": "official clinic website"
+    },
+    {
+      "source_id": "vca-veterinary-emergency-and-referral-center-ct",
+      "field": "oncologist_count",
+      "old_value": 3,
+      "new_value": 2,
+      "evidence_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/team",
+      "supporting_quote": "Jessica Chin",
+      "checked_at": "2026-10-12T22:30:17.686955+00:00",
+      "branch_scope": "VCA Veterinary Referral and Emergency Center — 123 W. Cedar Street, Norwalk, CT 06854; mixed old Bedford Hills representation corrected",
+      "old_value_origin": "data/oncology_centers.json",
+      "confidence": "high",
+      "decision_basis": "Current branch roster names Jessica Chin and Kayla Neiderfer, not 3.",
+      "source_type": "official clinic website"
+    },
+    {
+      "source_id": "vca-veterinary-emergency-and-referral-center-ct",
+      "field": "clinicians",
+      "old_value": null,
+      "new_value": [
+        {
+          "name": "Jessica Chin",
+          "specialty": "Medical oncology",
+          "credentials": "DVM, DACVIM; oncology certification отдельно подтверждается историческим ACVIM snapshot",
+          "credential_limit": "Текущая VCA страница публикует DACVIM без specialty в скобках; historical ACVIM называет Oncology."
+        },
+        {
+          "name": "Kayla Neiderfer",
+          "specialty": "Medical oncology",
+          "credentials": "DVM, DACVIM",
+          "credential_limit": "Текущая страница публикует DACVIM и oncology role; residency 2025. Не расширять подпись до DACVIM (Oncology) без отдельной явной сертификации."
+        }
+      ],
+      "evidence_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/team",
+      "supporting_quote": "Jessica Chin",
+      "checked_at": "2026-10-12T22:30:17.686955+00:00",
+      "branch_scope": "VCA Veterinary Referral and Emergency Center — 123 W. Cedar Street, Norwalk, CT 06854; mixed old Bedford Hills representation corrected",
+      "old_value_origin": "field absent in fetched supplemental and derived record",
+      "confidence": "high",
+      "decision_basis": "New structured clinician field proposal; none exists in fetched branch records. Current roster, with specialist biographies where available; not a license/quality audit.",
+      "source_type": "official clinic website",
+      "additional_evidence": [
+        {
+          "evidence_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/team/kayla-neiderfer",
+          "supporting_quote": "Veterinarian Specialist - Oncology",
+          "checked_at": "2026-10-12T22:31:26.742529+00:00",
+          "branch_scope": "VCA Veterinary Referral and Emergency Center — 123 W. Cedar Street, Norwalk, CT 06854; mixed old Bedford Hills representation corrected"
+        },
+        {
+          "evidence_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/team/jessica-chin",
+          "supporting_quote": "Veterinarian Specialist - Oncology",
+          "checked_at": "2026-10-12T22:31:29.933313+00:00",
+          "branch_scope": "VCA Veterinary Referral and Emergency Center — 123 W. Cedar Street, Norwalk, CT 06854; mixed old Bedford Hills representation corrected"
+        },
+        {
+          "evidence_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/team/jessica",
+          "supporting_quote": "Supervisor, Credentialed Veterinary Technician",
+          "checked_at": "2026-10-12T22:31:59.207067+00:00",
+          "branch_scope": "VCA Veterinary Referral and Emergency Center — 123 W. Cedar Street, Norwalk, CT 06854; mixed old Bedford Hills representation corrected"
+        },
+        {
+          "evidence_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/team/jessica-chin",
+          "supporting_quote": "Veterinarian Specialist - Oncology",
+          "checked_at": "2026-10-12T22:33:35.805990+00:00",
+          "branch_scope": "VCA Veterinary Referral and Emergency Center — 123 W. Cedar Street, Norwalk, CT 06854; mixed old Bedford Hills representation corrected"
+        },
+        {
+          "evidence_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/team/kayla-neiderfer",
+          "supporting_quote": "Veterinarian Specialist - Oncology",
+          "checked_at": "2026-10-12T22:33:35.808094+00:00",
+          "branch_scope": "VCA Veterinary Referral and Emergency Center — 123 W. Cedar Street, Norwalk, CT 06854; mixed old Bedford Hills representation corrected"
+        }
+      ]
+    },
+    {
+      "source_id": "vca-veterinary-emergency-and-referral-center-ct",
+      "field": "inventory.master_url",
+      "old_value": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=1973c738-08aa-4f6a-8af0-76b95e9677c5",
+      "new_value": "https://vcahospitals.com/veterinary-referral-and-emergency-center",
+      "evidence_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center",
+      "supporting_quote": "Location",
+      "checked_at": "2026-10-12T22:30:13.429447+00:00",
+      "branch_scope": "VCA Veterinary Referral and Emergency Center — 123 W. Cedar Street, Norwalk, CT 06854; mixed old Bedford Hills representation corrected",
+      "old_value_origin": "data/oncology_care_source_inventory.json",
+      "confidence": "high",
+      "decision_basis": "Primary audit entry point is now the current branch; retain original ACVIM URL as provenance/supporting URL.",
+      "source_type": "official clinic website"
+    },
+    {
+      "source_id": "vca-veterinary-emergency-and-referral-center-ct",
+      "field": "inventory.working_url",
+      "old_value": "https://vcahospitals.com/veterinary-referral-and-emergency-center",
+      "new_value": "https://vcahospitals.com/veterinary-referral-and-emergency-center",
+      "evidence_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center",
+      "supporting_quote": "Location",
+      "checked_at": "2026-10-12T22:30:13.429447+00:00",
+      "branch_scope": "VCA Veterinary Referral and Emergency Center — 123 W. Cedar Street, Norwalk, CT 06854; mixed old Bedford Hills representation corrected",
+      "old_value_origin": "data/oncology_care_source_inventory.json",
+      "confidence": "high",
+      "decision_basis": "",
+      "source_type": "official clinic website"
+    },
+    {
+      "source_id": "vca-veterinary-emergency-and-referral-center-ct",
+      "field": "inventory.supporting_urls",
+      "old_value": [],
+      "new_value": [
+        "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=1973c738-08aa-4f6a-8af0-76b95e9677c5",
+        "https://vcahospitals.com/veterinary-referral-and-emergency-center",
+        "https://vcahospitals.com/veterinary-referral-and-emergency-center/team",
+        "https://vcahospitals.com/veterinary-referral-and-emergency-center/contact-us",
+        "https://vcahospitals.com/veterinary-referral-and-emergency-center/departments",
+        "https://vcahospitals.com/veterinary-referral-and-emergency-center/departments/oncology/immunotherapy",
+        "https://vcahospitals.com/veterinary-referral-and-emergency-center/for-vets/referral-forms",
+        "https://vcahospitals.com/veterinary-referral-and-emergency-center/team/kayla-neiderfer",
+        "https://vcahospitals.com/veterinary-referral-and-emergency-center/team/jessica-chin",
+        "https://vcahospitals.com/katonah-bedford/specialty/team",
+        "https://vcahospitals.com/katonah-bedford/specialty/departments/oncology",
+        "https://vcahospitals.com/katonah-bedford/specialty/for-vets/referral-forms"
+      ],
+      "evidence_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center",
+      "supporting_quote": "Location",
+      "checked_at": "2026-10-12T22:30:13.429447+00:00",
+      "branch_scope": "VCA Veterinary Referral and Emergency Center — 123 W. Cedar Street, Norwalk, CT 06854; mixed old Bedford Hills representation corrected",
+      "old_value_origin": "data/oncology_care_source_inventory.json",
+      "confidence": "high",
+      "decision_basis": "Preserve historical source and newly verified current branch service/roster routes.",
+      "source_type": "official clinic website"
+    },
+    {
+      "source_id": "vca-veterinary-emergency-referral-center-of-westbury",
+      "field": "services",
+      "old_value": [
+        "Medical oncology"
+      ],
+      "new_value": [
+        "Medical oncology",
+        "Chemotherapy",
+        "Immunotherapy"
+      ],
+      "evidence_url": "https://vcahospitals.com/westbury/departments/oncology",
+      "supporting_quote": "Chemotherapy",
+      "checked_at": "2026-10-12T22:30:21.386950+00:00",
+      "branch_scope": "VCA Veterinary Emergency Referral Center of Westbury — 609-5 cantiague rock rd., Westbury, NY 11590",
+      "old_value_origin": "data/oncology_centers.json derived record; supplemental matched by name when present",
+      "confidence": "high",
+      "decision_basis": "Заменить общесетевой/старый website на vcahospitals.com/westbury; добавить hospital-listed Chemotherapy и Immunotherapy. Текущий Michael Linderman — DACVIM/Oncology. Не переносить RT или specialized surgical oncology из общесетевой информации.",
+      "source_type": "official clinic website",
+      "additional_evidence": [
+        {
+          "evidence_url": "https://vcahospitals.com/westbury/departments/oncology/immunotherapy",
+          "supporting_quote": "Immunotherapy",
+          "checked_at": "2026-10-12T22:30:25.959352+00:00",
+          "branch_scope": "VCA Veterinary Emergency Referral Center of Westbury — 609-5 cantiague rock rd., Westbury, NY 11590"
+        }
+      ]
+    },
+    {
+      "source_id": "vca-veterinary-emergency-referral-center-of-westbury",
+      "field": "website",
+      "old_value": "https://vcahospitals.com/",
+      "new_value": "https://vcahospitals.com/westbury",
+      "evidence_url": "https://vcahospitals.com/westbury",
+      "supporting_quote": "Specialty Veterinarians in Westbury, NY | Veterinary Referral & Emergency Center of Westbury",
+      "checked_at": "2026-10-12T22:30:15.404788+00:00",
+      "branch_scope": "VCA Veterinary Emergency Referral Center of Westbury — 609-5 cantiague rock rd., Westbury, NY 11590",
+      "old_value_origin": "data/oncology_centers.json",
+      "confidence": "high",
+      "decision_basis": "Current official branch URL; remove generic/stale/network or tracking URL.",
+      "source_type": "official clinic website"
+    },
+    {
+      "source_id": "vca-veterinary-emergency-referral-center-of-westbury",
+      "field": "clinicians",
+      "old_value": null,
+      "new_value": [
+        {
+          "name": "Michael Linderman",
+          "specialty": "Medical oncology",
+          "credentials": "DVM, DACVIM/Oncology"
+        }
+      ],
+      "evidence_url": "https://vcahospitals.com/westbury/team",
+      "supporting_quote": "Michael Linderman",
+      "checked_at": "2026-10-12T22:30:17.916060+00:00",
+      "branch_scope": "VCA Veterinary Emergency Referral Center of Westbury — 609-5 cantiague rock rd., Westbury, NY 11590",
+      "old_value_origin": "field absent in fetched supplemental and derived record",
+      "confidence": "high",
+      "decision_basis": "New structured clinician field proposal; none exists in fetched branch records. Current roster, with specialist biographies where available; not a license/quality audit.",
+      "source_type": "official clinic website",
+      "additional_evidence": [
+        {
+          "evidence_url": "https://vcahospitals.com/westbury/team/michael-linderman",
+          "supporting_quote": "Veterinarian Specialist",
+          "checked_at": "2026-10-12T22:30:29.807301+00:00",
+          "branch_scope": "VCA Veterinary Emergency Referral Center of Westbury — 609-5 cantiague rock rd., Westbury, NY 11590"
+        },
+        {
+          "evidence_url": "https://vcahospitals.com/westbury/team/michael-linderman",
+          "supporting_quote": "Veterinarian Specialist",
+          "checked_at": "2026-10-12T22:33:35.808997+00:00",
+          "branch_scope": "VCA Veterinary Emergency Referral Center of Westbury — 609-5 cantiague rock rd., Westbury, NY 11590"
+        }
+      ]
+    },
+    {
+      "source_id": "vca-veterinary-emergency-referral-center-of-westbury",
+      "field": "inventory.master_url",
+      "old_value": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=eb9f61b0-3fb6-4ead-ab69-e1fdb97d24a0",
+      "new_value": "https://vcahospitals.com/westbury",
+      "evidence_url": "https://vcahospitals.com/westbury",
+      "supporting_quote": "Location",
+      "checked_at": "2026-10-12T22:30:15.404788+00:00",
+      "branch_scope": "VCA Veterinary Emergency Referral Center of Westbury — 609-5 cantiague rock rd., Westbury, NY 11590",
+      "old_value_origin": "data/oncology_care_source_inventory.json",
+      "confidence": "high",
+      "decision_basis": "Primary audit entry point is now the current branch; retain original ACVIM URL as provenance/supporting URL.",
+      "source_type": "official clinic website"
+    },
+    {
+      "source_id": "vca-veterinary-emergency-referral-center-of-westbury",
+      "field": "inventory.working_url",
+      "old_value": "https://www.vcaspecialtyvets.com/westbury",
+      "new_value": "https://vcahospitals.com/westbury",
+      "evidence_url": "https://vcahospitals.com/westbury",
+      "supporting_quote": "Location",
+      "checked_at": "2026-10-12T22:30:15.404788+00:00",
+      "branch_scope": "VCA Veterinary Emergency Referral Center of Westbury — 609-5 cantiague rock rd., Westbury, NY 11590",
+      "old_value_origin": "data/oncology_care_source_inventory.json",
+      "confidence": "high",
+      "decision_basis": "",
+      "source_type": "official clinic website"
+    },
+    {
+      "source_id": "vca-veterinary-emergency-referral-center-of-westbury",
+      "field": "inventory.supporting_urls",
+      "old_value": [],
+      "new_value": [
+        "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=eb9f61b0-3fb6-4ead-ab69-e1fdb97d24a0",
+        "https://vcahospitals.com/westbury",
+        "https://vcahospitals.com/westbury/team",
+        "https://vcahospitals.com/westbury/contact-us",
+        "https://vcahospitals.com/westbury/departments/oncology",
+        "https://vcahospitals.com/westbury/departments/oncology/chemotherapy",
+        "https://vcahospitals.com/westbury/departments/oncology/immunotherapy",
+        "https://vcahospitals.com/westbury/for-vets/referral-forms",
+        "https://vcahospitals.com/westbury/team/michael-linderman"
+      ],
+      "evidence_url": "https://vcahospitals.com/westbury",
+      "supporting_quote": "Location",
+      "checked_at": "2026-10-12T22:30:15.404788+00:00",
+      "branch_scope": "VCA Veterinary Emergency Referral Center of Westbury — 609-5 cantiague rock rd., Westbury, NY 11590",
+      "old_value_origin": "data/oncology_care_source_inventory.json",
+      "confidence": "high",
+      "decision_basis": "Preserve historical source and newly verified current branch service/roster routes.",
+      "source_type": "official clinic website"
+    },
+    {
+      "source_id": "vca-veterinary-specialists-of-the-valley",
+      "field": "services",
+      "old_value": [
+        "Medical oncology"
+      ],
+      "new_value": [
+        "Medical oncology",
+        "Chemotherapy",
+        "Immunotherapy"
+      ],
+      "evidence_url": "https://vcahospitals.com/veterinary-specialists-valley/departments/oncology",
+      "supporting_quote": "Chemotherapy",
+      "checked_at": "2026-10-12T22:30:30.246879+00:00",
+      "branch_scope": "VCA Veterinary Specialists of the Valley — 22123 Ventura Blvd, Woodland Hills, CA 91364",
+      "old_value_origin": "data/oncology_centers.json derived record; supplemental matched by name when present",
+      "confidence": "high",
+      "decision_basis": "Добавить Chemotherapy и Immunotherapy из Our Oncology Services. John Chretin и Mark Jeon — нынешние medical oncologists. Историческое создание Chretin bone-marrow transplant программы в West Los Angeles не подтверждает transplant в Woodland Hills.",
+      "source_type": "official clinic website",
+      "additional_evidence": [
+        {
+          "evidence_url": "https://vcahospitals.com/veterinary-specialists-valley/departments/oncology/immunotherapy",
+          "supporting_quote": "Immunotherapy",
+          "checked_at": "2026-10-12T22:30:36.754292+00:00",
+          "branch_scope": "VCA Veterinary Specialists of the Valley — 22123 Ventura Blvd, Woodland Hills, CA 91364"
+        }
+      ]
+    },
+    {
+      "source_id": "vca-veterinary-specialists-of-the-valley",
+      "field": "clinicians",
+      "old_value": null,
+      "new_value": [
+        {
+          "name": "John Chretin",
+          "specialty": "Medical oncology",
+          "credentials": "DVM, DACVIM (Oncology)"
+        },
+        {
+          "name": "Mark Jeon",
+          "specialty": "Medical oncology",
+          "credentials": "DVM, DACVIM (Oncology)"
+        }
+      ],
+      "evidence_url": "https://vcahospitals.com/veterinary-specialists-valley/team",
+      "supporting_quote": "John Chretin",
+      "checked_at": "2026-10-12T22:30:26.919242+00:00",
+      "branch_scope": "VCA Veterinary Specialists of the Valley — 22123 Ventura Blvd, Woodland Hills, CA 91364",
+      "old_value_origin": "field absent in fetched supplemental and derived record",
+      "confidence": "high",
+      "decision_basis": "New structured clinician field proposal; none exists in fetched branch records. Current roster, with specialist biographies where available; not a license/quality audit.",
+      "source_type": "official clinic website",
+      "additional_evidence": [
+        {
+          "evidence_url": "https://vcahospitals.com/veterinary-specialists-valley/team/john-chretin",
+          "supporting_quote": "Medical Director",
+          "checked_at": "2026-10-12T22:30:40.179411+00:00",
+          "branch_scope": "VCA Veterinary Specialists of the Valley — 22123 Ventura Blvd, Woodland Hills, CA 91364"
+        },
+        {
+          "evidence_url": "https://vcahospitals.com/veterinary-specialists-valley/team/mark-jeon",
+          "supporting_quote": "Veterinarian Specialist",
+          "checked_at": "2026-10-12T22:30:40.265631+00:00",
+          "branch_scope": "VCA Veterinary Specialists of the Valley — 22123 Ventura Blvd, Woodland Hills, CA 91364"
+        },
+        {
+          "evidence_url": "https://vcahospitals.com/veterinary-specialists-valley/team/john-chretin",
+          "supporting_quote": "Medical Director",
+          "checked_at": "2026-10-12T22:31:36.306390+00:00",
+          "branch_scope": "VCA Veterinary Specialists of the Valley — 22123 Ventura Blvd, Woodland Hills, CA 91364"
+        },
+        {
+          "evidence_url": "https://vcahospitals.com/veterinary-specialists-valley/team/mark-jeon",
+          "supporting_quote": "Veterinarian Specialist",
+          "checked_at": "2026-10-12T22:33:39.834539+00:00",
+          "branch_scope": "VCA Veterinary Specialists of the Valley — 22123 Ventura Blvd, Woodland Hills, CA 91364"
+        }
+      ]
+    },
+    {
+      "source_id": "vca-veterinary-specialty-emergency-center-of-kalamazoo",
+      "field": "clinicians",
+      "old_value": null,
+      "new_value": [
+        {
+          "name": "Brittney Stanton",
+          "specialty": "Radiation oncology",
+          "credentials": "DVM, DACVR (RO)"
+        }
+      ],
+      "evidence_url": "https://vcahospitals.com/kalamazoo/team",
+      "supporting_quote": "Brittney Stanton",
+      "checked_at": "2026-10-12T22:30:26.757975+00:00",
+      "branch_scope": "VCA Veterinary Specialty & Emergency Center of Kalamazoo — 5348 S. Westnedge Avenue, Portage, MI 49002",
+      "old_value_origin": "field absent in fetched supplemental and derived record",
+      "confidence": "high",
+      "decision_basis": "New structured clinician field proposal; none exists in fetched branch records. Current roster, with specialist biographies where available; not a license/quality audit.",
+      "source_type": "official clinic website",
+      "additional_evidence": [
+        {
+          "evidence_url": "https://vcahospitals.com/kalamazoo/team/brittney-stanton",
+          "supporting_quote": "Veterinary Specialist – Radiation Oncology",
+          "checked_at": "2026-10-12T22:30:31.173350+00:00",
+          "branch_scope": "VCA Veterinary Specialty & Emergency Center of Kalamazoo — 5348 S. Westnedge Avenue, Portage, MI 49002"
+        },
+        {
+          "evidence_url": "https://vcahospitals.com/kalamazoo/team/brittney-stanton",
+          "supporting_quote": "Veterinary Specialist – Radiation Oncology",
+          "checked_at": "2026-10-12T22:33:40.001056+00:00",
+          "branch_scope": "VCA Veterinary Specialty & Emergency Center of Kalamazoo — 5348 S. Westnedge Avenue, Portage, MI 49002"
+        }
+      ]
+    },
+    {
+      "source_id": "vca-west-coast-specialty-and-emergency-hospital",
+      "field": "services",
+      "old_value": [
+        "Medical oncology"
+      ],
+      "new_value": [
+        "Medical oncology",
+        "Chemotherapy",
+        "Immunotherapy",
+        "Radiation oncology",
+        "Surgical oncology"
+      ],
+      "evidence_url": "https://vcahospitals.com/west-coast/departments/medical-oncology",
+      "supporting_quote": "Chemotherapy",
+      "checked_at": "2026-10-12T22:30:45.941914+00:00",
+      "branch_scope": "VCA West Coast Specialty and Emergency Hospital — 18300 Euclid Street, Fountain Valley, CA 92708",
+      "old_value_origin": "data/oncology_centers.json derived record; supplemental matched by name when present",
+      "confidence": "high for core modalities and roster; low for current transplant/CERT access",
+      "decision_basis": "Добавить Chemotherapy, Immunotherapy, местную RT (Varian 2100 EX/IMRT) и Surgical oncology. Arathi Vinayak имеет ACVS Fellow Surgical Oncology; Abbey Sadowski — practice limited medical oncology, без неподтверждённой board certification. Bone Marrow Transplant и CERT опубликованы в списке, но для этих редких услуг требуется свежая явная доступность; пока вне подтверждённого списка.",
+      "source_type": "official clinic website",
+      "additional_evidence": [
+        {
+          "evidence_url": "https://vcahospitals.com/west-coast/departments/radiation-oncology",
+          "supporting_quote": "Varian 2100 EX",
+          "checked_at": "2026-10-12T22:30:51.132731+00:00",
+          "branch_scope": "VCA West Coast Specialty and Emergency Hospital — 18300 Euclid Street, Fountain Valley, CA 92708"
+        },
+        {
+          "evidence_url": "https://vcahospitals.com/west-coast/departments/medical-oncology/immunotherapy",
+          "supporting_quote": "Immunotherapy",
+          "checked_at": "2026-10-12T22:30:49.052689+00:00",
+          "branch_scope": "VCA West Coast Specialty and Emergency Hospital — 18300 Euclid Street, Fountain Valley, CA 92708"
+        },
+        {
+          "evidence_url": "https://vcahospitals.com/west-coast/departments/surgical-oncology",
+          "supporting_quote": "we offer surgical management",
+          "checked_at": "2026-10-12T22:30:54.532889+00:00",
+          "branch_scope": "VCA West Coast Specialty and Emergency Hospital — 18300 Euclid Street, Fountain Valley, CA 92708"
+        }
+      ]
+    },
+    {
+      "source_id": "vca-west-coast-specialty-and-emergency-hospital",
+      "field": "clinicians",
+      "old_value": null,
+      "new_value": [
+        {
+          "name": "Samantha Bajorek",
+          "specialty": "Medical oncology",
+          "credentials": "DVM, DACVIM (Medical Oncology)"
+        },
+        {
+          "name": "Abbey Sadowski",
+          "specialty": "Medical oncology",
+          "credentials": "DVM (Practice Limited - Medical Oncology)",
+          "credential_limit": "Board certification не подтверждена."
+        },
+        {
+          "name": "Cory Wakamatsu",
+          "specialty": "Radiation oncology",
+          "credentials": "DVM, MS, DACVR (RO)"
+        },
+        {
+          "name": "Arathi Vinayak",
+          "specialty": "Surgical oncology",
+          "credentials": "DVM, DACVS-SA, ACVS Fellow (Surgical Oncology)"
+        }
+      ],
+      "evidence_url": "https://vcahospitals.com/west-coast/team",
+      "supporting_quote": "Samantha Bajorek",
+      "checked_at": "2026-10-12T22:30:40.934481+00:00",
+      "branch_scope": "VCA West Coast Specialty and Emergency Hospital — 18300 Euclid Street, Fountain Valley, CA 92708",
+      "old_value_origin": "field absent in fetched supplemental and derived record",
+      "confidence": "high",
+      "decision_basis": "New structured clinician field proposal; none exists in fetched branch records. Current roster, with specialist biographies where available; not a license/quality audit.",
+      "source_type": "official clinic website",
+      "additional_evidence": [
+        {
+          "evidence_url": "https://vcahospitals.com/west-coast/team/abbey-sadowski",
+          "supporting_quote": "Veterinary Specialist",
+          "checked_at": "2026-10-12T22:30:55.423399+00:00",
+          "branch_scope": "VCA West Coast Specialty and Emergency Hospital — 18300 Euclid Street, Fountain Valley, CA 92708"
+        },
+        {
+          "evidence_url": "https://vcahospitals.com/west-coast/team/arathi-vinayak",
+          "supporting_quote": "Veterinary Specialist",
+          "checked_at": "2026-10-12T22:30:57.732092+00:00",
+          "branch_scope": "VCA West Coast Specialty and Emergency Hospital — 18300 Euclid Street, Fountain Valley, CA 92708"
+        },
+        {
+          "evidence_url": "https://vcahospitals.com/west-coast/team/abbey-sadowski",
+          "supporting_quote": "Veterinary Specialist",
+          "checked_at": "2026-10-12T22:31:48.806811+00:00",
+          "branch_scope": "VCA West Coast Specialty and Emergency Hospital — 18300 Euclid Street, Fountain Valley, CA 92708"
+        },
+        {
+          "evidence_url": "https://vcahospitals.com/west-coast/team/arathi-vinayak",
+          "supporting_quote": "Veterinary Specialist",
+          "checked_at": "2026-10-12T22:31:48.817968+00:00",
+          "branch_scope": "VCA West Coast Specialty and Emergency Hospital — 18300 Euclid Street, Fountain Valley, CA 92708"
+        }
+      ]
+    },
+    {
+      "source_id": "vca-white-oak-animal-hospital",
+      "field": "services",
+      "old_value": [
+        "Local oncology care",
+        "Chemotherapy"
+      ],
+      "new_value": [
+        "Local oncology care"
+      ],
+      "evidence_url": "https://vcahospitals.com/white-oak/services/advanced-care/oncology",
+      "supporting_quote": "Oncology",
+      "checked_at": "2026-10-12T22:30:46.079655+00:00",
+      "branch_scope": "VCA White Oak Animal Hospital — 10 Walsh Lane, Fredericksburg, VA 22405",
+      "old_value_origin": "data/oncology_centers.json derived record; supplemental matched by name when present",
+      "confidence": "high for catalog correction; actual chemotherapy availability unknown",
+      "decision_basis": "Убрать Chemotherapy только из confirmed services: Oncology страница содержит общий текст, а services/advanced care, roster и доступная biography не подтверждают проведение химиотерапии. Сохранить клинику и Local oncology care.",
+      "source_type": "official clinic website"
+    },
+    {
+      "source_id": "vca-whitman-animal-hospital",
+      "field": "services",
+      "old_value": [
+        "Local oncology care",
+        "Chemotherapy"
+      ],
+      "new_value": [
+        "Local oncology care",
+        "Oncology referral"
+      ],
+      "evidence_url": "https://vcahospitals.com/whitman/services/advanced-care/oncology",
+      "supporting_quote": "Dr. Finney",
+      "checked_at": "2026-10-12T22:30:55.611124+00:00",
+      "branch_scope": "VCA Whitman Animal Hospital — 795 Bedford Street, Whitman, MA 02382",
+      "old_value_origin": "data/oncology_centers.json derived record; supplemental matched by name when present",
+      "confidence": "high for separating branches; actual Whitman chemotherapy unknown",
+      "decision_basis": "Убрать местную Chemotherapy из confirmed services, сохранить local cancer assessment и добавить Oncology referral. Сайт направляет в South Shore и описывает chemotherapy Dr. Finney at Hanson; это другой филиал. Телефонные консультации описаны для treating veterinarian, не owner teleoncology и не доказательство приезда онколога в Whitman.",
+      "source_type": "official clinic website"
+    }
+  ],
+  "records": [
+    {
+      "source_id": "vca-sacramento-veterinary-referral-center",
+      "name": "VCA Sacramento Veterinary Referral Center",
+      "branch_scope": "VCA Sacramento Veterinary Referral Center — 9801 Old Winery Place, Sacramento, CA 95827",
+      "checked_fields": [
+        "operation/current public hours",
+        "street",
+        "city",
+        "region",
+        "postal_code",
+        "phone",
+        "official website",
+        "current clinical roster and published credentials",
+        "branch-specific oncology services",
+        "referral/appointment route",
+        "mobile/visiting/remote format evidence"
+      ],
+      "verified_contact": {
+        "street": "9801 Old Winery Place",
+        "city": "Sacramento",
+        "region": "CA",
+        "postal_code": "95827",
+        "phone": "916-362-3111",
+        "website": "https://vcahospitals.com/sacramento-veterinary-referral-center"
+      },
+      "services": [
+        "Medical oncology",
+        "Chemotherapy",
+        "Immunotherapy",
+        "Radiation oncology"
+      ],
+      "clinicians": [
+        {
+          "name": "Danielle O'Brien",
+          "specialty": "Medical oncology",
+          "credentials": "DVM, DACVIM/Oncology, cVMA"
+        },
+        {
+          "name": "Jenny Schutte",
+          "specialty": "Radiation oncology",
+          "credentials": "DVM, DACVR-RO"
+        }
+      ],
+      "gp_roster_note": "",
+      "decision": "Исправить официальный URL и заполнить телефон; добавить местную химиотерапию, опубликованную иммунотерапию и RT Halcyon. Сохранить медицинскую онкологию. Не выводить surgical oncology из обычного отделения Surgery.",
+      "confidence": "high",
+      "source_urls": [
+        "https://vcahospitals.com/sacramento-veterinary-referral-center",
+        "https://vcahospitals.com/sacramento-veterinary-referral-center/team",
+        "https://vcahospitals.com/sacramento-veterinary-referral-center/contact-us",
+        "https://vcahospitals.com/sacramento-veterinary-referral-center/departments/medical-oncology",
+        "https://vcahospitals.com/sacramento-veterinary-referral-center/departments/medical-oncology/chemotherapy",
+        "https://vcahospitals.com/sacramento-veterinary-referral-center/departments/medical-oncology/immunotherapy",
+        "https://vcahospitals.com/sacramento-veterinary-referral-center/departments/radiation-oncology",
+        "https://vcahospitals.com/sacramento-veterinary-referral-center/for-vets/referral-forms",
+        "https://vcahospitals.com/sacramento-veterinary-referral-center/team/danielle-obrien",
+        "https://vcahospitals.com/sacramento-veterinary-referral-center/team/jenny-schutte"
+      ],
+      "source_checks": [
+        {
+          "requested_url": "https://vcahospitals.com/sacramento-veterinary-referral-center",
+          "final_url": "https://vcahospitals.com/sacramento-veterinary-referral-center",
+          "status": 200,
+          "checked_at": "2026-10-12T22:29:49.093892+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/team",
+          "final_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/team",
+          "status": 200,
+          "checked_at": "2026-10-12T22:29:53.071738+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/contact-us",
+          "final_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/contact-us",
+          "status": 200,
+          "checked_at": "2026-10-12T22:29:57.892048+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/departments/medical-oncology",
+          "final_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/departments/medical-oncology",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:40.027190+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/departments/medical-oncology/chemotherapy",
+          "final_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/departments/medical-oncology/chemotherapy",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:40.275980+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/departments/medical-oncology/immunotherapy",
+          "final_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/departments/medical-oncology/immunotherapy",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:40.507222+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/departments/radiation-oncology",
+          "final_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/departments/radiation-oncology",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:58.304471+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/team",
+          "final_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/team",
+          "status": 200,
+          "checked_at": "2026-10-12T22:31:10.798115+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/for-vets/referral-forms",
+          "final_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/for-vets/referral-forms",
+          "status": 200,
+          "checked_at": "2026-10-12T22:31:14.011607+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/team/danielle-obrien",
+          "final_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/team/danielle-obrien",
+          "status": 200,
+          "checked_at": "2026-10-12T22:31:33.379947+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/team/jenny-schutte",
+          "final_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/team/jenny-schutte",
+          "status": 200,
+          "checked_at": "2026-10-12T22:31:40.941033+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/team",
+          "final_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/team",
+          "status": 200,
+          "checked_at": "2026-10-12T22:32:35.843536+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/departments/medical-oncology",
+          "final_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/departments/medical-oncology",
+          "status": 200,
+          "checked_at": "2026-10-12T22:32:35.844409+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/departments/radiation-oncology",
+          "final_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/departments/radiation-oncology",
+          "status": 200,
+          "checked_at": "2026-10-12T22:32:35.845217+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/for-vets/referral-forms",
+          "final_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/for-vets/referral-forms",
+          "status": 200,
+          "checked_at": "2026-10-12T22:32:35.846306+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/team/danielle-obrien",
+          "final_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/team/danielle-obrien",
+          "status": 200,
+          "checked_at": "2026-10-12T22:33:35.798620+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/team/jenny-schutte",
+          "final_url": "https://vcahospitals.com/sacramento-veterinary-referral-center/team/jenny-schutte",
+          "status": 200,
+          "checked_at": "2026-10-12T22:33:35.799063+00:00",
+          "error": null
+        }
+      ],
+      "unresolved": [
+        "Конкретный продукт иммунотерапии не установлен; общий раздел ONCEPT в шаблонном тексте не является подтверждением его применения здесь.",
+        "Специализированная хирургия опухолей отдельно не подтверждена; обычные DACVS-SA хирурги не равны surgical oncology fellow."
+      ],
+      "checked_at_range": [
+        "2026-10-12T22:29:49.093892+00:00",
+        "2026-10-12T22:33:35.799063+00:00"
+      ],
+      "access_assessment": "Физический филиал. Плановая specialty consultation по записи; на сайте есть referral form и передача records. Круглосуточная emergency работа не означает круглосуточный приём онколога. Обязательность направления для всех owner appointments не установлена. Oncology liaison: 916-361-5222; hospital main: 916-362-3111."
+    },
+    {
+      "source_id": "vca-san-francis-animal-hospital",
+      "name": "VCA San Francis Animal Hospital",
+      "branch_scope": "VCA San Francis Animal Hospital — 16901 Shady Hills Road, Spring Hill, FL 34610",
+      "checked_fields": [
+        "operation/current public hours",
+        "street",
+        "city",
+        "region",
+        "postal_code",
+        "phone",
+        "official website",
+        "current clinical roster and published credentials",
+        "branch-specific oncology services",
+        "referral/appointment route",
+        "mobile/visiting/remote format evidence"
+      ],
+      "verified_contact": {
+        "street": "16901 Shady Hills Road",
+        "city": "Spring Hill",
+        "region": "FL",
+        "postal_code": "34610",
+        "phone": "352-848-0940",
+        "website": "https://vcahospitals.com/san-francis/"
+      },
+      "services": [
+        "Chemotherapy"
+      ],
+      "clinicians": [],
+      "gp_roster_note": "Carlos Campos — DVM, medical director; Marybeth Lowe — DVM; Katieri Smith — veterinarian, степень на roster не опубликована; Kinga Szakacs — DVM.",
+      "decision": "Без изменения карточки: сохранить Chemotherapy по местному списку услуг и отдельной странице. Сертифицированный онколог не подтверждён; химиотерапию из-за этого не убирать.",
+      "confidence": "high",
+      "source_urls": [
+        "https://vcahospitals.com/san-francis",
+        "https://vcahospitals.com/san-francis/team",
+        "https://vcahospitals.com/san-francis/services",
+        "https://vcahospitals.com/san-francis/contact-us",
+        "https://vcahospitals.com/san-francis/services/advanced-care/chemotherapy"
+      ],
+      "source_checks": [
+        {
+          "requested_url": "https://vcahospitals.com/san-francis",
+          "final_url": "https://vcahospitals.com/san-francis",
+          "status": 200,
+          "checked_at": "2026-10-12T22:29:49.094228+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/san-francis/team",
+          "final_url": "https://vcahospitals.com/san-francis/team",
+          "status": 200,
+          "checked_at": "2026-10-12T22:29:52.617015+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/san-francis/services",
+          "final_url": "https://vcahospitals.com/san-francis/services",
+          "status": 200,
+          "checked_at": "2026-10-12T22:29:52.618031+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/san-francis/contact-us",
+          "final_url": "https://vcahospitals.com/san-francis/contact-us",
+          "status": 200,
+          "checked_at": "2026-10-12T22:29:56.852021+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/san-francis/services/advanced-care/chemotherapy",
+          "final_url": "https://vcahospitals.com/san-francis/services/advanced-care/chemotherapy",
+          "status": 200,
+          "checked_at": "2026-10-12T22:29:56.863424+00:00",
+          "error": null
+        }
+      ],
+      "unresolved": [
+        "Какие препараты/диагнозы принимают и кто выполняет лечение, сайт не уточняет; наличие постоянного или приглашённого oncology specialist не установлено."
+      ],
+      "checked_at_range": [
+        "2026-10-12T22:29:49.094228+00:00",
+        "2026-10-12T22:29:56.882435+00:00"
+      ],
+      "access_assessment": "Физический general-practice филиал, обращение через местную запись/телефон. Сайт не подтверждает мобильный формат или приезжающего oncology specialist. Live chat/myVCA не является подтверждённой oncology teleconsultation."
+    },
+    {
+      "source_id": "vca-shoreline-veterinary-referral-and-emergency-center",
+      "name": "VCA Shoreline Veterinary Referral and Emergency Center",
+      "branch_scope": "VCA Shoreline Veterinary Referral and Emergency Center — 895 Bridgeport Ave, Shelton, CT 06484",
+      "checked_fields": [
+        "operation/current public hours",
+        "street",
+        "city",
+        "region",
+        "postal_code",
+        "phone",
+        "official website",
+        "current clinical roster and published credentials",
+        "branch-specific oncology services",
+        "referral/appointment route",
+        "mobile/visiting/remote format evidence"
+      ],
+      "verified_contact": {
+        "street": "895 Bridgeport Ave",
+        "city": "Shelton",
+        "region": "CT",
+        "postal_code": "06484",
+        "phone": "203-929-8600",
+        "website": "https://vcahospitals.com/shoreline"
+      },
+      "services": [
+        "Medical oncology",
+        "Chemotherapy"
+      ],
+      "clinicians": [
+        {
+          "name": "Kate Taikowski",
+          "specialty": "Medical oncology",
+          "credentials": "DVM, MS, DACVIM/Oncology"
+        }
+      ],
+      "gp_roster_note": "",
+      "decision": "Добавить Chemotherapy: она прямо включена в Our Oncology Services. Сохранить текущего сертифицированного онколога Kate Taikowski. Не добавлять RT, immunotherapy или ONCEPT из общей образовательной части страницы.",
+      "confidence": "high",
+      "source_urls": [
+        "https://vcahospitals.com/shoreline",
+        "https://vcahospitals.com/shoreline/team",
+        "https://vcahospitals.com/shoreline/contact-us",
+        "https://vcahospitals.com/shoreline/departments/oncology",
+        "https://vcahospitals.com/shoreline/departments/oncology/chemotherapy",
+        "https://vcahospitals.com/shoreline/for-vets/referral-forms",
+        "https://vcahospitals.com/shoreline/team/kate-taikowski"
+      ],
+      "source_checks": [
+        {
+          "requested_url": "https://vcahospitals.com/shoreline",
+          "final_url": "https://vcahospitals.com/shoreline",
+          "status": 200,
+          "checked_at": "2026-10-12T22:29:49.096554+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/shoreline/team",
+          "final_url": "https://vcahospitals.com/shoreline/team",
+          "status": 200,
+          "checked_at": "2026-10-12T22:29:54.737307+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/shoreline/contact-us",
+          "final_url": "https://vcahospitals.com/shoreline/contact-us",
+          "status": 200,
+          "checked_at": "2026-10-12T22:29:56.599167+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/shoreline/departments/oncology",
+          "final_url": "https://vcahospitals.com/shoreline/departments/oncology",
+          "status": 200,
+          "checked_at": "2026-10-12T22:29:56.600266+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/shoreline/departments/oncology/chemotherapy",
+          "final_url": "https://vcahospitals.com/shoreline/departments/oncology/chemotherapy",
+          "status": 200,
+          "checked_at": "2026-10-12T22:29:56.601972+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/shoreline/for-vets/referral-forms",
+          "final_url": "https://vcahospitals.com/shoreline/for-vets/referral-forms",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:04.862032+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/shoreline/team/kate-taikowski",
+          "final_url": "https://vcahospitals.com/shoreline/team/kate-taikowski",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:05.053819+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/shoreline/team/kate-taikowski",
+          "final_url": "https://vcahospitals.com/shoreline/team/kate-taikowski",
+          "status": 200,
+          "checked_at": "2026-10-12T22:33:35.802698+00:00",
+          "error": null
+        }
+      ],
+      "unresolved": [
+        "Местные RT, ONCEPT, ECT и специализированная surgical oncology не подтверждены. Интерес врача к сотрудничеству с radiation oncologists не доказывает местный аппарат."
+      ],
+      "checked_at_range": [
+        "2026-10-12T22:29:49.096554+00:00",
+        "2026-10-12T22:33:35.802698+00:00"
+      ],
+      "access_assessment": "Физический филиал. Плановая specialty consultation по записи; на сайте есть referral form и передача records. Круглосуточная emergency работа не означает круглосуточный приём онколога. Обязательность направления для всех owner appointments не установлена."
+    },
+    {
+      "source_id": "vca-south-shore-weymouth-animal-hospital",
+      "name": "VCA South Shore (Weymouth) Animal Hospital",
+      "branch_scope": "VCA South Shore (Weymouth) Animal Hospital — 595 Columbian St, South Weymouth, MA 02190",
+      "checked_fields": [
+        "operation/current public hours",
+        "street",
+        "city",
+        "region",
+        "postal_code",
+        "phone",
+        "official website",
+        "current clinical roster and published credentials",
+        "branch-specific oncology services",
+        "referral/appointment route",
+        "mobile/visiting/remote format evidence"
+      ],
+      "verified_contact": {
+        "street": "595 Columbian St",
+        "city": "South Weymouth",
+        "region": "MA",
+        "postal_code": "02190",
+        "phone": "781-337-6622",
+        "website": "https://vcahospitals.com/south-shore-weymouth/specialty/departments/medical-oncology"
+      },
+      "services": [
+        "Medical oncology",
+        "Chemotherapy",
+        "ECT",
+        "Immunotherapy",
+        "ONCEPT",
+        "Surgical oncology"
+      ],
+      "clinicians": [
+        {
+          "name": "Torri Cicchirillo",
+          "specialty": "Medical oncology",
+          "credentials": "DVM, DACVIM (Oncology)"
+        },
+        {
+          "name": "Meredith Gumash",
+          "specialty": "Medical oncology",
+          "credentials": "DVM, DACVIM (Oncology)"
+        },
+        {
+          "name": "William Snell",
+          "specialty": "Surgical oncology",
+          "credentials": "DVM, DACVS-SA, ACVS Fellow (Surgical Oncology)"
+        }
+      ],
+      "gp_roster_note": "",
+      "decision": "Сохранить исходные пять услуг и добавить Surgical oncology: филиал прямо заявляет surgical management опухолей; William Snell имеет ACVS fellowship. Specialty phone 781-337-6622 оставить; 781-534-7455 относится к Primary Care. Kelly Hicks не включать в текущий roster: персональная ссылка перенаправляет на team, а в текущем списке её нет.",
+      "confidence": "high",
+      "source_urls": [
+        "https://vcahospitals.com/south-shore-weymouth/specialty",
+        "https://vcahospitals.com/south-shore-weymouth/specialty/team",
+        "https://vcahospitals.com/south-shore-weymouth/specialty/contact-us",
+        "https://vcahospitals.com/south-shore-weymouth/specialty/departments/medical-oncology",
+        "https://vcahospitals.com/south-shore-weymouth/specialty/departments/medical-oncology/chemotherapy",
+        "https://vcahospitals.com/south-shore-weymouth/specialty/departments/medical-oncology/electrochemotherapy",
+        "https://vcahospitals.com/south-shore-weymouth/specialty/departments/medical-oncology/immunotherapy",
+        "https://vcahospitals.com/south-shore-weymouth/specialty/departments/surgical-oncology",
+        "https://vcahospitals.com/south-shore-weymouth/specialty/for-vets/referral-forms",
+        "https://vcahospitals.com/south-shore-weymouth/specialty/team/torri-cicchirillo",
+        "https://vcahospitals.com/south-shore-weymouth/specialty/team/meredith-gumash",
+        "https://vcahospitals.com/south-shore-weymouth/specialty/team/william-snell"
+      ],
+      "source_checks": [
+        {
+          "requested_url": "https://vcahospitals.com/south-shore-weymouth/specialty",
+          "final_url": "https://vcahospitals.com/south-shore-weymouth/specialty",
+          "status": 200,
+          "checked_at": "2026-10-12T22:29:49.097510+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/south-shore-weymouth/specialty/team",
+          "final_url": "https://vcahospitals.com/south-shore-weymouth/specialty/team",
+          "status": 200,
+          "checked_at": "2026-10-12T22:29:53.505197+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/south-shore-weymouth/specialty/contact-us",
+          "final_url": "https://vcahospitals.com/south-shore-weymouth/specialty/contact-us",
+          "status": 200,
+          "checked_at": "2026-10-12T22:29:56.785923+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/south-shore-weymouth/specialty/departments/medical-oncology",
+          "final_url": "https://vcahospitals.com/south-shore-weymouth/specialty/departments/medical-oncology",
+          "status": 200,
+          "checked_at": "2026-10-12T22:29:56.812754+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/south-shore-weymouth/specialty/departments/medical-oncology/chemotherapy",
+          "final_url": "https://vcahospitals.com/south-shore-weymouth/specialty/departments/medical-oncology/chemotherapy",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:01.366622+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/south-shore-weymouth/specialty/departments/medical-oncology/electrochemotherapy",
+          "final_url": "https://vcahospitals.com/south-shore-weymouth/specialty/departments/medical-oncology/electrochemotherapy",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:01.413378+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/south-shore-weymouth/specialty/departments/medical-oncology/immunotherapy",
+          "final_url": "https://vcahospitals.com/south-shore-weymouth/specialty/departments/medical-oncology/immunotherapy",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:01.533727+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/south-shore-weymouth/specialty/departments/surgical-oncology",
+          "final_url": "https://vcahospitals.com/south-shore-weymouth/specialty/departments/surgical-oncology",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:04.733440+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/south-shore-weymouth/specialty/for-vets/referral-forms",
+          "final_url": "https://vcahospitals.com/south-shore-weymouth/specialty/for-vets/referral-forms",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:05.013715+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/south-shore-weymouth/specialty/team/torri-cicchirillo",
+          "final_url": "https://vcahospitals.com/south-shore-weymouth/specialty/team/torri-cicchirillo",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:05.020657+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/south-shore-weymouth/specialty/team/meredith-gumash",
+          "final_url": "https://vcahospitals.com/south-shore-weymouth/specialty/team/meredith-gumash",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:08.427503+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/south-shore-weymouth/specialty/team/william-snell",
+          "final_url": "https://vcahospitals.com/south-shore-weymouth/specialty/team/william-snell",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:09.284801+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/south-shore-weymouth/specialty/team/torri-cicchirillo",
+          "final_url": "https://vcahospitals.com/south-shore-weymouth/specialty/team/torri-cicchirillo",
+          "status": 200,
+          "checked_at": "2026-10-12T22:31:20.879482+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/south-shore-weymouth/specialty/team/meredith-gumash",
+          "final_url": "https://vcahospitals.com/south-shore-weymouth/specialty/team/meredith-gumash",
+          "status": 200,
+          "checked_at": "2026-10-12T22:31:27.833724+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/south-shore-weymouth/specialty/contact-us",
+          "final_url": "https://vcahospitals.com/south-shore-weymouth/specialty/contact-us",
+          "status": 200,
+          "checked_at": "2026-10-12T22:32:35.849988+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/south-shore-weymouth/specialty/team/kelly-hicks",
+          "final_url": "https://vcahospitals.com/south-shore-weymouth/specialty/team",
+          "status": 200,
+          "checked_at": "2026-10-12T22:32:35.850745+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/south-shore-weymouth/specialty/team/william-snell",
+          "final_url": "https://vcahospitals.com/south-shore-weymouth/specialty/team/william-snell",
+          "status": 200,
+          "checked_at": "2026-10-12T22:33:35.803667+00:00",
+          "error": null
+        }
+      ],
+      "unresolved": [
+        "Причина отсутствия Kelly Hicks не установлена: не утверждать уход, пенсию или закрытие услуги.",
+        "DACVR диагностических радиологов не подтверждает местную RT."
+      ],
+      "checked_at_range": [
+        "2026-10-12T22:29:49.097510+00:00",
+        "2026-10-12T22:33:35.803667+00:00"
+      ],
+      "access_assessment": "Физический филиал. Плановая specialty consultation по записи; на сайте есть referral form и передача records. Круглосуточная emergency работа не означает круглосуточный приём онколога. Обязательность направления для всех owner appointments не установлена."
+    },
+    {
+      "source_id": "vca-southpaws-veterinary-specialists-and-emergency",
+      "name": "VCA SouthPaws Veterinary Specialists and Emergency",
+      "branch_scope": "VCA SouthPaws Veterinary Specialists and Emergency — 8500 Arlington Blvd, Fairfax, VA 22031",
+      "checked_fields": [
+        "operation/current public hours",
+        "street",
+        "city",
+        "region",
+        "postal_code",
+        "phone",
+        "official website",
+        "current clinical roster and published credentials",
+        "branch-specific oncology services",
+        "referral/appointment route",
+        "mobile/visiting/remote format evidence"
+      ],
+      "verified_contact": {
+        "street": "8500 Arlington Blvd",
+        "city": "Fairfax",
+        "region": "VA",
+        "postal_code": "22031",
+        "phone": "703.752.9100",
+        "website": "https://vcahospitals.com/southpaws"
+      },
+      "services": [
+        "Medical oncology",
+        "Chemotherapy",
+        "Immunotherapy",
+        "Radiation oncology"
+      ],
+      "clinicians": [
+        {
+          "name": "Daniela Korec",
+          "specialty": "Medical oncology",
+          "credentials": "DVM, DACVIM (Oncology)"
+        },
+        {
+          "name": "Jack O'Day",
+          "specialty": "Medical oncology",
+          "credentials": "DVM, DACVIM (Oncology)"
+        },
+        {
+          "name": "Alyssa Przydrozny",
+          "specialty": "Medical oncology",
+          "credentials": "DVM, DACVIM (Oncology)"
+        },
+        {
+          "name": "Sarah Sheafor",
+          "specialty": "Medical oncology",
+          "credentials": "DVM, DACVIM (Oncology)"
+        },
+        {
+          "name": "Lily Thorsen",
+          "specialty": "Radiation oncology",
+          "credentials": "DVM, DACVR (RO)"
+        }
+      ],
+      "gp_roster_note": "",
+      "decision": "Добавить Chemotherapy, Immunotherapy и местную RT: отдельный местный аппарат Varian 2100 EX/IMRT и текущая Lily Thorsen. Metronomic Therapy отражена как режим химиотерапии, без нового отдельного filter tag. ECT в specialties Alyssa Przydrozny — обоснованное указание её местной компетенции, но фактическая доступность аппарата/сеансов здесь не подтверждена; пока вне confirmed services.",
+      "confidence": "high",
+      "source_urls": [
+        "https://vcahospitals.com/southpaws",
+        "https://vcahospitals.com/southpaws/team",
+        "https://vcahospitals.com/southpaws/contact-us",
+        "https://vcahospitals.com/southpaws/departments/oncology",
+        "https://vcahospitals.com/southpaws/departments/oncology/chemotherapy",
+        "https://vcahospitals.com/southpaws/departments/oncology/immunotherapy",
+        "https://vcahospitals.com/southpaws/departments/radiation-oncology",
+        "https://vcahospitals.com/southpaws/for-vets/referral-forms",
+        "https://vcahospitals.com/southpaws/team/daniela-korec",
+        "https://vcahospitals.com/southpaws/team/jack-oday",
+        "https://vcahospitals.com/southpaws/team/alyssa-przydrozny",
+        "https://vcahospitals.com/southpaws/team/sarah-sheafor",
+        "https://vcahospitals.com/southpaws/team/lily-thorsen"
+      ],
+      "source_checks": [
+        {
+          "requested_url": "https://vcahospitals.com/southpaws",
+          "final_url": "https://vcahospitals.com/southpaws",
+          "status": 200,
+          "checked_at": "2026-10-12T22:29:49.099211+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/southpaws/team",
+          "final_url": "https://vcahospitals.com/southpaws/team",
+          "status": 200,
+          "checked_at": "2026-10-12T22:29:53.014570+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/southpaws/contact-us",
+          "final_url": "https://vcahospitals.com/southpaws/contact-us",
+          "status": 200,
+          "checked_at": "2026-10-12T22:29:56.907370+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/southpaws/departments/oncology",
+          "final_url": "https://vcahospitals.com/southpaws/departments/oncology",
+          "status": 200,
+          "checked_at": "2026-10-12T22:29:56.908595+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/southpaws/departments/oncology/chemotherapy",
+          "final_url": "https://vcahospitals.com/southpaws/departments/oncology/chemotherapy",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:01.366849+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/southpaws/departments/oncology/immunotherapy",
+          "final_url": "https://vcahospitals.com/southpaws/departments/oncology/immunotherapy",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:04.480624+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/southpaws/departments/radiation-oncology",
+          "final_url": "https://vcahospitals.com/southpaws/departments/radiation-oncology",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:12.405315+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/southpaws/for-vets/referral-forms",
+          "final_url": "https://vcahospitals.com/southpaws/for-vets/referral-forms",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:12.753898+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/southpaws/team/daniela-korec",
+          "final_url": "https://vcahospitals.com/southpaws/team/daniela-korec",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:12.896782+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/southpaws/team/jack-oday",
+          "final_url": "https://vcahospitals.com/southpaws/team/jack-oday",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:15.371087+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/southpaws/team/alyssa-przydrozny",
+          "final_url": "https://vcahospitals.com/southpaws/team/alyssa-przydrozny",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:15.398475+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/southpaws/team/sarah-sheafor",
+          "final_url": "https://vcahospitals.com/southpaws/team/sarah-sheafor",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:15.579815+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/southpaws/team/lily-thorsen",
+          "final_url": "https://vcahospitals.com/southpaws/team/lily-thorsen",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:17.582358+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/southpaws/team/sarah-sheafor",
+          "final_url": "https://vcahospitals.com/southpaws/team/sarah-sheafor",
+          "status": 200,
+          "checked_at": "2026-10-12T22:31:28.152687+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/southpaws/team/daniela-korec",
+          "final_url": "https://vcahospitals.com/southpaws/team/daniela-korec",
+          "status": 200,
+          "checked_at": "2026-10-12T22:31:29.845610+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/southpaws/team/jack-oday",
+          "final_url": "https://vcahospitals.com/southpaws/team/jack-oday",
+          "status": 200,
+          "checked_at": "2026-10-12T22:31:34.311160+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/southpaws/team/alyssa-przydrozny",
+          "final_url": "https://vcahospitals.com/southpaws/team/alyssa-przydrozny",
+          "status": 200,
+          "checked_at": "2026-10-12T22:31:34.428311+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/southpaws/team/lily-thorsen",
+          "final_url": "https://vcahospitals.com/southpaws/team/lily-thorsen",
+          "status": 200,
+          "checked_at": "2026-10-12T22:33:35.804502+00:00",
+          "error": null
+        }
+      ],
+      "unresolved": [
+        "ECT: текущая биография перечисляет компетенцию врача, но нет отдельного доказательства выполняемых в Fairfax сеансов. Уровень вывода moderate; услугу пока не добавлять.",
+        "Текст отдела говорит о пяти medical oncologists, roster содержит четыре плюс radiation oncologist. Для текущего медицинского состава использовать roster, а не старую цифру в тексте.",
+        "Конкретный продукт иммунотерапии и актуальный перечень targeted drugs не установлены."
+      ],
+      "checked_at_range": [
+        "2026-10-12T22:29:49.099211+00:00",
+        "2026-10-12T22:33:35.804502+00:00"
+      ],
+      "access_assessment": "Физический филиал. Плановая specialty consultation по записи; на сайте есть referral form и передача records. Круглосуточная emergency работа не означает круглосуточный приём онколога. Обязательность направления для всех owner appointments не установлена."
+    },
+    {
+      "source_id": "vca-spring-creek-animal-care-hospital",
+      "name": "VCA Spring Creek Animal Care Hospital",
+      "branch_scope": "VCA Spring Creek Animal Care Hospital — 1035 W. Broadway, Jackson Hole, WY 83001",
+      "checked_fields": [
+        "operation/current public hours",
+        "street",
+        "city",
+        "region",
+        "postal_code",
+        "phone",
+        "official website",
+        "current clinical roster and published credentials",
+        "branch-specific oncology services",
+        "referral/appointment route",
+        "mobile/visiting/remote format evidence"
+      ],
+      "verified_contact": {
+        "street": "1035 W. Broadway",
+        "city": "Jackson Hole",
+        "region": "WY",
+        "postal_code": "83001",
+        "phone": "307-733-1606",
+        "website": "https://vcahospitals.com/spring-creek/"
+      },
+      "services": [
+        "Chemotherapy"
+      ],
+      "clinicians": [],
+      "gp_roster_note": "Owen Black — DVM; Robert Dyke — DVM, DABVP; Leigh Farrell — DVM; Salene Freeman — DVM; Stephanie Ninnemann — DVM, MS; Kaley Parent — DVM, rehabilitation/acupuncture; Ernie Patterson — DVM.",
+      "decision": "Без изменения карточки: сохранить Chemotherapy независимо от отсутствия подтверждённого oncology specialist. Robert Dyke имеет DABVP, это не DACVIM Oncology.",
+      "confidence": "high",
+      "source_urls": [
+        "https://vcahospitals.com/spring-creek",
+        "https://vcahospitals.com/spring-creek/team",
+        "https://vcahospitals.com/spring-creek/services",
+        "https://vcahospitals.com/spring-creek/contact-us",
+        "https://vcahospitals.com/spring-creek/services/advanced-care/chemotherapy"
+      ],
+      "source_checks": [
+        {
+          "requested_url": "https://vcahospitals.com/spring-creek",
+          "final_url": "https://vcahospitals.com/spring-creek",
+          "status": 200,
+          "checked_at": "2026-10-12T22:29:49.099876+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/spring-creek/team",
+          "final_url": "https://vcahospitals.com/spring-creek/team",
+          "status": 200,
+          "checked_at": "2026-10-12T22:29:52.714992+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/spring-creek/services",
+          "final_url": "https://vcahospitals.com/spring-creek/services",
+          "status": 200,
+          "checked_at": "2026-10-12T22:29:52.715937+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/spring-creek/contact-us",
+          "final_url": "https://vcahospitals.com/spring-creek/contact-us",
+          "status": 200,
+          "checked_at": "2026-10-12T22:29:56.674407+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/spring-creek/services/advanced-care/chemotherapy",
+          "final_url": "https://vcahospitals.com/spring-creek/services/advanced-care/chemotherapy",
+          "status": 200,
+          "checked_at": "2026-10-12T22:29:56.685836+00:00",
+          "error": null
+        }
+      ],
+      "unresolved": [
+        "Назначенный врач, конкретные препараты и участие внешнего онколога не опубликованы."
+      ],
+      "checked_at_range": [
+        "2026-10-12T22:29:49.099876+00:00",
+        "2026-10-12T22:29:56.697502+00:00"
+      ],
+      "access_assessment": "Физический general-practice филиал, обращение через местную запись/телефон. Сайт не подтверждает мобильный формат или приезжающего oncology specialist. Live chat/myVCA не является подтверждённой oncology teleconsultation."
+    },
+    {
+      "source_id": "vca-stirling-square-animal-hospital",
+      "name": "VCA Stirling Square Animal Hospital",
+      "branch_scope": "VCA Stirling Square Animal Hospital — 3000 Stirling Road, Suite 132, Hollywood, FL 33021",
+      "checked_fields": [
+        "operation/current public hours",
+        "street",
+        "city",
+        "region",
+        "postal_code",
+        "phone",
+        "official website",
+        "current clinical roster and published credentials",
+        "branch-specific oncology services",
+        "referral/appointment route",
+        "mobile/visiting/remote format evidence"
+      ],
+      "verified_contact": {
+        "street": "3000 Stirling Road, Suite 132",
+        "city": "Hollywood",
+        "region": "FL",
+        "postal_code": "33021",
+        "phone": "954-963-5300",
+        "website": "https://vcahospitals.com/stirling-square/"
+      },
+      "services": [
+        "Local oncology care"
+      ],
+      "clinicians": [],
+      "gp_roster_note": "Jaime Amaya — DVM, medical director; Rene Ley — DVM, associate veterinarian. Подтверждения oncology board certification нет.",
+      "decision": "Убрать Chemotherapy только из подтверждённых услуг. Oncology есть в филиальном списке, но текст не описывает местную химиотерапию. Сохранить клинику, адрес, контакты и Local oncology care.",
+      "confidence": "high for catalog correction; actual chemotherapy availability unknown",
+      "source_urls": [
+        "https://vcahospitals.com/stirling-square",
+        "https://vcahospitals.com/stirling-square/team",
+        "https://vcahospitals.com/stirling-square/services",
+        "https://vcahospitals.com/stirling-square/contact-us",
+        "https://vcahospitals.com/stirling-square/services/advanced-care/oncology",
+        "https://vcahospitals.com/stirling-square/services/advanced-care",
+        "https://vcahospitals.com/stirling-square/team/rene-ley",
+        "https://vcahospitals.com/stirling-square/team/jaime-amaya"
+      ],
+      "source_checks": [
+        {
+          "requested_url": "https://vcahospitals.com/stirling-square",
+          "final_url": "https://vcahospitals.com/stirling-square",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:00.665754+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/stirling-square/team",
+          "final_url": "https://vcahospitals.com/stirling-square/team",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:04.905837+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/stirling-square/services",
+          "final_url": "https://vcahospitals.com/stirling-square/services",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:04.911874+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/stirling-square/contact-us",
+          "final_url": "https://vcahospitals.com/stirling-square/contact-us",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:10.480936+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/stirling-square/services/advanced-care/oncology",
+          "final_url": "https://vcahospitals.com/stirling-square/services/advanced-care/oncology",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:10.482097+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/stirling-square/services/advanced-care",
+          "final_url": "https://vcahospitals.com/stirling-square/services/advanced-care",
+          "status": 200,
+          "checked_at": "2026-10-12T22:32:35.847324+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/stirling-square/team/rene-ley",
+          "final_url": "https://vcahospitals.com/stirling-square/team/rene-ley",
+          "status": 200,
+          "checked_at": "2026-10-12T22:32:35.848245+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/stirling-square/team/jaime-amaya",
+          "final_url": "https://vcahospitals.com/stirling-square/team/jaime-amaya",
+          "status": 200,
+          "checked_at": "2026-10-12T22:32:35.849070+00:00",
+          "error": null
+        }
+      ],
+      "unresolved": [
+        "Химиотерапия не подтверждена после чтения services, advanced care, oncology, team, биографий Amaya/Ley и дополнительного поиска. Это не утверждение, что её не выполняют."
+      ],
+      "checked_at_range": [
+        "2026-10-12T22:30:00.665754+00:00",
+        "2026-10-12T22:32:35.849070+00:00"
+      ],
+      "access_assessment": "Физический general-practice филиал, обращение через местную запись/телефон. Сайт не подтверждает мобильный формат или приезжающего oncology specialist. Live chat/myVCA не является подтверждённой oncology teleconsultation."
+    },
+    {
+      "source_id": "vca-three-notch-animal-hospital",
+      "name": "VCA Three Notch Animal Hospital",
+      "branch_scope": "VCA Three Notch Animal Hospital — 44215 Airport View Drive, Hollywood, MD 20636",
+      "checked_fields": [
+        "operation/current public hours",
+        "street",
+        "city",
+        "region",
+        "postal_code",
+        "phone",
+        "official website",
+        "current clinical roster and published credentials",
+        "branch-specific oncology services",
+        "referral/appointment route",
+        "mobile/visiting/remote format evidence"
+      ],
+      "verified_contact": {
+        "street": "44215 Airport View Drive",
+        "city": "Hollywood",
+        "region": "MD",
+        "postal_code": "20636",
+        "phone": "301-373-8633",
+        "website": "https://vcahospitals.com/three-notch/"
+      },
+      "services": [
+        "Chemotherapy"
+      ],
+      "clinicians": [],
+      "gp_roster_note": "Kara Blankenship; Emily Hurley; Alina McClain — veterinarians, степени в roster не указаны; Jennifer O'Connor-Porter — DVM, co-medical director; Sara Pilkerton — DVM, medical director; Melissa Webb — DVM.",
+      "decision": "Без изменения карточки: сохранить Chemotherapy по местному Available Services и отдельной странице. Не добавлять RT или specialized surgical oncology из диагностической радиологии/soft-tissue surgery.",
+      "confidence": "high",
+      "source_urls": [
+        "https://vcahospitals.com/three-notch",
+        "https://vcahospitals.com/three-notch/team",
+        "https://vcahospitals.com/three-notch/services",
+        "https://vcahospitals.com/three-notch/contact-us",
+        "https://vcahospitals.com/three-notch/services/advanced-care/chemotherapy"
+      ],
+      "source_checks": [
+        {
+          "requested_url": "https://vcahospitals.com/three-notch",
+          "final_url": "https://vcahospitals.com/three-notch",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:01.526825+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/three-notch/team",
+          "final_url": "https://vcahospitals.com/three-notch/team",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:04.479520+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/three-notch/services",
+          "final_url": "https://vcahospitals.com/three-notch/services",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:04.482728+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/three-notch/contact-us",
+          "final_url": "https://vcahospitals.com/three-notch/contact-us",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:09.404643+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/three-notch/services/advanced-care/chemotherapy",
+          "final_url": "https://vcahospitals.com/three-notch/services/advanced-care/chemotherapy",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:09.405658+00:00",
+          "error": null
+        }
+      ],
+      "unresolved": [
+        "Назначенный врач, протоколы химиотерапии и specialist consultation arrangement не указаны."
+      ],
+      "checked_at_range": [
+        "2026-10-12T22:30:01.526825+00:00",
+        "2026-10-12T22:30:09.529906+00:00"
+      ],
+      "access_assessment": "Физический general-practice филиал, обращение через местную запись/телефон. Сайт не подтверждает мобильный формат или приезжающего oncology specialist. Live chat/myVCA не является подтверждённой oncology teleconsultation."
+    },
+    {
+      "source_id": "vca-tiara-rado-animal-hospital",
+      "name": "VCA Tiara Rado Animal Hospital",
+      "branch_scope": "VCA Tiara Rado Animal Hospital — 2245 3/4 Broadway, Grand Junction, CO 81507",
+      "checked_fields": [
+        "operation/current public hours",
+        "street",
+        "city",
+        "region",
+        "postal_code",
+        "phone",
+        "official website",
+        "current clinical roster and published credentials",
+        "branch-specific oncology services",
+        "referral/appointment route",
+        "mobile/visiting/remote format evidence"
+      ],
+      "verified_contact": {
+        "street": "2245 3/4 Broadway",
+        "city": "Grand Junction",
+        "region": "CO",
+        "postal_code": "81507",
+        "phone": "970-243-4007",
+        "website": "https://vcahospitals.com/tiara-rado/"
+      },
+      "services": [
+        "Chemotherapy"
+      ],
+      "clinicians": [],
+      "gp_roster_note": "Troy Everson — DVM, ABVP (canine/feline), CCRT, CVA, CVMST; Katie Ferris — DVM; Wendy Harley — CCRT, CVMA (DVM на roster не показан); Tara Suplizio — DVM. Robert D. Marquis исключён из текущего состава по In Memoriam.",
+      "decision": "Без изменения карточки: сохранить Chemotherapy. Troy Everson — canine/feline ABVP, не oncology board certification. Robert D. Marquis помечен In Memoriam, не действующий врач.",
+      "confidence": "high",
+      "source_urls": [
+        "https://vcahospitals.com/tiara-rado",
+        "https://vcahospitals.com/tiara-rado/team",
+        "https://vcahospitals.com/tiara-rado/services",
+        "https://vcahospitals.com/tiara-rado/contact-us",
+        "https://vcahospitals.com/tiara-rado/services/advanced-care/chemotherapy"
+      ],
+      "source_checks": [
+        {
+          "requested_url": "https://vcahospitals.com/tiara-rado",
+          "final_url": "https://vcahospitals.com/tiara-rado",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:13.109645+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/tiara-rado/team",
+          "final_url": "https://vcahospitals.com/tiara-rado/team",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:17.703558+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/tiara-rado/services",
+          "final_url": "https://vcahospitals.com/tiara-rado/services",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:17.709698+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/tiara-rado/contact-us",
+          "final_url": "https://vcahospitals.com/tiara-rado/contact-us",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:20.129060+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/tiara-rado/services/advanced-care/chemotherapy",
+          "final_url": "https://vcahospitals.com/tiara-rado/services/advanced-care/chemotherapy",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:20.156347+00:00",
+          "error": null
+        }
+      ],
+      "unresolved": [
+        "Текущий ответственный за химиотерапию и допустимые протоколы не опубликованы."
+      ],
+      "checked_at_range": [
+        "2026-10-12T22:30:13.109645+00:00",
+        "2026-10-12T22:30:20.163737+00:00"
+      ],
+      "access_assessment": "Физический general-practice филиал, обращение через местную запись/телефон. Сайт не подтверждает мобильный формат или приезжающего oncology specialist. Live chat/myVCA не является подтверждённой oncology teleconsultation."
+    },
+    {
+      "source_id": "vca-valley-animal-hospital",
+      "name": "VCA Valley Animal Hospital",
+      "branch_scope": "VCA Valley Animal Hospital — 5146 Hildebrand Road, Roanoke, VA 24012",
+      "checked_fields": [
+        "operation/current public hours",
+        "street",
+        "city",
+        "region",
+        "postal_code",
+        "phone",
+        "official website",
+        "current clinical roster and published credentials",
+        "branch-specific oncology services",
+        "referral/appointment route",
+        "mobile/visiting/remote format evidence"
+      ],
+      "verified_contact": {
+        "street": "5146 Hildebrand Road",
+        "city": "Roanoke",
+        "region": "VA",
+        "postal_code": "24012",
+        "phone": "540-366-3433",
+        "website": "https://vcahospitals.com/valley-va/"
+      },
+      "services": [
+        "Local oncology care",
+        "Chemotherapy"
+      ],
+      "clinicians": [],
+      "gp_roster_note": "Jaime Jonen — DVM; Michael Mannebach — DVM; Corwin Martin — DVM, MPH; Hillary Rader — DVM; Jessica Staley — DVM, medical director.",
+      "decision": "Без изменения карточки: сохранить Local oncology care и Chemotherapy. Дополнительно найдена отдельная филиальная Chemotherapy, поэтому положительная отметка не зависит от общей страницы Oncology.",
+      "confidence": "high",
+      "source_urls": [
+        "https://vcahospitals.com/valley-va",
+        "https://vcahospitals.com/valley-va/team",
+        "https://vcahospitals.com/valley-va/services",
+        "https://vcahospitals.com/valley-va/contact-us",
+        "https://vcahospitals.com/valley-va/services/advanced-care/chemotherapy",
+        "https://vcahospitals.com/valley-va/services/advanced-care/oncology"
+      ],
+      "source_checks": [
+        {
+          "requested_url": "https://vcahospitals.com/valley-va",
+          "final_url": "https://vcahospitals.com/valley-va",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:13.128912+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/valley-va/team",
+          "final_url": "https://vcahospitals.com/valley-va/team",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:18.342519+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/valley-va/services",
+          "final_url": "https://vcahospitals.com/valley-va/services",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:18.343505+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/valley-va/contact-us",
+          "final_url": "https://vcahospitals.com/valley-va/contact-us",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:20.238534+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/valley-va/services/advanced-care/chemotherapy",
+          "final_url": "https://vcahospitals.com/valley-va/services/advanced-care/chemotherapy",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:20.243803+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/valley-va/services/advanced-care/oncology",
+          "final_url": "https://vcahospitals.com/valley-va/services/advanced-care/oncology",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:20.247060+00:00",
+          "error": null
+        }
+      ],
+      "unresolved": [
+        "Сертифицированный/приглашённый онколог и конкретные препараты не установлены."
+      ],
+      "checked_at_range": [
+        "2026-10-12T22:30:13.128912+00:00",
+        "2026-10-12T22:30:20.256388+00:00"
+      ],
+      "access_assessment": "Физический general-practice филиал, обращение через местную запись/телефон. Сайт не подтверждает мобильный формат или приезжающего oncology specialist. Live chat/myVCA не является подтверждённой oncology teleconsultation."
+    },
+    {
+      "source_id": "vca-veterinary-emergency-and-referral-center-ct",
+      "name": "VCA Veterinary Emergency and Referral Center CT",
+      "branch_scope": "VCA Veterinary Referral and Emergency Center — 123 W. Cedar Street, Norwalk, CT 06854; mixed old Bedford Hills representation corrected",
+      "checked_fields": [
+        "operation/current public hours",
+        "street",
+        "city",
+        "region",
+        "postal_code",
+        "phone",
+        "official website",
+        "current clinical roster and published credentials",
+        "branch-specific oncology services",
+        "referral/appointment route",
+        "mobile/visiting/remote format evidence"
+      ],
+      "verified_contact": {
+        "street": "123 W. Cedar Street",
+        "city": "Norwalk",
+        "region": "CT",
+        "postal_code": "06854",
+        "phone": "203-854-9960",
+        "website": "https://vcahospitals.com/veterinary-referral-and-emergency-center"
+      },
+      "services": [
+        "Medical oncology",
+        "Chemotherapy",
+        "Targeted therapy",
+        "Intratumoral therapy",
+        "Stelfonta"
+      ],
+      "clinicians": [
+        {
+          "name": "Jessica Chin",
+          "specialty": "Medical oncology",
+          "credentials": "DVM, DACVIM; oncology certification отдельно подтверждается историческим ACVIM snapshot",
+          "credential_limit": "Текущая VCA страница публикует DACVIM без specialty в скобках; historical ACVIM называет Oncology."
+        },
+        {
+          "name": "Kayla Neiderfer",
+          "specialty": "Medical oncology",
+          "credentials": "DVM, DACVIM",
+          "credential_limit": "Текущая страница публикует DACVIM и oncology role; residency 2025. Не расширять подпись до DACVIM (Oncology) без отдельной явной сертификации."
+        }
+      ],
+      "gp_roster_note": "",
+      "decision": "Исправить смешанную запись на VCA Veterinary Referral and Emergency Center, Norwalk CT, 123 W. Cedar Street / 06854 / 203-854-9960. Исторический ACVIM профиль Jessica Chin сохранить, но не регенерировать из него адрес Bedford Hills. Не объединять с Katonah Bedford. FidoCure и Stelfonta прямо предложены в нынешней биографии Chin; Chemotherapy — вывод moderate из текущего oncology department, двух врачей и описанной Chin сочетанной терапии. Старые координаты NY обнулить до проверенного geocode.",
+      "confidence": "high for identity/address/phone and FidoCure/Stelfonta; moderate for chemotherapy",
+      "source_urls": [
+        "https://vcahospitals.com/veterinary-referral-and-emergency-center",
+        "https://vcahospitals.com/veterinary-referral-and-emergency-center/team",
+        "https://vcahospitals.com/veterinary-referral-and-emergency-center/contact-us",
+        "https://vcahospitals.com/veterinary-referral-and-emergency-center/departments",
+        "https://vcahospitals.com/veterinary-referral-and-emergency-center/departments/oncology/immunotherapy",
+        "https://vcahospitals.com/veterinary-referral-and-emergency-center/for-vets/referral-forms",
+        "https://vcahospitals.com/veterinary-referral-and-emergency-center/team/kayla-neiderfer",
+        "https://vcahospitals.com/veterinary-referral-and-emergency-center/team/jessica-chin",
+        "https://vcahospitals.com/katonah-bedford/specialty/team",
+        "https://vcahospitals.com/katonah-bedford/specialty/departments/oncology",
+        "https://vcahospitals.com/katonah-bedford/specialty/for-vets/referral-forms"
+      ],
+      "source_checks": [
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center",
+          "final_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:13.429447+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/team",
+          "final_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/team",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:17.686955+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/departments",
+          "final_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/departments",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:17.691920+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/contact-us",
+          "final_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/contact-us",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:20.006588+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/departments",
+          "final_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/departments",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:20.007627+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/departments/oncology",
+          "final_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/departments",
+          "status": 200,
+          "checked_at": "2026-10-12T22:31:00.478724+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/departments/oncology/immunotherapy",
+          "final_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/departments/oncology/immunotherapy",
+          "status": 200,
+          "checked_at": "2026-10-12T22:31:00.527232+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/team",
+          "final_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/team",
+          "status": 200,
+          "checked_at": "2026-10-12T22:31:17.454739+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/for-vets/referral-forms",
+          "final_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/for-vets/referral-forms",
+          "status": 200,
+          "checked_at": "2026-10-12T22:31:19.927963+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/team/kayla-neiderfer",
+          "final_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/team/kayla-neiderfer",
+          "status": 200,
+          "checked_at": "2026-10-12T22:31:26.742529+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/team/jessica-chin",
+          "final_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/team/jessica-chin",
+          "status": 200,
+          "checked_at": "2026-10-12T22:31:29.933313+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/katonah-bedford/specialty/team",
+          "final_url": "https://vcahospitals.com/katonah-bedford/specialty/team",
+          "status": 200,
+          "checked_at": "2026-10-12T22:32:35.830389+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/katonah-bedford/specialty/departments/oncology",
+          "final_url": "https://vcahospitals.com/katonah-bedford/specialty/departments/oncology",
+          "status": 200,
+          "checked_at": "2026-10-12T22:32:35.832514+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/katonah-bedford/specialty/for-vets/referral-forms",
+          "final_url": "https://vcahospitals.com/katonah-bedford/specialty/for-vets/referral-forms",
+          "status": 200,
+          "checked_at": "2026-10-12T22:32:35.833339+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/team/jessica-chin",
+          "final_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/team/jessica-chin",
+          "status": 200,
+          "checked_at": "2026-10-12T22:33:35.805990+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/team/kayla-neiderfer",
+          "final_url": "https://vcahospitals.com/veterinary-referral-and-emergency-center/team/kayla-neiderfer",
+          "status": 200,
+          "checked_at": "2026-10-12T22:33:35.808094+00:00",
+          "error": null
+        }
+      ],
+      "unresolved": [
+        "Прямая oncology URL перенаправляет на departments; это не закрытие отдела: текущие departments и roster всё ещё указывают Oncology.",
+        "Химиотерапия подтверждается совокупностью сведений, не отдельным актуальным перечнем препаратов; типы injectable/oral не установлены.",
+        "Новый точный geocode Norwalk необходимо получить при интеграции; старые NY координаты не использовать."
+      ],
+      "checked_at_range": [
+        "2026-10-12T22:30:13.429447+00:00",
+        "2026-10-12T22:33:35.808094+00:00"
+      ],
+      "access_assessment": "Физический филиал. Плановая specialty consultation по записи; на сайте есть referral form и передача records. Круглосуточная emergency работа не означает круглосуточный приём онколога. Обязательность направления для всех owner appointments не установлена."
+    },
+    {
+      "source_id": "vca-veterinary-emergency-referral-center-of-westbury",
+      "name": "VCA Veterinary Emergency Referral Center of Westbury",
+      "branch_scope": "VCA Veterinary Emergency Referral Center of Westbury — 609-5 cantiague rock rd., Westbury, NY 11590",
+      "checked_fields": [
+        "operation/current public hours",
+        "street",
+        "city",
+        "region",
+        "postal_code",
+        "phone",
+        "official website",
+        "current clinical roster and published credentials",
+        "branch-specific oncology services",
+        "referral/appointment route",
+        "mobile/visiting/remote format evidence"
+      ],
+      "verified_contact": {
+        "street": "609-5 cantiague rock rd.",
+        "city": "Westbury",
+        "region": "NY",
+        "postal_code": "11590",
+        "phone": "516.420.0000",
+        "website": "https://vcahospitals.com/westbury"
+      },
+      "services": [
+        "Medical oncology",
+        "Chemotherapy",
+        "Immunotherapy"
+      ],
+      "clinicians": [
+        {
+          "name": "Michael Linderman",
+          "specialty": "Medical oncology",
+          "credentials": "DVM, DACVIM/Oncology"
+        }
+      ],
+      "gp_roster_note": "",
+      "decision": "Заменить общесетевой/старый website на vcahospitals.com/westbury; добавить hospital-listed Chemotherapy и Immunotherapy. Текущий Michael Linderman — DACVIM/Oncology. Не переносить RT или specialized surgical oncology из общесетевой информации.",
+      "confidence": "high",
+      "source_urls": [
+        "https://vcahospitals.com/westbury",
+        "https://vcahospitals.com/westbury/team",
+        "https://vcahospitals.com/westbury/contact-us",
+        "https://vcahospitals.com/westbury/departments/oncology",
+        "https://vcahospitals.com/westbury/departments/oncology/chemotherapy",
+        "https://vcahospitals.com/westbury/departments/oncology/immunotherapy",
+        "https://vcahospitals.com/westbury/for-vets/referral-forms",
+        "https://vcahospitals.com/westbury/team/michael-linderman"
+      ],
+      "source_checks": [
+        {
+          "requested_url": "https://vcahospitals.com/westbury",
+          "final_url": "https://vcahospitals.com/westbury",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:15.404788+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/westbury/team",
+          "final_url": "https://vcahospitals.com/westbury/team",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:17.916060+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/westbury/contact-us",
+          "final_url": "https://vcahospitals.com/westbury/contact-us",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:21.385911+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/westbury/departments/oncology",
+          "final_url": "https://vcahospitals.com/westbury/departments/oncology",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:21.386950+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/westbury/departments/oncology/chemotherapy",
+          "final_url": "https://vcahospitals.com/westbury/departments/oncology/chemotherapy",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:23.080435+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/westbury/departments/oncology/immunotherapy",
+          "final_url": "https://vcahospitals.com/westbury/departments/oncology/immunotherapy",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:25.959352+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/westbury/for-vets/referral-forms",
+          "final_url": "https://vcahospitals.com/westbury/for-vets/referral-forms",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:29.731559+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/westbury/team/michael-linderman",
+          "final_url": "https://vcahospitals.com/westbury/team/michael-linderman",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:29.807301+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/westbury/team/michael-linderman",
+          "final_url": "https://vcahospitals.com/westbury/team/michael-linderman",
+          "status": 200,
+          "checked_at": "2026-10-12T22:33:35.808997+00:00",
+          "error": null
+        }
+      ],
+      "unresolved": [
+        "Продукт иммунотерапии, местные RT и ECT не подтверждены. Вакансия онколога не означает отсутствие действующего Linderman."
+      ],
+      "checked_at_range": [
+        "2026-10-12T22:30:15.404788+00:00",
+        "2026-10-12T22:33:35.808997+00:00"
+      ],
+      "access_assessment": "Физический филиал. Плановая specialty consultation по записи; на сайте есть referral form и передача records. Круглосуточная emergency работа не означает круглосуточный приём онколога. Обязательность направления для всех owner appointments не установлена."
+    },
+    {
+      "source_id": "vca-veterinary-emergency-service-veterinary-specialty-center",
+      "name": "VCA Veterinary Emergency Service & Veterinary Specialty Center",
+      "branch_scope": "VCA Veterinary Emergency Service & Veterinary Specialty Center — 4902 East Broadway, Madison, WI 53716",
+      "checked_fields": [
+        "operation/current public hours",
+        "street",
+        "city",
+        "region",
+        "postal_code",
+        "phone",
+        "official website",
+        "current clinical roster and published credentials",
+        "branch-specific oncology services",
+        "referral/appointment route",
+        "mobile/visiting/remote format evidence"
+      ],
+      "verified_contact": {
+        "street": "4902 East Broadway",
+        "city": "Madison",
+        "region": "WI",
+        "postal_code": "53716",
+        "phone": "608-222-2455",
+        "website": "https://vcahospitals.com/veterinary-specialty-center-madison/"
+      },
+      "services": [
+        "Medical oncology",
+        "Chemotherapy"
+      ],
+      "clinicians": [],
+      "gp_roster_note": "На Madison roster опубликован Dana King — DVM, DACVS (surgery), а также ER/general staff: Rachel Bradshaw, Lydia Colopy, Emily Duane (DVM), Carli Fawcett, Lisa Flood (DVM), Allison Gunn, Heidi Haw (DVM), Rachel Hawley (DVM), Megan Jordan (DVM), Ashley Kelly, Mykayla Muench, Kate Palmer, Emily Paulson (DVM), Abby Rothering, Melissa Shear (DVM), Samantha Trollope. Kai Shiu — BVMS, MRCVS, DACVIM (Oncology) и Cecilia Robat — DVM, DACVIM (Oncology) подтверждены в Middleton, не Madison.",
+      "decision": "Сохранить Madison 4902 East Broadway, Medical oncology и Chemotherapy как опубликованные филиалом услуги; не утверждать, что их не выполняют из-за пустого specialty roster. Не приписывать Madison врачей Kai Shiu и Cecilia Robat: их текущие страницы относятся к Middleton. Пока не расширять услуги Madison на immunotherapy/RT по общей сети. Отметить расхождение roster/services и неопределённость нового specialty appointment.",
+      "confidence": "moderate for current local treatment access; high for Middleton clinician attribution",
+      "source_urls": [
+        "https://vcahospitals.com/veterinary-specialty-center-madison",
+        "https://vcahospitals.com/veterinary-specialty-center-madison/team",
+        "https://vcahospitals.com/veterinary-specialty-center-madison/contact-us",
+        "https://vcahospitals.com/veterinary-specialty-center-madison/departments/oncology",
+        "https://vcahospitals.com/veterinary-specialty-center-madison/departments/oncology/chemotherapy",
+        "https://vcahospitals.com/veterinary-specialty-center-madison/departments/oncology/immunotherapy",
+        "https://vcahospitals.com/veterinary-specialty-center-madison/for-vets/referral-forms",
+        "https://vcahospitals.com/veterinary-specialty-center-middleton/team",
+        "https://vcahospitals.com/veterinary-specialty-center-middleton/departments/oncology",
+        "https://vcahospitals.com/veterinary-specialty-center-middleton/team/kai-shiu",
+        "https://vcahospitals.com/veterinary-specialty-center-middleton/team/cecilia-robat"
+      ],
+      "source_checks": [
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-specialty-center-madison",
+          "final_url": "https://vcahospitals.com/veterinary-specialty-center-madison",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:20.267908+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-specialty-center-madison/team",
+          "final_url": "https://vcahospitals.com/veterinary-specialty-center-madison/team",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:23.806107+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-specialty-center-madison/contact-us",
+          "final_url": "https://vcahospitals.com/veterinary-specialty-center-madison/contact-us",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:26.852285+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-specialty-center-madison/departments/oncology",
+          "final_url": "https://vcahospitals.com/veterinary-specialty-center-madison/departments/oncology",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:26.853782+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-specialty-center-madison/departments/oncology/chemotherapy",
+          "final_url": "https://vcahospitals.com/veterinary-specialty-center-madison/departments/oncology/chemotherapy",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:29.295424+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-specialty-center-madison/departments/oncology/immunotherapy",
+          "final_url": "https://vcahospitals.com/veterinary-specialty-center-madison/departments/oncology/immunotherapy",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:29.431869+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-specialty-center-madison/for-vets/referral-forms",
+          "final_url": "https://vcahospitals.com/veterinary-specialty-center-madison/for-vets/referral-forms",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:33.307643+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-specialty-center-middleton/team",
+          "final_url": "https://vcahospitals.com/veterinary-specialty-center-middleton/team",
+          "status": 200,
+          "checked_at": "2026-10-12T22:32:35.835646+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-specialty-center-middleton/departments/oncology",
+          "final_url": "https://vcahospitals.com/veterinary-specialty-center-middleton/departments/oncology",
+          "status": 200,
+          "checked_at": "2026-10-12T22:32:35.835924+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-specialty-center-madison/team/kai-shiu",
+          "final_url": "https://vcahospitals.com/veterinary-specialty-center-madison/team",
+          "status": 200,
+          "checked_at": "2026-10-12T22:32:35.837255+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-specialty-center-middleton/team/kai-shiu",
+          "final_url": "https://vcahospitals.com/veterinary-specialty-center-middleton/team/kai-shiu",
+          "status": 200,
+          "checked_at": "2026-10-12T22:33:40.214264+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-specialty-center-middleton/team/cecilia-robat",
+          "final_url": "https://vcahospitals.com/veterinary-specialty-center-middleton/team/cecilia-robat",
+          "status": 200,
+          "checked_at": "2026-10-12T22:33:40.237664+00:00",
+          "error": null
+        }
+      ],
+      "unresolved": [
+        "Установить в следующем проходе, принимают ли новые oncology/chemo cases на Madison East, кто назначен и является ли местная страница сохранённой старой страницей. Доступное доказательство не позволяет объявить лечение отсутствующим.",
+        "Нельзя переносить Middleton специалистов и услуги на Madison по общему названию VES/VSC. Middleton проверен только для разрешения адресной привязки C04, его отдельную карточку не менять."
+      ],
+      "checked_at_range": [
+        "2026-10-12T22:30:20.267908+00:00",
+        "2026-10-12T22:33:40.237664+00:00"
+      ],
+      "access_assessment": "Физический филиал. Плановая specialty consultation по записи; на сайте есть referral form и передача records. Круглосуточная emergency работа не означает круглосуточный приём онколога. Обязательность направления для всех owner appointments не установлена. Неопределённость текущей specialty записи именно на Madison сохранена отдельно."
+    },
+    {
+      "source_id": "vca-veterinary-specialists-of-the-valley",
+      "name": "VCA Veterinary Specialists of the Valley",
+      "branch_scope": "VCA Veterinary Specialists of the Valley — 22123 Ventura Blvd, Woodland Hills, CA 91364",
+      "checked_fields": [
+        "operation/current public hours",
+        "street",
+        "city",
+        "region",
+        "postal_code",
+        "phone",
+        "official website",
+        "current clinical roster and published credentials",
+        "branch-specific oncology services",
+        "referral/appointment route",
+        "mobile/visiting/remote format evidence"
+      ],
+      "verified_contact": {
+        "street": "22123 Ventura Blvd",
+        "city": "Woodland Hills",
+        "region": "CA",
+        "postal_code": "91364",
+        "phone": "818.883.8387",
+        "website": "https://vcahospitals.com/veterinary-specialists-valley"
+      },
+      "services": [
+        "Medical oncology",
+        "Chemotherapy",
+        "Immunotherapy"
+      ],
+      "clinicians": [
+        {
+          "name": "John Chretin",
+          "specialty": "Medical oncology",
+          "credentials": "DVM, DACVIM (Oncology)"
+        },
+        {
+          "name": "Mark Jeon",
+          "specialty": "Medical oncology",
+          "credentials": "DVM, DACVIM (Oncology)"
+        }
+      ],
+      "gp_roster_note": "",
+      "decision": "Добавить Chemotherapy и Immunotherapy из Our Oncology Services. John Chretin и Mark Jeon — нынешние medical oncologists. Историческое создание Chretin bone-marrow transplant программы в West Los Angeles не подтверждает transplant в Woodland Hills.",
+      "confidence": "high",
+      "source_urls": [
+        "https://vcahospitals.com/veterinary-specialists-valley",
+        "https://vcahospitals.com/veterinary-specialists-valley/team",
+        "https://vcahospitals.com/veterinary-specialists-valley/contact-us",
+        "https://vcahospitals.com/veterinary-specialists-valley/departments/oncology",
+        "https://vcahospitals.com/veterinary-specialists-valley/departments/oncology/chemotherapy",
+        "https://vcahospitals.com/veterinary-specialists-valley/departments/oncology/immunotherapy",
+        "https://vcahospitals.com/veterinary-specialists-valley/for-vets/referral-forms",
+        "https://vcahospitals.com/veterinary-specialists-valley/team/john-chretin",
+        "https://vcahospitals.com/veterinary-specialists-valley/team/mark-jeon"
+      ],
+      "source_checks": [
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-specialists-valley",
+          "final_url": "https://vcahospitals.com/veterinary-specialists-valley",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:23.491655+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-specialists-valley/team",
+          "final_url": "https://vcahospitals.com/veterinary-specialists-valley/team",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:26.919242+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-specialists-valley/contact-us",
+          "final_url": "https://vcahospitals.com/veterinary-specialists-valley/contact-us",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:30.245797+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-specialists-valley/departments/oncology",
+          "final_url": "https://vcahospitals.com/veterinary-specialists-valley/departments/oncology",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:30.246879+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-specialists-valley/departments/oncology/chemotherapy",
+          "final_url": "https://vcahospitals.com/veterinary-specialists-valley/departments/oncology/chemotherapy",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:34.263938+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-specialists-valley/departments/oncology/immunotherapy",
+          "final_url": "https://vcahospitals.com/veterinary-specialists-valley/departments/oncology/immunotherapy",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:36.754292+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-specialists-valley/for-vets/referral-forms",
+          "final_url": "https://vcahospitals.com/veterinary-specialists-valley/for-vets/referral-forms",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:40.091474+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-specialists-valley/team/john-chretin",
+          "final_url": "https://vcahospitals.com/veterinary-specialists-valley/team/john-chretin",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:40.179411+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-specialists-valley/team/mark-jeon",
+          "final_url": "https://vcahospitals.com/veterinary-specialists-valley/team/mark-jeon",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:40.265631+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-specialists-valley/team/john-chretin",
+          "final_url": "https://vcahospitals.com/veterinary-specialists-valley/team/john-chretin",
+          "status": 200,
+          "checked_at": "2026-10-12T22:31:36.306390+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/veterinary-specialists-valley/team/mark-jeon",
+          "final_url": "https://vcahospitals.com/veterinary-specialists-valley/team/mark-jeon",
+          "status": 200,
+          "checked_at": "2026-10-12T22:33:39.834539+00:00",
+          "error": null
+        }
+      ],
+      "unresolved": [
+        "RT, ECT, transplant и specialized surgical oncology здесь не подтверждены; конкретный продукт иммунотерапии неизвестен.",
+        "John Chretin предлагает phone consultation местным ветеринарам. Отдельного owner teleoncology appointment не установлено."
+      ],
+      "checked_at_range": [
+        "2026-10-12T22:30:23.491655+00:00",
+        "2026-10-12T22:33:39.834539+00:00"
+      ],
+      "access_assessment": "Физический филиал. Плановая specialty consultation по записи; на сайте есть referral form и передача records. Круглосуточная emergency работа не означает круглосуточный приём онколога. Обязательность направления для всех owner appointments не установлена. John Chretin прямо предлагает phone consultations местным ветеринарам; owner remote consultation не установлена."
+    },
+    {
+      "source_id": "vca-veterinary-specialty-emergency-center-of-kalamazoo",
+      "name": "VCA Veterinary Specialty & Emergency Center of Kalamazoo",
+      "branch_scope": "VCA Veterinary Specialty & Emergency Center of Kalamazoo — 5348 S. Westnedge Avenue, Portage, MI 49002",
+      "checked_fields": [
+        "operation/current public hours",
+        "street",
+        "city",
+        "region",
+        "postal_code",
+        "phone",
+        "official website",
+        "current clinical roster and published credentials",
+        "branch-specific oncology services",
+        "referral/appointment route",
+        "mobile/visiting/remote format evidence"
+      ],
+      "verified_contact": {
+        "street": "5348 S. Westnedge Avenue",
+        "city": "Portage",
+        "region": "MI",
+        "postal_code": "49002",
+        "phone": "269-381-5228",
+        "website": "https://vcahospitals.com/kalamazoo/"
+      },
+      "services": [
+        "Radiation oncology"
+      ],
+      "clinicians": [
+        {
+          "name": "Brittney Stanton",
+          "specialty": "Radiation oncology",
+          "credentials": "DVM, DACVR (RO)"
+        }
+      ],
+      "gp_roster_note": "",
+      "decision": "Сохранить местную Radiation oncology: Varian TrueBeam и нынешняя Brittney Stanton, DACVR (RO), board certification 2025. Не добавлять chemotherapy/medical oncology из вакансии или наличия radiation oncologist. Steven Baker — DACVS-SA, обычная хирургия, не доказательство specialized surgical oncology.",
+      "confidence": "high",
+      "source_urls": [
+        "https://vcahospitals.com/kalamazoo",
+        "https://vcahospitals.com/kalamazoo/team",
+        "https://vcahospitals.com/kalamazoo/contact-us",
+        "https://vcahospitals.com/kalamazoo/departments/radiation-oncology",
+        "https://vcahospitals.com/kalamazoo/for-vets/referral-forms",
+        "https://vcahospitals.com/kalamazoo/team/brittney-stanton"
+      ],
+      "source_checks": [
+        {
+          "requested_url": "https://vcahospitals.com/kalamazoo",
+          "final_url": "https://vcahospitals.com/kalamazoo",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:24.333316+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/kalamazoo/team",
+          "final_url": "https://vcahospitals.com/kalamazoo/team",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:26.757975+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/kalamazoo/contact-us",
+          "final_url": "https://vcahospitals.com/kalamazoo/contact-us",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:31.170311+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/kalamazoo/departments/radiation-oncology",
+          "final_url": "https://vcahospitals.com/kalamazoo/departments/radiation-oncology",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:31.171403+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/kalamazoo/for-vets/referral-forms",
+          "final_url": "https://vcahospitals.com/kalamazoo/for-vets/referral-forms",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:31.172572+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/kalamazoo/team/brittney-stanton",
+          "final_url": "https://vcahospitals.com/kalamazoo/team/brittney-stanton",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:31.173350+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/kalamazoo/team/brittney-stanton",
+          "final_url": "https://vcahospitals.com/kalamazoo/team/brittney-stanton",
+          "status": 200,
+          "checked_at": "2026-10-12T22:33:40.001056+00:00",
+          "error": null
+        }
+      ],
+      "unresolved": [
+        "Нынешний medical oncologist не найден; вакансия не доказывает отсутствие химиотерапии. Конкретные RT протоколы/доступность SRT должны определяться при oncology appointment."
+      ],
+      "checked_at_range": [
+        "2026-10-12T22:30:24.333316+00:00",
+        "2026-10-12T22:33:40.001056+00:00"
+      ],
+      "access_assessment": "Физический филиал. Плановая specialty consultation по записи; на сайте есть referral form и передача records. Круглосуточная emergency работа не означает круглосуточный приём онколога. Обязательность направления для всех owner appointments не установлена."
+    },
+    {
+      "source_id": "vca-west-coast-specialty-and-emergency-hospital",
+      "name": "VCA West Coast Specialty and Emergency Hospital",
+      "branch_scope": "VCA West Coast Specialty and Emergency Hospital — 18300 Euclid Street, Fountain Valley, CA 92708",
+      "checked_fields": [
+        "operation/current public hours",
+        "street",
+        "city",
+        "region",
+        "postal_code",
+        "phone",
+        "official website",
+        "current clinical roster and published credentials",
+        "branch-specific oncology services",
+        "referral/appointment route",
+        "mobile/visiting/remote format evidence"
+      ],
+      "verified_contact": {
+        "street": "18300 Euclid Street",
+        "city": "Fountain Valley",
+        "region": "CA",
+        "postal_code": "92708",
+        "phone": "714.241.9001",
+        "website": "https://vcahospitals.com/west-coast"
+      },
+      "services": [
+        "Medical oncology",
+        "Chemotherapy",
+        "Immunotherapy",
+        "Radiation oncology",
+        "Surgical oncology"
+      ],
+      "clinicians": [
+        {
+          "name": "Samantha Bajorek",
+          "specialty": "Medical oncology",
+          "credentials": "DVM, DACVIM (Medical Oncology)"
+        },
+        {
+          "name": "Abbey Sadowski",
+          "specialty": "Medical oncology",
+          "credentials": "DVM (Practice Limited - Medical Oncology)",
+          "credential_limit": "Board certification не подтверждена."
+        },
+        {
+          "name": "Cory Wakamatsu",
+          "specialty": "Radiation oncology",
+          "credentials": "DVM, MS, DACVR (RO)"
+        },
+        {
+          "name": "Arathi Vinayak",
+          "specialty": "Surgical oncology",
+          "credentials": "DVM, DACVS-SA, ACVS Fellow (Surgical Oncology)"
+        }
+      ],
+      "gp_roster_note": "",
+      "decision": "Добавить Chemotherapy, Immunotherapy, местную RT (Varian 2100 EX/IMRT) и Surgical oncology. Arathi Vinayak имеет ACVS Fellow Surgical Oncology; Abbey Sadowski — practice limited medical oncology, без неподтверждённой board certification. Bone Marrow Transplant и CERT опубликованы в списке, но для этих редких услуг требуется свежая явная доступность; пока вне подтверждённого списка.",
+      "confidence": "high for core modalities and roster; low for current transplant/CERT access",
+      "source_urls": [
+        "https://vcahospitals.com/west-coast",
+        "https://vcahospitals.com/west-coast/team",
+        "https://vcahospitals.com/west-coast/contact-us",
+        "https://vcahospitals.com/west-coast/departments/medical-oncology",
+        "https://vcahospitals.com/west-coast/departments/medical-oncology/chemotherapy",
+        "https://vcahospitals.com/west-coast/departments/medical-oncology/immunotherapy",
+        "https://vcahospitals.com/west-coast/departments/radiation-oncology",
+        "https://vcahospitals.com/west-coast/departments/surgical-oncology",
+        "https://vcahospitals.com/west-coast/for-vets/referral-forms",
+        "https://vcahospitals.com/west-coast/team/samantha-bajorek",
+        "https://vcahospitals.com/west-coast/team/abbey-sadowski",
+        "https://vcahospitals.com/west-coast/team/arathi-vinayak",
+        "https://vcahospitals.com/west-coast/team/cory-wakamatsu"
+      ],
+      "source_checks": [
+        {
+          "requested_url": "https://vcahospitals.com/west-coast",
+          "final_url": "https://vcahospitals.com/west-coast",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:37.232854+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/west-coast/team",
+          "final_url": "https://vcahospitals.com/west-coast/team",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:40.934481+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/west-coast/contact-us",
+          "final_url": "https://vcahospitals.com/west-coast/contact-us",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:45.941247+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/west-coast/departments/medical-oncology",
+          "final_url": "https://vcahospitals.com/west-coast/departments/medical-oncology",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:45.941914+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/west-coast/departments/medical-oncology/chemotherapy",
+          "final_url": "https://vcahospitals.com/west-coast/departments/medical-oncology/chemotherapy",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:48.941866+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/west-coast/departments/medical-oncology/immunotherapy",
+          "final_url": "https://vcahospitals.com/west-coast/departments/medical-oncology/immunotherapy",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:49.052689+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/west-coast/departments/radiation-oncology",
+          "final_url": "https://vcahospitals.com/west-coast/departments/radiation-oncology",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:51.132731+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/west-coast/departments/surgical-oncology",
+          "final_url": "https://vcahospitals.com/west-coast/departments/surgical-oncology",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:54.532889+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/west-coast/for-vets/referral-forms",
+          "final_url": "https://vcahospitals.com/west-coast/for-vets/referral-forms",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:54.736506+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/west-coast/team/samantha-bajorek",
+          "final_url": "https://vcahospitals.com/west-coast/team/samantha-bajorek",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:55.332406+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/west-coast/team/abbey-sadowski",
+          "final_url": "https://vcahospitals.com/west-coast/team/abbey-sadowski",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:55.423399+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/west-coast/team/arathi-vinayak",
+          "final_url": "https://vcahospitals.com/west-coast/team/arathi-vinayak",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:57.732092+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/west-coast/team/cory-wakamatsu",
+          "final_url": "https://vcahospitals.com/west-coast/team/cory-wakamatsu",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:57.962713+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/west-coast/team/samantha-bajorek",
+          "final_url": "https://vcahospitals.com/west-coast/team/samantha-bajorek",
+          "status": 200,
+          "checked_at": "2026-10-12T22:31:42.348757+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/west-coast/team/abbey-sadowski",
+          "final_url": "https://vcahospitals.com/west-coast/team/abbey-sadowski",
+          "status": 200,
+          "checked_at": "2026-10-12T22:31:48.806811+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/west-coast/team/arathi-vinayak",
+          "final_url": "https://vcahospitals.com/west-coast/team/arathi-vinayak",
+          "status": 200,
+          "checked_at": "2026-10-12T22:31:48.817968+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/west-coast/team/cory-wakamatsu",
+          "final_url": "https://vcahospitals.com/west-coast/team/cory-wakamatsu",
+          "status": 200,
+          "checked_at": "2026-10-12T22:33:40.111644+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/west-coast/team/samantha-bajorek",
+          "final_url": "https://vcahospitals.com/west-coast/team/samantha-bajorek",
+          "status": 200,
+          "checked_at": "2026-10-12T22:33:40.131128+00:00",
+          "error": null
+        }
+      ],
+      "unresolved": [
+        "Bone Marrow Transplant/CERT: ссылка и меню сами по себе не разрешают текущую фактическую доступность редкой программы; оставить для отдельного прохода.",
+        "У Bajorek и Wakamatsu отдельные bio страницы дают оболочку без развёрнутого профиля; квалификация опубликована на текущем roster, её источник обозначен именно так."
+      ],
+      "checked_at_range": [
+        "2026-10-12T22:30:37.232854+00:00",
+        "2026-10-12T22:33:40.131128+00:00"
+      ],
+      "access_assessment": "Физический филиал. Плановая specialty consultation по записи; на сайте есть referral form и передача records. Круглосуточная emergency работа не означает круглосуточный приём онколога. Обязательность направления для всех owner appointments не установлена."
+    },
+    {
+      "source_id": "vca-west-suburban-veterinary-hospital",
+      "name": "VCA West Suburban Veterinary Hospital",
+      "branch_scope": "VCA West Suburban Veterinary Hospital — 518 N. Warwick Avenue, Westmont, IL 60559",
+      "checked_fields": [
+        "operation/current public hours",
+        "street",
+        "city",
+        "region",
+        "postal_code",
+        "phone",
+        "official website",
+        "current clinical roster and published credentials",
+        "branch-specific oncology services",
+        "referral/appointment route",
+        "mobile/visiting/remote format evidence"
+      ],
+      "verified_contact": {
+        "street": "518 N. Warwick Avenue",
+        "city": "Westmont",
+        "region": "IL",
+        "postal_code": "60559",
+        "phone": "630-968-4212",
+        "website": "https://vcahospitals.com/west-suburban/"
+      },
+      "services": [
+        "Local oncology care",
+        "Chemotherapy"
+      ],
+      "clinicians": [],
+      "gp_roster_note": "Daniella Cantu — DVM; Brittany Childs — DVM; Kyle Kayson — DVM; Emily Nelson — DVM; Steven Zary — DVM, medical director.",
+      "decision": "Без изменения карточки: сохранить Local oncology care и Chemotherapy. Отдельная страница прямо описывает лечение cancer patients врачами WSVA; отсутствие oncology diplomate не повод удалить химиотерапию.",
+      "confidence": "high",
+      "source_urls": [
+        "https://vcahospitals.com/west-suburban",
+        "https://vcahospitals.com/west-suburban/team",
+        "https://vcahospitals.com/west-suburban/services",
+        "https://vcahospitals.com/west-suburban/contact-us",
+        "https://vcahospitals.com/west-suburban/services/advanced-care/chemotherapy",
+        "https://vcahospitals.com/west-suburban/services/advanced-care/oncology"
+      ],
+      "source_checks": [
+        {
+          "requested_url": "https://vcahospitals.com/west-suburban",
+          "final_url": "https://vcahospitals.com/west-suburban",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:37.384572+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/west-suburban/team",
+          "final_url": "https://vcahospitals.com/west-suburban/team",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:40.610062+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/west-suburban/services",
+          "final_url": "https://vcahospitals.com/west-suburban/services",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:40.611022+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/west-suburban/contact-us",
+          "final_url": "https://vcahospitals.com/west-suburban/contact-us",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:47.256496+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/west-suburban/services/advanced-care/chemotherapy",
+          "final_url": "https://vcahospitals.com/west-suburban/services/advanced-care/chemotherapy",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:47.256954+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/west-suburban/services/advanced-care/oncology",
+          "final_url": "https://vcahospitals.com/west-suburban/services/advanced-care/oncology",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:47.259843+00:00",
+          "error": null
+        }
+      ],
+      "unresolved": [
+        "Протоколы/назначенный врач не указаны; фразу о targeted treatment не превращать в отдельный Targeted therapy filter без конкретной услуги."
+      ],
+      "checked_at_range": [
+        "2026-10-12T22:30:37.384572+00:00",
+        "2026-10-12T22:30:47.261024+00:00"
+      ],
+      "access_assessment": "Физический general-practice филиал, обращение через местную запись/телефон. Сайт не подтверждает мобильный формат или приезжающего oncology specialist. Live chat/myVCA не является подтверждённой oncology teleconsultation."
+    },
+    {
+      "source_id": "vca-white-oak-animal-hospital",
+      "name": "VCA White Oak Animal Hospital",
+      "branch_scope": "VCA White Oak Animal Hospital — 10 Walsh Lane, Fredericksburg, VA 22405",
+      "checked_fields": [
+        "operation/current public hours",
+        "street",
+        "city",
+        "region",
+        "postal_code",
+        "phone",
+        "official website",
+        "current clinical roster and published credentials",
+        "branch-specific oncology services",
+        "referral/appointment route",
+        "mobile/visiting/remote format evidence"
+      ],
+      "verified_contact": {
+        "street": "10 Walsh Lane",
+        "city": "Fredericksburg",
+        "region": "VA",
+        "postal_code": "22405",
+        "phone": "540-374-0462",
+        "website": "https://vcahospitals.com/white-oak/"
+      },
+      "services": [
+        "Local oncology care"
+      ],
+      "clinicians": [],
+      "gp_roster_note": "Melanie Bell — DVM; Elysia-Marie Branson — DVM; Sandi Pepper — DVM; Jennifer V. Skarbek — DVM, medical director. Сертифицированный oncology specialist не подтверждён.",
+      "decision": "Убрать Chemotherapy только из confirmed services: Oncology страница содержит общий текст, а services/advanced care, roster и доступная biography не подтверждают проведение химиотерапии. Сохранить клинику и Local oncology care.",
+      "confidence": "high for catalog correction; actual chemotherapy availability unknown",
+      "source_urls": [
+        "https://vcahospitals.com/white-oak",
+        "https://vcahospitals.com/white-oak/team",
+        "https://vcahospitals.com/white-oak/services",
+        "https://vcahospitals.com/white-oak/contact-us",
+        "https://vcahospitals.com/white-oak/services/advanced-care/oncology",
+        "https://vcahospitals.com/white-oak/services/advanced-care"
+      ],
+      "source_checks": [
+        {
+          "requested_url": "https://vcahospitals.com/white-oak",
+          "final_url": "https://vcahospitals.com/white-oak",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:37.434934+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/white-oak/team",
+          "final_url": "https://vcahospitals.com/white-oak/team",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:41.470356+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/white-oak/services",
+          "final_url": "https://vcahospitals.com/white-oak/services",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:41.471402+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/white-oak/contact-us",
+          "final_url": "https://vcahospitals.com/white-oak/contact-us",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:46.063211+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/white-oak/services/advanced-care/oncology",
+          "final_url": "https://vcahospitals.com/white-oak/services/advanced-care/oncology",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:46.079655+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/white-oak/services/advanced-care",
+          "final_url": "https://vcahospitals.com/white-oak/services/advanced-care",
+          "status": 200,
+          "checked_at": "2026-10-12T22:32:35.839184+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/white-oak/team/jennifer-v-skarbek",
+          "final_url": "https://vcahospitals.com/white-oak/team",
+          "status": 200,
+          "checked_at": "2026-10-12T22:32:35.840540+00:00",
+          "error": null
+        }
+      ],
+      "unresolved": [
+        "Местная химиотерапия не подтверждена, не отрицать её существование. В следующем проходе искать новые конкретные branch-treatment сведения, а не повторно переносить общую Oncology страницу."
+      ],
+      "checked_at_range": [
+        "2026-10-12T22:30:37.434934+00:00",
+        "2026-10-12T22:32:35.842240+00:00"
+      ],
+      "access_assessment": "Физический general-practice филиал, обращение через местную запись/телефон. Сайт не подтверждает мобильный формат или приезжающего oncology specialist. Live chat/myVCA не является подтверждённой oncology teleconsultation."
+    },
+    {
+      "source_id": "vca-whitman-animal-hospital",
+      "name": "VCA Whitman Animal Hospital",
+      "branch_scope": "VCA Whitman Animal Hospital — 795 Bedford Street, Whitman, MA 02382",
+      "checked_fields": [
+        "operation/current public hours",
+        "street",
+        "city",
+        "region",
+        "postal_code",
+        "phone",
+        "official website",
+        "current clinical roster and published credentials",
+        "branch-specific oncology services",
+        "referral/appointment route",
+        "mobile/visiting/remote format evidence"
+      ],
+      "verified_contact": {
+        "street": "795 Bedford Street",
+        "city": "Whitman",
+        "region": "MA",
+        "postal_code": "02382",
+        "phone": "781-447-0011",
+        "website": "https://vcahospitals.com/whitman/"
+      },
+      "services": [
+        "Local oncology care",
+        "Oncology referral"
+      ],
+      "clinicians": [],
+      "gp_roster_note": "Nichole Correia — DVM; Katerina Hatzidis — DVM; Laura Serbin — DVM. Постоянный либо приглашённый board-certified онколог в Whitman не подтверждён.",
+      "decision": "Убрать местную Chemotherapy из confirmed services, сохранить local cancer assessment и добавить Oncology referral. Сайт направляет в South Shore и описывает chemotherapy Dr. Finney at Hanson; это другой филиал. Телефонные консультации описаны для treating veterinarian, не owner teleoncology и не доказательство приезда онколога в Whitman.",
+      "confidence": "high for separating branches; actual Whitman chemotherapy unknown",
+      "source_urls": [
+        "https://vcahospitals.com/whitman",
+        "https://vcahospitals.com/whitman/team",
+        "https://vcahospitals.com/whitman/services",
+        "https://vcahospitals.com/whitman/contact-us",
+        "https://vcahospitals.com/whitman/services/advanced-care/oncology"
+      ],
+      "source_checks": [
+        {
+          "requested_url": "https://vcahospitals.com/whitman",
+          "final_url": "https://vcahospitals.com/whitman",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:48.221836+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/whitman/team",
+          "final_url": "https://vcahospitals.com/whitman/team",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:51.256951+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/whitman/services",
+          "final_url": "https://vcahospitals.com/whitman/services",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:51.257902+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/whitman/contact-us",
+          "final_url": "https://vcahospitals.com/whitman/contact-us",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:55.610279+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/whitman/services/advanced-care/oncology",
+          "final_url": "https://vcahospitals.com/whitman/services/advanced-care/oncology",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:55.611124+00:00",
+          "error": null
+        }
+      ],
+      "unresolved": [
+        "Есть ли собственная местная химиотерапия Whitman, помимо внешнего Hanson/South Shore, остаётся неизвестным. Не писать 'не выполняют'.",
+        "Свежесть упоминания Dr. Finney at Hanson не установлена; использовать как опубликованный referral lead с предупреждением проверить доступность, не как подтверждённую текущую услугу Hanson."
+      ],
+      "checked_at_range": [
+        "2026-10-12T22:30:48.221836+00:00",
+        "2026-10-12T22:30:55.611818+00:00"
+      ],
+      "access_assessment": "Физический general-practice филиал, обращение через местную запись/телефон. Сайт не подтверждает мобильный формат или приезжающего oncology specialist. Live chat/myVCA не является подтверждённой oncology teleconsultation. Указана телефонная помощь oncology specialists лечащему ветеринару, а сложные случаи направляются в South Shore; chemotherapy Hanson отделена от Whitman."
+    },
+    {
+      "source_id": "vca-willow-creek-pet-center",
+      "name": "VCA Willow Creek Pet Center",
+      "branch_scope": "VCA Willow Creek Pet Center — 2055 East Creek Road, Cottonwood Heights, UT 84093",
+      "checked_fields": [
+        "operation/current public hours",
+        "street",
+        "city",
+        "region",
+        "postal_code",
+        "phone",
+        "official website",
+        "current clinical roster and published credentials",
+        "branch-specific oncology services",
+        "referral/appointment route",
+        "mobile/visiting/remote format evidence"
+      ],
+      "verified_contact": {
+        "street": "2055 East Creek Road",
+        "city": "Cottonwood Heights",
+        "region": "UT",
+        "postal_code": "84093",
+        "phone": "801-942-0777",
+        "website": "https://vcahospitals.com/willow-creek/"
+      },
+      "services": [
+        "Local oncology care",
+        "Chemotherapy"
+      ],
+      "clinicians": [],
+      "gp_roster_note": "Angela Ahlstrom — DVM, CVA; Aaron Barney — DVM, medical director; Jeonghwa Kim — DVM, MSc; Deanna Mitchell — DVM; Veronica Quintana — DVM; Kate Walters — DVM.",
+      "decision": "Без изменения карточки: сохранить Local oncology care и Chemotherapy — есть отдельная местная Chemotherapy и запись в advanced-care списке, независимо от отсутствия oncologist в roster.",
+      "confidence": "high",
+      "source_urls": [
+        "https://vcahospitals.com/willow-creek",
+        "https://vcahospitals.com/willow-creek/team",
+        "https://vcahospitals.com/willow-creek/services",
+        "https://vcahospitals.com/willow-creek/contact-us",
+        "https://vcahospitals.com/willow-creek/services/advanced-care/chemotherapy",
+        "https://vcahospitals.com/willow-creek/services/advanced-care/oncology"
+      ],
+      "source_checks": [
+        {
+          "requested_url": "https://vcahospitals.com/willow-creek",
+          "final_url": "https://vcahospitals.com/willow-creek",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:49.060441+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/willow-creek/team",
+          "final_url": "https://vcahospitals.com/willow-creek/team",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:51.469640+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/willow-creek/services",
+          "final_url": "https://vcahospitals.com/willow-creek/services",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:51.470732+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/willow-creek/contact-us",
+          "final_url": "https://vcahospitals.com/willow-creek/contact-us",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:56.250955+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/willow-creek/services/advanced-care/chemotherapy",
+          "final_url": "https://vcahospitals.com/willow-creek/services/advanced-care/chemotherapy",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:56.253270+00:00",
+          "error": null
+        },
+        {
+          "requested_url": "https://vcahospitals.com/willow-creek/services/advanced-care/oncology",
+          "final_url": "https://vcahospitals.com/willow-creek/services/advanced-care/oncology",
+          "status": 200,
+          "checked_at": "2026-10-12T22:30:56.253806+00:00",
+          "error": null
+        }
+      ],
+      "unresolved": [
+        "Назначенный химиотерапевт и доступные препараты/диагнозы не опубликованы. Ветеринарная acupuncture credential не oncology board certification."
+      ],
+      "checked_at_range": [
+        "2026-10-12T22:30:49.060441+00:00",
+        "2026-10-12T22:30:56.254672+00:00"
+      ],
+      "access_assessment": "Физический general-practice филиал, обращение через местную запись/телефон. Сайт не подтверждает мобильный формат или приезжающего oncology specialist. Live chat/myVCA не является подтверждённой oncology teleconsultation."
+    }
+  ],
+  "unchanged_card_records": [
+    "vca-san-francis-animal-hospital",
+    "vca-spring-creek-animal-care-hospital",
+    "vca-three-notch-animal-hospital",
+    "vca-tiara-rado-animal-hospital",
+    "vca-valley-animal-hospital",
+    "vca-veterinary-emergency-service-veterinary-specialty-center",
+    "vca-west-suburban-veterinary-hospital",
+    "vca-willow-creek-pet-center"
+  ],
+  "integration_requirements": [
+    "Use same-location supplemental overrides for ACVIM-derived rows; preserve raw profile history.",
+    "For mixed VREC CT, suppress stale Jessica Chin Bedford Hills representation during regeneration and retain verified Norwalk. Do not merge Katonah Bedford.",
+    "No other source IDs or cards authorized by this package.",
+    "Unresolved questions are next-pass review notes; they are not owner questions.",
+    "No source inventory dates have been written to main; evidence timestamps here record actual attempts only."
+  ]
+}

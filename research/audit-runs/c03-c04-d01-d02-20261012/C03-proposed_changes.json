@@ -1,0 +1,624 @@
+{
+  "metadata": {
+    "package": "C03",
+    "scope_count": 25,
+    "checked_date": "2026-10-12",
+    "publication": "not requested / not performed",
+    "canonical_files_modified": false,
+    "baseline_shas": {
+      "source_inventory": "335a91cfef29ca890c49a931fda8668dec7a522b",
+      "supplemental": "b67a2bed3a60ed830c71312a6686b94a9a88a683",
+      "catalog": "ff826948d2712c9b6e4b081c4b2ac80c7050c2f7",
+      "operations": "ba3240a876e02c5347aadd29de228d31225bf717"
+    },
+    "application_rule": "Do not apply blindly: compare old_value against fresh main; preserve concurrent chats. Read absent-field status explicitly. Proposed extra detail/review fields require integration into current schema, not invented claims of existing columns."
+  },
+  "changes": [
+    {
+      "source_id": "vca-highlands-animal-hospital",
+      "field": "services",
+      "old_value": [
+        "Local oncology care",
+        "Chemotherapy"
+      ],
+      "new_value": [
+        "Local oncology care"
+      ],
+      "evidence_url": "https://vcahospitals.com/highlands-va/services/advanced-care/oncology",
+      "supporting_quote": "Oncology",
+      "checked_at": "2026-10-12T22:28:53.227709+00:00",
+      "branch_scope": "VCA Highlands Animal Hospital — 25011 Lee Highway, Abingdon, VA 24211",
+      "confidence": "high for evidence classification; actual absence not established",
+      "decision_reason": "Убрать химиотерапию из подтверждённого списка: текущие официальные Oncology/services/team/биографии не подтверждают конкретную модальность. Это не утверждение, что услугу не выполняют.",
+      "old_value_status": "available",
+      "baseline_file": "data/oncology_centers_supplemental.json",
+      "implementation_note": "Proposal only. For ACVIM-derived cards use a same-location supplemental override; do not edit generated catalog directly."
+    },
+    {
+      "source_id": "vca-pahle-animal-hospital",
+      "field": "services",
+      "old_value": [
+        "Local oncology care",
+        "Chemotherapy"
+      ],
+      "new_value": [
+        "Local oncology care"
+      ],
+      "evidence_url": "https://vcahospitals.com/pahle/services/advanced-care/oncology",
+      "supporting_quote": "Oncology",
+      "checked_at": "2026-10-12T22:29:25.221646+00:00",
+      "branch_scope": "VCA Pahle Animal Hospital — 10827 W. Oklahoma Avenue, West Allis, WI 53227",
+      "confidence": "high for evidence classification; actual absence not established",
+      "decision_reason": "Убрать химиотерапию из подтверждённого списка: текущие официальные Oncology/services/team/биографии не подтверждают конкретную модальность. Это не утверждение, что услугу не выполняют.",
+      "old_value_status": "available",
+      "baseline_file": "data/oncology_centers_supplemental.json",
+      "implementation_note": "Proposal only. For ACVIM-derived cards use a same-location supplemental override; do not edit generated catalog directly."
+    },
+    {
+      "source_id": "vca-roswell-animal-hospital",
+      "field": "services",
+      "old_value": [
+        "Local oncology care",
+        "Chemotherapy"
+      ],
+      "new_value": [
+        "Local oncology care"
+      ],
+      "evidence_url": "https://vcahospitals.com/roswell/services/advanced-care/oncology",
+      "supporting_quote": "Our hospital offers Oncology services for your pet.",
+      "checked_at": "2026-10-12T22:29:35.187211+00:00",
+      "branch_scope": "VCA Roswell Animal Hospital — 1112 Alpharetta Street, Roswell, GA 30075",
+      "confidence": "high for evidence classification; actual absence not established",
+      "decision_reason": "Убрать химиотерапию из подтверждённого списка: текущие официальные Oncology/services/team/биографии не подтверждают конкретную модальность. Это не утверждение, что услугу не выполняют.",
+      "old_value_status": "available",
+      "baseline_file": "data/oncology_centers_supplemental.json",
+      "implementation_note": "Proposal only. For ACVIM-derived cards use a same-location supplemental override; do not edit generated catalog directly."
+    },
+    {
+      "source_id": "vca-rutherford-animal-hospital",
+      "field": "services",
+      "old_value": [
+        "Local oncology care",
+        "Chemotherapy"
+      ],
+      "new_value": [
+        "Local oncology care",
+        "Cryosurgery"
+      ],
+      "evidence_url": "https://vcahospitals.com/rutherford/services/advanced-care/oncology",
+      "supporting_quote": "Oncology",
+      "checked_at": "2026-10-12T22:29:36.352933+00:00",
+      "branch_scope": "VCA Rutherford Animal Hospital — 755 Rutherford Avenue, Rutherford, NJ 07070",
+      "confidence": "high for evidence classification; actual absence not established",
+      "decision_reason": "Убрать химиотерапию из подтверждённого списка: текущие официальные Oncology/services/team/биографии не подтверждают конкретную модальность. Это не утверждение, что услугу не выполняют. Добавить отдельно криохирургию ограниченных кожных опухолей, не surgical oncology.",
+      "old_value_status": "available",
+      "baseline_file": "data/oncology_centers_supplemental.json",
+      "implementation_note": "Proposal only. For ACVIM-derived cards use a same-location supplemental override; do not edit generated catalog directly."
+    },
+    {
+      "source_id": "vca-rutherford-animal-hospital",
+      "field": "service_details.cryosurgery",
+      "old_value": null,
+      "new_value": {
+        "scope": "Skin tumors depending on size; oral lesions",
+        "specialized_surgical_oncology": false
+      },
+      "evidence_url": "https://vcahospitals.com/rutherford/services/advanced-care/cryosurgery",
+      "supporting_quote": "Treatment of skin tumors (depending on size)",
+      "checked_at": "2026-10-12T22:31:54.629167+00:00",
+      "branch_scope": "VCA Rutherford Animal Hospital — 755 Rutherford Avenue, Rutherford, NJ 07070",
+      "confidence": "medium-high",
+      "decision_reason": "Официальная отдельная услуга филиала; ограниченная криохирургия, не общая онкологическая хирургия.",
+      "old_value_status": "field absent in retrieved baseline",
+      "baseline_file": "data/oncology_centers_supplemental.json",
+      "implementation_note": "Proposal only. For ACVIM-derived cards use a same-location supplemental override; do not edit generated catalog directly."
+    },
+    {
+      "source_id": "vca-loomis-basin-veterinary-clinic",
+      "field": "services",
+      "old_value": [
+        "Medical oncology",
+        "Chemotherapy"
+      ],
+      "new_value": [
+        "Medical oncology",
+        "Chemotherapy",
+        "Immunotherapy"
+      ],
+      "evidence_url": "https://vcahospitals.com/loomis-basin/specialty/departments/oncology",
+      "supporting_quote": "Immunotherapy",
+      "checked_at": "2026-10-12T22:29:03.035849+00:00",
+      "branch_scope": "VCA Loomis Basin Veterinary Clinic — 3901 Sierra College Blvd., Loomis, CA 95650",
+      "confidence": "medium-high",
+      "decision_reason": "Добавить иммунотерапию из списка услуг отделения данного филиала. Не приписывать конкретный препарат.",
+      "old_value_status": "available",
+      "baseline_file": "data/oncology_centers_supplemental.json",
+      "implementation_note": "Proposal only. For ACVIM-derived cards use a same-location supplemental override; do not edit generated catalog directly."
+    },
+    {
+      "source_id": "vca-los-angeles-veterinary-specialists",
+      "field": "services",
+      "old_value": [
+        "Medical oncology",
+        "Chemotherapy"
+      ],
+      "new_value": [
+        "Medical oncology",
+        "Chemotherapy",
+        "Immunotherapy"
+      ],
+      "evidence_url": "https://vcahospitals.com/los-angeles-veterinary-specialists/departments/oncology",
+      "supporting_quote": "Immunotherapy",
+      "checked_at": "2026-10-12T22:29:03.453239+00:00",
+      "branch_scope": "VCA Los Angeles Veterinary Specialists — 8723 Santa Monica Blvd., Los Angeles, CA 90069",
+      "confidence": "medium-high",
+      "decision_reason": "Добавить иммунотерапию из списка услуг отделения данного филиала. Не приписывать конкретный препарат.",
+      "old_value_status": "available",
+      "baseline_file": "data/oncology_centers_supplemental.json",
+      "implementation_note": "Proposal only. For ACVIM-derived cards use a same-location supplemental override; do not edit generated catalog directly."
+    },
+    {
+      "source_id": "vca-palm-beach-veterinary-specialists",
+      "field": "services",
+      "old_value": [
+        "Medical oncology",
+        "Chemotherapy",
+        "Radiation oncology"
+      ],
+      "new_value": [
+        "Medical oncology",
+        "Chemotherapy",
+        "Radiation oncology",
+        "Immunotherapy",
+        "Radiation therapy",
+        "IMRT"
+      ],
+      "evidence_url": "https://vcahospitals.com/palm-beach-vet-specialists/departments/oncology",
+      "supporting_quote": "Immunotherapy",
+      "checked_at": "2026-10-12T22:29:25.590144+00:00",
+      "branch_scope": "VCA Palm Beach Veterinary Specialists — 3884 Forest Hill Blvd., West Palm Beach, FL 33406",
+      "confidence": "medium-high",
+      "decision_reason": "Добавить иммунотерапию из списка услуг отделения данного филиала. Не приписывать конкретный препарат.",
+      "old_value_status": "available",
+      "baseline_file": "data/oncology_centers_supplemental.json",
+      "implementation_note": "Proposal only. For ACVIM-derived cards use a same-location supplemental override; do not edit generated catalog directly."
+    },
+    {
+      "source_id": "vca-palm-beach-veterinary-specialists",
+      "field": "service_details.radiation",
+      "old_value": null,
+      "new_value": {
+        "local_delivery": true,
+        "techniques": [
+          "IMRT"
+        ],
+        "equipment": "Varian 2100 EX Linear Accelerator; 120 MLC"
+      },
+      "evidence_url": "https://vcahospitals.com/palm-beach-vet-specialists/departments/radiation-oncology",
+      "supporting_quote": "Varian 2100 EX Linear Accelerator",
+      "checked_at": "2026-10-12T22:31:28.820972+00:00",
+      "branch_scope": "VCA Palm Beach Veterinary Specialists — 3884 Forest Hill Blvd., West Palm Beach, FL 33406",
+      "confidence": "high",
+      "decision_reason": "Местная лучевая терапия подтверждена оборудованием филиала. Не добавлять SRT без отдельного подтверждения.",
+      "old_value_status": "field absent in retrieved baseline",
+      "baseline_file": "data/oncology_centers_supplemental.json",
+      "implementation_note": "Proposal only. For ACVIM-derived cards use a same-location supplemental override; do not edit generated catalog directly."
+    },
+    {
+      "source_id": "vca-midwest-veterinary-referral-emergency-center",
+      "field": "services",
+      "old_value": [
+        "Medical oncology",
+        "Chemotherapy",
+        "Immunotherapy"
+      ],
+      "new_value": [
+        "Medical oncology",
+        "Chemotherapy",
+        "Immunotherapy",
+        "ONCEPT"
+      ],
+      "evidence_url": "https://vcahospitals.com/midwest/departments/oncology",
+      "supporting_quote": "ONCEPT is available through our hospital’s Oncology Department.",
+      "checked_at": "2026-10-12T22:29:12.710093+00:00",
+      "branch_scope": "VCA MidWest Veterinary Referral & Emergency Center — 9706 Mockingbird Drive, Omaha, NE 68127",
+      "confidence": "high",
+      "decision_reason": "Доступ ONCEPT заявлен непосредственно для данного отделения. Для PetCare также добавить опубликованную химиотерапию; иммунотерапия подтверждена конкретным ONCEPT.",
+      "old_value_status": "available",
+      "baseline_file": "data/oncology_centers_supplemental.json",
+      "implementation_note": "Proposal only. For ACVIM-derived cards use a same-location supplemental override; do not edit generated catalog directly."
+    },
+    {
+      "source_id": "vca-petcare-east",
+      "field": "services",
+      "old_value": [
+        "Medical oncology"
+      ],
+      "new_value": [
+        "Medical oncology",
+        "Chemotherapy",
+        "Immunotherapy",
+        "ONCEPT"
+      ],
+      "evidence_url": "https://vcahospitals.com/petcare-east/specialty/departments/oncology",
+      "supporting_quote": "ONCEPT is available through our hospital’s Oncology Department.",
+      "checked_at": "2026-10-12T22:31:00.932344+00:00",
+      "branch_scope": "VCA PetCare East — 2425 Mendocino Ave, Santa Rosa, CA 95403",
+      "confidence": "high",
+      "decision_reason": "Доступ ONCEPT заявлен непосредственно для данного отделения. Для PetCare также добавить опубликованную химиотерапию; иммунотерапия подтверждена конкретным ONCEPT.",
+      "old_value_status": "available",
+      "baseline_file": "data/oncology_centers.json (generated ACVIM representation)",
+      "implementation_note": "Proposal only. For ACVIM-derived cards use a same-location supplemental override; do not edit generated catalog directly."
+    },
+    {
+      "source_id": "vca-northwest-veterinary-specialists",
+      "field": "services",
+      "old_value": [
+        "Medical oncology"
+      ],
+      "new_value": [
+        "Medical oncology",
+        "Chemotherapy",
+        "Immunotherapy",
+        "Surgical oncology",
+        "Radiation oncology",
+        "Radiation therapy",
+        "IMRT",
+        "SRT"
+      ],
+      "evidence_url": "https://vcahospitals.com/northwest-veterinary-specialists/departments/oncology",
+      "supporting_quote": "Our Oncology Services",
+      "checked_at": "2026-10-12T22:31:01.089757+00:00",
+      "branch_scope": "VCA Northwest Veterinary Specialists — 16756 SE 82nd Dr, Clackamas, OR 97015",
+      "confidence": "high for chemo/radiation/surgery; medium-high for generic immunotherapy",
+      "decision_reason": "Список местного отделения подтверждает химиотерапию/иммунотерапию; дополнительные локальные radiation/surgery доказательства приведены отдельными полями.",
+      "old_value_status": "available",
+      "baseline_file": "data/oncology_centers.json (generated ACVIM representation)",
+      "implementation_note": "Proposal only. For ACVIM-derived cards use a same-location supplemental override; do not edit generated catalog directly."
+    },
+    {
+      "source_id": "vca-northwest-veterinary-specialists",
+      "field": "service_details.radiation",
+      "old_value": null,
+      "new_value": {
+        "local_delivery": true,
+        "techniques": [
+          "IMRT",
+          "SRT"
+        ]
+      },
+      "evidence_url": "https://vcahospitals.com/northwest-veterinary-specialists/departments/radiation-oncology",
+      "supporting_quote": "With our new radiation unit, we can now deliver radiation",
+      "checked_at": "2026-10-12T22:31:28.831657+00:00",
+      "branch_scope": "VCA Northwest Veterinary Specialists — 16756 SE 82nd Dr, Clackamas, OR 97015",
+      "confidence": "high",
+      "decision_reason": "Подтверждена собственная установка и обе техники в описании филиала.",
+      "old_value_status": "field absent in retrieved baseline",
+      "baseline_file": "data/oncology_centers.json (generated ACVIM representation)",
+      "implementation_note": "Proposal only. For ACVIM-derived cards use a same-location supplemental override; do not edit generated catalog directly."
+    },
+    {
+      "source_id": "vca-northwest-veterinary-specialists",
+      "field": "service_details.surgical_oncology",
+      "old_value": null,
+      "new_value": {
+        "local_delivery": true,
+        "clinician": "Sarah Salyer",
+        "qualification": "DVM, MS, DACVS-SA, ACVS (Fellow, Surgical Oncology)"
+      },
+      "evidence_url": "https://vcahospitals.com/northwest-veterinary-specialists/team/sarah-salyer",
+      "supporting_quote": "looking forward to starting a surgical oncology service at VCA Northwest",
+      "checked_at": "2026-10-12T22:30:17.336416+00:00",
+      "branch_scope": "VCA Northwest Veterinary Specialists — 16756 SE 82nd Dr, Clackamas, OR 97015",
+      "confidence": "medium-high: service conclusion from current roster plus dated-unspecified joining biography",
+      "decision_reason": "Текущая команда, профиль fellow и участие хирурга в местной Oncology Team подтверждают специализированную хирургическую онкологию.",
+      "old_value_status": "field absent in retrieved baseline",
+      "baseline_file": "data/oncology_centers.json (generated ACVIM representation)",
+      "implementation_note": "Proposal only. For ACVIM-derived cards use a same-location supplemental override; do not edit generated catalog directly."
+    },
+    {
+      "source_id": "vca-northwest-veterinary-specialists",
+      "field": "website",
+      "old_value": "http://vcahospitals.com/northwest-veterinary-specialists",
+      "new_value": "https://vcahospitals.com/northwest-veterinary-specialists",
+      "evidence_url": "https://vcahospitals.com/northwest-veterinary-specialists",
+      "supporting_quote": "VCA Northwest Veterinary Specialists",
+      "checked_at": "2026-10-12T22:29:22.005864+00:00",
+      "branch_scope": "VCA Northwest Veterinary Specialists — 16756 SE 82nd Dr, Clackamas, OR 97015",
+      "confidence": "high",
+      "decision_reason": "Использовать действующий официальный HTTPS URL вместо HTTP; номер телефона по цифрам совпадает.",
+      "old_value_status": "available",
+      "baseline_file": "data/oncology_centers.json (generated ACVIM representation)",
+      "implementation_note": "Proposal only. For ACVIM-derived cards use a same-location supplemental override; do not edit generated catalog directly."
+    },
+    {
+      "source_id": "vca-northwest-veterinary-specialists",
+      "field": "verification_url",
+      "old_value": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=3ff61324-92e8-47f4-b241-b813fc8f24d3",
+      "new_value": "https://vcahospitals.com/northwest-veterinary-specialists/departments/oncology",
+      "evidence_url": "https://vcahospitals.com/northwest-veterinary-specialists/departments/oncology",
+      "supporting_quote": "Our Oncology Services",
+      "checked_at": "2026-10-12T22:31:01.089757+00:00",
+      "branch_scope": "VCA Northwest Veterinary Specialists — 16756 SE 82nd Dr, Clackamas, OR 97015",
+      "confidence": "high",
+      "decision_reason": "Заменить ACVIM профиль как единственный источник услуг текущим отделением филиала.",
+      "old_value_status": "available",
+      "baseline_file": "data/oncology_centers.json (generated ACVIM representation)",
+      "implementation_note": "Proposal only. For ACVIM-derived cards use a same-location supplemental override; do not edit generated catalog directly."
+    },
+    {
+      "source_id": "vca-petcare-east",
+      "field": "verification_url",
+      "old_value": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=8082894f-00f7-4e41-8e20-b4bc849f1ad3",
+      "new_value": "https://vcahospitals.com/petcare-east/specialty/departments/oncology",
+      "evidence_url": "https://vcahospitals.com/petcare-east/specialty/departments/oncology",
+      "supporting_quote": "Our Oncology Services",
+      "checked_at": "2026-10-12T22:31:00.932344+00:00",
+      "branch_scope": "VCA PetCare East — 2425 Mendocino Ave, Santa Rosa, CA 95403",
+      "confidence": "high",
+      "decision_reason": "Для местных услуг использовать отделение филиала; ACVIM сохранить как supporting source.",
+      "old_value_status": "available",
+      "baseline_file": "data/oncology_centers.json (generated ACVIM representation)",
+      "implementation_note": "Proposal only. For ACVIM-derived cards use a same-location supplemental override; do not edit generated catalog directly."
+    },
+    {
+      "source_id": "vca-loomis-basin-veterinary-clinic",
+      "field": "oncology_clinicians",
+      "old_value": null,
+      "new_value": [
+        {
+          "published_label": "Sunny Kao Veterinarian Specialist - Oncology DVM, DACVIM (Oncology)",
+          "url": "https://vcahospitals.com/loomis-basin/specialty/team/sunny-kao"
+        },
+        {
+          "published_label": "Kristen Oncology Referral Coordinator",
+          "url": "https://vcahospitals.com/loomis-basin/specialty/team/kristen"
+        }
+      ],
+      "evidence_url": "https://vcahospitals.com/loomis-basin/specialty/team",
+      "supporting_quote": "DVM, DACVIM (Oncology)",
+      "checked_at": "2026-10-12T22:30:56.278402+00:00",
+      "branch_scope": "VCA Loomis Basin Veterinary Clinic — 3901 Sierra College Blvd., Loomis, CA 95650",
+      "confidence": "high",
+      "decision_reason": "Сохранить текущих специалистов отдельно от услуг. Residency-trained не означает board-certified; диагностическая радиология не означает radiation oncology.",
+      "old_value_status": "field absent in retrieved baseline",
+      "baseline_file": "data/oncology_centers_supplemental.json",
+      "implementation_note": "Proposal only. For ACVIM-derived cards use a same-location supplemental override; do not edit generated catalog directly."
+    },
+    {
+      "source_id": "vca-midwest-veterinary-referral-emergency-center",
+      "field": "oncology_clinicians",
+      "old_value": null,
+      "new_value": [
+        {
+          "published_label": "Marissa Goodwin Veterinarian DVM (Oncology - Residency Trained)",
+          "url": "https://vcahospitals.com/midwest/team/marissa-goodwin"
+        },
+        {
+          "published_label": "Abby Jean Leonardi Veterinary Specialist - Oncology DVM, MS, DACVIM (O)",
+          "url": "https://vcahospitals.com/midwest/team/abby-jean-leonardi"
+        }
+      ],
+      "evidence_url": "https://vcahospitals.com/midwest/team",
+      "supporting_quote": "DVM (Oncology - Residency Trained)",
+      "checked_at": "2026-10-12T22:29:12.857180+00:00",
+      "branch_scope": "VCA MidWest Veterinary Referral & Emergency Center — 9706 Mockingbird Drive, Omaha, NE 68127",
+      "confidence": "high",
+      "decision_reason": "Сохранить текущих специалистов отдельно от услуг. Residency-trained не означает board-certified; диагностическая радиология не означает radiation oncology.",
+      "old_value_status": "field absent in retrieved baseline",
+      "baseline_file": "data/oncology_centers_supplemental.json",
+      "implementation_note": "Proposal only. For ACVIM-derived cards use a same-location supplemental override; do not edit generated catalog directly."
+    },
+    {
+      "source_id": "vca-northwest-veterinary-specialists",
+      "field": "oncology_clinicians",
+      "old_value": null,
+      "new_value": [
+        {
+          "published_label": "Matt Dowling Veterinary Specialist DVM, MS, DACVIM (Oncology)",
+          "url": "https://vcahospitals.com/northwest-veterinary-specialists/team/matt-dowling"
+        },
+        {
+          "published_label": "Catherine McDonald Veterinary Specialist DVM, DACVIM (O), DACVR (RO) (Oncology)",
+          "url": "https://vcahospitals.com/northwest-veterinary-specialists/team/catie-mcdonald"
+        },
+        {
+          "published_label": "Sarah Salyer Veterinarian Specialist - Surgery DVM, MS, DACVS-SA, ACVS (Fellow, Surgical Oncology)",
+          "url": "https://vcahospitals.com/northwest-veterinary-specialists/team/sarah-salyer"
+        }
+      ],
+      "evidence_url": "https://vcahospitals.com/northwest-veterinary-specialists/team",
+      "supporting_quote": "DVM, MS, DACVIM (Oncology)",
+      "checked_at": "2026-10-12T22:29:22.076178+00:00",
+      "branch_scope": "VCA Northwest Veterinary Specialists — 16756 SE 82nd Dr, Clackamas, OR 97015",
+      "confidence": "high",
+      "decision_reason": "Сохранить текущих специалистов отдельно от услуг. Residency-trained не означает board-certified; диагностическая радиология не означает radiation oncology.",
+      "old_value_status": "field absent in retrieved baseline",
+      "baseline_file": "data/oncology_centers.json (generated ACVIM representation)",
+      "implementation_note": "Proposal only. For ACVIM-derived cards use a same-location supplemental override; do not edit generated catalog directly."
+    },
+    {
+      "source_id": "vca-petcare-east",
+      "field": "oncology_clinicians",
+      "old_value": null,
+      "new_value": [
+        {
+          "published_label": "Haylie Lawson Veterinary Specialist DVM, DACVIM (Oncology)",
+          "url": "https://vcahospitals.com/petcare-east/specialty/team/haylie-lawson"
+        }
+      ],
+      "evidence_url": "https://vcahospitals.com/petcare-east/specialty/team",
+      "supporting_quote": "DVM, DACVIM (Oncology)",
+      "checked_at": "2026-10-12T22:31:00.894883+00:00",
+      "branch_scope": "VCA PetCare East — 2425 Mendocino Ave, Santa Rosa, CA 95403",
+      "confidence": "high",
+      "decision_reason": "Сохранить текущих специалистов отдельно от услуг. Residency-trained не означает board-certified; диагностическая радиология не означает radiation oncology.",
+      "old_value_status": "field absent in retrieved baseline",
+      "baseline_file": "data/oncology_centers.json (generated ACVIM representation)",
+      "implementation_note": "Proposal only. For ACVIM-derived cards use a same-location supplemental override; do not edit generated catalog directly."
+    },
+    {
+      "source_id": "vca-palm-beach-veterinary-specialists",
+      "field": "oncology_clinicians",
+      "old_value": null,
+      "new_value": [
+        {
+          "published_label": "Valerie Morales Coll Veterinarian Specialist - Radiation Oncology DVM, ACVR-RO",
+          "url": "https://vcahospitals.com/palm-beach-vet-specialists/team/valerie-morales-coll"
+        }
+      ],
+      "evidence_url": "https://vcahospitals.com/palm-beach-vet-specialists/team",
+      "supporting_quote": "DVM, ACVR-RO",
+      "checked_at": "2026-10-12T22:29:25.607480+00:00",
+      "branch_scope": "VCA Palm Beach Veterinary Specialists — 3884 Forest Hill Blvd., West Palm Beach, FL 33406",
+      "confidence": "high",
+      "decision_reason": "Сохранить текущих специалистов отдельно от услуг. Residency-trained не означает board-certified; диагностическая радиология не означает radiation oncology.",
+      "old_value_status": "field absent in retrieved baseline",
+      "baseline_file": "data/oncology_centers_supplemental.json",
+      "implementation_note": "Proposal only. For ACVIM-derived cards use a same-location supplemental override; do not edit generated catalog directly."
+    },
+    {
+      "source_id": "vca-highlands-animal-hospital",
+      "field": "review_flags",
+      "old_value": null,
+      "new_value": {
+        "recheck_next_care_pass": true,
+        "questions": [
+          "Химиотерапия: не подтверждено. Найти актуальное объявление об её проведении, локальный clinical case или протокол работы филиала; не считать отсутствие онколога отрицательным доказательством.",
+          "Pet Cancer Center включает Abingdon в general-practice chemotherapy list; общий каталог датирован 2019-03-06. Современный официальный branch-level modality proof не найден."
+        ]
+      },
+      "evidence_url": "https://vcahospitals.com/highlands-va/services/advanced-care/oncology",
+      "supporting_quote": "Oncology",
+      "checked_at": "2026-10-12T22:28:53.227709+00:00",
+      "branch_scope": "VCA Highlands Animal Hospital — 25011 Lee Highway, Abingdon, VA 24211",
+      "confidence": "high for unresolved classification",
+      "decision_reason": "Сохранить конкретные нерешённые вопросы следующему проходу; статусы not confirmed не равны service unavailable.",
+      "old_value_status": "field absent in retrieved baseline",
+      "baseline_file": "data/oncology_centers_supplemental.json",
+      "implementation_note": "Proposal only. For ACVIM-derived cards use a same-location supplemental override; do not edit generated catalog directly."
+    },
+    {
+      "source_id": "vca-pahle-animal-hospital",
+      "field": "review_flags",
+      "old_value": null,
+      "new_value": {
+        "recheck_next_care_pass": true,
+        "questions": [
+          "Химиотерапия: не подтверждено. Найти актуальное объявление об её проведении, локальный clinical case или протокол работы филиала; не считать отсутствие онколога отрицательным доказательством."
+        ]
+      },
+      "evidence_url": "https://vcahospitals.com/pahle/services/advanced-care/oncology",
+      "supporting_quote": "Oncology",
+      "checked_at": "2026-10-12T22:29:25.221646+00:00",
+      "branch_scope": "VCA Pahle Animal Hospital — 10827 W. Oklahoma Avenue, West Allis, WI 53227",
+      "confidence": "high for unresolved classification",
+      "decision_reason": "Сохранить конкретные нерешённые вопросы следующему проходу; статусы not confirmed не равны service unavailable.",
+      "old_value_status": "field absent in retrieved baseline",
+      "baseline_file": "data/oncology_centers_supplemental.json",
+      "implementation_note": "Proposal only. For ACVIM-derived cards use a same-location supplemental override; do not edit generated catalog directly."
+    },
+    {
+      "source_id": "vca-roswell-animal-hospital",
+      "field": "review_flags",
+      "old_value": null,
+      "new_value": {
+        "recheck_next_care_pass": true,
+        "questions": [
+          "Химиотерапия: не подтверждено. Найти актуальное объявление об её проведении, локальный clinical case или протокол работы филиала; не считать отсутствие онколога отрицательным доказательством.",
+          "Pet Cancer Center прямо указывает chemotherapy, но страница без актуальной даты; общий каталог этого издателя обновлён 2019-03-06. Это историческое вторичное положительное свидетельство, недостаточное для confirmed current chemotherapy."
+        ]
+      },
+      "evidence_url": "https://vcahospitals.com/roswell/services/advanced-care/oncology",
+      "supporting_quote": "Oncology",
+      "checked_at": "2026-10-12T22:29:35.187211+00:00",
+      "branch_scope": "VCA Roswell Animal Hospital — 1112 Alpharetta Street, Roswell, GA 30075",
+      "confidence": "high for unresolved classification",
+      "decision_reason": "Сохранить конкретные нерешённые вопросы следующему проходу; статусы not confirmed не равны service unavailable.",
+      "old_value_status": "field absent in retrieved baseline",
+      "baseline_file": "data/oncology_centers_supplemental.json",
+      "implementation_note": "Proposal only. For ACVIM-derived cards use a same-location supplemental override; do not edit generated catalog directly."
+    },
+    {
+      "source_id": "vca-rutherford-animal-hospital",
+      "field": "review_flags",
+      "old_value": null,
+      "new_value": {
+        "recheck_next_care_pass": true,
+        "questions": [
+          "Химиотерапия: не подтверждено. Найти актуальное объявление об её проведении, локальный clinical case или протокол работы филиала; не считать отсутствие онколога отрицательным доказательством.",
+          "Cylex перечисляет Chemotherapy, но не даёт независимо проверяемого текущего clinical delivery evidence. Криохирургия подтверждается отдельно; сочетание с chemotherapy в образовательном тексте не доказывает её местное введение."
+        ]
+      },
+      "evidence_url": "https://vcahospitals.com/rutherford/services/advanced-care/oncology",
+      "supporting_quote": "Oncology",
+      "checked_at": "2026-10-12T22:29:36.352933+00:00",
+      "branch_scope": "VCA Rutherford Animal Hospital — 755 Rutherford Avenue, Rutherford, NJ 07070",
+      "confidence": "high for unresolved classification",
+      "decision_reason": "Сохранить конкретные нерешённые вопросы следующему проходу; статусы not confirmed не равны service unavailable.",
+      "old_value_status": "field absent in retrieved baseline",
+      "baseline_file": "data/oncology_centers_supplemental.json",
+      "implementation_note": "Proposal only. For ACVIM-derived cards use a same-location supplemental override; do not edit generated catalog directly."
+    },
+    {
+      "source_id": "vca-mountain-view-animal-hospital",
+      "field": "review_flags",
+      "old_value": null,
+      "new_value": {
+        "recheck_next_care_pass": true,
+        "questions": [
+          "Radiation Therapy: филиал пишет «Our hospital offers Radiation Therapy as part of our Oncology Services.» Место фактического облучения, установка и лечащий radiation oncologist не установлены. Проверить локальное оборудование/partner route."
+        ]
+      },
+      "evidence_url": "https://vcahospitals.com/mountain-view-ut/services/advanced-care/oncology",
+      "supporting_quote": "Oncology",
+      "checked_at": "2026-10-12T22:29:14.157434+00:00",
+      "branch_scope": "VCA Mountain View Animal Hospital — 9414 South Indian Ridge Drive, Sandy, UT 84092",
+      "confidence": "high for unresolved classification",
+      "decision_reason": "Сохранить конкретные нерешённые вопросы следующему проходу; статусы not confirmed не равны service unavailable.",
+      "old_value_status": "field absent in retrieved baseline",
+      "baseline_file": "data/oncology_centers_supplemental.json",
+      "implementation_note": "Proposal only. For ACVIM-derived cards use a same-location supplemental override; do not edit generated catalog directly."
+    },
+    {
+      "source_id": "vca-los-angeles-veterinary-specialists",
+      "field": "review_flags",
+      "old_value": null,
+      "new_value": {
+        "recheck_next_care_pass": true,
+        "questions": [
+          "Медицинская онкология/химиотерапия опубликованы как услуги отделения; назначенный текущий medical oncologist не установлен. Не превращать интерниста, интерес к онкологии или radiation oncologist в сертификат medical oncology; сохранить услуги."
+        ]
+      },
+      "evidence_url": "https://vcahospitals.com/los-angeles-veterinary-specialists/departments/oncology",
+      "supporting_quote": "Oncology",
+      "checked_at": "2026-10-12T22:29:03.453239+00:00",
+      "branch_scope": "VCA Los Angeles Veterinary Specialists — 8723 Santa Monica Blvd., Los Angeles, CA 90069",
+      "confidence": "high for unresolved classification",
+      "decision_reason": "Сохранить конкретные нерешённые вопросы следующему проходу; статусы not confirmed не равны service unavailable.",
+      "old_value_status": "field absent in retrieved baseline",
+      "baseline_file": "data/oncology_centers_supplemental.json",
+      "implementation_note": "Proposal only. For ACVIM-derived cards use a same-location supplemental override; do not edit generated catalog directly."
+    },
+    {
+      "source_id": "vca-palm-beach-veterinary-specialists",
+      "field": "review_flags",
+      "old_value": null,
+      "new_value": {
+        "recheck_next_care_pass": true,
+        "questions": [
+          "Медицинская онкология/химиотерапия опубликованы как услуги отделения; назначенный текущий medical oncologist не установлен. Не превращать интерниста, интерес к онкологии или radiation oncologist в сертификат medical oncology; сохранить услуги."
+        ]
+      },
+      "evidence_url": "https://vcahospitals.com/palm-beach-vet-specialists/departments/oncology",
+      "supporting_quote": "Oncology",
+      "checked_at": "2026-10-12T22:29:25.590144+00:00",
+      "branch_scope": "VCA Palm Beach Veterinary Specialists — 3884 Forest Hill Blvd., West Palm Beach, FL 33406",
+      "confidence": "high for unresolved classification",
+      "decision_reason": "Сохранить конкретные нерешённые вопросы следующему проходу; статусы not confirmed не равны service unavailable.",
+      "old_value_status": "field absent in retrieved baseline",
+      "baseline_file": "data/oncology_centers_supplemental.json",
+      "implementation_note": "Proposal only. For ACVIM-derived cards use a same-location supplemental override; do not edit generated catalog directly."
+    }
+  ]
+}
