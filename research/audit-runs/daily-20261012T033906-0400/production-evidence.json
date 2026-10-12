@@ -1,0 +1,48 @@
+{
+  "run_id": "daily-20261012T033906-0400",
+  "checked_at": "2026-10-12T04:35:59-04:00",
+  "timezone": "America/New_York",
+  "data_commit_sha": "c1885cebffde487e22e838161056c8d9e49d5db4",
+  "deploy": {
+    "workflow": "Build and deploy static site",
+    "run_id": 38224007456,
+    "status": "success",
+    "duration": "1m 13s",
+    "url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/38224007456",
+    "jobs": {
+      "build-candidate": "success",
+      "deploy": "success",
+      "notify-indexnow": "success"
+    }
+  },
+  "asset_sync": {
+    "matcher_js_local_sha256": "9d7bab9eb847d8e453411cc1753ec713829ac33e0a900e9cac4581748eb6b5f1",
+    "matcher_js_live_sha256": "9d7bab9eb847d8e453411cc1753ec713829ac33e0a900e9cac4581748eb6b5f1",
+    "trials_json_local_sha256": "71ad3d8de2723ae2f7454016c890d3f0f8b936182e2b29aefeef3f5333187d11",
+    "trials_json_live_sha256": "71ad3d8de2723ae2f7454016c890d3f0f8b936182e2b29aefeef3f5333187d11",
+    "html_script_version": "matcher.js?v=catalog-ready-20261010",
+    "status": "PASS"
+  },
+  "live_search": {
+    "scenario": {
+      "species": "Dog",
+      "cancer_type": "Cancer — any type",
+      "diagnosis_certainty": "I don't know",
+      "age": "blank",
+      "weight": "blank",
+      "zip": "blank",
+      "treatment_options": "all selected",
+      "research_approach": "Any approach"
+    },
+    "USA": {
+      "displayed_results": 102,
+      "expected_from_current_catalog": 102,
+      "status": "PASS"
+    },
+    "Japan": {
+      "displayed_results": 9,
+      "expected_from_current_catalog": 9,
+      "status": "PASS"
+    }
+  }
+}
