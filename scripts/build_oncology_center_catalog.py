@@ -50,6 +50,9 @@ NONCLINICAL_ORGANIZATIONS = {
     "joyful riches beyond grief", "n a", "self employed", "zoetis",
 }
 EXCLUDED_PROFILE_IDS = {
+    # B02: Greenbrier/Chesapeake reception moved to Town Center Virginia Beach.
+    # Keep the raw Brewer profile as history; supplemental retains current care.
+    "23c8fa8f-68ba-4cad-a686-2c872c371136",
     # C01: current Holly Avenue/87122 site is retained in supplemental.
     # Preserve the raw old Montgomery and wrong-ZIP Holly profiles as history.
     "bf7bb6ec-d5f5-4049-9216-89f536f7b17d",

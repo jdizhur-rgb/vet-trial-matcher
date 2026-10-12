@@ -1,0 +1,1685 @@
+{
+  "base_sha": "6d70a739babe40e534a295cb8c06f7bda14501ae",
+  "checked_at": "2026-10-11",
+  "authorization": "Apply B02 locally; do not publish",
+  "review": {
+    "package": "B02",
+    "checked_at": "2026-10-11",
+    "mode": "proposal_only_no_database_mutation_no_publication",
+    "baseline": {
+      "repository": "jdizhur-rgb/vet-trial-matcher",
+      "ref": "main",
+      "files": {
+        "AGENTS.md": "0020e77dda6b05ac0e675fce7e40e87e59e24831",
+        "PROJECT_OPERATIONS.md": "7b538acc4eee31ad3a9d94a881e557464090ea12",
+        "data/oncology_care_source_inventory.json": "e316e46c246bc4b9076742992e260d71bfbb6c7c",
+        "data/oncology_centers_supplemental.json": "92b8baa6572d5a1d854dc4dfed7c4d9e4e2d2115",
+        "data/oncology_centers.json": "2110deb001b2305158e8f045fd1a41c15c9d1781"
+      },
+      "additional_scoped_identity_read": "data/acvim_oncology_profiles.json",
+      "note": "Deep pass also read assigned physical representations in canonical oncology_centers.json. Field old values below are exact from stated file; supplemental absence is distinguished from canonical presence. No repository file modified."
+    },
+    "changes": [
+      {
+        "source_id": "bluepearl-pet-hospital-rockville",
+        "field": "inventory.master_url",
+        "old_value": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=092347fe-69b7-40ad-b9d8-aee6f0e825c5",
+        "new_value": "https://bluepearlvet.com/hospital/rockville-md/specialties-services/oncology/",
+        "evidence_url": "https://bluepearlvet.com/hospital/rockville-md/specialties-services/oncology/",
+        "supporting_quote": "Pet oncology by BluePearl.",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Rockville, MD 20850 — 1 Taft Ct.",
+        "note": "Replace imported clinician-profile source with current branch service source; preserve profile URL in provenance.",
+        "old_value_file": "data/oncology_care_source_inventory.json"
+      },
+      {
+        "source_id": "bluepearl-specialty-and-emergency-hospital-jacksonville",
+        "field": "inventory.master_url",
+        "old_value": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=b9433b78-127a-4b7c-98af-f286fcfbbd39",
+        "new_value": "https://bluepearlvet.com/hospital/jacksonville-fl/specialties-services/oncology/",
+        "evidence_url": "https://bluepearlvet.com/hospital/jacksonville-fl/specialties-services/oncology/",
+        "supporting_quote": "Pet oncology by BluePearl.",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Jacksonville, FL 32216 — 3444 Southside Blvd., Ste. 103",
+        "note": "Replace imported clinician-profile source with current branch service source; preserve profile URL in provenance.",
+        "old_value_file": "data/oncology_care_source_inventory.json"
+      },
+      {
+        "source_id": "bluepearl-specialty-emergency-medicine-for-pets-mi",
+        "field": "inventory.master_url",
+        "old_value": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=93304d01-d112-479d-a52e-1b905ed40e04",
+        "new_value": "https://bluepearlvet.com/hospital/southfield-mi/specialties-services/oncology/",
+        "evidence_url": "https://bluepearlvet.com/hospital/southfield-mi/specialties-services/oncology/",
+        "supporting_quote": "Pet oncology by BluePearl.",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Southfield, MI 48034 — 29080 Inkster Rd.",
+        "note": "Replace imported clinician-profile source with current branch service source; preserve profile URL in provenance.",
+        "old_value_file": "data/oncology_care_source_inventory.json"
+      },
+      {
+        "source_id": "bluepearl-spring-tx",
+        "field": "inventory.master_url",
+        "old_value": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=ffa76baf-8501-4573-9b52-8834d09e69b2",
+        "new_value": "https://bluepearlvet.com/hospital/spring-tx/specialties-services/oncology/",
+        "evidence_url": "https://bluepearlvet.com/hospital/spring-tx/specialties-services/oncology/",
+        "supporting_quote": "Pet oncology by BluePearl.",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Spring, TX 77388 — 1646 Spring Cypress Rd.",
+        "note": "Replace imported clinician-profile source with current branch service source; preserve profile URL in provenance.",
+        "old_value_file": "data/oncology_care_source_inventory.json"
+      },
+      {
+        "source_id": "bluepearl-veterinary-partners",
+        "field": "inventory.master_url",
+        "old_value": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=0269e9b8-44bf-43de-b2d1-b72fbd0ad59b",
+        "new_value": "https://bluepearlvet.com/hospital/tampa-fl/specialties-services/oncology/",
+        "evidence_url": "https://bluepearlvet.com/hospital/tampa-fl/specialties-services/oncology/",
+        "supporting_quote": "Pet oncology by BluePearl.",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Tampa, FL 33614 — 3000 Busch Lake Blvd.",
+        "note": "Replace imported clinician-profile source with current branch service source; preserve profile URL in provenance.",
+        "old_value_file": "data/oncology_care_source_inventory.json"
+      },
+      {
+        "source_id": "bluepearl-veterinary-specialists-grand-rapids",
+        "field": "inventory.master_url",
+        "old_value": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=c39729f8-ab99-42a7-aa44-155c891afd8b",
+        "new_value": "https://bluepearlvet.com/hospital/grand-rapids-mi/specialties-services/oncology/",
+        "evidence_url": "https://bluepearlvet.com/hospital/grand-rapids-mi/specialties-services/oncology/",
+        "supporting_quote": "Pet oncology by BluePearl.",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Grand Rapids, MI 49546 — 2500 East Paris Ave SE",
+        "note": "Replace imported clinician-profile source with current branch service source; preserve profile URL in provenance.",
+        "old_value_file": "data/oncology_care_source_inventory.json"
+      },
+      {
+        "source_id": "bluepearl-virginia",
+        "field": "inventory.master_url",
+        "old_value": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=23c8fa8f-68ba-4cad-a686-2c872c371136",
+        "new_value": "https://bluepearlvet.com/hospital/virginia-beach-va/specialties-services/oncology/",
+        "evidence_url": "https://bluepearlvet.com/hospital/virginia-beach-va/specialties-services/oncology/",
+        "supporting_quote": "Pet oncology by BluePearl.",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Virginia Beach, VA 23452 — 364 S Independence Blvd.",
+        "note": "Replace imported clinician-profile source with current branch service source; preserve profile URL in provenance.",
+        "old_value_file": "data/oncology_care_source_inventory.json"
+      },
+      {
+        "source_id": "network-bluepearl",
+        "field": "inventory.master_url",
+        "old_value": "https://bluepearlvet.com/hospital/",
+        "new_value": "https://bluepearlvet.com/find-a-hospital/",
+        "evidence_url": "https://bluepearlvet.com/find-a-hospital/",
+        "supporting_quote": "Find a BluePearl Hospital",
+        "checked_at": "2026-10-11",
+        "branch_scope": "BluePearl network — no physical clinic",
+        "note": "Network discovery source, not clinic/service evidence. Reader could not open /hospital/; do not claim closure or HTTP 404.",
+        "old_value_file": "data/oncology_care_source_inventory.json"
+      },
+      {
+        "source_id": "network-bluepearl",
+        "field": "inventory.supporting_urls",
+        "old_value": [
+          "https://bluepearlvet.com/find-a-hospital/"
+        ],
+        "new_value": [
+          "https://bluepearlvet.com/sitemap/",
+          "https://bluepearlvet.com/hospital/"
+        ],
+        "evidence_url": "https://bluepearlvet.com/sitemap/",
+        "supporting_quote": "Hospitals",
+        "checked_at": "2026-10-11",
+        "branch_scope": "BluePearl network — no physical clinic",
+        "note": "Preserve legacy route as fallback; no national completeness claim.",
+        "old_value_file": "data/oncology_care_source_inventory.json"
+      },
+      {
+        "source_id": "bluepearl-pet-hospital-sandy-springs",
+        "field": "supplemental.services",
+        "old_value": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Radiation oncology",
+          "Immunotherapy",
+          "Surgery"
+        ],
+        "new_value": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Radiation oncology",
+          "Surgery"
+        ],
+        "evidence_url": "https://bluepearlvet.com/hospital/sandy-springs-ga/specialties-services/oncology/",
+        "supporting_quote": "Chemotherapy",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Sandy Springs, GA 30328 — 455 Abernathy Rd. NE",
+        "note": "Remove immunotherapy from confirmed filters because only network-like FAQ supports it; availability remains unresolved, not proven absent.",
+        "old_value_file": "data/oncology_centers_supplemental.json"
+      },
+      {
+        "source_id": "bluepearl-pet-hospital-studio-city-los-angeles",
+        "field": "supplemental.services",
+        "old_value": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Radiation oncology",
+          "Electrochemotherapy",
+          "Immunotherapy",
+          "Surgery"
+        ],
+        "new_value": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Radiation oncology",
+          "Electrochemotherapy",
+          "Surgery"
+        ],
+        "evidence_url": "https://bluepearlvet.com/hospital/los-angeles-ca/specialties-services/oncology/",
+        "supporting_quote": "Chemotherapy",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Studio City, CA 91604 — 11730 Ventura Blvd",
+        "note": "Remove immunotherapy from confirmed filters because only network-like FAQ supports it; availability remains unresolved, not proven absent.",
+        "old_value_file": "data/oncology_centers_supplemental.json"
+      },
+      {
+        "source_id": "bluepearl-pet-hospital-tacoma-lakewood",
+        "field": "supplemental.services",
+        "old_value": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Electrochemotherapy",
+          "Immunotherapy",
+          "Targeted therapy",
+          "Stelfonta"
+        ],
+        "new_value": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Electrochemotherapy",
+          "Immunotherapy",
+          "Targeted therapy",
+          "Stelfonta",
+          "Surgery"
+        ],
+        "evidence_url": "https://bluepearlvet.com/hospital/tacoma-wa/specialties-services/oncology/",
+        "supporting_quote": "Surgery",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Lakewood, WA 98499 — 2510 84th St. S, Ste. 30D",
+        "note": "Add ordinary surgery only. Existing ECT, targeted therapy, ELIAS immunotherapy and Stelfonta remain supported. Not a specialized surgical-oncology certification claim.",
+        "old_value_file": "data/oncology_centers_supplemental.json"
+      },
+      {
+        "source_id": "bluepearl-pet-hospital-raleigh",
+        "field": "supplemental.services",
+        "old_value": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Radiation oncology",
+          "Immunotherapy",
+          "Surgery"
+        ],
+        "new_value": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Surgery"
+        ],
+        "evidence_url": "https://bluepearlvet.com/hospital/raleigh-nc/specialties-services/oncology/",
+        "supporting_quote": "Chemotherapy",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Raleigh, NC 27616 — 4640 Paragon Park Rd.",
+        "note": "Conservative confirmed-only projection: RT and immunotherapy must remain as unresolved notes, not declarations of absence.",
+        "old_value_file": "data/oncology_centers_supplemental.json"
+      },
+      {
+        "source_id": "bluepearl-specialty-and-emergency-hospital-jacksonville",
+        "field": "care_record.services",
+        "old_value": [
+          "Medical oncology"
+        ],
+        "new_value": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Surgery"
+        ],
+        "evidence_url": "https://bluepearlvet.com/hospital/jacksonville-fl/specialties-services/oncology/",
+        "supporting_quote": "Chemotherapy",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Jacksonville, FL 32216 — 3444 Southside Blvd., Ste. 103",
+        "old_value_file": "data/oncology_centers.json",
+        "integration_target": "reconcile source inputs; regenerate data/oncology_centers.json",
+        "note": "Confirmed local projection; ordinary Surgery does not assign a surgical-oncology diploma; RT remains unresolved at Jacksonville/Grand Rapids."
+      },
+      {
+        "source_id": "bluepearl-specialty-emergency-medicine-for-pets-mi",
+        "field": "care_record.services",
+        "old_value": [
+          "Medical oncology"
+        ],
+        "new_value": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Radiation oncology",
+          "Surgery"
+        ],
+        "evidence_url": "https://bluepearlvet.com/hospital/southfield-mi/specialties-services/oncology/",
+        "supporting_quote": "Chemotherapy",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Southfield, MI 48034 — 29080 Inkster Rd.",
+        "old_value_file": "data/oncology_centers.json",
+        "integration_target": "reconcile source inputs; regenerate data/oncology_centers.json",
+        "note": "Confirmed local projection; ordinary Surgery does not assign a surgical-oncology diploma; RT remains unresolved at Jacksonville/Grand Rapids."
+      },
+      {
+        "source_id": "bluepearl-spring-tx",
+        "field": "care_record.services",
+        "old_value": [
+          "Medical oncology"
+        ],
+        "new_value": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Surgery"
+        ],
+        "evidence_url": "https://bluepearlvet.com/hospital/spring-tx/specialties-services/oncology/",
+        "supporting_quote": "Chemotherapy",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Spring, TX 77388 — 1646 Spring Cypress Rd.",
+        "old_value_file": "data/oncology_centers.json",
+        "integration_target": "reconcile source inputs; regenerate data/oncology_centers.json",
+        "note": "Confirmed local projection; ordinary Surgery does not assign a surgical-oncology diploma; RT remains unresolved at Jacksonville/Grand Rapids."
+      },
+      {
+        "source_id": "bluepearl-veterinary-partners",
+        "field": "care_record.services",
+        "old_value": [
+          "Medical oncology"
+        ],
+        "new_value": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Radiation oncology",
+          "Surgery"
+        ],
+        "evidence_url": "https://bluepearlvet.com/hospital/tampa-fl/specialties-services/oncology/",
+        "supporting_quote": "Chemotherapy",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Tampa, FL 33614 — 3000 Busch Lake Blvd.",
+        "old_value_file": "data/oncology_centers.json",
+        "integration_target": "reconcile source inputs; regenerate data/oncology_centers.json",
+        "note": "Confirmed local projection; ordinary Surgery does not assign a surgical-oncology diploma; RT remains unresolved at Jacksonville/Grand Rapids."
+      },
+      {
+        "source_id": "bluepearl-veterinary-specialists-grand-rapids",
+        "field": "care_record.services",
+        "old_value": [
+          "Medical oncology"
+        ],
+        "new_value": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Surgery"
+        ],
+        "evidence_url": "https://bluepearlvet.com/hospital/grand-rapids-mi/specialties-services/oncology/",
+        "supporting_quote": "Chemotherapy",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Grand Rapids, MI 49546 — 2500 East Paris Ave SE",
+        "old_value_file": "data/oncology_centers.json",
+        "integration_target": "reconcile source inputs; regenerate data/oncology_centers.json",
+        "note": "Confirmed local projection; ordinary Surgery does not assign a surgical-oncology diploma; RT remains unresolved at Jacksonville/Grand Rapids."
+      },
+      {
+        "source_id": "bluepearl-specialty-emergency-medicine-for-pets-mi",
+        "field": "care_record.phone",
+        "old_value": "",
+        "new_value": "248-354-6640",
+        "evidence_url": "https://bluepearlvet.com/hospital/southfield-mi/",
+        "supporting_quote": "248.354.6640",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Southfield, MI 48034 — 29080 Inkster Rd.",
+        "old_value_file": "data/oncology_centers.json",
+        "integration_target": "reconcile source inputs; regenerate data/oncology_centers.json",
+        "note": "Current official reception telephone."
+      },
+      {
+        "source_id": "bluepearl-virginia",
+        "field": "care_record.phone",
+        "old_value": "",
+        "new_value": "757-499-5463",
+        "evidence_url": "https://bluepearlvet.com/hospital/virginia-beach-va/",
+        "supporting_quote": "757.499.5463",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Virginia Beach, VA 23452 — 364 S Independence Blvd.",
+        "old_value_file": "data/oncology_centers.json",
+        "integration_target": "reconcile source inputs; regenerate data/oncology_centers.json",
+        "note": "Current official reception telephone."
+      },
+      {
+        "source_id": "bluepearl-virginia",
+        "field": "care_record.location",
+        "old_value": {
+          "street": "1100 Eden Way N., Ste. 101B",
+          "city": "Chesapeake",
+          "postal_code": "23320"
+        },
+        "new_value": {
+          "street": "364 S Independence Blvd.",
+          "city": "Virginia Beach",
+          "postal_code": "23452"
+        },
+        "evidence_url": "https://bluepearlvet.com/hospital/virginia-beach-va/",
+        "supporting_quote": "Our Greenbrier and Town Center hospitals have united",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Virginia Beach, VA 23452 — 364 S Independence Blvd.",
+        "old_value_file": "data/oncology_centers.json",
+        "integration_target": "reconcile source inputs; regenerate data/oncology_centers.json",
+        "note": "Retain source/provenance, supersede Chesapeake physical card, reconcile with Town Center before adding. Do not reuse Chesapeake coordinates."
+      },
+      {
+        "source_id": "bluepearl-pet-hospital-tacoma",
+        "field": "care_record.current_physical_representation",
+        "old_value": {
+          "name": "BluePearl Pet Hospital – Tacoma",
+          "street": "5608 S Durango St",
+          "city": "Tacoma",
+          "postal_code": "98409"
+        },
+        "new_value": {
+          "canonical_source_id": "bluepearl-pet-hospital-tacoma-lakewood",
+          "street": "2510 84th Street S, Suite 30D",
+          "city": "Lakewood",
+          "postal_code": "98499",
+          "public_card_count": 1
+        },
+        "evidence_url": "https://bluepearlvet.com/hospital/tacoma-wa/",
+        "supporting_quote": "We are located in the Lakewood suburb of Tacoma",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Lakewood, WA 98499 — 2510 84th St. S, Ste. 30D",
+        "old_value_file": "data/oncology_centers.json",
+        "integration_target": "reconcile source inputs; regenerate data/oncology_centers.json",
+        "note": "Identity decision based on same hospital name, official branch path, phone, current address and shared team, not URL alone. Keep old inventory identity as alias/history. Exact relocation date is not asserted."
+      }
+    ],
+    "unresolved": [
+      {
+        "source_ids": [
+          "bluepearl-pet-hospital-raleigh"
+        ],
+        "question": "Где фактически выполняют RT для Raleigh: 4640 Paragon Park или другой центр? Treatment section заявляет RT, но local roster/service index не дают независимого подтверждения доставки здесь.",
+        "urls": [
+          "https://bluepearlvet.com/hospital/raleigh-nc/specialties-services/oncology/",
+          "https://bluepearlvet.com/hospital/raleigh-nc/our-vets/",
+          "https://bluepearlvet.com/hospital/raleigh-nc/specialties-services/"
+        ],
+        "classification": "local modality scope conflict",
+        "catalog_decision": "Exclude from confirmed local Radiation oncology filters. Retain unresolved factual scope, do not state treatment unavailable. Stronger indirect evidence does not establish local delivery.",
+        "processing_assessment": "available published evidence reviewed; local delivery not established",
+        "next_action": "Revisit on new official provider/equipment/service notice; no clinic contact authorized.",
+        "indirect_review_completed": true,
+        "supporting_sources": [
+          "https://vetcancersociety.org/wp-content/uploads/2024/08/Radiation-Facilities-List.pdf",
+          "https://careers.bluepearlvet.com/us/en/job/BVOBLUUSR228382EXTERNALENUS/Veterinary-Technician-Radiation-Oncology",
+          "https://www.linkedin.com/jobs/view/veterinary-technician-radiation-oncology-at-bluepearl-pet-hospital-4438552492"
+        ]
+      },
+      {
+        "source_ids": [
+          "bluepearl-specialty-and-emergency-hospital-jacksonville"
+        ],
+        "question": "Выполняют ли RT в самом Jacksonville? Local oncology treatment section заявляет RT, но указан medical oncologist Mendez; radiation internship не подтверждает ни DACVR-RO, ни оборудование.",
+        "urls": [
+          "https://bluepearlvet.com/hospital/jacksonville-fl/specialties-services/oncology/",
+          "https://bluepearlvet.com/hospital/jacksonville-fl/our-vets/",
+          "https://bluepearlvet.com/hospital/jacksonville-fl/specialties-services/"
+        ],
+        "classification": "local modality scope unestablished",
+        "catalog_decision": "Exclude from confirmed local Radiation oncology filters. Retain unresolved factual scope, do not state treatment unavailable. Stronger indirect evidence does not establish local delivery.",
+        "processing_assessment": "available published evidence reviewed; local delivery not established",
+        "next_action": "Revisit on new official provider/equipment/service notice; no clinic contact authorized.",
+        "indirect_review_completed": true,
+        "supporting_sources": [
+          "https://vetcancersociety.org/wp-content/uploads/2024/08/Radiation-Facilities-List.pdf",
+          "https://www.tealhq.com/job/veterinary-technician-oncology_7ea1a19996912768fa2f727517584adb2bf23"
+        ]
+      },
+      {
+        "source_ids": [
+          "bluepearl-veterinary-specialists-grand-rapids"
+        ],
+        "question": "Есть ли местная лучевая терапия в Grand Rapids? Oncology page перечисляет RT; roster содержит диагностических DACVR, не radiation oncologist, а перечень услуг и пресс-релиз не устанавливают RT.",
+        "urls": [
+          "https://bluepearlvet.com/hospital/grand-rapids-mi/specialties-services/oncology/",
+          "https://bluepearlvet.com/hospital/grand-rapids-mi/our-vets/",
+          "https://bluepearlvet.com/press-releases-announcements/new-location-grand-rapids/"
+        ],
+        "classification": "local modality scope conflict",
+        "catalog_decision": "Exclude from confirmed local Radiation oncology filters. Retain unresolved factual scope, do not state treatment unavailable. Stronger indirect evidence does not establish local delivery.",
+        "processing_assessment": "available published evidence reviewed; local delivery not established",
+        "next_action": "Revisit on new official provider/equipment/service notice; no clinic contact authorized.",
+        "indirect_review_completed": true,
+        "supporting_sources": [
+          "https://vetcancersociety.org/wp-content/uploads/2024/08/Radiation-Facilities-List.pdf",
+          "https://www.waggle.org/campaigns/pavlov-grand-rapids-8ba76b",
+          "https://www.mdarchitects.com/veterinary-architecture-projects/bluepearl-emergency-pet-hospital-brentwood/",
+          "https://careers.bluepearlvet.com/us/en/grand-rapids-mi-er-vet-and-vet-techs-lp"
+        ]
+      }
+    ],
+    "verified_records": [
+      {
+        "source_id": "bluepearl-pet-hospital-raleigh",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Raleigh, NC 27616 — 4640 Paragon Park Rd.",
+        "status": "review_complete_local_radiation_unresolved",
+        "address": "4640 Paragon Park Rd., Raleigh, NC, 27616",
+        "phone": "919-861-0109",
+        "website": "https://bluepearlvet.com/hospital/raleigh-nc/",
+        "clinicians": "Carly Stevens — DVM, DACVIM (Oncology). Хирурги David Lee — DVM, DACVS; KP Spivey — DVM, DACVS (SA).",
+        "confirmed_service_tags": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Surgery"
+        ],
+        "notes": "Локальная онкологическая страница перечисляет RT, но нет подтверждения местной установки/исполнителя. Immunotherapy есть лишь в общем FAQ. Surgical oncology подтверждается как работа с опухолями, без отдельного диплома по онкохирургии. Косвенная проверка RT также выполнена; см. indirect_radiation_review. Решение о confirmed tag не меняется.",
+        "verified_fields": [
+          "operation/current reception location",
+          "address",
+          "phone",
+          "official website",
+          "local oncology roster and published credentials",
+          "local service evidence",
+          "appointment/referral route",
+          "physical vs mobile/remote format"
+        ],
+        "sources": [
+          "https://bluepearlvet.com/hospital/raleigh-nc/",
+          "https://bluepearlvet.com/hospital/raleigh-nc/specialties-services/oncology/",
+          "https://bluepearlvet.com/hospital/raleigh-nc/our-vets/",
+          "https://bluepearlvet.com/hospital/raleigh-nc/specialties-services/",
+          "https://bluepearlvet.com/hospital/raleigh-nc/specialties-services/surgery/"
+        ],
+        "access": "Физический приём по записи. Онкологическая страница допускает прямой звонок или направление; главная рекомендует направление. Mobile/teleoncology не установлены, это не отрицание их существования.",
+        "current_canonical_record": {
+          "name": "BluePearl Pet Hospital – Raleigh",
+          "street": "4640 Paragon Park Road",
+          "city": "Raleigh",
+          "region": "NC",
+          "postal_code": "27616",
+          "country": "USA",
+          "phone": "919-861-0109",
+          "website": "https://bluepearlvet.com/hospital/raleigh-nc/specialties-services/oncology/",
+          "services": [
+            "Medical oncology",
+            "Chemotherapy",
+            "Radiation oncology",
+            "Immunotherapy",
+            "Surgery"
+          ],
+          "source": "Official BluePearl oncology page",
+          "verification_url": "https://bluepearlvet.com/hospital/raleigh-nc/specialties-services/oncology/",
+          "latitude": 35.8673,
+          "longitude": -78.5381
+        }
+      },
+      {
+        "source_id": "bluepearl-pet-hospital-rockville",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Rockville, MD 20850 — 1 Taft Ct.",
+        "status": "review_complete_listing_decision",
+        "address": "1 Taft Ct., Rockville, MD, 20850",
+        "phone": "301-637-3228",
+        "website": "https://bluepearlvet.com/hospital/rockville-md/",
+        "clinicians": "Rachel Rasmussen и Abbie Speas — DVM, DACVIM (Oncology). Хирурги Tai Li Nelson и Raphael Repellin — DVM; board certification на этих страницах не заявлена.",
+        "confirmed_service_tags": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Immunotherapy",
+          "Electrochemotherapy",
+          "Surgery"
+        ],
+        "notes": "RT прямо обозначена как внешнее направление. Repellin описывает онкологические операции и сложные удаления масс; не присваивать ему DACVS.",
+        "verified_fields": [
+          "operation/current reception location",
+          "address",
+          "phone",
+          "official website",
+          "local oncology roster and published credentials",
+          "local service evidence",
+          "appointment/referral route",
+          "physical vs mobile/remote format"
+        ],
+        "sources": [
+          "https://bluepearlvet.com/hospital/rockville-md/",
+          "https://bluepearlvet.com/hospital/rockville-md/specialties-services/oncology/",
+          "https://bluepearlvet.com/hospital/rockville-md/our-vets/",
+          "https://bluepearlvet.com/hospital/rockville-md/specialties-services/",
+          "https://bluepearlvet.com/hospital/rockville-md/specialties-services/surgery/"
+        ],
+        "access": "Физический приём по записи. Онкологическая страница допускает прямой звонок или направление; главная рекомендует направление. Mobile/teleoncology не установлены, это не отрицание их существования.",
+        "current_canonical_record": {
+          "name": "BluePearl Pet Hospital – Rockville",
+          "street": "1 Taft Ct",
+          "city": "Rockville",
+          "region": "MD",
+          "postal_code": "20850",
+          "country": "USA",
+          "phone": "301-637-3228",
+          "services": [
+            "Medical oncology",
+            "Chemotherapy",
+            "Immunotherapy",
+            "ECT",
+            "Surgery"
+          ],
+          "website": "https://bluepearlvet.com/hospital/rockville-md/specialties-services/oncology/",
+          "latitude": 39.0892,
+          "longitude": -77.1909,
+          "source": "Existing verified directory",
+          "verification_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=092347fe-69b7-40ad-b9d8-aee6f0e825c5",
+          "oncologist_count": 2
+        }
+      },
+      {
+        "source_id": "bluepearl-pet-hospital-sandy-springs",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Sandy Springs, GA 30328 — 455 Abernathy Rd. NE",
+        "status": "review_complete_listing_decision",
+        "address": "455 Abernathy Rd. NE, Sandy Springs, GA, 30328",
+        "phone": "404-459-0903",
+        "website": "https://bluepearlvet.com/hospital/sandy-springs-ga/",
+        "clinicians": "Jordan Ayers — DVM, MS, DACVIM (Oncology); Jackie Wypij — DVM, MS, DACVIM (Oncology); Rothman Reyes — DVM, MS, completed oncology residency, без заявленного board status; Lauren Fout — MVB, DACVR-RO. Хирурги Cassandra Ruthrauff и Jackson Sanders — DVM, DACVS (SA); Kevin Winkler — DVM, DACVS.",
+        "confirmed_service_tags": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Radiation oncology",
+          "Surgery"
+        ],
+        "notes": "Immunotherapy не подтверждена вне общего FAQ. Интерес Fout к SRS/SBRT не доказывает конкретную установленную технологию. Sanders указан с surgical oncology, но отдельный онкохирургический диплом не заявлен.",
+        "verified_fields": [
+          "operation/current reception location",
+          "address",
+          "phone",
+          "official website",
+          "local oncology roster and published credentials",
+          "local service evidence",
+          "appointment/referral route",
+          "physical vs mobile/remote format"
+        ],
+        "sources": [
+          "https://bluepearlvet.com/hospital/sandy-springs-ga/",
+          "https://bluepearlvet.com/hospital/sandy-springs-ga/specialties-services/oncology/",
+          "https://bluepearlvet.com/hospital/sandy-springs-ga/our-vets/",
+          "https://bluepearlvet.com/hospital/sandy-springs-ga/specialties-services/",
+          "https://bluepearlvet.com/hospital/sandy-springs-ga/specialties-services/surgery/"
+        ],
+        "access": "Физический приём по записи. Онкологическая страница допускает прямой звонок или направление; главная рекомендует направление. Mobile/teleoncology не установлены, это не отрицание их существования.",
+        "current_canonical_record": {
+          "name": "BluePearl Pet Hospital – Sandy Springs",
+          "street": "455 Abernathy Road NE",
+          "city": "Sandy Springs",
+          "region": "GA",
+          "postal_code": "30328",
+          "country": "USA",
+          "phone": "404-459-0903",
+          "website": "https://bluepearlvet.com/hospital/sandy-springs-ga/specialties-services/oncology/",
+          "services": [
+            "Medical oncology",
+            "Chemotherapy",
+            "Radiation oncology",
+            "Immunotherapy",
+            "Surgery"
+          ],
+          "latitude": 33.9335,
+          "longitude": -84.3958,
+          "source": "Official BluePearl oncology page",
+          "verification_url": "https://bluepearlvet.com/hospital/sandy-springs-ga/specialties-services/oncology/",
+          "oncologist_count": 2
+        }
+      },
+      {
+        "source_id": "bluepearl-pet-hospital-studio-city-los-angeles",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Studio City, CA 91604 — 11730 Ventura Blvd",
+        "status": "review_complete_listing_decision",
+        "address": "11730 Ventura Blvd, Studio City, CA, 91604",
+        "phone": "818-760-3882",
+        "website": "https://bluepearlvet.com/hospital/los-angeles-ca/",
+        "clinicians": "Karen Koo — MBA, DVM, DACVIM (Oncology); Lauren Quarterman — DVM, DACVR-RO. Хирурги Natalia Soto — DVM, DACVS (SA); Amanda Tallant — DVM, residency-trained, без заявленного board status.",
+        "confirmed_service_tags": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Radiation oncology",
+          "Electrochemotherapy",
+          "Surgery"
+        ],
+        "notes": "ECT прямо описана как местная услуга Koo. RT поддержана местным treatment section и radiation oncologist. Опыт Quarterman не устанавливает местные SRT/IMRT. Surgery включает tumor removal; отдельная специализированная онкохирургия не установлена. Immunotherapy лишь в общем FAQ.",
+        "verified_fields": [
+          "operation/current reception location",
+          "address",
+          "phone",
+          "official website",
+          "local oncology roster and published credentials",
+          "local service evidence",
+          "appointment/referral route",
+          "physical vs mobile/remote format"
+        ],
+        "sources": [
+          "https://bluepearlvet.com/hospital/los-angeles-ca/",
+          "https://bluepearlvet.com/hospital/los-angeles-ca/specialties-services/oncology/",
+          "https://bluepearlvet.com/hospital/los-angeles-ca/our-vets/",
+          "https://bluepearlvet.com/hospital/los-angeles-ca/specialties-services/",
+          "https://bluepearlvet.com/hospital/los-angeles-ca/specialties-services/surgery/"
+        ],
+        "access": "Физический приём по записи. Онкологическая страница допускает прямой звонок или направление; главная рекомендует направление. Mobile/teleoncology не установлены, это не отрицание их существования.",
+        "current_canonical_record": {
+          "name": "BluePearl Pet Hospital – Studio City Los Angeles",
+          "street": "11730 Ventura Boulevard",
+          "city": "Studio City",
+          "region": "CA",
+          "postal_code": "91604",
+          "country": "USA",
+          "phone": "818-760-3882",
+          "website": "https://bluepearlvet.com/hospital/los-angeles-ca/specialties-services/oncology/",
+          "services": [
+            "Medical oncology",
+            "Chemotherapy",
+            "Radiation oncology",
+            "Electrochemotherapy",
+            "Immunotherapy",
+            "Surgery"
+          ],
+          "source": "Official BluePearl oncology page",
+          "verification_url": "https://bluepearlvet.com/hospital/los-angeles-ca/specialties-services/oncology/",
+          "latitude": 34.143,
+          "longitude": -118.3913
+        }
+      },
+      {
+        "source_id": "bluepearl-pet-hospital-tacoma",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Lakewood, WA 98499 — 2510 84th St. S, Ste. 30D",
+        "status": "review_complete_listing_decision",
+        "address": "2510 84th St. S, Ste. 30D, Lakewood, WA, 98499",
+        "phone": "253-474-0791",
+        "website": "https://bluepearlvet.com/hospital/tacoma-wa/",
+        "clinicians": "Sarah Broom — DVM, DACVIM (Oncology); Sharon Shor — DVM, MS, DACVIM (Oncology). Хирурги Elizabeth Anglin — DVM, DACVS (SA); Benjamin Perry — DVM, MS, DACVS (SA).",
+        "confirmed_service_tags": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Electrochemotherapy",
+          "Immunotherapy",
+          "Targeted therapy",
+          "Stelfonta",
+          "Surgery"
+        ],
+        "notes": "Проверка canonical показала вторую карточку на 5608 S Durango St, Tacoma 98409 с тем же телефоном и oncology URL. Действующий official hospital описывает себя как Tacoma в Lakewood, с новым местоположением 2510 84th St S Ste 30D. Решение: одна текущая карточка Lakewood, старую Tacoma сохранить как alias/history. Точную дату переезда не утверждать. Подтверждены ECT, ELIAS immunotherapy для OSA, Palladia/другие small molecule inhibitors, Stelfonta для MCT, chemotherapy и обычная surgery.",
+        "verified_fields": [
+          "operation/current reception location",
+          "address",
+          "phone",
+          "official website",
+          "local oncology roster and published credentials",
+          "local service evidence",
+          "appointment/referral route",
+          "physical vs mobile/remote format"
+        ],
+        "sources": [
+          "https://bluepearlvet.com/hospital/tacoma-wa/",
+          "https://bluepearlvet.com/hospital/tacoma-wa/specialties-services/oncology/",
+          "https://bluepearlvet.com/hospital/tacoma-wa/our-vets/",
+          "https://bluepearlvet.com/hospital/tacoma-wa/specialties-services/",
+          "https://bluepearlvet.com/hospital/tacoma-wa/specialties-services/surgery/"
+        ],
+        "access": "Физический приём по записи. Онкологическая страница допускает прямой звонок или направление; главная рекомендует направление. Mobile/teleoncology не установлены, это не отрицание их существования.",
+        "current_canonical_record": {
+          "name": "BluePearl Pet Hospital – Tacoma",
+          "street": "5608 S Durango St",
+          "city": "Tacoma",
+          "region": "WA",
+          "postal_code": "98409",
+          "country": "USA",
+          "phone": "253-474-0791",
+          "services": [
+            "Medical oncology",
+            "ECT",
+            "ELIAS ECI",
+            "Stelfonta",
+            "Targeted therapy"
+          ],
+          "website": "https://bluepearlvet.com/hospital/tacoma-wa/specialties-services/oncology/",
+          "latitude": 47.2137,
+          "longitude": -122.4729,
+          "source": "Existing verified directory"
+        },
+        "identity_decision": "One current BluePearl Tacoma hospital in Lakewood. Supersede old 5608 S Durango representation; retain source alias/history, one public card."
+      },
+      {
+        "source_id": "bluepearl-pet-hospital-tacoma-lakewood",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Lakewood, WA 98499 — 2510 84th St. S, Ste. 30D",
+        "status": "review_complete_listing_decision",
+        "address": "2510 84th St. S, Ste. 30D, Lakewood, WA, 98499",
+        "phone": "253-474-0791",
+        "website": "https://bluepearlvet.com/hospital/tacoma-wa/",
+        "clinicians": "Sarah Broom — DVM, DACVIM (Oncology); Sharon Shor — DVM, MS, DACVIM (Oncology). Хирурги Elizabeth Anglin — DVM, DACVS (SA); Benjamin Perry — DVM, MS, DACVS (SA).",
+        "confirmed_service_tags": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Electrochemotherapy",
+          "Immunotherapy",
+          "Targeted therapy",
+          "Stelfonta",
+          "Surgery"
+        ],
+        "notes": "Проверка canonical показала вторую карточку на 5608 S Durango St, Tacoma 98409 с тем же телефоном и oncology URL. Действующий official hospital описывает себя как Tacoma в Lakewood, с новым местоположением 2510 84th St S Ste 30D. Решение: одна текущая карточка Lakewood, старую Tacoma сохранить как alias/history. Точную дату переезда не утверждать. Подтверждены ECT, ELIAS immunotherapy для OSA, Palladia/другие small molecule inhibitors, Stelfonta для MCT, chemotherapy и обычная surgery.",
+        "verified_fields": [
+          "operation/current reception location",
+          "address",
+          "phone",
+          "official website",
+          "local oncology roster and published credentials",
+          "local service evidence",
+          "appointment/referral route",
+          "physical vs mobile/remote format"
+        ],
+        "sources": [
+          "https://bluepearlvet.com/hospital/tacoma-wa/",
+          "https://bluepearlvet.com/hospital/tacoma-wa/specialties-services/oncology/",
+          "https://bluepearlvet.com/hospital/tacoma-wa/our-vets/",
+          "https://bluepearlvet.com/hospital/tacoma-wa/specialties-services/",
+          "https://bluepearlvet.com/hospital/tacoma-wa/specialties-services/surgery/"
+        ],
+        "access": "Физический приём по записи. Онкологическая страница допускает прямой звонок или направление; главная рекомендует направление. Mobile/teleoncology не установлены, это не отрицание их существования.",
+        "current_canonical_record": {
+          "name": "BluePearl Pet Hospital Tacoma – Lakewood",
+          "street": "2510 84th Street S, Suite 30D",
+          "city": "Lakewood",
+          "region": "WA",
+          "postal_code": "98499",
+          "country": "USA",
+          "phone": "253-474-0791",
+          "website": "https://bluepearlvet.com/hospital/tacoma-wa/specialties-services/oncology/",
+          "services": [
+            "Medical oncology",
+            "Chemotherapy",
+            "Electrochemotherapy",
+            "Immunotherapy",
+            "Targeted therapy",
+            "Stelfonta"
+          ],
+          "latitude": 47.1677,
+          "longitude": -122.5024,
+          "source": "Official BluePearl oncology and hospital pages",
+          "verification_url": "https://bluepearlvet.com/hospital/tacoma-wa/specialties-services/oncology/",
+          "oncologist_count": 1
+        },
+        "identity_decision": "One current BluePearl Tacoma hospital in Lakewood. Supersede old 5608 S Durango representation; retain source alias/history, one public card."
+      },
+      {
+        "source_id": "bluepearl-specialty-and-emergency-hospital-jacksonville",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Jacksonville, FL 32216 — 3444 Southside Blvd., Ste. 103",
+        "status": "review_complete_local_radiation_unresolved",
+        "address": "3444 Southside Blvd., Ste. 103, Jacksonville, FL, 32216",
+        "phone": "904-646-1287",
+        "website": "https://bluepearlvet.com/hospital/jacksonville-fl/",
+        "clinicians": "Susan Mendez — DVM, DACVIM (Oncology). Amy Sheil — DVM, хирург, без заявленного board status.",
+        "confirmed_service_tags": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Surgery"
+        ],
+        "notes": "RT перечислена в treatment section, но местная команда/оборудование не установлены; radiation internship Mendez не является certification или доказательством RT. Tumor removal заявлен локально; специализированная онкохирургия не установлена. Страница уведомляет об объединении Gainesville с Jacksonville, не о закрытии Jacksonville. Косвенная проверка RT также выполнена; см. indirect_radiation_review. Решение о confirmed tag не меняется.",
+        "verified_fields": [
+          "operation/current reception location",
+          "address",
+          "phone",
+          "official website",
+          "local oncology roster and published credentials",
+          "local service evidence",
+          "appointment/referral route",
+          "physical vs mobile/remote format"
+        ],
+        "sources": [
+          "https://bluepearlvet.com/hospital/jacksonville-fl/",
+          "https://bluepearlvet.com/hospital/jacksonville-fl/specialties-services/oncology/",
+          "https://bluepearlvet.com/hospital/jacksonville-fl/our-vets/",
+          "https://bluepearlvet.com/hospital/jacksonville-fl/specialties-services/",
+          "https://bluepearlvet.com/hospital/jacksonville-fl/specialties-services/surgery/"
+        ],
+        "access": "Физический приём по записи. Онкологическая страница допускает прямой звонок или направление; главная рекомендует направление. Mobile/teleoncology не установлены, это не отрицание их существования.",
+        "current_canonical_record": {
+          "name": "BluePearl Specialty and Emergency Hospital - Jacksonville",
+          "street": "3444 Southside Blvd, Suite 103",
+          "city": "Jacksonville",
+          "region": "FL",
+          "postal_code": "32216",
+          "country": "USA",
+          "phone": "904.646.1287",
+          "website": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=b9433b78-127a-4b7c-98af-f286fcfbbd39",
+          "services": [
+            "Medical oncology"
+          ],
+          "latitude": 30.2787,
+          "longitude": -81.5831,
+          "source": "ACVIM VetSpecialists directory",
+          "verification_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=b9433b78-127a-4b7c-98af-f286fcfbbd39",
+          "oncologist_count": 1
+        }
+      },
+      {
+        "source_id": "bluepearl-specialty-emergency-medicine-for-pets-mi",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Southfield, MI 48034 — 29080 Inkster Rd.",
+        "status": "review_complete_listing_decision",
+        "address": "29080 Inkster Rd., Southfield, MI, 48034",
+        "phone": "248-354-6640",
+        "website": "https://bluepearlvet.com/hospital/southfield-mi/",
+        "clinicians": "Kristina Anderson и Angela Kozicki — DVM, DACVIM (Oncology); Leanne Magestro — DVM, DACVR-RO; Kelsey Duggan — DVM, radiation oncology resident. Eric Hans и Brooke Luce — DVM, DACVS (SA); Karyn Maxworthy — MS, DVM, DACVS (SA). Josephine Gendler — DVM, surgery resident; обе повторно прочитанные местные страницы согласованы.",
+        "confirmed_service_tags": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Radiation oncology",
+          "Surgery"
+        ],
+        "notes": "Местный radiation care описан отдельно, Magestro DACVR-RO. Онкологическая хирургия описана у Maxworthy; surgeons не medical oncologists. Gendler представлять DVM/resident; прежняя отметка конфликта снята после повторной проверки. Immunotherapy из общего FAQ не переносится в подтверждённый набор.",
+        "verified_fields": [
+          "operation/current reception location",
+          "address",
+          "phone",
+          "official website",
+          "local oncology roster and published credentials",
+          "local service evidence",
+          "appointment/referral route",
+          "physical vs mobile/remote format"
+        ],
+        "sources": [
+          "https://bluepearlvet.com/hospital/southfield-mi/",
+          "https://bluepearlvet.com/hospital/southfield-mi/specialties-services/oncology/",
+          "https://bluepearlvet.com/hospital/southfield-mi/our-vets/",
+          "https://bluepearlvet.com/hospital/southfield-mi/specialties-services/",
+          "https://bluepearlvet.com/hospital/southfield-mi/specialties-services/surgery/"
+        ],
+        "access": "Физический приём по записи. Онкологическая страница допускает прямой звонок или направление; главная рекомендует направление. Mobile/teleoncology не установлены, это не отрицание их существования.",
+        "current_canonical_record": {
+          "name": "BluePearl Specialty & Emergency Medicine for Pets - MI",
+          "street": "29080 Inkster Rd.",
+          "city": "Southfield",
+          "region": "MI",
+          "postal_code": "48034",
+          "country": "USA",
+          "phone": "",
+          "website": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=93304d01-d112-479d-a52e-1b905ed40e04",
+          "services": [
+            "Medical oncology"
+          ],
+          "latitude": 42.4969,
+          "longitude": -83.2911,
+          "source": "ACVIM VetSpecialists directory",
+          "verification_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=93304d01-d112-479d-a52e-1b905ed40e04",
+          "oncologist_count": 1
+        }
+      },
+      {
+        "source_id": "bluepearl-spring-tx",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Spring, TX 77388 — 1646 Spring Cypress Rd.",
+        "status": "review_complete_listing_decision",
+        "address": "1646 Spring Cypress Rd., Spring, TX, 77388",
+        "phone": "832-616-5000",
+        "website": "https://bluepearlvet.com/hospital/spring-tx/",
+        "clinicians": "Elizabeth Snyder — DVM, DACVIM (Oncology). Mike Ficklin — DVM, DACVS (SA); Laura Hinton — DVM, DACVS; Christian Latimer — DVM, CCRP, DACVS (SA); Brian Saunders — DVM, PhD, DACVS (SA); Alissa Pike и Lindsey Ramirez — DVM, без заявленного board status.",
+        "confirmed_service_tags": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Surgery"
+        ],
+        "notes": "Локальный treatment section: chemotherapy/surgery. Интерес Snyder к immunotherapy и targeted therapy — не доказательство текущей услуги. Hinton имеет интерес к surgical oncology плюс локальная surgery service, без отдельного онкохирургического диплома. In-home hospice не означает mobile cancer therapy или teleoncology.",
+        "verified_fields": [
+          "operation/current reception location",
+          "address",
+          "phone",
+          "official website",
+          "local oncology roster and published credentials",
+          "local service evidence",
+          "appointment/referral route",
+          "physical vs mobile/remote format"
+        ],
+        "sources": [
+          "https://bluepearlvet.com/hospital/spring-tx/",
+          "https://bluepearlvet.com/hospital/spring-tx/specialties-services/oncology/",
+          "https://bluepearlvet.com/hospital/spring-tx/our-vets/",
+          "https://bluepearlvet.com/hospital/spring-tx/specialties-services/",
+          "https://bluepearlvet.com/hospital/spring-tx/specialties-services/surgery/"
+        ],
+        "access": "Физический приём по записи. Онкологическая страница допускает прямой звонок или направление; главная рекомендует направление. Mobile/teleoncology не установлены, это не отрицание их существования.",
+        "current_canonical_record": {
+          "name": "BluePearl - Spring, TX",
+          "street": "1646 Spring Cypress Rd",
+          "city": "Spring",
+          "region": "TX",
+          "postal_code": "77388",
+          "country": "USA",
+          "phone": "832.616.5000",
+          "website": "https://bluepearlvet.com/hospital/spring-tx/",
+          "services": [
+            "Medical oncology"
+          ],
+          "latitude": 30.0505,
+          "longitude": -95.4695,
+          "source": "ACVIM VetSpecialists directory",
+          "verification_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=ffa76baf-8501-4573-9b52-8834d09e69b2",
+          "oncologist_count": 1
+        }
+      },
+      {
+        "source_id": "bluepearl-veterinary-partners",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Tampa, FL 33614 — 3000 Busch Lake Blvd.",
+        "status": "review_complete_listing_decision",
+        "address": "3000 Busch Lake Blvd., Tampa, FL, 33614",
+        "phone": "813-933-8944",
+        "website": "https://bluepearlvet.com/hospital/tampa-fl/",
+        "clinicians": "Jen Coyle — DVM, DACVIM (Oncology); Kelly Kezer — BVSc, DACVIM (Oncology); Jennifer Yee — DVM, DACVR-RO. Kaitlyn Cassel, Christopher Ferrell, Nicholas Olson — DVM, DACVS (SA); Michael Reems — DVM, MS, DACVS (SA); Natali Almodovar Garcia — DVM, surgery resident.",
+        "confirmed_service_tags": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Radiation oncology",
+          "Surgery"
+        ],
+        "notes": "Текущий hospital address — Busch Lake, не Town ‘n’ Country. RT подтверждена local service, Yee и описанием лечения в том же здании. Reems описывает cancer removal/reconstruction. Интерес Kezer к immunotherapy/targeted therapy не переносится автоматически в service tags.",
+        "verified_fields": [
+          "operation/current reception location",
+          "address",
+          "phone",
+          "official website",
+          "local oncology roster and published credentials",
+          "local service evidence",
+          "appointment/referral route",
+          "physical vs mobile/remote format"
+        ],
+        "sources": [
+          "https://bluepearlvet.com/hospital/tampa-fl/",
+          "https://bluepearlvet.com/hospital/tampa-fl/specialties-services/oncology/",
+          "https://bluepearlvet.com/hospital/tampa-fl/our-vets/",
+          "https://bluepearlvet.com/hospital/tampa-fl/specialties-services/",
+          "https://bluepearlvet.com/hospital/tampa-fl/specialties-services/surgery/"
+        ],
+        "access": "Физический приём по записи. Онкологическая страница допускает прямой звонок или направление; главная рекомендует направление. Mobile/teleoncology не установлены, это не отрицание их существования.",
+        "current_canonical_record": {
+          "name": "BluePearl Veterinary Partners",
+          "street": "3000 Busch Lake Blvd",
+          "city": "Tampa",
+          "region": "FL",
+          "postal_code": "33614",
+          "country": "USA",
+          "phone": "813.933.8944",
+          "website": "http://bluepearlvet.com/tampa-fl/",
+          "services": [
+            "Medical oncology"
+          ],
+          "latitude": 28.0091,
+          "longitude": -82.5034,
+          "source": "ACVIM VetSpecialists directory",
+          "verification_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=0269e9b8-44bf-43de-b2d1-b72fbd0ad59b",
+          "oncologist_count": 2
+        }
+      },
+      {
+        "source_id": "bluepearl-veterinary-specialists-grand-rapids",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Grand Rapids, MI 49546 — 2500 East Paris Ave SE",
+        "status": "review_complete_local_radiation_unresolved",
+        "address": "2500 East Paris Ave SE, Grand Rapids, MI, 49546",
+        "phone": "616-284-5300",
+        "website": "https://bluepearlvet.com/hospital/grand-rapids-mi/",
+        "clinicians": "Christine Swanson — DVM, DACVIM (Oncology). Amanda Conkling — DVM, DACVS (SA); Geoff Hennig — DVM, MS, DACVS (SA). Alexandra Dunn и Brady Stutzman — DVM, DACVR, Diagnostic Imaging, не DACVR-RO.",
+        "confirmed_service_tags": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Surgery"
+        ],
+        "notes": "Переезд 15 октября 2024 подтверждён официальным пресс-релизом и текущим адресом. RT в локальном treatment section, но нет подтверждения местного RT provider/equipment; диагностические радиологи не доказывают RT. Conkling описывает oncologic/reconstructive surgery. Косвенная проверка RT также выполнена; см. indirect_radiation_review. Решение о confirmed tag не меняется.",
+        "verified_fields": [
+          "operation/current reception location",
+          "address",
+          "phone",
+          "official website",
+          "local oncology roster and published credentials",
+          "local service evidence",
+          "appointment/referral route",
+          "physical vs mobile/remote format"
+        ],
+        "sources": [
+          "https://bluepearlvet.com/hospital/grand-rapids-mi/",
+          "https://bluepearlvet.com/hospital/grand-rapids-mi/specialties-services/oncology/",
+          "https://bluepearlvet.com/hospital/grand-rapids-mi/our-vets/",
+          "https://bluepearlvet.com/hospital/grand-rapids-mi/specialties-services/",
+          "https://bluepearlvet.com/hospital/grand-rapids-mi/specialties-services/surgery/"
+        ],
+        "access": "Физический приём по записи. Онкологическая страница допускает прямой звонок или направление; главная рекомендует направление. Mobile/teleoncology не установлены, это не отрицание их существования.",
+        "current_canonical_record": {
+          "name": "BluePearl Veterinary Specialists - Grand Rapids",
+          "street": "2500 E Paris Ave. SE",
+          "city": "Grand Rapids",
+          "region": "MI",
+          "postal_code": "49546",
+          "country": "USA",
+          "phone": "616.284.5300",
+          "website": "http://www.bluepearlvet.com",
+          "services": [
+            "Medical oncology"
+          ],
+          "latitude": 42.928,
+          "longitude": -85.5483,
+          "source": "ACVIM VetSpecialists directory",
+          "verification_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=c39729f8-ab99-42a7-aa44-155c891afd8b",
+          "oncologist_count": 1
+        }
+      },
+      {
+        "source_id": "bluepearl-virginia",
+        "checked_at": "2026-10-11",
+        "branch_scope": "Virginia Beach, VA 23452 — 364 S Independence Blvd.",
+        "status": "review_complete_listing_decision",
+        "address": "364 S Independence Blvd., Virginia Beach, VA, 23452",
+        "phone": "757-499-5463",
+        "website": "https://bluepearlvet.com/hospital/virginia-beach-va/",
+        "clinicians": "William Brewer — DVM, DACVIM (SAIM), DACVIM (Oncology); Nicholas Rinaldi — DVM, oncology residency, board status не заявлен. Anemone Andronescu и Frank Triveri — DVM, surgery residency, board status не заявлен.",
+        "confirmed_service_tags": [
+          "Medical oncology",
+          "Chemotherapy"
+        ],
+        "notes": "Greenbrier/Chesapeake объединён с Town Center; старый URL перенаправляет на Virginia Beach. Oncology treatment section указывает только chemotherapy. Общая surgery service подтверждена, но специализированная oncologic surgery не установлена. Не оставлять активную точку на 1100 Eden Way N.",
+        "verified_fields": [
+          "operation/current reception location",
+          "address",
+          "phone",
+          "official website",
+          "local oncology roster and published credentials",
+          "local service evidence",
+          "appointment/referral route",
+          "physical vs mobile/remote format"
+        ],
+        "sources": [
+          "https://bluepearlvet.com/hospital/virginia-beach-va/",
+          "https://bluepearlvet.com/hospital/virginia-beach-va/specialties-services/oncology/",
+          "https://bluepearlvet.com/hospital/virginia-beach-va/our-vets/",
+          "https://bluepearlvet.com/hospital/virginia-beach-va/specialties-services/",
+          "https://bluepearlvet.com/hospital/virginia-beach-va/specialties-services/surgery/"
+        ],
+        "access": "Физический приём по записи. Онкологическая страница допускает прямой звонок или направление; главная рекомендует направление. Mobile/teleoncology не установлены, это не отрицание их существования.",
+        "current_canonical_record": {
+          "name": "BluePearl Virginia",
+          "street": "1100 Eden Way N., Ste. 101B",
+          "city": "Chesapeake",
+          "region": "VA",
+          "postal_code": "23320",
+          "country": "USA",
+          "phone": "",
+          "website": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=23c8fa8f-68ba-4cad-a686-2c872c371136",
+          "services": [
+            "Medical oncology"
+          ],
+          "latitude": 36.7352,
+          "longitude": -76.2384,
+          "source": "ACVIM VetSpecialists directory",
+          "verification_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=23c8fa8f-68ba-4cad-a686-2c872c371136",
+          "oncologist_count": 1
+        }
+      },
+      {
+        "source_id": "network-bluepearl",
+        "checked_at": "2026-10-11",
+        "branch_scope": "BluePearl network — no physical clinic",
+        "status": "reviewed",
+        "verified_fields": [
+          "source_type=network_master",
+          "finder URL",
+          "official sitemap fallback",
+          "no branch services inferred"
+        ],
+        "sources": [
+          "https://bluepearlvet.com/find-a-hospital/",
+          "https://bluepearlvet.com/sitemap/"
+        ],
+        "notes": "/hospital/ reader inaccessible; finder is available as search shell and sitemap is available. Use for discovery/branch-link routing, not a care card. Complete national marker roster was not enumerated and is outside this assigned B02 scope."
+      }
+    ],
+    "deep_review": {
+      "checked_at": "2026-10-11",
+      "scope": "six question groups from original B02",
+      "decision_authorization": "User: Проверь инфо на сайтах глубже, прими решения",
+      "methods": [
+        "local oncology pages",
+        "local clinician roster",
+        "local surgery pages",
+        "referring-veterinarian pages",
+        "official legacy Grand Rapids landing page",
+        "official relocation release",
+        "official Tacoma diagnostic imaging PDF",
+        "targeted official searches; irrelevant/human oncology results excluded"
+      ],
+      "corrections_to_first_report": [
+        "Josephine Gendler certification conflict withdrawn: repeated local surgery and roster reading shows DVM/resident. Do not infer DACVS from adjacent Eric Hans card.",
+        "Tacoma 98409 is present in canonical directory at 5608 S Durango St; initial ACVIM-only interpretation was insufficient. Current BluePearl official branch identity is Lakewood."
+      ],
+      "not_done": [
+        "No clinic contacts",
+        "No trial search",
+        "No canonical write, push, build or publication"
+      ]
+    },
+    "decisions": [
+      {
+        "subject": "Raleigh/Jacksonville/Grand Rapids RT",
+        "decision": "exclude from confirmed local modality filters; retain unresolved local-delivery claim",
+        "evidence_urls": [
+          "https://bluepearlvet.com/hospital/raleigh-nc/specialties-services/oncology/",
+          "https://bluepearlvet.com/hospital/jacksonville-fl/specialties-services/oncology/",
+          "https://bluepearlvet.com/hospital/grand-rapids-mi/specialties-services/oncology/"
+        ],
+        "reason": "Generic treatment list does not establish in-branch equipment/provider; no contrary proof of absence."
+      },
+      {
+        "subject": "Tacoma/Lakewood",
+        "decision": "one current physical card Lakewood; old Tacoma 5608 S Durango representation superseded; retain alias and provenance",
+        "evidence_urls": [
+          "https://bluepearlvet.com/hospital/tacoma-wa/",
+          "https://bluepearlvet.com/hospital/tacoma-wa/our-vets/",
+          "https://bluepearlvet.com/wp-content/uploads/2023/01/WA_SE_TA_Diagnostic_Imaging_Form_643681158_FIN.pdf"
+        ],
+        "reason": "Name/address/phone/team/current branch path agree. Not an automatic shared-URL merge; exact historical move date not established."
+      },
+      {
+        "subject": "Josephine Gendler",
+        "decision": "DVM, surgery resident; no DACVS tag",
+        "evidence_urls": [
+          "https://bluepearlvet.com/hospital/southfield-mi/our-vets/",
+          "https://bluepearlvet.com/hospital/southfield-mi/specialties-services/surgery/"
+        ],
+        "reason": "Both current page reads explicitly identify resident; prior conflict attribution withdrawn."
+      },
+      {
+        "subject": "Raleigh/Sandy Springs/Studio City immunotherapy",
+        "decision": "remove from confirmed service tags; preserve as not independently verified",
+        "evidence_urls": [
+          "https://bluepearlvet.com/hospital/raleigh-nc/specialties-services/oncology/",
+          "https://bluepearlvet.com/hospital/sandy-springs-ga/specialties-services/oncology/",
+          "https://bluepearlvet.com/hospital/los-angeles-ca/specialties-services/oncology/"
+        ],
+        "reason": "Only repeated FAQ; no branch-specific intervention or offering established."
+      }
+    ],
+    "indirect_radiation_review": {
+      "checked_at": "2026-10-11",
+      "scope": [
+        "bluepearl-pet-hospital-raleigh",
+        "bluepearl-specialty-and-emergency-hospital-jacksonville",
+        "bluepearl-veterinary-specialists-grand-rapids"
+      ],
+      "conclusion": "No assigned branch gains a confirmed local radiation tag. Stronger evidence points to Cary for the NC regional equipment, distinct SEVO-Med in the Jacksonville region; Grand Rapids radiation delivery remains unresolved.",
+      "sources": [
+        {
+          "evidence_url": "https://vetcancersociety.org/wp-content/uploads/2024/08/Radiation-Facilities-List.pdf",
+          "supporting_quote": "Cary",
+          "branch_scope": "BluePearl Cary, not BluePearl Raleigh",
+          "finding": "VCS lists David Ruslander and Halcyon accelerator at Cary. Raleigh row belongs to NCSU. The assigned BluePearl Raleigh is not listed. PDF visually checked on page 2; roster omissions are supporting evidence, not proof of absence."
+        },
+        {
+          "evidence_url": "https://vetcancersociety.org/wp-content/uploads/2024/08/Radiation-Facilities-List.pdf",
+          "supporting_quote": "PetCure Oncology at SEVO-Med",
+          "branch_scope": "Jacksonville-area SEVO-Med, not BluePearl Southside",
+          "finding": "VCS RT row identifies another practice and telephone 904-278-3870. Current PetCure old Jacksonville URL redirects to generic locations; do not infer current SEVO-Med/PetCure availability from this historical listing."
+        },
+        {
+          "evidence_url": "https://vetcancersociety.org/wp-content/uploads/2024/08/Radiation-Facilities-List.pdf",
+          "supporting_quote": "BluePearl Pet Hospital Southfield",
+          "branch_scope": "Michigan RT geography, not BluePearl Grand Rapids",
+          "finding": "VCS lists Southfield, MSU, Kalamazoo and Animal Cancer and Imaging Center; no Grand Rapids BluePearl row. Absence alone is not proof."
+        },
+        {
+          "evidence_url": "https://careers.bluepearlvet.com/us/en/job/BVOBLUUSR228382EXTERNALENUS/Veterinary-Technician-Radiation-Oncology",
+          "supporting_quote": "the job you are trying to apply for has been filled",
+          "branch_scope": "Cary",
+          "finding": "Official prior radiation-technician listing identifies Cary, not Raleigh. Closed vacancy does not mean RT service closed."
+        },
+        {
+          "evidence_url": "https://www.linkedin.com/jobs/view/veterinary-technician-radiation-oncology-at-bluepearl-pet-hospital-4438552492",
+          "supporting_quote": "BluePearl Pet Hospital Cary, NC",
+          "branch_scope": "Cary",
+          "finding": "Employer-associated job posting geographically supports Cary; generic chemotherapy duties do not establish a separate machine location."
+        },
+        {
+          "evidence_url": "https://raleighncvet.com/pet-resources/",
+          "supporting_quote": "medical and radiation oncology",
+          "branch_scope": "regional BluePearl referral network; no specific branch",
+          "finding": "Referring clinic lists BluePearl generally and links generic brand route; no proof at Paragon Park."
+        },
+        {
+          "evidence_url": "https://www.waggle.org/campaigns/pavlov-grand-rapids-8ba76b",
+          "supporting_quote": "Pavlov has received radiation treatment for a meningioma.",
+          "branch_scope": "patient linked to Grand Rapids follow-up; treatment site unspecified",
+          "finding": "Primary owner narrative says RT received and follow-up imaging needed. Several practices are named. Does not say accelerator was at BluePearl Grand Rapids."
+        },
+        {
+          "evidence_url": "https://www.mdarchitects.com/veterinary-architecture-projects/bluepearl-emergency-pet-hospital-brentwood/",
+          "supporting_quote": "Brentwood, Tennessee",
+          "branch_scope": "Brentwood, not Grand Rapids",
+          "finding": "Misleading page/search title says Grand Rapids; actual project text is Brentwood/Nashville, completed 2025. Its linear accelerator is not evidence for Michigan."
+        },
+        {
+          "evidence_url": "https://careers.bluepearlvet.com/us/en/grand-rapids-mi-er-vet-and-vet-techs-lp",
+          "supporting_quote": "Oncology",
+          "branch_scope": "Grand Rapids",
+          "finding": "Employer lists oncology and surgery, not specifically RT; supportive only. Page also has generic Seattle imagery, so avoid overreading template."
+        },
+        {
+          "evidence_url": "https://www.tealhq.com/job/veterinary-technician-oncology_7ea1a19996912768fa2f727517584adb2bf23",
+          "supporting_quote": "chemotherapy and radiation side effects",
+          "branch_scope": "Jacksonville job mirror",
+          "finding": "Search content uses generic owner-discharge duties; full page reader unavailable. Does not identify RT unit or location. Not activation evidence."
+        }
+      ],
+      "excluded_as_positive_evidence": [
+        "CatVetFinder branch summaries: generic network-like claims and references to Malvern CyberKnife in Grand Rapids card",
+        "Mixed job-result pages pairing human radiation vacancies or Pittsburgh RT job with Jacksonville veterinary jobs",
+        "Former Grand Rapids rotating interns now radiation specialists elsewhere",
+        "Unspecified patient RT recommendation or post-RT follow-up at host hospital"
+      ],
+      "limitations": [
+        "VCS PDF has older branding and some stale contacts; exact revision date not established from URL year or search publish label.",
+        "No current local machine/provider or explicit outgoing RT referral established at the three assigned BluePearl branches.",
+        "Published owner account is authentic evidence of a patient's treatment history, not proof of clinic-owned equipment.",
+        "No clinic contact or data publication."
+      ]
+    }
+  },
+  "original_seed_tacoma": [
+    {
+      "name": "BluePearl Pet Hospital – Tacoma",
+      "street": "5608 S Durango St",
+      "city": "Tacoma",
+      "region": "WA",
+      "postal_code": "98409",
+      "country": "USA",
+      "phone": "253-474-0791",
+      "services": [
+        "Medical oncology",
+        "ECT",
+        "ELIAS ECI",
+        "Stelfonta",
+        "Targeted therapy"
+      ],
+      "website": "https://bluepearlvet.com/hospital/tacoma-wa/specialties-services/oncology/",
+      "latitude": 47.2137,
+      "longitude": -122.4729,
+      "source": "Existing verified directory"
+    }
+  ],
+  "original_supplemental": [
+    {
+      "name": "BluePearl Pet Hospital – Raleigh",
+      "street": "4640 Paragon Park Road",
+      "city": "Raleigh",
+      "region": "NC",
+      "postal_code": "27616",
+      "country": "USA",
+      "phone": "919-861-0109",
+      "website": "https://bluepearlvet.com/hospital/raleigh-nc/specialties-services/oncology/",
+      "services": [
+        "Medical oncology",
+        "Chemotherapy",
+        "Radiation oncology",
+        "Immunotherapy",
+        "Surgery"
+      ],
+      "source": "Official BluePearl oncology page",
+      "verification_url": "https://bluepearlvet.com/hospital/raleigh-nc/specialties-services/oncology/"
+    },
+    {
+      "name": "BluePearl Pet Hospital – Sandy Springs",
+      "street": "455 Abernathy Road NE",
+      "city": "Sandy Springs",
+      "region": "GA",
+      "postal_code": "30328",
+      "country": "USA",
+      "phone": "404-459-0903",
+      "website": "https://bluepearlvet.com/hospital/sandy-springs-ga/specialties-services/oncology/",
+      "services": [
+        "Medical oncology",
+        "Chemotherapy",
+        "Radiation oncology",
+        "Immunotherapy",
+        "Surgery"
+      ],
+      "source": "Official BluePearl oncology page",
+      "verification_url": "https://bluepearlvet.com/hospital/sandy-springs-ga/specialties-services/oncology/"
+    },
+    {
+      "name": "BluePearl Pet Hospital – Studio City Los Angeles",
+      "street": "11730 Ventura Boulevard",
+      "city": "Studio City",
+      "region": "CA",
+      "postal_code": "91604",
+      "country": "USA",
+      "phone": "818-760-3882",
+      "website": "https://bluepearlvet.com/hospital/los-angeles-ca/specialties-services/oncology/",
+      "services": [
+        "Medical oncology",
+        "Chemotherapy",
+        "Radiation oncology",
+        "Electrochemotherapy",
+        "Immunotherapy",
+        "Surgery"
+      ],
+      "source": "Official BluePearl oncology page",
+      "verification_url": "https://bluepearlvet.com/hospital/los-angeles-ca/specialties-services/oncology/"
+    },
+    {
+      "name": "BluePearl Pet Hospital Tacoma – Lakewood",
+      "street": "2510 84th Street S, Suite 30D",
+      "city": "Lakewood",
+      "region": "WA",
+      "postal_code": "98499",
+      "country": "USA",
+      "phone": "253-474-0791",
+      "website": "https://bluepearlvet.com/hospital/tacoma-wa/specialties-services/oncology/",
+      "services": [
+        "Medical oncology",
+        "Chemotherapy",
+        "Electrochemotherapy",
+        "Immunotherapy",
+        "Targeted therapy",
+        "Stelfonta"
+      ],
+      "source": "Official BluePearl oncology and hospital pages",
+      "verification_url": "https://bluepearlvet.com/hospital/tacoma-wa/specialties-services/oncology/"
+    }
+  ],
+  "original_inventory": [
+    {
+      "id": "bluepearl-pet-hospital-raleigh",
+      "name": "BluePearl Pet Hospital – Raleigh",
+      "source_type": "center",
+      "master_url": "https://bluepearlvet.com/hospital/raleigh-nc/specialties-services/oncology/",
+      "supporting_urls": [],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-11",
+      "last_checked_at": "2026-10-11T07:26:07.411967-04:00",
+      "last_result": "partial",
+      "http_status": 200,
+      "working_url": "https://bluepearlvet.com/hospital/raleigh-nc/specialties-services/oncology/",
+      "fingerprint_sha256": "da588de0c617491b99b5951f4ba1e942cec29a500883e1057fbc4669daa0dacd",
+      "content_sufficient": false,
+      "fingerprint_method": "sha256-normalized-visible-text-v2",
+      "last_run_id": "care-20261011T065613-0400",
+      "last_review_note": "Captured official alternatives checked conservatively; full source-specific service/identity/credentials reconciliation remains unfinished. No success or external-blocker claim.",
+      "last_reviewed_at": "2026-10-11T08:59:21.240668-04:00",
+      "last_review_run_id": "care-resume-20261011T083538-0400"
+    },
+    {
+      "id": "bluepearl-pet-hospital-rockville",
+      "name": "BluePearl Pet Hospital – Rockville",
+      "source_type": "center",
+      "master_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=092347fe-69b7-40ad-b9d8-aee6f0e825c5",
+      "supporting_urls": [],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-11",
+      "last_checked_at": "2026-10-11T07:05:54.817496-04:00",
+      "last_result": "partial",
+      "http_status": 200,
+      "working_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=092347fe-69b7-40ad-b9d8-aee6f0e825c5",
+      "fingerprint_sha256": "3be7f133abbe59a11d61d9bee7c34e52753336772be06782c9caa0eb30c5a679",
+      "content_sufficient": false,
+      "fingerprint_method": "sha256-normalized-visible-text-v2",
+      "last_run_id": "care-20261011T065613-0400",
+      "last_review_note": "Captured official alternatives checked conservatively; full source-specific service/identity/credentials reconciliation remains unfinished. No success or external-blocker claim.",
+      "last_reviewed_at": "2026-10-11T08:59:21.240728-04:00",
+      "last_review_run_id": "care-resume-20261011T083538-0400"
+    },
+    {
+      "id": "bluepearl-pet-hospital-sandy-springs",
+      "name": "BluePearl Pet Hospital – Sandy Springs",
+      "source_type": "center",
+      "master_url": "https://bluepearlvet.com/hospital/sandy-springs-ga/specialties-services/oncology/",
+      "supporting_urls": [],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-11",
+      "last_checked_at": "2026-10-11T07:26:56.602919-04:00",
+      "last_result": "partial",
+      "http_status": 200,
+      "working_url": "https://bluepearlvet.com/hospital/sandy-springs-ga/specialties-services/oncology/",
+      "fingerprint_sha256": "bc2e9dfd82b81b31d4cb7b1fa2c4f4459cfaf40eaed158f87b4b28d3502bac34",
+      "content_sufficient": false,
+      "fingerprint_method": "sha256-normalized-visible-text-v2",
+      "last_run_id": "care-20261011T065613-0400",
+      "last_review_note": "Captured official alternatives checked conservatively; full source-specific service/identity/credentials reconciliation remains unfinished. No success or external-blocker claim.",
+      "last_reviewed_at": "2026-10-11T08:59:21.240819-04:00",
+      "last_review_run_id": "care-resume-20261011T083538-0400"
+    },
+    {
+      "id": "bluepearl-pet-hospital-studio-city-los-angeles",
+      "name": "BluePearl Pet Hospital – Studio City Los Angeles",
+      "source_type": "center",
+      "master_url": "https://bluepearlvet.com/hospital/los-angeles-ca/specialties-services/oncology/",
+      "supporting_urls": [],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-11",
+      "last_checked_at": "2026-10-11T07:25:42.797416-04:00",
+      "last_result": "partial",
+      "http_status": 200,
+      "working_url": "https://bluepearlvet.com/hospital/los-angeles-ca/specialties-services/oncology/",
+      "fingerprint_sha256": "0974dd642205f7f193b95c510657e8f710c05fa99767bff0bc2bbe797798e72d",
+      "content_sufficient": false,
+      "fingerprint_method": "sha256-normalized-visible-text-v2",
+      "last_run_id": "care-20261011T065613-0400",
+      "last_review_note": "Captured official alternatives checked conservatively; full source-specific service/identity/credentials reconciliation remains unfinished. No success or external-blocker claim.",
+      "last_reviewed_at": "2026-10-11T08:59:21.240878-04:00",
+      "last_review_run_id": "care-resume-20261011T083538-0400"
+    },
+    {
+      "id": "bluepearl-pet-hospital-tacoma",
+      "name": "BluePearl Pet Hospital – Tacoma",
+      "source_type": "center",
+      "master_url": "https://bluepearlvet.com/hospital/tacoma-wa/specialties-services/oncology/",
+      "supporting_urls": [],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-11",
+      "last_checked_at": "2026-10-11T07:26:24.819603-04:00",
+      "last_result": "partial",
+      "http_status": 200,
+      "working_url": "https://bluepearlvet.com/hospital/tacoma-wa/specialties-services/oncology/",
+      "fingerprint_sha256": "46768a67a811241585a6a774aefa352c6218d8b76531a67e2caef01797ce9bc4",
+      "content_sufficient": false,
+      "fingerprint_method": "sha256-normalized-visible-text-v2",
+      "last_run_id": "care-20261011T065613-0400",
+      "last_review_note": "Captured official alternatives checked conservatively; full source-specific service/identity/credentials reconciliation remains unfinished. No success or external-blocker claim.",
+      "last_reviewed_at": "2026-10-11T08:59:21.240931-04:00",
+      "last_review_run_id": "care-resume-20261011T083538-0400"
+    },
+    {
+      "id": "bluepearl-pet-hospital-tacoma-lakewood",
+      "name": "BluePearl Pet Hospital Tacoma – Lakewood",
+      "source_type": "center",
+      "master_url": "https://bluepearlvet.com/hospital/tacoma-wa/specialties-services/oncology/",
+      "supporting_urls": [],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-11",
+      "last_checked_at": "2026-10-11T07:26:24.819603-04:00",
+      "last_result": "partial",
+      "http_status": 200,
+      "working_url": "https://bluepearlvet.com/hospital/tacoma-wa/specialties-services/oncology/",
+      "fingerprint_sha256": "46768a67a811241585a6a774aefa352c6218d8b76531a67e2caef01797ce9bc4",
+      "content_sufficient": false,
+      "fingerprint_method": "sha256-normalized-visible-text-v2",
+      "last_run_id": "care-20261011T065613-0400",
+      "last_review_note": "Captured official alternatives checked conservatively; full source-specific service/identity/credentials reconciliation remains unfinished. No success or external-blocker claim.",
+      "last_reviewed_at": "2026-10-11T08:59:21.240978-04:00",
+      "last_review_run_id": "care-resume-20261011T083538-0400"
+    },
+    {
+      "id": "bluepearl-specialty-and-emergency-hospital-jacksonville",
+      "name": "BluePearl Specialty and Emergency Hospital - Jacksonville",
+      "source_type": "center",
+      "master_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=b9433b78-127a-4b7c-98af-f286fcfbbd39",
+      "supporting_urls": [],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-11",
+      "last_checked_at": "2026-10-11T07:06:01.570929-04:00",
+      "last_result": "partial",
+      "http_status": 200,
+      "working_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=b9433b78-127a-4b7c-98af-f286fcfbbd39",
+      "fingerprint_sha256": "a114ef099b793c5d65d13ac7fd3550630412c0c7a3fc699ef22c903f73f041fb",
+      "content_sufficient": false,
+      "fingerprint_method": "sha256-normalized-visible-text-v2",
+      "last_run_id": "care-20261011T065613-0400",
+      "last_review_note": "Captured official alternatives checked conservatively; full source-specific service/identity/credentials reconciliation remains unfinished. No success or external-blocker claim.",
+      "last_reviewed_at": "2026-10-11T08:59:21.241004-04:00",
+      "last_review_run_id": "care-resume-20261011T083538-0400"
+    },
+    {
+      "id": "bluepearl-specialty-emergency-medicine-for-pets-mi",
+      "name": "BluePearl Specialty & Emergency Medicine for Pets - MI",
+      "source_type": "center",
+      "master_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=93304d01-d112-479d-a52e-1b905ed40e04",
+      "supporting_urls": [],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-11",
+      "last_checked_at": "2026-10-11T07:06:01.590885-04:00",
+      "last_result": "partial",
+      "http_status": 200,
+      "working_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=93304d01-d112-479d-a52e-1b905ed40e04",
+      "fingerprint_sha256": "a4d7729c6aa80b67466475df6e32e1ec3805e76926b409bf299747fd073e9a46",
+      "content_sufficient": false,
+      "fingerprint_method": "sha256-normalized-visible-text-v2",
+      "last_run_id": "care-20261011T065613-0400",
+      "last_review_note": "Captured official alternatives checked conservatively; full source-specific service/identity/credentials reconciliation remains unfinished. No success or external-blocker claim.",
+      "last_reviewed_at": "2026-10-11T08:59:21.241018-04:00",
+      "last_review_run_id": "care-resume-20261011T083538-0400"
+    },
+    {
+      "id": "bluepearl-spring-tx",
+      "name": "BluePearl - Spring, TX",
+      "source_type": "center",
+      "master_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=ffa76baf-8501-4573-9b52-8834d09e69b2",
+      "supporting_urls": [],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-11",
+      "last_checked_at": "2026-10-11T07:06:04.773950-04:00",
+      "last_result": "partial",
+      "http_status": 200,
+      "working_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=ffa76baf-8501-4573-9b52-8834d09e69b2",
+      "fingerprint_sha256": "3353c6a059395e057b3c8b267c4a2e61e8394425dc4bb824ddbd183de383dffd",
+      "content_sufficient": false,
+      "fingerprint_method": "sha256-normalized-visible-text-v2",
+      "last_run_id": "care-20261011T065613-0400",
+      "last_review_note": "Captured official alternatives checked conservatively; full source-specific service/identity/credentials reconciliation remains unfinished. No success or external-blocker claim.",
+      "last_reviewed_at": "2026-10-11T08:59:21.241042-04:00",
+      "last_review_run_id": "care-resume-20261011T083538-0400"
+    },
+    {
+      "id": "bluepearl-veterinary-partners",
+      "name": "BluePearl Veterinary Partners",
+      "source_type": "center",
+      "master_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=0269e9b8-44bf-43de-b2d1-b72fbd0ad59b",
+      "supporting_urls": [],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-11",
+      "last_checked_at": "2026-10-11T08:37:18.554307-04:00",
+      "last_result": "partial",
+      "http_status": 200,
+      "working_url": "https://bluepearlvet.com/tampa-fl/",
+      "fingerprint_sha256": "e9a66ddff60d0b1c4e8f3c52c134315d59c2069789035de279f13215aca9989b",
+      "content_sufficient": false,
+      "fingerprint_method": "sha256-visible-text",
+      "last_run_id": "care-resume-20261011T083538-0400",
+      "last_review_note": "Captured official alternatives checked conservatively; full source-specific service/identity/credentials reconciliation remains unfinished. No success or external-blocker claim.",
+      "last_reviewed_at": "2026-10-11T08:59:21.241067-04:00",
+      "last_review_run_id": "care-resume-20261011T083538-0400"
+    },
+    {
+      "id": "bluepearl-veterinary-specialists-grand-rapids",
+      "name": "BluePearl Veterinary Specialists - Grand Rapids",
+      "source_type": "center",
+      "master_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=c39729f8-ab99-42a7-aa44-155c891afd8b",
+      "supporting_urls": [],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-11",
+      "last_checked_at": "2026-10-11T08:52:30.017769-04:00",
+      "last_result": "partial",
+      "http_status": 200,
+      "working_url": "https://www.bluepearlvet.com",
+      "fingerprint_sha256": "6de1f8b7e9fc18e7b72bff4f1d6a0b9ef2d52e317d5247956e9adf1691722dec",
+      "content_sufficient": false,
+      "fingerprint_method": "sha256-visible-text",
+      "last_run_id": "care-resume-20261011T083538-0400",
+      "last_review_note": "Captured official alternatives checked conservatively; full source-specific service/identity/credentials reconciliation remains unfinished. No success or external-blocker claim.",
+      "last_reviewed_at": "2026-10-11T08:59:21.241095-04:00",
+      "last_review_run_id": "care-resume-20261011T083538-0400"
+    },
+    {
+      "id": "bluepearl-virginia",
+      "name": "BluePearl Virginia",
+      "source_type": "center",
+      "master_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=23c8fa8f-68ba-4cad-a686-2c872c371136",
+      "supporting_urls": [],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-11",
+      "last_checked_at": "2026-10-11T07:06:08.564107-04:00",
+      "last_result": "partial",
+      "http_status": 200,
+      "working_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=23c8fa8f-68ba-4cad-a686-2c872c371136",
+      "fingerprint_sha256": "277a7b57776436cdc1dd7789e95f75ea751da543b2f6286ef60ce402e074e0b4",
+      "content_sufficient": false,
+      "fingerprint_method": "sha256-normalized-visible-text-v2",
+      "last_run_id": "care-20261011T065613-0400",
+      "last_review_note": "Captured official alternatives checked conservatively; full source-specific service/identity/credentials reconciliation remains unfinished. No success or external-blocker claim.",
+      "last_reviewed_at": "2026-10-11T08:59:21.241116-04:00",
+      "last_review_run_id": "care-resume-20261011T083538-0400"
+    },
+    {
+      "id": "network-bluepearl",
+      "name": "BluePearl hospitals",
+      "source_type": "network_master",
+      "master_url": "https://bluepearlvet.com/hospital/",
+      "supporting_urls": [
+        "https://bluepearlvet.com/find-a-hospital/"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-11",
+      "last_checked_at": "2026-10-11T07:13:42.905026-04:00",
+      "last_result": "partial",
+      "http_status": 200,
+      "working_url": "https://bluepearlvet.com/hospital/",
+      "fingerprint_sha256": "1609b3fa49b636b0c83b8dc4e4e1972a646b99d43e217ca30dae8421bde3ac1d",
+      "content_sufficient": false,
+      "fingerprint_method": "sha256-normalized-visible-text-v2",
+      "last_run_id": "care-20261011T065613-0400",
+      "last_review_note": "Captured official alternatives checked conservatively; full source-specific service/identity/credentials reconciliation remains unfinished. No success or external-blocker claim.",
+      "last_reviewed_at": "2026-10-11T08:59:21.285322-04:00",
+      "last_review_run_id": "care-resume-20261011T083538-0400"
+    }
+  ],
+  "implementation": {
+    "state": "applied_locally_validated_not_published",
+    "remote_base_sha": "6d70a739babe40e534a295cb8c06f7bda14501ae",
+    "checks": {
+      "python scripts/build_static_site.py": "PASS",
+      "python seo/validate_oncology_centers.py": "PASS: 437 centers, 52 US state/territory regions",
+      "python scripts/test_b02_care_reconciliation.py": "PASS",
+      "python scripts/test_a02_care_reconciliation.py": "PASS",
+      "node scripts/test_a01_care_reconciliation.js": "PASS",
+      "python scripts/check_evidence_keys.py": "PASS",
+      "git diff --check": "PASS",
+      "scope comparison": "PASS: only assigned 13 inventory IDs; unrelated care records and original visit times/fingerprints preserved"
+    },
+    "coordinate_evidence": {
+      "url": "https://api.zippopotam.us/us/23452",
+      "latitude": 36.8348,
+      "longitude": -76.0961,
+      "precision": "ZIP centroid, not hospital coordinate"
+    },
+    "published": false,
+    "pushed": false
+  }
+}
