@@ -1,0 +1,46 @@
+{
+  "source_dates": {
+    "remote_sha": "1a050f7f4780bc4c32a9135d35103b6702e58e7c",
+    "remote_verified_sources": 96,
+    "updated_actual_visit_timestamps": 71,
+    "date_only_D02_review_preserved_previous_visit_time": 25,
+    "status": "PASS",
+    "checked_at": "2026-10-12T23:00:08.390652+00:00",
+    "unresolved_notes_verified": true
+  },
+  "production_pages": [
+    {
+      "url": "https://vettrialfinder.com/matcher/centers/",
+      "status": 200,
+      "bytes": 377001,
+      "exact_build_match": true,
+      "sha256": "a18f4303800f1241dac3742bdad1512303d8a576b49d382fb92d34029a8c5f5f",
+      "checked_at": "2026-10-12T23:00:27.874417+00:00"
+    },
+    {
+      "url": "https://vettrialfinder.com/online-oncology-consultations/",
+      "status": 200,
+      "bytes": 162659,
+      "exact_build_match": true,
+      "sha256": "48a71b3765b7022e903447262c05ddfd8e4ca71d61aa2fdc79623890641bcbcb",
+      "checked_at": "2026-10-12T23:00:31.762161+00:00"
+    }
+  ],
+  "deployed_commit": "1a050f7f4780bc4c32a9135d35103b6702e58e7c",
+  "deployment": {
+    "run_id": 38319723713,
+    "conclusion": "success",
+    "url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/38319723713"
+  },
+  "commands_passed": [
+    "python scripts/build_static_site.py",
+    "python scripts/test_c01_care_reconciliation.py",
+    "python scripts/test_b01_care_reconciliation.py",
+    "python scripts/test_b02_care_reconciliation.py",
+    "python scripts/test_a02_care_reconciliation.py",
+    "node scripts/test_a01_care_reconciliation.js",
+    "node scripts/test_matcher_catalog_loading.js",
+    "python scripts/check_evidence_keys.py",
+    "git diff --check"
+  ]
+}
