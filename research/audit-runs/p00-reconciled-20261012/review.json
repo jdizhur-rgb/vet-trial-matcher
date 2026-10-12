@@ -1,0 +1,2723 @@
+{
+  "package": "P00",
+  "archive_baseline": "e810b14073d5cc13ff76db014a5bddac200fcae6",
+  "reconciled_against": "100baa759fe3ff177988f95cdb22aca5645ec485",
+  "reconciled_at": "2026-10-12T18:34:05.955482-04:00",
+  "scope": "15 source IDs / 14 physical branches; inherited source checks, not new source visits",
+  "records": [
+    {
+      "source_id": "animal-cancer-care-specialists",
+      "branch": {
+        "name": "Animal Cancer Care Specialists",
+        "street": "531 King St Unit 6",
+        "city": "Littleton",
+        "region": "MA",
+        "postal_code": "01460"
+      },
+      "previous_public": {
+        "name": "Animal Cancer Care Specialists",
+        "street": "531 King St Unit 6",
+        "city": "Littleton",
+        "region": "MA",
+        "postal_code": "01460",
+        "country": "USA",
+        "phone": "978-577-4848",
+        "services": [
+          "Medical oncology"
+        ],
+        "website": "https://accsvets.com/about-us/",
+        "latitude": 42.538,
+        "longitude": -71.485,
+        "source": "Existing verified directory"
+      },
+      "missing_changes": {
+        "services_added": [
+          "Chemotherapy",
+          "Immunotherapy",
+          "Targeted therapy"
+        ],
+        "fields": {
+          "website": {
+            "before": "https://accsvets.com/about-us/",
+            "after": "https://accsvets.com/services/"
+          }
+        }
+      },
+      "original_review": {
+        "source_id": "animal-cancer-care-specialists",
+        "reviewed_at": "2026-10-11T16:08:42.718822-04:00",
+        "processing_complete": true,
+        "content_sufficient": true,
+        "outcome": "verified_update",
+        "review_method": "Individual semantic clinical/physical/access/roster reconciliation",
+        "review_note": "Current primary full service/team/location bodies retrieved through search reader: crawled yesterday, not a snippet. Explicit local Treatment Options We Offer lists injectable/oral chemotherapy, immunotherapy and small-molecule therapy. Surgery and all radiation are explicitly referrals; CT also unavailable locally. Current Erin Romansik DVM DACVIM Oncology, Deb Sapienza DVM not asserted board-certified. New Littleton address and phone confirmed; stale page title Acton does not override explicit moved notice. Direct transport remains 403; cached content freshness is recorded rather than fabricated live page success.",
+        "verified_urls": [
+          "https://accsvets.com/services/",
+          "https://accsvets.com/about-us/team/",
+          "https://accsvets.com/about-us/location-hours/",
+          "https://accsvets.com/refer-a-patient/"
+        ],
+        "evidence": [
+          {
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/web-accs-checkpoint-03.json",
+            "method": "web reader / primary full cached body",
+            "attempted_at": "2026-10-11T19:32:27.437Z",
+            "cache_freshness": "See preserved tool response for actual individual page freshness"
+          }
+        ],
+        "actions": [
+          {
+            "added_services": [
+              "Chemotherapy",
+              "Immunotherapy",
+              "Targeted therapy"
+            ],
+            "field_corrections": {
+              "website": "https://accsvets.com/services/"
+            },
+            "source_url": "https://accsvets.com/services/"
+          }
+        ],
+        "publication_status": "pending"
+      },
+      "evidence": [
+        {
+          "official_url": "https://accsvets.com/services/",
+          "quotes": [
+            "Treatment Options We Offer:\n\n  * Chemotherapy – The use of either oral or injectable medication to kill cancer cells.\n  * Immunotherapy – Therapy that activates the patient’s own immune system to fight cancer cells.\n  * Small ​​​​​​​molecule therapy – Therapy that uses small molecules that can bind to or enter a cancer cell, causing cellular death.\n\n#### Other Cancer Treatment Options:\n\n(If any of the following treatment options are recommended by our oncologists for your pet we will recommend a referral to an appropriate specialist in the area)\n\n  * Radiation therapy – The use of high-energy penetrating protons or electrons to destroy cancer"
+          ],
+          "checked_at": "2026-10-11T19:32:27.437Z",
+          "branch": {
+            "name": "Animal Cancer Care Specialists",
+            "street": "531 King St Unit 6",
+            "city": "Littleton",
+            "region": "MA",
+            "postal_code": "01460"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/web-accs-checkpoint-03.json",
+          "method": "web reader / primary full cached body",
+          "limitation": "Cached official full body; live direct request returned 403. Cache freshness preserved in original evidence."
+        },
+        {
+          "official_url": "https://accsvets.com/about-us/team/",
+          "quotes": [
+            "Erin Michael Romansik, DVM, DACVIM (Oncology)\n\nDr. Erin Michael Romansik was born and raised in Denver, Colorado, making him a die-hard Bron"
+          ],
+          "checked_at": "2026-10-11T19:32:27.437Z",
+          "branch": {
+            "name": "Animal Cancer Care Specialists",
+            "street": "531 King St Unit 6",
+            "city": "Littleton",
+            "region": "MA",
+            "postal_code": "01460"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/web-accs-checkpoint-03.json",
+          "method": "web reader / primary full cached body",
+          "limitation": "Cached official full body; live direct request returned 403. Cache freshness preserved in original evidence."
+        },
+        {
+          "official_url": "https://accsvets.com/about-us/location-hours/",
+          "quotes": [
+            "531 King St, Unit 6 ... 531 King St, Unit 6\n\n  * ## We Care For Pets With Cancer – and their Families\n\nIf you have a pet who was recently di"
+          ],
+          "checked_at": "2026-10-11T19:32:27.437Z",
+          "branch": {
+            "name": "Animal Cancer Care Specialists",
+            "street": "531 King St Unit 6",
+            "city": "Littleton",
+            "region": "MA",
+            "postal_code": "01460"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/web-accs-checkpoint-03.json",
+          "method": "web reader / primary full cached body",
+          "limitation": "Cached official full body; live direct request returned 403. Cache freshness preserved in original evidence."
+        }
+      ],
+      "reconciliation_status": "applied_to_current_main_candidate"
+    },
+    {
+      "source_id": "animal-cancer-care-specialists-2e365640",
+      "branch": {
+        "name": "Animal Cancer Care Specialists",
+        "street": "531 King St Unit 6",
+        "city": "Littleton",
+        "region": "MA",
+        "postal_code": "01460"
+      },
+      "previous_public": {
+        "name": "Animal Cancer Care Specialists",
+        "street": "531 King St Unit 6",
+        "city": "Littleton",
+        "region": "MA",
+        "postal_code": "01460",
+        "country": "USA",
+        "phone": "978-577-4848",
+        "services": [
+          "Medical oncology"
+        ],
+        "website": "https://accsvets.com/about-us/",
+        "latitude": 42.538,
+        "longitude": -71.485,
+        "source": "Existing verified directory"
+      },
+      "missing_changes": {
+        "services_added": [
+          "Chemotherapy",
+          "Immunotherapy",
+          "Targeted therapy"
+        ],
+        "fields": {
+          "website": {
+            "before": "https://accsvets.com/about-us/",
+            "after": "https://accsvets.com/services/"
+          }
+        }
+      },
+      "original_review": {
+        "source_id": "animal-cancer-care-specialists-2e365640",
+        "reviewed_at": "2026-10-11T16:08:42.718822-04:00",
+        "processing_complete": true,
+        "content_sufficient": true,
+        "outcome": "verified_update",
+        "review_method": "Individual semantic clinical/physical/access/roster reconciliation",
+        "review_note": "Current primary full service/team/location bodies retrieved through search reader: crawled yesterday, not a snippet. Explicit local Treatment Options We Offer lists injectable/oral chemotherapy, immunotherapy and small-molecule therapy. Surgery and all radiation are explicitly referrals; CT also unavailable locally. Current Erin Romansik DVM DACVIM Oncology, Deb Sapienza DVM not asserted board-certified. New Littleton address and phone confirmed; stale page title Acton does not override explicit moved notice. Direct transport remains 403; cached content freshness is recorded rather than fabricated live page success.",
+        "verified_urls": [
+          "https://accsvets.com/services/",
+          "https://accsvets.com/about-us/team/",
+          "https://accsvets.com/about-us/location-hours/",
+          "https://accsvets.com/refer-a-patient/"
+        ],
+        "evidence": [
+          {
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/web-accs-checkpoint-03.json",
+            "method": "web reader / primary full cached body",
+            "attempted_at": "2026-10-11T19:32:27.437Z",
+            "cache_freshness": "See preserved tool response for actual individual page freshness"
+          }
+        ],
+        "actions": [
+          {
+            "added_services": [
+              "Chemotherapy",
+              "Immunotherapy",
+              "Targeted therapy"
+            ],
+            "field_corrections": {
+              "website": "https://accsvets.com/services/"
+            },
+            "source_url": "https://accsvets.com/services/"
+          }
+        ],
+        "publication_status": "pending"
+      },
+      "evidence": [
+        {
+          "official_url": "https://accsvets.com/services/",
+          "quotes": [
+            "Treatment Options We Offer:\n\n  * Chemotherapy – The use of either oral or injectable medication to kill cancer cells.\n  * Immunotherapy – Therapy that activates the patient’s own immune system to fight cancer cells.\n  * Small ​​​​​​​molecule therapy – Therapy that uses small molecules that can bind to or enter a cancer cell, causing cellular death.\n\n#### Other Cancer Treatment Options:\n\n(If any of the following treatment options are recommended by our oncologists for your pet we will recommend a referral to an appropriate specialist in the area)\n\n  * Radiation therapy – The use of high-energy penetrating protons or electrons to destroy cancer"
+          ],
+          "checked_at": "2026-10-11T19:32:27.437Z",
+          "branch": {
+            "name": "Animal Cancer Care Specialists",
+            "street": "531 King St Unit 6",
+            "city": "Littleton",
+            "region": "MA",
+            "postal_code": "01460"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/web-accs-checkpoint-03.json",
+          "method": "web reader / primary full cached body",
+          "limitation": "Cached official full body; live direct request returned 403. Cache freshness preserved in original evidence."
+        },
+        {
+          "official_url": "https://accsvets.com/about-us/team/",
+          "quotes": [
+            "Erin Michael Romansik, DVM, DACVIM (Oncology)\n\nDr. Erin Michael Romansik was born and raised in Denver, Colorado, making him a die-hard Bron"
+          ],
+          "checked_at": "2026-10-11T19:32:27.437Z",
+          "branch": {
+            "name": "Animal Cancer Care Specialists",
+            "street": "531 King St Unit 6",
+            "city": "Littleton",
+            "region": "MA",
+            "postal_code": "01460"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/web-accs-checkpoint-03.json",
+          "method": "web reader / primary full cached body",
+          "limitation": "Cached official full body; live direct request returned 403. Cache freshness preserved in original evidence."
+        },
+        {
+          "official_url": "https://accsvets.com/about-us/location-hours/",
+          "quotes": [
+            "531 King St, Unit 6 ... 531 King St, Unit 6\n\n  * ## We Care For Pets With Cancer – and their Families\n\nIf you have a pet who was recently di"
+          ],
+          "checked_at": "2026-10-11T19:32:27.437Z",
+          "branch": {
+            "name": "Animal Cancer Care Specialists",
+            "street": "531 King St Unit 6",
+            "city": "Littleton",
+            "region": "MA",
+            "postal_code": "01460"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/web-accs-checkpoint-03.json",
+          "method": "web reader / primary full cached body",
+          "limitation": "Cached official full body; live direct request returned 403. Cache freshness preserved in original evidence."
+        }
+      ],
+      "reconciliation_status": "applied_to_current_main_candidate"
+    },
+    {
+      "source_id": "bridge-animal-referral-center",
+      "branch": {
+        "name": "BRIDGE Animal Referral Center",
+        "street": "8401 Main St",
+        "city": "Edmonds",
+        "region": "WA",
+        "postal_code": "98026"
+      },
+      "previous_public": {
+        "name": "BRIDGE Animal Referral Center",
+        "street": "8401 Main St",
+        "city": "Edmonds",
+        "region": "WA",
+        "postal_code": "98026",
+        "country": "USA",
+        "phone": "425-697-2272",
+        "services": [
+          "Medical oncology",
+          "ECT",
+          "Immunotherapy",
+          "ELIAS ECI",
+          "Clinical trials"
+        ],
+        "website": "https://www.barcseattle.com/electrochemotherapy",
+        "latitude": 47.8356,
+        "longitude": -122.3258,
+        "source": "Existing verified directory",
+        "verification_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=657bd4d8-f9c1-4ad8-a353-ca76498efbc5",
+        "oncologist_count": 2
+      },
+      "missing_changes": {
+        "services_added": [
+          "Chemotherapy",
+          "Surgical oncology"
+        ],
+        "fields": {}
+      },
+      "original_review": {
+        "source_id": "bridge-animal-referral-center",
+        "reviewed_at": "2026-10-11T16:09:22.487727-04:00",
+        "processing_complete": true,
+        "content_sufficient": true,
+        "outcome": "verified_update",
+        "review_method": "Individual semantic clinical/physical/access/roster reconciliation",
+        "review_note": "Current explicit local service list offers injectable/intralesional/oral chemotherapy, ECT, immunotherapy and surgical oncology. Current team: Tripp and Hovis DACVIM Oncology; Ferguson DVM oncology fellow not independently asserted boarded; Murray DACVS current cancer-surgery service. Radiation is explicitly a referral and future facility plan, not local IMRT/SRT despite generic overview descriptions. Current manufacturer ECI provider locator confirms BARC in Edmonds, retain ELIAS ECI. Practice states clinical-trial service; no specific protocol recruitment was audited or promoted. Current 8401 Main/4256972272 retained.",
+        "verified_urls": [
+          "https://www.BARCSeattle.com/our-practice",
+          "https://www.BARCSeattle.com/oncology-1",
+          "https://www.BARCSeattle.com/surgeryservice",
+          "https://www.BARCSeattle.com/veterinarians",
+          "https://eliasanimalhealth.com/available-locations/"
+        ],
+        "evidence": [
+          {
+            "url": "https://www.BARCSeattle.com/our-practice",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/33a46c085525d9608b.json",
+            "attempted_at": "2026-10-11T16:08:04.491615-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://www.BARCSeattle.com/oncology-1",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/b091a6e0afaa29a9f3.json",
+            "attempted_at": "2026-10-11T14:33:20.089372-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://www.BARCSeattle.com/surgeryservice",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/dbd0539e49d9d6eb95.json",
+            "attempted_at": "2026-10-11T16:08:04.492327-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://www.BARCSeattle.com/veterinarians",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/b277bc62037f182c21.json",
+            "attempted_at": "2026-10-11T14:33:20.063425-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://eliasanimalhealth.com/available-locations/",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/3160b636fabc6b5db6.json",
+            "attempted_at": "2026-10-11T14:55:19.619579-04:00",
+            "inherited": false
+          }
+        ],
+        "actions": [
+          {
+            "added_services": [
+              "Chemotherapy",
+              "Surgical oncology"
+            ],
+            "field_corrections": {},
+            "source_url": "https://www.barcseattle.com/oncology-1"
+          }
+        ],
+        "publication_status": "pending"
+      },
+      "evidence": [
+        {
+          "official_url": "https://www.BARCSeattle.com/our-practice",
+          "quotes": [
+            "tial complications with chemotherapy, electrochemotherapy or immunotherapy.\nWe are always looking for team members who value our approach to care and wa",
+            "ns with chemotherapy, electrochemotherapy or immunotherapy.\nWe are always looking for team members who value our approach to care and want to work in a f",
+            "Veterinary Surgeon that is thrilled to bring surgical oncology treatment options to BARC. Dr. Murray was board certified by the American College of Veterinar",
+            "t Presentation at the Society for Veterinary Soft Tissue Surgery in 2010.\nAfter moving to Tacoma Washington in 2012, this California native has fallen in love ",
+            "a\nShawn\nBecky Murray\nKaitlan Hovis, DVM, MS, DACVIM (O)\nStaff\nCore Values\nServices Link\nBARC Seattle\n8401 Main Street,\nEdmonds, WA 98026,\nUnited S",
+            "terinary technicians, veterinary assistants, referral coordinators, receptionists and career chemotherapy nurses.  Cancer therapy requires dedicated"
+          ],
+          "checked_at": "2026-10-11T16:08:04.491615-04:00",
+          "branch": {
+            "name": "BRIDGE Animal Referral Center",
+            "street": "8401 Main St",
+            "city": "Edmonds",
+            "region": "WA",
+            "postal_code": "98026"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/33a46c085525d9608b.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://www.BARCSeattle.com/oncology-1",
+          "quotes": [
+            "notherapy\nInjectable, Intralesional and Oral Chemotherapy\nPalliative care\nHospice counseling\nReferral for Radiation therapy\nComplimentary referring vete",
+            " staging and diagnostics\nElectrochemotherapy\nImmunotherapy\nInjectable, Intralesional and Oral Chemotherapy\nPalliative care\nHospice counseling\nReferral fo",
+            "motherapy\nPalliative care\nHospice counseling\nReferral for Radiation therapy\nComplimentary referring veterinarian consultations\nClinical Trials\nWe of"
+          ],
+          "checked_at": "2026-10-11T14:33:20.089372-04:00",
+          "branch": {
+            "name": "BRIDGE Animal Referral Center",
+            "street": "8401 Main St",
+            "city": "Edmonds",
+            "region": "WA",
+            "postal_code": "98026"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/b091a6e0afaa29a9f3.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://www.BARCSeattle.com/surgeryservice",
+          "quotes": [
+            "atients\nFor Veterinarians\nContact\nFAQ's\nBARC\nSoft Tissue Surgery Services\nSkin & Musculoskeletal\nLimb Amputations\nDigit Amputations\nHemipelvectomy for Pelvic t",
+            "Surgery — BRIDGE ANIMAL REFERRAL CENTER\nOur Practice\nServices\nFor New Patients\nFor Veterinarians\nContact\nFAQ's\nBack\nALL Service"
+          ],
+          "checked_at": "2026-10-11T16:08:04.492327-04:00",
+          "branch": {
+            "name": "BRIDGE Animal Referral Center",
+            "street": "8401 Main St",
+            "city": "Edmonds",
+            "region": "WA",
+            "postal_code": "98026"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/dbd0539e49d9d6eb95.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://www.BARCSeattle.com/veterinarians",
+          "quotes": [
+            "ular Analysis of Tumors\nImmunotherapy\nElectrochemotherapy\nDigital Diagnostic Radiology\nUltrasound\nIn-house Laboratory equipment\nClinical Trials\nSoft Tis",
+            "al Chemotherapy\nMolecular Analysis of Tumors\nImmunotherapy\nElectrochemotherapy\nDigital Diagnostic Radiology\nUltrasound\nIn-house Laboratory equipment\nClin",
+            "n-house Laboratory equipment\nClinical Trials\nSoft Tissue Surgery\nAdvanced Imaging with CT scanner\nInternal Medicine\nMobile Cardiology Services\nComing soon:\nRad",
+            "TS & INNOVATIVE CARE\nChelsea Tripp, DVM, MS, DACVIM (O) is a internationally-recognized speaker on electrochemotherapy.  This unique therapy is an",
+            " veterinarians and pet owners. Bridge Animal Referral Center (BARC), provides effective treatments with a personal, caring touch. Working in tandem "
+          ],
+          "checked_at": "2026-10-11T14:33:20.063425-04:00",
+          "branch": {
+            "name": "BRIDGE Animal Referral Center",
+            "street": "8401 Main St",
+            "city": "Edmonds",
+            "region": "WA",
+            "postal_code": "98026"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/b277bc62037f182c21.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://eliasanimalhealth.com/available-locations/",
+          "quotes": [
+            "d an ECI® Provider Near You\nThe ELIAS Cancer Immunotherapy (ECI\n®\n) is available at authorized treatment centers in the United States. Please contact a h",
+            ", WA\nPhone: (425) 697-6106\nSummit Veterinary Referral Center\nTacoma, WA\nPhone: (253) 983-1114\nWashington, D.C.\nFriendship Hospital for Animals\nWashi"
+          ],
+          "checked_at": "2026-10-11T14:55:19.619579-04:00",
+          "branch": {
+            "name": "BRIDGE Animal Referral Center",
+            "street": "8401 Main St",
+            "city": "Edmonds",
+            "region": "WA",
+            "postal_code": "98026"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/3160b636fabc6b5db6.json",
+          "method": "shell.urllib"
+        }
+      ],
+      "reconciliation_status": "applied_to_current_main_candidate"
+    },
+    {
+      "source_id": "broward-veterinary-specialists",
+      "branch": {
+        "name": "Broward Veterinary Specialists",
+        "street": "3331 Sheridan St",
+        "city": "Hollywood",
+        "region": "FL",
+        "postal_code": "33021"
+      },
+      "previous_public": {
+        "name": "Broward Veterinary Specialists",
+        "street": "3331 Sheridan St. 3331 Sheridan Street",
+        "city": "Hollywood",
+        "region": "FL",
+        "postal_code": "33021",
+        "country": "USA",
+        "phone": "954.842.4000",
+        "website": "http://browardvet.com",
+        "services": [
+          "Medical oncology"
+        ],
+        "latitude": 26.0218,
+        "longitude": -80.1891,
+        "source": "ACVIM VetSpecialists directory",
+        "verification_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=b9da3bd1-0ec9-4f72-a7d2-5b1a43c32caf",
+        "oncologist_count": 2
+      },
+      "missing_changes": {
+        "services_added": [
+          "Chemotherapy",
+          "Immunotherapy"
+        ],
+        "fields": {
+          "street": {
+            "before": "3331 Sheridan St. 3331 Sheridan Street",
+            "after": "3331 Sheridan St"
+          },
+          "phone": {
+            "before": "954.842.4000",
+            "after": "954-842-4000"
+          },
+          "website": {
+            "before": "http://browardvet.com",
+            "after": "https://browardvet.com/services/pet-oncology"
+          }
+        }
+      },
+      "original_review": {
+        "source_id": "broward-veterinary-specialists",
+        "reviewed_at": "2026-10-11T16:09:22.487727-04:00",
+        "processing_complete": true,
+        "content_sufficient": true,
+        "outcome": "verified_update",
+        "review_method": "Individual semantic clinical/physical/access/roster reconciliation",
+        "review_note": "Current local oncology page explicitly offers chemotherapy, metronomic and vaccine therapy; no vaccine brand is stated, so do not infer ONCEPT. Anti-angiogenic oral drugs do not establish a named targeted platform. Current Seaman-Kilcullen DACVIM Internal Medicine/Oncology and Brower DACVS-SA verified from team and full biographies. Cancer-specific surgery access not established beyond general surgery and surgeon training, so not added. Correct duplicated street string and phone formatting; same physical location.",
+        "verified_urls": [
+          "https://browardvet.com/services/vet-surgery",
+          "https://browardvet.com/services/pet-oncology",
+          "https://browardvet.com/veterinarians",
+          "https://browardvet.com/veterinarians/Barry-Brower-DVM,-DACVS-SA",
+          "https://browardvet.com/veterinarians/rebecca-seaman-kilcullen-dvm"
+        ],
+        "evidence": [
+          {
+            "url": "https://browardvet.com/services/vet-surgery",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/395d3f0e0ecb87be43.json",
+            "attempted_at": "2026-10-11T16:08:04.493209-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://browardvet.com/services/pet-oncology",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/fbe04ca8b546b5da8f.json",
+            "attempted_at": "2026-10-11T14:33:24.190962-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://browardvet.com/veterinarians",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/2fe71eda39de652267.json",
+            "attempted_at": "2026-10-11T14:33:24.137918-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://browardvet.com/veterinarians/Barry-Brower-DVM,-DACVS-SA",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/9a106806287c569b22.json",
+            "attempted_at": "2026-10-11T16:08:07.275815-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://browardvet.com/veterinarians/rebecca-seaman-kilcullen-dvm",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/5de7e39f9164db532e.json",
+            "attempted_at": "2026-10-11T16:08:04.493913-04:00",
+            "inherited": false
+          }
+        ],
+        "actions": [
+          {
+            "added_services": [
+              "Chemotherapy",
+              "Immunotherapy"
+            ],
+            "field_corrections": {
+              "street": "3331 Sheridan St",
+              "phone": "954-842-4000",
+              "website": "https://browardvet.com/services/pet-oncology"
+            },
+            "source_url": "https://browardvet.com/services/pet-oncology"
+          }
+        ],
+        "publication_status": "pending"
+      },
+      "evidence": [
+        {
+          "official_url": "https://browardvet.com/services/vet-surgery",
+          "quotes": [
+            "f the surgical procedures we offer:\nAdvanced Soft Tissue Surgery\nSoft Tissue Surgical Procedures\nOrthopedic Pet Surgery\nA lameness exam with one of our board c",
+            "are services.\nBroward Veterinary Specialists\n3331 Sheridan St Hollywood, FL 33021\nemail: appointment@browardvet.com\nphone: (954) 842-4000\nfax: (954) 272-"
+          ],
+          "checked_at": "2026-10-11T16:08:04.493209-04:00",
+          "branch": {
+            "name": "Broward Veterinary Specialists",
+            "street": "3331 Sheridan St",
+            "city": "Hollywood",
+            "region": "FL",
+            "postal_code": "33021"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/395d3f0e0ecb87be43.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://browardvet.com/services/pet-oncology",
+          "quotes": [
+            "nd chemotherapy.\nIt’s important to note that chemotherapy in pets is typically very well tolerated, with minimal to no side effects. Our goal is to ensu",
+            "4) 842-4000\n.\nBroward Veterinary Specialists\n3331 Sheridan St Hollywood, FL 33021\nemail: appointment@browardvet.com\nphone: (954) 842-4000\nfax: (954) 272-"
+          ],
+          "checked_at": "2026-10-11T14:33:24.190962-04:00",
+          "branch": {
+            "name": "Broward Veterinary Specialists",
+            "street": "3331 Sheridan St",
+            "city": "Hollywood",
+            "region": "FL",
+            "postal_code": "33021"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/fbe04ca8b546b5da8f.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://browardvet.com/veterinarians",
+          "quotes": [
+            "Veterinarians\nRebecca Seaman-Kilcullen,\nDVM, DACVIM\n(Internal Medicine and Oncology)\nChief of Staff\nRead Bio »\nBarry E. Brower, DVM, DACVS-SA\nVete",
+            "an\nRead Bio »\nBroward Veterinary Specialists\n3331 Sheridan St Hollywood, FL 33021\nemail: appointment@browardvet.com\nphone: (954) 842-4000\nfax: (954) 272-"
+          ],
+          "checked_at": "2026-10-11T14:33:24.137918-04:00",
+          "branch": {
+            "name": "Broward Veterinary Specialists",
+            "street": "3331 Sheridan St",
+            "city": "Hollywood",
+            "region": "FL",
+            "postal_code": "33021"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/2fe71eda39de652267.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://browardvet.com/veterinarians/Barry-Brower-DVM,-DACVS-SA",
+          "quotes": [
+            "ary Surgeons.\nBroward Veterinary Specialists\n3331 Sheridan St Hollywood, FL 33021\nemail: appointment@browardvet.com\nphone: (954) 842-4000\nfax: (954) 272-"
+          ],
+          "checked_at": "2026-10-11T16:08:07.275815-04:00",
+          "branch": {
+            "name": "Broward Veterinary Specialists",
+            "street": "3331 Sheridan St",
+            "city": "Hollywood",
+            "region": "FL",
+            "postal_code": "33021"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/9a106806287c569b22.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://browardvet.com/veterinarians/rebecca-seaman-kilcullen-dvm",
+          "quotes": [
+            "r App\nCareers\nRebecca Seaman-Kilcullen,\nDVM, DACVIM\n(Internal Medicine and Oncology)\nChief of Staff\nDr. Rebecca Seaman-Kilcullen is from Nashville",
+            "s since 2004.\nBroward Veterinary Specialists\n3331 Sheridan St Hollywood, FL 33021\nemail: appointment@browardvet.com\nphone: (954) 842-4000\nfax: (954) 272-"
+          ],
+          "checked_at": "2026-10-11T16:08:04.493913-04:00",
+          "branch": {
+            "name": "Broward Veterinary Specialists",
+            "street": "3331 Sheridan St",
+            "city": "Hollywood",
+            "region": "FL",
+            "postal_code": "33021"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/5de7e39f9164db532e.json",
+          "method": "shell.urllib"
+        }
+      ],
+      "reconciliation_status": "applied_to_current_main_candidate"
+    },
+    {
+      "source_id": "dogwood-veterinary-specialty-emergency",
+      "branch": {
+        "name": "Dogwood Veterinary Specialty & Emergency",
+        "street": "1234 Powers Ferry Rd",
+        "city": "Marietta",
+        "region": "GA",
+        "postal_code": "30067"
+      },
+      "previous_public": {
+        "name": "Dogwood Veterinary Specialty & Emergency",
+        "street": "1234 Powers Ferry Rd",
+        "city": "Marietta",
+        "region": "GA",
+        "postal_code": "30067",
+        "country": "USA",
+        "phone": "404-609-1234",
+        "services": [
+          "Medical oncology",
+          "ECT",
+          "Immunotherapy",
+          "Targeted therapy"
+        ],
+        "website": "https://www.dogwood.vet/",
+        "latitude": 33.9332,
+        "longitude": -84.4629,
+        "source": "Existing verified directory"
+      },
+      "missing_changes": {
+        "services_added": [
+          "Chemotherapy",
+          "Surgical oncology"
+        ],
+        "fields": {
+          "website": {
+            "before": "https://www.dogwood.vet/",
+            "after": "https://www.dogwood.vet/services/pets/pet-oncology-marietta"
+          }
+        }
+      },
+      "original_review": {
+        "source_id": "dogwood-veterinary-specialty-emergency",
+        "reviewed_at": "2026-10-11T16:10:22.690136-04:00",
+        "processing_complete": true,
+        "content_sufficient": true,
+        "outcome": "verified_update",
+        "review_method": "Individual semantic clinical/physical/access/roster reconciliation",
+        "review_note": "Current Marietta oncology page explicitly offers chemotherapy and surgical oncology under same roof; current Venner biography explicitly states she treats Dogwood patients with immunotherapy, targeted small molecules and ECT, so retained modalities have local proof beyond generic FAQ. Venner is residency-trained and a Diplomate candidate, not currently represented as board certified. Marietta 1234 Powers Ferry/4046091234 confirmed. Dunwoody is explicitly opening October20 (future as of October11), not a second current treatment location.",
+        "verified_urls": [
+          "https://www.dogwood.vet/",
+          "https://www.dogwood.vet/about-us/staff/oncology/dr-laura-venner",
+          "https://www.dogwood.vet/services/pets/pet-oncology-marietta",
+          "https://www.dogwood.vet/about-us/staff/oncology"
+        ],
+        "evidence": [
+          {
+            "url": "https://www.dogwood.vet/",
+            "file": "research/audit-runs/care-20261011T065613-0400/pages/555d02e87cfd3b8b80.json",
+            "attempted_at": "2026-10-11T07:06:40.703859-04:00",
+            "inherited": true
+          },
+          {
+            "url": "https://www.dogwood.vet/about-us/staff/oncology/dr-laura-venner",
+            "file": "research/audit-runs/care-resume-20261011T083538-0400/pages/a64372d42c4d4ec993.json",
+            "attempted_at": "2026-10-11T08:52:45.034683-04:00",
+            "inherited": true
+          },
+          {
+            "url": "https://www.dogwood.vet/services/pets/pet-oncology-marietta",
+            "file": "research/audit-runs/care-resume-20261011T083538-0400/pages/65770fe89a89bfbab8.json",
+            "attempted_at": "2026-10-11T08:52:49.028526-04:00",
+            "inherited": true
+          },
+          {
+            "url": "https://www.dogwood.vet/about-us/staff/oncology",
+            "file": "research/audit-runs/care-resume-20261011T083538-0400/pages/99d59916f44c5f7570.json",
+            "attempted_at": "2026-10-11T08:52:44.711608-04:00",
+            "inherited": true
+          },
+          {
+            "url": "https://www.dogwood.vet/about-us/staff/oncology/dr-laura-venner",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/a64372d42c4d4ec993.json",
+            "attempted_at": "2026-10-11T16:09:04.614331-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://www.dogwood.vet/services/pets/pet-oncology-marietta",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/65770fe89a89bfbab8.json",
+            "attempted_at": "2026-10-11T16:08:59.656571-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://www.dogwood.vet/about-us/staff/oncology",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/99d59916f44c5f7570.json",
+            "attempted_at": "2026-10-11T16:09:03.681259-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://www.dogwood.vet/",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/555d02e87cfd3b8b80.json",
+            "attempted_at": "2026-10-11T16:08:59.655988-04:00",
+            "inherited": false
+          }
+        ],
+        "actions": [
+          {
+            "added_services": [
+              "Chemotherapy",
+              "Surgical oncology"
+            ],
+            "field_corrections": {
+              "website": "https://www.dogwood.vet/services/pets/pet-oncology-marietta"
+            },
+            "source_url": "https://www.dogwood.vet/services/pets/pet-oncology-marietta"
+          }
+        ],
+        "publication_status": "pending"
+      },
+      "evidence": [
+        {
+          "official_url": "https://www.dogwood.vet/",
+          "quotes": [
+            "hts Reserved.\nReview Us\nAppointments\nPatient Referrals\nShare this content:\nGo to Top"
+          ],
+          "checked_at": "2026-10-11T07:06:40.703859-04:00",
+          "branch": {
+            "name": "Dogwood Veterinary Specialty & Emergency",
+            "street": "1234 Powers Ferry Rd",
+            "city": "Marietta",
+            "region": "GA",
+            "postal_code": "30067"
+          },
+          "file": "research/audit-runs/care-20261011T065613-0400/pages/555d02e87cfd3b8b80.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://www.dogwood.vet/about-us/staff/oncology/dr-laura-venner",
+          "quotes": [
+            "rgeted small-molecule inhibitors, and electrochemotherapy, with a focus on quality of life, evidence-based care, and honest, family-centered communicati",
+            "medical oncology patients with chemotherapy, immunotherapy, targeted small-molecule inhibitors, and electrochemotherapy, with a focus on quality of life,",
+            "hts Reserved.\nReview Us\nAppointments\nPatient Referrals\nShare this content:\nGo to Top"
+          ],
+          "checked_at": "2026-10-11T08:52:45.034683-04:00",
+          "branch": {
+            "name": "Dogwood Veterinary Specialty & Emergency",
+            "street": "1234 Powers Ferry Rd",
+            "city": "Marietta",
+            "region": "GA",
+            "postal_code": "30067"
+          },
+          "file": "research/audit-runs/care-resume-20261011T083538-0400/pages/a64372d42c4d4ec993.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://www.dogwood.vet/services/pets/pet-oncology-marietta",
+          "quotes": [
+            "?\nElectrochemotherapy combines a low dose of chemotherapy with short, targeted electrical pulses delivered directly to a tumor. The pulses temporarily o",
+            "eat. Support.\nDiagnostics, chemotherapy, and surgical oncology for pets — with treatment plans built around your pet’s quality of life.\nOur Oncology Approach",
+            "hts Reserved.\nReview Us\nAppointments\nPatient Referrals\nShare this content:\nGo to Top"
+          ],
+          "checked_at": "2026-10-11T08:52:49.028526-04:00",
+          "branch": {
+            "name": "Dogwood Veterinary Specialty & Emergency",
+            "street": "1234 Powers Ferry Rd",
+            "city": "Marietta",
+            "region": "GA",
+            "postal_code": "30067"
+          },
+          "file": "research/audit-runs/care-resume-20261011T083538-0400/pages/65770fe89a89bfbab8.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://www.dogwood.vet/about-us/staff/oncology",
+          "quotes": [
+            "hts Reserved.\nReview Us\nAppointments\nPatient Referrals\nShare this content:\nGo to Top"
+          ],
+          "checked_at": "2026-10-11T08:52:44.711608-04:00",
+          "branch": {
+            "name": "Dogwood Veterinary Specialty & Emergency",
+            "street": "1234 Powers Ferry Rd",
+            "city": "Marietta",
+            "region": "GA",
+            "postal_code": "30067"
+          },
+          "file": "research/audit-runs/care-resume-20261011T083538-0400/pages/99d59916f44c5f7570.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://www.dogwood.vet/about-us/staff/oncology/dr-laura-venner",
+          "quotes": [
+            "rgeted small-molecule inhibitors, and electrochemotherapy, with a focus on quality of life, evidence-based care, and honest, family-centered communicati",
+            "medical oncology patients with chemotherapy, immunotherapy, targeted small-molecule inhibitors, and electrochemotherapy, with a focus on quality of life,",
+            "hts Reserved.\nReview Us\nAppointments\nPatient Referrals\nShare this content:\nGo to Top"
+          ],
+          "checked_at": "2026-10-11T16:09:04.614331-04:00",
+          "branch": {
+            "name": "Dogwood Veterinary Specialty & Emergency",
+            "street": "1234 Powers Ferry Rd",
+            "city": "Marietta",
+            "region": "GA",
+            "postal_code": "30067"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/a64372d42c4d4ec993.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://www.dogwood.vet/services/pets/pet-oncology-marietta",
+          "quotes": [
+            "?\nElectrochemotherapy combines a low dose of chemotherapy with short, targeted electrical pulses delivered directly to a tumor. The pulses temporarily o",
+            "eat. Support.\nDiagnostics, chemotherapy, and surgical oncology for pets — with treatment plans built around your pet’s quality of life.\nOur Oncology Approach",
+            "hts Reserved.\nReview Us\nAppointments\nPatient Referrals\nShare this content:\nGo to Top"
+          ],
+          "checked_at": "2026-10-11T16:08:59.656571-04:00",
+          "branch": {
+            "name": "Dogwood Veterinary Specialty & Emergency",
+            "street": "1234 Powers Ferry Rd",
+            "city": "Marietta",
+            "region": "GA",
+            "postal_code": "30067"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/65770fe89a89bfbab8.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://www.dogwood.vet/about-us/staff/oncology",
+          "quotes": [
+            "hts Reserved.\nReview Us\nAppointments\nPatient Referrals\nShare this content:\nGo to Top"
+          ],
+          "checked_at": "2026-10-11T16:09:03.681259-04:00",
+          "branch": {
+            "name": "Dogwood Veterinary Specialty & Emergency",
+            "street": "1234 Powers Ferry Rd",
+            "city": "Marietta",
+            "region": "GA",
+            "postal_code": "30067"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/99d59916f44c5f7570.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://www.dogwood.vet/",
+          "quotes": [
+            "hts Reserved.\nReview Us\nAppointments\nPatient Referrals\nShare this content:\nGo to Top"
+          ],
+          "checked_at": "2026-10-11T16:08:59.655988-04:00",
+          "branch": {
+            "name": "Dogwood Veterinary Specialty & Emergency",
+            "street": "1234 Powers Ferry Rd",
+            "city": "Marietta",
+            "region": "GA",
+            "postal_code": "30067"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/555d02e87cfd3b8b80.json",
+          "method": "shell.urllib"
+        }
+      ],
+      "reconciliation_status": "applied_to_current_main_candidate"
+    },
+    {
+      "source_id": "heal-cancer-care-for-pets",
+      "branch": {
+        "name": "Heal Cancer Care for Pets",
+        "street": "1642 W. Armory Way Ste 102",
+        "city": "Seattle",
+        "region": "WA",
+        "postal_code": "98119"
+      },
+      "previous_public": {
+        "name": "Heal Cancer Care for Pets",
+        "street": "1642 W. Armory Way Ste 102",
+        "city": "Seattle",
+        "region": "WA",
+        "postal_code": "98119",
+        "country": "USA",
+        "phone": "206-888-4325",
+        "website": "https://healpetcancer.com/cancer-care/",
+        "services": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Immunotherapy",
+          "Targeted therapy"
+        ],
+        "latitude": 47.6379,
+        "longitude": -122.3643,
+        "source": "Official HEAL Cancer Care for Pets cancer-care page",
+        "verification_url": "https://healpetcancer.com/cancer-care/",
+        "oncologist_count": 1,
+        "last_verified": "2026-10-05"
+      },
+      "missing_changes": {
+        "services_added": [],
+        "fields": {}
+      },
+      "original_review": {
+        "source_id": "heal-cancer-care-for-pets",
+        "reviewed_at": "2026-10-11T16:10:22.690136-04:00",
+        "processing_complete": true,
+        "content_sufficient": true,
+        "outcome": "verified_unchanged",
+        "review_method": "Individual semantic clinical/physical/access/roster reconciliation",
+        "review_note": "Current HEAL local medical oncology list confirms chemotherapy, immunotherapy and targeted therapy. Current Nick Szigetvari DACVIM Oncology is assigned to medical service. CT/MRI, surgery, radiation and clinical trials explicitly external specialist referrals, not local services. Primary contact/header/full contact block confirms 1642 W Armory Way Suite102; truncated mobile footer642 is not an actual relocation. Phone2068884325 retained. Teleconsultation offer discovered but separate service/access review remains outside physical-card completion.",
+        "verified_urls": [
+          "https://healpetcancer.com/veterinary-colleagues/",
+          "https://healpetcancer.com/cancer-care/",
+          "https://healpetcancer.com/our-approach/",
+          "https://healpetcancer.com/meet-the-veterinary-team/",
+          "https://healpetcancer.com/contact/"
+        ],
+        "evidence": [
+          {
+            "url": "https://healpetcancer.com/veterinary-colleagues/",
+            "file": "research/audit-runs/care-20261011T065613-0400/pages/5a7d7a528a4f8d783f.json",
+            "attempted_at": "2026-10-11T07:07:18.528119-04:00",
+            "inherited": true
+          },
+          {
+            "url": "https://healpetcancer.com/cancer-care/",
+            "file": "research/audit-runs/care-20261011T065613-0400/pages/1d8a19adfe79a80f35.json",
+            "attempted_at": "2026-10-11T07:07:05.642160-04:00",
+            "inherited": true
+          },
+          {
+            "url": "https://healpetcancer.com/our-approach/",
+            "file": "research/audit-runs/care-20261011T065613-0400/pages/6e1f1c3c74998498f5.json",
+            "attempted_at": "2026-10-11T07:07:12.946247-04:00",
+            "inherited": true
+          },
+          {
+            "url": "https://healpetcancer.com/meet-the-veterinary-team/",
+            "file": "research/audit-runs/care-resume-20261011T083538-0400/pages/daca84c4749483cebd.json",
+            "attempted_at": "2026-10-11T08:37:46.237868-04:00",
+            "inherited": true
+          },
+          {
+            "url": "https://healpetcancer.com/contact/",
+            "file": "research/audit-runs/care-resume-20261011T083538-0400/pages/c182a56cf2a7348410.json",
+            "attempted_at": "2026-10-11T08:37:46.175553-04:00",
+            "inherited": true
+          },
+          {
+            "url": "https://healpetcancer.com/veterinary-colleagues/",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/5a7d7a528a4f8d783f.json",
+            "attempted_at": "2026-10-11T16:09:25.023764-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://healpetcancer.com/meet-the-veterinary-team/",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/daca84c4749483cebd.json",
+            "attempted_at": "2026-10-11T16:09:25.424405-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://healpetcancer.com/cancer-care/",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/1d8a19adfe79a80f35.json",
+            "attempted_at": "2026-10-11T16:09:11.716100-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://healpetcancer.com/our-approach/",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/6e1f1c3c74998498f5.json",
+            "attempted_at": "2026-10-11T16:09:11.738776-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://healpetcancer.com/contact/",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/c182a56cf2a7348410.json",
+            "attempted_at": "2026-10-11T16:09:14.736239-04:00",
+            "inherited": false
+          }
+        ],
+        "actions": [
+          {
+            "added_services": [],
+            "field_corrections": {},
+            "source_url": "https://healpetcancer.com/cancer-care/"
+          }
+        ],
+        "publication_status": "pending"
+      },
+      "evidence": [
+        {
+          "official_url": "https://healpetcancer.com/veterinary-colleagues/",
+          "quotes": [
+            "ith you in the care of your patients.\nonline referral form\nContact Information\n1642 W. Armory Way, Ste. 102 Seattle, WA 98119\nFree on-site parking a"
+          ],
+          "checked_at": "2026-10-11T07:07:18.528119-04:00",
+          "branch": {
+            "name": "Heal Cancer Care for Pets",
+            "street": "1642 W. Armory Way Ste 102",
+            "city": "Seattle",
+            "region": "WA",
+            "postal_code": "98119"
+          },
+          "file": "research/audit-runs/care-20261011T065613-0400/pages/5a7d7a528a4f8d783f.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://healpetcancer.com/cancer-care/",
+          "quotes": [
+            "s, minimizes exposure risks and ensures that chemotherapy is administered as safely as possible—for both our patients and the veterinary team providing ",
+            "emotherapy quite well (better than humans!).\nImmunotherapy\nTreatment that stimulates your pet’s own immune system to fight cancer.\nTargeted Therapy\nMedic",
+            "I) and other treatment modalities (including surgical oncology, radiation therapy, and clinical trials), we will refer you to and work collaboratively with t",
+            "nd your family.\nLed by\nNick Szigetvari, DVM, DACVIM\n, one of fewer than 500 board-certified veterinary oncologists in the entire world,\nour team\np"
+          ],
+          "checked_at": "2026-10-11T07:07:05.642160-04:00",
+          "branch": {
+            "name": "Heal Cancer Care for Pets",
+            "street": "1642 W. Armory Way Ste 102",
+            "city": "Seattle",
+            "region": "WA",
+            "postal_code": "98119"
+          },
+          "file": "research/audit-runs/care-20261011T065613-0400/pages/1d8a19adfe79a80f35.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://healpetcancer.com/meet-the-veterinary-team/",
+          "quotes": [
+            "ay.\nMedical Oncologists\nNick Szigetvari\nDVM, DACVIM (Oncology)\nBoard-Certified Medical Oncologist\nRead Bio\nVeterinary Technicians\nEmily Kennedy\nBS"
+          ],
+          "checked_at": "2026-10-11T08:37:46.237868-04:00",
+          "branch": {
+            "name": "Heal Cancer Care for Pets",
+            "street": "1642 W. Armory Way Ste 102",
+            "city": "Seattle",
+            "region": "WA",
+            "postal_code": "98119"
+          },
+          "file": "research/audit-runs/care-resume-20261011T083538-0400/pages/daca84c4749483cebd.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://healpetcancer.com/veterinary-colleagues/",
+          "quotes": [
+            "ith you in the care of your patients.\nonline referral form\nContact Information\n1642 W. Armory Way, Ste. 102 Seattle, WA 98119\nFree on-site parking a"
+          ],
+          "checked_at": "2026-10-11T16:09:25.023764-04:00",
+          "branch": {
+            "name": "Heal Cancer Care for Pets",
+            "street": "1642 W. Armory Way Ste 102",
+            "city": "Seattle",
+            "region": "WA",
+            "postal_code": "98119"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/5a7d7a528a4f8d783f.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://healpetcancer.com/meet-the-veterinary-team/",
+          "quotes": [
+            "ay.\nMedical Oncologists\nNick Szigetvari\nDVM, DACVIM (Oncology)\nBoard-Certified Medical Oncologist\nRead Bio\nVeterinary Technicians\nEmily Kennedy\nBS"
+          ],
+          "checked_at": "2026-10-11T16:09:25.424405-04:00",
+          "branch": {
+            "name": "Heal Cancer Care for Pets",
+            "street": "1642 W. Armory Way Ste 102",
+            "city": "Seattle",
+            "region": "WA",
+            "postal_code": "98119"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/daca84c4749483cebd.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://healpetcancer.com/cancer-care/",
+          "quotes": [
+            "s, minimizes exposure risks and ensures that chemotherapy is administered as safely as possible—for both our patients and the veterinary team providing ",
+            "emotherapy quite well (better than humans!).\nImmunotherapy\nTreatment that stimulates your pet’s own immune system to fight cancer.\nTargeted Therapy\nMedic",
+            "I) and other treatment modalities (including surgical oncology, radiation therapy, and clinical trials), we will refer you to and work collaboratively with t",
+            "nd your family.\nLed by\nNick Szigetvari, DVM, DACVIM\n, one of fewer than 500 board-certified veterinary oncologists in the entire world,\nour team\np"
+          ],
+          "checked_at": "2026-10-11T16:09:11.716100-04:00",
+          "branch": {
+            "name": "Heal Cancer Care for Pets",
+            "street": "1642 W. Armory Way Ste 102",
+            "city": "Seattle",
+            "region": "WA",
+            "postal_code": "98119"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/1d8a19adfe79a80f35.json",
+          "method": "shell.urllib"
+        }
+      ],
+      "reconciliation_status": "applied_to_current_main_candidate"
+    },
+    {
+      "source_id": "denver-animal-hospital",
+      "branch": {
+        "name": "Denver Animal Hospital",
+        "street": "2103 E Virginia Ave",
+        "city": "Denver",
+        "region": "CO",
+        "postal_code": "80209"
+      },
+      "previous_public": {
+        "name": "Denver Animal Hospital",
+        "street": "Animal Hospital 2103 E Virginia Ave",
+        "city": "Denver",
+        "region": "CO",
+        "postal_code": "80209",
+        "country": "USA",
+        "phone": "303.871.8719",
+        "website": "http://denveranimalhospital.org",
+        "services": [
+          "Medical oncology"
+        ],
+        "latitude": 39.7074,
+        "longitude": -104.9686,
+        "source": "ACVIM VetSpecialists directory",
+        "verification_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=e7c28d38-dbac-4521-b5e0-1a4503baa0a8",
+        "oncologist_count": 1
+      },
+      "missing_changes": {
+        "services_added": [],
+        "fields": {
+          "street": {
+            "before": "Animal Hospital 2103 E Virginia Ave",
+            "after": "2103 E Virginia Ave"
+          },
+          "phone": {
+            "before": "303.871.8719",
+            "after": "303-871-8719"
+          },
+          "website": {
+            "before": "http://denveranimalhospital.org",
+            "after": "https://denveranimalhospital.org/"
+          }
+        }
+      },
+      "original_review": {
+        "source_id": "denver-animal-hospital",
+        "reviewed_at": "2026-10-11T16:11:56.670616-04:00",
+        "processing_complete": true,
+        "content_sufficient": true,
+        "outcome": "verified_update",
+        "review_method": "Individual semantic clinical/physical/access/roster reconciliation",
+        "review_note": "Full current team page confirms Marie Janson DACVIM Oncology and active integrative oncology service, despite home page highlighting only general-practice clinicians. Retain Medical oncology; traditional/integrative wording does not identify specific local drugs/modalities. Current address/phone confirmed; remove organization text from street. Mobile partner surgeons/radiologist credentials do not establish cancer-specific surgical or radiation therapy availability.",
+        "verified_urls": [
+          "https://denveranimalhospital.org",
+          "https://denveranimalhospital.org/meet-our-team/",
+          "https://denveranimalhospital.org/contact/"
+        ],
+        "evidence": [
+          {
+            "url": "https://denveranimalhospital.org",
+            "file": "research/audit-runs/care-resume-20261011T083538-0400/pages/37a1b575e0cddce68d.json",
+            "attempted_at": "2026-10-11T08:37:40.880696-04:00",
+            "inherited": true
+          },
+          {
+            "url": "https://denveranimalhospital.org",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/37a1b575e0cddce68d.json",
+            "attempted_at": "2026-10-11T16:08:59.655168-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://denveranimalhospital.org/meet-our-team/",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/4428465ed66a16feb8-201024286396.json",
+            "attempted_at": "2026-10-11T16:10:21.512612-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://denveranimalhospital.org/contact/",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/7c4ebc1417562c3804.json",
+            "attempted_at": "2026-10-11T16:10:21.513320-04:00",
+            "inherited": false
+          }
+        ],
+        "actions": [
+          {
+            "added_services": [],
+            "field_corrections": {
+              "street": "2103 E Virginia Ave",
+              "phone": "303-871-8719",
+              "website": "https://denveranimalhospital.org/"
+            },
+            "source_url": "https://denveranimalhospital.org/meet-our-team/"
+          }
+        ],
+        "publication_status": "pending"
+      },
+      "evidence": [
+        {
+          "official_url": "https://denveranimalhospital.org",
+          "quotes": [
+            "imal Hospital\nPhone:\n(303) 871-8719\nAddress:\n2103 E. Virginia Ave, Denver, CO 80209\nSitemap\n|\nAccessibility\n|\nWebsite by DOCTOR Multimedia\nThis si"
+          ],
+          "checked_at": "2026-10-11T08:37:40.880696-04:00",
+          "branch": {
+            "name": "Denver Animal Hospital",
+            "street": "2103 E Virginia Ave",
+            "city": "Denver",
+            "region": "CO",
+            "postal_code": "80209"
+          },
+          "file": "research/audit-runs/care-resume-20261011T083538-0400/pages/37a1b575e0cddce68d.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://denveranimalhospital.org",
+          "quotes": [
+            "imal Hospital\nPhone:\n(303) 871-8719\nAddress:\n2103 E. Virginia Ave, Denver, CO 80209\nSitemap\n|\nAccessibility\n|\nWebsite by DOCTOR Multimedia\nThis si"
+          ],
+          "checked_at": "2026-10-11T16:08:59.655168-04:00",
+          "branch": {
+            "name": "Denver Animal Hospital",
+            "street": "2103 E Virginia Ave",
+            "city": "Denver",
+            "region": "CO",
+            "postal_code": "80209"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/37a1b575e0cddce68d.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://denveranimalhospital.org/meet-our-team/",
+          "quotes": [
+            "ests include preventive care, behavioral and soft tissue surgery. In her free time Dr. Rojas can be found in the mountains hiking/ camping or curled up with a ",
+            "anesthesia to their own patients without the referral.\nShe currently works with hospitals throughout Colorado, offering hands-on anesthetic care and",
+            "imal Hospital\nPhone:\n(303) 871-8719\nAddress:\n2103 E. Virginia Ave, Denver, CO 80209\nSitemap\n|\nAccessibility\n|\nWebsite by DOCTOR Multimedia\nThis si"
+          ],
+          "checked_at": "2026-10-11T16:10:21.512612-04:00",
+          "branch": {
+            "name": "Denver Animal Hospital",
+            "street": "2103 E Virginia Ave",
+            "city": "Denver",
+            "region": "CO",
+            "postal_code": "80209"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/4428465ed66a16feb8-201024286396.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://denveranimalhospital.org/contact/",
+          "quotes": [
+            "imal Hospital\nPhone:\n(303) 871-8719\nAddress:\n2103 E. Virginia Ave, Denver, CO 80209\nSitemap\n|\nAccessibility\n|\nWebsite by DOCTOR Multimedia\nThis si"
+          ],
+          "checked_at": "2026-10-11T16:10:21.513320-04:00",
+          "branch": {
+            "name": "Denver Animal Hospital",
+            "street": "2103 E Virginia Ave",
+            "city": "Denver",
+            "region": "CO",
+            "postal_code": "80209"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/7c4ebc1417562c3804.json",
+          "method": "shell.urllib"
+        }
+      ],
+      "reconciliation_status": "applied_to_current_main_candidate"
+    },
+    {
+      "source_id": "dover-veterinary-hospital",
+      "branch": {
+        "name": "Dover Veterinary Hospital",
+        "street": "96 Durham Road",
+        "city": "Dover",
+        "region": "NH",
+        "postal_code": "03820"
+      },
+      "previous_public": {
+        "name": "Dover Veterinary Hospital",
+        "street": "96 Durham Road",
+        "city": "Dover",
+        "region": "NH",
+        "postal_code": "03820",
+        "country": "USA",
+        "phone": "603-742-6438",
+        "website": "https://dovervet.com/",
+        "latitude": 43.1888,
+        "longitude": -70.8868,
+        "services": [
+          "Local oncology care"
+        ],
+        "source": "Official hospital cancer-surgery page",
+        "verification_url": "https://dovervet.com/services/dover-veterinary-surgery.php"
+      },
+      "missing_changes": {
+        "services_added": [
+          "Surgery"
+        ],
+        "fields": {}
+      },
+      "original_review": {
+        "source_id": "dover-veterinary-hospital",
+        "reviewed_at": "2026-10-11T16:11:56.670616-04:00",
+        "processing_complete": true,
+        "content_sufficient": true,
+        "outcome": "verified_update",
+        "review_method": "Individual semantic clinical/physical/access/roster reconciliation",
+        "review_note": "Current cancer section explicitly confirms cancerous-tissue and mass removals locally by McCarthy; advanced oncology is referred to specialty hospital. Rennie integrative/nutrition/acupuncture work is not an anticancer modality. Current owner Spyridakis DACVIM credential is Internal Medicine, not Oncology. Generic chemotherapy discussion is not local administration proof; retain Local oncology care and add Surgery only. Current team/contact/address checked.",
+        "verified_urls": [
+          "https://dovervet.com/services/dover-veterinary-surgery.php",
+          "https://dovervet.com/contact/contact.php",
+          "https://dovervet.com/team/dover-veterinarians.php"
+        ],
+        "evidence": [
+          {
+            "url": "https://dovervet.com/services/dover-veterinary-surgery.php",
+            "file": "research/audit-runs/care-20261011T065613-0400/pages/3132a59890b8b837be.json",
+            "attempted_at": "2026-10-11T07:06:42.212919-04:00",
+            "inherited": true
+          },
+          {
+            "url": "https://dovervet.com/contact/contact.php",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/c57ba7b5bce7aa5b11.json",
+            "attempted_at": "2026-10-11T16:10:25.586015-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://dovervet.com/services/dover-veterinary-surgery.php",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/3132a59890b8b837be.json",
+            "attempted_at": "2026-10-11T16:09:02.494833-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://dovervet.com/team/dover-veterinarians.php",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/76a1c489fc354c8e68.json",
+            "attempted_at": "2026-10-11T16:10:21.513640-04:00",
+            "inherited": false
+          }
+        ],
+        "actions": [
+          {
+            "added_services": [
+              "Surgery"
+            ],
+            "field_corrections": {},
+            "source_url": "https://dovervet.com/services/dover-veterinary-surgery.php"
+          }
+        ],
+        "publication_status": "pending"
+      },
+      "evidence": [
+        {
+          "official_url": "https://dovervet.com/services/dover-veterinary-surgery.php",
+          "quotes": [
+            "do not experience the same side effects from chemotherapy that people do.\nIf your pet is diagnosed with cancer, Dover Veterinary Hospital offers a numbe",
+            "tolerate treatment, including the removal of cancerous tissue. Dr. Kristin Rennie often receives referrals for integrative treatments and nutritional therap",
+            "us tissue. Dr. Kristin Rennie often receives referrals for integrative treatments and nutritional therapy for cancer. Dr. Devin McCarthy is experien"
+          ],
+          "checked_at": "2026-10-11T07:06:42.212919-04:00",
+          "branch": {
+            "name": "Dover Veterinary Hospital",
+            "street": "96 Durham Road",
+            "city": "Dover",
+            "region": "NH",
+            "postal_code": "03820"
+          },
+          "file": "research/audit-runs/care-20261011T065613-0400/pages/3132a59890b8b837be.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://dovervet.com/services/dover-veterinary-surgery.php",
+          "quotes": [
+            "do not experience the same side effects from chemotherapy that people do.\nIf your pet is diagnosed with cancer, Dover Veterinary Hospital offers a numbe",
+            "tolerate treatment, including the removal of cancerous tissue. Dr. Kristin Rennie often receives referrals for integrative treatments and nutritional therap",
+            "us tissue. Dr. Kristin Rennie often receives referrals for integrative treatments and nutritional therapy for cancer. Dr. Devin McCarthy is experien"
+          ],
+          "checked_at": "2026-10-11T16:09:02.494833-04:00",
+          "branch": {
+            "name": "Dover Veterinary Hospital",
+            "street": "96 Durham Road",
+            "city": "Dover",
+            "region": "NH",
+            "postal_code": "03820"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/3132a59890b8b837be.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://dovervet.com/team/dover-veterinarians.php",
+          "quotes": [
+            "ver Veterinary Hospital\nLee Spyridakis, DVM, DACVIM, Owner\nOwner and Veterinarian Dr. Lee Spyridakis is a veterinary internist who began working a",
+            "here Dr. McCarthy joined a busy multi-doctor referral practice for five years. After enjoying the skiing and mountain biking in that area, they then"
+          ],
+          "checked_at": "2026-10-11T16:10:21.513640-04:00",
+          "branch": {
+            "name": "Dover Veterinary Hospital",
+            "street": "96 Durham Road",
+            "city": "Dover",
+            "region": "NH",
+            "postal_code": "03820"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/76a1c489fc354c8e68.json",
+          "method": "shell.urllib"
+        }
+      ],
+      "reconciliation_status": "applied_to_current_main_candidate"
+    },
+    {
+      "source_id": "dunes-animal-hospital",
+      "branch": {
+        "name": "Dunes Animal Hospital",
+        "street": "387 W Steamboat Drive",
+        "city": "Dakota Dunes",
+        "region": "SD",
+        "postal_code": "57049"
+      },
+      "previous_public": {
+        "name": "Dunes Animal Hospital",
+        "street": "387 W Steamboat Drive",
+        "city": "Dakota Dunes",
+        "region": "SD",
+        "postal_code": "57049",
+        "country": "USA",
+        "phone": "605-242-5412",
+        "website": "https://www.dunesanimal.com/",
+        "latitude": 42.5249,
+        "longitude": -96.5074,
+        "services": [
+          "Local oncology care",
+          "Chemotherapy"
+        ],
+        "source": "Official hospital oncology page",
+        "verification_url": "https://www.dunesanimal.com/services/oncology"
+      },
+      "missing_changes": {
+        "services_added": [],
+        "fields": {}
+      },
+      "original_review": {
+        "source_id": "dunes-animal-hospital",
+        "reviewed_at": "2026-10-11T16:11:56.670616-04:00",
+        "processing_complete": true,
+        "content_sufficient": true,
+        "outcome": "verified_unchanged",
+        "review_method": "Individual semantic clinical/physical/access/roster reconciliation",
+        "review_note": "Current local oncology page explicitly states injectable chemotherapy is administered at practice. Current general veterinary roster and location/telephone checked. Generic radiation recommendations do not establish equipment or local radiation service; no radiation tag added. Local oncology care retained without claiming a board-certified oncologist.",
+        "verified_urls": [
+          "https://www.dunesanimal.com/services/oncology",
+          "https://www.dunesanimal.com/staff",
+          "https://www.dunesanimal.com/about-us",
+          "https://www.dunesanimal.com/contact-us"
+        ],
+        "evidence": [
+          {
+            "url": "https://www.dunesanimal.com/services/oncology",
+            "file": "research/audit-runs/care-20261011T065613-0400/pages/8089127cbcebfb97cd.json",
+            "attempted_at": "2026-10-11T07:06:44.235781-04:00",
+            "inherited": true
+          },
+          {
+            "url": "https://www.dunesanimal.com/staff",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/2ee78b6dfb2a4df624.json",
+            "attempted_at": "2026-10-11T16:10:24.286979-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://www.dunesanimal.com/about-us",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/0d17ffb4df29247e04.json",
+            "attempted_at": "2026-10-11T16:10:24.263173-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://www.dunesanimal.com/services/oncology",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/8089127cbcebfb97cd.json",
+            "attempted_at": "2026-10-11T16:09:04.925924-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://www.dunesanimal.com/contact-us",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/f419529bc548f30113.json",
+            "attempted_at": "2026-10-11T16:10:21.516148-04:00",
+            "inherited": false
+          }
+        ],
+        "actions": [
+          {
+            "added_services": [],
+            "field_corrections": {},
+            "source_url": "https://www.dunesanimal.com/services/oncology"
+          }
+        ],
+        "publication_status": "pending"
+      },
+      "evidence": [
+        {
+          "official_url": "https://www.dunesanimal.com/services/oncology",
+          "quotes": [
+            "ts who are undergoing surgery, radiation, or chemotherapy.\nIt is important to understand that these treatment options do not necessarily cure your pet’s"
+          ],
+          "checked_at": "2026-10-11T07:06:44.235781-04:00",
+          "branch": {
+            "name": "Dunes Animal Hospital",
+            "street": "387 W Steamboat Drive",
+            "city": "Dakota Dunes",
+            "region": "SD",
+            "postal_code": "57049"
+          },
+          "file": "research/audit-runs/care-20261011T065613-0400/pages/8089127cbcebfb97cd.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://www.dunesanimal.com/services/oncology",
+          "quotes": [
+            "ts who are undergoing surgery, radiation, or chemotherapy.\nIt is important to understand that these treatment options do not necessarily cure your pet’s"
+          ],
+          "checked_at": "2026-10-11T16:09:04.925924-04:00",
+          "branch": {
+            "name": "Dunes Animal Hospital",
+            "street": "387 W Steamboat Drive",
+            "city": "Dakota Dunes",
+            "region": "SD",
+            "postal_code": "57049"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/8089127cbcebfb97cd.json",
+          "method": "shell.urllib"
+        }
+      ],
+      "reconciliation_status": "applied_to_current_main_candidate"
+    },
+    {
+      "source_id": "eastern-carolina-veterinary-referral",
+      "branch": {
+        "name": "Eastern Carolina Veterinary Medical Center",
+        "street": "50 Greenville Avenue",
+        "city": "Wilmington",
+        "region": "NC",
+        "postal_code": "28403"
+      },
+      "previous_public": {
+        "name": "Eastern Carolina Veterinary Referral",
+        "street": "50 Greenville Avenue",
+        "city": "Wilmington",
+        "region": "NC",
+        "postal_code": "28403",
+        "country": "USA",
+        "phone": "910-790-1070",
+        "website": "https://www.ecvetreferral.com/",
+        "latitude": 34.21207806,
+        "longitude": -77.83765547,
+        "services": [
+          "Medical oncology",
+          "Chemotherapy"
+        ],
+        "source": "Official hospital oncology page",
+        "verification_url": "https://www.ecvetreferral.com/services/medical-oncology"
+      },
+      "missing_changes": {
+        "services_added": [
+          "Immunotherapy",
+          "Targeted therapy",
+          "Surgery"
+        ],
+        "fields": {
+          "name": {
+            "before": "Eastern Carolina Veterinary Referral",
+            "after": "Eastern Carolina Veterinary Medical Center"
+          },
+          "website": {
+            "before": "https://www.ecvetreferral.com/",
+            "after": "https://www.easterncarolinavet.com/services/medical-oncology"
+          }
+        }
+      },
+      "original_review": {
+        "source_id": "eastern-carolina-veterinary-referral",
+        "reviewed_at": "2026-10-11T16:11:56.670616-04:00",
+        "processing_complete": true,
+        "content_sufficient": true,
+        "outcome": "verified_update",
+        "review_method": "Individual semantic clinical/physical/access/roster reconciliation",
+        "review_note": "Old ecvetreferral service URL redirects to current hospital home, not actual oncology body. Followed current official Medical Oncology link: injectable/oral chemotherapy, immunotherapy and targeted therapies explicitly local; surgery coordinated across hospital departments. Current Wright and Miller DACVIM Oncology roster and referral-required consultation route verified. Current master explicitly formerly ECVR; same50Greenville/9107901070, so rebrand existing physical center instead of adding duplicate. Radiology means diagnostic imaging, not radiation treatment.",
+        "verified_urls": [
+          "https://www.ecvetreferral.com/services/medical-oncology",
+          "https://www.easterncarolinavet.com/services/medical-oncology",
+          "https://www.easterncarolinavet.com/about-us",
+          "https://www.easterncarolinavet.com/staff",
+          "https://www.easterncarolinavet.com/contact-us"
+        ],
+        "evidence": [
+          {
+            "url": "https://www.ecvetreferral.com/services/medical-oncology",
+            "file": "research/audit-runs/care-20261011T065613-0400/pages/1e6b0763ce52c7bbd9.json",
+            "attempted_at": "2026-10-11T07:06:45.254332-04:00",
+            "inherited": true
+          },
+          {
+            "url": "https://www.easterncarolinavet.com/services/medical-oncology",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/483c4cedf4865888f3.json",
+            "attempted_at": "2026-10-11T16:10:38.884111-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://www.easterncarolinavet.com/about-us",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/0c9fac760fccfa4fe5.json",
+            "attempted_at": "2026-10-11T16:10:25.585747-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://www.ecvetreferral.com/services/medical-oncology",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/1e6b0763ce52c7bbd9.json",
+            "attempted_at": "2026-10-11T16:09:06.377424-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://www.easterncarolinavet.com/staff",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/85ab974441082e670a.json",
+            "attempted_at": "2026-10-11T16:10:29.124482-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://www.easterncarolinavet.com/contact-us",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/93763d5e5856400b1a.json",
+            "attempted_at": "2026-10-11T16:10:24.833046-04:00",
+            "inherited": false
+          }
+        ],
+        "actions": [
+          {
+            "added_services": [
+              "Immunotherapy",
+              "Targeted therapy",
+              "Surgery"
+            ],
+            "field_corrections": {
+              "name": "Eastern Carolina Veterinary Medical Center",
+              "website": "https://www.easterncarolinavet.com/services/medical-oncology"
+            },
+            "source_url": "https://www.easterncarolinavet.com/services/medical-oncology"
+          }
+        ],
+        "publication_status": "pending"
+      },
+      "evidence": [
+        {
+          "official_url": "https://www.easterncarolinavet.com/",
+          "quotes": [
+            "viously known as Eastern Carolina Veterinary Referral\nSERVING WILMINGTON, LELAND, WRIGHTSVILLE BEACH, CAROLINA BEACH, AND HAMPSTEAD, NC\nOur Mission\n"
+          ],
+          "checked_at": "2026-10-11T07:06:45.254332-04:00",
+          "branch": {
+            "name": "Eastern Carolina Veterinary Medical Center",
+            "street": "50 Greenville Avenue",
+            "city": "Wilmington",
+            "region": "NC",
+            "postal_code": "28403"
+          },
+          "file": "research/audit-runs/care-20261011T065613-0400/pages/1e6b0763ce52c7bbd9.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://www.easterncarolinavet.com/services/medical-oncology",
+          "quotes": [
+            "otherapy\n– We offer both injectable and oral chemotherapy protocols designed to slow cancer growth, reduce symptoms, and improve quality of life. Our te",
+            " plan to your pet’s diagnosis and tolerance.\nImmunotherapy & Targeted Therapies\n– Advanced treatment options that harness the immune system to target spe",
+            "Oncology)\nView Profile\nDr. Karri Miller\nDVM, DACVIM (Oncology)\nView Profile\nHeather Sparks\nVeterinary Assistant\nView Profile\nEastern Carolina Vete",
+            "narian or our emergency department. Once the referral is received, our scheduling team will contact you to gather additional information and schedul"
+          ],
+          "checked_at": "2026-10-11T16:10:38.884111-04:00",
+          "branch": {
+            "name": "Eastern Carolina Veterinary Medical Center",
+            "street": "50 Greenville Avenue",
+            "city": "Wilmington",
+            "region": "NC",
+            "postal_code": "28403"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/483c4cedf4865888f3.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://www.easterncarolinavet.com/about-us",
+          "quotes": [
+            "as since grown into a thriving, full-service referral and emergency hospital.\nToday, our dedicated team includes 115+ veterinary professionals and 1"
+          ],
+          "checked_at": "2026-10-11T16:10:25.585747-04:00",
+          "branch": {
+            "name": "Eastern Carolina Veterinary Medical Center",
+            "street": "50 Greenville Avenue",
+            "city": "Wilmington",
+            "region": "NC",
+            "postal_code": "28403"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/0c9fac760fccfa4fe5.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://www.easterncarolinavet.com/",
+          "quotes": [
+            "viously known as Eastern Carolina Veterinary Referral\nSERVING WILMINGTON, LELAND, WRIGHTSVILLE BEACH, CAROLINA BEACH, AND HAMPSTEAD, NC\nOur Mission\n"
+          ],
+          "checked_at": "2026-10-11T16:09:06.377424-04:00",
+          "branch": {
+            "name": "Eastern Carolina Veterinary Medical Center",
+            "street": "50 Greenville Avenue",
+            "city": "Wilmington",
+            "region": "NC",
+            "postal_code": "28403"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/1e6b0763ce52c7bbd9.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://www.easterncarolinavet.com/staff",
+          "quotes": [
+            "Oncology)\nView Profile\nDr. Karri Miller\nDVM, DACVIM (Oncology)\nView Profile\nHeather Sparks\nVeterinary Assistant\nView Profile\nOur Anesthesia Team\nD",
+            "ervisor, Emergency Services\nCaroline Hanshaw\nReferral Relationship Manager\nShanelle Armas\nHospital Operations Manager\nView Profile\nPam Herel\nHuman R"
+          ],
+          "checked_at": "2026-10-11T16:10:29.124482-04:00",
+          "branch": {
+            "name": "Eastern Carolina Veterinary Medical Center",
+            "street": "50 Greenville Avenue",
+            "city": "Wilmington",
+            "region": "NC",
+            "postal_code": "28403"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/85ab974441082e670a.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://www.easterncarolinavet.com/contact-us",
+          "quotes": [
+            "ial Work\nFor Veterinarians\nFor Veterinarians\nReferral Portal\nSubscribe to Our Newsletter\nEmergency Care\nContact Us\nContact Us\nHours\nEmergency Servic"
+          ],
+          "checked_at": "2026-10-11T16:10:24.833046-04:00",
+          "branch": {
+            "name": "Eastern Carolina Veterinary Medical Center",
+            "street": "50 Greenville Avenue",
+            "city": "Wilmington",
+            "region": "NC",
+            "postal_code": "28403"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/93763d5e5856400b1a.json",
+          "method": "shell.urllib"
+        }
+      ],
+      "reconciliation_status": "applied_to_current_main_candidate"
+    },
+    {
+      "source_id": "eclipse-specialty-and-emergency-pet-care",
+      "branch": {
+        "name": "Eclipse Specialty and Emergency Pet Care",
+        "street": "1 Papermill Dr.",
+        "city": "Whippany",
+        "region": "NJ",
+        "postal_code": "07981"
+      },
+      "previous_public": {
+        "name": "Eclipse Specialty and Emergency Pet Care",
+        "street": "1 Papermill Dr.",
+        "city": "Whippany",
+        "region": "NJ",
+        "postal_code": "07981",
+        "country": "USA",
+        "phone": "862.404.0991",
+        "website": "http://eclipsevetcare.com",
+        "services": [
+          "Medical oncology"
+        ],
+        "latitude": 40.8219,
+        "longitude": -74.42,
+        "source": "ACVIM VetSpecialists directory",
+        "verification_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=e8dcb62a-bde5-442e-a26e-426a144f19b9",
+        "oncologist_count": 1
+      },
+      "missing_changes": {
+        "services_added": [
+          "Chemotherapy",
+          "Targeted therapy",
+          "Immunotherapy",
+          "Surgery"
+        ],
+        "fields": {
+          "phone": {
+            "before": "862.404.0991",
+            "after": "862-404-0991"
+          },
+          "website": {
+            "before": "http://eclipsevetcare.com",
+            "after": "https://eclipsevetcare.com/veterinary-oncology"
+          }
+        }
+      },
+      "original_review": {
+        "source_id": "eclipse-specialty-and-emergency-pet-care",
+        "reviewed_at": "2026-10-11T16:11:56.670616-04:00",
+        "processing_complete": true,
+        "content_sufficient": true,
+        "outcome": "verified_update",
+        "review_method": "Individual semantic clinical/physical/access/roster reconciliation",
+        "review_note": "Actual Services available at Eclipse list explicitly chemotherapy/targeted/immunotherapy/surgery; radiation explicitly off-site with partners, excluded. Current Jennifer Baez VMD DACVIM Oncology/SAIM and Ji-In Lee DVM Practice Limited to Oncology; do not assign Baez board certification to Lee. Current consultation request and Whippany1Papermill/8624040991 confirmed.",
+        "verified_urls": [
+          "https://eclipsevetcare.com",
+          "https://eclipsevetcare.com/contact",
+          "https://eclipsevetcare.com/veterinary-oncology"
+        ],
+        "evidence": [
+          {
+            "url": "https://eclipsevetcare.com",
+            "file": "research/audit-runs/care-resume-20261011T083538-0400/pages/b2f7fc3934a259d0f7.json",
+            "attempted_at": "2026-10-11T08:37:41.466887-04:00",
+            "inherited": true
+          },
+          {
+            "url": "https://eclipsevetcare.com",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/b2f7fc3934a259d0f7.json",
+            "attempted_at": "2026-10-11T16:09:06.481173-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://eclipsevetcare.com/contact",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/a7d6fdbb83a4ba1b53.json",
+            "attempted_at": "2026-10-11T16:10:27.128699-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://eclipsevetcare.com/veterinary-oncology",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/ce5b01117a358eae6a.json",
+            "attempted_at": "2026-10-11T16:10:26.854380-04:00",
+            "inherited": false
+          }
+        ],
+        "actions": [
+          {
+            "added_services": [
+              "Chemotherapy",
+              "Targeted therapy",
+              "Immunotherapy",
+              "Surgery"
+            ],
+            "field_corrections": {
+              "phone": "862-404-0991",
+              "website": "https://eclipsevetcare.com/veterinary-oncology"
+            },
+            "source_url": "https://eclipsevetcare.com/veterinary-oncology"
+          }
+        ],
+        "publication_status": "pending"
+      },
+      "evidence": [
+        {
+          "official_url": "https://eclipsevetcare.com",
+          "quotes": [
+            "FAQs\nWhat to Expect\nVeterinary Community\nDVM Referral Form\nContact\nFB\nIG\n(862) 404 0991\nCall Now Button\n<br />\nGo to Top",
+            "y Community\nDVM Referral Form\nContact\nFB\nIG\n(862) 404 0991\nCall Now Button\n<br />\nGo to Top"
+          ],
+          "checked_at": "2026-10-11T08:37:41.466887-04:00",
+          "branch": {
+            "name": "Eclipse Specialty and Emergency Pet Care",
+            "street": "1 Papermill Dr.",
+            "city": "Whippany",
+            "region": "NJ",
+            "postal_code": "07981"
+          },
+          "file": "research/audit-runs/care-resume-20261011T083538-0400/pages/b2f7fc3934a259d0f7.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://eclipsevetcare.com",
+          "quotes": [
+            "FAQs\nWhat to Expect\nVeterinary Community\nDVM Referral Form\nContact\nFB\nIG\n(862) 404 0991\nCall Now Button\n<br />\nGo to Top",
+            "y Community\nDVM Referral Form\nContact\nFB\nIG\n(862) 404 0991\nCall Now Button\n<br />\nGo to Top"
+          ],
+          "checked_at": "2026-10-11T16:09:06.481173-04:00",
+          "branch": {
+            "name": "Eclipse Specialty and Emergency Pet Care",
+            "street": "1 Papermill Dr.",
+            "city": "Whippany",
+            "region": "NJ",
+            "postal_code": "07981"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/b2f7fc3934a259d0f7.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://eclipsevetcare.com/contact/",
+          "quotes": [
+            "FAQs\nWhat to Expect\nVeterinary Community\nDVM Referral Form\nContact\nFB\nIG\n(862) 404 0991\nCall Now Button\n<br />\nGo to Top",
+            "y Community\nDVM Referral Form\nContact\nFB\nIG\n(862) 404 0991\nCall Now Button\n<br />\nGo to Top"
+          ],
+          "checked_at": "2026-10-11T16:10:27.128699-04:00",
+          "branch": {
+            "name": "Eclipse Specialty and Emergency Pet Care",
+            "street": "1 Papermill Dr.",
+            "city": "Whippany",
+            "region": "NJ",
+            "postal_code": "07981"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/a7d6fdbb83a4ba1b53.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://eclipsevetcare.com/veterinary-oncology/",
+          "quotes": [
+            "ing including X-rays, ultrasound, CT and MRI\nChemotherapy\nTargeted therapy\nImmunotherapy\nSurgery\nRadiation therapy (done off site with our partners)\nMee",
+            "nd, CT and MRI\nChemotherapy\nTargeted therapy\nImmunotherapy\nSurgery\nRadiation therapy (done off site with our partners)\nMeet The Doctors\nJennifer L. Baez\n",
+            "ners)\nMeet The Doctors\nJennifer L. Baez\nVMD, DACVIM (Oncology and SAIM)\nJi-In Lee\nDVM (Practice Limited to Oncology)\nAreas Served\nWhippany, Morris",
+            "FAQs\nWhat to Expect\nVeterinary Community\nDVM Referral Form\nContact\nFB\nIG\n(862) 404 0991\nCall Now Button\n<br />\nGo to Top",
+            "y Community\nDVM Referral Form\nContact\nFB\nIG\n(862) 404 0991\nCall Now Button\n<br />\nGo to Top"
+          ],
+          "checked_at": "2026-10-11T16:10:26.854380-04:00",
+          "branch": {
+            "name": "Eclipse Specialty and Emergency Pet Care",
+            "street": "1 Papermill Dr.",
+            "city": "Whippany",
+            "region": "NJ",
+            "postal_code": "07981"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/ce5b01117a358eae6a.json",
+          "method": "shell.urllib"
+        }
+      ],
+      "reconciliation_status": "applied_to_current_main_candidate"
+    },
+    {
+      "source_id": "evolution-veterinary-specialists",
+      "branch": {
+        "name": "Evolution Veterinary Specialists",
+        "street": "34 Van Gordon St Ste 160",
+        "city": "Lakewood",
+        "region": "CO",
+        "postal_code": "80228"
+      },
+      "previous_public": {
+        "name": "Evolution Veterinary Specialists",
+        "street": "34 Van Gordon St Ste 160",
+        "city": "Lakewood",
+        "region": "CO",
+        "postal_code": "80228",
+        "country": "USA",
+        "phone": "720-510-7707",
+        "services": [
+          "Medical oncology",
+          "Surgery",
+          "ECT",
+          "Immunotherapy"
+        ],
+        "website": "https://evolutionvet.com/electrochemotherapy/",
+        "latitude": 39.6914,
+        "longitude": -105.1561,
+        "source": "Existing verified directory",
+        "verification_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=619d1a72-25cb-4f0e-a5c9-1876d8710856",
+        "oncologist_count": 1
+      },
+      "missing_changes": {
+        "services_added": [
+          "Chemotherapy",
+          "Surgical oncology"
+        ],
+        "fields": {}
+      },
+      "original_review": {
+        "source_id": "evolution-veterinary-specialists",
+        "reviewed_at": "2026-10-11T16:11:56.670616-04:00",
+        "processing_complete": true,
+        "content_sufficient": true,
+        "outcome": "verified_update",
+        "review_method": "Individual semantic clinical/physical/access/roster reconciliation",
+        "review_note": "Current EVS direct ECT page explicitly now offers ECT for dogs/cats with local equipment and consultation. Current medical oncology service led by Autumn Dutelle DACVIM Oncology explicitly provides chemotherapy/ECT and lists immunotherapy; ECT page confirms integrated Surgical Oncology. Current local team,34VanGordonSuite160/7205107707 and specialty hours confirmed. Radiation mentioned as an unavailable/declined reason for ECT is not local delivery proof.",
+        "verified_urls": [
+          "https://evolutionvet.com/electrochemotherapy/",
+          "https://evolutionvet.com/services/oncology/",
+          "https://evolutionvet.com/about-us/our-team/",
+          "https://evolutionvet.com/contact/"
+        ],
+        "evidence": [
+          {
+            "url": "https://evolutionvet.com/electrochemotherapy/",
+            "file": "research/audit-runs/care-resume-20261011T083538-0400/pages/102856de52143d7004.json",
+            "attempted_at": "2026-10-11T08:37:43.777257-04:00",
+            "inherited": true
+          },
+          {
+            "url": "https://evolutionvet.com/services/oncology/",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/af9b174b568b133813.json",
+            "attempted_at": "2026-10-11T16:10:40.619266-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://evolutionvet.com/about-us/our-team/",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/c410cffcff9ff375b3.json",
+            "attempted_at": "2026-10-11T16:10:29.145041-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://evolutionvet.com/electrochemotherapy/",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/102856de52143d7004.json",
+            "attempted_at": "2026-10-11T16:09:07.883633-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://evolutionvet.com/contact/",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/4e3c7b06e0d322c9aa.json",
+            "attempted_at": "2026-10-11T16:10:29.124138-04:00",
+            "inherited": false
+          }
+        ],
+        "actions": [
+          {
+            "added_services": [
+              "Chemotherapy",
+              "Surgical oncology"
+            ],
+            "field_corrections": {},
+            "source_url": "https://evolutionvet.com/services/oncology/"
+          }
+        ],
+        "publication_status": "pending"
+      },
+      "evidence": [
+        {
+          "official_url": "https://evolutionvet.com/electrochemotherapy/",
+          "quotes": [
+            "Technology-\nWe offer state-of-the-art electrochemotherapy equipment alongside advanced diagnostics and surgical capabilities.\nIndividualized Treatment P",
+            "sts, electrochemotherapy is integrated with:\nSurgical Oncology\nMedical Oncology\nAdvanced Imaging\nInternal Medicine\nEmergency & Critical Care\nOur multidiscipl"
+          ],
+          "checked_at": "2026-10-11T08:37:43.777257-04:00",
+          "branch": {
+            "name": "Evolution Veterinary Specialists",
+            "street": "34 Van Gordon St Ste 160",
+            "city": "Lakewood",
+            "region": "CO",
+            "postal_code": "80228"
+          },
+          "file": "research/audit-runs/care-resume-20261011T083538-0400/pages/102856de52143d7004.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://evolutionvet.com/services/oncology/",
+          "quotes": [
+            "onal treatments like chemotherapy and electrochemotherapy with supportive palliative care.\nPlease do not hesitate to contact EVS for further information",
+            "ties may include:\n♦ Surgery\n♦ Chemotherapy\n♦ Immunotherapy\n♦ Pain-relief\n♦ Palliative/hospice care\nLeading the our Oncology service is Dr. Autumn Dutelle",
+            " our Oncology service is Dr. Autumn Dutelle, DACVIM (Oncology).\nDr. Dutelle is board-certified in Medical Oncology (2012) and certified in Veterin"
+          ],
+          "checked_at": "2026-10-11T16:10:40.619266-04:00",
+          "branch": {
+            "name": "Evolution Veterinary Specialists",
+            "street": "34 Van Gordon St Ste 160",
+            "city": "Lakewood",
+            "region": "CO",
+            "postal_code": "80228"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/af9b174b568b133813.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://evolutionvet.com/about-us/our-team/",
+          "quotes": [
+            "Internal Medicine)\nDr. Jenna Ashton\nDVM, MS, DACVIM (Internal Medicine)\nDr. Sarah Stroope\nDVM, Residency Trained In Critical Care\nDr. Christopher "
+          ],
+          "checked_at": "2026-10-11T16:10:29.145041-04:00",
+          "branch": {
+            "name": "Evolution Veterinary Specialists",
+            "street": "34 Van Gordon St Ste 160",
+            "city": "Lakewood",
+            "region": "CO",
+            "postal_code": "80228"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/c410cffcff9ff375b3.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://evolutionvet.com/electrochemotherapy/",
+          "quotes": [
+            "Technology-\nWe offer state-of-the-art electrochemotherapy equipment alongside advanced diagnostics and surgical capabilities.\nIndividualized Treatment P",
+            "sts, electrochemotherapy is integrated with:\nSurgical Oncology\nMedical Oncology\nAdvanced Imaging\nInternal Medicine\nEmergency & Critical Care\nOur multidiscipl"
+          ],
+          "checked_at": "2026-10-11T16:09:07.883633-04:00",
+          "branch": {
+            "name": "Evolution Veterinary Specialists",
+            "street": "34 Van Gordon St Ste 160",
+            "city": "Lakewood",
+            "region": "CO",
+            "postal_code": "80228"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/102856de52143d7004.json",
+          "method": "shell.urllib"
+        }
+      ],
+      "reconciliation_status": "applied_to_current_main_candidate"
+    },
+    {
+      "source_id": "franklin-lakes-animal-hospital",
+      "branch": {
+        "name": "Franklin Lakes Animal Hospital",
+        "street": "754 Franklin Avenue",
+        "city": "Franklin Lakes",
+        "region": "NJ",
+        "postal_code": "07417"
+      },
+      "previous_public": {
+        "name": "Franklin Lakes Animal Hospital",
+        "street": "754 Franklin Avenue",
+        "city": "Franklin Lakes",
+        "region": "NJ",
+        "postal_code": "07417",
+        "country": "USA",
+        "phone": "201-848-1991",
+        "website": "https://franklinlakesanimalhospital.com/services/chemotherapy/",
+        "services": [
+          "Chemotherapy"
+        ],
+        "source": "Official hospital chemotherapy page",
+        "verification_url": "https://franklinlakesanimalhospital.com/services/chemotherapy/",
+        "latitude": 41.0081,
+        "longitude": -74.2113
+      },
+      "missing_changes": {
+        "services_added": [],
+        "fields": {}
+      },
+      "original_review": {
+        "source_id": "franklin-lakes-animal-hospital",
+        "reviewed_at": "2026-10-11T16:11:56.670616-04:00",
+        "processing_complete": true,
+        "content_sufficient": true,
+        "outcome": "verified_unchanged",
+        "review_method": "Individual semantic clinical/physical/access/roster reconciliation",
+        "review_note": "Current local chemotherapy page explicitly states injected drugs administered in facility, identifies consultation/contact route and current754Franklin/2018481991. Current team roster checked; service is chemotherapy, not an independently verified board-certified oncology clinic. No brand/drug/radiation inferred. Existing chemotherapy-only card accurate.",
+        "verified_urls": [
+          "https://franklinlakesanimalhospital.com/services/chemotherapy/",
+          "https://franklinlakesanimalhospital.com/book-an-appointment/",
+          "https://franklinlakesanimalhospital.com/hours-contact/",
+          "https://franklinlakesanimalhospital.com/staff-profiles/"
+        ],
+        "evidence": [
+          {
+            "url": "https://franklinlakesanimalhospital.com/services/chemotherapy/",
+            "file": "research/audit-runs/care-20261011T065613-0400/pages/9ac90fd87e0600d668.json",
+            "attempted_at": "2026-10-11T07:06:53.373193-04:00",
+            "inherited": true
+          },
+          {
+            "url": "https://franklinlakesanimalhospital.com/book-an-appointment/",
+            "file": "research/audit-runs/care-resume-20261011T083538-0400/pages/67e502b08aa576581a.json",
+            "attempted_at": "2026-10-11T08:37:45.400714-04:00",
+            "inherited": true
+          },
+          {
+            "url": "https://franklinlakesanimalhospital.com/hours-contact/",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/f6980efb2fa383b78b.json",
+            "attempted_at": "2026-10-11T16:10:31.672859-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://franklinlakesanimalhospital.com/book-an-appointment/",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/67e502b08aa576581a.json",
+            "attempted_at": "2026-10-11T16:09:09.074075-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://franklinlakesanimalhospital.com/staff-profiles/",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/46b22989b7d3504157.json",
+            "attempted_at": "2026-10-11T16:10:35.246842-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://franklinlakesanimalhospital.com/services/chemotherapy/",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/9ac90fd87e0600d668.json",
+            "attempted_at": "2026-10-11T16:09:09.036847-04:00",
+            "inherited": false
+          }
+        ],
+        "actions": [
+          {
+            "added_services": [],
+            "field_corrections": {},
+            "source_url": "https://franklinlakesanimalhospital.com/services/chemotherapy/"
+          }
+        ],
+        "publication_status": "pending"
+      },
+      "evidence": [
+        {
+          "official_url": "https://franklinlakesanimalhospital.com/services/chemotherapy/",
+          "quotes": [
+            "s life.\nSchedule an appointment with our pet chemotherapy vets in Franklin Lakes by calling\n(201) 848-1991\n.\nChoose Our Franklin Lakes Veterinary Team\nO"
+          ],
+          "checked_at": "2026-10-11T07:06:53.373193-04:00",
+          "branch": {
+            "name": "Franklin Lakes Animal Hospital",
+            "street": "754 Franklin Avenue",
+            "city": "Franklin Lakes",
+            "region": "NJ",
+            "postal_code": "07417"
+          },
+          "file": "research/audit-runs/care-20261011T065613-0400/pages/9ac90fd87e0600d668.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://franklinlakesanimalhospital.com/book-an-appointment/",
+          "quotes": [
+            "s\nServices\nTherapeutic Cold Laser\nLaboratory\nChemotherapy\nDentistry\nHouse Calls\nRadiology\nView All Services\nExotic Pet Care\nResources\nBlog\nHours & Conta"
+          ],
+          "checked_at": "2026-10-11T08:37:45.400714-04:00",
+          "branch": {
+            "name": "Franklin Lakes Animal Hospital",
+            "street": "754 Franklin Avenue",
+            "city": "Franklin Lakes",
+            "region": "NJ",
+            "postal_code": "07417"
+          },
+          "file": "research/audit-runs/care-resume-20261011T083538-0400/pages/67e502b08aa576581a.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://franklinlakesanimalhospital.com/hours-contact/",
+          "quotes": [
+            "s\nServices\nTherapeutic Cold Laser\nLaboratory\nChemotherapy\nDentistry\nHouse Calls\nRadiology\nView All Services\nExotic Pet Care\nResources\nBlog\nHours & Conta"
+          ],
+          "checked_at": "2026-10-11T16:10:31.672859-04:00",
+          "branch": {
+            "name": "Franklin Lakes Animal Hospital",
+            "street": "754 Franklin Avenue",
+            "city": "Franklin Lakes",
+            "region": "NJ",
+            "postal_code": "07417"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/f6980efb2fa383b78b.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://franklinlakesanimalhospital.com/book-an-appointment/",
+          "quotes": [
+            "s\nServices\nTherapeutic Cold Laser\nLaboratory\nChemotherapy\nDentistry\nHouse Calls\nRadiology\nView All Services\nExotic Pet Care\nResources\nBlog\nHours & Conta"
+          ],
+          "checked_at": "2026-10-11T16:09:09.074075-04:00",
+          "branch": {
+            "name": "Franklin Lakes Animal Hospital",
+            "street": "754 Franklin Avenue",
+            "city": "Franklin Lakes",
+            "region": "NJ",
+            "postal_code": "07417"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/67e502b08aa576581a.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://franklinlakesanimalhospital.com/staff-profiles/",
+          "quotes": [
+            "s\nServices\nTherapeutic Cold Laser\nLaboratory\nChemotherapy\nDentistry\nHouse Calls\nRadiology\nView All Services\nExotic Pet Care\nResources\nBlog\nHours & Conta"
+          ],
+          "checked_at": "2026-10-11T16:10:35.246842-04:00",
+          "branch": {
+            "name": "Franklin Lakes Animal Hospital",
+            "street": "754 Franklin Avenue",
+            "city": "Franklin Lakes",
+            "region": "NJ",
+            "postal_code": "07417"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/46b22989b7d3504157.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://franklinlakesanimalhospital.com/services/chemotherapy/",
+          "quotes": [
+            "s life.\nSchedule an appointment with our pet chemotherapy vets in Franklin Lakes by calling\n(201) 848-1991\n.\nChoose Our Franklin Lakes Veterinary Team\nO"
+          ],
+          "checked_at": "2026-10-11T16:09:09.036847-04:00",
+          "branch": {
+            "name": "Franklin Lakes Animal Hospital",
+            "street": "754 Franklin Avenue",
+            "city": "Franklin Lakes",
+            "region": "NJ",
+            "postal_code": "07417"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/9ac90fd87e0600d668.json",
+          "method": "shell.urllib"
+        }
+      ],
+      "reconciliation_status": "applied_to_current_main_candidate"
+    },
+    {
+      "source_id": "haven-lake-animal-hospital",
+      "branch": {
+        "name": "Haven Lake Animal Hospital",
+        "street": "300 Milford Harrington Highway",
+        "city": "Milford",
+        "region": "DE",
+        "postal_code": "19963"
+      },
+      "previous_public": {
+        "name": "Haven Lake Animal Hospital",
+        "street": "300 Milford Harrington Highway",
+        "city": "Milford",
+        "region": "DE",
+        "postal_code": "19963",
+        "country": "USA",
+        "phone": "302-422-8100",
+        "website": "https://www.havenlakeanimalhospital.com/",
+        "latitude": 38.9218,
+        "longitude": -75.4299,
+        "services": [
+          "Local oncology care",
+          "Chemotherapy"
+        ],
+        "source": "Official hospital cancer care page",
+        "verification_url": "https://www.havenlakeanimalhospital.com/cancer-care.pml"
+      },
+      "missing_changes": {
+        "services_added": [
+          "Surgery"
+        ],
+        "fields": {}
+      },
+      "original_review": {
+        "source_id": "haven-lake-animal-hospital",
+        "reviewed_at": "2026-10-11T16:11:56.670616-04:00",
+        "processing_complete": true,
+        "content_sufficient": true,
+        "outcome": "verified_update",
+        "review_method": "Individual semantic clinical/physical/access/roster reconciliation",
+        "review_note": "Current local cancer page explicitly injectable/oral chemotherapy and soft-tissue surgery; outside oncologist guides local administration. Current staff/contact/300MilfordHarrington/3024228100 confirmed, no boarded-oncologist claim. Source inaccurately conflates hyperthyroidism with thyroid cancer; I131 page/oncology sentence therefore does not establish malignant thyroid treatment and no anticancer radioiodine/radiation tag added.",
+        "verified_urls": [
+          "https://www.havenlakeanimalhospital.com/contact-us.pml",
+          "https://www.havenlakeanimalhospital.com/cancer-care.pml",
+          "https://www.havenlakeanimalhospital.com/veterinarians-staff.pml",
+          "https://www.havenlakeanimalhospital.com/about-us.pml"
+        ],
+        "evidence": [
+          {
+            "url": "https://www.havenlakeanimalhospital.com/contact-us.pml",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/891818a8c4f2206fba.json",
+            "attempted_at": "2026-10-11T16:10:38.809914-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://www.havenlakeanimalhospital.com/cancer-care.pml",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/fd274a3dbc958b4c99.json",
+            "attempted_at": "2026-10-11T16:09:11.373407-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://www.havenlakeanimalhospital.com/veterinarians-staff.pml",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/887b3123cabdc464df.json",
+            "attempted_at": "2026-10-11T16:10:37.902015-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://www.havenlakeanimalhospital.com/about-us.pml",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/06af9c1bd771dd8321.json",
+            "attempted_at": "2026-10-11T16:10:35.293937-04:00",
+            "inherited": false
+          }
+        ],
+        "actions": [
+          {
+            "added_services": [
+              "Surgery"
+            ],
+            "field_corrections": {},
+            "source_url": "https://www.havenlakeanimalhospital.com/cancer-care.pml"
+          }
+        ],
+        "publication_status": "pending"
+      },
+      "evidence": [
+        {
+          "official_url": "https://www.havenlakeanimalhospital.com/contact-us.pml",
+          "quotes": [
+            "\nHospital Tour\nForms\nClient Information Form\nReferral Form\nRequest Appointment\nRx Refill\nI-131 Treatment Overview\nDental Release\nSurgical Release\nCo"
+          ],
+          "checked_at": "2026-10-11T16:10:38.809914-04:00",
+          "branch": {
+            "name": "Haven Lake Animal Hospital",
+            "street": "300 Milford Harrington Highway",
+            "city": "Milford",
+            "region": "DE",
+            "postal_code": "19963"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/891818a8c4f2206fba.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://www.havenlakeanimalhospital.com/cancer-care.pml",
+          "quotes": [
+            "of cancer. We offer both injectable and oral chemotherapy medication options as recommended by the most current oncology protocols.\nIf you have any ques",
+            "ur pet's care. We will guide you through the referral process to a\nveterinary oncology specialist\nof your choosing. Our doctors will work with your "
+          ],
+          "checked_at": "2026-10-11T16:09:11.373407-04:00",
+          "branch": {
+            "name": "Haven Lake Animal Hospital",
+            "street": "300 Milford Harrington Highway",
+            "city": "Milford",
+            "region": "DE",
+            "postal_code": "19963"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/fd274a3dbc958b4c99.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://www.havenlakeanimalhospital.com/veterinarians-staff.pml",
+          "quotes": [
+            "\nHospital Tour\nForms\nClient Information Form\nReferral Form\nRequest Appointment\nRx Refill\nI-131 Treatment Overview\nDental Release\nSurgical Release\nCo"
+          ],
+          "checked_at": "2026-10-11T16:10:37.902015-04:00",
+          "branch": {
+            "name": "Haven Lake Animal Hospital",
+            "street": "300 Milford Harrington Highway",
+            "city": "Milford",
+            "region": "DE",
+            "postal_code": "19963"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/887b3123cabdc464df.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://www.havenlakeanimalhospital.com/about-us.pml",
+          "quotes": [
+            "\nHospital Tour\nForms\nClient Information Form\nReferral Form\nRequest Appointment\nRx Refill\nI-131 Treatment Overview\nDental Release\nSurgical Release\nCo"
+          ],
+          "checked_at": "2026-10-11T16:10:35.293937-04:00",
+          "branch": {
+            "name": "Haven Lake Animal Hospital",
+            "street": "300 Milford Harrington Highway",
+            "city": "Milford",
+            "region": "DE",
+            "postal_code": "19963"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/06af9c1bd771dd8321.json",
+          "method": "shell.urllib"
+        }
+      ],
+      "reconciliation_status": "applied_to_current_main_candidate"
+    },
+    {
+      "source_id": "golden-gate-veterinary-specialists",
+      "branch": {
+        "name": "Golden Gate Veterinary Specialists",
+        "street": "4460 Redwood Hwy Suite 11",
+        "city": "San Rafael",
+        "region": "CA",
+        "postal_code": "94903"
+      },
+      "previous_public": {
+        "name": "Golden Gate Veterinary Specialists",
+        "street": "Golden Gate Veterinary Specialists 4460 Redwood Hwy Suite 11",
+        "city": "San Rafael",
+        "region": "CA",
+        "postal_code": "94903",
+        "country": "USA",
+        "phone": "415.726.2458",
+        "website": "http://www.ggvets.com/",
+        "services": [
+          "Medical oncology"
+        ],
+        "latitude": 38.0339,
+        "longitude": -122.5855,
+        "source": "ACVIM VetSpecialists directory",
+        "verification_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=9b3949ee-335a-42d5-9434-ffe936c473d4",
+        "oncologist_count": 1
+      },
+      "missing_changes": {
+        "services_added": [
+          "Chemotherapy",
+          "Immunotherapy",
+          "Surgical oncology"
+        ],
+        "fields": {
+          "street": {
+            "before": "Golden Gate Veterinary Specialists 4460 Redwood Hwy Suite 11",
+            "after": "4460 Redwood Hwy Suite 11"
+          },
+          "phone": {
+            "before": "415.726.2458",
+            "after": "415-726-2458"
+          },
+          "website": {
+            "before": "http://www.ggvets.com/",
+            "after": "https://www.ggvets.com/oncology/"
+          }
+        }
+      },
+      "original_review": {
+        "source_id": "golden-gate-veterinary-specialists",
+        "reviewed_at": "2026-10-11T16:14:02.402220-04:00",
+        "processing_complete": true,
+        "content_sufficient": true,
+        "outcome": "verified_update",
+        "review_method": "Individual semantic clinical/physical/access/roster reconciliation",
+        "review_note": "Current Ruppel biopsy/service and full team biography confirm current boarded medical oncologist. Explicit local service list confirms IV/intralesional/intracavitary chemotherapy and melanoma vaccine/other immunotherapy without brand inference. Current dedicated surgery page explicitly offers local Surgical Oncology including limb-sparing surgery, supported by Farese DACVS Founding Fellow and Hersh-Boyle surgical roster. General radiation treatment is coordination/referral, not local equipment proof. Clean street organization prefix; medical oncology contact4157262458 distinct from surgical4152134746; same physical4460RedwoodSuite11.",
+        "verified_urls": [
+          "https://www.ggvets.com/",
+          "https://www.ggvets.com/oncology/",
+          "https://www.ggvets.com/veterinary-surgery-sf-bay-area/",
+          "https://www.ggvets.com/about-golden-gate-veterinary-bay-area/"
+        ],
+        "evidence": [
+          {
+            "url": "https://www.ggvets.com/",
+            "file": "research/audit-runs/care-resume-20261011T083538-0400/pages/1c5eb33888e615ae75.json",
+            "attempted_at": "2026-10-11T08:52:55.483179-04:00",
+            "inherited": true
+          },
+          {
+            "url": "https://www.ggvets.com/oncology/",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/9ceb6c821fe88202ba.json",
+            "attempted_at": "2026-10-11T16:10:34.761127-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://www.ggvets.com/",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/1c5eb33888e615ae75.json",
+            "attempted_at": "2026-10-11T16:09:10.390527-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://www.ggvets.com/veterinary-surgery-sf-bay-area/",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/753c9a2c15f4a79587.json",
+            "attempted_at": "2026-10-11T16:12:36.873717-04:00",
+            "inherited": false
+          },
+          {
+            "url": "https://www.ggvets.com/about-golden-gate-veterinary-bay-area/",
+            "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/d86a21804fbe13e2d8.json",
+            "attempted_at": "2026-10-11T16:10:33.076132-04:00",
+            "inherited": false
+          }
+        ],
+        "actions": [
+          {
+            "added_services": [
+              "Chemotherapy",
+              "Immunotherapy",
+              "Surgical oncology"
+            ],
+            "field_corrections": {
+              "street": "4460 Redwood Hwy Suite 11",
+              "phone": "415-726-2458",
+              "website": "https://www.ggvets.com/oncology/"
+            },
+            "source_url": "https://www.ggvets.com/oncology/"
+          }
+        ],
+        "publication_status": "pending"
+      },
+      "evidence": [
+        {
+          "official_url": "https://www.ggvets.com/",
+          "quotes": [
+            "unty,\nthe only Founding Fellow of Veterinary Surgical Oncology in the Bay Area, as well as a Medical Oncologist and Internal Medicine Specialist.\nWe serve pe",
+            "Forms\nDermatology Questionnaire\nVeterinarian Referral Form\nRefills\nVideos\nContact\nFollow\nFollow\nMake an appointment\nProviding Exceptional Compassion",
+            "30pm\nSurgical Hours:\nMON-THUR: 8:00 - 5:30pm\n4460 Redwood Hwy. Suite 11\nSan Rafael, CA 94903\nNavigate to our office\nFollow\nFollow\nDermatology, Oncology "
+          ],
+          "checked_at": "2026-10-11T08:52:55.483179-04:00",
+          "branch": {
+            "name": "Golden Gate Veterinary Specialists",
+            "street": "4460 Redwood Hwy Suite 11",
+            "city": "San Rafael",
+            "region": "CA",
+            "postal_code": "94903"
+          },
+          "file": "research/audit-runs/care-resume-20261011T083538-0400/pages/1c5eb33888e615ae75.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://www.ggvets.com/oncology/",
+          "quotes": [
+            "Intravenous, intralesional and intracavitary chemotherapy administration\nMelanoma vaccine and other immunotherapy treatments\nPalliative care and pain ma",
+            "py administration\nMelanoma vaccine and other immunotherapy treatments\nPalliative care and pain management\nDiscussion of new diagnostics, treatments and c",
+            "unty,\nthe only Founding Fellow of Veterinary Surgical Oncology in the Bay Area, as well as a Medical Oncologist and Internal Medicine Specialist.\nWe serve pe",
+            "Forms\nDermatology Questionnaire\nVeterinarian Referral Form\nRefills\nVideos\nContact\nFollow\nFollow\nMake an appointment\nVeterinary Oncology Services\nAt ",
+            "30pm\nSurgical Hours:\nMON-THUR: 8:00 - 5:30pm\n4460 Redwood Hwy. Suite 11\nSan Rafael, CA 94903\nNavigate to our office\nFollow\nFollow\nDermatology, Oncology "
+          ],
+          "checked_at": "2026-10-11T16:10:34.761127-04:00",
+          "branch": {
+            "name": "Golden Gate Veterinary Specialists",
+            "street": "4460 Redwood Hwy Suite 11",
+            "city": "San Rafael",
+            "region": "CA",
+            "postal_code": "94903"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/9ceb6c821fe88202ba.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://www.ggvets.com/",
+          "quotes": [
+            "unty,\nthe only Founding Fellow of Veterinary Surgical Oncology in the Bay Area, as well as a Medical Oncologist and Internal Medicine Specialist.\nWe serve pe",
+            "Forms\nDermatology Questionnaire\nVeterinarian Referral Form\nRefills\nVideos\nContact\nFollow\nFollow\nMake an appointment\nProviding Exceptional Compassion",
+            "30pm\nSurgical Hours:\nMON-THUR: 8:00 - 5:30pm\n4460 Redwood Hwy. Suite 11\nSan Rafael, CA 94903\nNavigate to our office\nFollow\nFollow\nDermatology, Oncology "
+          ],
+          "checked_at": "2026-10-11T16:09:10.390527-04:00",
+          "branch": {
+            "name": "Golden Gate Veterinary Specialists",
+            "street": "4460 Redwood Hwy Suite 11",
+            "city": "San Rafael",
+            "region": "CA",
+            "postal_code": "94903"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/1c5eb33888e615ae75.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://www.ggvets.com/veterinary-surgery-sf-bay-area/",
+          "quotes": [
+            "unty,\nthe only Founding Fellow of Veterinary Surgical Oncology in the Bay Area, as well as a Medical Oncologist and Internal Medicine Specialist.\nWe serve pe",
+            "ia\nAnthroscopy & Joint Stabilization\nGeneral Soft Tissue Surgery\nExpert care for a wide range of internal and soft tissue conditions.\nEar Canal Surgery\nSplenec",
+            "well being every step of the way.\nVeterinary Referral Form\nFollow\nFollow\nPatient Info\nMake an appointment\nClient Forms\nServices\nPrescription Refill ",
+            "30pm\nSurgical Hours:\nMON-THUR: 8:00 - 5:30pm\n4460 Redwood Hwy. Suite 11\nSan Rafael, CA 94903\nNavigate to our office\nFollow\nFollow\nDermatology, Oncology "
+          ],
+          "checked_at": "2026-10-11T16:12:36.873717-04:00",
+          "branch": {
+            "name": "Golden Gate Veterinary Specialists",
+            "street": "4460 Redwood Hwy Suite 11",
+            "city": "San Rafael",
+            "region": "CA",
+            "postal_code": "94903"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/753c9a2c15f4a79587.json",
+          "method": "shell.urllib"
+        },
+        {
+          "official_url": "https://www.ggvets.com/about-golden-gate-veterinary-bay-area/",
+          "quotes": [
+            " passions are cutaneous autoimmune diseases, immunotherapy, allergic skin management, food allergies, connecting with clients and being an advocate for h",
+            "unty,\nthe only Founding Fellow of Veterinary Surgical Oncology in the Bay Area, as well as a Medical Oncologist and Internal Medicine Specialist.\nWe serve pe",
+            " in Small Animal Surgery in 2019.\nTrained in Soft Tissue Surgery, Oncologic Surgery, Neurosurgery and Orthopedic Surgery, Dr. Hersh-Boyle has a special interes",
+            "Forms\nDermatology Questionnaire\nVeterinarian Referral Form\nRefills\nVideos\nContact\nFollow\nFollow\nMake an appointment\nGolden Gate Veterinary Specialis",
+            "30pm\nSurgical Hours:\nMON-THUR: 8:00 - 5:30pm\n4460 Redwood Hwy. Suite 11\nSan Rafael, CA 94903\nNavigate to our office\nFollow\nFollow\nDermatology, Oncology "
+          ],
+          "checked_at": "2026-10-11T16:10:33.076132-04:00",
+          "branch": {
+            "name": "Golden Gate Veterinary Specialists",
+            "street": "4460 Redwood Hwy Suite 11",
+            "city": "San Rafael",
+            "region": "CA",
+            "postal_code": "94903"
+          },
+          "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/d86a21804fbe13e2d8.json",
+          "method": "shell.urllib"
+        }
+      ],
+      "reconciliation_status": "applied_to_current_main_candidate"
+    }
+  ],
+  "unresolved": [
+    {
+      "source_id": "heal-cancer-care-for-pets",
+      "question": "Separate remote-service audience, format and eligibility review; not inferred from the physical clinic."
+    },
+    {
+      "source_id": "denver-animal-hospital",
+      "question": "Specific local anticancer drug modalities are not established by traditional/integrative wording."
+    },
+    {
+      "source_id": "broward-veterinary-specialists",
+      "question": "Cancer-specific surgical access and vaccine brand remain unconfirmed."
+    },
+    {
+      "source_id": "dogwood-veterinary-specialty-emergency",
+      "question": "Dunwoody opening announced for October 20; do not activate before current opening and local services are confirmed."
+    },
+    {
+      "source_id": "animal-cancer-care-specialists",
+      "question": "Next pass: obtain direct live service/team body; archived official content is cached and direct fetch returned 403."
+    },
+    {
+      "source_id": "haven-lake-animal-hospital",
+      "question": "Do not map hyperthyroidism I-131 wording to confirmed malignant thyroid treatment."
+    }
+  ],
+  "checks": {
+    "build": "PASS: python scripts/build_static_site.py; 218 pages, 6981 internal links",
+    "canonical_catalog": "PASS: 438 centers, 14 P00 branches; all unrelated center records unchanged",
+    "P00_identity": "PASS: ACCS one physical branch; Eastern Carolina rebrand one branch",
+    "inventory_scope": "PASS: exactly 15 assigned source IDs; all unassigned records unchanged",
+    "trial_catalog": "PASS: 307 unique IDs; 165 active; no probable semantic duplicates",
+    "regressions": "PASS: A01, A02, B01, B02, C01, matcher catalog loading, evidence key tests",
+    "source_dates": "15 inherited checks from 2026-10-11T15:32:27.437000-04:00 through 2026-10-11T16:12:36.873717-04:00; no new website visits claimed",
+    "secrets": "PASS: project Google key gate; changed/new evidence scanned for Google/GitHub/AWS/private-key patterns"
+  }
+}
