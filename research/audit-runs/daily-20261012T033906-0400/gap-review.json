@@ -1,0 +1,1274 @@
+{
+  "schema_version": 1,
+  "original_run_id": "daily-20261012T033906-0400",
+  "created_at": "2026-10-12T03:56:00-04:00",
+  "rows": [
+    {
+      "source_id": "directory-veterinary-cancer-society",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "41 institution/provider links are a source directory, not 41 current protocols; no complete protocol roster published here.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Review actual links/news/pipeline for changed leads; document discovery coverage without demanding a nonexistent full recruiting-trial roster.",
+      "evidence": {
+        "source_id": "directory-veterinary-cancer-society",
+        "attempted_urls": [
+          "https://vetcancersociety.org/resources/clinical-trials/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "41 institution/provider links are a source directory, not 41 current protocols; no complete protocol roster published here.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://vetcancersociety.org/resources/clinical-trials/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "usa-johns-hopkins-cigat",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Five CIGAT programs plus VCTN PET and IF7-SN38 metastatic/brain cohorts; IF7 primary recovered but enrollment/owner benefit/funding and final participating sites not sufficiently defined.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "usa-johns-hopkins-cigat",
+        "attempted_urls": [
+          "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+          "https://www.hopkinsmedicine.org/radiology/vctn"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Five CIGAT programs plus VCTN PET and IF7-SN38 metastatic/brain cohorts; IF7 primary recovered but enrollment/owner benefit/funding and final participating sites not sufficiently defined.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials; shell_curl retrieved_public_content_for_review https://www.hopkinsmedicine.org/radiology/vctn",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "usa-minnesota-current-clinical-trials",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Eleven named cohorts; LEAH institution-on-hold conflicts with sponsor recruitment. Brain, oral AAV and feline mammary primary reread; conflict preserved.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "usa-minnesota-current-clinical-trials",
+        "attempted_urls": [
+          "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Eleven named cohorts; LEAH institution-on-hold conflicts with sponsor recruitment. Brain, oral AAV and feline mammary primary reread; conflict preserved.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "usa-missouri-oncology-clinical-trials",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Twelve named current/closed protocols; LEAH institution-on-hold conflicts with sponsor. No activation or closure inferred from conflict.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "usa-missouri-oncology-clinical-trials",
+        "attempted_urls": [
+          "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Twelve named current/closed protocols; LEAH institution-on-hold conflicts with sponsor. No activation or closure inferred from conflict.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "usa-nc-state-clinical-trials",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Seven dog/cat oncology protocols. XCSgel primary confirms funded surgery+radiation. PIVOT-C primary confirms pilot injections and 28-day surgery/radiation prohibition; costs and controlling owner-benefit qualification unresolved, existing record preserved pending sufficient correction.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "usa-nc-state-clinical-trials",
+        "attempted_urls": [
+          "https://cvm.ncsu.edu/research/clinical-trials/",
+          "https://cvm.ncsu.edu/research/clinical-trials/oncology/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Seven dog/cat oncology protocols. XCSgel primary confirms funded surgery+radiation. PIVOT-C primary confirms pilot injections and 28-day surgery/radiation prohibition; costs and controlling owner-benefit qualification unresolved, existing record preserved pending sufficient correction.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://cvm.ncsu.edu/research/clinical-trials/; shell_curl retrieved_public_content_for_review https://cvm.ncsu.edu/research/clinical-trials/oncology/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "usa-purdue-wcorc-clinical-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "Fresh current lymphoma route recovered; it names HIFU and refers to other ongoing lymphoma studies without identifying them. Six current category pages and eleven named identities were read in the morning; no current public enumeration of unnamed cohorts is provided. Retained source-specific roster uncertainty.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Inspect current official navigation/pagination/public frontend data routes and document exactly which permitted roster steps remain.",
+      "evidence": {
+        "source_id": "usa-purdue-wcorc-clinical-trials",
+        "attempted_urls": [
+          "https://www.vet.purdue.edu/wcorc/clinical-trials/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Fresh current lymphoma route recovered; it names HIFU and refers to other ongoing lymphoma studies without identifying them. Six current category pages and eleven named identities were read in the morning; no current public enumeration of unnamed cohorts is provided. Retained source-specific roster uncertainty.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://www.vet.purdue.edu/wcorc/clinical-trials/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "usa-florida-oncology-trials",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Six current plus closed Biocera program; oral melanoma primary reread. Some vaccine cohorts/site rosters not fully published.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "usa-florida-oncology-trials",
+        "attempted_urls": [
+          "https://research.vetmed.ufl.edu/research-programs/clinical-trials/oncology/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Six current plus closed Biocera program; oral melanoma primary reread. Some vaccine cohorts/site rosters not fully published.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://research.vetmed.ufl.edu/research-programs/clinical-trials/oncology/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "usa-georgia-clinical-trials",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Current OPEN B-cell IVP and OPEN sorafenib/placebo plus standard radiation for pituitary macroadenoma; latter added. Complete IVP multicenter roster is not published.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "usa-georgia-clinical-trials",
+        "attempted_urls": [
+          "https://vet.uga.edu/research/clinical-trials/",
+          "https://vet.uga.edu/clinical-trial/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Current OPEN B-cell IVP and OPEN sorafenib/placebo plus standard radiation for pituitary macroadenoma; latter added. Complete IVP multicenter roster is not published.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://vet.uga.edu/research/clinical-trials/; shell_curl retrieved_public_content_for_review https://vet.uga.edu/clinical-trial/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "usa-bluepearl-science-clinical-studies",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "Actual master shell attempt returned CONNECT 403; subsequent automatic approval review prohibited this action, no Web switching or repeat. Same attempt is shared as Mars official fallback provenance.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Inspect recorded attempted routes, transport results and action denials; identify any permitted unperformed route without retrying denied actions.",
+      "evidence": {
+        "source_id": "usa-bluepearl-science-clinical-studies",
+        "attempted_urls": [
+          "https://bluepearlvet.com/current-clinical-studies/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Actual master shell attempt returned CONNECT 403; subsequent automatic approval review prohibited this action, no Web switching or repeat. Same attempt is shared as Mars official fallback provenance.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://bluepearlvet.com/current-clinical-studies/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "usa-virginia-tech-current-studies",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Four programs. Current CED primary does NOT say closed; old concluded label belongs to feline cardiac study. CED exclusion for previous radiation added. Full separate histotripsy cohort/arms are not published clearly.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "usa-virginia-tech-current-studies",
+        "attempted_urls": [
+          "https://research.vetmed.vt.edu/clinical-trials/current-studies.html"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Four programs. Current CED primary does NOT say closed; old concluded label belongs to feline cardiac study. CED exclusion for previous radiation added. Full separate histotripsy cohort/arms are not published clearly.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://research.vetmed.vt.edu/clinical-trials/current-studies.html",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "usa-wisconsin-oncology-studies",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "Institution master and official Patients Needed route return 403; no repeat or access bypass.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Inspect recorded attempted routes, transport results and action denials; identify any permitted unperformed route without retrying denied actions.",
+      "evidence": {
+        "source_id": "usa-wisconsin-oncology-studies",
+        "attempted_urls": [
+          "https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/",
+          "https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Institution master and official Patients Needed route return 403; no repeat or access bypass.",
+        "routes_exhausted_evidence": "shell_curl forbidden https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/; Web_open blocked https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "usa-ethos-clinical-studies",
+      "category": "freshness_uncertain",
+      "processing_assessment": "external_blocker",
+      "question": "Official professionals navigation points to /our-services/clinical-studies/?status=currently-enrolling. Fresh shell and Web return 404. Web cache exposes 12 + 9 cards across two pages, but is nine months old; cached oncology/PK/sample signals compared to catalog and morning Ethos Discovery protocol/site evidence. Fresh master roster remains unproven; not converted to a current 21-study count.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Inspect current official navigation/pagination/public frontend data routes and document exactly which permitted roster steps remain.",
+      "evidence": {
+        "source_id": "usa-ethos-clinical-studies",
+        "attempted_urls": [
+          "https://www.ethosvet.com/clinical-studies/",
+          "https://www.ethosvet.com/medical-professionals/",
+          "https://www.ethosvet.com/faqs-clinical-studies-at-ethos/",
+          "https://www.ethosvet.com/clinical-studies/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Official professionals navigation points to /our-services/clinical-studies/?status=currently-enrolling. Fresh shell and Web return 404. Web cache exposes 12 + 9 cards across two pages, but is nine months old; cached oncology/PK/sample signals compared to catalog and morning Ethos Discovery protocol/site evidence. Fresh master roster remains unproven; not converted to a current 21-study count.",
+        "routes_exhausted_evidence": "shell_curl not_found https://www.ethosvet.com/clinical-studies/; shell_curl retrieved_public_content_for_review https://www.ethosvet.com/medical-professionals/; shell_curl retrieved_public_content_for_review https://www.ethosvet.com/faqs-clinical-studies-at-ethos/; Web_open missing https://www.ethosvet.com/clinical-studies/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "usa-ethos-discovery-studies",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Nine named identities, MIMIC phases grouped by real-world identity. Entire published MIMIC two-site and PUSH twelve-site rosters reconciled; Akron direct current primary adds a thirteenth PUSH site and sponsor omission is recorded.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "usa-ethos-discovery-studies",
+        "attempted_urls": [
+          "https://www.ethosdiscovery.org/clinical-studies/",
+          "https://www.ethosdiscovery.org/scientific-programs/",
+          "https://www.ethosdiscovery.org/scientific-programs/page/2/",
+          "https://www.ethosdiscovery.org/clinical-studies/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Nine named identities, MIMIC phases grouped by real-world identity. Entire published MIMIC two-site and PUSH twelve-site rosters reconciled; Akron direct current primary adds a thirteenth PUSH site and sponsor omission is recorded.",
+        "routes_exhausted_evidence": "shell_curl not_found https://www.ethosdiscovery.org/clinical-studies/; shell_curl retrieved_public_content_for_review https://www.ethosdiscovery.org/scientific-programs/; shell_curl retrieved_public_content_for_review https://www.ethosdiscovery.org/scientific-programs/page/2/; Web_open blocked https://www.ethosdiscovery.org/clinical-studies/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "usa-medvet-clinical-studies",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "EGFR/HER2 melanoma primary roster reconciled: nine active and three not-enrolling sites; official narrative still says ten active. No fabricated ten-site roster.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "usa-medvet-clinical-studies",
+        "attempted_urls": [
+          "https://www.medvet.com/clinical-studies/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "EGFR/HER2 melanoma primary roster reconciled: nine active and three not-enrolling sites; official narrative still says ten active. No fabricated ten-site roster.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://www.medvet.com/clinical-studies/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "usa-castr-alliance-studies",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "TCE current at VRCCO, historical Paccal feline/dog and completed gefitinib; WSU current participation unavailable. Same registry 534230 proves TCE duplicate identity.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "usa-castr-alliance-studies",
+        "attempted_urls": [
+          "https://castr-wa.com/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "TCE current at VRCCO, historical Paccal feline/dog and completed gefitinib; WSU current participation unavailable. Same registry 534230 proves TCE duplicate identity.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://castr-wa.com/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "europe-esvonc-ongoing-trials",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Twenty-nine registry entries grouped to twenty-seven protocol identities; provider statuses/primary completeness vary, no blanket recruiting claim.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "europe-esvonc-ongoing-trials",
+        "attempted_urls": [
+          "https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Twenty-nine registry entries grouped to twenty-seven protocol identities; provider statuses/primary completeness vary, no blanket recruiting claim.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "netherlands-utrecht-interventional-oncology",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "OSA oncolytic virus access, holmium brain tumor and feline SCC programs. OSA study full but treatment access may continue, existing separate access preserved; current complete cohort terms not published.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "netherlands-utrecht-interventional-oncology",
+        "attempted_urls": [
+          "https://vetoncology.sites.uu.nl/research/interventional/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "OSA oncolytic virus access, holmium brain tumor and feline SCC programs. OSA study full but treatment access may continue, existing separate access preserved; current complete cohort terms not published.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://vetoncology.sites.uu.nl/research/interventional/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "uk-rvc-clinical-investigation-centre",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "RVC master shell/Web 403. Official fallback actual timeout was followed by automatic review rejection for prohibited retry; no additional transport or authorization bypass.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Inspect recorded attempted routes, transport results and action denials; identify any permitted unperformed route without retrying denied actions.",
+      "evidence": {
+        "source_id": "uk-rvc-clinical-investigation-centre",
+        "attempted_urls": [
+          "https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre",
+          "https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre/projects",
+          "https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "RVC master shell/Web 403. Official fallback actual timeout was followed by automatic review rejection for prohibited retry; no additional transport or authorization bypass.",
+        "routes_exhausted_evidence": "shell_curl forbidden https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre; shell_curl forbidden https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre/projects; Web_open blocked https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "usa-amcny-current-clinical-trials",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Neobladder protocol is dated 2018; no sufficient current enrollment/owner access confirmation.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "usa-amcny-current-clinical-trials",
+        "attempted_urls": [
+          "https://www.amcny.org/current-clinical-trials/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Neobladder protocol is dated 2018; no sufficient current enrollment/owner access confirmation.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://www.amcny.org/current-clinical-trials/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "usa-penn-comparative-immunotherapy-trials",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Four immunotherapy program identities including Atherton research; cohort access and whole current rosters incompletely published.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "usa-penn-comparative-immunotherapy-trials",
+        "attempted_urls": [
+          "https://www.vet.upenn.edu/research/research-programs/comparative-immunotherapy-program/clinical-trials/",
+          "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+          "https://www.vet.upenn.edu/clinical-trial/",
+          "https://www.vet.upenn.edu/research/research-programs/comparative-immunotherapy-program/clinical-trials/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Four immunotherapy program identities including Atherton research; cohort access and whole current rosters incompletely published.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://www.vet.upenn.edu/research/research-programs/comparative-immunotherapy-program/clinical-trials/; shell_curl transport_timeout https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/; shell_curl transport_timeout https://www.vet.upenn.edu/clinical-trial/; Web_open roster https://www.vet.upenn.edu/research/research-programs/comparative-immunotherapy-program/clinical-trials/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "australia-gamgee-cancer-vaccine-trial",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Personalized mRNA MCT expression of interest lacks final approved patient cohort/site/owner access terms.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "australia-gamgee-cancer-vaccine-trial",
+        "attempted_urls": [
+          "https://www.gamgee.io/trial/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Personalized mRNA MCT expression of interest lacks final approved patient cohort/site/owner access terms.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://www.gamgee.io/trial/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "australia-sash-clinical-research",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Exercise observational example and MCT drug example; latter lacks confirmed current enrollment details.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "australia-sash-clinical-research",
+        "attempted_urls": [
+          "https://sashvets.com/services/sash-research/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Exercise observational example and MCT drug example; latter lacks confirmed current enrollment details.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://sashvets.com/services/sash-research/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "australia-caninecancer-state-research-guide",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "Auranofin guide is historical 2013; no current official entry/cohort confirmation.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Review actual links/news/pipeline for changed leads; document discovery coverage without demanding a nonexistent full recruiting-trial roster.",
+      "evidence": {
+        "source_id": "australia-caninecancer-state-research-guide",
+        "attempted_urls": [
+          "https://www.caninecancer.org.au/ausresearch.html"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Auranofin guide is historical 2013; no current official entry/cohort confirmation.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://www.caninecancer.org.au/ausresearch.html",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "australia-medipaws-clinical-research",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Hemangiosarcoma autovaccine alongside standard doxorubicin confirmed; vaccine free but standard care owner-paid. Complete participating-center roster not published.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "australia-medipaws-clinical-research",
+        "attempted_urls": [
+          "https://medipaws.com.au/clinical-research"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Hemangiosarcoma autovaccine alongside standard doxorubicin confirmed; vaccine free but standard care owner-paid. Complete participating-center roster not published.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://medipaws.com.au/clinical-research",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "australia-bvsc-foundation",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Five foundation oncology identities recovered. STS tigilanol tiglate and PET-CT OSA studies explicitly completed. Half-body irradiation is presently offered as ordinary clinic treatment, not a verified recruiting funded trial. SCC skin-bacteria and prostate-target research do not publish current owner enrollment, eligibility or coverage. No trial activated.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Recheck upon a changed official primary or scheduled due date; do not automatically repeat unchanged partial/gated routes.",
+      "evidence": {
+        "source_id": "australia-bvsc-foundation",
+        "attempted_urls": [
+          "https://www.bvsc.com.au/foundation/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Five foundation oncology identities recovered. STS tigilanol tiglate and PET-CT OSA studies explicitly completed. Half-body irradiation is presently offered as ordinary clinic treatment, not a verified recruiting funded trial. SCC skin-bacteria and prostate-target research do not publish current owner enrollment, eligibility or coverage. No trial activated.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://www.bvsc.com.au/foundation/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "australia-anzcvs-science-week-oncology",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "Science Week/news material and member repository do not publish owner-access trial roster. No login attempted.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Review actual links/news/pipeline for changed leads; document discovery coverage without demanding a nonexistent full recruiting-trial roster.",
+      "evidence": {
+        "source_id": "australia-anzcvs-science-week-oncology",
+        "attempted_urls": [
+          "https://www.anzcvs.org.au/chapters/veterinary%2Boncology/news"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Science Week/news material and member repository do not publish owner-access trial roster. No login attempted.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://www.anzcvs.org.au/chapters/veterinary%2Boncology/news",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "usa-barc-clinical-trials",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Nine research identities: current gold/SCC carboplatin/EGFR plus past/upcoming work. EGFR entire twelve-site list matched; complete current owner access for other program cohorts not published.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "usa-barc-clinical-trials",
+        "attempted_urls": [
+          "https://www.barcseattle.com/clinical-trials-index"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Nine research identities: current gold/SCC carboplatin/EGFR plus past/upcoming work. EGFR entire twelve-site list matched; complete current owner access for other program cohorts not published.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://www.barcseattle.com/clinical-trials-index",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "usa-canine-cancer-alliance-research",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Eight research cohorts; EGFR twelve-location/nine-active roster reconciled, other cohort access/location terms incompletely published.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "usa-canine-cancer-alliance-research",
+        "attempted_urls": [
+          "https://www.ccralliance.org/research-projects"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Eight research cohorts; EGFR twelve-location/nine-active roster reconciled, other cohort access/location terms incompletely published.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://www.ccralliance.org/research-projects",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "usa-vrcco-clinical-trials",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "TCE active, Paccal feline and dog historical/closed. Same 534230 registry identifies WSU duplicate; WSU participation not currently reconfirmed.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "usa-vrcco-clinical-trials",
+        "attempted_urls": [
+          "https://vrcvet.com/clinical-trials/",
+          "https://vrcvet.com/clinical-trials/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "TCE active, Paccal feline and dog historical/closed. Same 534230 registry identifies WSU duplicate; WSU participation not currently reconfirmed.",
+        "routes_exhausted_evidence": "shell_curl transport_timeout https://vrcvet.com/clinical-trials/; Web_open partial https://vrcvet.com/clinical-trials/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "usa-wsu-vth-clinical-studies",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "WSU master/fallback unavailable; current TCE primary shell timeout and Web 403. No repeat after 403, no closure inferred.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Inspect recorded attempted routes, transport results and action denials; identify any permitted unperformed route without retrying denied actions.",
+      "evidence": {
+        "source_id": "usa-wsu-vth-clinical-studies",
+        "attempted_urls": [
+          "https://hospital.vetmed.wsu.edu/appointments/",
+          "https://hospital.vetmed.wsu.edu/small-animal/cats-and-dogs/oncology/",
+          "https://hospital.vetmed.wsu.edu/appointments/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "WSU master/fallback unavailable; current TCE primary shell timeout and Web 403. No repeat after 403, no closure inferred.",
+        "routes_exhausted_evidence": "shell_curl forbidden https://hospital.vetmed.wsu.edu/appointments/; shell_curl transport_timeout https://hospital.vetmed.wsu.edu/small-animal/cats-and-dogs/oncology/; Web_open blocked https://hospital.vetmed.wsu.edu/appointments/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "china-dongjun-oncology-trials",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Three oncology drug programs (MCT, OSA, oral SCC) without complete public protocol identities/nationwide roster.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "china-dongjun-oncology-trials",
+        "attempted_urls": [
+          "https://www.caudjlab.com/newdetail.aspx?id=73"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Three oncology drug programs (MCT, OSA, oral SCC) without complete public protocol identities/nationwide roster.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://www.caudjlab.com/newdetail.aspx?id=73",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "china-petcura-mrna-iit",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "mRNA investigator-initiated program claims nine cities/twelve hospitals but does not publish all hospital identities.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "china-petcura-mrna-iit",
+        "attempted_urls": [
+          "https://www.petcura.cn/zh/mrna-vaccine/study/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "mRNA investigator-initiated program claims nine cities/twelve hospitals but does not publish all hospital identities.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://www.petcura.cn/zh/mrna-vaccine/study/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "usa-nci-comparative-oncology-trials",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "NCI official master returns 403. Search snippets do not establish current whole COTC roster; no repeat after block.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Inspect recorded attempted routes, transport results and action denials; identify any permitted unperformed route without retrying denied actions.",
+      "evidence": {
+        "source_id": "usa-nci-comparative-oncology-trials",
+        "attempted_urls": [
+          "https://ccr.cancer.gov/comparative-oncology-program/trials",
+          "https://ccr.cancer.gov/comparative-oncology-program/trials"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "NCI official master returns 403. Search snippets do not establish current whole COTC roster; no repeat after block.",
+        "routes_exhausted_evidence": "shell_curl forbidden https://ccr.cancer.gov/comparative-oncology-program/trials; Web_open blocked https://ccr.cancer.gov/comparative-oncology-program/trials",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "japan-kamogawa-oncology-news",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "September 30 PD-1 signal and three hospital names; primary lacks final current cohort eligibility/owner access details.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "japan-kamogawa-oncology-news",
+        "attempted_urls": [
+          "https://www.kamogawa-ac.jp/category/%E7%97%85%E6%B0%97%E3%82%84%E4%BA%88%E9%98%B2/%E8%85%AB%E7%98%8D%EF%BC%88%E3%82%AC%E3%83%B3%EF%BC%89/",
+          "https://www.kamogawa-ac.jp/2026/09/30/24722/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "September 30 PD-1 signal and three hospital names; primary lacks final current cohort eligibility/owner access details.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://www.kamogawa-ac.jp/category/%E7%97%85%E6%B0%97%E3%82%84%E4%BA%88%E9%98%B2/%E8%85%AB%E7%98%8D%EF%BC%88%E3%82%AC%E3%83%B3%EF%BC%89/; shell_curl retrieved_public_content_for_review https://www.kamogawa-ac.jp/2026/09/30/24722/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "japan-yamaguchi-vmc-clinical-trials",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "CD20, blood research, PD-1, unnamed virus and unnamed drug programs; blank protocol sections prevent full clinical qualification.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "japan-yamaguchi-vmc-clinical-trials",
+        "attempted_urls": [
+          "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html",
+          "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "CD20, blood research, PD-1, unnamed virus and unnamed drug programs; blank protocol sections prevent full clinical qualification.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html; shell_curl retrieved_public_content_for_review https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "japan-jsamc-current-clinical-trials",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Dog anti-PD1 umbrella, cat PD1, CD20 lymphoma, HIFU title and supplementary PetVoice program; full subgroup/site terms not published. 2025 feline subsidy date is not today enrollment evidence.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "japan-jsamc-current-clinical-trials",
+        "attempted_urls": [
+          "https://www.jsamc.jp/dr_info/clinical/clinical07.html",
+          "https://www.cure-cancer.jp/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Dog anti-PD1 umbrella, cat PD1, CD20 lymphoma, HIFU title and supplementary PetVoice program; full subgroup/site terms not published. 2025 feline subsidy date is not today enrollment evidence.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://www.jsamc.jp/dr_info/clinical/clinical07.html; shell_curl retrieved_public_content_for_review https://www.cure-cancer.jp/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "usa-veterinary-cancer-care-clinical-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "Current complete roster/status is not published.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Recheck on the next daily visit; reread a protocol leaf only after a changed signal or when the 28-day reread is due.",
+      "evidence": {
+        "source_id": "usa-veterinary-cancer-care-clinical-trials",
+        "attempted_urls": [
+          "https://vetcancercare.com/clinical-trials/",
+          "https://vetcancercare.com/clinical-trials/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Current complete roster/status is not published.",
+        "routes_exhausted_evidence": "shell_curl transport_timeout https://vetcancercare.com/clinical-trials/; Web_open partial https://vetcancercare.com/clinical-trials/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "japan-jvcog-current-clinical-trials",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "JVCOG professional attestation yes/no gate; no credentials or false professional affirmation used. Accessible leaf insufficient.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Inspect recorded attempted routes, transport results and action denials; identify any permitted unperformed route without retrying denied actions.",
+      "evidence": {
+        "source_id": "japan-jvcog-current-clinical-trials",
+        "attempted_urls": [
+          "https://www.jvcog.jp/clinical/index.html",
+          "https://www.jvcog.jp/clinical/03rinsho.html"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "JVCOG professional attestation yes/no gate; no credentials or false professional affirmation used. Accessible leaf insufficient.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://www.jvcog.jp/clinical/index.html; shell_curl retrieved_public_content_for_review https://www.jvcog.jp/clinical/03rinsho.html",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "brazil-usp-loct-oncolytic-virus-program",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "NDV melanoma, GM-CSF preclinical and feline lymphoma research descriptions lack confirmed current owner entry.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "brazil-usp-loct-oncolytic-virus-program",
+        "attempted_urls": [
+          "https://loct.fzea.usp.br/?page_id=848"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "NDV melanoma, GM-CSF preclinical and feline lymphoma research descriptions lack confirmed current owner entry.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://loct.fzea.usp.br/?page_id=848",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "japan-nvlu-vmc-clinical-research",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Personalized canine treatment 2021–2027 and BCNU brain project ended March 2026; whole current owner cohort access undefined.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "japan-nvlu-vmc-clinical-research",
+        "attempted_urls": [
+          "https://www.nvlu.ac.jp/amedical/clinical-research/index.html",
+          "https://www.nvlu.ac.jp/amedical/clinical-research/index.html"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Personalized canine treatment 2021–2027 and BCNU brain project ended March 2026; whole current owner cohort access undefined.",
+        "routes_exhausted_evidence": "shell_curl transport_timeout https://www.nvlu.ac.jp/amedical/clinical-research/index.html; Web_open partial https://www.nvlu.ac.jp/amedical/clinical-research/index.html",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "brazil-estima-coe-clinical-studies",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "Estima generic clinical-research description publishes no enumerable current trials.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Review actual links/news/pipeline for changed leads; document discovery coverage without demanding a nonexistent full recruiting-trial roster.",
+      "evidence": {
+        "source_id": "brazil-estima-coe-clinical-studies",
+        "attempted_urls": [
+          "https://estima.com.br/coe/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Estima generic clinical-research description publishes no enumerable current trials.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://estima.com.br/coe/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "sponsor-ardent-oncology-clinical-trial",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "CD200AR-L OSA alongside standard amputation; current program confirmed but full managed site roster not public.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "sponsor-ardent-oncology-clinical-trial",
+        "attempted_urls": [
+          "https://ardentanimalhealth.com/k9-acv-checkpoint-inhibitor-trial/",
+          "https://studypages.com/s/autologous-cancer-vaccine-with-checkpoint-inhibitor-for-treatment-of-canine-osteosarcoma-565406/",
+          "https://www.unleashtx.com/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "CD200AR-L OSA alongside standard amputation; current program confirmed but full managed site roster not public.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://ardentanimalhealth.com/k9-acv-checkpoint-inhibitor-trial/; shell_curl retrieved_public_content_for_review https://studypages.com/s/autologous-cancer-vaccine-with-checkpoint-inhibitor-for-treatment-of-canine-osteosarcoma-565406/; shell_curl retrieved_public_content_for_review https://www.unleashtx.com/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "france-alfort-innovative-clinical-trials",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Colorectal observational study, legacy TG6002 and CARBOPOP ended 2022. Current TG6002 patient access not sufficiently published.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "france-alfort-innovative-clinical-trials",
+        "attempted_urls": [
+          "https://www.vet-alfort.fr/services-cliniques/hopital-des-animaux-de-compagnie/les-traitements-innovants"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Colorectal observational study, legacy TG6002 and CARBOPOP ended 2022. Current TG6002 patient access not sufficiently published.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://www.vet-alfort.fr/services-cliniques/hopital-des-animaux-de-compagnie/les-traitements-innovants",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "france-oniris-biokera-osa-trial",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Biocera/Oniris historical multicenter bone-cement work; current full participating enrollment roster not confirmed.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "france-oniris-biokera-osa-trial",
+        "attempted_urls": [
+          "https://chuv.oniris-nantes.fr/animaux-de-compagnie/chirurgie/osteosarcomes-appendiculaires-chez-le-chien/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Biocera/Oniris historical multicenter bone-cement work; current full participating enrollment roster not confirmed.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://chuv.oniris-nantes.fr/animaux-de-compagnie/chirurgie/osteosarcomes-appendiculaires-chez-le-chien/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "foundation-perseus-clinical-trial-discovery",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "Perseus T-cell infusion program and old trial-discovery material; new public searches performed, originating protocol/status/costs needed. Secondary discovery alone cannot activate treatment.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Review actual links/news/pipeline for changed leads; document discovery coverage without demanding a nonexistent full recruiting-trial roster.",
+      "evidence": {
+        "source_id": "foundation-perseus-clinical-trial-discovery",
+        "attempted_urls": [
+          "https://www.theperseusfoundation.com/clinical-trials"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Perseus T-cell infusion program and old trial-discovery material; new public searches performed, originating protocol/status/costs needed. Secondary discovery alone cannot activate treatment.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://www.theperseusfoundation.com/clinical-trials",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "sponsor-evvivax-clinical-trials",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "Four pipeline/research identities including cat melanoma; no sufficiently defined current owner-access cohorts.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Review actual links/news/pipeline for changed leads; document discovery coverage without demanding a nonexistent full recruiting-trial roster.",
+      "evidence": {
+        "source_id": "sponsor-evvivax-clinical-trials",
+        "attempted_urls": [
+          "https://www.evvivax.com/clinical-trials.html"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Four pipeline/research identities including cat melanoma; no sufficiently defined current owner-access cohorts.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://www.evvivax.com/clinical-trials.html",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "sponsor-curelab-veterinary-research",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "Elenagen historical pilot without current patient enrollment/location confirmation.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Review actual links/news/pipeline for changed leads; document discovery coverage without demanding a nonexistent full recruiting-trial roster.",
+      "evidence": {
+        "source_id": "sponsor-curelab-veterinary-research",
+        "attempted_urls": [
+          "https://www.curelaboncology.com/comparative-medicine-and-veterinary-research/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Elenagen historical pilot without current patient enrollment/location confirmation.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://www.curelaboncology.com/comparative-medicine-and-veterinary-research/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "india-the-cancer-vet-clinical-trials",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "Cancer Vet generic trial service has no named enumerable current oncology protocols.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Review actual links/news/pipeline for changed leads; document discovery coverage without demanding a nonexistent full recruiting-trial roster.",
+      "evidence": {
+        "source_id": "india-the-cancer-vet-clinical-trials",
+        "attempted_urls": [
+          "https://thecancer.vet/clinical-trials/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Cancer Vet generic trial service has no named enumerable current oncology protocols.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://thecancer.vet/clinical-trials/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "foundation-dog-cancer-foundation-trial-directory",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "Thirty-three resources are directory links, not thirty-three current trials; no protocol roster published.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Review actual links/news/pipeline for changed leads; document discovery coverage without demanding a nonexistent full recruiting-trial roster.",
+      "evidence": {
+        "source_id": "foundation-dog-cancer-foundation-trial-directory",
+        "attempted_urls": [
+          "https://www.dogcancerfoundation.org/clinical-trials-for-dogs-with-cancer",
+          "https://www.dogcancerfoundation.org/clinical-trials-for-dogs-with-cancer"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Thirty-three resources are directory links, not thirty-three current trials; no protocol roster published.",
+        "routes_exhausted_evidence": "shell_curl transport_timeout https://www.dogcancerfoundation.org/clinical-trials-for-dogs-with-cancer; Web_open partial https://www.dogcancerfoundation.org/clinical-trials-for-dogs-with-cancer",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "sponsor-benno-therapeutics-research",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "BTX001 TCC, HSA/doxorubicin and OSA pipeline programs lack final current owner cohorts.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Review actual links/news/pipeline for changed leads; document discovery coverage without demanding a nonexistent full recruiting-trial roster.",
+      "evidence": {
+        "source_id": "sponsor-benno-therapeutics-research",
+        "attempted_urls": [
+          "https://www.bennotx.com/research/",
+          "https://www.bennotx.com/research/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "BTX001 TCC, HSA/doxorubicin and OSA pipeline programs lack final current owner cohorts.",
+        "routes_exhausted_evidence": "shell_curl transport_timeout https://www.bennotx.com/research/; Web_open pipeline https://www.bennotx.com/research/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "usa-oklahoma-state-clinical-trials",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "Fresh same master returns 404 by shell and Web. Prior official fallbacks remain documented 404/403 and are not repeated. No current primary roster obtained; no closure inferred.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Recheck upon a changed official primary or scheduled due date; do not automatically repeat unchanged partial/gated routes.",
+      "evidence": {
+        "source_id": "usa-oklahoma-state-clinical-trials",
+        "attempted_urls": [
+          "https://vethospital.okstate.edu/info-for-researchers/clinical-trials.html",
+          "https://vethospital.okstate.edu/info-for-researchers/clinical-trials",
+          "https://vetmed.okstate.edu/clinical-trials",
+          "https://vethospital.okstate.edu/info-for-researchers/clinical-trials.html"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Fresh same master returns 404 by shell and Web. Prior official fallbacks remain documented 404/403 and are not repeated. No current primary roster obtained; no closure inferred.",
+        "routes_exhausted_evidence": "shell_curl not_found https://vethospital.okstate.edu/info-for-researchers/clinical-trials.html; shell_curl not_found https://vethospital.okstate.edu/info-for-researchers/clinical-trials; shell_curl not_found https://vetmed.okstate.edu/clinical-trials; Web_open missing https://vethospital.okstate.edu/info-for-researchers/clinical-trials.html",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "usa-veterinary-oncology-services-trials",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "Fresh official master returns 502 by shell and Web. No official fallback is listed; seven AVMA secondary leads cannot establish provider enrollment. No activation or closure inferred.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Recheck upon a changed official primary or scheduled due date; do not automatically repeat unchanged partial/gated routes.",
+      "evidence": {
+        "source_id": "usa-veterinary-oncology-services-trials",
+        "attempted_urls": [
+          "https://www.petcancerinformation.com",
+          "https://www.petcancerinformation.com"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Fresh official master returns 502 by shell and Web. No official fallback is listed; seven AVMA secondary leads cannot establish provider enrollment. No activation or closure inferred.",
+        "routes_exhausted_evidence": "shell_curl transport_timeout https://www.petcancerinformation.com; Web_open blocked https://www.petcancerinformation.com",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "usa-mars-veterinary-health-clinical-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "Current complete roster/status is not published.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Recheck on the next daily visit; reread a protocol leaf only after a changed signal or when the 28-day reread is due.",
+      "evidence": {
+        "source_id": "usa-mars-veterinary-health-clinical-trials",
+        "attempted_urls": [
+          "https://studypages.com/marsveterinaryclinicaltrials/home/",
+          "https://bluepearlvet.com/current-clinical-studies/",
+          "https://studypages.com/marsveterinaryclinicaltrials/studies/search/json/?skip=0&take=500",
+          "https://studypages.com/marsveterinaryclinicaltrials/home/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Current complete roster/status is not published.",
+        "routes_exhausted_evidence": "shell_curl transport_timeout https://studypages.com/marsveterinaryclinicaltrials/home/; shell_curl transport_timeout https://bluepearlvet.com/current-clinical-studies/; shell_curl transport_timeout https://studypages.com/marsveterinaryclinicaltrials/studies/search/json/?skip=0&take=500; Web_open partial https://studypages.com/marsveterinaryclinicaltrials/home/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "belgium-ghent-small-animal-clinical-research",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Four institutional oncology programs including GCN2, cardiac surgery, FLIM and nanobody; current intake details vary/incomplete. Only study drug funding cannot become free care.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "belgium-ghent-small-animal-clinical-research",
+        "attempted_urls": [
+          "https://www.ugent.be/plone_portal/di/khd/nl/onderzoek",
+          "https://www.ugent.be/di/khd/nl/onderzoek/katten_met_borstkanker-info-dierenartsen_eng",
+          "https://www.ugent.be/plone_portal/di/khd/nl/onderzoek/katten_met_borstkanker-info-eigenaars_eng",
+          "https://www.ugent.be/plone_portal/di/khd/nl/onderzoek/hoofd-halskanker-info-eigenaars.html",
+          "https://www.ugent.be/di/khd/nl/onderzoek/fluorescentie-levensduur-beeldvorming"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Four institutional oncology programs including GCN2, cardiac surgery, FLIM and nanobody; current intake details vary/incomplete. Only study drug funding cannot become free care.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://www.ugent.be/plone_portal/di/khd/nl/onderzoek; shell_curl retrieved_public_content_for_review https://www.ugent.be/di/khd/nl/onderzoek/katten_met_borstkanker-info-dierenartsen_eng; shell_curl retrieved_public_content_for_review https://www.ugent.be/plone_portal/di/khd/nl/onderzoek/katten_met_borstkanker-info-eigenaars_eng; shell_curl retrieved_public_content_for_review https://www.ugent.be/plone_portal/di/khd/nl/onderzoek/hoofd-halskanker-info-eigenaars.html; shell_curl retrieved_public_content_for_review https://www.ugent.be/di/khd/nl/onderzoek/fluorescentie-levensduur-beeldvorming",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "germany-lmu-small-animal-research",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Palladia side effects and nerve-block titles; publisher copied nerve-block body into Palladia page, protocol-specific evidence unavailable rather than silently guessed.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "germany-lmu-small-animal-research",
+        "attempted_urls": [
+          "https://www.vetmed.lmu.de/kleintierklinik/de/forschung/",
+          "https://www.vetmed.lmu.de/kleintierklinik/de/forschung/studie-zur-palliativen-linderung-von-osteosarkombedingten-schmerzen-durch-periphere-nervenbloecke/",
+          "https://www.vetmed.lmu.de/kleintierklinik/de/forschung/einfluss-des-tkis-palladia-auf-die-schilddruesenfunktion-von-hunden-mit-neoplasien/",
+          "https://www.vetmed.lmu.de/kleintierklinik/de/forschung/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Palladia side effects and nerve-block titles; publisher copied nerve-block body into Palladia page, protocol-specific evidence unavailable rather than silently guessed.",
+        "routes_exhausted_evidence": "shell_curl transport_timeout https://www.vetmed.lmu.de/kleintierklinik/de/forschung/; shell_curl retrieved_public_content_for_review https://www.vetmed.lmu.de/kleintierklinik/de/forschung/studie-zur-palliativen-linderung-von-osteosarkombedingten-schmerzen-durch-periphere-nervenbloecke/; shell_curl retrieved_public_content_for_review https://www.vetmed.lmu.de/kleintierklinik/de/forschung/einfluss-des-tkis-palladia-auf-die-schilddruesenfunktion-von-hunden-mit-neoplasien/; Web_open partial https://www.vetmed.lmu.de/kleintierklinik/de/forschung/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "germany-dvg-veterinary-clinical-studies",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Eight DVG study PDF entries; old individual routes and current provider/cohort statuses not all available.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Separate source roster coverage from the named protocol/site/status/funding question; identify the exact missing fact and evidence, compare available canonical data.",
+      "evidence": {
+        "source_id": "germany-dvg-veterinary-clinical-studies",
+        "attempted_urls": [
+          "https://www.dvg.de/klinische-studien-in-der-veterinaermedizin/",
+          "https://www.tierspital.uzh.ch/kleintierklinik/kleintierchirurgie/studien-fluoreszenzfarbstoffe-tumorpatienten/",
+          "https://www.tierspital.uzh.ch/ueber-uns/lehre-und-forschung/klinische-studien/",
+          "https://www.dvg.de/klinische-studien-in-der-veterinaermedizin/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Eight DVG study PDF entries; old individual routes and current provider/cohort statuses not all available.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://www.dvg.de/klinische-studien-in-der-veterinaermedizin/; shell_curl not_found https://www.tierspital.uzh.ch/kleintierklinik/kleintierchirurgie/studien-fluoreszenzfarbstoffe-tumorpatienten/; shell_curl retrieved_public_content_for_review https://www.tierspital.uzh.ch/ueber-uns/lehre-und-forschung/klinische-studien/; Web_open missing https://www.dvg.de/klinische-studien-in-der-veterinaermedizin/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "uk-edinburgh-small-animal-clinical-trials",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "Programme brochure and two linked treatment-research pages are readable (published September 2, 2024). They publish no enumerable current oncology intake roster or patient access terms. Better Treatments navigation screened; named programmes are non-oncology. Existing Edinburgh melanoma record preserved; absence from brochure is not closure.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Recheck upon a changed official primary or scheduled due date; do not automatically repeat unchanged partial/gated routes.",
+      "evidence": {
+        "source_id": "uk-edinburgh-small-animal-clinical-trials",
+        "attempted_urls": [
+          "https://vet.ed.ac.uk/clinical/small-animal/our-research/better-treatments/clinical-trials-programme",
+          "https://vet.ed.ac.uk/clinical/small-animal/our-research/better-treatments/clinical-trials-programme"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "Programme brochure and two linked treatment-research pages are readable (published September 2, 2024). They publish no enumerable current oncology intake roster or patient access terms. Better Treatments navigation screened; named programmes are non-oncology. Existing Edinburgh melanoma record preserved; absence from brochure is not closure.",
+        "routes_exhausted_evidence": "shell_curl transport_timeout https://vet.ed.ac.uk/clinical/small-animal/our-research/better-treatments/clinical-trials-programme; Web_open blocked https://vet.ed.ac.uk/clinical/small-animal/our-research/better-treatments/clinical-trials-programme",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    },
+    {
+      "source_id": "sponsor-akston-oncology-pipeline",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "AKS701d/197d/427c/619c pipeline. Newly indexed article is dated October 29, 2025, not new today; first-animal safety alone remains watchlist.",
+      "reason": "Every configured official route was attempted once today; available content did not establish a complete current oncology treatment roster.",
+      "next_action": "Review actual links/news/pipeline for changed leads; document discovery coverage without demanding a nonexistent full recruiting-trial roster.",
+      "evidence": {
+        "source_id": "sponsor-akston-oncology-pipeline",
+        "attempted_urls": [
+          "https://www.akstonbio.com/pipeline/",
+          "https://www.akstonbio.com/news/",
+          "https://www.akstonbio.com/in-the-news/akston-pioneers-a-new-generation-of-cancer-therapy-for-dogs-in-clinical-trial-launch/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261012T033906-0400/receipt-final.json",
+        "native_evidence_file": "research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "AKS701d/197d/427c/619c pipeline. Newly indexed article is dated October 29, 2025, not new today; first-animal safety alone remains watchlist.",
+        "routes_exhausted_evidence": "shell_curl retrieved_public_content_for_review https://www.akstonbio.com/pipeline/; shell_curl retrieved_public_content_for_review https://www.akstonbio.com/news/; shell_curl retrieved_public_content_for_review https://www.akstonbio.com/in-the-news/akston-pioneers-a-new-generation-of-cancer-therapy-for-dogs-in-clinical-trial-launch/",
+        "available_reconciliation_done_evidence": "Fresh readable content and Web fallbacks were compared with the prior receipt and canonical catalog; no independently verifiable new or changed treatment protocol was established."
+      }
+    }
+  ]
+}
