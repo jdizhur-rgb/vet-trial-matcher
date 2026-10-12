@@ -85,3 +85,13 @@
 Изменены и опубликованы: `data/source_inventory.json`, `data/audit_source_coverage.json`, `data/audit_state.json` и immutable evidence/receipt-файлы текущего run. Canonical trial catalog не менялся.
 
 **Общий статус:** вся очередь обработана и мировой поиск выполнен; **полное подтверждение INCOMPLETE — 58 внешних evidence gaps**. Остановка корректная: конечный single-pass, validators, публикация, remote readback, deploy и live-проверка завершены; фонового продолжения нет.
+
+## Подробные артефакты
+
+- [Финальный receipt](sandbox:/workspace/scratch/2226bbb8952f/vet-trial-matcher/research/audit-runs/daily-20261012T033906-0400/receipt-final.json)
+- [Gap review](sandbox:/workspace/scratch/2226bbb8952f/vet-trial-matcher/research/audit-runs/daily-20261012T033906-0400/gap-review.json)
+- [Per-source evidence](sandbox:/workspace/scratch/2226bbb8952f/vet-trial-matcher/research/audit-runs/daily-20261012T033906-0400/native-reader-evidence.json)
+- [Web fallbacks](sandbox:/workspace/scratch/2226bbb8952f/vet-trial-matcher/research/audit-runs/daily-20261012T033906-0400/web-fallback-evidence.json)
+- [Global discovery](sandbox:/workspace/scratch/2226bbb8952f/vet-trial-matcher/research/audit-runs/daily-20261012T033906-0400/global-discovery-evidence.json)
+- [Production evidence](sandbox:/workspace/scratch/2226bbb8952f/vet-trial-matcher/research/audit-runs/daily-20261012T033906-0400/production-evidence.json)
+- [Полный сохранённый отчёт](sandbox:/workspace/scratch/2226bbb8952f/vet-trial-matcher/research/audit-runs/daily-20261012T033906-0400/report.md)
