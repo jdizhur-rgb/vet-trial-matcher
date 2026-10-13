@@ -1,0 +1,68 @@
+{
+  "verified_at": "2026-10-13T02:05:34.371085+00:00",
+  "commit": "5a2bb089462d75eb865ea4d99c4cfb27bb312929",
+  "deployment_run": 38335097268,
+  "readback": [
+    {
+      "path": "matcher/matcher.js",
+      "status": 200,
+      "bytes": 48565,
+      "sha256": "d31a5c6703e600bb0d3a53615ccde3a3759b8a2ae5fe6c169daedd7636b81678",
+      "exact_artifact_match": true
+    },
+    {
+      "path": "matcher/trials.json",
+      "status": 200,
+      "bytes": 329523,
+      "sha256": "6c50497ee71255b85fdc4909de1b89988681c4cb2403480eeb2dfc2cc95a1534",
+      "exact_artifact_match": true
+    },
+    {
+      "path": "matcher/index.html",
+      "status": 200,
+      "bytes": 62049,
+      "sha256": "ad54e5efdd883358855241a46c71e566ef6c9475e142ff30b28cb4babfe4ccc9",
+      "exact_artifact_match": true
+    },
+    {
+      "path": "north-america/dogs/primary-lung-tumor/index.html",
+      "status": 200,
+      "bytes": 63830,
+      "sha256": "8be08bb49c5ecaceff2798fa4cd146bcbaad705582e03f94fda2d1a2f6f2c83e",
+      "exact_artifact_match": true
+    },
+    {
+      "path": "north-america/dogs/soft-tissue-sarcoma/index.html",
+      "status": 200,
+      "bytes": 81267,
+      "sha256": "95cdbc1cc6cfb09e9a9419a4fca6ddbf68443788ccdaf7d28555923b82674e7f",
+      "exact_artifact_match": true
+    },
+    {
+      "path": "north-america/dogs/hepatocellular-carcinoma/index.html",
+      "status": 200,
+      "bytes": 64513,
+      "sha256": "34be55e1e60691a8013158f9c75fa98884ab534193236e0bcdc5ad3ab5250c8c",
+      "exact_artifact_match": true
+    }
+  ],
+  "github_checks": "All six commit workflows succeeded, including catalog CI and deployment.",
+  "rendered_browser_checks": {
+    "USA_all_cancers": 103,
+    "Japan_all_cancers": 9,
+    "soft_tissue_sarcoma": {
+      "results": 15,
+      "tufts_z007_present": true,
+      "CAALM_absent": true
+    },
+    "previous_immunotherapy_excludes_tufts_z007": true,
+    "T_cell_lymphoma": {
+      "MSU_CHOP_LOPP_present": true,
+      "Cornell_B_cell_absent": true
+    },
+    "HCC_Tufts_unresolved_stays_hidden": true
+  },
+  "reconciliation_base": "be8eac2cbaae8bf30fc4747bac770d062b3d77e3",
+  "preserved_recent_clinic_packages": true,
+  "tested_local_tree": "b91e173e0743e6d2f590d5459f0b934a403c3253"
+}
