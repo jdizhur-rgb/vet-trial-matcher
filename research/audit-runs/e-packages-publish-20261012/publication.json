@@ -1,0 +1,59 @@
+{
+  "deployed_commit": "e3b66eba715c22cc62464aedbb48605de6320cc8",
+  "remote_tree_sha": "0fac910e77b96f941a2d9f4c8632496d80f26a1d",
+  "deployment": {
+    "run_id": 38334147312,
+    "conclusion": "success",
+    "url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/38334147312"
+  },
+  "source_dates": {
+    "remote_verified_sources": 127,
+    "exact_all_files_match": true,
+    "source_dates_and_unresolved_notes_verified": true,
+    "integration_time_used_as_source_visit": false
+  },
+  "production_pages": [
+    {
+      "url": "https://vettrialfinder.com/matcher/centers/",
+      "status": 200,
+      "bytes": 402442,
+      "exact_build_match": true,
+      "sha256": "8eb61aa5c92ac5e4ca9b0c9242fcc3505eed85477b88af18ddb9a524f4f8014d",
+      "expected_sha256": "8eb61aa5c92ac5e4ca9b0c9242fcc3505eed85477b88af18ddb9a524f4f8014d",
+      "checked_at": "2026-10-13T01:53:30.335732+00:00"
+    },
+    {
+      "url": "https://vettrialfinder.com/online-oncology-consultations/",
+      "status": 200,
+      "bytes": 162659,
+      "exact_build_match": true,
+      "sha256": "48a71b3765b7022e903447262c05ddfd8e4ca71d61aa2fdc79623890641bcbcb",
+      "expected_sha256": "48a71b3765b7022e903447262c05ddfd8e4ca71d61aa2fdc79623890641bcbcb",
+      "checked_at": "2026-10-13T01:53:34.769881+00:00"
+    }
+  ],
+  "commands_passed": [
+    "python scripts/build_static_site.py",
+    "python scripts/test_e_packages_reconciliation.py",
+    "python scripts/test_c01_care_reconciliation.py",
+    "python scripts/test_b01_care_reconciliation.py",
+    "python scripts/test_b02_care_reconciliation.py",
+    "python scripts/test_a02_care_reconciliation.py",
+    "node scripts/test_a01_care_reconciliation.js",
+    "node scripts/test_matcher_catalog_loading.js",
+    "python scripts/check_evidence_keys.py",
+    "git diff --check"
+  ],
+  "assigned_source_identities": 127,
+  "package_counts": {
+    "E01": 25,
+    "E02": 25,
+    "E03": 21,
+    "E04": 25,
+    "remaining_E05_E06_Australia": 31
+  },
+  "external_publication_blockers": [],
+  "publication_remaining_work": [],
+  "open_source_questions": "Preserved in original reviews, integration.json and oncology_care_source_inventory.json; publication does not imply unknown branch modalities or clinician assignments were confirmed.",
+  "checked_at": "2026-10-13T01:54:15.519669+00:00"
+}
