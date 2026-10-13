@@ -980,7 +980,10 @@
     "location_source": "seo/center_directory.py",
     "funding_status": "Partially funded",
     "funding_source": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2/chop-lopp",
-    "funding_verified": "2026-10-08"
+    "funding_verified": "2026-10-08",
+    "excluded_cancers": [
+      "Cutaneous epitheliotropic lymphoma"
+    ]
   },
   {
     "id": "msu-sting-solid",
@@ -1943,7 +1946,8 @@
       "active_treatment_target": true,
       "primary_removed": true,
       "measurable_lung_metastases": true,
-      "min_weight_kg": 20
+      "min_weight_kg": 20,
+      "appendicular_location": true
     },
     "excludes": {
       "metastases_outside_lungs": true,
@@ -2354,7 +2358,8 @@
     "requires": {
       "confirmed": true,
       "min_weight_lb": 44,
-      "active_treatment_target": true
+      "active_treatment_target": true,
+      "appendicular_location": true
     },
     "excludes": {},
     "notes": "Appendicular OSA; age >=1 year, >=44 lb, otherwise in good general health; cytologic/histologic confirmation. Current Ethos owner page lists 9 enrolling hospitals. An older AVMA registry listing contains additional historical sites; those are not promoted without current site-level confirmation.",
@@ -2700,9 +2705,6 @@
   },
   {
     "id": "ucd-pdl1-metastatic",
-    "broad_disease_families": [
-      "solid_tumor"
-    ],
     "title": "CAALM: UCD-PDL1 immunotherapy for oral melanoma metastatic to lung",
     "center": "UC Davis Veterinary Center for Clinical Trials",
     "country": "USA",
@@ -2720,7 +2722,8 @@
       "min_weight_kg": 15,
       "max_weight_kg": 36,
       "min_expected_survival_weeks": 4,
-      "active_treatment_target": true
+      "active_treatment_target": true,
+      "measurable_lung_metastases": true
     },
     "excludes": {
       "prior_checkpoint_inhibitor": true
@@ -2933,7 +2936,8 @@
     "requires": {
       "confirmed": true,
       "no_metastasis": true,
-      "active_treatment_target": true
+      "active_treatment_target": true,
+      "appendicular_location": true
     },
     "excludes": {},
     "notes": "Appendicular OSA treated with stereotactic body radiation; patient-specific biomechanical modeling identifies dogs who may benefit from intramedullary stabilization.",
@@ -5037,7 +5041,6 @@
     "url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
     "id": "mizzou-epitheliotropic-laverdia",
     "cancers": [
-      "Lymphoma",
       "Cutaneous epitheliotropic lymphoma"
     ],
     "title": "Laverdia-CA1 for naïve canine cutaneous epitheliotropic lymphoma",
@@ -5752,7 +5755,8 @@
       "active_treatment_target": true,
       "prior_surgery": false,
       "prior_chemo": false,
-      "no_metastasis": true
+      "no_metastasis": true,
+      "appendicular_location": true
     },
     "why": "Current sponsor master lists ECI plus chemotherapy separately; its individual protocol provides the current owner-entry route and explicitly states no financial assistance.",
     "intervention": "Amputation, one to four chemotherapy doses, then ECI autologous vaccine-enhanced adoptive cell immunotherapy",
@@ -5936,7 +5940,8 @@
     "city": "Columbia",
     "state": "MO",
     "cancers": [
-      "Cancer — any type"
+      "Other solid tumor",
+      "Lymphoma"
     ],
     "title": "COTC027 — TdCyd / Aza-TdC hypomethylating nucleosides in tumor-bearing dogs",
     "status": "Currently enrolling",
@@ -5970,7 +5975,15 @@
     "location_source": "seo/center_directory.py",
     "funding_status": "Fully funded",
     "funding_source": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
-    "funding_verified": "2026-09-23"
+    "funding_verified": "2026-09-23",
+    "broad_disease_families": [
+      "solid_tumor",
+      "lymphoma"
+    ],
+    "excluded_disease_families": [
+      "sarcoma"
+    ],
+    "special_requirement": "Solid tumors must be non-sarcomatous, at least 3 cm, with biopsy and draining-node access. Lymphoma requires nodal stage 2 or greater and at least three nodes of 3 cm. Study-team review of organ function and treatment washouts is required."
   },
   {
     "id": "umn-glioma-zika-autologous-vax",
@@ -6781,7 +6794,9 @@
       "Other sarcoma"
     ],
     "broad_disease_families": [
-      "solid_tumor"
+      "carcinoma",
+      "sarcoma",
+      "melanoma"
     ],
     "status": "Recruiting",
     "url": "https://vet.tufts.edu/clinical-trials/evaluation-tlr-agonist-z-007-dogs-cancer",
@@ -6813,7 +6828,12 @@
     "funding_status": "Partially funded",
     "treatment_approaches": [
       "immunotherapy"
-    ]
+    ],
+    "pending_diagnosis_review": [
+      "Hepatocellular carcinoma",
+      "Other liver tumor"
+    ],
+    "special_requirement": "Tumor generally 2–7 cm and accessible for repeated biopsy; no significant underlying heart, kidney or liver disease, no abnormal blood cell or platelet counts, and no autoimmune disease. Primary liver-tumor eligibility remains unresolved because the published liver-disease exclusion is ambiguous."
   },
   {
     "id": "eu-ch-pnst-plexus-fluorescence-surgery",
@@ -8152,7 +8172,9 @@
   {
     "id": "utsw-solid-cpmv",
     "broad_disease_families": [
-      "solid_tumor"
+      "carcinoma",
+      "soft_tissue_sarcoma",
+      "melanoma"
     ],
     "title": "Intratumoral cowpea mosaic virus immunotherapy for canine solid tumors",
     "center": "UT Southwestern Veterinary Research and Oncology Clinic",
@@ -8175,7 +8197,8 @@
     "funding_source": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%201.pdf",
     "funding_verified": "2026-09-21",
     "requires": {
-      "active_treatment_target": true
+      "active_treatment_target": true,
+      "measurable": true
     },
     "excludes": {},
     "notes": "Weekly intratumoral CPMV immunotherapy for naturally occurring canine solid tumors.",
@@ -8189,7 +8212,8 @@
     "registry_url_verified": "2026-09-09",
     "treatment_approaches": [
       "immunotherapy"
-    ]
+    ],
+    "special_requirement": "At least one measurable lesion accessible for intratumoral injection and repeated biopsy; the protocol brochure names mast cell tumors, soft tissue sarcomas, melanomas and thyroid carcinomas."
   },
   {
     "id": "purdue-ucc-aks701d",
@@ -9047,7 +9071,11 @@
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",
-    "owner_prescreen_required": true
+    "owner_prescreen_required": true,
+    "broad_disease_families": [
+      "solid_tumor"
+    ],
+    "special_requirement": "Only superficial tumors accessible for intralesional treatment are considered; the study team must confirm histology and local accessibility."
   },
   {
     "id": "dk-copenhagen-flash-superficial-tumors",
@@ -9107,7 +9135,10 @@
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",
-    "owner_prescreen_required": true
+    "owner_prescreen_required": true,
+    "broad_disease_families": [
+      "solid_tumor"
+    ]
   },
   {
     "id": "ucd-care-canine-glioma",
@@ -9540,6 +9571,12 @@
     "treatment_approaches": [
       "cancer_vaccine",
       "immunotherapy"
+    ],
+    "excluded_cancers": [
+      "T-cell lymphoma",
+      "Brain tumor / glioma",
+      "Glioma",
+      "Brain tumor"
     ]
   },
   {
@@ -10674,8 +10711,7 @@
     "state": "New York",
     "species": "Dog",
     "cancers": [
-      "B-cell lymphoma",
-      "Lymphoma"
+      "B-cell lymphoma"
     ],
     "status": "Actively recruiting on Cornell's current canine clinical-trials roster",
     "url": "https://www.vet.cornell.edu/hospitals/clinical-trials/smart-start-therapy-canine-b-cell-lymphoma",
@@ -11174,7 +11210,8 @@
     "requires": {
       "confirmed": true,
       "no_metastasis": true,
-      "planned_surgery": true
+      "planned_surgery": true,
+      "appendicular_location": true
     },
     "excludes": {},
     "notes": "UQ currently recruits recently diagnosed dogs with appendicular osteosarcoma of a limb long bone, no evidence of spread on physical examination and radiographs, and planned cancer surgery. Two vaccine formulations are being studied under this one recruitment listing. Tumor tissue and blood are taken during surgery; two vaccine doses follow, the first within two weeks and the booster three weeks later. UQ's 2023 protocol announcement accepted Brisbane and surrounding-area owners and preferred surgery and treatment at UQ Gatton; confirm present geographic eligibility and surgery logistics before travel. This is an experimental vaccine, with no promised clinical benefit.",
@@ -11531,7 +11568,8 @@
     "treatment_approaches": [
       "targeted_therapy",
       "chemotherapy"
-    ]
+    ],
+    "special_requirement": "Tufts must assign the dog to a qualifying cohort: Group A requires newly diagnosed limb-bone osteosarcoma without obvious spread and planned amputation; Group B requires prior amputation and carboplatin or study-drug therapy, with measurable lung, skin/subcutaneous or abdominal metastases and no bone metastases. Organ function, blood counts and concurrent drugs require review."
   },
   {
     "id": "penn-glioma-flash-gilvetmab-2026",
@@ -11613,7 +11651,8 @@
     "funding_verified": "2026-09-30",
     "requires": {
       "measurable": true,
-      "active_treatment_target": true
+      "active_treatment_target": true,
+      "standard_therapy_unavailable": true
     },
     "excludes": {},
     "notes": "Dogs or cats need a metastatic or invasive solid tumor without an established curative standard treatment, a measurable lesion, and an organoid screen that identifies a promising molecularly targeted drug. Owners must be able to return to Tokyo at Weeks 1, 3 and 5 and permit lesion sampling. Lymphoma and leukemia are excluded from the solid-tumor cohort. Final drug choice and eligibility are individualized by the study team.",
@@ -11637,7 +11676,10 @@
       "targeted_therapy",
       "precision_medicine"
     ],
-    "address": "1-1-1 Yayoi, Bunkyo-ku, Tokyo 113-0032, Japan"
+    "address": "1-1-1 Yayoi, Bunkyo-ku, Tokyo 113-0032, Japan",
+    "excluded_disease_families": [
+      "hematologic"
+    ]
   },
   {
     "id": "jp-tokyo-feline-tcc-lapatinib",
@@ -11751,7 +11793,8 @@
     "funding_source": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
     "funding_verified": "2026-09-30",
     "requires": {
-      "active_treatment_target": true
+      "active_treatment_target": true,
+      "standard_therapy_unavailable": true
     },
     "excludes": {},
     "notes": "Dogs need an unresectable or metastatic malignant solid tumor for which other radiation or anticancer-drug options are not expected to be effective or have failed. The investigational macromolecular anticancer agent links pirarubicin to a polymer and is administered intravenously every two weeks. Visits are required every one to two weeks and owners must permit lesion sampling. Final tumor-type and medical eligibility are individualized by the study team.",
@@ -11775,7 +11818,10 @@
       "chemotherapy",
       "targeted_therapy"
     ],
-    "address": "1-1-1 Yayoi, Bunkyo-ku, Tokyo 113-0032, Japan"
+    "address": "1-1-1 Yayoi, Bunkyo-ku, Tokyo 113-0032, Japan",
+    "excluded_disease_families": [
+      "hematologic"
+    ]
   },
   {
     "id": "jp-multicenter-oral-melanoma-anti-pd1-2026",
@@ -11936,7 +11982,9 @@
       "Melanoma — other"
     ],
     "broad_disease_families": [
-      "solid_tumor"
+      "carcinoma",
+      "sarcoma",
+      "melanoma"
     ],
     "status": "Recruiting",
     "url": "https://vet.tufts.edu/clinical-trials/stereotactic-ablative-radiotherapy-sabr-lun-metastases",
@@ -11949,7 +11997,8 @@
       "confirmed": true,
       "active_treatment_target": true,
       "metastatic": true,
-      "measurable_lung_metastases": true
+      "measurable_lung_metastases": true,
+      "planned_radiation": true
     },
     "excludes": {},
     "notes": "Single highly focused radiation dose for dogs with 2–10 progressive pulmonary metastatic nodules. The primary tumor, regional nodes and any non-pulmonary metastases must already be controlled; progression must be documented over 6–8 weeks, and all progressive lung lesions at least 5 mm must be safely treatable. Prior systemic therapy is allowed; cytotoxic chemotherapy pauses around SABR, while tolerated targeted therapy or immunotherapy may continue with radiation-oncologist approval. Tufts prescreening is required.",

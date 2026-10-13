@@ -1,0 +1,4506 @@
+{
+  "countries": [
+    "France",
+    "Portugal",
+    "Switzerland",
+    "Italy",
+    "UK",
+    "Netherlands",
+    "USA",
+    "Canada",
+    "Belgium",
+    "Denmark",
+    "China",
+    "South Korea",
+    "Mexico",
+    "Taiwan",
+    "Australia",
+    "Spain",
+    "Japan"
+  ],
+  "rows": [
+    {
+      "id": "eu-fr-hifu-urothelial",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Urothelial / transitional cell carcinoma",
+          "Urothelial carcinoma"
+        ],
+        "Cat": [
+          "Urothelial / transitional cell carcinoma",
+          "Urothelial carcinoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "eu-fr-oral-intratumoral-immunotherapy",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Oral melanoma",
+          "Oral squamous cell carcinoma",
+          "Squamous cell carcinoma — other"
+        ],
+        "Cat": [
+          "Oral melanoma",
+          "Oral squamous cell carcinoma",
+          "Squamous cell carcinoma — other"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "measurable",
+          "min_weight_kg",
+          "no_metastasis"
+        ],
+        "excludes": [
+          "current_steroids",
+          "prior_chemo",
+          "prior_local_radiation",
+          "prior_immunotherapy"
+        ]
+      }
+    },
+    {
+      "id": "eu-pt-hepatic-thermoablation",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Hepatocellular carcinoma",
+          "Other liver tumor"
+        ],
+        "Cat": [
+          "Hepatocellular carcinoma",
+          "Other liver tumor"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "eu-pt-chemodectoma-microwave",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Chemodectoma"
+        ],
+        "Cat": [
+          "Chemodectoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "no_metastasis"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "eu-pt-mammary-pdt",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Feline mammary carcinoma",
+          "Mammary carcinoma",
+          "Mammary tumor — other"
+        ],
+        "Cat": [
+          "Feline mammary carcinoma",
+          "Mammary carcinoma",
+          "Mammary tumor — other"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "no_metastasis"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "eu-ch-large-tumor-lattice-sbrt",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Chondrosarcoma",
+          "Colorectal / rectal cancer",
+          "Esophageal cancer",
+          "Fibrosarcoma",
+          "Gastric / stomach cancer",
+          "Gastrointestinal stromal tumor (GIST)",
+          "Leiomyosarcoma",
+          "Liposarcoma",
+          "Multiple myeloma / plasma cell cancer",
+          "Nasal tumor / nasal cancer",
+          "Other solid tumor",
+          "Peripheral nerve sheath tumor",
+          "Rhabdomyosarcoma",
+          "Salivary gland cancer",
+          "Thymoma / thymic tumor",
+          "Cancer — any type"
+        ],
+        "Cat": [
+          "Chondrosarcoma",
+          "Colorectal / rectal cancer",
+          "Esophageal cancer",
+          "Fibrosarcoma",
+          "Gastric / stomach cancer",
+          "Gastrointestinal stromal tumor (GIST)",
+          "Leiomyosarcoma",
+          "Liposarcoma",
+          "Multiple myeloma / plasma cell cancer",
+          "Nasal tumor / nasal cancer",
+          "Other solid tumor",
+          "Peripheral nerve sheath tumor",
+          "Rhabdomyosarcoma",
+          "Salivary gland cancer",
+          "Thymoma / thymic tumor",
+          "Cancer — any type"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "large_inoperable_or_rt_preferred"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "eu-it-mucosal-melanoma-autologous-vaccine",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Melanoma — other",
+          "Oral melanoma"
+        ],
+        "Cat": [
+          "Melanoma — other",
+          "Oral melanoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "uk-rvc-insulinoma-toceranib",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Insulinoma"
+        ],
+        "Cat": [
+          "Insulinoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "uk-edinburgh-oral-melanoma-tigilanol-tiglate",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Oral melanoma"
+        ],
+        "Cat": [
+          "Oral melanoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "uk-liverpool-dogfight-glioma-ferumoxytol-rt",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Brain tumor / glioma"
+        ],
+        "Cat": [
+          "Brain tumor / glioma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "uf-osa-vaccine",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Osteosarcoma"
+        ],
+        "Cat": [
+          "Osteosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "prior_chemo"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "uf-osa-mrna",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Osteosarcoma"
+        ],
+        "Cat": [
+          "Osteosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "planned_radiation",
+          "pretreatment_biopsy"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "uf-hsa-vaccine",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Hemangiosarcoma"
+        ],
+        "Cat": [
+          "Hemangiosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "prior_chemo",
+          "post_splenectomy",
+          "planned_doxorubicin"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "uf-melanoma",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Melanoma — other",
+          "Oral melanoma"
+        ],
+        "Cat": [
+          "Melanoma — other",
+          "Oral melanoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "resectable_or_minimal"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "uf-hs-trametinib",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Histiocytic sarcoma"
+        ],
+        "Cat": [
+          "Histiocytic sarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "measurable",
+          "chemo_washout_days",
+          "radiation_washout_days"
+        ],
+        "excludes": [
+          "current_chemo",
+          "current_radiation"
+        ]
+      }
+    },
+    {
+      "id": "uf-feline-oscc",
+      "species": [
+        "Cat"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Oral squamous cell carcinoma"
+        ],
+        "Cat": [
+          "Oral squamous cell carcinoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "no_metastasis"
+        ],
+        "excludes": [
+          "advanced_disease",
+          "major_systemic_comorbidity"
+        ]
+      }
+    },
+    {
+      "id": "penn-feline-oscc",
+      "species": [
+        "Cat"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Oral squamous cell carcinoma"
+        ],
+        "Cat": [
+          "Oral squamous cell carcinoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "tufts-hsa-liquid",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Hemangiosarcoma"
+        ],
+        "Cat": [
+          "Hemangiosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "no_metastasis",
+          "min_weight_lb",
+          "active_treatment_target",
+          "min_weight_kg",
+          "prior_chemo",
+          "post_splenectomy"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "msu-tcell-lymphoma",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "T-cell lymphoma"
+        ],
+        "Cat": [
+          "T-cell lymphoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "prior_chemo"
+        ],
+        "excludes": [
+          "current_chemo"
+        ]
+      }
+    },
+    {
+      "id": "msu-hs-quasiorganelle",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Histiocytic sarcoma"
+        ],
+        "Cat": [
+          "Histiocytic sarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "measurable",
+          "min_weight_kg",
+          "visible_tumor",
+          "max_vcog_performance_status"
+        ],
+        "excludes": [
+          "current_chemo",
+          "current_steroids",
+          "current_radiation",
+          "active_wounds",
+          "immunodeficiency",
+          "immune_mediated_disease",
+          "recent_systemic_antibiotics_14d",
+          "recent_immunosuppressants_14d",
+          "recent_prednisone_7d",
+          "recent_chemotherapy_14d",
+          "recent_radiation_30d"
+        ]
+      }
+    },
+    {
+      "id": "msu-mct-steroids",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Mast cell tumor"
+        ],
+        "Cat": [
+          "Mast cell tumor"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "measurable",
+          "no_metastasis",
+          "planned_surgery"
+        ],
+        "excludes": [
+          "current_chemo",
+          "current_steroids"
+        ]
+      }
+    },
+    {
+      "id": "msu-feline-mammary-met",
+      "species": [
+        "Cat"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Feline mammary carcinoma",
+          "Mammary carcinoma"
+        ],
+        "Cat": [
+          "Feline mammary carcinoma",
+          "Mammary carcinoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "metastatic",
+          "measurable"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "ncsu-mammary-inspire",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Feline mammary carcinoma",
+          "Mammary carcinoma"
+        ],
+        "Cat": [
+          "Feline mammary carcinoma",
+          "Mammary carcinoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "active_treatment_target",
+          "measurable",
+          "min_tumor_cm",
+          "max_tumor_cm",
+          "min_weight_lb",
+          "previously_spayed",
+          "no_metastasis"
+        ],
+        "excludes": [
+          "poor_general_health",
+          "anesthesia_contraindicated"
+        ]
+      }
+    },
+    {
+      "id": "cornell-oscc-trametinib",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Oral squamous cell carcinoma"
+        ],
+        "Cat": [
+          "Oral squamous cell carcinoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "uga-bcell-ivp",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "B-cell lymphoma"
+        ],
+        "Cat": [
+          "B-cell lymphoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "min_age_years",
+          "min_weight_kg",
+          "max_weight_kg",
+          "active_treatment_target",
+          "prior_chemo",
+          "prior_radiation"
+        ],
+        "excludes": [
+          "prior_immunotherapy"
+        ]
+      }
+    },
+    {
+      "id": "wsu-sts-local-immunotherapy",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma"
+        ],
+        "Cat": [
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "measurable",
+          "planned_surgery"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "csu-osa-car-t-met",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Osteosarcoma"
+        ],
+        "Cat": [
+          "Osteosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "metastatic",
+          "active_treatment_target",
+          "primary_removed",
+          "measurable_lung_metastases",
+          "min_weight_kg"
+        ],
+        "excludes": [
+          "metastases_outside_lungs",
+          "concurrent_immunomodulatory_drugs",
+          "corticosteroids",
+          "current_steroids",
+          "immunosuppressive"
+        ]
+      }
+    },
+    {
+      "id": "wisc-lymphoma-half-body-rt-chop",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "B-cell lymphoma",
+          "Lymphoma — other",
+          "T-cell lymphoma"
+        ],
+        "Cat": [
+          "B-cell lymphoma",
+          "Lymphoma — other",
+          "T-cell lymphoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "lymphoma_response",
+          "prior_chemo",
+          "planned_radiation",
+          "planned_doxorubicin"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "wisc-ptcl-90y-nm600-rpt",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "T-cell lymphoma"
+        ],
+        "Cat": [
+          "T-cell lymphoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "measurable",
+          "min_age_years",
+          "min_weight_kg"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "wisc-osa-flash-radiotherapy",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Osteosarcoma"
+        ],
+        "Cat": [
+          "Osteosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "active_treatment_target",
+          "appendicular_location",
+          "planned_amputation",
+          "planned_radiation"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "ethos-gilvetmab-melanoma",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Melanoma — other",
+          "Oral melanoma"
+        ],
+        "Cat": [
+          "Melanoma — other",
+          "Oral melanoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "min_weight_lb",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "ethos-bcell-oral",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "B-cell lymphoma"
+        ],
+        "Cat": [
+          "B-cell lymphoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "min_age_years",
+          "min_weight_lb",
+          "max_weight_lb",
+          "active_treatment_target",
+          "prior_chemo",
+          "prior_radiation"
+        ],
+        "excludes": [
+          "prior_immunotherapy"
+        ]
+      }
+    },
+    {
+      "id": "ethos-osa-vaccine",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Osteosarcoma"
+        ],
+        "Cat": [
+          "Osteosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "min_weight_lb",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "ucd-pdl1-metastatic",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Chondrosarcoma",
+          "Colorectal / rectal cancer",
+          "Esophageal cancer",
+          "Fibrosarcoma",
+          "Gastric / stomach cancer",
+          "Gastrointestinal stromal tumor (GIST)",
+          "Leiomyosarcoma",
+          "Liposarcoma",
+          "Nasal tumor / nasal cancer",
+          "Oral melanoma",
+          "Peripheral nerve sheath tumor",
+          "Rhabdomyosarcoma",
+          "Salivary gland cancer",
+          "Thymoma / thymic tumor"
+        ],
+        "Cat": [
+          "Chondrosarcoma",
+          "Colorectal / rectal cancer",
+          "Esophageal cancer",
+          "Fibrosarcoma",
+          "Gastric / stomach cancer",
+          "Gastrointestinal stromal tumor (GIST)",
+          "Leiomyosarcoma",
+          "Liposarcoma",
+          "Nasal tumor / nasal cancer",
+          "Oral melanoma",
+          "Peripheral nerve sheath tumor",
+          "Rhabdomyosarcoma",
+          "Salivary gland cancer",
+          "Thymoma / thymic tumor"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "metastatic",
+          "min_weight_kg",
+          "max_weight_kg",
+          "min_expected_survival_weeks",
+          "active_treatment_target"
+        ],
+        "excludes": [
+          "prior_checkpoint_inhibitor"
+        ]
+      }
+    },
+    {
+      "id": "ucd-oral-margin",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Oral melanoma",
+          "Oral squamous cell carcinoma"
+        ],
+        "Cat": [
+          "Oral melanoma",
+          "Oral squamous cell carcinoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "min_age_years",
+          "anesthesia_eligible"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "osu-osa-ai-sbrt",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Osteosarcoma"
+        ],
+        "Cat": [
+          "Osteosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "no_metastasis",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "ill-osa-il12-rt-current",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Osteosarcoma"
+        ],
+        "Cat": [
+          "Osteosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "appendicular_location",
+          "no_metastasis"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "ill-osa-z007-current",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Osteosarcoma"
+        ],
+        "Cat": [
+          "Osteosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "metastatic",
+          "measurable_lung_metastases"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "tamu-mct-acid-suppressant",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Mast cell tumor"
+        ],
+        "Cat": [
+          "Mast cell tumor"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "measurable",
+          "planned_surgery"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "csu-brain-cart-verdinexor",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Brain tumor / glioma"
+        ],
+        "Cat": [
+          "Brain tumor / glioma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "min_weight_lb"
+        ],
+        "excludes": [
+          "prior_chemo",
+          "prior_radiation"
+        ]
+      }
+    },
+    {
+      "id": "mizzou-osa-carboplatin-timing",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Osteosarcoma"
+        ],
+        "Cat": [
+          "Osteosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "barc-gold-nanoparticle-photothermal-2026",
+      "species": [
+        "Dog",
+        "Cat"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Mast cell tumor",
+          "Melanoma — other",
+          "Oral melanoma",
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma"
+        ],
+        "Cat": [
+          "Mast cell tumor",
+          "Oral squamous cell carcinoma",
+          "Other sarcoma",
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma",
+          "Squamous cell carcinoma — other"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "active_treatment_target",
+          "measurable"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "uf-oral-melanoma-vaccine-pd1",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Oral melanoma"
+        ],
+        "Cat": [
+          "Oral melanoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "prior_surgery",
+          "active_treatment_target",
+          "resectable_or_minimal"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "mizzou-bcell-btk-bi705564",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "B-cell lymphoma"
+        ],
+        "Cat": [
+          "B-cell lymphoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "min_age_years",
+          "min_weight_kg",
+          "max_weight_kg",
+          "measurable",
+          "prior_chemo",
+          "prior_radiation"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "mizzou-epitheliotropic-laverdia",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "B-cell lymphoma",
+          "Cutaneous epitheliotropic lymphoma",
+          "Lymphoma — other",
+          "T-cell lymphoma"
+        ],
+        "Cat": [
+          "B-cell lymphoma",
+          "Cutaneous epitheliotropic lymphoma",
+          "Lymphoma — other",
+          "T-cell lymphoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "prior_chemo",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "mizzou-pulmonary-carcinoma-gilvetmab",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Primary lung tumor"
+        ],
+        "Cat": [
+          "Primary lung tumor"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "purdue-bladder-pdl1-vinblastine-deracoxib",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Urothelial / transitional cell carcinoma",
+          "Urothelial carcinoma"
+        ],
+        "Cat": [
+          "Urothelial / transitional cell carcinoma",
+          "Urothelial carcinoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "serum_creatinine_lte_2",
+          "prior_chemo",
+          "prior_radiation"
+        ],
+        "excludes": [
+          "librela",
+          "cytopoint",
+          "current_supplements"
+        ]
+      }
+    },
+    {
+      "id": "ethos-solid-relapse",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "B-cell lymphoma",
+          "Lymphoma — other",
+          "T-cell lymphoma"
+        ],
+        "Cat": [
+          "B-cell lymphoma",
+          "Lymphoma — other",
+          "T-cell lymphoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "prior_chemo",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "ethos-epush-hsa",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Hemangiosarcoma"
+        ],
+        "Cat": [
+          "Hemangiosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "min_weight_lb",
+          "no_metastasis",
+          "max_weight_lb",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "ethos-mimic-osa-lung",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Osteosarcoma"
+        ],
+        "Cat": [
+          "Osteosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "metastatic",
+          "min_weight_lb"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "elias-eci-chemo-osa",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Osteosarcoma"
+        ],
+        "Cat": [
+          "Osteosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "prior_surgery",
+          "prior_chemo",
+          "no_metastasis"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "anivive-sine-osa-carboplatin",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Osteosarcoma"
+        ],
+        "Cat": [
+          "Osteosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "prior_surgery",
+          "post_amputation",
+          "prior_chemo"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "mizzou-cotc027-hypomethylating",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Chondrosarcoma",
+          "Colorectal / rectal cancer",
+          "Esophageal cancer",
+          "Fibrosarcoma",
+          "Gastric / stomach cancer",
+          "Gastrointestinal stromal tumor (GIST)",
+          "Leiomyosarcoma",
+          "Liposarcoma",
+          "Multiple myeloma / plasma cell cancer",
+          "Nasal tumor / nasal cancer",
+          "Peripheral nerve sheath tumor",
+          "Rhabdomyosarcoma",
+          "Salivary gland cancer",
+          "Thymoma / thymic tumor",
+          "Cancer — any type"
+        ],
+        "Cat": [
+          "Chondrosarcoma",
+          "Colorectal / rectal cancer",
+          "Esophageal cancer",
+          "Fibrosarcoma",
+          "Gastric / stomach cancer",
+          "Gastrointestinal stromal tumor (GIST)",
+          "Leiomyosarcoma",
+          "Liposarcoma",
+          "Multiple myeloma / plasma cell cancer",
+          "Nasal tumor / nasal cancer",
+          "Peripheral nerve sheath tumor",
+          "Rhabdomyosarcoma",
+          "Salivary gland cancer",
+          "Thymoma / thymic tumor",
+          "Cancer — any type"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "min_weight_lb",
+          "measurable"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "umn-glioma-zika-autologous-vax",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Brain tumor / glioma"
+        ],
+        "Cat": [
+          "Brain tumor / glioma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "umn-glioma-nanoparticle-gene",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Brain tumor / glioma"
+        ],
+        "Cat": [
+          "Brain tumor / glioma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "uk-ndsr-osa-rfil2-watch",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Osteosarcoma"
+        ],
+        "Cat": [
+          "Osteosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "localized",
+          "no_metastasis",
+          "active_treatment_target",
+          "limb_osteosarcoma",
+          "surgery_candidate",
+          "chemo_candidate"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "eu-it-unimi-oncofap-mmae",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Chondrosarcoma",
+          "Colorectal / rectal cancer",
+          "Esophageal cancer",
+          "Fibrosarcoma",
+          "Gastric / stomach cancer",
+          "Gastrointestinal stromal tumor (GIST)",
+          "Leiomyosarcoma",
+          "Liposarcoma",
+          "Nasal tumor / nasal cancer",
+          "Other solid tumor",
+          "Peripheral nerve sheath tumor",
+          "Rhabdomyosarcoma",
+          "Salivary gland cancer",
+          "Thymoma / thymic tumor"
+        ],
+        "Cat": [
+          "Chondrosarcoma",
+          "Colorectal / rectal cancer",
+          "Esophageal cancer",
+          "Fibrosarcoma",
+          "Gastric / stomach cancer",
+          "Gastrointestinal stromal tumor (GIST)",
+          "Leiomyosarcoma",
+          "Liposarcoma",
+          "Nasal tumor / nasal cancer",
+          "Other solid tumor",
+          "Peripheral nerve sheath tumor",
+          "Rhabdomyosarcoma",
+          "Salivary gland cancer",
+          "Thymoma / thymic tumor"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "measurable"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "eu-ch-sinonasal-heterogeneous-rt",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Nasal tumor / nasal cancer",
+          "Other solid tumor",
+          "Sinonasal carcinoma"
+        ],
+        "Cat": [
+          "Nasal tumor / nasal cancer",
+          "Other solid tumor",
+          "Sinonasal carcinoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "eu-uk-ndsr-high-grade-mammary-current",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Feline mammary carcinoma",
+          "Mammary carcinoma",
+          "Mammary tumor — other"
+        ],
+        "Cat": [
+          "Feline mammary carcinoma",
+          "Mammary carcinoma",
+          "Mammary tumor — other"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "tufts-z007-broad-solid-2026",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Chondrosarcoma",
+          "Colorectal / rectal cancer",
+          "Esophageal cancer",
+          "Fibrosarcoma",
+          "Gastric / stomach cancer",
+          "Gastrointestinal stromal tumor (GIST)",
+          "Leiomyosarcoma",
+          "Liposarcoma",
+          "Melanoma — other",
+          "Nasal tumor / nasal cancer",
+          "Other sarcoma",
+          "Other solid tumor",
+          "Peripheral nerve sheath tumor",
+          "Rhabdomyosarcoma",
+          "Salivary gland cancer",
+          "Thymoma / thymic tumor"
+        ],
+        "Cat": [
+          "Chondrosarcoma",
+          "Colorectal / rectal cancer",
+          "Esophageal cancer",
+          "Fibrosarcoma",
+          "Gastric / stomach cancer",
+          "Gastrointestinal stromal tumor (GIST)",
+          "Leiomyosarcoma",
+          "Liposarcoma",
+          "Melanoma — other",
+          "Nasal tumor / nasal cancer",
+          "Other sarcoma",
+          "Other solid tumor",
+          "Peripheral nerve sheath tumor",
+          "Rhabdomyosarcoma",
+          "Salivary gland cancer",
+          "Thymoma / thymic tumor"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "min_weight_kg",
+          "measurable"
+        ],
+        "excludes": [
+          "prior_immunotherapy"
+        ]
+      }
+    },
+    {
+      "id": "eu-ch-pnst-plexus-fluorescence-surgery",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Peripheral nerve sheath tumor"
+        ],
+        "Cat": [
+          "Peripheral nerve sheath tumor"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "planned_surgery"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "medvet-egfr-her2-vaccine-2026",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Hemangiosarcoma",
+          "Osteosarcoma",
+          "Urothelial / transitional cell carcinoma",
+          "Urothelial carcinoma"
+        ],
+        "Cat": [
+          "Hemangiosarcoma",
+          "Osteosarcoma",
+          "Urothelial / transitional cell carcinoma",
+          "Urothelial carcinoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "anticipated_survival_over_3_months",
+          "standard_of_care_therapy"
+        ],
+        "excludes": [
+          "other_immunotherapy",
+          "alternative_therapy",
+          "other_clinical_study"
+        ]
+      }
+    },
+    {
+      "id": "ca-ovc-oral-melanoma-palladia",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Oral melanoma"
+        ],
+        "Cat": [
+          "Oral melanoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "measurable",
+          "prior_chemo"
+        ],
+        "excludes": [
+          "prior_chemo"
+        ]
+      }
+    },
+    {
+      "id": "ca-ovc-osa-hifu",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Osteosarcoma"
+        ],
+        "Cat": [
+          "Osteosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "no_metastasis"
+        ],
+        "excludes": [
+          "prior_surgery",
+          "prior_local_radiation"
+        ]
+      }
+    },
+    {
+      "id": "ca-ovc-feline-oscc-porphysome-pdt",
+      "species": [
+        "Cat"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Oral squamous cell carcinoma"
+        ],
+        "Cat": [
+          "Oral squamous cell carcinoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "ncsu-canine-sts-xcsgel",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma"
+        ],
+        "Cat": [
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "measurable",
+          "min_tumor_cm",
+          "max_tumor_cm"
+        ],
+        "excludes": [
+          "prior_chemo",
+          "prior_local_radiation"
+        ]
+      }
+    },
+    {
+      "id": "ncsu-feline-oral-pivot-c",
+      "species": [
+        "Cat"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Oral squamous cell carcinoma",
+          "Oral tumor — other"
+        ],
+        "Cat": [
+          "Oral squamous cell carcinoma",
+          "Oral tumor — other"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "active_treatment_target",
+          "oral_mass"
+        ],
+        "excludes": [
+          "concurrent_surgery",
+          "concurrent_local_radiation"
+        ]
+      }
+    },
+    {
+      "id": "csu-feline-oscc-immunotherapy",
+      "species": [
+        "Cat"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Oral squamous cell carcinoma"
+        ],
+        "Cat": [
+          "Oral squamous cell carcinoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": [
+          "immunosuppressive"
+        ]
+      }
+    },
+    {
+      "id": "csu-osa-3d-limb-spare",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Osteosarcoma"
+        ],
+        "Cat": [
+          "Osteosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "active_treatment_target",
+          "giant_breed",
+          "primary_bone_tumor",
+          "no_metastasis"
+        ],
+        "excludes": [
+          "immunosuppressive"
+        ]
+      }
+    },
+    {
+      "id": "csu-ucc-lapatinib-rt",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Urothelial / transitional cell carcinoma",
+          "Urothelial carcinoma"
+        ],
+        "Cat": [
+          "Urothelial / transitional cell carcinoma",
+          "Urothelial carcinoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "planned_radiation"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "csu-sarcoma-engineered-tcells",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma"
+        ],
+        "Cat": [
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "min_weight_kg",
+          "chemo_washout_days",
+          "pretreatment_biopsy"
+        ],
+        "excludes": [
+          "prior_immunotherapy",
+          "current_chemo"
+        ]
+      }
+    },
+    {
+      "id": "csu-cotc033-vaccine-immunity",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Histiocytic sarcoma",
+          "Oral melanoma",
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma"
+        ],
+        "Cat": [
+          "Histiocytic sarcoma",
+          "Oral melanoma",
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "measurable",
+          "min_weight_kg",
+          "max_weight_kg"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "csu-osa-carboplatin-pain",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Osteosarcoma"
+        ],
+        "Cat": [
+          "Osteosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "appendicular_location",
+          "weight_bearing"
+        ],
+        "excludes": [
+          "prior_chemo",
+          "prior_radiation",
+          "bone_metastasis"
+        ]
+      }
+    },
+    {
+      "id": "umn-feline-mammary-olaparib-meloxicam",
+      "species": [
+        "Cat"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Feline mammary carcinoma",
+          "Mammary carcinoma"
+        ],
+        "Cat": [
+          "Feline mammary carcinoma",
+          "Mammary carcinoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "min_tumor_cm"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "tufts-sts-fap-car-t",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma"
+        ],
+        "Cat": [
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "active_treatment_target",
+          "min_tumor_cm",
+          "max_tumor_cm",
+          "min_weight_kg",
+          "chemo_washout_days"
+        ],
+        "excludes": [
+          "pregnant_or_lactating",
+          "autoimmune_disease",
+          "prior_checkpoint_inhibitor"
+        ]
+      }
+    },
+    {
+      "id": "tufts-met-osa-vaccine-tme",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Osteosarcoma"
+        ],
+        "Cat": [
+          "Osteosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "primary_removed",
+          "measurable_lung_metastases"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "osu-sts-mic-nk",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma"
+        ],
+        "Cat": [
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": [
+          "prior_local_radiation"
+        ]
+      }
+    },
+    {
+      "id": "illinois-oral-melanoma-il12-il15",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Oral melanoma"
+        ],
+        "Cat": [
+          "Oral melanoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "min_age_years",
+          "min_weight_kg",
+          "measurable"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "illinois-sts-surgery",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma"
+        ],
+        "Cat": [
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "measurable"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "illinois-sts-treatment",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma"
+        ],
+        "Cat": [
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "measurable",
+          "recurrent"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "illinois-ucc-gilvetmab-epacadostat",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Urothelial / transitional cell carcinoma",
+          "Urothelial carcinoma"
+        ],
+        "Cat": [
+          "Urothelial / transitional cell carcinoma",
+          "Urothelial carcinoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "measurable"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "auburn-palbociclib-solid-cancers",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Anal sac adenocarcinoma (AGASACA)",
+          "Feline mammary carcinoma",
+          "Histiocytic sarcoma",
+          "Mammary carcinoma",
+          "Melanoma — other",
+          "Squamous cell carcinoma",
+          "Squamous cell carcinoma — other"
+        ],
+        "Cat": [
+          "Anal sac adenocarcinoma (AGASACA)",
+          "Feline mammary carcinoma",
+          "Histiocytic sarcoma",
+          "Mammary carcinoma",
+          "Melanoma — other",
+          "Squamous cell carcinoma",
+          "Squamous cell carcinoma — other"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "measurable"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "barc-scc-intratumoral-carboplatin-2026",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Squamous cell carcinoma",
+          "Squamous cell carcinoma — other"
+        ],
+        "Cat": [
+          "Squamous cell carcinoma",
+          "Squamous cell carcinoma — other"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "measurable",
+          "min_tumor_cm",
+          "no_metastasis"
+        ],
+        "excludes": [
+          "prior_chemo",
+          "prior_immunotherapy",
+          "prior_local_radiation"
+        ]
+      }
+    },
+    {
+      "id": "utsw-solid-cpmv",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Chondrosarcoma",
+          "Colorectal / rectal cancer",
+          "Esophageal cancer",
+          "Fibrosarcoma",
+          "Gastric / stomach cancer",
+          "Gastrointestinal stromal tumor (GIST)",
+          "Leiomyosarcoma",
+          "Liposarcoma",
+          "Mast cell tumor",
+          "Melanoma — other",
+          "Nasal tumor / nasal cancer",
+          "Oral melanoma",
+          "Peripheral nerve sheath tumor",
+          "Rhabdomyosarcoma",
+          "Salivary gland cancer",
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma",
+          "Thymoma / thymic tumor",
+          "Thyroid carcinoma",
+          "Thyroid tumor / carcinoma"
+        ],
+        "Cat": [
+          "Chondrosarcoma",
+          "Colorectal / rectal cancer",
+          "Esophageal cancer",
+          "Fibrosarcoma",
+          "Gastric / stomach cancer",
+          "Gastrointestinal stromal tumor (GIST)",
+          "Leiomyosarcoma",
+          "Liposarcoma",
+          "Mast cell tumor",
+          "Melanoma — other",
+          "Nasal tumor / nasal cancer",
+          "Oral melanoma",
+          "Peripheral nerve sheath tumor",
+          "Rhabdomyosarcoma",
+          "Salivary gland cancer",
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma",
+          "Thymoma / thymic tumor",
+          "Thyroid carcinoma",
+          "Thyroid tumor / carcinoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "penn-flash-rt-extremity-sts",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma"
+        ],
+        "Cat": [
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "extremity_sts",
+          "max_tumor_cm",
+          "no_metastasis"
+        ],
+        "excludes": [
+          "pulmonary_metastasis",
+          "regional_lymph_node_metastasis"
+        ]
+      }
+    },
+    {
+      "id": "penn-psma-theranostic-prostate",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Prostate cancer"
+        ],
+        "Cat": [
+          "Prostate cancer"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "prostatic_cancer"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "vt-thyroid-histotripsy",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Thyroid carcinoma",
+          "Thyroid tumor / carcinoma"
+        ],
+        "Cat": [
+          "Thyroid carcinoma",
+          "Thyroid tumor / carcinoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "active_treatment_target",
+          "thyroid_tumor",
+          "planned_surgery"
+        ],
+        "excludes": [
+          "unresectable_tumor",
+          "anesthesia_contraindicated",
+          "other_life_threatening_disease"
+        ]
+      }
+    },
+    {
+      "id": "vt-brain-verteporfin-pdt",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Brain tumor / glioma"
+        ],
+        "Cat": [
+          "Brain tumor / glioma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "active_treatment_target",
+          "newly_diagnosed_brain_tumor",
+          "planned_surgery"
+        ],
+        "excludes": [
+          "prior_chemo",
+          "prior_local_radiation",
+          "prior_brain_tumor_therapy",
+          "anesthesia_contraindicated",
+          "severe_systemic_disease"
+        ]
+      }
+    },
+    {
+      "id": "umn-canine-oral-melanoma-aav-vaccine",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Oral melanoma"
+        ],
+        "Cat": [
+          "Oral melanoma"
+        ]
+      },
+      "rules": {
+        "requires": [],
+        "excludes": []
+      }
+    },
+    {
+      "id": "utsw-vroc-glioma-car-neutrophils-rt",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Brain tumor / glioma"
+        ],
+        "Cat": [
+          "Brain tumor / glioma"
+        ]
+      },
+      "rules": {
+        "requires": [],
+        "excludes": []
+      }
+    },
+    {
+      "id": "utsw-vroc-glioma-ferumoxytol-rt",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Brain tumor / glioma"
+        ],
+        "Cat": [
+          "Brain tumor / glioma"
+        ]
+      },
+      "rules": {
+        "requires": [],
+        "excludes": []
+      }
+    },
+    {
+      "id": "utsw-vroc-melanoma-crtnp-hifu-pdl1",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Melanoma — other",
+          "Oral melanoma"
+        ],
+        "Cat": [
+          "Melanoma — other",
+          "Oral melanoma"
+        ]
+      },
+      "rules": {
+        "requires": [],
+        "excludes": []
+      }
+    },
+    {
+      "id": "ch-zurich-canine-meningioma-genomic-rt",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Brain tumor / glioma"
+        ],
+        "Cat": [
+          "Brain tumor / glioma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "planned_radiation"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "ch-zurich-sts-fluorescence-guided-surgery",
+      "species": [
+        "Dog",
+        "Cat"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma"
+        ],
+        "Cat": [
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "planned_surgery"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "fr-fregis-chemodectoma-thermoablation",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Chemodectoma"
+        ],
+        "Cat": [
+          "Chemodectoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "be-ghent-feline-mammary-gcn2-inhibitor",
+      "species": [
+        "Cat"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Feline mammary carcinoma",
+          "Mammary carcinoma",
+          "Mammary tumor — other"
+        ],
+        "Cat": [
+          "Feline mammary carcinoma",
+          "Mammary carcinoma",
+          "Mammary tumor — other"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "planned_surgery"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "fr-fregis-hepatic-tumor-thermoablation",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Hepatocellular carcinoma",
+          "Other liver tumor"
+        ],
+        "Cat": [
+          "Hepatocellular carcinoma",
+          "Other liver tumor"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "fr-fregis-hepatic-embolization",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Hepatocellular carcinoma",
+          "Other liver tumor"
+        ],
+        "Cat": [
+          "Hepatocellular carcinoma",
+          "Other liver tumor"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "ch-zurich-canine-high-grade-glioma-chemoradiation",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Brain tumor / glioma"
+        ],
+        "Cat": [
+          "Brain tumor / glioma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "planned_radiation"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "ch-zurich-feline-oscc-flash-proton-rt",
+      "species": [
+        "Cat"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Oral squamous cell carcinoma",
+          "Squamous cell carcinoma — other"
+        ],
+        "Cat": [
+          "Oral squamous cell carcinoma",
+          "Squamous cell carcinoma — other"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "planned_radiation"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "nl-utrecht-osteosarcoma-oncolytic-virus-access",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Osteosarcoma"
+        ],
+        "Cat": [
+          "Osteosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "ch-anicura-aoi-superficial-tumor-immunocytokines",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [],
+        "Cat": []
+      },
+      "rules": {
+        "requires": [
+          "active_treatment_target",
+          "superficial_accessible_tumor"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "dk-copenhagen-flash-superficial-tumors",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Mast cell tumor",
+          "Oral tumor — other",
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma",
+          "Squamous cell carcinoma",
+          "Squamous cell carcinoma — other"
+        ],
+        "Cat": [
+          "Mast cell tumor",
+          "Oral tumor — other",
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma",
+          "Squamous cell carcinoma",
+          "Squamous cell carcinoma — other"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "active_treatment_target",
+          "superficial_or_oral_tumor",
+          "anesthesia_fit"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "be-ghent-fluorescence-lifetime-cancer-surgery",
+      "species": [
+        "Dog",
+        "Cat"
+      ],
+      "diagnoses": {
+        "Dog": [],
+        "Cat": []
+      },
+      "rules": {
+        "requires": [
+          "active_treatment_target",
+          "surgery_planned"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "ucd-care-canine-glioma",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Brain tumor / glioma"
+        ],
+        "Cat": [
+          "Brain tumor / glioma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "active_treatment_target",
+          "suspected_or_confirmed_glioma",
+          "radiation_therapy",
+          "brain_tumor_biopsy",
+          "planned_radiation"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "ucd-prism-canine-glioma",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Brain tumor / glioma"
+        ],
+        "Cat": [
+          "Brain tumor / glioma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "suspected_or_confirmed_glioma",
+          "brain_tumor_biopsy",
+          "planned_radiation"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "aurelius-lytix-bcell-lymphoma",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "B-cell lymphoma"
+        ],
+        "Cat": [
+          "B-cell lymphoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "previously_untreated"
+        ],
+        "excludes": [
+          "prior_cancer_treatment"
+        ]
+      }
+    },
+    {
+      "id": "china-dongjun-mct-new-drug-2026",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Mast cell tumor"
+        ],
+        "Cat": [
+          "Mast cell tumor"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "min_age_years",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "china-dongjun-osa-new-drug-2026",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Osteosarcoma"
+        ],
+        "Cat": [
+          "Osteosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "min_age_years",
+          "measurable_or_lung_metastasis"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "china-dongjun-oral-scc-new-drug-2026",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Oral squamous cell carcinoma"
+        ],
+        "Cat": [
+          "Oral squamous cell carcinoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "min_age_years",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "china-petcura-personalized-mrna-iit-2026",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Acute myeloid leukemia",
+          "Adrenal tumor",
+          "Anal sac adenocarcinoma (AGASACA)",
+          "B-cell lymphoma",
+          "Chemodectoma",
+          "Chondrosarcoma",
+          "Colorectal / rectal cancer",
+          "Cutaneous epitheliotropic lymphoma",
+          "Esophageal cancer",
+          "Feline mammary carcinoma",
+          "Fibrosarcoma",
+          "Gallbladder carcinoma",
+          "Gastric / stomach cancer",
+          "Gastrointestinal stromal tumor (GIST)",
+          "Hemangiosarcoma",
+          "Hepatocellular carcinoma",
+          "Histiocytic sarcoma",
+          "Insulinoma",
+          "Intestinal carcinoma",
+          "Leiomyosarcoma",
+          "Liposarcoma",
+          "Lymphoma — other",
+          "Mammary carcinoma",
+          "Mammary tumor — other",
+          "Mast cell tumor",
+          "Melanoma — other",
+          "Multiple myeloma / plasma cell cancer",
+          "Nasal tumor / nasal cancer",
+          "Ocular melanoma / iris melanocytic tumor",
+          "Oral melanoma",
+          "Oral squamous cell carcinoma",
+          "Oral tumor — other",
+          "Osteosarcoma",
+          "Other bone tumor",
+          "Other liver tumor",
+          "Other sarcoma",
+          "Other solid tumor",
+          "Pancreatic carcinoma",
+          "Peripheral nerve sheath tumor",
+          "Primary lung tumor",
+          "Prostate cancer",
+          "Renal tumor",
+          "Rhabdomyosarcoma",
+          "Salivary gland cancer",
+          "Sinonasal carcinoma",
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma",
+          "Squamous cell carcinoma",
+          "Squamous cell carcinoma — other",
+          "T-cell lymphoma",
+          "Thymoma / thymic tumor",
+          "Thyroid carcinoma",
+          "Thyroid tumor / carcinoma",
+          "Urothelial / transitional cell carcinoma",
+          "Urothelial carcinoma",
+          "Cancer — any type"
+        ],
+        "Cat": [
+          "Acute myeloid leukemia",
+          "Adrenal tumor",
+          "Anal sac adenocarcinoma (AGASACA)",
+          "B-cell lymphoma",
+          "Chemodectoma",
+          "Chondrosarcoma",
+          "Colorectal / rectal cancer",
+          "Cutaneous epitheliotropic lymphoma",
+          "Esophageal cancer",
+          "Feline mammary carcinoma",
+          "Fibrosarcoma",
+          "Gallbladder carcinoma",
+          "Gastric / stomach cancer",
+          "Gastrointestinal stromal tumor (GIST)",
+          "Hemangiosarcoma",
+          "Hepatocellular carcinoma",
+          "Histiocytic sarcoma",
+          "Insulinoma",
+          "Intestinal carcinoma",
+          "Leiomyosarcoma",
+          "Liposarcoma",
+          "Lymphoma — other",
+          "Mammary carcinoma",
+          "Mammary tumor — other",
+          "Mast cell tumor",
+          "Melanoma — other",
+          "Multiple myeloma / plasma cell cancer",
+          "Nasal tumor / nasal cancer",
+          "Ocular melanoma / iris melanocytic tumor",
+          "Oral melanoma",
+          "Oral squamous cell carcinoma",
+          "Oral tumor — other",
+          "Osteosarcoma",
+          "Other bone tumor",
+          "Other liver tumor",
+          "Other sarcoma",
+          "Other solid tumor",
+          "Pancreatic carcinoma",
+          "Peripheral nerve sheath tumor",
+          "Primary lung tumor",
+          "Prostate cancer",
+          "Renal tumor",
+          "Rhabdomyosarcoma",
+          "Salivary gland cancer",
+          "Sinonasal carcinoma",
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma",
+          "Squamous cell carcinoma",
+          "Squamous cell carcinoma — other",
+          "T-cell lymphoma",
+          "Thymoma / thymic tumor",
+          "Thyroid carcinoma",
+          "Thyroid tumor / carcinoma",
+          "Urothelial / transitional cell carcinoma",
+          "Urothelial carcinoma",
+          "Cancer — any type"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "min_age_years",
+          "min_weight_kg"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "jhu-cigat-osa-cryo-immunotherapy-2026",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Osteosarcoma"
+        ],
+        "Cat": [
+          "Osteosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "planned_amputation_and_chemo"
+        ],
+        "excludes": [
+          "prior_chemo",
+          "prior_osteosarcoma_treatment"
+        ]
+      }
+    },
+    {
+      "id": "jhu-cigat-brain-rt-tmz-2026",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Brain tumor / glioma"
+        ],
+        "Cat": [
+          "Brain tumor / glioma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "active_treatment_target",
+          "min_age_years",
+          "min_weight_kg",
+          "brain_tumor_present"
+        ],
+        "excludes": [
+          "prior_local_radiation",
+          "prior_chemo"
+        ]
+      }
+    },
+    {
+      "id": "jhu-cigat-mammary-kubanda-cryo-2026",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Feline mammary carcinoma",
+          "Mammary carcinoma",
+          "Mammary tumor — other"
+        ],
+        "Cat": [
+          "Feline mammary carcinoma",
+          "Mammary carcinoma",
+          "Mammary tumor — other"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "korea-vaxleukin15-mammary-2026",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Feline mammary carcinoma",
+          "Mammary carcinoma",
+          "Mammary tumor — other"
+        ],
+        "Cat": [
+          "Feline mammary carcinoma",
+          "Mammary carcinoma",
+          "Mammary tumor — other"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "planned_surgery"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "korea-vaxleukin15-lymphoma-2026",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "B-cell lymphoma",
+          "Lymphoma — other",
+          "T-cell lymphoma"
+        ],
+        "Cat": [
+          "B-cell lymphoma",
+          "Lymphoma — other",
+          "T-cell lymphoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "current_chemo"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "leah-bcell-cart-2026",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "B-cell lymphoma"
+        ],
+        "Cat": [
+          "B-cell lymphoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "mexico-ensenada-silver-nanoparticle-cancer-2026",
+      "species": [
+        "Dog",
+        "Cat"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Chondrosarcoma",
+          "Colorectal / rectal cancer",
+          "Esophageal cancer",
+          "Fibrosarcoma",
+          "Gastric / stomach cancer",
+          "Gastrointestinal stromal tumor (GIST)",
+          "Leiomyosarcoma",
+          "Liposarcoma",
+          "Multiple myeloma / plasma cell cancer",
+          "Nasal tumor / nasal cancer",
+          "Peripheral nerve sheath tumor",
+          "Rhabdomyosarcoma",
+          "Salivary gland cancer",
+          "Thymoma / thymic tumor",
+          "Cancer — any type"
+        ],
+        "Cat": [
+          "Chondrosarcoma",
+          "Colorectal / rectal cancer",
+          "Esophageal cancer",
+          "Fibrosarcoma",
+          "Gastric / stomach cancer",
+          "Gastrointestinal stromal tumor (GIST)",
+          "Leiomyosarcoma",
+          "Liposarcoma",
+          "Multiple myeloma / plasma cell cancer",
+          "Nasal tumor / nasal cancer",
+          "Peripheral nerve sheath tumor",
+          "Rhabdomyosarcoma",
+          "Salivary gland cancer",
+          "Thymoma / thymic tumor",
+          "Cancer — any type"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "taiwan-evergreen-il15-melanoma-osa",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Melanoma — other",
+          "Oral melanoma",
+          "Osteosarcoma"
+        ],
+        "Cat": [
+          "Melanoma — other",
+          "Oral melanoma",
+          "Osteosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "metastatic",
+          "measurable"
+        ],
+        "excludes": [
+          "current_steroids",
+          "immunosuppressive"
+        ]
+      }
+    },
+    {
+      "id": "taiwan-protect-pt001-oral-melanoma",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Oral melanoma"
+        ],
+        "Cat": [
+          "Oral melanoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "min_age_years",
+          "measurable"
+        ],
+        "excludes": [
+          "prior_local_radiation",
+          "current_steroids",
+          "immunosuppressive"
+        ]
+      }
+    },
+    {
+      "id": "csu-aml-trametinib",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Acute myeloid leukemia"
+        ],
+        "Cat": [
+          "Acute myeloid leukemia"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": [
+          "current_chemo"
+        ]
+      }
+    },
+    {
+      "id": "osu-oral-melanoma",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Oral melanoma"
+        ],
+        "Cat": [
+          "Oral melanoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "measurable"
+        ],
+        "excludes": [
+          "prior_local_radiation",
+          "current_immunosuppressive_medications"
+        ]
+      }
+    },
+    {
+      "id": "penn-osa-car-inkt-newly-diagnosed",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Osteosarcoma"
+        ],
+        "Cat": [
+          "Osteosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "metastatic",
+          "newly_diagnosed"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "penn-anti-pd1-urothelial-carcinoma",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Urothelial / transitional cell carcinoma",
+          "Urothelial carcinoma"
+        ],
+        "Cat": [
+          "Urothelial / transitional cell carcinoma",
+          "Urothelial carcinoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "measurable",
+          "min_weight_kg",
+          "max_weight_kg"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "penn-osa-carinkt",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Osteosarcoma"
+        ],
+        "Cat": [
+          "Osteosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "umn-orbit-lymphoma",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "B-cell lymphoma",
+          "Lymphoma — other",
+          "T-cell lymphoma"
+        ],
+        "Cat": [
+          "B-cell lymphoma",
+          "Lymphoma — other",
+          "T-cell lymphoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "min_weight_kg",
+          "aggressive_lymphoma"
+        ],
+        "excludes": [
+          "indolent_lymphoma",
+          "alternative_herbal_medications"
+        ]
+      }
+    },
+    {
+      "id": "utsw-hsa-temozolomide-propranolol",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Hemangiosarcoma"
+        ],
+        "Cat": [
+          "Hemangiosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "msu-sting-cmp002-solid-tumors",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "B-cell lymphoma",
+          "Histiocytic sarcoma",
+          "Lymphoma — other",
+          "Melanoma — other",
+          "Osteosarcoma",
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma",
+          "T-cell lymphoma"
+        ],
+        "Cat": [
+          "B-cell lymphoma",
+          "Histiocytic sarcoma",
+          "Lymphoma — other",
+          "Melanoma — other",
+          "Osteosarcoma",
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma",
+          "T-cell lymphoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "measurable",
+          "min_weight_kg"
+        ],
+        "excludes": [
+          "recent_anticancer_treatment_7d",
+          "indolent_lymphoma"
+        ]
+      }
+    },
+    {
+      "id": "vt-canine-glioma-ced",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Brain tumor / glioma"
+        ],
+        "Cat": [
+          "Brain tumor / glioma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "active_treatment_target",
+          "min_weight_kg",
+          "max_weight_kg",
+          "suspected_or_confirmed_glioma"
+        ],
+        "excludes": [
+          "significant_systemic_disease",
+          "prior_local_radiation"
+        ]
+      }
+    },
+    {
+      "id": "vroc-rt-histotripsy",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma"
+        ],
+        "Cat": [
+          "Soft tissue sarcoma",
+          "Spindle cell sarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "penn-bcell-car-t-registry",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "B-cell lymphoma"
+        ],
+        "Cat": [
+          "B-cell lymphoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "cornell-smart-start-bcell-lymphoma",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "B-cell lymphoma",
+          "Lymphoma — other",
+          "T-cell lymphoma"
+        ],
+        "Cat": [
+          "B-cell lymphoma",
+          "Lymphoma — other",
+          "T-cell lymphoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "prior_chemo"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "penn-atherton-steap1-car-t-hs",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Histiocytic sarcoma"
+        ],
+        "Cat": [
+          "Histiocytic sarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "measurable"
+        ],
+        "excludes": [
+          "current_chemo"
+        ]
+      }
+    },
+    {
+      "id": "purdue-hifu-lymphoma",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "B-cell lymphoma",
+          "Lymphoma — other",
+          "T-cell lymphoma"
+        ],
+        "Cat": [
+          "B-cell lymphoma",
+          "Lymphoma — other",
+          "T-cell lymphoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "min_age_years",
+          "min_weight_kg",
+          "untreated_newly_diagnosed",
+          "intermediate_or_large_cell_multicentric_lymphoma",
+          "planned_chop"
+        ],
+        "excludes": [
+          "small_cell_lymphoma",
+          "stage_v_lymphoma",
+          "extranodal_lymphoma",
+          "recent_chemotherapy_3w",
+          "recent_steroids_2w",
+          "significant_liver_or_kidney_dysfunction"
+        ]
+      }
+    },
+    {
+      "id": "purdue-hfire-liver-cancer",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Hepatocellular carcinoma",
+          "Other liver tumor"
+        ],
+        "Cat": [
+          "Hepatocellular carcinoma",
+          "Other liver tumor"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "liver_tumor",
+          "resectable",
+          "planned_surgical_resection",
+          "anesthesia_candidate"
+        ],
+        "excludes": [
+          "coagulation_disorder",
+          "severe_systemic_illness",
+          "owner_declines_post_hfire_surgery"
+        ]
+      }
+    },
+    {
+      "id": "purdue-hifu-osteosarcoma",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Osteosarcoma"
+        ],
+        "Cat": [
+          "Osteosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "min_age_years",
+          "min_weight_kg",
+          "appendicular_osteosarcoma",
+          "no_metastasis",
+          "suitable_hifu_acoustic_window",
+          "planned_amputation",
+          "planned_carboplatin"
+        ],
+        "excludes": [
+          "metastatic",
+          "recent_chemotherapy_3w",
+          "recent_steroids_2w",
+          "poor_performance_status"
+        ]
+      }
+    },
+    {
+      "id": "mizzou-vinorelbine-insulinoma",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Insulinoma"
+        ],
+        "Cat": [
+          "Insulinoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "insulinoma_or_pancreatic_neuroendocrine_tumor",
+          "target_lesion_over_20mm_or_persistent_hypoglycemia_after_surgery",
+          "nonsurgical_or_surgery_declined",
+          "min_expected_survival_weeks"
+        ],
+        "excludes": [
+          "concurrent_chemotherapy",
+          "significant_comorbidity"
+        ]
+      }
+    },
+    {
+      "id": "ucd-nasal-chemo-radiation",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Nasal tumor / nasal cancer",
+          "Sinonasal carcinoma"
+        ],
+        "Cat": [
+          "Nasal tumor / nasal cancer",
+          "Sinonasal carcinoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "radiation_therapy"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "ucd-nasal-tae",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Nasal tumor / nasal cancer",
+          "Sinonasal carcinoma"
+        ],
+        "Cat": [
+          "Nasal tumor / nasal cancer",
+          "Sinonasal carcinoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "ct_screening"
+        ],
+        "excludes": [
+          "adjacent_structure_invasion"
+        ]
+      }
+    },
+    {
+      "id": "ucd-liver-tae-tace",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Hepatocellular carcinoma",
+          "Other liver tumor"
+        ],
+        "Cat": [
+          "Hepatocellular carcinoma",
+          "Other liver tumor"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "nonresectable_or_high_surgical_risk",
+          "anesthesia_eligible"
+        ],
+        "excludes": [
+          "significant_other_organ_disease"
+        ]
+      }
+    },
+    {
+      "id": "au-uq-appendicular-osteosarcoma-vaccine",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Osteosarcoma"
+        ],
+        "Cat": [
+          "Osteosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "no_metastasis",
+          "planned_surgery"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "au-gamgee-personalized-mrna-vaccine",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Mast cell tumor"
+        ],
+        "Cat": [
+          "Mast cell tumor"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "au-melbourne-hsa-autologous-vaccine-multicenter",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Hemangiosarcoma"
+        ],
+        "Cat": [
+          "Hemangiosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "no_metastasis"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "tamu-feline-small-cell-gi-lymphoma-wart",
+      "species": [
+        "Cat"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "B-cell lymphoma",
+          "Lymphoma — other",
+          "T-cell lymphoma"
+        ],
+        "Cat": [
+          "B-cell lymphoma",
+          "Lymphoma — other",
+          "T-cell lymphoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "spain-puchol-reachglio-2026",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Brain tumor / glioma"
+        ],
+        "Cat": [
+          "Brain tumor / glioma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "min_weight_kg",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "csu-glioma-verdinexor-only-2026",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Brain tumor / glioma"
+        ],
+        "Cat": [
+          "Brain tumor / glioma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "min_weight_kg"
+        ],
+        "excludes": [
+          "prior_chemo",
+          "prior_radiation"
+        ]
+      }
+    },
+    {
+      "id": "csu-tvt-single-radiation-2026",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [],
+        "Cat": []
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "measurable",
+          "min_tumor_cm",
+          "active_treatment_target"
+        ],
+        "excludes": [
+          "prior_surgery",
+          "prior_radiation",
+          "prior_systemic_chemotherapy",
+          "advanced_metastatic_disease"
+        ]
+      }
+    },
+    {
+      "id": "tufts-osa-actionable-targets-2026",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Osteosarcoma"
+        ],
+        "Cat": [
+          "Osteosarcoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "active_treatment_target",
+          "min_weight_kg"
+        ],
+        "excludes": [
+          "concurrent_small_molecule_therapy"
+        ]
+      }
+    },
+    {
+      "id": "penn-glioma-flash-gilvetmab-2026",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Brain tumor / glioma"
+        ],
+        "Cat": [
+          "Brain tumor / glioma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": [
+          "prior_gilvetmab",
+          "anesthesia_contraindicated"
+        ]
+      }
+    },
+    {
+      "id": "jp-tokyo-organoid-guided-targeted-therapy-2026",
+      "species": [
+        "Dog",
+        "Cat"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Chondrosarcoma",
+          "Colorectal / rectal cancer",
+          "Esophageal cancer",
+          "Fibrosarcoma",
+          "Gastric / stomach cancer",
+          "Gastrointestinal stromal tumor (GIST)",
+          "Leiomyosarcoma",
+          "Liposarcoma",
+          "Nasal tumor / nasal cancer",
+          "Other solid tumor",
+          "Peripheral nerve sheath tumor",
+          "Rhabdomyosarcoma",
+          "Salivary gland cancer",
+          "Thymoma / thymic tumor"
+        ],
+        "Cat": [
+          "Chondrosarcoma",
+          "Colorectal / rectal cancer",
+          "Esophageal cancer",
+          "Fibrosarcoma",
+          "Gastric / stomach cancer",
+          "Gastrointestinal stromal tumor (GIST)",
+          "Leiomyosarcoma",
+          "Liposarcoma",
+          "Nasal tumor / nasal cancer",
+          "Other solid tumor",
+          "Peripheral nerve sheath tumor",
+          "Rhabdomyosarcoma",
+          "Salivary gland cancer",
+          "Thymoma / thymic tumor"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "measurable",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "jp-tokyo-feline-tcc-lapatinib",
+      "species": [
+        "Cat"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Urothelial / transitional cell carcinoma",
+          "Urothelial carcinoma"
+        ],
+        "Cat": [
+          "Urothelial / transitional cell carcinoma",
+          "Urothelial carcinoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": [
+          "prior_chemo",
+          "prior_radiation",
+          "prior_surgery"
+        ]
+      }
+    },
+    {
+      "id": "jp-tokyo-canine-bladder-ido1-inhibitor",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Urothelial / transitional cell carcinoma",
+          "Urothelial carcinoma"
+        ],
+        "Cat": [
+          "Urothelial / transitional cell carcinoma",
+          "Urothelial carcinoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "jp-tokyo-macromolecular-pirarubicin-solid-tumors",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Chondrosarcoma",
+          "Colorectal / rectal cancer",
+          "Esophageal cancer",
+          "Fibrosarcoma",
+          "Gastric / stomach cancer",
+          "Gastrointestinal stromal tumor (GIST)",
+          "Leiomyosarcoma",
+          "Liposarcoma",
+          "Nasal tumor / nasal cancer",
+          "Other solid tumor",
+          "Peripheral nerve sheath tumor",
+          "Rhabdomyosarcoma",
+          "Salivary gland cancer",
+          "Thymoma / thymic tumor"
+        ],
+        "Cat": [
+          "Chondrosarcoma",
+          "Colorectal / rectal cancer",
+          "Esophageal cancer",
+          "Fibrosarcoma",
+          "Gastric / stomach cancer",
+          "Gastrointestinal stromal tumor (GIST)",
+          "Leiomyosarcoma",
+          "Liposarcoma",
+          "Nasal tumor / nasal cancer",
+          "Other solid tumor",
+          "Peripheral nerve sheath tumor",
+          "Rhabdomyosarcoma",
+          "Salivary gland cancer",
+          "Thymoma / thymic tumor"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "jp-multicenter-oral-melanoma-anti-pd1-2026",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Oral melanoma"
+        ],
+        "Cat": [
+          "Oral melanoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "jp-yamaguchi-canine-lymphoid-anti-cd20",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "B-cell lymphoma",
+          "Lymphoma — other",
+          "T-cell lymphoma"
+        ],
+        "Cat": [
+          "B-cell lymphoma",
+          "Lymphoma — other",
+          "T-cell lymphoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "jp-jsamc-feline-anti-pd1",
+      "species": [
+        "Cat"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Chondrosarcoma",
+          "Colorectal / rectal cancer",
+          "Esophageal cancer",
+          "Fibrosarcoma",
+          "Gastric / stomach cancer",
+          "Gastrointestinal stromal tumor (GIST)",
+          "Leiomyosarcoma",
+          "Liposarcoma",
+          "Multiple myeloma / plasma cell cancer",
+          "Nasal tumor / nasal cancer",
+          "Peripheral nerve sheath tumor",
+          "Rhabdomyosarcoma",
+          "Salivary gland cancer",
+          "Thymoma / thymic tumor",
+          "Cancer — any type"
+        ],
+        "Cat": [
+          "Chondrosarcoma",
+          "Colorectal / rectal cancer",
+          "Esophageal cancer",
+          "Fibrosarcoma",
+          "Gastric / stomach cancer",
+          "Gastrointestinal stromal tumor (GIST)",
+          "Leiomyosarcoma",
+          "Liposarcoma",
+          "Multiple myeloma / plasma cell cancer",
+          "Nasal tumor / nasal cancer",
+          "Peripheral nerve sheath tumor",
+          "Rhabdomyosarcoma",
+          "Salivary gland cancer",
+          "Thymoma / thymic tumor",
+          "Cancer — any type"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "tufts-sabr-pulmonary-metastases-2026",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Chondrosarcoma",
+          "Colorectal / rectal cancer",
+          "Esophageal cancer",
+          "Fibrosarcoma",
+          "Gastric / stomach cancer",
+          "Gastrointestinal stromal tumor (GIST)",
+          "Leiomyosarcoma",
+          "Liposarcoma",
+          "Melanoma — other",
+          "Nasal tumor / nasal cancer",
+          "Other sarcoma",
+          "Other solid tumor",
+          "Peripheral nerve sheath tumor",
+          "Rhabdomyosarcoma",
+          "Salivary gland cancer",
+          "Thymoma / thymic tumor"
+        ],
+        "Cat": [
+          "Chondrosarcoma",
+          "Colorectal / rectal cancer",
+          "Esophageal cancer",
+          "Fibrosarcoma",
+          "Gastric / stomach cancer",
+          "Gastrointestinal stromal tumor (GIST)",
+          "Leiomyosarcoma",
+          "Liposarcoma",
+          "Melanoma — other",
+          "Nasal tumor / nasal cancer",
+          "Other sarcoma",
+          "Other solid tumor",
+          "Peripheral nerve sheath tumor",
+          "Rhabdomyosarcoma",
+          "Salivary gland cancer",
+          "Thymoma / thymic tumor"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "metastatic",
+          "measurable_lung_metastases"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "jp-nvlu-survivin-peptide-vaccine-2026",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Chondrosarcoma",
+          "Colorectal / rectal cancer",
+          "Esophageal cancer",
+          "Fibrosarcoma",
+          "Gastric / stomach cancer",
+          "Gastrointestinal stromal tumor (GIST)",
+          "Leiomyosarcoma",
+          "Liposarcoma",
+          "Multiple myeloma / plasma cell cancer",
+          "Nasal tumor / nasal cancer",
+          "Peripheral nerve sheath tumor",
+          "Rhabdomyosarcoma",
+          "Salivary gland cancer",
+          "Thymoma / thymic tumor",
+          "Cancer — any type"
+        ],
+        "Cat": [
+          "Chondrosarcoma",
+          "Colorectal / rectal cancer",
+          "Esophageal cancer",
+          "Fibrosarcoma",
+          "Gastric / stomach cancer",
+          "Gastrointestinal stromal tumor (GIST)",
+          "Leiomyosarcoma",
+          "Liposarcoma",
+          "Multiple myeloma / plasma cell cancer",
+          "Nasal tumor / nasal cancer",
+          "Peripheral nerve sheath tumor",
+          "Rhabdomyosarcoma",
+          "Salivary gland cancer",
+          "Thymoma / thymic tumor",
+          "Cancer — any type"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "jp-gifu-feline-oscc-radiotherapy-lavurchin",
+      "species": [
+        "Cat"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Oral squamous cell carcinoma"
+        ],
+        "Cat": [
+          "Oral squamous cell carcinoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "planned_radiation"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "jp-hokkaido-canine-oral-melanoma-anti-pdl1",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Oral melanoma"
+        ],
+        "Cat": [
+          "Oral melanoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "metastatic"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "uf-boxer-glioma-autogenic-vaccine",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Brain tumor / glioma"
+        ],
+        "Cat": [
+          "Brain tumor / glioma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "prior_chemo",
+          "prior_radiation"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "mvh-hifu-doxorubicin-lymphoma",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "B-cell lymphoma",
+          "Lymphoma — other",
+          "T-cell lymphoma"
+        ],
+        "Cat": [
+          "B-cell lymphoma",
+          "Lymphoma — other",
+          "T-cell lymphoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "jp-nihon-proteasome-inhibitor-b-cell-tumors",
+      "species": [
+        "Dog",
+        "Cat"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "B-cell lymphoma",
+          "Multiple myeloma / plasma cell cancer"
+        ],
+        "Cat": [
+          "B-cell lymphoma",
+          "Multiple myeloma / plasma cell cancer"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "jp-nihon-mutation-positive-lung-cancer",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "Primary lung tumor"
+        ],
+        "Cat": [
+          "Primary lung tumor"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "min_weight_kg"
+        ],
+        "excludes": []
+      }
+    },
+    {
+      "id": "illinois-daunomustine-multicentric-lymphoma",
+      "species": [
+        "Dog"
+      ],
+      "diagnoses": {
+        "Dog": [
+          "B-cell lymphoma",
+          "Lymphoma — other",
+          "T-cell lymphoma"
+        ],
+        "Cat": [
+          "B-cell lymphoma",
+          "Lymphoma — other",
+          "T-cell lymphoma"
+        ]
+      },
+      "rules": {
+        "requires": [
+          "confirmed",
+          "active_treatment_target",
+          "min_age_years",
+          "min_weight_kg",
+          "prior_chemo",
+          "lymphoma_response"
+        ],
+        "excludes": [
+          "prior_chemo",
+          "prior_steroids"
+        ]
+      }
+    }
+  ]
+}

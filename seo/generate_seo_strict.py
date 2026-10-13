@@ -190,7 +190,13 @@ def cancer_values(r,species=None):
     scoped=r.get('cancers_by_species')
     v=scoped.get(species,[]) if scoped and species else r.get('cancers',[])
     return [v] if isinstance(v,str) else list(v) if isinstance(v,(list,tuple,set)) else []
-def row_cancers(r,species=None):return {x for x in (canonical_cancer(v) for v in cancer_values(r,species)) if x}
+def row_cancers(r,species=None):
+    from matcher_taxonomy import FAMILIES, diagnosis_match
+    exact = {x for x in (canonical_cancer(v) for v in cancer_values(r,species)) if x}
+    # Use the same diagnosis gate as the matcher, including exclusions and
+    # species cohorts; broad listings still require investigator prescreening.
+    return exact | {key for diagnosis in FAMILIES if diagnosis_match(r, diagnosis, species)[0]
+                    for key in [canonical_cancer(diagnosis)] if key}
 g.canonical_cancer=canonical_cancer;g.row_cancers=row_cancers
 
 

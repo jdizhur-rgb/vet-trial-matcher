@@ -1,0 +1,63 @@
+"""Shared diagnosis matching for the browser, legacy matcher and diagnosis pages.
+
+Family matches are only invitations to protocol screening. Explicit exclusions
+and species-scoped cohorts take precedence over a generic tumor label.
+"""
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+TAXONOMY = json.loads((ROOT / 'data/diagnosis_taxonomy.json').read_text())
+ALIASES = TAXONOMY['aliases']
+FAMILIES = TAXONOMY['families']
+PROTOCOL_RULES = json.loads((ROOT / 'data/matcher_protocol_rules.json').read_text())
+
+
+def diagnosis_match(trial, diagnosis, species=None):
+    scoped = trial.get('cancers_by_species')
+    allowed = scoped.get(species, []) if scoped and species else trial.get('cancers', [])
+    if scoped and species and not allowed:
+        return False, False
+    exact = {diagnosis, *ALIASES.get(diagnosis, [])}
+    if diagnosis == 'Spindle cell sarcoma':
+        exact.add('Soft tissue sarcoma')
+    families = set(FAMILIES.get(diagnosis, []))
+    if (exact.intersection(trial.get('excluded_cancers', [])) or
+            families.intersection(trial.get('excluded_disease_families', [])) or
+            diagnosis in trial.get('pending_diagnosis_review', [])):
+        return False, False
+    if exact.intersection(allowed):
+        return True, False
+    broad = set(trial.get('broad_disease_families', []))
+    if 'all_tumors' in broad or (not broad and 'Cancer — any type' in allowed):
+        return diagnosis in FAMILIES, True
+    matched = bool(families.intersection(broad))
+    return matched, matched
+
+
+def protocol_screening(trial, patient):
+    """Evaluate additional stored constraints or leave a visible screening item."""
+    unknown = []
+    excluded = False
+    for group in ('requires', 'excludes'):
+        for key, value in trial.get(group, {}).items():
+            if value is None or value is False:
+                continue
+            rule = PROTOCOL_RULES[group].get(key)
+            if rule is None:
+                raise ValueError(f'Unclassified matcher constraint: {group}.{key}')
+            if rule.get('handled'):
+                continue
+            field = rule.get('field')
+            answer = patient.get(field) if field else None
+            if rule.get('allowed') and answer not in (None, "I don't know"):
+                excluded |= answer not in rule['allowed']
+            elif rule.get('disallowed') and answer not in (None, "I don't know"):
+                excluded |= answer in rule['disallowed']
+            elif rule.get('preference'):
+                excluded |= rule['preference'] not in patient.get('prefs', set())
+                unknown.append('required study ' + rule['preference'].lower())
+            else:
+                suffix = '' if value is True else ': ' + str(value)
+                unknown.append(('required ' if group == 'requires' else 'exclusion: ') + rule['label'] + suffix)
+    return excluded, unknown

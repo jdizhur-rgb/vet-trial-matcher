@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Generate crawlable owner-facing SEO pages from the effective treatment catalog."""
 from __future__ import annotations
-import html,json,re,shutil
+import html,json,re,shutil,sys
 from pathlib import Path
 from catalog_selection import current_treatments
 ROOT=Path(__file__).resolve().parents[1]; OUT=ROOT/'seo'/'site'
+if str(ROOT) not in sys.path: sys.path.insert(0, str(ROOT))
 FINDER='https://vet-cancer-trial-finder.streamlit.app/'; SITE='https://vettrialfinder.com'
 REGIONS={'north-america':{'USA','Canada'}}; SPECIES={'dogs':'Dog','cats':'Cat'}
 LANGS={'en':('Clinical Trials and Cancer Treatment Studies','current treatment opportunities','Check your pet against these options')}
@@ -49,9 +50,11 @@ def canonical_cancer(c):
   if any(norm(a) in raw for a in aliases): return key
  return None
 def row_cancers(r,species=None):
+ from matcher_taxonomy import FAMILIES, diagnosis_match
  scoped=r.get('cancers_by_species')
  cancers=scoped.get(species,[]) if scoped and species else r.get('cancers',[])
- return {x for x in (canonical_cancer(c) for c in cancers) if x}
+ exact={x for x in (canonical_cancer(c) for c in cancers) if x}
+ return exact | {key for diagnosis in FAMILIES if diagnosis_match(r,diagnosis,species)[0] for key in [canonical_cancer(diagnosis)] if key}
 def display_name(k): return ' '.join({'scc':'SCC','aml':'AML'}.get(w,w.capitalize()) for w in k.split())
 def prose(v):
  if v is None or v is False or v=='': return ''

@@ -23,6 +23,8 @@ def looks_like_address(value: str) -> bool:
 
 
 def main() -> None:
+    from scripts.sync_matcher_taxonomy import main as sync_taxonomy
+    sync_taxonomy()
     rows = json.loads(SOURCE.read_text(encoding="utf-8"))
     old = json.loads(OUTPUT.read_text(encoding="utf-8")) if OUTPUT.exists() else []
     old_by_id = {row["id"]: row for row in old}

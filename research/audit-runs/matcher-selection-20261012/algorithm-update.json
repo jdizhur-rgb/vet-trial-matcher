@@ -1,0 +1,63 @@
+{
+  "recorded_at": "2026-10-13T01:54:05.884771+00:00",
+  "request": "Change the algorithm as well as individual selection mappings",
+  "files": [
+    "data/DAILY_AUDIT_ALGORITHM.md",
+    "data/DAILY_AUDIT_TASK.md",
+    "scripts/audit_preflight.py",
+    ".github/workflows/trial-catalog-validation.yml",
+    "scripts/test_matcher_selection.js",
+    "PROJECT_OPERATIONS.md"
+  ],
+  "checks": {
+    "catalog_selection": {
+      "canonical": 307,
+      "public": 165,
+      "assertions": 1433,
+      "all_stored_constraint_keys": 156,
+      "disease_specific_witnesses": 165
+    },
+    "python_browser_parity": {
+      "diagnosis_checks": 19800,
+      "result": "PASS"
+    },
+    "audit_preflight": {
+      "status": "PASS_WITH_INCONCLUSIVE",
+      "safe_to_continue": true,
+      "checks": [
+        {
+          "name": "catalog",
+          "ok": true,
+          "returncode": 0,
+          "output": "TRIAL_CATALOG_VALIDATION_OK records=307 unique_ids=307 active=165 required_active_fields=11"
+        },
+        {
+          "name": "sources",
+          "ok": true,
+          "returncode": 0,
+          "output": "SOURCE_INVENTORY_VALIDATION_OK sources=108 digest=2a2601dd0c5c"
+        },
+        {
+          "name": "hygiene",
+          "ok": true,
+          "returncode": 0,
+          "output": "REPOSITORY_HYGIENE_OK"
+        },
+        {
+          "name": "matcher-selection",
+          "ok": true,
+          "returncode": 0,
+          "output": "MATCHER_SELECTION_PARITY_OK public=165 disease_checks=19800"
+        },
+        {
+          "name": "streamlit",
+          "ok": false,
+          "returncode": 1,
+          "output": "Traceback (most recent call last):\n  File \"/workspace/scratch/bdede6b51dd4/vet-trial-matcher/scripts/test_streamlit_pages.py\", line 5, in <module>\n    from streamlit.testing.v1 import AppTest\nModuleNotFoundError: No module named 'streamlit'"
+        }
+      ]
+    }
+  },
+  "publication": "NOT PUBLISHED — prior automatic approval review rejected main push; no retry without new approval",
+  "previous_local_commit": "df2bb4f0a0ead68d58640fc4bee3dabd95aa608c"
+}

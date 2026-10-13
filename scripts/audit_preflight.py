@@ -8,6 +8,7 @@ CORE=[
  ("catalog","scripts/validate_trials_catalog.py"),
  ("sources","scripts/validate_source_inventory.py"),
  ("hygiene","scripts/validate_repository_hygiene.py"),
+ ("matcher-selection","scripts/test_matcher_selection.py"),
 ]
 ANCILLARY=[("streamlit","scripts/test_streamlit_pages.py")]
 def run(name,path):

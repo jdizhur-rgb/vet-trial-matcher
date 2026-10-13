@@ -56,8 +56,8 @@ function patient(overrides = {}) {
 
 const matches = p => rows.map(row => matcher.matchTrial(row, p)).filter(Boolean);
 const mct = matches(patient());
-if (mct.length !== 4) {
-  throw new Error(`Mast-cell regression expected 4 confirmed-current matches, got ${mct.length}`);
+if (mct.length !== 5 || !mct.some(row => row.trial.id === 'mizzou-cotc027-hypomethylating' && row.confidence !== 'Likely match')) {
+  throw new Error(`Mast-cell regression expected four named cohorts plus the COTC027 broad prescreen, got ${mct.length}`);
 }
 
 if (rows.some(row => row.id === 'uf-mct')) {

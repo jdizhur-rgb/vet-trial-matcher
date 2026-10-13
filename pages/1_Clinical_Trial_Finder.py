@@ -1,29 +1,7 @@
 # EU cancer-by-cancer gap audit completed 2026-09-04: all UI cancer categories rechecked; no unverified lead promoted to matching.
 import streamlit as st
 
-CANCER_ALIASES = {
-    # UI labels and protocol labels are not always identical. Keep these mappings
-    # deliberately conservative: aliases mean the same disease family, not merely
-    # a vaguely related cancer.
-    'B-cell lymphoma': ['Lymphoma', 'Lymphoma — other'],
-    'T-cell lymphoma': ['Lymphoma', 'Lymphoma — other', 'Enteropathy-associated T-cell lymphoma'],
-    'Lymphoma — other': ['Lymphoma', 'Gastrointestinal lymphoma', 'Large cell lymphoma'],
-    'Brain tumor / glioma': ['Brain tumor', 'Glioma'],
-    'Feline mammary carcinoma': ['Mammary carcinoma', 'Mammary tumor'],
-    'Mammary carcinoma': ['Mammary tumor'],
-    'Mammary tumor — other': ['Mammary tumor'],
-    'Urothelial / transitional cell carcinoma': ['Urothelial carcinoma', 'Transitional cell carcinoma'],
-    'Urothelial carcinoma': ['Urothelial / transitional cell carcinoma', 'Transitional cell carcinoma', 'Bladder cancer'],
-    'Thyroid tumor / carcinoma': ['Thyroid carcinoma'],
-    'Thyroid carcinoma': ['Thyroid tumor / carcinoma'],
-    'Hepatocellular carcinoma': ['Hepatic carcinoma'],
-    'Primary lung tumor': ['Pulmonary carcinoma'],
-    'Oral squamous cell carcinoma': ['Feline oral SCC'],
-    'Squamous cell carcinoma — other': ['Squamous cell carcinoma'],
-    'Oral tumor — other': ['Oral tumor'],
-    'Ocular melanoma / iris melanocytic tumor': ['Ocular melanoma', 'Iris melanocytic tumor'],
-    'Chemodectoma': ['Aortic body tumor', 'Aortic body tumors', 'Heart-base tumor', 'Heart base tumor', 'Paraganglioma', 'Non-chromaffin paraganglioma'],
-}
+from matcher_taxonomy import ALIASES as CANCER_ALIASES, FAMILIES as DIAGNOSIS_FAMILIES, diagnosis_match, protocol_screening
 
 LYMPHOMA_CANCERS = {'B-cell lymphoma', 'T-cell lymphoma', 'Lymphoma — other'}
 
@@ -94,22 +72,6 @@ TRIALS = _load_trials()
 # 2026-09-03 regulatory / CRO / sponsor-development pass
 
 CANCERS = ['Acute myeloid leukemia', 'Adrenal tumor', 'Anal sac adenocarcinoma (AGASACA)', 'B-cell lymphoma', 'Brain tumor / glioma', 'Chemodectoma', 'Chondrosarcoma', 'Colorectal / rectal cancer', 'Cutaneous epitheliotropic lymphoma', 'Esophageal cancer', 'Feline injection-site sarcoma', 'Feline mammary carcinoma', 'Fibrosarcoma', 'Gallbladder carcinoma', 'Gastric / stomach cancer', 'Gastrointestinal stromal tumor (GIST)', 'Hemangiosarcoma', 'Hepatocellular carcinoma', 'Histiocytic sarcoma', 'Insulinoma', 'Intestinal carcinoma', 'Leiomyosarcoma', 'Liposarcoma', 'Lymphoma — other', 'Mammary carcinoma', 'Mammary tumor — other', 'Mast cell tumor', 'Melanoma — other', 'Multiple myeloma / plasma cell cancer', 'Nasal tumor / nasal cancer', 'Ocular melanoma / iris melanocytic tumor', 'Oral melanoma', 'Oral squamous cell carcinoma', 'Oral tumor — other', 'Osteosarcoma', 'Other bone tumor', 'Other liver tumor', 'Other sarcoma', 'Other solid tumor', 'Pancreatic carcinoma', 'Peripheral nerve sheath tumor', 'Primary lung tumor', 'Prostate cancer', 'Renal tumor', 'Rhabdomyosarcoma', 'Salivary gland cancer', 'Sinonasal carcinoma', 'Soft tissue sarcoma', 'Spindle cell sarcoma', 'Squamous cell carcinoma', 'Squamous cell carcinoma — other', 'T-cell lymphoma', 'Thymoma / thymic tumor', 'Thyroid carcinoma', 'Thyroid tumor / carcinoma', 'Urothelial / transitional cell carcinoma', 'Urothelial carcinoma', 'Cancer — any type', 'Other / not sure', "My cancer type isn't listed"]
-DIAGNOSIS_FAMILIES = {
-    'Gastric / stomach cancer': {'solid_tumor','carcinoma'},
-    'Colorectal / rectal cancer': {'solid_tumor','carcinoma'},
-    'Salivary gland cancer': {'solid_tumor','carcinoma'},
-    'Esophageal cancer': {'solid_tumor','carcinoma'},
-    'Thymoma / thymic tumor': {'solid_tumor'},
-    'Gastrointestinal stromal tumor (GIST)': {'solid_tumor','sarcoma'},
-    'Peripheral nerve sheath tumor': {'solid_tumor','sarcoma','soft_tissue_sarcoma'},
-    'Leiomyosarcoma': {'solid_tumor','sarcoma','soft_tissue_sarcoma'},
-    'Fibrosarcoma': {'solid_tumor','sarcoma','soft_tissue_sarcoma'},
-    'Liposarcoma': {'solid_tumor','sarcoma','soft_tissue_sarcoma'},
-    'Rhabdomyosarcoma': {'solid_tumor','sarcoma','soft_tissue_sarcoma'},
-    'Chondrosarcoma': {'solid_tumor','sarcoma'},
-    'Nasal tumor / nasal cancer': {'solid_tumor','nasal_tumor'},
-    'Multiple myeloma / plasma cell cancer': {'hematologic'},
-}
 UNLISTED_CANCER = "My cancer type isn't listed"
 TREATMENT_OPTIONS = ['Chemotherapy','Radiation','Surgery','Immunotherapy','Targeted therapy','Experimental drug']
 UNKNOWN = "I don't know"
@@ -131,36 +93,8 @@ def species_matches(trial_species, selected_species):
 def is_current_trial(tr):
     return tr.get('status_confidence') in CURRENT_STATUS_CONFIDENCE
 
-def trial_accepts_diagnosis(tr, diagnosis):
-    tc = set(tr.get('cancers', []))
-
-    # First preserve the original exact/alias matching behavior.
-    exact = {diagnosis, *CANCER_ALIASES.get(diagnosis, [])}
-    if diagnosis == 'Spindle cell sarcoma':
-        exact.add('Soft tissue sarcoma')
-    if exact.intersection(set(tr.get('excluded_cancers', []))):
-        return False, False
-
-    if exact.intersection(tc):
-        return True, False
-
-    # Broad-family matching is only a fallback for diagnoses that
-    # explicitly have a taxonomy-family mapping. Established diagnoses
-    # keep the original exact/alias semantics and must not automatically
-    # match generic basket / "all tumors" studies.
-    fam = DIAGNOSIS_FAMILIES.get(diagnosis)
-    if not fam:
-        return False, False
-
-    broad = set(tr.get('broad_disease_families', []))
-
-    if 'all_tumors' in broad or 'Cancer — any type' in tc:
-        return True, True
-
-    if fam.intersection(broad):
-        return True, True
-
-    return False, False
+def trial_accepts_diagnosis(tr, diagnosis, species=None):
+    return diagnosis_match(tr, diagnosis, species)
 
 st.markdown('''
 <style>
@@ -247,10 +181,16 @@ EUROPE_COUNTRIES = {
 country_options = ['Europe — all countries'] + trial_countries
 country = st.selectbox('Country / region', country_options)
 
-def country_matches(trial_country, selected_country):
+def country_matches(trial, selected_country):
+    if isinstance(trial, dict):
+        countries = trial.get('countries') or [trial.get('country', 'USA')]
+    else:
+        countries = [trial]
+    if selected_country == 'All countries':
+        return True
     if selected_country == 'Europe — all countries':
-        return trial_country in EUROPE_COUNTRIES
-    return trial_country == selected_country
+        return any(country in EUROPE_COUNTRIES for country in countries)
+    return selected_country in countries
 
 st.header('2. Diagnosis')
 diagnosis_status = st.selectbox('How certain is the diagnosis?', ['Confirmed by pathology/cytology','Suspected / not confirmed',UNKNOWN])
@@ -270,8 +210,8 @@ if cancer not in _quick_count_excluded:
         and is_current_trial(_tr)
         and _tr.get('study_type', 'treatment') in {'treatment', 'other_treatment_access'}
         and species_matches(_tr.get('species', ''), species)
-        and country_matches(_tr.get('country', 'USA'), country)
-        and trial_accepts_diagnosis(_tr, cancer)[0]
+        and country_matches(_tr, country)
+        and trial_accepts_diagnosis(_tr, cancer, species)[0]
     )
     _opportunity_word = 'listing' if _quick_diagnosis_count == 1 else 'listings'
     st.info(
@@ -290,11 +230,11 @@ for _tr in TRIALS:
         continue
     if _tr.get('study_type', 'treatment') != 'treatment' or not species_matches(_tr.get('species', ''), species):
         continue
-    if not country_matches(_tr.get('country', 'USA'), country):
+    if not country_matches(_tr, country):
         continue
     # 'Cancer — any type' selected by the owner is a wildcard: do not filter by diagnosis.
     # A trial-side 'Cancer — any type' is likewise a basket-trial wildcard.
-    if cancer == 'Cancer — any type' or (unlisted_mode and ('all_tumors' in _tr.get('broad_disease_families', []) or 'Cancer — any type' in _tr.get('cancers', []))) or (not unlisted_mode and trial_accepts_diagnosis(_tr, cancer)[0]):
+    if cancer == 'Cancer — any type' or (unlisted_mode and ('all_tumors' in _tr.get('broad_disease_families', []) or 'Cancer — any type' in _tr.get('cancers', []))) or (not unlisted_mode and trial_accepts_diagnosis(_tr, cancer, species)[0]):
         _form_trials.append(_tr)
 _form_req_keys = {k for t in _form_trials for k in t.get('requires', {})}
 _form_exc_keys = {k for t in _form_trials for k in t.get('excludes', {})}
@@ -465,7 +405,7 @@ if search_clicked:
             continue
         if not species_matches(tr.get('species', ''), species):
             continue
-        if not country_matches(tr.get('country', 'USA'), country):
+        if not country_matches(tr, country):
             continue
 
         # Patient-facing results include strict treatment trials plus clearly
@@ -476,11 +416,11 @@ if search_clicked:
 
         broad_match = False
         if unlisted_mode:
-            if 'all_tumors' not in tr.get('broad_disease_families', []) and 'Cancer — any type' not in tr.get('cancers', []):
+            if 'all_tumors' not in tr.get('broad_disease_families', []) and (tr.get('broad_disease_families') or 'Cancer — any type' not in tr.get('cancers', [])):
                 continue
             broad_match = True
         elif cancer != 'Cancer — any type':
-            accepted, broad_match = trial_accepts_diagnosis(tr, cancer)
+            accepted, broad_match = trial_accepts_diagnosis(tr, cancer, species)
             if not accepted:
                 continue
 
@@ -495,7 +435,8 @@ if search_clicked:
         # Never surface studies that are explicitly not accepting patients.
         status_text = str(tr.get('status', '')).lower()
         blocked_statuses = ('on hold', 'completed', 'closed enrollment', 'enrollment closed', 'closed for data review', 'suspended', 'past clinical study', 'not accepting', 'paused', 'not on current', 'do not match', 'coming soon', 'not yet independently confirmed', 'enrollment not confirmed', 'reconfirm before matching', 'previously active recruitment', 'sponsor page still lists study', 'current oncology archive listing', 'recent active trial; enrollment must be reconfirmed', 'patients needed; current enrollment should be reconfirmed', 'funded active-study evidence', 'current funded translational research')
-        if any(x in status_text for x in blocked_statuses):
+        active_site = any(site.get('available_for_matching') is not False and not any(x in str(site.get('status', '')).lower() for x in blocked_statuses) for site in tr.get('sites', []))
+        if any(x in status_text for x in blocked_statuses) and not (tr.get('inactive_sites') and active_site):
             continue
 
         # Cancer — any type is a browse mode, not an eligibility prescreen.
@@ -510,6 +451,9 @@ if search_clicked:
             min_lb=req.get('min_weight_lb')
             if min_lb is None and req.get('min_weight_kg') is not None: min_lb=req['min_weight_kg']*2.2046226218
             if min_lb is not None and weight_known and weight_lb < min_lb: continue
+            max_lb=req.get('max_weight_lb')
+            if max_lb is None and req.get('max_weight_kg') is not None: max_lb=req['max_weight_kg']*2.2046226218
+            if max_lb is not None and weight_known and weight_lb > max_lb: continue
             shown = unlisted_diagnosis.strip() or 'unlisted diagnosis'
             matches.append(('Trial to review — diagnosis requires prescreening', tr, [f'{shown} has not been mapped to a trial disease category'], ['investigator must confirm diagnosis-specific eligibility']))
             continue
@@ -541,13 +485,11 @@ if search_clicked:
             matches.append(('Trial to review — cancer type not specified', tr, reasons, unknown))
             continue
 
-        trial_text = (str(tr.get('title','')) + ' ' + str(tr.get('notes',''))).lower()
-        if ('epitheliotropic' in trial_text or 'cutaneous lymphoma' in trial_text) and cancer != 'Cutaneous epitheliotropic lymphoma':
-            continue
 
         req = tr.get('requires', {})
         exc = tr.get('excludes', {})
-        reasons=[]; unknown=[]; excluded=False
+        reasons=[]
+        excluded, unknown = protocol_screening(tr, dict(osa_location=osa_location, node_status=node_status, surgery=surgery, chemo=chemo, radiation=radiation, steroids=steroids, immunosuppressive=immunosuppressive, metastasis=metastasis, prefs=prefs))
 
         # Diagnosis certainty is protocol-specific: most treatment trials require
         # pathology/cytology confirmation, while some screening/observational studies do not.
@@ -560,7 +502,8 @@ if search_clicked:
         # Never surface studies that are explicitly not accepting patients.
         status_text = str(tr.get('status', '')).lower()
         blocked_statuses = ('on hold', 'completed', 'closed enrollment', 'enrollment closed', 'closed for data review', 'suspended', 'past clinical study', 'not accepting', 'paused', 'not on current', 'do not match', 'coming soon', 'not yet independently confirmed', 'enrollment not confirmed', 'reconfirm before matching', 'previously active recruitment', 'sponsor page still lists study', 'current oncology archive listing', 'recent active trial; enrollment must be reconfirmed', 'patients needed; current enrollment should be reconfirmed', 'funded active-study evidence', 'current funded translational research')
-        if any(x in status_text for x in blocked_statuses):
+        active_site = any(site.get('available_for_matching') is not False and not any(x in str(site.get('status', '')).lower() for x in blocked_statuses) for site in tr.get('sites', []))
+        if any(x in status_text for x in blocked_statuses) and not (tr.get('inactive_sites') and active_site):
             continue
 
         if req.get('active_treatment_target'):
@@ -611,6 +554,10 @@ if search_clicked:
             excluded=True
         elif exc.get('prior_chemo') and chemo == UNKNOWN:
             unknown.append('whether prior chemotherapy is excluded')
+        if exc.get('prior_steroids') and steroids in ['Previously took', 'Currently taking']:
+            excluded=True
+        elif exc.get('prior_steroids') and steroids == UNKNOWN:
+            unknown.append('whether previous systemic steroid treatment is excluded (topical-only use needs study-team review)')
         if exc.get('prior_immunotherapy') and immunotherapy_history in ['Previously received','Currently receiving']:
             excluded=True
         elif exc.get('prior_immunotherapy') and immunotherapy_history == UNKNOWN:
@@ -817,6 +764,8 @@ if search_clicked:
         if req.get('prior_surgery') is False:
             key_checks.append(surgery == 'No')
 
+        if broad_match:
+            unknown.append('investigator must confirm diagnosis-specific eligibility')
         special_requirement = tr.get('special_requirement')
         if special_requirement:
             unknown.append(str(special_requirement))

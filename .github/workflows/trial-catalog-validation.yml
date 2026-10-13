@@ -5,6 +5,14 @@ on:
     branches: [main]
     paths:
       - 'data/trials_base.json'
+      - 'data/diagnosis_taxonomy.json'
+      - 'data/matcher_protocol_rules.json'
+      - 'matcher_taxonomy.py'
+      - 'seo/static/matcher/matcher.js'
+      - 'scripts/build_matcher_data.py'
+      - 'scripts/sync_matcher_taxonomy.py'
+      - 'scripts/test_matcher_selection.js'
+      - 'scripts/test_matcher_selection.py'
       - 'scripts/validate_trials_catalog.py'
       - 'scripts/validate_audit_gap_review.py'
       - 'scripts/test_audit_gap_review.py'
@@ -13,6 +21,14 @@ on:
     branches: [main]
     paths:
       - 'data/trials_base.json'
+      - 'data/diagnosis_taxonomy.json'
+      - 'data/matcher_protocol_rules.json'
+      - 'matcher_taxonomy.py'
+      - 'seo/static/matcher/matcher.js'
+      - 'scripts/build_matcher_data.py'
+      - 'scripts/sync_matcher_taxonomy.py'
+      - 'scripts/test_matcher_selection.js'
+      - 'scripts/test_matcher_selection.py'
       - 'scripts/validate_trials_catalog.py'
       - 'scripts/validate_audit_gap_review.py'
       - 'scripts/test_audit_gap_review.py'
@@ -32,5 +48,13 @@ jobs:
           python-version: '3.12'
       - name: Validate canonical trial catalog
         run: python scripts/validate_trials_catalog.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Validate complete protocol selection matrix
+        run: |
+          python scripts/build_matcher_data.py
+          node scripts/test_matcher_selection.js
+          python scripts/test_matcher_selection.py
       - name: Reject unsupported external-gap completion claims
         run: python scripts/test_audit_gap_review.py
