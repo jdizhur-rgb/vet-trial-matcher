@@ -1,0 +1,46 @@
+[
+  {
+    "cmd": "node scripts/test_matcher_catalog_loading.js",
+    "status": "fulfilled",
+    "value": {
+      "chunk_id": "592321",
+      "wall_time_seconds": 0.184837131,
+      "exit_code": 0,
+      "original_token_count": 27,
+      "output": "Japan: 10 results after delayed load\nUSA: 104 results after delayed load\nCatalog-loading regression PASS\n"
+    }
+  },
+  {
+    "cmd": "node scripts/test_matcher_selection.js",
+    "status": "fulfilled",
+    "value": {
+      "chunk_id": "28e375",
+      "wall_time_seconds": 3.167594724,
+      "exit_code": 0,
+      "original_token_count": 31,
+      "output": "SOURCE_DERIVED_SELECTION_OK reviewed=43 cases=193\nMATCHER_SELECTION_OK canonical=309 public=163 checks=1466 criteria=158\n"
+    }
+  },
+  {
+    "cmd": "python scripts/test_matcher_selection.py",
+    "status": "fulfilled",
+    "value": {
+      "chunk_id": "4f541f",
+      "wall_time_seconds": 3.226440765,
+      "exit_code": 0,
+      "original_token_count": 15,
+      "output": "MATCHER_SELECTION_PARITY_OK public=163 disease_checks=19560\n"
+    }
+  },
+  {
+    "cmd": "python scripts/validate_production_sync.py",
+    "status": "fulfilled",
+    "value": {
+      "chunk_id": "f373ec",
+      "wall_time_seconds": 1.2958127799999999,
+      "exit_code": 0,
+      "original_token_count": 22,
+      "output": "PRODUCTION_SYNC_OK total=163 treatment=158 access=5 matcher_ids=163 internal_links=6885\n"
+    }
+  }
+]

@@ -553,3 +553,8 @@ The owner authorized both a full current-public protocol review and permanent al
 Source-derived cases now cover 23 records at the second checkpoint. The frozen `data/protocol_selection_baseline.json` contains pre-review selection signatures only; any new/changed public selection requires matching review signatures and passing independent cases. Do not refresh the baseline to make an unreviewed change pass. The full independent review remains in progress.
 
 Owner medical/editorial decision during the independent review: retain MSU CMP-002 in potential treatment search with an explicit dose-finding/unproven-benefit disclosure, rather than remove it. The official MSU purpose is dose determination, with anticancer evaluation in later studies. This scoped exception does not automatically retain other research-only dose/safety programs; assess and raise those individually.
+
+
+## European current-access quarantine — owner-approved 2026-10-13
+
+Yulia approved the prepared temporary exclusion of eu-pt-hepatic-thermoablation, eu-pt-chemodectoma-microwave, eu-pt-mammary-pdt and eu-it-mucosal-melanoma-autologous-vaccine. Set available_for_matching=false and status_confidence=unconfirmed; preserve complete records, prior verified dates and history. This is not a confirmed closure. Keep the exact access/protocol/site questions in data/audit_unresolved.json; restore matching only after current protocol-level organizer evidence. The approval applies to these four records, not a blanket disposition of other European/source partials. Prior evidence is in research/audit-runs/europe-six-20261013T190857-0400/. Applying the decision is not a new source visit or new global audit.
