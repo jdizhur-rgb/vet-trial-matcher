@@ -67,7 +67,14 @@ for (const t of rows) {
 }
 const tufts=byId.get('tufts-z007-broad-solid-2026');
 for(const cancer of ['Soft tissue sarcoma','Oral melanoma','Primary lung tumor','Mammary carcinoma','Urothelial carcinoma']) check(tufts,{cancer},true,`missing solid diagnosis ${cancer}`);
-for(const cancer of ['B-cell lymphoma','Acute myeloid leukemia','Hepatocellular carcinoma']) check(tufts,{cancer},false,`out of scope or unresolved ${cancer}`);
+for(const cancer of ['B-cell lymphoma','Acute myeloid leukemia','Other liver tumor']) check(tufts,{cancer},false,`out of scope or unresolved ${cancer}`);
+// HCC is a carcinoma candidate, with the ambiguous liver exclusion disclosed.
+const tuftsLiver=matchTrial(tufts,patient(tufts,{cancer:'Hepatocellular carcinoma'}));
+assert(tuftsLiver,'Tufts HCC candidate must remain discoverable');
+assert.notStrictEqual(tuftsLiver.confidence,'Likely match');
+assert(tuftsLiver.unknown.some(x=>x.includes('Tufts must confirm eligibility') && x.includes('liver-disease exclusion') && x.includes('repeated-biopsy')));
+check(tufts,{cancer:'Hepatocellular carcinoma',immunotherapy_history:'Previously received'},false,'HCC must retain prior immunotherapy exclusion');
+check(tufts,{cancer:'Hepatocellular carcinoma',weight_lb:6*2.2046226218},false,'HCC must retain minimum weight');
 const caalm=byId.get('ucd-pdl1-metastatic');
 check(caalm,{cancer:'Oral melanoma'},true,'named CAALM cohort');
 for(const cancer of ['Soft tissue sarcoma','Gastric / stomach cancer','Hepatocellular carcinoma']) check(caalm,{cancer},false,`false broad CAALM match ${cancer}`);
