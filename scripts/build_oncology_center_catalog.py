@@ -27,7 +27,7 @@ US_STATES = {
 }
 
 WEBSITE_OVERRIDES = {
-    "SAGE Veterinary Centers|Redwood City|CA": "https://www.sagecenters.com/",
+    "SAGE Veterinary Centers|Redwood City|CA": "https://www.sagecenters.com/locations/redwood-city",
     "VCA Sacramento Veterinary Referral Center|Sacramento|CA": "https://vcahospitals.com/sacramento-veterinary-referral-center",
     "MedVet Silicon Valley|San Jose|CA": "https://www.medvet.com/",
     "Arista Advanced Pet Care Atlanta|Atlanta|GA": "https://aristapetcare.com/arista-locations/atlanta/",
@@ -50,6 +50,35 @@ NONCLINICAL_ORGANIZATIONS = {
     "joyful riches beyond grief", "n a", "self employed", "zoetis",
 }
 EXCLUDED_PROFILE_IDS = {
+    '06d195d2-0f7d-4157-89bf-c95f7fa2bdb5',  # e-packages-publish-20261012 superseded physical representation
+    '1140042b-e301-49b2-bcb5-6cec82018ee5',  # e-packages-publish-20261012 superseded physical representation
+    '12980c2e-b8d4-4657-a9be-bf672fc18c4e',  # e-packages-publish-20261012 superseded physical representation
+    '19d436bf-c1e3-4b08-a774-aa0f67c27aca',  # e-packages-publish-20261012 superseded physical representation
+    '1d44eada-3f74-43bc-810e-d278d1fb4e6e',  # e-packages-publish-20261012 superseded physical representation
+    '266ed978-5285-4ff4-802c-164899cd86ac',  # e-packages-publish-20261012 superseded physical representation
+    '35abd136-bcc7-4efd-be0d-8a8555182242',  # e-packages-publish-20261012 superseded physical representation
+    '379cf4d2-477a-42dc-a87b-b3486de73f87',  # e-packages-publish-20261012 superseded physical representation
+    '3d8e94c4-9bca-4e01-be85-59ef5e29df68',  # e-packages-publish-20261012 superseded physical representation
+    '402d8a74-d685-450b-8efa-1e52851c4fb6',  # e-packages-publish-20261012 superseded physical representation
+    '45f1d548-057b-408d-9ce8-b27868c71a11',  # e-packages-publish-20261012 superseded physical representation
+    '518f3582-6526-48ff-8a50-1bb2020b541b',  # e-packages-publish-20261012 superseded physical representation
+    '62bccb00-ab1c-447d-a223-74b8248556a1',  # e-packages-publish-20261012 superseded physical representation
+    '6c01d834-8ec3-4152-a016-bb28daca2bb5',  # e-packages-publish-20261012 superseded physical representation
+    '74e0bb52-3bbc-433d-8663-78fc9702b24a',  # e-packages-publish-20261012 superseded physical representation
+    '81dc9b39-0b84-4b5f-9683-8bce785882f4',  # e-packages-publish-20261012 superseded physical representation
+    '8eec7a25-d264-4aa5-a055-d72bb59436d9',  # e-packages-publish-20261012 superseded physical representation
+    '98b70ab7-da05-4c49-bb63-987b65edc773',  # e-packages-publish-20261012 superseded physical representation
+    'a36e569f-9dac-49a5-8c08-0ad3a8eaa24f',  # e-packages-publish-20261012 superseded physical representation
+    'ad968a04-dba9-4e4e-9061-7637e8be3143',  # e-packages-publish-20261012 superseded physical representation
+    'b38ae74a-4dee-4a24-805d-bd918c9c6328',  # e-packages-publish-20261012 superseded physical representation
+    'b69b4dc5-1ee0-4833-96c9-d661cfb761aa',  # e-packages-publish-20261012 superseded physical representation
+    'c46de335-7d83-48a1-8fc0-f69e0f7f1ada',  # e-packages-publish-20261012 superseded physical representation
+    'ce6711a0-173b-4906-8de7-6d853f9c1318',  # e-packages-publish-20261012 superseded physical representation
+    'da218912-28fc-46b1-bc5c-0487321580ac',  # e-packages-publish-20261012 superseded physical representation
+    'e56bdb65-4bbd-4db1-98b5-5806f9bb2704',  # e-packages-publish-20261012 superseded physical representation
+    'f07d39e1-f447-4e20-be06-3765e95e61d4',  # e-packages-publish-20261012 superseded physical representation
+    'f2cbca2c-99f2-4472-9bfb-1b4d806ccf83',  # e-packages-publish-20261012 superseded physical representation
+    'f68269d3-3433-4012-a41a-d87888e37593',  # e-packages-publish-20261012 superseded physical representation
     # C04: Jessica Chin's imported CT profile has another branch's NY address.
     # Keep raw history; current Norwalk service is retained in supplemental.
     "1973c738-08aa-4f6a-8af0-76b95e9677c5",
@@ -376,7 +405,7 @@ def main() -> None:
                 "latitude": candidate["latitude"],
                 "longitude": candidate["longitude"],
             }
-        elif candidate.get("location_type") == "mobile":
+        elif candidate.get("location_type") == "mobile" or candidate.get("coordinates_unknown"):
             # A service area/mailbox is not a fixed treatment or distance pin.
             coordinates = {"latitude": None, "longitude": None}
         elif candidate["country"] == "USA":
@@ -389,7 +418,7 @@ def main() -> None:
         if existing:
             supplemental_matched += 1
             existing.update({key: value for key, value in candidate.items() if key not in {"latitude", "longitude"}})
-            if candidate.get("replace_coordinates") or candidate.get("location_type") == "mobile":
+            if candidate.get("replace_coordinates") or candidate.get("location_type") == "mobile" or candidate.get("coordinates_unknown"):
                 # Address corrections and mobile conversions must replace the
                 # old coordinate point as well as the displayed address.
                 existing.update({key: coordinates[key] for key in ("latitude", "longitude")})

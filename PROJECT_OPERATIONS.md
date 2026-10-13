@@ -1,3 +1,15 @@
+## E01–E04 and remaining E05/E06 clinic packages — 2026-10-13
+
+The owner authorized publication of all latest unpublished clinic packages. The five proposal files cover 127 source identities (network sources and aliases included); they are not 127 new hospitals. Preserve earlier A/B/C/D/P00 changes and raw ACVIM history. Evidence, original decisions, integration exceptions and remaining questions are in `research/audit-runs/e-packages-publish-20261012/`.
+
+Later branch-scoped TMC evidence takes precedence over E01 group-level modalities: retain Medical oncology only until local chemotherapy, surgery and radiation delivery are confirmed. Correct the group doctor name to Brittanie Partridge; group membership is not branch assignment. Keep Spring and Houston separate. Exclude the verified stale Partner/Annapolis physical representation, preserving its raw profile and source inventory; do not merge organizations from a shared clinician history.
+
+Veterinary Cancer Services is a mobile Colorado Front Range service, not a treatment office at Carnation Circle. Preserve the existing distance-free mobile behavior. A changed address without verified building coordinates or an available ZIP centroid may have `coordinates_unknown: true`, null latitude/longitude and an explanatory `coordinate_source`; it remains a physical clinic, never labelled mobile merely because coordinates are unknown. The finder omits distance calculation using its existing finite-coordinate guard. Validators must permit this explicit state instead of forcing invented coordinates.
+
+An empty confirmed service list with `services_confirmation_status: unconfirmed` preserves the clinic and the next-pass question; it does not mean no cancer treatment. Caldwell’s general Surgery label cannot be retained where the finder interprets it as surgical oncology. Current clinicians/credentials and local services remain separate. Short Pump radiation is paused; Charlottesville is the distinct VVSE branch. ONE/BVSC and Veterinary Cancer Group modalities remain branch-specific.
+
+Actual source-attempt timestamps come from package receipts. Integration and publication times are not fresh visits. Original audit reports can contain Russian internal notes; owner-facing availability copy is reconciled into English without expanding access claims. Build both source data and static output, run earlier A/B/C regressions plus branch/mobile/unconfirmed-service tests, and verify the remote commit and deployed page bytes before reporting publication.
+
 # Vet Cancer Treatment Finder — Project Operations / Single Source of Truth
 
 ## C03/C04/D01/D02 combined reconciliation — 2026-10-12

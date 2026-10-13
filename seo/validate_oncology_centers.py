@@ -37,7 +37,9 @@ def main() -> None:
         assert center["website"].startswith(("https://", "http://")), center["website"]
         parsed = urllib.parse.urlparse(center["website"])
         assert "." in parsed.netloc and "@" not in parsed.netloc and parsed.netloc != "www", center["website"]
-        assert center["services"] and all(isinstance(x, str) and x for x in center["services"]), center["name"]
+        assert isinstance(center["services"], list) and all(isinstance(x, str) and x for x in center["services"]), center["name"]
+        if not center["services"]:
+            assert center.get("services_confirmation_status") == "unconfirmed", center["name"]
         phone = center.get("phone", "")
         if phone and center["country"] in {"USA", "Canada"}:
             digits = re.sub(r"\D", "", phone)
@@ -45,6 +47,9 @@ def main() -> None:
         if center.get("location_type") == "mobile":
             assert center["latitude"] is None and center["longitude"] is None, center["name"]
             assert center.get("service_area"), center["name"]
+        elif center.get("coordinates_unknown"):
+            assert center["latitude"] is None and center["longitude"] is None, center["name"]
+            assert center.get("coordinate_source"), center["name"]
         elif center["country"] == "USA":
             assert center["latitude"] is not None and center["longitude"] is not None, center["name"]
 
