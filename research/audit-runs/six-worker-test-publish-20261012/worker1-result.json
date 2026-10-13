@@ -1,0 +1,231 @@
+{
+  "worker": "worker1",
+  "agent_identity": "/root/independent",
+  "baseline_sha": "7c9b55485b3f0d1cb225c9d1143126c0318ef765",
+  "started_at": "2026-10-13T02:42:21Z",
+  "started_at_basis": "measured shell UTC clock before research; preliminary instruction reads preceded this measurement",
+  "finished_at": "2026-10-13T02:50:37.653350+00:00",
+  "assigned_count": 5,
+  "processed_count": 5,
+  "fully_verified_count": 3,
+  "proposed_change_count": 7,
+  "clinical_records_count": 5,
+  "tele_records_count": 0,
+  "records": [
+    {
+      "source_id": "southeast-veterinary-oncology-and-internal-medicine",
+      "processed": true,
+      "fully_verified": false,
+      "checked_fields": [
+        "physical_location",
+        "address",
+        "phone",
+        "official_website",
+        "current_clinicians",
+        "specialty_credentials",
+        "local_oncology_services",
+        "referral_and_booking",
+        "availability"
+      ],
+      "confirmed_fields": [
+        "address",
+        "phone",
+        "official_website",
+        "local_medical_oncology_and_chemotherapy",
+        "required_referral_and_booking",
+        "no_current_local_radiation"
+      ],
+      "evidence_ids": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "E05"
+      ],
+      "unanswered_questions": [
+        "Which named oncologist currently takes Jacksonville appointments? Fresh roster assigns Smith/Haas-Linden to Orange Park; Neumann direct biography now 404 despite cached historical biography. Do not infer departure or transfer."
+      ],
+      "errors": [
+        "Current direct Zachary Neumann biography returns 404; cached Web biography cannot settle appointment assignment."
+      ],
+      "decision": "Add phone and referral provenance; preserve existing services and no-radiation decision. No clinical-roster removal."
+    },
+    {
+      "source_id": "southeast-veterinary-oncology-and-internal-medicine-b729ffc6",
+      "processed": true,
+      "fully_verified": false,
+      "checked_fields": [
+        "physical_location",
+        "address",
+        "phone",
+        "official_website",
+        "current_clinicians",
+        "specialty_credentials",
+        "local_oncology_services",
+        "referral_and_booking",
+        "availability"
+      ],
+      "confirmed_fields": [
+        "official_website",
+        "phone",
+        "published_Orange_Park_clinician_names_and_DACVIM_credentials",
+        "owner_preserved_temporary_closure"
+      ],
+      "evidence_ids": [
+        "E02",
+        "E03",
+        "E04",
+        "E06"
+      ],
+      "unanswered_questions": [
+        "Is Orange Park still closed until further notice, and what is its reopening date? Preserve owner closure; old hours are not reopening proof.",
+        "Current official text does not establish treatment access/clinician schedule while the branch is closed.",
+        "Confirm exact current street address before a reopened clinic is represented as bookable; branch reader lacks street address.",
+        "Current roster has two named clinicians, baseline oncologist_count=3; does not prove third clinician departure."
+      ],
+      "errors": [],
+      "decision": "No reopening, new service, count decrease or availability change proposed. Existing 304 Corporate Way history retained without claiming fresh street verification."
+    },
+    {
+      "source_id": "southern-colorado-veterinary-internal-medicine-and-oncology",
+      "processed": true,
+      "fully_verified": true,
+      "checked_fields": [
+        "physical_location",
+        "address",
+        "phone",
+        "official_website",
+        "current_clinicians",
+        "specialty_credentials",
+        "local_oncology_services",
+        "referral_and_booking",
+        "availability"
+      ],
+      "confirmed_fields": [
+        "physical_location",
+        "address",
+        "phone",
+        "official_website",
+        "current_clinicians",
+        "specialty_credentials",
+        "local_oncology_services",
+        "referral_and_booking",
+        "availability"
+      ],
+      "evidence_ids": [
+        "E07",
+        "E08",
+        "E09",
+        "E10",
+        "E11",
+        "E12",
+        "E13"
+      ],
+      "unanswered_questions": [],
+      "errors": [
+        "Web reader 403/inaccessible; fresh direct shell HTTPS succeeded for current official pages.",
+        "One guessed location-directions URL returned 404; actual contact confirmed on successful appointment/service pages."
+      ],
+      "decision": "Add explicitly local chemotherapy; confirm owner roster; repair source URL identity and direct provenance."
+    },
+    {
+      "source_id": "southwest-veterinary-oncology",
+      "processed": true,
+      "fully_verified": true,
+      "checked_fields": [
+        "physical_location",
+        "address",
+        "phone",
+        "official_website",
+        "current_clinicians",
+        "specialty_credentials",
+        "local_oncology_services",
+        "referral_and_booking",
+        "availability"
+      ],
+      "confirmed_fields": [
+        "physical_location",
+        "address",
+        "phone",
+        "official_website",
+        "current_clinicians",
+        "specialty_credentials",
+        "local_oncology_services",
+        "referral_and_booking",
+        "availability"
+      ],
+      "evidence_ids": [
+        "E14",
+        "E15",
+        "E16",
+        "E17",
+        "E18"
+      ],
+      "unanswered_questions": [],
+      "errors": [
+        "Shell HTTPS returns 406; official Web open successfully exposes team/services/contact. Exact Web visit timestamp is unavailable, recorded date only."
+      ],
+      "decision": "Retain all current fields. Referral route documented; do not invent mandatory referral requirement. Do not add surgery from generic treatment explanation."
+    },
+    {
+      "source_id": "summit-veterinary-referral-center",
+      "processed": true,
+      "fully_verified": true,
+      "checked_fields": [
+        "physical_location",
+        "address",
+        "phone",
+        "official_website",
+        "current_clinicians",
+        "specialty_credentials",
+        "local_oncology_services",
+        "referral_and_booking",
+        "availability"
+      ],
+      "confirmed_fields": [
+        "physical_location",
+        "address",
+        "phone",
+        "official_website",
+        "current_clinicians",
+        "specialty_credentials",
+        "local_oncology_services",
+        "referral_and_booking",
+        "availability"
+      ],
+      "evidence_ids": [
+        "E19",
+        "E20",
+        "E21",
+        "E22",
+        "E23"
+      ],
+      "unanswered_questions": [],
+      "errors": [],
+      "decision": "Retain medical oncology, local chemo/ECT/immunotherapy and explicitly oncologic surgery. Add direct surgery evidence link only. Specific ELIAS ECI exclusion preserved."
+    }
+  ],
+  "missing_ids": [],
+  "errors": [
+    "Same-name SEVO baseline supplemental arrays contain both branches; exact source_id filtering used.",
+    "Web and direct shell differed for several sources; both methods/date bases retained."
+  ],
+  "canonical_mutations": false,
+  "publication_tested": false,
+  "discovery": null,
+  "remaining_work": "Current Jacksonville clinician assignment and Orange Park closure/reopening/address/roster-count questions. Not a nationwide audit.",
+  "recommended_next_packet_size": 5,
+  "recommendation_basis": "Five detailed clinic identities with two explicit branch conflicts completed in about six minutes; retain five for one further comparable run before increasing to ten. Do not infer weekly capacity from this sample.",
+  "validation": {
+    "status": "PASS",
+    "checks": [
+      "exact five source_id assignment",
+      "all proposal old_value equal current supplied exact source_id baseline",
+      "each proposal quote in evidence and matches receipt",
+      "required files nonempty",
+      "Google-key pattern scan no matches",
+      "processed/fully_verified counts consistent"
+    ],
+    "checked_at": "2026-10-13T02:50:37.653350+00:00"
+  }
+}

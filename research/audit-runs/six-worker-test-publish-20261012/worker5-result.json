@@ -1,0 +1,442 @@
+{
+  "worker_number": 5,
+  "agent_id": "/root/discovery_na",
+  "agent_id_basis": "Actual canonical task name from parent; no numeric UUID was exposed.",
+  "baseline_sha": "7c9b55485b3f0d1cb225c9d1143126c0318ef765",
+  "started_at": "2026-10-13T02:43:04Z",
+  "started_at_basis": "First real clock measurement after initial instruction read; no invented earlier startup timestamp.",
+  "finished_at": "2026-10-13T02:55:19Z",
+  "finished_at_basis": "Actual final clock measurement after report/supporting artifacts, correction and JSON/count/reference verification; final result seal follows.",
+  "assigned_count": 0,
+  "processed_count": 0,
+  "fully_verified_count": 0,
+  "clinical_record_count_note": "Discovery worker; clinical/tele assigned denominator is zero, do not combine candidate counts with20clinical/tele assignments.",
+  "records": [],
+  "discovery": {
+    "assigned_territories": [
+      "Massachusetts",
+      "New Hampshire",
+      "Ontario"
+    ],
+    "territories_processed": 3,
+    "geographic_coverage_exhaustive": false,
+    "query_count": 17,
+    "reviewed_search_result_count": 29,
+    "candidates_considered": 8,
+    "candidates_official_routes_attempted": 8,
+    "candidates_with_successfully_read_official_pages": 7,
+    "candidates_with_verified_current_local_treatment": 4,
+    "fully_verified_new_candidates": 3,
+    "classifications": {
+      "NEW": 3,
+      "UPDATE": 0,
+      "DUPLICATE": 1,
+      "UNRESOLVED": 4
+    },
+    "territories": [
+      {
+        "territory": "Massachusetts",
+        "queries": 5,
+        "reviewed_results": 13,
+        "candidates_considered": 3,
+        "current_local_treatment_verified": 1,
+        "fully_verified_new": 1,
+        "classifications": {
+          "NEW": 1,
+          "UPDATE": 0,
+          "DUPLICATE": 0,
+          "UNRESOLVED": 2
+        }
+      },
+      {
+        "territory": "New Hampshire",
+        "queries": 7,
+        "reviewed_results": 6,
+        "candidates_considered": 2,
+        "current_local_treatment_verified": 1,
+        "fully_verified_new": 0,
+        "classifications": {
+          "NEW": 0,
+          "UPDATE": 0,
+          "DUPLICATE": 1,
+          "UNRESOLVED": 1
+        }
+      },
+      {
+        "territory": "Ontario",
+        "queries": 5,
+        "reviewed_results": 10,
+        "candidates_considered": 3,
+        "current_local_treatment_verified": 2,
+        "fully_verified_new": 2,
+        "classifications": {
+          "NEW": 2,
+          "UPDATE": 0,
+          "DUPLICATE": 0,
+          "UNRESOLVED": 1
+        }
+      }
+    ],
+    "candidates": [
+      {
+        "candidate_key": "MA-Bay-State-Swansea",
+        "territory": "Massachusetts",
+        "classification": "NEW",
+        "name": "Bay State Veterinary Emergency and Specialty Services",
+        "source_id": null,
+        "existing_id": false,
+        "matched_existing_ids": [],
+        "comparison_note": "No branch row/domain match in439care/511inventory/60tele. Ocean State RI row mentions sister Bay State, but different address/city/state.",
+        "branch_scope": "463 Swansea Mall Drive, Swansea MA02777 USA",
+        "checked_at": "2026-10-13",
+        "checked_fields": [
+          "current_branch",
+          "official_site",
+          "address",
+          "phone",
+          "current_oncology_team",
+          "credentials",
+          "local_chemotherapy",
+          "local_radiation_equipment",
+          "immunotherapy",
+          "referral_route"
+        ],
+        "fully_verified": true,
+        "evidence_ids": [
+          "MA-BAY-SERVICE",
+          "MA-BAY-RT",
+          "MA-BAY-CONTACT",
+          "MA-BAY-TEAM",
+          "MA-BAY-TEAM-RT"
+        ],
+        "unanswered_questions": [],
+        "uncertainty": "Specific melanoma vaccine brand and specialist appointment hours not disclosed; not included as confirmed values."
+      },
+      {
+        "candidate_key": "MA-Acoaxet-Westport",
+        "territory": "Massachusetts",
+        "classification": "UNRESOLVED",
+        "name": "Acoaxet Veterinary Clinic",
+        "source_id": null,
+        "existing_id": false,
+        "matched_existing_ids": [],
+        "branch_scope": "965 Sanford Road Westport MA02790 USA",
+        "checked_at": "2026-10-13",
+        "checked_fields": [
+          "current_branch",
+          "official_site",
+          "address",
+          "phone",
+          "team",
+          "published_credentials",
+          "oncology_page",
+          "booking"
+        ],
+        "fully_verified": false,
+        "evidence_ids": [
+          "MA-ACOAXET-SERVICE",
+          "MA-ACOAXET-TEAM",
+          "MA-ACOAXET-TEAM-CRED"
+        ],
+        "unanswered_questions": [
+          "Does this branch currently administer injectable chemotherapy, and who oversees it?",
+          "Which treatment modalities are actually delivered here, rather than generic explanatory copy or referral?"
+        ],
+        "uncertainty": "Generic oncology page alone insufficient for confirmed chemo/radiation tags."
+      },
+      {
+        "candidate_key": "MA-Watertown",
+        "territory": "Massachusetts",
+        "classification": "UNRESOLVED",
+        "name": "Watertown Animal Hospital",
+        "source_id": null,
+        "existing_id": false,
+        "matched_existing_ids": [],
+        "branch_scope": "404 Main Street Watertown MA02472 USA",
+        "checked_at": "2026-10-13",
+        "checked_fields": [
+          "current_official_service_page",
+          "address",
+          "phone",
+          "booking",
+          "referral_title"
+        ],
+        "fully_verified": false,
+        "evidence_ids": [
+          "MA-WATERTOWN"
+        ],
+        "unanswered_questions": [
+          "Any current local anticancer treatment, or cancer consultations followed by referral only?",
+          "Who is assigned to cancer patients?"
+        ],
+        "uncertainty": "Referral-titled generic cancer page is insufficient evidence of local chemotherapy."
+      },
+      {
+        "candidate_key": "NH-VCA-Lakes-Region-Laconia",
+        "territory": "New Hampshire",
+        "classification": "UNRESOLVED",
+        "name": "VCA Lakes Region Veterinary Hospital",
+        "source_id": null,
+        "existing_id": false,
+        "matched_existing_ids": [],
+        "branch_scope": "1266 Union Avenue Laconia NH03246 USA",
+        "checked_at": "2026-10-13",
+        "checked_fields": [
+          "current_branch",
+          "official_site",
+          "address",
+          "phone",
+          "team",
+          "branch_service_roster",
+          "booking"
+        ],
+        "fully_verified": false,
+        "evidence_ids": [
+          "NH-LAKES-CONTACT",
+          "NH-LAKES-TEAM",
+          "NH-LAKES-SERVICES"
+        ],
+        "unanswered_questions": [
+          "Does the old directory chemotherapy claim reflect a current offered treatment?",
+          "Which local clinician provides chemotherapy and what protocols are currently available?"
+        ],
+        "uncertainty": "Current branch, services/team/advanced care/visit routes read; missing chemotherapy proof is not an absence claim."
+      },
+      {
+        "candidate_key": "NH-Port-City-Radiation-Expansion",
+        "territory": "New Hampshire",
+        "classification": "DUPLICATE",
+        "name": "Port City Veterinary Referral Hospital radiation oncology",
+        "source_id": "port-city-veterinary-referral-hospital",
+        "existing_id": true,
+        "matched_existing_ids": [
+          "port-city-veterinary-referral-hospital"
+        ],
+        "branch_scope": "231 Corporate Drive Portsmouth NH03801 USA",
+        "checked_at": "2026-10-13",
+        "checked_fields": [
+          "current_radiation_service",
+          "local_equipment",
+          "radiation_clinician",
+          "baseline_modality_comparison"
+        ],
+        "fully_verified": false,
+        "evidence_ids": [
+          "NH-PORT-RT"
+        ],
+        "unanswered_questions": [],
+        "uncertainty": "Verified local expansion already in baseline, no new proposal. This discovery comparison is not a full five-field hospital re-audit."
+      },
+      {
+        "candidate_key": "ON-Ottawa-OAESH",
+        "territory": "Ontario",
+        "classification": "NEW",
+        "name": "Ottawa Animal Emergency & Specialty Hospital",
+        "source_id": null,
+        "existing_id": false,
+        "matched_existing_ids": [],
+        "comparison_note": "Absent care/inventory branch/domain; tele-13 Ottawa mention is Sarah Boston historical practice, not this current physical clinic.",
+        "branch_scope": "1155 Lola Street Ottawa ONK1K4C1 Canada",
+        "checked_at": "2026-10-13",
+        "checked_fields": [
+          "current_branch",
+          "official_site",
+          "address",
+          "phone",
+          "current_medical_oncologist",
+          "credentials",
+          "local_IV_oral_chemotherapy",
+          "palliative_care",
+          "referral_appointment_route",
+          "external_radiation_ECT_scope"
+        ],
+        "fully_verified": true,
+        "evidence_ids": [
+          "ON-OAESH-TREATMENT",
+          "ON-OAESH-CLINICIAN",
+          "ON-OAESH-CONTACT"
+        ],
+        "unanswered_questions": [],
+        "uncertainty": "No local radiation/ECT or remote consultation inferred."
+      },
+      {
+        "candidate_key": "ON-King-Animal-Hospital",
+        "territory": "Ontario",
+        "classification": "NEW",
+        "name": "King Animal Hospital",
+        "source_id": null,
+        "existing_id": false,
+        "matched_existing_ids": [],
+        "branch_scope": "1265 19th Sideroad King City ONL7B1K5 Canada",
+        "checked_at": "2026-10-13",
+        "checked_fields": [
+          "current_branch",
+          "official_site",
+          "address",
+          "phone",
+          "oncology_roster",
+          "literal_credentials",
+          "local_chemotherapy",
+          "targeted_therapy",
+          "immunotherapy",
+          "specialty_referral_booking"
+        ],
+        "fully_verified": true,
+        "evidence_ids": [
+          "ON-KING-TREATMENT",
+          "ON-KING-TEAM",
+          "ON-KING-TEAM-CRED",
+          "ON-KING-CONTACT"
+        ],
+        "unanswered_questions": [],
+        "uncertainty": "Exact drug/vaccine names and surgical oncology expertise not published; no local radiation claim."
+      },
+      {
+        "candidate_key": "ON-OVC-Guelph",
+        "territory": "Ontario",
+        "classification": "UNRESOLVED",
+        "name": "OVC Mona Campbell Centre for Animal Cancer",
+        "source_id": null,
+        "existing_id": false,
+        "matched_existing_ids": [],
+        "branch_scope": "Guelph Ontario; indexed address36 College Avenue West not promoted as current verified value",
+        "checked_at": "2026-10-13",
+        "checked_fields": [
+          "official_indexed_service_leads",
+          "catalog_comparison",
+          "service_master_contact_FAQ_PDF_attempts",
+          "shell_fallback"
+        ],
+        "fully_verified": false,
+        "evidence_ids": [
+          "ON-OVC-LEAD"
+        ],
+        "unanswered_questions": [
+          "Read current official branch service/team/contact sources; verify local treatment roster, clinician assignment, address/phone and referral route."
+        ],
+        "uncertainty": "Primary pages inaccessible via attempted tools; snippet/news alone not current local-care proof."
+      }
+    ],
+    "unprocessed_remainder": [
+      {
+        "territory": "Massachusetts",
+        "name": "Historical VCA Boston Road oncology directory lead",
+        "url": "https://www.petcancercenter.org/MA_Veterinary_Oncologist_Massachusetts_Springfield_VCA_Boston_Road_Animal_Hospital.html",
+        "status": "unprocessed",
+        "uncertainty": "Old directory name/current successor identity and local oncology not checked; must compare history/current branch before adding."
+      },
+      {
+        "territory": "Ontario",
+        "name": "Toronto Animal Health Partners",
+        "url": "https://www.animalhealthpartners.com/emergency-vet-toronto/services/oncology",
+        "status": "unprocessed",
+        "uncertainty": "Search lead reviewed; current branch/team/contact not opened for candidate completion."
+      },
+      {
+        "territory": "Ontario",
+        "name": "Lakeshore Animal Health Partners",
+        "url": "https://www.animalhealthpartners.com/emergency-vet-mississauga/services/oncology",
+        "status": "unprocessed",
+        "uncertainty": "Search lead reviewed; current branch/team/contact not opened for candidate completion."
+      },
+      {
+        "territory": "Ontario",
+        "name": "Mississauga Oakville Veterinary Emergency & Specialty Hospital",
+        "url": "https://vcacanada.com/movh/departments/oncology",
+        "status": "unprocessed",
+        "uncertainty": "Search lead reviewed; current branch/team/contact not opened for candidate completion."
+      },
+      {
+        "territory": "Ontario",
+        "name": "Belleway Veterinary Hospital",
+        "url": "https://bellewayvet.com/veterinary-specialized-care-belleville-on/",
+        "status": "unprocessed",
+        "uncertainty": "General-practice chemotherapy lead; actual local delivery/provider remains to be verified."
+      },
+      {
+        "territory": "Ontario",
+        "name": "Morgan Animal Hospital",
+        "url": "https://www.morgananimalhospital.com/services/oncology",
+        "status": "unprocessed",
+        "uncertainty": "Generic oncology page search lead; actual local chemotherapy/provider remains to be verified."
+      }
+    ],
+    "remainder_count": 6,
+    "comparison_baselines": {
+      "care_rows": 439,
+      "inventory_rows": 511,
+      "tele_rows": 60
+    },
+    "next_package_recommendation": "Keep discovery at3territories and at most3deep candidates per territory for the next test. Ontario alone has5queued remaining leads; give Canada priority rather than increasing US search. Do not describe this as exhaustive country/state coverage or weekly-system readiness."
+  },
+  "errors": [
+    {
+      "url": "https://vcahospitals.com/lakes-region/services/advanced-care/chemotherapy",
+      "ref": "turn22view2",
+      "error": "Reader inaccessible; guessed modality route was not known to exist. Real branch/service/team/advanced-care routes subsequently followed."
+    },
+    {
+      "url": "https://www.acoaxetvet.com/our-team",
+      "ref": "turn31view3",
+      "error": "Reader internal error; actual linked /staff route successfully read."
+    },
+    {
+      "url": "https://www.acoaxetvet.com/staff",
+      "ref": "turn60view6",
+      "error": "Linked Catherine Grossi profile reader failed; source /staff roster readable, exact credentials retained."
+    },
+    {
+      "url": "https://www.ovchsc.ca/animal-cancer-care-services/chemotherapy/",
+      "refs": [
+        "turn22view3"
+      ],
+      "error": "403 Forbidden direct web; shell fallback at2026-10-13T02:46:21.369596+00:00 returned403."
+    },
+    {
+      "url": "https://www.ovchsc.ca/animal-cancer-centre/",
+      "ref": "turn31view1",
+      "error": "403 Forbidden direct web."
+    },
+    {
+      "url": "https://www.ovchsc.ca/animal-cancer-centre/contact-animal-cancer-services/",
+      "ref": "turn54view0",
+      "error": "Reader internal error."
+    },
+    {
+      "url": "https://www.ovchsc.ca/contact-ovc-health-sciences-centre/",
+      "ref": "turn54view1",
+      "error": "Reader internal error."
+    },
+    {
+      "url": "https://www.ovchsc.ca/animal-cancer-care-services/medical-oncology/",
+      "ref": "turn54view2",
+      "error": "Reader internal error."
+    },
+    {
+      "url": "https://www.ovchsc.ca/files/2017/05/HSC_Service_card_cancer_FINAL.pdf",
+      "ref": "turn54view3",
+      "error": "Reader internal error."
+    },
+    {
+      "url": "https://www.ovchsc.ca/what-to-expect-companion-animal-hospital-and-animal-cancer-centre-frequently-asked-questions/",
+      "ref": "turn54view4",
+      "error": "Reader internal error."
+    },
+    {
+      "url": "https://www.ovchsc.ca/animal-cancer-care-services/medical-oncology-team/",
+      "ref": "turn60view3",
+      "error": "Reader internal error."
+    },
+    {
+      "url": "https://ovc.uoguelph.ca/biomedical-sciences/people/faculty/anthony-j-mutsaers",
+      "ref": "turn60view2",
+      "error": "Successful reader result is one-line empty shell; no clinical facts extracted."
+    }
+  ],
+  "canonical_changed": false,
+  "commit_push_deploy": false,
+  "outreach": false,
+  "subagents_spawned": 0,
+  "proposed_change_count": 3,
+  "durable_save_status": "Root integration agent must save report toLibrary; worker files alone are scratch and no durability claim is made."
+}

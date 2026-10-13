@@ -17,7 +17,16 @@ assigned = {r['source_id'] for r in review['source_reviews']}
 inventory = json.loads((ROOT / 'data/oncology_care_source_inventory.json').read_text())['sources']
 assert len(assigned) == 127
 assert len({r['id'] for r in inventory}) == len(inventory)
-assert all(r['last_review_run_id'] == run.name for r in inventory if r['id'] in assigned)
+later_run = ROOT / 'research/audit-runs/six-worker-test-publish-20261012'
+later_assigned = {
+    row['source_id']
+    for worker in range(1, 5)
+    for row in json.loads((later_run / f'worker{worker}-result.json').read_text())['records']
+}
+assert all(
+    r['last_review_run_id'] == (later_run.name if r['id'] in later_assigned else run.name)
+    for r in inventory if r['id'] in assigned
+)
 
 tmc = byid['animal-cancer-and-referral-center']
 assert tmc['city'] == 'Houston' and tmc['postal_code'] == '77030'

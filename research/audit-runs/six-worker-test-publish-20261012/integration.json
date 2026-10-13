@@ -1,0 +1,182 @@
+{
+  "run_id": "six-worker-test-publish-20261012",
+  "research_baseline_sha": "7c9b55485b3f0d1cb225c9d1143126c0318ef765",
+  "integration_baseline_sha": "fc7df09def2635289c637911f80258bbb5d5ba22",
+  "all_six_workers_finished": true,
+  "worker_result_validation": "PASS",
+  "existing_records_reviewed": 20,
+  "field_changes_applied": [
+    {
+      "source_id": "southeast-veterinary-oncology-and-internal-medicine",
+      "field": "phone"
+    },
+    {
+      "source_id": "southeast-veterinary-oncology-and-internal-medicine",
+      "field": "supporting_urls"
+    },
+    {
+      "source_id": "southern-colorado-veterinary-internal-medicine-and-oncology",
+      "field": "services"
+    },
+    {
+      "source_id": "southern-colorado-veterinary-internal-medicine-and-oncology",
+      "field": "clinician_review"
+    },
+    {
+      "source_id": "southern-colorado-veterinary-internal-medicine-and-oncology",
+      "field": "supporting_urls"
+    },
+    {
+      "source_id": "southern-colorado-veterinary-internal-medicine-and-oncology",
+      "field": "working_url"
+    },
+    {
+      "source_id": "summit-veterinary-referral-center",
+      "field": "supporting_urls"
+    },
+    {
+      "source_id": "vca-advanced-veterinary-care-center",
+      "field": "master_url"
+    },
+    {
+      "source_id": "vca-advanced-veterinary-care-center",
+      "field": "supporting_urls"
+    },
+    {
+      "source_id": "vca-aurora-animal-hospital",
+      "field": "master_url"
+    },
+    {
+      "source_id": "vca-aurora-animal-hospital",
+      "field": "supporting_urls"
+    },
+    {
+      "source_id": "bluepearl-pet-hospital-framingham",
+      "field": "clinician_review"
+    },
+    {
+      "source_id": "gulf-coast-veterinary-specialists",
+      "field": "care_delivery"
+    },
+    {
+      "source_id": "gulf-coast-veterinary-specialists",
+      "field": "supporting_urls"
+    },
+    {
+      "source_id": "colorado-animal-specialty-emergency-case",
+      "field": "master_url"
+    },
+    {
+      "source_id": "colorado-animal-specialty-emergency-case",
+      "field": "verification_url"
+    },
+    {
+      "source_id": "colorado-animal-specialty-emergency-case",
+      "field": "access_note"
+    },
+    {
+      "source_id": "mash",
+      "field": "verification_url"
+    },
+    {
+      "source_id": "mash",
+      "field": "access_note"
+    },
+    {
+      "source_id": "mash",
+      "field": "supporting_urls"
+    },
+    {
+      "source_id": "carolina-veterinary-specialists",
+      "field": "verification_url"
+    },
+    {
+      "source_id": "medvet-new-orleans",
+      "field": "supporting_urls"
+    },
+    {
+      "source_id": "colorado-state-university",
+      "field": "verification_url"
+    },
+    {
+      "source_id": "colorado-state-university",
+      "field": "clinician_review"
+    },
+    {
+      "source_id": "colorado-state-university",
+      "field": "access_note"
+    },
+    {
+      "source_id": "colorado-state-university",
+      "field": "services"
+    },
+    {
+      "source_id": "cornell-university-hospital-for-animals",
+      "field": "services"
+    },
+    {
+      "source_id": "bay-state-veterinary-emergency-specialty-services",
+      "field": "new_center"
+    },
+    {
+      "source_id": "ottawa-animal-emergency-specialty-hospital",
+      "field": "new_center"
+    },
+    {
+      "source_id": "king-animal-hospital",
+      "field": "new_center"
+    },
+    {
+      "source_id": "bristol-vet-specialists",
+      "field": "new_center"
+    },
+    {
+      "source_id": "hokkaido-university-veterinary-medical-center",
+      "field": "new_center"
+    }
+  ],
+  "field_changes_already_present": [
+    {
+      "source_id": "tele-12",
+      "field": "tele_tuple[4]"
+    },
+    {
+      "source_id": "tele-12",
+      "field": "tele_tuple[7]"
+    }
+  ],
+  "integrated_change_count": 34,
+  "new_centers_selected": [
+    "bay-state-veterinary-emergency-specialty-services",
+    "ottawa-animal-emergency-specialty-hospital",
+    "king-animal-hospital",
+    "bristol-vet-specialists",
+    "hokkaido-university-veterinary-medical-center"
+  ],
+  "new_centers_selected_count": 5,
+  "deferred": [
+    {
+      "source_id": "medvet-new-orleans",
+      "field": "sponsor_listed_treatment_access",
+      "reason": "Sponsor listing is verified, but hospital-confirmed active booking and treatment delivery are not established. Preserve it in the audit receipt, not as a public service fact or new canonical field."
+    },
+    {
+      "candidate": "ChesterGates Veterinary Specialists",
+      "reason": "Worker result marks core_fields_sufficient=false; keep the specific unanswered question in the saved proposal/result instead of publishing a partial clinic record."
+    },
+    {
+      "candidate": "University of Liverpool Small Animal Teaching Hospital",
+      "reason": "Worker result marks core_fields_sufficient=false; keep the specific unanswered question in the saved proposal/result instead of publishing a partial clinic record."
+    },
+    {
+      "candidate": "Nagoya Animal Cancer Centre / 名古屋動物がんセンター (Sakae Animal Hospital co-location)",
+      "reason": "Worker result marks core_fields_sufficient=false; keep the specific unanswered question in the saved proposal/result instead of publishing a partial clinic record."
+    },
+    {
+      "candidate": "Japan Small Animal Cancer Centre / 日本小動物がんセンター (JSAMC Tokorozawa)",
+      "reason": "Worker result marks core_fields_sufficient=false; keep the specific unanswered question in the saved proposal/result instead of publishing a partial clinic record."
+    }
+  ],
+  "source_date_policy": "Exact shell timestamps were applied only when saved. Date-only Web reviews advance last_checked without inventing last_checked_at; existing exact timestamps are preserved.",
+  "publication_status": "pending"
+}

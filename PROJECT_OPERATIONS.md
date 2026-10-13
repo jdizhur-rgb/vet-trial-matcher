@@ -10,6 +10,12 @@ An empty confirmed service list with `services_confirmation_status: unconfirmed`
 
 Actual source-attempt timestamps come from package receipts. Integration and publication times are not fresh visits. Original audit reports can contain Russian internal notes; owner-facing availability copy is reconciled into English without expanding access claims. Build both source data and static output, run earlier A/B/C regressions plus branch/mobile/unconfirmed-service tests, and verify the remote commit and deployed page bytes before reporting publication.
 
+## Six-worker oncology-care test publication — 2026-10-13
+
+The owner authorized publication of confirmed data/technical results after the bounded six-worker test. Preserve its final reports, evidence, proposals and discovery queries in `research/audit-runs/six-worker-test-publish-20261012/`; do not treat intermediate evidence as worker completion. Integration is field-scoped against current main and records already-applied values separately from conflicts.
+
+Publish only candidates that met the workers' saved completeness gate: worker 5's three fully verified clinics and worker 6's Bristol and Hokkaido records marked `core_fields_sufficient=true`. ChesterGates, Liverpool, Nagoya and JSAMC remain deferred with their concrete questions; current-treatment evidence alone is not a complete public clinic record. Sponsor-listed ECI access at MedVet New Orleans remains evidence, not a public service claim, until the hospital confirms active branch booking and treatment delivery. Date-only Web review updates `last_checked` without inventing `last_checked_at`; exact timestamps require saved actual request receipts.
+
 # Vet Cancer Treatment Finder — Project Operations / Single Source of Truth
 
 ## Catalog-wide selection audit — 2026-10-12
