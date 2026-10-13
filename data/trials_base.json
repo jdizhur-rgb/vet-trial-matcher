@@ -961,13 +961,16 @@
     "requires": {
       "confirmed": true,
       "active_treatment_target": true,
-      "prior_chemo": false
+      "prior_chemo": false,
+      "planned_chemo": true
     },
     "excludes": {
-      "current_chemo": true
+      "current_chemo": true,
+      "prior_local_radiation": true,
+      "indolent_lymphoma": true
     },
     "notes": "Randomized CHOP versus LOPP chemotherapy for treatment-naïve peripheral T-cell lymphoma, with genomic analysis. T-zone and cutaneous lymphoma are excluded. No prior chemotherapy or radiation; corticosteroids for up to 10 days may be allowed at the clinician’s discretion. Treatment lasts approximately 4–6 months with visits every 7–14 days, followed by monthly monitoring.",
-    "verified": "2026-10-08",
+    "verified": "2026-10-12",
     "study_type": "treatment",
     "sites": [
       {
@@ -986,7 +989,8 @@
     "funding_verified": "2026-10-08",
     "excluded_cancers": [
       "Cutaneous epitheliotropic lymphoma"
-    ]
+    ],
+    "special_requirement": "Confirmed peripheral T-cell lymphoma; indolent forms such as T-zone lymphoma and cutaneous lymphoma are excluded. No previous lymphoma chemotherapy or radiation. Steroids before enrollment are discouraged; treatment for up to ten days may be accepted only at clinician discretion. Bloodwork, cardiac status and liver function must allow CHOP/LOPP chemotherapy."
   },
   {
     "id": "msu-sting-solid",
@@ -1110,14 +1114,17 @@
       "confirmed": true,
       "measurable": true,
       "no_metastasis": true,
-      "planned_surgery": true
+      "planned_surgery": true,
+      "min_tumor_cm": 2,
+      "max_tumor_cm": 6,
+      "steroid_washout_days": 7
     },
     "excludes": {
       "current_chemo": true,
       "current_steroids": true
     },
     "notes": "Pre-surgical corticosteroid treatment for a confirmed cutaneous mast cell tumor on the trunk above the elbow or knee, measuring 2–6 cm in one dimension. Owners measure the tumor daily; MSU visits on days 7 and 14; surgery planned on day 14 ±1, potentially earlier for rapid shrinkage. Excludes metastasis, anticancer treatment including steroids within 7 days, inadequate NSAID washout (<5 days), and systemic conditions interfering with safe steroid use.",
-    "verified": "2026-10-08",
+    "verified": "2026-10-12",
     "study_type": "treatment",
     "sites": [
       {
@@ -1133,7 +1140,8 @@
     "location_source": "seo/center_directory.py",
     "funding_status": "Partially funded",
     "funding_source": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2/tmrncdmct",
-    "funding_verified": "2026-10-08"
+    "funding_verified": "2026-10-08",
+    "special_requirement": "Cutaneous mast cell tumor on the trunk above the elbow/knee, 2–6 cm in one dimension, with no metastasis. No anticancer treatment including steroids within seven days and at least five days off NSAIDs. The team must confirm safe prednisone use, organ function and anesthesia suitability; surgical removal is planned around day 14."
   },
   {
     "id": "msu-feline-mammary-met",
@@ -1378,11 +1386,12 @@
     "requires": {
       "confirmed": true,
       "measurable": true,
-      "planned_surgery": true
+      "planned_surgery": true,
+      "min_weight_kg": 5
     },
     "excludes": {},
     "notes": "One local T-cell-engager protocol, AVMA study 534230, previously represented by two active catalog records. Current VRCCO primary evidence describes CD3/CD28 T-cell engagement targeting B7-H3/PD-L1, injected into the tumor, followed by standard surgical removal approximately one week later. There is no placebo. VRCCO eligibility includes cutaneous soft tissue sarcoma over 1.7 cm and body weight at least 5 kg. Previously published WSU criteria required easily accessible STS at least 2 cm; the WSU page could not be read in this audit, so its present intake and site-specific criteria require confirmation. Do not apply VRCCO-specific thresholds to the unverified WSU cohort.",
-    "verified": "2026-10-10",
+    "verified": "2026-10-12",
     "study_type": "treatment",
     "sites": [
       {
@@ -3874,9 +3883,16 @@
     "funding_source": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
     "funding_verified": "2026-09-23",
     "requires": {
-      "confirmed": true
+      "confirmed": true,
+      "prior_surgery": false,
+      "prior_chemo": false,
+      "no_metastasis": true,
+      "planned_amputation_and_chemo": true
     },
-    "excludes": {},
+    "excludes": {
+      "prior_local_radiation": true,
+      "prior_immunotherapy": true
+    },
     "notes": "Current live Missouri oncology roster explicitly lists 'Evaluation of Timing of Carboplatin Chemotherapy post Amputation for Osteosarcoma.' Eligible dogs have an untreated bone tumor with cytologic sarcoma and positive ALP staining, no lung metastasis and no prior treatment; they must undergo complete amputation followed by six carboplatin doses. Carboplatin starts the day after surgery or immediately before discharge, with follow-up until metastasis. This is an interventional timing study, not merely observational.",
     "study_type": "treatment",
     "sites": [
@@ -3887,11 +3903,13 @@
         "name": "University of Missouri Veterinary Health Center"
       }
     ],
-    "verified": "2026-09-23",
+    "verified": "2026-10-12",
     "available_for_matching": true,
     "status_confidence": "current",
     "contact": "Oncology Clinical Trials Service: muoncology@missouri.edu",
-    "contact_source": "verified institution fallback"
+    "contact_source": "verified institution fallback",
+    "special_requirement": "Bone sarcoma with positive ALP cytology; no previous surgery or anticancer treatment and no lung metastasis. Amputation and six carboplatin doses starting the following day or before discharge are required; Missouri confirms surgical and diagnostic eligibility.",
+    "owner_prescreen_required": true
   },
   {
     "id": "mizzou-chemo-tolerability-abcb1",
@@ -5062,7 +5080,7 @@
     "center": "University of Missouri Veterinary Health Center",
     "city": "Columbia",
     "state": "MO",
-    "verified": "2026-09-02",
+    "verified": "2026-10-12",
     "status_confidence": "current",
     "available_for_matching": true,
     "contact": "Dr. Laura Yannai — 636-332-5041",
@@ -5084,7 +5102,10 @@
     "funding": "🟡 Partially funded. Laverdia is provided at no cost; owners pay rechecks, bloodwork, urinalysis and treatment of adverse events.",
     "notes": "No prior cytotoxic chemotherapy or RT; no concurrent Apoquel/cyclosporine. Steroid rules are protocol-specific.",
     "owner_prescreen_required": true,
-    "excludes": {},
+    "excludes": {
+      "prior_local_radiation": true,
+      "immunosuppressive": true
+    },
     "country": "USA",
     "sites": [
       {
@@ -5095,14 +5116,15 @@
       }
     ],
     "location_source": "seo/center_directory.py",
-    "funding_status": "Partially funded"
+    "funding_status": "Partially funded",
+    "special_requirement": "Histologically diagnosed cutaneous epitheliotropic lymphoma; no previous cytotoxic chemotherapy or radiation and no concurrent Apoquel/cyclosporine. Steroids require study-team review: a two-week washout or qualifying stable/progressive disease while receiving steroids may be accepted; current steroid use is not an automatic exclusion."
   },
   {
     "species": "Dog",
     "center": "University of Missouri Veterinary Health Center",
     "city": "Columbia",
     "state": "MO",
-    "verified": "2026-09-02",
+    "verified": "2026-10-12",
     "status_confidence": "current",
     "available_for_matching": true,
     "contact": "Missouri Oncology Clinical Trials Service — 573-882-7821; cvmclinicaltrials@missouri.edu",
@@ -5122,7 +5144,10 @@
     "funding": "🟡 Partially funded. Gilvetmab is covered; owners pay rechecks, bloodwork and chest radiographs.",
     "notes": "Gross or microscopic disease allowed; no immune-mediated disease/severe comorbidity and no concurrent steroids or other immunosuppressive drugs.",
     "owner_prescreen_required": true,
-    "excludes": {},
+    "excludes": {
+      "current_steroids": true,
+      "immunosuppressive": true
+    },
     "country": "USA",
     "sites": [
       {
@@ -5136,7 +5161,8 @@
     "funding_status": "Partially funded",
     "treatment_approaches": [
       "immunotherapy"
-    ]
+    ],
+    "special_requirement": "Primary pulmonary carcinoma may qualify with gross or microscopic disease; the team must confirm whether a postoperative case has a qualifying treatment indication. No immune-mediated disease, severe comorbidity or concurrent steroids/immunosuppressive drugs."
   },
   {
     "species": "Dog",
@@ -5247,7 +5273,7 @@
     "city": "West Lafayette",
     "state": "IN",
     "country": "USA",
-    "verified": "2026-09-22",
+    "verified": "2026-10-12",
     "status": "Actively recruiting",
     "status_confidence": "confirmed_current",
     "available_for_matching": true,
@@ -5261,11 +5287,11 @@
     "title": "cPD-L1 immunotherapy with vinblastine and deracoxib for canine invasive urothelial carcinoma",
     "study_type": "treatment",
     "requires": {
-      "confirmed": true,
       "active_treatment_target": true,
       "serum_creatinine_lte_2": true,
       "prior_chemo": false,
-      "prior_radiation": false
+      "prior_radiation": false,
+      "planned_chemo": true
     },
     "excludes": {
       "librela": true,
@@ -5282,7 +5308,8 @@
     "owner_prescreen_required": true,
     "treatment_approaches": [
       "immunotherapy"
-    ]
+    ],
+    "special_requirement": "A bladder/urethral mass strongly suspicious for invasive urothelial carcinoma may enter screening; cystoscopy confirms diagnosis before treatment. All arms include vinblastine, deracoxib and cPD-L1 immunotherapy. Creatinine must be at most 2.0 mg/dl; previous chemotherapy/radiation are excluded. NSAIDs require a 5–14-day washout; supplements require two weeks off, and current Librela/Cytopoint are not allowed."
   },
   {
     "species": "Dog",
@@ -5769,7 +5796,7 @@
     "cancers": [
       "Osteosarcoma"
     ],
-    "verified": "2026-10-10",
+    "verified": "2026-10-12",
     "status": "Enrollment open",
     "status_confidence": "current",
     "available_for_matching": true,
@@ -5784,13 +5811,17 @@
       "prior_surgery": false,
       "prior_chemo": false,
       "no_metastasis": true,
-      "appendicular_location": true
+      "appendicular_location": true,
+      "planned_amputation_and_chemo": true
     },
     "why": "Current sponsor master lists ECI plus chemotherapy separately; its individual protocol provides the current owner-entry route and explicitly states no financial assistance.",
     "intervention": "Amputation, one to four chemotherapy doses, then ECI autologous vaccine-enhanced adoptive cell immunotherapy",
     "funding": "⚪ Unfunded. No financial assistance is provided for participation in this study.",
     "notes": "Newly diagnosed appendicular OSA. Prospective open-label study; follow-up continues for survival/response. ECI is USDA-licensed for canine osteosarcoma.",
-    "excludes": {},
+    "excludes": {
+      "prior_local_radiation": true,
+      "prior_immunotherapy": true
+    },
     "owner_prescreen_required": true,
     "country": "USA",
     "funding_status": "Unfunded",
@@ -5812,14 +5843,15 @@
     "title": "SINE/Laverdia-CA1 (verdinexor) + carboplatin for canine osteosarcoma",
     "status": "Recruiting",
     "study_type": "treatment",
-    "verified": "2026-10-07",
+    "verified": "2026-10-12",
     "status_confidence": "current",
     "available_for_matching": true,
     "requires": {
       "confirmed": true,
       "prior_surgery": true,
       "post_amputation": true,
-      "prior_chemo": false
+      "prior_chemo": false,
+      "planned_chemo": true
     },
     "why": "Current official Anivive marketplace labels the exact Cornell SINE/verdinexor + carboplatin protocol Recruiting; individual protocol specifies Cornell, eligibility and partial cost support.",
     "intervention": "Carboplatin combined with Laverdia-CA1 (verdinexor), a selective inhibitor of nuclear export (SINE)",
@@ -5848,7 +5880,8 @@
         "url": "https://www.anitrial.com/trial/selective-inhibition-of-nuclear-export-sine-and-canine-osteosarcoma"
       }
     ],
-    "funding_source": "https://www.anitrial.com/trial/selective-inhibition-of-nuclear-export-sine-and-canine-osteosarcoma"
+    "funding_source": "https://www.anitrial.com/trial/selective-inhibition-of-nuclear-export-sine-and-canine-osteosarcoma",
+    "special_requirement": "Previous limb amputation for osteosarcoma at Cornell is required; no previous chemotherapy. Carboplatin and oral verdinexor are study treatment, with eligibility and the postoperative timeline confirmed by Cornell."
   },
   {
     "id": "illinois-feline-oscc-sbrt-olaparib-bexa",
@@ -6025,12 +6058,12 @@
     "title": "Zika-virus vaccine + autologous tumor-lysate vaccines for high-grade canine glioma",
     "status": "Open and enrolling",
     "study_type": "treatment",
-    "verified": "2026-09-02",
+    "verified": "2026-10-12",
     "status_confidence": "current",
     "available_for_matching": true,
     "requires": {
-      "confirmed": true,
-      "active_treatment_target": true
+      "active_treatment_target": true,
+      "planned_surgery": true
     },
     "why": "Minnesota's live Available Canine Brain Tumor Trials page currently lists this treatment trial.",
     "intervention": "Two vaccine doses before surgical tumor removal, followed by three postoperative vaccine doses; MRI monitoring every 16 weeks.",
@@ -6054,7 +6087,8 @@
     "treatment_approaches": [
       "cancer_vaccine",
       "immunotherapy"
-    ]
+    ],
+    "special_requirement": "MRI-confirmed glioma with tumor removal surgery as part of treatment; pathology is not required before screening. Handling, surgical suitability and chest/abdomen screening need Minnesota assessment."
   },
   {
     "id": "umn-glioma-nanoparticle-gene",
@@ -6068,12 +6102,12 @@
     "title": "Nanoparticle delivery of anti-tumor genes for high-grade canine glioma",
     "status": "Open and enrolling",
     "study_type": "treatment",
-    "verified": "2026-09-02",
+    "verified": "2026-10-12",
     "status_confidence": "current",
     "available_for_matching": true,
     "requires": {
-      "confirmed": true,
-      "active_treatment_target": true
+      "active_treatment_target": true,
+      "planned_surgery": true
     },
     "why": "Minnesota's live Available Canine Brain Tumor Trials page currently lists this treatment trial.",
     "intervention": "Surgical tumor removal followed by nanoparticle anti-tumor gene therapy lining the surgical cavity; MRI monitoring every 16 weeks.",
@@ -6093,7 +6127,8 @@
       }
     ],
     "location_source": "seo/center_directory.py",
-    "funding_status": "Partially funded"
+    "funding_status": "Partially funded",
+    "special_requirement": "MRI-confirmed glioma with tumor removal surgery as part of treatment; pathology is not required before screening. Handling, surgical suitability and chest/abdomen screening need Minnesota assessment."
   },
   {
     "id": "uk-kyrexa-rimcazole-solid-tumors-watch",
@@ -6144,18 +6179,21 @@
       "active_treatment_target": true,
       "limb_osteosarcoma": true,
       "surgery_candidate": true,
-      "chemo_candidate": true
+      "chemo_candidate": true,
+      "planned_surgery": true,
+      "planned_chemo": true
     },
     "excludes": {},
     "notes": "NDSR states that this study is currently available for dogs with suspected or confirmed osteosarcoma of a limb bone. The immunotherapy product is implanted directly into the tumor before removal. Dogs must be candidates for amputation or limb-sparing surgery and chemotherapy; there is no placebo arm. The associated ESVONC 2026 presentation identified the pilot approach as neoadjuvant recombinant feline IL-2 immunotherapy.",
-    "verified": "2026-09-18",
+    "verified": "2026-10-12",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",
     "owner_prescreen_required": true,
     "treatment_approaches": [
       "immunotherapy"
-    ]
+    ],
+    "special_requirement": "Suspected or proven limb osteosarcoma; tumor removal by amputation or limb-sparing surgery and chemotherapy are required. NDSR confirms current eligibility and the surgical timeline."
   },
   {
     "id": "se-slu-oxc101-lymphoma-hsa-watch",
@@ -7226,14 +7264,16 @@
       "active_treatment_target": true,
       "measurable": true,
       "min_tumor_cm": 4,
-      "max_tumor_cm": 10
+      "max_tumor_cm": 10,
+      "planned_surgery": true,
+      "planned_radiation": true
     },
     "excludes": {
       "prior_chemo": true,
       "prior_local_radiation": true
     },
     "notes": "Blinded study of standard radiation therapy plus XCSgel immunotherapy; all enrolled dogs receive surgery and radiation, while XCSgel versus placebo is blinded. Pathologic confirmation of STS required and no prior radiation or chemotherapy.",
-    "verified": "2026-09-05",
+    "verified": "2026-10-12",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",
@@ -7250,7 +7290,8 @@
     "funding_status": "Fully funded",
     "treatment_approaches": [
       "immunotherapy"
-    ]
+    ],
+    "special_requirement": "Pathology-confirmed soft tissue sarcoma 4–10 cm. Every dog receives surgery and standard radiation; XCSgel or placebo is blinded. No previous chemotherapy or radiation; NC State confirms the treatment sequence and other eligibility."
   },
   {
     "id": "ncsu-feline-oral-pivot-c",
@@ -8361,14 +8402,15 @@
       "active_treatment_target": true,
       "extremity_sts": true,
       "max_tumor_cm": 10,
-      "no_metastasis": true
+      "no_metastasis": true,
+      "planned_radiation": true
     },
     "excludes": {
       "pulmonary_metastasis": true,
       "regional_lymph_node_metastasis": true
     },
     "notes": "Three proton FLASH-RT treatments over 5–9 days for extremity STS where surgery is not feasible or has been declined. Prior surgery is acceptable.",
-    "verified": "2026-09-05",
+    "verified": "2026-10-12",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",
@@ -8385,6 +8427,10 @@
     "funding_status": "Fully funded",
     "treatment_approaches": [
       "radiation_innovation"
+    ],
+    "special_requirement": "Soft tissue sarcoma of a forelimb or hindlimb: any histologic subtype and grade may be screened. Tumor must be less than 10 cm and in a location amenable to salvage amputation; usual surgery must be infeasible or declined. No lung or regional lymph-node metastasis; anesthesia and wound-healing suitability require Penn assessment.",
+    "broad_disease_families": [
+      "soft_tissue_sarcoma"
     ]
   },
   {
@@ -8786,19 +8832,19 @@
     "study_type": "other_treatment_access",
     "status": "Participation currently possible on the University of Zurich study page",
     "available_for_matching": true,
-    "verified": "2026-09-18",
+    "verified": "2026-10-12",
     "status_confidence": "confirmed_current",
     "url": "https://www.tierspital.uzh.ch/forschungsprojekte/strahlensensivitaet-hirntumor-meningiom/",
     "contacts": "University of Zurich Oncology — onkologie@vetclinics.uzh.ch",
     "funding": "The university states that MRI, tumor biopsy and molecular analysis are covered; follow-up imaging is discounted. Confirm radiotherapy and other owner-paid costs directly.",
     "requires": {
-      "confirmed": true,
       "active_treatment_target": true,
       "planned_radiation": true
     },
     "excludes": {},
     "notes": "Dogs receive standard ten-session radiotherapy. The research component is tumor sampling and genomic analysis to study radiation sensitivity, so this is classified as treatment access rather than an experimental anticancer-treatment trial.",
-    "owner_prescreen_required": true
+    "owner_prescreen_required": true,
+    "special_requirement": "This protocol is for suspected meningioma, rather than all brain-tumor histologies. Zurich confirms the MRI diagnosis and performs study biopsy before ten radiation sessions; anesthesia and radiation suitability require clinical assessment."
   },
   {
     "id": "ch-zurich-sts-fluorescence-guided-surgery",
@@ -8812,7 +8858,7 @@
     "study_type": "treatment",
     "status": "Recruiting",
     "available_for_matching": true,
-    "verified": "2026-10-08",
+    "verified": "2026-10-12",
     "status_confidence": "confirmed_current",
     "url": "https://www.tierspital.uzh.ch/forschungsprojekte/studie-fluoreszenzbildgebung-weichteilsarkome/",
     "contacts": "University of Zurich Oncology — onkologie@vetclinics.uzh.ch",
@@ -8838,6 +8884,10 @@
         "country": "Switzerland",
         "source_url": "https://www.tierspital.uzh.ch/forschungsprojekte/studie-fluoreszenzbildgebung-weichteilsarkome/"
       }
+    ],
+    "special_requirement": "Confirmed soft tissue sarcoma requiring surgery, or an incompletely removed tumor needing re-excision; gross tumor is not required in every case. Zurich must confirm histology, surgical suitability and anesthesia risk. Mild, controlled heart/kidney disease is not an automatic exclusion.",
+    "broad_disease_families": [
+      "soft_tissue_sarcoma"
     ]
   },
   {
@@ -10163,7 +10213,7 @@
     "registry_url_verified": "2026-09-09",
     "status": "Actively recruiting — confirmed on Ohio State's current clinical-trials page",
     "status_confidence": "confirmed_current",
-    "verified": "2026-09-10",
+    "verified": "2026-10-12",
     "title": "Immunotherapy for canine oral melanoma",
     "center": "The Ohio State University Veterinary Medical Center",
     "country": "USA",
@@ -10177,7 +10227,9 @@
     "requires": {
       "confirmed": true,
       "active_treatment_target": true,
-      "measurable": true
+      "measurable": true,
+      "localized": true,
+      "planned_surgery": true
     },
     "excludes": {
       "prior_local_radiation": true,
@@ -10189,7 +10241,8 @@
     "owner_prescreen_required": true,
     "treatment_approaches": [
       "immunotherapy"
-    ]
+    ],
+    "special_requirement": "Localized oral melanoma accessible for percutaneous injection and needle biopsy; surgical removal follows study treatment one week later. Immune deficiency, immunosuppressive medication and previous local radiation exclude enrollment."
   },
   {
     "id": "osu-probiome-bladder",
@@ -10564,12 +10617,13 @@
       "indolent_lymphoma": true
     },
     "notes": "MSU dose-escalation treatment study for tumor-bearing dogs using CMP-002 alone or with PD-1 blockade. Public criteria require one of five confirmed diagnoses (soft tissue sarcoma, lymphoma, osteosarcoma, histiocytic sarcoma or malignant melanoma), a visible tumor, adequate organ function, minimum 5 kg body weight, expected survival of at least 4 weeks with treatment, and no anticancer treatment including steroids within 7 days.",
-    "verified": "2026-10-08",
+    "verified": "2026-10-12",
     "status_confidence": "confirmed_current",
     "owner_prescreen_required": true,
     "treatment_approaches": [
       "immunotherapy"
-    ]
+    ],
+    "special_requirement": "This is a dose-finding study of CMP-002 with or without PD-1 blockade. MSU states that evaluation of anticancer properties is planned for later studies; clinical benefit for enrolled dogs is unproven. Eligible diagnoses are soft tissue sarcoma, lymphoma, osteosarcoma, histiocytic sarcoma or malignant melanoma, with a visible tumor, weight at least 5 kg, adequate organ function and expected survival of at least four weeks. No anticancer treatment including steroids within seven days; indolent lymphoma is excluded."
   },
   {
     "id": "vt-canine-glioma-ced",
@@ -10775,12 +10829,16 @@
     "requires": {
       "confirmed": true,
       "active_treatment_target": true,
-      "prior_chemo": false
+      "prior_chemo": false,
+      "planned_chemo": true
     },
-    "excludes": {},
+    "excludes": {
+      "prior_local_radiation": true,
+      "prior_immunotherapy": true
+    },
     "notes": "Dogs with diagnosed B-cell lymphoma seen at Cornell may enroll if they have received no previous lymphoma treatment other than prednisolone and will pursue standard-of-care CHOP chemotherapy. Tumor biology is used to assign a pre-treatment drug, given either as four oral doses over 14 days or as five consecutive daily injections. All dogs then receive routine CHOP; there is no placebo.",
     "intervention": "Tumor-biology-selected pre-treatment drug followed by standard-of-care CHOP chemotherapy",
-    "verified": "2026-09-17",
+    "verified": "2026-10-12",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",
@@ -10792,7 +10850,8 @@
         "city": "Ithaca",
         "state": "NY"
       }
-    ]
+    ],
+    "special_requirement": "No previous cancer treatment other than prednisolone; standard chemotherapy is required. Cornell assigns a short pre-treatment regimen before CHOP; the team must confirm eligibility and the treatment schedule."
   },
   {
     "id": "penn-atherton-steap1-car-t-hs",
@@ -11503,16 +11562,16 @@
     "funding_source": "https://clinicaltrials.csuveterinaryhealth.org/s/non-surgical-chemotherapy-treatment-for-canine-brain-tumors-836628/?ref=gallery",
     "funding_verified": "2026-09-30",
     "requires": {
-      "confirmed": true,
       "active_treatment_target": true,
-      "min_weight_kg": 10
+      "min_weight_kg": 10,
+      "planned_chemo": true
     },
     "excludes": {
       "prior_chemo": true,
       "prior_radiation": true
     },
     "notes": "CSU protocol IACUC 6276 enrolls dogs weighing at least 10 kg (22 lb) with an MRI-confirmed brain tumor, particularly glioma, that are otherwise healthy. Dogs receive oral verdinexor twice weekly for six months and return on Days 1, 7, 21 and 42 and at Months 3 and 6. Prior chemotherapy or radiation excludes enrollment; final neurologic and anesthesia eligibility requires study-team prescreening.",
-    "verified": "2026-09-30",
+    "verified": "2026-10-12",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",
@@ -11530,7 +11589,8 @@
     "treatment_approaches": [
       "chemotherapy",
       "targeted_therapy"
-    ]
+    ],
+    "special_requirement": "A brain tumor confirmed on MRI is sufficient for screening; pathology is not listed as mandatory. Otherwise healthy, no previous chemotherapy or radiation for this tumor; owners give oral verdinexor twice weekly and attend neurologic/MRI follow-up."
   },
   {
     "id": "csu-tvt-single-radiation-2026",
@@ -11644,15 +11704,15 @@
     "funding_source": "https://www.vet.upenn.edu/clinical-trial/flash-based-radioimmunotherapy-in-canine-glioma/",
     "funding_verified": "2026-09-30",
     "requires": {
-      "confirmed": true,
-      "active_treatment_target": true
+      "active_treatment_target": true,
+      "planned_radiation": true
     },
     "excludes": {
       "prior_gilvetmab": true,
       "anesthesia_contraindicated": true
     },
     "notes": "Dogs need histopathologic confirmation of glioma or diagnostic MRI showing a supratentorial lesion consistent with glioma, must be suitable for general anesthesia, and must have a tumor compatible with the FLASH equipment. Systemic chemotherapy or immunotherapy requires a three-week washout; prior gilvetmab is not allowed. All dogs receive three FLASH proton treatments and are randomized to receive or not receive three gilvetmab infusions, with 12 follow-up visits over 11 months.",
-    "verified": "2026-09-30",
+    "verified": "2026-10-12",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",
@@ -11672,7 +11732,8 @@
       "radiation",
       "immunotherapy"
     ],
-    "address": "Penn Vet Ryan Veterinary Hospital, 3900 Spruce Street, Philadelphia, PA 19104"
+    "address": "Penn Vet Ryan Veterinary Hospital, 3900 Spruce Street, Philadelphia, PA 19104",
+    "special_requirement": "Glioma may be established by pathology or diagnostic MRI showing a supratentorial lesion. Three FLASH radiation treatments are required, with randomization to Gilvetmab. No systemic chemotherapy or immunotherapy within three weeks and no previous Gilvetmab; anesthesia suitability and compatibility with FLASH equipment require Penn assessment."
   },
   {
     "id": "jp-tokyo-organoid-guided-targeted-therapy-2026",
@@ -11753,7 +11814,6 @@
     "funding_source": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
     "funding_verified": "2026-09-30",
     "requires": {
-      "confirmed": true,
       "active_treatment_target": true
     },
     "excludes": {
@@ -11762,7 +11822,7 @@
       "prior_surgery": true
     },
     "notes": "Veterinarian-led trial for cats diagnosed or suspected to have bladder or urethral transitional cell carcinoma. Cats must not have received chemotherapy, radiation or tumor-removal surgery; NSAIDs are allowed. Owners give oral lapatinib once daily and return to Tokyo approximately every four weeks for response and safety assessment.",
-    "verified": "2026-09-30",
+    "verified": "2026-10-12",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",
@@ -11781,7 +11841,8 @@
     "treatment_approaches": [
       "targeted_therapy"
     ],
-    "address": "1-1-1 Yayoi, Bunkyo-ku, Tokyo 113-0032, Japan"
+    "address": "1-1-1 Yayoi, Bunkyo-ku, Tokyo 113-0032, Japan",
+    "special_requirement": "Cats with suspected or diagnosed bladder/urethral transitional cell carcinoma can be referred for screening. No previous chemotherapy, radiation or surgical resection; NSAIDs are allowed. Tokyo confirms the diagnosis at the initial visit, and owners must give daily oral treatment and attend follow-up."
   },
   {
     "id": "jp-tokyo-canine-bladder-ido1-inhibitor",
@@ -11801,12 +11862,11 @@
     "funding_source": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
     "funding_verified": "2026-09-30",
     "requires": {
-      "confirmed": true,
       "active_treatment_target": true
     },
     "excludes": {},
     "notes": "Dogs with bladder cancer, including suspected cases referred for confirmation, may be screened. Owners administer the oral IDO1 inhibitor twice daily, return at Weeks 1, 3 and 5 for safety and response evaluation, and must permit lesion sampling. Full medical eligibility requires investigator review.",
-    "verified": "2026-09-30",
+    "verified": "2026-10-12",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",
@@ -11826,7 +11886,8 @@
       "targeted_therapy",
       "immunotherapy"
     ],
-    "address": "1-1-1 Yayoi, Bunkyo-ku, Tokyo 113-0032, Japan"
+    "address": "1-1-1 Yayoi, Bunkyo-ku, Tokyo 113-0032, Japan",
+    "special_requirement": "Dogs with suspected bladder carcinoma may attend Tokyo for screening. The center must confirm the diagnosis, lesion sampling and eligibility; owners give twice-daily oral treatment and attend weeks 1, 3 and 5."
   },
   {
     "id": "jp-tokyo-macromolecular-pirarubicin-solid-tumors",

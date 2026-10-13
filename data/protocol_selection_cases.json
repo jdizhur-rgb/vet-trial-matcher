@@ -41,7 +41,8 @@
           },
           "expected": "exclude"
         }
-      ]
+      ],
+      "selection_sha256": "fbbf1f509df254cfd217f327e5963691fe85dc87bf4495533057bf18bfcb70e8"
     },
     {
       "trial_id": "uf-osa-mrna",
@@ -74,7 +75,8 @@
           },
           "expected": "exclude"
         }
-      ]
+      ],
+      "selection_sha256": "4aed08f303eb9be1e6c2412a5eb06a46538dfcffc2efe22fd5eeb1f92154a242"
     },
     {
       "trial_id": "eu-it-unimi-oncofap-mmae",
@@ -110,7 +112,8 @@
             "FAP"
           ]
         }
-      ]
+      ],
+      "selection_sha256": "b511cc070d06e5401e1176e54a02e0d19be0246bf7d1a0cdff39121be0584482"
     },
     {
       "trial_id": "osu-osa-ai-sbrt",
@@ -177,7 +180,8 @@
             "fracture"
           ]
         }
-      ]
+      ],
+      "selection_sha256": "70efdd4d628483a3e76d83c1dd3947a61e71eccd1ff3b7cc7c382020479bd0f3"
     },
     {
       "trial_id": "ill-osa-il12-rt-current",
@@ -250,7 +254,8 @@
           },
           "expected": "exclude"
         }
-      ]
+      ],
+      "selection_sha256": "9f88b0a0864b5ac3bcae62919d193f9121d240dd92c916846ec8731b65350aa8"
     },
     {
       "trial_id": "ill-osa-z007-current",
@@ -297,7 +302,8 @@
             "respiratory"
           ]
         }
-      ]
+      ],
+      "selection_sha256": "a635e442dd72be9635036dfc81a3d2abfe6969e21608e7aa5eb92e50231a0db6"
     },
     {
       "trial_id": "illinois-sts-surgery",
@@ -349,7 +355,8 @@
             "Illinois"
           ]
         }
-      ]
+      ],
+      "selection_sha256": "704b441ba9194a3b4c53699cb21e3305ca458499f67f392eb500826606ee4a72"
     },
     {
       "trial_id": "illinois-sts-treatment",
@@ -406,7 +413,8 @@
             "6-week"
           ]
         }
-      ]
+      ],
+      "selection_sha256": "3f4927ce868e80721bc6c3d75623a90c8a98704564cc08c34be3e9d2efb6bec1"
     },
     {
       "trial_id": "illinois-ucc-gilvetmab-epacadostat",
@@ -455,7 +463,8 @@
             "BRAF"
           ]
         }
-      ]
+      ],
+      "selection_sha256": "edf7a3867b807fadc82bac4098dccb00368126c7520992b2b4a5e61434077b8c"
     },
     {
       "trial_id": "csu-osa-car-t-met",
@@ -503,7 +512,8 @@
           },
           "expected": "exclude"
         }
-      ]
+      ],
+      "selection_sha256": "3f82858dc808ac1ab4fcf70fad73e780767d5b7f74922c54669a2d13ff589577"
     },
     {
       "trial_id": "csu-brain-cart-verdinexor",
@@ -559,7 +569,8 @@
             "MRI"
           ]
         }
-      ]
+      ],
+      "selection_sha256": "540993479744e62b82ac81f98fd00abacdf70d45f73a6546900e52445fb3b22c"
     },
     {
       "trial_id": "tufts-met-osa-vaccine-tme",
@@ -618,7 +629,8 @@
             "organ"
           ]
         }
-      ]
+      ],
+      "selection_sha256": "82317333cdaef6616d6bc3abd61a3acc8441ed440cc74002f312ad46c9020eaf"
     },
     {
       "trial_id": "osu-sts-mic-nk",
@@ -667,7 +679,8 @@
             "immune"
           ]
         }
-      ]
+      ],
+      "selection_sha256": "a6798ce5cf62c6b1ccd438e02a56df83b7688cad53284a63d2d8274c5681061a"
     },
     {
       "trial_id": "ethos-gilvetmab-melanoma",
@@ -700,7 +713,8 @@
           },
           "expected": "exclude"
         }
-      ]
+      ],
+      "selection_sha256": "a0249cad77523b6d07dfae3a7fd57e00338dde1d9fb77622856cd24c91b9224c"
     },
     {
       "trial_id": "ethos-osa-vaccine",
@@ -742,7 +756,1126 @@
           },
           "expected": "exclude"
         }
-      ]
+      ],
+      "selection_sha256": "4a9eacf603e9306fd24a81beee7a1181cca27bc67038f5a9f8da4ac02fe093b6"
+    },
+    {
+      "trial_id": "cornell-smart-start-bcell-lymphoma",
+      "source_url": "https://www.vet.cornell.edu/hospitals/clinical-trials/smart-start-therapy-canine-b-cell-lymphoma",
+      "reviewed_at": "2026-10-12T22:49:56.329874-04:00",
+      "criteria": "Dog; B-cell lymphoma, no prior treatment except prednisolone; willing to pursue standard chemotherapy.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "B-cell lymphoma",
+            "steroids": "Currently taking"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "B-cell lymphoma",
+            "steroids": "Currently taking",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "T-cell lymphoma",
+            "steroids": "Currently taking"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "B-cell lymphoma",
+            "steroids": "Currently taking",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "B-cell lymphoma",
+            "steroids": "Currently taking",
+            "radiation": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "B-cell lymphoma",
+            "steroids": "Currently taking",
+            "immunotherapy_history": "Previously received"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "7a8cbb30ac2623135e61fdba2557140bbf969c84b7fbc73ea86da36dcd8bab8e"
+    },
+    {
+      "trial_id": "osu-oral-melanoma",
+      "source_url": "https://vmc.vet.osu.edu/clinical-trials/immunotherapy-canine-oral-melanoma",
+      "reviewed_at": "2026-10-12T22:49:56.329874-04:00",
+      "criteria": "Dog; localized confirmed oral melanoma, injectable/biopsy-accessible tumor; surgery one week after injection; no prior local radiation or immunosuppressive medication.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Oral melanoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Oral melanoma",
+            "localized": "No"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Oral melanoma",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Oral melanoma",
+            "radiation": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Oral melanoma",
+            "immunosuppressive": "Yes"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "86abd80a591a7113edfd5bcf4a3bb2c8e9433c1bf159b679f2da395c2d0c2ed2"
+    },
+    {
+      "trial_id": "csu-glioma-verdinexor-only-2026",
+      "source_url": "https://clinicaltrials.csuveterinaryhealth.org/s/non-surgical-chemotherapy-treatment-for-canine-brain-tumors-836628/?ref=gallery",
+      "reviewed_at": "2026-10-12T22:49:56.329874-04:00",
+      "criteria": "Dog; MRI-confirmed brain tumor, >=10kg, no prior chemotherapy/radiation; oral verdinexor and health screening.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "radiation": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "weight_known": true,
+            "weight_lb": 19.8416035962
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "bfd2dd532a5d06420588a79a3fd12a9f135ad183306a4a81386a1b484912aea4"
+    },
+    {
+      "trial_id": "penn-glioma-flash-gilvetmab-2026",
+      "source_url": "https://www.vet.upenn.edu/clinical-trial/flash-based-radioimmunotherapy-in-canine-glioma/",
+      "reviewed_at": "2026-10-12T22:49:56.329874-04:00",
+      "criteria": "Dog; glioma established by pathology OR supratentorial diagnostic MRI; FLASH radiation required; no chemotherapy/immunotherapy within3weeks, no prior Gilvetmab; anesthesia/equipment screening.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Mast cell tumor",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "950403b235b74dd267de248f59925b4dfaed57cdbb0012a99d7e1835bca81f72"
+    },
+    {
+      "trial_id": "msu-tcell-lymphoma",
+      "source_url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2/chop-lopp",
+      "reviewed_at": "2026-10-12T22:49:56.329874-04:00",
+      "criteria": "Dog; confirmed peripheral T-cell lymphoma, no indolent or cutaneous form; no prior chemotherapy/radiation; CHOP or LOPP; steroids up to10days only investigator discretion.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "T-cell lymphoma",
+            "steroids": "Currently taking"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "B-cell lymphoma",
+            "steroids": "Currently taking"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Cutaneous epitheliotropic lymphoma",
+            "steroids": "Currently taking"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "T-cell lymphoma",
+            "steroids": "Currently taking",
+            "radiation": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "T-cell lymphoma",
+            "steroids": "Currently taking",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "T-cell lymphoma",
+            "steroids": "Currently taking",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "b34b3d0326d2eb65adba9ac8fb03b54832faa8d27d88348c1cd5cdfad2202562"
+    },
+    {
+      "trial_id": "msu-mct-steroids",
+      "source_url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2/tmrncdmct",
+      "reviewed_at": "2026-10-12T22:49:56.329874-04:00",
+      "criteria": "Dog; confirmed cutaneous trunk MCT above elbow/knee,2–6cm, no metastasis; surgery after prednisone; anticancer/steroids7-day and NSAID5-day washouts; medical steroid/anesthesia suitability.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Mast cell tumor"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Mast cell tumor",
+            "metastasis": "Confirmed metastases"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Mast cell tumor",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Mast cell tumor",
+            "chemo": "Currently receiving"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "c3fe54dd27b6d4a44a973df078f4e494cd63cde2af05b864f5bfc45b9500eb82"
+    },
+    {
+      "trial_id": "jp-tokyo-feline-tcc-lapatinib",
+      "source_url": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
+      "reviewed_at": "2026-10-12T22:49:56.329874-04:00",
+      "criteria": "Cat; bladder/urethral TCC may be suspected at referral; no chemotherapy, radiation or surgical resection; NSAIDs allowed; oral lapatinib and center visits.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "species": "Cat",
+            "country": "Japan",
+            "cancer": "Urothelial carcinoma",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "species": "Dog",
+            "country": "Japan",
+            "cancer": "Urothelial carcinoma",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "species": "Cat",
+            "country": "Japan",
+            "cancer": "Urothelial carcinoma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "species": "Cat",
+            "country": "Japan",
+            "cancer": "Urothelial carcinoma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "radiation": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "species": "Cat",
+            "country": "Japan",
+            "cancer": "Urothelial carcinoma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "surgery": "Yes"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "7965b954c3b862fd41783d67af4f8815dfb944bf3fb0a2eb0bd544c8c05cab53"
+    },
+    {
+      "trial_id": "jp-tokyo-canine-bladder-ido1-inhibitor",
+      "source_url": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
+      "reviewed_at": "2026-10-12T22:49:56.329874-04:00",
+      "criteria": "Dog; bladder carcinoma, suspected cases may attend; lesion sampling and repeat Tokyo visits; oral IDO1 inhibitor.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Urothelial carcinoma",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Urothelial carcinoma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "species": "Cat"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Oral melanoma",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "7acab74ec41ebb80fa13128e9a20b541f3ea577b128aab146f3e227b855f4d2b"
+    },
+    {
+      "trial_id": "mizzou-osa-carboplatin-timing",
+      "source_url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+      "reviewed_at": "2026-10-12T22:56:12.647421-04:00",
+      "criteria": "Dog; ALP-positive bone sarcoma; no previous surgery/treatment or lung metastasis; amputation followed immediately by six carboplatin doses.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "surgery": "Yes"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "radiation": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "immunotherapy_history": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "metastasis": "Confirmed metastases"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "0f8bf6998ba6aae282d20c5aafa37823e254c91a16b03dbe4e38bc85b148d617"
+    },
+    {
+      "trial_id": "mizzou-epitheliotropic-laverdia",
+      "source_url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+      "reviewed_at": "2026-10-12T22:56:12.647421-04:00",
+      "criteria": "Dog; histologically diagnosed cutaneous epitheliotropic lymphoma; no previous cytotoxic chemotherapy/radiation; no concurrent Apoquel/cyclosporine; steroids have conditional washout/stability/progression exceptions.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Cutaneous epitheliotropic lymphoma",
+            "steroids": "Currently taking"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Cutaneous epitheliotropic lymphoma",
+            "steroids": "Currently taking",
+            "radiation": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Cutaneous epitheliotropic lymphoma",
+            "steroids": "Currently taking",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Cutaneous epitheliotropic lymphoma",
+            "steroids": "Currently taking",
+            "immunosuppressive": "Yes"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "B-cell lymphoma",
+            "steroids": "Currently taking"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "d905b52405deeda9285cc4dc07b5dabb95b3a1a841268601c2352852d4cdc7a0"
+    },
+    {
+      "trial_id": "mizzou-pulmonary-carcinoma-gilvetmab",
+      "source_url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+      "reviewed_at": "2026-10-12T22:56:12.647421-04:00",
+      "criteria": "Dog; primary pulmonary carcinoma with gross OR microscopic disease; no immune-mediated disease/severe comorbidity or concurrent steroids/immunosuppressants.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Primary lung tumor",
+            "tumor_status": "Completely removed — clean margins"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Primary lung tumor",
+            "tumor_status": "Completely removed — clean margins",
+            "steroids": "Currently taking"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Primary lung tumor",
+            "tumor_status": "Completely removed — clean margins",
+            "immunosuppressive": "Yes"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Oral melanoma",
+            "tumor_status": "Completely removed — clean margins"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "73cf4550d412d8e203fe2e786d7cf5f7814dc6301725cfddfa8c6407aa9d5024"
+    },
+    {
+      "trial_id": "elias-eci-chemo-osa",
+      "source_url": "https://eliasanimalhealth.com/clinical-studies/eci-combined-with-chemotherapy/",
+      "reviewed_at": "2026-10-12T22:56:12.647421-04:00",
+      "criteria": "Dog; newly diagnosed appendicular OSA, intact limb before amputation, no previous treatment/metastasis; amputation plus1–4 chemotherapy doses then ECI.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "surgery": "Yes"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "radiation": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "immunotherapy_history": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "8cae4aaffdb97b36d8d7f4d11ce75e153eeb194cdea9d03041e8db217e3a675f"
+    },
+    {
+      "trial_id": "anivive-sine-osa-carboplatin",
+      "source_url": "https://www.anitrial.com/trial/selective-inhibition-of-nuclear-export-sine-and-canine-osteosarcoma",
+      "reviewed_at": "2026-10-12T22:56:12.647421-04:00",
+      "criteria": "Dog; OSA with previous Cornell limb amputation, no chemotherapy yet; carboplatin plus verdinexor.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "tumor_status": "Completely removed — clean margins"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "tumor_status": "Completely removed — clean margins",
+            "surgery": "No"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "tumor_status": "Completely removed — clean margins",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "tumor_status": "Completely removed — clean margins",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "4383a47d4e365f64b1e57a0e4061beed68a6b05816bc5ac6b018c7e7000ab082"
+    },
+    {
+      "trial_id": "wsu-sts-local-immunotherapy",
+      "source_url": "https://vrcvet.com/clinical-trials/",
+      "reviewed_at": "2026-10-12T22:56:12.647421-04:00",
+      "criteria": "Current confirmed VRCCO site: dog >=5kg, cutaneous STS >1.7cm, intratumoral T-cell engagers followed by surgery one week later.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Soft tissue sarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Soft tissue sarcoma",
+            "weight_known": true,
+            "weight_lb": 8.8184904872
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Soft tissue sarcoma",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "7e04402e41cd60881a440a0599e4bfb17eedfb5d09df2fddf61ae5fd7d82a277"
+    },
+    {
+      "trial_id": "purdue-bladder-pdl1-vinblastine-deracoxib",
+      "source_url": "https://vet.purdue.edu/wcorc/clinical-trials/canine-urinary-bladder-cancer.php",
+      "reviewed_at": "2026-10-12T22:56:12.647421-04:00",
+      "criteria": "Dog; biopsy-confirmed OR strongly suspected bladder/urethral InvUC; diagnosis confirmed during enrollment; no previous chemotherapy/radiation; vinblastine+deracoxib+cPDL1 mandatory, medication/washout screening.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Urothelial carcinoma",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Urothelial carcinoma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Urothelial carcinoma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "radiation": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Urothelial carcinoma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Urothelial carcinoma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "species": "Cat"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "fee44fc85053b908c371afd5750752c25a18a7e834deda6913b28e0dc64afb6e"
+    },
+    {
+      "trial_id": "umn-glioma-zika-autologous-vax",
+      "source_url": "https://vetmed.umn.edu/canine-brain-tumor-program/available-trials",
+      "reviewed_at": "2026-10-12T22:58:36.518292-04:00",
+      "criteria": "Dog; MRI-confirmed high-grade glioma; tumor surgery required; handling and chest/abdomen screening before enrollment.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "species": "Cat"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Mast cell tumor",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "06000388142f8bf7da774153908bf46957ea159bb9ba05e7e18e82857edea074"
+    },
+    {
+      "trial_id": "umn-glioma-nanoparticle-gene",
+      "source_url": "https://vetmed.umn.edu/canine-brain-tumor-program/available-trials",
+      "reviewed_at": "2026-10-12T22:58:36.518292-04:00",
+      "criteria": "Dog; MRI-confirmed high-grade glioma; tumor surgery required; handling and chest/abdomen screening before enrollment.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "species": "Cat"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Mast cell tumor",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "06000388142f8bf7da774153908bf46957ea159bb9ba05e7e18e82857edea074"
+    },
+    {
+      "trial_id": "ncsu-canine-sts-xcsgel",
+      "source_url": "https://cvm.ncsu.edu/clinical-trial/now-recruiting-dogs-with-soft-tissue-sarcoma/",
+      "reviewed_at": "2026-10-12T22:58:36.518292-04:00",
+      "criteria": "Dog; pathology-confirmed STS4–10cm, no previous chemotherapy/radiation; standard radiation plus surgery for every dog, randomizedXCSgel/placebo.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Soft tissue sarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Soft tissue sarcoma",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Soft tissue sarcoma",
+            "prefs": [
+              "Surgery"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Soft tissue sarcoma",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Soft tissue sarcoma",
+            "radiation": "Previously received"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "0e9770a0cf9e54f93df92d72157452633c46795b5d9da7da04102033bda2502e"
+    },
+    {
+      "trial_id": "uk-ndsr-osa-rfil2-watch",
+      "source_url": "https://www.ndsr.co.uk/information-sheets/osteosarcoma-2/",
+      "reviewed_at": "2026-10-12T22:58:36.518292-04:00",
+      "criteria": "Dog; suspected/proven limbOSA, candidate for amputation OR limb-sparing pluschemotherapy; intratumoral implant beforetumorremoval.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "country": "UK",
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "country": "UK",
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "osa_location": "Axial — skull, spine, rib, or pelvis"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "country": "UK",
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "country": "UK",
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "prefs": [
+              "Surgery"
+            ]
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "71574aa661c1da163dd707bc8b93ba59b4bc8810ea9e179cc4e2643f92af2ce4"
+    },
+    {
+      "trial_id": "ch-zurich-canine-meningioma-genomic-rt",
+      "source_url": "https://www.tierspital.uzh.ch/forschungsprojekte/strahlensensivitaet-hirntumor-meningiom/",
+      "reviewed_at": "2026-10-12T22:58:36.518292-04:00",
+      "criteria": "Dog; suspected meningioma accepted; biopsy/MRI before mandatory10fraction radiation.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "country": "Switzerland",
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "country": "Switzerland",
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "country": "Switzerland",
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "species": "Cat"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "62fd8337d4f48b5605827525b0d8b54722aa1d19d4623455d071e14ff0cdc5d0"
+    },
+    {
+      "trial_id": "ch-zurich-sts-fluorescence-guided-surgery",
+      "source_url": "https://www.tierspital.uzh.ch/forschungsprojekte/studie-fluoreszenzbildgebung-weichteilsarkome/",
+      "reviewed_at": "2026-10-12T22:58:36.518292-04:00",
+      "criteria": "Dog/cat; confirmed STS needing surgery OR incompletely excised STS needing re-excision; heart/kidney disease excluded only if anesthesia impossible; source explicitly discusses feline fibrosarcoma.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "country": "Switzerland",
+            "species": "Cat",
+            "cancer": "Fibrosarcoma",
+            "tumor_status": "Removed — incomplete/dirty margins"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "country": "Switzerland",
+            "species": "Cat",
+            "cancer": "Fibrosarcoma",
+            "tumor_status": "Removed — incomplete/dirty margins",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "country": "Switzerland",
+            "species": "Cat",
+            "cancer": "B-cell lymphoma",
+            "tumor_status": "Removed — incomplete/dirty margins"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "34b901693dad8e5c2b21b31a40da58203097fda6c3d2b7833aedcef9f1bc94b6"
+    },
+    {
+      "trial_id": "penn-flash-rt-extremity-sts",
+      "source_url": "https://www.vet.upenn.edu/clinical-trial/evaluation-of-proton-flash-rt-in-naturally-occurring-canine-extremity-sarcoma/",
+      "reviewed_at": "2026-10-12T22:58:36.518292-04:00",
+      "criteria": "Dog; limbSTS anyhistologic subtype/grade; <10cm, surgeryunfeasible/declined, salvage-amputation accessible; no lung/regional nodemetastasis; FLASH3doses.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Fibrosarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Fibrosarcoma",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Fibrosarcoma",
+            "metastasis": "Confirmed metastases"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Fibrosarcoma",
+            "node_status": "Positive"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "f31fc262600db59711b398d0f101e5782422eeb4d1128122dc7ffe04605a47c2"
+    },
+    {
+      "trial_id": "msu-sting-cmp002-solid-tumors",
+      "source_url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2/dose-escalation-study-for-a-novel-sting-agonist-in-tumor-bearing-dogs",
+      "reviewed_at": "2026-10-13T05:53:37.685208-04:00",
+      "criteria": "Dog; confirmed STS/lymphoma/OSA/HS/malignant melanoma,visible tumor,>=5kg,organ-function and survival screening; no anticancer treatment7days, no indolent lymphoma. Primary purpose dose finding; future efficacy study.",
+      "owner_decision": "Owner explicitly chose retain with clarification when asked about dose-finding classification on 2026-10-12. This exception does not authorize retention of other research-only studies.",
+      "cases": [
+        {
+          "name": "source-supported candidate with dose-finding warning",
+          "patient": {
+            "cancer": "Histiocytic sarcoma"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "dose-finding",
+            "unproven"
+          ]
+        },
+        {
+          "name": "wrong tumor cohort",
+          "patient": {
+            "cancer": "Mast cell tumor"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "minimum weight",
+          "patient": {
+            "cancer": "Histiocytic sarcoma",
+            "weight_known": true,
+            "weight_lb": 8.8184904872
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "dd3eca6782893181fb17a587079fe89e4e78dd0f6f7e6696dd8534529550b29f"
     }
   ]
 }
