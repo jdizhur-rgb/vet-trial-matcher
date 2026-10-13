@@ -1,0 +1,63 @@
+{
+  "checked_at": "2026-10-13T19:21:44.150279-04:00",
+  "deploy_run_id": 38483629765,
+  "deploy": "PASS",
+  "main_sha": "e1e0c6fa132fcaab02fc57f4a25591e7d1fcf72e",
+  "artifacts": {
+    "index.html": {
+      "url": "https://vettrialfinder.com/matcher/",
+      "returncode": 0,
+      "sha256": "4ae0dd581117ab7661de9e7568be0f24e87a5bebe0216f396724b14dc60193bf",
+      "matches_build": true
+    },
+    "matcher.js": {
+      "url": "https://vettrialfinder.com/matcher/matcher.js",
+      "returncode": 0,
+      "sha256": "8a488070a41fcb99393cd70c916ffff0dbd44e79f2c0cba5ac2c56292c99d712",
+      "matches_build": true
+    },
+    "trials.json": {
+      "url": "https://vettrialfinder.com/matcher/trials.json",
+      "returncode": 0,
+      "sha256": "e0f7f330221403603cd8f9a8c79d1ffba13885982616b7fdfb4ec53113e5cd8e",
+      "matches_build": true
+    }
+  },
+  "html_versions": [
+    "trials.json?v=e0f7f33022140360",
+    "matcher.js?v=selection-audit-20261012"
+  ],
+  "live_search": {
+    "checked_at": "2026-10-13T19:23:17.016574-04:00",
+    "method": "Browser UI, native form selectors and rendered DOM snapshots",
+    "inputs": {
+      "species": "Dog",
+      "cancer": "Cancer — any type",
+      "diagnosis_certainty": "I don't know",
+      "age": "",
+      "weight": "",
+      "ZIP": "",
+      "treatments": "all six selected",
+      "approach": "Any approach"
+    },
+    "USA": {
+      "actual": 104,
+      "expected_from_current_loading_regression": 104,
+      "result": "PASS"
+    },
+    "Japan": {
+      "actual": 10,
+      "expected_from_current_loading_regression": 10,
+      "result": "PASS"
+    },
+    "France": {
+      "actual": 5,
+      "corrected_records_rendered": [
+        "eu-fr-hifu-urothelial",
+        "eu-fr-oral-intratumoral-immunotherapy"
+      ],
+      "new_primary_links_and_literal_funding_rendered": true,
+      "result": "PASS"
+    }
+  }
+}
