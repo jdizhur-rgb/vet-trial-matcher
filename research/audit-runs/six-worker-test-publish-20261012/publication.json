@@ -1,0 +1,54 @@
+{
+  "run_id": "six-worker-test-publish-20261012",
+  "status": "complete",
+  "published_at": "2026-10-13T03:47:10Z",
+  "deployed_commit": "175b15deb5549213e0626d92446ec627395a5547",
+  "initial_commit": "86e7f2e4f3733145bd0ce2ac33db4338b2d071a5",
+  "deployment": {
+    "workflow": "Build and deploy static site",
+    "run_id": 38343159327,
+    "url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/38343159327",
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "checks": {
+    "copied_evidence_keys": "success",
+    "full_catalog_integrity_audit": "success",
+    "build_and_deploy_static_site": "success",
+    "local_reconciliation_and_regression_suite": "success"
+  },
+  "production_readback": [
+    {
+      "url": "https://vettrialfinder.com/matcher/centers/",
+      "bytes": 407468,
+      "sha256": "370376d86af37b7bf4d84efb66422e0f8faf6000ad939318d50c19beb73b9501",
+      "expected_sha256": "370376d86af37b7bf4d84efb66422e0f8faf6000ad939318d50c19beb73b9501",
+      "exact_match": true
+    },
+    {
+      "url": "https://vettrialfinder.com/online-oncology-consultations/",
+      "bytes": 163465,
+      "sha256": "219cf03741b76440222594a484a181e847188305c418af2111ef0cb50ea34b21",
+      "expected_sha256": "219cf03741b76440222594a484a181e847188305c418af2111ef0cb50ea34b21",
+      "exact_match": true
+    }
+  ],
+  "published_scope": {
+    "existing_record_field_corrections": 29,
+    "new_center_records": 5,
+    "new_center_ids": [
+      "bay-state-veterinary-emergency-specialty-services",
+      "ottawa-animal-emergency-specialty-hospital",
+      "king-animal-hospital",
+      "bristol-vet-specialists",
+      "hokkaido-university-veterinary-medical-center"
+    ]
+  },
+  "deferred_details": "See integration.json and the preserved worker result/proposal files. No deferred claim was promoted to the public catalog.",
+  "transport_repair": {
+    "first_deploy_run_id": 38343019007,
+    "first_deploy_conclusion": "failure",
+    "cause": "Three large JSON blobs were truncated by the connector transfer boundary.",
+    "resolution": "Re-uploaded the three files in bounded chunks, verified each Git blob SHA against the local Git object, and redeployed successfully. Source data did not change."
+  }
+}
