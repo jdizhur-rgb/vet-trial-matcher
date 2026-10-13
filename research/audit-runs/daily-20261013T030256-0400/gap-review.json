@@ -1,0 +1,2319 @@
+{
+  "schema_version": 1,
+  "original_run_id": "daily-20261013T030256-0400",
+  "created_at": "2026-10-13T03:27:46.472653-04:00",
+  "rows": [
+    {
+      "source_id": "registry-avma-veterinary-clinical-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=True, Web-open=True, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "attempted_urls": [
+          "https://veterinaryclinicaltrials.org/",
+          "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1",
+          "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=500&take=500",
+          "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=0&take=500",
+          "https://veterinaryclinicaltrials.org/",
+          "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://veterinaryclinicaltrials.org/; shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1; shell_curl retrieved_official_content https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=500&take=500; shell_curl retrieved_official_content https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=0&take=500; Web_open retrieved https://veterinaryclinicaltrials.org/; Web_open unavailable https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "directory-veterinary-cancer-society",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+      "reason": "Current result=unreachable; usable native=False, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "directory-veterinary-cancer-society",
+        "attempted_urls": [
+          "https://vetcancersociety.org/resources/clinical-trials/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+        "routes_exhausted_evidence": "shell_curl forbidden_no_cross_tool_retry https://vetcancersociety.org/resources/clinical-trials/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-johns-hopkins-cigat",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-johns-hopkins-cigat",
+        "attempted_urls": [
+          "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+          "https://www.hopkinsmedicine.org/radiology/vctn",
+          "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+          "https://www.hopkinsmedicine.org/radiology/vctn"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn474view1",
+          "turn474view3"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials; shell_curl transport_timeout_after_allowed_retry https://www.hopkinsmedicine.org/radiology/vctn; Web_open retrieved https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials; Web_open retrieved https://www.hopkinsmedicine.org/radiology/vctn",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-lsu-vet-clinical-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-lsu-vet-clinical-trials",
+        "attempted_urls": [
+          "https://www.lsu.edu/vetmed/veterinary_hospital/clinical_trials.php",
+          "https://www.lsu.edu/vetmed/veterinary_hospital/clinical_trials.php"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn474view4"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.lsu.edu/vetmed/veterinary_hospital/clinical_trials.php; Web_open retrieved https://www.lsu.edu/vetmed/veterinary_hospital/clinical_trials.php",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-michigan-state-oncology-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-michigan-state-oncology-trials",
+        "attempted_urls": [
+          "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2",
+          "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn474view6"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2; Web_open retrieved https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-missouri-oncology-clinical-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-missouri-oncology-clinical-trials",
+        "attempted_urls": [
+          "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+          "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn474view10"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/; Web_open retrieved https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-nc-state-clinical-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-nc-state-clinical-trials",
+        "attempted_urls": [
+          "https://cvm.ncsu.edu/research/clinical-trials/",
+          "https://cvm.ncsu.edu/research/clinical-trials/oncology/",
+          "https://cvm.ncsu.edu/research/clinical-trials/",
+          "https://cvm.ncsu.edu/research/clinical-trials/oncology/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn474view12",
+          "turn474view14"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl transport_timeout_after_allowed_retry https://cvm.ncsu.edu/research/clinical-trials/; shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://cvm.ncsu.edu/research/clinical-trials/oncology/; Web_open retrieved https://cvm.ncsu.edu/research/clinical-trials/; Web_open retrieved https://cvm.ncsu.edu/research/clinical-trials/oncology/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-ohio-state-current-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-ohio-state-current-trials",
+        "attempted_urls": [
+          "https://vmc.vet.osu.edu/clinical-trials-office/current-trials",
+          "https://vmc.vet.osu.edu/clinical-trials-office/current-trials"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn475view0"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://vmc.vet.osu.edu/clinical-trials-office/current-trials; Web_open retrieved https://vmc.vet.osu.edu/clinical-trials-office/current-trials",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-oregon-state-oncology-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-oregon-state-oncology-trials",
+        "attempted_urls": [
+          "https://vetmed.oregonstate.edu/research/oncology-clinical-trials",
+          "https://vetmed.oregonstate.edu/research/oncology-clinical-trials"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn475view2"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://vetmed.oregonstate.edu/research/oncology-clinical-trials; Web_open retrieved https://vetmed.oregonstate.edu/research/oncology-clinical-trials",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-penn-vet-clinical-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=True, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-penn-vet-clinical-trials",
+        "attempted_urls": [
+          "https://www.vet.upenn.edu/clinical-trials/",
+          "https://www.vet.upenn.edu/clinical-trial/",
+          "https://www.vet.upenn.edu/veterinary_specialty/oncology/",
+          "https://www.vet.upenn.edu/ryan-hospital/clinical-trials/",
+          "https://www.vet.upenn.edu/clinical-trials/",
+          "https://www.vet.upenn.edu/clinical-trial/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn475view6"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.vet.upenn.edu/clinical-trials/; shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.vet.upenn.edu/clinical-trial/; shell_curl_capture_repair retrieved_official_content https://www.vet.upenn.edu/veterinary_specialty/oncology/; shell_curl_capture_repair retrieved_official_content https://www.vet.upenn.edu/ryan-hospital/clinical-trials/; Web_open unavailable https://www.vet.upenn.edu/clinical-trials/; Web_open retrieved https://www.vet.upenn.edu/clinical-trial/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-purdue-wcorc-clinical-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-purdue-wcorc-clinical-trials",
+        "attempted_urls": [
+          "https://www.vet.purdue.edu/wcorc/clinical-trials/",
+          "https://www.vet.purdue.edu/wcorc/clinical-trials/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn475view8"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.vet.purdue.edu/wcorc/clinical-trials/; Web_open retrieved https://www.vet.purdue.edu/wcorc/clinical-trials/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-tennessee-vet-clinical-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-tennessee-vet-clinical-trials",
+        "attempted_urls": [
+          "https://vetmed.tennessee.edu/research/clinical-trials/",
+          "https://vetmed.tennessee.edu/research/clinical-trials/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn475view11"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://vetmed.tennessee.edu/research/clinical-trials/; Web_open retrieved https://vetmed.tennessee.edu/research/clinical-trials/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-tufts-clinical-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-tufts-clinical-trials",
+        "attempted_urls": [
+          "https://vet.tufts.edu/clinical-trials",
+          "https://vet.tufts.edu/clinical-trials"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn475view12"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://vet.tufts.edu/clinical-trials; Web_open retrieved https://vet.tufts.edu/clinical-trials",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-uc-davis-vcct",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=True, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-uc-davis-vcct",
+        "attempted_urls": [
+          "https://clinicaltrials.vetmed.ucdavis.edu/",
+          "https://clinicaltrials.vetmed.ucdavis.edu/clinical-trial-articles-news",
+          "https://studypages.com/ucdavisvet/studies/",
+          "https://studypages.com/ucdavisvet/studies/search/json/?skip=0&take=500",
+          "https://clinicaltrials.vetmed.ucdavis.edu/",
+          "https://studypages.com/ucdavisvet/studies/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn475view15"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://clinicaltrials.vetmed.ucdavis.edu/; shell_curl_capture_repair retrieved_official_content https://clinicaltrials.vetmed.ucdavis.edu/clinical-trial-articles-news; shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://studypages.com/ucdavisvet/studies/; shell_curl retrieved_official_content https://studypages.com/ucdavisvet/studies/search/json/?skip=0&take=500; Web_open retrieved https://clinicaltrials.vetmed.ucdavis.edu/; Web_open retrieved https://studypages.com/ucdavisvet/studies/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-florida-oncology-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-florida-oncology-trials",
+        "attempted_urls": [
+          "https://research.vetmed.ufl.edu/research-programs/clinical-trials/oncology/",
+          "https://research.vetmed.ufl.edu/research-programs/clinical-trials/oncology/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn476view2"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://research.vetmed.ufl.edu/research-programs/clinical-trials/oncology/; Web_open retrieved https://research.vetmed.ufl.edu/research-programs/clinical-trials/oncology/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-georgia-clinical-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=True, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-georgia-clinical-trials",
+        "attempted_urls": [
+          "https://vet.uga.edu/research/clinical-trials/",
+          "https://vet.uga.edu/clinical-trial/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl retrieved_official_content https://vet.uga.edu/research/clinical-trials/; shell_curl retrieved_official_content https://vet.uga.edu/clinical-trial/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-bluepearl-science-clinical-studies",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=True, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-bluepearl-science-clinical-studies",
+        "attempted_urls": [
+          "https://bluepearlvet.com/current-clinical-studies/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl retrieved_official_content https://bluepearlvet.com/current-clinical-studies/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-wisconsin-oncology-studies",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+      "reason": "Current result=unreachable; usable native=False, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-wisconsin-oncology-studies",
+        "attempted_urls": [
+          "https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/",
+          "https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/; Web_open unavailable https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-ethos-clinical-studies",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-ethos-clinical-studies",
+        "attempted_urls": [
+          "https://www.ethosvet.com/clinical-studies/",
+          "https://www.ethosvet.com/medical-professionals/",
+          "https://www.ethosvet.com/faqs-clinical-studies-at-ethos/",
+          "https://www.ethosvet.com/medical-professionals/",
+          "https://www.ethosvet.com/faqs-clinical-studies-at-ethos/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl not_found https://www.ethosvet.com/clinical-studies/; shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.ethosvet.com/medical-professionals/; shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.ethosvet.com/faqs-clinical-studies-at-ethos/; Web_open retrieved https://www.ethosvet.com/medical-professionals/; Web_open retrieved https://www.ethosvet.com/faqs-clinical-studies-at-ethos/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-medvet-clinical-studies",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-medvet-clinical-studies",
+        "attempted_urls": [
+          "https://www.medvet.com/clinical-studies/",
+          "https://www.medvet.com/clinical-studies/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn477view4"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.medvet.com/clinical-studies/; Web_open retrieved https://www.medvet.com/clinical-studies/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-castr-alliance-studies",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=False, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-castr-alliance-studies",
+        "attempted_urls": [
+          "https://castr-wa.com/",
+          "https://castr-wa.com/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn477view6"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://castr-wa.com/; Web_open retrieved https://castr-wa.com/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-anivive-trials",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+      "reason": "Current result=unreachable; usable native=False, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-anivive-trials",
+        "attempted_urls": [
+          "https://www.anivive.com/trials",
+          "https://anivivelifesciences.com/trials",
+          "https://anivivelifesciences.com/treatments",
+          "https://www.anivive.com/trials",
+          "https://anivivelifesciences.com/trials",
+          "https://anivivelifesciences.com/treatments"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+        "routes_exhausted_evidence": "shell_curl http_500 https://www.anivive.com/trials; shell_curl http_525 https://anivivelifesciences.com/trials; shell_curl http_525 https://anivivelifesciences.com/treatments; Web_open retrieved https://www.anivive.com/trials; Web_open unavailable https://anivivelifesciences.com/trials; Web_open unavailable https://anivivelifesciences.com/treatments",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "canada-ovc-active-oncology-trials",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+      "reason": "Current result=unreachable; usable native=False, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "canada-ovc-active-oncology-trials",
+        "attempted_urls": [
+          "https://ovcclinicaltrials.uoguelph.ca/",
+          "https://ovcclinicaltrials.uoguelph.ca/all-active-canine-clinical-trials-oncology/",
+          "https://ovcclinicaltrials.uoguelph.ca/all-active-feline-clinical-trials-onco/",
+          "https://ovcclinicaltrials.uoguelph.ca/",
+          "https://ovcclinicaltrials.uoguelph.ca/all-active-canine-clinical-trials-oncology/",
+          "https://ovcclinicaltrials.uoguelph.ca/all-active-feline-clinical-trials-onco/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://ovcclinicaltrials.uoguelph.ca/; shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://ovcclinicaltrials.uoguelph.ca/all-active-canine-clinical-trials-oncology/; shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://ovcclinicaltrials.uoguelph.ca/all-active-feline-clinical-trials-onco/; Web_open unavailable https://ovcclinicaltrials.uoguelph.ca/; Web_open unavailable https://ovcclinicaltrials.uoguelph.ca/all-active-canine-clinical-trials-oncology/; Web_open unavailable https://ovcclinicaltrials.uoguelph.ca/all-active-feline-clinical-trials-onco/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "europe-esvonc-ongoing-trials",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "europe-esvonc-ongoing-trials",
+        "attempted_urls": [
+          "https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials",
+          "https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn478view4"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials; Web_open retrieved https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "europe-oncowaf-clinical-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "europe-oncowaf-clinical-trials",
+        "attempted_urls": [
+          "https://oncowaf.be/en/ClinicalTrials/searchResults",
+          "https://oncowaf.be/en/ClinicalTrials/searchResults"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn478view6"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://oncowaf.be/en/ClinicalTrials/searchResults; Web_open retrieved https://oncowaf.be/en/ClinicalTrials/searchResults",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "netherlands-utrecht-interventional-oncology",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=True, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "netherlands-utrecht-interventional-oncology",
+        "attempted_urls": [
+          "https://vetoncology.sites.uu.nl/research/interventional/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl retrieved_official_content https://vetoncology.sites.uu.nl/research/interventional/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "switzerland-zurich-clinical-studies",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "switzerland-zurich-clinical-studies",
+        "attempted_urls": [
+          "https://www.tierspital.uzh.ch/kleintiere/onkologie/krebs-tumore-klinische-studien/",
+          "https://www.tierspital.uzh.ch/ueber-uns/lehre-und-forschung/klinische-studien/",
+          "https://www.tierspital.uzh.ch/kleintiere/onkologie/krebs-tumore-klinische-studien/",
+          "https://www.tierspital.uzh.ch/ueber-uns/lehre-und-forschung/klinische-studien/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn478view11"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.tierspital.uzh.ch/kleintiere/onkologie/krebs-tumore-klinische-studien/; shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.tierspital.uzh.ch/ueber-uns/lehre-und-forschung/klinische-studien/; Web_open retrieved https://www.tierspital.uzh.ch/kleintiere/onkologie/krebs-tumore-klinische-studien/; Web_open retrieved https://www.tierspital.uzh.ch/ueber-uns/lehre-und-forschung/klinische-studien/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "uk-rvc-clinical-investigation-centre",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+      "reason": "Current result=unreachable; usable native=False, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "uk-rvc-clinical-investigation-centre",
+        "attempted_urls": [
+          "https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre",
+          "https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre/projects"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+        "routes_exhausted_evidence": "shell_curl forbidden_no_cross_tool_retry https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre; shell_curl forbidden_no_cross_tool_retry https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre/projects",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-kansas-state-vhc-oncology",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-kansas-state-vhc-oncology",
+        "attempted_urls": [
+          "https://www.ksvhc.org/services/specialty-services/oncology/",
+          "https://www.ksvhc.org/services/clinical-trials/",
+          "https://www.ksvhc.org/services/clinical-trials/current-trials/index.html",
+          "https://www.ksvhc.org/services/specialty-services/oncology/",
+          "https://www.ksvhc.org/services/clinical-trials/",
+          "https://www.ksvhc.org/services/clinical-trials/current-trials/index.html"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn478view12",
+          "turn478view15",
+          "turn479view0"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.ksvhc.org/services/specialty-services/oncology/; shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.ksvhc.org/services/clinical-trials/; shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.ksvhc.org/services/clinical-trials/current-trials/index.html; Web_open retrieved https://www.ksvhc.org/services/specialty-services/oncology/; Web_open retrieved https://www.ksvhc.org/services/clinical-trials/; Web_open retrieved https://www.ksvhc.org/services/clinical-trials/current-trials/index.html",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-sage-veterinary-clinical-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=True, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-sage-veterinary-clinical-trials",
+        "attempted_urls": [
+          "https://www.sagecenters.com/clinical-trials"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl retrieved_official_content https://www.sagecenters.com/clinical-trials",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-amcny-current-clinical-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-amcny-current-clinical-trials",
+        "attempted_urls": [
+          "https://www.amcny.org/current-clinical-trials/",
+          "https://www.amcny.org/current-clinical-trials/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn479view4"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.amcny.org/current-clinical-trials/; Web_open retrieved https://www.amcny.org/current-clinical-trials/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-penn-comparative-immunotherapy-trials",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-penn-comparative-immunotherapy-trials",
+        "attempted_urls": [
+          "https://www.vet.upenn.edu/research/research-programs/comparative-immunotherapy-program/clinical-trials/",
+          "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+          "https://www.vet.upenn.edu/clinical-trial/",
+          "https://www.vet.upenn.edu/research/research-programs/comparative-immunotherapy-program/clinical-trials/",
+          "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+          "https://www.vet.upenn.edu/clinical-trial/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn479view6",
+          "turn479view8",
+          "turn479view10"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.vet.upenn.edu/research/research-programs/comparative-immunotherapy-program/clinical-trials/; shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/; shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.vet.upenn.edu/clinical-trial/; Web_open retrieved https://www.vet.upenn.edu/research/research-programs/comparative-immunotherapy-program/clinical-trials/; Web_open retrieved https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/; Web_open retrieved https://www.vet.upenn.edu/clinical-trial/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "australia-uq-school-veterinary-clinical-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "australia-uq-school-veterinary-clinical-trials",
+        "attempted_urls": [
+          "https://veterinary-science.uq.edu.au/community/clinical-trials",
+          "https://veterinary-science.uq.edu.au/community/clinical-trials"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://veterinary-science.uq.edu.au/community/clinical-trials; Web_open retrieved https://veterinary-science.uq.edu.au/community/clinical-trials",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "australia-uq-vets-clinical-research-trials",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+      "reason": "Current result=unreachable; usable native=False, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "australia-uq-vets-clinical-research-trials",
+        "attempted_urls": [
+          "https://uqvets.com.au/about/clinical-research-trials",
+          "https://uqvets.com.au/about/clinical-research-trials"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://uqvets.com.au/about/clinical-research-trials; Web_open retrieved https://uqvets.com.au/about/clinical-research-trials",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "australia-gamgee-cancer-vaccine-trial",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=True, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "australia-gamgee-cancer-vaccine-trial",
+        "attempted_urls": [
+          "https://www.gamgee.io/trial/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl retrieved_official_content https://www.gamgee.io/trial/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "australia-pettrials-directory",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "australia-pettrials-directory",
+        "attempted_urls": [
+          "https://pettrials.com.au/trials/",
+          "https://pettrials.com.au/trials/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://pettrials.com.au/trials/; Web_open retrieved https://pettrials.com.au/trials/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "australia-sash-clinical-research",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "australia-sash-clinical-research",
+        "attempted_urls": [
+          "https://sashvets.com/services/sash-research/",
+          "https://sashvets.com/services/sash-research/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn480view2"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://sashvets.com/services/sash-research/; Web_open retrieved https://sashvets.com/services/sash-research/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "australia-caninecancer-state-research-guide",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=True, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "australia-caninecancer-state-research-guide",
+        "attempted_urls": [
+          "https://www.caninecancer.org.au/ausresearch.html"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl retrieved_official_content https://www.caninecancer.org.au/ausresearch.html",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "australia-medipaws-clinical-research",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=False, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "australia-medipaws-clinical-research",
+        "attempted_urls": [
+          "https://medipaws.com.au/clinical-research",
+          "https://medipaws.com.au/clinical-research"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn480view4"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://medipaws.com.au/clinical-research; Web_open retrieved https://medipaws.com.au/clinical-research",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "australia-bvsc-foundation",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=False, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "australia-bvsc-foundation",
+        "attempted_urls": [
+          "https://www.bvsc.com.au/foundation/",
+          "https://www.bvsc.com.au/foundation/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn480view6"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl transport_timeout_after_allowed_retry https://www.bvsc.com.au/foundation/; Web_open retrieved https://www.bvsc.com.au/foundation/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "australia-anzcvs-science-week-oncology",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "australia-anzcvs-science-week-oncology",
+        "attempted_urls": [
+          "https://www.anzcvs.org.au/chapters/veterinary%2Boncology/news",
+          "https://www.anzcvs.org.au/chapters/veterinary%2Boncology/news"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.anzcvs.org.au/chapters/veterinary%2Boncology/news; Web_open retrieved https://www.anzcvs.org.au/chapters/veterinary%2Boncology/news",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-barc-clinical-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-barc-clinical-trials",
+        "attempted_urls": [
+          "https://www.barcseattle.com/clinical-trials-index",
+          "https://www.barcseattle.com/clinical-trials-index"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn480view10"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.barcseattle.com/clinical-trials-index; Web_open retrieved https://www.barcseattle.com/clinical-trials-index",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "sponsor-vivesto-paccal-status",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=False, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "sponsor-vivesto-paccal-status",
+        "attempted_urls": [
+          "https://www.vivesto.com/en/section/media/press-releases/",
+          "https://www.vivesto.com/en/section/media/press-releases/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn480view12"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.vivesto.com/en/section/media/press-releases/; Web_open retrieved https://www.vivesto.com/en/section/media/press-releases/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-penn-atherton-laboratory",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=False, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-penn-atherton-laboratory",
+        "attempted_urls": [
+          "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+          "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn480view14"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/; Web_open retrieved https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-canine-cancer-alliance-research",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-canine-cancer-alliance-research",
+        "attempted_urls": [
+          "https://www.ccralliance.org/research-projects",
+          "https://www.ccralliance.org/research-projects"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn481view1"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.ccralliance.org/research-projects; Web_open retrieved https://www.ccralliance.org/research-projects",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-wsu-vth-clinical-studies",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+      "reason": "Current result=unreachable; usable native=False, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-wsu-vth-clinical-studies",
+        "attempted_urls": [
+          "https://hospital.vetmed.wsu.edu/appointments/",
+          "https://hospital.vetmed.wsu.edu/small-animal/cats-and-dogs/oncology/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+        "routes_exhausted_evidence": "shell_curl forbidden_no_cross_tool_retry https://hospital.vetmed.wsu.edu/appointments/; shell_curl forbidden_no_cross_tool_retry https://hospital.vetmed.wsu.edu/small-animal/cats-and-dogs/oncology/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "china-dongjun-oncology-trials",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+      "reason": "Current result=unreachable; usable native=False, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "china-dongjun-oncology-trials",
+        "attempted_urls": [
+          "https://www.caudjlab.com/newdetail.aspx?id=73",
+          "https://www.caudjlab.com/newdetail.aspx?id=73"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.caudjlab.com/newdetail.aspx?id=73; Web_open retrieved https://www.caudjlab.com/newdetail.aspx?id=73",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "china-petcura-mrna-iit",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+      "reason": "Current result=unreachable; usable native=False, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "china-petcura-mrna-iit",
+        "attempted_urls": [
+          "https://www.petcura.cn/zh/mrna-vaccine/study/",
+          "https://www.petcura.cn/zh/mrna-vaccine/study/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.petcura.cn/zh/mrna-vaccine/study/; Web_open retrieved https://www.petcura.cn/zh/mrna-vaccine/study/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-nci-comparative-oncology-trials",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+      "reason": "Current result=unreachable; usable native=False, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-nci-comparative-oncology-trials",
+        "attempted_urls": [
+          "https://ccr.cancer.gov/comparative-oncology-program/trials"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+        "routes_exhausted_evidence": "shell_curl forbidden_no_cross_tool_retry https://ccr.cancer.gov/comparative-oncology-program/trials",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "japan-university-of-tokyo-vmc-clinical-research",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+      "reason": "Current result=unreachable; usable native=False, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "japan-university-of-tokyo-vmc-clinical-research",
+        "attempted_urls": [
+          "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
+          "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/; Web_open retrieved https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "japan-kamogawa-oncology-news",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+      "reason": "Current result=unreachable; usable native=False, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "japan-kamogawa-oncology-news",
+        "attempted_urls": [
+          "https://www.kamogawa-ac.jp/category/%E7%97%85%E6%B0%97%E3%82%84%E4%BA%88%E9%98%B2/%E8%85%AB%E7%98%8D%EF%BC%88%E3%82%AC%E3%83%B3%EF%BC%89/",
+          "https://www.kamogawa-ac.jp/2026/09/30/24722/",
+          "https://www.kamogawa-ac.jp/category/%E7%97%85%E6%B0%97%E3%82%84%E4%BA%88%E9%98%B2/%E8%85%AB%E7%98%8D%EF%BC%88%E3%82%AC%E3%83%B3%EF%BC%89/",
+          "https://www.kamogawa-ac.jp/2026/09/30/24722/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+        "routes_exhausted_evidence": "shell_curl transport_timeout_after_allowed_retry https://www.kamogawa-ac.jp/category/%E7%97%85%E6%B0%97%E3%82%84%E4%BA%88%E9%98%B2/%E8%85%AB%E7%98%8D%EF%BC%88%E3%82%AC%E3%83%B3%EF%BC%89/; shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.kamogawa-ac.jp/2026/09/30/24722/; Web_open retrieved https://www.kamogawa-ac.jp/category/%E7%97%85%E6%B0%97%E3%82%84%E4%BA%88%E9%98%B2/%E8%85%AB%E7%98%8D%EF%BC%88%E3%82%AC%E3%83%B3%EF%BC%89/; Web_open retrieved https://www.kamogawa-ac.jp/2026/09/30/24722/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "japan-yamaguchi-vmc-clinical-trials",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+      "reason": "Current result=unreachable; usable native=False, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "japan-yamaguchi-vmc-clinical-trials",
+        "attempted_urls": [
+          "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html",
+          "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/",
+          "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html",
+          "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html; shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/; Web_open retrieved https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html; Web_open retrieved https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "japan-veterinary-cancer-society-clinical-trials",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "japan-veterinary-cancer-society-clinical-trials",
+        "attempted_urls": [
+          "https://www.jvcs.jp/research/clinical-trials/",
+          "https://www.jvcs.jp/research/clinical-trials/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.jvcs.jp/research/clinical-trials/; Web_open retrieved https://www.jvcs.jp/research/clinical-trials/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "japan-jsamc-current-clinical-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=True, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "japan-jsamc-current-clinical-trials",
+        "attempted_urls": [
+          "https://www.jsamc.jp/dr_info/clinical/clinical07.html",
+          "https://www.cure-cancer.jp/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl retrieved_official_content https://www.jsamc.jp/dr_info/clinical/clinical07.html; shell_curl retrieved_official_content https://www.cure-cancer.jp/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "global-vettrials-directory",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=True, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "global-vettrials-directory",
+        "attempted_urls": [
+          "https://vettrials.org/",
+          "https://vettrials.org/api/trials?limit=100&page=2",
+          "https://vettrials.org/api/trials?limit=100&page=3",
+          "https://vettrials.org/api/trials?limit=1000"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl retrieved_official_content https://vettrials.org/; shell_curl retrieved_official_content https://vettrials.org/api/trials?limit=100&page=2; shell_curl retrieved_official_content https://vettrials.org/api/trials?limit=100&page=3; shell_curl retrieved_official_content https://vettrials.org/api/trials?limit=1000",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "canada-saskatchewan-wcvm-research-requests",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=False, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "canada-saskatchewan-wcvm-research-requests",
+        "attempted_urls": [
+          "https://vmc.usask.ca/care/research-requests/list-research-requests-vets.php",
+          "https://vmc.usask.ca/care/research-requests/list-research-requests-vets.php"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn483view4"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://vmc.usask.ca/care/research-requests/list-research-requests-vets.php; Web_open retrieved https://vmc.usask.ca/care/research-requests/list-research-requests-vets.php",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-veterinary-cancer-care-clinical-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-veterinary-cancer-care-clinical-trials",
+        "attempted_urls": [
+          "https://vetcancercare.com/clinical-trials/",
+          "https://vetcancercare.com/clinical-trials/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn483view6"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl transport_timeout_after_allowed_retry https://vetcancercare.com/clinical-trials/; Web_open retrieved https://vetcancercare.com/clinical-trials/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "japan-jvcog-current-clinical-trials",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=True, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "japan-jvcog-current-clinical-trials",
+        "attempted_urls": [
+          "https://www.jvcog.jp/clinical/index.html",
+          "https://www.jvcog.jp/clinical/03rinsho.html"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl retrieved_official_content https://www.jvcog.jp/clinical/index.html; shell_curl retrieved_official_content https://www.jvcog.jp/clinical/03rinsho.html",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "brazil-usp-loct-oncolytic-virus-program",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+      "reason": "Current result=unreachable; usable native=False, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "brazil-usp-loct-oncolytic-virus-program",
+        "attempted_urls": [
+          "https://loct.fzea.usp.br/?page_id=848",
+          "https://loct.fzea.usp.br/?page_id=848"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://loct.fzea.usp.br/?page_id=848; Web_open retrieved https://loct.fzea.usp.br/?page_id=848",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "japan-nvlu-vmc-clinical-research",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+      "reason": "Current result=unreachable; usable native=False, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "japan-nvlu-vmc-clinical-research",
+        "attempted_urls": [
+          "https://www.nvlu.ac.jp/amedical/clinical-research/index.html",
+          "https://www.nvlu.ac.jp/amedical/clinical-research/index.html"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.nvlu.ac.jp/amedical/clinical-research/index.html; Web_open retrieved https://www.nvlu.ac.jp/amedical/clinical-research/index.html",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "brazil-estima-coe-clinical-studies",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "brazil-estima-coe-clinical-studies",
+        "attempted_urls": [
+          "https://estima.com.br/coe/",
+          "https://estima.com.br/coe/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn483view15"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://estima.com.br/coe/; Web_open retrieved https://estima.com.br/coe/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "sponsor-ardent-oncology-clinical-trial",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "sponsor-ardent-oncology-clinical-trial",
+        "attempted_urls": [
+          "https://ardentanimalhealth.com/k9-acv-checkpoint-inhibitor-trial/",
+          "https://studypages.com/s/autologous-cancer-vaccine-with-checkpoint-inhibitor-for-treatment-of-canine-osteosarcoma-565406/",
+          "https://www.unleashtx.com/",
+          "https://ardentanimalhealth.com/k9-acv-checkpoint-inhibitor-trial/",
+          "https://studypages.com/s/autologous-cancer-vaccine-with-checkpoint-inhibitor-for-treatment-of-canine-osteosarcoma-565406/",
+          "https://www.unleashtx.com/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn484view0",
+          "turn484view4"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://ardentanimalhealth.com/k9-acv-checkpoint-inhibitor-trial/; shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://studypages.com/s/autologous-cancer-vaccine-with-checkpoint-inhibitor-for-treatment-of-canine-osteosarcoma-565406/; shell_curl transport_timeout_after_allowed_retry https://www.unleashtx.com/; Web_open retrieved https://ardentanimalhealth.com/k9-acv-checkpoint-inhibitor-trial/; Web_open retrieved https://studypages.com/s/autologous-cancer-vaccine-with-checkpoint-inhibitor-for-treatment-of-canine-osteosarcoma-565406/; Web_open retrieved https://www.unleashtx.com/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "france-alfort-innovative-clinical-trials",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+      "reason": "Current result=unreachable; usable native=False, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "france-alfort-innovative-clinical-trials",
+        "attempted_urls": [
+          "https://www.vet-alfort.fr/services-cliniques/hopital-des-animaux-de-compagnie/les-traitements-innovants",
+          "https://www.vet-alfort.fr/services-cliniques/hopital-des-animaux-de-compagnie/les-traitements-innovants"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.vet-alfort.fr/services-cliniques/hopital-des-animaux-de-compagnie/les-traitements-innovants; Web_open retrieved https://www.vet-alfort.fr/services-cliniques/hopital-des-animaux-de-compagnie/les-traitements-innovants",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "france-oniris-biokera-osa-trial",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+      "reason": "Current result=unreachable; usable native=False, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "france-oniris-biokera-osa-trial",
+        "attempted_urls": [
+          "https://chuv.oniris-nantes.fr/animaux-de-compagnie/chirurgie/osteosarcomes-appendiculaires-chez-le-chien/",
+          "https://chuv.oniris-nantes.fr/animaux-de-compagnie/chirurgie/osteosarcomes-appendiculaires-chez-le-chien/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://chuv.oniris-nantes.fr/animaux-de-compagnie/chirurgie/osteosarcomes-appendiculaires-chez-le-chien/; Web_open retrieved https://chuv.oniris-nantes.fr/animaux-de-compagnie/chirurgie/osteosarcomes-appendiculaires-chez-le-chien/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "foundation-perseus-clinical-trial-discovery",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "foundation-perseus-clinical-trial-discovery",
+        "attempted_urls": [
+          "https://www.theperseusfoundation.com/clinical-trials",
+          "https://www.theperseusfoundation.com/clinical-trials"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn484view10"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl transport_timeout_after_allowed_retry https://www.theperseusfoundation.com/clinical-trials; Web_open retrieved https://www.theperseusfoundation.com/clinical-trials",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "sponsor-evvivax-clinical-trials",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "sponsor-evvivax-clinical-trials",
+        "attempted_urls": [
+          "https://www.evvivax.com/clinical-trials.html",
+          "https://www.evvivax.com/clinical-trials.html"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn484view12"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.evvivax.com/clinical-trials.html; Web_open retrieved https://www.evvivax.com/clinical-trials.html",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "sponsor-curelab-veterinary-research",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "sponsor-curelab-veterinary-research",
+        "attempted_urls": [
+          "https://www.curelaboncology.com/comparative-medicine-and-veterinary-research/",
+          "https://www.curelaboncology.com/comparative-medicine-and-veterinary-research/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl transport_timeout_after_allowed_retry https://www.curelaboncology.com/comparative-medicine-and-veterinary-research/; Web_open retrieved https://www.curelaboncology.com/comparative-medicine-and-veterinary-research/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "india-the-cancer-vet-clinical-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "india-the-cancer-vet-clinical-trials",
+        "attempted_urls": [
+          "https://thecancer.vet/clinical-trials/",
+          "https://thecancer.vet/clinical-trials/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn485view0"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://thecancer.vet/clinical-trials/; Web_open retrieved https://thecancer.vet/clinical-trials/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "foundation-dog-cancer-foundation-trial-directory",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "foundation-dog-cancer-foundation-trial-directory",
+        "attempted_urls": [
+          "https://www.dogcancerfoundation.org/clinical-trials-for-dogs-with-cancer",
+          "https://www.dogcancerfoundation.org/clinical-trials-for-dogs-with-cancer"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn485view2"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.dogcancerfoundation.org/clinical-trials-for-dogs-with-cancer; Web_open retrieved https://www.dogcancerfoundation.org/clinical-trials-for-dogs-with-cancer",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "japan-gifu-oncology-clinical-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=True, Web-open=True, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "japan-gifu-oncology-clinical-trials",
+        "attempted_urls": [
+          "https://www.animalhospital.gifu-u.ac.jp/cancer/clinical_trial/index.html",
+          "https://www.animalhospital.gifu-u.ac.jp/cancer/clinical_trial/202508.html",
+          "https://www.animalhospital.gifu-u.ac.jp/cancer/clinical_trial/index.html"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.animalhospital.gifu-u.ac.jp/cancer/clinical_trial/index.html; shell_curl retrieved_official_content https://www.animalhospital.gifu-u.ac.jp/cancer/clinical_trial/202508.html; Web_open retrieved https://www.animalhospital.gifu-u.ac.jp/cancer/clinical_trial/index.html",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "japan-hokkaido-vmth-clinical-research",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=True, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "japan-hokkaido-vmth-clinical-research",
+        "attempted_urls": [
+          "https://www.vetmed.hokudai.ac.jp/VMTH/aboutus/research/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl retrieved_official_content https://www.vetmed.hokudai.ac.jp/VMTH/aboutus/research/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "sponsor-benno-therapeutics-research",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+      "reason": "Current result=unreachable; usable native=False, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "sponsor-benno-therapeutics-research",
+        "attempted_urls": [
+          "https://www.bennotx.com/research/",
+          "https://www.bennotx.com/research/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+        "routes_exhausted_evidence": "shell_curl transport_timeout_after_allowed_retry https://www.bennotx.com/research/; Web_open retrieved https://www.bennotx.com/research/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "korea-seoul-vmth-clinical-recruitment",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=True, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "korea-seoul-vmth-clinical-recruitment",
+        "attempted_urls": [
+          "https://vmth.snu.ac.kr/clinical/recruitment.do"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl retrieved_official_content https://vmth.snu.ac.kr/clinical/recruitment.do",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-florida-neurology-clinical-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-florida-neurology-clinical-trials",
+        "attempted_urls": [
+          "https://research.vetmed.ufl.edu/research-programs/clinical-trials/neurology-2/",
+          "https://research.vetmed.ufl.edu/research-programs/clinical-trials/neurology-2/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://research.vetmed.ufl.edu/research-programs/clinical-trials/neurology-2/; Web_open retrieved https://research.vetmed.ufl.edu/research-programs/clinical-trials/neurology-2/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "sponsor-leah-labs-clinical-trial",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "sponsor-leah-labs-clinical-trial",
+        "attempted_urls": [
+          "https://leahlabs.com/",
+          "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/car-t-cell",
+          "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+          "https://vmc.vet.osu.edu/clinical-trials-office/current-trials",
+          "https://leahlabs.com/",
+          "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/car-t-cell",
+          "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+          "https://vmc.vet.osu.edu/clinical-trials-office/current-trials"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn485view14",
+          "turn486view0",
+          "turn486view2",
+          "turn486view4"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl transport_timeout_after_allowed_retry https://leahlabs.com/; shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/car-t-cell; shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/; shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://vmc.vet.osu.edu/clinical-trials-office/current-trials; Web_open retrieved https://leahlabs.com/; Web_open retrieved https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/car-t-cell; Web_open retrieved https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/; Web_open retrieved https://vmc.vet.osu.edu/clinical-trials-office/current-trials",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-oklahoma-state-clinical-trials",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+      "reason": "Current result=unreachable; usable native=False, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-oklahoma-state-clinical-trials",
+        "attempted_urls": [
+          "https://vethospital.okstate.edu/info-for-researchers/clinical-trials.html",
+          "https://vethospital.okstate.edu/info-for-researchers/clinical-trials",
+          "https://vetmed.okstate.edu/clinical-trials",
+          "https://vethospital.okstate.edu/info-for-researchers/clinical-trials.html",
+          "https://vetmed.okstate.edu/clinical-trials"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+        "routes_exhausted_evidence": "shell_curl transport_timeout_after_allowed_retry https://vethospital.okstate.edu/info-for-researchers/clinical-trials.html; shell_curl not_found https://vethospital.okstate.edu/info-for-researchers/clinical-trials; shell_curl transport_timeout_after_allowed_retry https://vetmed.okstate.edu/clinical-trials; Web_open unavailable https://vethospital.okstate.edu/info-for-researchers/clinical-trials.html; Web_open unavailable https://vetmed.okstate.edu/clinical-trials",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "global-vsso-open-research-trials",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=False, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "global-vsso-open-research-trials",
+        "attempted_urls": [
+          "https://vsso.org/research-trials",
+          "https://vsso.org/research-trials"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn486view10"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://vsso.org/research-trials; Web_open retrieved https://vsso.org/research-trials",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-veterinary-oncology-services-trials",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+      "reason": "Current result=unreachable; usable native=False, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-veterinary-oncology-services-trials",
+        "attempted_urls": [
+          "https://www.petcancerinformation.com",
+          "https://www.petcancerinformation.com"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+        "routes_exhausted_evidence": "shell_curl http_502 https://www.petcancerinformation.com; Web_open unavailable https://www.petcancerinformation.com",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "italy-bologna-oncology-clinical-trials",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+      "reason": "Current result=unreachable; usable native=False, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "italy-bologna-oncology-clinical-trials",
+        "attempted_urls": [
+          "https://site.unibo.it/ospedale-veterinario/it/piccoli-animali/trials-clinici-in-oncologia-veterinaria",
+          "https://site.unibo.it/ospedale-veterinario/it/piccoli-animali/trials-clinici-in-oncologia-veterinaria"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "No permitted current route returned enough official content to establish the source's current oncology-treatment roster.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://site.unibo.it/ospedale-veterinario/it/piccoli-animali/trials-clinici-in-oncologia-veterinaria; Web_open unavailable https://site.unibo.it/ospedale-veterinario/it/piccoli-animali/trials-clinici-in-oncologia-veterinaria",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "usa-mars-veterinary-health-clinical-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=True, Web-open=False, relevant Web page section=False.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "usa-mars-veterinary-health-clinical-trials",
+        "attempted_urls": [
+          "https://studypages.com/marsveterinaryclinicaltrials/home/",
+          "https://bluepearlvet.com/current-clinical-studies/",
+          "https://studypages.com/marsveterinaryclinicaltrials/studies/search/json/?skip=0&take=500",
+          "https://studypages.com/marsveterinaryclinicaltrials/home/",
+          "https://studypages.com/marsveterinaryclinicaltrials/studies/search/json/?skip=0&take=500"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://studypages.com/marsveterinaryclinicaltrials/home/; shell_curl retrieved_official_content https://bluepearlvet.com/current-clinical-studies/; shell_curl transport_timeout_after_allowed_retry https://studypages.com/marsveterinaryclinicaltrials/studies/search/json/?skip=0&take=500; Web_open unavailable https://studypages.com/marsveterinaryclinicaltrials/home/; Web_open unavailable https://studypages.com/marsveterinaryclinicaltrials/studies/search/json/?skip=0&take=500",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "belgium-ghent-small-animal-clinical-research",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=True, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "belgium-ghent-small-animal-clinical-research",
+        "attempted_urls": [
+          "https://www.ugent.be/plone_portal/di/khd/nl/onderzoek",
+          "https://www.ugent.be/di/khd/nl/onderzoek/katten_met_borstkanker-info-dierenartsen_eng",
+          "https://www.ugent.be/plone_portal/di/khd/nl/onderzoek/katten_met_borstkanker-info-eigenaars_eng",
+          "https://www.ugent.be/plone_portal/di/khd/nl/onderzoek/hoofd-halskanker-info-eigenaars.html",
+          "https://www.ugent.be/di/khd/nl/onderzoek/fluorescentie-levensduur-beeldvorming",
+          "https://www.ugent.be/plone_portal/di/khd/nl/onderzoek",
+          "https://www.ugent.be/di/khd/nl/onderzoek/katten_met_borstkanker-info-dierenartsen_eng",
+          "https://www.ugent.be/plone_portal/di/khd/nl/onderzoek/katten_met_borstkanker-info-eigenaars_eng",
+          "https://www.ugent.be/plone_portal/di/khd/nl/onderzoek/hoofd-halskanker-info-eigenaars.html"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn487view15"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.ugent.be/plone_portal/di/khd/nl/onderzoek; shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.ugent.be/di/khd/nl/onderzoek/katten_met_borstkanker-info-dierenartsen_eng; shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.ugent.be/plone_portal/di/khd/nl/onderzoek/katten_met_borstkanker-info-eigenaars_eng; shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.ugent.be/plone_portal/di/khd/nl/onderzoek/hoofd-halskanker-info-eigenaars.html; shell_curl_capture_repair retrieved_official_content https://www.ugent.be/di/khd/nl/onderzoek/fluorescentie-levensduur-beeldvorming; Web_open retrieved https://www.ugent.be/plone_portal/di/khd/nl/onderzoek; Web_open retrieved https://www.ugent.be/di/khd/nl/onderzoek/katten_met_borstkanker-info-dierenartsen_eng; Web_open retrieved https://www.ugent.be/plone_portal/di/khd/nl/onderzoek/katten_met_borstkanker-info-eigenaars_eng; Web_open retrieved https://www.ugent.be/plone_portal/di/khd/nl/onderzoek/hoofd-halskanker-info-eigenaars.html",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "germany-dvg-veterinary-clinical-studies",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "germany-dvg-veterinary-clinical-studies",
+        "attempted_urls": [
+          "https://www.dvg.de/klinische-studien-in-der-veterinaermedizin/",
+          "https://www.tierspital.uzh.ch/kleintierklinik/kleintierchirurgie/studien-fluoreszenzfarbstoffe-tumorpatienten/",
+          "https://www.tierspital.uzh.ch/ueber-uns/lehre-und-forschung/klinische-studien/",
+          "https://www.dvg.de/klinische-studien-in-der-veterinaermedizin/",
+          "https://www.tierspital.uzh.ch/kleintierklinik/kleintierchirurgie/studien-fluoreszenzfarbstoffe-tumorpatienten/",
+          "https://www.tierspital.uzh.ch/ueber-uns/lehre-und-forschung/klinische-studien/"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn488view15"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl transport_timeout_after_allowed_retry https://www.dvg.de/klinische-studien-in-der-veterinaermedizin/; shell_curl transport_timeout_after_allowed_retry https://www.tierspital.uzh.ch/kleintierklinik/kleintierchirurgie/studien-fluoreszenzfarbstoffe-tumorpatienten/; shell_curl_capture_repair initial_http_200_body_capture_lost_then_capture_repair_timeout https://www.tierspital.uzh.ch/ueber-uns/lehre-und-forschung/klinische-studien/; Web_open retrieved https://www.dvg.de/klinische-studien-in-der-veterinaermedizin/; Web_open unavailable https://www.tierspital.uzh.ch/kleintierklinik/kleintierchirurgie/studien-fluoreszenzfarbstoffe-tumorpatienten/; Web_open retrieved https://www.tierspital.uzh.ch/ueber-uns/lehre-und-forschung/klinische-studien/",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    },
+    {
+      "source_id": "uk-edinburgh-small-animal-clinical-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+      "reason": "Current result=partial; usable native=False, Web-open=True, relevant Web page section=True.",
+      "next_action": "Revisit the same official routes on the next daily pass; do a deeper protocol read only on a changed/new signal or the four-week reread date.",
+      "evidence": {
+        "source_id": "uk-edinburgh-small-animal-clinical-trials",
+        "attempted_urls": [
+          "https://vet.ed.ac.uk/clinical/small-animal/our-research/better-treatments/clinical-trials-programme",
+          "https://vet.ed.ac.uk/clinical/small-animal/our-research/better-treatments/clinical-trials-programme"
+        ],
+        "receipt_file": "research/audit-runs/daily-20261013T030256-0400/receipt-final.json",
+        "web_refs": [
+          "turn489view1"
+        ],
+        "evidence_files": [
+          "research/audit-runs/daily-20261013T030256-0400/native-reader-evidence.json",
+          "research/audit-runs/daily-20261013T030256-0400/web-content-review.json"
+        ]
+      },
+      "completion_decision": {
+        "remaining_fact": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
+        "routes_exhausted_evidence": "shell_curl transport_timeout_after_allowed_retry https://vet.ed.ac.uk/clinical/small-animal/our-research/better-treatments/clinical-trials-programme; Web_open retrieved https://vet.ed.ac.uk/clinical/small-animal/our-research/better-treatments/clinical-trials-programme",
+        "available_reconciliation_done_evidence": "All configured official routes were attempted once. Retrieved current official text and relevant page sections were compared with canonical trial identities; no independently confirmed new/change/closure remained unclassified."
+      }
+    }
+  ]
+}

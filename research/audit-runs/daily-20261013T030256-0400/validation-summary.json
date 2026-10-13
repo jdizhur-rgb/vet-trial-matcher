@@ -1,0 +1,177 @@
+{
+  "run_id": "daily-20261013T030256-0400",
+  "created_at": "2026-10-13T03:28:57.969996-04:00",
+  "results": [
+    {
+      "name": "evidence_redact",
+      "command": [
+        "python",
+        "scripts/check_evidence_keys.py",
+        "--redact",
+        "research/audit-runs/daily-20261013T030256-0400"
+      ],
+      "started_at": "2026-10-13T03:28:42.605277-04:00",
+      "finished_at": "2026-10-13T03:28:42.644330-04:00",
+      "returncode": 0,
+      "status": "PASS",
+      "output_file": "research/audit-runs/daily-20261013T030256-0400/evidence_redact.txt"
+    },
+    {
+      "name": "evidence_keys",
+      "command": [
+        "python",
+        "scripts/check_evidence_keys.py"
+      ],
+      "started_at": "2026-10-13T03:28:42.644386-04:00",
+      "finished_at": "2026-10-13T03:28:43.267472-04:00",
+      "returncode": 0,
+      "status": "PASS",
+      "output_file": "research/audit-runs/daily-20261013T030256-0400/evidence_keys.txt"
+    },
+    {
+      "name": "catalog_sanitation",
+      "command": [
+        "python",
+        "scripts/validate_catalog_sanitation.py"
+      ],
+      "started_at": "2026-10-13T03:28:43.267542-04:00",
+      "finished_at": "2026-10-13T03:28:43.299921-04:00",
+      "returncode": 0,
+      "status": "PASS",
+      "output_file": "research/audit-runs/daily-20261013T030256-0400/catalog_sanitation.txt"
+    },
+    {
+      "name": "trials_catalog",
+      "command": [
+        "python",
+        "scripts/validate_trials_catalog.py"
+      ],
+      "started_at": "2026-10-13T03:28:43.300092-04:00",
+      "finished_at": "2026-10-13T03:28:43.332390-04:00",
+      "returncode": 0,
+      "status": "PASS",
+      "output_file": "research/audit-runs/daily-20261013T030256-0400/trials_catalog.txt"
+    },
+    {
+      "name": "source_inventory",
+      "command": [
+        "python",
+        "scripts/validate_source_inventory.py"
+      ],
+      "started_at": "2026-10-13T03:28:43.332505-04:00",
+      "finished_at": "2026-10-13T03:28:43.361416-04:00",
+      "returncode": 0,
+      "status": "PASS",
+      "output_file": "research/audit-runs/daily-20261013T030256-0400/source_inventory.txt"
+    },
+    {
+      "name": "full_catalog_audit",
+      "command": [
+        "python",
+        "scripts/full_catalog_audit.py"
+      ],
+      "started_at": "2026-10-13T03:28:43.361489-04:00",
+      "finished_at": "2026-10-13T03:28:43.483000-04:00",
+      "returncode": 0,
+      "status": "PASS",
+      "output_file": "research/audit-runs/daily-20261013T030256-0400/full_catalog_audit.txt"
+    },
+    {
+      "name": "matcher_loading",
+      "command": [
+        "node",
+        "scripts/test_matcher_catalog_loading.js"
+      ],
+      "started_at": "2026-10-13T03:28:43.483065-04:00",
+      "finished_at": "2026-10-13T03:28:43.572367-04:00",
+      "returncode": 0,
+      "status": "PASS",
+      "output_file": "research/audit-runs/daily-20261013T030256-0400/matcher_loading.txt"
+    },
+    {
+      "name": "matcher_protocol_sources",
+      "command": [
+        "node",
+        "scripts/test_matcher_protocol_sources.js"
+      ],
+      "started_at": "2026-10-13T03:28:43.572466-04:00",
+      "finished_at": "2026-10-13T03:28:43.651928-04:00",
+      "returncode": 0,
+      "status": "PASS",
+      "output_file": "research/audit-runs/daily-20261013T030256-0400/matcher_protocol_sources.txt"
+    },
+    {
+      "name": "matcher_selection_node",
+      "command": [
+        "node",
+        "scripts/test_matcher_selection.js"
+      ],
+      "started_at": "2026-10-13T03:28:43.652038-04:00",
+      "finished_at": "2026-10-13T03:28:43.857146-04:00",
+      "returncode": 0,
+      "status": "PASS",
+      "output_file": "research/audit-runs/daily-20261013T030256-0400/matcher_selection_node.txt"
+    },
+    {
+      "name": "matcher_selection_python",
+      "command": [
+        "python",
+        "scripts/test_matcher_selection.py"
+      ],
+      "started_at": "2026-10-13T03:28:43.857207-04:00",
+      "finished_at": "2026-10-13T03:28:44.153409-04:00",
+      "returncode": 0,
+      "status": "PASS",
+      "output_file": "research/audit-runs/daily-20261013T030256-0400/matcher_selection_python.txt"
+    },
+    {
+      "name": "build_matcher_data",
+      "command": [
+        "python",
+        "scripts/build_matcher_data.py"
+      ],
+      "started_at": "2026-10-13T03:28:44.153580-04:00",
+      "finished_at": "2026-10-13T03:28:44.196135-04:00",
+      "returncode": 0,
+      "status": "PASS",
+      "output_file": "research/audit-runs/daily-20261013T030256-0400/build_matcher_data.txt"
+    },
+    {
+      "name": "matcher_logic",
+      "command": [
+        "node",
+        "scripts/test_matcher_logic.js"
+      ],
+      "started_at": "2026-10-13T03:28:44.196193-04:00",
+      "finished_at": "2026-10-13T03:28:44.349668-04:00",
+      "returncode": 0,
+      "status": "PASS_AFTER_BUILD",
+      "output_file": "research/audit-runs/daily-20261013T030256-0400/matcher_logic.txt"
+    },
+    {
+      "name": "build_static_site",
+      "command": [
+        "python",
+        "scripts/build_static_site.py"
+      ],
+      "started_at": "2026-10-13T03:28:44.349726-04:00",
+      "finished_at": "2026-10-13T03:28:56.792177-04:00",
+      "returncode": 0,
+      "status": "PASS",
+      "output_file": "research/audit-runs/daily-20261013T030256-0400/build_static_site.txt"
+    },
+    {
+      "name": "production_sync",
+      "command": [
+        "python",
+        "scripts/validate_production_sync.py"
+      ],
+      "started_at": "2026-10-13T03:28:56.792240-04:00",
+      "finished_at": "2026-10-13T03:28:57.969956-04:00",
+      "returncode": 0,
+      "status": "PASS",
+      "output_file": "research/audit-runs/daily-20261013T030256-0400/production_sync.txt"
+    }
+  ],
+  "overall": "PASS"
+}

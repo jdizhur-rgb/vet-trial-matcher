@@ -1,0 +1,53 @@
+{
+  "run_id": "daily-20261013T030256-0400",
+  "checked_at": "2026-10-13T03:38:03-04:00",
+  "site_url": "https://vettrialfinder.com/matcher/",
+  "catalog_change_this_run": false,
+  "deployment_requirement": "No catalog, matcher, or site artifact changed; the current deployment was read back after local validation.",
+  "local_build": {
+    "matcher_js_sha256": "e24f1deda4bcf38b5f169010cd06c5af9b85523a56bd643882a5d92039efa1e1",
+    "trials_json_sha256": "950e5e584dcd2ba9879ad37d16eae2ed4cd0a3507f7580dab758787046bbb816",
+    "matcher_records": 165,
+    "loading_expected": {
+      "USA": 103,
+      "Japan": 9
+    }
+  },
+  "live_html": {
+    "status": "PASS",
+    "retrieved_by": "Web open and rendered browser",
+    "script_src": "https://vettrialfinder.com/matcher/matcher.js?v=selection-audit-20261012",
+    "catalog_url": "./trials.json?v=950e5e584dcd2ba9",
+    "catalog_version_matches_local_sha256_prefix": true,
+    "web_reference": "turn491view0"
+  },
+  "asset_sync": {
+    "trials_json": "PASS_CONTENT_ADDRESSED_VERSION",
+    "matcher_js_version": "PASS_HTML_VERSION_AND_RENDERED_BEHAVIOR",
+    "byte_for_byte_remote_hash": "NOT_VERIFIED",
+    "reason": "Shell proxy timed out and direct Web asset reads were unavailable; no site artifact changed in this run. The live HTML catalog version matches the local catalog SHA-256 prefix and rendered counts match the local loading regression."
+  },
+  "live_search": {
+    "scenario": {
+      "species": "Dog",
+      "cancer_type": "Cancer — any type",
+      "diagnosis_certainty": "I don't know",
+      "age": "blank",
+      "weight": "blank",
+      "zip": "blank",
+      "treatment_options": "all selected",
+      "research_approach": "Any approach"
+    },
+    "USA": {
+      "displayed_result_cards": 103,
+      "expected_from_current_build": 103,
+      "status": "PASS"
+    },
+    "Japan": {
+      "displayed_result_cards": 9,
+      "expected_from_current_build": 9,
+      "status": "PASS"
+    }
+  },
+  "production_status": "PASS_WITH_REMOTE_BYTE_HASH_NOT_VERIFIED"
+}
