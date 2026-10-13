@@ -1876,6 +1876,140 @@
         }
       ],
       "selection_sha256": "dd3eca6782893181fb17a587079fe89e4e78dd0f6f7e6696dd8534529550b29f"
+    },
+    {
+      "trial_id": "jp-tokyo-histiocytic-sarcoma-anti-pd1-2026",
+      "source_url": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
+      "reviewed_at": "2026-10-13T06:20:42.806673-04:00",
+      "criteria": "Tokyo biopsy confirmation with detectable histiocytic sarcoma remaining after biopsy; regular two-weekly visits. No previous immunotherapy or immunosuppressive medication. Large-dog eligibility has no published numerical threshold and requires center review.",
+      "cases": [
+        {
+          "name": "HS candidate needs Tokyo screening",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Histiocytic sarcoma"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "immunosuppressive"
+          ]
+        },
+        {
+          "name": "different tumor cohort",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Oral melanoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "previous immunotherapy excludes",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Histiocytic sarcoma",
+            "immunotherapy_history": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "immunosuppressive treatment excludes",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Histiocytic sarcoma",
+            "immunosuppressive": "Yes"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "cfd9dedc7ace878815a75352cdf226830a8a883e442a53c4239a73955ec1d8a9"
+    },
+    {
+      "trial_id": "tufts-primary-pulmonary-carcinoma-sbrt",
+      "source_url": "https://vet.tufts.edu/clinical-trials/sbrt-canine-lung-tumor-study",
+      "reviewed_at": "2026-10-13T06:20:42.806673-04:00",
+      "criteria": "Single primary lung carcinoma, shortest diameter greater than 1 cm; no prior treatment for that tumor, regional node metastasis, pulmonary carcinomatosis or multiple pulmonary metastatic nodules. Study-team review of recent other malignancy, current staging, organ function and anesthesia eligibility is required.",
+      "cases": [
+        {
+          "name": "primary carcinoma candidate requires staging",
+          "patient": {
+            "cancer": "Pulmonary carcinoma"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "tumor size"
+          ]
+        },
+        {
+          "name": "different lung-metastasis disease cohort",
+          "patient": {
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "previous chemotherapy for lung tumor excludes",
+          "patient": {
+            "cancer": "Pulmonary carcinoma",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "positive regional nodes exclude",
+          "patient": {
+            "cancer": "Pulmonary carcinoma",
+            "node_status": "Positive"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "radiation declined excludes",
+          "patient": {
+            "cancer": "Pulmonary carcinoma",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "a470ef704d7712522b5f19366a611c0d9a2fe4a8243577b16f6c484795d5a823"
+    },
+    {
+      "trial_id": "ethos-solid-relapse",
+      "source_url": "https://www.ethosdiscovery.org/clinical-study/stratification-of-outcomes-for-lymphoma-in-dogs-with-relapsed-lymphoma-solid-relapse/",
+      "reviewed_at": "2026-10-13T06:50:54.314639-04:00",
+      "criteria": "Relapsed biopsy-accessible peripheral nodal lymphoma, prior Ethos-SOLID enrollment and at least one completed four-week CHOP cycle; seven-day chemotherapy/steroid washout. Prior-trial/cycle conditions require study-team screening and must not produce Likely match.",
+      "cases": [
+        {
+          "name": "previously treated relapsed lymphoma requires original-trial/cycle prescreen",
+          "patient": {
+            "cancer": "B-cell lymphoma",
+            "chemo": "Previously received"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "CHOP"
+          ]
+        },
+        {
+          "name": "chemotherapy-naive dog cannot meet completed CHOP cycle",
+          "patient": {
+            "cancer": "B-cell lymphoma",
+            "chemo": "Never"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "non-lymphoma diagnosis excluded",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "9d9a06e43e7d86039338a3f8a9c9bb0ba17fca2626e271f0e345ed9d30f7381d"
     }
   ]
 }
