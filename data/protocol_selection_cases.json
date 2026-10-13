@@ -1,0 +1,748 @@
+{
+  "schema_version": 1,
+  "purpose": "Independent source-derived cases. This is an incrementally reviewed subset, not a complete catalog review.",
+  "reviews": [
+    {
+      "trial_id": "uf-osa-vaccine",
+      "source_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/vaccine-study-for-dogs-with-osteosarcoma/",
+      "reviewed_at": "2026-10-12T22:41:17.625761-04:00",
+      "criteria": "Dog; recent limb OSA, no chemotherapy, UF amputation/sample before enrollment; vaccine plus six chemotherapy visits; medication and concurrent-trial restrictions.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "osa_location": "Axial — skull, spine, rib, or pelvis"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        }
+      ]
+    },
+    {
+      "trial_id": "uf-osa-mrna",
+      "source_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/mrna-vaccine-study-for-dogs-with-appendicular-osteosarcoma-currently-enrolling/",
+      "reviewed_at": "2026-10-12T22:41:17.625761-04:00",
+      "criteria": "Dog; biopsy-confirmed limb OSA; biopsy before mandatory radiation; mild metastasis discretionary; medication and concurrent-trial restrictions.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "osa_location": "Axial — skull, spine, rib, or pelvis"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        }
+      ]
+    },
+    {
+      "trial_id": "eu-it-unimi-oncofap-mmae",
+      "source_url": "https://www.ospedaleveterinario.unimi.it/collaborare-con-noi-studi-di-ricerca/",
+      "reviewed_at": "2026-10-12T22:41:17.625761-04:00",
+      "criteria": "Dog; FAP-positive tumor with no appropriate standard treatment; non-operative/advanced disease; organ and blood-count eligibility.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "country": "Italy",
+            "cancer": "Soft tissue sarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "country": "Italy",
+            "cancer": "Soft tissue sarcoma",
+            "standard_therapy_unavailable": "No"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "material clinical criteria remain visible",
+          "patient": {
+            "country": "Italy",
+            "cancer": "Soft tissue sarcoma"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "FAP"
+          ]
+        }
+      ]
+    },
+    {
+      "trial_id": "osu-osa-ai-sbrt",
+      "source_url": "https://vmc.vet.osu.edu/clinical-trials/use-ai-enhanced-patient-specific-biomechanical-modeling-identify-dogs-appendicular",
+      "reviewed_at": "2026-10-12T22:41:17.625761-04:00",
+      "criteria": "Dog; suspected radiographic or confirmed limb OSA; SBRT and chemotherapy required; no lung metastasis or initial pathologic fracture.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "osa_location": "Axial — skull, spine, rib, or pelvis"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "prefs": [
+              "Chemotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "prefs": [
+              "Radiation"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "metastasis": "Confirmed metastases"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "material clinical criteria remain visible",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "fracture"
+          ]
+        }
+      ]
+    },
+    {
+      "trial_id": "ill-osa-il12-rt-current",
+      "source_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/05/trial-JEN-101-OSA-with-RT.pdf",
+      "reviewed_at": "2026-10-12T22:41:17.625761-04:00",
+      "criteria": "Dog; confirmed appendicular OSA, no metastasis; radiation then Illinois amputation mandatory; no prior chemotherapy, radiation, immunotherapy, steroids or immunomodulators.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "radiation": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "immunotherapy_history": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "steroids": "Previously took"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "immunosuppressive": "Yes"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "osa_location": "Axial — skull, spine, rib, or pelvis"
+          },
+          "expected": "exclude"
+        }
+      ]
+    },
+    {
+      "trial_id": "ill-osa-z007-current",
+      "source_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/10/Canine-Osteosarcoma-pulmonary-metastases.pdf",
+      "reviewed_at": "2026-10-12T22:41:17.625761-04:00",
+      "criteria": "Dog; OSA any primary site with CT lung nodules >=5mm; no concurrent immunosuppressants; radiation >=1-week and chemo/immunotherapy >=3-week washout; respiratory and general-health screening.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "osa_location": "Axial — skull, spine, rib, or pelvis"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "osa_location": "Axial — skull, spine, rib, or pelvis",
+            "metastasis": "No known metastases"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "osa_location": "Axial — skull, spine, rib, or pelvis",
+            "immunosuppressive": "Yes"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "material clinical criteria remain visible",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "osa_location": "Axial — skull, spine, rib, or pelvis"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "5 mm",
+            "washout",
+            "respiratory"
+          ]
+        }
+      ]
+    },
+    {
+      "trial_id": "illinois-sts-surgery",
+      "source_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/05/trial-Jen-101-alone-or-with-Hyla-for-STS.pdf",
+      "reviewed_at": "2026-10-12T22:41:17.625761-04:00",
+      "criteria": "Dog; confirmed STS 1–5cm suitable for excision at Illinois seven days after injection; no previous radiation; chemotherapy 3-week washout; no immunosuppressants while on study.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Soft tissue sarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Soft tissue sarcoma",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Soft tissue sarcoma",
+            "radiation": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Soft tissue sarcoma",
+            "immunosuppressive": "Yes"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "material clinical criteria remain visible",
+          "patient": {
+            "cancer": "Soft tissue sarcoma"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "1–5 cm",
+            "Illinois"
+          ]
+        }
+      ]
+    },
+    {
+      "trial_id": "illinois-sts-treatment",
+      "source_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/05/trial-JEN-101-STS.pdf",
+      "reviewed_at": "2026-10-12T22:41:17.625761-04:00",
+      "criteria": "Dog; previously excised, recurrent STS >2cm; radiation/chemotherapy 6-week washout; prior immunotherapy/steroids/immunomodulators excluded.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Soft tissue sarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Soft tissue sarcoma",
+            "surgery": "No"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Soft tissue sarcoma",
+            "immunotherapy_history": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Soft tissue sarcoma",
+            "steroids": "Previously took"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Soft tissue sarcoma",
+            "immunosuppressive": "Yes"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "material clinical criteria remain visible",
+          "patient": {
+            "cancer": "Soft tissue sarcoma"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "6-week"
+          ]
+        }
+      ]
+    },
+    {
+      "trial_id": "illinois-ucc-gilvetmab-epacadostat",
+      "source_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/05/trial-Gilvetmab-Epacadostat.pdf",
+      "reviewed_at": "2026-10-12T22:41:17.625761-04:00",
+      "criteria": "Dog; bladder UCC supported by cytology or BRAF with visible bladder mass; no previous chemotherapy/radiation/immunotherapy; organ and sedation screening.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Urothelial carcinoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Urothelial carcinoma",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Urothelial carcinoma",
+            "radiation": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Urothelial carcinoma",
+            "immunotherapy_history": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "material clinical criteria remain visible",
+          "patient": {
+            "cancer": "Urothelial carcinoma"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "BRAF"
+          ]
+        }
+      ]
+    },
+    {
+      "trial_id": "csu-osa-car-t-met",
+      "source_url": "https://clinicaltrials.csuveterinaryhealth.org/s/car-t-cell-immunotherapy-for-metastatic-osteosarcoma-in-dogs-888207/",
+      "reviewed_at": "2026-10-12T22:41:17.625761-04:00",
+      "criteria": "Dog; limb OSA removed surgically; lung-only metastasis; >=20kg; treatment washout, adequate labs and no current immune suppression.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "surgery": "No"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "osa_location": "Axial — skull, spine, rib, or pelvis"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "weight_known": true,
+            "weight_lb": 41.8878298142
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "steroids": "Currently taking"
+          },
+          "expected": "exclude"
+        }
+      ]
+    },
+    {
+      "trial_id": "csu-brain-cart-verdinexor",
+      "source_url": "https://clinicaltrials.csuveterinaryhealth.org/s/immunotherapy-car-t-treatment-for-canine-glioma-tumors-780192/?ref=gallery",
+      "reviewed_at": "2026-10-12T22:41:17.625761-04:00",
+      "criteria": "Dog; MRI-confirmed glioma, >10lb, no prior chemotherapy/radiation; CAR-T with home verdinexor and radiation study requirements, anesthesia screening.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "radiation": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "material clinical criteria remain visible",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "MRI"
+          ]
+        }
+      ]
+    },
+    {
+      "trial_id": "tufts-met-osa-vaccine-tme",
+      "source_url": "https://vet.tufts.edu/clinical-trials/treatment-canine-metastatic-osteosarcoma-combined-tumor-microenvironment-modification-and-allogeneic-vaccination",
+      "reviewed_at": "2026-10-12T22:41:17.625761-04:00",
+      "criteria": "Dog; OSA with lung spread after amputation and chemotherapy; no significant heart/liver/kidney disease.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "surgery": "No"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "prior_procedure": "Limb-sparing surgery",
+            "surgery": "Yes"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "chemo": "Never"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "metastasis": "No known metastases"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "material clinical criteria remain visible",
+          "patient": {
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "lung",
+            "organ"
+          ]
+        }
+      ]
+    },
+    {
+      "trial_id": "osu-sts-mic-nk",
+      "source_url": "https://vmc.vet.osu.edu/clinical-trials/targeting-mic-augment-adoptive-nk-therapy-using-canine-soft-tissue-sarcoma-model",
+      "reviewed_at": "2026-10-12T22:41:17.625761-04:00",
+      "criteria": "Dog; localized confirmed STS; no immune deficiency, immunosuppressive medication or prior local radiation.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Soft tissue sarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Soft tissue sarcoma",
+            "localized": "No"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Soft tissue sarcoma",
+            "immunosuppressive": "Yes"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Soft tissue sarcoma",
+            "radiation": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "material clinical criteria remain visible",
+          "patient": {
+            "cancer": "Soft tissue sarcoma"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "immune"
+          ]
+        }
+      ]
+    },
+    {
+      "trial_id": "ethos-gilvetmab-melanoma",
+      "source_url": "https://www.ethosvet.com/clinical-study/melanoma-treatment-study/",
+      "reviewed_at": "2026-10-12T22:41:17.625761-04:00",
+      "criteria": "Dog; malignant melanoma; age >=1 year, weight >=6.6lb; investigator supplies full criteria.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Oral melanoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Oral melanoma",
+            "age_known": true,
+            "age": 0.5
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Oral melanoma",
+            "weight_known": true,
+            "weight_lb": 6
+          },
+          "expected": "exclude"
+        }
+      ]
+    },
+    {
+      "trial_id": "ethos-osa-vaccine",
+      "source_url": "https://www.ethosvet.com/clinical-study/osteosarcoma-vaccine-study/",
+      "reviewed_at": "2026-10-12T22:41:17.625761-04:00",
+      "criteria": "Dog; appendicular OSA; vaccine versus carboplatin after amputation; age >=1 year, >=44lb; general health screening.",
+      "cases": [
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "age_known": true,
+            "age": 0.5
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "osa_location": "Axial — skull, spine, rib, or pelvis"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        }
+      ]
+    }
+  ]
+}

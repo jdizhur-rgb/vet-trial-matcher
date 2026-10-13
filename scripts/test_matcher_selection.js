@@ -98,5 +98,6 @@ const sentinel={...tufts,requires:{confirmed:true,measurable:true,anesthesia_can
 assert(matchTrial(sentinel,patient(sentinel,{cancer:'Other sarcoma'})).unknown.some(x=>x.includes('anesthesia candidate')));
 // Independent Python comparison validates every species/diagnosis pair against
 // the same reviewed taxonomy used in the browser and static diagnosis pages.
+require('./test_matcher_protocol_sources.js');
 if(process.argv.includes('--matrix')) console.log(JSON.stringify(matrix));
 else console.log(`MATCHER_SELECTION_OK canonical=${rows.length} public=${active.length} checks=${checks} criteria=${Object.keys(rules.requires).length+Object.keys(rules.excludes).length}`);

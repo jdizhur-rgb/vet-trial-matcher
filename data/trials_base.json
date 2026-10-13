@@ -429,12 +429,14 @@
     "funding": "⚪ Owner-paid. Owners pay for the eligibility evaluation, amputation, chemotherapy, six study vaccine doses, additional diagnostics and subsequent visits. No financial incentive is offered. The study covers only treatment of a vaccine injection-site reaction, up to $100; no other costs are covered.",
     "requires": {
       "confirmed": true,
-      "prior_chemo": false
+      "prior_chemo": false,
+      "appendicular_location": true,
+      "planned_amputation_and_chemo": true
     },
     "excludes": {},
     "special_requirement": "Recent appendicular osteosarcoma diagnosis, no other life-threatening disease, and treatment-naive status; the affected limb must be amputated and sampled at UF before enrollment. Zoledronic acid is prohibited; other medication restrictions require UF confirmation. Concurrent enrollment in another osteosarcoma study is prohibited.",
     "notes": "Distinct from UF's RNA-nanoparticle/anti-PD-1 radiation protocol: this vaccine is given at six visits about three weeks apart alongside six chemotherapy visits scheduled two weeks before each vaccine visit. Boosters may be offered every six months if appropriate. Eligibility evaluation does not guarantee enrollment; the referring veterinarian must complete UF's Oncology Referral Form.",
-    "verified": "2026-09-28",
+    "verified": "2026-10-12",
     "study_type": "treatment",
     "sites": [
       {
@@ -474,12 +476,13 @@
       "confirmed": true,
       "active_treatment_target": true,
       "planned_radiation": true,
-      "pretreatment_biopsy": true
+      "pretreatment_biopsy": true,
+      "appendicular_location": true
     },
     "excludes": {},
     "special_requirement": "Histopathologically confirmed limb osteosarcoma; UF core biopsy for tumor-cell collection before required radiation therapy. Zoledronic acid is prohibited, other restricted medications require UF confirmation, and concurrent enrollment in another osteosarcoma study is prohibited. Mild metastasis is considered only at investigator discretion.",
     "notes": "RNA-nanoparticle vaccine made from UF-collected tumor cells plus anti-PD-1, both administered by approximately 30-minute IV infusion; hospital monitoring for 6–24 hours after each vaccine administration. Core biopsy is performed during radiation-planning CT before radiation. Distinct from UF's owner-paid post-amputation vaccine-plus-chemotherapy protocol. Referring veterinarian must complete UF's Oncology Referral Form.",
-    "verified": "2026-09-28",
+    "verified": "2026-10-12",
     "study_type": "treatment",
     "sites": [
       {
@@ -1947,7 +1950,9 @@
       "primary_removed": true,
       "measurable_lung_metastases": true,
       "min_weight_kg": 20,
-      "appendicular_location": true
+      "appendicular_location": true,
+      "prior_surgery": true,
+      "planned_chemo": true
     },
     "excludes": {
       "metastases_outside_lungs": true,
@@ -1958,7 +1963,7 @@
     },
     "notes": "Appendicular OSA primary removed; measurable metastasis limited to lungs; dog ≥20 kg. No chemotherapy in preceding 2–3 weeks; no current steroids or immune-modifying medication. Blood collection about two weeks before treatment, preparatory chemotherapy, CAR T-cell infusion and daily oral medications; visits days 1, 3, 7, 14, 28, 60.",
     "study_type": "treatment",
-    "verified": "2026-10-10",
+    "verified": "2026-10-12",
     "sites": [
       {
         "hospital": "📍 Colorado State Flint Animal Cancer Center",
@@ -2258,7 +2263,8 @@
     "requires": {
       "confirmed": true,
       "min_weight_lb": 6.6,
-      "active_treatment_target": true
+      "active_treatment_target": true,
+      "min_age_years": 1
     },
     "excludes": {},
     "notes": "Safety and efficacy study of gilvetmab in dogs with malignant melanoma; age ≥1 year.",
@@ -2282,7 +2288,7 @@
         "name": "Veterinary Specialty Hospital"
       }
     ],
-    "verified": "2026-09-02",
+    "verified": "2026-10-12",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "current",
@@ -2359,7 +2365,9 @@
       "confirmed": true,
       "min_weight_lb": 44,
       "active_treatment_target": true,
-      "appendicular_location": true
+      "appendicular_location": true,
+      "min_age_years": 1,
+      "planned_amputation": true
     },
     "excludes": {},
     "notes": "Appendicular OSA; age >=1 year, >=44 lb, otherwise in good general health; cytologic/histologic confirmation. Current Ethos owner page lists 9 enrolling hospitals. An older AVMA registry listing contains additional historical sites; those are not promoted without current site-level confirmation.",
@@ -2419,7 +2427,7 @@
         "name": "Veterinary Specialty Hospital – North County"
       }
     ],
-    "verified": "2026-09-02",
+    "verified": "2026-10-12",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "current",
@@ -2428,7 +2436,8 @@
     "treatment_approaches": [
       "cancer_vaccine",
       "immunotherapy"
-    ]
+    ],
+    "special_requirement": "Confirmed appendicular osteosarcoma in a dog in good general health. Treatment compares a vaccine with carboplatin after amputation; the team must confirm the surgical timeline, assigned treatment arm and full eligibility."
   },
   {
     "id": "ethos-oncology-sample",
@@ -2934,10 +2943,11 @@
     "contacts": "Ohio State Blue Buffalo Veterinary Clinical Trials Office — CVM-ClinicalTrials@osu.edu",
     "funding": "🟡 Partially funded. Study covers CT, implant/anesthesia, histopathology and specified follow-up imaging, plus a $1,000 credit toward other costs.",
     "requires": {
-      "confirmed": true,
       "no_metastasis": true,
       "active_treatment_target": true,
-      "appendicular_location": true
+      "appendicular_location": true,
+      "planned_radiation": true,
+      "planned_chemo": true
     },
     "excludes": {},
     "notes": "Appendicular OSA treated with stereotactic body radiation; patient-specific biomechanical modeling identifies dogs who may benefit from intramedullary stabilization.",
@@ -2949,7 +2959,7 @@
         "name": "Ohio State University Veterinary Medical Center"
       }
     ],
-    "verified": "2026-09-02",
+    "verified": "2026-10-12",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "current",
@@ -2958,7 +2968,8 @@
     "funding_status": "Partially funded",
     "treatment_approaches": [
       "radiation_innovation"
-    ]
+    ],
+    "special_requirement": "Radiographic suspicion or cytology/histology-supported appendicular osteosarcoma is accepted for screening. SBRT and carboplatin chemotherapy are required. No lung metastasis or pathologic fracture at the initial assessment; CT, fracture risk and suitability for the implant require study-team review."
   },
   {
     "id": "osu-mct-ai-node",
@@ -3325,9 +3336,17 @@
       "confirmed": true,
       "active_treatment_target": true,
       "appendicular_location": true,
-      "no_metastasis": true
+      "no_metastasis": true,
+      "planned_radiation": true,
+      "planned_amputation": true
     },
-    "excludes": {},
+    "excludes": {
+      "prior_chemo": true,
+      "prior_local_radiation": true,
+      "prior_immunotherapy": true,
+      "prior_steroids": true,
+      "immunosuppressive": true
+    },
     "notes": "Confirmed appendicular osteosarcoma with no metastasis and no prior radiation, chemotherapy or immunotherapy. Dogs receive radiation to the affected leg, intratumoral JEN-101 two days and two weeks later, then amputation four weeks after radiation at Illinois.",
     "intervention": "Radiation to the affected limb followed by intratumoral JEN-101 at day 2 and week 2, then amputation at week 4",
     "sites": [
@@ -3338,7 +3357,7 @@
         "name": "University of Illinois Veterinary Teaching Hospital"
       }
     ],
-    "verified": "2026-09-23",
+    "verified": "2026-10-12",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "current",
@@ -3346,7 +3365,8 @@
     "owner_prescreen_required": true,
     "treatment_approaches": [
       "immunotherapy"
-    ]
+    ],
+    "special_requirement": "Radiation followed by intratumoral JEN-101 and mandatory amputation at Illinois four weeks later. Cytology/histology with alkaline phosphatase support, staging without metastasis and adequate organ function for sedation are required; the team must review all previous immune-modifying drugs."
   },
   {
     "id": "ill-osa-z007-current",
@@ -3365,9 +3385,13 @@
     "requires": {
       "confirmed": true,
       "metastatic": true,
-      "measurable_lung_metastases": true
+      "measurable_lung_metastases": true,
+      "chemo_washout_days": 21,
+      "radiation_washout_days": 7
     },
-    "excludes": {},
+    "excludes": {
+      "immunosuppressive": true
+    },
     "notes": "Historical or active osteosarcoma from any primary site, confirmed by histopathology or cytology, with pulmonary nodules at least 5 mm on CT. If the primary tumor has not been amputated, its pain must be controlled. Requires good general condition and expected survival of at least nine weeks. Pleural effusion, hypoxia or respiratory distress exclude participation. Radiation requires at least a one-week washout; chemotherapy or immunotherapy requires at least three weeks. Concurrent immunosuppressive medication, including cyclosporine, Apoquel or immunosuppressive steroid doses, is not allowed. The current October 2026 protocol specifies up to eight weekly intravenous Z-007 doses, baseline and week-9 CT, and possible discretionary compassionate continuation only for objective response. Study exams, bloodwork, drug administration and CT are funded after eligibility; screening and unrelated care are owner-paid.",
     "intervention": "Up to eight once-weekly intravenous doses of Z-007 with baseline and week-9 CT; compassionate continuation may be offered for objective response",
     "sites": [
@@ -3378,14 +3402,16 @@
         "name": "University of Illinois Veterinary Teaching Hospital"
       }
     ],
-    "verified": "2026-10-05",
+    "verified": "2026-10-12",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "current",
     "contact": "Illinois Oncology Clinical Trials — 217-300-6453; oncology@illinois.edu",
     "treatment_approaches": [
       "immunotherapy"
-    ]
+    ],
+    "special_requirement": "Osteosarcoma from any primary site with lung nodules at least 5 mm on CT. The study team must confirm radiation washout of at least one week and chemotherapy/immunotherapy washout of at least three weeks, controlled primary-tumor pain if not amputated, general health and expected survival of at least nine weeks. Pleural effusion, hypoxia or respiratory distress exclude enrollment; concurrent immunosuppressive drugs are prohibited.",
+    "owner_prescreen_required": true
   },
   {
     "id": "auburn-mct-sln-mapping",
@@ -3568,9 +3594,10 @@
     "contacts": "CSU Neurology Clinical Trials — csuneurotrials@colostate.edu; 970-297-4405",
     "funding": "🟢 Fully funded. CSU states that CAR T-cell production and treatment, optional radiation therapy, MRIs, study examinations and bloodwork, and lifetime verdinexor chemotherapy are covered.",
     "requires": {
-      "confirmed": true,
       "active_treatment_target": true,
-      "min_weight_lb": 10
+      "min_weight_lb": 10,
+      "planned_radiation": true,
+      "planned_chemo": true
     },
     "excludes": {
       "prior_chemo": true,
@@ -3585,7 +3612,7 @@
         "state": "CO"
       }
     ],
-    "verified": "2026-09-30",
+    "verified": "2026-10-12",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",
@@ -3605,7 +3632,8 @@
     "recruitment_end": "2028-12-31",
     "registry_url": "https://clinicaltrials.csuveterinaryhealth.org/s/immunotherapy-car-t-treatment-for-canine-glioma-tumors-780192/?ref=gallery",
     "registry_url_verified": "2026-09-30",
-    "location_source": "official CSU protocol page"
+    "location_source": "official CSU protocol page",
+    "special_requirement": "Glioma must be confirmed on MRI; a brain biopsy is case-dependent rather than required for every patient. Anesthesia suitability, CAR-T treatment, home verdinexor and radiation-study requirements need CSU review. Prior chemotherapy or radiation is excluded."
   },
   {
     "id": "csu-brain-barc",
@@ -6172,14 +6200,15 @@
     ],
     "title": "OncoFAP-MMAE targeted chemotherapy for advanced FAP-positive canine solid tumors",
     "status": "Owner-facing Phase I-II clinical study page remains live; contact study team to confirm an open slot",
-    "verified": "2026-09-03",
+    "verified": "2026-10-12",
     "study_type": "treatment",
     "status_confidence": "current",
     "available_for_matching": true,
     "requires": {
       "confirmed": true,
       "active_treatment_target": true,
-      "measurable": true
+      "measurable": true,
+      "standard_therapy_unavailable": true
     },
     "excludes": {},
     "why": "University of Milan Veterinary Teaching Hospital currently publishes an owner-facing Phase I-II treatment protocol for dogs with spontaneous FAP-positive tumors that lack an effective standard local option.",
@@ -6197,7 +6226,8 @@
         "state": "Lombardy"
       }
     ],
-    "location_source": "seo/center_directory.py"
+    "location_source": "seo/center_directory.py",
+    "special_requirement": "FAP expression must be confirmed on tumor histology/immunohistochemistry. The study team must establish that appropriate standard treatment is unavailable and that surgery is unsuitable because of morbidity/risk or symptomatic advanced disease. Renal, cardiac, liver and blood-count requirements need clinical review."
   },
   {
     "id": "eu-nl-utrecht-brain-holmium",
@@ -7725,11 +7755,14 @@
       "confirmed": true,
       "active_treatment_target": true,
       "primary_removed": true,
-      "measurable_lung_metastases": true
+      "measurable_lung_metastases": true,
+      "post_amputation": true,
+      "prior_chemo": true,
+      "metastatic": true
     },
     "excludes": {},
     "notes": "For dogs with pulmonary metastatic osteosarcoma after amputation and chemotherapy; combines toceranib, losartan and ladarixin with a tumor vaccine.",
-    "verified": "2026-09-05",
+    "verified": "2026-10-12",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",
@@ -7749,7 +7782,8 @@
       "cancer_vaccine",
       "targeted_therapy",
       "immunotherapy"
-    ]
+    ],
+    "special_requirement": "Lung spread of osteosarcoma after amputation and chemotherapy is required. The study team must confirm lung involvement, timing of prior treatments, general condition and organ function; significant liver, kidney or heart disease excludes enrollment."
   },
   {
     "id": "osu-sts-mic-nk",
@@ -7767,13 +7801,15 @@
     "funding": "All trial-related procedures are covered and $700 compensation is provided upon trial completion.",
     "requires": {
       "confirmed": true,
-      "active_treatment_target": true
+      "active_treatment_target": true,
+      "localized": true
     },
     "excludes": {
-      "prior_local_radiation": true
+      "prior_local_radiation": true,
+      "immunosuppressive": true
     },
     "notes": "Localized confirmed STS treated with anti-MIC antibody and expanded natural-killer-cell infusion.",
-    "verified": "2026-09-05",
+    "verified": "2026-10-12",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",
@@ -7787,7 +7823,8 @@
         "state": "OH"
       }
     ],
-    "location_source": "seo/center_directory.py"
+    "location_source": "seo/center_directory.py",
+    "special_requirement": "Localized cytology/histology-confirmed soft tissue sarcoma; no immune deficiency or need for immunosuppressive medication. Previous local radiation to the primary tumor excludes enrollment; the study team must assess general health."
   },
   {
     "id": "illinois-oral-melanoma-il12-il15",
@@ -7925,12 +7962,17 @@
     "requires": {
       "confirmed": true,
       "active_treatment_target": true,
-      "measurable": true
+      "measurable": true,
+      "planned_surgery": true,
+      "chemo_washout_days": 21
     },
-    "excludes": {},
+    "excludes": {
+      "prior_local_radiation": true,
+      "immunosuppressive": true
+    },
     "notes": "Distinct JEN-101 cohort for confirmed, surgically resectable soft tissue sarcoma measuring 1–5 cm. Prior radiation excludes enrollment and prior chemotherapy requires a three-week washout. The tumor is biopsied, injected with JEN-101 seven days later and surgically excised at Illinois seven days after injection.",
     "intervention": "Tumor biopsy, one intratumoral JEN-101 injection seven days later, then required surgical excision at Illinois seven days after treatment",
-    "verified": "2026-09-23",
+    "verified": "2026-10-12",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",
@@ -7944,7 +7986,8 @@
         "state": "IL"
       }
     ],
-    "location_source": "seo/center_directory.py"
+    "location_source": "seo/center_directory.py",
+    "special_requirement": "Confirmed soft tissue sarcoma 1–5 cm suitable for surgical excision at Illinois seven days after JEN-101 injection. No previous radiation; at least a three-week chemotherapy washout. The study team must review concurrent immune-modifying, homeopathic and alternative treatments."
   },
   {
     "id": "illinois-sts-treatment",
@@ -7965,12 +8008,19 @@
       "confirmed": true,
       "active_treatment_target": true,
       "measurable": true,
-      "recurrent": true
+      "recurrent": true,
+      "prior_surgery": true,
+      "chemo_washout_days": 42,
+      "radiation_washout_days": 42
     },
-    "excludes": {},
+    "excludes": {
+      "prior_immunotherapy": true,
+      "prior_steroids": true,
+      "immunosuppressive": true
+    },
     "notes": "Distinct JEN-101 cohort for previously excised, cytologically or histologically confirmed recurrent soft tissue sarcoma with tumor regrowth greater than 2 cm. Radiation or chemotherapy requires a six-week washout; prior immunotherapy/checkpoint blockade and concurrent immune-modulating drugs exclude enrollment.",
     "intervention": "Four intratumoral JEN-101 (IL-12) doses given every two weeks with CT, biopsy and blood monitoring",
-    "verified": "2026-09-23",
+    "verified": "2026-10-12",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",
@@ -7987,7 +8037,8 @@
     "location_source": "seo/center_directory.py",
     "treatment_approaches": [
       "immunotherapy"
-    ]
+    ],
+    "special_requirement": "Previously excised and recurrent, cytology/histology-confirmed soft tissue sarcoma greater than 2 cm. A 6-week chemotherapy/radiation washout is required. Previous checkpoint inhibitors, Apoquel, steroids and other immune modulators need exclusion review; organ function must allow sedation and contrast imaging."
   },
   {
     "id": "illinois-ucc-gilvetmab-epacadostat",
@@ -8010,10 +8061,14 @@
       "active_treatment_target": true,
       "measurable": true
     },
-    "excludes": {},
+    "excludes": {
+      "prior_chemo": true,
+      "prior_local_radiation": true,
+      "prior_immunotherapy": true
+    },
     "notes": "Bladder transitional/urothelial carcinoma must be confirmed by cytology or BRAF-positive molecular testing with a visible bladder mass on ultrasound. Dogs must be in good overall condition and able to undergo repeated sedation; prior chemotherapy, radiation or immunotherapy excludes enrollment.",
     "intervention": "Standard palliative piroxicam and gabapentin plus randomization to gilvetmab alone or gilvetmab with oral epacadostat for six months, followed by six months of observation",
-    "verified": "2026-09-23",
+    "verified": "2026-10-12",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",
@@ -8030,7 +8085,8 @@
     "location_source": "seo/center_directory.py",
     "treatment_approaches": [
       "immunotherapy"
-    ]
+    ],
+    "special_requirement": "Bladder urothelial carcinoma supported by cytology or a positive BRAF test, together with a visible bladder mass on ultrasound. General health and ability to undergo repeated sedation must be assessed. Previous chemotherapy, radiation therapy or immunotherapy is excluded."
   },
   {
     "id": "auburn-palbociclib-solid-cancers",

@@ -112,6 +112,16 @@ This gate checks what owners can actually retrieve and what must be rejected; sc
 
 These checks run at audit preflight, catalog CI and production build. On NO CHANGE, run the catalog-wide deterministic gates once; do not repeat a fresh global protocol reread unless the source/discovery schedule requires it. Test success supplements, and never replaces, the existing primary-source and full-roster workflow.
 
+### Independent full-catalog protocol review — authorized 2026-10-12
+
+Perform a baseline independent protocol-to-selection review of every current public record, including treatment-access programs. Use the actual current_public() set; preserve an immutable baseline and reconcile additions/removals against current main. The initial baseline has 165 records, not a permanent count. A fetch, a fingerprint, a copied catalog field, a generated witness or passing parity does not complete a review.
+
+For each record, read the current primary protocol and any material linked eligibility/PDF/site roster. Independently write accepted species/diagnoses/families, explicit exclusions, anatomy, stage, previous/current treatment, mandatory surgery/radiation/chemotherapy, weight/age boundaries, measurable/removed-disease conditions, unresolved clinical criteria and site variation. Only then compare with the canonical record and exercise positive, hard-negative and unknown-answer cases in the matcher and corresponding diagnosis pages. Distinguish limited published criteria from an exhausted inaccessible source and from unfinished investigator work. Keep exact source URL, actual attempt method/time, factual support and owner decisions separately.
+
+An unspecified clinical criterion requires visible study-team confirmation. Ambiguous interpretation is not an explicit protocol exclusion: preserve its uncertainty, and seek Yulia's decision for any changed medical/editorial treatment of that uncertainty. Explicit source exclusions still override broad labels. Preserve alternatives as alternative cohorts rather than intersecting incompatible rules.
+
+After the baseline, repeat the complete independent review at least every 28 days, using per-record protocol-review evidence dates. Every new or materially changed record requires this review immediately, even when its master fingerprint is unchanged. Routine no-change runs execute saved independent cases and deterministic gates; they do not manufacture a new medical/source review date. Publication of individually verified corrections can proceed in batches. Unreviewed, blocked and unresolved records remain in the durable queue and report denominator; never call the complete catalog clean until all current public records have independently evidenced dispositions and their source-derived cases pass. This review checks represented opportunities, not completeness of worldwide discovery, which remains a separate mandatory audit product.
+
 ## Weekly deep/control audit
 
 Once per week, perform a broader independent control pass. Recheck existing catalog records and the entire persistent source inventory against current primary sources; detect closures, pauses, recruitment/status changes, eligibility/contact/funding changes, silently edited or undated pages, late-indexed discoveries, stale records and historical gaps.
