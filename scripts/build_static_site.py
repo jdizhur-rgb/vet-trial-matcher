@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import os
 import re
 import shutil
@@ -139,6 +140,16 @@ def main() -> None:
     # build and this copy. The matcher output is fully generated, so merge the
     # freshly built files instead of failing on the pre-created directory.
     shutil.copytree(matcher_source, matcher, dirs_exist_ok=True)
+    # A new catalog must not reuse an older browser/CDN cache entry.
+    catalog_version = hashlib.sha256((matcher / "trials.json").read_bytes()).hexdigest()[:16]
+    matcher_index = matcher / "index.html"
+    index_text = matcher_index.read_text(encoding="utf-8")
+    if "window.MATCHER_DATA_URL='./trials.json';" not in index_text:
+        raise RuntimeError("Missing canonical matcher catalog URL")
+    matcher_index.write_text(index_text.replace(
+        "window.MATCHER_DATA_URL='./trials.json';",
+        f"window.MATCHER_DATA_URL='./trials.json?v={catalog_version}';",
+    ), encoding="utf-8")
     for page in matcher.rglob("*.html"):
         text = wrap_html(page.read_text(encoding="utf-8"))
         if page.relative_to(matcher) != Path("ect/index.html"):

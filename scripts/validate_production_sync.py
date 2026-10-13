@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import sys
@@ -69,6 +70,8 @@ def main() -> None:
     assert len(expected_ids) == len(public), "Duplicate IDs in current public catalog"
 
     matcher_rows = json.loads(read(MATCHER / "trials.json"))
+    catalog_version = hashlib.sha256((MATCHER / "trials.json").read_bytes()).hexdigest()[:16]
+    assert f"window.MATCHER_DATA_URL='./trials.json?v={catalog_version}';" in read(MATCHER / "index.html"), "Matcher catalog cache version does not match deployed data"
     matcher_ids = {row["id"] for row in matcher_rows}
     assert len(matcher_ids) == len(matcher_rows), "Duplicate IDs in matcher catalog"
     assert matcher_ids == expected_ids, {
