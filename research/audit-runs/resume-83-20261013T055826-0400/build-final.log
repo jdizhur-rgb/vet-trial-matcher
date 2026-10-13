@@ -1,0 +1,35 @@
+REPOSITORY_HYGIENE_OK
+ADDRESS_PREFLIGHT {"centers": 89, "coverage_placeholders": 10, "missing_centers": 0, "missing_sites": 0, "physical_sites": 91}
+Generated 45 pages from 162 treatment opportunities
+CANCER_PAGES_ENHANCED 44
+CENTER_PAGES_SKIPPED_UNPROFILED 11 | Animal Medical Center, Gifu University; Hokkaido University Veterinary Teaching Hospital; Hospital Veterinario Puchol / ReachGlio; Japan Small Animal Cancer Center; Kamogawa Animal Medical Center; Nihon University Animal Medical Center; Nippon Veterinary and Life Science University Veterinary Medical Center; Nippon Zenyaku Kogyo multicenter veterinary trial; University of Tokyo Veterinary Medical Center; VCA Dallas Animal Specialty Hospital; Yamaguchi University Veterinary Medical Center
+CENTER_PAGES_OK 102
+CENTER_OWNER_PAGES_OK 91
+CENTER_PAGES_ENHANCED 91
+CANCER_PAGE_CONSISTENCY_OK 44
+CANCER_COVERAGE_OK 22 21 1
+HELP_CENTER_OK https://vettrialfinder.com/help/
+CENTER_PROFILES_OK pages=91 verified_profiles=91 redirects_skipped=0
+SITE_SHELL_OK 158
+ABOUT_PAGE_OK
+RETAINED_CENTER_PROFILES_OK restored=5
+CENTER_URL_REDIRECTS_OK redirects=18
+CANCER_DEPTH_VALIDATION_OK 22 diagnoses x 2 species
+Traceback (most recent call last):
+  File "/workspace/scratch/2226bbb8952f/vtf-resume/seo/validate_cancer_depth.py", line 183, in <module>
+    print('CANCER_PAGE_SEMANTIC_BUILD_OK', validate_built_site(args.site), 'generated pages')
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2226bbb8952f/vtf-resume/seo/validate_cancer_depth.py", line 116, in validate_built_site
+    assert 'class="disease owner-guide"' in raw, f'missing owner guide: {page}'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: missing owner guide: seo/site/north-america/dogs/thyroid-carcinoma/index.html
+Traceback (most recent call last):
+  File "/workspace/scratch/2226bbb8952f/vtf-resume/scripts/build_static_site.py", line 207, in <module>
+    main()
+  File "/workspace/scratch/2226bbb8952f/vtf-resume/scripts/build_static_site.py", line 126, in main
+    run("seo/validate_cancer_depth.py", "--site", "seo/site", pythonpath="seo")
+  File "/workspace/scratch/2226bbb8952f/vtf-resume/scripts/build_static_site.py", line 33, in run
+    subprocess.run([sys.executable, *args], cwd=ROOT, env=env, check=True)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python', 'seo/validate_cancer_depth.py', '--site', 'seo/site']' returned non-zero exit status 1.

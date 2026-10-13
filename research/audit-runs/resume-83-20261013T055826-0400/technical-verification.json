@@ -56,5 +56,52 @@
     "USA": 104,
     "Japan": 10
   },
-  "live_browse_results": "PENDING"
+  "live_browse_results": {
+    "url": "https://vettrialfinder.com/matcher/",
+    "USA": {
+      "result": 104,
+      "checked_at": "2026-10-13T10:58:22.584Z",
+      "status": "PASS"
+    },
+    "Japan": {
+      "result": 10,
+      "checked_at": "2026-10-13T10:58:48.412Z",
+      "status": "PASS"
+    },
+    "form": {
+      "species": "Dog",
+      "cancer": "Cancer — any type",
+      "diagnosis_certainty": "I don't know",
+      "age": null,
+      "weight": null,
+      "ZIP": null,
+      "treatments": "all six checked",
+      "approach": "Any approach"
+    },
+    "new_records_visible": [
+      "tufts-primary-pulmonary-carcinoma-sbrt",
+      "jp-tokyo-histiocytic-sarcoma-anti-pd1-2026"
+    ]
+  },
+  "publication": {
+    "commit_sha": "426de2762cecb63a87d4a1fd63bb7c8e3a47f658",
+    "workflow_run": 38386691522,
+    "url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/38386691522",
+    "build_job": 115260119638,
+    "deploy_job": 115260366060,
+    "build": "PASS",
+    "deploy": "PASS",
+    "duration": "1m 4s",
+    "transport": "authorized GitHub connector; CLI push lacked credentials"
+  },
+  "live_resource_versions": {
+    "catalog_configuration": "window.MATCHER_DATA_URL='./trials.json?v=e811b8563d6bd4bd';",
+    "expected_catalog_sha256": "e811b8563d6bd4bdb81b0d0e69863b710d653ea94ea2a11a85f03fe5a9325888",
+    "catalog_version_in_HTML": "PASS",
+    "JS_source": "https://vettrialfinder.com/matcher/matcher.js?v=selection-audit-20261012",
+    "JS_changed_this_run": false,
+    "expected_JS_sha256": "8a488070a41fcb99393cd70c916ffff0dbd44e79f2c0cba5ac2c56292c99d712",
+    "live_full_byte_comparison": "NOT VERIFIED",
+    "reason": "Direct JS and JSON navigation reported net::ERR_BLOCKED_BY_CLIENT in this browser; shell JS download exited 28 (Proxy CONNECT timeout). Runtime UI and HTML versions were verified separately; no byte-equality claim from those checks."
+  }
 }

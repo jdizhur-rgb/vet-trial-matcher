@@ -1310,6 +1310,18 @@
           "result": "retrieved_page",
           "evidence_reference": "turn543view0",
           "text_sha256": "2cefdffb0a7d4918fd7b3344271cb69b2cdacbaa569bd51d0bb437dce4af37b7"
+        },
+        {
+          "url": "https://vet.tufts.edu/clinical-trials/sbrt-canine-lung-tumor-study",
+          "effective_url": "https://vet.tufts.edu/clinical-trials/sbrt-canine-lung-tumor-study",
+          "method": "Web",
+          "attempted_at": "2026-10-13T10:18:46.476Z",
+          "attempted_date": "2026-10-13",
+          "timestamp_precision": "instant",
+          "route": "individual_primary",
+          "result": "retrieved_page",
+          "evidence_reference": "turn542view2",
+          "text_sha256": "ede60f1b615ba89b447eb1d525534be772f985ee9ae449d62ba8c2fcae41fa7b"
         }
       ],
       "route_used": "Web",
@@ -1318,7 +1330,8 @@
       "protocols_seen": 9,
       "current_roster_evidence": [
         "turn541view4",
-        "turn543view0"
+        "turn543view0",
+        "turn542view2"
       ],
       "current_reconciliation": "Tufts's nine oncology entries reconciled with treatment, suspended and research-only distinctions. Added the independently verified primary pulmonary-carcinoma SBRT protocol; it is separate from progressive lung-metastasis SABR. Only the named Tufts enrollment site is asserted; other VRTOG sites are not published on this page.",
       "canonical_ids_by_primary_url": [
@@ -4045,6 +4058,18 @@
           "result": "retrieved_page",
           "evidence_reference": "turn523view1",
           "text_sha256": "3e9580587bba63bfed6952bedead137ae3d6e3667f3635e7ef614020c6ea2483"
+        },
+        {
+          "url": "https://www.vm.a.u-tokyo.ac.jp/vmc/wp2/wp-content/uploads/2026/10/poster1.pdf",
+          "effective_url": "https://www.vm.a.u-tokyo.ac.jp/vmc/wp2/wp-content/uploads/2026/10/poster1.pdf",
+          "method": "Web",
+          "attempted_at": null,
+          "attempted_date": "2026-10-13",
+          "timestamp_precision": "date_only",
+          "route": "individual_primary",
+          "result": "retrieved_page",
+          "evidence_reference": "turn525view0",
+          "text_sha256": "6b432b0a924255d69ef502b2835845189ca51e8d744f863af0c0a4874038ee54"
         }
       ],
       "route_used": "Web",
@@ -4054,7 +4079,8 @@
       "current_roster_evidence": [
         "turn523view0",
         "turn523view1",
-        "turn522view4"
+        "turn522view4",
+        "turn525view0"
       ],
       "current_reconciliation": "Tokyo VMC's full six oncology protocol entries reconciled, including the closed canine UCC cohort. Added HS-specific anti-PD-1 from the current invitation and full PDF; July 2026 is ethics approval, not an inferred start date. Existing organoid, feline TCC, IDO1 and pirarubicin identities preserved.",
       "canonical_ids_by_primary_url": [
@@ -6276,12 +6302,17 @@
     }
   ],
   "source_processing_complete_total": 83,
-  "executor_incomplete_total": 0,
+  "executor_incomplete_total": 18,
   "source_processing_status": "COMPLETE",
   "evidence_status": "INCOMPLETE",
   "global_discovery_this_run": {
     "regions": 0,
     "reason": "Targeted completion of the 83 parent-run gaps. No new global pass claimed."
   },
-  "reconciled_at": "2026-10-13T06:46:28.635489-04:00"
+  "reconciled_at": "2026-10-13T06:46:28.635489-04:00",
+  "ended_at": "2026-10-13T07:04:56.006276-04:00",
+  "source_content_executor_incomplete_total": 0,
+  "executor_metadata_incomplete_total": 18,
+  "overall_execution_status": "INCOMPLETE",
+  "executor_remainder_reason": "Exact request instants were not captured for 18 early actual Web reads. Their date-only evidence is kept; prior instants are not presented as new visits. No reading/reconciliation step is intentionally deferred, but the exact same-day timestamp gate cannot be certified."
 }
