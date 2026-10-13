@@ -2588,8 +2588,8 @@
       "required_cadence": "daily",
       "last_checked": "2026-10-13",
       "last_result": "partial",
-      "content_fingerprint": "sha256:2c5db932ba495056bfae0dea1bbb798e279db6f3770a5bf5b4eaa011b694b640",
-      "last_checked_at": "2026-10-13T06:43:10.383000-04:00",
+      "content_fingerprint": null,
+      "last_checked_at": "2026-10-13T19:13:43.907000-04:00",
       "last_http_status": null,
       "last_attempts": [
         {
@@ -2627,18 +2627,48 @@
           "result": "retrieved_page",
           "evidence_reference": "turn559view1",
           "text_sha256": "3cefc61dbb21d9971807d0a8330705bb36ed7c498f2ec1887364125bb0504852"
+        },
+        {
+          "url": "https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials",
+          "evidence_reference": "turn570search0",
+          "attempted_at": "2026-10-13T23:13:33.085Z",
+          "method": "Web",
+          "result": "retrieved_page",
+          "retrieval_note": "【turn570search0】 [wordlim: 200] Crawled: today; If you have an ongoing clinical trial and would like to add it to the Oncowaf clinical trial database and this mailing, please contact contact@oncowaf.com. ...    | Chemodectoma  | Treatment by local thermoablation either echoguided or via open surgery with concomitant pericardectomy  | Cécile Damoiseaux (cdamoiseaux@fregis.com) ...    | Chemodectoma  | Microwave ablation  | Joaquim Henriques (joaquim.henriques@anicura.pt)"
+        },
+        {
+          "url": "https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials",
+          "evidence_reference": "turn571view2",
+          "attempted_at": "2026-10-13T23:13:43.907Z",
+          "method": "Web",
+          "result": "retrieved_page",
+          "retrieval_note": "【turn571view2】 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({\"ref_id\":\"turn570search0\",\"lineno\":null}); Total lines: 121"
         }
       ],
-      "last_route_used": "Master and all configured official fallback URLs were attempted once; ordinary shell failures/JS-shell insufficiency used Web-open and page-content find when permitted. Explicit 403/404 routes were not retried through another tool.",
-      "last_audit_run_id": "resume-83-20261013T055826-0400",
+      "last_route_used": "Targeted Web reading of directory and six associated organizer/protocol pathways; not a complete global source pass.",
+      "last_audit_run_id": "europe-six-20261013T190857-0400",
       "last_protocols_seen": null,
-      "last_coverage_gap": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
-      "notes": "ESVONC is a non-exhaustive trial-signal page, not the full European recruiting roster. Published links were qualified with shared Oncowaf/provider evidence. Older radioimmunotherapy, HIFU and vaccine signals lack protocol-specific current access; diagnostic/phase-I-only items were not promoted.",
-      "fingerprint_method": "Aggregate of current-run official-route content hashes and Web references; historical fingerprint not reused as current evidence.",
+      "last_coverage_gap": "Targeted six-protocol reconciliation: two organizer invitations verified, four current-access questions remain. Other European protocols and entire global inventory were not re-audited in this targeted run.",
+      "notes": "ESVONC is a non-exhaustive trial-signal page, not the full European recruiting roster. Published links were qualified with shared Oncowaf/provider evidence. Older radioimmunotherapy, HIFU and vaccine signals lack protocol-specific current access; diagnostic/phase-I-only items were not promoted. Targeted 2026-10-13 follow-up found Armonia HIFU and VetAgro oral-tumor primary invitations/current-studies routes missed by the earlier pass. See research/audit-runs/europe-six-20261013T190857-0400/protocol-review.json. This amendment does not change the prior receipt or declare the full European roster reconciled.",
+      "fingerprint_method": "Targeted run does not establish a complete reconciled current roster; no sufficient-roster fingerprint assigned.",
       "last_visit_timestamp_precision": "instant",
-      "last_coverage_receipt": "research/audit-runs/resume-83-20261013T055826-0400/receipt-final.json",
+      "last_coverage_receipt": "research/audit-runs/europe-six-20261013T190857-0400/protocol-review.json",
       "content_sufficient": false,
-      "recheck_after": "2026-10-20"
+      "recheck_after": "2026-10-20",
+      "targeted_followups": [
+        {
+          "run_id": "europe-six-20261013T190857-0400",
+          "receipt": "research/audit-runs/europe-six-20261013T190857-0400/protocol-review.json",
+          "scope": [
+            "eu-fr-hifu-urothelial",
+            "eu-fr-oral-intratumoral-immunotherapy",
+            "eu-pt-hepatic-thermoablation",
+            "eu-pt-chemodectoma-microwave",
+            "eu-pt-mammary-pdt",
+            "eu-it-mucosal-melanoma-autologous-vaccine"
+          ]
+        }
+      ]
     },
     {
       "id": "europe-oncowaf-clinical-trials",
@@ -2649,8 +2679,8 @@
       "required_cadence": "daily",
       "last_checked": "2026-10-13",
       "last_result": "partial",
-      "content_fingerprint": "sha256:bd738bde8c21bd9c0bc2a6122e2d08a404a8f3f757cd0bc1c50905050892b127",
-      "last_checked_at": "2026-10-13T06:24:02.907000-04:00",
+      "content_fingerprint": null,
+      "last_checked_at": "2026-10-13T19:13:33.085000-04:00",
       "last_http_status": null,
       "last_attempts": [
         {
@@ -2760,18 +2790,48 @@
           "result": "retrieved_page",
           "evidence_reference": "turn547view4",
           "text_sha256": "780cacc4842d3c4e0d3c7306b0a2e7fff2174063ee216deca2b6714c3e53a016"
+        },
+        {
+          "url": "https://oncowaf.be/en/ClinicalTrials/searchResults",
+          "evidence_reference": "turn563view1",
+          "attempted_at": "2026-10-13T23:08:56.480Z",
+          "method": "Web",
+          "result": "retrieved_page",
+          "retrieval_note": "【turn563view1】 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({\"ref_id\":\"https://oncowaf.be/en/ClinicalTrials/searchResults\",\"lineno\":null}); Total lines: 239"
+        },
+        {
+          "url": "https://oncowaf.be/en/ClinicalTrials/searchResults",
+          "evidence_reference": "turn570search1",
+          "attempted_at": "2026-10-13T23:13:33.085Z",
+          "method": "Web",
+          "result": "retrieved_page",
+          "retrieval_note": "【turn570search1】 [wordlim: 200] Crawled: today; How can I find an ongoing clinical trial? ... Mafra, Portugal  | Joaquim Henriques ... Treatment by local application of microwaves  | Chemodectoma  | Inclusion criteria"
         }
       ],
-      "last_route_used": "Master and all configured official fallback URLs were attempted once; ordinary shell failures/JS-shell insufficiency used Web-open and page-content find when permitted. Explicit 403/404 routes were not retried through another tool.",
-      "last_audit_run_id": "resume-83-20261013T055826-0400",
+      "last_route_used": "Targeted Web reading of directory and six associated organizer/protocol pathways; not a complete global source pass.",
+      "last_audit_run_id": "europe-six-20261013T190857-0400",
       "last_protocols_seen": null,
-      "last_coverage_gap": "The permitted current official routes were read, but they did not establish a complete current oncology-treatment roster with protocol identities/statuses.",
-      "notes": "Oncowaf's published rows and whole named multicenter lists were read, including the seven insulinoma sites and Italian vaccine sites. Zurich/Utrecht protocols share primary evidence. Armonia HIFU, VetAgro oral immunity, PT liver/chemodectoma, Frégis therapy and Evora vaccine/PDT leads lack adequate individual current primary detail; PT size wording conflicts.",
-      "fingerprint_method": "Aggregate of current-run official-route content hashes and Web references; historical fingerprint not reused as current evidence.",
+      "last_coverage_gap": "Targeted six-protocol reconciliation: two organizer invitations verified, four current-access questions remain. Other European protocols and entire global inventory were not re-audited in this targeted run.",
+      "notes": "Oncowaf's published rows and whole named multicenter lists were read, including the seven insulinoma sites and Italian vaccine sites. Zurich/Utrecht protocols share primary evidence. Armonia HIFU, VetAgro oral immunity, PT liver/chemodectoma, Frégis therapy and Evora vaccine/PDT leads lack adequate individual current primary detail; PT size wording conflicts. Targeted 2026-10-13 follow-up found Armonia HIFU and VetAgro oral-tumor primary invitations/current-studies routes missed by the earlier pass. See research/audit-runs/europe-six-20261013T190857-0400/protocol-review.json. This amendment does not change the prior receipt or declare the full European roster reconciled.",
+      "fingerprint_method": "Targeted run does not establish a complete reconciled current roster; no sufficient-roster fingerprint assigned.",
       "last_visit_timestamp_precision": "instant",
-      "last_coverage_receipt": "research/audit-runs/resume-83-20261013T055826-0400/receipt-final.json",
+      "last_coverage_receipt": "research/audit-runs/europe-six-20261013T190857-0400/protocol-review.json",
       "content_sufficient": false,
-      "recheck_after": "2026-10-20"
+      "recheck_after": "2026-10-20",
+      "targeted_followups": [
+        {
+          "run_id": "europe-six-20261013T190857-0400",
+          "receipt": "research/audit-runs/europe-six-20261013T190857-0400/protocol-review.json",
+          "scope": [
+            "eu-fr-hifu-urothelial",
+            "eu-fr-oral-intratumoral-immunotherapy",
+            "eu-pt-hepatic-thermoablation",
+            "eu-pt-chemodectoma-microwave",
+            "eu-pt-mammary-pdt",
+            "eu-it-mucosal-melanoma-autologous-vaccine"
+          ]
+        }
+      ]
     },
     {
       "id": "netherlands-utrecht-interventional-oncology",
@@ -7520,6 +7580,70 @@
       "last_coverage_gap": "",
       "fingerprint_method": "Aggregate of current-run official-route content hashes and Web references; historical fingerprint not reused as current evidence.",
       "last_http_status": 200
+    },
+    {
+      "id": "fr-armonia-current-clinical-studies",
+      "name": "CHV AniCura Armonia current clinical studies",
+      "country": "France",
+      "source_type": "hospital_program",
+      "master_url": "https://www.anicura.fr/cliniques/armonia/etudes-cliniques-en-cours-chv-anicura-armonia/",
+      "fallback_urls": [],
+      "required_cadence": "daily",
+      "last_checked": "2026-10-13",
+      "last_checked_at": "2026-10-13T19:08:56.480000-04:00",
+      "last_result": "reachable",
+      "content_fingerprint": null,
+      "last_audit_run_id": "europe-six-20261013T190857-0400",
+      "last_attempts": [
+        {
+          "url": "https://www.anicura.fr/cliniques/armonia/etudes-cliniques-en-cours-chv-anicura-armonia/",
+          "evidence_reference": "turn563view0",
+          "attempted_at": "2026-10-13T23:08:56.480Z",
+          "method": "Web",
+          "result": "retrieved_page",
+          "retrieval_note": "【turn563view0】 [wordlim: 200] Crawled: 4 weeks ago; Content type: text/html; Source: open({\"ref_id\":\"https://www.anicura.fr/cliniques/armonia/etudes-cliniques-en-cours-chv-anicura-armonia/\",\"lineno\":null}); Total lines: 213"
+        }
+      ],
+      "last_protocols_seen": 2,
+      "notes": "Current institution study index read; oncology entries classified by treatment versus diagnostic scope. Individual primary evidence is recorded in the targeted protocol review. This is not a full global audit.",
+      "last_coverage_receipt": "research/audit-runs/europe-six-20261013T190857-0400/protocol-review.json"
+    },
+    {
+      "id": "fr-vetagro-cicv-current-studies",
+      "name": "VetAgro Sup CICV current studies",
+      "country": "France",
+      "source_type": "university",
+      "master_url": "https://www.vetagro-sup.fr/recherche-expertise/cicv-centre-investigation-clinique-veterinaire/",
+      "fallback_urls": [
+        "https://www.vetagro-sup.fr/recherche-expertise/cicv-centre-investigation-clinique-veterinaire/etude-pour-developper-un-nouveau-medicament-pour-traiter-les-melanomes-et-carcinomes-epidermoides-buccaux/"
+      ],
+      "required_cadence": "daily",
+      "last_checked": "2026-10-13",
+      "last_checked_at": "2026-10-13T19:13:16.573000-04:00",
+      "last_result": "reachable",
+      "content_fingerprint": null,
+      "last_audit_run_id": "europe-six-20261013T190857-0400",
+      "last_attempts": [
+        {
+          "url": "https://www.vetagro-sup.fr/recherche-expertise/cicv-centre-investigation-clinique-veterinaire/",
+          "evidence_reference": "turn567view5",
+          "attempted_at": "2026-10-13T23:12:48.807Z",
+          "method": "Web",
+          "result": "retrieved_page",
+          "retrieval_note": "【turn567view5】 [wordlim: 200] Crawled: last month; Content type: text/html; Source: click({\"ref_id\":\"turn565view0\",\"id\":36}); Total lines: 217"
+        },
+        {
+          "url": "https://www.vetagro-sup.fr/recherche-expertise/cicv-centre-investigation-clinique-veterinaire/",
+          "evidence_reference": "turn569view1",
+          "attempted_at": "2026-10-13T23:13:16.573Z",
+          "method": "Web",
+          "result": "retrieved_page",
+          "retrieval_note": "【turn569view1】 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({\"ref_id\":\"turn567view5\",\"lineno\":72}); Total lines: 217"
+        }
+      ],
+      "last_protocols_seen": 1,
+      "notes": "Current institution study index read; oncology entries classified by treatment versus diagnostic scope. Individual primary evidence is recorded in the targeted protocol review. This is not a full global audit.",
+      "last_coverage_receipt": "research/audit-runs/europe-six-20261013T190857-0400/protocol-review.json"
     }
   ]
 }

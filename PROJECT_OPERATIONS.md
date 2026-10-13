@@ -250,6 +250,8 @@ Repository sanitation rule: data/trials_base.json is the only canonical cancer c
 
 ## 15. Cost-controlled audit state
 
+2026-10-13: apply `Partial triage by catalog impact` in data/DAILY_AUDIT_ALGORITHM.md. Source completeness, active-core access, ancillary fields and inactive leads require separate decisions. A generic hospital/oncology homepage is not proof that a protocol page does not exist: Armonia's current-studies section and VetAgro Sup's CICV index/direct oral-tumor invitation were found during targeted reconciliation after a previous partial pass missed them. Preserve that execution correction; do not relabel the previous pass as primary-verified. Published research/CVs can establish trial identity but cannot alone confirm present owner enrollment. Retain uncertain existing records pending the required status decision, with explicit issue impact and no refreshed successful verification date.
+
 Use scripts/audit_preflight.py as the deterministic first gate. It distinguishes blocking core failures from ancillary/inconclusive smoke-test failures. Run scripts/validate_catalog_sanitation.py to reject any newly introduced partial canonical record while allowing explicitly tracked historical debt to remain quarantined in data/audit_unresolved.json until verified.
 
 Persistent audit scheduling lives in data/audit_state.json. Source fingerprints remain in data/source_inventory.json. Deep audits should prioritize changed fingerprints, stale verification, unresolved items whose recheck_after is due, and a periodic forced full reread. An unchanged master page is a cost-saving signal, not proof that every protocol is current; forced rereads and protocol-level checks remain required on schedule.

@@ -2010,6 +2010,97 @@
         }
       ],
       "selection_sha256": "9d9a06e43e7d86039338a3f8a9c9bb0ba17fca2626e271f0e345ed9d30f7381d"
+    },
+    {
+      "trial_id": "eu-fr-hifu-urothelial",
+      "source_url": "https://www.anicura.fr/cliniques/armonia/etudes-cliniques-en-cours-chv-anicura-armonia/",
+      "reviewed_at": "2026-10-13T19:17:16.074810-04:00",
+      "criteria": "Source-derived core disease/species scope and current owner entry. Detailed legacy secondary eligibility is separately marked unconfirmed, not synthesized from matcher behavior. HIFU requires standard therapy no longer feasible/effective.",
+      "selection_sha256": "fed872241284443a26d65ac436f15384b6d67ea91667115f6ecac6a44549fcea",
+      "cases": [
+        {
+          "name": "organizer-supported diagnosis, unknown detailed suitability",
+          "patient": {
+            "species": "Dog",
+            "country": "France",
+            "cancer": "Urothelial carcinoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "wrong species",
+          "patient": {
+            "species": "Cat",
+            "country": "France",
+            "cancer": "Urothelial carcinoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source-incompatible diagnosis",
+          "patient": {
+            "species": "Dog",
+            "country": "France",
+            "cancer": "Oral melanoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "standard treatment still feasible contradicts study scope",
+          "patient": {
+            "species": "Dog",
+            "country": "France",
+            "cancer": "Urothelial carcinoma",
+            "standard_therapy_unavailable": "No"
+          },
+          "expected": "exclude"
+        }
+      ]
+    },
+    {
+      "trial_id": "eu-fr-oral-intratumoral-immunotherapy",
+      "source_url": "https://www.vetagro-sup.fr/recherche-expertise/cicv-centre-investigation-clinique-veterinaire/etude-pour-developper-un-nouveau-medicament-pour-traiter-les-melanomes-et-carcinomes-epidermoides-buccaux/",
+      "reviewed_at": "2026-10-13T19:17:16.074810-04:00",
+      "criteria": "Dog oral melanoma or oral SCC; direct organizer protocol and current CICV index. Non-oral SCC is outside the published study. Detailed numeric/prior-treatment criteria remain secondary-only pending full protocol disclosure.",
+      "selection_sha256": "9117eaefb46539c8edb7d508d7be5b6e1ebab47126c138a333b0d93e8c168b9a",
+      "cases": [
+        {
+          "name": "organizer-supported diagnosis, unknown detailed suitability",
+          "patient": {
+            "species": "Dog",
+            "country": "France",
+            "cancer": "Oral melanoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "wrong species",
+          "patient": {
+            "species": "Cat",
+            "country": "France",
+            "cancer": "Oral melanoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source-incompatible diagnosis",
+          "patient": {
+            "species": "Dog",
+            "country": "France",
+            "cancer": "Squamous cell carcinoma — other"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "oral SCC core candidate",
+          "patient": {
+            "species": "Dog",
+            "country": "France",
+            "cancer": "Oral squamous cell carcinoma"
+          },
+          "expected": "review"
+        }
+      ]
     }
   ]
 }
