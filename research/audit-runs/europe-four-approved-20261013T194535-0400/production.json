@@ -1,0 +1,55 @@
+{
+  "at": "2026-10-13T19:49:16.689960-04:00",
+  "main_sha": "0aa1527045831e5ff0e5c0243abba2d5cf08c60a",
+  "deploy_run_id": 38486373551,
+  "deploy": "PASS",
+  "artifacts": {
+    "index.html": {
+      "url": "https://vettrialfinder.com/matcher/",
+      "returncode": 0,
+      "sha256": "4c5144b88b03e3ce5e4ce15d796468f000eeb1c1f073f60463aba2d54e84291d",
+      "matches_build": true
+    },
+    "matcher.js": {
+      "url": "https://vettrialfinder.com/matcher/matcher.js",
+      "returncode": 0,
+      "sha256": "8a488070a41fcb99393cd70c916ffff0dbd44e79f2c0cba5ac2c56292c99d712",
+      "matches_build": true
+    },
+    "trials.json": {
+      "url": "https://vettrialfinder.com/matcher/trials.json",
+      "returncode": 0,
+      "sha256": "43907b644cc4ffe0bd612a61dd1318a964726a17943c71a54983415d7b12152b",
+      "matches_build": true
+    }
+  },
+  "html_versions": [
+    "trials.json?v=43907b644cc4ffe0",
+    "matcher.js?v=selection-audit-20261012"
+  ],
+  "live_public_count": 163,
+  "four_ids_absent": "PASS",
+  "live_search": {
+    "at": "2026-10-13T19:50:21.207663-04:00",
+    "method": "Browser UI: native species/country/cancer selects and actual rendered results",
+    "inputs": "Dog; Cancer — any type; unknown diagnosis; blank age/weight/ZIP; all six treatments; Any approach",
+    "Portugal": {
+      "rendered": 0,
+      "result": "PASS; excluded records absent, not a claim that no study exists"
+    },
+    "Italy": {
+      "rendered": 1,
+      "result": "PASS; Milan OncoFAP-MMAE remains; unconfirmed vaccine absent"
+    },
+    "USA": {
+      "rendered": 104,
+      "expected_from_loading_regression": 104,
+      "result": "PASS"
+    },
+    "Japan": {
+      "rendered": 10,
+      "expected_from_loading_regression": 10,
+      "result": "PASS"
+    }
+  }
+}
