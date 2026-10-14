@@ -78,9 +78,7 @@ check(tufts,{cancer:'Hepatocellular carcinoma',weight_lb:6*2.2046226218},false,'
 const caalm=byId.get('ucd-pdl1-metastatic');
 check(caalm,{cancer:'Oral melanoma'},true,'named CAALM cohort');
 for(const cancer of ['Soft tissue sarcoma','Gastric / stomach cancer','Hepatocellular carcinoma']) check(caalm,{cancer},false,`false broad CAALM match ${cancer}`);
-const cotc=byId.get('mizzou-cotc027-hypomethylating');
-for(const cancer of ['Soft tissue sarcoma','Osteosarcoma','Histiocytic sarcoma']) check(cotc,{cancer},false,`non-sarcomatous cohort ${cancer}`);
-check(cotc,{cancer:'Hepatocellular carcinoma'},true,'carcinoma prescreen');
+assert(!byId.has('mizzou-cotc027-hypomethylating'), 'COTC027 dose/PK research must stay outside the treatment catalog');
 check(byId.get('leah-bcell-cart-2026'),{},true,'active site must survive inactive-site prose');
 check(byId.get('msu-tcell-lymphoma'),{cancer:'T-cell lymphoma'},true,'exclusion text must not hide the accepted PTCL cohort');
 check(byId.get('msu-tcell-lymphoma'),{cancer:'Cutaneous epitheliotropic lymphoma'},false,'cutaneous lymphoma excluded');

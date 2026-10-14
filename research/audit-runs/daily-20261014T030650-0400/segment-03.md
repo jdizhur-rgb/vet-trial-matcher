@@ -1,0 +1,1 @@
+2026-10-14T03:52:08.159611-04:00: all110 native masters visited; 144 Web reads including required fallbacks. 15 source reviews saved. Other available reconciliation remains executor work. Global discovery0/12. One confirmed Ohio SBRT funding clarification prepared, not yet published.

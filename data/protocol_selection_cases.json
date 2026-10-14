@@ -2101,6 +2101,113 @@
           "expected": "review"
         }
       ]
+    },
+    {
+      "trial_id": "china-petcura-personalized-mrna-iit-2026",
+      "source_url": "https://www.petcura.cn/zh/mrna-vaccine/study/",
+      "reviewed_at": "2026-10-14T03:55:08.716598-04:00",
+      "criteria": "Current Chinese primary explicitly permits case-by-case assessment below general5kg. Dog malignant-tumor IIT; T-cell lymphoma and brain tumors excluded. Age≥2; suitable tissue and tolerance/organ function/life expectancy require project prescreen. Whole published city roster (9cities/12 unnamed hospitals) reread.",
+      "selection_sha256": "c00bfde17031eadf5ab88879d936b98be4d71d8367ac9dc8439dc6d3890d0fe5",
+      "cases": [
+        {
+          "name": "small dog is eligible for individual prescreening",
+          "patient": {
+            "species": "Dog",
+            "country": "China",
+            "cancer": "Histiocytic sarcoma",
+            "age_known": true,
+            "age": 3,
+            "weight_known": true,
+            "weight_lb": 6.6138678654
+          },
+          "expected": "review"
+        },
+        {
+          "name": "published minimum age still excludes",
+          "patient": {
+            "species": "Dog",
+            "country": "China",
+            "cancer": "Histiocytic sarcoma",
+            "age_known": true,
+            "age": 1
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Tcell lymphoma remains excluded",
+          "patient": {
+            "species": "Dog",
+            "country": "China",
+            "cancer": "T-cell lymphoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "brain tumor remains excluded",
+          "patient": {
+            "species": "Dog",
+            "country": "China",
+            "cancer": "Brain tumor / glioma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "wrong species excluded",
+          "patient": {
+            "species": "Cat",
+            "country": "China",
+            "cancer": "Histiocytic sarcoma"
+          },
+          "expected": "exclude"
+        }
+      ]
+    },
+    {
+      "trial_id": "jhu-cigat-mammary-kubanda-cryo-2026",
+      "source_url": "https://www.hopkinsmedicine.org/-/media/radiology/_docs/kumbanda_mammary_cancer_trial.pdf",
+      "reviewed_at": "2026-10-14T04:38:01.982674-04:00",
+      "criteria": "Official linked primary mammary flyer: histopathologic canine mammary cancer; no prior treatment of lump/chemotherapy for other cancers; systemic fitness. Cryotherapy followed by funded mass removal, owner-paid staging. Prescreen required.",
+      "selection_sha256": "8feff8f1fecf875457561e03278234f928aef31ed5ea5458a2030f9502f5b0cd",
+      "cases": [
+        {
+          "name": "untreated canine mammary candidate needs prescreen",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Mammary carcinoma",
+            "chemo": "Never"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "prior chemotherapy excluded by primary flyer",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Mammary carcinoma",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "wrong species excluded",
+          "patient": {
+            "species": "Cat",
+            "country": "USA",
+            "cancer": "Mammary carcinoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "wrong disease excluded",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "exclude"
+        }
+      ]
     }
   ]
 }

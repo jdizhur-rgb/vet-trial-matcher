@@ -1,0 +1,27 @@
+[
+  {
+    "command": "node scripts/test_matcher_logic.js",
+    "exit_code": 0,
+    "output": "MATCHER_LOGIC_OK trials=162 mct=4 yasha=0 mammary=5 osteosarcoma=18 bladder=7 brain=8\n"
+  },
+  {
+    "command": "python scripts/validate_production_sync.py",
+    "exit_code": 0,
+    "output": "PRODUCTION_SYNC_OK total=162 treatment=157 access=5 matcher_ids=162 internal_links=6918\n"
+  },
+  {
+    "command": "python scripts/validate_trials_catalog.py",
+    "exit_code": 0,
+    "output": "TRIAL_CATALOG_VALIDATION_OK records=309 unique_ids=309 active=162 required_active_fields=11\n"
+  },
+  {
+    "command": "python scripts/validate_catalog_sanitation.py",
+    "exit_code": 0,
+    "output": "{\n  \"records\": 309,\n  \"partial_records\": 6,\n  \"known_unresolved\": 6,\n  \"new_partial_records\": [],\n  \"resolved_but_still_queued\": []\n}\n"
+  },
+  {
+    "command": "python scripts/test_matcher_selection.py",
+    "exit_code": 0,
+    "output": "MATCHER_SELECTION_PARITY_OK public=162 disease_checks=19440\n"
+  }
+]

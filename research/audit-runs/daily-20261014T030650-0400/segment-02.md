@@ -1,0 +1,1 @@
+Checkpoint 2026-10-14T03:33:20.240557-04:00. 36 sources opened; 3 reconciled. Global discovery 0/12. Accessible primary/protocol comparisons remain executor work; not external closure. Raw Web 02–10 preserved, public provenance normalization pending.
