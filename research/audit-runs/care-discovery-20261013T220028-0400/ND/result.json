@@ -1,0 +1,187 @@
+{
+  "run_id": "care-discovery-20261013T220028-0400",
+  "territory": "ND",
+  "baseline_sha": "718b11552418ce4c6630e59863907f6072f3b619",
+  "agent_task": "/root/discovery_nd",
+  "completed_at": "2026-10-14T02:08:13.612431+00:00",
+  "status": "COMPLETE_BOUNDED_PACKAGE",
+  "territory_status": "partial_not_exhaustive",
+  "counts": {
+    "assigned_candidates": 3,
+    "processed": 3,
+    "fully_verified": 2,
+    "new_core_sufficient": 2,
+    "update": 0,
+    "duplicate_deep_candidates": 0,
+    "unresolved": 1,
+    "extra_unprocessed_leads": 5
+  },
+  "candidates": [
+    {
+      "source_id": "rugby-veterinary-service",
+      "name": "Rugby Veterinary Service",
+      "classification": "NEW",
+      "processed": true,
+      "fully_verified": true,
+      "core_fields_sufficient": true,
+      "verified_fields": [
+        "current official location",
+        "full address",
+        "phone",
+        "official website",
+        "current DVM roster",
+        "published local oncology treatment",
+        "appointment/referral route"
+      ],
+      "unknown_fields": [
+        "specific chemotherapy protocols",
+        "local radiation",
+        "oncology board certification",
+        "mandatory referral requirement"
+      ],
+      "pending_question": "Which anticancer modalities are currently delivered at this branch? Do not withhold generic local-care addition while chemotherapy remains unknown.",
+      "pending_urls": [
+        "https://www.rugbyvet.com/services.pml",
+        "https://www.rugbyvet.com/meet-our-team.pml",
+        "https://www.rugbyvet.com/hospital-policies.pml",
+        "https://www.rugbyvet.com/request-an-appointment.pml"
+      ],
+      "recheck_after": "2026-10-20",
+      "branch_scope": "Rugby",
+      "proposed_change_source_id": "rugby-veterinary-service"
+    },
+    {
+      "source_id": "state-ave-veterinary-clinic",
+      "name": "State Ave Veterinary Clinic",
+      "classification": "NEW",
+      "processed": true,
+      "fully_verified": true,
+      "core_fields_sufficient": true,
+      "verified_fields": [
+        "current official location",
+        "full address",
+        "phone",
+        "official website",
+        "current DVM roster",
+        "published local oncology treatment",
+        "appointment/referral route"
+      ],
+      "unknown_fields": [
+        "specific chemotherapy protocols",
+        "local radiation",
+        "oncology board certification",
+        "mandatory referral requirement"
+      ],
+      "pending_question": "Which anticancer modalities are currently delivered at this branch? Do not withhold generic local-care addition while chemotherapy remains unknown.",
+      "pending_urls": [
+        "https://www.stateavevet.com/referring-veterinarians/",
+        "https://www.stateavevet.com/contact/",
+        "https://www.stateavevet.com/meet-the-team/"
+      ],
+      "recheck_after": "2026-10-20",
+      "branch_scope": "Dickinson",
+      "proposed_change_source_id": "state-ave-veterinary-clinic"
+    },
+    {
+      "source_id": "animal-health-clinic-fargo",
+      "name": "Animal Health Clinic",
+      "classification": "UNRESOLVED",
+      "processed": true,
+      "fully_verified": false,
+      "core_fields_sufficient": false,
+      "verified_fields": [
+        "location 1441 University Dr. S., Fargo ND 58103",
+        "phone 701-237-9310",
+        "official site",
+        "current DVM roster",
+        "direct contact access",
+        "Tammy Ness oncology interest"
+      ],
+      "missing_core_fields": [
+        "current local anticancer treatment delivery"
+      ],
+      "pending_question": "Does Animal Health Clinic Fargo currently deliver chemotherapy or another actual anticancer treatment at 1441 University Dr. S.? Third-party employment/review descriptions mention chemotherapy; current official service page does not establish it.",
+      "pending_urls": [
+        "https://www.ahcfargo.com/services",
+        "https://www.ahcfargo.com/new-page",
+        "https://www.ahcfargo.com/get-started"
+      ],
+      "recheck_after": "2026-10-20",
+      "processing_assessment": "not_established",
+      "gap_cause": "individual clinic treatment uncertainty; current official routes visited but no direct modality statement",
+      "not_absence_claim": true
+    }
+  ],
+  "extra_leads": [
+    {
+      "name": "Missouri Valley Vet",
+      "url": "https://www.missourivalleyvet.com/about-us/our-veterinarians.html",
+      "reason": "Three Bismarck/Mandan branches and veterinarian oncology interest; treatment and branch attribution unverified",
+      "status": "unprocessed",
+      "next_action": "Read official small-animal service and individual branch pages; do not spread group interest to all branches"
+    },
+    {
+      "name": "Pinkerton Animal Hospital",
+      "url": "https://pinkertonanimalhospital.com/",
+      "reason": "Minot geographic gap; current general-care lead, oncology not established",
+      "status": "unprocessed",
+      "next_action": "Read actual services and clinician routes"
+    },
+    {
+      "name": "Watson Veterinary Services",
+      "url": "https://www.watsonvetservices.com/",
+      "reason": "Mobile Mandan/Bismarck regional service; no established anticancer delivery",
+      "status": "unprocessed",
+      "next_action": "Check treatment vs hospice/supportive-only scope"
+    },
+    {
+      "name": "West Dakota Veterinary Clinic",
+      "url": "https://www.westdakotavet.com/",
+      "reason": "Dickinson regional provider; ordinary-care lead",
+      "status": "unprocessed",
+      "next_action": "Read current official local cancer-service evidence"
+    },
+    {
+      "name": "Petcetera Animal Clinic",
+      "url": "https://www.petcgfk.com/services/",
+      "reason": "Grand Forks geographic gap; ordinary-care lead",
+      "status": "unprocessed",
+      "next_action": "Read current official services, not generic article library"
+    }
+  ],
+  "dedupe": {
+    "files_checked": [
+      "data/oncology_centers.json",
+      "data/oncology_centers_supplemental.json",
+      "data/oncology_centers_seed.json",
+      "data/oncology_care_source_inventory.json"
+    ],
+    "rows_checked": [
+      444,
+      436,
+      86,
+      516
+    ],
+    "method": "case-insensitive full-row semantic name/domain/address search plus existing ND extract; zero current matches for Rugby, State Ave/stateavevet, AHC/ahcfargo; existing Red River handled as duplicate lead",
+    "new_rows_before": null
+  },
+  "errors": [
+    {
+      "url": "https://www.stateavevet.com/",
+      "type": "shell_403_on_four_routes",
+      "resolution": "Successful permitted Web same-source reads; these pages are not inaccessible"
+    },
+    {
+      "type": "requests_package_unavailable",
+      "resolution": "stdlib urllib used; not a source failure"
+    },
+    {
+      "url": "https://www.rugbyvet.com/appointment-request.pml",
+      "type": "guessed_route_soft_404",
+      "resolution": "Actual linked request-an-appointment.pml successfully read; false route not used for evidence"
+    }
+  ],
+  "remaining_territory": "Outside Fargo initial discovery covered Rugby and Dickinson; Bismarck/Mandan, Minot, Grand Forks, Williston and other rural areas remain incompletely explored. Zero engine hits are not coverage completion.",
+  "next_package": "ND continuation: Missouri Valley Vet branch-delivery confirmation, Minot/Pinkerton and Grand Forks/Petcetera, up to three candidates. AHC unresolved recheck no sooner than 2026-10-20 absent new evidence.",
+  "publication": "Not performed by worker; parent serializer decides and validates."
+}

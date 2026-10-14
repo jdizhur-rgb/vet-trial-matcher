@@ -1,0 +1,221 @@
+{
+  "agent_id": "/root/scheduled_worker2",
+  "started_at": "2026-10-13T02:17:22Z",
+  "started_at_basis": "First shell wall-clock receipt; agent spawning preceded this receipt",
+  "finished_at": "2026-10-13T02:21:26.049877+00:00",
+  "assigned_count": 3,
+  "processed_count": 3,
+  "fully_verified_count": 1,
+  "fully_verified_definition": "All assigned fact categories checked, with no remaining branch-access/provider question. Two other records retain specific unresolved caveats rather than being counted fully verified.",
+  "baseline_files": [
+    "data/oncology_care_source_inventory.json",
+    "data/oncology_centers_supplemental.json"
+  ],
+  "facts_changed": 0,
+  "proposed_inventory_changes": 3,
+  "records": [
+    {
+      "source_id": "veterinary-specialists-of-north-texas",
+      "name": "UT Southwestern Veterinary Research and Oncology Clinic",
+      "verified_fields": [
+        "identity",
+        "street/city/postal_code",
+        "phone",
+        "website",
+        "clinicians",
+        "radiation-oncology credential",
+        "local radiation therapy",
+        "appointment/direct-or-referral access"
+      ],
+      "verified_values": {
+        "street": "5801 Forest Park Road (official page displays 5801 Forest Park)",
+        "phone": "214-645-6221",
+        "clinicians": [
+          "Jonathan Maddox, DVM — clinical assistant professor, no oncology certification inferred",
+          "Isabelle Vanhaezebrouck, DVM, MS — radiation oncology, ACVR/ECVDI"
+        ],
+        "services": [
+          "Local oncology care",
+          "Radiation oncology",
+          "Radiation therapy"
+        ],
+        "access": "By appointment; owners can contact directly or through referring vet."
+      },
+      "fully_verified": false,
+      "unresolved": [
+        "Routine non-research chemotherapy access remains unestablished; resource page describes trial protocols rather than unrestricted treatment.",
+        "Focused ultrasound is described on infrastructure page, but routine owner-access pathway is unestablished; do not add unrestricted offering.",
+        "Jonathan Maddox profile failed twice; clinic team listing confirms current role, no credential inference."
+      ],
+      "evidence": [
+        {
+          "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/contact-us.html",
+          "ref": "turn14view2",
+          "quote": "Dallas, TX 75235",
+          "supports": "address and telephone lines 48–51"
+        },
+        {
+          "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/meet-the-team.html",
+          "ref": "turn8view0",
+          "quote": "Jonathan Maddox, D.V.M.",
+          "supports": "current faculty role and Isabelle team linkage"
+        },
+        {
+          "url": "https://profiles.utsouthwestern.edu/profile/236540/isabelle-vanhaezebrouck.html",
+          "ref": "turn11view4",
+          "quote": "board certified in radiation oncology",
+          "supports": "ACVR/ECVDI radiation credentials"
+        },
+        {
+          "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-infrastructure.html",
+          "ref": "turn8view1",
+          "quote": "radiation therapy unit designed specifically for veterinary use",
+          "supports": "local radiation unit; focused ultrasound also described"
+        },
+        {
+          "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/resources.html",
+          "ref": "turn8view2",
+          "quote": "Visits are available by appointment only.",
+          "supports": "appointment and direct/referral intake; treatment wording trial-dependent"
+        }
+      ]
+    },
+    {
+      "source_id": "veterinary-specialists-of-north-texas-3cbba709",
+      "name": "Veterinary Specialists of North Texas — Fort Worth",
+      "verified_fields": [
+        "identity",
+        "street/city/postal_code",
+        "phone",
+        "website",
+        "oncologists and credentials",
+        "all existing service tags",
+        "referral/new-patient form",
+        "co-located partner surgery"
+      ],
+      "verified_values": {
+        "street": "4631 Citylake Blvd. West",
+        "city": "Fort Worth",
+        "postal_code": "76132",
+        "phone": "817-263-4300",
+        "oncologists": [
+          "Sara Allstadt DVM DACVIM Oncology",
+          "Carlos Rodriguez Jr DVM PhD DACVIM Oncology — relief provider listed, schedule not confirmed",
+          "Stephanie Cook DVM DACVR Radiation Oncology",
+          "Nicholas Rancilio DVM MS DACVR Radiation Oncology"
+        ],
+        "services": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Electrochemotherapy",
+          "Immunotherapy",
+          "Radiation oncology",
+          "Radiation therapy",
+          "SRT",
+          "SBRT",
+          "GRID radiotherapy"
+        ],
+        "access": "Referral only; appointment and new-patient admission form. Surgery via co-located Dallas Veterinary Surgical Center."
+      },
+      "fully_verified": false,
+      "unresolved": [
+        "Carlos Rodriguez is listed but describes national relief coverage; actual Fort Worth appointment schedule remains unspecified. Preserve existing relief caveat."
+      ],
+      "evidence": [
+        {
+          "url": "https://vsnt.com/contact/",
+          "ref": "turn10view0",
+          "quote": "4631 Citylake Blvd. West",
+          "supports": "contact, Fort Worth site and new-patient form"
+        },
+        {
+          "url": "https://vsnt.com/services/medical-oncology/",
+          "ref": "turn8view4",
+          "quote": "Our medical oncology treatments include both traditional and innovative options:",
+          "supports": "explicit oral/injectable chemotherapy, ECT and immunotherapy list"
+        },
+        {
+          "url": "https://vsnt.com/services/radiation-oncology/",
+          "ref": "turn11view3",
+          "quote": "GRID is available using our equipment.",
+          "supports": "local LINAC, SRT, SBRT synonyms and GRID"
+        },
+        {
+          "url": "https://vsnt.com/pet-owners/faqs/",
+          "ref": "turn10view1",
+          "quote": "VSNT is a by referral only specialty hospital.",
+          "supports": "required referral, physical examination and co-located surgery"
+        }
+      ]
+    },
+    {
+      "source_id": "veterinary-specialty-center",
+      "name": "Veterinary Specialty Center — Bannockburn",
+      "verified_fields": [
+        "identity",
+        "street/city/postal_code",
+        "phone",
+        "website",
+        "five named oncology providers and qualifications",
+        "medical oncology/chemotherapy",
+        "local radiation therapy",
+        "appointment and records"
+      ],
+      "verified_values": {
+        "street": "2051 Waukegan Road",
+        "city": "Bannockburn",
+        "postal_code": "60015",
+        "phone": "847-459-7535",
+        "oncologists": [
+          "Blake Marcum, DVM, MS, DACVIM (Oncology)",
+          "Richard Sheng, DVM, DACVIM (Oncology)",
+          "Rhonda Feinmehl, DVM — residency-trained in oncology; not represented as board-certified",
+          "Hayley Ashworth, BVSc, MS, DACVR-RO",
+          "Carolynne Kruckman-Gatesy, DVM, MS, DACVR-RO"
+        ],
+        "services": [
+          "Medical oncology",
+          "Chemotherapy",
+          "Radiation oncology",
+          "Radiation therapy"
+        ],
+        "access": "Specialty by appointment Monday–Friday; referring veterinarian records requested."
+      },
+      "fully_verified": true,
+      "unresolved": [],
+      "evidence": [
+        {
+          "url": "https://www.vetspecialty.com/specialties/medical-and-radiation-oncology/",
+          "ref": "turn14view3",
+          "quote": "Specialty (By Appointment Only): Monday - Friday",
+          "supports": "local oncology department, contact, chemotherapy/radiation treatment list"
+        },
+        {
+          "url": "https://www.vetspecialty.com/our-team/page/3/",
+          "ref": "turn12view1",
+          "quote": "Rhonda Feinmehl DVM, Residency-Trained in Oncology",
+          "supports": "all five current clinicians and four board-certified clinicians"
+        },
+        {
+          "url": "https://www.vetspecialty.com/pet-owners/preparing-for-your-visit/",
+          "ref": "turn12view6",
+          "quote": "your pet’s regular veterinarian will be asked to send us all records",
+          "supports": "records requirement"
+        },
+        {
+          "url": "https://www.vetspecialty.com/specialties/medical-and-radiation-oncology/radiation-therapy/",
+          "ref": "turn12view7",
+          "quote": "The machine utilized to produce the X-rays for radiation therapy is called a linear accelerator (LINAC).",
+          "supports": "local radiation equipment and treatment delivery"
+        }
+      ]
+    }
+  ],
+  "errors": [
+    "VSNT contact and Carlos profile transient retrieval failures recovered via repeat official open.",
+    "Jonathan Maddox faculty profile inaccessible via web tool twice; official clinic team remains available."
+  ],
+  "publication_tested": false,
+  "research_finished_at": "2026-10-13T02:19:38Z",
+  "evidence_timestamp_basis": "Fresh retrieval date 2026-10-12 America/New_York; per-page exact visit timestamps unavailable. Shell timestamps measure worker activity, not individual visits."
+}

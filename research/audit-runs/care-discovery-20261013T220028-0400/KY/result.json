@@ -1,0 +1,241 @@
+{
+  "run_id": "care-discovery-20261013T220028-0400",
+  "baseline_sha": "718b11552418ce4c6630e59863907f6072f3b619",
+  "worker": "discovery_ky",
+  "territory": "KY",
+  "direction": "US discovery",
+  "status": "bounded_package_complete",
+  "territory_exhaustive": false,
+  "counts": {
+    "assigned_candidates": 3,
+    "processed": 3,
+    "fully_verified": 1,
+    "core_fields_sufficient": 3,
+    "NEW": 3,
+    "UPDATE": 0,
+    "DUPLICATE": 0,
+    "UNRESOLVED": 0,
+    "unprocessed_leads": 3
+  },
+  "strict_full_definition": "All requested treatment/assigned-clinician fields resolved; Bluegrass/Midway have publishable confirmed surgery and core metadata but unresolved additional modalities.",
+  "completed_at": "2026-10-14T02:09:58.446553+00:00",
+  "source_date_range": [
+    "2026-10-14T02:07:02.470652+00:00",
+    "2026-10-14T02:07:05.473598+00:00"
+  ],
+  "results": [
+    {
+      "source_id": "richmond-veterinary-clinic-ky",
+      "name": "Richmond Veterinary Clinic",
+      "disposition": "NEW",
+      "processed": true,
+      "fully_verified": true,
+      "core_fields_sufficient": true,
+      "checked_at": "2026-10-14T02:07:02.479878+00:00",
+      "checked_at_range": [
+        "2026-10-14T02:07:02.470652+00:00",
+        "2026-10-14T02:07:02.479878+00:00"
+      ],
+      "checked_date_local": "2026-10-13",
+      "verified_fields": [
+        "current operation",
+        "full address",
+        "phone",
+        "official website",
+        "current clinician roster",
+        "credentials separated from services",
+        "local treatment",
+        "appointment/referral access"
+      ],
+      "confirmed_treatment": [
+        "Local oncology care",
+        "Chemotherapy"
+      ],
+      "pending_questions": [],
+      "recheck_after": null,
+      "gap_processing_assessment": null,
+      "gap_reason": null,
+      "executor_unfinished": false
+    },
+    {
+      "source_id": "bluegrass-veterinary-specialists-animal-emergency-lexington",
+      "name": "Bluegrass Veterinary Specialists + Animal Emergency",
+      "disposition": "NEW",
+      "processed": true,
+      "fully_verified": false,
+      "core_fields_sufficient": true,
+      "checked_at": "2026-10-14T02:07:05.473598+00:00",
+      "checked_at_range": [
+        "2026-10-14T02:07:04.527335+00:00",
+        "2026-10-14T02:07:05.473598+00:00"
+      ],
+      "checked_date_local": "2026-10-13",
+      "verified_fields": [
+        "current operation",
+        "full address",
+        "phone",
+        "official website",
+        "current clinician roster",
+        "credentials separated from services",
+        "local treatment",
+        "appointment/referral access"
+      ],
+      "confirmed_treatment": [
+        "Local oncology care",
+        "Surgery"
+      ],
+      "pending_questions": [
+        "Does this branch currently deliver chemotherapy, radiation, immunotherapy or targeted therapy, or refer these externally? Which clinician is assigned to medical-oncology treatment?"
+      ],
+      "recheck_after": "2026-10-20",
+      "gap_processing_assessment": "not_established",
+      "gap_reason": "Available official branch sources do not establish delivery of the other listed modalities; no unavailable-source claim.",
+      "executor_unfinished": false
+    },
+    {
+      "source_id": "midway-veterinary-hospital-somerset-ky",
+      "name": "Midway Veterinary Hospital",
+      "disposition": "NEW",
+      "processed": true,
+      "fully_verified": false,
+      "core_fields_sufficient": true,
+      "checked_at": "2026-10-14T02:07:04.323494+00:00",
+      "checked_at_range": [
+        "2026-10-14T02:07:03.528811+00:00",
+        "2026-10-14T02:07:04.323494+00:00"
+      ],
+      "checked_date_local": "2026-10-13",
+      "verified_fields": [
+        "current operation",
+        "full address",
+        "phone",
+        "official website",
+        "current clinician roster",
+        "credentials separated from services",
+        "local treatment",
+        "appointment/referral access"
+      ],
+      "confirmed_treatment": [
+        "Local oncology care",
+        "Surgery"
+      ],
+      "pending_questions": [
+        "Is chemotherapy currently administered at this Somerset branch? Are the oncology page therapies delivered locally or discussed as referral options?"
+      ],
+      "recheck_after": "2026-10-20",
+      "gap_processing_assessment": "not_established",
+      "gap_reason": "Available official branch sources do not establish delivery of the other listed modalities; no unavailable-source claim.",
+      "executor_unfinished": false
+    }
+  ],
+  "leads": [
+    {
+      "url": "https://www.medvet.com/location/lexington/",
+      "name": "MedVet Lexington",
+      "city": "Lexington",
+      "status": "unprocessed_lead",
+      "reason": "Outside three-deep-candidate cap. Current branch result lists emergency care; legacy cancer-center references and recruiting medical-oncologist advertisement cannot establish current branch oncology."
+    },
+    {
+      "url": "https://www.ashlandanimalclinic.com/",
+      "name": "Ashland Animal Clinic",
+      "city": "Ashland",
+      "status": "unprocessed_lead",
+      "reason": "Eastern-KY lead; cancer-treatment delivery not checked. Outside bounded three candidate cap."
+    },
+    {
+      "url": "https://catvetfinder.com/cat-clinic/kentucky/richmond/trilogy-veterinary-practice-46547/",
+      "official_candidate_url": "https://bypassanimalclinic.com/",
+      "name": "Trilogy/Bypass Animal Clinic",
+      "city": "Richmond",
+      "status": "unprocessed_lead",
+      "reason": "Aggregator therapy claims not evidence; identify actual practice and confirm official local treatment in next bounded pass."
+    }
+  ],
+  "dedupe": [
+    {
+      "source_id": "richmond-veterinary-clinic-ky",
+      "all_paths": [
+        "data/oncology_centers.json",
+        "data/oncology_centers_seed.json",
+        "data/oncology_centers_supplemental.json",
+        "data/oncology_care_source_inventory.json",
+        "data/acvim_oncology_profiles.json"
+      ],
+      "identity_checks": [
+        "name/alias",
+        "official domain",
+        "phone",
+        "KY city and street",
+        "all existing KY branches (Louisville and Owensboro) distinct"
+      ],
+      "matches": [],
+      "decision": "NEW"
+    },
+    {
+      "source_id": "bluegrass-veterinary-specialists-animal-emergency-lexington",
+      "all_paths": [
+        "data/oncology_centers.json",
+        "data/oncology_centers_seed.json",
+        "data/oncology_centers_supplemental.json",
+        "data/oncology_care_source_inventory.json",
+        "data/acvim_oncology_profiles.json"
+      ],
+      "identity_checks": [
+        "name/alias",
+        "official domain",
+        "phone",
+        "KY city and street",
+        "all existing KY branches (Louisville and Owensboro) distinct"
+      ],
+      "matches": [],
+      "decision": "NEW"
+    },
+    {
+      "source_id": "midway-veterinary-hospital-somerset-ky",
+      "all_paths": [
+        "data/oncology_centers.json",
+        "data/oncology_centers_seed.json",
+        "data/oncology_centers_supplemental.json",
+        "data/oncology_care_source_inventory.json",
+        "data/acvim_oncology_profiles.json"
+      ],
+      "identity_checks": [
+        "name/alias",
+        "official domain",
+        "phone",
+        "KY city and street",
+        "all existing KY branches (Louisville and Owensboro) distinct"
+      ],
+      "matches": [],
+      "decision": "NEW"
+    }
+  ],
+  "errors": [
+    {
+      "kind": "python_dependency",
+      "details": "First requests import failed before any fetch (module absent); used built-in urllib instead.",
+      "recovered": true
+    },
+    {
+      "kind": "ordinary_shell_transport",
+      "attempted_at": "2026-10-14T02:05:19.437646+00:00",
+      "url": "https://www.midwayvetlovesmypet.com/site/oncology",
+      "details": "Default shell network returned operation not permitted; official public source subsequently retrieved with allowed escalated urllib.",
+      "recovered": true
+    },
+    {
+      "kind": "wrong_official_route",
+      "url": "https://www.midwayvetlovesmypet.com/site/oncology",
+      "details": "Web route inaccessible; followed actual official home Oncology link to /site/veterinary-services-somerset/oncology.",
+      "recovered": true
+    }
+  ],
+  "next_package": "Continue Kentucky eastern/southern gaps (Ashland/Hazard/Bowling Green). Deep-check at most three saved leads; recheck unresolved branch modalities after 2026-10-20 or new primary evidence.",
+  "territory_remainder": [
+    "eastern KY including Ashland/Hazard",
+    "south-central Bowling Green gap",
+    "mobile/visiting providers not exhaustively established",
+    "western/northern state coverage still unsearched"
+  ]
+}

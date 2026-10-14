@@ -1,0 +1,214 @@
+{
+  "run_id": "care-discovery-20261013T220028-0400",
+  "territory": "NE",
+  "baseline_sha": "718b11552418ce4c6630e59863907f6072f3b619",
+  "sources": [
+    {
+      "id": "ne-beebout-branch",
+      "url": "https://beeboutvetmedcenter.com/kearney/",
+      "checked_at": "2026-10-13T22:05:10-04:00",
+      "method": "Web open",
+      "result": "sufficient",
+      "ref": "turn41view0",
+      "branch_scope": "Kearney only",
+      "facts": {
+        "name": "Beebout Veterinary Medical Center - Kearney",
+        "street": "2907 W. 37th St.",
+        "city": "Kearney",
+        "region": "NE",
+        "postal_code": "68845",
+        "phone": "308-236-5912",
+        "service_link": "https://beeboutvetmedcenter.com/services/internal-medicine/"
+      },
+      "quote": "Beebout Veterinary Medical Center - Kearney",
+      "interpretation": "Branch-specific service list links Internal Medicine directly; this is the branch-to-service bridge, not assignment from site-wide navigation."
+    },
+    {
+      "id": "ne-beebout-chemo",
+      "url": "https://beeboutvetmedcenter.com/services/internal-medicine/",
+      "checked_at": "2026-10-13T22:05:45-04:00",
+      "method": "Web click from Kearney branch service link",
+      "result": "sufficient",
+      "ref": "turn49view1",
+      "branch_scope": "Kearney branch links this as its Internal Medicine offering; Holdrege not promoted in this package",
+      "facts": {
+        "confirmed_services": [
+          "Local oncology care",
+          "Chemotherapy"
+        ]
+      },
+      "quote": "We offer chemotherapy as part of our commitment to providing advanced treatment options close to home",
+      "interpretation": "Literal active provider offer, not a list of theoretical cancer modalities. No surgical oncology, radiation, immunotherapy or oncology certification inferred."
+    },
+    {
+      "id": "ne-beebout-team",
+      "url": "https://beeboutvetmedcenter.com/our-team/",
+      "checked_at": "2026-10-13T22:05:31-04:00",
+      "method": "Web open",
+      "result": "sufficient",
+      "ref": "turn46view2",
+      "branch_scope": "Kearney team before separately labelled Holdrege roster; Lacey Warning explicitly Kearney and Holdrege",
+      "facts": {
+        "clinicians": [
+          {
+            "name": "Brandon W Beebout",
+            "qualification": "DVM",
+            "scope": "Kearney roster/biography"
+          },
+          {
+            "name": "Paola Beebout",
+            "qualification": "DVM",
+            "scope": "Kearney roster/biography"
+          },
+          {
+            "name": "Maria Beck",
+            "qualification": "DVM",
+            "scope": "BVMC roster; also Ravenna Vet Center in biography"
+          },
+          {
+            "name": "Lacey Warning",
+            "qualification": "DVM",
+            "scope": "Explicit Kearney and Holdrege roster"
+          }
+        ],
+        "oncology_board_certification": "not stated in reviewed roster; no credential added",
+        "assigned_chemotherapy_clinician": "not stated"
+      },
+      "quote": "Kearney and Holdrege DVM"
+    },
+    {
+      "id": "ne-beebout-access",
+      "url": "https://beeboutvetmedcenter.com/schedule-an-appointment/",
+      "checked_at": "2026-10-13T22:05:10-04:00",
+      "method": "Web open",
+      "result": "sufficient",
+      "ref": "turn41view1",
+      "branch_scope": "Booking form selects location; Kearney available via branch link",
+      "facts": {
+        "access": "Owner appointment request form or call clinic",
+        "referral_requirement": "not stated; do not claim referral-free",
+        "cost": "not stated"
+      },
+      "quote": "Select Location(Required)"
+    },
+    {
+      "id": "ne-grand-island",
+      "url": "https://www.grandislandveterinary.com/",
+      "checked_on": "2026-10-13",
+      "checked_at": null,
+      "timestamp_note": "Initial successful Web open occurred before exact clock capture; date-only retained rather than fabrication. Later timed re-open failed.",
+      "method": "Web open",
+      "result": "partial",
+      "ref": "turn30view2",
+      "branch_scope": "512 S Webb Rd Grand Island NE clinic only",
+      "facts": {
+        "name": "Grand Island Veterinary Hospital",
+        "street": "512 S Webb Rd",
+        "city": "Grand Island",
+        "region": "NE",
+        "postal_code": "68803",
+        "phone": "308-384-1641",
+        "clinicians": [
+          {
+            "name": "Emily Buettner",
+            "qualification": "DVM"
+          },
+          {
+            "name": "Jessika Benes",
+            "qualification": "DVM"
+          }
+        ],
+        "access": "Accepting new patients; call to make appointment",
+        "local_anticancer_treatment": "not confirmed; current page lists general services without cancer modality"
+      },
+      "quote": "Now Accepting New Patients",
+      "pending_question": "Does the current Emily Buettner/Jessika Benes team administer chemotherapy or other anticancer treatment at this branch? Legacy directory description alone is insufficient."
+    },
+    {
+      "id": "ne-grand-island-repeat-error",
+      "url": "https://www.grandislandveterinary.com/",
+      "attempted_at": "2026-10-13T22:05:45-04:00",
+      "method": "Web open",
+      "result": "unreachable",
+      "ref": "turn49view0",
+      "error": "HTTP400 Timeout fetching; does not invalidate earlier successful current content read or prove closure"
+    },
+    {
+      "id": "ne-perkins-service",
+      "url": "https://perkinscountyvet.com/services",
+      "checked_at": "2026-10-13T22:05:10-04:00",
+      "method": "Web find/open",
+      "result": "partial",
+      "ref": "turn41view4",
+      "branch_scope": "Grant Nebraska single clinic",
+      "facts": {
+        "local_cancer_assessment_and_plan": "current site offers diagnosis/treatment guidance",
+        "confirmed_local_modalities": [],
+        "chemotherapy": "generic possible-treatment list only; delivery unconfirmed",
+        "radiation": "generic possible-treatment list only; delivery unconfirmed",
+        "surgical_oncology": "general surgery insufficient"
+      },
+      "quote": "Treatments for dogs with cancer are similar to human therapies, may include:",
+      "pending_question": "Which anticancer therapies are administered locally in Grant rather than discussed or referred? Confirm chemotherapy delivery and named administering clinician."
+    },
+    {
+      "id": "ne-perkins-contact",
+      "url": "https://perkinscountyvet.com/contact",
+      "checked_at": "2026-10-13T22:05:31-04:00",
+      "method": "Web open",
+      "result": "sufficient",
+      "ref": "turn46view0",
+      "branch_scope": "Grant only",
+      "facts": {
+        "street": "68 S Central Ave",
+        "city": "Grant",
+        "region": "NE",
+        "postal_code": "69140",
+        "phone": "308-352-2630",
+        "access": "Call or official linked online booking; no regular appointments Thursday/Saturday",
+        "referral_requirement": "not stated"
+      },
+      "quote": "68 S Central Ave, Grant, Nebraska 69140"
+    },
+    {
+      "id": "ne-perkins-team",
+      "url": "https://perkinscountyvet.com/meet-our-staff",
+      "checked_at": "2026-10-13T22:05:31-04:00",
+      "method": "Web open",
+      "result": "sufficient",
+      "ref": "turn46view1",
+      "branch_scope": "Grant only",
+      "facts": {
+        "clinicians": [
+          {
+            "name": "Shannon Jensen",
+            "qualification": "DVM"
+          }
+        ],
+        "oncology_board_certification": "not stated; do not infer"
+      },
+      "quote": "Dr. Shannon Jensen, DVM"
+    },
+    {
+      "id": "ne-perkins-surgery",
+      "url": "https://perkinscountyvet.com/surgical-center",
+      "checked_at": "2026-10-13T22:05:31-04:00",
+      "method": "Web click official surgical center link",
+      "result": "partial",
+      "ref": "turn46view3",
+      "facts": {
+        "reader": "Only 5 lines exposed; no confirmed cancer surgery statement"
+      },
+      "quote": null
+    },
+    {
+      "id": "ne-shell-failed",
+      "url": "https://beeboutvetmedcenter.com/kearney/",
+      "attempted_at": "2026-10-14T02:06:21.581995+00:00",
+      "method": "urllib shell",
+      "result": "unreachable",
+      "error": "URLError; ordinary shell transport failure. Web already successfully read same official URL. requests library unavailable before any source request."
+    }
+  ],
+  "redacted": true
+}

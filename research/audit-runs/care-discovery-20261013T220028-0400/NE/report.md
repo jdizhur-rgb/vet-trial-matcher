@@ -1,0 +1,11 @@
+# Nebraska bounded discovery
+
+Baseline remote main: `718b115`. Three distinct candidates processed; one core-verified publishable addition and two primary-evidence gaps. No production files changed. This is not exhaustive statewide coverage.
+
+- **NEW: Beebout Veterinary Medical Center - Kearney**, 2907 W. 37th St., Kearney NE 68845, 308-236-5912. The branch explicitly lists and links Internal Medicine; that service literally offers chemotherapy. Current DVM roster and owner booking request confirmed. No oncology board certification or additional modalities inferred. Null coordinates with explicit unknown state are proposed rather than a fabricated geocode. Do not transfer to Holdrege merely from shared website services.
+- **UNRESOLVED: Grand Island Veterinary Hospital**, 512 S Webb Rd., Grand Island NE 68803, 308-384-1641. Current owner/team Emily Buettner/Jessika Benes and new-patient appointments confirmed; chemotherapy exists only in legacy directory description. Current official site does not establish delivery. Recheck October 20; no closure or no-treatment claim.
+- **UNRESOLVED: Perkins County Veterinary Hospital**, 68 S Central Ave., Grant NE 69140, 308-352-2630. Current Shannon Jensen DVM, contact and access verified. General educational treatment list does not confirm local chemotherapy or radiation. Official surgery route yielded no substantive service statement. Recheck October 20.
+
+Fifteen actual queries covered both undated current providers and new openings/services. Multiple queries produced wrong-state or human-medicine noise. Twenty-two relevant examined result URLs are preserved, with eleven unprocessed leads; these do not count as deep checks. Existing NAMC Lincoln and VCA MidWest Omaha were identified as duplicates without restoring earlier values. No separately confirmed new veterinary opening found.
+
+Ordinary shell fetch failed transport; available Web reader successfully read the same official Beebout branch. Later Grand Island Web retry timed out, with earlier substantive official read retained. No access gates bypassed. Evidence uses actual timed Web requests once clock capture began; initial Grand Island source visit remains date-only rather than an invented exact time. Quotes are bounded per URL and evidence is redacted with repository helper.

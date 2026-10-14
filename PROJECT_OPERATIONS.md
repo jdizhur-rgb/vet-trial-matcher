@@ -18,6 +18,12 @@ Publish only candidates that met the workers' saved completeness gate: worker 5'
 
 # Vet Cancer Treatment Finder — Project Operations / Single Source of Truth
 
+## Daily bounded oncology-care queue — owner authorized 2026-10-13
+
+The current owner instruction supersedes the historical all-world weekly sweep: one daily task at 22:00 America/New_York, up to six actual parallel workers, finite non-overlapping packages, persistent progress in `research/oncology-care-queue/`. Keep the prior Weekly Oncology Care Audit disabled and the morning trial audit unchanged. Read the queue README and current state before selecting work; Monday physical review, Tuesday US discovery, Wednesday Canada/Europe, Thursday existing/mobile/tele, Friday other international territories in rotation, Saturday US continuation, Sunday due specific pending items. Five existing records or one limited territory/three deep candidates per worker. Do not treat unprocessed leads as verified or partial geographic discovery as completed national coverage.
+
+The first daily package covers ND/SD/WV/AR/NE/KY, with real assignments and receipts in `research/audit-runs/care-discovery-20261013T220028-0400/`. New local chemotherapy can be provided by general veterinarians. Explicit tumor removal supports the existing Cancer surgery filter without inventing oncology board credentials; general Surgery text without tumor/cancer procedures does not. Conservative Local oncology care cards may retain unconfirmed specific modalities. Strict worker full verification and sufficient core data for a limited public card are separate counts. Preserve date-only Web visits without adding an invented exact successful timestamp. The parent serializes publication against fresh main and checks deploy/production bytes.
+
 ## Catalog-wide selection audit — 2026-10-12
 
 Owner additionally requested correcting the audit algorithm after the selection incident. `data/DAILY_AUDIT_ALGORITHM.md` now requires independent source-derived positive/negative/unknown cases plus a catalog-wide diagnosis witness and all-key eligibility coverage; one representative query is retired. `data/DAILY_AUDIT_TASK.md`, audit preflight and catalog CI invoke the selection gates. Passing generated parity is not medical-source verification.

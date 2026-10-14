@@ -1,0 +1,137 @@
+{
+  "baseline_sha": "718b115",
+  "changes": [
+    {
+      "operation": "ADD",
+      "target": "data/oncology_centers_supplemental.json",
+      "source_id": "spaw-city-animal-hospital",
+      "old_value": null,
+      "new_value": {
+        "source_id": "spaw-city-animal-hospital",
+        "name": "Spaw City Animal Hospital",
+        "street": "4013 N. Highway 7, Suite D",
+        "city": "Hot Springs",
+        "region": "AR",
+        "postal_code": "71909",
+        "country": "USA",
+        "phone": "501-204-5020",
+        "website": "https://www.spawcityanimalhospital.com/",
+        "services": [
+          "Local oncology care",
+          "Chemotherapy"
+        ],
+        "species": [
+          "Dog",
+          "Cat"
+        ],
+        "latitude": null,
+        "longitude": null,
+        "coordinates_unknown": true,
+        "coordinate_source": "Official street address verified; no building coordinates or known ZIP centroid available in this bounded package.",
+        "verification_url": "https://www.spawcityanimalhospital.com/",
+        "supporting_urls": [
+          "https://www.spawcityanimalhospital.com/",
+          "https://www.spawcityanimalhospital.com/AboutUs/DrLyndseyWindle.aspx",
+          "https://www.spawcityanimalhospital.com/ContactUs.aspx"
+        ],
+        "last_verified": "2026-10-13",
+        "clinician_review": "Lyndsey Windle — DVM (LSU, 2009), owner and current practicing veterinarian. Oncology board certification not established.",
+        "availability_note": "Chemotherapy and cancer treatment listed for dogs and cats. Call 501-204-5020 to schedule an appointment. The website mailing address says Hot Springs and its location description says Hot Springs Village.",
+        "source": "Current official clinic service, veterinarian and contact pages; reviewed 2026-10-13; care-discovery-20261013T220028-0400"
+      },
+      "evidence_urls": [
+        "https://www.spawcityanimalhospital.com/",
+        "https://www.spawcityanimalhospital.com/AboutUs/DrLyndseyWindle.aspx",
+        "https://www.spawcityanimalhospital.com/ContactUs.aspx"
+      ],
+      "field_scope": "new single physical clinic, only explicit local modalities"
+    },
+    {
+      "operation": "ADD",
+      "target": "data/oncology_centers_supplemental.json",
+      "source_id": "crossover-veterinary-clinic",
+      "old_value": null,
+      "new_value": {
+        "source_id": "crossover-veterinary-clinic",
+        "name": "Crossover Veterinary Clinic",
+        "street": "3033 Hearthstone Dr",
+        "city": "Fayetteville",
+        "region": "AR",
+        "postal_code": "72764",
+        "country": "USA",
+        "phone": "479-750-7474",
+        "website": "https://www.crossovervet.net/",
+        "services": [
+          "Surgery"
+        ],
+        "species": [
+          "Dog",
+          "Cat"
+        ],
+        "latitude": null,
+        "longitude": null,
+        "coordinates_unknown": true,
+        "coordinate_source": "Official address retained literally; no building coordinates or known ZIP centroid available in this bounded package.",
+        "verification_url": "https://www.crossovervet.net/services/surgery.html",
+        "supporting_urls": [
+          "https://www.crossovervet.net/services/surgery.html",
+          "https://www.crossovervet.net/staff/",
+          "https://www.crossovervet.net/services/"
+        ],
+        "last_verified": "2026-10-13",
+        "clinician_review": "Lauryl Hynes — DVM, owner, special interest in oncology; Beth Stropes, Christy Ferguson and Kara Tubb — DVM. No oncology or surgical-specialist certification inferred.",
+        "availability_note": "General tumor removals and eyelid mass removals are offered locally. Call 479-750-7474 or request a surgical consultation through the clinic. Chemotherapy delivery and specialist oncology are unconfirmed.",
+        "source": "Current official tumor-removal service and DVM roster; reviewed 2026-10-13; care-discovery-20261013T220028-0400",
+        "local_service_review": [
+          "Explicit tumor removal supports Surgery in the cancer-care finder, without claiming specialized surgical oncology. A generic oncology blog lists treatment categories but does not establish local chemotherapy, radiation or immunotherapy."
+        ]
+      },
+      "evidence_urls": [
+        "https://www.crossovervet.net/services/surgery.html",
+        "https://www.crossovervet.net/staff/",
+        "https://www.crossovervet.net/services/"
+      ],
+      "field_scope": "new single physical clinic, only explicit local modalities"
+    }
+  ],
+  "inventory_proposals": [
+    {
+      "operation": "ADD",
+      "source_id": "spaw-city-animal-hospital",
+      "name": "Spaw City Animal Hospital",
+      "source_type": "center",
+      "master_url": "https://www.spawcityanimalhospital.com/",
+      "supporting_urls": [
+        "https://www.spawcityanimalhospital.com/",
+        "https://www.spawcityanimalhospital.com/AboutUs/DrLyndseyWindle.aspx",
+        "https://www.spawcityanimalhospital.com/ContactUs.aspx"
+      ],
+      "last_checked": "2026-10-13",
+      "last_checked_at": "2026-10-14T02:05:14.590079+00:00",
+      "last_result": "success",
+      "http_status": 200,
+      "content_sufficient": true,
+      "last_run_id": "care-discovery-20261013T220028-0400",
+      "last_review_note": "Lyndsey Windle — DVM (LSU, 2009), owner and current practicing veterinarian. Oncology board certification not established. Chemotherapy and cancer treatment listed for dogs and cats. Call 501-204-5020 to schedule an appointment. The website mailing address says Hot Springs and its location description says Hot Springs Village."
+    },
+    {
+      "operation": "ADD",
+      "source_id": "crossover-veterinary-clinic",
+      "name": "Crossover Veterinary Clinic",
+      "source_type": "center",
+      "master_url": "https://www.crossovervet.net/services/surgery.html",
+      "supporting_urls": [
+        "https://www.crossovervet.net/services/surgery.html",
+        "https://www.crossovervet.net/staff/",
+        "https://www.crossovervet.net/services/"
+      ],
+      "last_checked": "2026-10-13",
+      "last_checked_at": "2026-10-14T02:05:17.582744+00:00",
+      "last_result": "success",
+      "http_status": 200,
+      "content_sufficient": true,
+      "last_run_id": "care-discovery-20261013T220028-0400",
+      "last_review_note": "Lauryl Hynes — DVM, owner, special interest in oncology; Beth Stropes, Christy Ferguson and Kara Tubb — DVM. No oncology or surgical-specialist certification inferred. General tumor removals and eyelid mass removals are offered locally. Call 479-750-7474 or request a surgical consultation through the clinic. Chemotherapy delivery and specialist oncology are unconfirmed."
+    }
+  ]
+}

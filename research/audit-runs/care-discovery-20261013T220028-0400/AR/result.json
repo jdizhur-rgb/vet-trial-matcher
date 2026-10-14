@@ -1,0 +1,176 @@
+{
+  "run_id": "care-discovery-20261013T220028-0400",
+  "baseline_sha": "718b115",
+  "territory": "Arkansas",
+  "status": "BOUNDED_PACKAGE_COMPLETE_TERRITORY_PARTIAL",
+  "counts": {
+    "assigned_candidates": 3,
+    "processed": 3,
+    "fully_verified": 2,
+    "new": 2,
+    "update": 0,
+    "duplicate": 0,
+    "unresolved": 1,
+    "extra_unprocessed_leads": 5
+  },
+  "candidates": [
+    {
+      "source_id": "spaw-city-animal-hospital",
+      "name": "Spaw City Animal Hospital",
+      "disposition": "NEW",
+      "core_fields_sufficient": true,
+      "processed": true,
+      "fully_verified": true,
+      "checked_at": "2026-10-14T02:05:14.590079+00:00",
+      "verified_fields": [
+        "active physical branch",
+        "address",
+        "phone",
+        "official site",
+        "current veterinarian DVM",
+        "local chemotherapy",
+        "dogs/cats",
+        "appointment route"
+      ],
+      "unconfirmed_fields": [
+        "oncology board certification",
+        "referral requirement",
+        "chemotherapy protocols/prices"
+      ],
+      "branch_scope": "single location; no network transfer"
+    },
+    {
+      "source_id": "crossover-veterinary-clinic",
+      "name": "Crossover Veterinary Clinic",
+      "disposition": "NEW",
+      "core_fields_sufficient": true,
+      "processed": true,
+      "fully_verified": true,
+      "checked_at": "2026-10-14T02:05:17.582744+00:00",
+      "verified_fields": [
+        "active physical branch",
+        "address",
+        "phone",
+        "official site",
+        "four current DVMs",
+        "explicit local tumor removal",
+        "surgical consultation booking"
+      ],
+      "unconfirmed_fields": [
+        "local chemotherapy",
+        "radiation",
+        "specialized surgical oncology credentials",
+        "referral requirement"
+      ],
+      "branch_scope": "single location; cancer surgery label is general tumor removal only"
+    },
+    {
+      "source_id": "all-creatures-veterinary-hospital-mountain-home",
+      "name": "All Creatures Veterinary Hospital — Mountain Home main campus",
+      "disposition": "UNRESOLVED",
+      "core_fields_sufficient": false,
+      "checked_at": "2026-10-14T02:05:13.622809+00:00",
+      "last_successful_verification": null,
+      "known_lead_fields": {
+        "street": "4549 HWY 62 West",
+        "city": "Mountain Home",
+        "region": "AR",
+        "postal_code": "72653",
+        "phone": "870-425-5175",
+        "website": "https://allcreaturesmh.com/",
+        "indexed_services": [
+          "Chemotherapy"
+        ]
+      },
+      "official_urls": [
+        "https://allcreaturesmh.com/services/",
+        "https://allcreaturesmh.com/referrals/",
+        "https://allcreaturesmh.com/about-us/location-hours/",
+        "https://allcreaturesmh.com/about-us/team/"
+      ],
+      "pending_questions": [
+        "Obtain accessible current official service/team/contact content; indexed search content is not enough for publication.",
+        "Does the 4549 HWY 62 West main campus actually administer chemotherapy, and which clinician treats these patients? Service pages describe a three-clinic system without allocation."
+      ],
+      "processing_assessment": "external_blocker",
+      "external_gap": "All four applicable official pages returned HTTP 403 through permitted direct shell and Web reading. Indexed official text yielded useful leads but was not promoted to a fresh branch verification.",
+      "executor_unfinished": false,
+      "recheck_after": "2026-10-20",
+      "processed": true,
+      "fully_verified": false
+    }
+  ],
+  "additional_leads": [
+    {
+      "name": "Bentonville Veterinary Specialists",
+      "url": "https://bentonvillevetspecialists.com/",
+      "reason_remaining": "Official indexed page says accepting referrals Spring 2027; future opening, no active treatment listing. Extra opening-layer lead, not a fourth deep candidate.",
+      "status": "watchlist_future_opening",
+      "recheck_after": "2026-10-20"
+    },
+    {
+      "name": "Eastside Animal Health Center, Fort Smith",
+      "url": "https://www.eastsidevets.net/services",
+      "reason_remaining": "Aggregator claimed chemotherapy/radiation; official local treatment still to verify, no modality inferred. Three-candidate boundary.",
+      "status": "unprocessed_lead"
+    },
+    {
+      "name": "Animal Medical Center, Rogers",
+      "url": "https://www.amcrogers.com/veterinary-services-in-rogers-ar/",
+      "reason_remaining": "Northwest service-page search lead; cancer treatment unestablished. Three-candidate boundary.",
+      "status": "unprocessed_lead"
+    },
+    {
+      "name": "Kindness in Motion Mobile Animal Hospital",
+      "url": "https://www.kindnessinmotionvet.com/whattoexpect",
+      "reason_remaining": "Northwest mobile provider search lead; no chemotherapy/cancer-treatment delivery confirmed. Three-candidate boundary.",
+      "status": "unprocessed_lead"
+    },
+    {
+      "name": "Osage Veterinary Clinic, Bentonville",
+      "url": "https://osagevet.com/",
+      "reason_remaining": "Local northwest veterinary provider, cancer treatment unconfirmed. Three-candidate boundary.",
+      "status": "unprocessed_lead"
+    }
+  ],
+  "semantic_dedupe": [
+    {
+      "path": "data/oncology_centers.json",
+      "sha256": "b956283ee1a5ba4434978eb8e8dd45cb7003e15a57eb81108628b7480b22e1c5",
+      "candidate_identity_matches": []
+    },
+    {
+      "path": "data/oncology_centers_seed.json",
+      "sha256": "e2ff1772e7d01807b363301ff8076e54704038e7c20546ab04164c4de754dcfc",
+      "candidate_identity_matches": []
+    },
+    {
+      "path": "data/oncology_centers_supplemental.json",
+      "sha256": "d377e99805169e769a596f5ef4ad2a83e3c1dc7d971b8b4a39b2407d93abe5d4",
+      "candidate_identity_matches": []
+    },
+    {
+      "path": "data/oncology_care_source_inventory.json",
+      "sha256": "7070680eee43ea6123e2f947872aa95fb37426e78494f1555cddeed14cf88b3d",
+      "candidate_identity_matches": []
+    },
+    {
+      "path": "data/acvim_oncology_profiles.json",
+      "sha256": "63e1961ab70b72b3d9dcf69ac4e0459477c6f3c22de9797981bea6891060e909",
+      "candidate_identity_matches": []
+    },
+    {
+      "path": "seo/oncology_teleconsultations.py",
+      "sha256": "ba7bcec5886df0def21f41dbc4f31c2ef392e151370d98348f739284614b7df0",
+      "candidate_identity_matches": []
+    }
+  ],
+  "next_territory_work": [
+    "Northwest Arkansas chemotherapy/visiting-care gap: Rogers, Bentonville, Springdale, Fort Smith.",
+    "Investigate saved Eastside/Animal Medical Center/Mobile leads; do not start again at Little Rock.",
+    "All Creatures and Bentonville future-opening recheck on or after 2026-10-20, unless new official evidence arrives."
+  ],
+  "territory_complete": false,
+  "published": false,
+  "completed_at": "2026-10-14T02:09:13.357122+00:00"
+}

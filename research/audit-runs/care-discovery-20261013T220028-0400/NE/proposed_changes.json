@@ -1,0 +1,86 @@
+{
+  "run_id": "care-discovery-20261013T220028-0400",
+  "baseline_sha": "718b11552418ce4c6630e59863907f6072f3b619",
+  "new_centers": [
+    {
+      "action": "add_center",
+      "source_id": "beebout-veterinary-medical-center-kearney",
+      "old_value": null,
+      "new_value": {
+        "source_id": "beebout-veterinary-medical-center-kearney",
+        "name": "Beebout Veterinary Medical Center - Kearney",
+        "street": "2907 W. 37th St.",
+        "city": "Kearney",
+        "region": "NE",
+        "postal_code": "68845",
+        "country": "USA",
+        "phone": "308-236-5912",
+        "website": "https://beeboutvetmedcenter.com/kearney/",
+        "services": [
+          "Local oncology care",
+          "Chemotherapy"
+        ],
+        "verification_url": "https://beeboutvetmedcenter.com/services/internal-medicine/",
+        "supporting_urls": [
+          "https://beeboutvetmedcenter.com/kearney/",
+          "https://beeboutvetmedcenter.com/our-team/",
+          "https://beeboutvetmedcenter.com/schedule-an-appointment/"
+        ],
+        "last_verified": "2026-10-13",
+        "last_verified_at": "2026-10-13T22:05:45-04:00",
+        "source": "Official Kearney branch links its Internal Medicine service, explicitly offering chemotherapy; current team/contact/appointment pages verified.",
+        "availability_note": "Contact the Kearney clinic or use its appointment request form to confirm treatment scheduling and the assigned veterinarian.",
+        "latitude": null,
+        "longitude": null,
+        "coordinates_unknown": true,
+        "coordinate_source": "Verified street address; no building geocode or verified ZIP centroid obtained in this bounded package.",
+        "review_reference": "research/audit-runs/care-discovery-20261013T220028-0400/NE/result.json",
+        "care_clinicians": [
+          {
+            "published_label": "Brandon W Beebout, DVM",
+            "url": "https://beeboutvetmedcenter.com/our-team/"
+          },
+          {
+            "published_label": "Paola Beebout, DVM",
+            "url": "https://beeboutvetmedcenter.com/our-team/"
+          },
+          {
+            "published_label": "Maria Beck, DVM",
+            "url": "https://beeboutvetmedcenter.com/our-team/"
+          },
+          {
+            "published_label": "Lacey Warning, DVM (Kearney and Holdrege)",
+            "url": "https://beeboutvetmedcenter.com/our-team/"
+          }
+        ]
+      },
+      "core_fields_sufficient": true,
+      "evidence_ids": [
+        "ne-beebout-branch",
+        "ne-beebout-chemo",
+        "ne-beebout-team",
+        "ne-beebout-access"
+      ],
+      "branch_scope": "Kearney only; do not copy to Holdrege",
+      "semantic_dedupe": {
+        "files": [
+          "data/oncology_centers.json",
+          "data/oncology_centers_seed.json",
+          "data/oncology_centers_supplemental.json",
+          "data/oncology_care_source_inventory.json",
+          "data/acvim_oncology_profiles.json"
+        ],
+        "terms": [
+          "beebout",
+          "hilltop pet",
+          "2907 W"
+        ],
+        "matching_records": [],
+        "outcome": "NEW"
+      },
+      "remaining_nonblocking": "Price/referral requirement and assigned chemotherapy clinician are not published; listed care_clinicians are current local general veterinarians, not confirmed chemotherapy assignments; no oncology board certification asserted."
+    }
+  ],
+  "updates": [],
+  "production_edits_performed": false
+}

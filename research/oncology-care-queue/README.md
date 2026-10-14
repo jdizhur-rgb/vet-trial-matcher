@@ -1,0 +1,13 @@
+# Resumable oncology-care queue
+
+The owner replaced the weekly care sweep with one daily bounded task, up to six real parallel workers, at 22:00 America/New_York. The prior weekly task remains disabled; the morning clinical-trial audit is unchanged.
+
+`state.json` preserves exact source questions and prior worker results. `assignments.json` contains actual canonical agent IDs and finite packages. `territories.json` tracks partial geographic discovery and its remainder. The baseline complete-catalog coverage snapshot is referenced from each US territory. Counts are saved service tags, not independent fresh verification of every listed hospital; operation-unknown is kept separate from explicitly active and temporarily closed/unconfirmed records.
+
+Daily directions: Monday existing physical care; Tuesday US discovery; Wednesday Canada/Europe; Thursday existing care/mobile/tele; Friday international rotation beyond Canada/Europe; Saturday US continuation; Sunday concrete pending/due questions. One round only: five existing records or one limited territory and three deep candidates per worker. Saved leads are unprocessed until actually reviewed. Do not claim a territory complete from a few searches.
+
+Resume saved leads within the direction first; rank other US territories by few confirmed treatment options and city gaps. Do not rerun external unresolved questions before `recheck_after` without new evidence. Initial external recheck is seven days. Prior test pending questions are imported conservatively with immutable references; check current inventory and later published decisions before acting on an older receipt. Dates in copied reports remain historical, never fresh visits.
+
+Workers write separate run directories and cannot push or edit shared production inputs. The parent validates evidence, local branch treatment and credentials independently, deduplicates against all care inputs, fetches current main and serially publishes ready packages. Common builds may combine ready packages. Require care schema, source identity/date checks, existing A/B/C/E/six regressions, static build, production synchronization, successful deploy and exact production readback. No external messages or paid services; editorial/UI decisions remain for the owner.
+
+First run: `care-discovery-20261013T220028-0400`. Six actual workers processed 18 candidates; nine met their strict complete-verification gate, eleven had sufficient core data for conservative cards. Source-specific extra modality questions remain pending. The archived two-worker results and six-worker publication are linked/imported without replaying old values.

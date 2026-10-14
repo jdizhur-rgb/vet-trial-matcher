@@ -1,0 +1,170 @@
+{
+  "run_id": "care-discovery-20261013T220028-0400",
+  "agent_task": "/root/discovery_ne",
+  "territory": "NE",
+  "baseline_sha": "718b11552418ce4c6630e59863907f6072f3b619",
+  "status": "BOUNDED_PACKAGE_COMPLETE_WITH_EXTERNAL_GAPS",
+  "assigned_candidates": 3,
+  "processed": 3,
+  "fully_verified": 1,
+  "new_confirmed_centers": 1,
+  "updates": 0,
+  "candidates": [
+    {
+      "source_id": "beebout-veterinary-medical-center-kearney",
+      "name": "Beebout Veterinary Medical Center - Kearney",
+      "disposition": "NEW",
+      "processed": true,
+      "fully_verified": true,
+      "core_fields_sufficient": true,
+      "checked_at": "2026-10-13T22:05:45-04:00",
+      "verified_fields": [
+        "active_branch",
+        "exact_address",
+        "phone",
+        "official_site",
+        "current_clinicians",
+        "published_credentials",
+        "local_chemotherapy",
+        "appointment_route"
+      ],
+      "pending_questions": [
+        "Confirm assigned chemotherapy clinician, service scheduling and any referral requirement when booking."
+      ],
+      "recheck_after": "2026-11-10",
+      "proposal": true
+    },
+    {
+      "source_id": "grand-island-veterinary-hospital",
+      "name": "Grand Island Veterinary Hospital",
+      "disposition": "UNRESOLVED",
+      "processed": true,
+      "fully_verified": false,
+      "core_fields_sufficient": false,
+      "checked_on": "2026-10-13",
+      "checked_at": null,
+      "verified_fields": [
+        "active_branch",
+        "exact_address",
+        "phone",
+        "official_site",
+        "current_clinicians",
+        "published_DVM_credentials",
+        "new_patient_appointment_route"
+      ],
+      "missing_fields": [
+        "current_local_anticancer_treatment"
+      ],
+      "pending_question": "Does the current Emily Buettner/Jessika Benes team administer chemotherapy or other anticancer treatment at this branch? Legacy directory description alone is insufficient.",
+      "pending_urls": [
+        "https://www.grandislandveterinary.com/"
+      ],
+      "recheck_after": "2026-10-20",
+      "processing_assessment": "external_primary_evidence_gap",
+      "executor_unfinished": false,
+      "gap_explanation": "Current primary single-page site (services/team/contact anchors) reviewed; legacy third-party chemotherapy claim not corroborated. One later Web timeout separately preserved; not evidence of absent service."
+    },
+    {
+      "source_id": "perkins-county-veterinary-hospital-grant",
+      "name": "Perkins County Veterinary Hospital",
+      "disposition": "UNRESOLVED",
+      "processed": true,
+      "fully_verified": false,
+      "core_fields_sufficient": false,
+      "checked_at": "2026-10-13T22:05:31-04:00",
+      "verified_fields": [
+        "active_branch",
+        "exact_address",
+        "phone",
+        "official_site",
+        "Shannon_Jensen_DVM",
+        "appointment_route"
+      ],
+      "missing_fields": [
+        "confirmed_local_anticancer_treatment"
+      ],
+      "pending_question": "Which anticancer therapies are administered locally in Grant rather than discussed or referred? Confirm chemotherapy delivery and named administering clinician.",
+      "pending_urls": [
+        "https://perkinscountyvet.com/services",
+        "https://perkinscountyvet.com/surgical-center"
+      ],
+      "recheck_after": "2026-10-20",
+      "processing_assessment": "external_primary_evidence_gap",
+      "executor_unfinished": false,
+      "gap_explanation": "Official service/contact/team and surgery routes reviewed. Service page lists general possible cancer treatments without literal locally administered modality; surgery route reader empty. No confirmed chemotherapy/RT inferred."
+    }
+  ],
+  "unprocessed_leads": [
+    {
+      "url": "https://www.yellowpages.com/grand-island-ne/mip/grand-island-veterinary-hospital-2577061",
+      "reason": "Legacy chemotherapy description cannot establish current clinician/clinic delivery",
+      "status": "unprocessed",
+      "recheck_after": null
+    },
+    {
+      "url": "https://wyobraskavet.com/",
+      "reason": "Scottsbluff mobile primary source; oncology offering not yet established",
+      "status": "unprocessed",
+      "recheck_after": null
+    },
+    {
+      "url": "https://scottsbluffvet.com/laboratory/",
+      "reason": "Diagnostic laboratory evidence only; no treatment inference",
+      "status": "unprocessed",
+      "recheck_after": null
+    },
+    {
+      "url": "https://ccvet.net/services/",
+      "reason": "Hastings blood transfusion text mentions chemotherapy patients; does not establish local administration",
+      "status": "unprocessed",
+      "recheck_after": null
+    },
+    {
+      "url": "https://www.heartlandanimal.com/contact",
+      "reason": "North Platte current clinic route found, oncology not established",
+      "status": "unprocessed",
+      "recheck_after": null
+    },
+    {
+      "url": "https://stranskyveterinarycenter.org/",
+      "reason": "Third-party oncology/radiation claim not confirmed; official clinic needs actual service check",
+      "status": "unprocessed",
+      "recheck_after": null
+    },
+    {
+      "url": "https://www.animalclinicsuburban.com/about-us/staff/veterinarians/dr-melody-kaliff",
+      "reason": "Omaha clinician official biography expresses chemo/oncology interest; local service not yet verified",
+      "status": "unprocessed",
+      "recheck_after": null
+    },
+    {
+      "url": "https://brotherspets.com/vet-near-me/pitts-veterinary-hospital",
+      "reason": "Lincoln aggregator asserts chemotherapy; find current official route next bounded package",
+      "status": "unprocessed",
+      "recheck_after": null
+    },
+    {
+      "url": "https://veterinary-help.com/6870-belmont_veterinary_center.htm",
+      "reason": "Lincoln directory chemo description; official route required",
+      "status": "unprocessed",
+      "recheck_after": null
+    },
+    {
+      "url": "https://www.ellevetsciences.com/blog/ehlers-animal-care-ellevets-clinic-of-the-quarter/",
+      "reason": "Lincoln sponsor story mentions dog chemotherapy; clinic delivery attribution not established",
+      "status": "unprocessed",
+      "recheck_after": null
+    },
+    {
+      "url": "https://beeboutvetmedcenter.com/holdrege/",
+      "reason": "Second branch not one of 3 deeply assigned candidates; current shared service page needs branch-local gate",
+      "status": "unprocessed",
+      "recheck_after": null
+    }
+  ],
+  "executor_unfinished_candidates": 0,
+  "external_gap_candidates": 2,
+  "territory_complete": false,
+  "remaining_territory": "Western/northern rural Nebraska and the saved leads remain unsearched or unverified; current county/city distribution is not exhaustive. Resume saved rural leads before new general sweep. Holdrege second branch local treatment scope not assessed.",
+  "ended_at": "2026-10-14T02:08:45.925623+00:00"
+}

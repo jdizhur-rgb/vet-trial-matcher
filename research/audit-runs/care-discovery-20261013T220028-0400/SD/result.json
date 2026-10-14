@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "run_id": "care-discovery-20261013T220028-0400",
+  "baseline_sha": "718b11552418ce4c6630e59863907f6072f3b619",
+  "agent_id": "/root/discovery_sd",
+  "territory": "South Dakota",
+  "direction": "US discovery",
+  "status": "bounded_package_complete_territory_incomplete",
+  "assigned_candidates": 3,
+  "processed": 3,
+  "fully_verified": 1,
+  "classification_counts": {
+    "NEW": 1,
+    "UPDATE": 0,
+    "DUPLICATE": 0,
+    "UNRESOLVED": 2
+  },
+  "publication": "parent_serializer_only_not_published_by_worker",
+  "candidates": [
+    {
+      "source_id": "all-creatures-veterinary-hospital-rapid-city",
+      "name": "All Creatures Veterinary Hospital",
+      "classification": "NEW",
+      "processed": true,
+      "fully_verified": true,
+      "core_fields_sufficient": true,
+      "verified_fields": [
+        "active_physical_branch",
+        "full_address",
+        "phone",
+        "official_website",
+        "visiting_surgeon",
+        "credential_scope",
+        "local_skin_abdominal_liver_mass_removal",
+        "booking_and_records_route"
+      ],
+      "branch_scope": "Only the Rapid City hospital at 1825 Clear View Ln. Do not transfer other MVS operating geography, every surgical capability or any chemotherapy/radiation claims.",
+      "checked_at": "2026-10-13T22:05:03-04:00",
+      "new_record": {
+        "source_id": "all-creatures-veterinary-hospital-rapid-city",
+        "name": "All Creatures Veterinary Hospital",
+        "street": "1825 Clear View Ln",
+        "city": "Rapid City",
+        "region": "SD",
+        "postal_code": "57702",
+        "country": "USA",
+        "phone": "605-342-0052",
+        "website": "https://allcreaturesrc.com/",
+        "services": [
+          "Surgery"
+        ],
+        "source": "Official branch advanced surgical services and contact pages: visiting specialist performs skin, abdominal and liver mass removal locally.",
+        "verification_url": "https://allcreaturesrc.com/service/advanced-surgical-services/",
+        "supporting_urls": [
+          "https://allcreaturesrc.com/service/advanced-surgical-services/",
+          "https://allcreaturesrc.com/contact/",
+          "https://allcreaturesrc.com/about/veterinarians/",
+          "https://midwestvetsurg.com/"
+        ],
+        "last_verified": "2026-10-13",
+        "last_verified_at": "2026-10-13T22:05:03-04:00",
+        "care_delivery": "physical branch; monthly visiting surgical specialist",
+        "availability_note": "Monthly visits by Kari Swanson for specialty surgery, including skin, abdominal and liver mass removal. Call the hospital for an initial consultation; the hospital coordinates records and surgery with the visiting surgeon.",
+        "clinician_review": "Kari Swanson is listed by the hospital as a Diplomate of the American College of Veterinary Surgeons and visiting surgeon. Her own service describes her as a board-certified small animal veterinary surgeon. This is a surgery credential; oncology board certification is not claimed. The branch roster lists Dean Falcon, Grace Evans and Wendy Blickensderfer; they are not represented as oncologists.",
+        "review_status": "complete",
+        "latitude": null,
+        "longitude": null,
+        "coordinates_unknown": true,
+        "coordinate_source": "Exact address verified on official branch contact page; building coordinates and a validated ZIP centroid were not established.",
+        "review_reference": "research/audit-runs/care-discovery-20261013T220028-0400/SD/result.json"
+      },
+      "pending_questions": [],
+      "external_gaps": [],
+      "executor_gaps": []
+    },
+    {
+      "source_id": "cornerstone-animal-clinic-rapid-city",
+      "name": "Cornerstone Animal Clinic",
+      "classification": "UNRESOLVED",
+      "processed": true,
+      "fully_verified": false,
+      "core_fields_sufficient": false,
+      "branch_scope": "36 E Stumer Road, Suite 126, Rapid City, SD 57701",
+      "checked_at": "2026-10-13T22:05:33-04:00",
+      "verified_fields": [
+        "active_physical_branch",
+        "full_address",
+        "phone",
+        "official_website",
+        "Mike_Anderson_DVM",
+        "general_soft_tissue_surgery",
+        "new_patient_intake"
+      ],
+      "facts": {
+        "phone": "605-719-7355",
+        "website": "https://www.cornerstoneanimalclinicrapidcity.com/",
+        "clinician": "Mike Anderson, DVM",
+        "access": "Official contact invites new patients and supplies registration form."
+      },
+      "pending_questions": [
+        {
+          "question": "Does the branch currently deliver chemotherapy or cancer-directed tumor surgery? General internal medicine and soft-tissue surgery do not establish specialized cancer-treatment delivery.",
+          "urls": [
+            "https://www.cornerstoneanimalclinicrapidcity.com/services.html",
+            "https://www.cornerstoneanimalclinicrapidcity.com/about.html"
+          ],
+          "recheck_after": "2026-10-20"
+        }
+      ],
+      "external_gaps": [
+        "Current official pages did not establish a cancer-specific treatment service."
+      ],
+      "executor_gaps": []
+    },
+    {
+      "source_id": "animal-clinic-of-rapid-city",
+      "name": "Animal Clinic of Rapid City",
+      "classification": "UNRESOLVED",
+      "processed": true,
+      "fully_verified": false,
+      "core_fields_sufficient": false,
+      "branch_scope": "3713 East Anamosa St., Rapid City, SD 57703",
+      "checked_at": "2026-10-13T22:05:33-04:00",
+      "verified_fields": [
+        "active_physical_branch",
+        "full_address",
+        "phone",
+        "official_website",
+        "current_roster",
+        "Karissa_Ketzner_MS_DACVS_LA",
+        "general_soft_tissue_surgery",
+        "booking_route"
+      ],
+      "facts": {
+        "phone": "605-342-1368",
+        "website": "https://www.animalclinicrc.com/",
+        "clinicians": [
+          "Heidi Brigman",
+          "Alex Cermak",
+          "Mikayla Lamsey",
+          "Danielle Evenson",
+          "Alyssa Keith",
+          "Karissa Ketzner",
+          "Hannah Schaack",
+          "Nick Schmit"
+        ],
+        "credential": "Karissa Ketzner — MS, DACVS-LA; equine surgery training, currently working with small animals. Do not convert to DACVS-SA or surgical oncology specialization.",
+        "access": "Direct appointment link and telephone; emergency hours distinct from GP hours."
+      },
+      "pending_questions": [
+        {
+          "question": "Is specialized cancer-directed tumor surgery currently delivered at this branch? Current soft-tissue page explains that the procedure category can include oncological surgery but does not identify an actual branch oncology service or clinician allocation.",
+          "urls": [
+            "https://www.animalclinicrc.com/services/soft-tissue-surgery",
+            "https://www.animalclinicrc.com/staff/dr-karissa-ketzner"
+          ],
+          "recheck_after": "2026-10-20"
+        }
+      ],
+      "external_gaps": [
+        "Generic soft-tissue-service educational language is insufficient to assign specialized surgical oncology."
+      ],
+      "executor_gaps": []
+    }
+  ],
+  "extra_leads": [
+    {
+      "name": "Dakota Hills Veterinary Clinic",
+      "url": "https://dakotahillsveterinary.com/advanced-services/",
+      "territory": "Rapid City / Black Hills",
+      "reason_remaining": "Three-candidate deep-review cap; advance to branch surgery details only if explicit tumor-treatment lead emerges.",
+      "status": "unprocessed_lead"
+    },
+    {
+      "name": "Animal Clinic of Pierre",
+      "url": "https://animalclinicofpierre.com/serviceshtml",
+      "territory": "Pierre / central SD",
+      "reason_remaining": "Three-candidate deep-review cap. Chemotherapy snippets came from generic syndicated articles, so branch delivery remains unestablished.",
+      "status": "unprocessed_lead"
+    },
+    {
+      "name": "Cook Veterinary Clinic",
+      "url": "https://www.rapidcityvetclinic.com/vet-services/",
+      "territory": "Rapid City",
+      "reason_remaining": "Three-candidate deep-review cap; general surgical service lead without established local cancer therapy.",
+      "status": "unprocessed_lead"
+    },
+    {
+      "name": "Best Care Pet Hospital / historical Hardy representation",
+      "url": "https://upleash.com/",
+      "territory": "Sioux Falls",
+      "reason_remaining": "Search job-board chemotherapy lead uses old brand and current Upleash clinicians. Existing Upleash card must be semantically reconciled first; do not add an alias duplicate.",
+      "status": "unprocessed_alias_lead"
+    }
+  ],
+  "errors": [
+    {
+      "url": "https://allcreaturesrc.com/service/advanced-surgical-services/",
+      "method": "shell.urllib",
+      "result": "Operation not permitted",
+      "fallback": "Web read of same official URL succeeded."
+    },
+    {
+      "url": "https://allcreaturesrc.com/service/advanced-surgical-services/",
+      "method": "shell.urllib.require_escalated",
+      "result": "HTTP 403",
+      "fallback": "Web read of same official URL succeeded; no CAPTCHA/auth bypass."
+    },
+    {
+      "url": "https://midwestvetsurg.com/about-us/",
+      "method": "web.open",
+      "attempted_at": "2026-10-13T22:05:03-04:00",
+      "result": "unavailable",
+      "fallback": "Actual hospital link to MVS homepage succeeded."
+    },
+    {
+      "url": "https://www.animalclinicrc.com/staff/karissa-ketzner",
+      "method": "web.open",
+      "attempted_at": "2026-10-13T22:05:03-04:00",
+      "result": "unavailable",
+      "fallback": "Followed actual roster profile link /staff/dr-karissa-ketzner successfully."
+    }
+  ],
+  "coverage": {
+    "complete": false,
+    "scope": "Prioritized Rapid City/western and central South Dakota. Three Rapid City candidates deeply reviewed.",
+    "remaining": "Pierre/central, northern, southern and other western communities; ordinary chemotherapy/visiting/mobile discovery. Two externally unresolved branches are due October 20, not to be recycled daily.",
+    "cursor": "Deep checked Cornerstone, All Creatures Rapid City and Animal Clinic Rapid City. Next use saved Dakota Hills/Animal Clinic Pierre/Cook leads within cap; preserve existing Dunes and Upleash."
+  },
+  "dedupe": {
+    "files": [
+      "data/oncology_centers.json",
+      "data/oncology_centers_supplemental.json",
+      "data/oncology_centers_seed.json",
+      "data/oncology_care_source_inventory.json"
+    ],
+    "method": "Full-file string/JSON identity search by clinic names, exact official domains, Kari Swanson, addresses and phone. No Rapid City candidate or MVS identity found; existing All Creatures Veterinary Clinic is a different practice.",
+    "result": "PASS_no_semantic_identity_duplicate"
+  }
+}
