@@ -2208,6 +2208,94 @@
           "expected": "exclude"
         }
       ]
+    },
+    {
+      "trial_id": "illinois-osa-sbrt-dc-homing-hydrogel",
+      "source_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/09/Canine-Osteosarcoma-SBRT_trial.pdf",
+      "reviewed_at": "2026-10-14T05:42:57.725928-04:00",
+      "criteria": "Full current individual PDF: age strictly >1 year, weight≥5kg, nonmetastatic appendicular OSA, no previous chemo/RT/immunotherapy; three SBRT fractions plus DC-homing hydrogel, no mandatory amputation; eligibility/pain/unrelated owner-paid, study treatment funded. Distinct from JEN-101 radiation followed by mandatory amputation.",
+      "selection_sha256": "b2f43a207c68611da73be845e96350617487c8700ba7e6886d09ea9323584fdf",
+      "cases": [
+        {
+          "name": "primary-supported OSA candidate, no planned amputation needed",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Osteosarcoma",
+            "age_known": true,
+            "age": 2,
+            "weight_known": true,
+            "weight_lb": 22.046226218,
+            "surgery": "No"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "exactly one year fails strict boundary",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "age_known": true,
+            "age": 1
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "under five kg fails",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "weight_known": true,
+            "weight_lb": 8.8184904872
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "wrong species",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "species": "Cat"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "wrong disease",
+          "patient": {
+            "cancer": "Soft tissue sarcoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "metastatic disease",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "metastasis": "Confirmed metastases"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "prior chemotherapy",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "prior radiation",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "radiation": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "prior immunotherapy",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "immunotherapy_history": "Previously received"
+          },
+          "expected": "exclude"
+        }
+      ]
     }
   ]
 }
