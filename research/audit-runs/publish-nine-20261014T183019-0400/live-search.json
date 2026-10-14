@@ -1,0 +1,52 @@
+{
+  "method": "cloud browser actual form submission and rendered DOM, not JSON-only inference",
+  "result": "PASS",
+  "expected_catalog": "expected-live-search.json",
+  "title_set_comparison": "sorted full title sets: dual 32-bit checksums and serialized length match current catalog-derived search; titles also observed directly",
+  "observations": [
+    {
+      "url": "https://vettrialfinder.com/matcher/",
+      "species": "Dog",
+      "cancer": "Cancer — any type",
+      "diagnosis": "I don't know",
+      "age": "",
+      "weight": "",
+      "zip": "",
+      "approach": "",
+      "all_treatments_selected": true,
+      "new_script": true,
+      "country": "USA",
+      "checked_at": "2026-10-14T22:35:45.676Z",
+      "count": 106,
+      "title_set_checksum": [
+        335344753,
+        1473033687,
+        7444
+      ]
+    },
+    {
+      "url": "https://vettrialfinder.com/matcher/",
+      "species": "Dog",
+      "cancer": "Cancer — any type",
+      "diagnosis": "I don't know",
+      "age": "",
+      "weight": "",
+      "zip": "",
+      "approach": "",
+      "all_treatments_selected": true,
+      "new_script": true,
+      "country": "Japan",
+      "checked_at": "2026-10-14T22:36:01.501Z",
+      "count": 10,
+      "title_set_checksum": [
+        3140355449,
+        1986116165,
+        644
+      ]
+    }
+  ],
+  "initial_harness_errors_resolved": [
+    "getByLabel exact selector did not resolve; used observed combobox role",
+    "DOM evaluate crypto unavailable; used direct DOM title extraction and dual deterministic checksum"
+  ]
+}
