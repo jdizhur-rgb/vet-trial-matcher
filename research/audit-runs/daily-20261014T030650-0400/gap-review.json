@@ -1,14 +1,14 @@
 {
   "original_run_id": "daily-20261014T030650-0400",
-  "reviewed_at": "2026-10-14T05:19:07.322660-04:00",
+  "reviewed_at": "2026-10-14T05:31:13.507902-04:00",
   "rows": [
     {
       "source_id": "registry-avma-veterinary-clinical-trials",
-      "category": "roster_unestablished",
-      "processing_assessment": "executor_unfinished",
-      "question": "Finish protocol-level disposition for all 66 candidates.",
-      "reason": "Two current native API pages give all 851 unique records, including 66 recruiting canine/feline oncology candidates. Structured candidate ledger preserved, fuzzy suggestions are not identity decisions. All66 candidate identities now manually screened in avma-manual-reconciliation.json; fetal fuzzy suggestions explicitly not used. Ten ambiguous individual primary URLs read via Web and attempted natively, yielding JS shells/unavailable content. Alternate VCT ID read and targeted official searches performed. Remaining available official-primary/semantic verification is explicitly executor unfinished, not blanket external blocker.",
-      "next_action": "Complete listed primary comparison.",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Current owner intake for the NCSU ethanol pilot and distinct Impellizeri nasal/bone/PD1/IL12 leads, plus WSU site intake. Individual registry labels and descriptions are established, institution-specific current entry is not.",
+      "reason": "All 851 current API records and 66 oncology candidates manually identified against canonical catalog. Full individual API descriptions for the seven named executor questions now read and compared; exact PI, intervention, registry IDs, generic-service exclusion, bone/cementoplasty distinction and existing TCE semantic merge recorded in avma-seven-question-resolution.json. Current VRCCO/CASTR primary supports surgery and enrollment. Individual JS pages and treating-provider official route yielded insufficient text/transport failure/502 after allowed methods. NCSU current roster and historical 2018 grant do not establish present ethanol intake. Published current registry Recruiting labels are not promoted to institution-confirmed owner entry. No candidate was added or presumed closed.",
+      "next_action": "Recheck these exact questions after new individual primary evidence or 2026-10-21; no repeated whole-queue pass.",
       "evidence": {
         "source_id": "registry-avma-veterinary-clinical-trials",
         "attempted_urls": [
@@ -29,7 +29,11 @@
           "https://veterinaryclinicaltrials.org/s/combination-of-electrochemotherapy-and-gene-therapy-with-canine-il-12-834784/?ref=gallery",
           "https://veterinaryclinicaltrials.org/s/electrochemotherapy-for-bone-cancer-419848/?ref=gallery",
           "https://veterinaryclinicaltrials.org/s/immune-treatment-of-canine-bone-cancer-933248/?ref=gallery",
-          "https://petcancerinformation.com/services/electrochemotherapy"
+          "https://petcancerinformation.com/services/electrochemotherapy",
+          "https://www.petcancerinformation.com/",
+          "https://castr-wa.com/?p=2021",
+          "https://cvm.ncsu.edu/news/nc-state-cvm-awarded-3-winn-feline-foundation-research-grants/",
+          "https://everycat.org/grant/w18-019-enhanced-ethanol-ablation-a-low-cost-effective-treatment-for-oral-cancer/"
         ],
         "attempts": [
           {
@@ -474,20 +478,567 @@
             "evidence_reference": "turn698view0",
             "crawl_freshness": "4 days ago",
             "attempted_at": "2026-10-14T05:10:49-04:00"
+          },
+          {
+            "url": "https://www.petcancerinformation.com/",
+            "route": "fallback_or_individual_primary",
+            "method": "Web",
+            "result": "read_error_or_insufficient",
+            "http_status": 502,
+            "text_sha256": "92d964cd39614ab581d93e71e9e8c6a4d166b77a483e62328dc74b57c51d1e2d",
+            "evidence_reference": "turn701view2",
+            "crawl_freshness": "unknown",
+            "attempted_at": "2026-10-14T05:24:39-04:00"
+          },
+          {
+            "url": "https://castr-wa.com/?p=2021",
+            "route": "fallback_or_individual_primary",
+            "method": "Web",
+            "result": "retrieved_page",
+            "text_sha256": "ed556be6df0f524aff1266c5f589a4b0b69fbb9165cc917a5fed94aa8ba99007",
+            "evidence_reference": "turn702view0",
+            "crawl_freshness": "today",
+            "attempted_at": "2026-10-14T05:24:54-04:00"
+          },
+          {
+            "url": "https://www.petcancerinformation.com/",
+            "route": "fallback_or_individual_primary",
+            "method": "Web",
+            "result": "read_error_or_insufficient",
+            "http_status": 502,
+            "text_sha256": "dbbab2143d0c36218b02620b4656cbef6094e66a647cbfbdd826fe7f12cf69d0",
+            "evidence_reference": "turn703view0",
+            "crawl_freshness": "unknown",
+            "attempted_at": "2026-10-14T05:24:58-04:00"
+          },
+          {
+            "url": "https://cvm.ncsu.edu/news/nc-state-cvm-awarded-3-winn-feline-foundation-research-grants/",
+            "route": "fallback_or_individual_primary",
+            "method": "Web",
+            "result": "retrieved_page",
+            "text_sha256": "a4955cb4a145671308eb31d6e98f550867414b6aec7b433047a20a7f2453990e",
+            "evidence_reference": "turn704view0",
+            "crawl_freshness": "last month",
+            "attempted_at": "2026-10-14T05:25:52-04:00"
+          },
+          {
+            "url": "https://everycat.org/grant/w18-019-enhanced-ethanol-ablation-a-low-cost-effective-treatment-for-oral-cancer/",
+            "route": "fallback_or_individual_primary",
+            "method": "Web",
+            "result": "retrieved_page",
+            "http_status": 888,
+            "text_sha256": "ffc6fb0ec022a01575c83459cb033a1b73f562c4bb1b8c7e025f1216f6270df4",
+            "evidence_reference": "turn704view1",
+            "crawl_freshness": "last year",
+            "attempted_at": "2026-10-14T05:25:52-04:00"
           }
         ]
       },
       "impact_scope": "source_roster_or_protocol_question",
       "affected_record_ids": [],
-      "unperformed_steps": [
-        "Verify current owner-entry primary for enhanced ethanol feline OSCC628338 beyond absent NCSU current roster.",
-        "Resolve whether nasal ECT126469/126269 are duplicate/historical/current cohorts and retrieve exact enrolling primary.",
-        "Resolve bone ECT419848 versus ECT+cementoplasty334974 cohort identity and current owner-entry primary.",
-        "Verify actual current metastatic PD1+targeted943925 clinical protocol, not Purdue M029.",
-        "Verify targeted ECT928247 individual current protocol and distinction from service access.",
-        "Verify ECT+IL12 gene834784 current protocol and therapeutic inclusion, without copying general electroporation service.",
-        "Resolve shared T-cell-engager registry identity across WSU/CASTR-VRCCO retained records and current status."
-      ]
+      "completion_decision": {
+        "remaining_fact": "Current owner-entry/site confirmation for the exact named unresolved registry leads; historical WSU intake separately.",
+        "routes_exhausted_evidence": "Ten exact individual registry pages attempted through shell and Web; VCT alternate-ID route attempted; full native API individual descriptions read; actual NCSU current roster plus 2018 institutional/grant pages read; provider master failed shell and Web twice (turn701view2/turn703view0); current VRCCO/CASTR pages and individual linked announcement read (turn701view0/turn701view1/turn702view0). No other current individual protocol route is linked by accessible pages.",
+        "available_reconciliation_done_evidence": "avma-manual-reconciliation.json all66 exact identities and individual description hashes; avma-seven-question-resolution.json seven action-specific dispositions and remaining facts. Generic ECT service excluded, nasal overlaps held as one question, cementoplasty kept distinct, PD1 not conflated with Purdue, IL12 kept specific, already-merged TCE confirmed.",
+        "actual_route_results": [
+          {
+            "url": "https://veterinaryclinicaltrials.org/",
+            "effective_url": "https://veterinaryclinicaltrials.org/",
+            "route": "master",
+            "method": "shell_curl",
+            "result": "transport_error",
+            "retry": 0,
+            "attempted_at": "2026-10-14T03:09:40.246970-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/",
+            "effective_url": "https://veterinaryclinicaltrials.org/",
+            "route": "master",
+            "method": "shell_curl",
+            "result": "retrieved_page",
+            "http_status": 200,
+            "text_sha256": "605aedf8fd117af4d02796e02210feccea535eb8ba69abb4bac47cf197a5df7e",
+            "retry": 1,
+            "attempted_at": "2026-10-14T03:09:46.266465-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/",
+            "route": "master",
+            "method": "Web",
+            "result": "retrieved_page",
+            "text_sha256": "aae6f2e2af6f844494c00eda6322aed9e16d917c1794998eda77b118385a0d7a",
+            "evidence_reference": "turn573view0",
+            "crawl_freshness": "today",
+            "attempted_at": "2026-10-14T07:10:51.604Z"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1",
+            "effective_url": "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1",
+            "route": "fallback",
+            "method": "shell_curl",
+            "result": "transport_error",
+            "retry": 0,
+            "attempted_at": "2026-10-14T03:10:55.924214-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=500&take=500",
+            "effective_url": "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=500&take=500",
+            "route": "fallback",
+            "method": "shell_curl",
+            "result": "transport_error",
+            "retry": 0,
+            "attempted_at": "2026-10-14T03:10:55.925283-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1",
+            "effective_url": "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1",
+            "route": "fallback",
+            "method": "shell_curl",
+            "result": "transport_error",
+            "retry": 1,
+            "attempted_at": "2026-10-14T03:11:01.945538-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=500&take=500",
+            "effective_url": "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=500&take=500",
+            "route": "fallback",
+            "method": "shell_curl",
+            "result": "transport_error",
+            "retry": 1,
+            "attempted_at": "2026-10-14T03:11:01.945827-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=0&take=500",
+            "effective_url": "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=0&take=500",
+            "route": "fallback",
+            "method": "shell_curl",
+            "result": "retrieved_page",
+            "http_status": 200,
+            "text_sha256": "636d403b33f280f551f382b1c6b3ce9b35c5b443159b00ef21ac064c0dda27a7",
+            "retry": 0,
+            "attempted_at": "2026-10-14T03:11:06.958098-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1",
+            "route": "fallback_or_individual_primary",
+            "method": "Web",
+            "result": "read_error_or_insufficient",
+            "text_sha256": "ca2a566dcbe6af67e46cac508ec7698901687e7cb898b3536bc7753842da8ed4",
+            "evidence_reference": "turn574view0",
+            "crawl_freshness": "unknown",
+            "attempted_at": "2026-10-14T07:12:29.100Z"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=500&take=500",
+            "route": "fallback_or_individual_primary",
+            "method": "Web",
+            "result": "read_error_or_insufficient",
+            "text_sha256": "2358883c8ba234c86d11a689346869835bb6e64ac1e0a348f8d072c39c85b8c8",
+            "evidence_reference": "turn574view1",
+            "crawl_freshness": "unknown",
+            "attempted_at": "2026-10-14T07:12:29.100Z"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/avma/studies/search/json/?term~studypage_status=R&skip=0&take=500",
+            "effective_url": "https://veterinaryclinicaltrials.org/avma/studies/search/json/?term~studypage_status=R&skip=0&take=500",
+            "route": "current_registry_filter",
+            "method": "shell_curl",
+            "result": "transport_error",
+            "retry": 0,
+            "attempted_at": "2026-10-14T03:13:54.678759-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/avma/studies/search/json/?term~studypage_status=R&skip=0&take=500",
+            "effective_url": "https://veterinaryclinicaltrials.org/avma/studies/search/json/?term~studypage_status=R&skip=0&take=500",
+            "route": "current_registry_filter",
+            "method": "shell_curl",
+            "result": "retrieved_page",
+            "http_status": 200,
+            "text_sha256": "636d403b33f280f551f382b1c6b3ce9b35c5b443159b00ef21ac064c0dda27a7",
+            "retry": 1,
+            "attempted_at": "2026-10-14T03:14:00.693630-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=500&take=351",
+            "effective_url": "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=500&take=351",
+            "route": "pagination_missing_current_count_851",
+            "method": "shell_curl",
+            "result": "transport_error",
+            "retry": 0,
+            "attempted_at": "2026-10-14T03:15:14.593893-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=500&take=351",
+            "effective_url": "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=500&take=351",
+            "route": "pagination_missing_current_count_851",
+            "method": "shell_curl",
+            "result": "retrieved_page",
+            "http_status": 200,
+            "text_sha256": "b04e4424ba28d54578dc6654c4ef5810a19021f5112b4923cb9463b17accf849",
+            "retry": 1,
+            "attempted_at": "2026-10-14T03:15:20.608980-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/investigator/e49205cb5a4046f8bb9e288a2ea04f48/",
+            "effective_url": "https://veterinaryclinicaltrials.org/investigator/e49205cb5a4046f8bb9e288a2ea04f48/",
+            "route": "individual_primary",
+            "method": "shell_curl",
+            "result": "transport_error",
+            "retry": 0,
+            "attempted_at": "2026-10-14T03:59:08.496225-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/investigator/e49205cb5a4046f8bb9e288a2ea04f48/",
+            "effective_url": "https://veterinaryclinicaltrials.org/investigator/e49205cb5a4046f8bb9e288a2ea04f48/",
+            "route": "individual_primary",
+            "method": "shell_curl",
+            "result": "transport_error",
+            "retry": 1,
+            "attempted_at": "2026-10-14T03:59:14.513846-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/s/enhanced-ethanol-ablation-for-feline-oral-squamous-cell-carcinoma-628338/?ref=gallery",
+            "route": "fallback_or_individual_primary",
+            "method": "Web",
+            "result": "read_error_or_insufficient",
+            "text_sha256": "9dc10d7dd6a79b7f9888464f150d4061f7eb1332d7102068b3d4c29c2f3ff3af",
+            "evidence_reference": "turn663view0",
+            "crawl_freshness": "unknown",
+            "attempted_at": "2026-10-14T04:48:23-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/s/electrochemotherapy-for-nasal-cancer-126469/?ref=gallery",
+            "route": "fallback_or_individual_primary",
+            "method": "Web",
+            "result": "read_error_or_insufficient",
+            "text_sha256": "bc497bba4278a6be64b26565ad77ac5add7f0500b3836730ae97459305430f4e",
+            "evidence_reference": "turn663view1",
+            "crawl_freshness": "unknown",
+            "attempted_at": "2026-10-14T04:48:23-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/s/osteosarcoma-targeted-bone-electrochemotherapy-with-cementoplasty-alternative-to-amputation-334974/?ref=gallery",
+            "route": "fallback_or_individual_primary",
+            "method": "Web",
+            "result": "read_error_or_insufficient",
+            "text_sha256": "e3f48a157ccd6bbcf67557581372845d9615689563a90594ea53e9b240e251f9",
+            "evidence_reference": "turn664view0",
+            "crawl_freshness": "unknown",
+            "attempted_at": "2026-10-14T04:48:25-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/s/nasal-cancer-treatment-with-electrochemotherapy-126269/?ref=gallery",
+            "route": "fallback_or_individual_primary",
+            "method": "Web",
+            "result": "read_error_or_insufficient",
+            "text_sha256": "1ca5c2d9fa117dbbffbe2d246e60ef0014cc0b5eb58a500dca43ce0f81a727ff",
+            "evidence_reference": "turn664view1",
+            "crawl_freshness": "unknown",
+            "attempted_at": "2026-10-14T04:48:25-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/s/treating-metastatic-cancer-with-pd-1-inhibitor-and-targeted-immunotherapy-943925/?ref=gallery",
+            "route": "fallback_or_individual_primary",
+            "method": "Web",
+            "result": "read_error_or_insufficient",
+            "text_sha256": "76da4e3eaf55f3e6cca1fe5ea2b3b5228bf2e31333e2194b27bcd2c3e4a731cb",
+            "evidence_reference": "turn665view0",
+            "crawl_freshness": "unknown",
+            "attempted_at": "2026-10-14T04:48:29-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/s/treatment-of-canine-sarcoma-with-fap-car-t-cells-fap-car-t-study-526334/?ref=gallery",
+            "route": "fallback_or_individual_primary",
+            "method": "Web",
+            "result": "read_error_or_insufficient",
+            "text_sha256": "6fde1aa8d02769d18bfa1e021aa958927b593a8ff3df6b87a76bc18304bcb8c9",
+            "evidence_reference": "turn665view1",
+            "crawl_freshness": "unknown",
+            "attempted_at": "2026-10-14T04:48:29-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/s/targeted-electrochemotherapy-ect-cancer-treatment-928247/?ref=gallery",
+            "route": "fallback_or_individual_primary",
+            "method": "Web",
+            "result": "read_error_or_insufficient",
+            "text_sha256": "78f3e2397a4274c92411d3c1560d51314e3bc494831ca5b850b2ba9aa8616113",
+            "evidence_reference": "turn666view0",
+            "crawl_freshness": "unknown",
+            "attempted_at": "2026-10-14T04:48:32-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/s/combination-of-electrochemotherapy-and-gene-therapy-with-canine-il-12-834784/?ref=gallery",
+            "route": "fallback_or_individual_primary",
+            "method": "Web",
+            "result": "read_error_or_insufficient",
+            "text_sha256": "e49f0a8c917b1c9f4dbe6809430f88a2e82c8d6995d41053cfee316093a78849",
+            "evidence_reference": "turn666view1",
+            "crawl_freshness": "unknown",
+            "attempted_at": "2026-10-14T04:48:32-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/s/electrochemotherapy-for-bone-cancer-419848/?ref=gallery",
+            "route": "fallback_or_individual_primary",
+            "method": "Web",
+            "result": "read_error_or_insufficient",
+            "text_sha256": "ba090a5582955a8a50315df472fc80cdba785f488303ec8dffc0468c2e00a624",
+            "evidence_reference": "turn667view0",
+            "crawl_freshness": "unknown",
+            "attempted_at": "2026-10-14T04:48:35-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/s/immune-treatment-of-canine-bone-cancer-933248/?ref=gallery",
+            "route": "fallback_or_individual_primary",
+            "method": "Web",
+            "result": "read_error_or_insufficient",
+            "text_sha256": "0640b4586503e77d2e613c5b9536039ecf31dc1bcf67a6a68671ec4401aeecac",
+            "evidence_reference": "turn667view1",
+            "crawl_freshness": "unknown",
+            "attempted_at": "2026-10-14T04:48:35-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/s/enhanced-ethanol-ablation-for-feline-oral-squamous-cell-carcinoma-628338/?ref=gallery",
+            "effective_url": "https://veterinaryclinicaltrials.org/s/enhanced-ethanol-ablation-for-feline-oral-squamous-cell-carcinoma-628338/?ref=gallery",
+            "route": "ambiguous_individual_primary",
+            "method": "shell_curl",
+            "result": "transport_error",
+            "retry": 0,
+            "attempted_at": "2026-10-14T04:49:08.467091-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/s/electrochemotherapy-for-nasal-cancer-126469/?ref=gallery",
+            "effective_url": "https://veterinaryclinicaltrials.org/s/electrochemotherapy-for-nasal-cancer-126469/?ref=gallery",
+            "route": "ambiguous_individual_primary",
+            "method": "shell_curl",
+            "result": "transport_error",
+            "retry": 0,
+            "attempted_at": "2026-10-14T04:49:08.467789-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/s/electrochemotherapy-for-nasal-cancer-126469/?ref=gallery",
+            "effective_url": "https://veterinaryclinicaltrials.org/s/electrochemotherapy-for-nasal-cancer-126469/?ref=gallery",
+            "route": "ambiguous_individual_primary",
+            "method": "shell_curl",
+            "result": "retrieved_page",
+            "http_status": 200,
+            "text_sha256": "54defba9b2a97d4131449a7229a9bc6be85bbd266076afca17230c66d3a0ff5d",
+            "retry": 1,
+            "attempted_at": "2026-10-14T04:49:14.484793-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/s/enhanced-ethanol-ablation-for-feline-oral-squamous-cell-carcinoma-628338/?ref=gallery",
+            "effective_url": "https://veterinaryclinicaltrials.org/s/enhanced-ethanol-ablation-for-feline-oral-squamous-cell-carcinoma-628338/?ref=gallery",
+            "route": "ambiguous_individual_primary",
+            "method": "shell_curl",
+            "result": "retrieved_page",
+            "http_status": 200,
+            "text_sha256": "edefd888204ca9f3d43168e6427139d832bbb9b8397e81b584489fd3ef2079b5",
+            "retry": 1,
+            "attempted_at": "2026-10-14T04:49:14.485294-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/s/osteosarcoma-targeted-bone-electrochemotherapy-with-cementoplasty-alternative-to-amputation-334974/?ref=gallery",
+            "effective_url": "https://veterinaryclinicaltrials.org/s/osteosarcoma-targeted-bone-electrochemotherapy-with-cementoplasty-alternative-to-amputation-334974/?ref=gallery",
+            "route": "ambiguous_individual_primary",
+            "method": "shell_curl",
+            "result": "transport_error",
+            "retry": 0,
+            "attempted_at": "2026-10-14T04:49:19.042831-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/s/nasal-cancer-treatment-with-electrochemotherapy-126269/?ref=gallery",
+            "effective_url": "https://veterinaryclinicaltrials.org/s/nasal-cancer-treatment-with-electrochemotherapy-126269/?ref=gallery",
+            "route": "ambiguous_individual_primary",
+            "method": "shell_curl",
+            "result": "transport_error",
+            "retry": 0,
+            "attempted_at": "2026-10-14T04:49:19.102093-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/s/osteosarcoma-targeted-bone-electrochemotherapy-with-cementoplasty-alternative-to-amputation-334974/?ref=gallery",
+            "effective_url": "https://veterinaryclinicaltrials.org/s/osteosarcoma-targeted-bone-electrochemotherapy-with-cementoplasty-alternative-to-amputation-334974/?ref=gallery",
+            "route": "ambiguous_individual_primary",
+            "method": "shell_curl",
+            "result": "retrieved_page",
+            "http_status": 200,
+            "text_sha256": "1639e82bf47258de93a95fd6e33657d8f2813db6dd3dc28b3ca179636746d497",
+            "retry": 1,
+            "attempted_at": "2026-10-14T04:49:25.055635-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/s/nasal-cancer-treatment-with-electrochemotherapy-126269/?ref=gallery",
+            "effective_url": "https://veterinaryclinicaltrials.org/s/nasal-cancer-treatment-with-electrochemotherapy-126269/?ref=gallery",
+            "route": "ambiguous_individual_primary",
+            "method": "shell_curl",
+            "result": "retrieved_page",
+            "http_status": 200,
+            "text_sha256": "02773aa92823059ad10e23967928b76bfaf8c8e3cbd1533506643778c1e42e33",
+            "retry": 1,
+            "attempted_at": "2026-10-14T04:49:25.123791-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/s/treating-metastatic-cancer-with-pd-1-inhibitor-and-targeted-immunotherapy-943925/?ref=gallery",
+            "effective_url": "https://veterinaryclinicaltrials.org/s/treating-metastatic-cancer-with-pd-1-inhibitor-and-targeted-immunotherapy-943925/?ref=gallery",
+            "route": "ambiguous_individual_primary",
+            "method": "shell_curl",
+            "result": "transport_error",
+            "retry": 0,
+            "attempted_at": "2026-10-14T04:49:27.686153-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/s/treatment-of-canine-sarcoma-with-fap-car-t-cells-fap-car-t-study-526334/?ref=gallery",
+            "effective_url": "https://veterinaryclinicaltrials.org/s/treatment-of-canine-sarcoma-with-fap-car-t-cells-fap-car-t-study-526334/?ref=gallery",
+            "route": "ambiguous_individual_primary",
+            "method": "shell_curl",
+            "result": "transport_error",
+            "retry": 0,
+            "attempted_at": "2026-10-14T04:49:27.763608-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/s/treating-metastatic-cancer-with-pd-1-inhibitor-and-targeted-immunotherapy-943925/?ref=gallery",
+            "effective_url": "https://veterinaryclinicaltrials.org/s/treating-metastatic-cancer-with-pd-1-inhibitor-and-targeted-immunotherapy-943925/?ref=gallery",
+            "route": "ambiguous_individual_primary",
+            "method": "shell_curl",
+            "result": "retrieved_page",
+            "http_status": 200,
+            "text_sha256": "6f5bc789c9a202b7befd53b23d865ca9b086ae94658aa1058a86252967be7f45",
+            "retry": 1,
+            "attempted_at": "2026-10-14T04:49:33.700719-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/s/treatment-of-canine-sarcoma-with-fap-car-t-cells-fap-car-t-study-526334/?ref=gallery",
+            "effective_url": "https://veterinaryclinicaltrials.org/s/treatment-of-canine-sarcoma-with-fap-car-t-cells-fap-car-t-study-526334/?ref=gallery",
+            "route": "ambiguous_individual_primary",
+            "method": "shell_curl",
+            "result": "retrieved_page",
+            "http_status": 200,
+            "text_sha256": "f9abb66b0690917ce8a584aa521df2f67b0f91afb64ae67a60a539704bbf7cc9",
+            "retry": 1,
+            "attempted_at": "2026-10-14T04:49:33.780473-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/s/targeted-electrochemotherapy-ect-cancer-treatment-928247/?ref=gallery",
+            "effective_url": "https://veterinaryclinicaltrials.org/s/targeted-electrochemotherapy-ect-cancer-treatment-928247/?ref=gallery",
+            "route": "ambiguous_individual_primary",
+            "method": "shell_curl",
+            "result": "transport_error",
+            "retry": 0,
+            "attempted_at": "2026-10-14T04:50:54.480094-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/s/combination-of-electrochemotherapy-and-gene-therapy-with-canine-il-12-834784/?ref=gallery",
+            "effective_url": "https://veterinaryclinicaltrials.org/s/combination-of-electrochemotherapy-and-gene-therapy-with-canine-il-12-834784/?ref=gallery",
+            "route": "ambiguous_individual_primary",
+            "method": "shell_curl",
+            "result": "transport_error",
+            "retry": 0,
+            "attempted_at": "2026-10-14T04:50:54.480746-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/s/targeted-electrochemotherapy-ect-cancer-treatment-928247/?ref=gallery",
+            "effective_url": "https://veterinaryclinicaltrials.org/s/targeted-electrochemotherapy-ect-cancer-treatment-928247/?ref=gallery",
+            "route": "ambiguous_individual_primary",
+            "method": "shell_curl",
+            "result": "transport_error",
+            "retry": 1,
+            "attempted_at": "2026-10-14T04:51:00.499584-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/s/combination-of-electrochemotherapy-and-gene-therapy-with-canine-il-12-834784/?ref=gallery",
+            "effective_url": "https://veterinaryclinicaltrials.org/s/combination-of-electrochemotherapy-and-gene-therapy-with-canine-il-12-834784/?ref=gallery",
+            "route": "ambiguous_individual_primary",
+            "method": "shell_curl",
+            "result": "transport_error",
+            "retry": 1,
+            "attempted_at": "2026-10-14T04:51:00.500566-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/s/electrochemotherapy-for-bone-cancer-419848/?ref=gallery",
+            "effective_url": "https://veterinaryclinicaltrials.org/s/electrochemotherapy-for-bone-cancer-419848/?ref=gallery",
+            "route": "ambiguous_individual_primary",
+            "method": "shell_curl",
+            "result": "retrieved_page",
+            "http_status": 200,
+            "text_sha256": "f35aa470d041a3bff1e3777144962fe5e425ff2ace2f91b6807c6ef7d15c0e02",
+            "retry": 0,
+            "attempted_at": "2026-10-14T04:51:05.522165-04:00"
+          },
+          {
+            "url": "https://veterinaryclinicaltrials.org/s/immune-treatment-of-canine-bone-cancer-933248/?ref=gallery",
+            "effective_url": "https://veterinaryclinicaltrials.org/s/immune-treatment-of-canine-bone-cancer-933248/?ref=gallery",
+            "route": "ambiguous_individual_primary",
+            "method": "shell_curl",
+            "result": "retrieved_page",
+            "http_status": 200,
+            "text_sha256": "9bc14a04192728b7b719edfa54266210a5ccde608813d9d0913f4670741aae71",
+            "retry": 0,
+            "attempted_at": "2026-10-14T04:51:05.532653-04:00"
+          },
+          {
+            "url": "https://petcancerinformation.com/services/electrochemotherapy",
+            "route": "fallback_or_individual_primary",
+            "method": "Web",
+            "result": "read_error_or_insufficient",
+            "text_sha256": "3ba6e3bc83cfc6ef4013477400bfdba1e4d3e6a1289e486e0e667526edef1722",
+            "evidence_reference": "turn698view0",
+            "crawl_freshness": "4 days ago",
+            "attempted_at": "2026-10-14T05:10:49-04:00"
+          },
+          {
+            "url": "https://www.petcancerinformation.com/",
+            "route": "fallback_or_individual_primary",
+            "method": "Web",
+            "result": "read_error_or_insufficient",
+            "http_status": 502,
+            "text_sha256": "92d964cd39614ab581d93e71e9e8c6a4d166b77a483e62328dc74b57c51d1e2d",
+            "evidence_reference": "turn701view2",
+            "crawl_freshness": "unknown",
+            "attempted_at": "2026-10-14T05:24:39-04:00"
+          },
+          {
+            "url": "https://castr-wa.com/?p=2021",
+            "route": "fallback_or_individual_primary",
+            "method": "Web",
+            "result": "retrieved_page",
+            "text_sha256": "ed556be6df0f524aff1266c5f589a4b0b69fbb9165cc917a5fed94aa8ba99007",
+            "evidence_reference": "turn702view0",
+            "crawl_freshness": "today",
+            "attempted_at": "2026-10-14T05:24:54-04:00"
+          },
+          {
+            "url": "https://www.petcancerinformation.com/",
+            "route": "fallback_or_individual_primary",
+            "method": "Web",
+            "result": "read_error_or_insufficient",
+            "http_status": 502,
+            "text_sha256": "dbbab2143d0c36218b02620b4656cbef6094e66a647cbfbdd826fe7f12cf69d0",
+            "evidence_reference": "turn703view0",
+            "crawl_freshness": "unknown",
+            "attempted_at": "2026-10-14T05:24:58-04:00"
+          },
+          {
+            "url": "https://cvm.ncsu.edu/news/nc-state-cvm-awarded-3-winn-feline-foundation-research-grants/",
+            "route": "fallback_or_individual_primary",
+            "method": "Web",
+            "result": "retrieved_page",
+            "text_sha256": "a4955cb4a145671308eb31d6e98f550867414b6aec7b433047a20a7f2453990e",
+            "evidence_reference": "turn704view0",
+            "crawl_freshness": "last month",
+            "attempted_at": "2026-10-14T05:25:52-04:00"
+          },
+          {
+            "url": "https://everycat.org/grant/w18-019-enhanced-ethanol-ablation-a-low-cost-effective-treatment-for-oral-cancer/",
+            "route": "fallback_or_individual_primary",
+            "method": "Web",
+            "result": "retrieved_page",
+            "http_status": 888,
+            "text_sha256": "ffc6fb0ec022a01575c83459cb033a1b73f562c4bb1b8c7e025f1216f6270df4",
+            "evidence_reference": "turn704view1",
+            "crawl_freshness": "last year",
+            "attempted_at": "2026-10-14T05:25:52-04:00"
+          }
+        ]
+      }
     },
     {
       "source_id": "directory-veterinary-cancer-society",

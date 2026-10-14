@@ -1,0 +1,109 @@
+{
+  "reviewed_at": "2026-10-14T05:31:12.573994-04:00",
+  "individual_api_records_read_and_compared": 66,
+  "full_registry_total": 851,
+  "decisions": [
+    {
+      "step": 1,
+      "registry_ids": [
+        15696
+      ],
+      "action_completed": "Read full individual API description, compared current NCSU oncology roster, and read institutional April 5 2018 announcement and W18-019 grant page. Identified Michael Nolan/NCSU feline OSCC ethanol pilot, not UF.",
+      "disposition": "unresolved_current_entry",
+      "remaining_fact": "Does this historical ethanol pilot currently accept owner patients? Registry says Recruiting, the old grant says Active, but neither gives current dated institutional intake and the current NCSU roster does not list it. No closure inferred.",
+      "evidence_refs": [
+        "turn704view0",
+        "turn704view1"
+      ],
+      "next_allowed_step": "Recheck NCSU primary when a new enrollment signal appears or after seven days."
+    },
+    {
+      "step": 2,
+      "registry_ids": [
+        20743,
+        15641
+      ],
+      "action_completed": "Read both complete individual API descriptions and compared PI, nasal indication, electrode, bleomycin and outpatient procedure. They describe overlapping nasal ECT access, not two independently verified new recruiting cohorts. Individual pages were actually read via Web and shell; treating-provider official page failed shell and two Web 502 reads.",
+      "disposition": "overlapping_leads_not_double_counted",
+      "remaining_fact": "Are VCT24005857 and VCT18004664 one current nasal treatment program, or separate research cohorts? No separate owner-enrolling study plan/site list is published on accessible current provider routes.",
+      "evidence_refs": [
+        "turn701view2",
+        "turn703view0"
+      ],
+      "next_allowed_step": "Use a newly readable official provider protocol to determine cohort identity; retain both registry IDs in one question meanwhile."
+    },
+    {
+      "step": 3,
+      "registry_ids": [
+        20742,
+        28470
+      ],
+      "action_completed": "Read both complete API descriptions. Bone ECT without cement uses bleomycin, intralesional pulses and 4/8-week imaging; the appendicular canine OSA entry explicitly adds bone cement. These are distinct published interventions, not an automatic duplicate.",
+      "disposition": "distinct_leads_current_access_unverified",
+      "remaining_fact": "Current enrolling clinical-study route, site and complete eligibility for each distinct intervention. Both registry entries say unfunded; provider primary is unavailable.",
+      "evidence_refs": [
+        "turn701view2",
+        "turn703view0"
+      ],
+      "next_allowed_step": "Check each separately when official provider protocols become readable; do not merge cementoplasty into generic ECT."
+    },
+    {
+      "step": 4,
+      "registry_ids": [
+        20744
+      ],
+      "action_completed": "Read complete API protocol: anti-PD1 IV every two weeks up to ten administrations plus dTERT or dHER2 plasmid gene-electrotransfer. PI is Impellizeri. This is not Purdue M029. Compared canonical IDs: no matching protocol was manufactured.",
+      "disposition": "unresolved_current_owner_route",
+      "remaining_fact": "Current exact participating site, tumor inclusion, practical owner entry and provider confirmation of this unfunded combination.",
+      "evidence_refs": [
+        "turn701view2",
+        "turn703view0"
+      ],
+      "next_allowed_step": "Recheck the actual treating-provider primary, not an unrelated PD1 paper or Purdue research protocol."
+    },
+    {
+      "step": 5,
+      "registry_ids": [
+        15196
+      ],
+      "action_completed": "Read complete individual API description. It advertises broad targeted ECT services for many cancers/species, a contact and textbook; it supplies no finite recruiting-trial design.",
+      "disposition": "rejected_daily_trial_service_directory",
+      "remaining_fact": null,
+      "evidence_refs": [],
+      "next_allowed_step": "Keep the service outside this trial audit; do not create a trial from its registry Recruiting label."
+    },
+    {
+      "step": 6,
+      "registry_ids": [
+        15636
+      ],
+      "action_completed": "Read full individual API description: IV bleomycin ECT plus intralesional IL12 gene-electrotransfer, repeated every 3-4 weeks with imaging. It has an anticancer intent distinct from generic ECT. Provider confirmation/current site/complete study intake remain unpublished or unavailable.",
+      "disposition": "unresolved_protocol_specific_current_access",
+      "remaining_fact": "Exact current owner-enrolling study route and complete eligibility/site for the IL12 combination.",
+      "evidence_refs": [
+        "turn701view2",
+        "turn703view0"
+      ],
+      "next_allowed_step": "Read a current individual treating-provider protocol when available; no general ECT service substituted."
+    },
+    {
+      "step": 7,
+      "registry_ids": [
+        28496
+      ],
+      "action_completed": "Compared AVMA VCT26005966/534230 to both canonical rows and read current complete VRCCO and CASTR primary pages and individual CASTR announcement. The duplicate is already merged: castr-vrcco-sts-tcell-engager is hidden and duplicate_of wsu-sts-local-immunotherapy. VRCCO explicitly provides surgery one week after injections and a $1500 surgery credit; this standard-treatment backbone satisfies the existing owner-benefit rule despite research safety goals.",
+      "disposition": "existing_semantic_merge_confirmed_no_change",
+      "remaining_fact": "WSU present intake remains separately unverified on its actually attempted official routes. VRCCO current intake is explicit; do not make the whole protocol unavailable.",
+      "evidence_refs": [
+        "turn701view0",
+        "turn701view1",
+        "turn702view0"
+      ],
+      "next_allowed_step": "Recheck the historical WSU site separately after new institutional evidence; retain current verified VRCCO pathway."
+    }
+  ],
+  "executor_unperformed_steps": [],
+  "processing_complete": true,
+  "strict_evidence_status": "INCOMPLETE",
+  "note": "Completes the seven named executor actions using actually available full individual API records and specific primary routes. Unanswered source facts remain open; no Recruiting label, cached grant date or failed route is promoted to confirmed current owner entry."
+}
