@@ -1,0 +1,2216 @@
+{
+  "original_run_id": "reconcile-68-20261014T070053-0400",
+  "review_run_id": "finalize-68-20261014T185109-0400",
+  "reviewed_at": "2026-10-14T19:05:27.860008-04:00",
+  "rows": [
+    {
+      "source_id": "registry-avma-veterinary-clinical-trials",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Current provider intake for those exact registry leads and a freshly readable registry roster.",
+      "reason": "The registry portal is a JS shell today; both advertised public pagination routes failed through shell and Web. Reused the immutable morning 851-record reconciliation only as inherited evidence. NCSU ethanol and the distinct Impellizeri nasal/bone/PD1/IL12 leads remain outside new matching; the separately verified VRCCO soft-tissue-sarcoma protocol stays active, while no WSU intake is inferred.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "attempted_urls": [
+          "https://veterinaryclinicaltrials.org/",
+          "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1",
+          "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=500&take=500",
+          "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=0&take=500"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "Current provider intake for those exact registry leads and a freshly readable registry roster.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://veterinaryclinicaltrials.org/",
+              "outcome": "actual_request_recorded"
+            },
+            {
+              "url": "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1",
+              "outcome": "actual_request_recorded"
+            },
+            {
+              "url": "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=500&take=500",
+              "outcome": "actual_request_recorded"
+            },
+            {
+              "url": "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=0&take=500",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "registry-avma-veterinary-clinical-trials",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=registry-avma-veterinary-clinical-trials",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Compared all configured registry routes and inherited seven-lead primary resolution; current API rereads failed. VRCCO is verified independently; WSU and the other exact candidate intakes are not inferred.",
+          "record_ids_compared": [
+            "wsu-sts-local-immunotherapy"
+          ],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P2",
+      "record_ids": [
+        "wsu-sts-local-immunotherapy"
+      ]
+    },
+    {
+      "source_id": "directory-veterinary-cancer-society",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "The directory is non-exhaustive and does not publish a current protocol roster; Guardian has no qualifying current trial on the linked route.",
+      "reason": "Fresh VCS resource directory was read and its outgoing organizations compared with the full inventory. The exact Guardian study article is now a readable 404; the old Hope URL redirects to BluePearl Malvern general hospital information, not a trial invitation. Shared outcomes apply to Perseus and Dog Cancer Foundation, not three separate investigations.",
+      "next_action": "Compare newly posted named protocols and actual outgoing links during daily visits; do not demand an exhaustive trial roster from a resource/news/programme page. Deep review only for a concrete new lead.",
+      "evidence": {
+        "source_id": "directory-veterinary-cancer-society",
+        "attempted_urls": [
+          "https://vetcancersociety.org/resources/clinical-trials/",
+          "https://guardianveterinaryspecialists.com/our-advanced-oncology-service-currently-offers-many-cancer-trials-through-the-avma-animal-health-studies-database/",
+          "http://hopevs.com/specialties/clinical-trials/"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "The directory is non-exhaustive and does not publish a current protocol roster; Guardian has no qualifying current trial on the linked route.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://vetcancersociety.org/resources/clinical-trials/",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "directory-veterinary-cancer-society",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=directory-veterinary-cancer-society",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": [
+            "https://guardianveterinaryspecialists.com/our-advanced-oncology-service-currently-offers-many-cancer-trials-through-the-avma-animal-health-studies-database/",
+            "http://hopevs.com/specialties/clinical-trials/",
+            "https://guardianveterinaryspecialists.com/our-advanced-oncology-service-currently-offers-many-cancer-trials-through-the-avma-animal-health-studies-database/"
+          ]
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Compared the resource links with all 111 inventory identities; shared Guardian 404 and Hope-to-Malvern redirect now have actual retrieval evidence. No nonexistent exhaustive VCS roster is demanded.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P3",
+      "record_ids": []
+    },
+    {
+      "source_id": "usa-johns-hopkins-cigat",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "A current actinium-225 metastatic-OSA protocol-specific enrollment invitation.",
+      "reason": "Fresh CIGAT and VCTN masters read in full, and the actually linked cancer-trial PDF inspected. Current treatment invitations are cryo/immunotherapy OSA, brain RT/TMZ and mammary cryotherapy; HSA is closed. VCTN PET imaging and IF7-SN38 wording are distinct from the old actinium lead. No current actinium enrollment is established and its inactive record is preserved.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "usa-johns-hopkins-cigat",
+        "attempted_urls": [
+          "https://www.hopkinsmedicine.org/radiology/vctn",
+          "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+          "https://www.hopkinsmedicine.org/-/media/radiology/_docs/cancer-trial.pdf"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "A current actinium-225 metastatic-OSA protocol-specific enrollment invitation.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+              "outcome": "actual_request_recorded"
+            },
+            {
+              "url": "https://www.hopkinsmedicine.org/radiology/vctn",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "usa-johns-hopkins-cigat",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=usa-johns-hopkins-cigat",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": [
+            "https://www.hopkinsmedicine.org/-/media/radiology/_docs/cancer-trial.pdf"
+          ]
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Compared the current five CIGAT/VCTN signals and linked PDF with the inactive actinium record; PET imaging and IF7-SN38 are not actinium-225. No new actinium invitation exists in the retrieved material.",
+          "record_ids_compared": [
+            "jhu-metastatic-osa-actinium"
+          ],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P2",
+      "record_ids": [
+        "jhu-metastatic-osa-actinium"
+      ]
+    },
+    {
+      "source_id": "usa-missouri-oncology-clinical-trials",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Ohio institutional enrollment/eligibility corroboration for LEAH; no reopening of the completed ELIAS cohort.",
+      "reason": "Fresh Missouri oncology list read. The historical ELIAS invitation is not the distinct active ECI-plus-chemotherapy protocol; explicit sponsor closure inherited from the morning is not undone. Missouri LEAH remains ON HOLD, as does the individually read Minnesota route. Sponsor still advertises Ohio enrollment; active Ohio and inactive sites remain separated.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "usa-missouri-oncology-clinical-trials",
+        "attempted_urls": [
+          "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "Ohio institutional enrollment/eligibility corroboration for LEAH; no reopening of the completed ELIAS cohort.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "usa-missouri-oncology-clinical-trials",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=usa-missouri-oncology-clinical-trials",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Compared Missouri current twelve labels, sponsor ECIP-OSA-01 closure, and individual LEAH holds. Ohio sponsor access remains distinct from Missouri/Minnesota holds. Direct ECIP closure was additionally read in the finalizer.",
+          "record_ids_compared": [
+            "elias-eci-novel-adjuvant-osa",
+            "leah-bcell-cart-2026"
+          ],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P1",
+      "record_ids": [
+        "elias-eci-novel-adjuvant-osa",
+        "leah-bcell-cart-2026"
+      ]
+    },
+    {
+      "source_id": "usa-tufts-clinical-trials",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "BG34 individual current protocol cannot be reread through its denied route; Tufts HCC acceptance remains study-team prescreening under the existing owner decision.",
+      "reason": "Fresh Tufts Web index enumerates nine oncology families. The prohibited BG34 individual route was not repeated; the morning explicit suspension disposition is preserved. HCC is retained under the already recorded owner-approved Z-007 candidate decision, not newly excluded or automatically reopened. Fresh FAP CAR-T evidence from Davis is shared with the same multisite record.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "usa-tufts-clinical-trials",
+        "attempted_urls": [
+          "https://vet.tufts.edu/clinical-trials",
+          "https://vet.tufts.edu/clinical-trials/treatment-canine-soft-tissue-sarcoma-fap-car-t-cells"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "BG34 individual current protocol cannot be reread through its denied route; Tufts HCC acceptance remains study-team prescreening under the existing owner decision.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://vet.tufts.edu/clinical-trials",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "usa-tufts-clinical-trials",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=usa-tufts-clinical-trials",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": [
+            "https://vet.tufts.edu/clinical-trials/treatment-canine-soft-tissue-sarcoma-fap-car-t-cells",
+            "https://vet.tufts.edu/clinical-trials/treatment-canine-soft-tissue-sarcoma-fap-car-t-cells"
+          ]
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Compared the nine current Tufts oncology families, inherited BG34 suspension, owner-approved Z007 HCC prescreening and shared Davis FAP primary. Did not retry denied BG34 or re-ask an existing owner decision.",
+          "record_ids_compared": [
+            "tufts-z007-broad-solid-2026"
+          ],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P1",
+      "record_ids": [
+        "tufts-z007-broad-solid-2026"
+      ]
+    },
+    {
+      "source_id": "usa-georgia-clinical-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "A readable current oncology roster behind the blocked trial-search route.",
+      "reason": "UGA current information master is readable but its actual trial-search route is forbidden. Preserved the two individually known morning signals: existing B-cell IVP and the owner-excluded benign endocrine pituitary study. No current whole roster is invented from the generic FAQ. No forbidden individual route was retried.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "usa-georgia-clinical-trials",
+        "attempted_urls": [
+          "https://vet.uga.edu/research/clinical-trials/",
+          "https://vet.uga.edu/clinical-trial/"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "A readable current oncology roster behind the blocked trial-search route.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://vet.uga.edu/research/clinical-trials/",
+              "outcome": "actual_request_recorded"
+            },
+            {
+              "url": "https://vet.uga.edu/clinical-trial/",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "usa-georgia-clinical-trials",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=usa-georgia-clinical-trials",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Read the generic UGA information and documented denied trial-search route. Preserved separately verified IVP and the owner-excluded benign endocrine cohort; no whole roster invented from FAQ.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P3",
+      "record_ids": []
+    },
+    {
+      "source_id": "usa-wisconsin-oncology-studies",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "Current Wisconsin master roster cannot be reread through the forbidden official route.",
+      "reason": "The exact Wisconsin master was explicitly forbidden in the morning. Reviewed that immutable denial and preserved it; no new visit, timestamp refresh, access bypass or claim of an empty trial roster. Existing individually verified records are not declared invalid merely from the inaccessible master.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "usa-wisconsin-oncology-studies",
+        "attempted_urls": [
+          "https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "Current Wisconsin master roster cannot be reread through the forbidden official route.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/",
+              "outcome": "prior_explicit_gate_do_not_repeat"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "usa-wisconsin-oncology-studies",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=usa-wisconsin-oncology-studies",
+            "prior_denial_journal": "inherited-denials.json"
+          },
+          "explicit_prohibitions": [
+            {
+              "source_id": "usa-wisconsin-oncology-studies",
+              "url": "https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/",
+              "reason": "Inherited explicit forbidden/gated route; not retried or bypassed. Seek independent public official protocol signal only.",
+              "parent_run": "daily-20261014T030650-0400"
+            }
+          ],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Read the actual inherited Wisconsin 403 receipt; no retry or bypass. Reviewed source-only impact and retained individual protocol evidence without claiming a fresh master.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P3",
+      "record_ids": []
+    },
+    {
+      "source_id": "usa-ethos-clinical-studies",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "An operational central current Ethos clinical-study roster; both published central routes are 404.",
+      "reason": "Old Ethos clinical-studies master is 404. Current medical-professional page links a replacement clinical-studies route which also returns 404; FAQ explains hospital-level posting. Actual Discovery protocols and the Mars gallery were reviewed under their own shared evidence, but neither is falsely presented as a complete all-Ethos roster.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "usa-ethos-clinical-studies",
+        "attempted_urls": [
+          "https://www.ethosvet.com/clinical-studies/",
+          "https://www.ethosvet.com/medical-professionals/",
+          "https://www.ethosvet.com/faqs-clinical-studies-at-ethos/",
+          "https://www.ethosvet.com/our-services/clinical-studies/?status=currently-enrolling"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "An operational central current Ethos clinical-study roster; both published central routes are 404.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://www.ethosvet.com/clinical-studies/",
+              "outcome": "actual_request_recorded"
+            },
+            {
+              "url": "https://www.ethosvet.com/medical-professionals/",
+              "outcome": "actual_request_recorded"
+            },
+            {
+              "url": "https://www.ethosvet.com/faqs-clinical-studies-at-ethos/",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "usa-ethos-clinical-studies",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=usa-ethos-clinical-studies",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": [
+            "https://www.ethosvet.com/our-services/clinical-studies/?status=currently-enrolling"
+          ]
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Both published central Ethos study routes are 404; hospital-posting FAQ and independently read Discovery/Mars studies do not establish an all-Ethos roster. Classified the central-source-only gap.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P3",
+      "record_ids": []
+    },
+    {
+      "source_id": "usa-ethos-discovery-studies",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Conflicting MIMIC funding language and old broader alias require study-team confirmation; no additional cohort inferred.",
+      "reason": "Fresh Discovery pages 1/2 and current ePUSH, SOLID, SOLID-Relapse and both MIMIC aliases were read. SOLID original is closed, SOLID-Relapse remains open. Both MIMIC pages name the same two hospitals; the current -2 invitation is OSA-only and subsidized/low-cost, whereas the old alias says fully funded and broader malignancy. Kept the conservative current canonical -2 scope/cost, without duplicate or expansion. ePUSH full twelve-site sponsor list plus independently invited Metropolitan retained. CosMyc remains dose/PK research, not a new treatment promotion.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "usa-ethos-discovery-studies",
+        "attempted_urls": [
+          "https://www.ethosdiscovery.org/clinical-studies/",
+          "https://www.ethosdiscovery.org/scientific-programs/",
+          "https://www.ethosdiscovery.org/scientific-programs/page/2/",
+          "https://www.ethosdiscovery.org/clinical-study/stratification-of-outcomes-for-lymphoma-in-dogs/",
+          "https://www.ethosdiscovery.org/clinical-study/minimally-invasive-metastasectomy-in-canines-mimic/",
+          "https://www.ethosdiscovery.org/clinical-study/precision-medicine-umbrella-study-for-hemangiosarcoma/",
+          "https://www.ethosdiscovery.org/clinical-study/cosmyc-01/",
+          "https://www.ethosdiscovery.org/clinical-study/ethos-precision-medicine-umbrella-study-for-hemangiosarcoma-epush/",
+          "https://www.ethosdiscovery.org/clinical-study/minimally-invasive-metastasectomy-in-canines-mimic-2/"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "Conflicting MIMIC funding language and old broader alias require study-team confirmation; no additional cohort inferred.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://www.ethosdiscovery.org/clinical-studies/",
+              "outcome": "actual_request_recorded"
+            },
+            {
+              "url": "https://www.ethosdiscovery.org/scientific-programs/",
+              "outcome": "actual_request_recorded"
+            },
+            {
+              "url": "https://www.ethosdiscovery.org/scientific-programs/page/2/",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "usa-ethos-discovery-studies",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=usa-ethos-discovery-studies",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": [
+            "https://www.ethosdiscovery.org/clinical-study/stratification-of-outcomes-for-lymphoma-in-dogs/",
+            "https://www.ethosdiscovery.org/clinical-study/minimally-invasive-metastasectomy-in-canines-mimic/",
+            "https://www.ethosdiscovery.org/clinical-study/precision-medicine-umbrella-study-for-hemangiosarcoma/",
+            "https://www.ethosdiscovery.org/clinical-study/cosmyc-01/",
+            "https://www.ethosdiscovery.org/clinical-study/ethos-precision-medicine-umbrella-study-for-hemangiosarcoma-epush/",
+            "https://www.ethosdiscovery.org/clinical-study/minimally-invasive-metastasectomy-in-canines-mimic-2/"
+          ]
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Compared both Discovery pages and current ePUSH, original SOLID, Relapse and two MIMIC aliases; retained current narrower MIMIC costs/scope and all verified published sites, without duplicate trials.",
+          "record_ids_compared": [
+            "ethos-mimic-osa-lung"
+          ],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P1",
+      "record_ids": [
+        "ethos-mimic-osa-lung"
+      ]
+    },
+    {
+      "source_id": "usa-anivive-trials",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "A readable Anivive current trial roster; server/transport failure on all configured routes.",
+      "reason": "Anivive master returned 500 through both shell and same-URL Web; both configured LifeSciences routes also failed, including 525. Current independently verified Cornell/other institutional studies are preserved; sponsor-wide coverage is not inferred from them.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "usa-anivive-trials",
+        "attempted_urls": [
+          "https://www.anivive.com/trials",
+          "https://anivivelifesciences.com/trials",
+          "https://anivivelifesciences.com/treatments"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "A readable Anivive current trial roster; server/transport failure on all configured routes.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://www.anivive.com/trials",
+              "outcome": "actual_request_recorded"
+            },
+            {
+              "url": "https://anivivelifesciences.com/trials",
+              "outcome": "actual_request_recorded"
+            },
+            {
+              "url": "https://anivivelifesciences.com/treatments",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "usa-anivive-trials",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=usa-anivive-trials",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Checked master and both recorded official LifeSciences alternatives via actual shell/Web failures; independent Cornell study evidence is preserved rather than substituted for a missing sponsor roster.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P3",
+      "record_ids": []
+    },
+    {
+      "source_id": "canada-ovc-active-oncology-trials",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "Current OVC oncology rosters and readable individual primary status pages.",
+      "reason": "Fresh OVC home is readable. Both current dog/cat oncology lists fail through shell/Web; additionally attempted official ICCI current-trial index and the existing Palladia/OSA-HIFU individual pages, also unsuccessful. Search copies are months old and were not treated as present enrollment proof.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "canada-ovc-active-oncology-trials",
+        "attempted_urls": [
+          "https://ovcclinicaltrials.uoguelph.ca/",
+          "https://ovcclinicaltrials.uoguelph.ca/all-active-canine-clinical-trials-oncology/",
+          "https://ovcclinicaltrials.uoguelph.ca/all-active-feline-clinical-trials-onco/",
+          "https://ovcclinicaltrials.uoguelph.ca/evaluating-palladia-for-the-treatment-of-canine-oral-melanoma/",
+          "https://ovcclinicaltrials.uoguelph.ca/evaluating-a-non-invasive-heat-therapy-for-the-treatment-of-bone-cancer-in-dogs-2/",
+          "https://icci.uoguelph.ca/current-oncology-oncology-related-clinical-trials/"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "Current OVC oncology rosters and readable individual primary status pages.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://ovcclinicaltrials.uoguelph.ca/",
+              "outcome": "actual_request_recorded"
+            },
+            {
+              "url": "https://ovcclinicaltrials.uoguelph.ca/all-active-canine-clinical-trials-oncology/",
+              "outcome": "actual_request_recorded"
+            },
+            {
+              "url": "https://ovcclinicaltrials.uoguelph.ca/all-active-feline-clinical-trials-onco/",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "canada-ovc-active-oncology-trials",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=canada-ovc-active-oncology-trials",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": [
+            "https://ovcclinicaltrials.uoguelph.ca/evaluating-palladia-for-the-treatment-of-canine-oral-melanoma/",
+            "https://ovcclinicaltrials.uoguelph.ca/evaluating-a-non-invasive-heat-therapy-for-the-treatment-of-bone-cancer-in-dogs-2/",
+            "https://icci.uoguelph.ca/current-oncology-oncology-related-clinical-trials/",
+            "https://ovcclinicaltrials.uoguelph.ca/evaluating-a-non-invasive-heat-therapy-for-the-treatment-of-bone-cancer-in-dogs-2/",
+            "https://icci.uoguelph.ca/current-oncology-oncology-related-clinical-trials/",
+            "https://ovcclinicaltrials.uoguelph.ca/evaluating-palladia-for-the-treatment-of-canine-oral-melanoma/"
+          ]
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "OVC home is readable; dog/cat lists, actual ICCI current index and individual Palladia/OSA-HIFU routes failed via shell/Web. Cached old searches were not treated as current recruitment.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P3",
+      "record_ids": []
+    },
+    {
+      "source_id": "europe-esvonc-ongoing-trials",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Organizer-level current access for the six named records; proposed temporary non-matchable disposition awaiting the required owner decision.",
+      "reason": "Fresh ESVONC table (29 populated study rows; 27 protocol identities after country/site and dog/cat duplicates) compared with the complete canonical catalog and shared fresh Oncowaf table. Six material access questions kept separate from four already owner-held Portugal/Italy records. Read current Zurich lists, Fregis actual home/health/research navigation and searched official partner sources. Fregis Dissectron surgery is a distinct new lead, not evidence of the three ablation/embolization trials. No unsupported successful verification date was refreshed.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "europe-esvonc-ongoing-trials",
+        "attempted_urls": [
+          "https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials",
+          "https://www.fregis.com/",
+          "https://www.fregis.com/infos-sante/chemodectome-aortique-chien/",
+          "https://www.fregis.com/services/oncologie/",
+          "https://www.fregis.com/services/chirurgie-des-tissus-mous/"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "Organizer-level current access for the six named records; proposed temporary non-matchable disposition awaiting the required owner decision.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "europe-esvonc-ongoing-trials",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=europe-esvonc-ongoing-trials",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": [
+            "https://www.fregis.com/",
+            "https://www.fregis.com/infos-sante/chemodectome-aortique-chien/",
+            "https://www.fregis.com/",
+            "https://www.fregis.com/infos-sante/chemodectome-aortique-chien/",
+            "https://www.fregis.com/services/oncologie/",
+            "https://www.fregis.com/services/oncologie/",
+            "https://www.fregis.com/services/chirurgie-des-tissus-mous/"
+          ]
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Compared all 29 populated ESVONC study rows as 27 protocol identities with Oncowaf, current Zurich and Fregis organizer readings. Six core questions are distinct and held for block 3; Dissectron is a separate watch lead.",
+          "record_ids_compared": [
+            "fr-fregis-hepatic-tumor-thermoablation",
+            "fr-fregis-chemodectoma-thermoablation",
+            "fr-fregis-hepatic-embolization",
+            "eu-ch-sinonasal-heterogeneous-rt",
+            "uk-rvc-insulinoma-toceranib",
+            "nl-utrecht-osteosarcoma-oncolytic-virus-access"
+          ],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P0",
+      "record_ids": [
+        "fr-fregis-hepatic-tumor-thermoablation",
+        "fr-fregis-chemodectoma-thermoablation",
+        "fr-fregis-hepatic-embolization",
+        "eu-ch-sinonasal-heterogeneous-rt",
+        "uk-rvc-insulinoma-toceranib",
+        "nl-utrecht-osteosarcoma-oncolytic-virus-access"
+      ]
+    },
+    {
+      "source_id": "europe-oncowaf-clinical-trials",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Same six organizer current-access questions, shared with ESVONC; no new independent trial or duplicate.",
+      "reason": "Same-URL Web recovered the complete current Oncowaf table after shell failed. Reconciled its published eligibility and entire seven-site insulinoma list. Uses the same six protocol issues and organizer readings as ESVONC, not a second deep queue. Four held Portugal/Italy records stay non-matchable. Its older conventional-versus-stereotactic meningioma label is not promoted as a second current trial; current Zurich genomic/radiation protocol remains the primary-controlled record.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "europe-oncowaf-clinical-trials",
+        "attempted_urls": [
+          "https://oncowaf.be/en/ClinicalTrials/searchResults"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "Same six organizer current-access questions, shared with ESVONC; no new independent trial or duplicate.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://oncowaf.be/en/ClinicalTrials/searchResults",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "europe-oncowaf-clinical-trials",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=europe-oncowaf-clinical-trials",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Read the recovered full Oncowaf table and complete seven-site insulinoma list; compared 24 identities. Reused the same six organizer questions instead of repeating research under another source name.",
+          "record_ids_compared": [
+            "fr-fregis-hepatic-tumor-thermoablation",
+            "fr-fregis-chemodectoma-thermoablation",
+            "fr-fregis-hepatic-embolization",
+            "eu-ch-sinonasal-heterogeneous-rt",
+            "uk-rvc-insulinoma-toceranib",
+            "nl-utrecht-osteosarcoma-oncolytic-virus-access"
+          ],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P0",
+      "record_ids": [
+        "fr-fregis-hepatic-tumor-thermoablation",
+        "fr-fregis-chemodectoma-thermoablation",
+        "fr-fregis-hepatic-embolization",
+        "eu-ch-sinonasal-heterogeneous-rt",
+        "uk-rvc-insulinoma-toceranib",
+        "nl-utrecht-osteosarcoma-oncolytic-virus-access"
+      ]
+    },
+    {
+      "source_id": "netherlands-utrecht-interventional-oncology",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "Current ungated OnGo roster is not publicly readable through the authorized route.",
+      "reason": "Reviewed inherited Utrecht Anubis/browser-attestation gate and did not pass it. No new visit or refreshed source date. The published January long-term OSA access statement is historical supporting evidence, distinct from proving a current whole OnGo roster.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "netherlands-utrecht-interventional-oncology",
+        "attempted_urls": [
+          "https://vetoncology.sites.uu.nl/research/interventional/"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "Current ungated OnGo roster is not publicly readable through the authorized route.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://vetoncology.sites.uu.nl/research/interventional/",
+              "outcome": "prior_explicit_gate_do_not_repeat"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "netherlands-utrecht-interventional-oncology",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=netherlands-utrecht-interventional-oncology",
+            "prior_denial_journal": "inherited-denials.json"
+          },
+          "explicit_prohibitions": [
+            {
+              "source_id": "netherlands-utrecht-interventional-oncology",
+              "url": "https://vetoncology.sites.uu.nl/research/interventional/",
+              "reason": "Inherited explicit forbidden/gated route; not retried or bypassed. Seek independent public official protocol signal only.",
+              "parent_run": "daily-20261014T030650-0400"
+            }
+          ],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Read inherited Utrecht attestation evidence without passing the gate. Distinguished January long-term treatment access from a current recruiting trial and from an unobserved whole OnGo roster.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P3",
+      "record_ids": []
+    },
+    {
+      "source_id": "switzerland-zurich-clinical-studies",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Current heterogeneous-dose sinonasal cohort access, not general Zurich oncology availability.",
+      "reason": "Both current Zurich primary lists freshly read. Enumerated nine oncology-related programmes; old heterogeneous sinonasal protocol is absent but was not called closed from absence. Current ADAM12 Phase0 programme is qualified as research, not a new active treatment trial. The specific sinonasal question is shared with ESVONC/Oncowaf.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "switzerland-zurich-clinical-studies",
+        "attempted_urls": [
+          "https://www.tierspital.uzh.ch/kleintiere/onkologie/krebs-tumore-klinische-studien/",
+          "https://www.tierspital.uzh.ch/ueber-uns/lehre-und-forschung/klinische-studien/"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "Current heterogeneous-dose sinonasal cohort access, not general Zurich oncology availability.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://www.tierspital.uzh.ch/kleintiere/onkologie/krebs-tumore-klinische-studien/",
+              "outcome": "actual_request_recorded"
+            },
+            {
+              "url": "https://www.tierspital.uzh.ch/ueber-uns/lehre-und-forschung/klinische-studien/",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "switzerland-zurich-clinical-studies",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=switzerland-zurich-clinical-studies",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Read both current Zurich primary lists and nine programme identities; current ADAM12 is Phase0, and absent old sinonasal cohort is not declared closed. Its exact access question is shared with European aliases.",
+          "record_ids_compared": [
+            "eu-ch-sinonasal-heterogeneous-rt"
+          ],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P0",
+      "record_ids": [
+        "eu-ch-sinonasal-heterogeneous-rt"
+      ]
+    },
+    {
+      "source_id": "italy-milan-veterinary-studies",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "Current readable Milan research-study roster; no new inference of closure or enrollment.",
+      "reason": "Current Milan study page failed through shell and same-URL Web. Preserved actual October 12 primary review and existing OncoFAP-MMAE record without changing its verification date. Older accessible news/results are not a fresh whole trial roster.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "italy-milan-veterinary-studies",
+        "attempted_urls": [
+          "https://www.ospedaleveterinario.unimi.it/collaborare-con-noi-studi-di-ricerca/"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "Current readable Milan research-study roster; no new inference of closure or enrollment.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://www.ospedaleveterinario.unimi.it/collaborare-con-noi-studi-di-ricerca/",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "italy-milan-veterinary-studies",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=italy-milan-veterinary-studies",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Reviewed actual shell and same-URL Web failure for Milan, preserving dated October12 primary evidence. Old news cannot establish the whole current roster or close an existing record.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P3",
+      "record_ids": []
+    },
+    {
+      "source_id": "uk-rvc-clinical-investigation-centre",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "Current authorized readable RVC roster; separate insulinoma intake confirmation.",
+      "reason": "Both RVC master and configured projects fallback were explicitly forbidden in the morning. No repeat or bypass, no new source date. Partner official searches returned the same project and outcome papers, not a new positive enrolling-site invitation. Insulinoma access question is shared with European protocol issues.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "uk-rvc-clinical-investigation-centre",
+        "attempted_urls": [
+          "https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre",
+          "https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre/projects"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "Current authorized readable RVC roster; separate insulinoma intake confirmation.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre",
+              "outcome": "prior_explicit_gate_do_not_repeat"
+            },
+            {
+              "url": "https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre/projects",
+              "outcome": "prior_explicit_gate_do_not_repeat"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "uk-rvc-clinical-investigation-centre",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=uk-rvc-clinical-investigation-centre",
+            "prior_denial_journal": "inherited-denials.json"
+          },
+          "explicit_prohibitions": [
+            {
+              "source_id": "uk-rvc-clinical-investigation-centre",
+              "url": "https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre",
+              "reason": "Inherited explicit forbidden/gated route; not retried or bypassed. Seek independent public official protocol signal only.",
+              "parent_run": "daily-20261014T030650-0400"
+            },
+            {
+              "source_id": "uk-rvc-clinical-investigation-centre",
+              "url": "https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre/projects",
+              "reason": "Inherited explicit forbidden/gated route; not retried or bypassed. Seek independent public official protocol signal only.",
+              "parent_run": "daily-20261014T030650-0400"
+            }
+          ],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Read actual RVC master/fallback 403 receipts; no retry. Partner-specific public searches added no positive current insulinoma intake; those results remain supporting evidence only.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P3",
+      "record_ids": []
+    },
+    {
+      "source_id": "usa-amcny-current-clinical-trials",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Explicit current neobladder trial intake rather than an undated retained study page.",
+      "reason": "Current AMC index and its specific neobladder page were read. Surgical/reconstructive eligibility is described, but a current trial enrollment status is not established. Kept existing inactive record; generic lower-urinary treatment information is not new recruitment proof.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "usa-amcny-current-clinical-trials",
+        "attempted_urls": [
+          "https://www.amcny.org/current-clinical-trials/",
+          "https://www.amcny.org/current-clinical-trials/artificial-neobladder-placement-for-dogs-with-resectable-lower-urinary-tract-tumors/"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "Explicit current neobladder trial intake rather than an undated retained study page.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://www.amcny.org/current-clinical-trials/",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "usa-amcny-current-clinical-trials",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=usa-amcny-current-clinical-trials",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": [
+            "https://www.amcny.org/current-clinical-trials/artificial-neobladder-placement-for-dogs-with-resectable-lower-urinary-tract-tumors/"
+          ]
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Read AMC current index and actual neobladder description; compared existing inactive identity and its enrollment uncertainty. Surgical-service availability does not reactivate the study.",
+          "record_ids_compared": [
+            "amc-neobladder-lower-urinary-tract-tumors"
+          ],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P2",
+      "record_ids": [
+        "amc-neobladder-lower-urinary-tract-tumors"
+      ]
+    },
+    {
+      "source_id": "australia-uq-school-veterinary-clinical-trials",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "A current protocol-level Enzistat invitation and cohort details beyond the February news lead.",
+      "reason": "Fresh UQ current trial master lists the existing OSA vaccine. February 6 Enzistat announcement was read through Web and provides a genuine terminal/inoperable cancer lead and owner-paid non-study costs. Absence from current index is not called closure; no new active Enzistat record is created from the news alone.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "australia-uq-school-veterinary-clinical-trials",
+        "attempted_urls": [
+          "https://news.uq.edu.au/2026-02-dogs-cancer-could-leave-lasting-legacy",
+          "https://veterinary-science.uq.edu.au/community/clinical-trials"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "A current protocol-level Enzistat invitation and cohort details beyond the February news lead.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://veterinary-science.uq.edu.au/community/clinical-trials",
+              "outcome": "actual_request_recorded"
+            },
+            {
+              "url": "https://news.uq.edu.au/2026-02-dogs-cancer-could-leave-lasting-legacy",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "australia-uq-school-veterinary-clinical-trials",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=australia-uq-school-veterinary-clinical-trials",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Compared UQ current list and February6 Enzistat announcement; existing OSA vaccine is not Enzistat. The old news does not supply a fresh protocol-level invitation and no closure is inferred from absence.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P2",
+      "record_ids": []
+    },
+    {
+      "source_id": "australia-pettrials-directory",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "Fresh readable PetTrials embedded trial array or enumerated directory result set.",
+      "reason": "Same-URL Web reads the directory shell with No trials match your search, but no readable full data array was obtained after the native failure. An empty JS-rendered search message is not evidence of zero Australian oncology trials.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "australia-pettrials-directory",
+        "attempted_urls": [
+          "https://pettrials.com.au/trials/"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "Fresh readable PetTrials embedded trial array or enumerated directory result set.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://pettrials.com.au/trials/",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "australia-pettrials-directory",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=australia-pettrials-directory",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Reviewed native failure and same-URL PetTrials Web shell; no complete embedded trial array is available in those receipts. No trials match is not interpreted as zero national oncology trials.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P3",
+      "record_ids": []
+    },
+    {
+      "source_id": "australia-sash-clinical-research",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "No current named owner-access trial roster is published on this programme page.",
+      "reason": "Fresh full SASH research page describes no-harm research and gives examples: dual-drug MCT research and exercise tolerance. It names no current protocol ID, study-specific eligibility or enrolling cohort; actual research links were qualified without creating an active metadata-only record.",
+      "next_action": "Compare newly posted named protocols and actual outgoing links during daily visits; do not demand an exhaustive trial roster from a resource/news/programme page. Deep review only for a concrete new lead.",
+      "evidence": {
+        "source_id": "australia-sash-clinical-research",
+        "attempted_urls": [
+          "https://sashvets.com/services/sash-research/"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "No current named owner-access trial roster is published on this programme page.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://sashvets.com/services/sash-research/",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "australia-sash-clinical-research",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=australia-sash-clinical-research",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Read SASH programme examples and real research context. Dual-drug MCT example lacks a named current cohort/protocol; no service or generic appointment is promoted as a trial.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P3",
+      "record_ids": []
+    },
+    {
+      "source_id": "australia-anzcvs-science-week-oncology",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "Public qualifying current trial leads, if any, are not exposed on the retrieved news route.",
+      "reason": "Same-URL Web supplies association news/navigation only; no public current oncology item or protocol roster is readable. Member-only repository was not accessed. Conference/news scope is not treated as a national trial roster.",
+      "next_action": "Compare newly posted named protocols and actual outgoing links during daily visits; do not demand an exhaustive trial roster from a resource/news/programme page. Deep review only for a concrete new lead.",
+      "evidence": {
+        "source_id": "australia-anzcvs-science-week-oncology",
+        "attempted_urls": [
+          "https://www.anzcvs.org.au/chapters/veterinary%2Boncology/news"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "Public qualifying current trial leads, if any, are not exposed on the retrieved news route.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://www.anzcvs.org.au/chapters/veterinary%2Boncology/news",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "australia-anzcvs-science-week-oncology",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=australia-anzcvs-science-week-oncology",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Read public ANZCVS oncology news/navigation and respected member repository boundary. A society/news page does not publish or promise an exhaustive national trial roster.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P3",
+      "record_ids": []
+    },
+    {
+      "source_id": "usa-canine-cancer-alliance-research",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "A current NovaVive/investigator protocol and enrolling site for the separately described Immunocidin OSA/solid-tumour pilot and alleged NCSU bladder cohort; the known NCSU IL12 protocol is not proof of MCWF recruitment.",
+      "reason": "Corrected the false existing-Immunocidin claim by exact canonical search. Read the linked CCA article, current NovaVive home/research/product and 2019 retrospective PDF; no current named enrolling protocol is established. NCSU current named bladder PDF is IL12, not MCWF; two Immunocidin trial leads remain separate watch items.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "usa-canine-cancer-alliance-research",
+        "attempted_urls": [
+          "https://www.ccralliance.org/research-projects"
+        ],
+        "additional_current_followup": "new-native-attempts.json"
+      },
+      "completion_decision": {
+        "remaining_fact": "A current NovaVive/investigator protocol and enrolling site for the separately described Immunocidin OSA/solid-tumour pilot and alleged NCSU bladder cohort; the known NCSU IL12 protocol is not proof of MCWF recruitment.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://www.ccralliance.org/research-projects",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "usa-canine-cancer-alliance-research",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=usa-canine-cancer-alliance-research",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Corrected the false existing-Immunocidin claim by exact canonical search. Read the linked CCA article, current NovaVive home/research/product and 2019 retrospective PDF; no current named enrolling protocol is established. NCSU current named bladder PDF is IL12, not MCWF; two Immunocidin trial leads remain separate watch items.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": "new-native-attempts.json and new-web-attempts.json"
+        }
+      },
+      "impact": "P2",
+      "record_ids": []
+    },
+    {
+      "source_id": "usa-wsu-vth-clinical-studies",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "A public authorized current WSU oncology-study roster.",
+      "reason": "Inherited WSU appointment-route 403 was respected; configured official oncology fallback returned 403 during this run. No method switching after explicit denial. Separately verified shared vaccine/TCE protocol evidence does not prove a complete WSU roster.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "usa-wsu-vth-clinical-studies",
+        "attempted_urls": [
+          "https://hospital.vetmed.wsu.edu/small-animal/cats-and-dogs/oncology/"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "A public authorized current WSU oncology-study roster.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://hospital.vetmed.wsu.edu/appointments/",
+              "outcome": "prior_explicit_gate_do_not_repeat"
+            },
+            {
+              "url": "https://hospital.vetmed.wsu.edu/small-animal/cats-and-dogs/oncology/",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "usa-wsu-vth-clinical-studies",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=usa-wsu-vth-clinical-studies",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [
+            {
+              "source_id": "usa-wsu-vth-clinical-studies",
+              "url": "https://hospital.vetmed.wsu.edu/appointments/",
+              "reason": "Inherited explicit forbidden/gated route; not retried or bypassed. Seek independent public official protocol signal only.",
+              "parent_run": "daily-20261014T030650-0400"
+            }
+          ],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Read prior WSU master 403 and the new fallback 403; no retry or bypass after denial. Shared vaccine/TCE current protocols do not establish an unseen institutional master roster.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P3",
+      "record_ids": []
+    },
+    {
+      "source_id": "china-dongjun-oncology-trials",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Investigational drug identity, administering hospital and costs outside free drug/laboratory follow-up.",
+      "reason": "Fresh full Chinese organizer invitation names three dog cohorts and a live study-specific owner/vet contact route: recurrent/unresected MCT, non-amputated or lung-metastatic OSA and oral SCC. Pathology, age and organ-risk screening and free experimental drug/monitoring are published. Drug identity, exact hospitals and non-study costs are not. Existing scope retained without inventing those fields or treating free drug as fully funded care.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "china-dongjun-oncology-trials",
+        "attempted_urls": [
+          "https://www.caudjlab.com/newdetail.aspx?id=73"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "Investigational drug identity, administering hospital and costs outside free drug/laboratory follow-up.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://www.caudjlab.com/newdetail.aspx?id=73",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "china-dongjun-oncology-trials",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=china-dongjun-oncology-trials",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Read the full Chinese organizer three-cohort invitation and owner/vet screening route; compared pathology/age/tumour state and free-drug/monitoring clauses. Drug identity, named administering clinic and other costs remain explicitly unpublished.",
+          "record_ids_compared": [
+            "china-dongjun-mct-new-drug-2026",
+            "china-dongjun-osa-new-drug-2026",
+            "china-dongjun-oral-scc-new-drug-2026"
+          ],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P1",
+      "record_ids": [
+        "china-dongjun-mct-new-drug-2026",
+        "china-dongjun-osa-new-drug-2026",
+        "china-dongjun-oral-scc-new-drug-2026"
+      ]
+    },
+    {
+      "source_id": "usa-nci-comparative-oncology-trials",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "An authorized current comparative-oncology master roster.",
+      "reason": "Inherited exact NCI 403 was reviewed and respected. No new page visit, source date or empty-roster claim. Current institution COTC evidence is handled individually and does not establish a complete NCI master roster.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "usa-nci-comparative-oncology-trials",
+        "attempted_urls": [
+          "https://ccr.cancer.gov/comparative-oncology-program/trials"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "An authorized current comparative-oncology master roster.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://ccr.cancer.gov/comparative-oncology-program/trials",
+              "outcome": "prior_explicit_gate_do_not_repeat"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "usa-nci-comparative-oncology-trials",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=usa-nci-comparative-oncology-trials",
+            "prior_denial_journal": "inherited-denials.json"
+          },
+          "explicit_prohibitions": [
+            {
+              "source_id": "usa-nci-comparative-oncology-trials",
+              "url": "https://ccr.cancer.gov/comparative-oncology-program/trials",
+              "reason": "Inherited explicit forbidden/gated route; not retried or bypassed. Seek independent public official protocol signal only.",
+              "parent_run": "daily-20261014T030650-0400"
+            }
+          ],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Read the actual NCI 403 and institutional COTC supporting provenance; did not retry the prohibited master or interpret individual COTC evidence as a full NCI roster.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P3",
+      "record_ids": []
+    },
+    {
+      "source_id": "japan-yamaguchi-vmc-clinical-trials",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Specific current disease/cohort criteria for the separate broad PD1 invitation, if it represents an additional protocol.",
+      "reason": "Fresh Yamaguchi homepage and full public trial page read. Five oncology families are distinguished: CD20 lymphoma/leukemia, broad PD1, early blood diagnosis, ended viral therapy and ended anticancer-drug study. The broad PD1 description does not supply an independently defined new cohort; no extra all-cancer record is created. Separately verified current CD20 and oral-melanoma programmes remain unchanged.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "japan-yamaguchi-vmc-clinical-trials",
+        "attempted_urls": [
+          "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html",
+          "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/",
+          "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html#four",
+          "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html#two",
+          "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html#one"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "Specific current disease/cohort criteria for the separate broad PD1 invitation, if it represents an additional protocol.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html",
+              "outcome": "actual_request_recorded"
+            },
+            {
+              "url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "japan-yamaguchi-vmc-clinical-trials",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=japan-yamaguchi-vmc-clinical-trials",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Read Yamaguchi homepage and entire actual info page. Classified five oncology families: CD20, broad PD1, diagnostic blood and two ended programmes. A generic PD1 phrase does not create another defined cohort.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P2",
+      "record_ids": []
+    },
+    {
+      "source_id": "japan-jsamc-current-clinical-trials",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Individual combination cohort/site eligibility on a readable direct current clinical-trial page.",
+      "reason": "JSAMC direct trial route still fails through shell/Web. Current iCAT home and research page were read; they confirm ongoing dog/cat checkpoint and canine CD20 clinical work, but CAR-T is in preparation and the described combination research is not a separately defined recruiting cohort. No new combination record or site inferred.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "japan-jsamc-current-clinical-trials",
+        "attempted_urls": [
+          "https://www.jsamc.jp/dr_info/clinical/clinical07.html",
+          "https://www.cure-cancer.jp/",
+          "https://www.cure-cancer.jp/research/"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "Individual combination cohort/site eligibility on a readable direct current clinical-trial page.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://www.jsamc.jp/dr_info/clinical/clinical07.html",
+              "outcome": "actual_request_recorded"
+            },
+            {
+              "url": "https://www.cure-cancer.jp/",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "japan-jsamc-current-clinical-trials",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=japan-jsamc-current-clinical-trials",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": [
+            "https://www.cure-cancer.jp/research/"
+          ]
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Reviewed failed JSAMC direct route and full current iCAT home/research. Checkpoint/CD20 work, CAR-T preparation and undefined combinations are not conflated into new recruiting cohorts.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P2",
+      "record_ids": []
+    },
+    {
+      "source_id": "global-vettrials-directory",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "question": "The remaining 99 directory rows on the actually unavailable third page and complete directory boundary verification.",
+      "reason": "Fresh public API pages 1/2 return 200 unique records and explicitly total 299 over three pages. Page 3 fails through native attempts and same-URL Web. Reviewed reachable records and kept directory-only/safety/diagnostic signals from being promoted; 200/299 is not a full roster or zero result.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "global-vettrials-directory",
+        "attempted_urls": [
+          "https://vettrials.org/api/trials?limit=100&page=2",
+          "https://vettrials.org/",
+          "https://vettrials.org/api/trials?limit=100&page=3",
+          "https://vettrials.org/api/trials?limit=1000"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "The remaining 99 directory rows on the actually unavailable third page and complete directory boundary verification.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://vettrials.org/",
+              "outcome": "actual_request_recorded"
+            },
+            {
+              "url": "https://vettrials.org/api/trials?limit=100&page=2",
+              "outcome": "actual_request_recorded"
+            },
+            {
+              "url": "https://vettrials.org/api/trials?limit=100&page=3",
+              "outcome": "actual_request_recorded"
+            },
+            {
+              "url": "https://vettrials.org/api/trials?limit=1000",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "global-vettrials-directory",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=global-vettrials-directory",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Read 200 unique public directory records across pages1/2, manually mapped all 67 reachable oncology signals, and documented failed third-page native/Web attempts. Remaining99 are not described as checked.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P3",
+      "record_ids": []
+    },
+    {
+      "source_id": "japan-jvcog-current-clinical-trials",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "A publicly readable roster without professional attestation.",
+      "reason": "Inherited JVCOG professional-attestation gate on master/fallback was reviewed and respected. No professional-status impersonation, access-gate bypass, new page visit or refreshed successful date.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "japan-jvcog-current-clinical-trials",
+        "attempted_urls": [
+          "https://www.jvcog.jp/clinical/index.html",
+          "https://www.jvcog.jp/clinical/03rinsho.html"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "A publicly readable roster without professional attestation.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://www.jvcog.jp/clinical/index.html",
+              "outcome": "prior_explicit_gate_do_not_repeat"
+            },
+            {
+              "url": "https://www.jvcog.jp/clinical/03rinsho.html",
+              "outcome": "prior_explicit_gate_do_not_repeat"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "japan-jvcog-current-clinical-trials",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=japan-jvcog-current-clinical-trials",
+            "prior_denial_journal": "inherited-denials.json"
+          },
+          "explicit_prohibitions": [
+            {
+              "source_id": "japan-jvcog-current-clinical-trials",
+              "url": "https://www.jvcog.jp/clinical/index.html",
+              "reason": "Inherited explicit forbidden/gated route; not retried or bypassed. Seek independent public official protocol signal only.",
+              "parent_run": "daily-20261014T030650-0400"
+            },
+            {
+              "source_id": "japan-jvcog-current-clinical-trials",
+              "url": "https://www.jvcog.jp/clinical/03rinsho.html",
+              "reason": "Inherited explicit forbidden/gated route; not retried or bypassed. Seek independent public official protocol signal only.",
+              "parent_run": "daily-20261014T030650-0400"
+            }
+          ],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Read actual inherited JVCOG professional-attestation content/receipt; no impersonation, gate bypass or new source-date claim. Existing protocols remain independently assessed.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P3",
+      "record_ids": []
+    },
+    {
+      "source_id": "brazil-usp-loct-oncolytic-virus-program",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "A benefit-qualified primary clinical protocol with current owner intake and treating hospital.",
+      "reason": "Fresh Portuguese LOCT investigator programmes and oncology information page read. Canine NDV Phase I up-to-20-dog safety/dose work and feline/oral-melanoma platform development lack a current owner enrollment protocol and defined standard-treatment backbone; kept as research leads, not active treatment entries.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "brazil-usp-loct-oncolytic-virus-program",
+        "attempted_urls": [
+          "https://loct.fzea.usp.br/?page_id=848",
+          "https://loct.fzea.usp.br/?page_id=165"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "A benefit-qualified primary clinical protocol with current owner intake and treating hospital.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://loct.fzea.usp.br/?page_id=848",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "brazil-usp-loct-oncolytic-virus-program",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=brazil-usp-loct-oncolytic-virus-program",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": [
+            "https://loct.fzea.usp.br/?page_id=165"
+          ]
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Read Portuguese LOCT investigator and ONVEP pages. NDV canine PhaseI safety/dose and feline platform projects lack current qualifying owner protocol; no unsupported treatment activation.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P2",
+      "record_ids": []
+    },
+    {
+      "source_id": "brazil-estima-coe-clinical-studies",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "A currently published named trial with primary eligibility and treatment details.",
+      "reason": "Fresh complete Estima Portuguese research page read. Partnerships and low-cost care are generic, with no named drug/protocol/current cohort or study-specific trial link. Appointment/care links do not create a treatment trial.",
+      "next_action": "Compare newly posted named protocols and actual outgoing links during daily visits; do not demand an exhaustive trial roster from a resource/news/programme page. Deep review only for a concrete new lead.",
+      "evidence": {
+        "source_id": "brazil-estima-coe-clinical-studies",
+        "attempted_urls": [
+          "https://estima.com.br/coe/"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "A currently published named trial with primary eligibility and treatment details.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://estima.com.br/coe/",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "brazil-estima-coe-clinical-studies",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=brazil-estima-coe-clinical-studies",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Read complete Estima COE research/partnership content. Generic low-cost care and partnership do not specify drug, cohort, protocol or trial entry; no metadata-only trial is fabricated.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P3",
+      "record_ids": []
+    },
+    {
+      "source_id": "france-alfort-innovative-clinical-trials",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Explicit current TG6002 recruiting status and owner protocol, rather than the historical 2019 project description.",
+      "reason": "Fresh Alfort primary study page read through Web. TG6002 CANC2019_1 is a retained undated project invitation without an independently established current cohort. Carboplatin PK and colorectal sampling are excluded. Contrary to the morning shorthand, there is no TG6002 canonical record to describe as an unverified public trial.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "france-alfort-innovative-clinical-trials",
+        "attempted_urls": [
+          "https://www.vet-alfort.fr/services-cliniques/hopital-des-animaux-de-compagnie/les-traitements-innovants"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "Explicit current TG6002 recruiting status and owner protocol, rather than the historical 2019 project description.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://www.vet-alfort.fr/services-cliniques/hopital-des-animaux-de-compagnie/les-traitements-innovants",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "france-alfort-innovative-clinical-trials",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=france-alfort-innovative-clinical-trials",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Read three Alfort project descriptions, separating TG6002 undated invitation from carboplatin PK and colorectal sampling. Verified that no TG6002 canonical row exists; current access remains a watch question.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P2",
+      "record_ids": []
+    },
+    {
+      "source_id": "foundation-perseus-clinical-trial-discovery",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "Foundation directory is not a current recruiting roster; unavailable historic trial articles are not positive leads.",
+      "reason": "Fresh Perseus directory links were compared with full inventory and shared VCS provider outcomes. Guardian linked article is 404; historical Hope is a current hospital redirect. No protocol-level current roster is published by this foundation and no duplicate deep search was launched.",
+      "next_action": "Compare newly posted named protocols and actual outgoing links during daily visits; do not demand an exhaustive trial roster from a resource/news/programme page. Deep review only for a concrete new lead.",
+      "evidence": {
+        "source_id": "foundation-perseus-clinical-trial-discovery",
+        "attempted_urls": [
+          "https://www.theperseusfoundation.com/clinical-trials"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "Foundation directory is not a current recruiting roster; unavailable historic trial articles are not positive leads.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://www.theperseusfoundation.com/clinical-trials",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "foundation-perseus-clinical-trial-discovery",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=foundation-perseus-clinical-trial-discovery",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Read Perseus resource links and map to existing inventory plus shared Guardian/Hope outcomes. Its institutional link list is not a new clinical protocol or an exhaustive recruiting roster.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P3",
+      "record_ids": []
+    },
+    {
+      "source_id": "sponsor-evvivax-clinical-trials",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Named current Tel-EVax/Erb-EVax clinical protocols and owner enrollment, not current clinic services or platform papers.",
+      "reason": "Fresh EVVIVAX page read through Web: four historical vaccine families, old AAHSD references and platform-development news. Linked VOS was investigated under shared current evidence; its current general clinical services do not establish these named vaccine trials. Existing inactive historical records preserved; generic ECT services are excluded from this task.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "sponsor-evvivax-clinical-trials",
+        "attempted_urls": [
+          "https://www.evvivax.com/clinical-trials.html"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "Named current Tel-EVax/Erb-EVax clinical protocols and owner enrollment, not current clinic services or platform papers.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://www.evvivax.com/clinical-trials.html",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "sponsor-evvivax-clinical-trials",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=sponsor-evvivax-clinical-trials",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Read four historical EVVIVAX vaccine families and linked VOS evidence; retain all five inactive historical canonical entries. Generic ECT services and platform papers do not reactivate named vaccine trials.",
+          "record_ids_compared": [
+            "evvivax-vos-televax-cat",
+            "eu-it-evvivax-televax-pisa-contactable",
+            "eu-it-evvivax-erbevax-osa-pisa-contactable",
+            "eu-it-evvivax-erbevax-tcc-pisa-contactable",
+            "eu-it-evvivax-erbevax-feline-mammary-pisa-contactable"
+          ],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P2",
+      "record_ids": [
+        "evvivax-vos-televax-cat",
+        "eu-it-evvivax-televax-pisa-contactable",
+        "eu-it-evvivax-erbevax-osa-pisa-contactable",
+        "eu-it-evvivax-erbevax-tcc-pisa-contactable",
+        "eu-it-evvivax-erbevax-feline-mammary-pisa-contactable"
+      ]
+    },
+    {
+      "source_id": "sponsor-curelab-veterinary-research",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "A specified current veterinary Elenagen cohort/site/protocol beyond an inquiry invitation.",
+      "reason": "Fresh complete CureLab veterinary page read. It describes pilot Elenagen results and invitation to inquire about pilot/pivotal work; human completed trial statements and response claims are not a current veterinary protocol/site roster. No canonical metadata-only row created.",
+      "next_action": "Compare newly posted named protocols and actual outgoing links during daily visits; do not demand an exhaustive trial roster from a resource/news/programme page. Deep review only for a concrete new lead.",
+      "evidence": {
+        "source_id": "sponsor-curelab-veterinary-research",
+        "attempted_urls": [
+          "https://www.curelaboncology.com/comparative-medicine-and-veterinary-research/"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "A specified current veterinary Elenagen cohort/site/protocol beyond an inquiry invitation.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://www.curelaboncology.com/comparative-medicine-and-veterinary-research/",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "sponsor-curelab-veterinary-research",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=sponsor-curelab-veterinary-research",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Read CureLab veterinary pilot narrative and human-trial statements separately. An inquiry invitation and preclinical/pilot outcomes do not establish a new named veterinary enrollment cohort/site.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P2",
+      "record_ids": []
+    },
+    {
+      "source_id": "india-the-cancer-vet-clinical-trials",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "A published named current trial and protocol-specific owner pathway.",
+      "reason": "Fresh full Cancer Vet clinical-trials page read. Generic participation invitation gives no named study, drug, tumor/species cohort or direct protocol. Clinical appointments and oncology care are separate from trial access.",
+      "next_action": "Compare newly posted named protocols and actual outgoing links during daily visits; do not demand an exhaustive trial roster from a resource/news/programme page. Deep review only for a concrete new lead.",
+      "evidence": {
+        "source_id": "india-the-cancer-vet-clinical-trials",
+        "attempted_urls": [
+          "https://thecancer.vet/clinical-trials/"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "A published named current trial and protocol-specific owner pathway.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://thecancer.vet/clinical-trials/",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "india-the-cancer-vet-clinical-trials",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=india-the-cancer-vet-clinical-trials",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Read Cancer Vet actual generic participation page; it has no named drug, disease-specific study or protocol link. Oncology appointments do not constitute a treatment trial.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P3",
+      "record_ids": []
+    },
+    {
+      "source_id": "foundation-dog-cancer-foundation-trial-directory",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "Resource directory does not publish a current recruiting roster; stale trial links supply no new primary cohort.",
+      "reason": "Fresh Dog Cancer Foundation resource page compared with full inventory and the shared actual VCS outgoing-provider checks. Institution directories and old Guardian article are not a new current protocol; no third repetition of the same Guardian/Hope question.",
+      "next_action": "Compare newly posted named protocols and actual outgoing links during daily visits; do not demand an exhaustive trial roster from a resource/news/programme page. Deep review only for a concrete new lead.",
+      "evidence": {
+        "source_id": "foundation-dog-cancer-foundation-trial-directory",
+        "attempted_urls": [
+          "https://www.dogcancerfoundation.org/clinical-trials-for-dogs-with-cancer"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "Resource directory does not publish a current recruiting roster; stale trial links supply no new primary cohort.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://www.dogcancerfoundation.org/clinical-trials-for-dogs-with-cancer",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "foundation-dog-cancer-foundation-trial-directory",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=foundation-dog-cancer-foundation-trial-directory",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Read Dog Cancer Foundation resource page; compare its institutional/provider leads with current inventory and shared VCS outcomes. Avoid a third duplicate Guardian/Hope investigation.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P3",
+      "record_ids": []
+    },
+    {
+      "source_id": "sponsor-benno-therapeutics-research",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "Current owner recruitment, investigator hospital, eligibility and coverage for a named BTX001 cohort.",
+      "reason": "Fresh complete Benno sponsor research page read. Prior BTX001 UCC/HSA outcomes and ongoing OSA/amputation work are described, with publications rather than a specific enrollment protocol/site. The company Leuven address is not a treating clinic. No active trial added.",
+      "next_action": "Compare newly posted named protocols and actual outgoing links during daily visits; do not demand an exhaustive trial roster from a resource/news/programme page. Deep review only for a concrete new lead.",
+      "evidence": {
+        "source_id": "sponsor-benno-therapeutics-research",
+        "attempted_urls": [
+          "https://www.bennotx.com/research/"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "Current owner recruitment, investigator hospital, eligibility and coverage for a named BTX001 cohort.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://www.bennotx.com/research/",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "sponsor-benno-therapeutics-research",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=sponsor-benno-therapeutics-research",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Read Benno current research and its prior UCC/HSA outcomes versus ongoing OSA/amputation signal. Publication and Leuven company address do not specify a current treating hospital or owner protocol.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P2",
+      "record_ids": []
+    },
+    {
+      "source_id": "sponsor-leah-labs-clinical-trial",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Ohio institutional current slot/site-specific eligibility and reconciliation of sponsor list with the two documented holds.",
+      "reason": "Fresh LEAH sponsor Web page and the three institutional routes reviewed. Minnesota and Missouri explicitly on hold; sponsor still lists Ohio as actively enrolling and has a study-specific owner intake route. Kept its sole Ohio active site with existing explicit confirmation warning; the two paused sites stay inactive. Shared Missouri issue, not a second investigation.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "sponsor-leah-labs-clinical-trial",
+        "attempted_urls": [
+          "https://leahlabs.com/",
+          "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/car-t-cell",
+          "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+          "https://vmc.vet.osu.edu/clinical-trials-office/current-trials"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "Ohio institutional current slot/site-specific eligibility and reconciliation of sponsor list with the two documented holds.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://leahlabs.com/",
+              "outcome": "actual_request_recorded"
+            },
+            {
+              "url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/car-t-cell",
+              "outcome": "actual_request_recorded"
+            },
+            {
+              "url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+              "outcome": "actual_request_recorded"
+            },
+            {
+              "url": "https://vmc.vet.osu.edu/clinical-trials-office/current-trials",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "sponsor-leah-labs-clinical-trial",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=sponsor-leah-labs-clinical-trial",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Read LEAH sponsor and three institutional routes. Minnesota/Missouri hold and sponsor-listed Ohio enrollment are distinct; use the one shared Ohio corroboration issue, no duplicate investigation.",
+          "record_ids_compared": [
+            "leah-bcell-cart-2026"
+          ],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P1",
+      "record_ids": [
+        "leah-bcell-cart-2026"
+      ]
+    },
+    {
+      "source_id": "usa-oklahoma-state-clinical-trials",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "An operational current Oklahoma owner-trial page; the college itself links a missing hospital trial route.",
+      "reason": "All three configured Oklahoma trial URLs are 404. Followed the current official Research page actual Clinical Trials link to the new hospital host; that advertised route also returns 404. Research laboratory descriptions/old FUS work are not a new current owner treatment invitation.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "usa-oklahoma-state-clinical-trials",
+        "attempted_urls": [
+          "https://vethospital.okstate.edu/info-for-researchers/clinical-trials",
+          "https://vetmed.okstate.edu/clinical-trials",
+          "https://vethospital.okstate.edu/info-for-researchers/clinical-trials.html",
+          "https://vetmed.okstate.edu/research"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "An operational current Oklahoma owner-trial page; the college itself links a missing hospital trial route.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://vethospital.okstate.edu/info-for-researchers/clinical-trials.html",
+              "outcome": "actual_request_recorded"
+            },
+            {
+              "url": "https://vethospital.okstate.edu/info-for-researchers/clinical-trials",
+              "outcome": "actual_request_recorded"
+            },
+            {
+              "url": "https://vetmed.okstate.edu/clinical-trials",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "usa-oklahoma-state-clinical-trials",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=usa-oklahoma-state-clinical-trials",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": [
+            "https://vetmed.okstate.edu/research"
+          ]
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "All three configured Oklahoma URLs are404. Followed the actual current Research-page Clinical Trials link to the hospital host; its advertised route is also404. Old FUS lab projects are not an enrollment roster.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P3",
+      "record_ids": []
+    },
+    {
+      "source_id": "usa-veterinary-oncology-services-trials",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "question": "Readable named current trial protocol/roster; general ECT/immunotherapy services do not settle registry trial intake.",
+      "reason": "Old www VOS route failed. Found and attempted the actual official non-www home and gene-electrotransfer path; native transport fails and Web returns empty JS pages. Current cached service descriptions establish a care practice but no new protocol roster or distinct Impellizeri registry cohort. Not claimed as whole practice unavailable.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "usa-veterinary-oncology-services-trials",
+        "attempted_urls": [
+          "https://www.petcancerinformation.com",
+          "https://petcancerinformation.com/",
+          "https://petcancerinformation.com/services/gene-electrotransfer"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "Readable named current trial protocol/roster; general ECT/immunotherapy services do not settle registry trial intake.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://www.petcancerinformation.com",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "usa-veterinary-oncology-services-trials",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=usa-veterinary-oncology-services-trials",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": [
+            "https://petcancerinformation.com/",
+            "https://petcancerinformation.com/services/gene-electrotransfer",
+            "https://petcancerinformation.com/",
+            "https://petcancerinformation.com/services/gene-electrotransfer"
+          ]
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Read actual non-www VOS official navigation/GET alternatives after old route failure; native transport errors and Web empty shells remain insufficient for a named trial roster. No generic ECT service is counted as a trial.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P3",
+      "record_ids": []
+    },
+    {
+      "source_id": "germany-lmu-small-animal-research",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Correct thyroid-function protocol body behind the mis-served Palladia page.",
+      "reason": "Fresh LMU current research index read; both actual official fallbacks through Web show the Palladia-title/nerve-block-body mismatch. Nerve-block analgesia is supportive-only and thyroid-function monitoring is not anticancer treatment. No canonical active trial is implicated; publisher text error remains its own research question.",
+      "next_action": "Recheck exact missing fact after new primary evidence, changed master or 2026-10-21; daily master/fallback duty remains. No repeated deep search without a signal.",
+      "evidence": {
+        "source_id": "germany-lmu-small-animal-research",
+        "attempted_urls": [
+          "https://www.vetmed.lmu.de/kleintierklinik/de/forschung/",
+          "https://www.vetmed.lmu.de/kleintierklinik/de/forschung/studie-zur-palliativen-linderung-von-osteosarkombedingten-schmerzen-durch-periphere-nervenbloecke/",
+          "https://www.vetmed.lmu.de/kleintierklinik/de/forschung/einfluss-des-tkis-palladia-auf-die-schilddruesenfunktion-von-hunden-mit-neoplasien/"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "Correct thyroid-function protocol body behind the mis-served Palladia page.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://www.vetmed.lmu.de/kleintierklinik/de/forschung/",
+              "outcome": "actual_request_recorded"
+            },
+            {
+              "url": "https://www.vetmed.lmu.de/kleintierklinik/de/forschung/studie-zur-palliativen-linderung-von-osteosarkombedingten-schmerzen-durch-periphere-nervenbloecke/",
+              "outcome": "actual_request_recorded"
+            },
+            {
+              "url": "https://www.vetmed.lmu.de/kleintierklinik/de/forschung/einfluss-des-tkis-palladia-auf-die-schilddruesenfunktion-von-hunden-mit-neoplasien/",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "germany-lmu-small-animal-research",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=germany-lmu-small-animal-research",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": []
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Read current LMU index and both official individual fallbacks. Documented thyroid/Palladia title versus analgesia body publisher mismatch; neither a new anticancer trial nor an active canonical conflict is established.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P2",
+      "record_ids": []
+    },
+    {
+      "source_id": "uk-edinburgh-small-animal-clinical-trials",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "No named current owner-access protocol roster on these programme/FAQ pages.",
+      "reason": "Fresh Edinburgh clinical-trials programme and its actual linked FAQ read. Both are generic explanations without a named current cohort; clinical-trial news navigation is not a roster. The separately published multicenter insulinoma access issue is linked to its European protocol issue rather than attributed to every Edinburgh treatment.",
+      "next_action": "Compare newly posted named protocols and actual outgoing links during daily visits; do not demand an exhaustive trial roster from a resource/news/programme page. Deep review only for a concrete new lead.",
+      "evidence": {
+        "source_id": "uk-edinburgh-small-animal-clinical-trials",
+        "attempted_urls": [
+          "https://vet.ed.ac.uk/clinical/small-animal/our-research/better-treatments/clinical-trials-programme",
+          "https://vet.ed.ac.uk/clinical/small-animal/our-research/better-treatments/clinical-trials-programme/clinical-trials-programme"
+        ],
+        "additional_current_followup": null
+      },
+      "completion_decision": {
+        "remaining_fact": "No named current owner-access protocol roster on these programme/FAQ pages.",
+        "routes_exhausted_evidence": {
+          "required_routes": [
+            {
+              "url": "https://vet.ed.ac.uk/clinical/small-animal/our-research/better-treatments/clinical-trials-programme",
+              "outcome": "actual_request_recorded"
+            }
+          ],
+          "actual_attempts": {
+            "receipt_row_source_id": "uk-edinburgh-small-animal-clinical-trials",
+            "attempted_urls_field": "receipt-final.json.sources[].attempted_urls",
+            "journal": "inherited-attempts.json: source_id=uk-edinburgh-small-animal-clinical-trials",
+            "prior_denial_journal": null
+          },
+          "explicit_prohibitions": [],
+          "additional_official_routes": [
+            "https://vet.ed.ac.uk/clinical/small-animal/our-research/better-treatments/clinical-trials-programme/clinical-trials-programme"
+          ]
+        },
+        "available_reconciliation_done_evidence": {
+          "manual_decision": "Read Edinburgh programme and actual linked FAQ. Neither publishes named cohorts; linked European insulinoma question remains protocol-specific instead of casting doubt on all Edinburgh treatments.",
+          "record_ids_compared": [],
+          "primary_corrections_published_in": null,
+          "specific_new_followup": null
+        }
+      },
+      "impact": "P3",
+      "record_ids": []
+    }
+  ]
+}

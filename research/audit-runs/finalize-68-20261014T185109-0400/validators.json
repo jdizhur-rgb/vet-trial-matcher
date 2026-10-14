@@ -1,0 +1,50 @@
+[
+  {
+    "command": "python scripts/validate_audit_receipt.py /workspace/scratch/2226bbb8952f/vtf-68-final/research/audit-runs/finalize-68-20261014T185109-0400/receipt-final.json --inventory /workspace/scratch/2226bbb8952f/vtf-68-final/research/audit-runs/finalize-68-20261014T185109-0400/target-inventory.json",
+    "exit_code": 1,
+    "stdout": "{\n  \"status\": \"INCOMPLETE\",\n  \"receipt\": \"/workspace/scratch/2226bbb8952f/vtf-68-final/research/audit-runs/finalize-68-20261014T185109-0400/receipt-final.json\",\n  \"inventory\": \"/workspace/scratch/2226bbb8952f/vtf-68-final/research/audit-runs/finalize-68-20261014T185109-0400/target-inventory.json\",\n  \"errors\": [],\n  \"coverage_gaps\": [\n    \"registry-avma-veterinary-clinical-trials: current roster/status not proven\",\n    \"directory-veterinary-cancer-society: current roster/status not proven\",\n    \"usa-johns-hopkins-cigat: current roster/status not proven despite protocols_seen=5\",\n    \"usa-missouri-oncology-clinical-trials: current roster/status not proven despite protocols_seen=12\",\n    \"usa-tufts-clinical-trials: current roster/status not proven despite protocols_seen=9\",\n    \"usa-georgia-clinical-trials: current roster/status not proven\",\n    \"usa-wisconsin-oncology-studies: mandatory source was not attempted this run\",\n    \"usa-ethos-clinical-studies: current roster/status not proven\",\n    \"usa-ethos-discovery-studies: current roster/status not proven despite protocols_seen=10\",\n    \"usa-anivive-trials: current roster/status not proven\",\n    \"canada-ovc-active-oncology-trials: current roster/status not proven\",\n    \"europe-esvonc-ongoing-trials: current roster/status not proven despite protocols_seen=27\",\n    \"europe-oncowaf-clinical-trials: current roster/status not proven despite protocols_seen=24\",\n    \"netherlands-utrecht-interventional-oncology: mandatory source was not attempted this run\",\n    \"switzerland-zurich-clinical-studies: current roster/status not proven despite protocols_seen=9\",\n    \"italy-milan-veterinary-studies: current roster/status not proven\",\n    \"uk-rvc-clinical-investigation-centre: mandatory source was not attempted this run\",\n    \"usa-amcny-current-clinical-trials: current roster/status not proven despite protocols_seen=1\",\n    \"australia-uq-school-veterinary-clinical-trials: current roster/status not proven despite protocols_seen=2\",\n    \"australia-pettrials-directory: current roster/status not proven\",\n    \"australia-sash-clinical-research: current roster/status not proven\",\n    \"australia-anzcvs-science-week-oncology: current roster/status not proven\",\n    \"usa-canine-cancer-alliance-research: current roster/status not proven despite protocols_seen=7\",\n    \"usa-wsu-vth-clinical-studies: current roster/status not proven\",\n    \"china-dongjun-oncology-trials: current roster/status not proven despite protocols_seen=3\",\n    \"usa-nci-comparative-oncology-trials: mandatory source was not attempted this run\",\n    \"japan-yamaguchi-vmc-clinical-trials: current roster/status not proven despite protocols_seen=5\",\n    \"japan-jsamc-current-clinical-trials: current roster/status not proven despite protocols_seen=4\",\n    \"global-vettrials-directory: current roster/status not proven\",\n    \"japan-jvcog-current-clinical-trials: mandatory source was not attempted this run\",\n    \"brazil-usp-loct-oncolytic-virus-program: current roster/status not proven\",\n    \"brazil-estima-coe-clinical-studies: current roster/status not proven\",\n    \"france-alfort-innovative-clinical-trials: current roster/status not proven despite protocols_seen=3\",\n    \"foundation-perseus-clinical-trial-discovery: current roster/status not proven\",\n    \"sponsor-evvivax-clinical-trials: current roster/status not proven despite protocols_seen=4\",\n    \"sponsor-curelab-veterinary-research: current roster/status not proven\",\n    \"india-the-cancer-vet-clinical-trials: current roster/status not proven\",\n    \"foundation-dog-cancer-foundation-trial-directory: current roster/status not proven\",\n    \"sponsor-benno-therapeutics-research: current roster/status not proven\",\n    \"sponsor-leah-labs-clinical-trial: current roster/status not proven despite protocols_seen=1\",\n    \"usa-oklahoma-state-clinical-trials: current roster/status not proven\",\n    \"usa-veterinary-oncology-services-trials: current roster/status not proven\",\n    \"germany-lmu-small-animal-research: current roster/status not proven despite protocols_seen=2\",\n    \"uk-edinburgh-small-animal-clinical-trials: current roster/status not proven\"\n  ],\n  \"coverage_gap_count\": 44\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": "python scripts/validate_audit_gap_review.py /workspace/scratch/2226bbb8952f/vtf-68-final/research/audit-runs/finalize-68-20261014T185109-0400/gap-review.json --receipt /workspace/scratch/2226bbb8952f/vtf-68-final/research/audit-runs/finalize-68-20261014T185109-0400/receipt-final.json",
+    "exit_code": 0,
+    "stdout": "{\n  \"review_validation\": \"PASS\",\n  \"errors\": [],\n  \"gap_total\": 44,\n  \"categories\": {\n    \"protocol_uncertainty\": 18,\n    \"discovery_source_not_trial_roster\": 11,\n    \"roster_unestablished\": 5,\n    \"source_unavailable\": 10\n  },\n  \"processing_assessments\": {\n    \"external_blocker\": 44\n  },\n  \"processing_completion\": \"EXTERNAL_GAPS_ONLY\",\n  \"strict_coverage_status\": \"INCOMPLETE\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": "python scripts/validate_source_inventory.py",
+    "exit_code": 0,
+    "stdout": "SOURCE_INVENTORY_VALIDATION_OK sources=111 digest=5488d044b373\n",
+    "stderr": ""
+  },
+  {
+    "command": "python scripts/validate_trials_catalog.py",
+    "exit_code": 0,
+    "stdout": "TRIAL_CATALOG_VALIDATION_OK records=310 unique_ids=310 active=165 required_active_fields=11\n",
+    "stderr": ""
+  },
+  {
+    "command": "python scripts/validate_catalog_sanitation.py",
+    "exit_code": 0,
+    "stdout": "{\n  \"records\": 310,\n  \"partial_records\": 4,\n  \"known_unresolved\": 4,\n  \"new_partial_records\": [],\n  \"resolved_but_still_queued\": []\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": "python scripts/semantic_dedupe_catalog.py",
+    "exit_code": 0,
+    "stdout": "{\n  \"mode\": \"audit\",\n  \"effective_matchable_treatments\": 160,\n  \"probable_duplicates\": 0,\n  \"pairs\": []\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": "node scripts/test_matcher_catalog_loading.js",
+    "exit_code": 0,
+    "stdout": "Japan: 10 results after delayed load\nUSA: 106 results after delayed load\nCatalog-loading regression PASS\n",
+    "stderr": ""
+  },
+  {
+    "command": "python scripts/check_evidence_keys.py",
+    "exit_code": 0,
+    "stdout": "PASS: no unredacted Google API keys.\n",
+    "stderr": ""
+  }
+]

@@ -1,0 +1,466 @@
+{
+  "scope": "All 68 IDs from the stopped queue; canonical inventory retains all111. Validation snapshot, not a replacement inventory.",
+  "sources": [
+    {
+      "id": "registry-avma-veterinary-clinical-trials",
+      "name": "AVMA Veterinary Clinical Trials Registry",
+      "master_url": "https://veterinaryclinicaltrials.org/",
+      "fallback_urls": [
+        "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1",
+        "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=500&take=500",
+        "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=0&take=500"
+      ]
+    },
+    {
+      "id": "directory-veterinary-cancer-society",
+      "name": "Veterinary Cancer Society clinical-trial resources",
+      "master_url": "https://vetcancersociety.org/resources/clinical-trials/"
+    },
+    {
+      "id": "usa-colorado-state-vth-clinical-trials",
+      "name": "Colorado State University Veterinary Teaching Hospital",
+      "master_url": "https://csuveterinaryhealth.org/clinical-trials/",
+      "fallback_urls": [
+        "https://clinicaltrials.csuveterinaryhealth.org/studies/?term~sc_paths=primary-field_cancer",
+        "https://www.csuanimalcancercenter.org/current-clinical-trials/",
+        "https://www.csuanimalcancercenter.org/clinical-trial/clinical-testing-of-canine-t-cells-engineered-to-target-osteosarcoma-and-soft-tissue-sarcoma-in-combination-with-oral-immunotherapy/",
+        "https://clinicaltrials.csuveterinaryhealth.org/csuvet/studies/search/json/?skip=0&take=500"
+      ]
+    },
+    {
+      "id": "usa-johns-hopkins-cigat",
+      "name": "Johns Hopkins Center for Image-Guided Animal Therapy",
+      "master_url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+      "fallback_urls": [
+        "https://www.hopkinsmedicine.org/radiology/vctn"
+      ]
+    },
+    {
+      "id": "usa-missouri-oncology-clinical-trials",
+      "name": "University of Missouri Veterinary Health Center Oncology",
+      "master_url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/"
+    },
+    {
+      "id": "usa-nc-state-clinical-trials",
+      "name": "NC State College of Veterinary Medicine",
+      "master_url": "https://cvm.ncsu.edu/research/clinical-trials/",
+      "fallback_urls": [
+        "https://cvm.ncsu.edu/research/clinical-trials/oncology/"
+      ]
+    },
+    {
+      "id": "usa-tufts-clinical-trials",
+      "name": "Tufts Cummings School of Veterinary Medicine",
+      "master_url": "https://vet.tufts.edu/clinical-trials"
+    },
+    {
+      "id": "usa-uc-davis-vcct",
+      "name": "UC Davis Veterinary Center for Clinical Trials",
+      "master_url": "https://clinicaltrials.vetmed.ucdavis.edu/",
+      "fallback_urls": [
+        "https://clinicaltrials.vetmed.ucdavis.edu/clinical-trial-articles-news",
+        "https://studypages.com/ucdavisvet/studies/",
+        "https://studypages.com/ucdavisvet/studies/search/json/?skip=0&take=500"
+      ]
+    },
+    {
+      "id": "usa-georgia-clinical-trials",
+      "name": "University of Georgia College of Veterinary Medicine",
+      "master_url": "https://vet.uga.edu/research/clinical-trials/",
+      "fallback_urls": [
+        "https://vet.uga.edu/clinical-trial/"
+      ]
+    },
+    {
+      "id": "usa-bluepearl-science-clinical-studies",
+      "name": "BluePearl Science Clinical Studies",
+      "master_url": "https://bluepearlvet.com/current-clinical-studies/"
+    },
+    {
+      "id": "usa-wisconsin-oncology-studies",
+      "name": "University of Wisconsin Veterinary Care Oncology",
+      "master_url": "https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/"
+    },
+    {
+      "id": "usa-utsw-vroc-clinical-trials",
+      "name": "UT Southwestern Veterinary Research and Oncology Clinic",
+      "master_url": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-trials.html"
+    },
+    {
+      "id": "usa-ethos-clinical-studies",
+      "name": "Ethos Veterinary Health Clinical Studies",
+      "master_url": "https://www.ethosvet.com/clinical-studies/",
+      "fallback_urls": [
+        "https://www.ethosvet.com/medical-professionals/",
+        "https://www.ethosvet.com/faqs-clinical-studies-at-ethos/"
+      ]
+    },
+    {
+      "id": "usa-ethos-discovery-studies",
+      "name": "Ethos Discovery Clinical Studies",
+      "master_url": "https://www.ethosdiscovery.org/clinical-studies/",
+      "fallback_urls": [
+        "https://www.ethosdiscovery.org/scientific-programs/",
+        "https://www.ethosdiscovery.org/scientific-programs/page/2/"
+      ]
+    },
+    {
+      "id": "usa-anivive-trials",
+      "name": "Anivive Lifesciences",
+      "master_url": "https://www.anivive.com/trials",
+      "fallback_urls": [
+        "https://anivivelifesciences.com/trials",
+        "https://anivivelifesciences.com/treatments"
+      ]
+    },
+    {
+      "id": "canada-ovc-active-oncology-trials",
+      "name": "Ontario Veterinary College Clinical Trials",
+      "master_url": "https://ovcclinicaltrials.uoguelph.ca/",
+      "fallback_urls": [
+        "https://ovcclinicaltrials.uoguelph.ca/all-active-canine-clinical-trials-oncology/",
+        "https://ovcclinicaltrials.uoguelph.ca/all-active-feline-clinical-trials-onco/"
+      ]
+    },
+    {
+      "id": "europe-esvonc-ongoing-trials",
+      "name": "European Society of Veterinary Oncology ongoing trials",
+      "master_url": "https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials"
+    },
+    {
+      "id": "europe-oncowaf-clinical-trials",
+      "name": "ONCOWAF veterinary oncology trials",
+      "master_url": "https://oncowaf.be/en/ClinicalTrials/searchResults"
+    },
+    {
+      "id": "netherlands-utrecht-interventional-oncology",
+      "name": "Utrecht University Veterinary Oncology Group",
+      "master_url": "https://vetoncology.sites.uu.nl/research/interventional/"
+    },
+    {
+      "id": "switzerland-zurich-clinical-studies",
+      "name": "University of Zurich Veterinary Hospital oncology studies",
+      "master_url": "https://www.tierspital.uzh.ch/kleintiere/onkologie/krebs-tumore-klinische-studien/",
+      "fallback_urls": [
+        "https://www.tierspital.uzh.ch/ueber-uns/lehre-und-forschung/klinische-studien/"
+      ]
+    },
+    {
+      "id": "italy-milan-veterinary-studies",
+      "name": "University of Milan Veterinary Teaching Hospital",
+      "master_url": "https://www.ospedaleveterinario.unimi.it/collaborare-con-noi-studi-di-ricerca/"
+    },
+    {
+      "id": "uk-rvc-clinical-investigation-centre",
+      "name": "Royal Veterinary College Clinical Investigation Centre",
+      "master_url": "https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre",
+      "fallback_urls": [
+        "https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre/projects"
+      ]
+    },
+    {
+      "id": "usa-sage-veterinary-clinical-trials",
+      "name": "SAGE Veterinary Centers Clinical Trials",
+      "master_url": "https://www.sagecenters.com/clinical-trials"
+    },
+    {
+      "id": "usa-petcure-oncology-clinical-trials",
+      "name": "PetCure Oncology Clinical Trials",
+      "master_url": "https://petcureoncology.com/clinical-trials/"
+    },
+    {
+      "id": "usa-amcny-current-clinical-trials",
+      "name": "Schwarzman Animal Medical Center Clinical Trials",
+      "master_url": "https://www.amcny.org/current-clinical-trials/"
+    },
+    {
+      "id": "usa-penn-comparative-immunotherapy-trials",
+      "name": "Penn Vet Comparative Immunotherapy Program Clinical Trials",
+      "master_url": "https://www.vet.upenn.edu/research/research-programs/comparative-immunotherapy-program/clinical-trials/",
+      "fallback_urls": [
+        "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+        "https://www.vet.upenn.edu/clinical-trial/"
+      ]
+    },
+    {
+      "id": "australia-uq-school-veterinary-clinical-trials",
+      "name": "University of Queensland School of Veterinary Science clinical trials",
+      "master_url": "https://veterinary-science.uq.edu.au/community/clinical-trials",
+      "fallback_urls": [
+        "https://news.uq.edu.au/2026-02-dogs-cancer-could-leave-lasting-legacy"
+      ]
+    },
+    {
+      "id": "australia-gamgee-cancer-vaccine-trial",
+      "name": "Gamgee Australian canine cancer vaccine trial",
+      "master_url": "https://www.gamgee.io/trial/"
+    },
+    {
+      "id": "australia-pettrials-directory",
+      "name": "PetTrials Australian veterinary clinical trial directory",
+      "master_url": "https://pettrials.com.au/trials/"
+    },
+    {
+      "id": "australia-sash-clinical-research",
+      "name": "SASH clinical research",
+      "master_url": "https://sashvets.com/services/sash-research/"
+    },
+    {
+      "id": "australia-caninecancer-state-research-guide",
+      "name": "CanineCancer.org.au Australian Research State Guide",
+      "master_url": "https://www.caninecancer.org.au/ausresearch.html"
+    },
+    {
+      "id": "australia-medipaws-clinical-research",
+      "name": "MediPaws clinical research",
+      "master_url": "https://medipaws.com.au/clinical-research"
+    },
+    {
+      "id": "australia-bvsc-foundation",
+      "name": "Brisbane Veterinary Specialist Centre foundation projects",
+      "master_url": "https://www.bvsc.com.au/foundation/"
+    },
+    {
+      "id": "australia-anzcvs-science-week-oncology",
+      "name": "ANZCVS Veterinary Oncology news and Vet Science Week proceedings",
+      "master_url": "https://www.anzcvs.org.au/chapters/veterinary%2Boncology/news"
+    },
+    {
+      "id": "usa-canine-cancer-alliance-research",
+      "name": "Canine Cancer Alliance research and study-status pages",
+      "master_url": "https://www.ccralliance.org/research-projects"
+    },
+    {
+      "id": "usa-wsu-vth-clinical-studies",
+      "name": "Washington State University Veterinary Teaching Hospital clinical studies",
+      "master_url": "https://hospital.vetmed.wsu.edu/appointments/",
+      "fallback_urls": [
+        "https://hospital.vetmed.wsu.edu/small-animal/cats-and-dogs/oncology/"
+      ]
+    },
+    {
+      "id": "usa-tamu-hayburn-oncology-studies",
+      "name": "Texas A&M Oncology — Regina Hayburn StudyPages",
+      "master_url": "https://studypages.com/investigator/1cff202c91db48f6acceb2c14cff5418/"
+    },
+    {
+      "id": "china-dongjun-oncology-trials",
+      "name": "Zhongnong Dongjun Laboratory oncology recruitment",
+      "master_url": "https://www.caudjlab.com/newdetail.aspx?id=73"
+    },
+    {
+      "id": "spain-puchol-reachglio",
+      "name": "Hospital Veterinario Puchol oncology clinical trials",
+      "master_url": "https://veterinarios.hospitalveterinariopuchol.com/blog/reachglio-ensayo-clinico-glioma-perros/"
+    },
+    {
+      "id": "usa-nci-comparative-oncology-trials",
+      "name": "NCI Comparative Oncology Program open trials",
+      "master_url": "https://ccr.cancer.gov/comparative-oncology-program/trials"
+    },
+    {
+      "id": "japan-kamogawa-oncology-news",
+      "name": "Kamogawa Animal Medical Center oncology notices",
+      "master_url": "https://www.kamogawa-ac.jp/category/%E7%97%85%E6%B0%97%E3%82%84%E4%BA%88%E9%98%B2/%E8%85%AB%E7%98%8D%EF%BC%88%E3%82%AC%E3%83%B3%EF%BC%89/",
+      "fallback_urls": [
+        "https://www.kamogawa-ac.jp/2026/09/30/24722/"
+      ]
+    },
+    {
+      "id": "japan-yamaguchi-vmc-clinical-trials",
+      "name": "Yamaguchi University Veterinary Medical Center clinical trials",
+      "master_url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html",
+      "fallback_urls": [
+        "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/"
+      ]
+    },
+    {
+      "id": "japan-veterinary-cancer-society-clinical-trials",
+      "name": "Japan Veterinary Cancer Society clinical trials",
+      "master_url": "https://www.jvcs.jp/research/clinical-trials/"
+    },
+    {
+      "id": "japan-jsamc-current-clinical-trials",
+      "name": "Japan Small Animal Medical Center current clinical trials",
+      "master_url": "https://www.jsamc.jp/dr_info/clinical/clinical07.html",
+      "fallback_urls": [
+        "https://www.cure-cancer.jp/"
+      ]
+    },
+    {
+      "id": "global-vettrials-directory",
+      "name": "VetTrials global veterinary clinical-trial directory",
+      "master_url": "https://vettrials.org/",
+      "fallback_urls": [
+        "https://vettrials.org/api/trials?limit=100&page=2",
+        "https://vettrials.org/api/trials?limit=100&page=3",
+        "https://vettrials.org/api/trials?limit=1000"
+      ]
+    },
+    {
+      "id": "japan-jvcog-current-clinical-trials",
+      "name": "Japan Veterinary Co-operative Oncology Group current clinical trials",
+      "master_url": "https://www.jvcog.jp/clinical/index.html",
+      "fallback_urls": [
+        "https://www.jvcog.jp/clinical/03rinsho.html"
+      ]
+    },
+    {
+      "id": "brazil-usp-loct-oncolytic-virus-program",
+      "name": "University of São Paulo LOCT veterinary oncolytic-virus program",
+      "master_url": "https://loct.fzea.usp.br/?page_id=848"
+    },
+    {
+      "id": "sponsor-paccal-vet-owner-trials",
+      "name": "Paccal Vet owner trial pages",
+      "master_url": "https://www.paccalvet.com/",
+      "fallback_urls": []
+    },
+    {
+      "id": "brazil-estima-coe-clinical-studies",
+      "name": "Centro de Oncologia Estima clinical studies",
+      "master_url": "https://estima.com.br/coe/",
+      "fallback_urls": []
+    },
+    {
+      "id": "sponsor-ardent-oncology-clinical-trial",
+      "name": "Ardent Animal Health K9-ACV checkpoint trial",
+      "master_url": "https://ardentanimalhealth.com/k9-acv-checkpoint-inhibitor-trial/",
+      "fallback_urls": [
+        "https://studypages.com/s/autologous-cancer-vaccine-with-checkpoint-inhibitor-for-treatment-of-canine-osteosarcoma-565406/",
+        "https://www.unleashtx.com/"
+      ]
+    },
+    {
+      "id": "france-alfort-innovative-clinical-trials",
+      "name": "Ecole nationale veterinaire Alfort innovative clinical trials",
+      "master_url": "https://www.vet-alfort.fr/services-cliniques/hopital-des-animaux-de-compagnie/les-traitements-innovants",
+      "fallback_urls": []
+    },
+    {
+      "id": "foundation-perseus-clinical-trial-discovery",
+      "name": "The Perseus Foundation clinical-trial discovery",
+      "master_url": "https://www.theperseusfoundation.com/clinical-trials",
+      "fallback_urls": []
+    },
+    {
+      "id": "sponsor-evvivax-clinical-trials",
+      "name": "EVVIVAX cancer vaccine clinical trials",
+      "master_url": "https://www.evvivax.com/clinical-trials.html",
+      "fallback_urls": []
+    },
+    {
+      "id": "sponsor-curelab-veterinary-research",
+      "name": "CureLab comparative medicine and veterinary research",
+      "master_url": "https://www.curelaboncology.com/comparative-medicine-and-veterinary-research/",
+      "fallback_urls": []
+    },
+    {
+      "id": "india-the-cancer-vet-clinical-trials",
+      "name": "The Cancer Vet clinical trials",
+      "master_url": "https://thecancer.vet/clinical-trials/",
+      "fallback_urls": []
+    },
+    {
+      "id": "foundation-dog-cancer-foundation-trial-directory",
+      "name": "Dog Cancer Foundation clinical-trial discovery directory",
+      "master_url": "https://www.dogcancerfoundation.org/clinical-trials-for-dogs-with-cancer",
+      "fallback_urls": []
+    },
+    {
+      "id": "sponsor-benno-therapeutics-research",
+      "name": "Benno Therapeutics comparative oncology research",
+      "master_url": "https://www.bennotx.com/research/",
+      "fallback_urls": []
+    },
+    {
+      "id": "usa-florida-neurology-clinical-trials",
+      "name": "University of Florida Neurology Clinical Trials",
+      "master_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/neurology-2/",
+      "fallback_urls": []
+    },
+    {
+      "id": "sponsor-leah-labs-clinical-trial",
+      "name": "LEAH Labs — funded canine B-cell lymphoma CAR-T clinical trial",
+      "master_url": "https://leahlabs.com/",
+      "fallback_urls": [
+        "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/car-t-cell",
+        "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+        "https://vmc.vet.osu.edu/clinical-trials-office/current-trials"
+      ]
+    },
+    {
+      "id": "usa-oklahoma-state-clinical-trials",
+      "name": "Oklahoma State University — Clinical Trials",
+      "master_url": "https://vethospital.okstate.edu/info-for-researchers/clinical-trials.html",
+      "fallback_urls": [
+        "https://vethospital.okstate.edu/info-for-researchers/clinical-trials",
+        "https://vetmed.okstate.edu/clinical-trials"
+      ]
+    },
+    {
+      "id": "usa-veterinary-oncology-services-trials",
+      "name": "Veterinary Oncology Services — VCS-listed trial source",
+      "master_url": "https://www.petcancerinformation.com",
+      "fallback_urls": []
+    },
+    {
+      "id": "usa-mars-veterinary-health-clinical-trials",
+      "name": "Mars Veterinary Health Clinical Trials Gallery",
+      "master_url": "https://studypages.com/marsveterinaryclinicaltrials/home/",
+      "fallback_urls": [
+        "https://bluepearlvet.com/current-clinical-studies/",
+        "https://studypages.com/marsveterinaryclinicaltrials/studies/search/json/?skip=0&take=500"
+      ]
+    },
+    {
+      "id": "japan-nihon-anmec-clinical-research",
+      "name": "Nihon University Animal Medical Center clinical research",
+      "master_url": "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=1427",
+      "fallback_urls": [
+        "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=4502",
+        "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=4526",
+        "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=4035",
+        "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=5145"
+      ]
+    },
+    {
+      "id": "germany-lmu-small-animal-research",
+      "name": "LMU Munich small-animal clinical research",
+      "master_url": "https://www.vetmed.lmu.de/kleintierklinik/de/forschung/",
+      "fallback_urls": [
+        "https://www.vetmed.lmu.de/kleintierklinik/de/forschung/studie-zur-palliativen-linderung-von-osteosarkombedingten-schmerzen-durch-periphere-nervenbloecke/",
+        "https://www.vetmed.lmu.de/kleintierklinik/de/forschung/einfluss-des-tkis-palladia-auf-die-schilddruesenfunktion-von-hunden-mit-neoplasien/"
+      ]
+    },
+    {
+      "id": "germany-dvg-veterinary-clinical-studies",
+      "name": "German Veterinary Medical Society clinical-study registry",
+      "master_url": "https://www.dvg.de/klinische-studien-in-der-veterinaermedizin/",
+      "fallback_urls": [
+        "https://www.tierspital.uzh.ch/kleintierklinik/kleintierchirurgie/studien-fluoreszenzfarbstoffe-tumorpatienten/",
+        "https://www.tierspital.uzh.ch/ueber-uns/lehre-und-forschung/klinische-studien/"
+      ]
+    },
+    {
+      "id": "uk-edinburgh-small-animal-clinical-trials",
+      "name": "University of Edinburgh small-animal clinical-trials programme",
+      "master_url": "https://vet.ed.ac.uk/clinical/small-animal/our-research/better-treatments/clinical-trials-programme",
+      "fallback_urls": []
+    },
+    {
+      "id": "usa-metropolitan-vet-current-trials",
+      "name": "Metropolitan Veterinary Hospital current clinical trials",
+      "master_url": "https://www.metropolitanvet.com/current-clinical-trials",
+      "fallback_urls": [
+        "https://www.ethosdiscovery.org/clinical-study/stratification-of-outcomes-for-lymphoma-in-dogs-with-relapsed-lymphoma-solid-relapse/"
+      ]
+    },
+    {
+      "id": "usa-red-bank-veterinary-hospital-clinical-studies",
+      "name": "Red Bank Veterinary Hospital Tinton Falls — Clinical Studies",
+      "master_url": "https://www.redbankvet.com/clinical-studies",
+      "fallback_urls": []
+    }
+  ]
+}
