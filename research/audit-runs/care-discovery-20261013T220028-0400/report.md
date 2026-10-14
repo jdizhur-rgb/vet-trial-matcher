@@ -34,4 +34,4 @@ Dates: 18 actual candidate attempts preserved in remote-bound run results; 11 ne
 
 Care/schema/source identity/dedupe and seven historical regression commands pass. Full static build, production synchronization, matcher/selection safeguards pass. No paid APIs, outreach, new automations, clinical-trial sweep or editorial/UI changes.
 
-Publication: pending push/deploy/readback.
+Publication: 88a639b6c26d50737dfc20087b6d5a2db9900208. Deploy workflow 38500705923 completed successfully; https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/38500705923 . Exact production HTML SHA-256 beffe69a532f092638cb3c5dba4cb360f36ab4d1f6e0075ba646ff3474b2ee22 matches tested local artifact. Remote source dates PASS: 11/11 new inventory rows and all 18 candidate receipts; ten exact successful timestamps, one honest date-only Web review. Final receipt: publication.json.
