@@ -1,7 +1,7 @@
 # EU cancer-by-cancer gap audit completed 2026-09-04: all UI cancer categories rechecked; no unverified lead promoted to matching.
 import streamlit as st
 
-from matcher_taxonomy import ALIASES as CANCER_ALIASES, FAMILIES as DIAGNOSIS_FAMILIES, diagnosis_match, protocol_screening
+from matcher_taxonomy import ALIASES as CANCER_ALIASES, FAMILIES as DIAGNOSIS_FAMILIES, diagnosis_match, protocol_screening, universal_limits_pass
 
 LYMPHOMA_CANCERS = {'B-cell lymphoma', 'T-cell lymphoma', 'Lymphoma — other'}
 
@@ -415,6 +415,10 @@ if search_clicked:
             continue
 
         broad_match = False
+        if not universal_limits_pass(tr.get('requires', {}), {
+                'age_known': age_known, 'age': age,
+                'weight_known': weight_known, 'weight_lb': weight_lb}):
+            continue
         if unlisted_mode:
             if 'all_tumors' not in tr.get('broad_disease_families', []) and (tr.get('broad_disease_families') or 'Cancer — any type' not in tr.get('cancers', [])):
                 continue
@@ -650,6 +654,12 @@ if search_clicked:
                 unknown.append('whether staging confirms no metastasis')
 
         # Age requirements. Unknown age stays Possible.
+        for key, label, known in [
+                ('min_age_years_exclusive', 'age strictly above', age_known),
+                ('min_weight_kg_exclusive', 'weight strictly above', weight_known),
+                ('max_weight_kg_exclusive', 'weight strictly below', weight_known)]:
+            if req.get(key) is not None and not known:
+                unknown.append(f'{label} {req[key]} ' + ('years' if 'age' in key else 'kg'))
         min_age=req.get('min_age_years')
         max_age=req.get('max_age_years')
         if min_age is not None:

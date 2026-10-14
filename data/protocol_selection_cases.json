@@ -2296,6 +2296,379 @@
           "expected": "exclude"
         }
       ]
+    },
+    {
+      "trial_id": "utsw-solid-cpmv",
+      "source_url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%201.pdf",
+      "reviewed_at": "2026-10-14T07:31:23.043325-04:00",
+      "criteria": "Study 1 includes injectable active mammary, thyroid, melanoma, MCT and soft-tissue sarcoma tumors; concurrent chemotherapy/immunotherapy is prohibited.",
+      "cases": [
+        {
+          "name": "mammary cohort",
+          "patient": {
+            "cancer": "Mammary carcinoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "concurrent chemotherapy",
+          "patient": {
+            "cancer": "Mammary carcinoma",
+            "chemo": "Currently receiving"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "concurrent immunotherapy",
+          "patient": {
+            "cancer": "Mammary carcinoma",
+            "immunotherapy_history": "Currently receiving"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "hematologic diagnosis outside named cohort",
+          "patient": {
+            "cancer": "B-cell lymphoma"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "071754a55e8d0193bf9b2594494e6eca43b9d781f402e0dc10b4659d16560316"
+    },
+    {
+      "trial_id": "utsw-vroc-glioma-car-neutrophils-rt",
+      "source_url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%206.pdf",
+      "reviewed_at": "2026-10-14T07:31:23.043325-04:00",
+      "criteria": "Canine glioma; radiation backbone with optional immunotherapy arm; prior local RT prohibited, prednisone must be feasible, other therapy must stop/wash out.",
+      "cases": [
+        {
+          "name": "glioma candidate",
+          "patient": {
+            "cancer": "Glioma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "prior radiation",
+          "patient": {
+            "cancer": "Glioma",
+            "radiation": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "declines radiation backbone",
+          "patient": {
+            "cancer": "Glioma",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "feline not established by generic header",
+          "patient": {
+            "cancer": "Glioma",
+            "species": "Cat"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "28fe8ee41d7c9485c00fb4f25de35ca4bcf611fcf68811179de9225f0b37077a"
+    },
+    {
+      "trial_id": "utsw-vroc-compassionate-advanced-unresectable",
+      "source_url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%205.pdf",
+      "reviewed_at": "2026-10-14T07:31:23.043325-04:00",
+      "criteria": "Dog with advanced/inoperable/recurrent non-protocol-listed solid tumor; strictly above 2.5 kg; survival above three weeks; owner declines standard treatment/surgery; individualized board review.",
+      "cases": [
+        {
+          "name": "solid tumor candidate",
+          "patient": {
+            "cancer": "Other solid tumor",
+            "weight_known": true,
+            "weight_lb": 6.6138678654
+          },
+          "expected": "review"
+        },
+        {
+          "name": "exact 2.5 kg boundary",
+          "patient": {
+            "cancer": "Other solid tumor",
+            "weight_known": true,
+            "weight_lb": 5.5115565545
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "unknown weight requires review",
+          "patient": {
+            "cancer": "Other solid tumor"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "cat not confirmed",
+          "patient": {
+            "cancer": "Other solid tumor",
+            "species": "Cat"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "fd72607464d832341c6d35325960852f0302698f79a81c30edf3803d8975032c"
+    },
+    {
+      "trial_id": "csu-cotc033-vaccine-immunity",
+      "source_url": "https://clinicaltrials.csuveterinaryhealth.org/s/repurposing-vaccine-immunity-to-treat-cancers-in-dogs-449986/",
+      "reviewed_at": "2026-10-14T07:31:23.043325-04:00",
+      "criteria": "Fresh CSU COTC033: dog 15–60 kg, confirmed accessible 2–8 cm cancer, excludes MCT/thyroid/lymphoma/skin HSA; two-week chemo/RT and seven-day steroid washout; CSU and Missouri published site evidence retained.",
+      "cases": [
+        {
+          "name": "soft-tissue sarcoma candidate",
+          "patient": {
+            "cancer": "Soft tissue sarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "mast cell exclusion",
+          "patient": {
+            "cancer": "Mast cell tumor"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "thyroid exclusion",
+          "patient": {
+            "cancer": "Thyroid carcinoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "lymphoma exclusion",
+          "patient": {
+            "cancer": "B-cell lymphoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "14 kg below limit",
+          "patient": {
+            "cancer": "Soft tissue sarcoma",
+            "weight_known": true,
+            "weight_lb": 30.8647167052
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "e951346c8cfdaaf65271e47f8940bd21a4f92e1d5aa20f3b1063148d23b3d0af"
+    },
+    {
+      "trial_id": "ucd-oral-margin",
+      "source_url": "https://studypages.com/s/fluorescence-imaging-with-pdl1-irdye800-to-guide-surgical-treatment-of-oral-cancer-in-dogs-679907/",
+      "reviewed_at": "2026-10-14T07:31:23.043325-04:00",
+      "criteria": "Dog OSCC/oral malignant melanoma, anesthesia fitness, age explicitly >1 year; two probe doses followed by repeat biopsy or curative surgery.",
+      "cases": [
+        {
+          "name": "oral SCC candidate",
+          "patient": {
+            "cancer": "Oral squamous cell carcinoma",
+            "age_known": true,
+            "age": 1.1
+          },
+          "expected": "review"
+        },
+        {
+          "name": "exact one year excluded",
+          "patient": {
+            "cancer": "Oral squamous cell carcinoma",
+            "age_known": true,
+            "age": 1
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "unknown age remains review",
+          "patient": {
+            "cancer": "Oral melanoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "nonoral carcinoma excluded",
+          "patient": {
+            "cancer": "Primary lung tumor"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "6ee8d0be5f7ca9ef4887f8c105a01839c1a698530ae8fdbe11630798a546ef80"
+    },
+    {
+      "trial_id": "ucd-pdl1-metastatic",
+      "source_url": "https://studypages.com/s/innovative-immunotherapy-for-canine-lung-metastases-the-caalm-study-276511/",
+      "reviewed_at": "2026-10-14T07:31:23.043325-04:00",
+      "criteria": "CAALM only oral melanoma with pulmonary metastasis; >15 kg and <36 kg, survival >4 weeks, no prior checkpoint inhibitor, two-week chemo/immunotherapy/steroid washout.",
+      "cases": [
+        {
+          "name": "20 kg oral melanoma candidate",
+          "patient": {
+            "cancer": "Oral melanoma",
+            "weight_known": true,
+            "weight_lb": 44.092452436
+          },
+          "expected": "review"
+        },
+        {
+          "name": "exact 15 kg excluded",
+          "patient": {
+            "cancer": "Oral melanoma",
+            "weight_known": true,
+            "weight_lb": 33.069339327
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "exact 36 kg excluded",
+          "patient": {
+            "cancer": "Oral melanoma",
+            "weight_known": true,
+            "weight_lb": 79.3664143848
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "nonmelanoma metastasis not eligible",
+          "patient": {
+            "cancer": "Soft tissue sarcoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "no metastases",
+          "patient": {
+            "cancer": "Oral melanoma",
+            "metastasis": "No known metastases"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "e7b0a69684267c68ff6782bad2b9f7047ad0aa8dc54589241be08b309038049d"
+    },
+    {
+      "trial_id": "tamu-feline-small-cell-gi-lymphoma-wart",
+      "source_url": "https://studypages.com/s/evaluating-whole-abdomen-radiation-therapy-as-a-treatment-for-feline-small-cell-gastrointestinal-lymphoma-358215/",
+      "reviewed_at": "2026-10-14T07:31:23.043325-04:00",
+      "criteria": "Cat with biopsy-confirmed small-cell GI lymphoma, newly diagnosed/difficult to medicate or relapsed; five-day RT backbone, seven-day chemotherapy/steroid washout, six-hour travel radius; screening and possible overnight housing owner-paid.",
+      "cases": [
+        {
+          "name": "feline GI lymphoma candidate",
+          "patient": {
+            "species": "Cat",
+            "cancer": "Lymphoma — other"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "dog excluded",
+          "patient": {
+            "species": "Dog",
+            "cancer": "Lymphoma — other"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "declines required RT",
+          "patient": {
+            "species": "Cat",
+            "cancer": "Lymphoma — other",
+            "prefs": [
+              "Chemotherapy"
+            ]
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "2142998ab0cb01127e5f4b9c61623b518decfff09d254e4338caeb32728342f6"
+    },
+    {
+      "trial_id": "tufts-sts-fap-car-t",
+      "source_url": "https://studypages.com/s/treatment-of-canine-sarcoma-with-fap-car-t-cells-fap-car-t-study-621016/",
+      "reviewed_at": "2026-10-14T07:31:23.043325-04:00",
+      "criteria": "Same FAP CAR-T protocol with confirmed Tufts and UC Davis sites. Davis requires age >=1, weight >=11 kg, external biopsy-accessible sarcoma, eight visits; pays $2,000 toward surgery and caps Davis side-effect care at $2,500. Existing conservative Tufts 2–8 cm, washout and exclusions retained.",
+      "cases": [
+        {
+          "name": "STS candidate",
+          "patient": {
+            "cancer": "Soft tissue sarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "10 kg below both sites limit",
+          "patient": {
+            "cancer": "Soft tissue sarcoma",
+            "weight_known": true,
+            "weight_lb": 22.046226218
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "cat excluded by canine protocol",
+          "patient": {
+            "species": "Cat",
+            "cancer": "Soft tissue sarcoma"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "caf0db99fc48b36e948f75bbeb1be6f5c8d6e09a3769f24d5626c10f965a840d"
+    },
+    {
+      "trial_id": "utsw-vroc-melanoma-carboplatin-hifu",
+      "source_url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%204.pdf",
+      "reviewed_at": "2026-10-14T07:38:43.687989-04:00",
+      "criteria": "Study 4 visual primary review: dog with confirmed active injection/ultrasound-accessible melanoma; no prior chemotherapy; mandatory IV/IT carboplatin in all four arms, HIFU optional; owner-paid with only possible subsidy.",
+      "cases": [
+        {
+          "name": "oral melanoma candidate",
+          "patient": {
+            "cancer": "Oral melanoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "previous chemotherapy excludes",
+          "patient": {
+            "cancer": "Oral melanoma",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "declines required carboplatin",
+          "patient": {
+            "cancer": "Oral melanoma",
+            "prefs": [
+              "Surgery",
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "cat not supported by dog-specific objective",
+          "patient": {
+            "cancer": "Oral melanoma",
+            "species": "Cat"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "ca0c8636f280952687a9ea4d64fe6315a7551aa232301be483c940ccc4c27472"
     }
   ]
 }

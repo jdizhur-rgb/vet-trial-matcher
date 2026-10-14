@@ -58,6 +58,9 @@ for (const t of rows) {
   if(r.measurable) check(t,{tumor_status:'Completely removed — clean margins'},false,'measurable disease required');
   if(r.active_treatment_target) check(t,{tumor_status:'No evidence of disease (NED)'},false,'active target required');
   for(const [k,delta] of [['min_weight_kg',-0.1],['max_weight_kg',0.1]]) if(r[k]!=null) check(t,{cancer:'Cancer — any type',weight_lb:(r[k]+delta)*2.2046226218},false,k);
+  for(const key of ['min_weight_kg_exclusive','max_weight_kg_exclusive']) if(r[key]!=null) {
+    for(const cancer of ['Cancer — any type',"My cancer type isn't listed"]) check(t,{cancer,weight_lb:r[key]*2.2046226218},false,`${key}: exact boundary in browse/unlisted mode`);
+  }
   for(const [k,delta] of [['min_weight_lb',-0.1],['max_weight_lb',0.1]]) if(r[k]!=null) check(t,{cancer:'Cancer — any type',weight_lb:r[k]+delta},false,k);
   for(const [k,delta] of [['min_age_years',-0.1],['max_age_years',0.1]]) if(r[k]!=null) check(t,{cancer:'Cancer — any type',age:r[k]+delta},false,k);
   for(const key of ['appendicular_location','appendicular_osteosarcoma','limb_osteosarcoma']) if(r[key]) check(t,{osa_location:'Axial — skull, spine, rib, or pelvis'},false,key);

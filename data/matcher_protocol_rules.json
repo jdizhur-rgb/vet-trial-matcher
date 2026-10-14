@@ -321,6 +321,23 @@
     "min_age_years_exclusive": {
       "label": "minimum age, exclusive boundary",
       "handled": true
+    },
+    "min_weight_kg_exclusive": {
+      "label": "minimum weight, exclusive boundary",
+      "handled": true
+    },
+    "max_weight_kg_exclusive": {
+      "label": "maximum weight, exclusive boundary",
+      "handled": true
+    },
+    "prednisone_eligible": {
+      "label": "ability to receive prednisone with a six-week taper"
+    },
+    "anticancer_treatment_washout": {
+      "label": "study-team-defined washout or stopping other anticancer treatment"
+    },
+    "adequate_organ_function": {
+      "label": "adequate organ function"
     }
   },
   "excludes": {
@@ -577,6 +594,16 @@
     },
     "unresectable_tumor": {
       "label": "unresectable tumor"
+    },
+    "concurrent_immunotherapy": {
+      "label": "concurrent immunotherapy",
+      "field": "immunotherapy_history",
+      "disallowed": [
+        "Currently receiving"
+      ]
+    },
+    "nonstop_antioxidant_supplements": {
+      "label": "antioxidant supplements that cannot be stopped"
     }
   }
 }

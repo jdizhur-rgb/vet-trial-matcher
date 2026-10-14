@@ -35,6 +35,34 @@ def diagnosis_match(trial, diagnosis, species=None):
     return matched, matched
 
 
+def universal_limits_pass(requirements, patient):
+    """Honor literal inclusive/exclusive protocol limits, including browse mode."""
+    if patient.get('age_known'):
+        age = patient['age']
+        if requirements.get('min_age_years') is not None and age < requirements['min_age_years']:
+            return False
+        if requirements.get('min_age_years_exclusive') is not None and age <= requirements['min_age_years_exclusive']:
+            return False
+        if requirements.get('max_age_years') is not None and age > requirements['max_age_years']:
+            return False
+    if patient.get('weight_known'):
+        weight = patient['weight_lb']
+        factor = 2.2046226218
+        minimum = requirements.get('min_weight_lb')
+        if minimum is None:
+            minimum = (requirements.get('min_weight_kg') or 0) * factor
+        maximum = requirements.get('max_weight_lb')
+        if maximum is None:
+            maximum = (requirements.get('max_weight_kg') if requirements.get('max_weight_kg') is not None else float('inf')) * factor
+        if weight < minimum or weight > maximum:
+            return False
+        if requirements.get('min_weight_kg_exclusive') is not None and weight <= requirements['min_weight_kg_exclusive'] * factor:
+            return False
+        if requirements.get('max_weight_kg_exclusive') is not None and weight >= requirements['max_weight_kg_exclusive'] * factor:
+            return False
+    return True
+
+
 def protocol_screening(trial, patient):
     """Evaluate additional stored constraints or leave a visible screening item."""
     unknown = []

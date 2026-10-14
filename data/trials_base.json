@@ -2739,11 +2739,13 @@
     "requires": {
       "confirmed": true,
       "metastatic": true,
-      "min_weight_kg": 15,
-      "max_weight_kg": 36,
       "min_expected_survival_weeks": 4,
       "active_treatment_target": true,
-      "measurable_lung_metastases": true
+      "measurable_lung_metastases": true,
+      "min_weight_kg_exclusive": 15,
+      "max_weight_kg_exclusive": 36,
+      "chemo_washout_days": 14,
+      "steroid_washout_days": 14
     },
     "excludes": {
       "prior_checkpoint_inhibitor": true
@@ -2757,7 +2759,7 @@
         "name": "UC Davis Veterinary Medical Teaching Hospital"
       }
     ],
-    "verified": "2026-09-24",
+    "verified": "2026-10-14",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",
@@ -2767,7 +2769,8 @@
     "registry_url": "https://studypages.com/s/innovative-immunotherapy-for-canine-lung-metastases-the-caalm-study-276511/",
     "treatment_approaches": [
       "immunotherapy"
-    ]
+    ],
+    "special_requirement": "CAALM requires oral melanoma with lung nodules consistent with metastasis, weight strictly above 15 kg and strictly below 36 kg, and expected survival greater than four weeks. No prior checkpoint inhibitor; chemotherapy, immunotherapy or corticosteroids within two weeks of Day 0 and uncontrolled comorbidity exclude entry."
   },
   {
     "id": "ucd-liver-rna",
@@ -2819,8 +2822,8 @@
     "requires": {
       "confirmed": true,
       "active_treatment_target": true,
-      "min_age_years": 1,
-      "anesthesia_eligible": true
+      "anesthesia_eligible": true,
+      "min_age_years_exclusive": 1
     },
     "excludes": {},
     "notes": "Protocol VCCT-26-008 enrolls dogs over one year old with confirmed oral SCC or oral malignant melanoma that are healthy enough for anesthesia and repeated visits. Anti-PDL1-IRDye800 is administered IV twice before near-infrared imaging at 8, 24 and 48 hours and repeat biopsy or curative-intent surgery. Recruitment period: 2026-06-30 through 2028-06-29.",
@@ -2832,7 +2835,7 @@
         "name": "UC Davis Veterinary Medical Teaching Hospital"
       }
     ],
-    "verified": "2026-10-07",
+    "verified": "2026-10-14",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",
@@ -7590,11 +7593,16 @@
       "active_treatment_target": true,
       "measurable": true,
       "min_weight_kg": 15,
-      "max_weight_kg": 60
+      "max_weight_kg": 60,
+      "min_tumor_cm": 2,
+      "max_tumor_cm": 8,
+      "chemo_washout_days": 14,
+      "radiation_washout_days": 14,
+      "steroid_washout_days": 7
     },
     "excludes": {},
-    "notes": "COTC033 is one multicenter protocol, not separate CSU and Missouri trials. Published eligibility includes a biopsy- or cytology-confirmed 2–8 cm solid tumor and body weight 15–60 kg. Missouri excludes mast cell tumor, cutaneous hemangiosarcoma, thyroid carcinoma and lymphoma; prior experimental therapy is not allowed, and washouts apply for chemotherapy/radiation, immunomodulators and corticosteroids.",
-    "verified": "2026-10-10",
+    "notes": "One COTC033 multicenter protocol with the two published, confirmed CSU and Missouri sites. Fresh CSU primary confirms 15–60 kg, a confirmed biopsy-accessible 2–8 cm tumor, and exclusion of mast cell tumors, thyroid cancer, lymphoma and skin hemangiosarcoma. CSU requires chemotherapy/radiation stopped at least 14 days and steroids seven days before entry; Missouri also excludes prior experimental therapy and requires its own prescreening. All CSU visits occur in Fort Collins. Site-specific credits and coverage remain separately stated.",
+    "verified": "2026-10-14",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",
@@ -7640,6 +7648,16 @@
         "verified": "2026-10-10",
         "provenance": "Reused actual morning visit; no repeat request in resume."
       }
+    ],
+    "excluded_cancers": [
+      "Mast cell tumor",
+      "Thyroid carcinoma",
+      "Thyroid tumor / carcinoma",
+      "Lymphoma",
+      "B-cell lymphoma",
+      "T-cell lymphoma",
+      "Lymphoma — other",
+      "Cutaneous hemangiosarcoma"
     ]
   },
   {
@@ -7750,8 +7768,8 @@
       "autoimmune_disease": true,
       "prior_checkpoint_inhibitor": true
     },
-    "notes": "Dogs need a 2-8 cm soft tissue sarcoma, resectable or non-resectable, adequate CBC/chemistry/urinalysis and no incompatible major heart, liver or kidney disease. Untreated tumors and recurrent tumors after chemotherapy and/or radiation may qualify; chemotherapy must have ended at least 14 days before enrollment. Excludes metastatic disease predicting survival under three months, concurrent experimental cancer therapy, pregnancy/lactation, autoimmune disease other than atopic dermatitis, prior monoclonal checkpoint inhibitor such as gilvetmab, or personalized T-cell vaccine/immunotherapy.",
-    "verified": "2026-10-08",
+    "notes": "Dogs need a 2-8 cm soft tissue sarcoma, resectable or non-resectable, adequate CBC/chemistry/urinalysis and no incompatible major heart, liver or kidney disease. Untreated tumors and recurrent tumors after chemotherapy and/or radiation may qualify; chemotherapy must have ended at least 14 days before enrollment. Excludes metastatic disease predicting survival under three months, concurrent experimental cancer therapy, pregnancy/lactation, autoimmune disease other than atopic dermatitis, prior monoclonal checkpoint inhibitor such as gilvetmab, or personalized T-cell vaccine/immunotherapy. At UC Davis the current protocol requires age at least one year and weight at least 11 kg, with eight visits over approximately 70 days; study-related side-effect coverage is capped at $2,500 for Davis care. Historical enrollment at CSU does not alone establish a third currently enrolling site.",
+    "verified": "2026-10-14",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",
@@ -7770,7 +7788,10 @@
         "city": "Davis",
         "state": "CA",
         "url": "https://studypages.com/s/treatment-of-canine-sarcoma-with-fap-car-t-cells-fap-car-t-study-621016/",
-        "contact": "UC Davis VCCT — vcct@ucdavis.edu; 530-754-1954"
+        "contact": "UC Davis VCCT — vcct@ucdavis.edu; 530-754-1954",
+        "funding": "UC Davis pays study visits/tests (about $4,400 including $2,000 toward surgery) and up to $2,500 for study-related side effects treated at UC Davis. Eligibility tests, excess complication costs and care elsewhere are owner-paid.",
+        "funding_source": "https://studypages.com/s/treatment-of-canine-sarcoma-with-fap-car-t-cells-fap-car-t-study-621016/",
+        "funding_verified": "2026-10-14"
       }
     ],
     "location_source": "official Tufts and UC Davis protocol pages",
@@ -8285,7 +8306,9 @@
       "Oral melanoma",
       "Melanoma — other",
       "Thyroid carcinoma",
-      "Thyroid tumor / carcinoma"
+      "Thyroid tumor / carcinoma",
+      "Mammary carcinoma",
+      "Mammary tumor — other"
     ],
     "status": "Actively recruiting — confirmed on UT Southwestern VROC current trials page",
     "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-trials.html",
@@ -8293,14 +8316,19 @@
     "funding": "🟢 Study-subsidized. The protocol brochure states that owners pay only for diagnostics, imaging, palliative care and other tests or care needed outside the study.",
     "funding_status": "Study-subsidized; off-study care owner-paid",
     "funding_source": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%201.pdf",
-    "funding_verified": "2026-09-21",
+    "funding_verified": "2026-10-14",
     "requires": {
       "active_treatment_target": true,
-      "measurable": true
+      "measurable": true,
+      "confirmed": true
     },
-    "excludes": {},
-    "notes": "Weekly intratumoral CPMV immunotherapy for naturally occurring canine solid tumors.",
-    "verified": "2026-09-10",
+    "excludes": {
+      "concurrent_chemotherapy": true,
+      "concurrent_immunotherapy": true,
+      "severe_systemic_disease": true
+    },
+    "notes": "The current Study 1 brochure explicitly includes mammary tumors alongside melanomas, soft tissue sarcomas, mast cell tumors and thyroid tumors. CPMV is injected weekly for one month before response evaluation; an additional month or subsequent therapy may be considered by the clinician. Off-study diagnostics, imaging and palliative care are owner-paid. Required on-study follow-up lasts at least three months.",
+    "verified": "2026-10-14",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",
@@ -8311,7 +8339,7 @@
     "treatment_approaches": [
       "immunotherapy"
     ],
-    "special_requirement": "At least one measurable lesion accessible for intratumoral injection and repeated biopsy; the protocol brochure names mast cell tumors, soft tissue sarcomas, melanomas and thyroid carcinomas."
+    "special_requirement": "Confirmed active melanoma, soft tissue sarcoma, mast cell tumor, thyroid tumor or mammary tumor accessible for intratumoral injection. No other chemotherapy or immunotherapy concurrently with CPMV; anesthesia and severe chronic disease risks require VROC screening."
   },
   {
     "id": "purdue-ucc-aks701d",
@@ -8655,13 +8683,13 @@
     "available_for_matching": true,
     "intervention": "CAR-neutrophils plus radiation therapy",
     "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-trials.html",
-    "verified": "2026-09-10",
+    "verified": "2026-10-14",
     "center": "UT Southwestern Veterinary Research and Oncology Clinic",
     "cancers": [
       "Glioma",
       "Brain tumor"
     ],
-    "notes": "Evaluates CAR-neutrophils combined with radiation therapy in dogs with glioma.",
+    "notes": "Current Study 6 combines radiation with CAR-neutrophils in dogs with glioma. Assignment may include radiation alone or weekly/monthly immunotherapy; not every arm receives CAR-neutrophils. CT precedes radiation and at least two MRIs are required. Severe chronic/anesthesia-risk disease is excluded; post-treatment follow-up is at least three months. The generic canine/feline brochure heading does not establish a feline cohort.",
     "contacts": "Paige Neumann, Research Study Coordinator — 214-645-6221; VROC@UTSouthwestern.edu",
     "contact_source": "verified institution fallback",
     "status_confidence": "confirmed_current",
@@ -8670,7 +8698,20 @@
     "funding": "🟢 Study-subsidized. The protocol brochure states that owners pay only for diagnostics, imaging, palliative care and other tests or care needed outside the study.",
     "funding_status": "Study-subsidized; off-study care owner-paid",
     "funding_source": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%206.pdf",
-    "funding_verified": "2026-09-21"
+    "funding_verified": "2026-10-14",
+    "requires": {
+      "confirmed": true,
+      "active_treatment_target": true,
+      "planned_radiation": true,
+      "prednisone_eligible": true,
+      "anticancer_treatment_washout": true
+    },
+    "excludes": {
+      "prior_local_radiation": true,
+      "severe_systemic_disease": true,
+      "nonstop_antioxidant_supplements": true
+    },
+    "special_requirement": "Primary/recurrent glioma; other brain tumor eligibility must be confirmed by VROC. Prednisone must be feasible with a six-week taper. Prior radiation for the current cancer excludes enrollment. Other chemotherapy/immunotherapy must stop or undergo a team-defined washout; antioxidant supplements must be stoppable."
   },
   {
     "id": "utsw-vroc-glioma-ferumoxytol-rt",
@@ -8772,7 +8813,7 @@
     "available_for_matching": true,
     "intervention": "Intratumoral nanoparticle/microparticle carboplatin versus IV carboplatin with or without HIFU",
     "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-trials.html",
-    "verified": "2026-09-05",
+    "verified": "2026-10-14",
     "center": "UT Southwestern Veterinary Research and Oncology Clinic",
     "cancers": [
       "Melanoma",
@@ -8783,10 +8824,22 @@
     "funding": "⚪ Owner-paid. The protocol brochure states that owners fully pay for the study, although possible subsidies may be available.",
     "funding_status": "Owner-paid; possible subsidies",
     "funding_source": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%204.pdf",
-    "funding_verified": "2026-09-21",
+    "funding_verified": "2026-10-14",
     "treatment_approaches": [
       "focused_ultrasound"
-    ]
+    ],
+    "status_confidence": "confirmed_current",
+    "requires": {
+      "confirmed": true,
+      "active_treatment_target": true,
+      "planned_chemo": true
+    },
+    "excludes": {
+      "prior_chemo": true,
+      "severe_systemic_disease": true
+    },
+    "special_requirement": "Confirmed active melanoma with a tumor accessible for intratumoral injection and/or ultrasound. Prior chemotherapy excludes participation. Carboplatin is required in all four arms; HIFU is included in only two arms. Anesthesia and severe chronic disease risks require VROC assessment.",
+    "notes": "Current Study 4 uses IV or intratumoral carboplatin, with or without HIFU, every three weeks for 3–4 cycles. Follow-up is required for at least three months. All treatment is owner-paid, with only possible subsidies. The protocol is canine despite the generic canine/feline brochure heading."
   },
   {
     "id": "utsw-vroc-compassionate-advanced-unresectable",
@@ -8802,24 +8855,37 @@
     "available_for_matching": true,
     "intervention": "Investigational therapy, chemotherapy, immunotherapy and combination approaches under a prospective compassionate-use protocol",
     "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%205.pdf",
-    "verified": "2026-10-08",
+    "verified": "2026-10-14",
     "center": "UT Southwestern Veterinary Research and Oncology Clinic",
     "cancers": [
       "Advanced unresectable tumor",
       "Solid tumor",
-      "Other cancer"
+      "Other cancer",
+      "Other solid tumor"
     ],
     "contacts": "Paige Neumann, Research Study Coordinator — 214-645-6221; VROC@UTSouthwestern.edu",
     "contact_source": "verified institution fallback",
     "funding": "⚪ Owner-paid. The protocol brochure states that owners fully pay for the study, although possible subsidies may be available.",
     "funding_status": "Owner-paid; possible subsidies",
     "funding_source": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%205.pdf",
-    "funding_verified": "2026-09-21",
+    "funding_verified": "2026-10-14",
     "treatment_approaches": [
       "immunotherapy"
     ],
     "institution_source_url": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-trials.html",
-    "notes": "The current official Study 5 protocol describes dogs with advanced, inoperable or recurrent solid tumors. The generic dogs-and-cats master heading does not establish feline eligibility for this specific protocol. Treatment is individualized after clinician/research-board review; owners fully pay, with only possible subsidies."
+    "notes": "Current Study 5 is canine despite the generic canine/feline heading. Examples include urothelial carcinoma, hepatocellular carcinoma and meningioma. Options can include chemotherapy, radiation, HIFU and immunotherapy, individually chosen after clinician/research-board review. Owners fully pay, with only possible subsidies; no free-care claim. At least one month of follow-up is required.",
+    "requires": {
+      "confirmed": true,
+      "active_treatment_target": true,
+      "min_weight_kg_exclusive": 2.5,
+      "min_expected_survival_weeks": 3,
+      "adequate_organ_function": true
+    },
+    "excludes": {
+      "severe_systemic_disease": true
+    },
+    "special_requirement": "Advanced, inoperable or recurrent solid tumor not covered by another VROC study; expected survival must exceed three weeks and weight must exceed 2.5 kg. Owner must decline surgery or standard-of-care therapy; organ function, anesthesia risks and individualized treatment require clinician/research-board review.",
+    "status_confidence": "confirmed_current"
   },
   {
     "id": "ch-zurich-canine-meningioma-genomic-rt",
@@ -11487,11 +11553,14 @@
     "contacts": "Regina Hayburn, DVM, DACVIM (Oncology) — rhayburn@tamu.edu",
     "funding": "🟡 Study-related costs are covered after enrollment. Owners pay screening blood/urine panels within 14 days before enrollment; overnight hospital housing may incur an additional charge.",
     "requires": {
-      "confirmed": true
+      "confirmed": true,
+      "planned_radiation": true,
+      "chemo_washout_days": 7,
+      "steroid_washout_days": 7
     },
     "excludes": {},
     "notes": "Current investigator-linked primary protocol: biopsy-confirmed feline small-cell gastrointestinal lymphoma, either newly diagnosed but difficult to medicate or relapsed after chemotherapy. Cats need pretreatment blood/urine testing within 14 days and at least seven days without chemotherapy or corticosteroids before radiation. Owners must live within a six-hour drive of College Station. Whole-abdomen radiation under anesthesia on days 0-4, then visits at two and six weeks; owner stool samples and quality-of-life surveys through up to 18 months. Study-related costs after enrollment are covered; screening panels and possible overnight hospital housing remain owner costs.",
-    "verified": "2026-10-05",
+    "verified": "2026-10-14",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",

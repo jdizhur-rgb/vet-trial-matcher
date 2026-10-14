@@ -18,6 +18,12 @@ Publish only candidates that met the workers' saved completeness gate: worker 5'
 
 # Vet Cancer Treatment Finder — Project Operations / Single Source of Truth
 
+## Literal protocol boundaries — 2026-10-14
+
+Honor strict age/weight limits in both browser and legacy Python matching, including browse and unlisted-diagnosis paths. CAALM requires weight strictly above 15 kg and below 36 kg; the UCD oral theranostic protocol requires age above one year, and VROC Study 5 requires weight above 2.5 kg. Unknown values remain screening questions. Keep inclusive limits unchanged and test exact boundary values independently from inside/outside values. Do not weaken the frozen selection baseline; changed public selections require current primary-derived review cases.
+
+UTSW VROC Studies 4 and 5 already existed in canonical data but lacked status_confidence, excluding them from public assembly despite available_for_matching=true. Current protocol brochures and the official master support their present intake. Restoring those two records is not discovery of two new studies. Preserve owner-paid coverage and arm-specific treatment limits. The focused nine-record publication inherits actual October 14 morning source timestamps; it does not complete the remaining 68-source reconciliation or renew source visit dates.
+
 ## Daily bounded oncology-care queue — owner authorized 2026-10-13
 
 The current owner instruction supersedes the historical all-world weekly sweep: one daily task at 22:00 America/New_York, up to six actual parallel workers, finite non-overlapping packages, persistent progress in `research/oncology-care-queue/`. Keep the prior Weekly Oncology Care Audit disabled and the morning trial audit unchanged. Read the queue README and current state before selecting work; Monday physical review, Tuesday US discovery, Wednesday Canada/Europe, Thursday existing/mobile/tele, Friday other international territories in rotation, Saturday US continuation, Sunday due specific pending items. Five existing records or one limited territory/three deep candidates per worker. Do not treat unprocessed leads as verified or partial geographic discovery as completed national coverage.

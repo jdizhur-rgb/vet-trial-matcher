@@ -56,8 +56,11 @@ function patient(overrides = {}) {
 
 const matches = p => rows.map(row => matcher.matchTrial(row, p)).filter(Boolean);
 const mct = matches(patient());
-if (mct.length !== 4) {
-  throw new Error(`Mast-cell regression expected four treatment cohorts, got ${mct.length}`);
+const expectedMctIds = ['msu-mct-steroids', 'tamu-mct-acid-suppressant',
+  'barc-gold-nanoparticle-photothermal-2026', 'utsw-solid-cpmv',
+  'utsw-vroc-compassionate-advanced-unresectable'];
+if (JSON.stringify(mct.map(row => row.trial.id).sort()) !== JSON.stringify(expectedMctIds.sort())) {
+  throw new Error(`Mast-cell regression returned unexpected protocols: ${mct.map(row => row.trial.id).join(', ')}`);
 }
 if (rows.some(row => row.id === 'mizzou-cotc027-hypomethylating')) {
   throw new Error('COTC027 dose/PK research without a standard-treatment backbone must remain outside treatment matching');

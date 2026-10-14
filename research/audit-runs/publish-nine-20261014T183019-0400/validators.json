@@ -1,0 +1,62 @@
+[
+  {
+    "command": "python scripts/validate_trials_catalog.py",
+    "exit_code": 0,
+    "stdout": "TRIAL_CATALOG_VALIDATION_OK records=310 unique_ids=310 active=165 required_active_fields=11\n",
+    "stderr": ""
+  },
+  {
+    "command": "python scripts/validate_catalog_sanitation.py",
+    "exit_code": 0,
+    "stdout": "{\n  \"records\": 310,\n  \"partial_records\": 4,\n  \"known_unresolved\": 4,\n  \"new_partial_records\": [],\n  \"resolved_but_still_queued\": []\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": "python scripts/semantic_dedupe_catalog.py",
+    "exit_code": 0,
+    "stdout": "{\n  \"mode\": \"audit\",\n  \"effective_matchable_treatments\": 160,\n  \"probable_duplicates\": 0,\n  \"pairs\": []\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": "node scripts/test_matcher_catalog_loading.js",
+    "exit_code": 0,
+    "stdout": "Japan: 10 results after delayed load\nUSA: 106 results after delayed load\nCatalog-loading regression PASS\n",
+    "stderr": ""
+  },
+  {
+    "command": "node scripts/test_matcher_selection.js",
+    "exit_code": 0,
+    "stdout": "SOURCE_DERIVED_SELECTION_OK reviewed=55 cases=247\nMATCHER_SELECTION_OK canonical=310 public=165 checks=1483 criteria=166\n",
+    "stderr": ""
+  },
+  {
+    "command": "python scripts/test_matcher_selection.py",
+    "exit_code": 0,
+    "stdout": "MATCHER_SELECTION_PARITY_OK public=165 disease_checks=19800\n",
+    "stderr": ""
+  },
+  {
+    "command": "node scripts/test_matcher_logic.js",
+    "exit_code": 0,
+    "stdout": "MATCHER_LOGIC_OK trials=165 mct=5 yasha=0 mammary=6 osteosarcoma=20 bladder=8 brain=8\n",
+    "stderr": ""
+  },
+  {
+    "command": "python scripts/validate_production_sync.py",
+    "exit_code": 0,
+    "stdout": "PRODUCTION_SYNC_OK total=165 treatment=160 access=5 matcher_ids=165 internal_links=6921\n",
+    "stderr": ""
+  },
+  {
+    "command": "python scripts/validate_source_inventory.py",
+    "exit_code": 0,
+    "stdout": "SOURCE_INVENTORY_VALIDATION_OK sources=111 digest=8b9759c66bcf\n",
+    "stderr": ""
+  },
+  {
+    "command": "python scripts/check_evidence_keys.py",
+    "exit_code": 0,
+    "stdout": "PASS: no unredacted Google API keys.\n",
+    "stderr": ""
+  }
+]
