@@ -1,0 +1,2 @@
+2026-10-14T05:50:23.534288-04:00
+Source queue and discovery completed. Confirmed Illinois SBRT/DC hydrogel added after individual-primary comparison corrected the provisional alias error. Build, loading, link CI, production JS/catalog bytes and complete live USA/Japan title sets PASS. Raw HTML bytes NOT VERIFIED; script version verified in live DOM. Strict source evidence remains INCOMPLETE with 68 external gaps.
