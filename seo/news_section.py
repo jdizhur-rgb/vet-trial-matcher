@@ -24,6 +24,8 @@ PENN_CAR_T_URL = f"{NEWS_URL}penn-car-t-histiocytic-sarcoma/"
 LAVERDIA_URL = f"{NEWS_URL}laverdia-canine-lymphoma/"
 TAMU_GI_URL = f"{NEWS_URL}texas-am-feline-gi-lymphoma-radiation/"
 CANCAN_URL = f"{NEWS_URL}cancan-k9-liquidx-liquid-biopsy/"
+CANCAN_FELINE_URL = f"{NEWS_URL}cancan-feline-tumor-sequencing/"
+CANCAN_FELINE_IMAGE = f"{SITE}/assets/social/cancan-feline-tissue-core.jpg"
 CANOS_URL = f"{NEWS_URL}canos-cancer-blood-test/"
 CANOS_IMAGE = "https://www.canos.ai/brand/canos-golden-retriever-v1.1.png"
 CANCAN_IMAGE = f"{SITE}/assets/social/cancan-k9-liquidx.png"
@@ -84,12 +86,13 @@ def generate_news_section(root: Path) -> None:
     source_assets = Path(__file__).resolve().parent / "assets" / "social"
     built_assets = root / "assets" / "social"
     built_assets.mkdir(parents=True, exist_ok=True)
-    for name in ("cancan-k9-liquidx.png", "purdue-ablation-1200x630.jpg", "purdue-ablation-story-1080x1920.jpg", "barc-dog-cat-cancer-trials.jpg", "barc-dog-cat-cancer-trials-square-safe.jpg", "penn-car-t-histiocytic-sarcoma-1200x630.jpg"):
+    for name in ("cancan-feline-tissue-core.jpg", "cancan-k9-liquidx.png", "purdue-ablation-1200x630.jpg", "purdue-ablation-story-1080x1920.jpg", "barc-dog-cat-cancer-trials.jpg", "barc-dog-cat-cancer-trials-square-safe.jpg", "penn-car-t-histiocytic-sarcoma-1200x630.jpg"):
         shutil.copy2(source_assets / name, built_assets / name)
     index_body = f'''<div class="registry-page news-index">
 <h1>Veterinary oncology news</h1>
 <p class="lead">Newly opened treatment trials, meaningful recruitment changes and other developments that may matter to owners looking for cancer treatment options.</p>
 <div class="directory-grid">
+<a class="directory-card" href="{CANCAN_FELINE_URL}"><strong>CanCan launches a tumor sequencing panel for cats</strong><span>October 13, 2026. What the 75-gene tissue test examines, sample requirements, cost and the limits of its treatment suggestions.</span></a>
 <a class="directory-card" href="{CANOS_URL}"><strong>Canos studies a blood test for monitoring canine cancer</strong><span>October 10, 2026. How the test looks for cancer-associated DNA patterns and how owners can apply for free testing.</span></a>
 <a class="directory-card" href="{CANCAN_URL}"><strong>K9-LiquiDX: looking for canine cancer signals in the blood</strong><span>October 1, 2026. What CanCan’s blood test is offered for, early clinical experience, costs and ordering through your veterinarian.</span></a>
 <a class="directory-card" href="{REACHGLIO_URL}"><strong>ReachGlio opens in Madrid for dogs with high-grade glioma</strong><span>September 30, 2026. A new trial combines SNGR-TNF with temozolomide and tackles the same glioma problem from a different angle than current U.S. studies.</span></a>
@@ -120,6 +123,25 @@ def generate_news_section(root: Path) -> None:
 <div class="article-cta"><a href="https://www.canos.ai/relapse-monitoring" target="_blank" rel="noopener">Read about OncoTrack and apply</a></div>'''
     write_article(root, "canos-cancer-blood-test", "Canos studies a blood test for monitoring canine cancer", "Canos is studying cancer-associated DNA changes in dogs through OncoTrack, with free blood collection and testing for accepted participants.", canos_body, "Canos science, OncoTrack and application pages; September 2026 preprint; public update by co-founder Ming-Shan Tsai", "October 10, 2026", "2026-10-10", CANOS_IMAGE, (1024, 768), False)
     add_to_sitemap(root, (CANOS_URL,))
+
+    feline_body = f'''<p class="eyebrow">Feline cancer testing · October 13, 2026</p>
+<h1>CanCan launches a tumor sequencing panel for cats</h1>
+<figure style="margin:18px 0 24px"><img src="{CANCAN_FELINE_IMAGE}" alt="Ginger cat pictured on CanCan Diagnostics’ feline test page" width="2560" height="2560" style="display:block;width:100%;max-width:560px;height:auto;margin:auto"><figcaption>Image from <a href="https://cancandiagnostics.com/our-tests/feline/">CanCan Diagnostics’ feline test page</a>.</figcaption></figure>
+<p>CanCan Diagnostics has launched a tumor sequencing panel for cats. Its <a href="https://cancandiagnostics.com/our-tests/feline/">feline Tissue Core test</a> examines 75 cancer-related genes in a tumor sample, looking for mutations that may help explain the tumor’s biology and identify potential targets for treatment.</p>
+<h2>What the test looks for</h2>
+<p>The panel reads selected parts of the tumor’s DNA. It includes oncogenes, genes that can drive cancer growth when altered, and tumor suppressor genes, which normally help control cell growth. The purpose is to give the oncologist molecular information about the individual tumor, alongside its pathology and the rest of the cancer workup.</p>
+<p>A finding may point to a molecular pathway that a drug could act on. We asked CanCan whether its report actually suggests treatments. The team confirmed that it does, while emphasizing that evidence in cats is currently very limited. They draw on human and canine oncology research and state when a suggested drug has not been tested in cats.</p>
+<p>That distinction matters: finding a possible target does not show that the drug will help a particular cat, or establish its safety and dose. Those questions still need assessment by the treating oncologist. The panel offers potential treatment leads, rather than a proven treatment plan.</p>
+<h2>Samples, turnaround and cost</h2>
+<p>According to the <a href="https://cancandiagnostics.com/wp-content/uploads/2026/09/Our-Feline-Tests-Leaflet64.pdf">official feline brochure</a>, the laboratory accepts formalin-fixed, paraffin-embedded tumor tissue (FFPE) or suitable fine-needle aspirate (FNA) slides. Material already collected for biopsy, surgery or cytology may be usable if it meets the laboratory’s requirements.</p>
+<p>The brochure requests five 5-micrometer tissue sections or three to five cellular FNA slides, with at least 30% tumor content. Stained slides can be used. The veterinarian or pathologist should confirm suitability before submission; decalcification may compromise DNA quality. The listed turnaround is up to three weeks.</p>
+<p>In direct correspondence on October 13, 2026, CanCan quoted a total test cost of <strong>£300 / $400</strong> and said it has patients from around the world. The reply did not itemize shipping or veterinary and pathology preparation charges. Owners should ask their veterinarian and the company about the full cost and the submission route from their country.</p>
+<h2>Feline treatment studies are still being organized</h2>
+<p>CanCan said it is discussing feline drug safety and dosing studies with several academic partners, but the work remains at the organizational stage. The team did not disclose sites or specific drugs and offered to notify us when patient recruitment begins.</p>
+<p>This currently available tissue panel is separate from CanCan’s planned feline liquid biopsy. The brochure lists the blood-based test as coming in the second quarter of 2027; it should not be confused with the tissue test described here.</p>
+<p>Veterinarians can request sample and ordering information at <a href="mailto:enquiries@cancandiagnostics.com">enquiries@cancandiagnostics.com</a>. Owners can also compare this service with the other options in our <a href="{SITE}/matcher/genomic-tests/">Genomic tests directory</a>.</p>'''
+    write_article(root, "cancan-feline-tumor-sequencing", "CanCan launches a tumor sequencing panel for cats", "CanCan’s feline 75-gene tumor panel: what it examines, tissue and FNA samples, turnaround, cost and the limits of potential treatment suggestions.", feline_body, "CanCan Diagnostics feline test page and official brochure; direct manufacturer correspondence dated October 13, 2026 for treatment guidance, pricing and planned studies", "October 13, 2026", "2026-10-13", CANCAN_FELINE_IMAGE, (2560, 2560), False)
+    add_to_sitemap(root, (CANCAN_FELINE_URL,))
 
     cancan_body = f'''<p class="eyebrow">Canine cancer testing · October 1, 2026</p>
 <h1>K9-LiquiDX: looking for canine cancer signals in the blood</h1>

@@ -155,7 +155,7 @@ def main() -> None:
     assert "Vidium SearchLight DNA" not in advanced
     assert genomic_tests.count("<h2>Vidium SearchLight DNA</h2>") == 1
     assert advanced.count('<article class="p-card"') == 9
-    assert genomic_tests.count('<article class="p-card"') == 6
+    assert genomic_tests.count('<article class="p-card"') == 7
 
     # Every ordinary generated page owns one production canonical. Redirects
     # may canonically point at their destination, but no canonical may escape
