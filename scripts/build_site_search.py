@@ -91,7 +91,7 @@ more.addEventListener('click',showMore);input.addEventListener('input',render);l
 })();</script>'''.replace("__INDEX__", payload)
     target = SITE / "search"
     target.mkdir(exist_ok=True)
-    page = g.page("Search results | Vet Trial Finder", "Search results from Vet Trial Finder pages.", body, site_shell.SITE + "/search/")
+    page = g.page("Search results", "Search results from Pet Cancer Trail pages.", body, site_shell.SITE + "/search/")
     (target / "index.html").write_text(site_shell.wrap_html(page), encoding="utf-8")
     site_shell.add_to_sitemap(SITE, [site_shell.SITE + "/search/"])
     print(f"SITE_SEARCH_OK pages={len(entries)}")

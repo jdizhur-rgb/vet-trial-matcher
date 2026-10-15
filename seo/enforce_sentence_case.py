@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Apply and validate Vet Trial Finder's sentence-case editorial style."""
+"""Apply and validate Pet Cancer Trail's sentence-case editorial style."""
 from __future__ import annotations
 
 import re
@@ -40,7 +40,7 @@ SITE_COPY = {
     "Oncology Centers & Research Programs": "Oncology centers and research programs",
     "Page Not Found": "Page not found",
     "Cancer Clinical Trials for Dogs and Cats": "Cancer clinical trials for dogs and cats",
-    "How to Use Vet Trial Finder": "How to use Vet Trial Finder",
+    "How to Use Pet Cancer Trail": "How to use Pet Cancer Trail",
     "Other Veterinary Cancer Treatments": "Other veterinary cancer treatments",
     "How We Verify Clinical Trial Listings": "How we verify clinical trial listings",
     "How we verify Clinical Trial Listings": "How we verify clinical trial listings",
@@ -94,9 +94,9 @@ def search_title(text: str, path: Path | None) -> str:
             route = "/".join(parts[parts.index("site") + 1:])
             if route in SEARCH_TITLES:
                 return SEARCH_TITLES[route]
-    text = re.sub(r"\s*\|\s*Vet Trial Finder\s*$", "", text)
-    text = re.sub(r"^Vet Trial Finder\s*\|\s*", "", text)
-    return text.replace("Vet Trial Finder", "this project").strip()
+    text = re.sub(r"\s*\|\s*Pet Cancer Trail\s*$", "", text)
+    text = re.sub(r"^Pet Cancer Trail\s*\|\s*", "", text)
+    return text.replace("Pet Cancer Trail", "this project").strip()
 
 
 def normalize(text: str, path: Path | None = None) -> str:
@@ -159,7 +159,7 @@ def validate(root: Path) -> None:
         if re.search(r" Clinical Trials for (Dogs|Cats)(?= \|)", text):
             failures.append(f"{path.relative_to(root)}: diagnosis SEO title")
         title = re.search(r"<title>(.*?)</title>", text, re.S)
-        if title and (not title[1].strip() or "Vet Trial Finder" in title[1]):
+        if title and (not title[1].strip() or "Pet Cancer Trail" in title[1]):
             failures.append(f"{path.relative_to(root)}: empty or branded search title")
         expected_title = SEARCH_TITLES.get(path.relative_to(root).as_posix())
         if expected_title and (not title or title[1] != expected_title):

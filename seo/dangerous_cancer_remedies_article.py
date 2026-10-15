@@ -95,7 +95,7 @@ def generate_dangerous_cancer_remedies_article(root: Path) -> None:
 
 <p><strong>If the evidence that a remedy is “working” is a burn, necrosis, vomiting, or diarrhea, it is not treating cancer. It is causing direct harm to the animal.</strong></p>
 
-<div class="article-byline"><p><strong>Reviewed and edited by:</strong> <a href="{SITE}/about/" rel="author">Yuliia Dizhur</a>, Founder of Vet Trial Finder</p><p><strong>Published:</strong> September 20, 2026</p><p><strong>Last updated:</strong> September 20, 2026</p><p>Yuliia Dizhur is the founder of Vet Trial Finder and an owner with extensive firsthand experience of canine cancer. She edits practical guides using peer-reviewed research, published clinical guidance, and information from veterinary hospitals and public health agencies.</p><p><strong>Editorial disclosure:</strong> Prepared with AI assistance from the sources listed below and reviewed by Yuliia Dizhur. It has not been independently reviewed by a veterinarian and does not replace veterinary advice.</p></div>
+<div class="article-byline"><p><strong>Reviewed and edited by:</strong> <a href="{SITE}/about/" rel="author">Yuliia Dizhur</a>, Founder of Pet Cancer Trail</p><p><strong>Published:</strong> September 20, 2026</p><p><strong>Last updated:</strong> September 20, 2026</p><p>Yuliia Dizhur is the founder of Pet Cancer Trail and an owner with extensive firsthand experience of canine cancer. She edits practical guides using peer-reviewed research, published clinical guidance, and information from veterinary hospitals and public health agencies.</p><p><strong>Editorial disclosure:</strong> Prepared with AI assistance from the sources listed below and reviewed by Yuliia Dizhur. It has not been independently reviewed by a veterinarian and does not replace veterinary advice.</p></div>
 
 <h2>Sources</h2>
 <ul class="article-sources">
@@ -111,12 +111,12 @@ def generate_dangerous_cancer_remedies_article(root: Path) -> None:
     directory = root / 'articles' / 'when-cancer-remedies-cause-harm'
     directory.mkdir(parents=True, exist_ok=True)
     rendered = g.page(
-        'When a cancer remedy causes visible harm | Vet Trial Finder',
+        'When a cancer remedy causes visible harm | Pet Cancer Trail',
         'How black salve, chlorine dioxide, swallowed peroxide, colloidal silver, and baking soda can injure dogs and cats while creating the appearance of cancer treatment.',
         body,
         url,
     )
-    social = f'''<meta property="og:type" content="article"><meta property="og:site_name" content="Vet Trial Finder"><meta property="og:title" content="When a cancer remedy causes visible harm"><meta property="og:description" content="Why burns, necrosis, vomiting, and diarrhea are evidence of injury, not proof that cancer is being treated."><meta property="og:url" content="{url}"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="When a cancer remedy causes visible harm"><meta name="twitter:description" content="Why visible tissue damage is not proof of cancer treatment.">'''
+    social = f'''<meta property="og:type" content="article"><meta property="og:site_name" content="Pet Cancer Trail"><meta property="og:title" content="When a cancer remedy causes visible harm"><meta property="og:description" content="Why burns, necrosis, vomiting, and diarrhea are evidence of injury, not proof that cancer is being treated."><meta property="og:url" content="{url}"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="When a cancer remedy causes visible harm"><meta name="twitter:description" content="Why visible tissue damage is not proof of cancer treatment.">'''
     rendered = rendered.replace('</head>', social + '</head>', 1)
     schema = {
         '@context': 'https://schema.org',
@@ -124,8 +124,8 @@ def generate_dangerous_cancer_remedies_article(root: Path) -> None:
         'headline': 'When a cancer remedy causes visible harm',
         'datePublished': '2026-09-20',
         'dateModified': '2026-09-20',
-        'author': {'@type': 'Person', 'name': 'Yuliia Dizhur', 'url': f'{SITE}/about/', 'jobTitle': 'Founder of Vet Trial Finder'},
-        'publisher': {'@type': 'Organization', 'name': 'Vet Trial Finder', 'url': f'{SITE}/'},
+        'author': {'@type': 'Person', 'name': 'Yuliia Dizhur', 'url': f'{SITE}/about/', 'jobTitle': 'Founder of Pet Cancer Trail'},
+        'publisher': {'@type': 'Organization', 'name': 'Pet Cancer Trail', 'url': f'{SITE}/'},
         'mainEntityOfPage': url,
     }
     rendered = rendered.replace('</head>', f'<script type="application/ld+json">{json.dumps(schema)}</script></head>', 1)

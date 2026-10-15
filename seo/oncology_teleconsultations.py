@@ -140,6 +140,6 @@ def build_page(root: Path) -> None:
             + '<p class="tele-note">These are 61 distinct services (46 involving owners in an initial review, 14 veterinarian-only, and 1 in New Zealand with owner follow-up under conditions), not a complete world registry or a count of individual doctors. Prices are published examples at the time of review; confirm current fees directly.</p>' + SCRIPT)
     dest = root / 'online-oncology-consultations'
     dest.mkdir(parents=True, exist_ok=True)
-    (dest / 'index.html').write_text(g.page('Online veterinary oncology consultations | Vet Trial Finder',
+    (dest / 'index.html').write_text(g.page('Online veterinary oncology consultations | Pet Cancer Trail',
         'Search veterinary oncology teleconsultations worldwide by clinician, country, specialty and owner or veterinarian access.',
         body, f'{SITE}/online-oncology-consultations/'), encoding='utf-8')

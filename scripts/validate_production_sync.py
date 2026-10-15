@@ -63,6 +63,15 @@ def validate_internal_links() -> int:
 
 
 def main() -> None:
+    for page in SITE.rglob("*.html"):
+        html = read(page)
+        assert not re.search(r"Vet Trial Finder|Vet Cancer (?:Trial|Treatment) Finder", html), f"Retired brand on {page}"
+        if '<header class="site-header">' in html:
+            assert 'aria-label="Pet Cancer Trail"' in html, f"Brand missing from header: {page}"
+            assert '<meta property="og:site_name" content="Pet Cancer Trail">' in html, f"Social site name drift: {page}"
+        title = re.search(r"<title>(.*?)</title>", html, re.S)
+        assert not title or "Pet Cancer Trail" not in title[1], f"Keep page search titles unbranded: {page}"
+
     public = current_public()
     treatments = current_treatments()
     access = current_access()
@@ -84,7 +93,7 @@ def main() -> None:
     home = read(SITE / "index.html")
     assert first_stat(home) == len(treatments)
     registry = read(SITE / "veterinary-cancer-clinical-trials" / "index.html")
-    assert 'How Vet Trial Finder selects and counts trials' in registry
+    assert 'How Pet Cancer Trail selects and counts trials' in registry
     assert '<div class="registry-stats">' not in registry
     assert '<div class="nav-shell">' in home
     assert '<button class="nav-toggle"' in home
@@ -135,7 +144,7 @@ def main() -> None:
     centers = read(MATCHER / "centers" / "index.html")
     required_directory_notice = (
         "Service information is compiled from clinic websites and professional public directories. "
-        "Vet Trial Finder does not independently verify clinicians, licenses, credentials or quality of care, "
+        "Pet Cancer Trail does not independently verify clinicians, licenses, credentials or quality of care, "
         "and a listing is not a recommendation. Confirm the clinician, service, cost and current availability "
         "directly with the clinic before making plans."
     )

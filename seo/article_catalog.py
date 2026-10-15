@@ -111,7 +111,7 @@ def main() -> None:
             f'<div class="directory-grid">{category_cards}</div><p><a href="{SITE}/articles/">Browse all veterinary cancer articles →</a></p></div>')
         destination = ROOT / "site" / "articles" / meta["slug"]
         destination.mkdir(parents=True, exist_ok=True)
-        page = wrap_html(g.page(f'{meta["title"]} | Vet Trial Finder', meta["description"], body, url))
+        page = wrap_html(g.page(f'{meta["title"]} | Pet Cancer Trail', meta["description"], body, url))
         destination.joinpath("index.html").write_text(page, encoding="utf-8")
         if url not in sitemap_text:
             sitemap_text = sitemap_text.replace('</urlset>', f'<url><loc>{url}</loc></url>\n</urlset>')

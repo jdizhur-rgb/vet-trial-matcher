@@ -114,7 +114,7 @@ def generate_cancer_vaccine_article(root: Path) -> None:
 
     body = f'''<article class="article-page"><h1>Cancer Vaccines for Dogs</h1>
 <p class="article-deck">Cancer vaccines are already part of veterinary oncology, but the word <em>vaccine</em> covers very different treatments. One is licensed for oral melanoma. Some are personalized from a dog's own tumor. Others are available only through clinical trials.</p>
-<figure class="article-hero"><img src="{HERO}" alt="Illustration for an article about canine cancer vaccines" width="1200" height="630"><figcaption>Vet Trial Finder illustration.</figcaption></figure>
+<figure class="article-hero"><img src="{HERO}" alt="Illustration for an article about canine cancer vaccines" width="1200" height="630"><figcaption>Pet Cancer Trail illustration.</figcaption></figure>
 <p>Unlike routine vaccines against infectious disease, most cancer vaccines are not given to prevent cancer. They are used after a tumor has been diagnosed. Their goal is to help the immune system recognize tumor-associated targets and attack cancer cells more effectively.</p>
 <p>That does not make every cancer vaccine interchangeable. The diagnosis, stage, previous treatment, available tumor tissue, and the exact vaccine all matter.</p>
 <div class="article-note"><strong>One useful question before anything else:</strong> Is this a licensed treatment, a veterinarian-directed product, or an experimental vaccine available only through a clinical study?</div>
@@ -126,14 +126,14 @@ def generate_cancer_vaccine_article(root: Path) -> None:
 <ul><li>What is the exact name of the vaccine or immunotherapy?</li><li>Is it licensed, used under a veterinary prescription product pathway, off-label, or experimental?</li><li>Is there published evidence for this cancer type and stage?</li><li>How many dogs were included, and was there a concurrent control group?</li><li>Did the study measure survival or tumor control, or only an immune response?</li><li>Does the vaccine supplement standard treatment or replace any part of it?</li><li>Does fresh tumor tissue need to be saved before surgery?</li><li>Is there an active clinical trial my dog may qualify for?</li><li>Which costs are covered by the study and which remain the owner's responsibility?</li><li>What adverse effects have been reported?</li></ul>
 <h2>Find a vaccine, study, or treatment center</h2>
 <p>Trial status and participating hospitals change. A study that is open today may close, and new vaccine studies may appear.</p>
-<div class="article-cta"><a href="{trial_finder}">Search current veterinary cancer trials in Vet Trial Finder</a></div>
+<div class="article-cta"><a href="{trial_finder}">Search current veterinary cancer trials in Pet Cancer Trail</a></div>
 <p>For treatments that can be offered outside a conventional clinical trial, including selected advanced immunotherapies, use the treatment-options section as a starting point and confirm current availability directly with the oncology center.</p>
 <div class="article-cta"><a href="{options_finder}">Search other oncology treatment options and centers</a></div>
-<p>A preliminary match in Vet Trial Finder is not final eligibility. The treating or research team makes that decision after reviewing the medical record.</p>
+<p>A preliminary match in Pet Cancer Trail is not final eligibility. The treating or research team makes that decision after reviewing the medical record.</p>
 <h2>The bottom line</h2>
 <p>There is no single "cancer vaccine." ONCEPT is a licensed melanoma vaccine. ELIAS ECI includes a personalized vaccine as part of a licensed multi-step cell therapy. Yale/TheraJan and the University of Minnesota are testing different vaccine strategies in active studies. Other platforms remain research tools whose early results still need confirmation.</p>
 <p>The useful question is not whether cancer vaccines work in general. It is whether a particular vaccine has meaningful evidence for a particular dog, cancer, stage, and treatment plan.</p>
-<div class="article-byline"><p><strong>Reviewed and edited by:</strong> <a href="{SITE}/about/" rel="author">Yuliia Dizhur</a>, Founder of Vet Trial Finder</p><p><strong>Published:</strong> September 13, 2026</p><p><strong>Last updated:</strong> September 13, 2026</p><p>Yuliia Dizhur is the founder of Vet Trial Finder and a dog owner with extensive firsthand experience of canine cancer. She edits practical guides using peer-reviewed research, published clinical guidance and information from veterinary hospitals and research teams.</p><p><strong>Editorial disclosure:</strong> Prepared with AI assistance from the sources listed below and reviewed by Yuliia Dizhur. It has not been independently reviewed by a veterinarian and does not replace veterinary advice.</p></div>
+<div class="article-byline"><p><strong>Reviewed and edited by:</strong> <a href="{SITE}/about/" rel="author">Yuliia Dizhur</a>, Founder of Pet Cancer Trail</p><p><strong>Published:</strong> September 13, 2026</p><p><strong>Last updated:</strong> September 13, 2026</p><p>Yuliia Dizhur is the founder of Pet Cancer Trail and a dog owner with extensive firsthand experience of canine cancer. She edits practical guides using peer-reviewed research, published clinical guidance and information from veterinary hospitals and research teams.</p><p><strong>Editorial disclosure:</strong> Prepared with AI assistance from the sources listed below and reviewed by Yuliia Dizhur. It has not been independently reviewed by a veterinarian and does not replace veterinary advice.</p></div>
 <h2>Sources</h2>
 <ul class="article-sources">
 <li><a href="https://animalhealth.boehringer-ingelheim.com/pets/canine/products/therapeutics/oncept" rel="noopener">Boehringer Ingelheim: ONCEPT Canine Melanoma Vaccine, DNA</a></li>
@@ -156,13 +156,13 @@ def generate_cancer_vaccine_article(root: Path) -> None:
     dest = root / 'articles' / 'cancer-vaccines'
     dest.mkdir(parents=True, exist_ok=True)
     rendered = g.page(
-        'Cancer Vaccines for Dogs | Vet Trial Finder',
+        'Cancer Vaccines for Dogs | Pet Cancer Trail',
         'A practical guide to licensed and experimental cancer vaccines for dogs, including ONCEPT, Yale EGFR/HER2, ELIAS ECI and active vaccine trials.',
         body,
         url,
     )
     rendered = rendered.replace('</style>', VACCINE_CSS + '</style>', 1)
-    social = f'''<meta property="og:type" content="article"><meta property="og:site_name" content="Vet Trial Finder"><meta property="og:title" content="Cancer Vaccines for Dogs"><meta property="og:description" content="What is licensed, what remains experimental, and which veterinary cancer vaccine studies are enrolling."><meta property="og:url" content="{url}"><meta property="og:image" content="{SITE}/assets/og-cancer-vaccines.jpg"><meta property="og:image:secure_url" content="{SITE}/assets/og-cancer-vaccines.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Cancer vaccines for dogs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Cancer Vaccines for Dogs"><meta name="twitter:description" content="What is available, what is experimental, and which studies are enrolling."><meta name="twitter:image" content="{SITE}/assets/og-cancer-vaccines.jpg">'''
+    social = f'''<meta property="og:type" content="article"><meta property="og:site_name" content="Pet Cancer Trail"><meta property="og:title" content="Cancer Vaccines for Dogs"><meta property="og:description" content="What is licensed, what remains experimental, and which veterinary cancer vaccine studies are enrolling."><meta property="og:url" content="{url}"><meta property="og:image" content="{SITE}/assets/og-cancer-vaccines.jpg"><meta property="og:image:secure_url" content="{SITE}/assets/og-cancer-vaccines.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Cancer vaccines for dogs"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Cancer Vaccines for Dogs"><meta name="twitter:description" content="What is available, what is experimental, and which studies are enrolling."><meta name="twitter:image" content="{SITE}/assets/og-cancer-vaccines.jpg">'''
     rendered = rendered.replace('</head>', social + '</head>', 1)
     schema = {
         '@context': 'https://schema.org',
@@ -175,9 +175,9 @@ def generate_cancer_vaccine_article(root: Path) -> None:
             '@type': 'Person',
             'name': 'Yuliia Dizhur',
             'url': f'{SITE}/about/',
-            'jobTitle': 'Founder of Vet Trial Finder',
+            'jobTitle': 'Founder of Pet Cancer Trail',
         },
-        'publisher': {'@type': 'Organization', 'name': 'Vet Trial Finder', 'url': f'{SITE}/'},
+        'publisher': {'@type': 'Organization', 'name': 'Pet Cancer Trail', 'url': f'{SITE}/'},
         'mainEntityOfPage': url,
     }
     rendered = rendered.replace('</head>', f'<script type="application/ld+json">{json.dumps(schema)}</script></head>', 1)

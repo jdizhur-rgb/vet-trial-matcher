@@ -92,7 +92,7 @@ jobs:
           assert 'second surgery to remove the dirty margins' in about
           assert 'experimental treatments, looking for something that might give him better chances' in about
           assert 'We don’t promise anything and we don’t give false hope.' in about
-          assert 'Yuliia Dizhur' in about and 'Founder, Vet Trial Finder' in about
+          assert 'Yuliia Dizhur' in about and 'Founder, Pet Cancer Trail' in about
           assert '.story-scene{display:flow-root' in about
           assert 'float:left;width:26%;max-width:225px' in about
           assert '.story-scene.yasha .story-photo{float:right' in about
@@ -112,10 +112,10 @@ jobs:
           assert not (root/'uk-europe').exists()
           assert not any((root/lang).exists() for lang in ('de','fr','es','it','nl'))
           assert '"@type":"WebSite"' in home and '"@type":"Organization"' in home
-          assert '"@type":"WebSite","@id":"https://vettrialfinder.com/#website","url":"https://vettrialfinder.com/","name":"Vet Trial Finder"' in home
-          assert '"@type":"Organization","@id":"https://vettrialfinder.com/#organization","name":"Vet Trial Finder","alternateName":"VetTrialFinder"' in home
+          assert '"@type":"WebSite","@id":"https://vettrialfinder.com/#website","url":"https://vettrialfinder.com/","name":"Pet Cancer Trail"' in home
+          assert '"@type":"Organization","@id":"https://vettrialfinder.com/#organization","name":"Pet Cancer Trail","alternateName":"PetCancerTrail"' in home
           assert '"sameAs":["https://www.facebook.com/share/19SH2uYyTb/"]' in home
-          assert '<a class="brand" href="https://vettrialfinder.com/" aria-label="Vet Trial Finder">' in home
+          assert '<a class="brand" href="https://vettrialfinder.com/" aria-label="Pet Cancer Trail">' in home
           indexnow_key='ca36635c41120f89495c9cd121d884744872420f261fc4e44272c6f5555d3b62'
           assert (root/f'{indexnow_key}.txt').read_text(encoding='utf-8').strip() == indexnow_key
           assert 'BreadcrumbList' in (root/'north-america/dogs/lymphoma/index.html').read_text(encoding='utf-8')
@@ -131,7 +131,7 @@ jobs:
           registry=(root/'veterinary-cancer-clinical-trials/index.html').read_text(encoding='utf-8')
           assert '<h1 class="page-title">Veterinary cancer clinical trials: what they are and how they work</h1>' in registry
           assert 'class="registry-quick-links"' in registry
-          assert 'How Vet Trial Finder selects and counts trials' in registry
+          assert 'How Pet Cancer Trail selects and counts trials' in registry
           assert 'We search beyond universities' in registry
           assert 'Sources and further reading' in registry
           assert 'class="registry-diagnosis"' in registry
@@ -139,7 +139,7 @@ jobs:
           assert 'href="https://vettrialfinder.com/contact/"' in home
           assert 'href="https://vettrialfinder.com/contact/"' in about
           contact=(root/'contact/index.html').read_text(encoding='utf-8')
-          assert '<h1 class="page-title">Contact Vet Trial Finder</h1>' in contact
+          assert '<h1 class="page-title">Contact Pet Cancer Trail</h1>' in contact
           assert 'mailto:info@vettrialfinder.com' in contact
           centers=(root/'centers/index.html').read_text(encoding='utf-8')
           assert 'id="universities"' in centers
@@ -193,7 +193,7 @@ jobs:
           assert 'What do the result labels mean?' in help_page
           assert 'How do I find the nearest trial centers?' in help_page
           assert 'What is included under Other treatments?' in help_page
-          assert 'Is Vet Trial Finder really free?' in help_page
+          assert 'Is Pet Cancer Trail really free?' in help_page
           assert 'mailto:info@vettrialfinder.com' in help_page
           cancer=[]
           for species in ('dogs','cats'): cancer += list((root/'north-america'/species).glob('*/index.html'))

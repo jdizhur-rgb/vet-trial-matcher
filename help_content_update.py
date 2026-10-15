@@ -18,7 +18,7 @@ def main() -> None:
         'How do I find the nearest trial centers?',
         '<h2>Other Treatments</h2>',
         'What is included under Other Treatments?',
-        'Is Vet Trial Finder really free?',
+        'Is Pet Cancer Trail really free?',
         'A clear “no matches” is more useful than showing a study that does not fit.',
         'mailto:info@vettrialfinder.com',
     )

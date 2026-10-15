@@ -56,7 +56,7 @@ def generate_lomustine_monitoring_article(root: Path) -> None:
 <p><strong>Liver values must also be monitored throughout lomustine treatment.</strong> Liver injury may appear after earlier tests were normal and can become cumulative with repeated doses. ALT and ALP are among the values commonly followed, but the oncology team should specify the full chemistry schedule.</p>
 <p>The practical point is simple: before the first lomustine dose, or immediately when a dog is switched to it, the owner should leave with a written plan for the nadir CBC, liver testing and urgent warning signs, not only the date of the next chemotherapy appointment.</p>
 
-<div class="article-byline"><p><strong>Reviewed and edited by:</strong> <a href="{SITE}/about/" rel="author">Yuliia Dizhur</a>, Founder of Vet Trial Finder</p><p><strong>Published:</strong> October 3, 2026</p><p><strong>Last updated:</strong> October 3, 2026</p><p><strong>Editorial disclosure:</strong> Prepared with AI assistance from the sources listed below and reviewed by Yuliia Dizhur. It has not been independently reviewed by a veterinarian and does not replace veterinary advice.</p></div>
+<div class="article-byline"><p><strong>Reviewed and edited by:</strong> <a href="{SITE}/about/" rel="author">Yuliia Dizhur</a>, Founder of Pet Cancer Trail</p><p><strong>Published:</strong> October 3, 2026</p><p><strong>Last updated:</strong> October 3, 2026</p><p><strong>Editorial disclosure:</strong> Prepared with AI assistance from the sources listed below and reviewed by Yuliia Dizhur. It has not been independently reviewed by a veterinarian and does not replace veterinary advice.</p></div>
 
 <h2>Sources</h2>
 <ul class="article-sources">
@@ -68,8 +68,8 @@ def generate_lomustine_monitoring_article(root: Path) -> None:
 
     directory = root / "articles" / SLUG
     directory.mkdir(parents=True, exist_ok=True)
-    rendered = g.page(f"{title} | Vet Trial Finder", description, body, URL)
-    social = f'''<meta property="og:type" content="article"><meta property="og:site_name" content="Vet Trial Finder"><meta property="og:title" content="{g.esc(title)}"><meta property="og:description" content="{g.esc(description)}"><meta property="og:url" content="{URL}"><meta property="og:image" content="{IMAGE}"><meta property="og:image:url" content="{IMAGE}"><meta property="og:image:secure_url" content="{IMAGE}"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1774"><meta property="og:image:height" content="887"><meta property="og:image:alt" content="A dog with an owner during a veterinary blood test"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{g.esc(title)}"><meta name="twitter:description" content="{g.esc(description)}"><meta name="twitter:image" content="{IMAGE}">'''
+    rendered = g.page(f"{title} | Pet Cancer Trail", description, body, URL)
+    social = f'''<meta property="og:type" content="article"><meta property="og:site_name" content="Pet Cancer Trail"><meta property="og:title" content="{g.esc(title)}"><meta property="og:description" content="{g.esc(description)}"><meta property="og:url" content="{URL}"><meta property="og:image" content="{IMAGE}"><meta property="og:image:url" content="{IMAGE}"><meta property="og:image:secure_url" content="{IMAGE}"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1774"><meta property="og:image:height" content="887"><meta property="og:image:alt" content="A dog with an owner during a veterinary blood test"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{g.esc(title)}"><meta name="twitter:description" content="{g.esc(description)}"><meta name="twitter:image" content="{IMAGE}">'''
     schema = {
         "@context": "https://schema.org",
         "@type": "Article",
@@ -78,7 +78,7 @@ def generate_lomustine_monitoring_article(root: Path) -> None:
         "datePublished": "2026-10-03",
         "dateModified": "2026-10-03",
         "author": {"@type": "Person", "name": "Yuliia Dizhur", "url": f"{SITE}/about/"},
-        "publisher": {"@type": "Organization", "name": "Vet Trial Finder", "url": f"{SITE}/"},
+        "publisher": {"@type": "Organization", "name": "Pet Cancer Trail", "url": f"{SITE}/"},
         "mainEntityOfPage": URL,
     }
     rendered = rendered.replace("</head>", social + f'<script type="application/ld+json">{json.dumps(schema)}</script></head>', 1)

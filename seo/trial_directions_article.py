@@ -78,10 +78,10 @@ def generate_trial_directions_article(root: Path) -> None:
 <li><a href="https://pubmed.ncbi.nlm.nih.gov/42291138/" rel="noopener">Radiation plus Listeria immunotherapy in canine osteosarcoma. 2026.</a></li>
 <li><a href="https://pubmed.ncbi.nlm.nih.gov/37792729/" rel="noopener">Anti-PD-L1 antibody c4G12 in dogs with advanced malignant tumors. 2023.</a></li>
 </ol>
-<p class="article-note"><strong>Current-trial links:</strong> trial status changes faster than published literature. The links above open the live Vet Trial Finder catalog filtered by research approach. Final eligibility and enrollment are determined by each study team.</p>
-<div class="article-byline"><p><strong>Reviewed and edited by:</strong> <a href="{SITE}/about/" rel="author">Yuliia Dizhur</a>, Founder of Vet Trial Finder</p><p><strong>Published:</strong> September 26, 2026</p><p><strong>Editorial disclosure:</strong> Prepared with AI assistance from the sources listed above and reviewed by Yuliia Dizhur. It has not been independently reviewed by a veterinarian and does not replace veterinary advice.</p></div></article>'''
+<p class="article-note"><strong>Current-trial links:</strong> trial status changes faster than published literature. The links above open the live Pet Cancer Trail catalog filtered by research approach. Final eligibility and enrollment are determined by each study team.</p>
+<div class="article-byline"><p><strong>Reviewed and edited by:</strong> <a href="{SITE}/about/" rel="author">Yuliia Dizhur</a>, Founder of Pet Cancer Trail</p><p><strong>Published:</strong> September 26, 2026</p><p><strong>Editorial disclosure:</strong> Prepared with AI assistance from the sources listed above and reviewed by Yuliia Dizhur. It has not been independently reviewed by a veterinarian and does not replace veterinary advice.</p></div></article>'''
     dest=root/"articles"/"where-veterinary-cancer-trials-are-heading";dest.mkdir(parents=True,exist_ok=True)
-    rendered=g.page("Where Veterinary Cancer Trials Are Heading | Vet Trial Finder","An owner-friendly guide to current directions in veterinary cancer research: immunotherapy, vaccines, targeted drugs, engineered immune cells, ultrasound and new radiation approaches.",body,url)
+    rendered=g.page("Where Veterinary Cancer Trials Are Heading | Pet Cancer Trail","An owner-friendly guide to current directions in veterinary cancer research: immunotherapy, vaccines, targeted drugs, engineered immune cells, ultrasound and new radiation approaches.",body,url)
     schema = {
         "@context": "https://schema.org", "@type": "Article",
         "headline": "Where veterinary cancer trials are heading",
