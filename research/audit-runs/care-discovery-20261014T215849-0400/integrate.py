@@ -24,9 +24,6 @@ for area,territory in [('ON','Ontario'),('UK','United Kingdom'),('QC','Quebec'),
    c['availability_note']=c['access_note'].replace(' Separate physical treatment listing; existing remote service tele-24 unchanged.','')
   if sid=='cancer-vet-montreal-monkland':
    c['availability_note']='In-person oncology consultation at Clinique Vétérinaire Monkland by phone or consultation request form. Local chemotherapy and radiation delivery are not established by this review.'
-  if sid=='fr-oncovet':
-   c['services']=[x for x in c['services'] if x!='Medical oncology'];c['services'].insert(0,'Local oncology care')
-   amendments.append({'source_id':sid,'field':'services','old_value':'Medical oncology','new_value':'Local oncology care','reason':'Named current doctors have radiation/surgery qualifications; do not imply medical-oncology board certification.'})
   c.setdefault('audit_run_id',RUN.name);c.setdefault('review_reference',str((RUN/area/'result.json').relative_to(ROOT)))
   questions=c.get('review_questions') or s.get('review_questions') or []
   if questions:

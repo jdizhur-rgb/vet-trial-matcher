@@ -3708,7 +3708,7 @@
           "Cat"
         ],
         "services": [
-          "Local oncology care",
+          "Medical oncology",
           "Chemotherapy",
           "Radiation therapy",
           "Surgery"
@@ -4587,13 +4587,6 @@
       "reason": "Use verified appointment/access facts; retain pending question under review_questions."
     },
     {
-      "source_id": "fr-oncovet",
-      "field": "services",
-      "old_value": "Medical oncology",
-      "new_value": "Local oncology care",
-      "reason": "Named current doctors have radiation/surgery qualifications; do not imply medical-oncology board certification."
-    },
-    {
       "source_id": "fr-agoravet",
       "field": "availability_note",
       "reason": "Use verified appointment/access facts; retain pending question under review_questions."
@@ -4602,5 +4595,13 @@
   "old_source_rows_preserved": 527,
   "old_supplemental_rows_preserved": 447,
   "territories_complete": false,
-  "publication_status": "awaiting_checks"
+  "publication_status": "awaiting_checks",
+  "post_initial_publication_correction": {
+    "source_id": "fr-oncovet",
+    "field": "services",
+    "old_value": "Local oncology care",
+    "new_value": "Medical oncology",
+    "reason": "Official branch explicitly offers medical oncology. Service scope remains separate from radiation/surgery credentials; restore verified specific service without inferring board qualification.",
+    "source_url": "https://www.oncovet.fr/fr-fr/les-services/oncologie-medicale-chimiotherapie"
+  }
 }
