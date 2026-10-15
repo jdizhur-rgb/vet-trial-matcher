@@ -1,0 +1,62 @@
+[
+  {
+    "source_id": "usa-penn-atherton-laboratory",
+    "url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+    "reason": "actual_current_run_evidence_reused",
+    "actual_current_attempts": [
+      {
+        "source_id": "usa-penn-comparative-immunotherapy-trials",
+        "url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+        "route": "official_fallback",
+        "attempted_at": "2026-10-15T03:39:40.906070-04:00",
+        "completed_at": "2026-10-15T03:39:43.243446-04:00",
+        "method": "shell_curl",
+        "retry": 0,
+        "http_status": null,
+        "effective_url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+        "content_type": "",
+        "exit_code": 56,
+        "stderr": "curl: (56) CONNECT tunnel failed, response 403\n",
+        "text_length": 0,
+        "text_sha256": null,
+        "evidence_file": "research/audit-runs/daily-20261015T030225-0400/evidence/4244c26ac803fac628.json",
+        "raw_file": "/workspace/scratch/f0cce5d37919/raw-evidence/daily-20261015T030225-0400/4244c26ac803fac628.body",
+        "result": "transport_error"
+      },
+      {
+        "source_id": "usa-penn-comparative-immunotherapy-trials",
+        "url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+        "route": "official_fallback",
+        "attempted_at": "2026-10-15T03:39:44.243771-04:00",
+        "completed_at": "2026-10-15T03:39:44.252280-04:00",
+        "method": "shell_curl",
+        "retry": 1,
+        "http_status": null,
+        "effective_url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+        "content_type": "",
+        "exit_code": 56,
+        "stderr": "curl: (56) CONNECT tunnel failed, response 403\n",
+        "text_length": 0,
+        "text_sha256": null,
+        "evidence_file": "research/audit-runs/daily-20261015T030225-0400/evidence/f19a4efd370ae73887.json",
+        "raw_file": "/workspace/scratch/f0cce5d37919/raw-evidence/daily-20261015T030225-0400/f19a4efd370ae73887.body",
+        "result": "transport_error"
+      }
+    ],
+    "prior_denial_evidence": []
+  },
+  {
+    "source_id": "usa-wsu-vth-clinical-studies",
+    "url": "https://hospital.vetmed.wsu.edu/appointments/",
+    "reason": "prior_explicit_denial_not_retried",
+    "actual_current_attempts": [],
+    "prior_denial_evidence": [
+      {
+        "source_id": "usa-wsu-vth-clinical-studies",
+        "url": "https://hospital.vetmed.wsu.edu/appointments/",
+        "reason": "Inherited explicit forbidden/gated route; not retried or bypassed. Seek independent public official protocol signal only.",
+        "parent_run": "daily-20261014T030650-0400"
+      }
+    ]
+  }
+]
