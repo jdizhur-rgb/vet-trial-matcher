@@ -1,0 +1,82 @@
+{
+  "verified_at": "2026-10-15T04:33:03.727745-04:00",
+  "publication_sha": "936416e825da7c3b6f175e831fb7dbcd97492076",
+  "status": "NOT VERIFIED",
+  "script_version": "./matcher.js?v=protocol-limits-20261014",
+  "catalog_version": "./trials.json?v=e1ea2b48ad66969c",
+  "note": "No JS or catalog change in this data-audit publication; content-derived catalog version and existing verified script version must match the build, not receive a fictional daily bump.",
+  "checks": [
+    {
+      "name": "html",
+      "url": "https://vettrialfinder.com/matcher/",
+      "attempted_at": "2026-10-15T04:32:54.754890-04:00",
+      "completed_at": "2026-10-15T04:32:59.768268-04:00",
+      "method": "shell_curl",
+      "exit_code": 28,
+      "http_status": "000",
+      "expected_sha256": "54bc1704495677979cd19457e766fb263e0b663fc883d784147912f3f8483541",
+      "live_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "equal": false,
+      "stderr": "curl: (28) Proxy CONNECT aborted due to timeout\n",
+      "initial_attempt": {
+        "name": "html",
+        "url": "https://vettrialfinder.com/matcher/",
+        "attempted_at": "2026-10-15T04:30:50.713703-04:00",
+        "completed_at": "2026-10-15T04:30:55.724160-04:00",
+        "method": "shell_curl",
+        "exit_code": 28,
+        "http_status": "000",
+        "expected_sha256": "54bc1704495677979cd19457e766fb263e0b663fc883d784147912f3f8483541",
+        "live_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "equal": false,
+        "stderr": "curl: (28) Proxy CONNECT aborted due to timeout\n"
+      },
+      "retry": 1
+    },
+    {
+      "name": "javascript",
+      "url": "https://vettrialfinder.com/matcher/matcher.js?v=protocol-limits-20261014",
+      "attempted_at": "2026-10-15T04:30:55.724327-04:00",
+      "completed_at": "2026-10-15T04:31:00.571139-04:00",
+      "method": "shell_curl",
+      "exit_code": 0,
+      "http_status": "200",
+      "expected_sha256": "af02ad14f339b8b5f6d0ab05c4e029f295bd89f601a6265183fc8fbcbbe07805",
+      "live_sha256": "af02ad14f339b8b5f6d0ab05c4e029f295bd89f601a6265183fc8fbcbbe07805",
+      "bytes": 50497,
+      "equal": true,
+      "stderr": ""
+    },
+    {
+      "name": "catalog",
+      "url": "https://vettrialfinder.com/matcher/trials.json?v=e1ea2b48ad66969c",
+      "attempted_at": "2026-10-15T04:32:59.768334-04:00",
+      "completed_at": "2026-10-15T04:33:03.727713-04:00",
+      "method": "shell_curl",
+      "exit_code": 0,
+      "http_status": "200",
+      "expected_sha256": "e1ea2b48ad66969c92636fdd1ac52740761850b981c75903b176d7b0349262d8",
+      "live_sha256": "e1ea2b48ad66969c92636fdd1ac52740761850b981c75903b176d7b0349262d8",
+      "bytes": 353642,
+      "equal": true,
+      "stderr": "",
+      "initial_attempt": {
+        "name": "catalog",
+        "url": "https://vettrialfinder.com/matcher/trials.json?v=e1ea2b48ad66969c",
+        "attempted_at": "2026-10-15T04:31:00.571295-04:00",
+        "completed_at": "2026-10-15T04:31:05.580963-04:00",
+        "method": "shell_curl",
+        "exit_code": 28,
+        "http_status": "000",
+        "expected_sha256": "e1ea2b48ad66969c92636fdd1ac52740761850b981c75903b176d7b0349262d8",
+        "live_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "equal": false,
+        "stderr": "curl: (28) Proxy CONNECT aborted due to timeout\n"
+      },
+      "retry": 1
+    }
+  ]
+}
