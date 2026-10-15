@@ -1,0 +1,71 @@
+{
+  "run_id": "care-discovery-20261014T215849-0400",
+  "source_date": "2026-10-14",
+  "successful_review_method": "available Web reader open/click/find at official public URLs",
+  "successful_precision": "date only",
+  "failed_shell_attempts": [
+    {
+      "url": "https://tierarztpraxis-horrem.de/fachgebiete/behandlungen/onkologie/",
+      "method": "urllib default sandbox",
+      "outcome": "URLError Operation not permitted",
+      "fallback": "escalated ordinary public request"
+    },
+    {
+      "url": "https://tierarztpraxis-horrem.de/fachgebiete/behandlungen/onkologie/",
+      "method": "urllib require_escalated",
+      "outcome": "HTTP 403",
+      "fallback": "same URL available through permitted Web open; no CAPTCHA/auth interaction"
+    }
+  ],
+  "failed_web_attempts": [
+    {
+      "url": "https://www.tierarztpraxis.de/leistungen/innere-medizin/onkologie/",
+      "outcome": "Internal Error",
+      "fallback": "Official homepage redirected to current tiergesundheitszentrum-trier.de; followed current team/services/contact/surgery."
+    },
+    {
+      "url": "https://www.huelsmann-tierarztpraxis.de/team/",
+      "outcome": "Internal Error for guessed route",
+      "fallback": "Followed actual official link to /team-praxis/ successfully."
+    }
+  ],
+  "successful_official_urls": [
+    "https://tierarztpraxis-horrem.de/fachgebiete/behandlungen/onkologie/",
+    "https://zentrum-kleintiermedizin.de/fachgebiete/onkologische-sprechstunde/",
+    "https://zentrum-kleintiermedizin.de/kontakt/",
+    "https://zentrum-kleintiermedizin.de/fachgebiete/chemotherapie/",
+    "https://zentrum-kleintiermedizin.de/fachgebiete/strahlentherapie/",
+    "https://zentrum-kleintiermedizin.de/praxis/team/dr-med-vet-nina-eberle/",
+    "https://zentrum-kleintiermedizin.de/besitzerinfo/ihr-termin-bei-uns/",
+    "https://tierarzt-kaulsdorf.de/leistungen/onkologie/",
+    "https://tierarzt-kaulsdorf.de/praxisteam/",
+    "https://tierarzt-kaulsdorf.de/kontakt/",
+    "https://tierklinik-neu-isenburg.de/onkologie.html",
+    "https://tierklinik-neu-isenburg.de/",
+    "https://tierklinik-neu-isenburg.de/dr-vera-kristina-wilmesmeier.html",
+    "https://tierklinik-neu-isenburg.de/onkologische-chirurgie.html",
+    "https://tierklinik-neu-isenburg.de/wartezeiten.html",
+    "https://www.tierklinik-stuttgart.de/ta-de/fachdisziplinen/onkologie/",
+    "https://www.tierklinik-stuttgart.de/th-de/klinik/ansprechpartner.php",
+    "https://www.tierklinik-stuttgart.de/ta-de/kontakt/?navid=434863434863",
+    "https://www.huelsmann-tierarztpraxis.de/leistungen-abc/",
+    "https://www.huelsmann-tierarztpraxis.de/team-praxis/",
+    "https://www.huelsmann-tierarztpraxis.de/terminbuchung/",
+    "https://tierarztpraxis-dambach.de/",
+    "https://www.tierklinik-kurzeichet.de/elektrochemotherapie",
+    "https://www.tierklinik-kurzeichet.de/",
+    "https://www.tierklinik-kurzeichet.de/onkologie",
+    "https://tierarztpraxis-arnimplatz.de/",
+    "https://tierarztpraxis-arnimplatz.de/team/",
+    "https://tierarztpraxis-arnimplatz.de/leistungen/",
+    "https://www.tierarztpraxis.de/",
+    "https://www.tiergesundheitszentrum-trier.de/team",
+    "https://www.tiergesundheitszentrum-trier.de/leistungen",
+    "https://www.tiergesundheitszentrum-trier.de/leistungen/chirurgie",
+    "https://www.tiergesundheitszentrum-trier.de/kontakt"
+  ],
+  "note": "No raw HTML/script/API keys copied. Quotes are concise. No HTTP status or fingerprint invented for Web reader visits.",
+  "search_only_old_urls": [
+    "https://www.tierarztpraxis.de/team/tier%C3%A4rzte/"
+  ]
+}

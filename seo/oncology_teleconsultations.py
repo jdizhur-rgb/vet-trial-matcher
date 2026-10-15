@@ -76,6 +76,7 @@ ROWS = [
 ('Europe', 'Germany', 'Vetonc', 'Franziska Hergt', 'DipECVIM-CA (Oncology); oncology specialist providing consultations to veterinarians.', 'Vet only', 'Medical oncology', 'Veterinarian-facing oncology case review by email or telephone, including interpretation of findings, staging, treatment options and prognosis. Contact info@vetonc.de. Direct owner teleconsultation is not advertised; fee, required document checklist and eligible countries are not published.', 'https://vetonc.de/', 'https://vetonc.de/', 'Named consultant'),
 ('Europe', 'France', 'Onkolia', 'Paul Ghislain', 'Veterinarian, CEAV de Médecine Interne des Animaux de Compagnie; Diplôme d’École en Cancérologie / Capacité en chimiothérapie anticancéreuse vétérinaire; ESVONC member. These are not an established ECVIM/ACVIM oncology diplomate credential.', 'Owner with vet; vet only', 'Oncology advice (internal-medicine and cancer-training qualifications; oncology board certification not established)', 'Owners referred by their veterinarian may submit the medical dossier; veterinarians may request an opinion directly. A written PDF opinion goes to the treating veterinarian; it is not a direct owner video appointment, remote diagnosis or prescription. Single opinion EUR 129 including VAT, advertised within five working days with one Q&A exchange; three-month package EUR 389, annual package EUR 649. Contact contact@onkolia.fr. Eligible countries are not listed.', 'https://www.onkolia.fr/articles/avis-cancerologique-veterinaire-distance-confrere', 'https://www.onkolia.fr/a-propos', 'Named reviewer; written opinion in support of treating veterinarian'),
 ('Australia & New Zealand','New Zealand','ARC Vets','Patrick Smith','DipECVIM-CA (Oncology); clinical interest in lymphoma.','Vet only; owner follow-up','Medical oncology','Initial remote expert discussion is through the referring veterinarian; owner remote follow-up is possible where appropriate.','https://arcvets.co.nz/services/oncology-cancer-care/','https://arcvets.co.nz/services/oncology-cancer-care/','Named clinician; confirm booking'),
+('Europe', 'United Kingdom', 'VOS — Veterinary Specialists', 'Katarzyna Purzycka', 'DVM, MVetMed, MRCVS, DipACVIM (Oncology); American and RCVS recognised specialist in veterinary oncology. Confirm the assigned consultant.', 'Owner with vet; vet only', 'Medical oncology', 'Patient-specific oncology review for dogs and cats: written report (£70; within four working days), or 40-minute online consultation for an owner or veterinarian (£70 each) with a short written summary. Polish and English. Submit history, current medication, examination findings and relevant tests through the oncology case form; owner consultation summary goes to the referring veterinarian. Official terms describe worldwide remote service, subject to local licensing and a locally licensed veterinarian implementing advice. Contact through the official contact form.', 'https://vos-ltd.vet/en/oncology-submission/', 'https://vos-ltd.vet/en/about-us/', 'Named specialist listed; confirm assigned consultant'),
 ]
 
 REGIONS = ('United States', 'Other Americas', 'Europe', 'Asia', 'Australia & New Zealand')
@@ -116,10 +117,10 @@ def card(row: tuple[str, ...]) -> str:
 
 
 def build_page(root: Path) -> None:
-    assert len(ROWS) == 60
+    assert len(ROWS) == 61
     assert all(row[2] != 'Dr Sarah Boston Telemedicine' for row in ROWS)
     assert len({(row[1], row[2]) for row in ROWS}) == len(ROWS)
-    assert sum(not row[5].startswith('Vet only') for row in ROWS) == 46
+    assert sum(not row[5].startswith('Vet only') for row in ROWS) == 47
     jumps = ''.join(f'<a href="#{slug}">{escape(region)}</a>' for region, slug in zip(REGIONS, IDS))
     sections = ''.join(f'<section class="tele-region" id="{slug}"><h2>{escape(region)}</h2><div class="tele-grid">'
                        + ''.join(card(row) for row in ROWS if row[0] == region)
@@ -137,7 +138,7 @@ def build_page(root: Path) -> None:
             '<label>Who can request it?<select id="tele-audience"><option value="all">All access types</option><option value="owner">Owner involved in initial review</option><option value="vet">Through a veterinarian</option></select></label>'
             '<label>Clinical focus<select id="tele-specialty"><option value="all">All oncology fields</option><option value="medical oncology">Medical oncology</option><option value="radiation oncology">Radiation oncology</option><option value="surgery">Cancer surgery</option><option value="internal medicine">Internal medicine with oncology practice</option></select></label></div>'
             '<p class="tele-count" id="tele-count" role="status" aria-live="polite">61 services shown</p>' + sections
-            + '<p class="tele-note">These are 61 distinct services (46 involving owners in an initial review, 14 veterinarian-only, and 1 in New Zealand with owner follow-up under conditions), not a complete world registry or a count of individual doctors. Prices are published examples at the time of review; confirm current fees directly.</p>' + SCRIPT)
+            + '<p class="tele-note">These are 61 distinct services (47 involving owners in an initial review, 13 veterinarian-only, and 1 in New Zealand with owner follow-up under conditions), not a complete world registry or a count of individual doctors. Prices are published examples at the time of review; confirm current fees directly.</p>' + SCRIPT)
     dest = root / 'online-oncology-consultations'
     dest.mkdir(parents=True, exist_ok=True)
     (dest / 'index.html').write_text(g.page('Online veterinary oncology consultations | Pet Cancer Trail',

@@ -56,7 +56,7 @@ rows = next(ast.literal_eval(node.value) for node in tree.body
 nw = [r for r in rows if r[2] == 'Northwest Veterinary Oncology Services']
 sarbu = [r for r in rows if r[2] == 'Veterinary Oncology Center / Hope4Pets']
 assert len(nw) == len(sarbu) == 1 and nw[0][5].startswith('Owner') and sarbu[0][5] == 'Vet only'
-assert len(rows) == 60
+assert len(rows) == 61
 assert not any(r[2] == 'Dr Sarah Boston Telemedicine' for r in rows)
 page = (ROOT / 'seo/site/matcher/centers/index.html').read_text()
 assert 'North Coast Veterinary Specialist' not in page and 'Platt Park Veterinary Hospital' not in page

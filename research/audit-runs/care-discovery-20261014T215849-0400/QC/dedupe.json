@@ -1,0 +1,100 @@
+{
+  "baseline_sha": "6622f87d8e80c93e17b3e3234b64be488dd18ee9",
+  "inputs_inspected": [
+    {
+      "file": "data/oncology_centers.json",
+      "count": 455
+    },
+    {
+      "file": "data/oncology_centers_supplemental.json",
+      "count": 447
+    },
+    {
+      "file": "data/oncology_centers_seed.json",
+      "count": 86
+    },
+    {
+      "file": "data/acvim_oncology_profiles.json",
+      "count": 458
+    },
+    {
+      "file": "data/oncology_care_source_inventory.json",
+      "count": 527
+    }
+  ],
+  "tele_source": "seo/oncology_teleconsultations.py",
+  "existing_canada_physical_rows": [
+    {
+      "name": "King Animal Hospital",
+      "street": "1265 19th Sideroad",
+      "city": "King City",
+      "source_id": "king-animal-hospital"
+    },
+    {
+      "name": "Ottawa Animal Emergency & Specialty Hospital",
+      "street": "1155 Lola Street",
+      "city": "Ottawa",
+      "source_id": "ottawa-animal-emergency-specialty-hospital"
+    },
+    {
+      "name": "Central Toronto Veterinary Referral Clinic",
+      "street": "1051 Eglinton Avenue W",
+      "city": "Toronto",
+      "source_id": null
+    },
+    {
+      "name": "Toronto Animal Cancer Centre",
+      "street": "11 Maitland Street",
+      "city": "Toronto",
+      "source_id": "toronto-animal-cancer-centre"
+    },
+    {
+      "name": "Centre Vétérinaire Rive-Sud",
+      "street": "7415 boul. Taschereau",
+      "city": "Brossard",
+      "source_id": "centre-v-t-rinaire-rive-sud"
+    },
+    {
+      "name": "WCVM Veterinary Medical Centre",
+      "street": "52 Campus Drive",
+      "city": "Saskatoon",
+      "source_id": "wcvm-veterinary-medical-centre"
+    }
+  ],
+  "decisions": [
+    {
+      "source_id": "centre-veterinaire-daubigny-quebec",
+      "decision": "Missing current physical location in full assembled care catalog, supplemental and seed; inventory branch identity absent. Shared physician is not a physical-site duplicate."
+    },
+    {
+      "source_id": "hopital-veterinaire-hudson-vaudreuil-dorion",
+      "decision": "Missing current physical location in full assembled care catalog, supplemental and seed; inventory branch identity absent. Shared physician is not a physical-site duplicate."
+    },
+    {
+      "source_id": "cancer-vet-montreal-monkland",
+      "decision": "Missing current physical location in full assembled care catalog, supplemental and seed; inventory branch identity absent. Shared physician is not a physical-site duplicate."
+    },
+    {
+      "source_id": "centre-veterinaire-laval",
+      "decision": "Missing current physical location in full assembled care catalog, supplemental and seed; inventory branch identity absent. Shared physician is not a physical-site duplicate."
+    },
+    {
+      "source_id": "centredmvet-montreal",
+      "decision": "Missing current physical location in full assembled care catalog, supplemental and seed; inventory branch identity absent. Shared physician is not a physical-site duplicate."
+    },
+    {
+      "source_id": "centredmvet-st-hubert",
+      "decision": "Missing current physical location in full assembled care catalog, supplemental and seed; inventory branch identity absent. Shared physician is not a physical-site duplicate."
+    },
+    {
+      "source_id": "centredmvet-blainville",
+      "decision": "Missing current physical location in full assembled care catalog, supplemental and seed; inventory branch identity absent. Shared physician is not a physical-site duplicate."
+    }
+  ],
+  "special_cases": [
+    "Cancer Vet Montreal already exists as tele-11, not a physical care location. Keep existing remote service, add distinct Monkland in-person site with Medical oncology only.",
+    "Maude Touret at Laval and Monkland: explicitly documented two physical services; do not merge on clinician.",
+    "Rive-Sud exists and was recently reviewed; preserved without re-audit or date refresh.",
+    "Ottawa belongs to Ontario worker; recognized group site but not assigned/reprocessed here."
+  ]
+}
