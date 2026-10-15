@@ -1,0 +1,85 @@
+{
+  "run_id": "care-discovery-20261014T215849-0400",
+  "status": "COMPLETE_BOUNDED_PACKAGE_TERRITORIES_PARTIAL",
+  "initial_deploy_commit": "638ed421f331c4f843b0ecd680e358323c92d8f2",
+  "deploy_commit": "a20006ecc9ce74ec96a1a06c691c5ed2454832fa",
+  "deployment": {
+    "id": 38706613432,
+    "head_sha": "a20006ecc9ce74ec96a1a06c691c5ed2454832fa",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/38706613432",
+    "created_at": "2026-10-15T08:34:17Z",
+    "updated_at": "2026-10-15T08:35:20Z"
+  },
+  "jobs": [
+    {
+      "id": 116327474446,
+      "name": "build-candidate",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 116327706724,
+      "name": "deploy",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 116327802726,
+      "name": "notify-indexnow",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "jobs_evidence_method": "installed GitHub fetch_workflow_run_jobs; public jobs endpoint twice returned transient HTTP500",
+  "production_readback": [
+    {
+      "url": "https://vettrialfinder.com/matcher/centers/",
+      "checked_at": "2026-10-15T08:35:50.561228+00:00",
+      "bytes": 463853,
+      "sha256": "df0e37d5d41a9c4b06166231bc9ad8b1ba6a44c15cd08a2655d4056ef0c30217",
+      "expected_sha256": "df0e37d5d41a9c4b06166231bc9ad8b1ba6a44c15cd08a2655d4056ef0c30217",
+      "exact_match": true
+    },
+    {
+      "url": "https://vettrialfinder.com/online-oncology-consultations/",
+      "checked_at": "2026-10-15T08:35:50.981337+00:00",
+      "bytes": 165740,
+      "sha256": "c1efd14ed76a9403f58776d0d73f3980de2b445429f8de504a9b67b42d35a305",
+      "expected_sha256": "c1efd14ed76a9403f58776d0d73f3980de2b445429f8de504a9b67b42d35a305",
+      "exact_match": true
+    }
+  ],
+  "counts": {
+    "processed": 60,
+    "fully_verified": 35,
+    "new_physical": 46,
+    "new_tele": 1,
+    "not_published_candidates": 13,
+    "published_limited_cards_with_questions": 12,
+    "new_unprocessed_leads": 39
+  },
+  "source_dates": {
+    "total_inventory": 574,
+    "attempted_published_sources": 47,
+    "remote_verified": 47,
+    "dates": [
+      "2026-10-14",
+      "2026-10-15"
+    ],
+    "exact_timestamps": 22,
+    "date_only": 25,
+    "status": "PASS"
+  },
+  "transport": {
+    "git_read": "PASS with require_escalated",
+    "spawn_agent": "PASS six real IDs",
+    "git_push": "FAILED missing Username credential; installed GitHub connector used",
+    "connector_transfer": "PASS complete tree matched tested local git tree; expected-main lease; force=false",
+    "main_reconciliation": "Preserved 936416e8 morning source audit; no care overlap; full build repeated"
+  },
+  "original_saved_leads_processed_removed_from_unprocessed": 4,
+  "completed_at": "2026-10-15T08:37:12.623167+00:00",
+  "country_coverage_complete": false
+}
