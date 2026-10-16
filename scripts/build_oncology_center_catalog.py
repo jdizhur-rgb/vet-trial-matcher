@@ -338,6 +338,9 @@ def center_match(seed: dict, candidate: dict) -> bool:
         frozenset(("pfotentierklinik-wien", "vetklinikum-wien")),
         frozenset(("tierarztzentrum-seepark-wien", "tierarztordination-schneeweiss-wien")),
         frozenset(("cz-eden-brno", "cz-animed-brno")),
+        # Independently verified Saarwellingen practices: different clinicians,
+        # streets and phones; the shared 66793 postal code is not identity.
+        frozenset(("de-tierarztpraxis-am-steinhuebel", "de-joerg-waschbuesch-saarwellingen")),
     }
     if frozenset((seed.get("source_id"), candidate.get("source_id"))) in separate_verified_sites:
         return False
