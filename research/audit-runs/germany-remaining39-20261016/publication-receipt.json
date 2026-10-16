@@ -1,0 +1,71 @@
+{
+  "main_sha": "f8e19c7c8d2216ceade92ef802b33cb1fec43c5a",
+  "pr_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/pull/22",
+  "publication_branch_head": "fff2c937bc3f40044cc88abab36898f171e3e721",
+  "checked_at": "2026-10-16T23:05:19.378374+00:00",
+  "main_readback": "20/20 files byte equal before documentary receipt; PASS",
+  "baseline_preservation": "All882 compiled baseline records structurally unchanged in every field; PASS",
+  "counts": {
+    "new_physical": 17,
+    "new_mobile": 1,
+    "new_remote": 0,
+    "existing_field_updates": 0,
+    "germany_care_locations": 238,
+    "germany_physical": 237,
+    "germany_mobile": 1,
+    "global_care_locations": 900,
+    "remote_total": 64,
+    "confirmation_needed": 17,
+    "not_yet_open": 2,
+    "other_closed_without_new_record": 2
+  },
+  "workflow_runs": [
+    {
+      "id": 38979263310,
+      "name": "Check copied evidence keys",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/38979263310"
+    },
+    {
+      "id": 38979263535,
+      "name": "Full catalog integrity audit",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/38979263535"
+    },
+    {
+      "id": 38979263283,
+      "name": "Build and deploy static site",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/38979263283"
+    }
+  ],
+  "production": [
+    {
+      "url": "https://vettrialfinder.com/matcher/centers/",
+      "status": 200,
+      "bytes": 852369,
+      "sha256": "fbf0e4941569cfc903cd30eeba4fe30e7d709e83de85ce22edc89c87c19138ad",
+      "local_sha256": "fbf0e4941569cfc903cd30eeba4fe30e7d709e83de85ce22edc89c87c19138ad",
+      "equal": true
+    },
+    {
+      "url": "https://vettrialfinder.com/online-oncology-consultations/",
+      "status": 200,
+      "bytes": 172029,
+      "sha256": "449d48ff730f125baca3dc6e5c0450ae07a0dbc75253d4bcd404d9ac776c3d5c",
+      "local_sha256": "449d48ff730f125baca3dc6e5c0450ae07a0dbc75253d4bcd404d9ac776c3d5c",
+      "equal": true
+    }
+  ],
+  "all18_new_names_present_in_production": true,
+  "research_checkpoint_before_deploy_receipt": "2dfbe527fc7ec8dc3e8a87d76d2e0626d2eeaa4b",
+  "remaining_ledger": "final-39-dispositions.json",
+  "continuation": "germany-continuation.json",
+  "unsent_questions": "unsent-confirmation-requests-de.md",
+  "messages_sent": false,
+  "fully_closed_country": false,
+  "independent_parent_production_check": "PASS: separate fresh fetch matched centers SHA and all18 exact new names"
+}
