@@ -77,3 +77,32 @@ Native GET https://tierarztpraxis-muttendorf.at/ 2026-10-16T18:57:07.748Z вер
 
 Родитель подтвердил backup002: dataSHA5e43e4b5c0252c394fc56ff02d7f9fb22842ff3b,receipt e40c1cb4666f628cc24aeb5220f4c62a57dec650;archive/memberhash/control/readbackPASS. Это researchbackup,неpublication/clinicalapproval.
 
+# Блок 03 — фактическая сверка текущих филиалов, не закрытие страны
+
+Период продолжается; исполнитель `/root/recovery_at`, старт 16.10.2026 18:40:39 UTC. К текущему блоку обработаны 53 из 111 зарегистрированных уникальных provider/service candidates, fully_verified 45. Исходы: NEW 13 (все inherited_unpublished_revalidated), UPDATE 14 существующих клиник / 28 полей, DUPLICATE 19, EXCLUDED 2, UNRESOLVED 5. Новые поисковые запросы блока: 20; всего 39. Страна НЕ завершена, доступный национальный остаток остаётся собственным недоделанным, а не внешним пробелом.
+
+Восстановлены новые, реально прочитанные primary evidence, не исходные утраченные байты salvage. Для Veterinaria использованы опубликованные в HTML **конкретного филиала** treatment/pricelist product groups, включая явные Chemotherapie/Tumorchirurgie; не национальный master. Для AniCura прочитаны branch-specific service indexes с Operation von Tumoren. Результирующие exact old/new значения baseline зафиксированы в `block-03-changes.json`.
+
+| Существующий филиал | Город | Подтверждённое добавление |
+|---|---|---|
+| Tierklinik Dobersberg | Dobersberg | Chemotherapy, Surgery |
+| Kleintierzentrum Graz-Süd | Pirka | Surgery |
+| Tierarztpraxis Groß-Enzersdorf | Groß-Enzersdorf | Surgery |
+| Tierarztpraxis Zohmann | Hard | Surgery |
+| Tierklinik Parndorf | Parndorf | Chemotherapy, Surgery |
+| TVZ Scheibbs | Scheibbs | Surgery |
+| Tierklinik St. Pölten | St. Pölten | Surgery |
+| Tierarztpraxis Traiskirchen | Traiskirchen | Chemotherapy, Surgery |
+| Zentrum für Tiergesundheit Meidling | Wien | Chemotherapy, Surgery |
+| Tierarztpraxis Strebersdorf | Wien | только Chemotherapy; Tumorchirurgie (ext.) НЕ локальная Surgery |
+| TMZ20 | Wien | Chemotherapy, Surgery; собственная OP-страница подтверждает опухолевые операции |
+| AniCura Hollabrunn | Hollabrunn | Surgery |
+| AniCura Korneuburg | Korneuburg | Surgery |
+| AniCura Erdberg | Wien | Surgery |
+
+Четыре TIERplus Wien/Brunn повторно подтверждают уже опубликованные локальные chemo/surgery; это DUPLICATE, не NEW. Krebitz-Gressl и Mauer сохраняют узкую Local oncology care: коллаборация с университетом/интерес врача не доказывают локальную RT или введение препаратов. Vetmeduni: текущие клиническая oncology-страница, персонал, линейный ускоритель и телефон прочитаны; существующие четыре modality tags повторно не добавляются. Полные текущие контакты и опубликованные veterinary roles находятся в individual receipts; новых board oncology credential claims не делаю.
+
+Текущие первичные чтения Pöchlarn, Steinerkirchen, Wels и TIERplus Klagenfurt уже содержат положительный cancer context; их новые записи ещё не сведены в этот блок и остаются доступной собственной работой. Для Klagenfurt прочитан и визуально проверен текущий linked branch PDF (skill PDF): Tumordiagnostik/Tumorchirurgie, без подтверждённой chemotherapy. Anif/Perchtoldsdorf/TAPS и декабрьское будущее открытие Rathaus из текущих VUK leads требуют отдельных полноценных branch решений. IVC Austria roster даёт именно Perchtoldsdorf Ost и Tulln, а не прежние предположения Altheim/Wels. Все 9 Bundesländer, независимые клиники, GP, mobile/remote и открытия не объявлены исчерпанными.
+
+Удалённое сохранение block02 подтверждено: data `5e43e4b5c0252c394fc56ff02d7f9fb22842ff3b`, receipt `e40c1cb4666f628cc24aeb5220f4c62a57dec650`; safety Muttendorf: data `68a3297e94e65c1caf9f6e6dd045cfc3cac38d12`, receipt `2a819f1c5b66d017bffc5f14e04f7c706cfb3d8b`. Это backup, не publication/clinical acceptance. Парольный Muttendorf остаётся clinical_success=false и held; обходов не было.
+

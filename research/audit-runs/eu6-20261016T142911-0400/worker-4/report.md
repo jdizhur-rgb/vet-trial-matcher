@@ -37,3 +37,45 @@ Remote block01 verified parent: research dataSHA626eea1561eec9404e09cdc438b166c3
 Текущий свод candidate units: assigned 89, processed 28, fully_verified 5, NEW0, UPDATE0, DUP7, EXCLUDED3, UNRESOLVED18,61identity-onlyunprocessed. Querycount91, uniqueURLs996 отдельно. Research_complete=false; доступные reference/registry/frontier steps продолжаются.
 
 Техническая поправка блока02 (2026-10-16T18:55:57.010474+00:00): текущие direct official source attempts10 (8native+2Webfallback), отдельно24searchtoolcalls/91queries. Старый literal0 в draftutility не описывает выполненные запросы. Draftblock02 не ready для backup; frozenbytes не менялись, amendment сохранён, компактный block02delta ссылается на82неизменённых записейblock01 вместо их повторного копирования.
+
+## Блок03 — независимое восстановление полей, два кандидата NEW для QA
+
+Фактическое обновление 2026-10-16T19:09:38.689007+00:00. Из17имён потерянных draftlabels отдельно подтверждены текущие professional identity/contact rows BPT22.09.2026; clinicalservicepayloads не восстановлены, все17 UNRESOLVED. Ещё44identity-only не обработаны. Это не возврат61готовых карточек и не восстановление77operations.
+
+Текущий filu national roster native200 перечисляет12различных именных адресов, включая Waiblingen, двеBerlin, триMünchen, Hannover, двеHamburg, Frankfurt, Köln, Düsseldorf. Повторыfooter удалены; староеmarketing8не denominator. Local cancer care, открытие/приём, текущие врачи и clinicalchild scope по каждому не проверены;12UNRESOLVED, не12NEW.
+
+| Новый кандидат из сохранённого SHfrontier | Город и местная услуга | Независимые corefacts | Official service URL |
+|---|---|---|---|
+| Tierarztpraxis Dr.Boris Sülzle | Nortorf; explicit Tumorentfernungen/собственнаяоперационная | BPT public practitioner directory: Dr.BorisSülzle, SchülperGang6,24589Nortorf,04392-1088,ownedsite/email; publiccontactroute, appointment/intakeconditions confirm | http://www.tierarztpraxis-nortorf.de/kleintierpraxis.php |
+| Fachtierarztpraxis Dr.Angelika Drensler | Elmshorn; Chemotherapie и Tumorchirurgie | Current actuallylinked DVGJune2026list visuallychecked page3: Fachtierärztin für Kleintiere,Gooskamp15,25337Elmshorn,+4915115626529,officialsite/email; retainedphone-onlyappointments | https://www.tierarzt-drensler.de/leistungen/ |
+
+Сервисные даты сохранены16:36:57UTC(Nortorf) и16:37:03UTC(Drensler), а не обновлены чтением профессиональных списков. УBorisрольветеринара не oncologyboard; уDrenslerFTA Kleintiere не oncologydiplomate. DVGsmallmammal membership не считается cancer treatment. ДваNEW отсутствуют в fullphysical/supplemental/inventory/ACVIM/tele baselines по именам,адресам,доменам; координатыunknown/null. Оба — завершённые inherited unprocessedleads, не новое открытие этого запуска и не однаиз61lostdraftidentity. ParentQA обязателен, publicationfalse.
+
+LMU independentEBVSprofile current200 подтверждает Nataliia/NataliaIgnatenko, онкологическую квалификацию и руководящуюроль LMU, ужеимеющуюсявcurrentbaseline: DUPLICATE, неNEW/UPDATE; локальныеmodalities не выводятся изcredential. DVGcurrentmaster показал более свежийJune2026PDF вместо searchindexedApril; actualcurrentJuneversion прочитан ивизуальносверен.
+
+Счётчики: assigned102; processed58; fully_verified7 (5already-live+2NEWcandidate); NEW2; UPDATE0providers/0fields; DUP8; EXCLUDED3; UNRESOLVED45;44identity-onlyunprocessed. Queries99, searchtoolcalls26,12publicdirectoryfilterqueries; directofficialattempts32 отдельно. Research_complete=false.
+
+## Текущее национальное покрытие — не выдаётся за завершение
+
+| Земля | Фактическая работа этого запуска | Остаток |
+|---|---|---|
+| Baden-Württemberg | broadcurrent/undated +newsignal+refinedopeningsearches saved | Individual primarybranch/service/core and all discoveredfrontier reconciliation incomplete |
+| Bayern | broadcurrent/undated +newsignal+refinedopeningsearches saved | Individual primarybranch/service/core and all discoveredfrontier reconciliation incomplete |
+| Berlin | broadcurrent/undated +newsignal+refinedopeningsearches saved | Individual primarybranch/service/core and all discoveredfrontier reconciliation incomplete |
+| Brandenburg | broadcurrent/undated +newsignal+refinedopeningsearches saved | Individual primarybranch/service/core and all discoveredfrontier reconciliation incomplete |
+| Bremen | broadcurrent/undated +newsignal+refinedopeningsearches saved | Individual primarybranch/service/core and all discoveredfrontier reconciliation incomplete |
+| Hamburg | broadcurrent/undated +newsignal+refinedopeningsearches saved | Individual primarybranch/service/core and all discoveredfrontier reconciliation incomplete |
+| Hessen | broadcurrent/undated +newsignal+refinedopeningsearches saved | Individual primarybranch/service/core and all discoveredfrontier reconciliation incomplete |
+| Mecklenburg-Vorpommern | broadcurrent/undated +newsignal+refinedopeningsearches saved | Individual primarybranch/service/core and all discoveredfrontier reconciliation incomplete |
+| Niedersachsen | broadcurrent/undated +newsignal+refinedopeningsearches saved | Individual primarybranch/service/core and all discoveredfrontier reconciliation incomplete |
+| Nordrhein-Westfalen | broadcurrent/undated +newsignal+refinedopeningsearches saved | Individual primarybranch/service/core and all discoveredfrontier reconciliation incomplete |
+| Rheinland-Pfalz | broadcurrent/undated +newsignal+refinedopeningsearches saved | Individual primarybranch/service/core and all discoveredfrontier reconciliation incomplete |
+| Saarland | broadcurrent/undated +newsignal+refinedopeningsearches saved | Individual primarybranch/service/core and all discoveredfrontier reconciliation incomplete |
+| Sachsen | broadcurrent/undated +newsignal+refinedopeningsearches saved | Individual primarybranch/service/core and all discoveredfrontier reconciliation incomplete |
+| Sachsen-Anhalt | broadcurrent/undated +newsignal+refinedopeningsearches saved | Individual primarybranch/service/core and all discoveredfrontier reconciliation incomplete |
+| Schleswig-Holstein | broadcurrent/undated +newsignal+refinedopeningsearches saved | Individual primarybranch/service/core and all discoveredfrontier reconciliation incomplete |
+| Thüringen | broadcurrent/undated +newsignal+refinedopeningsearches saved | Individual primarybranch/service/core and all discoveredfrontier reconciliation incomplete |
+
+Университеты: FU/TiHo/JLU/Leipzig/LMU searchrouting выполнен; LMU currentcredential отдельноcorroborated, остальное не является свежим clinicalfullreview. AniCura/Evidensia/TAPP/VUK exactheldclinicalscope не восстановлен; filu roster перечислен, ветки не верифицированы. Independent/GP,RT/ECT,visiting/mobile/remote и новыеоткрытия остаютсяown_unfinished по saved searchfrontier. Unknownscope не назван недоступнымсайтом и не остановил независимыеprofessional routes.
+
+Backup003 verified parent: data2ea76afd3e478db507055ef6d8dd0ad6333d2766; readback0ee5900b58d3089b62b3da0390e539805334e697. Новыйблокresearch-only; не publication/acceptance. Publicformhiddenstate минимизирован доbackup; никакихtokenuse/formsubmission/login/mapclick или новыхdenialbypass.

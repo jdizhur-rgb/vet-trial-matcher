@@ -1,29 +1,17 @@
-# Польша — промежуточный checkpoint 2
+# Польша — промежуточный блок 3
 
-Исполнитель /root/recovery_pl. Начало16октября2026в18:41:40UTC, работа продолжается. Run eu6-20261016T142911-0400; current-mainbaseline2f7099307e174556883ca6eb97495bead2dc3401.
+Исполнитель: /root/recovery_pl, slot 3. Начало: 2026-10-16 18:41:40 UTC. Последняя фиксация: 2026-10-16 19:07:06 UTC. Работа продолжается; research_complete=false.
 
-## Разделение наследства и новых проверок
+Унаследованы 147 предложений, 637 Web-receipts и 324 запроса. В текущих полных каталогах 20 прежних идентичностей уже представлены, 127 отсутствуют; это inherited_absent_candidates, а не 127 проверенных NEW. inherited_unpublished_revalidated пока 0: клиническая proof-QA старых предложений и полный пересчёт реальных провайдеров ещё продолжаются.
 
-Унаследовано147proposal records с136заявленнымиfully и637Webreceipts/324queries. По всем четырём полным current-input каталогам3005строк:20ID ужеmain,127absent candidates. Последние НЕ127revalidatedNEW: inherited_unpublished_revalidated пока0; полная семантическая/fieldQA и пересчёт реальных провайдеров продолжаются. Provisionalcandidateinventory134=127inheritedabsent+7savedleadNEW,не134подтверждённых добавлений. Никаких productionUPDATE сейчас не заявлено.
+На этом запуске подтверждены 7 прежних saved leads и 12 действительно новых региональных клиник. Итого сейчас 19 qualifying NEW, после проверки полных current physical/supplemental/inventory/acvim и 62 tele-service units; 12 новых дополнительно не пересекаются с 147 старыми предложениями. Полный семантический итоговый пересчёт будет повторён после национального поиска. UPDATE пока 0. Provisional proposal-candidate inventory 146=127+7+12, не 146 принятых NEW.
 
-## Фактический новый результат
+Новые 12: Biegaławet — Inowrocław; Amicus — Chełm; Na Tuwima, Royal Vet, VetMedica — Zamość; Promienna — Tarnów; Animalia Medica и Serwin — Nowy Sącz; Dobry Weterynarz — Myślenice; Animal Centrum — Ostrołęka; CZZ — Radom; Dogtorki — Szczytno. Подробные точные адреса, опубликованные квалификации, режим записи, услуги, URL и короткие цитаты сохранены в candidates-003/dedupe. Большинство — онкохирургия/удаление опухолей, не химиотерапия. Dogtorki: химиотерапия упомянута как вариант решения, но её местное проведение не установлено. Radom-сервис CZZ не распространён на Iłża и Krzyżanowice. Dogtorki Dźwierzuty не получает услуги основного отделения автоматически. CO2-лазер и электрокоагуляция не названы RT/ECT.
 
-Полными первичными service/team/contact/access страницами подтверждены7прежних сохранённых leads: PrzyKładce(Bydgoszcz,онкохирургия),ABA-VET(Wieliczka,удаление опухолей),DRHAU(Kraków,онкохирургия),Dobrywet(Bobrowiec,химиотерапия/ECT/онкохирургия),VetHome(Długołęka,онкохирургия),AS(Olsztyn,толькоLocaloncologycare),Lupus(Kraków,толькоLocaloncologycare). Профильного boardсертификата дляGP не требовали; специфические модальности не выдумывались. Это7qualifyingNEWthisrun после текущего дедупа,аnew_discovery_this_run_fully_verified=0. Подробные URLs,цитаты,квалификации и scope вcandidates001/002. Координаты неизвестны явно,не являются барьером.
+AnimalVET Puławy: онкологическое образование врача не заменяет явное местное лечение; без продвижения. Tymiankowa: официальный сайт на обслуживании, запись даёт лишь контакты. Dr ZOO Lubsko: Web/native exactURL 502, не permission denial. Provet: настоящий hosting Account Suspended, host hold. Zapiesek: официальный root недоступен через tool, hold; партнёрская страница не подтверждает лечение. Paluch: онкологическая каталожная метка не относится к реальной карточке услуг. Nowa Huta / Janta: каталожная привязка адреса ошибочна; текущий полный primary body не доставлен, поисковый текст говорит о направлении к онкологу, не о местном лечении.
 
-Все17savedprimaryroutes и12identityroutes получили маршрутизацию/именованный исход. NeoVet«Białystok» оказался ложным городом directoryURL:физическиŚwit65Wrocław,ужеinherited. Hanusz — историческое имя текущейOlbrychta1A;MediCaVet.com.plс тем же телефоном — probablelegacyalias нынешнейRacławicka146,не новаяbranch. Rybicki относится к существующейBrynowska25c,не ещё однаклиника. MyTail—блог,Anika—экзотические мелкиемлекопитающие,Jagielski—образовательный профиль без отдельной практики. Generic surgery/курсы не расширены до cancer treatment.
+Проведены 84 новых запроса, отдельно от 324 унаследованных. Все 16 регионов получили первый слой из 32 запросов; 54 новых именованных lead сохранены. Значительная часть ещё доступна и НЕ записывается во внешние препятствия: оставшиеся региональные клиники, explicit-OR вторичные города, 147 inherited proof-review, 221 потенциальный/636 unmatched host reconciliation, актуальные roster всех сетей, университетские current/future проверки, mobile/visiting/remote и новые открытия. Национальная полнота не заявлена.
 
-## Национальный поиск
+Ограничения 001–007 и коррекция временной точности сохранены неизменяемыми shard/ready. В 006/007 вручную оценённые минуты отозваны отдельной append-only correction: допустима фактическая дата 2026-10-16, не вымышленная точность. Никаких обходов gate, TLS-disable, сообщений, форм или production changes.
 
-Всего69actualqueries этого запуска,считая32новых pairedregionqueries всех16województw. Эти последние выявили54именованных новых leads,которые ещёНЕprocessed/verified; они сохранены отдельно сofficialdiscoveryURLs. Не повторялось списывание доступногоостатка воexternal. Broadqueries с несколькимигородами дают шум,поэтому explicitOR secondarycityrefinements остаются открытыми. Никакой регион/национальная dimension ещё не объявлена завершённой.
-
-Следующий блок:регионально обработать новыеprimaryleads,прояснитьштат/точныеbranches и обновлениятолько поexactold/currentnew;далее завершить221potential/636unmatchedhost priorqueryreconciliation,сети/currentrosters,newsignals иmobile/remote. Унаследованные университетские текущие/будущиеразличия сохранены,но финальнаяnationalmatrixещёне принята.
-
-## Внешние вопросы и ограничения
-
-Точные именованные вопросы:VETLublincurrentqualifiedGP;2MED-VETbranchscope/staff;Vetspecbody502hostname mismatch безTLSdisable;GiVetbody/oncology;ZwierzakBiałystokrootgate+bookingredirectloop;AVETOlsztynprimaryidentity;ZdrowyZwierzak2branchesservice429. Втораяпоследняяпара имеет staff/contact/home,но не доставленныйонкосервис,навигаторсампо себенеproof. Датыуспешнойпроверки не обновлены от ошибок. Все22старыхhold плюсnew001–004сохранены;новыеdeniedURLнеповторялись.
-
-## Backup и валидация
-
-Root/workeridentity совпадает;исходныекопии неизменны. Всеappend-onlysourceшарды иcandidateверсии хешируютсяmanifest/ready. Parent сообщилremoteVERIFIEDbackup002: data5e43e4b5c0252c394fc56ff02d7f9fb22842ff3b,receipt e40c1cb4666f628cc24aeb5220f4c62a57dec650,веткаresearch/europe-recovery-eu6-20261016T142911-0400. Этоbackupblock1/restrictions003/004,НЕclinicalacceptance/публикация. Новыеblock2байты ещёожидаютremoteproof. Main/site/build/deploy не изменялись.
-
-research_complete=false: именованный доступныйостаток иnationalplan продолжаются безcandidate/time/integrationcap.
+Проверенный remote backup003: data 2ea76afd3e478db507055ef6d8dd0ad6333d2766, receipt 0ee5900b58d3089b62b3da0390e539805334e697; block-2 принят только как backup. Hold005 дополнительно remote backup004: data 68a3297e94e65c1caf9f6e6dd045cfc3cac38d12, receipt 2a819f1c5b66d017bffc5f14e04f7c706cfb3d8b. Ветка research/europe-recovery-eu6-20261016T142911-0400. Block-3 ещё не имеет remote proof. Полная национальная таблица и окончательные provider-unit counters будут в финальном отчёте после завершения доступной работы.
