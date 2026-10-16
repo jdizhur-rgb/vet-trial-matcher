@@ -1,10 +1,10 @@
 # Франция — национальная проверка онкологической помощи
 
-Run eu6-20261016T142911-0400; slot5; настоящий agent ID /root/recovery_fr; baseline main 2f7099307e174556883ca6eb97495bead2dc3401. Фактический старт по clock:2026-10-16 18:42:43 UTC. Отчёт сформирован 2026-10-16T19:20:41.196Z. Работа продолжается: research_complete=false, публикация не разрешена этой готовностью.
+Run eu6-20261016T142911-0400; slot5; настоящий agent ID /root/recovery_fr; baseline main 2f7099307e174556883ca6eb97495bead2dc3401. Фактический старт по clock:2026-10-16 18:42:43 UTC. Отчёт сформирован 2026-10-16T19:27:54.296Z. Работа продолжается: research_complete=false, публикация не разрешена этой готовностью.
 
 ## Унаследовано и действительно выполнено
 
-Восстановлены 80 сохранённых наборов источников, 82 старых исхода и64 старых предложения. Исторические63 полных проверки не считаются новыми открытиями или свежими посещениями. Все64 предложения индивидуально сверены по сохранённым первичным фактам и полной текущей базе:6 уже main,57 полноценных неопубликованных предложений,1 LesVet с незакрытым списком врачей филиала. Два дополнительных сохранённых направления — Sainte-Anne и Mascaret — доведены до предложений после собственных полнотекстовых проверок. Ни один из них не назван новым открытием этого запуска.
+Восстановлены 80 сохранённых наборов источников, 82 старых исхода и64 старых предложения. Исторические63 полных проверки не считаются новыми открытиями или свежими посещениями. Все64 предложения индивидуально сверены по сохранённым первичным фактам и полной текущей базе:6 уже main,57 полноценных неопубликованных предложений,1 LesVet с незакрытым списком врачей филиала. Sainte-Anne и Mascaret доведены до предложений после собственных полнотекстовых проверок. Ещё9 сохранённых направлений Vetesia/Fovéa предложены только как узкая локальная онкопомощь по собственным филиальным услугам/консультациям и текущим врачебным ролям; конкретные методы не перенесены с групповых страниц. Ни один не назван новым открытием этого запуска.
 
 Оригинальные checkpoint04–10 и их хеши не объявлены восстановленными; сохранённые root10 bodies — отдельно помеченная копия, а не оригинальные зафиксированные пакеты. Прочитаны assignment, criteria, AGENTS и все644 строки PROJECT_OPERATIONS. Полные четыре прерванные очереди и44 точных запрета URL загружены в отдельную проверку перед каждым пакетом источников. Старый общий offline-перерыв снят новым запуском, реальные отказы не сняты.
 
@@ -20,17 +20,17 @@ Run eu6-20261016T142911-0400; slot5; настоящий agent ID /root/recovery_
 |---|---|---|
 | Auvergne-Rhône-Alpes | Сверены 7 профилей: CHUVAC — VetAgro Sup Lyon (https://chuvac.vetagro-sup.fr/services/cancerologie/); CHV AniCura Armonia (https://www.anicura.fr/cliniques/armonia/nos-services/cancerologie/); Clinique vétérinaire Vet’Auvergne (https://vetauvergne.com/chimiotherapie/); остальные перечислены ниже | НЕТ: текущие услуги и новые сигналы региона не исчерпаны |
 | Bourgogne-Franche-Comté | Сверены 1 профилей: Clinique vétérinaire des Ducs de Bourgogne (https://www.vetddb.fr/services/oncologie/) | НЕТ: текущие услуги и новые сигналы региона не исчерпаны |
-| Bretagne | Сверены 5 профилей: Clinique AniCura TRIOVet (https://www.anicura.fr/cliniques/triovet/nos-services/oncologie/); Clinique vétérinaire Sainte-Croix (https://www.veterinairesaintecroix.com/); Clinique vétérinaire des Noës (https://cliniquedesnoes.fr/); остальные перечислены ниже | НЕТ: текущие услуги и новые сигналы региона не исчерпаны |
-| Centre-Val de Loire | Сверены 4 профилей: Clinique vétérinaire des Acacias (https://vetacacias.com/services/25); Clinique vétérinaire TouraineVet (https://www.tourainevet.fr/m%C3%A9decine-interne); Clinique vétérinaire du Gabereau (https://www.gabereau.vet/); остальные перечислены ниже | НЕТ: текущие услуги и новые сигналы региона не исчерпаны |
+| Bretagne | Сверены 7 профилей: Clinique AniCura TRIOVet (https://www.anicura.fr/cliniques/triovet/nos-services/oncologie/); Clinique vétérinaire Sainte-Croix (https://www.veterinairesaintecroix.com/); Clinique vétérinaire des Noës (https://cliniquedesnoes.fr/); остальные перечислены ниже | НЕТ: текущие услуги и новые сигналы региона не исчерпаны |
+| Centre-Val de Loire | Сверены 7 профилей: Clinique vétérinaire des Acacias (https://vetacacias.com/services/25); Clinique vétérinaire TouraineVet (https://www.tourainevet.fr/m%C3%A9decine-interne); Clinique vétérinaire du Gabereau (https://www.gabereau.vet/); остальные перечислены ниже | НЕТ: текущие услуги и новые сигналы региона не исчерпаны |
 | Corse | Сохранён исходный поиск; доступные местные направления ещё не исчерпаны | НЕТ: текущие услуги и новые сигналы региона не исчерпаны |
 | Grand Est | Сверены 5 профилей: Clinique AniCura Zebrasoma (https://www.anicura.fr/cliniques/zebrasoma/nos-services/cancerologie/); CHV AniCura Pommery (https://www.anicura.fr/cliniques/chv-pommery/nos-services/cancerologie/); Clinique vétérinaire Alvetia (https://www.alvetia.fr/activites-veterinaires/oncologie-veterinaire-2/); остальные перечислены ниже | НЕТ: текущие услуги и новые сигналы региона не исчерпаны |
-| Hauts-de-France | Сверены 2 профилей: Clinique vétérinaire les Margats (https://veterinaire-les-margats-boulogne-sur-mer.fr/); Cabinet vétérinaire VetinBoves (https://www.vetinboves.fr/service/chirurgie/) | НЕТ: текущие услуги и новые сигналы региона не исчерпаны |
+| Hauts-de-France | Сверены 3 профилей: Clinique vétérinaire les Margats (https://veterinaire-les-margats-boulogne-sur-mer.fr/); Cabinet vétérinaire VetinBoves (https://www.vetinboves.fr/service/chirurgie/); Clinique vétérinaire Saint Bernard (https://fovea-vet.fr/cliniques/clinique-veterinaire-saint-bernard/) | НЕТ: текущие услуги и новые сигналы региона не исчерпаны |
 | Île-de-France | Сверены 3 профилей: CHV HOPia Univet (https://www.hopia.fr/nos-services/chimiotherapie/); CHUVA — École nationale vétérinaire d’Alfort (https://www.vet-alfort.fr/services-cliniques/hopital-des-animaux-de-compagnie/consultations-sur-rendez-vous/cancerologie-2); MICEN VET — Créteil (https://micen-vet.fr/) | НЕТ: текущие услуги и новые сигналы региона не исчерпаны |
 | Normandie | Сверены 5 профилей: CHEV Indivisa — UniLaSalle (https://indivisa.unilasalle.fr/services-veterinaires/chirurgie); Clinique vétérinaire de la Côte Fleurie (https://cvcf.fr/petits-animaux/chimiotherapie/); Clinique vétérinaire Univet Giberville — Caen Pasteur (https://univet.fr/clinique/clinique-veterinaire-giberville-caen-pasteur-14730-univet/); остальные перечислены ниже | НЕТ: текущие услуги и новые сигналы региона не исчерпаны |
 | Nouvelle-Aquitaine | Сверены 9 профилей: Clinique vétérinaire VPlus Mascaret (https://vplus.fr/nos-cliniques/saint-andre-de-cubzac/); Établissement vétérinaire Bordeaux Sud (https://veterinaire-bordeauxsud.fr/services/oncologie-veterinaire/); Clinique vétérinaire Assistavet (https://www.assistavet.fr/services/oncologie); остальные перечислены ниже | НЕТ: текущие услуги и новые сигналы региона не исчерпаны |
 | Occitanie | Сверены 8 профилей: CHUV de Toulouse — ENVT (https://envt.fr/services-cliniques-chuv/les-cliniques/offre-soins-cliniques/oncologie/); ONCOnseil — CHV VetOccitanie (https://onconseil.com/service-clinique/); Clinique vétérinaire Castres Lameilhe (https://vetocastres.fr/chirurgie/chirurgie-maxillo-faciale/); остальные перечислены ниже | НЕТ: текущие услуги и новые сигналы региона не исчерпаны |
 | Pays de la Loire | Сверены 4 профилей: Clinique vétérinaire de Pontlieue (https://clinique-veterinaire-pontlieue.fr/oncologie/); Clinique vétérinaire Vétocéane (https://vetoceane.fr/services/cancerologie/); CHUV Oniris VetAgroBio — Nantes (https://chuv.oniris-nantes.fr/animaux-de-compagnie/medecine-generale-interne-et-specialisee/); остальные перечислены ниже | НЕТ: текущие услуги и новые сигналы региона не исчерпаны |
-| Provence-Alpes-Côte d’Azur | Сверены 7 профилей: Centre de Référé et d’Urgence Sainte-Anne (https://www.veterinairesainteanne-refere-urgence.com/nos-specialites/oncologie-cancerologie/); Clinique vétérinaire AixianceVet (https://aixiancevet.com/cancerologie/); Clinique vétérinaire Solea (https://solea.vet/oncologie/); остальные перечислены ниже | НЕТ: текущие услуги и новые сигналы региона не исчерпаны |
+| Provence-Alpes-Côte d’Azur | Сверены 10 профилей: Centre de Référé et d’Urgence Sainte-Anne (https://www.veterinairesainteanne-refere-urgence.com/nos-specialites/oncologie-cancerologie/); Clinique vétérinaire AixianceVet (https://aixiancevet.com/cancerologie/); Clinique vétérinaire Solea (https://solea.vet/oncologie/); остальные перечислены ниже | НЕТ: текущие услуги и новые сигналы региона не исчерпаны |
 | Guadeloupe | Сверены 1 профилей: Clinique vétérinaire JardiVillage (https://www.veterinaire-guadeloupe.com/) | НЕТ: текущие услуги и новые сигналы региона не исчерпаны |
 | Martinique | Сверены 1 профилей: Clinique vétérinaire Hoareau — HCVET (https://www.cliniqueveterinairehcvet.com/cancerologie-animale.php) | НЕТ: текущие услуги и новые сигналы региона не исчерпаны |
 | Guyane | Сохранён исходный поиск; доступные местные направления ещё не исчерпаны | НЕТ: текущие услуги и новые сигналы региона не исчерпаны |
@@ -52,11 +52,11 @@ Run eu6-20261016T142911-0400; slot5; настоящий agent ID /root/recovery_
 
 ## Счётчики и единицы
 
-Assigned:114; содержательно рассмотрено в текущей ревалидации:98; полностью подтверждено по общему стандарту:65. NEW:59; UPDATE:0; DUPLICATE:6; EXCLUDED:32; UNRESOLVED среди текущих рассмотренных:1. Единица — реальный провайдер/самостоятельный сервис, не URL, поисковый запрос, врач-алиас или сеть.
+Assigned:120; содержательно рассмотрено в текущей ревалидации:110; полностью подтверждено по общему стандарту:74. NEW:68; UPDATE:0; DUPLICATE:6; EXCLUDED:33; UNRESOLVED среди текущих рассмотренных:3. Единица — реальный провайдер/самостоятельный сервис, не URL, поисковый запрос, врач-алиас или сеть.
 
-Полные проверки включают сохранённые первичные факты и текущую семантическую сверку; это НЕ число свежих посещений источников. NEW относительно main:57 сохранённых неопубликованных предложений плюс2 сохранённых направления. Новых открытий именно этого запуска:0. Уже опубликованные6 входят в DUP, не NEW.16 других унаследованных неоднозначных исходов пока не переобследованы в текущих счётчиках и остаются в остатке. Все34 VPlus — отдельные физические идентичности; одинаковый телефон Pictavet/Beaulieu не превратил их в один адрес.
+Полные проверки включают сохранённые первичные факты и текущую семантическую сверку; это НЕ число свежих посещений источников. NEW относительно main:68; сохранённых неопубликованных предложений исходного пакета57, остальные — ревалидированные сохранённые направления. Новых открытий именно этого запуска:0. Уже опубликованные6 входят в DUP, не NEW. Других унаследованных неоднозначных исходов, ещё не пересмотренных в этом счётчике:10; они перечислены ниже. Все34 VPlus — отдельные физические идентичности; одинаковый телефон Pictavet/Beaulieu не превратил их в один адрес. Исправлена ошибка составителя остатка: сравнение двух неопределённых ID скрывало10 записей из отображения, но не удаляло исходные данные; теперь используются только заданный ID или точный URL.
 
-Запросы поиска, ссылки и реальные посещения сохранены отдельными объектами evidence/queries и первичными квитанциями. Четыре текущих поисковых запроса VPlus:2 system1 с нерелевантными результатами,2 system2 с первичными направлениями. Нерелевантные результаты не являются доказательством отсутствия клиники.17 CGF — документы, не17 новых провайдеров. Исходные80 наборов не новые источники этого запуска.
+Запросы поиска, ссылки и реальные посещения сохранены отдельными объектами evidence/queries и первичными квитанциями. Четыре текущих запроса VPlus и12 запросов распределения Vetesia/Fovéa/Vivanima/PLASMIDE сохранены отдельно. Нерелевантные результаты не являются доказательством отсутствия клиники.27 CGF — документы, не27 новых провайдеров. Исходные80 наборов не новые источники этого запуска.
 
 ## Предлагаемые подходящие провайдеры
 
@@ -121,6 +121,15 @@ Assigned:114; содержательно рассмотрено в текуще�
 - Clinique vétérinaire de Miribel — Miribel: локальная онкологическая помощь; химиотерапия. https://www.cliniqueveterinairemiribel.com/chimiotherapie/
 - Clinique vétérinaire de la Vilaine — Guipry — Guipry: локальная онкологическая помощь; онкологическая хирургия. https://guipry.cliniques-veterinaires-pierre-bleue-et-vilaine.fr/
 - MICEN VET — Créteil — Créteil: локальная онкологическая помощь; химиотерапия; лучевая терапия, без утверждения техники. https://micen-vet.fr/
+- Clinique vétérinaire Vetesia Hermès — Marseille: локальная онкологическая помощь. https://vetesia.fr/clinique-hermes/
+- Clinique vétérinaire Vetesia La Plage — Marseille: локальная онкологическая помощь. https://vetesia.fr/clinique-la-plage/
+- Clinique vétérinaire Vetesia Vet’Olympe — Marseille: локальная онкологическая помощь. https://vetesia.fr/clinique-olympe/
+- Clinique vétérinaire de l’Arguenon — Jugon — Jugon-les-Lacs: локальная онкологическая помощь. https://fovea-vet.fr/cliniques/clinique-veterinaire-de-larguenon-jugon/
+- Clinique vétérinaire de l’Arguenon — Le Mené — Le Mené: локальная онкологическая помощь. https://fovea-vet.fr/cliniques/clinique-veterinaire-de-larguenon-le-mene/
+- Clinique vétérinaire des Perrières — Saint-Gervais-la-Forêt: локальная онкологическая помощь. https://fovea-vet.fr/cliniques/clinique-veterinaire-des-perrieres/
+- Clinique vétérinaire du Pont Gabriel — Blois: локальная онкологическая помощь. https://fovea-vet.fr/cliniques/clinique-veterinaire-du-pont-gabriel/
+- Clinique vétérinaire Ronsard — Vendôme: локальная онкологическая помощь. https://fovea-vet.fr/cliniques/clinique-veterinaire-ronsard/
+- Clinique vétérinaire Saint Bernard — Lomme: локальная онкологическая помощь. https://fovea-vet.fr/cliniques/clinique-veterinaire-saint-bernard/
 
 ## Уже main, отдельно от новых
 
@@ -167,19 +176,26 @@ EXCLUDED означает отсутствие достаточного подт
 - Chaillé les Marais, Chaillé les Marais: https://vplus.fr/nos-cliniques/chaille-les-marais/. Полный местный раздел услуг проверен. Общая хирургия, визуализация и сопутствующие специальности не дают достаточного доказательства онкологического лечения. Это не вывод об отсутствии помощи или закрытии.
 - Marans, Marans: https://vplus.fr/nos-cliniques/marans/. Полный местный раздел услуг проверен. Общая хирургия, визуализация и сопутствующие специальности не дают достаточного доказательства онкологического лечения. Это не вывод об отсутствии помощи или закрытии.
 - Aigrefeuille d'Aunis, Aigrefeuille d'Aunis: https://vplus.fr/nos-cliniques/aigrefeuilledaunis/. Полный местный раздел услуг проверен. Общая хирургия, визуализация и сопутствующие специальности не дают достаточного доказательства онкологического лечения. Это не вывод об отсутствии помощи или закрытии.
+- Vetesia Calypso, Aubagne: https://vetesia.fr/clinique-calypso/. Полный местный раздел услуг проверен. Общая хирургия, визуализация и сопутствующие специальности не дают достаточного доказательства онкологического лечения. Это не вывод об отсутствии помощи или закрытии.
 
 ### Текущая незакрытая полная проверка
 
-- Clinique vétérinaire LesVet — Lesneven: текущая проверка не закрыла вопрос собственного актуального списка ветеринаров Lesneven. Групповая команда и длинный индексированный CGF-фрагмент не заменяют полный филиальный источник. https://www.lesvet.com/services-animaux-de-compagnie/chimiotherapie/. Точные запреты филиала и CGF сохранены; обхода не было.
+- Clinique vétérinaire LesVet — Lesneven: Текущая проверка не закрыла вопрос собственного актуального списка ветеринаров Lesneven. Групповая команда и длинный индексированный CGF-фрагмент не заменяют полный филиальный источник; точные запреты сохранены, обхода не было. https://www.lesvet.com/services-animaux-de-compagnie/chimiotherapie/. Дата фактической проверки: унаследована.
+- PLASMIDE mobile neurological tumor surgery / Synervet allocation: Свежие полные страницы услуг, команды и контакта, два поисковых движка: опухолевая нейрохирургия остаётся в формулировке «выездная ИЛИ Synervet». Вопрос: где именно выполняется опухолевой акт? Офис не стал лечебной площадкой. https://www.veterinaires-plasmide.fr/services/. Дата фактической проверки: 2026-10-16T19:22:01.175669+00:00.
+- Vivanima — Mesnil-Esnard / SeineVet identity: Шесть официальных маршрутов дали HTTP200 с пустым видимым текстом, обычное Web-чтение главной/услуг/биографии также нулевое. Индексированные биографии и химиотерапия — направления, не полная текущая первичная проверка. Вопрос: актуальная локальная химиотерапия, команда, доступ и распределение SeineVet/Vivanima. https://vivanima-chv.fr/. Дата фактической проверки: 2026-10-16T19:22:01.175158+00:00.
 
 ### Унаследованные неоднозначные кандидаты, ещё не пересмотренные в этом счётчике
 
-- Hermès: Групповые химиотерапия/ЭХТ не распределены по этому филиалу. https://vetesia.fr/clinique-hermes/. Унаследованная дата проверки: не указана; не обновлялась.
-- La Plage: Групповые химиотерапия/ЭХТ не распределены по этому филиалу. https://vetesia.fr/clinique-la-plage/. Унаследованная дата проверки: не указана; не обновлялась.
-- Vet’Olympe: Групповые химиотерапия/ЭХТ не распределены по этому филиалу. https://vetesia.fr/clinique-olympe/. Унаследованная дата проверки: не указана; не обновлялась.
-- Calypso: Групповые химиотерапия/ЭХТ не распределены по этому филиалу. https://vetesia.fr/clinique-calypso/. Унаследованная дата проверки: не указана; не обновлялась.
+- ONCOnseil tele-oncology: Прямая страница телеонкологии сообщает о закрытии сервиса; не активировать дистанционную запись. https://onconseil.com/je-suis-veterinaire/. Унаследованная дата проверки: 2026-10-16.
+- AniCura LorraineVet — Ludres: Нужно отделить локальное лечение от консультации и уточнить актуальную команду; точный отказ dermatologie сохранён. https://www.anicura.fr/cliniques/lorrainevet/nos-services/dermatologie/. Унаследованная дата проверки: 2026-10-16.
+- LesVet Brest: Химиотерапия Lesneven не перенесена на Brest; нужен филиальный акт. https://www.lesvet.com/clinique-brest/. Унаследованная дата проверки: 2026-10-16.
+- Vétiroise Landerneau: Групповые методы не распределены на этот филиал; местный CGF недостаточен для дополнительных тегов. https://www.vetiroise.fr/conditions-generales-de-fonctionnement-landerneau. Унаследованная дата проверки: 2026-10-16.
+- Vétiroise Plougastel-Daoulas: Групповые методы не распределены на этот филиал; местный CGF недостаточен для дополнительных тегов. https://www.vetiroise.fr/conditions-generales-de-fonctionnement-plougastel. Унаследованная дата проверки: 2026-10-16.
+- Vétiroise Guipavas: Сохранено прямое сообщение о закрытии; не активная новая клиника. https://www.vetiroise.fr/services-animaux-de-compagnie-nac. Унаследованная дата проверки: 2026-10-16.
+- Clinique vétérinaire du Salève — Cruseilles: Онкологическое паллиативное лечение подтверждено; включение паллиативной-only помощи требует отдельного редакционного решения. Методы Hutins не перенесены. https://www.cliniquedusaleve.com/cancerologie. Унаследованная дата проверки: 2026-10-16.
+- Polyvet identity — Carvin / Lille / possible reused domain: Текущий домен ненадёжен; нужна независимая идентичность реального филиала Sevetys Carvin. https://www.polyvet.fr/. Унаследованная дата проверки: 2026-10-16.
+- Clinique vétérinaire des Clomiers — Talant: Консультации/диагностика не доказывают конкретного местного противоопухолевого лечения. https://www.cliniqueveterinairedesclomiers.com/prestas/. Унаследованная дата проверки: 2026-10-16.
 - Atoutvet — Miramas: Прямое временное закрытие с12.04.2026; не объявлено постоянным. https://www.atoutvet.fr/contact-horaires. Унаследованная дата проверки: 2026-10-16.
-- PLASMIDE — mobile neurological tumor surgery / Synervet allocation: Нужно уточнить выездное либо стационарное распределение опухолевой нейрохирургии. Офис не объявлен лечебной площадкой. https://www.veterinaires-plasmide.fr/services/. Унаследованная дата проверки: 2026-10-16.
 
 ## Собственный доступный остаток
 
@@ -188,7 +204,6 @@ EXCLUDED означает отсутствие достаточного подт
 ### Other networks and independent branches
 
 - Sevetys Hénin-Beaumont alias reconciliation, CrozatierParis, OccitanieMontpellier; no40oncology-card fanout
-- Fovéa Jugon/LeMené/Perrières/PontGabriel/Ronsard/StBernard current local services
 - AniCura LorraineVet and actual remaining29branch local allocations outside exact denied routes
 - VetPartners actual approximately43 stage-roster branches and current permitted own sites
 - Distinct Synervet.COM Brittany16branch local service frontier, not Rouen Synervet.NET
@@ -197,8 +212,6 @@ EXCLUDED означает отсутствие достаточного подт
 
 ### Saved independent/provider allocation frontier
 
-- Vetesia Hermès/LaPlage/Vet’Olympe/Calypso: exact local acts; current shared group chemo/ECT not branches
-- Vivanima Mesnil-Esnard/SeineVet current identity and treatment, ordinary empty-source permitted routes
 - Polyvet Carvin actual Sevetys identity vs unreliable reused domain
 - LesVet Brest and Vétiroise Landerneau/Plougastel current local treatment allocation; Guipavas explicitclosed preserved
 - LesPléiadesToulon named qualified oncology clinician but actual treatment scope unpublished
@@ -220,7 +233,6 @@ EXCLUDED означает отсутствие достаточного подт
 
 ### Mobile/visiting/remote
 
-- PLASMIDE actual visiting-vs-fixed tumor surgery allocation; Synervet Rouen fixed surgery does not allocate every mobile partner
 - French current/undated and new itinérance/àdomicile/téléoncologie regional signals
 - ONCOnseil direct tele page closed preserved; Olliolis/Doliger vet-only remote revalidated, no owner access inference
 - Onkolia54 not dueOctober20 unless new material source signal

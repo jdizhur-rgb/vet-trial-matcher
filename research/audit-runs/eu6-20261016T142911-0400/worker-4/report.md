@@ -91,3 +91,7 @@ EBVS: фактически рекламируемая форма Germany+threeon
 Текущие единицы: assigned102; processed62; fully_verified7 (пять ужеlive +дваNEW дляQA); NEW2; UPDATE0providers/0fields; DUP8; EXCLUDED3; UNRESOLVED49; ещё40identity-only без полноценного providerreview. Searchenginequeries99не изменились; professionalGETfilterqueries считаются отдельно. Исследование продолжается.
 
 Последний подтверждённый parentbackup008: data7c3230dfa1848b0d88fa6f907b9386b5f01019bc,receipt8277390d8a744426efb6a7ad870da5be09e509eb; corrected02delta/03seals и CURRENT03report проверены удалённо. Новый блок не публикация и не countryacceptance.
+
+## Ограничение источника — NRW map consent (2026-10-16T19:27:47.649569+00:00)
+
+На двух публичных страницах палаты Nordrhein открыт статический текст, но загрузка Google locator явно требует согласия. Consent не принималось; карта, backend и обходной transport не запрашивались. Эти два mapworkflow удержаны, нули unloadedwidget не считаются отсутствием клиник. На странице опубликована отдельная ссылка на обычный PDFсписок — это иной разрешённый reference route после собственного preflight, не извлечение gatedmapdata. Остальная Германия не остановлена.
