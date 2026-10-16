@@ -1,10 +1,10 @@
-# AGENTS.md — Pet Cancer Trail persistent project instructions
+# AGENTS.md — Vet Trial Finder persistent project instructions
 
 Read `PROJECT_OPERATIONS.md` in full before changing code, catalog data, source inventory, SEO, UI, workflows, or deployment. It is the canonical engineering and operations memory for this repository. Do not rely on chat history and do not rediscover settled architecture from scratch.
 
 ## Project purpose
 
-Pet Cancer Trail is a free, treatment-focused service for owners of dogs and cats with cancer. The public matcher must favor accuracy over record count and must not create false hope. A truthful “no matches” result is acceptable.
+Vet Trial Finder is a free, treatment-focused service for owners of dogs and cats with cancer. The public matcher must favor accuracy over record count and must not create false hope. A truthful “no matches” result is acceptable.
 
 Production repository: `jdizhur-rgb/vet-trial-matcher`
 Production branch: `main`

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the Pet Cancer Trail news index and current trial updates."""
+"""Generate the Vet Trial Finder news index and current trial updates."""
 # Pages deploy refresh: 2026-09-29 Laverdia
 
 from __future__ import annotations
@@ -73,11 +73,11 @@ def write_article(root: Path, slug: str, title: str, description: str, body: str
     disclosure = "Prepared with AI assistance and reviewed by Yuliia Dizhur." + (" Trial eligibility and enrollment decisions are made by the study team." if trial_news else "")
     status_line = f"<p><strong>Recruitment status checked:</strong> {published}</p>" if trial_news else ""
     byline = f'''<div class="article-byline"><p><strong>Published:</strong> {published}</p>{status_line}<p><strong>Source:</strong> {source_name}.</p><p><strong>Editorial disclosure:</strong> {disclosure}</p></div>'''
-    page = g.page(f"{title} | Pet Cancer Trail", description, f'<article class="article-page news-article">{body}{byline}</article>', url)
-    social = f'''<meta property="og:type" content="article"><meta property="og:site_name" content="Pet Cancer Trail"><meta property="og:title" content="{g.esc(title)}"><meta property="og:description" content="{g.esc(description)}"><meta property="og:url" content="{url}"><meta name="twitter:card" content="{'summary_large_image' if social_image else 'summary'}"><meta name="twitter:title" content="{g.esc(title)}"><meta name="twitter:description" content="{g.esc(description)}">'''
+    page = g.page(f"{title} | Vet Trial Finder", description, f'<article class="article-page news-article">{body}{byline}</article>', url)
+    social = f'''<meta property="og:type" content="article"><meta property="og:site_name" content="Vet Trial Finder"><meta property="og:title" content="{g.esc(title)}"><meta property="og:description" content="{g.esc(description)}"><meta property="og:url" content="{url}"><meta name="twitter:card" content="{'summary_large_image' if social_image else 'summary'}"><meta name="twitter:title" content="{g.esc(title)}"><meta name="twitter:description" content="{g.esc(description)}">'''
     if social_image:
-        social += f'<meta property="og:image" content="{g.esc(social_image)}"><meta property="og:image:width" content="{social_image_size[0]}"><meta property="og:image:height" content="{social_image_size[1]}"><meta property="og:image:alt" content="Pet Cancer Trail news cover"><meta name="twitter:image" content="{g.esc(social_image)}">'
-    schema = {"@context": "https://schema.org", "@type": "NewsArticle", "headline": title, "datePublished": published_iso, "dateModified": published_iso, "author": {"@type": "Person", "name": "Yuliia Dizhur", "url": f"{SITE}/about/"}, "publisher": {"@type": "Organization", "name": "Pet Cancer Trail", "url": f"{SITE}/"}, "mainEntityOfPage": url}
+        social += f'<meta property="og:image" content="{g.esc(social_image)}"><meta property="og:image:width" content="{social_image_size[0]}"><meta property="og:image:height" content="{social_image_size[1]}"><meta property="og:image:alt" content="Vet Trial Finder news cover"><meta name="twitter:image" content="{g.esc(social_image)}">'
+    schema = {"@context": "https://schema.org", "@type": "NewsArticle", "headline": title, "datePublished": published_iso, "dateModified": published_iso, "author": {"@type": "Person", "name": "Yuliia Dizhur", "url": f"{SITE}/about/"}, "publisher": {"@type": "Organization", "name": "Vet Trial Finder", "url": f"{SITE}/"}, "mainEntityOfPage": url}
     page = page.replace("</head>", social + f'<script type="application/ld+json">{json.dumps(schema)}</script></head>', 1)
     (article_dir / "index.html").write_text(wrap_html(page), encoding="utf-8")
 
@@ -108,7 +108,7 @@ def generate_news_section(root: Path) -> None:
 </div></div>'''
     index_dir = root / "news"
     index_dir.mkdir(parents=True, exist_ok=True)
-    index_page = g.page("Veterinary Oncology News | Pet Cancer Trail", "New veterinary cancer treatment trials, recruitment changes and other oncology developments for dogs and cats.", index_body, NEWS_URL)
+    index_page = g.page("Veterinary Oncology News | Vet Trial Finder", "New veterinary cancer treatment trials, recruitment changes and other oncology developments for dogs and cats.", index_body, NEWS_URL)
     (index_dir / "index.html").write_text(wrap_html(index_page), encoding="utf-8")
 
 
@@ -164,7 +164,7 @@ def generate_news_section(root: Path) -> None:
 <h2>Who may qualify</h2><p>The study is for dogs diagnosed with B-cell lymphoma that are seen by Cornell’s oncology service in Ithaca, New York. Dogs must not have received previous lymphoma treatment other than prednisolone, and owners must be willing to proceed with standard-of-care CHOP chemotherapy.</p>
 <h2>What the study covers</h2><p>Tests and procedures performed specifically for the study are covered. Owners remain responsible for ordinary clinical care, but Cornell provides a 10% discount on standard-of-care chemotherapy visits and an additional $1,000 toward chemotherapy costs.</p>
 <p>Owners can contact Cornell Oncology or the Clinical Trials Coordinator at 607-253-3060 or <a href="mailto:vet-research@cornell.edu">vet-research@cornell.edu</a>.</p>
-<div class="article-cta"><a href="{CORNELL_OFFICIAL}" target="_blank" rel="noopener">Read the official Cornell trial page</a></div><p><a href="{MATCHER_URL}">Check this and other current cancer treatment trials in Pet Cancer Trail</a></p>'''
+<div class="article-cta"><a href="{CORNELL_OFFICIAL}" target="_blank" rel="noopener">Read the official Cornell trial page</a></div><p><a href="{MATCHER_URL}">Check this and other current cancer treatment trials in Vet Trial Finder</a></p>'''
     write_article(root, "cornell-smart-start-b-cell-lymphoma", "Cornell opens Smart-Start trial for dogs with B-cell lymphoma", "Cornell has opened enrollment in a treatment trial for dogs with B-cell lymphoma using a biology-guided pre-treatment followed by CHOP chemotherapy.", cornell_body, "Cornell University College of Veterinary Medicine")
 
     nc_state_body = f'''<p class="eyebrow">Enrollment deadline · September 30, 2026</p>
@@ -173,7 +173,7 @@ def generate_news_section(root: Path) -> None:
 <p>The study lasts eight days, from Monday through the following Monday. Dogs receive the bladder immunotherapy under general anesthesia on day 1, remain hospitalized through day 3, and return for outpatient checks on days 4 and 8. There is no placebo group. Every enrolled dog receives the immunotherapy, and some dogs may be able to enroll again for additional doses.</p>
 <h2>Who may qualify</h2><p>Dogs must weigh at least 8 kg (17.6 lb) and have muscle-invasive bladder urothelial carcinoma confirmed by cytology with a BRAF test or by biopsy. Metastatic disease is allowed. Dogs may be untreated or previously treated, but at least one month must have passed since radiation or chemotherapy. Other immunotherapy and prednisone are not allowed during enrollment.</p>
 <h2>What the study covers</h2><p>Pre-staging, IL-12 treatment and study monitoring are provided at no cost. Coverage includes specified blood and urine testing, focused urinary-tract ultrasound, hospitalization, anesthesia and repeat bloodwork.</p>
-<div class="article-cta"><a href="{NC_STATE_OFFICIAL}" target="_blank" rel="noopener">Read the official NC State trial page</a></div><p><a href="{MATCHER_URL}">Check current bladder cancer trials in Pet Cancer Trail</a></p>'''
+<div class="article-cta"><a href="{NC_STATE_OFFICIAL}" target="_blank" rel="noopener">Read the official NC State trial page</a></div><p><a href="{MATCHER_URL}">Check current bladder cancer trials in Vet Trial Finder</a></p>'''
     write_article(root, "nc-state-il12-bladder-cancer-deadline", "NC State bladder cancer immunotherapy trial closes enrollment September 30", "NC State's fully funded IL-12 immunotherapy study for dogs with invasive bladder cancer is scheduled to close enrollment September 30, 2026.", nc_state_body, "NC State College of Veterinary Medicine")
 
     wisconsin_body = f'''<p class="eyebrow">New treatment trial · September 17, 2026</p>
@@ -183,7 +183,7 @@ def generate_news_section(root: Path) -> None:
 <h2>Who may qualify</h2><p>Dogs need peripheral T-cell lymphoma confirmed by flow cytometry or immunohistochemistry, a measurable tumor that can be biopsied, body weight of at least 10 kg (22 lb), and age over one year. Significant health problems that would make completion unlikely may exclude a dog.</p>
 <h2>What the study covers</h2><p>The initial screening visit and initial laboratory work are owner-paid. After enrollment, the study covers required examination visits, laboratory work, tumor biopsy, PET-CT scans, hospitalization and all costs related to 90Y-NM600 treatment. Up to $1,000 is also available for treatment-related side effects.</p>
 <p>Owners or veterinarians can contact UW Veterinary Care Oncology at 608-890-0422 or <a href="mailto:oncclinicaltrials@vetmed.wisc.edu">oncclinicaltrials@vetmed.wisc.edu</a>.</p>
-<div class="article-cta"><a href="{WISCONSIN_OFFICIAL}" target="_blank" rel="noopener">Read the official Wisconsin trial listing</a></div><p><a href="{MATCHER_URL}">Check current lymphoma trials in Pet Cancer Trail</a></p>'''
+<div class="article-cta"><a href="{WISCONSIN_OFFICIAL}" target="_blank" rel="noopener">Read the official Wisconsin trial listing</a></div><p><a href="{MATCHER_URL}">Check current lymphoma trials in Vet Trial Finder</a></p>'''
     write_article(root, "wisconsin-ptcl-radiopharmaceutical-trial", "Wisconsin recruits dogs with peripheral T-cell lymphoma for 90Y-NM600 therapy", "UW Veterinary Care is recruiting dogs with peripheral T-cell lymphoma for a funded study of targeted 90Y-NM600 radiopharmaceutical therapy.", wisconsin_body, "UW Veterinary Care")
 
     purdue_body = f'''<p class="eyebrow">Three recruiting treatment trials · September 20, 2026</p>
@@ -208,7 +208,7 @@ def generate_news_section(root: Path) -> None:
 
 <p>Owners and veterinarians can contact <a href="mailto:TumorAblation@purdue.edu">TumorAblation@purdue.edu</a>. Purdue requires a veterinary referral for the lymphoma evaluation.</p>
 <div class="article-cta"><a href="{PURDUE_ABLATION_OFFICIAL}" target="_blank" rel="noopener">Read Purdue’s three tumor-ablation protocols</a></div>
-<p><a href="{MATCHER_URL}">Check these and other current cancer treatment trials in Pet Cancer Trail</a></p>'''
+<p><a href="{MATCHER_URL}">Check these and other current cancer treatment trials in Vet Trial Finder</a></p>'''
     write_article(root, "purdue-three-cancer-treatment-trials", "Purdue adds experimental tumor ablation to standard cancer treatment in three trials", "Three Purdue studies add experimental ablation to standard treatment for lymphoma, liver cancer and osteosarcoma, with part of the care funded.", purdue_body, "Purdue University College of Veterinary Medicine", "September 20, 2026", "2026-09-20", PURDUE_SOCIAL_IMAGE)
 
     taiwan_il15_body = f'''<p class="eyebrow">Recruiting in Taiwan · September 25, 2026</p>
@@ -226,7 +226,7 @@ def generate_news_section(root: Path) -> None:
 <p>IL-15 is also being studied in human cancer care, and an IL-15 receptor agonist has been approved for one form of bladder cancer. Inhaled IL-15, however, remains an experimental veterinary approach. This is an unusual example of dogs participating at the front edge of immunotherapy research rather than receiving a veterinary adaptation of an established human treatment.</p>
 <div class="article-cta"><a href="{TAIWAN_IL15_OFFICIAL}" target="_blank" rel="noopener">Read the official Evergreen recruitment page</a></div>
 <p><a href="{TAIWAN_IL15_PHASE1}" target="_blank" rel="noopener">Read the published Phase I study</a> · <a href="{TAIWAN_IL15_PHASE2}" target="_blank" rel="noopener">Read the published Phase II study</a></p>
-<p><a href="{MATCHER_URL}">Check this and other current cancer treatment trials in Pet Cancer Trail</a></p>'''
+<p><a href="{MATCHER_URL}">Check this and other current cancer treatment trials in Vet Trial Finder</a></p>'''
     write_article(root, "taiwan-inhaled-il15-lung-metastases", "Taiwan trial tests inhaled IL-15 for canine lung metastases", "A recruiting study in Taipei is testing inhaled IL-15 in dogs with melanoma or osteosarcoma and measurable lung metastases.", taiwan_il15_body, "Evergreen Animal Hospital and linked peer-reviewed studies", "September 25, 2026", "2026-09-25")
 
     barc_trials_body = f'''<p class="eyebrow">Recruiting in Washington · September 27, 2026</p>
@@ -239,22 +239,22 @@ def generate_news_section(root: Path) -> None:
 <p>BARC is also enrolling dogs with non-metastatic superficial squamous cell carcinoma (SCC) to test a new carboplatin formulation injected directly into the tumor. It is designed for longer local activity, but whether it improves tumor control has not yet been established.</p>
 <p>Dogs need a confirmed SCC diagnosis and at least one measurable lesion 1 cm or larger. BARC requires chest imaging and lymph-node assessment to check for spread. Previous chemotherapy, immunotherapy or radiation for cancer excludes participation; significant illness or abnormal blood counts may also rule a dog out. BARC says study treatments and associated procedures are fully funded. The team can clarify any costs outside the study.</p>
 <h2>EGFR/HER2 vaccine: selected dog cancers</h2>
-<p>BARC also lists active enrollment for an experimental EGFR/HER2 peptide vaccine. The clinic names osteosarcoma, hemangiosarcoma and transitional cell carcinoma among the dog cancers it considers; some other tumor types require a records review. This is a participating site in a broader vaccine study already listed in Pet Cancer Trail, not a second copy of that trial. Ask BARC about eligibility and costs for this site.</p>
+<p>BARC also lists active enrollment for an experimental EGFR/HER2 peptide vaccine. The clinic names osteosarcoma, hemangiosarcoma and transitional cell carcinoma among the dog cancers it considers; some other tumor types require a records review. This is a participating site in a broader vaccine study already listed in Vet Trial Finder, not a second copy of that trial. Ask BARC about eligibility and costs for this site.</p>
 <p><strong>Location and contact:</strong> Bridge Animal Referral Center, Edmonds, Washington · 425-697-2272</p>
 <div class="article-cta"><a href="{BARC_TRIALS_OFFICIAL}" target="_blank" rel="noopener">Read the official BARC study information</a></div>
-<p><a href="{MATCHER_URL}">Check these and other current cancer treatment trials in Pet Cancer Trail</a></p>'''
+<p><a href="{MATCHER_URL}">Check these and other current cancer treatment trials in Vet Trial Finder</a></p>'''
     write_article(root, "barc-dog-cat-cancer-trials", "BARC is recruiting dogs and cats for cancer treatment trials", "BARC in Edmonds is recruiting dogs and cats for selected gold nanoparticle treatment and dogs for intratumoral carboplatin and an EGFR/HER2 vaccine.", barc_trials_body, "Bridge Animal Referral Center", "September 27, 2026", "2026-09-27", BARC_SOCIAL_IMAGE, (1733, 907))
 
     penn_car_t_body = f'''<p class="eyebrow">Recruiting in Pennsylvania · September 29, 2026</p>
 <h1>Penn Vet opens a CAR-T study for dogs with histiocytic sarcoma</h1>
 <figure style="margin:18px 0 24px"><img src="{PENN_CAR_T_IMAGE}" alt="Illustration of a dog with abstract immune cells; the dog is not a study participant" width="1200" height="630" style="display:block;width:100%;height:auto;border-radius:12px"></figure>
-<p>Penn Vet is conducting a pilot CAR-T study for dogs with histiocytic sarcoma (HS). On September 29, investigator Matthew Atherton confirmed to Pet Cancer Trail that enrollment is open, although places are limited.</p>
+<p>Penn Vet is conducting a pilot CAR-T study for dogs with histiocytic sarcoma (HS). On September 29, investigator Matthew Atherton confirmed to Vet Trial Finder that enrollment is open, although places are limited.</p>
 <p>The team collects T cells from the dog's own blood and engineers them to recognize <strong>STEAP1, a protein found on the surface of some tumor cells</strong>. The cells are then infused back into the dog with the aim of attacking the cancer. Penn can test stored tumor tissue for STEAP1 first; a tumor without that target would not qualify. The prior consent form also includes two doses of bendamustine before the CAR-T infusion.</p>
 <p>The idea is interesting, but this is the first time this CAR-T approach is being tested in dogs with HS. The pilot is primarily establishing safety and an appropriate dose. There are no published results showing how often it shrinks canine HS or extends survival. <strong>A measurable tumor is required for enrollment.</strong> A dog with no detectable tumor after surgery does not qualify under the current protocol.</p>
 <p>Among current HS studies, <a href="{UF_HS_TRAMETINIB_OFFICIAL}" target="_blank" rel="noopener">the Phase II trametinib trial at the University of Florida and other sites</a> has a stronger foundation of preliminary disease-specific evidence. Trametinib interrupts a growth-signaling pathway inside cells. It inhibited canine HS cells in <a href="https://pubmed.ncbi.nlm.nih.gov/30135215/" target="_blank" rel="noopener">laboratory and mouse-model work</a> and was subsequently <a href="https://pubmed.ncbi.nlm.nih.gov/38889903/" target="_blank" rel="noopener">studied for tolerability in dogs</a> with different cancers. The Phase II study is now testing whether it actually shrinks HS in dogs. Those results are not yet available, and no validated test can reliably predict which dog will respond.</p>
 <p>The distinction is how the treatments are intended to work: trametinib tries to interrupt growth signals within tumor cells, while CAR-T aims to direct immune cells to recognize and kill them. <strong>Both could theoretically shrink an existing tumor; neither has yet demonstrated a clinical benefit in dogs with HS.</strong> Trametinib has more preliminary evidence specific to this disease. CAR-T could become a powerful approach, but we do not yet know whether it will work in HS or for how many dogs.</p>
 <p>Previous cancer treatment does not automatically rule out participation at Penn, but concurrent chemotherapy is not allowed. According to a previously issued consent form, the study covers protocol-specified testing and treatment, while coverage for complications directly caused by study treatment is limited to $1,000. Penn is revising the form, so owners should confirm the current schedule, eligibility and costs before enrollment.</p>
-<p>Study details and investigator contact are on the <a href="{PENN_CAR_T_OFFICIAL}" target="_blank" rel="noopener">Atherton Laboratory's official page</a>: <a href="mailto:mattath@upenn.edu">mattath@upenn.edu</a>. To review trials that may fit a particular dog, use <a href="{MATCHER_URL}#autostart=1&amp;cancer=Histiocytic+sarcoma&amp;country=USA&amp;species=Dog">Pet Cancer Trail's free HS search</a>. A search result is only a starting point; the study team makes the final eligibility decision.</p>'''
+<p>Study details and investigator contact are on the <a href="{PENN_CAR_T_OFFICIAL}" target="_blank" rel="noopener">Atherton Laboratory's official page</a>: <a href="mailto:mattath@upenn.edu">mattath@upenn.edu</a>. To review trials that may fit a particular dog, use <a href="{MATCHER_URL}#autostart=1&amp;cancer=Histiocytic+sarcoma&amp;country=USA&amp;species=Dog">Vet Trial Finder's free HS search</a>. A search result is only a starting point; the study team makes the final eligibility decision.</p>'''
     write_article(root, "penn-car-t-histiocytic-sarcoma", "Penn Vet opens a CAR-T study for dogs with histiocytic sarcoma", "Penn Vet is enrolling dogs with measurable histiocytic sarcoma in a pilot anti-STEAP1 CAR-T study. We compare its early evidence with the trametinib trial.", penn_car_t_body, "Penn Vet Atherton Laboratory, direct investigator correspondence and prior consent form; University of Florida trametinib trial", "September 29, 2026", "2026-09-29", PENN_CAR_T_IMAGE)
 
     tamu_gi_body = f'''<p class="eyebrow">Recruiting in Texas · September 30, 2026</p>
@@ -266,7 +266,7 @@ def generate_news_section(root: Path) -> None:
 <p>Texas A&M is currently recruiting. Public information gives only limited details about the exact radiation schedule, full eligibility criteria and owner costs, so those need to be confirmed directly with the study team.</p>
 <h2>Official source</h2>
 <p><a href="{TAMU_GI_OFFICIAL}" target="_blank" rel="noopener">Texas A&M / StudyPages trial page</a></p>
-<p><a href="{MATCHER_URL}">Check this and other current feline lymphoma treatment trials in Pet Cancer Trail</a></p>'''
+<p><a href="{MATCHER_URL}">Check this and other current feline lymphoma treatment trials in Vet Trial Finder</a></p>'''
     write_article(root, "texas-am-feline-gi-lymphoma-radiation", "Texas A&M opens radiation trial for feline GI lymphoma", "Texas A&M is recruiting cats with small-cell gastrointestinal lymphoma for a trial of whole-abdomen radiation therapy.", tamu_gi_body, "Texas A&M / StudyPages", "September 30, 2026", "2026-09-30")
 
     reachglio_body = f'''<p class="eyebrow">Recruiting in Madrid · September 30, 2026</p>
@@ -296,7 +296,7 @@ def generate_news_section(root: Path) -> None:
 <p><a href="{REACHGLIO_OFFICIAL}" target="_blank" rel="noopener">ReachGlio — Hospital Veterinario Puchol</a><br>
 <a href="{HOPKINS_GLIOMA_OFFICIAL}" target="_blank" rel="noopener">Johns Hopkins canine glioma trial</a><br>
 <a href="{UCD_CARE_OFFICIAL}" target="_blank" rel="noopener">UC Davis CARE trial</a></p>
-<p><a href="{MATCHER_URL}">Check current canine glioma treatment trials in Pet Cancer Trail</a></p>'''
+<p><a href="{MATCHER_URL}">Check current canine glioma treatment trials in Vet Trial Finder</a></p>'''
     write_article(root, "reachglio-canine-glioma-madrid", "ReachGlio tests a different way to treat canine glioma", "A new Madrid trial combines SNGR-TNF with temozolomide for canine high-grade glioma. We compare its mechanism with current U.S. glioma trials.", reachglio_body, "Hospital Veterinario Puchol, Johns Hopkins CIGAT and UC Davis CARE", "September 30, 2026", "2026-09-30")
 
     laverdia_body = f'''<p class="eyebrow">Treatment update · September 29, 2026</p>

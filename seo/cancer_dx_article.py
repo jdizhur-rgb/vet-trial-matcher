@@ -55,7 +55,7 @@ def generate_cancer_dx_article(root: Path) -> None:
 
 <p>We are particularly interested in the hemangiosarcoma addition expected in December. Once IDEXX releases the validation data, we will look at how well it performs in apparently healthy dogs — not just dogs that already have obvious cancer — and update this article.</p>
 
-<div class="article-byline"><p><strong>Reviewed and edited by:</strong> <a href="{SITE}/about/" rel="author">Yuliia Dizhur</a>, Founder of Pet Cancer Trail</p><p><strong>Published:</strong> September 29, 2026</p><p><strong>Last updated:</strong> September 29, 2026</p><p>Yuliia Dizhur is the founder of Pet Cancer Trail and a dog owner with extensive firsthand experience of canine cancer. She edits practical guides using peer-reviewed research, published clinical guidance and information from veterinary hospitals and research teams.</p><p><strong>Editorial disclosure:</strong> Prepared with AI assistance from the sources listed below and reviewed by Yuliia Dizhur. It has not been independently reviewed by a veterinarian and does not replace veterinary advice.</p></div>
+<div class="article-byline"><p><strong>Reviewed and edited by:</strong> <a href="{SITE}/about/" rel="author">Yuliia Dizhur</a>, Founder of Vet Trial Finder</p><p><strong>Published:</strong> September 29, 2026</p><p><strong>Last updated:</strong> September 29, 2026</p><p>Yuliia Dizhur is the founder of Vet Trial Finder and a dog owner with extensive firsthand experience of canine cancer. She edits practical guides using peer-reviewed research, published clinical guidance and information from veterinary hospitals and research teams.</p><p><strong>Editorial disclosure:</strong> Prepared with AI assistance from the sources listed below and reviewed by Yuliia Dizhur. It has not been independently reviewed by a veterinarian and does not replace veterinary advice.</p></div>
 
 <h2>Sources</h2>
 <ul class="article-sources">
@@ -68,8 +68,8 @@ def generate_cancer_dx_article(root: Path) -> None:
 
     directory = root / "articles" / "cancer-dx-screening-older-dogs"
     directory.mkdir(parents=True, exist_ok=True)
-    rendered = g.page(f"{title} | Pet Cancer Trail", description, body, url)
-    social = f'''<meta property="og:type" content="article"><meta property="og:site_name" content="Pet Cancer Trail"><meta property="og:title" content="{g.esc(title)}"><meta property="og:description" content="{g.esc(description)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{IDEXX_IMAGE}"><meta property="og:image:secure_url" content="{IDEXX_IMAGE}"><meta property="og:image:width" content="1000"><meta property="og:image:height" content="1000"><meta property="og:image:alt" content="IDEXX Cancer Dx canine cancer screening"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{g.esc(title)}"><meta name="twitter:description" content="{g.esc(description)}"><meta name="twitter:image" content="{IDEXX_IMAGE}">'''
+    rendered = g.page(f"{title} | Vet Trial Finder", description, body, url)
+    social = f'''<meta property="og:type" content="article"><meta property="og:site_name" content="Vet Trial Finder"><meta property="og:title" content="{g.esc(title)}"><meta property="og:description" content="{g.esc(description)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{IDEXX_IMAGE}"><meta property="og:image:secure_url" content="{IDEXX_IMAGE}"><meta property="og:image:width" content="1000"><meta property="og:image:height" content="1000"><meta property="og:image:alt" content="IDEXX Cancer Dx canine cancer screening"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{g.esc(title)}"><meta name="twitter:description" content="{g.esc(description)}"><meta name="twitter:image" content="{IDEXX_IMAGE}">'''
     rendered = rendered.replace("</head>", social + "</head>", 1)
     schema = {
         "@context": "https://schema.org",
@@ -78,8 +78,8 @@ def generate_cancer_dx_article(root: Path) -> None:
         "image": [IDEXX_IMAGE],
         "datePublished": "2026-09-29",
         "dateModified": "2026-09-29",
-        "author": {"@type": "Person", "name": "Yuliia Dizhur", "url": f"{SITE}/about/", "jobTitle": "Founder of Pet Cancer Trail"},
-        "publisher": {"@type": "Organization", "name": "Pet Cancer Trail", "url": f"{SITE}/"},
+        "author": {"@type": "Person", "name": "Yuliia Dizhur", "url": f"{SITE}/about/", "jobTitle": "Founder of Vet Trial Finder"},
+        "publisher": {"@type": "Organization", "name": "Vet Trial Finder", "url": f"{SITE}/"},
         "mainEntityOfPage": url,
     }
     rendered = rendered.replace("</head>", f'<script type="application/ld+json">{json.dumps(schema)}</script></head>', 1)

@@ -48,13 +48,13 @@ def _json_ld(center: str, desc: str, canonical: str, address: str) -> str:
                 'name': f'{center} Cancer Clinical Trials',
                 'description': desc,
                 'about': {'@id': canonical + '#organization'},
-                'isPartOf': {'@type': 'WebSite', '@id': SITE + '/#website', 'url': SITE + '/', 'name': 'Pet Cancer Trail'},
+                'isPartOf': {'@type': 'WebSite', '@id': SITE + '/#website', 'url': SITE + '/', 'name': 'Vet Trial Finder'},
             },
             org,
             {
                 '@type': 'BreadcrumbList',
                 'itemListElement': [
-                    {'@type': 'ListItem', 'position': 1, 'name': 'Pet Cancer Trail', 'item': SITE + '/'},
+                    {'@type': 'ListItem', 'position': 1, 'name': 'Vet Trial Finder', 'item': SITE + '/'},
                     {'@type': 'ListItem', 'position': 2, 'name': 'Cancer Research Centers', 'item': SITE + '/centers/'},
                     {'@type': 'ListItem', 'position': 3, 'name': center, 'item': canonical},
                 ],
@@ -85,7 +85,7 @@ def _enhance(text: str) -> tuple[str, bool]:
     count_phrase = f'{count} current cancer treatment and research option' + ('' if count == 1 else 's')
     cancer_phrase = ', '.join(cancers[:4]) if cancers else 'companion-animal cancers'
     desc = f'Explore {count_phrase} at {center}, including clinical trials and advanced treatment studies for {cancer_phrase}. Free study details and official links.'
-    title = f'{center} Cancer Clinical Trials | Pet Cancer Trail'
+    title = f'{center} Cancer Clinical Trials | Vet Trial Finder'
     text = re.sub(r'<title>.*?</title>', f'<title>{html.escape(title)}</title>', text, count=1, flags=re.S)
     text = re.sub(r'<meta name="description" content=".*?">', f'<meta name="description" content="{html.escape(desc, quote=True)}">', text, count=1, flags=re.S)
 

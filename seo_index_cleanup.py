@@ -18,7 +18,7 @@ from urllib.parse import urlparse
 SITE = "https://vettrialfinder.com"
 CONTACT_EMAIL = "info@vettrialfinder.com"
 LANGUAGE_PREFIXES = {"de", "fr", "es", "it", "nl"}
-HOME_TITLE = "Pet Cancer Trail | Veterinary Cancer Trials and Oncology Centers"
+HOME_TITLE = "Vet Trial Finder | Veterinary Cancer Trials and Oncology Centers"
 HOME_DESCRIPTION = (
     "Find veterinary cancer clinical trials and oncology centers for dogs and cats. "
     "Free search with no registration, email or paywall."
@@ -64,7 +64,7 @@ def reinforce_homepage_metadata(text: str) -> str:
     )
     social = (
         '<meta property="og:type" content="website">'
-        '<meta property="og:site_name" content="Pet Cancer Trail">'
+        '<meta property="og:site_name" content="Vet Trial Finder">'
         f'<meta property="og:title" content="{HOME_TITLE}">'
         f'<meta property="og:description" content="{HOME_DESCRIPTION}">'
         f'<meta property="og:url" content="{SITE}/">'
@@ -73,7 +73,7 @@ def reinforce_homepage_metadata(text: str) -> str:
         '<meta property="og:image:type" content="image/png">'
         '<meta property="og:image:width" content="1208">'
         '<meta property="og:image:height" content="920">'
-        '<meta property="og:image:alt" content="Pet Cancer Trail dog logo">'
+        '<meta property="og:image:alt" content="Vet Trial Finder dog logo">'
         '<meta name="twitter:card" content="summary_large_image">'
         f'<meta name="twitter:title" content="{HOME_TITLE}">'
         f'<meta name="twitter:description" content="{HOME_DESCRIPTION}">'
@@ -107,7 +107,7 @@ def page_title(text: str) -> str:
     match = re.search(r'<h1[^>]*>(.*?)</h1>', text, re.I | re.S)
     if not match:
         match = re.search(r'<title>(.*?)</title>', text, re.I | re.S)
-    value = re.sub(r'<[^>]+>', '', match.group(1) if match else "Pet Cancer Trail")
+    value = re.sub(r'<[^>]+>', '', match.group(1) if match else "Vet Trial Finder")
     return html.unescape(value).strip()
 
 
@@ -125,13 +125,13 @@ def polish_metadata(text: str) -> str:
     center = html.unescape(re.sub(r'<[^>]+>', '', h1.group(1))).strip()
     entity_type = html.unescape(re.sub(r'<[^>]+>', '', kind.group(1))).strip()
     if entity_type == "Multicenter Study":
-        title = f"{center} | Veterinary Cancer Study | Pet Cancer Trail"
+        title = f"{center} | Veterinary Cancer Study | Vet Trial Finder"
         description = f"Current veterinary cancer treatment study information, participating locations, eligibility details and official links for {center}."
     elif entity_type == "Research Organization":
-        title = f"{center} | Veterinary Cancer Research | Pet Cancer Trail"
+        title = f"{center} | Veterinary Cancer Research | Vet Trial Finder"
         description = f"Current veterinary cancer research and treatment opportunities from {center}, with eligibility details, contacts and official links."
     else:
-        title = f"{center} | Veterinary Oncology & Clinical Trials | Pet Cancer Trail"
+        title = f"{center} | Veterinary Oncology & Clinical Trials | Vet Trial Finder"
         description = f"Veterinary oncology services, cancer clinical trials and current treatment opportunities at {center}."
     text = re.sub(r'<title>.*?</title>', f'<title>{html.escape(title)}</title>', text, count=1, flags=re.I | re.S)
     text = re.sub(
@@ -146,7 +146,7 @@ def polish_metadata(text: str) -> str:
 
 def breadcrumbs(path: str, title: str) -> list[dict[str, str]]:
     parts = [part for part in path.strip('/').split('/') if part]
-    crumbs = [{"name": "Pet Cancer Trail", "item": f"{SITE}/"}]
+    crumbs = [{"name": "Vet Trial Finder", "item": f"{SITE}/"}]
     if not parts:
         return crumbs
     if len(parts) >= 3 and parts[0] in {"north-america", "uk-europe"} and parts[1] in {"dogs", "cats"}:
@@ -168,7 +168,7 @@ def add_structured_data(text: str, path: str) -> str:
         if 'property="og:site_name"' not in text:
             text = text.replace(
                 "</head>",
-                '<meta property="og:site_name" content="Pet Cancer Trail"></head>',
+                '<meta property="og:site_name" content="Vet Trial Finder"></head>',
                 1,
             )
         data = {
@@ -178,14 +178,14 @@ def add_structured_data(text: str, path: str) -> str:
                     "@type": "WebSite",
                     "@id": f"{SITE}/#website",
                     "url": f"{SITE}/",
-                    "name": "Pet Cancer Trail",
-                    "alternateName": ["PetCancerTrail", "vettrialfinder.com"],
+                    "name": "Vet Trial Finder",
+                    "alternateName": ["VetTrialFinder", "vettrialfinder.com"],
                     "description": "Free search for veterinary cancer clinical trials, oncology centers and other treatment options for dogs and cats.",
                 },
                 {
                     "@type": "Organization",
                     "@id": f"{SITE}/#organization",
-                    "name": "Pet Cancer Trail",
+                    "name": "Vet Trial Finder",
                     "url": f"{SITE}/",
                     "founder": {"@type": "Person", "name": "Yuliia Dizhur"},
                 },
@@ -207,14 +207,14 @@ def add_structured_data(text: str, path: str) -> str:
                         "@type": "WebSite",
                         "@id": f"{SITE}/#website",
                         "url": f"{SITE}/",
-                        "name": "Pet Cancer Trail",
-                        "alternateName": ["PetCancerTrail", "vettrialfinder.com"],
+                        "name": "Vet Trial Finder",
+                        "alternateName": ["VetTrialFinder", "vettrialfinder.com"],
                         "publisher": {"@id": f"{SITE}/#organization"},
                     },
                     {
                         "@type": "Organization",
                         "@id": f"{SITE}/#organization",
-                        "name": "Pet Cancer Trail",
+                        "name": "Vet Trial Finder",
                         "url": f"{SITE}/",
                     },
                     breadcrumb,
@@ -263,11 +263,11 @@ def write_404(root: Path) -> None:
     (root / "404.html").write_text(
         '<!doctype html><html lang="en"><head><meta charset="utf-8">'
         '<meta name="viewport" content="width=device-width,initial-scale=1">'
-        '<meta name="robots" content="noindex, follow"><title>Page Not Found | Pet Cancer Trail</title>'
+        '<meta name="robots" content="noindex, follow"><title>Page Not Found | Vet Trial Finder</title>'
         '<style>body{margin:0;background:#f6f8fb;color:#17324d;font:16px/1.55 system-ui,sans-serif}'
         'main{max-width:680px;margin:12vh auto;padding:24px}a{color:#175b8c}</style></head><body><main>'
         '<h1>We could not find that page</h1><p>The page may have moved or the listing may have changed.</p>'
-        f'<p><a href="{SITE}/">Go to Pet Cancer Trail</a> · '
+        f'<p><a href="{SITE}/">Go to Vet Trial Finder</a> · '
         f'<a href="{SITE}/cancer-types/">Browse cancer types</a></p></main></body></html>',
         encoding="utf-8",
     )
@@ -279,9 +279,9 @@ def write_verification_page(root: Path) -> None:
     if not source.exists():
         raise AssertionError("Help page is required as the production shell source")
     text = source.read_text(encoding="utf-8")
-    title = "How We Verify Clinical Trial Listings | Pet Cancer Trail"
+    title = "How We Verify Clinical Trial Listings | Vet Trial Finder"
     description = (
-        "How Pet Cancer Trail finds, verifies and updates veterinary cancer clinical trials, "
+        "How Vet Trial Finder finds, verifies and updates veterinary cancer clinical trials, "
         "eligibility details, funding information and treatment listings."
     )
     text = re.sub(r'<title>.*?</title>', f'<title>{title}</title>', text, count=1, flags=re.S)
@@ -307,14 +307,14 @@ def write_verification_page(root: Path) -> None:
 @media(max-width:600px){{.verification-page section{{padding:15px 16px}}}}
 </style><div class="verification-page">
 <h1>How We Verify Listings</h1>
-<p class="lead">Pet Cancer Trail is an independent, free resource for owners of dogs and cats with cancer. We collect information that is scattered across university, hospital, registry and study websites and organize it so owners can find options worth asking about.</p>
+<p class="lead">Vet Trial Finder is an independent, free resource for owners of dogs and cats with cancer. We collect information that is scattered across university, hospital, registry and study websites and organize it so owners can find options worth asking about.</p>
 <section><h2>What we include</h2><p>The searchable catalog focuses on opportunities that may provide an actual anticancer treatment to a client-owned dog or cat. These may include clinical trials, expanded-access programs and selected treatments available through veterinary oncology centers.</p><p>Observational studies, surveys, sample collection, biobanks and diagnostic-only research are not presented as treatment matches.</p></section>
 <section><h2>Where the information comes from</h2><p>We use primary sources whenever possible: official university and veterinary hospital pages, study registries, research teams and sponsors. Each listing links to its official source so owners can read the original information and contact the study team directly.</p></section>
 <section><h2>How we check whether an option is current</h2><p>A listing must have a current, usable route to treatment or enrollment. We check published recruitment status, participating locations, contacts and recent institutional updates. “Last verified” is the most recent date we checked the information; it does not guarantee that a place is still available today.</p></section>
 <section><h2>How matching works</h2><p>The finder compares the information an owner enters with the eligibility rules that are publicly available. We apply explicit exclusions conservatively and do not turn missing information into a promise of eligibility. A result means “worth checking,” not “accepted.” The research team always makes the final decision after reviewing the medical record.</p></section>
 <section><h2>Costs and funding</h2><p>We describe funding only when it is stated by an official source. “Fully funded” may still exclude travel, an initial examination, care unrelated to the study or treatment of unrelated medical problems. If the source does not clearly state what is covered, the listing tells owners to confirm costs with the study team.</p></section>
 <section><h2>Duplicates, locations and changes</h2><p>The same study may appear on a registry, a university page and several hospital websites. We combine those records into one listing and show verified participating locations. Studies can close, pause or change eligibility without notice. When an official source conflicts with our listing, the official study team’s information takes priority.</p></section>
-<section><h2>What this site does not do</h2><p>Pet Cancer Trail does not diagnose cancer, recommend a particular treatment or replace a veterinary oncologist. We do not promise a cure and we do not rank experimental treatment as better than standard care. Our job is to make current options easier to find and easier to discuss with the professionals treating the animal.</p></section>
+<section><h2>What this site does not do</h2><p>Vet Trial Finder does not diagnose cancer, recommend a particular treatment or replace a veterinary oncologist. We do not promise a cure and we do not rank experimental treatment as better than standard care. Our job is to make current options easier to find and easier to discuss with the professionals treating the animal.</p></section>
 <p><a class="cta" href="{SITE}/cancer-types/">Browse cancer types</a></p>
 </div></main>'''
     text = re.sub(r'<main>.*?</main>', body, text, count=1, flags=re.S)

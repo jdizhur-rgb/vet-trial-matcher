@@ -28,7 +28,7 @@ def generate_clinical_trials_for_pets_article(root: Path) -> None:
 <p>Experimental does not necessarily mean completely unknown. Sometimes dozens of animals have already received the treatment and there are preliminary results, but there may not yet be enough evidence to consider it standard treatment. That is also why early numbers need to be viewed carefully. If five out of ten animals respond well, that is interesting, but it does not mean that half of all pets with the same diagnosis will have the same result. A promising early result is a reason to pay attention, not a guarantee.</p>
 
 <h2>Finding cancer clinical trials for pets</h2>
-<p>Pet Cancer Trail brings together current studies and treatment-access programs in which a dog or cat may actually receive an anticancer treatment. The catalog includes universities, private specialty hospitals, multicenter studies and participating sites outside the United States.</p>
+<p>Vet Trial Finder brings together current studies and treatment-access programs in which a dog or cat may actually receive an anticancer treatment. The catalog includes universities, private specialty hospitals, multicenter studies and participating sites outside the United States.</p>
 <p>We are not trying to collect everything that happens to be called research. Observational studies, sample-collection studies and diagnostic-only research are not presented as treatment options.</p>
 <p>The service is free. It does not require registration, an email address or a paid report. Our sources, inclusion rules and status-checking process are explained on the <a href="{SITE}/how-we-verify/">How we verify</a> page.</p>
 
@@ -36,7 +36,7 @@ def generate_clinical_trials_for_pets_article(root: Path) -> None:
 <p>The diagnosis alone is not enough. A study may consider the stage of the cancer, whether the primary tumor has been removed, whether metastases are present, current and previous treatments, and other medical conditions. Having the “right” cancer does not automatically mean that a pet qualifies.</p>
 
 <h2>Placebo-controlled cancer trials</h2>
-<p>Some cancer trials do include a placebo group. Pet Cancer Trail does not present a study as a treatment option if a pet could receive only placebo instead of necessary anticancer treatment.</p>
+<p>Some cancer trials do include a placebo group. Vet Trial Finder does not present a study as a treatment option if a pet could receive only placebo instead of necessary anticancer treatment.</p>
 <p>The placebo-controlled studies that remain in our treatment matcher still provide real cancer treatment; the placebo is used to compare an additional experimental component. Before enrolling, it is still important to understand exactly what each group receives and what happens if your pet’s cancer progresses.</p>
 
 <h2>Evaluating an experimental option</h2>
@@ -49,13 +49,13 @@ def generate_clinical_trials_for_pets_article(root: Path) -> None:
 <p>A trial may still be worth considering when standard treatment has little to offer, the cancer has returned, or the study has a reasonable scientific basis and fits the animal’s particular situation. Sometimes the best choice is the proven treatment. Sometimes taking the additional uncertainty may be reasonable.</p>
 <p>A clinical trial is not a promise. But sometimes this is how a treatment begins before, years later, it is no longer considered experimental.</p>
 <div class="article-cta"><a href="{finder}">Search current cancer treatment trials for your pet</a></div>
-<div class="article-byline"><p><strong>Reviewed and edited by:</strong> <a href="{SITE}/about/" rel="author">Yuliia Dizhur</a>, Founder of Pet Cancer Trail</p><p><strong>Published:</strong> September 14, 2026</p><p><strong>Last updated:</strong> September 26, 2026</p><p>Yuliia Dizhur is the founder of Pet Cancer Trail and a dog owner with extensive firsthand experience of canine cancer. She edits practical guides using peer-reviewed research, published clinical guidance and information from veterinary hospitals and research teams.</p><p><strong>Editorial disclosure:</strong> Prepared with AI assistance and reviewed by Yuliia Dizhur. It has not been independently reviewed by a veterinarian and does not replace veterinary advice.</p></div>
+<div class="article-byline"><p><strong>Reviewed and edited by:</strong> <a href="{SITE}/about/" rel="author">Yuliia Dizhur</a>, Founder of Vet Trial Finder</p><p><strong>Published:</strong> September 14, 2026</p><p><strong>Last updated:</strong> September 26, 2026</p><p>Yuliia Dizhur is the founder of Vet Trial Finder and a dog owner with extensive firsthand experience of canine cancer. She edits practical guides using peer-reviewed research, published clinical guidance and information from veterinary hospitals and research teams.</p><p><strong>Editorial disclosure:</strong> Prepared with AI assistance and reviewed by Yuliia Dizhur. It has not been independently reviewed by a veterinarian and does not replace veterinary advice.</p></div>
 </article>'''
 
     directory = root / 'articles' / 'clinical-trials-for-pets-with-cancer'
     directory.mkdir(parents=True, exist_ok=True)
     page = g.page(
-        'Clinical Trials for Pets with Cancer | Pet Cancer Trail',
+        'Clinical Trials for Pets with Cancer | Vet Trial Finder',
         'A practical owner guide to cancer clinical trials for dogs and cats: experimental treatment, eligibility, placebo and treatment decisions.',
         body,
         url,
