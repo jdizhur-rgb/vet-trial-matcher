@@ -1,0 +1,54 @@
+{
+  "version": "owner-20261016-1424-v1",
+  "owner_decision": "2026-10-16T14:24:00-04:00",
+  "research_backup_is_not_site_publication": true,
+  "research_only_remote_backups_required": true,
+  "backup_max_interval_minutes": 15,
+  "site_publication_requires_all_six_independently_accepted_research_complete": true,
+  "limits": {
+    "candidate": null,
+    "country_time": null,
+    "regions_per_worker": null
+  },
+  "counter_definitions": {
+    "assigned": "Unique real-world provider/service candidates identified for this country, including not-yet-processed; exclude queries, URLs, generic reference groups and aliases from provider counts.",
+    "processed": "Unique candidates actually substantively reviewed from retained primary evidence/current official reads or actual specific blocked attempt, with saved disposition; unvisited search-only leads are not processed.",
+    "fully_verified": "Processed candidate with branch identity/exact address(or real mobile service area)/phone/official website/current named veterinarian and actually published veterinary qualification or role/local cancer service/access verified. Board oncology certification and exact building coordinates are not prerequisites; unknowns explicit. GP chemotherapy allowed. No requirement to assign every drug to a specific named doctor.",
+    "NEW": "Unique provider/service absent semantically from FULL current baseline. Separate inherited_unpublished_revalidated from new_discovery_this_run. Previously published61 are ALREADY_APPLIED/DUPLICATE, not NEW.",
+    "UPDATE": "Unique existing current-main identity with exact field-scoped old/new deltas. Count fields separately.",
+    "DUPLICATE": "Real identity already represented or alias; aliases not separate clinics.",
+    "EXCLUDED": "Named candidate with evidenced out-of-scope/nonpromotion reason, not unsupported absence claim.",
+    "UNRESOLVED": "Named processed candidate with exact missing fact/URLs/actual attempts/next allowed step; external restrictions separate from own unfinished."
+  },
+  "completion_dimensions": [
+    "all_documented_regions_and_major_cities_current_and_new_signals",
+    "universities",
+    "network_current_rosters_each_found_branch_screened_and_relevant_candidates_classified",
+    "independent_and_general_practices",
+    "radiation_ECT",
+    "visiting_mobile_remote"
+  ],
+  "completion_rule": "All documented dimensions and accessible discovered frontier performed and reconciled. No available unprocessed leads/unreviewed rosters/search directions. Only precise external obstacles/ambiguities with permitted routes exhausted may remain. No universal-proof-of-absence requirement.",
+  "safety": [
+    "Official primary full sources, snippets only leads",
+    "Short supporting quotes, branch scope, actual checked_at precision",
+    "No generic lump/general-surgery⇒cancer; no diagnostic-radiology⇒radiotherapy; no network⇒branch",
+    "Never infer closure/absence from silence",
+    "No source-specific permission/auth/CAPTCHA bypass or query/Unicode/alternate-client evasion",
+    "Old controller blanket offline pause superseded by this new owner run, but actual held actions remain. Unknown DE scope isolated; not a global ban on proven-independent sources",
+    "No source-success date renewal from failed attempt or integration",
+    "No paid API/outreach/trial sweep/editorial/UI/navigation changes"
+  ],
+  "required_worker_report_sections": [
+    "Identity, actual work period, real agent ID",
+    "Inherited/current-main published/restored/newly reverified distinctions",
+    "Coverage table for every dimension with actual evidence",
+    "Defined provider counters and separate aliases/reference/URL/query counts",
+    "Named eligible providers/updates with city/treatment/official URLs; already-live separate",
+    "Named excluded/ambiguous candidates with reasons",
+    "Own accessible remainder separate from precise external gaps",
+    "Evidence/identity/backup validation with remote branch/SHA/report path",
+    "Honest research_complete and grounds"
+  ],
+  "checkpoint_protocol": "Own root six files initialized before spawn. After each meaningful block, create immutable checkpoints/block-N/manifest.json plus frozen report/result/remaining and changed candidate-level records/evidence/query append-only shards; ready.json lists SHA256 of every file in block. Notify parent. Parent stages only immutable, checksum-stable files and serializes remote backup+readback. Do not duplicate full cumulative payload every block. Final six full files sealed once. Worker never commits/pushes."
+}
