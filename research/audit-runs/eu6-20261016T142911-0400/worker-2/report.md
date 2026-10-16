@@ -28,9 +28,21 @@ Independent/GP chemotherapy/cancer-treatment; radiation/ECT; visiting/mobile/rem
 
 ## Отклонённые и неоднозначные кандидаты
 
+### Блок02: ещё семь восстановленных подходящих практик
+
+Current full-primary подтверждения2026-10-16: Veterix Prostějov (Svatoplukova45b, MVDr.ZdeněkHaas, операции опухолей; https://www.veterix.cz/klinika), Minář NovýMalín898 (MVDr.MarekMinář, resekce novotvarů; https://www.vetminar.cz/chirurgie), CentralVet Praha-Hostivař (NaPlískavě106/21, MVDr.DianaHalászová, chemo+tumorexcision; https://centralvet.cz/sluzby/), Matoušek StarýPelhřimov74 (MVDr.KarelMatoušek, удаление опухолей молочной железы; https://www.veterina-matousek.cz/), MitraVET FrýdlantnadOstravicí (Sportovní1530, MVDr.MichalTrapek, онкохирургия; https://www.mitravet.cz/onkologie/), Stratil ČeskáLípa (Děčínská3326, MVDr.PřemyslStratil, опухолевая хирургия; https://www.veterina-cl.cz/), NaSlunci Jihlava (Holíkova1a, MVDr.PřemyslNovák/current surgeonMVDr.JanCink, удаление новообразований; https://www.veterinanaslunci.cz/nase-sluzby/). Отдельные phone/contact/team/evidence quotes в block-02-reviews.json.
+
+Кумулятивно53assigned/29processed/11fully/11NEW(inherited_unpublished_revalidated)/18DUP/0UP. У MitraVET химио- и радиотерапия — внешняя организация/referral, не локальные modalities. CentralVet и Štursa публикуют общий выезд, но отдельная mobile cancer delivery не доказана. BillingPstruží376 у Trapek не лечебный филиал. Это реальные раздельные scope-исходы, не дополнительные clinic counts.
+
 Импорт собственных именованных исходов/ограничений ещё не выполнен; отсутствие записи здесь не означает отсутствие препятствий.
 
 ## Собственный остаток и внешние пробелы
+
+Блок03 добавил11 заново подтверждённых inherited-unpublished практик: U Kryšpína/Hlinsko; CB-vet/ČeskéBudějovice; LHVET/Chrudim; CTVET/ČeskýTěšín; JaroslavChyba/Hodov; Petklinika/Děčín; MartinDvořák/SuchdolnadLužnicí; DavidHanzlíček/Brno; JanaKočová/Kájov; MichaelaHejlková/Prostějov; JiříBeránek/Pardubice. Все имеют local tumor surgery, current namedMVDr и конкретный адрес/телефон/access. Короткие quotes/URL/ref находятся block-03-reviews.json; все11 отсутствуют семантически в frozen fullbaseline. Новых discoveries этого run пока0, восстановлено NEW22. Исторические18 уже main — отдельно DUP18. Cumulative53assigned/40processed/22fully/22NEW/0UPDATE. Postalcode неизвестен в3, но exactstreet/city verified; координаты неизвестны — это не препятствия по нынешним критериям.
+
+Витковице имеет подтверждённую локальную онкохирургию, но currentnameddoctor ещё не установлен; Uhříková имеет primaryMVDr и лечение, контакт ещё проверяется. Это own unfinished, не внешние препятствия. У Beránek доступен ещё Czech oncology link; у остальных ledger13 необходимо закончить первичную проверку. После ledger остаются весь национальный queryplan, universities, actualcurrentnetwork rosters и районные gaps.
+
+Remote backup block01+queryamendment реально подтверждён контроллером: dataSHA626eea1561eec9404e09cdc438b166c3052500a5, readbackreceipt17933a8a3766a8c8141872b0739a72f7c14a3ffc, branch research/europe-recovery-eu6-20261016T142911-0400. Block02 пока localready, не считаю durable до parentreceipt.
 
 Весь документированный план пока own_unfinished. URL-specific ограничения из input/shared-restrictions и inherited не сняты. Потерянный scope должен быть изолирован и восстановлен из имеющегося evidence, без выдуманного разрешения или глобального запрета остальных стран.
 

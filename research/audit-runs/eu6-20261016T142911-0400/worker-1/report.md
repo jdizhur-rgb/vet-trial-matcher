@@ -46,3 +46,28 @@ Own unfinished: все9регионов current/new-signal discovery; Vetmeduni;
 
 research_complete=false: прочитаны assignment, criteria, AGENTS, PROJECT_OPERATIONS и основные salvage receipts; выполняется восстановление имён и доступного frontier. Потерянные bytes/hashes и прежняя национальная полнота не восстанавливаются из агрегатов. Итоговый полный русский отчёт обязан описывать фактически выполненное и именованный остаток даже при сбое.
 
+## Блок02 — восстановлен именной frontier, работа продолжается
+
+Текущие cumulative counters:111assigned /32processed /24fully_verified. NEW13,UPDATE0,DUPLICATE12,EXCLUDED2,UNRESOLVED5. Из24fully_verified11 — retained complete primary records уже main;13 — свежие проверки в этом запуске. Все13NEW относятся к inherited_unpublished_revalidated, не к новым обнаружениям этого запуска.19фактических поисковых запросов суммарно (4+15), запросы/URLs не включены в provider counters.
+
+| Новый относительно main провайдер | Город | Подтверждённый local scope | Официальная primary service URL |
+|---|---|---|---|
+| Stefan Lorenz | Mistelbach | Tumor surgery, без переноса недоказанных oncovet efficacy claims | https://tierarzt-lorenz.at/chirurgie/ |
+| Viechdoktorei | Leithaprodersdorf | Tumor removal; Mario Sauer collaboration не превращена в physical attendance | https://www.viechdoktorei.at/leistungen.html |
+| Dr.Lorinson | Vösendorf | Oncologic surgery; Dragan Lorinson ECVS — surgery, не oncology | https://www.vet-lorinson.com/ |
+| Karin Yaldez | Weißbach | Tumor surgery, сложные случаи referral | https://tieresalzburg.at/leistungen/kleintierpraxis/ |
+| Uderns/Elisabeth Helm | Uderns | Local oncology care +tumor surgery;GPCert не board oncology | https://www.tierarzt-zillertal.at/leistungen/ |
+| Tierordination St.Peter | Klagenfurt | Tumor removal;Barbara Pöllinger-Neidhart/Ute Neidhart Dr.med.vet. | https://www.tierarzt-klagenfurt.at/chirurgie/ |
+| Georg Rainer | Klagenfurt | Oncological surgery;current four-vet team | https://www.docc.at/ |
+| Steuerberg | Steuerberg | Small-animal tumor operations;Ingrid Schmidburg-Spendier | https://www.tieraerzte-steuerberg.at/kleintierpraxis/ |
+| Praxisgemeinschaft Wies | Wies | Local tumor surgery;Johannes Wipplinger/Kerstin Knogler | https://www.kleintierzentrum-frauental.at/ |
+| Kleintierpraxis Lieboch | Lieboch | Own chemo +tumor surgery +assessment;Marina Augustini;Flickinger case discussion,not physical attendance;RT external Vetmeduni | https://lieboch.net/Fachbereiche/ |
+| Kleintierpraxis Schönberg | Schönberg im Stubaital | Tumor surgery;Barbara/Thomas Fridrich;Dorfstraße27 since2024 | https://www.kleintierpraxis-schoenberg.at/index.php/leistungen/chirurgie |
+| AniCura Aspern | Wien | Branch service card explicitly tumor operations for dog/cat,not chemo/RT | https://www.anicura.at/standorte/tierarztpraxis-aspern/unsere-leistungen/ |
+
+Все12новых здесь имеют current branch address/phone, named veterinarian с опубликованной qualification/role, local cancer context и owner/referral contact route; exact per-field facts/quotes/даты вblock-02-candidates/evidence/changes.json. Полный semantic dedupe выполнен по всем5input baseline files, не только76Austria cards. У Aspern общий anicura-host не является дублем: отдельны address/phone/team от Erdberg. Все coordinatesunknown; без придуманного геокодинга.
+
+Нативный публичный источник200 дал Aspern service cards, пропущенные Web reader; actual attempt2026-10-16T18:48:32.856Z сохранён. TIERplus Klagenfurt Web timeout не был denial, разрешённый same-URL native200at18:48:41.470Z восстановил branch body. Это не source-specific bypass. Никакие source holds не снимались. Klagenfurt folder всё ещёownunfinished; Innsbruck/Rum не promoted: только generic surgery/internal medicine, targeted search не дал собственного cancer context. Не утверждаем отсутствие лечения.
+
+Восстановленный remote backup блока01 подтверждён родителем: branchresearch/europe-recovery-eu6-20261016T142911-0400, dataSHA626eea1561eec9404e09cdc438b166c3052500a5; durable readback receipt17933a8a3766a8c8141872b0739a72f7c14a3ffc. Fullarchive/memberhashesPASS. Это backup исследований, не publication/acceptance. Block01immutable не изменён.
+
