@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "effective_date": "2026-10-14",
-  "owner_approval": "Давай, меняй — after proposal to increase discovery from three to ten candidates per worker",
+  "effective_date": "2026-10-15",
+  "owner_approval": "European discovery: one whole country per task, no ten-candidate cap; exclude Russia, Belarus and Ukraine (Ukraine until owner changes decision). Existing non-European limits preserved.",
   "max_parallel_workers": 6,
   "existing_review_records_per_worker": 5,
   "discovery_candidates_per_worker": 10,
@@ -16,5 +16,44 @@
   "preserve_evidence_depth_and_source_requirements": true,
   "unresolved_requires_exact_question_urls_and_recheck_after": true,
   "historical_receipts_and_assignments_immutable": true,
-  "daily_directions_unchanged": true
+  "daily_directions_unchanged": true,
+  "european_discovery": {
+    "assignment_unit": "one_entire_country",
+    "candidate_limit": null,
+    "stop_after_ten_candidates": false,
+    "split_country_automatically": false,
+    "coverage": [
+      "all_regions",
+      "university_hospitals",
+      "specialty_networks_and_each_branch",
+      "independent_and_general_practices_with_cancer_treatment",
+      "radiotherapy",
+      "electrochemotherapy",
+      "visiting_mobile_and_remote_services"
+    ],
+    "original_language_search_required": true,
+    "current_undated_and_new_signal_search_required": true,
+    "saved_leads_first_without_replacing_national_discovery": true,
+    "completed_requires_country_coverage_evidence": true,
+    "unfinished_country_remains_incomplete_with_exact_remainder": true,
+    "queue_file": "europe-country-queue.json"
+  },
+  "excluded_discovery_countries": [
+    {
+      "country": "Russia",
+      "reason": "owner exclusion",
+      "until": "owner changes decision"
+    },
+    {
+      "country": "Belarus",
+      "reason": "owner exclusion",
+      "until": "owner changes decision"
+    },
+    {
+      "country": "Ukraine",
+      "reason": "temporary owner exclusion",
+      "until": "owner changes decision"
+    }
+  ],
+  "discovery_candidates_per_worker_scope": "non-European discovery only; European full-country tasks override ten-candidate/sixty-per-round/package-stop caps"
 }
