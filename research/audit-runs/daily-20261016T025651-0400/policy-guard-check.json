@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-16T03:47:05.832773-04:00",
+  "status": "PASS",
+  "no_network_request_made": true,
+  "assertions": [
+    "Exact old-denied partial-source Ethos master excluded by durable URL restriction",
+    "Both recorded permitted official fallbacks remain allowed",
+    "No master/fallback URL or source identity removed; source timestamps unchanged"
+  ],
+  "restriction": {
+    "url": "https://www.ethosvet.com/clinical-studies/",
+    "method": "Web",
+    "attempted_at": "2026-10-15T03:19:02-04:00",
+    "http_status": 403,
+    "result": "explicit_denial",
+    "evidence_file": "research/audit-runs/daily-20261015T030225-0400/web-15.json",
+    "evidence_reference": "turn746view3",
+    "do_not_retry": true,
+    "reason": "Retain the exact previously denied URL even when its parent source is partial and a later erroneous request returns404."
+  }
+}

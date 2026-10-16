@@ -2048,7 +2048,20 @@
       "recheck_after": "2026-10-21",
       "reconciliation_run_id": "finalize-68-20261014T185109-0400",
       "audit_last_run_id": "daily-20261016T025651-0400",
-      "last_check_summary": "Both recorded permitted professional/FAQ fallbacks freshly read and unchanged; they do not publish a contract-study roster. Prior denied master should not have been requested; one accidental native404visit is disclosed as execution deviation, no Web retry or bypass. Discovery programs are separately reconciled."
+      "last_check_summary": "Both recorded permitted professional/FAQ fallbacks freshly read and unchanged; they do not publish a contract-study roster. Prior denied master should not have been requested; one accidental native404visit is disclosed as execution deviation, no Web retry or bypass. Discovery programs are separately reconciled.",
+      "access_restrictions": [
+        {
+          "url": "https://www.ethosvet.com/clinical-studies/",
+          "method": "Web",
+          "attempted_at": "2026-10-15T03:19:02-04:00",
+          "http_status": 403,
+          "result": "explicit_denial",
+          "evidence_file": "research/audit-runs/daily-20261015T030225-0400/web-15.json",
+          "evidence_reference": "turn746view3",
+          "do_not_retry": true,
+          "reason": "Retain the exact previously denied URL even when its parent source is partial and a later erroneous request returns404."
+        }
+      ]
     },
     {
       "id": "usa-ethos-discovery-studies",

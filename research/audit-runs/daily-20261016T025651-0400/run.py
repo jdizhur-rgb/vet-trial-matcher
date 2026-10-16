@@ -32,6 +32,8 @@ if sys.argv[1]=='init':
     prior=m.read(PRIOR/'reviews.json');gates=[r for r in prior if r['source_result']=='not_checked']
     m.write(P/'inherited-gates.json',{'origin':str(PRIOR.relative_to(ROOT)),'rows':gates,'new_visit':False})
     denied={s['master_url'] for s in inv if s['id'] in {r['source_id'] for r in gates}}
+    denied.update(a['url'] for s in inv for a in s.get('access_restrictions',[]) if a.get('do_not_retry'))
+    denied.update(a['url'] for s in inv for a in s.get('last_attempts',[]) if a.get('http_status')==403 or a.get('result')=='explicit_denial')
     m.write(P/'plan-masters.json',[{'source_id':s['id'],'url':s['master_url'],'route':'master'} for s in inv if s['master_url'] not in denied])
     checkpoint();print(json.dumps(m.read(P/'baseline.json')['counts']))
 elif sys.argv[1]=='checkpoint':checkpoint()

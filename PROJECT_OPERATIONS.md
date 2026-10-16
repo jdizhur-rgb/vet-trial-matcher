@@ -625,3 +625,6 @@ OVC individual canine Palladia and HIFU pages were recovered and fully read. Pre
 
 
 October16 production readback additionally exposed a shared-name address-resolution defect: Metropolitan Cleveland and Akron study sites both displayed the Akron address. Reuse the already verified October12 branch identities (Cleveland East:734AlphaDr,HighlandHeightsOH44143; Akron:1053S.Cleveland-MassillonRd,Akron/CopleyOH44321) without redating care sources. Pass the explicit site city to shared address resolution in matcher/SEO builders, and do not reuse old coordinates across same-name branches or changed addresses. Clinical site rosters remain unchanged. Evidence: `metropolitan-address-fix.json` in the same run.
+
+
+October16 traversal also exposed a planning error: deriving inherited restrictions only from whole-source not_checked rows missed an old explicit403 master in a partial Ethos source. The one erroneous native404request is preserved as a deviation, with no retry/bypass. Persist its original Web denial in inventory access_restrictions and filter exact denied URLs before queuing, while retaining permitted official fallbacks and original source timestamps. Algorithm section Preserve URL-specific access restrictions records the rule.

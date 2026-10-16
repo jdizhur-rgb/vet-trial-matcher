@@ -12,7 +12,7 @@
     "japan-jvcog-current-clinical-trials"
   ],
   "inventory_ids_and_order_preserved": true,
-  "source_inventory_sha256": "ba3c658b4b1b28d3cbf4a71e026ed94ae1a1831c00f8d3cd71d9475ea0c2d6d7",
+  "source_inventory_sha256": "20ff7eac03631bd3464ccc2d872d338528e3b697a267060e1e38944ea88f6471",
   "rows": [
     {
       "source_id": "registry-avma-veterinary-clinical-trials",
@@ -1064,5 +1064,20 @@
       "evidence_last_attempted_at": "2026-10-16T03:00:04.104142-04:00",
       "local_readback": "PASS"
     }
-  ]
+  ],
+  "policy_metadata_added_without_new_visit_or_redate": {
+    "source_id": "usa-ethos-clinical-studies",
+    "field": "access_restrictions",
+    "origin": {
+      "url": "https://www.ethosvet.com/clinical-studies/",
+      "method": "Web",
+      "attempted_at": "2026-10-15T03:19:02-04:00",
+      "http_status": 403,
+      "result": "explicit_denial",
+      "evidence_file": "research/audit-runs/daily-20261015T030225-0400/web-15.json",
+      "evidence_reference": "turn746view3",
+      "do_not_retry": true,
+      "reason": "Retain the exact previously denied URL even when its parent source is partial and a later erroneous request returns404."
+    }
+  }
 }
