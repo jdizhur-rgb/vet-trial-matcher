@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "commands": [
+    "python scripts/build_static_site.py",
+    "python scripts/check_evidence_keys.py",
+    "node scripts/test_a01_care_reconciliation.js",
+    "python scripts/test_a02_care_reconciliation.py",
+    "python scripts/test_b01_care_reconciliation.py",
+    "python scripts/test_b02_care_reconciliation.py",
+    "python scripts/test_c01_care_reconciliation.py",
+    "git diff --check"
+  ],
+  "identity_comparison": {
+    "unchanged_existing_physical": 501,
+    "unchanged_existing_supplemental": 493,
+    "unchanged_existing_sources": 574,
+    "new_physical": 12,
+    "new_sources": 12,
+    "Netherlands_total": 18
+  },
+  "publication": "pending",
+  "country_coverage": "INCOMPLETE"
+}
