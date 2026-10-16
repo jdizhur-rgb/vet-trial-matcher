@@ -1,0 +1,96 @@
+{
+  "run_id": "europe-controller-20261016T092604-0400",
+  "slot": 2,
+  "country": "Czechia",
+  "baseline_sha": "806757b3b175a4582376591a66db133aab2ca42e",
+  "disposition": "INCOMPLETE",
+  "coverage_complete": false,
+  "country_tasks": 1,
+  "counts": {
+    "assigned": 10,
+    "processed": 10,
+    "fully_verified": 0
+  },
+  "count_units": "Candidate/practice groups for all three counts. Assigned means reviewed/discovered identities in this evolving whole-country task, not a country completion denominator.",
+  "candidate_counts": {
+    "processed": 10,
+    "fully_verified": 0,
+    "core_sufficient_physical": 4,
+    "NEW": 4,
+    "UPDATE": 0,
+    "DUPLICATE": 2,
+    "UNRESOLVED": 4
+  },
+  "baseline": {
+    "existing_physical": 36,
+    "previous_tele_update": 1,
+    "counted_as_new": false
+  },
+  "coverage": {
+    "saved_leads": "Four accessible surgery leads resolved to new core-sufficient branch proposals; six additional saved identity groups reviewed. Not a new national pass.",
+    "regions_current_run": [
+      "Moravian-Silesian",
+      "Pardubice",
+      "Zlín",
+      "Karlovy Vary",
+      "South Moravian",
+      "South Bohemian",
+      "Prague",
+      "Olomouc identity only"
+    ],
+    "national_discovery": "executor_unfinished"
+  },
+  "executor_unfinished": [
+    {
+      "entity": "University official fallbacks",
+      "question": "Establish VETUNI current branch address, clinician, chemotherapy/surgery and owner intake from permitted official pages; redirect-loop routes alone are insufficient."
+    },
+    {
+      "entity": "BUDvet branch allocation",
+      "question": "Allocate locally delivered treatment to Rožnov versus Trojická from explicit branch primary evidence."
+    },
+    {
+      "entity": "Minář current main service and Olomouc district",
+      "question": "Nový Malín identity resolved; current tumor-specific delivery remains unverified. Review Olomouc/Šumperk/Prostějov/Přerov/Jeseník district frontier."
+    },
+    {
+      "entity": "VETINO national branch disposition",
+      "question": "Jaggy Brno and HKvet are baseline. Aesculap proposed; Jaggy Praha tumor procedures unconfirmed. Review current full network master roster for additional branches."
+    },
+    {
+      "entity": "National regions and district frontier",
+      "question": "Perform new current/undated and opening-signal Czech-language searches across all 14 regions and secondary cities; prior-run query grid is inherited context, not current-run coverage."
+    },
+    {
+      "entity": "RT / ECT / visiting / mobile / remote",
+      "question": "Complete current national original-language routes and distinguish external referral from delivery and generic home visits from anticancer treatment."
+    },
+    {
+      "entity": "Prior inaccessible independent leads",
+      "question": "Inspect saved denied URLs before any retry; Nešpor/Růžodol/CBvet/Onkolvet remain leads. Respect original external recheck dates and explicit Web restrictions."
+    }
+  ],
+  "external_gaps": [
+    "Saved U Kostela explicit restriction: no retry; unchanged primary gap. VETUNI Web redirect loops are retrieval evidence, not successful verification."
+  ],
+  "dedupe": {
+    "inputs": [
+      "data/oncology_centers.json",
+      "data/oncology_centers_seed.json",
+      "data/oncology_centers_supplemental.json",
+      "data/oncology_care_source_inventory.json",
+      "seo/oncology_teleconsultations.py",
+      "data/acvim_oncology_profiles.json"
+    ],
+    "method": "Case/accent/punctuation-normalized official domain, phone, exact street and clinic-name comparisons across all six entire files; manual country/branch identity review.",
+    "hits": [],
+    "decision": "No matching Czech branch baseline identity found for the four proposals. Generic vetmed outside Czechia is not an identity match. Existing Kotlíková tele-29 / RexCare / Fajtovi / Vetcentrum preserved as duplicates, not NEW."
+  },
+  "source_dates": {
+    "successful_web_dates_only": [
+      "2026-10-16"
+    ],
+    "failed_reads_refresh_success": false,
+    "publication_or_packaging_time_is_not_visit_time": true
+  }
+}

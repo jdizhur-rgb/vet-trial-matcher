@@ -1,0 +1,90 @@
+{
+  "run_id": "europe-controller-20261016T092604-0400",
+  "slot": 3,
+  "country": "Poland",
+  "baseline_sha": "806757b3b175a4582376591a66db133aab2ca42e",
+  "date_precision": "date_only; Web provides no exact successful request timestamps",
+  "sources": [
+    {
+      "source_id": "pl-rtwet-wiskitki",
+      "urls": [
+        "https://radioterapiaweterynaryjna.pl/en/home-english/",
+        "https://radioterapiaweterynaryjna.pl/en/contact/",
+        "https://radioterapiaweterynaryjna.pl/en/our-team/"
+      ],
+      "source_refs": [
+        "turn78view0",
+        "turn80view3",
+        "turn80view4"
+      ],
+      "checked_at": "2026-10-16",
+      "supporting_quote": "RTWet accepts patients referred by doctors for treatment with radiotherapy.",
+      "branch_scope": "Single fixed treatment center in Miedniewice, Wiskitki; no radiation service attributed to referring clinics.",
+      "clinicians": "Official current team: Katarzyna Purzycka DVM, MVetMed, MRCVS, DipACVIM (Oncology); James Elliott BVM&S, CertSAM, DACVR (RO), MRCVS, Dip. ECVIM-CA-RO; Anna Jaśkiewicz DVM, PhD, clinical manager. Team listing does not promise which clinician attends each visit.",
+      "contact": {
+        "street": "Miedniewice 27C",
+        "city": "Wiskitki",
+        "postal_code": "96-315",
+        "phone": "+48 722 217 211"
+      },
+      "access": "Owner application and veterinarian referral forms; center states it accepts referred patients for megavoltage radiotherapy. Telephone Monday–Friday 08:00–15:00.",
+      "coordinate_source": "Official contact page explicitly prints building GPS 52.087687, 20.311943"
+    },
+    {
+      "source_id": "pl-onkovet-gliwice",
+      "urls": [
+        "https://onkovet.pl/uslugi/",
+        "https://onkovet.pl/lekarze/"
+      ],
+      "source_refs": [
+        "turn78view1",
+        "turn78view2"
+      ],
+      "checked_at": "2026-10-16",
+      "supporting_quote": "chemioterapia klasyczna, ... elektrochemioterapia, ... chirurgia onkologiczna",
+      "branch_scope": "Single Gliwice clinic. Distinct from Tomasz Dominiak's Onkowet/DOM-VET Warszawa.",
+      "clinicians": "Dorota Mierzwa-Ćwik is listed as specialist in diseases of dogs and cats practicing oncology; Weronika Mamica as veterinarian practicing oncology; Jakub Ćwik as specialist surgeon-radiologist practicing oncologic surgery. No oncology diplomate credential inferred.",
+      "contact": {
+        "street": "ul. Tarnogórska 78/1",
+        "city": "Gliwice",
+        "postal_code": "44-100",
+        "phone": "+48 32 733 22 71"
+      },
+      "access": "Official page links Umów wizytę to Onkovet Gliwice Vetineo booking; phone Monday–Friday 09:00–20:00. Local treatment menu explicitly includes chemotherapy, cancer surgery and electrochemotherapy.",
+      "coordinate_source": "coordinates_unknown: no verified actual-building coordinate marker examined; do not guess city centroid"
+    },
+    {
+      "source_id": "pl-neo-vet-poznan",
+      "urls": [
+        "https://neo-vet.pl/onkologia"
+      ],
+      "source_refs": [
+        "turn80view2"
+      ],
+      "checked_at": "2026-10-16",
+      "supporting_quote": "W naszej przychodni oferujemy kilka rodzajów leczenia choroby nowotworowej",
+      "branch_scope": "Neo Vet Poznań Sielska branch only; distinct from NeoVet Białystok.",
+      "clinicians": "The oncology service explicitly assigns oncology patients to lek. wet. Weronika Mastalerek-Sołtysiak. Veterinarian wording only; no board credential inferred. A separate Anna Wybieralska biography is a lead, not substituted for the service-page assignment.",
+      "contact": {
+        "street": "ul. Sielska 8/1",
+        "city": "Poznań",
+        "postal_code": "60-129",
+        "phone": "+48 618 659 034; +48 530 560 550"
+      },
+      "access": "Official oncology page states the clinic offers oral and intravenous antineoplastic treatment and oncologic/reconstructive surgery; links Umów wizytę and gives two contact phones.",
+      "coordinate_source": "coordinates_unknown: no verified actual-building coordinate marker examined; do not guess city centroid"
+    }
+  ],
+  "dedupe": {
+    "inputs": [
+      "data/oncology_centers.json",
+      "data/oncology_centers_seed.json",
+      "data/oncology_centers_supplemental.json",
+      "data/oncology_care_source_inventory.json",
+      "seo/oncology_teleconsultations.py",
+      "data/acvim_oncology_profiles.json"
+    ],
+    "baseline_physical_poland": 0,
+    "method": "Baseline full-input name/domain/address checks; no matching physical identity. Distinguish Onkovet Gliwice / Onkowet Warszawa; Neo Vet Poznań / NeoVet Białystok. VOS remote is UK provider and existing, not Poland physical."
+  }
+}

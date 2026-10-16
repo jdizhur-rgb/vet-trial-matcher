@@ -1,0 +1,45 @@
+{
+  "run_id": "europe-controller-20261016T092604-0400",
+  "slot": 4,
+  "country": "Germany",
+  "baseline_sha": "806757b3b175a4582376591a66db133aab2ca42e",
+  "status": "INCOMPLETE",
+  "coverage_complete": false,
+  "country_tasks_assigned": 1,
+  "counts": {
+    "assigned": 240,
+    "processed": 1,
+    "fully_verified": 1,
+    "NEW": 1,
+    "UPDATE": 0,
+    "DUPLICATE": 0,
+    "UNRESOLVED": 0
+  },
+  "count_unit": "Saved lead URL groups: 141 provider/reference URLs and 99 directory identities. One saved Oberhaching provider lead is now reconciled to one fully verified NEW physical identity; fetched-only URLs are not processed. This is not a national clinic denominator.",
+  "core_sufficient": 1,
+  "new_physical": 1,
+  "new_tele": 0,
+  "baseline_physical": 160,
+  "national_coverage": {
+    "all_16_Laender_complete": false,
+    "network_rosters_complete": false,
+    "saved_leads_complete": false,
+    "current_and_opening_layers_complete": false
+  },
+  "executor_remaining": "See remaining.json; substantial accessible work remains.",
+  "external_gaps": "Inherited exact restrictions preserved; failed URLs do not refresh successful dates.",
+  "dedupe": {
+    "inputs": [
+      "data/oncology_centers.json",
+      "data/oncology_centers_seed.json",
+      "data/oncology_centers_supplemental.json",
+      "data/oncology_care_source_inventory.json",
+      "data/acvim_oncology_profiles.json",
+      "seo/oncology_teleconsultations.py"
+    ],
+    "command": "rg -n -i oberhaching|bajuwarenring|63893020 across the six full current inputs",
+    "result": "No matching identity/address/phone in any of the six inputs; frozen 160 physical records also compared.",
+    "not_new": "Prior recovery 152 physical + one remote and eight original physical rows are baseline."
+  },
+  "publication_status": "Ready for parent field-scoped integration; worker did not change shared files, commit, push or deploy."
+}

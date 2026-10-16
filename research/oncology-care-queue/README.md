@@ -1,5 +1,15 @@
 # Resumable oncology-care queue
 
+## Current European controller — owner decision, 2026-10-16
+
+European work now uses one controller and six genuine parallel agents, each started with `fork_turns=none` and one explicit country. Freeze `research/audit-runs/<run_id>/assignments.json` before spawning; save actual returned IDs and observed times without inventing unavailable per-call timestamps. Each agent writes only its own `worker-N/` subtree, with no worker commit, shared production write, subagent or automation. The parent alone validates, integrates and publishes ready immutable checkpoints serially against fresh main. Other scheduled tasks are not created, enabled or changed by this run.
+
+Use the fixed country lists in `bootstrap_europe_controller.py` and the owner's current assignment; preserve `europe-slots/slot-N.json`. An explicit `INCOMPLETE` country takes precedence over cursor=1 or a suggested next country. Same-day reruns retain their own assignment. Never advance a slot because a verified subset was published, never invent an exhausted slot's next country, and never substitute another country's report. Missing historic slot files mean no recorded prior result, not fabricated completion. This controller supersedes the historical weekday directions and package/time ceilings below for Europe only. There is no ten-candidate or sixty-per-run cap.
+
+Required worker files: `report.md`, `proposed_changes.json`, `result.json`, `evidence.json`, `queries.json`, `remaining.json`; every JSON root must exactly match run/slot/country/baseline in the frozen assignment. Run `python scripts/validate_europe_worker_result.py --assignments ... --slot N --package ...` before integration, then separately review primary evidence, field old/new, branch scope, dates and full-catalog semantic duplicates. A passing identity gate is not medical/source verification. Save each worker's independent receipt, own unfinished frontier versus external gaps, and the common publication ledger. Update slot progress only after accepting its result. Keep all older receipts unchanged.
+
+The remainder of this README records earlier policies; the current European controller above takes precedence where they conflict.
+
 The owner replaced the weekly care sweep with one daily bounded task, up to six real parallel workers, at 22:00 America/New_York. The prior weekly task remains disabled; the morning clinical-trial audit is unchanged.
 
 `state.json` preserves exact source questions and prior worker results. `assignments.json` contains actual canonical agent IDs and finite packages. `territories.json` tracks partial geographic discovery and its remainder. The baseline complete-catalog coverage snapshot is referenced from each US territory. Counts are saved service tags, not independent fresh verification of every listed hospital; operation-unknown is kept separate from explicitly active and temporarily closed/unconfirmed records.

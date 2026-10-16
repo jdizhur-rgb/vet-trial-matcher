@@ -55,7 +55,13 @@ assert not any('Carnation' in r['street'] for r in rows if r['name'] == mobile['
 for r in rows:
     if r.get('coordinates_unknown'):
         assert r['latitude'] is None and r['longitude'] is None
-        assert r.get('location_type') != 'mobile' and r['street'] and r.get('coordinate_source')
+        # Unknown coordinates also legitimately apply to an explicitly mobile
+        # service. Never require a fabricated fixed street/distance pin.
+        assert r.get('coordinate_source')
+        if r.get('location_type') == 'mobile':
+            assert r.get('service_area')
+        else:
+            assert r['street']
         assert 'data-lat=""' in card(r)
     if not r['services']:
         assert r['services_confirmation_status'] == 'unconfirmed'

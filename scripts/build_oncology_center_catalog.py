@@ -330,6 +330,9 @@ def center_match(seed: dict, candidate: dict) -> bool:
         frozenset(("tierklinik-doebling-wien", "tierklinik-hutter-wien")),
         frozenset(("vetklinikum-wien", "veterinaria-wien-mauer")),
         frozenset(("tierarztpraxis-pragerstrasse-wien", "veterinaria-strebersdorf")),
+        # 2026-10-16: two independently verified Hall practices, different
+        # addresses, telephones and clinicians; shared 6060 is not identity.
+        frozenset(("tierarztpraxis-gebhard-anker-hall", "tierarztpraxis-stadtgraben-hall")),
     }
     if seed["country"] == "Austria" and frozenset((
             seed.get("source_id"), candidate.get("source_id"))) in separate_austrian_sites:

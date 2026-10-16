@@ -1,0 +1,116 @@
+{
+  "run_id": "europe-controller-20261016T092604-0400",
+  "slot": 4,
+  "country": "Germany",
+  "baseline_sha": "806757b3b175a4582376591a66db133aab2ca42e",
+  "changes": [
+    {
+      "operation": "NEW",
+      "entity": "physical",
+      "source_id": "de-tierklinik-oberhaching",
+      "field": "record",
+      "old_value": null,
+      "new_value": {
+        "source_id": "de-tierklinik-oberhaching",
+        "name": "Tierklinik Oberhaching",
+        "street": "Bajuwarenring 12a",
+        "city": "Oberhaching",
+        "region": "Bavaria",
+        "postal_code": "82041",
+        "country": "Germany",
+        "phone": "+49 89 63893020",
+        "website": "https://tierklinik-oberhaching.de/fachbereiche/chirurgie/weichteilchirurgie/",
+        "latitude": null,
+        "longitude": null,
+        "coordinates_unknown": true,
+        "coordinate_source": "Exact daytime clinic address verified from the official contact page. Building marker coordinates not independently verified; no map viewport or city center used.",
+        "services": [
+          "Surgery"
+        ],
+        "source": "Official local clinical service, surgical roster and contact pages reviewed 2026-10-16",
+        "verification_url": "https://tierklinik-oberhaching.de/fachbereiche/chirurgie/weichteilchirurgie/",
+        "supporting_urls": [
+          "https://tierklinik-oberhaching.de/fachbereiche/chirurgie/",
+          "https://tierklinik-oberhaching.de/kontakt-anfahrt/",
+          "https://tierklinik-oberhaching.de/terminanfrage/"
+        ],
+        "last_verified": "2026-10-16",
+        "audit_run_id": "europe-controller-20261016T092604-0400",
+        "clinician_review": "Peter Scabell: current clinical lead, Fachtierarzt für Chirurgie. Sarah Balmer, Eike Christian Kleinert and Christine Lutz are listed as Fachtierärzte in small-animal surgery. No oncology-board certification inferred.",
+        "availability_note": "Telephone appointment requests for regular consultations at the daytime clinic; online request form also lists oncology. Local tumor removal is explicitly confirmed. Generic discussion of chemotherapy/radiation does not establish local delivery, so neither modality is assigned. Night emergency reception at Bajuwarenring 10 is not a second oncology branch.",
+        "service_scope_provenance": "Branch-specific soft-tissue surgery page explicitly confirms tumor removal; local chemotherapy and radiation delivery remain unconfirmed.",
+        "review_reference": "research/audit-runs/europe-controller-20261016T092604-0400/worker-4/evidence.json"
+      },
+      "inventory_record": {
+        "id": "de-tierklinik-oberhaching",
+        "name": "Tierklinik Oberhaching",
+        "source_type": "center",
+        "master_url": "https://tierklinik-oberhaching.de/fachbereiche/chirurgie/weichteilchirurgie/",
+        "supporting_urls": [
+          "https://tierklinik-oberhaching.de/fachbereiche/chirurgie/",
+          "https://tierklinik-oberhaching.de/kontakt-anfahrt/"
+        ],
+        "required_cadence": "weekly",
+        "last_checked": "2026-10-16",
+        "last_checked_at": "2026-10-16T13:31:03.486626+00:00",
+        "last_result": "success",
+        "working_url": "https://tierklinik-oberhaching.de/fachbereiche/chirurgie/weichteilchirurgie/",
+        "content_sufficient": true,
+        "last_run_id": "europe-controller-20261016T092604-0400",
+        "last_review_note": "Telephone appointment requests for regular consultations at the daytime clinic; online request form also lists oncology. Local tumor removal is explicitly confirmed. Generic discussion of chemotherapy/radiation does not establish local delivery, so neither modality is assigned. Night emergency reception at Bajuwarenring 10 is not a second oncology branch.",
+        "review_reference": "research/audit-runs/europe-controller-20261016T092604-0400/worker-4/evidence.json",
+        "visit_method": "urllib official 200; Web current local service/contact/roster reads",
+        "verified_fields": [
+          "branch identity",
+          "exact daytime treatment address",
+          "telephone",
+          "current named surgical roster and literal credentials",
+          "local tumor surgery",
+          "appointment access route"
+        ],
+        "pending_questions": [
+          "Does this site currently administer chemotherapy locally? Generic treatment alternatives do not establish this.",
+          "Exact daytime building marker coordinates remain unverified."
+        ]
+      },
+      "field_evidence": [
+        {
+          "field": "services",
+          "official_url": "https://tierklinik-oberhaching.de/fachbereiche/chirurgie/weichteilchirurgie/",
+          "supporting_quote": "die onkologische Chirurgie: Tumorentfernungen z.B. am Gesäuge, am Anus oder den inneren Organen",
+          "checked_at": "2026-10-16T13:31:03.486626+00:00",
+          "branch_scope": "Tierklinik Oberhaching daytime clinic, Bajuwarenring 12a, 82041 Oberhaching. Night clinic at number 10 is not a second oncology treatment card.",
+          "method": "urllib 200 and Web full clinical page review"
+        },
+        {
+          "field": "street/city/postal_code/phone",
+          "official_url": "https://tierklinik-oberhaching.de/kontakt-anfahrt/",
+          "supporting_quote": "Tagesklinik Bajuwarenring 12a 82041 Oberhaching; Tel: 089 / 63 89 30 20",
+          "checked_at": "2026-10-16T13:31:03.487878+00:00",
+          "branch_scope": "Tierklinik Oberhaching daytime clinic, Bajuwarenring 12a, 82041 Oberhaching. Night clinic at number 10 is not a second oncology treatment card.",
+          "method": "urllib 200 and Web contact-page review"
+        },
+        {
+          "field": "clinician_review",
+          "official_url": "https://tierklinik-oberhaching.de/fachbereiche/chirurgie/",
+          "supporting_quote": "Dr. Peter Scabell: Klinikleitung; Fachtierarzt für Chirurgie",
+          "checked_at": "2026-10-16T13:31:03.487304+00:00",
+          "branch_scope": "Tierklinik Oberhaching daytime clinic, Bajuwarenring 12a, 82041 Oberhaching. Night clinic at number 10 is not a second oncology treatment card.",
+          "method": "urllib 200 and Web current surgical roster review"
+        },
+        {
+          "field": "availability_note",
+          "official_url": "https://tierklinik-oberhaching.de/kontakt-anfahrt/",
+          "supporting_quote": "Für die reguläre Sprechstunde wird um eine Terminvereinbarung",
+          "checked_at": "2026-10-16T13:31:03.487878+00:00",
+          "branch_scope": "Tierklinik Oberhaching daytime clinic, Bajuwarenring 12a, 82041 Oberhaching. Night clinic at number 10 is not a second oncology treatment card.",
+          "method": "urllib 200 and Web contact-page review"
+        }
+      ],
+      "official_url": "https://tierklinik-oberhaching.de/fachbereiche/chirurgie/weichteilchirurgie/",
+      "supporting_quote": "die onkologische Chirurgie: Tumorentfernungen z.B. am Gesäuge, am Anus oder den inneren Organen",
+      "branch_scope": "Tierklinik Oberhaching daytime clinic, Bajuwarenring 12a, 82041 Oberhaching. Night clinic at number 10 is not a second oncology treatment card.",
+      "checked_at": "2026-10-16T13:31:03.486626+00:00"
+    }
+  ]
+}

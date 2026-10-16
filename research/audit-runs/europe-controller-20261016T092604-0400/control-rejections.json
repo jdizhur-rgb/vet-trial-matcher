@@ -1,0 +1,13 @@
+{
+  "run_id": "europe-controller-20261016T092604-0400",
+  "observed_date": "2026-10-16",
+  "rejections": [
+    {"slots": [3, 6], "issue": "Initial outputs were outside repository worker directories", "action": "Rejected missing repository package; workers recreated only their own files under absolute assigned paths"},
+    {"slots": [3, 4, 5, 6], "issue": "checkpoint-01 numeric candidate counts absent or wrong schema/unit", "action": "Rejected initial package; checkpoint-02 validated exact identity and numeric counts. Initial checkpoints remain historical, not accepted results"},
+    {"source_id": "tierarztpraxis-gebhard-anker-hall", "issue": "Catalog fuzzy matching falsely collided with Stadtgraben Hall", "action": "Stopped integration atomically; independently distinct street/phone/clinician evidence reviewed; narrow verified identity exception added, no broad dedupe relaxation"},
+    {"issue": "Historical E regression assumed unknown-coordinate records can never be mobile", "action": "Kept existing Sauer mobile data and distance suppression; corrected test to require mobile service area rather than fabricated fixed address"}
+  ],
+  "restrictions": [
+    {"url": "https://www.tierarztpraxis-stadtgraben.at/", "observed": "Official Web read returned403 during Hall collision follow-up", "action": "No bypass or refreshed verification date; preserve prior verified data"}
+  ]
+}

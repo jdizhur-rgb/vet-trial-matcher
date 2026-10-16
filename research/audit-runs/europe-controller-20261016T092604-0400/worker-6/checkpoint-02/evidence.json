@@ -1,0 +1,117 @@
+{
+  "run_id": "europe-controller-20261016T092604-0400",
+  "slot": 6,
+  "country": "Netherlands",
+  "baseline_sha": "806757b3b175a4582376591a66db133aab2ca42e",
+  "checked_at": "2026-10-16",
+  "timestamp_policy": "Date-only Web review. No exact successful request timestamp claimed.",
+  "proposals": [
+    {
+      "source_id": "dierenkliniek-spijkenisse",
+      "field_evidence": [
+        {
+          "field": "services",
+          "official_url": "https://dierenkliniekspijkenisse.nl/diensten/chirurgie/",
+          "supporting_quote": "Van het verwijderen van gezwellen tot het behandelen van wonden",
+          "verified_fact": "Local tumor/mass removal; Surgery only. No inferred chemo, radiotherapy or oncology certification.",
+          "checked_at": "2026-10-16",
+          "branch_scope": "Lenteakker 1, Spijkenisse"
+        },
+        {
+          "field": "street,city,postal_code,phone",
+          "official_url": "https://dierenkliniekspijkenisse.nl/contact/",
+          "supporting_quote": "Lenteakker 1, 3206 TB Spijkenisse Telefoon: 0181-672288",
+          "verified_fact": "Current practice contact.",
+          "checked_at": "2026-10-16",
+          "branch_scope": "Lenteakker 1, Spijkenisse"
+        },
+        {
+          "field": "clinician_review",
+          "official_url": "https://dierenkliniekspijkenisse.nl/jan-willem-van-den-bosch/",
+          "supporting_quote": "Dierenarts Jan-Willem van den Bosch",
+          "verified_fact": "Dierenarts since 2000; oncology listed as an interest, not board certification.",
+          "checked_at": "2026-10-16",
+          "branch_scope": "Lenteakker 1, Spijkenisse"
+        },
+        {
+          "field": "availability_note",
+          "official_url": "https://dierenkliniekspijkenisse.nl/reserveren/",
+          "supporting_quote": "Bel dan naar de praktijk op 0181-672288",
+          "verified_fact": "Appointments by phone; confirm clinician and suitability.",
+          "checked_at": "2026-10-16",
+          "branch_scope": "Lenteakker 1, Spijkenisse"
+        }
+      ]
+    }
+  ],
+  "saved_lead_review": [
+    {
+      "name": "AniCura Eersel / Tilburg",
+      "status": "UNRESOLVED",
+      "question": "Eersel service page promises care but names Tilburg referral; Tilburg actual local cancer-treatment allocation unestablished. Generic treatments index redirects do not establish local modalities.",
+      "urls": [
+        "https://www.anicura.nl/klinieken/noord-brabant/eersel/expertises/oncologische-verwijszorg/",
+        "https://www.anicura.nl/klinieken/noord-brabant/tilburg/expertises/"
+      ]
+    },
+    {
+      "name": "De Zwolse Dierenkliniek",
+      "status": "UNRESOLVED",
+      "question": "Current services/team traversed; cytology is diagnostic only. No official mass-removal/treatment confirmation yet; opening lead alone insufficient.",
+      "urls": [
+        "https://dezwolsedierenkliniek.nl/behandelingen/",
+        "https://dezwolsedierenkliniek.nl/over-ons/"
+      ]
+    },
+    {
+      "name": "Niessen Forcada / Sarah Mason",
+      "status": "UNRESOLVED",
+      "question": "Remote service expressly books owners/vets in English; compare distinct practice/service identity with existing OncoTails. Houten physical address does not establish physical oncology.",
+      "urls": [
+        "https://niessenforcada.com/ons-team",
+        "https://niessenforcada.com/afspraak-maken-1",
+        "https://www.oncotails.com/"
+      ]
+    },
+    {
+      "name": "Kapellebrug / IJzendijke",
+      "status": "UNRESOLVED",
+      "question": "Official Kapellebrug page repeats cooperation with colleagues in Kapellebrug and mixed IJzendijke booking phone; named general team does not allocate oncology clinician or local modality.",
+      "urls": [
+        "https://www.dierenkliniekkapellebrug.nl/specialisaties/gezelschapsdieren/",
+        "https://www.dierenkliniekkapellebrug.nl/team/"
+      ]
+    },
+    {
+      "name": "Dierenziekenhuis Dongen",
+      "status": "UNRESOLVED",
+      "question": "Oncologic surgery is clinician interest; current referral page operational but generic surgery only. Need actual cancer surgery delivery evidence.",
+      "urls": [
+        "https://www.dierenziekenhuisdongen.nl/",
+        "https://www.dierenziekenhuisdongen.nl/verwijzingen.html"
+      ]
+    },
+    {
+      "name": "Dierenziekenhuis Groningen Vechtstraat",
+      "status": "UNRESOLVED",
+      "question": "Current internist page does not state chemotherapy. New-client stop from September 2026 has referral exceptions, not clinic closure. Need local cancer-treatment confirmation.",
+      "urls": [
+        "https://www.huisdierenkliniek.nl/behandelingen/interne-geneeskunde-drs-remco-jonker/",
+        "https://www.huisdierenkliniek.nl/nieuws/news/tijdelijke-clientenstop"
+      ]
+    }
+  ],
+  "baseline_note": "18 existing Netherlands physical entries incl 12 October15 publications are baseline, not NEW.",
+  "dedupe": {
+    "inputs": [
+      "data/oncology_centers.json",
+      "data/oncology_centers_seed.json",
+      "data/oncology_centers_supplemental.json",
+      "data/oncology_care_source_inventory.json",
+      "seo/oncology_teleconsultations.py",
+      "data/acvim_oncology_profiles.json"
+    ],
+    "method": "Semantic local name, street, phone, website and clinician comparison; rg found no Spijkenisse identity in full inputs; existing Sarah Mason OncoTails explicitly retained."
+  }
+}
+

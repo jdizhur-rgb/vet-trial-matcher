@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "effective_date": "2026-10-15",
+  "effective_date": "2026-10-16",
   "owner_approval": "European discovery: one whole country per task, no ten-candidate cap; exclude Russia, Belarus and Ukraine (Ukraine until owner changes decision). Existing non-European limits preserved.",
   "max_parallel_workers": 6,
   "existing_review_records_per_worker": 5,
@@ -55,5 +55,27 @@
       "until": "owner changes decision"
     }
   ],
-  "discovery_candidates_per_worker_scope": "non-European discovery only; European full-country tasks override ten-candidate/sixty-per-round/package-stop caps"
+  "discovery_candidates_per_worker_scope": "non-European discovery only; European full-country tasks override ten-candidate/sixty-per-round/package-stop caps",
+  "europe_controller": {
+    "owner_decision_date": "2026-10-16",
+    "architecture": "one_controller_exactly_six_real_parallel_agents",
+    "fork_turns": "none",
+    "one_country_per_agent_per_run": true,
+    "assignments_frozen_before_spawn": true,
+    "persistent_slot_states": "europe-slots/slot-N.json",
+    "incomplete_country_before_cursor": true,
+    "same_local_day_max_new_countries_per_slot": 1,
+    "candidate_limit": null,
+    "total_candidate_limit": null,
+    "old_test_time_limit_applies": false,
+    "weekday_directions_apply_to_this_controller": false,
+    "independent_country_automations_allowed": false,
+    "worker_subagents_or_automations_allowed": false,
+    "worker_shared_production_edits_allowed": false,
+    "parent_serial_publication_of_ready_checkpoints": true,
+    "required_result_identity": ["run_id", "slot", "country", "baseline_sha"],
+    "result_gate": "scripts/validate_europe_worker_result.py",
+    "publication_is_not_country_completion": true,
+    "exhausted_slot": "report_exhausted_without_inventing_country"
+  }
 }
