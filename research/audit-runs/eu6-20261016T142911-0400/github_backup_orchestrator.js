@@ -9,10 +9,11 @@ const manifestPath=base+"/backups/checkpoint-"+seq+"-manifest.json";
 text(await tools.apply_patch("*** Begin Patch\n*** Add File: "+root+"/"+manifestPath+"\n+"+JSON.stringify(m)+"\n*** End Patch"));
 const archive="/workspace/scratch/2d03a6db0cc6/"+run+"-checkpoint-"+seq+".tar.zst";
 const extras=[base+"/assignments.json",base+"/criteria.json",base+"/controller-plan.json",base+"/collect_frozen_backup.py",base+"/github_backup_orchestrator.js",base+"/backups/ledger.json"];
-const packCode="import pathlib,json,subprocess,hashlib,tarfile,zstandard\n"+
+const packCode="import pathlib,json,subprocess,hashlib,tarfile,zstandard,re\n"+
 "m=json.loads(pathlib.Path("+JSON.stringify(manifestPath)+").read_text()); expected={x['path']:x['sha256'] for x in m['files']}\n"+
 "paths=list(expected)+["+[manifestPath,...extras].map(x=>JSON.stringify(x)).join(",")+"]\n"+
-"for p,h in expected.items():assert hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()==h,('Changed',p)\n"+
+"rx=re.compile(rb'AIza[A-Za-z0-9_-]{35}|github_pat_[A-Za-z0-9_]{40,}|gh[pousr]_[A-Za-z0-9]{30,}|-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----')\n"+
+"for p,h in expected.items():\n b=pathlib.Path(p).read_bytes();assert p.startswith('research/'),('Outside research',p);assert hashlib.sha256(b).hexdigest()==h,('Changed',p);assert not rx.search(b),('Credential-shaped text',p)\n"+
 "t=subprocess.Popen(['tar','-c','--null','-T','-'],stdin=subprocess.PIPE,stdout=subprocess.PIPE);z=subprocess.Popen(['zstd','-q','-10','--long=27','-T2','-o',"+JSON.stringify(archive)+"],stdin=t.stdout);t.stdout.close();t.stdin.write(bytes([0]).join(p.encode() for p in paths)+bytes([0]));t.stdin.close();assert t.wait()==0;assert z.wait()==0\n"+
 "seen={}\nwith open("+JSON.stringify(archive)+",'rb') as f:\n with zstandard.ZstdDecompressor().stream_reader(f) as stream:\n  with tarfile.open(fileobj=stream,mode='r|') as tf:\n   for x in tf:\n    if x.isfile() and x.name in expected:seen[x.name]=hashlib.sha256(tf.extractfile(x).read()).hexdigest()\nassert seen==expected\np=pathlib.Path("+JSON.stringify(archive)+");print(json.dumps({'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'member_hashes_pass':len(seen)}))";
 const info=JSON.parse(await read("python - <<'PY'\n"+packCode+"\nPY"));store("eu6PendingCheckpoint",{seq,m,info,archive,stage:"PACKED"});

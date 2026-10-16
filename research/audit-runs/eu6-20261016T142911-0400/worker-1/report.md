@@ -71,3 +71,9 @@ research_complete=false: прочитаны assignment, criteria, AGENTS, PROJEC
 
 Восстановленный remote backup блока01 подтверждён родителем: branchresearch/europe-recovery-eu6-20261016T142911-0400, dataSHA626eea1561eec9404e09cdc438b166c3052500a5; durable readback receipt17933a8a3766a8c8141872b0739a72f7c14a3ffc. Fullarchive/memberhashesPASS. Это backup исследований, не publication/acceptance. Block01immutable не изменён.
 
+## Немедленный safety checkpoint — Muttendorf
+
+Native GET https://tierarztpraxis-muttendorf.at/ 2026-10-16T18:57:07.748Z вернулHTTP200 с явным password-protected clinicalbody. Effective clinicalsuccess=false. Автоматический первоначальный source_success=true вreceipt не является фактической успешной clinicalпроверкой; поправка отдельно вnew-restrictions.json, исходныйreceipt не переписан. Дальнейший protected clinicalworkflow/host не обходится через nav,HTTP/www,пароль или инойclient. Доступная Veterinariabranch подтверждает current team/contact/generalmedicine, но cancer-specificlocalservice не установлена. Это precise external gap. Иные доступные network/university источники продолжаются; rosters ещё не объявлены закрытыми.
+
+Родитель подтвердил backup002: dataSHA5e43e4b5c0252c394fc56ff02d7f9fb22842ff3b,receipt e40c1cb4666f628cc24aeb5220f4c62a57dec650;archive/memberhash/control/readbackPASS. Это researchbackup,неpublication/clinicalapproval.
+
