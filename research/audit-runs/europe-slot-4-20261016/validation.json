@@ -1,31 +1,126 @@
 {
-  "slot": 4,
-  "country": "Germany",
-  "run": "europe-slot-4-20261016",
-  "original_run_local_date": "2026-10-15",
   "review_local_date": "2026-10-16",
-  "status": "INCOMPLETE",
-  "new_this_run": 32,
-  "update_this_run": 0,
-  "previous_german_physical_rows": 8,
-  "resulting_german_physical_rows": 40,
-  "coverage_complete": false,
-  "baseline_sha": "72d2fb187b3af4023957e6e3f933c071ea9cdd3d",
-  "checks_passed": [
-    "full build_static_site.py including catalog/schema/identity/source-date/duplicates/site search/production-sync/matcher logic/source-derived-selection/selection parity/country filters/Austrian identity/no-tracking/public shell gates",
-    "A01/A02/B01/B02/C01 care regressions",
-    "Austrian 65 physical identities preserved",
-    "country filter: 40 German locations and combined filter/reset/ZIP behavior",
-    "all baseline canonical/supplemental/source inventory record fields unchanged, keyed by complete physical identity",
-    "new IDs and exact physical identity tuples checked against complete current physical catalog",
-    "git diff --check",
-    "evidence-key redaction and scan"
+  "country": "Germany",
+  "physical_germany": 74,
+  "new_since_original_baseline": 66,
+  "new_since_last_published_checkpoint": 34,
+  "update_to_original_baseline_records": 0,
+  "full_build_exit_code": 0,
+  "full_build_summary": [
+    "ONCOLOGY_CENTER_FINDER_OK centers=680",
+    "ONCOLOGY_CENTERS_OK centers=680 states=52",
+    "ARTICLE_CATALOG_OK articles=13 categories=4",
+    "SEO_INDEX_POLICY_OK indexable=167 noindex=42",
+    "HELP_CONTENT_OK details= 24",
+    "CENTER_DIRECTORY_PICKER_OK sections=4",
+    "CENTER_PROFILES_OK pages=107 verified_profiles=89 redirects_skipped=18",
+    "SENTENCE_CASE_OK pages=211",
+    "SITE_SEARCH_OK pages=189",
+    "CENTER_URL_REGRESSION_OK historical_routes=14 redirects=18",
+    "RESTORED_CENTER_PROFILES_REGRESSION_OK profiles=5",
+    "PRODUCTION_SYNC_OK total=156 treatment=152 access=4 matcher_ids=156 internal_links=6785",
+    "MATCHER_LOGIC_OK trials=156 mct=4 yasha=0 mammary=5 osteosarcoma=20 bladder=7 brain=8",
+    "SOURCE_DERIVED_SELECTION_OK reviewed=58 cases=264",
+    "MATCHER_SELECTION_OK canonical=310 public=156 checks=1448 criteria=166",
+    "MATCHER_SELECTION_PARITY_OK public=156 disease_checks=18720",
+    "ONCOLOGY_COUNTRY_FILTER_OK 12 countries; 74 German locations; combined filters, state reset, stale ZIP suppression",
+    "AUSTRIAN_CARE_IDENTITY_OK 65 distinct sites; branch addresses, phones and services preserved",
+    "NO_TRACKING_OK",
+    "PUBLIC_PAGE_SHELL_OK 212"
   ],
-  "production_expected": {
-    "url": "https://vettrialfinder.com/matcher/centers/",
-    "bytes": 602442,
-    "sha256": "276c980a0b9464eec1cc973af6959b2f6a9aba3568d2e16577d49143f95e0da8"
-  },
-  "publication_status": "NOT_YET_PUBLISHED",
-  "limitations": "Building coordinates unverified for all 32 rows; published as explicit nulls. Country coverage and unfinished branches/services are in remaining.json; passing checks do not establish complete national coverage."
+  "old_input_rows_preserved": true,
+  "coordinate_accepted": 2,
+  "coverage_complete": false,
+  "checks": [
+    {
+      "command": "node scripts/test_a01_care_reconciliation.js",
+      "result": {
+        "chunk_id": "e36701",
+        "wall_time_seconds": 0.019658331,
+        "exit_code": 0,
+        "original_token_count": 25,
+        "output": "A01_CARE_REGRESSION_OK identities, service flags, WA ZIP/state sorting, mobile distance suppression\n"
+      }
+    },
+    {
+      "command": "python scripts/test_a02_care_reconciliation.py",
+      "result": {
+        "chunk_id": "eeadc9",
+        "wall_time_seconds": 3.5918e-05,
+        "exit_code": 0,
+        "original_token_count": 36,
+        "output": "A02_CARE_REGRESSION_OK identities, retired/watchlist exclusion, local modality limits, mobile coordinates, doctor credentials, remote audiences\n"
+      }
+    },
+    {
+      "command": "python scripts/test_b01_care_reconciliation.py",
+      "result": {
+        "chunk_id": "0ba2f6",
+        "wall_time_seconds": 3.8149e-05,
+        "exit_code": 0,
+        "original_token_count": 28,
+        "output": "B01_CARE_REGRESSION_OK 25 sources, 26 sites, Malvern separation, branch modalities, credentials and contacts\n"
+      }
+    },
+    {
+      "command": "python scripts/test_b02_care_reconciliation.py",
+      "result": {
+        "chunk_id": "d08c9f",
+        "wall_time_seconds": 3.0726e-05,
+        "exit_code": 0,
+        "original_token_count": 26,
+        "output": "B02_CARE_REGRESSION_OK branch modalities, credentials, aliases, relocation coordinates, network scope\n"
+      }
+    },
+    {
+      "command": "python scripts/test_c01_care_reconciliation.py",
+      "result": {
+        "chunk_id": "4b6e29",
+        "wall_time_seconds": 3.751e-05,
+        "exit_code": 0,
+        "original_token_count": 33,
+        "output": "C01_CARE_REGRESSION_OK 24 unique branches, corrected coordinates/identity, conservative filters, credentials and named treatments\n"
+      }
+    },
+    {
+      "command": "python scripts/test_austrian_care_identity.py",
+      "result": {
+        "chunk_id": "3a8235",
+        "wall_time_seconds": 3.7334e-05,
+        "exit_code": 0,
+        "original_token_count": 24,
+        "output": "AUSTRIAN_CARE_IDENTITY_OK 65 distinct sites; branch addresses, phones and services preserved\n"
+      }
+    },
+    {
+      "command": "node scripts/test_oncology_country_filter.js",
+      "result": {
+        "chunk_id": "93d862",
+        "wall_time_seconds": 5.6324e-05,
+        "exit_code": 0,
+        "original_token_count": 29,
+        "output": "ONCOLOGY_COUNTRY_FILTER_OK 12 countries; 74 German locations; combined filters, state reset, stale ZIP suppression\n"
+      }
+    },
+    {
+      "command": "python scripts/check_evidence_keys.py",
+      "result": {
+        "chunk_id": "4eff70",
+        "wall_time_seconds": 0.713107655,
+        "exit_code": 0,
+        "original_token_count": 10,
+        "output": "PASS: no unredacted Google API keys.\n"
+      }
+    },
+    {
+      "command": "git diff --check",
+      "result": {
+        "chunk_id": "08cccb",
+        "wall_time_seconds": 3.1718e-05,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    }
+  ]
 }

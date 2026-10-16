@@ -16,27 +16,28 @@
       "country": "Germany",
       "disposition": "INCOMPLETE",
       "remaining": [
-        "Complete per-entry triage in discovery-leads.json; query results are not reviewed clinic evidence. Entries retain exact URLs and disposition.",
-        "Finish national network traversal: AniCura official list opened (78 advertised locations), but individual branch treatment allocation is not exhausted. Current Evidensia and Tierarzt Plus Partner branch rosters also require full traversal.",
-        "Finish saved candidates: Am Westend needs the detailed oncology page, not just specialty heading; Johannes Koch, Haar, TZN, Hofheim, Kaiserberg, Llewellyn, Schwerte and Peter Schmidt now have confirmed records. Martin Schlager needs independent current service/location identity review rather than duplicate Hofheim staff.",
-        "Complete all five university hospital reviews: LMU and TiHo added; FU Berlin current owner/team/service routes, Leipzig current working official variant and Giessen chemotherapy/contact/team detail remain.",
-        "Deepen weak state coverage in Saarland and Saxony-Anhalt; complete independent practice leads in other states, not just one result per region.",
-        "Check visiting/mobile surgeon Stefan Scharvogel against current Gessertshausen and Schliersee/Hausham branch sources; do not copy his former Haar employment as current assignment.",
-        "Resolve Nord-Ostsee oncology delivery between Schafflund and Tarp; Norderstedt oncology appointment building between Kabels Stieg 41 and Ulzburger Straße 44.",
-        "Classify Llewellyn remote service oncology scope and dedupe against all 61 existing remote services; no remote entry added from generic internal-medicine video availability.",
-        "Resolve NIICE chemotherapy start date and ECT soon wording; keep only confirmed current surgery in published services.",
-        "Verify exact building coordinates for all 32 new rows; current null coordinates intentionally suppress proximity distance. No geocoding guesses.",
-        "Finish clinician/qualification detail gaps, including Bremen, Nienburg and Schwerte, while preserving already confirmed local treatment.",
-        "Reconcile all eight baseline German physical rows against current official sources; no successful dates advanced merely from search results.",
-        "Complete geographic, current-service and new-opening layers; the 41 executed queries cover state names but are not exhaustive state coverage."
+        "Complete per-entry national discovery triage; exact lead URLs/dispositions retained in discovery-leads.json. Search-result snippets are not clinical evidence.",
+        "Finish individual German branches in AniCura (78 advertised locations), Evidensia and Tierarzt Plus Partner rosters; VUK official 79-member (current re-open; earlier view showed 78) overview now opened and requires clinic-by-clinic geographic/treatment triage.",
+        "Complete FU Berlin, Giessen and Leipzig university service/contact/team verification. LMU and TiHo added with branch-level treatment evidence.",
+        "Resolve local-treatment evidence for Oberhaching, Nord-Ostsee Schafflund/Tarp, Ismaning, Böbingen Reif, Sandkamp, Hafencity, Fuhlsbüttel, Ingmar Meth Homburg and separate Erfurt Tierklinik. Keep generic oncology/diagnostics/referral distinct from local chemotherapy.",
+        "Resolve Martin Schlager independent service/location identity without duplicating current Hofheim roster membership.",
+        "Resolve NIICE chemotherapy/ECT start timing: in Kürze ambiguous; retain current confirmed surgery only.",
+        "Complete owner-to-vet/vet-to-vet remote oncology discovery and reconciliation, including existing Germany services tele-31 and tele-53, Llewellyn general internal-medicine Zoom and Scharvogel surgical consultations. Visiting Scharvogel branch evidence for Gessertshausen and Schliersee has now been reviewed.",
+        "Review exact map/building coordinates: 2 of 66 new rows have reviewed official structured coordinates; remaining 64 retain null. Structured inspection covered 63 URLs and is not a full manual map review.",
+        "Reconcile all eight baseline German physical rows against current official sources. No existing success dates renewed from search results.",
+        "Review unresolved qualification/contact conflicts and branch intake specifics, including Diana Schulenburg conflicting current/2017-2025 employment claims and Norderstedt campus appointment building.",
+        "Complete geographic current-service and new-opening layers; query coverage is not evidence that available national work is exhausted."
       ],
       "evidence_directory": "research/audit-runs/europe-slot-4-20261016",
       "recovery_started_local_date": "2026-10-16",
-      "new_this_recovery_run": 32,
+      "new_this_recovery_run": 66,
       "update_this_recovery_run": 0,
       "previously_present_german_physical_rows": 8,
-      "publication_status": "VALIDATED_NOT_YET_PUBLISHED",
-      "coverage_complete": false
+      "publication_status": "32_PUBLISHED_34_VALIDATED",
+      "coverage_complete": false,
+      "published_sha": "7077448c1e21c7eb62e3760b7b1444ea06b6d832",
+      "published_new": 32,
+      "unpublished_new": 34
     }
   ],
   "follow_ups": [
@@ -56,6 +57,7 @@
     "cursor_advanced_for_original_country_once": true,
     "queue_file_missing_at_start": true,
     "next_country": "Switzerland",
-    "evidence_directory": "research/audit-runs/europe-slot-4-20261016"
+    "evidence_directory": "research/audit-runs/europe-slot-4-20261016",
+    "remaining_reference": "research/audit-runs/europe-slot-4-20261016/remaining.json"
   }
 }
