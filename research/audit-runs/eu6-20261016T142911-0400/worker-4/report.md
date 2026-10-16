@@ -109,3 +109,7 @@ Brockhaus: statutorypractice181подтверждена,но публикуют�
 Счётчикиassigned102/processed67/fully8;NEW3(дляQA),UPDATE0providers/0fields,DUP8,EXCLUDED3,UNRESOLVED53,unprocessed35. Статутныеsearchformsбылиобычнымиread-onlypublicPOSTсadvertisedполями;публичноесостояниеформыиспользовалосьтольковпамяти,нехранилось;auth/CAPTCHA/outreach/consentнеиспользовались.
 
 НациональныйдоступныйfrontierрасширеннаNRW,Hamburg,MV,Sachsen,RLP,BWprofessionalreference/masterroutes. Sachsenofficialjoblistingсодержитновые2026signalsriesaVETs/MKKLeipzig;vacancyfuturetasksнеравныподтверждённойдействующейchemo/RT. Этоleadsдляразбора,неNEW. Nordrheinmapconsentизолирован,отдельныйstaticPDFдоступен;исследованиенеостановлено. Backup014parentverified:data75390ff860749c596c07d959041d1f354aee087f,receipt75d639aaff46080f9a37df5be1613bd5adf74343.
+
+## Новый фактический отказ Niedersachsen
+
+Независимый statutoryreference https://www.tknds.de/ получил HTTP403 в 2026-10-16T19:34:26.747308+00:00; workflow немедленно остановлен, альтернативные transport/client/query/encoding/redirect не использовались. Следующая SachsenWBSцель втомbatch не посещена, не объявленаfailedread. Доступные независимые professionalroutes других земель продолжаются.
