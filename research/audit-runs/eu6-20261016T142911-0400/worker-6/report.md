@@ -8,7 +8,7 @@ Checkpoint-14: 177 промежуточных adjudication-групп, 45 fully,
 
 ## Новая фактическая работа
 
-{"assigned":4,"processed":4,"fully_verified":0,"NEW":0,"UPDATE":0,"DUPLICATE":0,"EXCLUDED":1,"UNRESOLVED":3}; 19 новых query executions, не клиник. Первые четыре кандидатных review см. records/review-001.json; source/evidence append-only shards в shards/.
+{"assigned":18,"processed":18,"fully_verified":3,"NEW":3,"UPDATE":0,"DUPLICATE":0,"EXCLUDED":9,"UNRESOLVED":6}; 26 новых query executions, не клиник. Первые четыре кандидатных review см. records/review-001.json; source/evidence append-only shards в shards/.
 
 Восстановлен текущий публичный BestCare master: https://bestcaredierenartsen.nl/praktijken/ (старый /deelnemende-praktijken/ возвращает 404). Он показывает 12 записей: 10 клинических групп плюс administrative Best Care Organisatie и Voorbeeldkliniek; это не 12 новых клиник. Публично открыты 9 групповых branch-roster страниц; работа по реальным локальным филиалам продолжается.
 

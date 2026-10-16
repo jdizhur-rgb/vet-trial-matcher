@@ -1,13 +1,29 @@
-# Польша — промежуточный checkpoint 1
+# Польша — промежуточный checkpoint 2
 
-Настоящий исполнитель /root/recovery_pl; run eu6-20261016T142911-0400; baseline2f7099307e174556883ca6eb97495bead2dc3401. Фактическое начало18:41:40UTC16октября2026; работа продолжается.
+Исполнитель /root/recovery_pl. Начало16октября2026в18:41:40UTC, работа продолжается. Run eu6-20261016T142911-0400; current-mainbaseline2f7099307e174556883ca6eb97495bead2dc3401.
 
-Полностью прочитаны assignment,criteria,AGENTS,644строки PROJECT_OPERATIONS,prior-controller receipt; структурно восстановлены все шесть checkpoint28,exact frontier29/7in-progress и restrictions9файлов. Унаследованные637Web receipts/324queries и147proposals/136fully не считаются новым обнаружением этого запуска. Сопоставление четырёх полных скопированных каталогов3005строк установило20 уже-mainIDs и127 inherited absent candidates; field-level/semantic QA продолжается. Tele-input также сохранён и подлежит отдельному поиску идентичности.
+## Разделение наследства и новых проверок
 
-Первый saved-primary блок:14реальных provider candidates рассмотрены,5новых полностью подтверждены текущими первичными полными страницами:При Кладке(Bydgoszcz,онкохирургия),ABA-VET(Wieliczka,удаление опухолей),DR HAU(Kraków,онкохирургия),Dobrywet(Bobrowiec,химиотерапия/ECT/онкохирургия),VetHome(Długołęka,онкохирургия). Это прежние сохранённые leads,а не new_discovery_this_run. Подробности,короткие цитаты,officialURLs,currentnamedGP/qualification/contact/access в candidates-001.json. Точные координаты неизвестны,не выдуманы.
+Унаследовано147proposal records с136заявленнымиfully и637Webreceipts/324queries. По всем четырём полным current-input каталогам3005строк:20ID ужеmain,127absent candidates. Последние НЕ127revalidatedNEW: inherited_unpublished_revalidated пока0; полная семантическая/fieldQA и пересчёт реальных провайдеров продолжаются. Provisionalcandidateinventory134=127inheritedabsent+7savedleadNEW,не134подтверждённых добавлений. Никаких productionUPDATE сейчас не заявлено.
 
-Не повышены generic surgery iVet/Duo-Wet/Jaśminvet;Anika/Reptilio не dog-catclinic;MyTail — блог,не клиника;AnnaJaśkiewicz относится к Elwet/RTWet,не отдельному офису. MultiVet Ołowiana имеет местное удаление guzy,но clinical oncology referral и scopeQA остаётся явным. VETLublin имеет локальную онкохирургию,но не подтверждён опубликованный currentqualifiedGP;MED-VET2branches имеют общую услугу без распределения/clinicalstaff. Vetspec обычные transport502/hostname mismatch,не denial и ещё собственные fallbacksteps. Medicavet identity/fallback ещё собственная работа.
+## Фактический новый результат
 
-Новый точный внешний hold:official DILW PDF28May2026 notaccessible viaWeb(turn2850view0);не повторяется и не обходится. Все22 прежних ограничений действуют. Необработанное доступное не объявлено external.
+Полными первичными service/team/contact/access страницами подтверждены7прежних сохранённых leads: PrzyKładce(Bydgoszcz,онкохирургия),ABA-VET(Wieliczka,удаление опухолей),DRHAU(Kraków,онкохирургия),Dobrywet(Bobrowiec,химиотерапия/ECT/онкохирургия),VetHome(Długołęka,онкохирургия),AS(Olsztyn,толькоLocaloncologycare),Lupus(Kraków,толькоLocaloncologycare). Профильного boardсертификата дляGP не требовали; специфические модальности не выдумывались. Это7qualifyingNEWthisrun после текущего дедупа,аnew_discovery_this_run_fully_verified=0. Подробные URLs,цитаты,квалификации и scope вcandidates001/002. Координаты неизвестны явно,не являются барьером.
 
-Национальный план всех16województw,университетов,сетей,независимыхGP,RT/ECT,visiting/mobile/remote пока НЕЗАВЕРШЁН;таблица наследованного плана input/inherited/resume-national-plan.json остаётся открытой. Первоначальный backupremote@f09a1608b2fbc09b8d25a9e3d29f756fa1fae0ed;новый remoteSHA ожидается отparent. Ни production,ниmain,ниdeploy не изменялись. research_complete=false.
+Все17savedprimaryroutes и12identityroutes получили маршрутизацию/именованный исход. NeoVet«Białystok» оказался ложным городом directoryURL:физическиŚwit65Wrocław,ужеinherited. Hanusz — историческое имя текущейOlbrychta1A;MediCaVet.com.plс тем же телефоном — probablelegacyalias нынешнейRacławicka146,не новаяbranch. Rybicki относится к существующейBrynowska25c,не ещё однаклиника. MyTail—блог,Anika—экзотические мелкиемлекопитающие,Jagielski—образовательный профиль без отдельной практики. Generic surgery/курсы не расширены до cancer treatment.
+
+## Национальный поиск
+
+Всего69actualqueries этого запуска,считая32новых pairedregionqueries всех16województw. Эти последние выявили54именованных новых leads,которые ещёНЕprocessed/verified; они сохранены отдельно сofficialdiscoveryURLs. Не повторялось списывание доступногоостатка воexternal. Broadqueries с несколькимигородами дают шум,поэтому explicitOR secondarycityrefinements остаются открытыми. Никакой регион/национальная dimension ещё не объявлена завершённой.
+
+Следующий блок:регионально обработать новыеprimaryleads,прояснитьштат/точныеbranches и обновлениятолько поexactold/currentnew;далее завершить221potential/636unmatchedhost priorqueryreconciliation,сети/currentrosters,newsignals иmobile/remote. Унаследованные университетские текущие/будущиеразличия сохранены,но финальнаяnationalmatrixещёне принята.
+
+## Внешние вопросы и ограничения
+
+Точные именованные вопросы:VETLublincurrentqualifiedGP;2MED-VETbranchscope/staff;Vetspecbody502hostname mismatch безTLSdisable;GiVetbody/oncology;ZwierzakBiałystokrootgate+bookingredirectloop;AVETOlsztynprimaryidentity;ZdrowyZwierzak2branchesservice429. Втораяпоследняяпара имеет staff/contact/home,но не доставленныйонкосервис,навигаторсампо себенеproof. Датыуспешнойпроверки не обновлены от ошибок. Все22старыхhold плюсnew001–004сохранены;новыеdeniedURLнеповторялись.
+
+## Backup и валидация
+
+Root/workeridentity совпадает;исходныекопии неизменны. Всеappend-onlysourceшарды иcandidateверсии хешируютсяmanifest/ready. Parent сообщилremoteVERIFIEDbackup002: data5e43e4b5c0252c394fc56ff02d7f9fb22842ff3b,receipt e40c1cb4666f628cc24aeb5220f4c62a57dec650,веткаresearch/europe-recovery-eu6-20261016T142911-0400. Этоbackupblock1/restrictions003/004,НЕclinicalacceptance/публикация. Новыеblock2байты ещёожидаютremoteproof. Main/site/build/deploy не изменялись.
+
+research_complete=false: именованный доступныйостаток иnationalplan продолжаются безcandidate/time/integrationcap.

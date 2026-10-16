@@ -48,6 +48,18 @@ Remote backup block01+queryamendment реально подтверждён ко�
 
 ## Evidence, идентичность и сохранение
 
+### Блок04, фактический рубеж18:59UTC
+
+Восстановлена substantive disposition каждого из53ledger candidates. Ещё10 primary-complete NEW: Uhříková/Adolfovice (tumor surgery), Medicanima/Palmovka (localchemo+surgery+immunotherapy), Stehlík/Břeclav (tumor surgery; новый реальный native fullservice read18:54:25.364660UTC + унаследованный contact15:56:48), Machník/Písek (tumor surgery, актуальное расписание16–25October2026), Kotvaltová/Rudná (tumorexcision), ABClinic/Brno (только Localoncologycare: опубликовано лечение опухолей кожи, конкретная онкооперация текущей страницей не доказана), Suchdol/Praha6 (tumor surgery), Břeň/Praha-Ďáblice (tumor surgery), OK-VET/Praha-Řepy (localchemo+radicaltumorsurgery), Seifertová/Praha-Vokovice (tumor surgery). Полные exactaddress/phone/GPqualrole/officialURLs и shortquotes — block-04-reviews.json. NEW32 — все inheritedunpublishedrevalidated, не32новыхоткрытия.
+
+Уникальные реальные provider/service candidates54:53ledger+1SCINTIVET; processed54; fully32; NEW32; UPDATE0; DUP18 alreadymain; EXCLUDED1; UNRESOLVED3. SCINTIVET, Praha-Strašnice, Úvalská32, radioiodinehypertyreóza: excludedfromcancercare, поскольку primary не устанавливает malignantcanceraccess. Не radiationoncology и не transferPalmsurgery. Две другие неполные ledger identities: Vítkovice/Ostrava — localoncologicsurgery/contactverified, но ни currentfullhome/aboutanchor ни sourceHTML не называют конкретного врача; TROJAVET/Bohnice — localtumorsurgery/contact, teamplaceholder, datedonlydaymonthAugustrota явно не2026, currentdoctorunknown. Они пока not_established, не маскируются externalfinished.
+
+Третий unresolved — PetrProcházka/Olomouc-Holice: currentidentity/MVDr/access до отказа подтверждены; serviceworkflow poll25359 отклонён auto-review как heldqueryvariant. Это явный permissionstop: дальнейшиеpoll/readfile/replay/client/path запрещены, никакой новойservice-successдаты. Родителю немедленно отправлен restriction03 с вопросом о явном applicable разрешении; непричастная работа продолжается.
+
+Новые exact conservativetoolunavailable holds: Stehlík guessed/sluzby.html; Procházka guessed/sluzby/; Adolfovice guessed/kontakt/. Их не повторял и не обходил. Для Stehlík независимый реально indexedadvertised/nase-sluzby.html оказался другим настоящим route, Webtimeout→sameURLnative200 с сохранённым fullread; olddeniedguess не повторял. Adolfovice самостоятельнаяhomepage fullHTML дала contact и MVDr; partnerKETRIS Brno не клиника.
+
+Достоверный latestremote backup контроллера: data5e43e4b5c0252c394fc56ff02d7f9fb22842ff3b, readbackreceipte40c1cb4666f628cc24aeb5220f4c62a57dec650; blocks01+queryamendment/02/03/restriction01 remoteverified. Остальные localready ждут parentdurabilityreceipt. Исследование не countrycomplete: весь documentednationalgeographyquerylayer, universities, VETINO/VetPark/VetCareGroup rosters и furtherlocal/mobile/radiotherapy новыеsignals ещё должны быть исполнены.
+
 Начальная remote research-only копия: research/europe-recovery-eu6-20261016T142911-0400 @ f09a1608b2fbc09b8d25a9e3d29f756fa1fae0ed. Контроллер прочёл control-file обратно и проверил полный SHA256 архива из fetched remote object. Это backup исследований, НЕ публикация сайта. Новые собственные результаты ещё отсутствуют.
 
 ## Вывод

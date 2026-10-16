@@ -23,3 +23,17 @@ Slot 4; run `eu6-20261016T142911-0400`; baseline `2f7099307e174556883ca6eb97495b
 ## Сохранение и вывод
 
 Первоначальная remote research copy: `research/europe-recovery-eu6-20261016T142911-0400` @ `f09a1608b2fbc09b8d25a9e3d29f756fa1fae0ed`. Текущий block готовится для parent serializer; worker не commit/push/deploy. Source visit dates не обновлены offline review. Research не закончено: остаётся доступное исследование и конкретные held-scope gaps.
+
+## Блок 02 — фактический прогресс
+
+Счётчики исправлены: Nord-Ostsee — две реальные ветки Schafflund/Tarp, а не один provider за group-page; allocation лечения обеих не установлен. Пять старых полных payload Oberhaching, Erler Kassel, Rudat Hamburg, Zogall Schwerin, Hartke Mühlhausen сверены с current2f7099 по sourceID/name/address/phone/site/services: все ALREADY_APPLIED/DUPLICATE, не NEW и не обновлённые source dates. Пять fully_verified относятся к восстановленному полноценному primary evidence, не к новым внешним чтениям.
+
+Выполнены16 broad current/undatedqueries,16newsignalqueries system1 (плохая релевантность, не coveragecomplete),16коротких уточняющих Neueröffnung queries system2,21город,16university/network/visiting/mobile/remote/referencequeries и6register-followups. Всего91queries. Есть фактические leads новых открытий TebbeVet, Fichtelgebirge, Nessetal, Valera, расширений Kaiserberg/Stommeln/Arnstadt и сетей filu/felmo; всё это пока leads, не NEW и не отсутствие лечения. Полный URL-index отдельно от provider counts.
+
+Независимые official sources после отдельного проверенного preflight: DVG workgroup200 (Scharvogel, Daniela Simon Betz с указанными diplomas; без branchassignment); TKSHroot/publicsearch200 (форма, а не полученный practitionerroster); Bremenchamberroot200 (общаяreference, не clinicalroster); ECVIMroot502иsameURLWeb502 (успешнаядата не обновлена). BPTmaster200 указывает currentregister22.09.2026; exact actualhref PDF200,91pages. Это полезный разрешённый независимый credential/contactroute, который не отменяет heldclinicalscope и не подтверждает oncology из Patella membership. Старый search-indexed2025PDF404native+Web, не currentverification.
+
+Remote block01 verified parent: research dataSHA626eea1561eec9404e09cdc438b166c3052500a5; durable readback receiptSHA17933a8a3766a8c8141872b0739a72f7c14a3ffc. Это только researchbackup.
+
+Текущий свод candidate units: assigned 89, processed 28, fully_verified 5, NEW0, UPDATE0, DUP7, EXCLUDED3, UNRESOLVED18,61identity-onlyunprocessed. Querycount91, uniqueURLs996 отдельно. Research_complete=false; доступные reference/registry/frontier steps продолжаются.
+
+Техническая поправка блока02 (2026-10-16T18:55:57.010474+00:00): текущие direct official source attempts10 (8native+2Webfallback), отдельно24searchtoolcalls/91queries. Старый literal0 в draftutility не описывает выполненные запросы. Draftblock02 не ready для backup; frozenbytes не менялись, amendment сохранён, компактный block02delta ссылается на82неизменённых записейblock01 вместо их повторного копирования.

@@ -7,11 +7,14 @@ def collect():
     a=json.loads((RUN/"assignments.json").read_text())
     lp=RUN/"backups/ledger.json"
     uploaded=json.loads(lp.read_text()).get("uploaded_files",{}) if lp.exists() else {}
-    files={};blocks=[];reports={};errors=[]
+    files={};blocks=[];reports={};errors=[];quarantined=[]
     for item in a["assignments"]:
         w=ROOT/item["worker_directory"]
         ready_paths = [q for q in w.rglob("*ready.json") if q.relative_to(w).parts[0] != "input"]
         for ready in sorted(ready_paths):
+            if item['slot']==4 and ready.relative_to(w).as_posix()=='checkpoints/block-02/ready.json':
+                quarantined.append({'ready':str(ready.relative_to(ROOT)),'reason':'Worker declared erroneous draft; immutable history superseded by block-02delta/ready.json. Not an accepted report or checkpoint.'})
+                continue
             try:
                 raw=ready.read_bytes();v=json.loads(raw)
                 for k in ["run_id","slot","country","baseline_sha","agent_id"]:assert v[k]==item[k],(k,v.get(k),item[k])
@@ -35,6 +38,6 @@ def collect():
                 else:assert uploaded[rr]==rs
                 blocks.append({"slot":item["slot"],"country":item["country"],"ready":rr,"ready_sha256":rs,"file_count":len(resolved)})
             except Exception as e:errors.append({"ready":str(ready.relative_to(ROOT)),"error":str(e)})
-    return {"run_id":RUN.name,"collected_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"files":list(files.values()),"ready_blocks":blocks,"latest_frozen_reports":reports,"errors":errors,"new_file_count":len(files),"publication":False}
+    return {"run_id":RUN.name,"collected_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"files":list(files.values()),"ready_blocks":blocks,"latest_frozen_reports":reports,"errors":errors,"quarantined":quarantined,"new_file_count":len(files),"publication":False}
 if __name__=="__main__":print(json.dumps(collect(),ensure_ascii=False))
 
