@@ -1,13 +1,21 @@
 {
   "country": "Germany",
   "review_local_date": "2026-10-16",
-  "physical_germany": 154,
-  "new_cumulative_recovery": 146,
-  "new_since_checkpoint_3": 25,
-  "original_baseline_updates": 0,
-  "already_published_rows_changed_this_checkpoint": 0,
+  "physical_germany": 155,
+  "new_physical_cumulative_recovery": 147,
+  "new_remote_cumulative_recovery": 1,
+  "new_since_checkpoint_4": {
+    "physical": 1,
+    "remote": 1
+  },
+  "original_baseline_rows_updated": 3,
+  "coordinates_added_to_previously_published_new_rows": 94,
+  "new_run_coordinate_verified": 96,
+  "new_run_coordinates_unknown": 51,
   "build_exit_code": 0,
   "build_summary": [
+    "CENTER_PROFILES_OK pages=84 verified_profiles=84 redirects_skipped=0",
+    "SITE_SHELL_OK 151",
     "ABOUT_PAGE_OK",
     "RETAINED_CENTER_PROFILES_OK restored=5",
     "CENTER_URL_REDIRECTS_OK redirects=18",
@@ -15,9 +23,9 @@
     "CANCER_PAGE_SEMANTIC_BUILD_OK 44 generated pages",
     "MATCHER_TAXONOMY_SYNC_OK",
     "MATCHER_DATA_OK total=156 treatment=152 access=4",
-    "ONCOLOGY_CENTER_CATALOG_OK profiles=458 acvim_locations=216 matched=68 supplemental_added=526 centers=760",
-    "ONCOLOGY_CENTER_FINDER_OK centers=760",
-    "ONCOLOGY_CENTERS_OK centers=760 states=52",
+    "ONCOLOGY_CENTER_CATALOG_OK profiles=458 acvim_locations=216 matched=68 supplemental_added=527 centers=761",
+    "ONCOLOGY_CENTER_FINDER_OK centers=761",
+    "ONCOLOGY_CENTERS_OK centers=761 states=52",
     "ARTICLE_CATALOG_OK articles=13 categories=4",
     "SEO_INDEX_POLICY_OK indexable=167 noindex=42",
     "HELP_CONTENT_OK details= 24",
@@ -32,7 +40,7 @@
     "SOURCE_DERIVED_SELECTION_OK reviewed=58 cases=264",
     "MATCHER_SELECTION_OK canonical=310 public=156 checks=1448 criteria=166",
     "MATCHER_SELECTION_PARITY_OK public=156 disease_checks=18720",
-    "ONCOLOGY_COUNTRY_FILTER_OK 12 countries; 154 German locations; combined filters, state reset, stale ZIP suppression",
+    "ONCOLOGY_COUNTRY_FILTER_OK 12 countries; 155 German locations; combined filters, state reset, stale ZIP suppression",
     "AUSTRIAN_CARE_IDENTITY_OK 65 distinct sites; branch addresses, phones and services preserved",
     "NO_TRACKING_OK",
     "PUBLIC_PAGE_SHELL_OK 212"
@@ -42,8 +50,8 @@
       "command": "node scripts/test_a01_care_reconciliation.js",
       "status": "fulfilled",
       "value": {
-        "chunk_id": "5c3552",
-        "wall_time_seconds": 0.058101727,
+        "chunk_id": "56195d",
+        "wall_time_seconds": 0.084624958,
         "exit_code": 0,
         "original_token_count": 25,
         "output": "A01_CARE_REGRESSION_OK identities, service flags, WA ZIP/state sorting, mobile distance suppression\n"
@@ -53,8 +61,8 @@
       "command": "python scripts/test_a02_care_reconciliation.py",
       "status": "fulfilled",
       "value": {
-        "chunk_id": "ab6d4d",
-        "wall_time_seconds": 0.021089726,
+        "chunk_id": "5f7e52",
+        "wall_time_seconds": 0.029335004,
         "exit_code": 0,
         "original_token_count": 36,
         "output": "A02_CARE_REGRESSION_OK identities, retired/watchlist exclusion, local modality limits, mobile coordinates, doctor credentials, remote audiences\n"
@@ -64,8 +72,8 @@
       "command": "python scripts/test_b01_care_reconciliation.py",
       "status": "fulfilled",
       "value": {
-        "chunk_id": "a78bed",
-        "wall_time_seconds": 0.021253331,
+        "chunk_id": "0e3b13",
+        "wall_time_seconds": 0.046242347,
         "exit_code": 0,
         "original_token_count": 28,
         "output": "B01_CARE_REGRESSION_OK 25 sources, 26 sites, Malvern separation, branch modalities, credentials and contacts\n"
@@ -75,8 +83,8 @@
       "command": "python scripts/test_b02_care_reconciliation.py",
       "status": "fulfilled",
       "value": {
-        "chunk_id": "b75364",
-        "wall_time_seconds": 0.063607714,
+        "chunk_id": "0de3ec",
+        "wall_time_seconds": 0.000392621,
         "exit_code": 0,
         "original_token_count": 26,
         "output": "B02_CARE_REGRESSION_OK branch modalities, credentials, aliases, relocation coordinates, network scope\n"
@@ -86,8 +94,8 @@
       "command": "python scripts/test_c01_care_reconciliation.py",
       "status": "fulfilled",
       "value": {
-        "chunk_id": "ea5f96",
-        "wall_time_seconds": 0.084789833,
+        "chunk_id": "2e1ea6",
+        "wall_time_seconds": 0.01666888,
         "exit_code": 0,
         "original_token_count": 33,
         "output": "C01_CARE_REGRESSION_OK 24 unique branches, corrected coordinates/identity, conservative filters, credentials and named treatments\n"
@@ -97,8 +105,8 @@
       "command": "python scripts/test_austrian_care_identity.py",
       "status": "fulfilled",
       "value": {
-        "chunk_id": "78cd66",
-        "wall_time_seconds": 0.093956527,
+        "chunk_id": "dec901",
+        "wall_time_seconds": 0.084551594,
         "exit_code": 0,
         "original_token_count": 24,
         "output": "AUSTRIAN_CARE_IDENTITY_OK 65 distinct sites; branch addresses, phones and services preserved\n"
@@ -108,19 +116,19 @@
       "command": "node scripts/test_oncology_country_filter.js",
       "status": "fulfilled",
       "value": {
-        "chunk_id": "2f3fbe",
-        "wall_time_seconds": 0.148134526,
+        "chunk_id": "f31a22",
+        "wall_time_seconds": 0.085089933,
         "exit_code": 0,
         "original_token_count": 29,
-        "output": "ONCOLOGY_COUNTRY_FILTER_OK 12 countries; 154 German locations; combined filters, state reset, stale ZIP suppression\n"
+        "output": "ONCOLOGY_COUNTRY_FILTER_OK 12 countries; 155 German locations; combined filters, state reset, stale ZIP suppression\n"
       }
     },
     {
       "command": "python scripts/check_evidence_keys.py",
       "status": "fulfilled",
       "value": {
-        "chunk_id": "1881e5",
-        "wall_time_seconds": 0.826232985,
+        "chunk_id": "88ef8c",
+        "wall_time_seconds": 0.61589397,
         "exit_code": 0,
         "original_token_count": 10,
         "output": "PASS: no unredacted Google API keys.\n"
@@ -130,13 +138,15 @@
       "command": "git diff --check",
       "status": "fulfilled",
       "value": {
-        "chunk_id": "be8cb3",
-        "wall_time_seconds": 0.020814969,
+        "chunk_id": "11bbbe",
+        "wall_time_seconds": 0.022067826,
         "exit_code": 0,
         "original_token_count": 0,
         "output": ""
       }
     }
   ],
-  "coverage_complete": false
+  "technical_count_guard_change": "Teleconsultations 61 to 62, initial owner audience 47 to 48; all 61 previous rows preserved. A02 existing fixed-count assertion updated to 62.",
+  "coverage_complete": false,
+  "remote_filter_manual_check": "PASS: 62 total; Scharvogel searchable under both owner/vet audiences and Cancer surgery; excluded from medical/radiation oncology"
 }
