@@ -130,3 +130,49 @@ Gratkorn и Tulln получили текущие повторные primary д�
 
 Удалённый backup block03 подтверждён: data337e640a819d74a71bd4b52a825f98ae5680ec77 / receipt7a006e9a2ad896aa56e78f09c15e6460824064ce, archive/control/memberhash PASS. Клиническая приёмка и публикация не выполнены; research_complete=false.
 
+# Блоки 06–08 — региональные повторные проверки и новые независимые варианты
+
+Промежуточный результат на 16.10.2026 около 19:24 UTC: assigned 138 реальных provider/service candidates; processed 86; fully_verified 74; NEW 27 = 18 inherited_unpublished_revalidated + 9 new_discovery_this_run; UPDATE 16 identities / 31 fields; DUPLICATE 32; EXCLUDED 3; UNRESOLVED 8. Всего 63 фактических новых запроса. Это не исторические 222/138 или88/32: прежние счётчики не перенесены. research_complete=false.
+
+Новые пригодные записи этого блока:
+
+| Клиника | Город / область | Подтверждённая услуга | Official primary |
+|---|---|---|---|
+| Drautalvet Dr.Gütler | Feistritz/Drau | опухолевая хирургия в собственном OP-центре | https://www.tierarzt-villach-land.at/leistungen/chirurgie/ ; /ordination-feistritz-drau/ |
+| Daniela Föttinger | Langenzersdorf | амбулаторное удаление опухолей | https://www.tierarzt-praxis.at/ |
+| Tierklinik Wien-Süd Dr.Weis | Brunn am Gebirge | собственные опухолевые операции, последующий стационар по потребности | https://www.tkws.at/chirurgie |
+| Christina Böcskör | Neufeld an der Leitha | терапевтическая soft-tissue хирургия в контексте опухолей молочной железы | https://www.tierdoktor.at/leistungen/ |
+| Sebernegg | Wien1190 | опухолевые операции в собственной практике | https://www.hiergehtstiergut.at/Chirurgie-und-Narkose |
+| Albert Payer | Deutschlandsberg | опухолевая хирургия | https://www.tierklinik-dlbg.at/unsere-leistungen/chirurgie |
+| Dr.Birgit Angerer | мобильная Mödling и окрестности | ТОЛЬКО cancer-focused паллиативное сопровождение | https://tierarztmobil.at/palliativmedizin.html |
+
+Drautalvet — повторно подтверждённый унаследованный неопубликованный lead; остальные шесть — текущие new discoveries. Angerer имеет фактически опубликованную veterinary qualification/role и CHPV, но не представляется board oncologist; химиотерапия/RT/ECT/операции не заявлены. Вместо вымышленного здания указана реальная мобильная область. У Payer текущая идентичность Tierarztpraxis Deutschlandsberg, прежнее clinic-domain не трактуется как закрытие или отдельная точка. Sebernegg current biography дополнительно полностью прочитана: Christian Sebernegg Tierarzt и действующая Mag.med.vet.Ines Dürrschmied.
+
+Повторно прочитаны 12 уже live providers в Burgenland/Salzburg/Tirol/Vorarlberg: Velich Eisenstadt; Eberhardt Kemeten; Baldasti Oberwart; Elisabeth Müller Altenmarkt; Kerstin Pabst Salzburg; Maxglan Salzburg; Barbara Bahr Seekirchen; Leschnik St.Johann; Spielberger/Oberthaler/Koutny Innsbruck; Kufstein; Bludenz; Schwarzmann Rankweil. Это не NEW. У Kufstein field-scoped UPDATE доступа: с01.05.2026 нет permanent emergency service; specific chemo/RT остаются неподтверждёнными. Leschnik: placeholder/дублирование specialist labels из team-page не приняты; actual veterinary roles подтверждены legal imprint. Maxglan — не второй current Oberalm. Bludenz после native parser failure current imprint полностью прочитан Web61lines; failed native не обновил successful date. Gratkorn получает дополнительный точный UPDATE Surgery из собственной текущей дневной клиники; RT остаётся внешним Vienna referral.
+
+| Регион | Tagged assigned / processed / fully_verified | Фактическая стадия |
+|---|---|---|
+| Wien | 30 / 18 / 17 | university, сети, TAPS, GP; ещё independents/new leads |
+| Niederösterreich | 24 / 18 / 18 | сети, новые GP, IVC; идут остальные baseline primary reads |
+| Oberösterreich | 14 / 4 / 4 | Wels/Steinerkirchen, Schwanenstadt, Garsten; доступный остаток большой |
+| Steiermark | 13 / 7 / 5 | Lieboch, Wies, Graz, GP; mobile и remaining independents не завершены |
+| Kärnten | 9 / 7 / 7 | Klagenfurt, Steuerberg, Drautalvet; остальные baseline сейчас читаются |
+| Salzburg | 8 / 7 / 7 | текущие GP и Anif; дополнительные новые поисковые leads остаются |
+| Tirol | 9 / 6 / 6 | Covi, Uderns, Schönberg, Innsbruck/Kufstein; remaining new/mobile leads |
+| Vorarlberg | 5 / 4 / 3 | Zohmann/Schwarzmann/Bludenz; Fürst exact holds, Holzer lead |
+| Burgenland | 8 / 7 / 7 | Parndorf, GP, Neufeld; Neusiedl alternate-treatment signal разбирается |
+
+Таблица — только candidates с уже установленным region в реестре; ещё18 именных leads без region не распределены искусственно. Она не означает закрытие регионов. Veterinaria19/AniCura6/TIERplus6 уже разобраны на branch-level; Muttendorf password hold остаётся. IVC2 — Tulln/Perchtoldsdorf Ost. VUK6 австрийских current/future members ещё не все имеют клинически сверенные исходы; future Rathaus/December2026 не продвигается как действующая клиника.
+
+Именованные неоднозначности и исключения:
+
+- Stiglhuber Liezen (Gartenweg4,+43361222411) и Rottenmann (Burgtorsiedlung191,+4336143770): current veterinary roles, контакты и общий tumor-OP текст прочитаны; полный текущий public site не распределяет OP-room между точками. Два UNRESOLVED published-branch-scope gaps, не два NEW Surgery. Нужна новая явная разрешённая primary branch формулировка; outreach не разрешён.
+- Drautalvet Spittal (Villacher28,+43476236455): собственная текущая страница описывает использование Feistritz центра. Shared group tumor operations не перенесены в Spittal; precise published scope ambiguity после обеих branch/service/chirurgie/interne страниц и focused query.
+- MobilVET: current official team, mobile service, hubs Graz/Leibnitz и операции прочитаны. Собственная страница прямо исключает операции на дому; опубликованного cancer-specific clinical offer не найдено в разрешённых текущих service routes/focused query. EXCLUDED/nonpromotion, не утверждение «никогда не лечат рак».
+- Hradecky: current native homepage200 = RUSA33 commerce/login, service404. Исходный автоматический source_success=true не является clinical success; effective clinical_success=false зафиксирован отдельным immutable assessment, без изменения исходного receipt. Search cache не принят как current primary.
+- Zarfl: official microsite подтверждает Auenstraße45/Wolfsberg/+43435237615, но не cancer service; собственный clinical host502/Web inaccessible, linked official embed пуст. Technical clinical gap, дата successful clinical check не обновлена.
+- Annabichl: native502/Webtimeout; доступная co-located TiKo primary venue страница ещё собственный остаток, поэтому преждевременного «внешний окончательный gap» нет.
+- Fürst Bregenz: публичная root-page подтверждает контакт/доступ; реальные inherited exact service/team holds сохранены. Нельзя объявить свежую клиническую верификацию по root contact-only.
+
+Собственный доступный остаток отдельно: текущая batch21sources/8baseline providers Niederösterreich/Kärnten требует полного чтения и сводки; remaining Wien/Steiermark/Oberösterreich baseline; 17+ новых региональных GP leads; Mario Sauer/Andrea Schmid/mobile/remote DocOrbit; An­nabichl venue; Krieger/Hampel/Frauental/Inn­sbruck service leads; новые undated services/openings, RT/ECT и национальный повторный frontier. External source gates/technical/integrity/branch-scope ambiguities не подменяют эти доступные задания. Четыре Stadtgraben координатных поля WITHHELD, Rieder/Stadtgraben-Wolf/Vöcklabruck реальные holds не сняты. Root restriction shard Muttendorf после seal не изменялся; новых gates пока нет.
+
