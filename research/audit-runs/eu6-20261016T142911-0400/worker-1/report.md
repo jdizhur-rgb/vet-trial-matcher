@@ -106,3 +106,27 @@ Native GET https://tierarztpraxis-muttendorf.at/ 2026-10-16T18:57:07.748Z вер
 
 Удалённое сохранение block02 подтверждено: data `5e43e4b5c0252c394fc56ff02d7f9fb22842ff3b`, receipt `e40c1cb4666f628cc24aeb5220f4c62a57dec650`; safety Muttendorf: data `68a3297e94e65c1caf9f6e6dd045cfc3cac38d12`, receipt `2a819f1c5b66d017bffc5f14e04f7c706cfb3d8b`. Это backup, не publication/clinical acceptance. Парольный Muttendorf остаётся clinical_success=false и held; обходов не было.
 
+# Блоки 04–05 — новые записи и расширенный собственный frontier
+
+Текущий итог: 137 зарегистрированных уникальных кандидатов, 58 processed, 54 fully_verified; NEW 20 = 17 inherited_unpublished_revalidated + 3 new_discovery_this_run; UPDATE 14 / 28 fields; DUPLICATE 21; EXCLUDED 2; UNRESOLVED 1. Всего 59 новых фактических поисковых запросов. Discovery leads ещё не прочитанных клиник не считаются processed. Национальный поиск продолжается.
+
+Добавлены относительно baseline 2f7099307e174556883ca6eb97495bead2dc3401, полная semantic сверка всех пяти inputs сохранена в dedupe shards:
+
+| Клиника | Город | Локальное лечение | Official primary |
+|---|---|---|---|
+| Kleintierpraxis Pöchlarn, Andrea Mergl | Krummnußbaum | опухолевая хирургия | https://www.kleintierpraxis-poechlarn.at/unsere-praxis/ |
+| Tierarztpraxis Steinerkirchen | Steinerkirchen an der Traun | опухолевая хирургия | https://www.veterinaria.at/standorte/steinerkirchen |
+| Tierklinik Wels | Wels | oncology assessment, химиотерапия, опухолевая хирургия | https://www.tierklinik-wels.at/onkologie/ |
+| TIERplus Klagenfurt | Klagenfurt | диагностика опухолей, опухолевая хирургия, без chemo | https://www.tierplus.at/tierarzt-klagenfurt/ и её individual linked PDF |
+| VetZentrum Anif | Anif | опухолевая хирургия и ECT | https://www.vetzentrum-anif.at/chirurgie ; /team ; /karriere |
+| Tierklinik Perchtoldsdorf Ost | Perchtoldsdorf | опухолевая хирургия | https://www.tierklinik-perchtoldsdorf-ost.at/leistungen/weichteilchirurgie |
+| TAPS am Stadtpark | Wien | oncology care, chemo, опухолевая хирургия | https://www.taps.vet/leistungen/onkologie/ |
+
+Последние три — новые находки текущего run. Anif: ECT подтверждена не одной квалификацией, а опубликованным собственным оснащением клиники плюс текущим named veterinary director с ECT clinical area; ophthalmology GPCert не выдан за oncology board. TAPS: текущий oncology vet Annabelle Gleich; старая поисковая Lea Liehmann не назначена лечащим врачом. Beatrixgasse22 и Reisnerstraße7 — два входа одной практики, не два NEW. Perchtoldsdorf Ost не объединён с самостоятельным Wien-Süd/Dr.Weis в Brunn.
+
+Gratkorn и Tulln получили текущие повторные primary доказательства существующей chemotherapy; это DUPLICATE. Дополнительная текущая Gratkorn surgery найдена позже и ещё требует exact UPDATE, не включена в счётчик 14. Schwanenstadt: cancer specialty и действующий named veterinary team прочитаны, но исход ещё не сведён. Drautalvet: прочитаны обе ветви и хирургия; Spittal прямо описывает доступ к OP-центру через Feistritz, поэтому перенос tumor operations на обе ветви без разбора недопустим; этот доступный разбор продолжается.
+
+Поиск новых undated/current услуг и открытий развернут на Wien/Niederösterreich/Burgenland/Oberösterreich/Steiermark/Kärnten/Salzburg/Tirol/Vorarlberg. Это лишь начало регионального frontier, не достаточное основание объявить ни один регион исчерпанным. В реестр добавлены 23 непроцессированных новых именных lead; их primary проверки, independents/GP/mobile/remote и future Rathaus остаются собственной доступной работой. Две transport попытки Annabichl (native502 и Web timeout) не являются successful visit и не обновляют клиническую дату. Hradecky current native homepage отдаёт посторонний RUSA33 контент; клинического успеха нет, поисковый cache не используется как свежая primary проверка.
+
+Удалённый backup block03 подтверждён: data337e640a819d74a71bd4b52a825f98ae5680ec77 / receipt7a006e9a2ad896aa56e78f09c15e6460824064ce, archive/control/memberhash PASS. Клиническая приёмка и публикация не выполнены; research_complete=false.
+

@@ -8,7 +8,7 @@ if(!m.files.length){text({status:"NO_NEW_FROZEN_FILES",errors:m.errors});return;
 const manifestPath=base+"/backups/checkpoint-"+seq+"-manifest.json";
 text(await tools.apply_patch("*** Begin Patch\n*** Add File: "+root+"/"+manifestPath+"\n+"+JSON.stringify(m)+"\n*** End Patch"));
 const archive="/workspace/scratch/2d03a6db0cc6/"+run+"-checkpoint-"+seq+".tar.zst";
-const extras=[base+"/assignments.json",base+"/criteria.json",base+"/controller-plan.json",base+"/collect_frozen_backup.py",base+"/github_backup_orchestrator.js",base+"/backups/ledger.json",base+"/report.md",base+"/restore-guide.md",base+"/check_research_gate.py",base+"/publication-ledger.json"];
+const extras=[base+"/assignments.json",base+"/criteria.json",base+"/controller-plan.json",base+"/collect_frozen_backup.py",base+"/github_backup_orchestrator.js",base+"/backups/ledger.json",base+"/report.md",base+"/restore-guide.md",base+"/check_research_gate.py",base+"/publication-ledger.json",base+"/controller-report-readback-008.json"];
 const packCode="import pathlib,json,subprocess,hashlib,tarfile,zstandard,re\n"+
 "m=json.loads(pathlib.Path("+JSON.stringify(manifestPath)+").read_text()); expected={x['path']:x['sha256'] for x in m['files']}\n"+
 "controller_paths=["+[manifestPath,...extras].map(x=>JSON.stringify(x)).join(",")+"];controller_hashes={p:hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest() for p in controller_paths};expected.update(controller_hashes);paths=list(expected)\n"+
