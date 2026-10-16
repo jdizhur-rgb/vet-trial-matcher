@@ -78,6 +78,7 @@ LOCATIONS = {
     "Veterinary Specialty Hospital - Sorrento Valley": "Veterinary Specialty Hospital, 10435 Sorrento Valley Rd, San Diego, CA 92121",
     "Veterinary Specialty Hospital - North County": "Veterinary Specialty Hospital - North County, 2055 Montiel Rd, San Marcos, CA 92069",
     "Veterinary Emergency + Referral Center": "Veterinary Emergency + Referral Center, 4800 N Davis Hwy, Pensacola, FL 32503",
+    "Veterinary Emergency + Referral Center - Honolulu": "Veterinary Emergency + Referral Center of Hawaii, 345 N Nimitz Highway, Unit C, Honolulu, HI 96817",
     "Pet Emergency and Specialty Center of Marin": "Pet Emergency and Specialty Center of Marin, 901 Francisco Blvd E, San Rafael, CA 94901",
     "Veterinary Referral Center of Central Oregon": "VRCCO East, 62889 NE Oxford Ct, Bend, OR 97701",
     "Johns Hopkins Center for Image-Guided Animal Therapy (CIGAT)": "Johns Hopkins CIGAT, 600 N Wolfe St, Park 311, Baltimore, MD 21287",
@@ -226,6 +227,8 @@ def addresses_for(name, city=""):
             return [LOCATIONS["Metropolitan Veterinary Hospital - Cleveland East"]]
         if normalize(city) in {"akron", "copley"}:
             return [LOCATIONS["Metropolitan Veterinary Hospital - Akron"]]
+    if key in {normalize("Veterinary Emergency + Referral Center"), normalize("Veterinary Emergency Referral Center")} and normalize(city) == "honolulu":
+        return [LOCATIONS["Veterinary Emergency + Referral Center - Honolulu"]]
     if key in _GROUP_INDEX:
         return [LOCATIONS[x] for x in _GROUP_INDEX[key] if x in LOCATIONS]
     one=_INDEX.get(key, "")

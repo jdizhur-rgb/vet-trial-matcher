@@ -308,6 +308,10 @@ if (!metroCleveland?.address?.includes('734 Alpha Dr') || !metroAkron?.address?.
     (metroCleveland.lat != null && metroCleveland.lat === metroAkron.lat && metroCleveland.lon === metroAkron.lon)) {
   throw new Error('Same-name Metropolitan trial branches must keep distinct Cleveland East/Akron addresses and avoid a shared legacy coordinate cache');
 }
+const pushHawaii = rows.find(row => row.id === 'ethos-epush-hsa')?.sites?.find(site => site.city === 'Honolulu');
+if (!pushHawaii?.address?.includes('345 N Nimitz Highway') || /Pensacola|FL 32503/.test(pushHawaii.address)) {
+  throw new Error('The Honolulu trial site must use the Hawaii hospital address, not the same-name Pensacola hospital');
+}
 // October 16 current Missouri protocol supersedes its older ON HOLD page.
 // Site-specific Missouri criteria must not become universal Ohio restrictions.
 const leahMissouri = leah?.sites?.find(site => site.state === 'MO');

@@ -1,0 +1,52 @@
+{
+  "verified_at": "2026-10-16T03:49:11.788558-04:00",
+  "publication_sha": "27f21a1fae2cfa9e5eb3d38b7f759eda59c39e1c",
+  "status": "PASS",
+  "script_version": "./matcher.js?v=protocol-limits-20261014",
+  "catalog_version": "./trials.json?v=164e058362512946",
+  "note": "Clinical catalog changed in three existing records. Content-derived catalog version and actual existing script version must match this build; no matcher JavaScript change was needed.",
+  "checks": [
+    {
+      "name": "html",
+      "url": "https://vettrialfinder.com/matcher/",
+      "attempted_at": "2026-10-16T03:49:00.441718-04:00",
+      "completed_at": "2026-10-16T03:49:04.363128-04:00",
+      "method": "shell_curl",
+      "exit_code": 0,
+      "http_status": "200",
+      "expected_sha256": "04dcef7d3230acfa2966a67b0705286d61a9085773dfd31cb1458f571b81e1fe",
+      "live_sha256": "04dcef7d3230acfa2966a67b0705286d61a9085773dfd31cb1458f571b81e1fe",
+      "bytes": 62069,
+      "equal": true,
+      "stderr": ""
+    },
+    {
+      "name": "javascript",
+      "url": "https://vettrialfinder.com/matcher/matcher.js?v=protocol-limits-20261014",
+      "attempted_at": "2026-10-16T03:49:04.363336-04:00",
+      "completed_at": "2026-10-16T03:49:07.986320-04:00",
+      "method": "shell_curl",
+      "exit_code": 0,
+      "http_status": "200",
+      "expected_sha256": "af02ad14f339b8b5f6d0ab05c4e029f295bd89f601a6265183fc8fbcbbe07805",
+      "live_sha256": "af02ad14f339b8b5f6d0ab05c4e029f295bd89f601a6265183fc8fbcbbe07805",
+      "bytes": 50497,
+      "equal": true,
+      "stderr": ""
+    },
+    {
+      "name": "catalog",
+      "url": "https://vettrialfinder.com/matcher/trials.json?v=164e058362512946",
+      "attempted_at": "2026-10-16T03:49:07.986503-04:00",
+      "completed_at": "2026-10-16T03:49:11.787985-04:00",
+      "method": "shell_curl",
+      "exit_code": 0,
+      "http_status": "200",
+      "expected_sha256": "164e058362512946d72ededbe4b9ba30eda76ed87af65e733997c8e9d7213fc2",
+      "live_sha256": "164e058362512946d72ededbe4b9ba30eda76ed87af65e733997c8e9d7213fc2",
+      "bytes": 355427,
+      "equal": true,
+      "stderr": ""
+    }
+  ]
+}
