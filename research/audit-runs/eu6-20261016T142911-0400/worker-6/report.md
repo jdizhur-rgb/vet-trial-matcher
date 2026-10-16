@@ -8,7 +8,7 @@ Checkpoint-14: 177 промежуточных adjudication-групп, 45 fully,
 
 ## Новая фактическая работа
 
-{"assigned":18,"processed":18,"fully_verified":3,"NEW":3,"UPDATE":0,"DUPLICATE":0,"EXCLUDED":9,"UNRESOLVED":6}; 26 новых query executions, не клиник. Первые четыре кандидатных review см. records/review-001.json; source/evidence append-only shards в shards/.
+{"assigned":72,"processed":72,"fully_verified":47,"NEW":52,"UPDATE":3,"DUPLICATE":1,"EXCLUDED":9,"UNRESOLVED":7}; 30 новых query executions, не клиник. Первые четыре кандидатных review см. records/review-001.json; source/evidence append-only shards в shards/.
 
 Восстановлен текущий публичный BestCare master: https://bestcaredierenartsen.nl/praktijken/ (старый /deelnemende-praktijken/ возвращает 404). Он показывает 12 записей: 10 клинических групп плюс administrative Best Care Organisatie и Voorbeeldkliniek; это не 12 новых клиник. Публично открыты 9 групповых branch-roster страниц; работа по реальным локальным филиалам продолжается.
 
@@ -27,3 +27,9 @@ BES больше не «не искали»: просмотрены первич
 Даты проверки: новые Web источники 2026-10-16, date-only; failed attempts не обновляют successful source date. Baseline triage records/baseline-dedupe-001.json использует полный copied physical/supplemental/inventory/ACVIM и tele; exact/name/address hits: Spijkenisse already-applied плюс три existing UPDATE identity. Нулевой exact hit не заменяет ручную semantic review.
 
 Remote backup VERIFIED только block01+restriction001: branch research/europe-recovery-eu6-20261016T142911-0400; data SHA626eea1561eec9404e09cdc438b166c3052500a5; receipt17933a8a3766a8c8141872b0739a72f7c14a3ffc. Остальные текущие файлы ещё не имеют remote-подтверждения. Production/canonical/commit/push/deploy worker не выполняет.
+
+## Последнее уточнение
+
+Cumulative current-reviewed real identities: {"assigned":72,"processed":72,"fully_verified":47,"NEW":52,"UPDATE":3,"DUPLICATE":1,"EXCLUDED":9,"UNRESOLVED":7}. Из них новая primary работа: {"assigned":18,"processed":18,"fully_verified":3,"NEW":3,"UPDATE":0,"DUPLICATE":0,"EXCLUDED":9,"UNRESOLVED":6}. Retained proposal revalidation — 49 unpublished physicals (44 fully, 5 partial), 3 existing UPDATE, 1 Spijkenisse already-applied, 1 VSC tele HELD; это не новые visits. NEW physical52=49inherited+3ZOD, fresh discovery eligible0. ZOD Coevorden/Looweg84, Sleen/Zetelveenweg6 и Nieuw-Amsterdam/DikkeWijkWZ34: explicit malignant dog/cat mass removal + operations ALL locations; proposals records/zod-proposals-002.json.
+
+Новые Open/Click attempts: 89, distinct attemptedURLs 81, reader extractions 4 отдельно; queries 30. Metadata-only/failed/requested URL не автоматически successful review; точные результаты в evidence.json/retrieval_attempts. Текущие новые restrictions 7 сверх inherited22 — source-events/restriction001–006, exactscope preserved.
