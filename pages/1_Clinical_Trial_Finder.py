@@ -373,7 +373,8 @@ def trial_modalities(tr):
     """
     text = ' '.join(str(tr.get(k, '')) for k in ('title','intervention','notes')).lower()
     req = tr.get('requires', {})
-    mods = set()
+    supported = {'Surgery', 'Radiation', 'Chemotherapy', 'Immunotherapy', 'Targeted therapy', 'Experimental drug'}
+    mods = set(tr.get('treatments', [])) & supported
     if req.get('planned_surgery') or req.get('planned_amputation') or req.get('planned_amputation_and_chemo') or any(x in text for x in ('surgery','surgical','mastectom','amputation')):
         mods.add('Surgery')
     if req.get('planned_radiation') or any(x in text for x in ('radiotherapy','radiation','sbrt','flash','lattice','radiosensiti','proton')):
@@ -493,7 +494,7 @@ if search_clicked:
         req = tr.get('requires', {})
         exc = tr.get('excludes', {})
         reasons=[]
-        excluded, unknown = protocol_screening(tr, dict(osa_location=osa_location, node_status=node_status, surgery=surgery, chemo=chemo, radiation=radiation, steroids=steroids, immunosuppressive=immunosuppressive, metastasis=metastasis, prefs=prefs))
+        excluded, unknown = protocol_screening(tr, dict(cancer=cancer, diagnosis_status=diagnosis_status, osa_location=osa_location, node_status=node_status, surgery=surgery, chemo=chemo, radiation=radiation, steroids=steroids, immunosuppressive=immunosuppressive, metastasis=metastasis, prefs=prefs))
 
         # Diagnosis certainty is protocol-specific: most treatment trials require
         # pathology/cytology confirmation, while some screening/observational studies do not.

@@ -1,0 +1,53 @@
+{
+  "validated_at": "2026-10-16T19:36:58.007227+00:00",
+  "commands_passed": [
+    "python scripts/check_evidence_keys.py",
+    "python scripts/validate_repository_hygiene.py",
+    "python scripts/validate_trials_catalog.py",
+    "python scripts/validate_catalog_sanitation.py",
+    "python scripts/semantic_dedupe_catalog.py",
+    "node scripts/test_matcher_logic.js",
+    "node scripts/test_matcher_catalog_loading.js",
+    "node scripts/test_matcher_selection.js",
+    "python scripts/test_matcher_selection.py",
+    "git diff --check",
+    "TZ=America/New_York python scripts/build_static_site.py"
+  ],
+  "results": {
+    "public": 156,
+    "canonical": 310,
+    "treatment": 152,
+    "other_treatment_access": 4,
+    "independent_cases": 604,
+    "diagnosis_parity_checks": 18720,
+    "generated_html_pages": 212,
+    "semantic_probable_duplicates": 0
+  },
+  "full_fresh_review_gate": {
+    "command": "node scripts/test_matcher_protocol_sources.js --reviewed-since=2026-10-16T18:59:47.653454Z --require-full-review",
+    "exit_code": 1,
+    "fresh_public_reviews": 116,
+    "unresolved": 40,
+    "result": "NOT_COMPLETE"
+  },
+  "artifact_sha256": {
+    "seo/site/matcher/index.html": "6f565e555d39e6a576496a4edbc6bcbd4df799f694cf26fb9c5fbbdbd840928e",
+    "seo/site/matcher/matcher.js": "1120c4823a5feb71bb6f68009c401288838e7fdc44f5068adb7e019a0d3d345b",
+    "seo/site/matcher/trials.json": "55063c3aa1966747d36ef4cbc604ff2d5397473815becb834b0c64f280ff5e40"
+  },
+  "final_build_result": "PASS after clean retry",
+  "build_attempts": [
+    {
+      "result": "PASS",
+      "note": "Initial complete build; local timezone changed unrelated generated care dates, so final artifact was rebuilt in America/New_York."
+    },
+    {
+      "result": "FAIL",
+      "note": "Generated transient temporary HTML path was caught by center-page audit; no validation bypass; clean full retry succeeded."
+    },
+    {
+      "result": "PASS",
+      "command": "TZ=America/New_York python scripts/build_static_site.py"
+    }
+  ]
+}

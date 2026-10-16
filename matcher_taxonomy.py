@@ -76,6 +76,23 @@ def protocol_screening(trial, patient):
                 raise ValueError(f'Unclassified matcher constraint: {group}.{key}')
             if rule.get('handled'):
                 continue
+            if rule.get('confirmation_or_appendicular_osa'):
+                if patient.get('diagnosis_status') == 'Suspected / not confirmed' and (
+                    patient.get('cancer') != 'Osteosarcoma' or
+                    patient.get('osa_location') == 'Axial — skull, spine, rib, or pelvis'
+                ):
+                    excluded = True
+                unknown.append('required ' + rule['label'])
+                continue
+            if rule.get('history_or_preference'):
+                option = rule['history_or_preference']
+                answer = patient.get(option['field'])
+                if answer not in option['allowed']:
+                    if answer not in (None, "I don't know") and option['preference'] not in patient.get('prefs', set()):
+                        excluded = True
+                    else:
+                        unknown.append('required ' + rule['label'])
+                continue
             field = rule.get('field')
             answer = patient.get(field) if field else None
             if rule.get('allowed') and answer not in (None, "I don't know"):

@@ -356,8 +356,9 @@
     "contacts": "Professor Tim Bentley — Tim.Bentley@liverpool.ac.uk",
     "funding": "The university states that postoperative radiation therapy is provided as an incentive for enrollment; confirm all study-covered and owner-paid costs directly.",
     "requires": {
-      "confirmed": true,
-      "active_treatment_target": true
+      "active_treatment_target": true,
+      "planned_surgery": true,
+      "planned_radiation": true
     },
     "excludes": {},
     "notes": "Dogs diagnosed with glioma receive ferumoxytol before surgical biopsy, followed by postoperative radiation therapy. The study evaluates ferumoxytol as a glioma radiosensitizer. Investigator prescreening is required to confirm the currently enrolling arm and full eligibility.",
@@ -809,7 +810,12 @@
     "funding": "🟠 Partially funded. Owners pay initial staging to establish eligibility, including the initial head CT, bloodwork and diagnostic cytology/histopathology of the oral mass and lymph nodes when needed. After enrollment, the study covers all six radiation treatments including anesthesia and examinations, Solensia/placebo and meloxicam, monitoring bloodwork, chest radiographs and the final head CT.",
     "requires": {
       "confirmed": true,
-      "active_treatment_target": true
+      "active_treatment_target": true,
+      "no_metastasis": true,
+      "mandibular_or_maxillary_bone_lysis": true,
+      "chemo_washout_days": 21,
+      "radiation_washout_days": 21,
+      "immunotherapy_and_anti_ngf_washout_21d": true
     },
     "excludes": {},
     "notes": "Pilot palliative study for feline bone-invasive oral SCC.",
@@ -925,10 +931,10 @@
       "confirmed": true,
       "no_metastasis": true,
       "min_weight_lb": 22,
-      "active_treatment_target": true,
       "min_weight_kg": 10,
       "prior_chemo": false,
-      "post_splenectomy": true
+      "post_splenectomy": true,
+      "planned_doxorubicin": true
     },
     "excludes": {},
     "notes": "Dogs must weigh at least 10 kg, have splenic HSA without obvious spread beyond the spleen, have no serious heart, lung, kidney or liver disease, and have received no prior HSA treatment. Recent splenectomy elsewhere may be accepted after histopathology confirmation. Protocol combines doxorubicin with mutation-guided oral small-molecule inhibitors and serial liquid-biopsy/CT monitoring.",
@@ -1121,7 +1127,8 @@
       "planned_surgery": true,
       "min_tumor_cm": 2,
       "max_tumor_cm": 6,
-      "steroid_washout_days": 7
+      "steroid_washout_days": 7,
+      "chemo_washout_days": 7
     },
     "excludes": {
       "current_chemo": true,
@@ -2107,7 +2114,10 @@
       ],
       "prior_chemo": true,
       "planned_radiation": true,
-      "planned_doxorubicin": true
+      "planned_doxorubicin": true,
+      "current_chop": true,
+      "large_cell_multicentric_stage_iii_or_higher": true,
+      "two_chop_cycles_completed": true
     },
     "excludes": {},
     "notes": "Confirmed large-cell multicentric lymphoma, stage III or higher, either B- or T-cell phenotype, initially treatment-naive at diagnosis. Enrollment is at CHOP week 9 after two cycles with partial or complete remission; progressive disease after two cycles is excluded. Current CHOP treatment is required. Four radiation visits comprise two consecutive daily fractions to each body half, in weeks 11 and 15, with chemotherapy breaks around radiation. Comorbidities preventing safe anesthesia or standard CHOP exclude participation. Study-team prescreening must confirm stage, cell size, exact CHOP schedule and remission.",
@@ -2156,8 +2166,8 @@
       "confirmed": true,
       "active_treatment_target": true,
       "measurable": true,
-      "min_age_years": 1,
-      "min_weight_kg": 10
+      "min_weight_kg": 10,
+      "min_age_years_exclusive": 1
     },
     "excludes": {},
     "notes": "Dose-finding treatment study for dogs with flow-cytometry- or immunohistochemistry-confirmed peripheral T-cell lymphoma. Dogs need a measurable lesion accessible to biopsy, VCOG-CTCAE constitutional signs no greater than grade 1 and no significant comorbidity likely to prevent completion. Pregnant or lactating dogs are excluded. All enrolled dogs receive targeted 90Y-NM600 radiopharmaceutical therapy; there is no placebo or masked control. Dogs with response or stable disease at day 21 may qualify for another dose. Standard chemotherapy is not included in the trial.",
@@ -3611,9 +3621,9 @@
     "funding": "🟢 Fully funded. CSU states that CAR T-cell production and treatment, optional radiation therapy, MRIs, study examinations and bloodwork, and lifetime verdinexor chemotherapy are covered.",
     "requires": {
       "active_treatment_target": true,
-      "min_weight_lb": 10,
       "planned_radiation": true,
-      "planned_chemo": true
+      "planned_chemo": true,
+      "min_weight_kg_exclusive": 4.535923700100354
     },
     "excludes": {
       "prior_chemo": true,
@@ -4944,12 +4954,13 @@
     "available_for_matching": true,
     "requires": {
       "confirmed": true,
-      "min_age_years": 1,
       "min_weight_kg": 10,
       "max_weight_kg": 50,
       "measurable": true,
       "prior_chemo": false,
-      "prior_radiation": false
+      "prior_radiation": false,
+      "min_age_years_exclusive": 1,
+      "peripheral_bcell_lymphoma_stage_ii_to_iv": true
     },
     "why": "Current Missouri oncology roster is enrolling dogs with newly diagnosed B-cell lymphoma into an investigational oral Bruton’s tyrosine kinase inhibitor study.",
     "intervention": "Investigational oral BTK inhibitor BI705564",
@@ -6070,7 +6081,13 @@
     "available_for_matching": true,
     "requires": {
       "active_treatment_target": true,
-      "planned_surgery": true
+      "planned_surgery": true,
+      "min_weight_kg": 3,
+      "max_weight_kg": 45,
+      "single_telencephalic_glioma_on_mri": true,
+      "radiation_washout_days": 84,
+      "immunotherapy_washout_days": 42,
+      "surgery_washout_days": 28
     },
     "why": "Minnesota's live Available Canine Brain Tumor Trials page currently lists this treatment trial.",
     "intervention": "Two vaccine doses before surgical tumor removal, followed by three postoperative vaccine doses; MRI monitoring every 16 weeks.",
@@ -6114,7 +6131,13 @@
     "available_for_matching": true,
     "requires": {
       "active_treatment_target": true,
-      "planned_surgery": true
+      "planned_surgery": true,
+      "min_weight_kg": 3,
+      "max_weight_kg": 45,
+      "single_telencephalic_glioma_on_mri": true,
+      "radiation_washout_days": 84,
+      "immunotherapy_washout_days": 42,
+      "surgery_washout_days": 28
     },
     "why": "Minnesota's live Available Canine Brain Tumor Trials page currently lists this treatment trial.",
     "intervention": "Surgical tumor removal followed by nanoparticle anti-tumor gene therapy lining the surgical cavity; MRI monitoring every 16 weeks.",
@@ -6993,9 +7016,9 @@
     "contacts": "Hope Veterinary Oncology — 805-626-6551; Bridge Animal Referral Center — 425-697-2272; Washington State University — 509-335-0711; MedVet Clinical Studies — clinicalstudies@medvet.com; MedVet Pittsburgh — oncology.pittsburgh@medvet.com; IVO — 602-841-0626; Veterinary Cancer Concierge Services — info@vetcancerconcierge.com.",
     "funding": "The investigational vaccine is provided at no charge; site visits, conventional treatment, administration and monitoring may be owner-paid. VCCS publishes a $695 charge for each vaccine appointment plus required testing. Confirm exact site-specific costs before enrollment.",
     "requires": {
-      "confirmed": true,
       "anticipated_survival_over_3_months": true,
-      "standard_of_care_therapy": true
+      "standard_of_care_therapy": true,
+      "histology_or_long_bone_osa_exception": true
     },
     "excludes": {
       "other_immunotherapy": true,
@@ -7407,10 +7430,12 @@
     "funding": "🟡 Partially funded. Screening support is available for CBC, chemistry, urine testing, lymph-node aspirates and chest radiographs. After acceptance, study examinations, blood tests, anesthesia, four immunotherapy injections, CT and biopsies are covered; up to $1,000 is available for study-related side effects. Owners pay cancer-diagnosis tests and any additional oncologist-recommended tests outside study coverage.",
     "requires": {
       "confirmed": true,
-      "active_treatment_target": true
+      "active_treatment_target": true,
+      "accessible_intratumoral_target": true
     },
     "excludes": {
-      "immunosuppressive": true
+      "immunosuppressive": true,
+      "distant_metastasis": true
     },
     "notes": "Four intratumoral immunotherapy injections under anesthesia every three weeks, with CT and biopsies to assess response. Study ends at day 84; all visits at CSU.",
     "verified": "2026-10-10",
@@ -7445,8 +7470,7 @@
     "state": "Colorado",
     "species": "Dog",
     "cancers": [
-      "Osteosarcoma",
-      "Primary bone tumor"
+      "Osteosarcoma"
     ],
     "status": "Actively recruiting — listed on CSU current clinical trials page",
     "url": "https://studypages.com/s/a-limb-sparing-option-for-bone-cancer-in-dogs-558225/",
@@ -7454,9 +7478,13 @@
     "funding": "🟡 Partially funded. PET-CT/anesthesia, custom 3D-printed implant, surgery/hospitalization, six chemotherapy treatments and study follow-up imaging up to 20 months are covered, with up to $5,825 for surgical complications. Owners pay initial diagnosis/additional recommended tests, care outside CSU and complications beyond coverage.",
     "requires": {
       "active_treatment_target": true,
-      "giant_breed": true,
       "primary_bone_tumor": true,
-      "no_metastasis": true
+      "no_metastasis": true,
+      "appendicular_location": true,
+      "distal_radius_osteosarcoma": true,
+      "giant_breed_or_weight_at_least_40kg": true,
+      "planned_surgery": true,
+      "planned_chemo": true
     },
     "excludes": {
       "immunosuppressive": true
@@ -7497,7 +7525,10 @@
     "requires": {
       "confirmed": true,
       "active_treatment_target": true,
-      "planned_radiation": true
+      "planned_radiation": true,
+      "radiation_washout_days": 42,
+      "chemo_washout_days": 14,
+      "nsaid_tolerant": true
     },
     "excludes": {},
     "notes": "Daily oral lapatinib plus NSAID and 15 radiation fractions, with monthly follow-up for three months. Source timetable says 15 daily treatments within seven days of starting pills; this inconsistency requires study-team clarification rather than a guessed schedule.",
@@ -7542,7 +7573,9 @@
       "active_treatment_target": true,
       "min_weight_kg": 11,
       "chemo_washout_days": 14,
-      "pretreatment_biopsy": true
+      "pretreatment_biopsy": true,
+      "planned_chemo": true,
+      "radiation_washout_days": 14
     },
     "excludes": {
       "prior_immunotherapy": true,
@@ -7683,7 +7716,10 @@
       "confirmed": true,
       "active_treatment_target": true,
       "appendicular_location": true,
-      "weight_bearing": true
+      "weight_bearing": true,
+      "planned_chemo": true,
+      "stable_pain_medication_7d": true,
+      "bone_medication_washout_30d": true
     },
     "excludes": {
       "prior_chemo": true,
@@ -7764,9 +7800,9 @@
     "requires": {
       "active_treatment_target": true,
       "min_tumor_cm": 2,
-      "max_tumor_cm": 8,
       "min_weight_kg": 11,
-      "chemo_washout_days": 14
+      "chemo_washout_days": 14,
+      "max_tumor_cm_exclusive": 8
     },
     "excludes": {
       "pregnant_or_lactating": true,
@@ -7915,9 +7951,17 @@
       "active_treatment_target": true,
       "min_age_years": 1,
       "min_weight_kg": 8,
-      "measurable": true
+      "measurable": true,
+      "planned_radiation": true,
+      "min_tumor_cm": 1,
+      "max_tumor_cm": 5
     },
-    "excludes": {},
+    "excludes": {
+      "prior_chemo": true,
+      "prior_local_radiation": true,
+      "prior_immunotherapy": true,
+      "immunosuppressive": true
+    },
     "notes": "Confirmed oral melanoma measuring 1–5 cm; adequate organ function for sedation/contrast. Prior radiation, chemotherapy or immunotherapy excludes enrollment, and immunosuppressive or immune-modulating treatment is not allowed on study.",
     "intervention": "One radiation dose followed by four intratumoral IL-12/IL-15 fusion-peptide injections",
     "verified": "2026-09-23",
@@ -8033,7 +8077,9 @@
       "active_treatment_target": true,
       "measurable": true,
       "planned_surgery": true,
-      "chemo_washout_days": 21
+      "chemo_washout_days": 21,
+      "min_tumor_cm": 1,
+      "max_tumor_cm": 5
     },
     "excludes": {
       "prior_local_radiation": true,
@@ -8080,7 +8126,8 @@
       "recurrent": true,
       "prior_surgery": true,
       "chemo_washout_days": 42,
-      "radiation_washout_days": 42
+      "radiation_washout_days": 42,
+      "min_tumor_cm_exclusive": 2
     },
     "excludes": {
       "prior_immunotherapy": true,
@@ -8126,9 +8173,9 @@
     "funding": "Fully funded after eligibility, with up to $500 support for protocol-related adverse events treated at Illinois. Owner pays the initial consultation and eligibility diagnostics.",
     "funding_status": "Fully funded after screening",
     "requires": {
-      "confirmed": true,
       "active_treatment_target": true,
-      "measurable": true
+      "measurable": true,
+      "cytology_or_braf_and_visible_bladder_mass": true
     },
     "excludes": {
       "prior_chemo": true,
@@ -8178,7 +8225,8 @@
     "requires": {
       "confirmed": true,
       "active_treatment_target": true,
-      "measurable": true
+      "measurable": true,
+      "progressive": true
     },
     "excludes": {},
     "notes": "Dose-finding oral palbociclib treatment study for measurable progressive mammary carcinoma, SCC, histiocytic sarcoma, AGASACA or melanoma; prior cancer treatment is allowed if disease is progressing.",
@@ -8487,9 +8535,9 @@
     "contacts": "Penn Vet VCIC — 215-573-0302; vcic@vet.upenn.edu",
     "funding": "🟢 Fully funded study procedures. The study covers specified diagnostics after enrollment, theranostic infusions, laser treatment, hospitalization and study rechecks including imaging and laboratory testing.",
     "requires": {
-      "confirmed": true,
       "active_treatment_target": true,
-      "prostatic_cancer": true
+      "prostatic_cancer": true,
+      "prostatic_diagnosis_at_screening": true
     },
     "excludes": {},
     "notes": "Targeted investigational PSMA ligand carrying MMAE and a photosensitizer, combined with laser photodynamic therapy; intended for local and metastatic canine prostatic cancer.",
@@ -8708,7 +8756,6 @@
     "funding_source": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%206.pdf",
     "funding_verified": "2026-10-14",
     "requires": {
-      "confirmed": true,
       "active_treatment_target": true,
       "planned_radiation": true,
       "prednisone_eligible": true,
@@ -8747,7 +8794,18 @@
     "funding": "🟡 Funding varies. The protocol brochure states that the study may be fully or partially subsidized; owners may pay for diagnostics, imaging, palliative care and other tests or care needed outside the study.",
     "funding_status": "May be fully or partially subsidized",
     "funding_source": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%207.pdf",
-    "funding_verified": "2026-09-21"
+    "funding_verified": "2026-09-21",
+    "requires": {
+      "active_treatment_target": true,
+      "planned_radiation": true,
+      "prednisone_eligible": true,
+      "anticancer_treatment_washout": true
+    },
+    "excludes": {
+      "prior_local_radiation": true,
+      "severe_systemic_disease": true,
+      "nonstop_antioxidant_supplements": true
+    }
   },
   {
     "id": "utsw-vroc-rt-histotripsy-solid-tumors",
@@ -9143,8 +9201,7 @@
     "country": "Switzerland",
     "species": "Cat",
     "cancers": [
-      "Oral squamous cell carcinoma",
-      "Squamous cell carcinoma — other"
+      "Oral squamous cell carcinoma"
     ],
     "study_type": "treatment",
     "status": "Participation currently possible on the University of Zurich study page",
@@ -9291,7 +9348,8 @@
     "requires": {
       "active_treatment_target": true,
       "superficial_or_oral_tumor": true,
-      "anesthesia_fit": true
+      "anesthesia_fit": true,
+      "planned_radiation": true
     },
     "excludes": {},
     "notes": "Dogs with a cancer mass in skin, subcutis or oral cavity, including incompletely removed/residual tumor, may participate when there is expected therapeutic benefit. Dogs receive 1–4 radiotherapy treatments over up to four weeks; most receive FLASH and a smaller group conventional radiotherapy. Treatment requires travel within the Copenhagen/Lund collaboration.",
@@ -9908,7 +9966,7 @@
     ],
     "requires": {
       "confirmed": true,
-      "planned_surgery": true
+      "prior_or_planned_mammary_surgery": true
     },
     "url": "https://www.vaxcell-bio.com/en/",
     "verified": "2026-09-07",
@@ -9963,7 +10021,8 @@
     "funding": "Missouri: study-related initial staging, treatment and rechecks covered; up to$4000 for adverse events and a$2000 stipend for future/additional VHC treatment upon completion. Sponsor describes Ohio enrollment as fully funded; confirm the current Ohio coverage and slot. Minnesota is on hold; its historical stipend/criteria are not generalized to other sites.",
     "requires": {
       "confirmed": true,
-      "active_treatment_target": true
+      "active_treatment_target": true,
+      "planned_chemo": true
     },
     "excludes": {},
     "notes": "One LEAH CAR-T protocol with site-specific cohorts. On October16 the current Missouri study-specific invitation and fresh Web read both explicitly confirm enrolling dogs with spontaneous CD20+ large-cell B-cell lymphoma; the older cached Missouri ON HOLD version is superseded. Missouri includes naive and relapsed patients, >10kg, clinically well, no primary GI or lung involvement, investigator bloodwork clearance, no Apoquel/mycophenolate/cyclosporine/azathioprine and at least72hours off prednisone. It combines lymphodepleting chemotherapy and xenogeneic CAR-T; at least seven visits over21days then longer follow-up. Minnesota current individual protocol remains On hold; its10-50kg and48hour rules must not be generalized to Missouri. Ohio remains enrolling per sponsor; its current institutional index does not name this protocol, so confirm the Ohio slot and local criteria before travel. Missouri-specific eligibility/funding do not establish Ohio or Minnesota terms.",
@@ -10071,7 +10130,9 @@
     "requires": {
       "confirmed": true,
       "metastatic": true,
-      "measurable": true
+      "measurable": true,
+      "measurable_lung_metastases": true,
+      "pulmonary_lesion_cm_exclusive": 1
     },
     "excludes": {
       "current_steroids": true,
@@ -10111,7 +10172,9 @@
     "requires": {
       "confirmed": true,
       "min_age_years": 1,
-      "measurable": true
+      "measurable": true,
+      "oral_melanoma_stage_ii_or_iii": true,
+      "other_treatments_suspended": true
     },
     "excludes": {
       "prior_local_radiation": true,
@@ -10191,7 +10254,6 @@
     "state": "Colorado",
     "species": "Dog",
     "cancers": [
-      "Leukemia",
       "Acute myeloid leukemia"
     ],
     "status": "Actively recruiting — listed on CSU current clinical trials page",
@@ -10202,7 +10264,8 @@
     "funding": "🟡 Partially funded. Study trametinib and prednisone, study-related diagnostic monitoring and sample shipping are covered. The source does not state that initial leukemia diagnosis or unrelated care is covered; confirm the individual owner estimate with CSU.",
     "requires": {
       "confirmed": true,
-      "active_treatment_target": true
+      "active_treatment_target": true,
+      "circulating_leukemia_cells": true
     },
     "excludes": {
       "current_chemo": true
@@ -10443,8 +10506,11 @@
     "requires": {
       "confirmed": true,
       "active_treatment_target": true,
-      "metastatic": false,
-      "newly_diagnosed": true
+      "newly_diagnosed": true,
+      "no_metastasis": true,
+      "min_weight_kg": 23,
+      "appendicular_location": true,
+      "planned_amputation_and_chemo": true
     },
     "excludes": {},
     "notes": "Investigational B7H3-targeted CAR-iNKT cell therapy for dogs with newly diagnosed osteosarcoma. This is a distinct protocol from Penn's CAR-iNKT study for dogs with metastatic osteosarcoma. Treatment is followed by amputation and standard-of-care chemotherapy; full eligibility requires Penn Vet prescreening.",
@@ -10554,7 +10620,15 @@
     "contacts": "Nicola Mason, BVetMed, PhD, DACVIM, FRCVS — nmason@vet.upenn.edu — (215) 898-3996",
     "requires": {
       "confirmed": true,
-      "active_treatment_target": true
+      "active_treatment_target": true,
+      "metastatic": true,
+      "post_amputation": true,
+      "prior_chemo": true,
+      "appendicular_location": true,
+      "min_weight_kg": 18,
+      "chemo_washout_days": 56,
+      "measurable_lung_metastases": true,
+      "b7h3_expression_and_prior_carboplatin": true
     },
     "excludes": {},
     "notes": "Phase I B7-H3-targeted CAR-iNKT cell-therapy study for dogs with metastatic osteosarcoma. Penn Vet's official current clinical-trial page is the primary status source; full protocol eligibility requires Penn prescreening.",
@@ -10667,7 +10741,9 @@
     "funding": "⚪ Unfunded — AVMA lists this protocol as unfunded; confirm current owner costs with VROC.",
     "requires": {
       "confirmed": true,
-      "active_treatment_target": true
+      "planned_chemo": true,
+      "min_expected_survival_weeks": 2,
+      "prior_doxorubicin_and_carboplatin_review": true
     },
     "excludes": {},
     "notes": "Treatment study for canine hemangiosarcoma using doxorubicin/carboplatin chemotherapy with temozolomide and propranolol. Public recruitment information includes splenic, hepatic, cardiac and intramuscular hemangiosarcoma. Full eligibility requires study-team prescreening.",
@@ -10698,7 +10774,8 @@
       "Lymphoma",
       "Osteosarcoma",
       "Histiocytic sarcoma",
-      "Melanoma"
+      "Melanoma",
+      "Oral melanoma"
     ],
     "status": "Currently listed by MSU Oncology Clinical Trials",
     "study_type": "treatment",
@@ -10750,7 +10827,13 @@
       "active_treatment_target": true,
       "min_weight_kg": 3,
       "max_weight_kg": 45,
-      "suspected_or_confirmed_glioma": true
+      "suspected_or_confirmed_glioma": true,
+      "planned_chemo": true,
+      "min_tumor_cm": 1,
+      "single_nonventricular_nonbrainstem_glioma": true,
+      "chemo_washout_days": 42,
+      "surgery_washout_days": 42,
+      "immunotherapy_washout_months": 6
     },
     "excludes": {
       "significant_systemic_disease": true,
@@ -10901,7 +10984,10 @@
     "funding": "Fully funded including initial screening; confirm current coverage with Penn Vet when prescreening.",
     "requires": {
       "confirmed": true,
-      "active_treatment_target": true
+      "active_treatment_target": true,
+      "min_weight_kg": 10,
+      "chemo_washout_days": 21,
+      "bcell_lineage_and_non_gi_disease": true
     },
     "excludes": {},
     "notes": "Genetically engineered autologous CAR-T cell treatment for canine B-cell lymphoma or leukemia. Penn Vet's official Comparative Immunotherapy Program clinical-trials page currently lists this study and describes screening, pre-conditioning, treatment and monthly follow-up visits. Primary Penn source governs enrollment status; registry is retained as the secondary study reference.",
@@ -11050,10 +11136,10 @@
       "confirmed": true,
       "active_treatment_target": true,
       "min_age_years": 1,
-      "min_weight_kg": 8,
       "untreated_newly_diagnosed": true,
       "intermediate_or_large_cell_multicentric_lymphoma": true,
-      "planned_chop": true
+      "planned_chop": true,
+      "min_weight_kg_exclusive": 8
     },
     "excludes": {
       "small_cell_lymphoma": true,
@@ -11153,12 +11239,12 @@
       "confirmed": true,
       "active_treatment_target": true,
       "min_age_years": 1,
-      "min_weight_kg": 8,
       "appendicular_osteosarcoma": true,
       "no_metastasis": true,
       "suitable_hifu_acoustic_window": true,
       "planned_amputation": true,
-      "planned_carboplatin": true
+      "planned_carboplatin": true,
+      "min_weight_kg_exclusive": 8
     },
     "excludes": {
       "metastatic": true,
@@ -11306,7 +11392,8 @@
     "requires": {
       "confirmed": true,
       "active_treatment_target": true,
-      "radiation_therapy": true
+      "radiation_therapy": true,
+      "planned_radiation": true
     },
     "excludes": {},
     "notes": "Prospective protocol AAHSD000037 for dogs diagnosed with nasal tumors that are scheduled for radiation therapy. Dogs receive radiation alone or radiation plus intra-arterial chemotherapy; CT response is assessed before treatment and four weeks after treatment begins. Four study visits are described over six months.",
@@ -11584,7 +11671,9 @@
       "confirmed": true,
       "planned_radiation": true,
       "chemo_washout_days": 7,
-      "steroid_washout_days": 7
+      "steroid_washout_days": 7,
+      "small_cell_gastrointestinal_lymphoma": true,
+      "within_six_hours_of_college_station": true
     },
     "excludes": {},
     "notes": "Current investigator-linked primary protocol: biopsy-confirmed feline small-cell gastrointestinal lymphoma, either newly diagnosed but difficult to medicate or relapsed after chemotherapy. Cats need pretreatment blood/urine testing within 14 days and at least seven days without chemotherapy or corticosteroids before radiation. Owners must live within a six-hour drive of College Station. Whole-abdomen radiation under anesthesia on days 0-4, then visits at two and six weeks; owner stool samples and quality-of-life surveys through up to 18 months. Study-related costs after enrollment are covered; screening panels and possible overnight hospital housing remain owner costs.",
@@ -11718,8 +11807,10 @@
     "requires": {
       "confirmed": true,
       "measurable": true,
-      "min_tumor_cm": 1,
-      "active_treatment_target": true
+      "active_treatment_target": true,
+      "planned_radiation": true,
+      "min_tumor_cm_exclusive": 1,
+      "immunosuppressant_washout_7d": true
     },
     "excludes": {
       "prior_surgery": true,
@@ -12259,7 +12350,7 @@
     "funding_source": "https://www.nvlu.ac.jp/amedical/clinical-research/05.html",
     "funding_verified": "2026-10-04",
     "requires": {
-      "active_treatment_target": true
+      "survivin_expression_or_postmortem_consent": true
     },
     "excludes": {},
     "notes": "The study gives a survivin-targeted peptide vaccine to dogs with cancer and evaluates treatment effect and immune compatibility. The official page describes use for dogs in complete or partial remission, after surgery or radiation to reduce recurrence risk, or after recurrence when further standard treatment is difficult. Tumor survivin expression can be tested; the page also allows owner-requested vaccination when tissue cannot be sampled, subject to study-team review and post-mortem pathology consent. Initial treatment is a half-day visit, a second vaccine follows one week later, then dosing continues every two weeks to one month. Final eligibility is determined by the investigator.",
@@ -12412,7 +12503,8 @@
     "contact": "Neurology Staff, University of Florida Small Animal Hospital: 352-392-2235; official Study Interest Form. PI: Dr. Sheila Carrera-Justiz.",
     "requires": {
       "prior_chemo": false,
-      "prior_radiation": false
+      "prior_radiation": false,
+      "boxer_breed": true
     },
     "excludes": {},
     "breed_restrictions": [
@@ -12458,7 +12550,9 @@
     ],
     "requires": {
       "confirmed": true,
-      "active_treatment_target": true
+      "active_treatment_target": true,
+      "planned_doxorubicin": true,
+      "prescapular_or_popliteal_nodal_lymphoma": true
     },
     "excludes": {},
     "owner_prescreen_required": true,
@@ -12570,9 +12664,9 @@
     "url": "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=4526",
     "funding_source": "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=4526",
     "requires": {
-      "confirmed": true,
       "active_treatment_target": true,
-      "min_weight_kg": 4
+      "min_weight_kg": 4,
+      "center_diagnosis_and_positive_mutation": true
     },
     "excludes": {},
     "intervention": "Oral molecularly targeted anticancer drug selected for a qualifying tumor mutation; the public protocol does not name the drug or mutation.",
@@ -12613,11 +12707,14 @@
       "prior_chemo": false,
       "lymphoma_response": [
         "Newly diagnosed / untreated"
-      ]
+      ],
+      "multicentric_peripheral_node_lymphoma": true
     },
     "excludes": {
       "prior_chemo": true,
-      "prior_steroids": true
+      "prior_steroids": true,
+      "indolent_lymphoma": true,
+      "small_cell_lymphoma": true
     },
     "treatment_approaches": [
       "chemotherapy"
@@ -12740,7 +12837,8 @@
       "confirmed": true,
       "active_treatment_target": true,
       "planned_radiation": true,
-      "min_tumor_cm": 1
+      "min_tumor_cm_exclusive": 1,
+      "single_primary_pulmonary_carcinoma": true
     },
     "excludes": {
       "prior_chemo": true,

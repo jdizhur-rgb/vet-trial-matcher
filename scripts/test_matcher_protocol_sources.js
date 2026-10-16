@@ -40,4 +40,12 @@ for(const r of reviews){
   cases++;
  }
 }
-if(!process.argv.includes('--matrix')) console.log(`SOURCE_DERIVED_SELECTION_OK reviewed=${reviews.length} cases=${cases}`);
+const publicRows=[...byId.values()].filter(t=>t.available_for_matching!==false&&['current','confirmed_current'].includes(t.status_confidence)&&['treatment','other_treatment_access'].includes(t.study_type));
+const since=process.argv.find(x=>x.startsWith('--reviewed-since='))?.split('=')[1];
+const covered=publicRows.filter(t=>reviewById.has(t.id)&&(!since||Date.parse(reviewById.get(t.id).reviewed_at)>=Date.parse(since)));
+const pending=publicRows.filter(t=>!covered.includes(t));
+if(!process.argv.includes('--matrix')) console.log(`SOURCE_DERIVED_SELECTION_OK public_reviewed=${covered.length}/${publicRows.length} pending=${pending.length} retained_reviews=${reviews.length} cases=${cases}`);
+if(process.argv.includes('--require-full-review')&&pending.length){
+ console.error(`INDEPENDENT_REVIEW_INCOMPLETE ${pending.map(t=>t.id).join(',')}`);
+ process.exitCode=1;
+}
