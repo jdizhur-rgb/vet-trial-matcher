@@ -224,7 +224,7 @@ def embedded_address(obj,country=''):
 
 
 def site_labels(s,country=''):
-    known=[x for x in addresses_for(s.get('hospital') or s.get('name') or '') if address_is_complete(x,country)]
+    known=[x for x in addresses_for(s.get('hospital') or s.get('name') or '', s.get('city','')) if address_is_complete(x,country)]
     if known:return known
     detail=embedded_address(s,country)
     if not detail:return []

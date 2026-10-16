@@ -82,6 +82,7 @@ LOCATIONS = {
     "Veterinary Referral Center of Central Oregon": "VRCCO East, 62889 NE Oxford Ct, Bend, OR 97701",
     "Johns Hopkins Center for Image-Guided Animal Therapy (CIGAT)": "Johns Hopkins CIGAT, 600 N Wolfe St, Park 311, Baltimore, MD 21287",
     "Metropolitan Veterinary Hospital - Akron": "Metropolitan Veterinary Hospital, 1053 S Cleveland-Massillon Rd, Akron, OH 44321",
+    "Metropolitan Veterinary Hospital - Cleveland East": "Metropolitan Veterinary Hospital, 734 Alpha Dr, Highland Heights, OH 44143",
     "WVRC Grafton": "WVRC Grafton, 1381 Port Washington Rd, Grafton, WI 53024",
     "WVRC Racine Kenosha": "WVRC Racine/Kenosha, 1123 58th Ave, Somers, WI 53144",
     "WVRC Waukesha": "WVRC Waukesha, W239 N1046 Pewaukee Rd, Waukesha, WI 53188",
@@ -216,16 +217,23 @@ def canonical_name_for(name):
     return _CANONICAL_INDEX.get(normalize(name), "")
 
 
-def addresses_for(name):
+def addresses_for(name, city=""):
     key=normalize(name)
+    # The current branch catalog distinguishes Cleveland East from Akron.
+    # A shared hospital name must not replace an explicit study-site city.
+    if key == normalize("Metropolitan Veterinary Hospital"):
+        if normalize(city) in {"cleveland", "cleveland east", "highland heights"}:
+            return [LOCATIONS["Metropolitan Veterinary Hospital - Cleveland East"]]
+        if normalize(city) in {"akron", "copley"}:
+            return [LOCATIONS["Metropolitan Veterinary Hospital - Akron"]]
     if key in _GROUP_INDEX:
         return [LOCATIONS[x] for x in _GROUP_INDEX[key] if x in LOCATIONS]
     one=_INDEX.get(key, "")
     return [one] if one else []
 
 
-def address_for(name):
-    vals=addresses_for(name)
+def address_for(name, city=""):
+    vals=addresses_for(name, city)
     return vals[0] if len(vals)==1 else ""
 
 

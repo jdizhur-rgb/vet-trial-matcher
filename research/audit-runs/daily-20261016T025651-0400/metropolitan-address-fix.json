@@ -1,0 +1,19 @@
+{
+  "observed_at": "2026-10-16T07:39:20.613Z",
+  "confirmed_at": "2026-10-16T03:42:19.456615-04:00",
+  "trigger": "Actual USA result card showed identical Akron address for Cleveland and Akron Metropolitan study sites.",
+  "canonical_site_identities_preserved": true,
+  "canonical_branch_address_evidence": "data/oncology_centers_supplemental.json: metropolitan-veterinary-hospital =734AlphaDr,HighlandHeightsOH44143; metropolitan-veterinary-hospital-akron =1053S.Cleveland-MassillonRd,CopleyOH44321; prior actual verification2026-10-12, no new care-source date.",
+  "root_cause": "Shared generic hospital alias ignored explicit site.city; cached coordinates matched by name alone.",
+  "fix": "Use site city for the two known Metropolitan branches in shared address resolution and both SEO/matcher builders. Cache requires matching city/state/address and a unique previous name. Discard cross-branch legacy cache; do not invent coordinates.",
+  "clinical_catalog_changes": 0,
+  "additional_source_sweep": false,
+  "required_checks": [
+    "build_static_site",
+    "matcher_logic",
+    "loading_regression",
+    "production_sync",
+    "new_byte_readback",
+    "rendered_USA_Japan"
+  ]
+}

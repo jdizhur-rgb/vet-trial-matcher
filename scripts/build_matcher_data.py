@@ -44,12 +44,18 @@ def main() -> None:
                 elif looks_like_address(str(site.get("hospital") or "")):
                     site["address"] = site["hospital"]
                 else:
-                    site["address"] = address_for(site_name)
+                    site["address"] = address_for(site_name, site.get("city", ""))
             cached = next(
                 (
                     item
                     for item in previous_sites
                     if (item.get("name") or item.get("hospital")) == site_name
+                    and item.get("city") == site.get("city")
+                    and item.get("state") == site.get("state")
+                    and item.get("address") == site.get("address")
+                    # Old same-name branch caches may already contain coordinates
+                    # copied from a different city. Do not perpetuate that cache.
+                    and sum((other.get("name") or other.get("hospital")) == site_name for other in previous_sites) == 1
                     and "lat" in item
                     and "lon" in item
                 ),

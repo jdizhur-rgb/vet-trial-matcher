@@ -300,6 +300,14 @@ for (const trial of [medvetVaccine, rows.find(row => row.id === 'leah-bcell-cart
   }
 }
 const leah = rows.find(row => row.id === 'leah-bcell-cart-2026');
+const osaVaccineSites = rows.find(row => row.id === 'ethos-osa-vaccine')?.sites || [];
+const metroCleveland = osaVaccineSites.find(site => site.hospital === 'Metropolitan Veterinary Hospital' && site.city === 'Cleveland');
+const metroAkron = osaVaccineSites.find(site => site.hospital === 'Metropolitan Veterinary Hospital' && site.city === 'Akron');
+if (!metroCleveland?.address?.includes('734 Alpha Dr') || !metroAkron?.address?.includes('1053 S Cleveland-Massillon Rd') ||
+    metroCleveland.address === metroAkron.address ||
+    (metroCleveland.lat != null && metroCleveland.lat === metroAkron.lat && metroCleveland.lon === metroAkron.lon)) {
+  throw new Error('Same-name Metropolitan trial branches must keep distinct Cleveland East/Akron addresses and avoid a shared legacy coordinate cache');
+}
 // October 16 current Missouri protocol supersedes its older ON HOLD page.
 // Site-specific Missouri criteria must not become universal Ohio restrictions.
 const leahMissouri = leah?.sites?.find(site => site.state === 'MO');
