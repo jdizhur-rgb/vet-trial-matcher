@@ -628,3 +628,11 @@ October16 production readback additionally exposed a shared-name address-resolut
 
 
 October16 traversal also exposed a planning error: deriving inherited restrictions only from whole-source not_checked rows missed an old explicit403 master in a partial Ethos source. The one erroneous native404request is preserved as a deviation, with no retry/bypass. Persist its original Web denial in inventory access_restrictions and filter exact denied URLs before queuing, while retaining permitted official fallbacks and original source timestamps. Algorithm section Preserve URL-specific access restrictions records the rule.
+
+## Three UTSW AVMA completions — owner decision 2026-10-16
+
+The owner explicitly directs that AVMA Completed governs utsw-solid-cpmv, vroc-rt-histotripsy and utsw-vroc-melanoma-crtnp-hifu-pdl1. Set available_for_matching=false and status_confidence=confirmed_completed; preserve the records, prior protocol/funding verification dates and institutional conflict evidence. Do not restore them from unchanged institutional brochures. This is a scoped decision for three exact protocols, not a general registry-only activation rule. The six European access questions remain unchanged pending disposition. Decision and checks: research/audit-runs/utsw-owner-completed-20261016/.
+
+## Six European access exclusions — owner decision 2026-10-16
+
+After reviewing the exact six questions, the owner approved hiding fr-fregis-hepatic-tumor-thermoablation, fr-fregis-chemodectoma-thermoablation, fr-fregis-hepatic-embolization, eu-ch-sinonasal-heterogeneous-rt, uk-rvc-insulinoma-toceranib and nl-utrecht-osteosarcoma-oncolytic-virus-access. Set available_for_matching=false and status_confidence=unconfirmed; retain all records, prior source dates, historical status and exact access questions. This supersedes the preceding note that the six remained pending. These are temporary current-access exclusions, not confirmed completions; do not reactivate without new protocol-level current-access evidence. Same decision receipt as the three UTSW completions above.

@@ -33,7 +33,9 @@ for(const r of reviews){
  for(const c of r.cases){
   const p={...defaults,...c.patient,prefs:new Set(c.patient.prefs||['Surgery','Radiation','Chemotherapy','Immunotherapy','Targeted therapy','Experimental drug'])};
   const result=matchTrial(byId.get(r.trial_id),p),label=`${r.trial_id}: ${c.name} ${JSON.stringify(c.patient)}`;
-  if(c.expected==='exclude')assert.strictEqual(result,null,label);
+  // Retain the source-derived clinical cases after closure; inactive records must reject every case.
+  if(byId.get(r.trial_id).available_for_matching===false)assert.strictEqual(result,null,`${label}: inactive protocol`);
+  else if(c.expected==='exclude')assert.strictEqual(result,null,label);
   else{assert(result,label);assert.notStrictEqual(result.confidence,'Likely match',label);for(const term of c.unknown_contains||[])assert(result.unknown.some(x=>x.toLowerCase().includes(term.toLowerCase())),`${label}: missing screening ${term}`);}
   cases++;
  }

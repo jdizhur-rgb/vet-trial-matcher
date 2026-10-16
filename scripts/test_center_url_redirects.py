@@ -32,7 +32,7 @@ RESTORED = {
     "louisiana-state-university-school-of-veterinary-medicine": 0,
     "medvet-clinical-studies-center": 1,
     "anivive-lifesciences-multicenter": 1,
-    "european-multicenter-study-floryne-buishand": 1,
+    "european-multicenter-study-floryne-buishand": 0,
 }
 
 

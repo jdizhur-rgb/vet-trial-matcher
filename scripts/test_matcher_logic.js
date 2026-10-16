@@ -57,7 +57,7 @@ function patient(overrides = {}) {
 const matches = p => rows.map(row => matcher.matchTrial(row, p)).filter(Boolean);
 const mct = matches(patient());
 const expectedMctIds = ['msu-mct-steroids', 'tamu-mct-acid-suppressant',
-  'barc-gold-nanoparticle-photothermal-2026', 'utsw-solid-cpmv',
+  'barc-gold-nanoparticle-photothermal-2026',
   'utsw-vroc-compassionate-advanced-unresectable'];
 if (JSON.stringify(mct.map(row => row.trial.id).sort()) !== JSON.stringify(expectedMctIds.sort())) {
   throw new Error(`Mast-cell regression returned unexpected protocols: ${mct.map(row => row.trial.id).join(', ')}`);
@@ -481,3 +481,8 @@ for (const overrides of [{surgery:'Yes'}, {chemo:'Previously received'}, {metast
   if (hasTrial('elias-eci-chemo-osa',{cancer:'Osteosarcoma',...overrides})) throw new Error('ELIAS chemo cohort must require pretreatment nonmetastatic enrollment');
 }
 console.log(`MATCHER_LOGIC_OK trials=${rows.length} mct=${mct.length} yasha=${yasha.length} mammary=${mammary.length} osteosarcoma=${osteosarcoma.length} bladder=${bladder.length} brain=${brain.length}`);
+
+// Owner dispositions October16: completed UTSW protocols and six unconfirmed European access records.
+for (const id of ["utsw-solid-cpmv", "vroc-rt-histotripsy", "utsw-vroc-melanoma-crtnp-hifu-pdl1", "fr-fregis-hepatic-tumor-thermoablation", "fr-fregis-chemodectoma-thermoablation", "fr-fregis-hepatic-embolization", "eu-ch-sinonasal-heterogeneous-rt", "uk-rvc-insulinoma-toceranib", "nl-utrecht-osteosarcoma-oncolytic-virus-access"]) {
+  if(rows.some(t=>t.id===id)) throw new Error(`Owner-excluded protocol remains in public catalog: ${id}`);
+}
