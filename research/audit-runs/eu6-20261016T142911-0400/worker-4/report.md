@@ -79,3 +79,15 @@ LMU independentEBVSprofile current200 подтверждает Nataliia/NataliaI
 Университеты: FU/TiHo/JLU/Leipzig/LMU searchrouting выполнен; LMU currentcredential отдельноcorroborated, остальное не является свежим clinicalfullreview. AniCura/Evidensia/TAPP/VUK exactheldclinicalscope не восстановлен; filu roster перечислен, ветки не верифицированы. Independent/GP,RT/ECT,visiting/mobile/remote и новыеоткрытия остаютсяown_unfinished по saved searchfrontier. Unknownscope не назван недоступнымсайтом и не остановил независимыеprofessional routes.
 
 Backup003 verified parent: data2ea76afd3e478db507055ef6d8dd0ad6333d2766; readback0ee5900b58d3089b62b3da0390e539805334e697. Новыйблокresearch-only; не publication/acceptance. Publicformhiddenstate минимизирован доbackup; никакихtokenuse/formsubmission/login/mapclick или новыхdenialbypass.
+
+## Блок04 — национальный профессиональный реестр и частичное восстановление
+
+Фактический период продолжается; обновление 2026-10-16T19:22:59.895757+00:00. Независимая публичная форма BPT прочитана для22из44 ещё не разобранных имён: 22HTTP200. Это22reference queries, не22проверенные клиники. У четырёх имён вручную сопоставлены текущие имя/адрес/телефон: AniCura Krefeld (Dr.ChristophJürgens,Saumstraße5–8,47805,02151-610061), Stockelsdorf (Dr.NorbertSchwarze,AhrensbökerStr74,23617,0451-4993011), HaagAlmenhofMannheim (Dr.AndreasHaag,Niederfeldstr72,68199,0621-8324884), JanssenHalleWestfalen (Dr.VolkerJanssen,Hachhowe1,33790,05201-16717). Все четыре UNRESOLVED: локальные противоопухолевые услуги и полные утраченные payload не восстановлены. Итого21из61имени имеют проверенные частичные текущие профессиональные строки;61полныйclinicalpayload всё ещё отсутствует.
+
+Нулевые результаты не доказывают закрытие или отсутствие специалиста. Автогеокодер BPT выбрал Rheinland-Pfalz для Lammersdorf/Hirschberg; эти результаты нельзя принимать за проверку нужного места. Для Janssen заголовокгеокодера Sachsen-Anhalt противоречит опубликованному33790Halle: сопоставление сделано по имени+индексу+адресу, не по заголовку. Единственный врач вгороде Müllheim не объявлен тем самым сокращённым старымlabel без дополнительных доказательств.
+
+EBVS: фактически рекламируемая форма Germany+threeoncology/radiationspecialties дала9профилей на2страницах. Они прочитаны какcredentialreferences, а не9клиник. Известный профиль LMUIgnatenko не попал вэтотfilteredresult; список не выдаётся за исчерпывающий universe и отсутствие не означает неактивность. NinaEberle: обычныйnativeTimeoutError, затем разрешённое чтение того же exactURL через Web200; клинических rereads нет.
+
+Текущие единицы: assigned102; processed62; fully_verified7 (пять ужеlive +дваNEW дляQA); NEW2; UPDATE0providers/0fields; DUP8; EXCLUDED3; UNRESOLVED49; ещё40identity-only без полноценного providerreview. Searchenginequeries99не изменились; professionalGETfilterqueries считаются отдельно. Исследование продолжается.
+
+Последний подтверждённый parentbackup008: data7c3230dfa1848b0d88fa6f907b9386b5f01019bc,receipt8277390d8a744426efb6a7ad870da5be09e509eb; corrected02delta/03seals и CURRENT03report проверены удалённо. Новый блок не публикация и не countryacceptance.
