@@ -1,0 +1,54 @@
+{
+  "checked_at": "2026-10-16T22:14:28.398987+00:00",
+  "commands": [
+    {
+      "command": "python scripts/build_static_site.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python scripts/test_a02_care_reconciliation.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python scripts/test_b01_care_reconciliation.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python scripts/test_b02_care_reconciliation.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python scripts/test_c01_care_reconciliation.py",
+      "exit_code": 0
+    },
+    {
+      "command": "node scripts/test_a01_care_reconciliation.js",
+      "exit_code": 0
+    },
+    {
+      "command": "python scripts/validate_catalog_sanitation.py",
+      "exit_code": 0
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    }
+  ],
+  "results": {
+    "centers_total": 882,
+    "german_locations": 220,
+    "german_baseline": 165,
+    "new_physical": 55,
+    "new_remote": 2,
+    "remote_total": 64,
+    "owner_initial_remote": 50,
+    "existing_updates": 1,
+    "care_regression_suites": "A01/A02/B01/B02/C01 PASS",
+    "sanitation": "310 records; 0 new_partial_records; 6 existing resolved_but_still_queued retained without unrelated cleanup",
+    "matcher_selection": "1465 checks PASS; Python parity18720 checks PASS",
+    "prior_controller_identity": "61 cards PASS",
+    "austrian_identity": "76 distinct sites PASS",
+    "site_shell": "212 pages PASS"
+  },
+  "limits": "Validation is not a claim of full fresh trial audit. Remote verified source timestamps preserved; no denied output bodies included."
+}
