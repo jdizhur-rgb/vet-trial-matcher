@@ -1,0 +1,184 @@
+[
+  {
+    "command": [
+      "python",
+      "scripts/validate_audit_receipt.py",
+      "/workspace/scratch/6d9ea24f2cf9/vet-trial-matcher/research/audit-runs/daily-20261016T025651-0400/receipt-final.json"
+    ],
+    "started_at": "2026-10-16T03:32:34.134956-04:00",
+    "ended_at": "2026-10-16T03:32:34.175034-04:00",
+    "exit_code": 1,
+    "log": "research/audit-runs/daily-20261016T025651-0400/validators/00-validate_audit_receipt.txt",
+    "status": "INCOMPLETE"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_audit_gap_review.py",
+      "/workspace/scratch/6d9ea24f2cf9/vet-trial-matcher/research/audit-runs/daily-20261016T025651-0400/gap-review.json",
+      "--receipt",
+      "/workspace/scratch/6d9ea24f2cf9/vet-trial-matcher/research/audit-runs/daily-20261016T025651-0400/receipt-final.json"
+    ],
+    "started_at": "2026-10-16T03:32:34.175282-04:00",
+    "ended_at": "2026-10-16T03:32:34.217304-04:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261016T025651-0400/validators/01-validate_audit_gap_review.txt",
+    "status": "PASS"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_catalog_sanitation.py"
+    ],
+    "started_at": "2026-10-16T03:32:34.217688-04:00",
+    "ended_at": "2026-10-16T03:32:34.248751-04:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261016T025651-0400/validators/02-validate_catalog_sanitation.txt",
+    "status": "PASS"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_trials_catalog.py"
+    ],
+    "started_at": "2026-10-16T03:32:34.249067-04:00",
+    "ended_at": "2026-10-16T03:32:34.286726-04:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261016T025651-0400/validators/03-validate_trials_catalog.txt",
+    "status": "PASS"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_source_inventory.py"
+    ],
+    "started_at": "2026-10-16T03:32:34.287026-04:00",
+    "ended_at": "2026-10-16T03:32:34.316592-04:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261016T025651-0400/validators/04-validate_source_inventory.txt",
+    "status": "PASS"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_repository_hygiene.py"
+    ],
+    "started_at": "2026-10-16T03:32:34.316924-04:00",
+    "ended_at": "2026-10-16T03:32:34.363045-04:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261016T025651-0400/validators/05-validate_repository_hygiene.txt",
+    "status": "PASS"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/test_matcher_selection.py"
+    ],
+    "started_at": "2026-10-16T03:32:34.363350-04:00",
+    "ended_at": "2026-10-16T03:32:34.655733-04:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261016T025651-0400/validators/06-test_matcher_selection.txt",
+    "status": "PASS"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/test_matcher_selection.js"
+    ],
+    "started_at": "2026-10-16T03:32:34.656057-04:00",
+    "ended_at": "2026-10-16T03:32:34.899771-04:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261016T025651-0400/validators/07-test_matcher_selection.txt",
+    "status": "PASS"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/test_matcher_protocol_sources.js"
+    ],
+    "started_at": "2026-10-16T03:32:34.900145-04:00",
+    "ended_at": "2026-10-16T03:32:35.002595-04:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261016T025651-0400/validators/08-test_matcher_protocol_sources.txt",
+    "status": "PASS"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/test_matcher_catalog_loading.js"
+    ],
+    "started_at": "2026-10-16T03:32:35.002938-04:00",
+    "ended_at": "2026-10-16T03:32:35.182770-04:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261016T025651-0400/validators/09-test_matcher_catalog_loading.txt",
+    "status": "PASS"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/build_static_site.py"
+    ],
+    "started_at": "2026-10-16T03:32:35.183114-04:00",
+    "ended_at": "2026-10-16T03:32:49.773966-04:00",
+    "exit_code": 1,
+    "log": "research/audit-runs/daily-20261016T025651-0400/validators/10-build_static_site.txt",
+    "status": "FAIL"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/test_matcher_logic.js"
+    ],
+    "started_at": "2026-10-16T03:32:49.774317-04:00",
+    "ended_at": "2026-10-16T03:32:49.928387-04:00",
+    "exit_code": 1,
+    "log": "research/audit-runs/daily-20261016T025651-0400/validators/11-test_matcher_logic.txt",
+    "status": "FAIL"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_production_sync.py"
+    ],
+    "started_at": "2026-10-16T03:32:49.928774-04:00",
+    "ended_at": "2026-10-16T03:32:51.759951-04:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261016T025651-0400/validators/12-validate_production_sync.txt",
+    "status": "PASS"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/test_audit_gap_review.py"
+    ],
+    "started_at": "2026-10-16T03:32:51.760423-04:00",
+    "ended_at": "2026-10-16T03:32:51.815088-04:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261016T025651-0400/validators/13-test_audit_gap_review.txt",
+    "status": "PASS"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/check_evidence_keys.py",
+      "--redact",
+      "/workspace/scratch/6d9ea24f2cf9/vet-trial-matcher/research/audit-runs/daily-20261016T025651-0400"
+    ],
+    "started_at": "2026-10-16T03:32:51.815476-04:00",
+    "ended_at": "2026-10-16T03:32:51.906906-04:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261016T025651-0400/validators/14-check_evidence_keys.txt",
+    "status": "PASS"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/check_evidence_keys.py"
+    ],
+    "started_at": "2026-10-16T03:32:51.907428-04:00",
+    "ended_at": "2026-10-16T03:32:52.823608-04:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261016T025651-0400/validators/15-check_evidence_keys.txt",
+    "status": "PASS"
+  }
+]

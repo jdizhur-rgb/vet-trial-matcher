@@ -1,0 +1,62 @@
+{
+  "trial_id": "leah-bcell-cart-2026",
+  "source_url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+  "source_evidence": [
+    "web-04.json, turn803view0, lines226-253",
+    "evidence/f87ae594d331d8c741.json",
+    "evidence/4644ea2b49338fd514.json"
+  ],
+  "criteria": "Current Missouri primary explicitly enrolls dogs with spontaneous CD20+ large-cell B-cell lymphoma, naive or relapsed, clinically well, >10kg. Investigator bloodwork and no primary GI/lung involvement; no Apoquel/mycophenolate/cyclosporine/azathioprine; prednisone washout >=72h. Lymphodepleting chemotherapy plus xenogeneic CAR-T, at least seven visits in21days then long follow-up. Study covers staging/treatment/rechecks, adverse events up to$4000, completion stipend$2000 for future VHC treatment. Minnesota independent current protocol remains ON HOLD (10-50kg/48h criteria must not replace Missouri's). Ohio remains sponsor-listed only; confirm local slot. Missouri criteria cannot globally exclude an Ohio candidate when Ohio criteria are unpublished; site-specific clinical screening remains explicit.",
+  "decision": "Confirmed current Missouri organizer protocol and fresh Web agree; the October15 cached ON HOLD version is superseded for Missouri. Move Missouri from inactive to active sites in the one existing record; Minnesota remains inactive. No new trial.",
+  "cases": [
+    {
+      "name": "Missouri-supported B-cell candidate with unknown individual screening answers",
+      "patient": {
+        "cancer": "B-cell lymphoma"
+      },
+      "expected": "review"
+    },
+    {
+      "name": "Previously treated B-cell cohort is allowed by Missouri",
+      "patient": {
+        "cancer": "B-cell lymphoma",
+        "chemo": "Previously received"
+      },
+      "expected": "review"
+    },
+    {
+      "name": "Missouri-only numeric threshold must not become unsupported universal Ohio limit",
+      "patient": {
+        "cancer": "B-cell lymphoma",
+        "weight_known": true,
+        "weight_lb": 19.8416036
+      },
+      "expected": "review"
+    },
+    {
+      "name": "Wrong species",
+      "patient": {
+        "species": "Cat",
+        "cancer": "B-cell lymphoma"
+      },
+      "expected": "exclude"
+    },
+    {
+      "name": "Wrong lymphoma lineage",
+      "patient": {
+        "cancer": "T-cell lymphoma"
+      },
+      "expected": "exclude"
+    },
+    {
+      "name": "Wrong country",
+      "patient": {
+        "country": "Japan",
+        "cancer": "B-cell lymphoma"
+      },
+      "expected": "exclude"
+    }
+  ],
+  "reviewed_at": "2026-10-16T03:05:22.392970-04:00",
+  "selection_sha256": "58f01959cb554566d1639e87bb3e6c5cc77b4adb092642a8c39b5db88522ce53"
+}

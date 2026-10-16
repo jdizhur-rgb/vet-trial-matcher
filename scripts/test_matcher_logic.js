@@ -300,11 +300,18 @@ for (const trial of [medvetVaccine, rows.find(row => row.id === 'leah-bcell-cart
   }
 }
 const leah = rows.find(row => row.id === 'leah-bcell-cart-2026');
-if (!leah || leah.sites.length !== 1 || leah.sites[0].state !== 'OH' ||
-    !['MN', 'MO'].every(state => leah.inactive_sites?.some(
-      site => site.state === state && /hold/i.test(site.status || '')
-    ))) {
-  throw new Error('LEAH site reconciliation must retain sponsor-listed Ohio and exclude paused Minnesota/Missouri from active sites');
+// October 16 current Missouri protocol supersedes its older ON HOLD page.
+// Site-specific Missouri criteria must not become universal Ohio restrictions.
+const leahMissouri = leah?.sites?.find(site => site.state === 'MO');
+if (!leah || leah.sites.length !== 2 ||
+    !leah.sites.some(site => site.state === 'OH' && /sponsor/i.test(site.status || '')) ||
+    !leahMissouri?.source_url?.includes('vhc.missouri.edu') ||
+    !/enrolling/i.test(leahMissouri.status || '') ||
+    !/72hours/.test(leahMissouri.eligibility || '') ||
+    !leah.inactive_sites?.some(site => site.state === 'MN' && /hold/i.test(site.status || '')) ||
+    leah.inactive_sites?.some(site => site.state === 'MO') ||
+    leah.requires?.min_weight_kg != null) {
+  throw new Error('LEAH must preserve current Missouri enrollment, qualified sponsor-listed Ohio, Minnesota hold and site-specific criteria');
 }
 for (const cancer of ['Osteosarcoma','Hemangiosarcoma','Urothelial carcinoma']) {
   if (!matches(patient({cancer})).some(row => row.trial.id === medvetVaccine.id)) {

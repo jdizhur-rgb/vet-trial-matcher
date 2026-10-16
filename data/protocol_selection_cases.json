@@ -2669,6 +2669,187 @@
         }
       ],
       "selection_sha256": "ca0c8636f280952687a9ea4d64fe6315a7551aa232301be483c940ccc4c27472"
+    },
+    {
+      "trial_id": "leah-bcell-cart-2026",
+      "source_url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+      "reviewed_at": "2026-10-16T03:05:22.392970-04:00",
+      "criteria": "Current Missouri primary explicitly enrolls dogs with spontaneous CD20+ large-cell B-cell lymphoma, naive or relapsed, clinically well, >10kg. Investigator bloodwork and no primary GI/lung involvement; no Apoquel/mycophenolate/cyclosporine/azathioprine; prednisone washout >=72h. Lymphodepleting chemotherapy plus xenogeneic CAR-T, at least seven visits in21days then long follow-up. Study covers staging/treatment/rechecks, adverse events up to$4000, completion stipend$2000 for future VHC treatment. Minnesota independent current protocol remains ON HOLD (10-50kg/48h criteria must not replace Missouri's). Ohio remains sponsor-listed only; confirm local slot. Missouri criteria cannot globally exclude an Ohio candidate when Ohio criteria are unpublished; site-specific clinical screening remains explicit.",
+      "cases": [
+        {
+          "name": "Missouri-supported B-cell candidate with unknown individual screening answers",
+          "patient": {
+            "cancer": "B-cell lymphoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Previously treated B-cell cohort is allowed by Missouri",
+          "patient": {
+            "cancer": "B-cell lymphoma",
+            "chemo": "Previously received"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Missouri-only numeric threshold must not become unsupported universal Ohio limit",
+          "patient": {
+            "cancer": "B-cell lymphoma",
+            "weight_known": true,
+            "weight_lb": 19.8416036
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Wrong species",
+          "patient": {
+            "species": "Cat",
+            "cancer": "B-cell lymphoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Wrong lymphoma lineage",
+          "patient": {
+            "cancer": "T-cell lymphoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Wrong country",
+          "patient": {
+            "country": "Japan",
+            "cancer": "B-cell lymphoma"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "58f01959cb554566d1639e87bb3e6c5cc77b4adb092642a8c39b5db88522ce53"
+    },
+    {
+      "trial_id": "ca-ovc-oral-melanoma-palladia",
+      "source_url": "https://ovcclinicaltrials.uoguelph.ca/evaluating-palladia-for-the-treatment-of-canine-oral-melanoma/",
+      "reviewed_at": "2026-10-16T03:07:34.593947-04:00",
+      "criteria": "Current active canine roster plus full individual primary: dog, biopsy-confirmed oral melanoma, measurable disease, no previous chemotherapy; previous melanoma vaccine permitted. Administered trial therapy is Palladia/toceranib, not a vaccine. Multiple OVC visits; initial staging, Palladia and dispensing/administration covered. Other fees remain to confirm.",
+      "cases": [
+        {
+          "name": "Current toceranib candidate",
+          "patient": {
+            "species": "Dog",
+            "country": "Canada",
+            "cancer": "Oral melanoma",
+            "approach": "targeted_therapy"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Prior vaccine allowance does not mean administered vaccine trial",
+          "patient": {
+            "country": "Canada",
+            "cancer": "Oral melanoma",
+            "approach": "cancer_vaccine"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Explicit previous chemotherapy exclusion",
+          "patient": {
+            "country": "Canada",
+            "cancer": "Oral melanoma",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Wrong species",
+          "patient": {
+            "species": "Cat",
+            "country": "Canada",
+            "cancer": "Oral melanoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Unknown measurable disease requires screening",
+          "patient": {
+            "country": "Canada",
+            "cancer": "Oral melanoma"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "measurable"
+          ]
+        }
+      ],
+      "selection_sha256": "2b8f71c49ea374a8fc2fbb8558f9517f785fdf2779f08235f4cf37a393b9d918"
+    },
+    {
+      "trial_id": "ca-ovc-osa-hifu",
+      "source_url": "https://ovcclinicaltrials.uoguelph.ca/evaluating-a-non-invasive-heat-therapy-for-the-treatment-of-bone-cancer-in-dogs-2/",
+      "reviewed_at": "2026-10-16T03:07:34.594054-04:00",
+      "criteria": "Current active canine roster plus full individual primary: canine osteosarcoma of DISTAL RADIUS, no metastasis, no previous OSA surgery or radiation. Prior chemotherapy/bisphosphonates assessed case-by-case. MRI-guided HIFU at SickKids Toronto plus multiple OVC Guelph visits. MRI, HIFU, anesthesia, study biopsies/analyses funded; unrelated care not inferred free. Appendicular form answer is necessary but not sufficient to establish the exact distal-radius location.",
+      "cases": [
+        {
+          "name": "Limb candidate still needs exact distal-radius confirmation",
+          "patient": {
+            "country": "Canada",
+            "cancer": "Osteosarcoma",
+            "osa_location": "Appendicular — limb bone"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "distal radius"
+          ]
+        },
+        {
+          "name": "Known axial osteosarcoma contradicts distal-radius protocol",
+          "patient": {
+            "country": "Canada",
+            "cancer": "Osteosarcoma",
+            "osa_location": "Axial — skull, spine, rib, or pelvis"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Unknown anatomy is a screening question, not false exclusion",
+          "patient": {
+            "country": "Canada",
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "distal radius"
+          ]
+        },
+        {
+          "name": "Metastatic OSA excluded",
+          "patient": {
+            "country": "Canada",
+            "cancer": "Osteosarcoma",
+            "metastasis": "Confirmed metastases"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Previous OSA surgery excluded",
+          "patient": {
+            "country": "Canada",
+            "cancer": "Osteosarcoma",
+            "surgery": "Yes"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Wrong species",
+          "patient": {
+            "species": "Cat",
+            "country": "Canada",
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "b276c24c868f5a630a7f73e97ef2004a7388e2b14c5080e9f903b421cec79982"
     }
   ]
 }

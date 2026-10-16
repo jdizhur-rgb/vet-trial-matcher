@@ -1,0 +1,3 @@
+Immutable segment recorded 2026-10-16T03:32:33.824267-04:00.
+
+111source decisions now sealed:69fully,34partial,2unreachable,6inheritedgates;105actualsourcesread. Every existing fallback visited or backed by a saved explicit gate. Actual12region two-pass discovery,51queries;11lead groups individually qualified, no new confirmed trial/source. All74priorissue IDs preserved; Missouri question resolved, Ohio/OVC questions narrowed,3UTSW status conflicts added. Strict42gaps remain; source-specificcompletion decisions recorded. Threeclinicalchanges plus independent58record/264case suite; remaining tasks are full validation, build, publication, production/liveUI and report.

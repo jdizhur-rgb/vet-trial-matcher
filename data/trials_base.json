@@ -7131,14 +7131,13 @@
       "prior_chemo": true
     },
     "notes": "Treatment study for biopsy-confirmed canine oral melanoma with measurable disease. OVC states dogs with previous chemotherapy are not eligible; prior melanoma vaccination is allowed. Multiple OVC visits are required.",
-    "verified": "2026-09-04",
+    "verified": "2026-10-16",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",
     "owner_prescreen_required": true,
     "funding_status": "Partially funded",
     "treatment_approaches": [
-      "cancer_vaccine",
       "targeted_therapy"
     ]
   },
@@ -7158,14 +7157,15 @@
     "requires": {
       "confirmed": true,
       "active_treatment_target": true,
-      "no_metastasis": true
+      "no_metastasis": true,
+      "appendicular_location": true
     },
     "excludes": {
       "prior_surgery": true,
       "prior_local_radiation": true
     },
     "notes": "Pilot treatment study for confirmed osteosarcoma of the distal radius with no evidence of metastasis. No previous surgery or radiation for the osteosarcoma. Prior chemotherapy and/or bisphosphonate treatment is evaluated case-by-case. Requires visits to SickKids in Toronto and OVC in Guelph.",
-    "verified": "2026-09-04",
+    "verified": "2026-10-16",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",
@@ -7173,7 +7173,8 @@
     "funding_status": "Partially funded",
     "treatment_approaches": [
       "focused_ultrasound"
-    ]
+    ],
+    "special_requirement": "The osteosarcoma must be in the distal radius (lower forelimb); an appendicular/limb answer alone does not establish this location. The study team must confirm exact anatomy and any prior chemotherapy/bisphosphonate use."
   },
   {
     "id": "ca-ovc-feline-oscc-porphysome-pdt",
@@ -9938,17 +9939,17 @@
     "cancers": [
       "B-cell lymphoma"
     ],
-    "status": "Sponsor lists Ohio State as enrolling; Minnesota and Missouri institutional sites on hold",
+    "status": "Missouri enrolling per current institutional protocol; Ohio State enrolling per sponsor with local slot to confirm; Minnesota on hold",
     "url": "https://leahlabs.com/",
     "contacts": "LEAH Labs — info@leahlabs.com; enrollment request form on the official site",
-    "funding": "LEAH Labs states the trial is fully funded and covers 100% of costs for enrolled families.",
+    "funding": "Missouri: study-related initial staging, treatment and rechecks covered; up to$4000 for adverse events and a$2000 stipend for future/additional VHC treatment upon completion. Sponsor describes Ohio enrollment as fully funded; confirm the current Ohio coverage and slot. Minnesota is on hold; its historical stipend/criteria are not generalized to other sites.",
     "requires": {
       "confirmed": true,
       "active_treatment_target": true
     },
     "excludes": {},
-    "notes": "LEAH Labs currently calls its B-cell lymphoma CAR-T trial open and names Minnesota, Ohio State and Missouri. Current individual Minnesota protocol explicitly says On hold; Missouri current oncology roster also marks LEAH xCAR-T ON HOLD. Both paused sites are retained in inactive_sites and excluded from active location matching. Ohio State remains listed as enrolling by the sponsor, but its current institutional trial index does not list this protocol; absence alone was not treated as closure. Confirm an Ohio State enrollment slot and site-specific eligibility with the sponsor before travel. Sponsor states enrolled treatment is fully funded. Minnesota-specific eligibility and stipends must not be generalized to Ohio State.",
-    "verified": "2026-10-05",
+    "notes": "One LEAH CAR-T protocol with site-specific cohorts. On October16 the current Missouri study-specific invitation and fresh Web read both explicitly confirm enrolling dogs with spontaneous CD20+ large-cell B-cell lymphoma; the older cached Missouri ON HOLD version is superseded. Missouri includes naive and relapsed patients, >10kg, clinically well, no primary GI or lung involvement, investigator bloodwork clearance, no Apoquel/mycophenolate/cyclosporine/azathioprine and at least72hours off prednisone. It combines lymphodepleting chemotherapy and xenogeneic CAR-T; at least seven visits over21days then longer follow-up. Minnesota current individual protocol remains On hold; its10-50kg and48hour rules must not be generalized to Missouri. Ohio remains enrolling per sponsor; its current institutional index does not name this protocol, so confirm the Ohio slot and local criteria before travel. Missouri-specific eligibility/funding do not establish Ohio or Minnesota terms.",
+    "verified": "2026-10-16",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",
@@ -9959,6 +9960,18 @@
         "city": "Columbus",
         "state": "OH",
         "status": "Actively enrolling per sponsor; confirm the current Ohio State slot before travel"
+      },
+      {
+        "hospital": "University of Missouri Veterinary Health Center",
+        "city": "Columbia",
+        "state": "MO",
+        "status": "Currently enrolling — confirmed by the current Missouri study-specific protocol",
+        "contact": "cvmclinicaltrials@missouri.edu",
+        "source_url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+        "verified": "2026-10-16",
+        "eligibility": "Dogs >10kg; naive or relapsed large-cell CD20+ B-cell lymphoma; clinically well; no primary GI/lung involvement; investigator laboratory screening; no listed immunomodulators; prednisone washout at least72hours.",
+        "funding": "Study staging, treatment and rechecks covered; adverse-event allowance up to$4000; $2000 completion stipend for future/additional VHC treatment.",
+        "schedule": "At least seven visits in the first21days and longer follow-up until progression/relapse."
       }
     ],
     "treatment_approaches": [
@@ -9967,21 +9980,15 @@
     ],
     "inactive_sites": [
       {
-        "hospital": "University of Missouri Veterinary Health Center",
-        "city": "Columbia",
-        "state": "MO",
-        "status": "On hold",
-        "contact": "cvmclinicaltrials@missouri.edu",
-        "source_url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/"
-      },
-      {
         "hospital": "University of Minnesota College of Veterinary Medicine",
         "city": "Minneapolis",
         "state": "MN",
         "status": "On hold — confirmed by the current institutional protocol page",
         "source_url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/car-t-cell"
       }
-    ]
+    ],
+    "source_url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+    "special_requirement": "Site-specific study-team screening is required. Missouri: >10kg, large-cell CD20+ B-cell lymphoma, clinically well, no primary GI/lung involvement, no listed immunomodulators, >=72h prednisone washout. Ohio criteria/slot must be confirmed. Minnesota is not currently enrolling."
   },
   {
     "id": "mexico-ensenada-silver-nanoparticle-cancer-2026",

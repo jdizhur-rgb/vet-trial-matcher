@@ -2,19 +2,19 @@
   "schema_version": 1,
   "purpose": "Persistent state for incremental discovery and deep-audit cost control. Source fingerprints live in source_inventory.json; this file tracks audit scheduling and unresolved work.",
   "last_full_deep_audit": null,
-  "last_incremental_audit": "2026-10-15T04:34:54.424553-04:00",
+  "last_incremental_audit": "2026-10-16T03:32:18.732489-04:00",
   "last_source_discovery_attempt": {
-    "run_id": "daily-20261015T030225-0400",
-    "started_at": "2026-10-15T03:02:25-04:00",
-    "source_pass_sealed_at": "2026-10-15T04:34:54.397587-04:00",
+    "run_id": "daily-20261016T025651-0400",
+    "started_at": "2026-10-16T02:56:51-04:00",
+    "source_pass_sealed_at": "2026-10-16T03:32:18.693385-04:00",
     "status": "ALL_PROCESSED_EXTERNAL_GAPS",
     "source_total": 111,
     "attempted": 105,
     "processing_complete": 111,
-    "sufficient": 66,
-    "coverage_receipt": "research/audit-runs/daily-20261015T030225-0400/receipt-final.json",
+    "sufficient": 69,
+    "coverage_receipt": "research/audit-runs/daily-20261016T025651-0400/receipt-final.json",
     "latest_receipt": "data/audit_source_coverage.json",
-    "catalog_changes": 0,
+    "catalog_changes": 3,
     "new_source_entries": 0,
     "global_discovery_regions": [
       "USA",
@@ -36,7 +36,6 @@
       "registry-avma-veterinary-clinical-trials",
       "usa-colorado-state-vth-clinical-trials",
       "usa-johns-hopkins-cigat",
-      "usa-missouri-oncology-clinical-trials",
       "usa-nc-state-clinical-trials",
       "usa-tufts-clinical-trials",
       "usa-georgia-clinical-trials",
@@ -54,7 +53,6 @@
       "australia-uq-school-veterinary-clinical-trials",
       "australia-sash-clinical-research",
       "usa-canine-cancer-alliance-research",
-      "usa-vrcco-clinical-trials",
       "usa-wsu-vth-clinical-studies",
       "china-dongjun-oncology-trials",
       "usa-nci-comparative-oncology-trials",
@@ -76,11 +74,10 @@
       "japan-nihon-anmec-clinical-research",
       "germany-lmu-small-animal-research",
       "uk-edinburgh-small-animal-clinical-trials",
-      "sponsor-akston-oncology-pipeline",
-      "fr-vetagro-cicv-current-studies"
+      "sponsor-akston-oncology-pipeline"
     ],
-    "gap_review": "research/audit-runs/daily-20261015T030225-0400/gap-review.json",
-    "issues": "research/audit-runs/daily-20261015T030225-0400/issues.json"
+    "gap_review": "research/audit-runs/daily-20261016T025651-0400/gap-review.json",
+    "issues": "research/audit-runs/daily-20261016T025651-0400/issues.json"
   },
   "forced_full_reread_days": 28,
   "rules": {
@@ -116,7 +113,12 @@
     "queue": "research/audit-runs/protocol-selection-20261012/queue.json",
     "source_cases": "data/protocol_selection_cases.json",
     "last_full_completed_at": null,
-    "forced_full_rereview_days": 28
+    "forced_full_rereview_days": 28,
+    "progress_receipt": "research/audit-runs/daily-20261016T025651-0400/selection-progress.json",
+    "last_progress_at": "2026-10-16T03:34:21.838214-04:00",
+    "current_public_total": 165,
+    "independently_reviewed_current_public": 58,
+    "pending_independent_review_total": 107
   },
   "last_targeted_source_reconciliation": {
     "run_id": "finalize-68-20261014T185109-0400",

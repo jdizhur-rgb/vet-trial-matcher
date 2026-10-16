@@ -615,3 +615,10 @@ For Europe, one task covers one entire country, with no automatic ten-candidate 
 ## Austrian branch identity — 2026-10-15
 
 The Austrian care pass exposed four false merges from similar names within one Vienna postal code: TIERplus Kagran/Stadlau, Döbling/Hutter, Vetklinikum/Mauer and Pragerstraße/Strebersdorf. Current official branch/contact evidence confirms different addresses and telephone numbers. Preserve these four verified identity separations in the builder without changing unrelated historical matching behavior. The production build now checks that every Austrian supplemental identity survives catalog assembly with its own address, phone, services and location type. Evidence and remaining coverage questions are in research/audit-runs/europe-slot-1-20261015/; publishing a verified batch does not itself close national coverage.
+
+
+## Daily primary reconciliation — 2026-10-16
+
+Current Missouri embedded LEAH protocol and fresh same-URL Web read now agree on enrollment, superseding the older cached ON HOLD page. Restore Missouri within the existing LEAH record; retain Minnesota hold and the separate sponsor-only Ohio slot question. Missouri >10kg/72-hour prednisone washout/seven visits in21days/$4000 adverse-event allowance/$2000 completion stipend are site-specific and must not become universal Ohio criteria. Update the obsolete paused-Missouri regression to the current primary roster.
+
+OVC individual canine Palladia and HIFU pages were recovered and fully read. Previous melanoma vaccine allowance does not make Palladia a vaccine intervention. Distal-radius OSA HIFU excludes axial OSA; an appendicular answer still requires exact distal-radius screening. Source-derived cases precede these corrections; preserve the immutable selection baseline. Three UTSW AVMA statuses changed to Completed while current institutional brochures still invite enrollment: record the exact conflicts and proposed temporary nonmatchable dispositions for owner decision, preserving present clinical state until that decision. Evidence and full daily receipt: `research/audit-runs/daily-20261016T025651-0400/`.
