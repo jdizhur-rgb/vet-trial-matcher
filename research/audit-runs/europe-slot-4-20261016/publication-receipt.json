@@ -132,6 +132,54 @@
         "country_filter_readback": "PASS: 154 German locations; combined filters, state reset and stale ZIP suppression"
       },
       "coverage_complete": false
+    },
+    {
+      "publication_checkpoint": 5,
+      "new_this_checkpoint": {
+        "physical": 1,
+        "remote": 1
+      },
+      "new_physical_cumulative_recovery": 147,
+      "new_remote_cumulative_recovery": 1,
+      "original_baseline_rows_updated": 3,
+      "coordinates_added_to_published_new_rows": 94,
+      "data_sha": "fb9d9d6361fb6d25655c38c516af3718fa0de810",
+      "deploy": {
+        "id": 38899845725,
+        "conclusion": "success",
+        "url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/38899845725"
+      },
+      "additional_CI": [
+        {
+          "id": 38899845637,
+          "conclusion": "success"
+        },
+        {
+          "id": 38899845693,
+          "conclusion": "success"
+        }
+      ],
+      "production": {
+        "centers": {
+          "url": "https://vettrialfinder.com/matcher/centers/",
+          "observed_at": "2026-10-16T12:22:33.391037+00:00",
+          "http_status": 200,
+          "bytes": 723421,
+          "sha256": "1d379206bec94237cdf892dd039572da32f2421a4dcd594723ff90f190336951",
+          "byte_equal_local_wrapped_build": true,
+          "country_filter_readback": "PASS:155 German locations; combined filters, reset and stale ZIP suppression"
+        },
+        "remote": {
+          "url": "https://vettrialfinder.com/online-oncology-consultations/",
+          "observed_at": "2026-10-16T12:22:33.506107+00:00",
+          "http_status": 200,
+          "bytes": 168202,
+          "sha256": "95803706d12ffe18af20008a489e5df0e14b640205cffe906ff8555e09d94e8c",
+          "byte_equal_local_wrapped_build": true,
+          "filter_readback": "Exact byte equality with locally tested 62-service build; Scharvogel both audiences and Cancer surgery, excluded from medical/radiation"
+        }
+      },
+      "coverage_complete": false
     }
   ]
 }
