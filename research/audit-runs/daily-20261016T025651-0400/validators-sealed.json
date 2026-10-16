@@ -1,0 +1,39 @@
+[
+  {
+    "command": [
+      "python",
+      "scripts/validate_audit_receipt.py",
+      "research/audit-runs/daily-20261016T025651-0400/receipt-final.json"
+    ],
+    "started_at": "2026-10-16T03:56:48.230909-04:00",
+    "ended_at": "2026-10-16T03:56:48.297079-04:00",
+    "exit_code": 1,
+    "status": "INCOMPLETE",
+    "log": "research/audit-runs/daily-20261016T025651-0400/validators/sealed-validate_audit_receipt.txt"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_audit_gap_review.py",
+      "research/audit-runs/daily-20261016T025651-0400/gap-review.json",
+      "--receipt",
+      "research/audit-runs/daily-20261016T025651-0400/receipt-final.json"
+    ],
+    "started_at": "2026-10-16T03:56:48.297136-04:00",
+    "ended_at": "2026-10-16T03:56:48.333137-04:00",
+    "exit_code": 0,
+    "status": "PASS",
+    "log": "research/audit-runs/daily-20261016T025651-0400/validators/sealed-validate_audit_gap_review.txt"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_source_inventory.py"
+    ],
+    "started_at": "2026-10-16T03:56:48.333187-04:00",
+    "ended_at": "2026-10-16T03:56:48.365103-04:00",
+    "exit_code": 0,
+    "status": "PASS",
+    "log": "research/audit-runs/daily-20261016T025651-0400/validators/sealed-validate_source_inventory.txt"
+  }
+]
