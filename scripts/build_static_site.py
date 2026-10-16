@@ -201,6 +201,7 @@ def main() -> None:
     )
     subprocess.run(["node", "scripts/test_matcher_selection.js"], cwd=ROOT, check=True)
     run("scripts/test_matcher_selection.py")
+    subprocess.run(["node", "scripts/test_oncology_country_filter.js"], cwd=ROOT, check=True)
 
 
 if __name__ == "__main__":

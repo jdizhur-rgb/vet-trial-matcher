@@ -59,6 +59,13 @@ def main() -> None:
     assert "does not independently verify clinicians, licenses, credentials or quality of care" in page
     assert "ZIP code for nearest centers" in page
     assert "All services" in page
+    assert 'id="country" aria-label="Filter by country"' in page
+    assert 'All countries' in page
+    for country in {center["country"] for center in centers}:
+        assert f'<option value="{html.escape(country, quote=True)}">' in page, country
+    assert '<input id="zip" hidden disabled' in page
+    assert '<select id="state" hidden disabled' in page
+    assert not page.startswith('<<<<<<<')
     assert "api.zippopotam.us/us/" in page
     assert page.count('<article class="p-card"') == len(centers)
     for center in centers:

@@ -601,3 +601,8 @@ VOS is a UK-registered remote provider with Polish/English written and 40-minute
 ## Public brand restored — owner-authorized 2026-10-15
 
 The owner ended the Pet Cancer Trail experiment and explicitly requested restoring Vet Trial Finder throughout the site and publication. Restore the public identity in shared navigation, copy, metadata, structured data, article bylines and the three original branded image assets. This supersedes the October 14 public-brand decision; preserve that historical note. Keep the domain, current catalogs, subsequent content/data changes and the descriptive unbranded page-title policy unchanged. The production brand gate now rejects the experimental name.
+
+
+## Oncology-care country selector — owner-approved 2026-10-15
+
+The care finder now has an explicit country selector populated from its actual directory countries, defaulting to All countries. Match country exactly alongside text, service and US-state filters. Show and enable US-state/ZIP controls only when USA is selected; switching away clears their values and invalidates pending ZIP results. International countries remain directly selectable without knowing the hidden text-search country support. Preserve mobile/unknown-coordinate distance suppression and existing service filters. The owner approved this UI correction after the Germany discovery problem. Remove the stray leading conflict-marker text from the finder template; it is not page content.

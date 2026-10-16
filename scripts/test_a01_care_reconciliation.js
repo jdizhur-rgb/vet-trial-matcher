@@ -41,7 +41,7 @@ const cards = [...html.matchAll(/<article class="p-card"([^>]+)>([\s\S]*?)<\/art
   return {dataset: attrs, hidden: false, body: m[2], querySelector: () => distance, distance};
 });
 assert.equal(cards.length, centers.length);
-const elements = Object.fromEntries(['q','zip','svc','state','cards','n','status','international','intl-cards','intl-n'].map(id => [id, {value:'', hidden:false, textContent:'', options:[], children:[], addEventListener(){}, appendChild(c){this.children.push(c);}}]));
+const elements = Object.fromEntries(['country','q','zip','svc','state','cards','n','status','international','intl-cards','intl-n'].map(id => [id, {value:'', hidden:false, textContent:'', options:[], children:[], addEventListener(){}, appendChild(c){this.children.push(c);}}]));
 const sandbox = {
   document: {querySelector: s => elements[s.slice(1)], querySelectorAll: () => cards},
   URLSearchParams, location: {search:''},
@@ -52,6 +52,7 @@ const script = [...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)].m
 assert(script);
 vm.runInContext(script, context);
 (async () => {
+  elements.country.value = 'USA';
   elements.state.value = 'WA';
   await vm.runInContext("zipFilter('98516',seq)", context);
   const mobile = cards.filter(c => c.dataset.region === 'WA' && c.dataset.lat === '');
