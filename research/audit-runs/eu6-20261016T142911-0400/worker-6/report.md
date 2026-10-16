@@ -1,6 +1,6 @@
 # Нидерланды — исследование продолжается
 
-Агент /root/recovery_nl; фактический старт 2026-10-16 18:43:10 UTC; текущее обновление 2026-10-16T19:42:22.271Z. Run eu6-20261016T142911-0400; baseline 2f7099307e174556883ca6eb97495bead2dc3401. research_complete=false; publication_permitted=false.
+Агент /root/recovery_nl; фактический старт 2026-10-16 18:43:10 UTC; текущее обновление 2026-10-16T19:51:06.561Z. Run eu6-20261016T142911-0400; baseline 2f7099307e174556883ca6eb97495bead2dc3401. research_complete=false; publication_permitted=false.
 
 ## Наследие и текущая сверка
 
@@ -8,7 +8,7 @@
 
 ## Счётчики
 
-{"assigned":263,"processed":210,"fully_verified":50,"NEW":55,"UPDATE":3,"DUPLICATE":1,"EXCLUDED":137,"UNRESOLVED":14,"PENDING":53} — уникальные реальные provider/service identities, не URLs или группы. Новая substantive primary работа: {"assigned":64,"processed":64,"fully_verified":6,"NEW":6,"UPDATE":0,"DUPLICATE":0,"EXCLUDED":45,"UNRESOLVED":13}. NEW55=49 inherited unpublished +3 ZOD +3 Wellensiek из унаследованных leads; eligible fresh-discovery0. Fully50=44retained+3ZOD+3Wellensiek. NEW не означает разрешение публикации partial. Новые Open/Click attempts 162, distinct attemptedURLs 144, reader extractions 4, query executions 44. Failed/metadata-only не successful visit.
+{"assigned":266,"processed":222,"fully_verified":50,"NEW":55,"UPDATE":3,"DUPLICATE":1,"EXCLUDED":149,"UNRESOLVED":14,"PENDING":44} — уникальные реальные provider/service identities, не URLs или группы. Новая substantive primary работа: {"assigned":76,"processed":76,"fully_verified":6,"NEW":6,"UPDATE":0,"DUPLICATE":0,"EXCLUDED":57,"UNRESOLVED":13}. NEW55=49 inherited unpublished +3 ZOD +3 Wellensiek из унаследованных leads; eligible fresh-discovery0. Fully50=44retained+3ZOD+3Wellensiek. NEW не означает разрешение публикации partial. Новые Open/Click attempts 193, distinct attemptedURLs 174, reader extractions 4, query executions 50. Failed/metadata-only не successful visit.
 
 ## Покрытие
 
@@ -48,7 +48,7 @@ ZOD Coevorden (Looweg84), Sleen (Zetelveenweg6), Nieuw-Amsterdam (DikkeWijkWZ34)
 
 22 inheritedNL holds +10 новых exactURLs; immutable restriction001–006 сохранены сразу. До каждого запроса copied exact/host/workflow guard; нет обхода. Старый blanket offlinepause отменён новым owner run, реальные запреты не отменены. Новые successful primary reads датированы2026-10-16 date-only; offline/failed не обновляют исходные даты.
 
-Последний полученный VERIFIED remote readback: branch research/europe-recovery-eu6-20261016T142911-0400; data SHA a188fd1bf39f15de6287c4197aae27f9049a50a4; receipt 8dda56e6c89f494b41df7f2e0d6dfb5bb6209665 (последний полученный receipt), throughblock06, recovery-event и query006. Сохранность не publication и не research completion. Worker не изменяет production/canonical, не commit/push/deploy.
+Последний полученный VERIFIED remote readback: branch research/europe-recovery-eu6-20261016T142911-0400; data SHA 089d7fa746c98d6aa6faae6a92bee17828dc1f91; receipt 87f114dfb7381672e1ba302a89aaaa9a44aa336d (последний полученный receipt), throughblock06, recovery-event и query006. Сохранность не publication и не research completion. Worker не изменяет production/canonical, не commit/push/deploy.
 
 ## Честный остаток
 
@@ -70,15 +70,15 @@ Wellensiek Nijkerk/Holkerweg52, AmersfoortVathorst/Rigaweg23, BunschotenSpakenbu
 
 A7 Noord Drachten/Burgum/deDrait: только generic bult removal, не продвигается; DeDrait actual takeover1Feb2026 доказан. AnnaDeenAssen: actual general surgery плюс educational cancer blog не доказывают местную chemo/RT/tumor surgery. DCZeelandNoordwelle: explicit actual tumor removal, но home объявляет ремонт16Oct–6Nov2026; publicationheld по текущей недоступности. Старый GO cancer URL redirectsNoordwelle, неDeil.
 
-Remote уточнение: последний receipt 8dda56e6c89f494b41df7f2e0d6dfb5bb6209665, data a188fd1bf39f15de6287c4197aae27f9049a50a4; corrected restriction007/008 headers saved; block05 ранее readbackPASS. Recovery-event подтверждает точное восстановление случайно перезаписанного immutable queries004 по исходномуSHA; новый7querypayload отдельно006, старыеready неизменны. Helper запрещает overwrite immutablepaths; новые имена проверяются по actualexistingfiles.
+Remote уточнение: последний receipt 87f114dfb7381672e1ba302a89aaaa9a44aa336d, data 089d7fa746c98d6aa6faae6a92bee17828dc1f91; corrected restriction007/008 headers saved; block05 ранее readbackPASS. Recovery-event подтверждает точное восстановление случайно перезаписанного immutable queries004 по исходномуSHA; новый7querypayload отдельно006, старыеready неизменны. Helper запрещает overwrite immutablepaths; новые имена проверяются по actualexistingfiles.
 
 ## Сверка roster и единиц
 
-Счётчик assigned теперь включает известные реальные, но ещё не обработанные identities: 53 PENDING в records/frontier-identities-001/002.json, не processed и не UNRESOLVED внешние препятствия. Composite Ossehoofd/Maastricht/Dokkum и opening referencegroup исключены из единиц до разбиения на фактические филиалы; Ossehoofd2 уже отдельно проверены. Арифметика assigned=263, processed=210. Это текущий нормализованный ledger, ещё не окончательный национальный итог; незавершённая нормализация оставшихся сетей явна.
+Счётчик assigned теперь включает известные реальные, но ещё не обработанные identities: 44 PENDING в records/frontier-identities-001/002.json, не processed и не UNRESOLVED внешние препятствия. Composite Ossehoofd/Maastricht/Dokkum и opening referencegroup исключены из единиц до разбиения на фактические филиалы; Ossehoofd2 уже отдельно проверены. Арифметика assigned=266, processed=222. Это текущий нормализованный ledger, ещё не окончательный национальный итог; незавершённая нормализация оставшихся сетей явна.
 
 AniCura85:72 ранее ambiguous локальных первичных комплекта повторно содержательно сверены offline (71 nonpromotion/EXCLUDED, включая явно закрытую IJweg, и OssUNRES);6 retainedNEW и6existingDUP+1UP остаются отдельными реальными identities. Три бывших blank roots Duinwijk/Assen/Almere имеют реальные сохранённые successful service/expertise sources; не объявлены новыми визитами. Oss дополнительно freshcurrent about/service прочитаны: SDK/expertise и generic catalog по-прежнему не дают конкретной местной cancer modality. Current core question: treatment actually delivered at Obrechtstraat2.
 
-Own substantive candidates 156 включают offline reconciliations; actual fresh primary candidate set 64. Retained proposal revalidation54 отдельно. Не все105 собственных substantive reviews являются новыми source visits.
+Own substantive candidates 168 включают offline reconciliations; actual fresh primary candidate set 76. Retained proposal revalidation54 отдельно. Не все105 собственных substantive reviews являются новыми source visits.
 
 ## Следующий сетевой блок
 
