@@ -91,3 +91,27 @@ Remote backup003 действительно verified19:00:20 UTC: data2ea76afd3e
 
 research_complete=false: национальный query frontier, independent/GP, новые сигналы, radiation/ECT и visiting/mobile/remote ещё продолжаются; доступные leads не переименованы во внешние пробелы.
 
+## Текущий рубеж: блок06, новый Prague/ECT frontier
+
+На19:14 UTC назначены99 уникальных реальных provider/service candidates; processed75, fully45, NEW39, UPDATE1, DUP22, EXCLUDED1, UNRESOLVED12;24 search-only leads ещё unprocessed. NEW39 разделены строго:32 inherited-unpublished revalidated,7 new discoveries this run. Ни snippets, ни региональные directory categories, ни guessed hostname не считаются processed provider. Неустановленный hyphenated U Kostela hostname убран из provider units и сохранён как reference/identity uncertainty; запрос не повторялся. BUDvet разделён на два действительно именованных физических филиала, а не одну сетевую карточку. Все исправления счётных единиц прозрачны в block-06-identity-amendment.json.
+
+| Новый подходящий провайдер | Город / локальная услуга | Официальные основные доказательства |
+|---|---|---|
+| Veterinární ordinace Klatovy, Koldinova272, +420378605663 | Klatovy: outpatient electrochemotherapy | https://veterinakoldinova.cz/onkologie/ ; /nas-tym/ ; /kontakty/ . Current MVDr.JanHlaváč и MVDr.LucieBlovská; недатированное «nově» не превращено в конкретный год запуска. |
+| Anima, Voskovcova1130/30, +420725965676 | Praha–Barrandov: chemo, cancer surgery, oncology care | https://klinikaanima.cz/nase-sluzby/ ; https://klinikaanima.cz/ . Current MVDr.PetrSedláček, ветеринарный врач/совладелец; local service full-body receipt19:10:25.652120 UTC. RT referral only. |
+| Panda, Krkonošská8, +420222725345 | Praha–Vinohrady: tumor removal | https://www.veterinapanda.com/ ; /nas-tym . Current MVDr.IvetaPospíšilová/ZuzanaSmereková/LuděkHuml; published owner access/hours. |
+| Erika, Dělnická12, +420284821784 | Praha–Holešovice: cancer surgery | https://vet-klin-erika.cz/chirurgie-ortopedie/ ; homepage current clinical attribution to MVDr.PavelHron, not just founder history. |
+| L+H, VeLhotce607/30, +420774735735 | Praha–Lhotka: oncology care and surgery of extensive/unfavourably located neoplasia | https://www.vetlhotka.cz/interni-medicina ; /chirurgie ; current MVDr.LukášHollý/HanaHollá and named team. |
+| PET HELP, Lumiérů431/7, +420602588988 | Praha–Hlubočepy: tumor excision, local oncology care | https://www.pethelp.cz/nase-sluzby ; homepage current MVDr.GrigorHezina and appointment instructions. Homeopathy not promoted as cancer modality. |
+| Modřany, KVltavě40, +420241772814 | Praha–Modřany: skin/mammary tumor surgery | https://www.veterinamodrany.cz/co_umime/ ; /kontakt/ ; current operator MVDr.PetronelaSíbová on homepage. |
+
+Полный semantic dedupe всех четырёх baseline JSON и canonical-tele.py — no address/phone/name/domain identity hit для этих7; дополнительный literal domain/phone scan также0hits. Полные поля, короткие quotes, источники и честная точность checked_at сохранены в block-06-reviews.json. Координаты неизвестны. Отдельные systemic chemo/RT в Klatovy и oncology board qualifications не выдуманы.
+
+Delta Řepy и Delta Ruzyně содержательно проверены отдельно: exact branch/service/team/contact pages доступны; generic surgery и CPD-посещение семинара о mammarytumors не доказывают лечение рака на каждом филиале. Оба UNRESOLVED с точным вопросом, не фальшивые cancer cards. Podolí homepage: Web timeout, same-URL ordinary native50219:11:23.570760UTC; это transport gap, не успешная проверка и не снятие access hold. Другие независимые официальные service routes ещё искать.
+
+Kotlíková текущие owner GoogleMeets oncology consultations и e-mail booking подтверждены по https://www.dagmarkotlikova.cz/konzultace/ и /kontakt/ ; это existing tele-29, DUP, не новая клиника по registeredVeveří address. Платёж, форма, календарь, outreach не выполнялись. BUDvet Rožnov и Trojická: current full roster/contact и group oncology прочитаны, но ветвление local chemo/surgery ещё не установлено; это own unfinished, не внешний завершённый пробел.
+
+Национальная первая query layer сохранена append-only: block-06-national-queries-a…e (current/undated region-city searches), block-06-new-signals-a/b (fresh/newly offered services, recency365 обоими engines), block-06-queries-primary-followup. Совокупность запросов охватывает все14 регионов, но географические уточнения и найденные доступные leads остаются к исполнению. Новые ещё непроверенные именованные leads: Horky local lymphoma chemo, Vojtek ÚstínadLabem; baselineNEOvet/Animed/PodHradem также поставлены в frontier. Domainveterinaostrava.cz с titleBrandýs — identity/SEO-alias question, не отдельный доказанный Ostrava clinic и не добавлен в providercount.
+
+Latest accepted remote research backup008: block05 и restriction04 verified19:13:19UTC, data7c3230dfa1848b0d88fa6f907b9386b5f01019bc, receipt8277390d8a744426efb6a7ad870da5be09e509eb; прямой GitHub blobhash report.md readbackPASS19:13:50. Branch прежняя. Блок06 пока local ready; production не менялась, research_complete=false.
+

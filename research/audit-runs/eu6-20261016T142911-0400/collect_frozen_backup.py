@@ -10,10 +10,12 @@ def collect():
     files={};blocks=[];reports={};errors=[];quarantined=[]
     for item in a["assignments"]:
         w=ROOT/item["worker_directory"]
-        ready_paths = [q for q in w.rglob("*ready.json") if q.relative_to(w).parts[0] != "input"]
+        ready_paths = [q for q in w.rglob("*.json") if q.relative_to(w).parts[0] != "input" and re.search(r'(?:^|-)ready(?:-[^.]+)?\.json$',q.name)]
         for ready in sorted(ready_paths):
             superseded={(4,'checkpoints/block-02/ready.json'):'Worker declared erroneous draft; superseded by block-02delta/ready.json.',(4,'checkpoints/block-02delta/ready.json'):'Mutable root references corrected by block-02delta-seal; original bytes restored from verified archive003.',(4,'checkpoints/block-03/ready.json'):'Mutable root references corrected by block-03-seal; payload unchanged.',(3,'checkpoints/block-3/ready.json'):'Header omitted baseline_sha; superseded by block-3-corrected-ready.json. Payload preserved as history.'}
             reason=superseded.get((item['slot'],ready.relative_to(w).as_posix()))
+            if item['slot']==6 and ready.relative_to(w).as_posix() in {'source-events/restriction-007-ready.json','source-events/restriction-008-ready.json'}:
+                reason='Missing baseline_sha header; superseded by corresponding ready-v002.json with unchanged evidence'
             if reason:
                 quarantined.append({'ready':str(ready.relative_to(ROOT)),'reason':reason+' Not an independently accepted result.'})
                 continue
