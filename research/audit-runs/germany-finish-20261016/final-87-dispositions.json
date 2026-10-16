@@ -1,0 +1,3999 @@
+{
+  "scope": "Final adjudication of87 inherited candidate identities after permitted finite clinical pass; processing dispositions are not claims of verified all-country coverage.",
+  "total": 87,
+  "counts": {
+    "VERIFIED_NEW_PHYSICAL": 47,
+    "BLOCKED_AUTO_REVIEW": 9,
+    "REVIEWED_INSUFFICIENT_PRIMARY": 26,
+    "BLOCKED_REAL_SITE": 1,
+    "UNREACHABLE_PRIMARY": 3,
+    "VERIFIED_NEW_REMOTE": 1
+  },
+  "limitations": [
+    "No source network requests by this parent compilation.",
+    "Excluded rejected batch25 output completely; only its requested manifest used to identify review-held candidates.",
+    "CORE_READY_FOR_DEDUPE is evidence readiness, not final NEW/UPDATE/NOCHANGE or publication.",
+    "UNFINISHED_PRIMARY_REVIEW is own incomplete work, not an external source blockade.",
+    "Parent file is an intermediate handoff; agent must reconcile later primary batches, all source gaps, current-main semantic identities and final disposition."
+  ],
+  "records": [
+    {
+      "candidate_id": "brockhaus-eckernforde",
+      "name": "Brockhaus Eckernförde",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa.json",
+      "qa_record_name": "Kleintierpraxis Eckernförde – Dr. med. vet. Eva Brockhaus",
+      "core_proposal": {
+        "name": "Kleintierpraxis Eckernförde – Dr. med. vet. Eva Brockhaus",
+        "city": "Eckernförde",
+        "street": "Sehestedter Str. 12",
+        "postal_code": "24340",
+        "phone": "+49 4351 470670",
+        "services": [
+          "Surgery"
+        ],
+        "url": "https://kleintierpraxis-brockhaus.de/leistungen/",
+        "quote": "Unser Schwerpunkt liegt hier in der Früherkennung und chirurgischen Entfernung von Tumoren.",
+        "qualification": "Dr. med. vet. Eva Brockhaus, as named on current service page; no oncology board inferred",
+        "access": "Terminsprechstunde / appointment request link on owned page",
+        "qa": "Core facts all present in fresh source; surgery only, chemotherapy not established.",
+        "source_attempt": null,
+        "date_basis": "Use exact new receipt precision; do not substitute filemtime if recovered first7attempt lacks full receipt",
+        "parent_review": "root offline review of newly fetched full owned source, no new request",
+        "source_record_index": "resumed-first18.json",
+        "status": "DRAFT_FOR_AGENT_INTEGRATION_AND_SEMANTIC_DEDUPE"
+      },
+      "saved_fresh_source_attempts": [],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-kleintierpraxis-eckernforde-dr-med-vet-eva-brockhaus-eckernforde",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://kleintierpraxis-brockhaus.de/leistungen/",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://kleintierpraxis-brockhaus.de/leistungen/",
+          "attempted_at": null,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "96b59ebf2a386168",
+          "recovered_from_successful_raw": true,
+          "raw_file_completed_at": "2026-10-16T21:46:27.035898+00:00"
+        }
+      ]
+    },
+    {
+      "candidate_id": "nestler-dohna",
+      "name": "Nestler Dohna",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa-batch19-35.json",
+      "qa_record_name": "Nestler Mobile Tierärzte",
+      "core_proposal": {
+        "source_id": "de-nestler-mobile-tieraerzte-dohna",
+        "name": "Nestler Mobile Tierärzte",
+        "city": "Dohna",
+        "street": "Burgstraße 32",
+        "postal_code": "01809",
+        "region": "Sachsen",
+        "phone": "+49 3529 5373000",
+        "website": "https://www.tierarzt-nestler.de/",
+        "services": [
+          "Surgery"
+        ],
+        "clinician_review": "Julia Nestler, practice owner and veterinarian as stated in the practice imprint. No oncology board credential claimed.",
+        "availability_note": "Appointments by phone or email; the practice also offers open consultation hours and house calls in the Pirna / Sächsische Schweiz area. Confirm the treatment location when booking.",
+        "quote": "Kleintierchirurgie (Weichteilchirurgie und Tumor-OPs)",
+        "service_url": "https://www.tierarzt-nestler.de/",
+        "team_url": "https://www.tierarzt-nestler.de/",
+        "qa": "Physical Dohna location evidenced by own practice waiting area, surgery location for castration and address; do not claim mobile tumor surgery at every home.",
+        "country": "Germany",
+        "location_type": "physical",
+        "latitude": null,
+        "longitude": null,
+        "coordinates_unknown": true,
+        "status": "ROOT_DRAFT_INDEPENDENT_QA_NOT_CANONICAL",
+        "source_attempts": [
+          {
+            "url": "https://www.tierarzt-nestler.de/",
+            "attempted_at": "2026-10-16T21:47:44.290076+00:00",
+            "result": "READABLE_PRIMARY"
+          }
+        ],
+        "evidence_basis": "Root read stored full freshly fetched primary text; no separate root network request. Agent must semantic-dedupe fresh main and verify precise source receipt before publication."
+      },
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch19-results.json",
+          "url": "https://www.tierarzt-nestler.de/",
+          "attempted_at": "2026-10-16T21:47:44.290076+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "b3627f4a0094e601"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-nestler-mobile-tieraerzte-dohna",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://www.tierarzt-nestler.de/",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.tierarzt-nestler.de/",
+          "attempted_at": "2026-10-16T21:47:44.290076+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "b3627f4a0094e601",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "backhaus-thalfang",
+      "name": "Backhaus Thalfang",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa-batch19-35.json",
+      "qa_record_name": "5-E Tierarztpraxis Thomas Backhaus",
+      "core_proposal": {
+        "source_id": "de-thomas-backhaus-thalfang",
+        "name": "5-E Tierarztpraxis Thomas Backhaus",
+        "city": "Thalfang",
+        "street": "Vorwald 11",
+        "postal_code": "54424",
+        "region": "Rheinland-Pfalz",
+        "phone": "+49 6504 7433863",
+        "website": "https://www.tierarztpraxis-thomasbackhaus.de/",
+        "services": [
+          "Surgery"
+        ],
+        "clinician_review": "Thomas Backhaus, veterinarian and practice lead as published on the practice website. No oncology board credential claimed.",
+        "availability_note": "Appointments by phone or online; the practice states that it does not provide emergency or acute care. Confirm case suitability when booking.",
+        "quote": "Tumorentfernungen & chirurgische Eingriffe bei Haut- und Weichteiltumoren",
+        "service_url": "https://www.tierarztpraxis-thomasbackhaus.de/",
+        "team_url": "https://www.tierarztpraxis-thomasbackhaus.de/",
+        "qa": "Only explicit tumor surgery qualifies. Holistic supportive claims, dark-field diagnostics and claimed complementary efficacy are not imported.",
+        "country": "Germany",
+        "location_type": "physical",
+        "latitude": null,
+        "longitude": null,
+        "coordinates_unknown": true,
+        "status": "ROOT_DRAFT_INDEPENDENT_QA_NOT_CANONICAL",
+        "source_attempts": [
+          {
+            "url": "https://www.tierarztpraxis-thomasbackhaus.de/",
+            "attempted_at": "2026-10-16T21:47:44.291681+00:00",
+            "result": "READABLE_PRIMARY"
+          }
+        ],
+        "evidence_basis": "Root read stored full freshly fetched primary text; no separate root network request. Agent must semantic-dedupe fresh main and verify precise source receipt before publication."
+      },
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch19-results.json",
+          "url": "https://www.tierarztpraxis-thomasbackhaus.de/",
+          "attempted_at": "2026-10-16T21:47:44.291681+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "ed025f8906081ce6"
+        },
+        {
+          "receipt_file": "followups-a-results.json",
+          "url": "https://www.tierarztpraxis-thomasbackhaus.de/de/kontakt/",
+          "attempted_at": "2026-10-16T21:51:02.268275+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "b62255576d152258"
+        },
+        {
+          "receipt_file": "followups-a-results.json",
+          "url": "https://www.tierarztpraxis-thomasbackhaus.de/de/ueber-uns/team/",
+          "attempted_at": "2026-10-16T21:51:02.537613+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "9463069e9055e8b6"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-thomas-backhaus-thalfang",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://www.tierarztpraxis-thomasbackhaus.de/",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.tierarztpraxis-thomasbackhaus.de/",
+          "attempted_at": "2026-10-16T21:47:44.291681+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "ed025f8906081ce6",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "anicura-krefeld-saumstrae",
+      "name": "AniCura Krefeld Saumstraße",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "Clinical result cannot be read after denied polling; named-finite-last-nine.json and automatic-rejection-two.json preserve exact scope. No result bodies used."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [],
+      "final_disposition": "BLOCKED_AUTO_REVIEW",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "UNFINISHED_PRIMARY_REVIEW"
+    },
+    {
+      "candidate_id": "stockelsdorf",
+      "name": "Stockelsdorf",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "Clinical result cannot be read after denied polling; batch25 target manifest and new-automatic-rejection.json preserve exact scope. No result bodies used."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [],
+      "final_disposition": "BLOCKED_AUTO_REVIEW",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "REVIEW_HELD_BATCH25"
+    },
+    {
+      "candidate_id": "beck-rossach",
+      "name": "Beck Rossach",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa-batch19-35.json",
+      "qa_record_name": "Fachtierärztliche Praxis Dr. Peter Beck",
+      "core_proposal": {
+        "source_id": "de-peter-beck-rossach",
+        "name": "Fachtierärztliche Praxis Dr. Peter Beck",
+        "city": "Rossach",
+        "street": "Altenbanzer Weg 8",
+        "postal_code": "96269",
+        "region": "Bayern",
+        "phone": "+49 9565 94060",
+        "website": "https://www.dr-beck.com/",
+        "services": [
+          "Chemotherapy"
+        ],
+        "clinician_review": "Dr. med. vet. Peter Beck; the current team page states Fachtierarzt für Kleintiere since 2000. This is not oncology board certification.",
+        "availability_note": "Contact the practice to arrange an appointment and confirm current chemotherapy intake.",
+        "quote": "Internistik (auch Chemotherapie)",
+        "service_url": "https://www.dr-beck.com/",
+        "team_url": "https://www.dr-beck.com/team/",
+        "qa": "Generic surgery list not sufficient for cancer surgery. Do not make separate record from Coburg navigation link without branch evidence.",
+        "country": "Germany",
+        "location_type": "physical",
+        "latitude": null,
+        "longitude": null,
+        "coordinates_unknown": true,
+        "status": "ROOT_DRAFT_INDEPENDENT_QA_NOT_CANONICAL",
+        "source_attempts": [
+          {
+            "url": "https://www.dr-beck.com/",
+            "attempted_at": "2026-10-16T21:47:44.292221+00:00",
+            "result": "READABLE_PRIMARY"
+          },
+          {
+            "url": "https://www.dr-beck.com/team/",
+            "attempted_at": "2026-10-16T21:47:49.405166+00:00",
+            "result": "READABLE_PRIMARY"
+          }
+        ],
+        "evidence_basis": "Root read stored full freshly fetched primary text; no separate root network request. Agent must semantic-dedupe fresh main and verify precise source receipt before publication."
+      },
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch19-results.json",
+          "url": "https://www.dr-beck.com/",
+          "attempted_at": "2026-10-16T21:47:44.292221+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "f4c9bf285fdb1019"
+        },
+        {
+          "receipt_file": "batch19-results.json",
+          "url": "https://www.dr-beck.com/team/",
+          "attempted_at": "2026-10-16T21:47:49.405166+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "cc6c3e6fcc81afa8"
+        },
+        {
+          "receipt_file": "followups-a-results.json",
+          "url": "https://www.dr-beck.com/leistungen/",
+          "attempted_at": "2026-10-16T21:51:00.503724+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "32a239ee664bf8dd"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-peter-beck-rossach",
+      "services": [
+        "Chemotherapy"
+      ],
+      "official_url": "https://www.dr-beck.com/",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.dr-beck.com/",
+          "attempted_at": "2026-10-16T21:47:44.292221+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "f4c9bf285fdb1019",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "obermain",
+      "name": "Obermain",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa-thirteen.json",
+      "qa_record_name": "Kleintierzentrum am Obermain",
+      "core_proposal": {
+        "preliminary_id": "de-kleintierzentrum-obermain-lichtenfels",
+        "name": "Kleintierzentrum am Obermain",
+        "city": "Lichtenfels",
+        "street": "Gartenweg 1",
+        "postal_code": "96215",
+        "phone": "+49 9571 6060",
+        "country": "Germany",
+        "services": [
+          "Chemotherapy",
+          "Surgery"
+        ],
+        "official_url": "https://kleintierzentrumobermain.de/leistungen/onkologie/",
+        "supporting_quote": "Chirurgische Entfernung von Tumoren Chemotherapie",
+        "clinician_review": "Dr. med. vet. Florian Schille and Dr. med. vet. Susanne Schille, veterinarians named on the current owned home page.",
+        "additional_sources": [
+          "https://kleintierzentrumobermain.de/",
+          "https://kleintierzentrumobermain.de/unser-team/"
+        ],
+        "missing": [],
+        "parent_QA": "Read full stored fresh primary pages; no root network request. Must fresh-main semantic-dedupe and validate core facts before canonical insertion.",
+        "coordinates_unknown": true,
+        "latitude": null,
+        "longitude": null,
+        "status": "ROOT_DRAFT_CORE_SUFFICIENT_PENDING_AGENT_QA",
+        "source_attempts": [
+          {
+            "url": "https://kleintierzentrumobermain.de/leistungen/onkologie/",
+            "attempted_at": "2026-10-16T21:50:57.743137+00:00",
+            "result": "READABLE_PRIMARY"
+          },
+          {
+            "url": "https://kleintierzentrumobermain.de/",
+            "attempted_at": "2026-10-16T21:47:49.900876+00:00",
+            "result": "READABLE_PRIMARY"
+          },
+          {
+            "url": "https://kleintierzentrumobermain.de/unser-team/",
+            "attempted_at": "2026-10-16T21:50:57.818860+00:00",
+            "result": "READABLE_PRIMARY"
+          }
+        ],
+        "availability_note": "Contact the practice to arrange an appointment and confirm current case suitability."
+      },
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch19-results.json",
+          "url": "https://kleintierzentrumobermain.de/",
+          "attempted_at": "2026-10-16T21:47:49.900876+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "3a7358b4c14eab62"
+        },
+        {
+          "receipt_file": "batch19-results.json",
+          "url": "https://kleintierzentrumobermain.de/leistungen/",
+          "attempted_at": "2026-10-16T21:47:54.059905+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "0ae54ec7db9a5872"
+        },
+        {
+          "receipt_file": "followups-a-results.json",
+          "url": "https://kleintierzentrumobermain.de/leistungen/onkologie/",
+          "attempted_at": "2026-10-16T21:50:57.743137+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "1a44dbb2505eb5ae"
+        },
+        {
+          "receipt_file": "followups-a-results.json",
+          "url": "https://kleintierzentrumobermain.de/unser-team/",
+          "attempted_at": "2026-10-16T21:50:57.818860+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "929c00fe347a373a"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-kleintierzentrum-obermain-lichtenfels",
+      "services": [
+        "Chemotherapy",
+        "Surgery"
+      ],
+      "official_url": "https://kleintierzentrumobermain.de/leistungen/onkologie/",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://kleintierzentrumobermain.de/leistungen/onkologie/",
+          "attempted_at": "2026-10-16T21:50:57.743137+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "1a44dbb2505eb5ae",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "bencec-linkenheim-hochstetten",
+      "name": "Bencec Linkenheim-Hochstetten",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [
+        "Clinical result cannot be read after denied polling; batch25 target manifest and new-automatic-rejection.json preserve exact scope. No result bodies used."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [],
+      "final_disposition": "BLOCKED_AUTO_REVIEW",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "REVIEW_HELD_BATCH25"
+    },
+    {
+      "candidate_id": "callavet-mobile-service",
+      "name": "Callavet mobile service",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [
+        "Clinical result cannot be read after denied polling; batch25 target manifest and new-automatic-rejection.json preserve exact scope. No result bodies used."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [],
+      "final_disposition": "BLOCKED_AUTO_REVIEW",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "REVIEW_HELD_BATCH25"
+    },
+    {
+      "candidate_id": "nord-ostsee-tarp",
+      "name": "Nord-Ostsee Tarp",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "Owned site confirms Tarp is small-animal branch; complex operations routed to Schafflund. Group oncology page does not allocate chemotherapy to Tarp. Do not copy main-branch surgery or chemotherapy into Tarp."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "resumed-first18.json",
+          "url": "https://nordostsee-tieraerzte.de/kleintiere/onkologie",
+          "attempted_at": null,
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "164b9135d87a8aa7"
+        },
+        {
+          "receipt_file": "resumed-first18.json",
+          "url": "https://nordostsee-tieraerzte.de/kleintiere/op_bereich",
+          "attempted_at": "2026-10-16T21:47:29.961296+00:00",
+          "status": 200,
+          "result": "EMPTY_BODY"
+        },
+        {
+          "receipt_file": "resumed-first18.json",
+          "url": "https://nordostsee-tieraerzte.de/kontakt",
+          "attempted_at": null,
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "b0390a888bbf7141"
+        },
+        {
+          "receipt_file": "resumed-first18.json",
+          "url": "https://nordostsee-tieraerzte.de/ueber-uns/praxis",
+          "attempted_at": null,
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "64b6cd58e67738f7"
+        }
+      ],
+      "final_disposition": "REVIEWED_INSUFFICIENT_PRIMARY",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL"
+    },
+    {
+      "candidate_id": "dusseldorf-munsterstrae359",
+      "name": "Düsseldorf Münsterstraße359",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "Clinical result cannot be read after denied polling; batch25 target manifest and new-automatic-rejection.json preserve exact scope. No result bodies used."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [],
+      "final_disposition": "BLOCKED_AUTO_REVIEW",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "REVIEW_HELD_BATCH25"
+    },
+    {
+      "candidate_id": "bad-birnbach",
+      "name": "Bad Birnbach",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch35-results.json",
+          "url": "https://tierarzt-badbirnbach.de/leistungen/chirurgie/",
+          "attempted_at": "2026-10-16T21:48:44.682866+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "c1281fe1273b92f5"
+        },
+        {
+          "receipt_file": "batch35-results.json",
+          "url": "https://tierarzt-badbirnbach.de/kontakt/",
+          "attempted_at": "2026-10-16T21:48:44.684563+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "4ea3612d35bce63b"
+        },
+        {
+          "receipt_file": "followups-a-results.json",
+          "url": "https://tierarzt-badbirnbach.de/team/",
+          "attempted_at": "2026-10-16T21:51:04.264135+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "2883d42e2ac415b2"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-tiergesundheitszentrum-bad-birnbach-bad-birnbach",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://tierarzt-badbirnbach.de/leistungen/chirurgie/",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://tierarzt-badbirnbach.de/leistungen/chirurgie/",
+          "attempted_at": "2026-10-16T21:48:44.682866+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "c1281fe1273b92f5",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "sewastianiuk-stockach",
+      "name": "Sewastianiuk Stockach",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch35-results.json",
+          "url": "https://www.tierarzt-bodensee.de/contact.html",
+          "attempted_at": "2026-10-16T21:48:44.685210+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "6040dedda4d9cd94"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-tierarztpraxis-karl-sewastianiuk-stockach",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://www.tierarzt-bodensee.de/therapien.html",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.tierarzt-bodensee.de/therapien.html",
+          "attempted_at": "2026-10-16T22:03:38.251103+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "9c48f258d67a16dc",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "falk-strutz-schwentinental",
+      "name": "Falk Strutz Schwentinental",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa-thirteen.json",
+      "qa_record_name": "Kleintierpraxis Strutz",
+      "core_proposal": {
+        "preliminary_id": "de-kleintierpraxis-strutz-schwentinental",
+        "name": "Kleintierpraxis Strutz",
+        "city": "Schwentinental",
+        "street": "Bahnhofstr. 36 a",
+        "postal_code": "24223",
+        "phone": "+49 4307 7758",
+        "country": "Germany",
+        "services": [
+          "Surgery"
+        ],
+        "official_url": "https://www.kleintierpraxis-strutz.de/onkologie/",
+        "supporting_quote": "operative Entfernung von einzelnen Tumoren oder ganzen Komplexen",
+        "clinician_review": "Falk Strutz, veterinarian; Dr. med. vet. Inga Widemann-Strutz, veterinarian.",
+        "additional_sources": [
+          "https://www.kleintierpraxis-strutz.de/unser-team/"
+        ],
+        "missing": [],
+        "parent_QA": "Read full stored fresh primary pages; no root network request. Must fresh-main semantic-dedupe and validate core facts before canonical insertion.",
+        "coordinates_unknown": true,
+        "latitude": null,
+        "longitude": null,
+        "status": "ROOT_DRAFT_CORE_SUFFICIENT_PENDING_AGENT_QA",
+        "source_attempts": [
+          {
+            "url": "https://www.kleintierpraxis-strutz.de/onkologie/",
+            "attempted_at": "2026-10-16T21:50:47.861654+00:00",
+            "result": "READABLE_PRIMARY"
+          },
+          {
+            "url": "https://www.kleintierpraxis-strutz.de/unser-team/",
+            "attempted_at": "2026-10-16T21:50:47.865536+00:00",
+            "result": "READABLE_PRIMARY"
+          }
+        ],
+        "availability_note": "Contact the practice to arrange an appointment and confirm current case suitability."
+      },
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "resumed-first18.json",
+          "url": "https://www.kleintierpraxis-strutz.de/leistungen/",
+          "attempted_at": "2026-10-16T21:47:39.773812+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "a17c759d53432d6c"
+        },
+        {
+          "receipt_file": "followups-a-results.json",
+          "url": "https://www.kleintierpraxis-strutz.de/onkologie/",
+          "attempted_at": "2026-10-16T21:50:47.861654+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "53a9d78a835d141a"
+        },
+        {
+          "receipt_file": "followups-a-results.json",
+          "url": "https://www.kleintierpraxis-strutz.de/unser-team/",
+          "attempted_at": "2026-10-16T21:50:47.865536+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "940f3ed882d96a1e"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-kleintierpraxis-strutz-schwentinental",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://www.kleintierpraxis-strutz.de/onkologie/",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.kleintierpraxis-strutz.de/onkologie/",
+          "attempted_at": "2026-10-16T21:50:47.861654+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "53a9d78a835d141a",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "stauferland-rechberghausen",
+      "name": "Stauferland Rechberghausen",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa-batch19-35.json",
+      "qa_record_name": "Kleintierpraxis Stauferland",
+      "core_proposal": {
+        "source_id": "de-kleintierpraxis-stauferland-rechberghausen",
+        "name": "Kleintierpraxis Stauferland",
+        "city": "Rechberghausen",
+        "street": "Reichenhardtstr. 11",
+        "postal_code": "73098",
+        "region": "Baden-Württemberg",
+        "phone": "+49 7161 53011",
+        "website": "https://www.kleintierpraxis-stauferland.de/",
+        "services": [
+          "Surgery"
+        ],
+        "clinician_review": "Dr. Johannes Walliser, Fachtierarzt für Kleintiere and practice owner; current team also lists veterinarian Jana Keim. No oncology board certification inferred.",
+        "availability_note": "The practice accepts direct appointments and surgical referrals, with return to the referring veterinarian. Treatments it cannot provide are referred to specialist clinics.",
+        "quote": "Tumorchirurgie (u.a. Tumore an inneren Organen, Hauttumore und Kiefertumore)",
+        "service_url": "https://www.kleintierpraxis-stauferland.de/leistungen/",
+        "team_url": "https://www.kleintierpraxis-stauferland.de/team/",
+        "qa": "Chemotherapy discussed as potentially useful, but not explicitly claimed as locally administered; no chemotherapy tag.",
+        "country": "Germany",
+        "location_type": "physical",
+        "latitude": null,
+        "longitude": null,
+        "coordinates_unknown": true,
+        "status": "ROOT_DRAFT_INDEPENDENT_QA_NOT_CANONICAL",
+        "source_attempts": [
+          {
+            "url": "https://www.kleintierpraxis-stauferland.de/leistungen/",
+            "attempted_at": "2026-10-16T21:48:48.218128+00:00",
+            "result": "READABLE_PRIMARY"
+          },
+          {
+            "url": "https://www.kleintierpraxis-stauferland.de/team/",
+            "attempted_at": "2026-10-16T21:48:50.289906+00:00",
+            "result": "READABLE_PRIMARY"
+          }
+        ],
+        "evidence_basis": "Root read stored full freshly fetched primary text; no separate root network request. Agent must semantic-dedupe fresh main and verify precise source receipt before publication."
+      },
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch35-results.json",
+          "url": "https://www.kleintierpraxis-stauferland.de/leistungen/",
+          "attempted_at": "2026-10-16T21:48:48.218128+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "800f5c984effdfae"
+        },
+        {
+          "receipt_file": "batch35-results.json",
+          "url": "https://www.kleintierpraxis-stauferland.de/team/",
+          "attempted_at": "2026-10-16T21:48:50.289906+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "aa81f4f6fd819b79"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-kleintierpraxis-stauferland-rechberghausen",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://www.kleintierpraxis-stauferland.de/leistungen/",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.kleintierpraxis-stauferland.de/leistungen/",
+          "attempted_at": "2026-10-16T21:48:48.218128+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "800f5c984effdfae",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "wasbek",
+      "name": "Wasbek",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "resumed-first18.json",
+          "url": "https://www.kleintierklinik-wasbek.de/willkommen/unsere-leistungen/",
+          "attempted_at": "2026-10-16T21:47:36.959785+00:00",
+          "status": 404,
+          "result": "HTTP_ERROR"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-kleintierklinik-wasbek-wasbek",
+      "services": [
+        "Surgery",
+        "Chemotherapy"
+      ],
+      "official_url": "https://www.kleintierklinik-wasbek.de/unsere-leistungen/fachgebiete/",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.kleintierklinik-wasbek.de/unsere-leistungen/fachgebiete/",
+          "attempted_at": "2026-10-16T22:03:34.256057+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "d2db2e0d6f624614",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "uetersen-kleinersand99101",
+      "name": "Uetersen KleinerSand99–101",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa-thirteen.json",
+      "qa_record_name": "Kleintierzentrum Uetersen",
+      "core_proposal": {
+        "preliminary_id": "de-kleintierzentrum-uetersen",
+        "name": "Kleintierzentrum Uetersen",
+        "city": "Uetersen",
+        "street": "Kleiner Sand 99-101",
+        "postal_code": "25436",
+        "phone": "+49 4122 901403",
+        "country": "Germany",
+        "services": [
+          "Chemotherapy",
+          "Surgery"
+        ],
+        "official_url": "https://www.kleintierzentrum-uetersen.de/leistungen/chirugie",
+        "supporting_quote": "Onkochirugie Tumore der Haut, des Bauchraums, Mammatumore",
+        "clinician_review": "Jasper Sach, Fachtierarzt für Kleintiere (surgery/endoscopy); Annika Waesch, veterinarian; other veterinary team listed.",
+        "additional_sources": [
+          "https://www.kleintierzentrum-uetersen.de/leistungen/innere-medizin",
+          "https://www.kleintierzentrum-uetersen.de/team/tieraerzte"
+        ],
+        "missing": [],
+        "parent_QA": "Read full stored fresh primary pages; no root network request. Must fresh-main semantic-dedupe and validate core facts before canonical insertion.",
+        "coordinates_unknown": true,
+        "latitude": null,
+        "longitude": null,
+        "status": "ROOT_DRAFT_CORE_SUFFICIENT_PENDING_AGENT_QA",
+        "source_attempts": [
+          {
+            "url": "https://www.kleintierzentrum-uetersen.de/leistungen/chirugie",
+            "attempted_at": "2026-10-16T21:47:41.226649+00:00",
+            "result": "READABLE_PRIMARY"
+          },
+          {
+            "url": "https://www.kleintierzentrum-uetersen.de/leistungen/innere-medizin",
+            "attempted_at": "2026-10-16T21:47:41.726865+00:00",
+            "result": "READABLE_PRIMARY"
+          },
+          {
+            "url": "https://www.kleintierzentrum-uetersen.de/team/tieraerzte",
+            "attempted_at": "2026-10-16T21:50:47.866928+00:00",
+            "result": "READABLE_PRIMARY"
+          }
+        ],
+        "availability_note": "Contact the practice to arrange an appointment and confirm current case suitability."
+      },
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "resumed-first18.json",
+          "url": "https://www.kleintierzentrum-uetersen.de/leistungen/chirugie",
+          "attempted_at": "2026-10-16T21:47:41.226649+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "a9c79ed92ed7c4c4"
+        },
+        {
+          "receipt_file": "resumed-first18.json",
+          "url": "https://www.kleintierzentrum-uetersen.de/leistungen/innere-medizin",
+          "attempted_at": "2026-10-16T21:47:41.726865+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "ebd50e5da9d6393d"
+        },
+        {
+          "receipt_file": "followups-a-results.json",
+          "url": "https://www.kleintierzentrum-uetersen.de/team/tieraerzte",
+          "attempted_at": "2026-10-16T21:50:47.866928+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "41fabe7c4e231e60"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-kleintierzentrum-uetersen",
+      "services": [
+        "Chemotherapy",
+        "Surgery"
+      ],
+      "official_url": "https://www.kleintierzentrum-uetersen.de/leistungen/chirugie",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.kleintierzentrum-uetersen.de/leistungen/chirugie",
+          "attempted_at": "2026-10-16T21:47:41.226649+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "a9c79ed92ed7c4c4",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "schumacher-lammersdorf",
+      "name": "Schumacher Lammersdorf",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "last-named-cores-results.json",
+          "url": "https://www.eifel-kleintierpraxis.de/",
+          "attempted_at": "2026-10-16T21:53:18.991619+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "49da146fb6060885"
+        },
+        {
+          "receipt_file": "core-followup-12-results.json",
+          "url": "https://www.eifel-kleintierpraxis.de/leistungen.html",
+          "attempted_at": "2026-10-16T21:56:12.543415+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "c3f625513542d947"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-kleintierpraxis-alexander-schumacher-simmerath-lammersdorf",
+      "services": [
+        "Chemotherapy",
+        "Surgery"
+      ],
+      "official_url": "https://www.eifel-kleintierpraxis.de/leistungen.html",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.eifel-kleintierpraxis.de/leistungen.html",
+          "attempted_at": "2026-10-16T21:56:12.543415+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "c3f625513542d947",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "haag-almenhof-mannheim",
+      "name": "Haag Almenhof Mannheim",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa-batch19-35.json",
+      "qa_record_name": "Tierarztpraxis Almenhof – Dr. Andreas Haag",
+      "core_proposal": {
+        "source_id": "de-tierarztpraxis-almenhof-mannheim",
+        "name": "Tierarztpraxis Almenhof – Dr. Andreas Haag",
+        "city": "Mannheim",
+        "street": "Niederfeldstraße 72",
+        "postal_code": "68199",
+        "region": "Baden-Württemberg",
+        "phone": "+49 621 8324884",
+        "website": "https://www.tierarzt-in-mannheim.de/",
+        "services": [
+          "Surgery"
+        ],
+        "clinician_review": "Dr. Andreas Haag, veterinarian with a veterinary degree and doctorate as described on the current practice team page. No oncology board certification claimed.",
+        "availability_note": "Appointments can be requested by phone or through the practice booking link.",
+        "quote": "onkologische Eingriffe an Körperoberfläche und Bauchorganen",
+        "service_url": "https://www.tierarzt-in-mannheim.de/leistungen/",
+        "team_url": "https://www.tierarzt-in-mannheim.de/team/",
+        "qa": "Past human-cancer research is biographical evidence only, not clinical oncology certification.",
+        "country": "Germany",
+        "location_type": "physical",
+        "latitude": null,
+        "longitude": null,
+        "coordinates_unknown": true,
+        "status": "ROOT_DRAFT_INDEPENDENT_QA_NOT_CANONICAL",
+        "source_attempts": [
+          {
+            "url": "https://www.tierarzt-in-mannheim.de/leistungen/",
+            "attempted_at": "2026-10-16T21:48:52.676766+00:00",
+            "result": "READABLE_PRIMARY"
+          },
+          {
+            "url": "https://www.tierarzt-in-mannheim.de/team/",
+            "attempted_at": "2026-10-16T21:48:52.873874+00:00",
+            "result": "READABLE_PRIMARY"
+          }
+        ],
+        "evidence_basis": "Root read stored full freshly fetched primary text; no separate root network request. Agent must semantic-dedupe fresh main and verify precise source receipt before publication."
+      },
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch35-results.json",
+          "url": "https://www.tierarzt-in-mannheim.de/leistungen/",
+          "attempted_at": "2026-10-16T21:48:52.676766+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "91b1dcdc7721d808"
+        },
+        {
+          "receipt_file": "batch35-results.json",
+          "url": "https://www.tierarzt-in-mannheim.de/team/",
+          "attempted_at": "2026-10-16T21:48:52.873874+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "d3868e08cdbc8b79"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-tierarztpraxis-almenhof-mannheim",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://www.tierarzt-in-mannheim.de/leistungen/",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.tierarzt-in-mannheim.de/leistungen/",
+          "attempted_at": "2026-10-16T21:48:52.676766+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "91b1dcdc7721d808",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "bottner-blankenese",
+      "name": "Böttner Blankenese",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "last-named-cores-results.json",
+          "url": "http://www.kleintierpraxis-blankenese.de/",
+          "attempted_at": "2026-10-16T21:53:19.161840+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "7d191e6ae8f5b546"
+        },
+        {
+          "receipt_file": "core-followup-12-results.json",
+          "url": "https://kleintierpraxis-blankenese.de/onkologie/",
+          "attempted_at": "2026-10-16T21:56:12.652552+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "18e54577170691ed"
+        },
+        {
+          "receipt_file": "core-followup-12-results.json",
+          "url": "https://kleintierpraxis-blankenese.de/team/",
+          "attempted_at": "2026-10-16T21:56:15.744872+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "cd2bfb577ab00ecc"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-kleintierpraxis-blankenese-hamburg-blankenese",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://kleintierpraxis-blankenese.de/chirurgie-operationen/",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL",
+      "final_service_source_attempts": [
+        {
+          "url": "https://kleintierpraxis-blankenese.de/chirurgie-operationen/",
+          "attempted_at": "2026-10-16T22:01:27.087826+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "297e0e68bc6ca2bc",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "rahnsdorf-gurtler",
+      "name": "Rahnsdorf Gürtler",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa-batch19-35.json",
+      "qa_record_name": "Tierarztpraxis Rahnsdorf",
+      "core_proposal": {
+        "source_id": "de-tierarztpraxis-rahnsdorf-berlin",
+        "name": "Tierarztpraxis Rahnsdorf",
+        "city": "Berlin",
+        "street": "Fürstenwalder Allee 117",
+        "postal_code": "12589",
+        "region": "Berlin",
+        "phone": "+49 30 65075340",
+        "website": "https://tierarztpraxis-rahnsdorf.de/",
+        "services": [
+          "Surgery"
+        ],
+        "clinician_review": "Dr. med. vet. Doreen Gürtler, practice owner and veterinarian as stated on the current team page. No oncology board certification claimed.",
+        "availability_note": "Appointments requested in advance by phone or online; emergencies are prioritised.",
+        "quote": "Entfernung von Tumoren",
+        "service_url": "https://tierarztpraxis-rahnsdorf.de/leistungen/",
+        "team_url": "https://tierarztpraxis-rahnsdorf.de/team/",
+        "qa": "Surgical laser for small tumor removal is not radiation therapy.",
+        "country": "Germany",
+        "location_type": "physical",
+        "latitude": null,
+        "longitude": null,
+        "coordinates_unknown": true,
+        "status": "ROOT_DRAFT_INDEPENDENT_QA_NOT_CANONICAL",
+        "source_attempts": [
+          {
+            "url": "https://tierarztpraxis-rahnsdorf.de/leistungen/",
+            "attempted_at": "2026-10-16T21:48:52.964052+00:00",
+            "result": "READABLE_PRIMARY"
+          },
+          {
+            "url": "https://tierarztpraxis-rahnsdorf.de/team/",
+            "attempted_at": "2026-10-16T21:48:57.257045+00:00",
+            "result": "READABLE_PRIMARY"
+          }
+        ],
+        "evidence_basis": "Root read stored full freshly fetched primary text; no separate root network request. Agent must semantic-dedupe fresh main and verify precise source receipt before publication."
+      },
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch35-results.json",
+          "url": "https://tierarztpraxis-rahnsdorf.de/leistungen/",
+          "attempted_at": "2026-10-16T21:48:52.964052+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "0e575fa9e54d0723"
+        },
+        {
+          "receipt_file": "batch35-results.json",
+          "url": "https://tierarztpraxis-rahnsdorf.de/team/",
+          "attempted_at": "2026-10-16T21:48:57.257045+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "d9e7a2a080d0aadf"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-tierarztpraxis-rahnsdorf-berlin",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://tierarztpraxis-rahnsdorf.de/leistungen/",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://tierarztpraxis-rahnsdorf.de/leistungen/",
+          "attempted_at": "2026-10-16T21:48:52.964052+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "0e575fa9e54d0723",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "mullheim",
+      "name": "Müllheim",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch35-results.json",
+          "url": "https://www.kleintierpraxis-muellheim.de/team/auf-einen-blick/tanja-hudert",
+          "attempted_at": "2026-10-16T21:48:57.973918+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "4541f37cbe207113"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-kleintierpraxis-mullheim-mullheim",
+      "services": [
+        "Chemotherapy",
+        "Surgery"
+      ],
+      "official_url": "https://www.kleintierpraxis-muellheim.de/leistungen",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.kleintierpraxis-muellheim.de/leistungen",
+          "attempted_at": "2026-10-16T22:01:31.091936+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "87b96777d6f34934",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "stahl-menden",
+      "name": "Stahl Menden",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [
+        "Preserved actual403 restriction on official service URL; no retry or alias."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [],
+      "final_disposition": "BLOCKED_REAL_SITE",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "RESTRICTION_HELD"
+    },
+    {
+      "candidate_id": "beyen-hirschberg",
+      "name": "Beyen Hirschberg",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "Current own veterinarian/contact/owner pages and full service home reviewed. No explicit local anticancer treatment established from general surgery."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch45-results.json",
+          "url": "https://www.kleintierzentrum-hirschberg.de/tieraerzte/",
+          "attempted_at": "2026-10-16T21:49:46.627128+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "c776f17484037644"
+        },
+        {
+          "receipt_file": "batch45-results.json",
+          "url": "https://www.kleintierzentrum-hirschberg.de/tierbesitzer/",
+          "attempted_at": "2026-10-16T21:49:46.753921+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "b24958794aee5272"
+        },
+        {
+          "receipt_file": "batch45-results.json",
+          "url": "https://www.kleintierzentrum-hirschberg.de/kontakt/",
+          "attempted_at": "2026-10-16T21:49:47.742415+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "e57cf2e43b04d492"
+        }
+      ],
+      "final_disposition": "REVIEWED_INSUFFICIENT_PRIMARY",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL"
+    },
+    {
+      "candidate_id": "seffner-bremervorde",
+      "name": "Seffner Bremervörde",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa-thirteen.json",
+      "qa_record_name": "Tierarztpraxis Reinhard Seffner",
+      "core_proposal": {
+        "preliminary_id": "de-reinhard-seffner-bremervoerde",
+        "name": "Tierarztpraxis Reinhard Seffner",
+        "city": "Bremervörde",
+        "street": "Neue Straße 32 a",
+        "postal_code": "27432",
+        "phone": "+49 4761 9708312",
+        "country": "Germany",
+        "services": [
+          "Surgery"
+        ],
+        "official_url": "https://www.tierarzt-seffner.de/leistungen/chirurgische-eingriffe",
+        "supporting_quote": "Knochen-, Weichteil-, Tumorchirurgie",
+        "clinician_review": "Reinhard Seffner, Fachtierarzt für Kleintiere as stated on owned team page.",
+        "additional_sources": [
+          "https://www.tierarzt-seffner.de/das-team"
+        ],
+        "missing": [],
+        "parent_QA": "Read full stored fresh primary pages; no root network request. Must fresh-main semantic-dedupe and validate core facts before canonical insertion.",
+        "coordinates_unknown": true,
+        "latitude": null,
+        "longitude": null,
+        "status": "ROOT_DRAFT_CORE_SUFFICIENT_PENDING_AGENT_QA",
+        "source_attempts": [
+          {
+            "url": "https://www.tierarzt-seffner.de/leistungen/chirurgische-eingriffe",
+            "attempted_at": "2026-10-16T21:51:09.225687+00:00",
+            "result": "READABLE_PRIMARY"
+          },
+          {
+            "url": "https://www.tierarzt-seffner.de/das-team",
+            "attempted_at": "2026-10-16T21:49:42.733286+00:00",
+            "result": "READABLE_PRIMARY"
+          }
+        ],
+        "availability_note": "Contact the practice to arrange an appointment and confirm current case suitability."
+      },
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch45-results.json",
+          "url": "https://www.tierarzt-seffner.de/leistungen",
+          "attempted_at": "2026-10-16T21:49:42.700732+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "758d3dcb786fd529"
+        },
+        {
+          "receipt_file": "batch45-results.json",
+          "url": "https://www.tierarzt-seffner.de/das-team",
+          "attempted_at": "2026-10-16T21:49:42.733286+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "6be494bba841cb45"
+        },
+        {
+          "receipt_file": "followups-a-results.json",
+          "url": "https://www.tierarzt-seffner.de/leistungen/chirurgische-eingriffe",
+          "attempted_at": "2026-10-16T21:51:09.225687+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "8544cb07e30902dd"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-reinhard-seffner-bremervoerde",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://www.tierarzt-seffner.de/leistungen/chirurgische-eingriffe",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.tierarzt-seffner.de/leistungen/chirurgische-eingriffe",
+          "attempted_at": "2026-10-16T21:51:09.225687+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "8544cb07e30902dd",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "biet-wanschura-nagold",
+      "name": "Biet Wanschura Nagold",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa-thirteen.json",
+      "qa_record_name": "Tierarztpraxis Biet & Wanschura",
+      "core_proposal": {
+        "preliminary_id": "de-biet-wanschura-nagold",
+        "name": "Tierarztpraxis Biet & Wanschura",
+        "city": "Nagold",
+        "street": "Iselshauser Straße 65",
+        "postal_code": "72202",
+        "phone": "+49 7452 81300",
+        "country": "Germany",
+        "services": [
+          "Surgery"
+        ],
+        "official_url": "https://www.biet-wanschura.de/leistungen/chirurgie/",
+        "supporting_quote": "Ein großer Teil der Chirurgie in unserer Praxis fällt in den Bereich der Tumorchirurgie",
+        "clinician_review": "Dr. Karin Biet and Claudia Wanschura, veterinarians and managing directors; Franziska Norz, Christine Maulbetsch and Julia Czaplińska also listed as veterinarians.",
+        "additional_sources": [
+          "https://www.biet-wanschura.de/team-praxis/"
+        ],
+        "missing": [],
+        "parent_QA": "Read full stored fresh primary pages; no root network request. Must fresh-main semantic-dedupe and validate core facts before canonical insertion.",
+        "coordinates_unknown": true,
+        "latitude": null,
+        "longitude": null,
+        "status": "ROOT_DRAFT_CORE_SUFFICIENT_PENDING_AGENT_QA",
+        "source_attempts": [
+          {
+            "url": "https://www.biet-wanschura.de/leistungen/chirurgie/",
+            "attempted_at": "2026-10-16T21:51:06.757233+00:00",
+            "result": "READABLE_PRIMARY"
+          },
+          {
+            "url": "https://www.biet-wanschura.de/team-praxis/",
+            "attempted_at": "2026-10-16T21:49:37.654996+00:00",
+            "result": "READABLE_PRIMARY"
+          }
+        ],
+        "availability_note": "Contact the practice to arrange an appointment and confirm current case suitability."
+      },
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch45-results.json",
+          "url": "https://www.biet-wanschura.de/",
+          "attempted_at": "2026-10-16T21:49:37.653605+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "fe2de0bd2e2f6591"
+        },
+        {
+          "receipt_file": "batch45-results.json",
+          "url": "https://www.biet-wanschura.de/team-praxis/",
+          "attempted_at": "2026-10-16T21:49:37.654996+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "68ae5f5e85612aa3"
+        },
+        {
+          "receipt_file": "followups-a-results.json",
+          "url": "https://www.biet-wanschura.de/leistungen/chirurgie/",
+          "attempted_at": "2026-10-16T21:51:06.757233+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "b702903a76552be9"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-biet-wanschura-nagold",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://www.biet-wanschura.de/leistungen/chirurgie/",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.biet-wanschura.de/leistungen/chirurgie/",
+          "attempted_at": "2026-10-16T21:51:06.757233+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "b702903a76552be9",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "janssen-halle-westfalen",
+      "name": "Janssen Halle Westfalen",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa-nine.json",
+      "qa_record_name": "Tierarztpraxis Dr. Volker Janssen",
+      "core_proposal": {
+        "preliminary_id": "de-volker-janssen-halle-westfalen",
+        "name": "Tierarztpraxis Dr. Volker Janssen",
+        "city": "Halle (Westfalen)",
+        "street": "Hachhowe 1",
+        "postal_code": "33790",
+        "phone": "+49 5201 16717",
+        "website": "https://www.tierarzt-janssen.de/de/",
+        "services": [
+          "Surgery"
+        ],
+        "official_url": "https://www.tierarzt-janssen.de/de/",
+        "supporting_quote": "Weichteilchirurgie wie Tumorentfernung",
+        "clinician_review": "Dr. med. vet. Volker Janssen, veterinarian and practice lead; veterinary degree in Hannover stated.",
+        "availability_note": "Appointments by prior telephone arrangement; surgical appointments can be arranged daily. This is Halle in Westfalen, not Halle (Saale).",
+        "missing": [],
+        "source_attempted_at": "2026-10-16T21:49:37.655513+00:00",
+        "qa": "Root independently reviewed stored full primary body; agent must current-main semantic-dedupe and confirm all required core fields before publishing. No root network request.",
+        "country": "Germany",
+        "coordinates_unknown": true,
+        "latitude": null,
+        "longitude": null,
+        "status": "ROOT_DRAFT_CORE_SUFFICIENT_PENDING_AGENT_QA"
+      },
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch45-results.json",
+          "url": "https://www.tierarzt-janssen.de/de/",
+          "attempted_at": "2026-10-16T21:49:37.655513+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "70c96f8b2baa0942"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-volker-janssen-halle-westfalen",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://www.tierarzt-janssen.de/de/",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.tierarzt-janssen.de/de/",
+          "attempted_at": "2026-10-16T21:49:37.655513+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "70c96f8b2baa0942",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "olma-zeise-weimar",
+      "name": "Olma Zeise Weimar",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa-thirteen.json",
+      "qa_record_name": "Kleintierpraxis Weimar – Olma & Zeise",
+      "core_proposal": {
+        "preliminary_id": "de-kleintierpraxis-weimar-olma-zeise",
+        "name": "Kleintierpraxis Weimar – Olma & Zeise",
+        "city": "Weimar",
+        "street": "Cranachstraße 46",
+        "postal_code": "99423",
+        "phone": "+49 3643 9081981",
+        "country": "Germany",
+        "services": [
+          "Surgery"
+        ],
+        "official_url": "https://www.kleintierpraxis-weimar.de/leistungen",
+        "supporting_quote": "Tumor- und plastische Chirurgie",
+        "clinician_review": "Nils Olma and Gunter Zeise explicitly identified as veterinarians on the current owned practice/team page.",
+        "additional_sources": [
+          "https://www.kleintierpraxis-weimar.de/die-praxis"
+        ],
+        "missing": [],
+        "parent_QA": "Read full stored fresh primary pages; no root network request. Must fresh-main semantic-dedupe and validate core facts before canonical insertion.",
+        "coordinates_unknown": true,
+        "latitude": null,
+        "longitude": null,
+        "status": "ROOT_DRAFT_CORE_SUFFICIENT_PENDING_AGENT_QA",
+        "source_attempts": [
+          {
+            "url": "https://www.kleintierpraxis-weimar.de/leistungen",
+            "attempted_at": "2026-10-16T21:51:06.886821+00:00",
+            "result": "READABLE_PRIMARY"
+          },
+          {
+            "url": "https://www.kleintierpraxis-weimar.de/die-praxis",
+            "attempted_at": "2026-10-16T21:49:42.680218+00:00",
+            "result": "READABLE_PRIMARY"
+          }
+        ],
+        "availability_note": "Contact the practice to arrange an appointment and confirm current case suitability."
+      },
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch45-results.json",
+          "url": "https://www.kleintierpraxis-weimar.de/die-praxis",
+          "attempted_at": "2026-10-16T21:49:42.680218+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "b32501bf2b2b6def"
+        },
+        {
+          "receipt_file": "followups-a-results.json",
+          "url": "https://www.kleintierpraxis-weimar.de/leistungen",
+          "attempted_at": "2026-10-16T21:51:06.886821+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "8abdbe1e036e44b1"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-kleintierpraxis-weimar-olma-zeise",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://www.kleintierpraxis-weimar.de/leistungen",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.kleintierpraxis-weimar.de/leistungen",
+          "attempted_at": "2026-10-16T21:51:06.886821+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "8abdbe1e036e44b1",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "bockenheim-frankfurt",
+      "name": "Bockenheim Frankfurt",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [
+        "Specific local modalities not confirmed; limited local oncology-care card only."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-tierklinik-bockenheim-frankfurt",
+      "services": [
+        "Local oncology care"
+      ],
+      "official_url": "https://www.tierklinik-bockenheim.de/team-tierklinik-praxisrundgang/onkologie/",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "UNFINISHED_PRIMARY_REVIEW",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.tierklinik-bockenheim.de/team-tierklinik-praxisrundgang/onkologie/",
+          "attempted_at": "2026-10-16T21:51:30.774312+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "fc36aad6f28e62ca",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ],
+      "final_evidence_note": "Only early permitted university-remote-results.json oncology body used. Subsequent surgery target in held batch is excluded."
+    },
+    {
+      "candidate_id": "britta-richter-ellund-west-im-sonnenschein",
+      "name": "Britta Richter / Ellund West / im Sonnenschein",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "Specific local modalities not confirmed; limited local oncology-care card only."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "resumed-first18.json",
+          "url": "https://tierarztpraxisimsonnenschein.de/Leistungen/",
+          "attempted_at": "2026-10-16T21:47:33.278898+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "a2d9993e6ac09889"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-britta-richter-handewitt",
+      "services": [
+        "Local oncology care"
+      ],
+      "official_url": "https://tierarztpraxisimsonnenschein.de/Leistungen/",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL",
+      "final_service_source_attempts": [
+        {
+          "url": "https://tierarztpraxisimsonnenschein.de/Leistungen/",
+          "attempted_at": "2026-10-16T21:47:33.278898+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "a2d9993e6ac09889",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "wissenbach",
+      "name": "Wissenbach",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "last-named-cores-results.json",
+          "url": "https://www.kleintierpraxis-wissenbach.de/leistungen/onkologie/",
+          "attempted_at": "2026-10-16T21:53:10.843853+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "5ea9f6d168280e51"
+        },
+        {
+          "receipt_file": "last-named-cores-results.json",
+          "url": "https://www.kleintierpraxis-wissenbach.de/team-praxis/",
+          "attempted_at": "2026-10-16T21:53:11.082379+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "fb114fde60e68df4"
+        },
+        {
+          "receipt_file": "specific-last-results.json",
+          "url": "https://www.kleintierpraxis-wissenbach.de/leistungen/chirurgie/",
+          "attempted_at": "2026-10-16T21:53:12.990575+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "2ed7b6b4a12106b6"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-kleintierpraxis-wissenbach-eschenburg-wissenbach",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://www.kleintierpraxis-wissenbach.de/leistungen/chirurgie/",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.kleintierpraxis-wissenbach.de/leistungen/chirurgie/",
+          "attempted_at": "2026-10-16T21:53:12.990575+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "2ed7b6b4a12106b6",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "pommerening-wolfenbuttel",
+      "name": "Pommerening Wolfenbüttel",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "Pommerening root/services readable but recovered list only generic surgery/laser; no tumor-specific treatment proof in reviewed list. Follow actual child clinical detail or retain unconfirmed modalities."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch45-results.json",
+          "url": "https://tierarztpraxis-pommerening.de/",
+          "attempted_at": "2026-10-16T21:49:50.808912+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "53db7b3b60cc1c38"
+        },
+        {
+          "receipt_file": "followups-a-results.json",
+          "url": "https://tierarztpraxis-pommerening.de/leistungen/leistungen.html",
+          "attempted_at": "2026-10-16T21:51:11.609333+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "6ef878d125ad3fc9"
+        }
+      ],
+      "final_disposition": "REVIEWED_INSUFFICIENT_PRIMARY",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL"
+    },
+    {
+      "candidate_id": "dr-stief-muhlhausen",
+      "name": "Dr Stief Mühlhausen",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa-thirteen.json",
+      "qa_record_name": "Dr. Stief – Tagesklinik für Tiere",
+      "core_proposal": {
+        "preliminary_id": "de-tagesklinik-stief-muehlhausen",
+        "name": "Dr. Stief – Tagesklinik für Tiere",
+        "city": "Mühlhausen",
+        "street": "An den Wiesen 8",
+        "postal_code": "99974",
+        "phone": "+49 3601 83600",
+        "country": "Germany",
+        "services": [
+          "Chemotherapy",
+          "Surgery"
+        ],
+        "official_url": "https://www.drstief.de/onkologie/",
+        "supporting_quote": "Chemotherapie",
+        "clinician_review": "Manuela Schirmer, Fachtierärztin für Klein- und Heimtiere; veterinary degree Hannover; current owned biography states training in oncology and soft-tissue surgery. No oncology board certification inferred.",
+        "additional_sources": [
+          "https://www.drstief.de/"
+        ],
+        "missing": [],
+        "parent_QA": "Read full stored fresh primary pages; no root network request. Must fresh-main semantic-dedupe and validate core facts before canonical insertion.",
+        "coordinates_unknown": true,
+        "latitude": null,
+        "longitude": null,
+        "status": "ROOT_DRAFT_CORE_SUFFICIENT_PENDING_AGENT_QA",
+        "source_attempts": [
+          {
+            "url": "https://www.drstief.de/onkologie/",
+            "attempted_at": "2026-10-16T21:51:12.745922+00:00",
+            "result": "READABLE_PRIMARY"
+          },
+          {
+            "url": "https://www.drstief.de/",
+            "attempted_at": "2026-10-16T21:49:51.243645+00:00",
+            "result": "READABLE_PRIMARY"
+          }
+        ],
+        "availability_note": "Contact the practice to arrange an appointment and confirm current case suitability.",
+        "qa_modality": "Official oncology page describes radiation through an external facility; DO NOT add local radiation.",
+        "followup_sources": [
+          {
+            "url": "https://www.drstief.de/team/manuela-schirmer/",
+            "attempted_at": "2026-10-16T21:56:01.835577+00:00",
+            "status": 200,
+            "raw_key": "1037f9f0aa5177c5"
+          }
+        ]
+      },
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch45-results.json",
+          "url": "https://www.drstief.de/",
+          "attempted_at": "2026-10-16T21:49:51.243645+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "7a4815c551d35bad"
+        },
+        {
+          "receipt_file": "batch45-results.json",
+          "url": "https://www.drstief.de/chirurgie/",
+          "attempted_at": "2026-10-16T21:49:54.863128+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "e5300f9d2a7b7fdb"
+        },
+        {
+          "receipt_file": "followups-a-results.json",
+          "url": "https://www.drstief.de/onkologie/",
+          "attempted_at": "2026-10-16T21:51:12.745922+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "43d160c852a24916"
+        },
+        {
+          "receipt_file": "core-followup-12-results.json",
+          "url": "https://www.drstief.de/team/manuela-schirmer/",
+          "attempted_at": "2026-10-16T21:56:01.835577+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "1037f9f0aa5177c5"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-tagesklinik-stief-muehlhausen",
+      "services": [
+        "Chemotherapy",
+        "Surgery"
+      ],
+      "official_url": "https://www.drstief.de/onkologie/",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.drstief.de/onkologie/",
+          "attempted_at": "2026-10-16T21:51:12.745922+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "43d160c852a24916",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "neufahrn",
+      "name": "Neufahrn",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [
+        "Two known Neufahrn official routes returnedHTTP502 in this run. Preserve current record; do not infer closure. Need current cancer services/team/intake from readable primary source."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch71-results.json",
+          "url": "https://www.tierarzt-neufahrn.de/index.php/de/praxisinformation",
+          "attempted_at": "2026-10-16T21:50:39.237208+00:00",
+          "status": 502,
+          "result": "HTTP_ERROR"
+        },
+        {
+          "receipt_file": "batch71-results.json",
+          "url": "https://www.tierarzt-neufahrn.de/index.php/de/mitarbeiter",
+          "attempted_at": "2026-10-16T21:50:41.544851+00:00",
+          "status": 502,
+          "result": "HTTP_ERROR"
+        }
+      ],
+      "final_disposition": "UNREACHABLE_PRIMARY",
+      "decision_note": "Ordinary native retrieval and same-URL permitted Web fallback did not recover current clinical content. Not closure evidence.",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "SITE_UNREACHABLE"
+    },
+    {
+      "candidate_id": "westerhorn",
+      "name": "Westerhorn",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa-nine.json",
+      "qa_record_name": "Tierarztpraxis Westerhorn",
+      "core_proposal": {
+        "preliminary_id": "de-tierarztpraxis-westerhorn",
+        "name": "Tierarztpraxis Westerhorn",
+        "city": "Westerhorn",
+        "street": "Hoop 3",
+        "postal_code": "25364",
+        "phone": "+49 4127 929335",
+        "website": "https://www.tierarztpraxis-westerhorn.de/",
+        "services": [
+          "Surgery"
+        ],
+        "official_url": "https://www.tierarztpraxis-westerhorn.de/",
+        "supporting_quote": "Tumorchirurgie (Laser, HF, Kryo)",
+        "clinician_review": "Jan Bretschneider, veterinarian and owner; Jessica Harms, veterinarian.",
+        "availability_note": "Binding telephone appointments requested; email bookings may take longer. Surgical laser, high-frequency and cryosurgery are not radiation therapy.",
+        "missing": [],
+        "source_attempted_at": "2026-10-16T21:49:51.029656+00:00",
+        "qa": "Root independently reviewed stored full primary body; agent must current-main semantic-dedupe and confirm all required core fields before publishing. No root network request.",
+        "country": "Germany",
+        "coordinates_unknown": true,
+        "latitude": null,
+        "longitude": null,
+        "status": "ROOT_DRAFT_CORE_SUFFICIENT_PENDING_AGENT_QA"
+      },
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch45-results.json",
+          "url": "https://www.tierarztpraxis-westerhorn.de/",
+          "attempted_at": "2026-10-16T21:49:51.029656+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "5c980174445a5200"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-tierarztpraxis-westerhorn",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://www.tierarztpraxis-westerhorn.de/",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.tierarztpraxis-westerhorn.de/",
+          "attempted_at": "2026-10-16T21:49:51.029656+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "5c980174445a5200",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "asterlagen-duisburg",
+      "name": "Asterlagen Duisburg",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [
+        "Clinical result cannot be read after denied polling; named-finite-last-nine.json and automatic-rejection-two.json preserve exact scope. No result bodies used."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [],
+      "final_disposition": "BLOCKED_AUTO_REVIEW",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "UNFINISHED_PRIMARY_REVIEW"
+    },
+    {
+      "candidate_id": "anicura-neu-ulm",
+      "name": "AniCura Neu-Ulm",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [
+        "Clinical result cannot be read after denied polling; named-finite-last-nine.json and automatic-rejection-two.json preserve exact scope. No result bodies used."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [],
+      "final_disposition": "BLOCKED_AUTO_REVIEW",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "UNFINISHED_PRIMARY_REVIEW"
+    },
+    {
+      "candidate_id": "klickvet-quickborn-van-haaren",
+      "name": "KlickVet Quickborn / van Haaren",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "KlickVet services read200, but retrieved list lacks explicit cancer modality. Need clinical child-page proof/current clinician/contact/access before core disposition."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "resumed-first18.json",
+          "url": "https://klick-vet.de/leistungen/",
+          "attempted_at": null,
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "8eb78c425def0e37"
+        }
+      ],
+      "final_disposition": "REVIEWED_INSUFFICIENT_PRIMARY",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL"
+    },
+    {
+      "candidate_id": "saur-garmisch",
+      "name": "Saur Garmisch",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch71-results.json",
+          "url": "https://www.tierarzt-garmisch.com/leistungen/",
+          "attempted_at": "2026-10-16T21:50:42.593011+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "4e7c857817493125"
+        },
+        {
+          "receipt_file": "batch71-results.json",
+          "url": "https://www.tierarzt-garmisch.com/kontakt/",
+          "attempted_at": "2026-10-16T21:50:42.716961+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "49e35dfbb6323b7c"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-tierarztpraxis-dr-peter-saur-garmisch-partenkirchen",
+      "services": [
+        "Chemotherapy"
+      ],
+      "official_url": "https://www.tierarzt-garmisch.com/leistungen/onkologie/",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.tierarzt-garmisch.com/leistungen/onkologie/",
+          "attempted_at": "2026-10-16T22:03:34.259090+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "e1be8d1594a3a8bd",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "kruse-bremen",
+      "name": "Kruse Bremen",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "Clinical result cannot be read after denied polling; named-finite-last-nine.json and automatic-rejection-two.json preserve exact scope. No result bodies used."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [],
+      "final_disposition": "BLOCKED_AUTO_REVIEW",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "UNFINISHED_PRIMARY_REVIEW"
+    },
+    {
+      "candidate_id": "valentin-grunheide",
+      "name": "Valentin Grünheide",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch71-results.json",
+          "url": "https://www.tierarztpraxis-valentin.de/",
+          "attempted_at": "2026-10-16T21:50:45.776960+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "06785d9c56a440dd"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-fachtierarztpraxis-grunheide-ariane-valentin-grunheide-mark",
+      "services": [
+        "Chemotherapy",
+        "Surgery"
+      ],
+      "official_url": "https://www.tierarztpraxis-valentin.de/unsere-leistungen.html",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.tierarztpraxis-valentin.de/unsere-leistungen.html",
+          "attempted_at": "2026-10-16T22:03:02.163360+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "bbfc4a6695123295",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "hoech-saalfeld",
+      "name": "Hoech Saalfeld",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa-nine.json",
+      "qa_record_name": "Tierarztpraxis Dr. Jessica Höch",
+      "core_proposal": {
+        "preliminary_id": "de-jessica-hoech-muehlhausen-saalfeld",
+        "name": "Tierarztpraxis Dr. Jessica Höch",
+        "city": "Mühlhausen OT Saalfeld",
+        "street": "Hauptstraße 50",
+        "postal_code": "99974",
+        "phone": "+49 36029 84533",
+        "website": "https://tierarztpraxis-hoech.de/",
+        "services": [
+          "Surgery"
+        ],
+        "official_url": "https://tierarztpraxis-hoech.de/",
+        "supporting_quote": "Weichteilchirurgie (inkl. Fremdkörper- und Tumoroperationen",
+        "clinician_review": "Dr. med. vet. Jessica Höch, veterinarian; Leipzig veterinary graduation 2007 and doctorate 2011 stated.",
+        "availability_note": "The practice states it is closed 12–20 October 2026. New clients must telephone before booking. Surgical laser is not radiation therapy.",
+        "missing": [],
+        "source_attempted_at": "2026-10-16T21:50:41.549325+00:00",
+        "qa": "Root independently reviewed stored full primary body; agent must current-main semantic-dedupe and confirm all required core fields before publishing. No root network request.",
+        "country": "Germany",
+        "coordinates_unknown": true,
+        "latitude": null,
+        "longitude": null,
+        "status": "ROOT_DRAFT_CORE_SUFFICIENT_PENDING_AGENT_QA"
+      },
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch71-results.json",
+          "url": "https://tierarztpraxis-hoech.de/",
+          "attempted_at": "2026-10-16T21:50:41.549325+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "436f3f7802cf2015"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-jessica-hoech-muehlhausen-saalfeld",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://tierarztpraxis-hoech.de/",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://tierarztpraxis-hoech.de/",
+          "attempted_at": "2026-10-16T21:50:41.549325+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "436f3f7802cf2015",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "rondorf-koln",
+      "name": "Rondorf Köln",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa-thirteen.json",
+      "qa_record_name": "Tierarztpraxis in Rondorf",
+      "core_proposal": {
+        "preliminary_id": "de-tierarztpraxis-rondorf-koeln",
+        "name": "Tierarztpraxis in Rondorf",
+        "city": "Köln-Rondorf",
+        "street": "Rondorfer Hauptstraße 34",
+        "postal_code": "50997",
+        "phone": "+49 2233 280350",
+        "country": "Germany",
+        "services": [
+          "Surgery"
+        ],
+        "official_url": "https://www.vet-rondorf.de/leistungen/",
+        "supporting_quote": "Tumorentfernung",
+        "clinician_review": "Anouk Burandt, veterinarian with GPCert Cardiology/Small Animal Medicine; Iris Siebert, Fachtierärztin Kleintiere/Heimtiere; Dr. Mia Steiner, veterinarian; none is inferred to have oncology board certification.",
+        "additional_sources": [
+          "https://www.vet-rondorf.de/team/"
+        ],
+        "missing": [],
+        "parent_QA": "Read full stored fresh primary pages; no root network request. Must fresh-main semantic-dedupe and validate core facts before canonical insertion.",
+        "coordinates_unknown": true,
+        "latitude": null,
+        "longitude": null,
+        "status": "ROOT_DRAFT_CORE_SUFFICIENT_PENDING_AGENT_QA",
+        "source_attempts": [
+          {
+            "url": "https://www.vet-rondorf.de/leistungen/",
+            "attempted_at": "2026-10-16T21:51:15.585055+00:00",
+            "result": "READABLE_PRIMARY"
+          },
+          {
+            "url": "https://www.vet-rondorf.de/team/",
+            "attempted_at": "2026-10-16T21:50:02.548523+00:00",
+            "result": "READABLE_PRIMARY"
+          }
+        ],
+        "availability_note": "Contact the practice to arrange an appointment and confirm current case suitability.",
+        "qa_placeholder": "Ignore repeated dummy Dr Lorem Ipsum/test team entries lower on team page; named real veterinary roster at top only."
+      },
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch45-results.json",
+          "url": "https://www.vet-rondorf.de/",
+          "attempted_at": "2026-10-16T21:49:59.018238+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "2915bade70387995"
+        },
+        {
+          "receipt_file": "batch45-results.json",
+          "url": "https://www.vet-rondorf.de/team/",
+          "attempted_at": "2026-10-16T21:50:02.548523+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "eb3157dcd25c0e16"
+        },
+        {
+          "receipt_file": "followups-a-results.json",
+          "url": "https://www.vet-rondorf.de/leistungen/",
+          "attempted_at": "2026-10-16T21:51:15.585055+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "6c37a398f73ba783"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-tierarztpraxis-rondorf-koeln",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://www.vet-rondorf.de/leistungen/",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.vet-rondorf.de/leistungen/",
+          "attempted_at": "2026-10-16T21:51:15.585055+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "6c37a398f73ba783",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "arsten-vennefrohne",
+      "name": "Arsten Vennefrohne",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "last-named-cores-results.json",
+          "url": "https://www.tierpfoetchen.de/de",
+          "attempted_at": "2026-10-16T21:53:14.529747+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "c5174c6bf3145c86"
+        },
+        {
+          "receipt_file": "last-named-cores-results.json",
+          "url": "https://www.tierpfoetchen.de/de/unser-team",
+          "attempted_at": "2026-10-16T21:53:17.945820+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "bc4c9433f23e10b7"
+        },
+        {
+          "receipt_file": "core-followup-12-results.json",
+          "url": "https://www.tierpfoetchen.de/de/unsere-leistungen",
+          "attempted_at": "2026-10-16T21:56:09.181297+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "7a567890b96675ca"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-kleintierpraxis-in-arsten-bremen",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://www.tierpfoetchen.de/de/unsere-leistungen",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.tierpfoetchen.de/de/unsere-leistungen",
+          "attempted_at": "2026-10-16T21:56:09.181297+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "7a567890b96675ca",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "www-kleintierpraxis-preetz-schellhorn-de",
+      "name": "www.kleintierpraxis-preetz-schellhorn.de",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "resumed-first18.json",
+          "url": "http://www.kleintierpraxis-preetz-schellhorn.de/",
+          "attempted_at": null,
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "a752f3ad7cd2766c"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-kleintierpraxis-preetz-schellhorn-dr-gesine-krefft-schellhorn",
+      "services": [
+        "Local oncology care"
+      ],
+      "official_url": "http://www.kleintierpraxis-preetz-schellhorn.de/leistungen.html",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL",
+      "final_service_source_attempts": [
+        {
+          "url": "http://www.kleintierpraxis-preetz-schellhorn.de/leistungen.html",
+          "attempted_at": "2026-10-16T22:04:24.990251+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "265d6fc9ef19854f",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "altona",
+      "name": "Altona",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "last-named-cores-results.json",
+          "url": "https://www.tierarzt-hh-altona.de/",
+          "attempted_at": "2026-10-16T21:53:21.722799+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "213c45ff2c7d42fc"
+        },
+        {
+          "receipt_file": "core-followup-12-results.json",
+          "url": "https://www.tierarzt-hh-altona.de/de/unsere-leistungen",
+          "attempted_at": "2026-10-16T21:56:16.108935+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "532f3374440ec7fa"
+        },
+        {
+          "receipt_file": "core-followup-12-results.json",
+          "url": "https://www.tierarzt-hh-altona.de/de/unser-team",
+          "attempted_at": "2026-10-16T21:56:17.133660+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "2b55259375cacbf6"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-tierarztpraxis-hamburg-altona-hamburg",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://www.tierarzt-hh-altona.de/de/unsere-leistungen",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.tierarzt-hh-altona.de/de/unsere-leistungen",
+          "attempted_at": "2026-10-16T21:56:16.108935+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "532f3374440ec7fa",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "hanel-hartmannsdorf",
+      "name": "Hänel Hartmannsdorf",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa-thirteen.json",
+      "qa_record_name": "Tierarztpraxis Nicole Hänel",
+      "core_proposal": {
+        "preliminary_id": "de-nicole-haenel-hartmannsdorf",
+        "name": "Tierarztpraxis Nicole Hänel",
+        "city": "Hartmannsdorf-Reichenau",
+        "street": "Hennersdorfer Straße 80",
+        "postal_code": "01762",
+        "phone": "+49 37326 9186",
+        "country": "Germany",
+        "services": [
+          "Surgery"
+        ],
+        "official_url": "https://tierarzt-haenel.de/leistungen.html",
+        "supporting_quote": "Tumorentfernungen",
+        "clinician_review": "Nicole Hänel, veterinarian and practice owner, named on owned home page.",
+        "additional_sources": [
+          "https://tierarzt-haenel.de/index.html"
+        ],
+        "missing": [],
+        "parent_QA": "Read full stored fresh primary pages; no root network request. Must fresh-main semantic-dedupe and validate core facts before canonical insertion.",
+        "coordinates_unknown": true,
+        "latitude": null,
+        "longitude": null,
+        "status": "ROOT_DRAFT_CORE_SUFFICIENT_PENDING_AGENT_QA",
+        "source_attempts": [
+          {
+            "url": "https://tierarzt-haenel.de/leistungen.html",
+            "attempted_at": "2026-10-16T21:51:14.068161+00:00",
+            "result": "READABLE_PRIMARY"
+          },
+          {
+            "url": "https://tierarzt-haenel.de/index.html",
+            "attempted_at": "2026-10-16T21:49:54.894864+00:00",
+            "result": "READABLE_PRIMARY"
+          }
+        ],
+        "availability_note": "Contact the practice to arrange an appointment and confirm current case suitability.",
+        "qa_branch": "Own site explicitly states no Clausnitz branch since 2025; do not add former branch.",
+        "followup_sources": [
+          {
+            "url": "https://tierarzt-haenel.de/kontakt.html",
+            "attempted_at": "2026-10-16T21:56:01.837073+00:00",
+            "status": 200,
+            "raw_key": "ca35574ef89a0d41"
+          }
+        ]
+      },
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch45-results.json",
+          "url": "https://tierarzt-haenel.de/index.html",
+          "attempted_at": "2026-10-16T21:49:54.894864+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "7ee67e645b95406a"
+        },
+        {
+          "receipt_file": "followups-a-results.json",
+          "url": "https://tierarzt-haenel.de/leistungen.html",
+          "attempted_at": "2026-10-16T21:51:14.068161+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "9daf379a3abfca2e"
+        },
+        {
+          "receipt_file": "core-followup-12-results.json",
+          "url": "https://tierarzt-haenel.de/kontakt.html",
+          "attempted_at": "2026-10-16T21:56:01.837073+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "ca35574ef89a0d41"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-nicole-haenel-hartmannsdorf",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://tierarzt-haenel.de/leistungen.html",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://tierarzt-haenel.de/leistungen.html",
+          "attempted_at": "2026-10-16T21:51:14.068161+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "9daf379a3abfca2e",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "waschbusch-saarwellingen",
+      "name": "Waschbüsch Saarwellingen",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "Waschbüsch owned root read200 but recovered body lacks explicit cancer modality. Actual clinical child route/current team/contact/access needed."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch45-results.json",
+          "url": "https://tierarzt-waschbuesch.de/",
+          "attempted_at": "2026-10-16T21:49:59.006361+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "9820a6ab115fd963"
+        }
+      ],
+      "final_disposition": "REVIEWED_INSUFFICIENT_PRIMARY",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL"
+    },
+    {
+      "candidate_id": "weichert-sandhausen",
+      "name": "Weichert Sandhausen",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "Sandhausen root returnedHTTP502. Need readable current owned cancer service/contact/team/intake. Do not infer closure."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "last-named-cores-results.json",
+          "url": "https://www.tierarzt-sandhausen.de/",
+          "attempted_at": "2026-10-16T21:53:18.016773+00:00",
+          "status": 502,
+          "result": "HTTP_ERROR"
+        }
+      ],
+      "final_disposition": "UNREACHABLE_PRIMARY",
+      "decision_note": "Ordinary native retrieval and same-URL permitted Web fallback did not recover current clinical content. Not closure evidence.",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "SITE_UNREACHABLE"
+    },
+    {
+      "candidate_id": "praxis-fuer-kleine-haustiere-jimdo-com",
+      "name": "praxis-fuer-kleine-haustiere.jimdo.com",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "Saved exact Jimdo root returnedHTTP502. Preserve candidate rather than count new or closed; need owned readable clinical/contact/team evidence."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "resumed-first18.json",
+          "url": "https://praxis-fuer-kleine-haustiere.jimdo.com/",
+          "attempted_at": "2026-10-16T21:47:29.974081+00:00",
+          "status": 502,
+          "result": "HTTP_ERROR"
+        }
+      ],
+      "final_disposition": "UNREACHABLE_PRIMARY",
+      "decision_note": "Ordinary native retrieval and same-URL permitted Web fallback did not recover current clinical content. Not closure evidence.",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "SITE_UNREACHABLE"
+    },
+    {
+      "candidate_id": "zweitmeinungtierarzt-vetonkologie-one-remote-intake-group",
+      "name": "ZweitmeinungTierarzt / VetOnkologie one remote intake group",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [
+        "Geographic eligibility not published; confirm at booking."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [],
+      "final_disposition": "VERIFIED_NEW_REMOTE",
+      "source_id": "tele-vetonkologie-kuhnel-lawatsch",
+      "decision_note": "One intake identity for both brands; owner oncology phone/video/email access plus current clinician role verified. No physical clinic created.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL"
+    },
+    {
+      "candidate_id": "bramfeld-hamburg-gregor-zschoch",
+      "name": "Bramfeld Hamburg / Gregor Zschoch",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-tierarztpraxis-bramfeld-hamburg",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://tierarztpraxis-bramfeld.de/leistungen/",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "UNFINISHED_PRIMARY_REVIEW",
+      "final_service_source_attempts": [
+        {
+          "url": "https://tierarztpraxis-bramfeld.de/leistungen/",
+          "attempted_at": "2026-10-16T21:51:26.182715+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "873b78f45f1a46a6",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "claudiakellermeier-schwachhauserheer44-28209bremen",
+      "name": "ClaudiaKellermeier SchwachhauserHeer44/28209Bremen",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "Schwachhausen own root discusses oncology under internal medicine, but does not explicitly establish chemotherapy or oncological surgery. Need current named team and exact usable oncology-care scope/intake."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "resumed-first18.json",
+          "url": "https://tierarztpraxis-schwachhausen.de/",
+          "attempted_at": "2026-10-16T21:47:29.976800+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "82aa36a3304f3571"
+        }
+      ],
+      "final_disposition": "REVIEWED_INSUFFICIENT_PRIMARY",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL"
+    },
+    {
+      "candidate_id": "ganal-ewert-weingarten",
+      "name": "Ganal Ewert Weingarten",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "Current own services explain internal medicine tumor diseases but do not explicitly establish local chemotherapy or tumor surgery."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch62-results.json",
+          "url": "https://www.tierklinik-ganal-ewert.de/",
+          "attempted_at": "2026-10-16T21:49:55.264736+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "81ccc589b87ec43c"
+        },
+        {
+          "receipt_file": "batch62-results.json",
+          "url": "https://www.tierklinik-ganal-ewert.de/ueber-uns/menschen",
+          "attempted_at": "2026-10-16T21:49:55.267177+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "344ce0e552457c24"
+        },
+        {
+          "receipt_file": "followups-a-results.json",
+          "url": "https://www.tierklinik-ganal-ewert.de/ueber-uns/leistungen",
+          "attempted_at": "2026-10-16T21:51:18.164177+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "0caf47b011882431"
+        }
+      ],
+      "final_disposition": "REVIEWED_INSUFFICIENT_PRIMARY",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL"
+    },
+    {
+      "candidate_id": "fritzenschaf-eggenstein",
+      "name": "Fritzenschaf Eggenstein",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa-nine.json",
+      "qa_record_name": "Kleintierpraxis Dr. Astrid Fritzenschaf",
+      "core_proposal": {
+        "preliminary_id": "de-astrid-fritzenschaf-eggenstein",
+        "name": "Kleintierpraxis Dr. Astrid Fritzenschaf",
+        "city": "Eggenstein",
+        "street": "Ankerberg 3",
+        "postal_code": "76344",
+        "phone": "+49 721 78808766",
+        "website": "https://www.tierarztpraxis-fritzenschaf.online/leistungen/behandlung/",
+        "services": [
+          "Surgery"
+        ],
+        "official_url": "https://www.tierarztpraxis-fritzenschaf.online/leistungen/behandlung/",
+        "supporting_quote": "Tumoroperationen",
+        "clinician_review": "Dr. Astrid Fritzenschaf, veterinary degree in Gießen stated on separately freshly fetched team page.",
+        "availability_note": "Telephone appointments required; consultation hours vary, and unbooked patients may not be seen.",
+        "missing": [],
+        "source_attempted_at": "2026-10-16T21:50:24.336780+00:00",
+        "qa": "Root independently reviewed stored full primary body; agent must current-main semantic-dedupe and confirm all required core fields before publishing. No root network request.",
+        "country": "Germany",
+        "coordinates_unknown": true,
+        "latitude": null,
+        "longitude": null,
+        "status": "ROOT_DRAFT_CORE_SUFFICIENT_PENDING_AGENT_QA"
+      },
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch71-results.json",
+          "url": "https://www.tierarztpraxis-fritzenschaf.online/leistungen/behandlung/",
+          "attempted_at": "2026-10-16T21:50:24.336780+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "6152f6a543e75f3d"
+        },
+        {
+          "receipt_file": "batch71-results.json",
+          "url": "https://www.tierarztpraxis-fritzenschaf.online/das-praxis-team/",
+          "attempted_at": "2026-10-16T21:50:24.337010+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "a798a0b92814d827"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-astrid-fritzenschaf-eggenstein",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://www.tierarztpraxis-fritzenschaf.online/leistungen/behandlung/",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.tierarztpraxis-fritzenschaf.online/leistungen/behandlung/",
+          "attempted_at": "2026-10-16T21:50:24.336780+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "6152f6a543e75f3d",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "arui-donaueschingen",
+      "name": "Arui Donaueschingen",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa-thirteen.json",
+      "qa_record_name": "Tierärztliche Praxis Dres. Arui",
+      "core_proposal": {
+        "preliminary_id": "de-kleintierpraxis-arui-donaueschingen",
+        "name": "Tierärztliche Praxis Dres. Arui",
+        "city": "Donaueschingen",
+        "street": "Friedhofstr. 11",
+        "postal_code": "78166",
+        "phone": "+49 771 163939",
+        "country": "Germany",
+        "services": [
+          "Surgery"
+        ],
+        "official_url": "https://www.kleintierpraxis-arui.de/leistungen/",
+        "supporting_quote": "Tumorchirurgie",
+        "clinician_review": "Dr. Susanne Arui, veterinarian and practice owner; Dr. Jochen Arui, veterinarian, both explicitly listed on current owned team page.",
+        "additional_sources": [
+          "https://www.kleintierpraxis-arui.de/"
+        ],
+        "missing": [],
+        "parent_QA": "Read full stored fresh primary pages; no root network request. Must fresh-main semantic-dedupe and validate core facts before canonical insertion.",
+        "coordinates_unknown": true,
+        "latitude": null,
+        "longitude": null,
+        "status": "ROOT_DRAFT_CORE_SUFFICIENT_PENDING_AGENT_QA",
+        "source_attempts": [
+          {
+            "url": "https://www.kleintierpraxis-arui.de/leistungen/",
+            "attempted_at": "2026-10-16T21:51:21.948988+00:00",
+            "result": "READABLE_PRIMARY"
+          },
+          {
+            "url": "https://www.kleintierpraxis-arui.de/",
+            "attempted_at": "2026-10-16T21:49:59.644907+00:00",
+            "result": "READABLE_PRIMARY"
+          }
+        ],
+        "availability_note": "Appointments requested. Telephone ahead for emergencies. No Thursday-afternoon consultations.",
+        "followup_sources": [
+          {
+            "url": "https://www.kleintierpraxis-arui.de/team-kleintierpraxis/",
+            "attempted_at": "2026-10-16T21:56:01.837721+00:00",
+            "status": 200,
+            "raw_key": "16d12eb85030525a"
+          }
+        ]
+      },
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch62-results.json",
+          "url": "https://www.kleintierpraxis-arui.de/",
+          "attempted_at": "2026-10-16T21:49:59.644907+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "c7dfc5c8275672ad"
+        },
+        {
+          "receipt_file": "followups-a-results.json",
+          "url": "https://www.kleintierpraxis-arui.de/leistungen/",
+          "attempted_at": "2026-10-16T21:51:21.948988+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "cf422909b26a4efe"
+        },
+        {
+          "receipt_file": "core-followup-12-results.json",
+          "url": "https://www.kleintierpraxis-arui.de/team-kleintierpraxis/",
+          "attempted_at": "2026-10-16T21:56:01.837721+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "16d12eb85030525a"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-kleintierpraxis-arui-donaueschingen",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://www.kleintierpraxis-arui.de/leistungen/",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.kleintierpraxis-arui.de/leistungen/",
+          "attempted_at": "2026-10-16T21:51:21.948988+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "cf422909b26a4efe",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "burgener-wermelskirchen",
+      "name": "Bürgener Wermelskirchen",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [
+        "Same exact official root recovered through Web fallback after native failure; general surgery is not explicit tumor surgery, and no specific local cancer modality established."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch62-results.json",
+          "url": "https://www.tierarzt-buergener.de/",
+          "attempted_at": "2026-10-16T21:49:59.358917+00:00",
+          "result": "TRANSPORT_FAILURE"
+        }
+      ],
+      "final_disposition": "REVIEWED_INSUFFICIENT_PRIMARY",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "SITE_UNREACHABLE"
+    },
+    {
+      "candidate_id": "pfeiffer-murrhardt",
+      "name": "Pfeiffer Murrhardt",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa-thirteen.json",
+      "qa_record_name": "Tierarztpraxis Harald Pfeiffer",
+      "core_proposal": {
+        "preliminary_id": "de-harald-pfeiffer-murrhardt",
+        "name": "Tierarztpraxis Harald Pfeiffer",
+        "city": "Murrhardt",
+        "street": "Robert-Franck-Straße 17",
+        "postal_code": "71540",
+        "phone": "+49 7192 9300070",
+        "country": "Germany",
+        "services": [
+          "Surgery"
+        ],
+        "official_url": "https://www.tierarztpfeiffer.de/leistungen/kleintierpraxis",
+        "supporting_quote": "Tumor- & Weichteilchirurgie",
+        "clinician_review": "Harald Pfeiffer, Praktischer Tierarzt explicitly stated in owned page footer.",
+        "additional_sources": [],
+        "missing": [],
+        "parent_QA": "Read full stored fresh primary pages; no root network request. Must fresh-main semantic-dedupe and validate core facts before canonical insertion.",
+        "coordinates_unknown": true,
+        "latitude": null,
+        "longitude": null,
+        "status": "ROOT_DRAFT_CORE_SUFFICIENT_PENDING_AGENT_QA",
+        "source_attempts": [
+          {
+            "url": "https://www.tierarztpfeiffer.de/leistungen/kleintierpraxis",
+            "attempted_at": "2026-10-16T21:51:20.867821+00:00",
+            "result": "READABLE_PRIMARY"
+          }
+        ],
+        "availability_note": "Contact the practice to arrange an appointment and confirm current case suitability."
+      },
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch62-results.json",
+          "url": "https://www.tierarztpfeiffer.de/leistungen",
+          "attempted_at": "2026-10-16T21:49:55.267885+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "e75a518ca322691e"
+        },
+        {
+          "receipt_file": "followups-a-results.json",
+          "url": "https://www.tierarztpfeiffer.de/leistungen/kleintierpraxis",
+          "attempted_at": "2026-10-16T21:51:20.867821+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "4ed076fc6700fb59"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-harald-pfeiffer-murrhardt",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://www.tierarztpfeiffer.de/leistungen/kleintierpraxis",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.tierarztpfeiffer.de/leistungen/kleintierpraxis",
+          "attempted_at": "2026-10-16T21:51:20.867821+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "4ed076fc6700fb59",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "schmidl-bremen",
+      "name": "Schmidl Bremen",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa-nine.json",
+      "qa_record_name": "Tierarztpraxis Schmidl",
+      "core_proposal": {
+        "preliminary_id": "de-tierarztpraxis-schmidl-bremen",
+        "name": "Tierarztpraxis Schmidl",
+        "city": "Bremen",
+        "street": "Am Oslebshauser Bahnhof 2",
+        "postal_code": "28239",
+        "phone": "+49 421 64917930",
+        "website": "https://www.tierarztpraxis-schmidl.de/leistungen.php",
+        "services": [
+          "Surgery"
+        ],
+        "official_url": "https://www.tierarztpraxis-schmidl.de/leistungen.php",
+        "supporting_quote": "Tumorchirurgie",
+        "clinician_review": "Gabriela Schmidl and Annette Glöckner, both Prakt. Tierärztin für Kleintiere; Schmidl veterinary degree and 1989 licence stated.",
+        "availability_note": "Appointments by telephone; practice advertises immediate handling of emergencies.",
+        "missing": [],
+        "source_attempted_at": "2026-10-16T21:50:28.201224+00:00",
+        "qa": "Root independently reviewed stored full primary body; agent must current-main semantic-dedupe and confirm all required core fields before publishing. No root network request.",
+        "country": "Germany",
+        "coordinates_unknown": true,
+        "latitude": null,
+        "longitude": null,
+        "status": "ROOT_DRAFT_CORE_SUFFICIENT_PENDING_AGENT_QA",
+        "followup_sources": [
+          {
+            "url": "https://www.tierarztpraxis-schmidl.de/ueber-uns.php",
+            "attempted_at": "2026-10-16T21:53:02.071681+00:00",
+            "status": 200,
+            "raw_key": "0d7055d80bc7b336"
+          }
+        ]
+      },
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch71-results.json",
+          "url": "https://www.tierarztpraxis-schmidl.de/leistungen.php",
+          "attempted_at": "2026-10-16T21:50:28.201224+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "4437d3a3c421638a"
+        },
+        {
+          "receipt_file": "last-named-cores-results.json",
+          "url": "https://www.tierarztpraxis-schmidl.de/ueber-uns.php",
+          "attempted_at": "2026-10-16T21:53:02.071681+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "0d7055d80bc7b336"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-tierarztpraxis-schmidl-bremen",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://www.tierarztpraxis-schmidl.de/leistungen.php",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.tierarztpraxis-schmidl.de/leistungen.php",
+          "attempted_at": "2026-10-16T21:50:28.201224+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "4437d3a3c421638a",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "wendel-mannheim",
+      "name": "Wendel Mannheim",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "Wendel Mannheim current practice root read200. Must separate physical practice from Anke Wendel visiting service and verify actual local cancer treatment/team/intake; no duplicate remote/physical assumptions."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch71-results.json",
+          "url": "https://kleintierpraxis-wendel.de/",
+          "attempted_at": "2026-10-16T21:50:24.339210+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "d4d8cb976367e8cc"
+        }
+      ],
+      "final_disposition": "REVIEWED_INSUFFICIENT_PRIMARY",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL"
+    },
+    {
+      "candidate_id": "wiblingen-ulm",
+      "name": "Wiblingen Ulm",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "Current own oncology child body discusses operative tumor removal as an option; actual local delivery/current individual role remains insufficiently established."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch71-results.json",
+          "url": "https://www.tieraerzte-wiblingen.de/fachgebiete",
+          "attempted_at": "2026-10-16T21:50:29.011520+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "5c5f20ea2fee9a86"
+        }
+      ],
+      "final_disposition": "REVIEWED_INSUFFICIENT_PRIMARY",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL"
+    },
+    {
+      "candidate_id": "hoppe-stech-schenefeld",
+      "name": "Hoppe & Stech Schenefeld",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "Hoppe&Stech owned services lists oncology/internal medicine and simple soft-tissue surgery. No explicit local chemo or tumor surgery: retain unconfirmed specific modalities until source proves them."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "resumed-first18.json",
+          "url": "https://kleintierpraxis-hoppe-stech.de/leistungen/",
+          "attempted_at": null,
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "2b0de74ef8210305"
+        }
+      ],
+      "final_disposition": "REVIEWED_INSUFFICIENT_PRIMARY",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL"
+    },
+    {
+      "candidate_id": "buttner-oberhausen",
+      "name": "Büttner Oberhausen",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [
+        "Explicit current veterinarian role/team from official page"
+      ],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa-nine.json",
+      "qa_record_name": "Kleintierpraxis Kerstin Büttner",
+      "core_proposal": {
+        "preliminary_id": "de-kerstin-buettner-oberhausen",
+        "name": "Kleintierpraxis Kerstin Büttner",
+        "city": "Oberhausen",
+        "street": "Postweg 118",
+        "postal_code": "46145",
+        "phone": "+49 208 6964688",
+        "website": "https://www.kleintierpraxis-oberhausen.de/leistungen/",
+        "services": [
+          "Surgery"
+        ],
+        "official_url": "https://www.kleintierpraxis-oberhausen.de/leistungen/",
+        "supporting_quote": "Tumorentfernungen",
+        "clinician_review": "Service footer names Kerstin Büttner; explicit current veterinarian role requires owned team/imprint confirmation.",
+        "availability_note": "Booking links and new-patient registration are advertised. Phone extracted from owned HTML tel link.",
+        "missing": [
+          "Explicit current veterinarian role/team from official page"
+        ],
+        "source_attempted_at": "2026-10-16T21:50:03.541209+00:00",
+        "qa": "Root independently reviewed stored full primary body; agent must current-main semantic-dedupe and confirm all required core fields before publishing. No root network request.",
+        "country": "Germany",
+        "coordinates_unknown": true,
+        "latitude": null,
+        "longitude": null,
+        "status": "ROOT_DRAFT_PARTIAL"
+      },
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch62-results.json",
+          "url": "https://www.kleintierpraxis-oberhausen.de/leistungen/",
+          "attempted_at": "2026-10-16T21:50:03.541209+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "9d22acc90ce6b377"
+        },
+        {
+          "receipt_file": "last-named-cores-results.json",
+          "url": "https://www.kleintierpraxis-oberhausen.de/impressum/",
+          "attempted_at": "2026-10-16T21:53:05.941653+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "0553716bf8ebc772"
+        }
+      ],
+      "final_disposition": "REVIEWED_INSUFFICIENT_PRIMARY",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL"
+    },
+    {
+      "candidate_id": "anke-wendel-visiting-service",
+      "name": "Anke Wendel visiting service",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [
+        "Anke Wendel listed by Lichtenberge as consiliary clinician. Need actual oncology modality, visiting locations, owner/referrer intake and identity dedupe; do not convert referral listing into independent treatment office."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch71-results.json",
+          "url": "https://tierklinik-lichtenberge.de/konsiliar/anke-wendel/",
+          "attempted_at": "2026-10-16T21:50:31.526885+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "d7cd5c509791e8cb"
+        }
+      ],
+      "final_disposition": "REVIEWED_INSUFFICIENT_PRIMARY",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL"
+    },
+    {
+      "candidate_id": "rotenbuhl-saarbrucken",
+      "name": "Rotenbühl Saarbrücken",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa-thirteen.json",
+      "qa_record_name": "Tierarztpraxis am Rotenbühl",
+      "core_proposal": {
+        "preliminary_id": "de-tierarztpraxis-rotenbuehl-saarbruecken",
+        "name": "Tierarztpraxis am Rotenbühl",
+        "city": "Saarbrücken",
+        "street": "August-Klein-Str. 28",
+        "postal_code": "66123",
+        "phone": "+49 681 9104990",
+        "country": "Germany",
+        "services": [
+          "Surgery"
+        ],
+        "official_url": "https://tierarztpraxisrotenbuehl.de/ueber-mich/chirurgie/",
+        "supporting_quote": "Tumoroperationen",
+        "clinician_review": "Birgit Morisse, Fachtierärztin für Kleintiere; Marion Fechler, veterinarian, both named in owned navigation/team roster.",
+        "additional_sources": [],
+        "missing": [],
+        "parent_QA": "Read full stored fresh primary pages; no root network request. Must fresh-main semantic-dedupe and validate core facts before canonical insertion.",
+        "coordinates_unknown": true,
+        "latitude": null,
+        "longitude": null,
+        "status": "ROOT_DRAFT_CORE_SUFFICIENT_PENDING_AGENT_QA",
+        "source_attempts": [
+          {
+            "url": "https://tierarztpraxisrotenbuehl.de/ueber-mich/chirurgie/",
+            "attempted_at": "2026-10-16T21:51:22.172765+00:00",
+            "result": "READABLE_PRIMARY"
+          }
+        ],
+        "availability_note": "Contact the practice to arrange an appointment and confirm current case suitability."
+      },
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch62-results.json",
+          "url": "https://tierarztpraxisrotenbuehl.de/",
+          "attempted_at": "2026-10-16T21:50:03.822317+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "e0fc1d10d0d82162"
+        },
+        {
+          "receipt_file": "followups-a-results.json",
+          "url": "https://tierarztpraxisrotenbuehl.de/ueber-mich/chirurgie/",
+          "attempted_at": "2026-10-16T21:51:22.172765+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "00d695886e795b95"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-tierarztpraxis-rotenbuehl-saarbruecken",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://tierarztpraxisrotenbuehl.de/ueber-mich/chirurgie/",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://tierarztpraxisrotenbuehl.de/ueber-mich/chirurgie/",
+          "attempted_at": "2026-10-16T21:51:22.172765+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "00d695886e795b95",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "bungartz-reuth",
+      "name": "Bungartz Reuth",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa-nine.json",
+      "qa_record_name": "Tierarztpraxis Dr. Bungartz",
+      "core_proposal": {
+        "preliminary_id": "de-tierarztpraxis-bungartz-reuth",
+        "name": "Tierarztpraxis Dr. Bungartz",
+        "city": "Reuth",
+        "street": "Neuensteiner Weg 9",
+        "postal_code": "54597",
+        "phone": "+49 6552 980210",
+        "website": "https://tierarztpraxis-bungartz.de/leistungen/kleintiere",
+        "services": [
+          "Surgery"
+        ],
+        "official_url": "https://tierarztpraxis-bungartz.de/leistungen/kleintiere",
+        "supporting_quote": "Tumor-OPs",
+        "clinician_review": "Dr. Lothar Bungartz, owner and veterinarian explicitly stated in official imprint.",
+        "availability_note": "Consultations by telephone arrangement; house calls by arrangement.",
+        "missing": [],
+        "source_attempted_at": "2026-10-16T21:49:59.851451+00:00",
+        "qa": "Root independently reviewed stored full primary body; agent must current-main semantic-dedupe and confirm all required core fields before publishing. No root network request.",
+        "country": "Germany",
+        "coordinates_unknown": true,
+        "latitude": null,
+        "longitude": null,
+        "status": "ROOT_DRAFT_CORE_SUFFICIENT_PENDING_AGENT_QA",
+        "followup_sources": [
+          {
+            "url": "https://tierarztpraxis-bungartz.de/impressum",
+            "attempted_at": "2026-10-16T21:53:05.950850+00:00",
+            "status": 200,
+            "raw_key": "d6ad536f468ffeeb"
+          }
+        ]
+      },
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch62-results.json",
+          "url": "https://tierarztpraxis-bungartz.de/leistungen/kleintiere",
+          "attempted_at": "2026-10-16T21:49:59.851451+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "6f1408f0dc06ec35"
+        },
+        {
+          "receipt_file": "last-named-cores-results.json",
+          "url": "https://tierarztpraxis-bungartz.de/impressum",
+          "attempted_at": "2026-10-16T21:53:05.950850+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "d6ad536f468ffeeb"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-tierarztpraxis-bungartz-reuth",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://tierarztpraxis-bungartz.de/leistungen/kleintiere",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://tierarztpraxis-bungartz.de/leistungen/kleintiere",
+          "attempted_at": "2026-10-16T21:49:59.851451+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "6f1408f0dc06ec35",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "liane-kruse-oesterdeichstrich",
+      "name": "Liane Kruse Oesterdeichstrich",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa-thirteen.json",
+      "qa_record_name": "Tierarztpraxis Liane Kruse",
+      "core_proposal": {
+        "preliminary_id": "de-liane-kruse-oesterdeichstrich",
+        "name": "Tierarztpraxis Liane Kruse",
+        "city": "Österdeichstrich",
+        "street": "Hauptstr. 2",
+        "postal_code": "25761",
+        "phone": "+49 4834 9846520",
+        "country": "Germany",
+        "services": [
+          "Surgery"
+        ],
+        "official_url": "https://www.tierarzt-kruse.de/Leistungen/",
+        "supporting_quote": "Tumoroperationen",
+        "clinician_review": "Liane Kruse, veterinarian and practice owner; veterinary degree in Giessen.",
+        "additional_sources": [
+          "https://www.tierarzt-kruse.de/Das-Team/",
+          "https://tierarzt-kruse.de/Kontakt/Impressum/"
+        ],
+        "missing": [],
+        "parent_QA": "Read full stored fresh primary pages; no root network request. Must fresh-main semantic-dedupe and validate core facts before canonical insertion.",
+        "coordinates_unknown": true,
+        "latitude": null,
+        "longitude": null,
+        "status": "ROOT_DRAFT_CORE_SUFFICIENT_PENDING_AGENT_QA",
+        "source_attempts": [
+          {
+            "url": "https://www.tierarzt-kruse.de/Leistungen/",
+            "attempted_at": "2026-10-16T21:47:44.254308+00:00",
+            "result": "READABLE_PRIMARY"
+          },
+          {
+            "url": "https://www.tierarzt-kruse.de/Das-Team/",
+            "attempted_at": "2026-10-16T21:50:52.990392+00:00",
+            "result": "READABLE_PRIMARY"
+          },
+          {
+            "url": "https://tierarzt-kruse.de/Kontakt/Impressum/",
+            "attempted_at": "2026-10-16T21:50:08.052570+00:00",
+            "result": "READABLE_PRIMARY"
+          }
+        ],
+        "availability_note": "Contact the practice to arrange an appointment and confirm current case suitability."
+      },
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "resumed-first18.json",
+          "url": "https://www.tierarzt-kruse.de/Leistungen/",
+          "attempted_at": "2026-10-16T21:47:44.254308+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "a28107bd3c6f31ce"
+        },
+        {
+          "receipt_file": "batch62-results.json",
+          "url": "https://tierarzt-kruse.de/Kontakt/Impressum/",
+          "attempted_at": "2026-10-16T21:50:08.052570+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "d8c9ce8ed7cd7f8b"
+        },
+        {
+          "receipt_file": "followups-a-results.json",
+          "url": "https://www.tierarzt-kruse.de/Das-Team/",
+          "attempted_at": "2026-10-16T21:50:52.990392+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "b875a3d094311d4e"
+        },
+        {
+          "receipt_file": "followups-a-results.json",
+          "url": "https://www.tierarzt-kruse.de/Kontakt/",
+          "attempted_at": "2026-10-16T21:50:52.996632+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "33eeb4a937bfc2f1"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-liane-kruse-oesterdeichstrich",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://www.tierarzt-kruse.de/Leistungen/",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.tierarzt-kruse.de/Leistungen/",
+          "attempted_at": "2026-10-16T21:47:44.254308+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "a28107bd3c6f31ce",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "rudloff-elzach",
+      "name": "Rudloff Elzach",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa-nine.json",
+      "qa_record_name": "Tierarztpraxis Rudloff",
+      "core_proposal": {
+        "preliminary_id": "de-tierarztpraxis-rudloff-elzach",
+        "name": "Tierarztpraxis Rudloff",
+        "city": "Elzach",
+        "street": "Brandstr. 10",
+        "postal_code": "79215",
+        "phone": "+49 7682 290",
+        "website": "https://www.tierarzt-rudloff.de/leistung.html",
+        "services": [
+          "Surgery"
+        ],
+        "official_url": "https://www.tierarzt-rudloff.de/leistung.html",
+        "supporting_quote": "Tumoroperationen",
+        "clinician_review": "Andreas Rudloff named on official practice contact page; owned team page describes current veterinarians.",
+        "availability_note": "Appointments by telephone. Outside-hours mobile number announced on practice line is for urgent emergencies only.",
+        "missing": [],
+        "source_attempted_at": "2026-10-16T21:50:32.646147+00:00",
+        "qa": "Root independently reviewed stored full primary body; agent must current-main semantic-dedupe and confirm all required core fields before publishing. No root network request.",
+        "country": "Germany",
+        "coordinates_unknown": true,
+        "latitude": null,
+        "longitude": null,
+        "status": "ROOT_DRAFT_CORE_SUFFICIENT_PENDING_AGENT_QA",
+        "followup_sources": [
+          {
+            "url": "https://www.tierarzt-rudloff.de/kontakt.html",
+            "attempted_at": "2026-10-16T21:53:02.073745+00:00",
+            "status": 200,
+            "raw_key": "a8bac2cda5f8d12b"
+          }
+        ]
+      },
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch71-results.json",
+          "url": "https://www.tierarzt-rudloff.de/leistung.html",
+          "attempted_at": "2026-10-16T21:50:32.646147+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "c26dc1bbdaf20b64"
+        },
+        {
+          "receipt_file": "last-named-cores-results.json",
+          "url": "https://www.tierarzt-rudloff.de/kontakt.html",
+          "attempted_at": "2026-10-16T21:53:02.073745+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "a8bac2cda5f8d12b"
+        },
+        {
+          "receipt_file": "last-named-cores-results.json",
+          "url": "https://www.tierarzt-rudloff.de/praxis.html",
+          "attempted_at": "2026-10-16T21:53:02.074349+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "2e477b8483edbdd0"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-tierarztpraxis-rudloff-elzach",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://www.tierarzt-rudloff.de/leistung.html",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.tierarzt-rudloff.de/leistung.html",
+          "attempted_at": "2026-10-16T21:50:32.646147+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "c26dc1bbdaf20b64",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "kielvet-zentrale-elmschenhagen-preetzerchaussee122",
+      "name": "KielVET Zentrale Elmschenhagen PreetzerChaussee122",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [
+        "Own group service master explicitly lists tumor surgery; two physical branches exist. Allocation to the exact Elmschenhagen branch remains unstated; no duplication of group modality."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch71-results.json",
+          "url": "https://kielvet.de/kleintierzentrum-kiel/",
+          "attempted_at": "2026-10-16T21:50:36.385735+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "093a5e61da51ac89"
+        },
+        {
+          "receipt_file": "batch71-results.json",
+          "url": "https://kielvet.de/ueber-uns/",
+          "attempted_at": "2026-10-16T21:50:37.279345+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "c797e722c95cd592"
+        }
+      ],
+      "final_disposition": "REVIEWED_INSUFFICIENT_PRIMARY",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL"
+    },
+    {
+      "candidate_id": "grommelt-kehl-kork",
+      "name": "Grommelt Kehl-Kork",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch71-results.json",
+          "url": "https://www.tierarztpraxis-grommelt.de/",
+          "attempted_at": "2026-10-16T21:50:33.170077+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "f577e561e9c62634"
+        },
+        {
+          "receipt_file": "specific-last-results.json",
+          "url": "https://www.tierarztpraxis-grommelt.de/page4.html",
+          "attempted_at": "2026-10-16T21:53:12.993515+00:00",
+          "status": 404,
+          "result": "HTTP_ERROR"
+        },
+        {
+          "receipt_file": "core-followup-12-results.json",
+          "url": "https://www.tierarztpraxis-grommelt.de/chirurgie/",
+          "attempted_at": "2026-10-16T21:56:05.096358+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "70161af2e243d067"
+        },
+        {
+          "receipt_file": "core-followup-12-results.json",
+          "url": "https://www.tierarztpraxis-grommelt.de/leistungen/",
+          "attempted_at": "2026-10-16T21:56:06.252096+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "a66f5eb7afc3127c"
+        },
+        {
+          "receipt_file": "core-followup-12-results.json",
+          "url": "https://www.tierarztpraxis-grommelt.de/team/",
+          "attempted_at": "2026-10-16T21:56:09.125257+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "cc5c5cb0bc58e4af"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-fachtierarztpraxis-dr-peter-grommelt-kehl-kork",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://www.tierarztpraxis-grommelt.de/chirurgie/",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.tierarztpraxis-grommelt.de/chirurgie/",
+          "attempted_at": "2026-10-16T21:56:05.096358+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "70161af2e243d067",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "itterburg-eberbach",
+      "name": "Itterburg Eberbach",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch71-results.json",
+          "url": "https://www.tierarztpraxis-itterburg.de/",
+          "attempted_at": "2026-10-16T21:50:35.175021+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "2207e499954f911a"
+        },
+        {
+          "receipt_file": "last-named-cores-results.json",
+          "url": "https://www.tierarztpraxis-itterburg.de/portfolio_page/weichteilchirurgie/",
+          "attempted_at": "2026-10-16T21:53:06.225348+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "8ff04ead1ad95704"
+        },
+        {
+          "receipt_file": "last-named-cores-results.json",
+          "url": "https://www.tierarztpraxis-itterburg.de/praxis/",
+          "attempted_at": "2026-10-16T21:53:10.754395+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "ebecd95014bca1a9"
+        },
+        {
+          "receipt_file": "specific-last-results.json",
+          "url": "https://www.tierarztpraxis-itterburg.de/kontakt/",
+          "attempted_at": "2026-10-16T21:53:12.992898+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "9791a8116cd3c08d"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-tierarztpraxis-itterburg-eberbach",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://www.tierarztpraxis-itterburg.de/portfolio_page/weichteilchirurgie/",
+      "decision_note": "Current local tumor surgery, named veterinarian, contact and appointment route verified; independently deduplicated.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.tierarztpraxis-itterburg.de/portfolio_page/weichteilchirurgie/",
+          "attempted_at": "2026-10-16T21:53:06.225348+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "8ff04ead1ad95704",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "ingelheim",
+      "name": "Ingelheim",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [
+        "Clinical result cannot be read after denied polling; named-finite-last-nine.json and automatic-rejection-two.json preserve exact scope. No result bodies used."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [],
+      "final_disposition": "BLOCKED_AUTO_REVIEW",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "UNFINISHED_PRIMARY_REVIEW"
+    },
+    {
+      "candidate_id": "nord-ostsee-schafflund",
+      "name": "Nord-Ostsee Schafflund",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "Chemotherapy branch allocation unconfirmed; no corresponding service propagated to Tarp."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "resumed-first18.json",
+          "url": "https://nordostsee-tieraerzte.de/kleintiere/onkologie",
+          "attempted_at": null,
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "164b9135d87a8aa7"
+        },
+        {
+          "receipt_file": "resumed-first18.json",
+          "url": "https://nordostsee-tieraerzte.de/kleintiere/op_bereich",
+          "attempted_at": "2026-10-16T21:47:29.961296+00:00",
+          "status": 200,
+          "result": "EMPTY_BODY"
+        },
+        {
+          "receipt_file": "resumed-first18.json",
+          "url": "https://nordostsee-tieraerzte.de/kontakt",
+          "attempted_at": null,
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "b0390a888bbf7141"
+        },
+        {
+          "receipt_file": "resumed-first18.json",
+          "url": "https://nordostsee-tieraerzte.de/ueber-uns/praxis",
+          "attempted_at": null,
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "64b6cd58e67738f7"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "publication_decision": "Selected for Surgery-only publication; source timestamp precision retained.",
+      "source_id": "de-nord-ostsee-tieraerzte-schafflund",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://nordostsee-tieraerzte.de/kleintiere/onkologie",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL",
+      "final_service_source_attempts": [
+        {
+          "url": "https://nordostsee-tieraerzte.de/kleintiere/onkologie",
+          "attempted_at": null,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "164b9135d87a8aa7",
+          "recovered_from_successful_raw": true,
+          "raw_file_completed_at": "2026-10-16T21:46:29.952722+00:00"
+        }
+      ]
+    },
+    {
+      "candidate_id": "sliwon-dormagen",
+      "name": "Sliwon Dormagen",
+      "previous_disposition": "UNPROCESSED_IDENTITY_ONLY",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa-nine.json",
+      "qa_record_name": "Tierarztpraxis Markus Sliwon",
+      "core_proposal": {
+        "preliminary_id": "de-markus-sliwon-dormagen",
+        "name": "Tierarztpraxis Markus Sliwon",
+        "city": "Dormagen (Delrath)",
+        "street": "Johannesstraße 81",
+        "postal_code": "41542",
+        "phone": "+49 2133 220100",
+        "website": "https://www.tierarzt-sliwon.de/",
+        "services": [
+          "Surgery"
+        ],
+        "official_url": "https://www.tierarzt-sliwon.de/",
+        "supporting_quote": "Tumorchirurgie",
+        "clinician_review": "Markus Sliwon, Prakt. Tierarzt stated.",
+        "availability_note": "The practice states it will be closed 17–25 October 2026 for training. An emergency arrangement through an existing known mobile number does not guarantee routine new-client access during closure.",
+        "missing": [],
+        "source_attempted_at": "2026-10-16T21:50:47.563421+00:00",
+        "qa": "Root independently reviewed stored full primary body; agent must current-main semantic-dedupe and confirm all required core fields before publishing. No root network request.",
+        "country": "Germany",
+        "coordinates_unknown": true,
+        "latitude": null,
+        "longitude": null,
+        "status": "ROOT_DRAFT_CORE_SUFFICIENT_PENDING_AGENT_QA"
+      },
+      "saved_fresh_source_attempts": [
+        {
+          "receipt_file": "batch71-results.json",
+          "url": "https://www.tierarzt-sliwon.de/",
+          "attempted_at": "2026-10-16T21:50:47.563421+00:00",
+          "status": 200,
+          "result": "READABLE_PRIMARY",
+          "raw_key": "219c95e6155a05d5"
+        }
+      ],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-markus-sliwon-dormagen",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://www.tierarzt-sliwon.de/",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.tierarzt-sliwon.de/",
+          "attempted_at": "2026-10-16T21:50:47.563421+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "219c95e6155a05d5",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "karin-rieckhoff-rendsburg",
+      "name": "Karin Rieckhoff Rendsburg",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [],
+      "new_request_by_parent": false,
+      "qa_file": "parent-QA/root-germany-clinical-qa.json",
+      "qa_record_name": "Tierärztin Karin Rieckhoff – Fachpraxis für Kleintiere und Zahnheilkunde",
+      "core_proposal": {
+        "name": "Tierärztin Karin Rieckhoff – Fachpraxis für Kleintiere und Zahnheilkunde",
+        "city": "Rendsburg",
+        "street": "Hollesenstr. 28",
+        "postal_code": "24768",
+        "phone": "+49 4331 6640222",
+        "services": [
+          "Surgery"
+        ],
+        "url": "https://www.fachtierarzt-rendsburg.de/seite/697815/leistungen.html",
+        "quote": "Gesäugetumorentfernung ... Tumor-OPs ... Milztumor-OP",
+        "qualification": "Tierärztin Karin Rieckhoff named; no doctorate/board certification inferred from domain or Fachpraxis",
+        "access": "Appointments; referring-veterinarian online/referral links. GOT fees, cash or card; no instalments stated.",
+        "qa": "Dog/cat/local tumor surgery explicitly stated. Dendritic-cell treatment described, kept as source evidence for separate modality QA rather than inferred chemotherapy.",
+        "source_attempt": "2026-10-16T21:47:35.708160+00:00",
+        "date_basis": "Use exact new receipt precision; do not substitute filemtime if recovered first7attempt lacks full receipt",
+        "parent_review": "root offline review of newly fetched full owned source, no new request",
+        "source_record_index": "resumed-first18.json",
+        "status": "DRAFT_FOR_AGENT_INTEGRATION_AND_SEMANTIC_DEDUPE"
+      },
+      "saved_fresh_source_attempts": [],
+      "final_disposition": "VERIFIED_NEW_PHYSICAL",
+      "source_id": "de-tierarztin-karin-rieckhoff-fachpraxis-fur-kleintiere-und-zahnheilkunde-rendsburg",
+      "services": [
+        "Surgery"
+      ],
+      "official_url": "https://www.fachtierarzt-rendsburg.de/seite/697815/leistungen.html",
+      "decision_note": "Current local service/current veterinary role/contact/access verified; independent semantic dedupe found no existing location. Specific source precision retained in receipts.",
+      "publication_decision": "Verified new record selected for publication; exact modality limits retained.",
+      "historical_parent_disposition": "CORE_READY_FOR_DEDUPE",
+      "final_service_source_attempts": [
+        {
+          "url": "https://www.fachtierarzt-rendsburg.de/seite/697815/leistungen.html",
+          "attempted_at": "2026-10-16T21:47:35.708160+00:00",
+          "result": "READABLE_PRIMARY",
+          "raw_key": "74315ee2131b4fb8",
+          "recovered_from_successful_raw": null,
+          "raw_file_completed_at": null
+        }
+      ]
+    },
+    {
+      "candidate_id": "filu-tierarzt-waiblingen",
+      "name": "filu Tierarzt Waiblingen",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "Named branch contact/current veterinarian and generic surgery verified. Group tumor-removal offering is not allocated to this exact branch; no cancer modality propagated."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [],
+      "final_disposition": "REVIEWED_INSUFFICIENT_PRIMARY",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL"
+    },
+    {
+      "candidate_id": "filu-tierarzt-berlin-prenzlauer-berg",
+      "name": "filu Tierarzt Berlin Prenzlauer Berg",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "Named branch contact/current veterinarian and generic surgery verified. Group tumor-removal offering is not allocated to this exact branch; no cancer modality propagated."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [],
+      "final_disposition": "REVIEWED_INSUFFICIENT_PRIMARY",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL"
+    },
+    {
+      "candidate_id": "filu-tierarzt-munchen-wiener-platz",
+      "name": "filu Tierarzt München Wiener Platz",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "Named branch contact/current veterinarian and generic surgery verified. Group tumor-removal offering is not allocated to this exact branch; no cancer modality propagated."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [],
+      "final_disposition": "REVIEWED_INSUFFICIENT_PRIMARY",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL"
+    },
+    {
+      "candidate_id": "filu-tierarzt-hannover-list",
+      "name": "filu Tierarzt Hannover List",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "Named branch contact/current veterinarian and generic surgery verified. Group tumor-removal offering is not allocated to this exact branch; no cancer modality propagated."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [],
+      "final_disposition": "REVIEWED_INSUFFICIENT_PRIMARY",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL"
+    },
+    {
+      "candidate_id": "filu-tierarzt-hamburg-hoheluft",
+      "name": "filu Tierarzt Hamburg Hoheluft",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "Named branch contact/current veterinarian and generic surgery verified. Group tumor-removal offering is not allocated to this exact branch; no cancer modality propagated."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [],
+      "final_disposition": "REVIEWED_INSUFFICIENT_PRIMARY",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL"
+    },
+    {
+      "candidate_id": "filu-tierarzt-berlin-charlottenburg",
+      "name": "filu Tierarzt Berlin Charlottenburg",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "Named branch contact/current veterinarian and generic surgery verified. Group tumor-removal offering is not allocated to this exact branch; no cancer modality propagated."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [],
+      "final_disposition": "REVIEWED_INSUFFICIENT_PRIMARY",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL"
+    },
+    {
+      "candidate_id": "filu-tierarzt-frankfurt-nordend",
+      "name": "filu Tierarzt Frankfurt Nordend",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "Named branch contact/current veterinarian and generic surgery verified. Group tumor-removal offering is not allocated to this exact branch; no cancer modality propagated."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [],
+      "final_disposition": "REVIEWED_INSUFFICIENT_PRIMARY",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL"
+    },
+    {
+      "candidate_id": "filu-tierarzt-koln-rudolfplatz",
+      "name": "filu Tierarzt Köln Rudolfplatz",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "Named branch contact/current veterinarian and generic surgery verified. Group tumor-removal offering is not allocated to this exact branch; no cancer modality propagated."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [],
+      "final_disposition": "REVIEWED_INSUFFICIENT_PRIMARY",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL"
+    },
+    {
+      "candidate_id": "filu-tierarzt-hamburg-winterhuder-weg",
+      "name": "filu Tierarzt Hamburg Winterhuder Weg",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "Named branch contact/current veterinarian and generic surgery verified. Group tumor-removal offering is not allocated to this exact branch; no cancer modality propagated."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [],
+      "final_disposition": "REVIEWED_INSUFFICIENT_PRIMARY",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL"
+    },
+    {
+      "candidate_id": "filu-tierarzt-dusseldorf-pempelfort",
+      "name": "filu Tierarzt Düsseldorf Pempelfort",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "Named branch contact/current veterinarian and generic surgery verified. Group tumor-removal offering is not allocated to this exact branch; no cancer modality propagated."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [],
+      "final_disposition": "REVIEWED_INSUFFICIENT_PRIMARY",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL"
+    },
+    {
+      "candidate_id": "filu-tierarzt-munchen-schwabing",
+      "name": "filu Tierarzt München Schwabing",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "Named branch contact/current veterinarian and generic surgery verified. Group tumor-removal offering is not allocated to this exact branch; no cancer modality propagated."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [],
+      "final_disposition": "REVIEWED_INSUFFICIENT_PRIMARY",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL"
+    },
+    {
+      "candidate_id": "filu-tierarzt-munchen-theresienwiese",
+      "name": "filu Tierarzt München Theresienwiese",
+      "previous_disposition": "UNRESOLVED",
+      "remaining_facts": [
+        "Named branch contact/current veterinarian and generic surgery verified. Group tumor-removal offering is not allocated to this exact branch; no cancer modality propagated."
+      ],
+      "new_request_by_parent": false,
+      "saved_fresh_source_attempts": [],
+      "final_disposition": "REVIEWED_INSUFFICIENT_PRIMARY",
+      "publication_decision": "Not published; concrete source/evidence gap retained.",
+      "historical_parent_disposition": "PRIMARY_REVIEW_PARTIAL"
+    }
+  ]
+}
