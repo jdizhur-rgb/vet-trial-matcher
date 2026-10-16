@@ -1,0 +1,31 @@
+{
+  "slot": 4,
+  "country": "Germany",
+  "run": "europe-slot-4-20261016",
+  "original_run_local_date": "2026-10-15",
+  "review_local_date": "2026-10-16",
+  "status": "INCOMPLETE",
+  "new_this_run": 32,
+  "update_this_run": 0,
+  "previous_german_physical_rows": 8,
+  "resulting_german_physical_rows": 40,
+  "coverage_complete": false,
+  "baseline_sha": "72d2fb187b3af4023957e6e3f933c071ea9cdd3d",
+  "checks_passed": [
+    "full build_static_site.py including catalog/schema/identity/source-date/duplicates/site search/production-sync/matcher logic/source-derived-selection/selection parity/country filters/Austrian identity/no-tracking/public shell gates",
+    "A01/A02/B01/B02/C01 care regressions",
+    "Austrian 65 physical identities preserved",
+    "country filter: 40 German locations and combined filter/reset/ZIP behavior",
+    "all baseline canonical/supplemental/source inventory record fields unchanged, keyed by complete physical identity",
+    "new IDs and exact physical identity tuples checked against complete current physical catalog",
+    "git diff --check",
+    "evidence-key redaction and scan"
+  ],
+  "production_expected": {
+    "url": "https://vettrialfinder.com/matcher/centers/",
+    "bytes": 602442,
+    "sha256": "276c980a0b9464eec1cc973af6959b2f6a9aba3568d2e16577d49143f95e0da8"
+  },
+  "publication_status": "NOT_YET_PUBLISHED",
+  "limitations": "Building coordinates unverified for all 32 rows; published as explicit nulls. Country coverage and unfinished branches/services are in remaining.json; passing checks do not establish complete national coverage."
+}
