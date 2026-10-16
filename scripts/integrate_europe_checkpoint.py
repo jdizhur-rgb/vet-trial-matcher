@@ -39,7 +39,7 @@ def identity_hits(row, rows):
             continue
         same_address = norm(existing.get('street')) == norm(row.get('street')) and norm(existing.get('city')) == norm(row.get('city'))
         same_phone = norm(existing.get('phone')) == norm(row.get('phone')) and bool(row.get('phone'))
-        if existing.get('source_id') == row['source_id'] or same_address or same_phone or center_match(row, existing):
+        if existing.get('source_id') == row['source_id'] or same_address or same_phone or center_match(row, existing) or center_match(existing, row):
             hits.append({k: existing.get(k) for k in ('source_id', 'name', 'street', 'city', 'phone', 'website')})
     return hits
 
@@ -83,7 +83,9 @@ def main():
                 row = copy.deepcopy(change['new_value'])
                 row['review_reference'] = str((package / 'evidence.json').relative_to(ROOT))
                 if found:
-                    assert len(found) == 1 and found[0] == row, f'Existing new source differs: {sid}'
+                    # A cumulative checkpoint is not permission to overwrite
+                    # an earlier published card or replace its immutable cite.
+                    assert len(found) == 1 and {k:v for k,v in found[0].items() if k != 'review_reference'} == {k:v for k,v in row.items() if k != 'review_reference'}, f'Existing new source differs: {sid}'
                     receipt['already_applied'].append({'source_id': sid, 'field': field})
                     continue
                 assert not identity_hits(row, seen), (sid, identity_hits(row, seen))

@@ -1,0 +1,206 @@
+{
+  "run_id": "europe-controller-20261016T092604-0400",
+  "slot": 5,
+  "country": "France",
+  "baseline_sha": "806757b3b175a4582376591a66db133aab2ca42e",
+  "status": "READY_SUBSET_COUNTRY_IN_PROGRESS",
+  "assignment_unit": "whole_country",
+  "assigned": 14,
+  "processed": 14,
+  "fully_verified": 6,
+  "core_sufficient": 9,
+  "counts": {
+    "assigned": 14,
+    "processed": 14,
+    "fully_verified": 6,
+    "NEW": 9,
+    "UPDATE": 0,
+    "DUPLICATE": 0,
+    "UNRESOLVED": 5
+  },
+  "baseline_physical_count": 11,
+  "territory_complete": false,
+  "coverage": {
+    "saved_leads": "All 10 original lead identities processed initially, including four Vetesia branches; nine core-sufficient physical proposals, one Vetesia branch-allocation unresolved group, one closed/conflicting remote route.",
+    "national_coverage_complete": false,
+    "universities": {
+      "ENVT": "ready",
+      "Alfort": "primary service/contact read, row not finished",
+      "Lyon": "primary service/team/contact read, row not finished",
+      "Nantes": "primary medical service/RT read, current team/address unverified",
+      "Indivisa": "surgery-only ready, medical oncology modalities unresolved"
+    }
+  },
+  "results": [
+    {
+      "source_id": "fr-envt-toulouse",
+      "name": "CHUV de Toulouse — ENVT",
+      "classification": "NEW",
+      "fully_verified": true,
+      "core_fields_sufficient": true,
+      "proposed_in_this_checkpoint": true
+    },
+    {
+      "source_id": "fr-onconseil-vetoccitanie",
+      "name": "ONCOnseil — CHV VetOccitanie",
+      "classification": "NEW",
+      "fully_verified": true,
+      "core_fields_sufficient": true,
+      "proposed_in_this_checkpoint": true
+    },
+    {
+      "source_id": "fr-bordeaux-sud",
+      "name": "Établissement vétérinaire Bordeaux Sud",
+      "classification": "NEW",
+      "fully_verified": true,
+      "core_fields_sufficient": true,
+      "proposed_in_this_checkpoint": true
+    },
+    {
+      "source_id": "fr-assistavet-begles",
+      "name": "Clinique vétérinaire Assistavet",
+      "classification": "NEW",
+      "fully_verified": false,
+      "core_fields_sufficient": true,
+      "proposed_in_this_checkpoint": false
+    },
+    {
+      "source_id": "fr-aixiancevet-puyricard",
+      "name": "Clinique vétérinaire AixianceVet",
+      "classification": "NEW",
+      "fully_verified": true,
+      "core_fields_sufficient": true,
+      "proposed_in_this_checkpoint": true
+    },
+    {
+      "source_id": "fr-hopia-guyancourt",
+      "name": "CHV HOPia Univet",
+      "classification": "NEW",
+      "fully_verified": false,
+      "core_fields_sufficient": true,
+      "proposed_in_this_checkpoint": false
+    },
+    {
+      "source_id": "fr-zebrasoma-strasbourg",
+      "name": "Clinique AniCura Zebrasoma",
+      "classification": "NEW",
+      "fully_verified": false,
+      "core_fields_sufficient": true,
+      "proposed_in_this_checkpoint": false
+    },
+    {
+      "source_id": "fr-castres-lameilhe",
+      "name": "Clinique vétérinaire Castres Lameilhe",
+      "classification": "NEW",
+      "fully_verified": true,
+      "core_fields_sufficient": true,
+      "proposed_in_this_checkpoint": true
+    },
+    {
+      "source_id": "fr-indivisa-mont-saint-aignan",
+      "name": "CHEV Indivisa — UniLaSalle",
+      "classification": "NEW",
+      "fully_verified": true,
+      "core_fields_sufficient": true,
+      "proposed_in_this_checkpoint": true
+    },
+    {
+      "name": "Vetesia group",
+      "classification": "UNRESOLVED",
+      "processed": true,
+      "fully_verified": false,
+      "reason": "Four actual branches reconciled. Three Marseille local-service pages list Cancérologie, Calypso does not. Group chemotherapy/ECT/surgery offering is not allocated to branches; no physical additions proposed yet.",
+      "branches": [
+        {
+          "name": "Hermès",
+          "street": "71 avenue de Hambourg",
+          "city": "Marseille",
+          "postal_code": "13008",
+          "phone": "+33 4 91 25 13 14",
+          "url": "https://vetesia.fr/clinique-hermes/"
+        },
+        {
+          "name": "La Plage",
+          "street": "1 promenade Georges Pompidou",
+          "city": "Marseille",
+          "postal_code": "13008",
+          "phone": "+33 4 91 76 30 76",
+          "url": "https://vetesia.fr/clinique-la-plage/"
+        },
+        {
+          "name": "Vet’Olympe",
+          "street": "205 route des Trois Lucs à la Valentine",
+          "city": "Marseille",
+          "postal_code": "13011",
+          "phone": "+33 4 91 30 63 06",
+          "url": "https://vetesia.fr/clinique-olympe/"
+        },
+        {
+          "name": "Calypso",
+          "street": "766 RD8n — Les Fillols Est",
+          "city": "Aubagne",
+          "postal_code": "13400",
+          "phone": "+33 4 42 18 30 30",
+          "url": "https://vetesia.fr/clinique-calypso/"
+        }
+      ],
+      "next_action": "Inspect any permitted official branch-specific treatment pages or clinic-authored current posts (Vet’Olympe ECT lead; Solea upcoming signal); retain local delivery question if allocation remains unpublished.",
+      "recheck_after": "2026-10-23"
+    },
+    {
+      "name": "ONCOnseil tele-oncology",
+      "classification": "UNRESOLVED",
+      "processed": true,
+      "fully_verified": false,
+      "url": "https://onconseil.com/je-suis-veterinaire/",
+      "supporting_quote": "Le service de télé-oncologie est actuellement fermé.",
+      "checked_at": "2026-10-16",
+      "reason": "Direct remote-service page explicitly closed, while general care-pathway page still mentions remote follow-up. No new active tele card; distinguish physician follow-up uncertainty from explicit closed vet-to-vet service.",
+      "next_action": "Do not promote remote offering until direct service page changes/current booking access confirmed.",
+      "recheck_after": "2026-10-23"
+    }
+  ],
+  "own_unfinished": [
+    {
+      "scope": "Saved leads",
+      "classification": "executor_unfinished",
+      "items": [
+        "Vetesia: locate branch-specific current treatment evidence for four branches; Vet’Olympe current ECT/clinic Solea future-opening social lead pending official follow-up.",
+        "Bordeaux Sud: clarify current local radiation equipment/type; retain non-RT verified modalities meanwhile.",
+        "Castres: chemotherapy delivery not established; diploma is not sufficient proof. Retain surgery-only proposal.",
+        "HOPia/Assistavet/Zebrasoma: individual chemotherapy assignment not published on reviewed service pages; investigate remaining official routes before external-gap judgment."
+      ]
+    },
+    {
+      "scope": "Universities",
+      "classification": "executor_unfinished",
+      "items": [
+        "VetAgro Sup Lyon service/team/contact read; complete proposed row and clarify radiation delivery rather than infer local from offered/referral plan.",
+        "Alfort oncology/contact read; complete row and direct oncology/internal-medicine ECT scope.",
+        "Oniris Nantes oncology/radiotherapy official pages read; actual local scheduled radiation, address and current named-team credentials require reconciliation."
+      ]
+    },
+    {
+      "scope": "National discovery",
+      "classification": "executor_unfinished",
+      "items": [
+        "Initial native-French queries executed across 13 metropolitan regions and five overseas departments; many irrelevant human-health hits, and combined response truncation requires more focused follow-up. Searches do not establish completion.",
+        "Deep-reconcile discovered primary leads: TRIOVet Rennes, LesVet Brest/Lesneven, Vetiroise branches, Vivanima Mesnil-Esnard/SeineVet identity, Côte Fleurie, Pommery Reims, Ducs de Bourgogne, LorraineVet, Polyvet Carvin/Lille, Caen Pasteur, Clomiers Talant.",
+        "Search-result leads from south/central region batches need focused rerun because returned combined tool output was truncated; not claimed viewed or reviewed.",
+        "Overseas: Front de Mer, Vetologie Réunion, HCVET Martinique leads; Guadeloupe/Guyane/Mayotte need focused primary follow-up.",
+        "AniCura all-branch master roster is next; IVC/Evidensia, Sevetys, Mon Véto, Univet and Fovéa oncology-relevant branch rosters still unexecuted.",
+        "GP cancer surgery/chemo; radiation/ECT; visiting/mobile/remote; current/undated and new-service/opening layers require further national discovery."
+      ]
+    }
+  ],
+  "external_gaps": [],
+  "date_note": "Web visits retain date-only precision. No fabricated exact Web success time.",
+  "assigned_scope_note": "Ten inherited lead identities; whole-country task has no candidate ceiling. Count grows as new candidates are enumerated.",
+  "coverage_complete": false,
+  "first_known_exact_source_attempt_at": "2026-10-16T13:29:52.217703+00:00",
+  "activity_time_note": "Earliest saved exact native source-request time, not worker/API start. Earlier local instruction reads and Web visits lack exposed exact timestamps.",
+  "supersedes_checkpoint": "checkpoint-01: count schema only; evidence and proposals unchanged.",
+  "count_note": "14 reviewed identities: nine NEW physical records, four unresolved Vetesia physical branches, and one closed/conflicting ONCOnseil remote route. Six strict verified physical records included in changes; three core-only physical rows retained in root evolving package.",
+  "ready_physical": 6,
+  "core_only_not_in_ready_changes": 3
+}

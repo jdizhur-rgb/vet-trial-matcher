@@ -323,9 +323,9 @@ def center_from_group(group: list[dict], organization_sites: dict[str, str], zip
 def center_match(seed: dict, candidate: dict) -> bool:
     if seed["country"] != candidate["country"] or seed["region"] != candidate["region"]:
         return False
-    # Official Austrian branch/contact review confirms these are distinct sites.
+    # Official branch/contact review confirms these are distinct sites.
     # Similar clinic names and a shared Vienna postal code are not identity proof.
-    separate_austrian_sites = {
+    separate_verified_sites = {
         frozenset(("tierplus-kagran", "tierplus-stadlau")),
         frozenset(("tierklinik-doebling-wien", "tierklinik-hutter-wien")),
         frozenset(("vetklinikum-wien", "veterinaria-wien-mauer")),
@@ -333,9 +333,13 @@ def center_match(seed: dict, candidate: dict) -> bool:
         # 2026-10-16: two independently verified Hall practices, different
         # addresses, telephones and clinicians; shared 6060 is not identity.
         frozenset(("tierarztpraxis-gebhard-anker-hall", "tierarztpraxis-stadtgraben-hall")),
+        frozenset(("tierarztpraxis-zekic-wien13", "tierarztpraxis-dorazio-wien-hietzing")),
+        frozenset(("pfotentierklinik-wien", "veterinaria-wien-mauer")),
+        frozenset(("pfotentierklinik-wien", "vetklinikum-wien")),
+        frozenset(("tierarztzentrum-seepark-wien", "tierarztordination-schneeweiss-wien")),
+        frozenset(("cz-eden-brno", "cz-animed-brno")),
     }
-    if seed["country"] == "Austria" and frozenset((
-            seed.get("source_id"), candidate.get("source_id"))) in separate_austrian_sites:
+    if frozenset((seed.get("source_id"), candidate.get("source_id"))) in separate_verified_sites:
         return False
     same_zip = bool(seed["postal_code"] and seed["postal_code"] == candidate["postal_code"])
     same_city = bool(seed["city"] and seed["city"].casefold() == candidate["city"].casefold())

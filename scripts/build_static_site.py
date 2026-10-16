@@ -203,6 +203,7 @@ def main() -> None:
     run("scripts/test_matcher_selection.py")
     subprocess.run(["node", "scripts/test_oncology_country_filter.js"], cwd=ROOT, check=True)
     run("scripts/test_austrian_care_identity.py")
+    run("scripts/test_europe_controller_reconciliation.py")
 
 
 if __name__ == "__main__":

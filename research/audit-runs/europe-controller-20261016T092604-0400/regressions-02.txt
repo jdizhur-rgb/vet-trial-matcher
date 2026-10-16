@@ -1,0 +1,44 @@
+COMMAND ['node', 'scripts/test_a01_care_reconciliation.js']
+A01_CARE_REGRESSION_OK identities, service flags, WA ZIP/state sorting, mobile distance suppression
+COMMAND ['python', 'scripts/test_a02_care_reconciliation.py']
+A02_CARE_REGRESSION_OK identities, retired/watchlist exclusion, local modality limits, mobile coordinates, doctor credentials, remote audiences
+COMMAND ['python', 'scripts/test_b01_care_reconciliation.py']
+B01_CARE_REGRESSION_OK 25 sources, 26 sites, Malvern separation, branch modalities, credentials and contacts
+COMMAND ['python', 'scripts/test_b02_care_reconciliation.py']
+B02_CARE_REGRESSION_OK branch modalities, credentials, aliases, relocation coordinates, network scope
+COMMAND ['python', 'scripts/test_c01_care_reconciliation.py']
+C01_CARE_REGRESSION_OK 24 unique branches, corrected coordinates/identity, conservative filters, credentials and named treatments
+COMMAND ['python', 'scripts/test_e_packages_reconciliation.py']
+E_PACKAGES_REGRESSION_OK 127 reviewed identities; branch scope, stale imports, mobile and explicit unknown states
+COMMAND ['python', 'scripts/test_six_worker_test_reconciliation.py']
+SIX_WORKER_TEST_RECONCILIATION_OK centers=827 new=5
+COMMAND ['python', 'scripts/validate_source_inventory.py']
+SOURCE_INVENTORY_VALIDATION_OK sources=111 digest=20ff7eac0363
+COMMAND ['python', 'scripts/validate_trials_catalog.py']
+TRIAL_CATALOG_VALIDATION_OK records=310 unique_ids=310 active=156 required_active_fields=11
+COMMAND ['python', 'scripts/validate_catalog_sanitation.py']
+{
+  "records": 310,
+  "partial_records": 4,
+  "known_unresolved": 4,
+  "new_partial_records": [],
+  "resolved_but_still_queued": [
+    "eu-ch-sinonasal-heterogeneous-rt",
+    "fr-fregis-chemodectoma-thermoablation",
+    "fr-fregis-hepatic-embolization",
+    "fr-fregis-hepatic-tumor-thermoablation",
+    "nl-utrecht-osteosarcoma-oncolytic-virus-access",
+    "uk-rvc-insulinoma-toceranib"
+  ]
+}
+COMMAND ['python', 'scripts/test_evidence_keys.py']
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+OK
+COMMAND ['python', 'scripts/test_europe_controller_reconciliation.py']
+EUROPE_CONTROLLER_IDENTITIES_OK 61 independently preserved cards
+COMMAND ['python', 'scripts/check_evidence_keys.py']
+PASS: no unredacted Google API keys.
+COMMAND ['git', '-c', 'core.whitespace=-blank-at-eof', 'diff', '--check']

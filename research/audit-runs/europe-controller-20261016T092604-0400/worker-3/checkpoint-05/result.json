@@ -1,0 +1,47 @@
+{
+  "run_id": "europe-controller-20261016T092604-0400",
+  "slot": 3,
+  "country": "Poland",
+  "baseline_sha": "806757b3b175a4582376591a66db133aab2ca42e",
+  "status": "INCOMPLETE",
+  "assignment_unit": "whole_country",
+  "assigned": 35,
+  "assigned_unit": "reviewed_clinic_or_alias_candidates_in_checkpoint",
+  "assigned_countries": 1,
+  "processed": 35,
+  "fully_verified": 19,
+  "core_fields_sufficient": 20,
+  "NEW": 20,
+  "UPDATE": 0,
+  "DUPLICATE": 1,
+  "UNRESOLVED": 14,
+  "country_complete": false,
+  "coverage_complete": false,
+  "coverage": {
+    "voivodeships_total": 16,
+    "voivodeships_initial_current_searches": 16,
+    "voivodeships_with_deep_verified_sites": 15,
+    "queries_total": 60,
+    "new_service_signal": "Broad national queries attempted; regional expansion unfinished",
+    "universities": "Three current clinical pages opened, none strict verified; Lublin/Wrocław veterinary clinical routes remain",
+    "network_branches": "AniCura/LuxVet/Edina masters read; full branch rosters/reconciliation unfinished",
+    "remote_mobile": "Initial queries only, no new verified service"
+  },
+  "external_gaps": [
+    {
+      "source_id": "pl-kozlowski-szczecin",
+      "processing_assessment": "external_blocker_for_exact_denied_urls_only",
+      "question": "Local cancer treatment, current team/credentials and contact details remain unverified; no bypass or replay authorized",
+      "urls": [
+        "https://www.weterynaria-szczecin.pl/uslugi/onkolog-weterynarz-szczecin",
+        "https://www.weterynaria-szczecin.pl/"
+      ],
+      "result": "Web403",
+      "observed_on": "2026-10-16",
+      "next_action": "Owner decision or future permitted new official evidence; do not replay denied URLs.",
+      "recheck_after": "2026-10-23"
+    }
+  ],
+  "executor_remainder": "Secondary cities, network branches, universities, remote/mobile/visiting, regional new-service layers and lead verification unfinished; no numerical cap applied.",
+  "counts_note": "35 reviewed source/clinic/alias candidates:20 proposed physical (19 strict+1partial),1duplicate,14otherpartial (includes six additional partial sources); unresolved service details at proposed sites also retained separately."
+}
