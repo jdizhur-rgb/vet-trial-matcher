@@ -13173,31 +13173,35 @@
       "id": "tele-30",
       "name": "Ondřej Škor / RegiaVet (Czechia)",
       "source_type": "teleconsult_service",
-      "master_url": "https://www.novinky.cz/clanek/lifestyle-osobnosti-veterinarni-onkolog-ondrej-skor-u-zvirat-chemoterapie-prodluzuje-zivot-bez-bolesti-a-potizi-40549659/",
+      "master_url": "https://veterinarnionkolog.cz/",
       "supporting_urls": [
+        "https://veterinarnionkolog.cz/",
+        "https://veterinarnionkolog.cz/#videokonzultace",
+        "https://www.regiavet.cz/mvdr-ondrej-skor-dipl-ecvim-ca-certvo",
         "https://www.regiavet.cz/mvdr-ondrej-skor-decvim-ca-certvo",
         "https://www.novinky.cz/clanek/lifestyle-osobnosti-veterinarni-onkolog-ondrej-skor-u-zvirat-chemoterapie-prodluzuje-zivot-bez-bolesti-a-potizi-40549659/",
         "https://www.regiavet.cz/kontakt"
       ],
       "required_cadence": "weekly",
-      "last_checked": "2026-10-11",
-      "last_checked_at": "2026-10-11T07:14:29.830963-04:00",
+      "last_checked": "2026-10-15",
+      "last_checked_at": "2026-10-16T02:40:04.742775+00:00",
       "last_result": "partial",
       "http_status": 200,
-      "working_url": "https://www.novinky.cz/clanek/lifestyle-osobnosti-veterinarni-onkolog-ondrej-skor-u-zvirat-chemoterapie-prodluzuje-zivot-bez-bolesti-a-potizi-40549659/",
-      "fingerprint_sha256": "d53062daec0bcc8e02ea55fbdd1c9f900fe8cb20b9459f32f85ab0cd5225af95",
-      "content_sufficient": false,
-      "fingerprint_method": "sha256-normalized-visible-text-v2",
-      "last_run_id": "care-20261011T065613-0400",
-      "last_review_note": "Ondřej Škor: официальный RegiaVet profile подтверждает DECVIM-CA Oncology/CertVO и руководство медицинской службой с 7/2026. Его собственное высказывание в интервью подтверждает owner video consultations. Сохранить запись; это атрибутированное высказывание врача в СМИ, а не официальная страница бронирования.",
+      "working_url": "https://veterinarnionkolog.cz/",
+      "fingerprint_sha256": "27374afe01c5159cf5119cd189a6eb48efcbf2114212d2dd3a8ee55902896b82",
+      "content_sufficient": true,
+      "fingerprint_method": "sha256-response-bytes",
+      "last_run_id": "europe-slot-2-20261015",
+      "last_review_note": "Current official oncology service explicitly offers owner video consultation; records, email booking and individually agreed fee/duration/platform. RegiaVet current biography confirms Ondřej Škor, Dipl. ECVIM-CA Oncology, CertVO. Specific assigned video consultant and cross-border limits remain for confirmation.",
       "last_reviewed_at": "2026-10-12T22:52:01.620193+00:00",
       "last_review_run_id": "c03-c04-d01-d02-20261012",
       "review_questions": [
-        "Расписание, форма записи, документы, тариф и cross-border limits не опубликованы в прочитанных источниках. Нет оснований удалять услугу только из-за отсутствия booking page."
+        "Confirm assigned consultant and cross-border eligibility; fee, duration and platform are individually agreed."
       ],
       "needs_recheck": true,
       "evidence_checked_date": "2026-10-12",
-      "evidence_timestamp_note": "D02 supplies review date and source evidence without exact per-visit times; preserved previous visit timestamp, not replaced by integration time."
+      "evidence_timestamp_note": "D02 supplies review date and source evidence without exact per-visit times; preserved previous visit timestamp, not replaced by integration time.",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/tele-update.json"
     },
     {
       "id": "tele-31",
@@ -18817,6 +18821,889 @@
       "review_questions": [
         "Confirm current clinician assignment and local modalities."
       ]
+    },
+    {
+      "id": "cz-regiavet-praha",
+      "name": "RegiaVet",
+      "source_type": "center",
+      "master_url": "https://www.regiavet.cz/onkologie",
+      "supporting_urls": [
+        "https://www.regiavet.cz/onkologie",
+        "https://www.regiavet.cz/kontakt",
+        "https://www.regiavet.cz/nas-tym",
+        "https://www.regiavet.cz/elektrochemoterapie",
+        "https://www.regiavet.cz/mvdr-ondrej-skor-dipl-ecvim-ca-certvo"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_checked_at": "2026-10-16T02:37:11.431014+00:00",
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://www.regiavet.cz/onkologie",
+      "visit_method": "urllib.request; official primary URL; response hash in source-attempts.json",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Ondřej Škor: Dipl. ECVIM-CA (Oncology), CertVO and medical director. Jakub Tichý leads oncology/imaging; other listed oncology doctors are not automatically diplomates. Call for an oncology appointment. Local drug treatment, oncologic surgery and ECT. Radiation is referred to external partners; no local radiation tag.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm current assigned clinician, unstated modality delivery and building coordinates."
+      ]
+    },
+    {
+      "id": "cz-animed-brno",
+      "name": "Veterinární klinika Animed",
+      "source_type": "center",
+      "master_url": "https://www.animed.cz/",
+      "supporting_urls": [
+        "https://www.animed.cz/",
+        "https://www.animed.cz/nas-tym/mvdr-jakub-pfeifr"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_checked_at": "2026-10-16T02:35:47.223036+00:00",
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://www.animed.cz/",
+      "visit_method": "urllib.request; official primary URL; response hash in source-attempts.json",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Jakub Pfeifr is the named veterinary oncology practitioner; GPCert Oncology is described as in progress, not an awarded diploma or ECVIM certification. Oncology appointments required. Send existing findings before calling. Local chemotherapy, ECT and tumor surgery; radiotherapy arranged externally.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm current assigned clinician, unstated modality delivery and building coordinates."
+      ]
+    },
+    {
+      "id": "cz-animal-clinic-bila-hora",
+      "name": "Animal Clinic — Bílá Hora",
+      "source_type": "center",
+      "master_url": "https://www.animalclinic.cz/sluzby/onkologie/",
+      "supporting_urls": [
+        "https://www.animalclinic.cz/sluzby/onkologie/",
+        "https://www.animalclinic.cz/kontakt/",
+        "https://www.animalclinic.cz/nas-tym/"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_checked_at": "2026-10-16T02:35:47.223827+00:00",
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://www.animalclinic.cz/sluzby/onkologie/",
+      "visit_method": "urllib.request; official primary URL; response hash in source-attempts.json",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Jan Hnízdo is responsible for oncologic/reconstructive surgery. Current team lists Marieta Ševčíková, Ph.D., for internal medicine, oncology and imaging; no oncology diplomate credential inferred. Call for evaluation; referring-vet route available. Local chemotherapy and cancer surgery. Radiation is an external referral, and described future procedures are not current services.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm current assigned clinician, unstated modality delivery and building coordinates."
+      ]
+    },
+    {
+      "id": "cz-nisa-liberec",
+      "name": "Veterinární klinika NISA",
+      "source_type": "center",
+      "master_url": "https://www.klinikanisa.cz/onkologie/",
+      "supporting_urls": [
+        "https://www.klinikanisa.cz/onkologie/",
+        "https://www.klinikanisa.cz/o-klinice/"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_checked_at": null,
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://www.klinikanisa.cz/onkologie/",
+      "visit_method": "Official Web date-only plus saved actual shell request receipts; no invented Web timestamp",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Current roster: Kateřina Mináriková MRCVS, Jan Minárik MRCVS and Kateřina Samohýlová. No oncology board certification or exclusive treatment assignment inferred. Book a consultation and bring reports, pathology, original imaging and medication list. The branch explicitly administers chemotherapy and performs tumor surgery.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm current assigned clinician, unstated modality delivery and building coordinates."
+      ]
+    },
+    {
+      "id": "cz-okrina-jihlava",
+      "name": "Veterinární ordinace MVDr. Libor Okřina",
+      "source_type": "center",
+      "master_url": "https://www.veterinaokrina.cz/sluzby/",
+      "supporting_urls": [
+        "https://www.veterinaokrina.cz/sluzby/",
+        "https://www.veterinaokrina.cz/kontakt/"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_checked_at": "2026-10-16T02:35:47.229661+00:00",
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://www.veterinaokrina.cz/sluzby/",
+      "visit_method": "urllib.request; official primary URL; response hash in source-attempts.json",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Libor Okřina, MVDr., is the named veterinarian; no specialist oncology credential established. Contact the practice for treatment scheduling. Local tumor operations and chemotherapy explicitly listed.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm current assigned clinician, unstated modality delivery and building coordinates."
+      ]
+    },
+    {
+      "id": "cz-liskovka-frydek-mistek",
+      "name": "Veterinární klinika Lískovka — Frýdek-Místek",
+      "source_type": "center",
+      "master_url": "https://www.liskovka.com/onkologie/",
+      "supporting_urls": [
+        "https://www.liskovka.com/onkologie/",
+        "https://www.liskovka.com/lide",
+        "https://www.liskovka.com/kontakty"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_checked_at": "2026-10-16T02:35:52.759420+00:00",
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://www.liskovka.com/onkologie/",
+      "visit_method": "urllib.request; official primary URL; response hash in source-attempts.json",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Veronika Nowak, MVDr., is the named oncology veterinarian. VAKPO lists her as a CertVO candidate; not represented as a completed certification or ECVIM diplomate. Book an oncology appointment. Chemotherapy is advertised at the main clinic. Do not transfer this modality to the separate Třinec branch without confirmation.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm current assigned clinician, unstated modality delivery and building coordinates."
+      ]
+    },
+    {
+      "id": "cz-azvet-klanovice",
+      "name": "A-Z VET — Klánovice",
+      "source_type": "center",
+      "master_url": "https://www.veterina.net/onkologie",
+      "supporting_urls": [
+        "https://www.veterina.net/onkologie",
+        "https://www.veterina.net/o-nas",
+        "https://www.veterina.net/kontakt"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_checked_at": "2026-10-16T02:35:52.759698+00:00",
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://www.veterina.net/onkologie",
+      "visit_method": "urllib.request; official primary URL; response hash in source-attempts.json",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Pavel Kohout, Ph.D., is listed for ultrasonography, cytology and oncology. No oncology board credential inferred. Call for an oncology appointment. The local oncology page describes treatment and illustrates tumor surgery and chemotherapy equipment; specific current modality availability requires confirmation.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm current assigned clinician, unstated modality delivery and building coordinates."
+      ]
+    },
+    {
+      "id": "cz-aavet-zahradni-mesto",
+      "name": "AA-Vet — Zahradní Město hospital",
+      "source_type": "center",
+      "master_url": "https://www.aavet.cz/onkologie/",
+      "supporting_urls": [
+        "https://www.aavet.cz/onkologie/",
+        "https://www.aavet.cz/kontakty/"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_checked_at": "2026-10-16T02:35:53.616950+00:00",
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://www.aavet.cz/onkologie/",
+      "visit_method": "urllib.request; official primary URL; response hash in source-attempts.json",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Tomáš Fiala, MVDr., is the named oncology lead; no ECVIM credential inferred. Call the hospital for oncology care. Local chemotherapy, tumor surgery and ECT; radiation/immunotherapy referrals are separate. Do not transfer hospital services to the Tererova outpatient branch.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm current assigned clinician, unstated modality delivery and building coordinates."
+      ]
+    },
+    {
+      "id": "cz-zodiacus97-plzen",
+      "name": "Veterinární klinika Zodiacus 97",
+      "source_type": "center",
+      "master_url": "https://www.veterina-plzen.cz/odborne-zamereni/",
+      "supporting_urls": [
+        "https://www.veterina-plzen.cz/odborne-zamereni/",
+        "https://www.veterina-plzen.cz/kontakt/"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_checked_at": "2026-10-16T02:35:53.949671+00:00",
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://www.veterina-plzen.cz/odborne-zamereni/",
+      "visit_method": "urllib.request; official primary URL; response hash in source-attempts.json",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Kateřina Stiborová is an external oncology collaborator, described as ECVIM-CA Oncology board eligible, not board certified. Tereza Bečicová is a local consultation route. Book through the clinic; visiting oncologist scheduling requires confirmation. Local chemotherapy and tumor removal.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm current assigned clinician, unstated modality delivery and building coordinates."
+      ]
+    },
+    {
+      "id": "cz-hkvet-hradec-kralove",
+      "name": "VETINO HKvet",
+      "source_type": "center",
+      "master_url": "https://hkvet.cz/nase-sluzby/onkologie",
+      "supporting_urls": [
+        "https://hkvet.cz/nase-sluzby/onkologie",
+        "https://hkvet.cz/nas-tym",
+        "https://hkvet.cz/kontakt"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_checked_at": "2026-10-16T02:35:54.174929+00:00",
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://hkvet.cz/nase-sluzby/onkologie",
+      "visit_method": "urllib.request; official primary URL; response hash in source-attempts.json",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Vladimíra Teplá, MVDr., MRCVS, is the branch oncology lead; VAKPO candidate status is not oncology board certification. Call to book; do not send SMS. The branch explicitly conducts chemotherapy. Surgical consultation does not establish a specific cancer operation capability.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm current assigned clinician, unstated modality delivery and building coordinates."
+      ]
+    },
+    {
+      "id": "cz-pod-hradem-zlin",
+      "name": "Veterina Pod Hradem",
+      "source_type": "center",
+      "master_url": "https://www.veterinapodhradem.cz/onkologie/",
+      "supporting_urls": [
+        "https://www.veterinapodhradem.cz/onkologie/",
+        "https://www.veterinapodhradem.cz/"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_checked_at": "2026-10-16T02:37:18.882573+00:00",
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://www.veterinapodhradem.cz/onkologie/",
+      "visit_method": "urllib.request; official primary URL; response hash in source-attempts.json",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Pavlína Stoklásková, MVDr., is the named veterinarian; no oncology diplomate credential established. New clients must book their first consultation. The local oncology page explicitly lists cancer treatment and chemotherapy.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm current assigned clinician, unstated modality delivery and building coordinates."
+      ]
+    },
+    {
+      "id": "cz-horska-trutnov",
+      "name": "Horská veterinární klinika",
+      "source_type": "center",
+      "master_url": "https://www.veterinatrutnov.cz/referovani-pacienti/onkologie-chemoterapie/",
+      "supporting_urls": [
+        "https://www.veterinatrutnov.cz/referovani-pacienti/onkologie-chemoterapie/",
+        "https://www.veterinatrutnov.cz/kontakt/",
+        "https://www.veterinatrutnov.cz/nas-tym/"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_checked_at": "2026-10-16T02:37:19.110840+00:00",
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://www.veterinatrutnov.cz/referovani-pacienti/onkologie-chemoterapie/",
+      "visit_method": "urllib.request; official primary URL; response hash in source-attempts.json",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Official roster includes Stanislav Počta, Ph.D., and Bibiána Želinská. A named oncology board credential is not established. Book by phone or the advertised reservation route. Local tumor surgery and chemotherapy using oncology-center protocol recommendations.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm current assigned clinician, unstated modality delivery and building coordinates."
+      ]
+    },
+    {
+      "id": "cz-neovet-caslav",
+      "name": "Veterinární klinika NEOvet",
+      "source_type": "center",
+      "master_url": "https://www.neovet.cz/sluzby/onkologie/",
+      "supporting_urls": [
+        "https://www.neovet.cz/sluzby/onkologie/",
+        "https://www.neovet.cz/kontakty/",
+        "https://www.neovet.cz/tym/"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_checked_at": "2026-10-16T02:37:19.186274+00:00",
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://www.neovet.cz/sluzby/onkologie/",
+      "visit_method": "urllib.request; official primary URL; response hash in source-attempts.json",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Current roster includes Milan Bednář and Ivona Musialková, practice owners. No ECVIM Oncology credential or exclusive assignment inferred. Call for oncology evaluation. Explicit outpatient/short-stay infusion treatment and tumor surgery.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm current assigned clinician, unstated modality delivery and building coordinates."
+      ]
+    },
+    {
+      "id": "cz-strakonice-vaclavska",
+      "name": "Veterinární klinika Strakonice",
+      "source_type": "center",
+      "master_url": "https://www.veterinastrakonice.cz/diagnostika-interni-medicina/",
+      "supporting_urls": [
+        "https://www.veterinastrakonice.cz/diagnostika-interni-medicina/",
+        "https://www.veterinastrakonice.cz/kontakty/",
+        "https://www.veterinastrakonice.cz/"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_checked_at": null,
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://www.veterinastrakonice.cz/diagnostika-interni-medicina/",
+      "visit_method": "Official Web date-only plus saved actual shell request receipts; no invented Web timestamp",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Current official contact/roster lists Marek Vondřička, Kamila Mališová, Tereza Polanková and Markéta Irber. No oncology board credential inferred. Call the appointment number; the named doctor’s separate direct number is not for bookings. Local cancer surgery and chemotherapy protocols are explicitly described.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm current assigned clinician, unstated modality delivery and building coordinates."
+      ]
+    },
+    {
+      "id": "cz-ujezdec-vojtkova",
+      "name": "Veterinární ordinace Újezdec",
+      "source_type": "center",
+      "master_url": "https://www.veterinaujezdec.cz/",
+      "supporting_urls": [
+        "https://www.veterinaujezdec.cz/"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_checked_at": "2026-10-16T02:37:20.139511+00:00",
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://www.veterinaujezdec.cz/",
+      "visit_method": "urllib.request; official primary URL; response hash in source-attempts.json",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Kateřina Vojtková, MVDr., is the named veterinarian. No oncology board credential inferred. Appointment always required. Local cancer treatment including chemotherapy and mammary tumor surgery. General house calls do not establish mobile chemotherapy.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm current assigned clinician, unstated modality delivery and building coordinates."
+      ]
+    },
+    {
+      "id": "cz-podkrusnohorska-litvinov",
+      "name": "Podkrušnohorská veterina",
+      "source_type": "center",
+      "master_url": "https://veterinavlkova.cz/",
+      "supporting_urls": [
+        "https://veterinavlkova.cz/"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_checked_at": null,
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://veterinavlkova.cz/",
+      "visit_method": "Official Web date-only plus saved actual shell request receipts; no invented Web timestamp",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Soňa Vlková, MVDr., is the named veterinarian. No oncology diplomate credential inferred. Telephone appointment requested during morning hours. Explicit oncologic soft-tissue surgery; no chemotherapy or radiation inferred. No emergency service.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm current assigned clinician, unstated modality delivery and building coordinates."
+      ]
+    },
+    {
+      "id": "cz-haf-kraluv-dvur",
+      "name": "Veterinární ordinace HaF",
+      "source_type": "center",
+      "master_url": "https://veterinahaf.cz/",
+      "supporting_urls": [
+        "https://veterinahaf.cz/"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_checked_at": "2026-10-16T02:40:04.745422+00:00",
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://veterinahaf.cz/",
+      "visit_method": "urllib.request; official primary URL; response hash in source-attempts.json",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Lukáš Hanzel, MVDr., lists oncology practice; Jan Foltýn, MVDr., is also current staff. No oncology board certification inferred. Chemotherapy explicitly offered. Walk-ins accepted during regular hours; anesthesia procedures require booking. Call to arrange the cancer treatment schedule.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm current assigned clinician, unstated modality delivery and building coordinates."
+      ]
+    },
+    {
+      "id": "cz-jinvet-jinonicka",
+      "name": "Veterinární klinika Jinonická",
+      "source_type": "center",
+      "master_url": "https://jinvet.cz/sluzby/onkologie/",
+      "supporting_urls": [
+        "https://jinvet.cz/sluzby/onkologie/",
+        "https://jinvet.cz/o-nas/"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_checked_at": null,
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://jinvet.cz/sluzby/onkologie/",
+      "visit_method": "Official Web date-only plus saved actual shell request receipts; no invented Web timestamp",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Current clinic overview describes a veterinary team, but the retrieved pages do not establish a named oncology clinician or board credential. Telephone or online appointment. Local cancer surgery is described; chemotherapy delivery requires confirmation. Radiation is arranged at a referral center.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm current assigned clinician, unstated modality delivery and building coordinates."
+      ]
+    },
+    {
+      "id": "cz-fajtovi-orechov",
+      "name": "Veterinární klinika Fajtovi — Ořechov",
+      "source_type": "center",
+      "master_url": "https://www.veterinafajtovi.cz/sluzby/interni-medicina",
+      "supporting_urls": [
+        "https://www.veterinafajtovi.cz/sluzby/interni-medicina",
+        "https://www.veterinafajtovi.cz/o-nas",
+        "https://www.veterinafajtovi.cz/kontakt",
+        "https://www.veterinafajtovi.cz/sluzby/chirurgie-mekkych-a-tvrdych-tkani"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_checked_at": null,
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://www.veterinafajtovi.cz/sluzby/interni-medicina",
+      "visit_method": "Official Web date-only plus saved actual shell request receipts; no invented Web timestamp",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Dagmar Kotlíková, MVDr., is an external oncology collaborator. Zdeněk Fajt, Ph.D., and Veronika Fajtová are current clinic veterinarians. No oncology board certification inferred. Oncology consultation and subsequent treatment by telephone appointment only. Tumor surgery is explicit. The former Radostice clinic moved here; chemotherapy is not independently confirmed.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm current assigned clinician, unstated modality delivery and building coordinates."
+      ]
+    },
+    {
+      "id": "cz-rexcare-brno",
+      "name": "RexCare",
+      "source_type": "center",
+      "master_url": "https://www.rexcare.cz/sluzby",
+      "supporting_urls": [
+        "https://www.rexcare.cz/sluzby",
+        "https://www.rexcare.cz/",
+        "https://www.rexcare.cz/nas-tym"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_checked_at": null,
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://www.rexcare.cz/sluzby",
+      "visit_method": "Official Web date-only plus saved actual shell request receipts; no invented Web timestamp",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Lukáš Marek, MVDr., practices neurology/neurosurgery. No ECVN/ECVS or oncology diplomate credential inferred. Contact the clinic for neurosurgical evaluation. Spinal tumor operations explicitly listed; not a general chemotherapy or radiation service. Dagmar Kotlíková separately names this contact location; her current visit schedule requires confirmation.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm current assigned clinician, unstated modality delivery and building coordinates."
+      ]
+    },
+    {
+      "id": "cz-jaggy-brno-komarovska5",
+      "name": "VETINO Jaggy Brno — Komárovská 5",
+      "source_type": "center",
+      "master_url": "https://jaggy.cz/nase-sluzby",
+      "supporting_urls": [
+        "https://jaggy.cz/nase-sluzby",
+        "https://jaggy.cz/",
+        "https://jaggy.cz/nas-tym",
+        "https://jaggy.cz/nase-sluzby/chirurgie-a-ortopedie"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_checked_at": "2026-10-16T02:40:11.017505+00:00",
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://jaggy.cz/nase-sluzby",
+      "visit_method": "urllib.request; official primary URL; response hash in source-attempts.json",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Current roster includes Aleš Tomek, Dip. ECVN, and surgical staff. Neurology diplomate status is not an oncology credential; assigned cancer surgeon requires confirmation. Book through the main neurology/internal medicine/surgery clinic at number 5. Explicit thoracic/abdominal tumor surgery. The separate number 10 premises host eye, dental and dermatology services. No chemotherapy inferred.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm current assigned clinician, unstated modality delivery and building coordinates."
+      ]
+    },
+    {
+      "id": "cz-vetcentrum-ostrava-poruba",
+      "name": "Vetcentrum — Ostrava-Poruba",
+      "source_type": "center",
+      "master_url": "https://www.vetcentrum.net/",
+      "supporting_urls": [
+        "https://www.vetcentrum.net/",
+        "https://www.vetcentrum.net/nas-tym",
+        "https://www.vetcentrum.net/sluzby"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_checked_at": null,
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://www.vetcentrum.net/",
+      "visit_method": "Official Web date-only plus saved actual shell request receipts; no invented Web timestamp",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Roman Nejez, MVDr., is the current lead veterinarian. The team page lists additional doctors; no oncology board credential or exclusive oncology assignment established. Appointments recommended. The clinic identifies oncology among its treatment/referral disciplines; specific local modalities require confirmation. Diagnostic CT is not radiation therapy.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm current assigned clinician, unstated modality delivery and building coordinates."
+      ]
+    },
+    {
+      "id": "cz-parnik-praha",
+      "name": "Veterinární klinika Parník",
+      "source_type": "center",
+      "master_url": "https://veterina-parnik.cz/category/veterinarni-klinika-parnik-praha-9-cerny-most-co-umime/chirurgie-operace/",
+      "supporting_urls": [
+        "https://veterina-parnik.cz/category/veterinarni-klinika-parnik-praha-9-cerny-most-co-umime/chirurgie-operace/",
+        "https://veterina-parnik.cz/",
+        "https://veterina-parnik.cz/veterina-praha-9-parnik-nas-tym-lekari/"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_checked_at": null,
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://veterina-parnik.cz/category/veterinarni-klinika-parnik-praha-9-cerny-most-co-umime/chirurgie-operace/",
+      "visit_method": "Official Web date-only plus saved actual shell request receipts; no invented Web timestamp",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Marek Bonk, MVDr., is the named surgery/orthopedics veterinarian. No oncology board credential inferred. Call for tumor surgery assessment; the clinic specifically describes mammary tumor removal. No transfer of chemotherapy services from cooperating A-Z VET or Jaggy clinics.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm current assigned clinician, unstated modality delivery and building coordinates."
+      ]
+    },
+    {
+      "id": "cz-bonavet-mlada-boleslav",
+      "name": "BONAVET",
+      "source_type": "center",
+      "master_url": "https://www.bonavet.cz/onkologie",
+      "supporting_urls": [
+        "https://www.bonavet.cz/onkologie",
+        "https://www.bonavet.cz/nas-tym",
+        "https://www.bonavet.cz/chirurgie"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://www.bonavet.cz/onkologie",
+      "visit_method": "urllib.request; official primary URL; response hash in source-attempts.json",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Current team includes Tereza Tíkalová, Petra Šubrtová and Lubomír Tíkal. No assigned oncology diplomate established. Call to arrange cancer evaluation. Local cancer treatment is explicit, but individual modalities and complex referral allocation require confirmation. No local radiation claim.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm unstated modalities, assigned clinician and any unknown building coordinates."
+      ],
+      "last_checked_at": "2026-10-16T03:12:42.386676+00:00"
+    },
+    {
+      "id": "cz-benesov-vasak",
+      "name": "Veterinární klinika Benešov",
+      "source_type": "center",
+      "master_url": "https://veterinabenesov.webnode.cz/fotografie-kliniky/sluzby/",
+      "supporting_urls": [
+        "https://veterinabenesov.webnode.cz/fotografie-kliniky/sluzby/"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://veterinabenesov.webnode.cz/fotografie-kliniky/sluzby/",
+      "visit_method": "urllib.request; official primary URL; response hash in source-attempts.json",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Martin Vašák, MVDr., is the named veterinarian. No oncology board certification established. Call for an appointment. Current clinic services explicitly include diagnosis and therapy of oncologic disease; specific modalities require confirmation.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm unstated modalities, assigned clinician and any unknown building coordinates."
+      ],
+      "last_checked_at": "2026-10-16T03:12:42.387304+00:00"
+    },
+    {
+      "id": "cz-metropolevet-praha",
+      "name": "MetropoleVet",
+      "source_type": "center",
+      "master_url": "https://www.metropolevet.cz/service/interni-medicina/",
+      "supporting_urls": [
+        "https://www.metropolevet.cz/service/interni-medicina/",
+        "https://www.metropolevet.cz/",
+        "https://www.metropolevet.cz/veterinari/"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://www.metropolevet.cz/service/interni-medicina/",
+      "visit_method": "urllib.request; official primary URL; response hash in source-attempts.json",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Current roster includes Samuel Evinič, Martin Daníček, Šárka Vodičková and Martin Jánoš. No oncology diplomate qualification inferred. Telephone or advertised booking route. Local tumor surgery and chemotherapy for lymphoma and other responsive tumors are explicitly listed.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm unstated modalities, assigned clinician and any unknown building coordinates."
+      ],
+      "last_checked_at": "2026-10-16T03:12:42.387959+00:00"
+    },
+    {
+      "id": "cz-vedilab-plzen",
+      "name": "VEDILAB — veterinary clinic",
+      "source_type": "center",
+      "master_url": "https://www.vedilab.cz/onkologie",
+      "supporting_urls": [
+        "https://www.vedilab.cz/onkologie",
+        "https://www.vedilab.cz/kontakty",
+        "https://www.vedilab.cz/chirurgie-mekkych-tkani"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://www.vedilab.cz/onkologie",
+      "visit_method": "urllib.request; official primary URL; response hash in source-attempts.json",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Current assigned oncology clinician and board qualification require confirmation; do not assign a clinician currently listed on maternity leave. Book with the clinic. Local cytostatic lymphoma treatment programmes and tumor removal are explicit; this record is the clinical facility, not only the laboratory.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm unstated modalities, assigned clinician and any unknown building coordinates."
+      ],
+      "last_checked_at": "2026-10-16T03:13:25.274785+00:00"
+    },
+    {
+      "id": "cz-aurumvet-ceske-budejovice",
+      "name": "Aurum Vet",
+      "source_type": "center",
+      "master_url": "https://www.aurumvet.cz/veterinarni-klinika/ordinace/",
+      "supporting_urls": [
+        "https://www.aurumvet.cz/veterinarni-klinika/ordinace/",
+        "https://www.aurumvet.cz/"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://www.aurumvet.cz/veterinarni-klinika/ordinace/",
+      "visit_method": "urllib.request; official primary URL; response hash in source-attempts.json",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Jiří Kamiš, MVDr., is the named veterinarian. No oncology board credential established. Call to arrange cancer evaluation. Clinic explicitly treats and removes malignant and benign tumors and offers chemotherapy.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm unstated modalities, assigned clinician and any unknown building coordinates."
+      ],
+      "last_checked_at": "2026-10-16T03:12:46.106041+00:00"
+    },
+    {
+      "id": "cz-hanza-hradec-kralove",
+      "name": "Veterinární klinika HANZA",
+      "source_type": "center",
+      "master_url": "https://www.veterinahk.cz/sluzby/",
+      "supporting_urls": [
+        "https://www.veterinahk.cz/sluzby/",
+        "https://www.veterinahk.cz/referovani-pacientu/",
+        "https://www.veterinahk.cz/nas-tym/",
+        "https://www.veterinahk.cz/"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://www.veterinahk.cz/sluzby/",
+      "visit_method": "urllib.request; official primary URL; response hash in source-attempts.json",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Iveta Fričková, MVDr., is the named internal medicine/oncology referral clinician. No oncology board certification inferred. Call or book an appointment. Referring vets should call in advance and send reports and current medications. Local cytostatic administration, oncologic surgery and ongoing monitoring explicitly listed.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm unstated modalities, assigned clinician and any unknown building coordinates."
+      ],
+      "last_checked_at": "2026-10-16T03:16:43.685626+00:00"
+    },
+    {
+      "id": "cz-u-vystaviste-lysa",
+      "name": "Veterinární ordinace U Výstaviště",
+      "source_type": "center",
+      "master_url": "https://www.veterinalysanadlabem.cz/sluzby",
+      "supporting_urls": [
+        "https://www.veterinalysanadlabem.cz/sluzby",
+        "https://www.veterinalysanadlabem.cz/kontakt"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://www.veterinalysanadlabem.cz/sluzby",
+      "visit_method": "urllib.request; official primary URL; response hash in source-attempts.json",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Gabriela Zachrdlová and Martina Zahradníková, MVDr., are current veterinarians; no oncology board credential established. Call to schedule oncology care. Chemotherapy explicitly listed among current local services.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm unstated modalities, assigned clinician and any unknown building coordinates."
+      ],
+      "last_checked_at": "2026-10-16T03:12:50.410773+00:00"
+    },
+    {
+      "id": "cz-veterinavk-valasske-klobouky",
+      "name": "VeterinaVK",
+      "source_type": "center",
+      "master_url": "https://www.veterinavk.cz/sluzby/",
+      "supporting_urls": [
+        "https://www.veterinavk.cz/sluzby/",
+        "https://www.veterinavk.cz/kontakt/"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://www.veterinavk.cz/sluzby/",
+      "visit_method": "urllib.request; official primary URL; response hash in source-attempts.json",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Zdeňka Gajdošová, MVDr., is the named veterinarian. No oncology board credential established. Call for an appointment. Explicit tumor removal; chemotherapy and radiation are not established. This is Valašské Klobouky, not Karlovy Vary.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm unstated modalities, assigned clinician and any unknown building coordinates."
+      ],
+      "last_checked_at": "2026-10-16T03:12:50.494285+00:00"
+    },
+    {
+      "id": "cz-vetnem-cesky-brod",
+      "name": "Veterinární nemocnice Český Brod",
+      "source_type": "center",
+      "master_url": "https://vetnem.cz/o-nas/oddeleni/oddeleni-chirurgie-a-ortopedie/",
+      "supporting_urls": [
+        "https://vetnem.cz/o-nas/oddeleni/oddeleni-chirurgie-a-ortopedie/",
+        "https://vetnem.cz/kontakt/",
+        "https://vetnem.cz/nas-tym/"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://vetnem.cz/o-nas/oddeleni/oddeleni-chirurgie-a-ortopedie/",
+      "visit_method": "urllib.request; official primary URL; response hash in source-attempts.json",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Current team includes Hana Adamčíková and Jaromír Bláha. Assigned cancer surgeon and oncology credential require confirmation. Call the hospital for a surgical appointment. Tumor and cyst operations explicitly listed. Hospital address is distinct from the company registered office in Písková Lhota.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm unstated modalities, assigned clinician and any unknown building coordinates."
+      ],
+      "last_checked_at": "2026-10-16T03:12:50.601849+00:00"
+    },
+    {
+      "id": "cz-podebrady-prokopova",
+      "name": "Veterinární klinika Poděbrady",
+      "source_type": "center",
+      "master_url": "https://veterina-podebrady.cz/sluzby/",
+      "supporting_urls": [
+        "https://veterina-podebrady.cz/sluzby/",
+        "https://veterina-podebrady.cz/lekarsky-tym/"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://veterina-podebrady.cz/sluzby/",
+      "visit_method": "urllib.request; official primary URL; response hash in source-attempts.json",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Current team includes Petr Coufal, Andrej Havrlent and Ivana Uríčková. Emergency-care qualifications of other staff are not oncology board certification. Call the routine clinic number for tumor surgery evaluation. Local operations cover mammary, skin, soft tissue, bone and internal-organ tumors. No chemotherapy inferred.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm unstated modalities, assigned clinician and any unknown building coordinates."
+      ],
+      "last_checked_at": "2026-10-16T03:12:53.850723+00:00"
+    },
+    {
+      "id": "cz-hplusvet-cheb",
+      "name": "H+VET",
+      "source_type": "center",
+      "master_url": "https://www.hplusvet.cz/sluzby/",
+      "supporting_urls": [
+        "https://www.hplusvet.cz/sluzby/",
+        "https://www.hplusvet.cz/kontakty/",
+        "https://www.hplusvet.cz/"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://www.hplusvet.cz/sluzby/",
+      "visit_method": "urllib.request; official primary URL; response hash in source-attempts.json",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Michal Houtke, MVDr., is the named veterinarian. No oncology board credential established. Telephone or online appointment. Local oncologic surgery explicitly offered. Opened in January 2022; not classified as a new 2026 opening.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm unstated modalities, assigned clinician and any unknown building coordinates."
+      ],
+      "last_checked_at": "2026-10-16T03:13:30.943552+00:00"
+    },
+    {
+      "id": "cz-vetopet-pardubice-svitkov",
+      "name": "VETOPET",
+      "source_type": "center",
+      "master_url": "https://vetopet.cz/co-nabizime/interni-medicina/",
+      "supporting_urls": [
+        "https://vetopet.cz/co-nabizime/interni-medicina/",
+        "https://www.vetopet.cz/nas-kolektiv/71/",
+        "https://www.vetopet.cz/kontakt/"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://vetopet.cz/co-nabizime/interni-medicina/",
+      "visit_method": "urllib.request; official primary URL; response hash in source-attempts.json",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Petr Drahotský, MVDr., lists oncology among his current clinical disciplines. No oncology diplomate credential established. Call to book. Oncology with chemotherapy protocols explicitly offered as an internal medicine service. The older Webnode site is an alias, not a separate branch.",
+      "review_required": true,
+      "review_questions": [
+        "Confirm unstated modalities, assigned clinician and any unknown building coordinates."
+      ],
+      "last_checked_at": "2026-10-16T03:16:43.683174+00:00"
+    },
+    {
+      "id": "cz-vetcentrum-duchek-stodulky",
+      "name": "Vetcentrum Duchek — Stodůlky",
+      "source_type": "center",
+      "master_url": "https://www.vetcentrum.cz/podkategorie-sluzby/onkologie",
+      "supporting_urls": [
+        "https://www.vetcentrum.cz/podkategorie-sluzby/onkologie",
+        "https://www.vetcentrum.cz/contact",
+        "https://www.vetcentrum.cz/team"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-15",
+      "last_result": "partial",
+      "content_sufficient": true,
+      "last_run_id": "europe-slot-2-20261015",
+      "working_url": "https://www.vetcentrum.cz/podkategorie-sluzby/onkologie",
+      "review_reference": "research/audit-runs/europe-slot-2-20261015/review.json",
+      "last_review_note": "Official current team page was read but did not expose a named oncology clinician in its accessible text. Assigned surgeon and oncology qualifications require confirmation. Call reception for an appointment. Explicit local surgical tumor removal. Hospital, specialty clinic and orthopedics share the same address and phone; represented once. Diagnostic MRI/CT are not radiation therapy.",
+      "review_required": true,
+      "last_checked_at": "2026-10-16T02:40:09.176888+00:00",
+      "visit_method": "urllib.request; official primary URL; response hash in source-attempts.json"
     }
   ]
 }
