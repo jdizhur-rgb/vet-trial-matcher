@@ -2,33 +2,72 @@
   "slot": 4,
   "country": "Germany",
   "status": "INCOMPLETE",
-  "publication_checkpoint": 1,
-  "new_this_checkpoint": 32,
-  "existing_before_run": 8,
-  "data_sha": "7077448c1e21c7eb62e3760b7b1444ea06b6d832",
-  "deploy": {
-    "id": 38892462651,
-    "conclusion": "success",
-    "url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/38892462651"
-  },
-  "additional_CI": [
+  "original_run_local_date": "2026-10-15",
+  "actual_review_local_date": "2026-10-16",
+  "checkpoints": [
     {
-      "id": 38892462589,
-      "conclusion": "success"
+      "slot": 4,
+      "country": "Germany",
+      "status": "INCOMPLETE",
+      "publication_checkpoint": 1,
+      "new_this_checkpoint": 32,
+      "existing_before_run": 8,
+      "data_sha": "7077448c1e21c7eb62e3760b7b1444ea06b6d832",
+      "deploy": {
+        "id": 38892462651,
+        "conclusion": "success",
+        "url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/38892462651"
+      },
+      "additional_CI": [
+        {
+          "id": 38892462589,
+          "conclusion": "success"
+        },
+        {
+          "id": 38892462648,
+          "conclusion": "success"
+        }
+      ],
+      "production": {
+        "url": "https://vettrialfinder.com/matcher/centers/",
+        "http_status": 200,
+        "bytes": 602442,
+        "sha256": "276c980a0b9464eec1cc973af6959b2f6a9aba3568d2e16577d49143f95e0da8",
+        "byte_equal_local_wrapped_build": true,
+        "country_filter_readback": "PASS: 40 German locations; combined filters, reset and stale ZIP suppression"
+      },
+      "remaining_reference": "remaining.json",
+      "continued_work_after_checkpoint": true
     },
     {
-      "id": 38892462648,
-      "conclusion": "success"
+      "publication_checkpoint": 2,
+      "new_this_checkpoint": 34,
+      "new_cumulative_this_recovery": 66,
+      "data_sha": "97f8536d122296cf5352459800a9fe3326d22e0a",
+      "deploy": {
+        "id": 38894843781,
+        "conclusion": "success",
+        "url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/38894843781"
+      },
+      "additional_CI": [
+        {
+          "id": 38894843727,
+          "conclusion": "success"
+        },
+        {
+          "id": 38894843779,
+          "conclusion": "success"
+        }
+      ],
+      "production": {
+        "url": "https://vettrialfinder.com/matcher/centers/",
+        "http_status": 200,
+        "bytes": 637328,
+        "sha256": "b24a73b564710515e4dfd58d59938afceef5bf1456afe375da66ca823d881781",
+        "byte_equal_local_wrapped_build": true,
+        "country_filter_readback": "PASS: 74 German locations; combined filters, reset and stale ZIP suppression"
+      },
+      "continued_work_after_checkpoint": true
     }
-  ],
-  "production": {
-    "url": "https://vettrialfinder.com/matcher/centers/",
-    "http_status": 200,
-    "bytes": 602442,
-    "sha256": "276c980a0b9464eec1cc973af6959b2f6a9aba3568d2e16577d49143f95e0da8",
-    "byte_equal_local_wrapped_build": true,
-    "country_filter_readback": "PASS: 40 German locations; combined filters, reset and stale ZIP suppression"
-  },
-  "remaining_reference": "remaining.json",
-  "continued_work_after_checkpoint": true
+  ]
 }
