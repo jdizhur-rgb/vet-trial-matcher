@@ -1,0 +1,82 @@
+{
+  "run_id": "eu6-20261016T142911-0400",
+  "slot": 4,
+  "country": "Germany",
+  "baseline_sha": "2f7099307e174556883ca6eb97495bead2dc3401",
+  "agent_id": "/root/recovery_de",
+  "created_at": "2026-10-16T18:44:44.091326+00:00",
+  "source_requests_this_run": 0,
+  "offline_preflight": true,
+  "superseded": "Only historical controller-only blanket offline pause is superseded; actual denials/held actions persist.",
+  "denied_hosts": [
+    "hund-katz.at",
+    "schlager.vet",
+    "tierarzt-konstanz.de",
+    "tierarzt-weinstadt.de",
+    "tierarzt.top",
+    "tierarztpraxis-stadtgraben.at",
+    "tierklinik-ismaning.de",
+    "tierklinik-reif.de",
+    "tierklinik-voecklabruck.at",
+    "wolf-tiermedizin.at"
+  ],
+  "held_workflows": [
+    {
+      "workflow": "Evidensia services",
+      "original_file": "evidensia-services.json",
+      "exact_targets_assigned": 837,
+      "retained_before_reset": 429,
+      "unretained_before_reset": 408,
+      "action": "Explicit auto-review rejection/session1729; no poll/resume/replay/rename/client or route variants"
+    },
+    {
+      "workflow": "Clinical reread",
+      "original_file": "resume-clinical-review.json",
+      "exact_targets_assigned": 854,
+      "retained_before_reset": 323,
+      "unretained_before_reset": 531,
+      "action": "Explicit rejection/session2322; no replay/renamed batch"
+    },
+    {
+      "workflow": "BW clinical10",
+      "original_file": "independent-bw-clinical-followups.json",
+      "exact_targets_assigned": 10,
+      "retained_before_reset": 10,
+      "action": "Approval cancelled/session99412; seven exact tunnel403 and three successful Werner receipts historically retained; no replay"
+    }
+  ],
+  "unknown_scope": {
+    "status": "HOLD_SCOPE_UNKNOWN",
+    "exact_target_inventory_restored": false,
+    "target_count": 1701,
+    "isolated_groups": [
+      "Evidensia German clinical services",
+      "Clinical reread previously identified candidate groups including TAPP117 roots, AniCura/VUK clinical allocation and uncertain independent membership",
+      "BW clinical10",
+      "inherited61 labels and retained SH candidate requests pending candidate-specific independence proof"
+    ],
+    "not_global_permission_or_global_ban": true
+  },
+  "incident_exclusion": [
+    "https://www.tierarztpraxis-reideburg.de/",
+    "https://kleintierpraxis-strauss.de/halle/",
+    "https://felmo.de/tierarzt/halle"
+  ],
+  "independent_route_rule": "New national discovery search, not targeting/reconstructing denied candidate content, can be reviewed as independent search workflow. Every resulting clinical candidate needs its own source-specific membership preflight before requests; absence from partial list is never permission.",
+  "sequencing": "Complete filesystem-only preflight, inspect output in separate tool call, then request only explicitly allowed targets; redirects rechecked before follow. No parallel check+open.",
+  "input_hashes": {
+    "input/shared-restrictions/slot-6.json": "a9bbeba2cf01f58cc7f68bfd67f99d4a4f3eebeb573c0c412803828d52df63c4",
+    "input/shared-restrictions/slot-1.json": "03bb7265bf6a4d451b06e258ba6b3a62b49fd2fc553520dcc8ca339d8ed2ad0c",
+    "input/shared-restrictions/slot-3.json": "09762d8f06d3c99c488a7fda7c20c8e0c96e39a28522f0ad8bf7c7b291058884",
+    "input/shared-restrictions/slot-5.json": "07a2a84064d6baf000c2910967fb1f9901b108158c51bd15b95d5f8cdfcdea12",
+    "input/shared-restrictions/slot-2.json": "f58b1468fb7263fea3cc109e7c95bbe12f3effd73e8d23459c4c3284323b60dc",
+    "input/shared-restrictions/fr-held-workflows.json": "f9ecc004da94e6534f0319ab1f6e84ac82ca43b6b3649f3e7089b7515f328a25",
+    "input/shared-restrictions/slot-4.json": "b91fdaae506a0c3d4586f0276783473bb44bee8f62e4dd12b047c93d27ad164c",
+    "input/shared-restrictions/de-unknown-held-scope.json": "2248c5d14dcc17658f93dfd15ab011aca7c4eae5eaf75be7ca20a9e44badede1",
+    "input/inherited/current-url-restrictions.json": "b91fdaae506a0c3d4586f0276783473bb44bee8f62e4dd12b047c93d27ad164c"
+  },
+  "exact_entries_count": 2762,
+  "original_full_ledger_sha256": "dbfce65bbf8ba9b101ac30ae8c9e18ca83478e4df92e5e0530860faa42a1fcd3",
+  "original_full_ledger_path": "/workspace/scratch/2d03a6db0cc6/eu6-20261016T142911-0400/research/audit-runs/eu6-20261016T142911-0400/worker-4/source-access-ledger.json",
+  "not_a_replacement_execution_guard": true
+}
