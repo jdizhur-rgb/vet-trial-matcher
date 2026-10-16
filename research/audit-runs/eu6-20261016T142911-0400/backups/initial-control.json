@@ -1,0 +1,16 @@
+{
+  "run_id": "eu6-20261016T142911-0400",
+  "kind": "INITIAL_RESEARCH_ONLY_BACKUP",
+  "archive_path": "research/audit-runs/eu6-20261016T142911-0400/backups/initial-salvage.tar.zst",
+  "archive_bytes": 4442114,
+  "archive_sha256": "83482148b1daa536bccadd210c33f1f638e980c66149b7c0cbc4e5fd8c38d695",
+  "archive_git_blob": "261371b54b9f3c416ca16a33a46fcb87fa947778",
+  "saved_research_file_count": 441,
+  "saved_source_run": "research/audit-runs/europe-controller-20261016T092604-0400",
+  "manifest_path": "research/audit-runs/eu6-20261016T142911-0400/initial-backup-manifest.json",
+  "restore": "git show <verified-backup-SHA>:<archive_path> | zstd -d | tar -xf - into an empty recovery directory; archive contains only selected research paths, not .git/credentials/canonical production",
+  "site_deployment": false,
+  "git_push_failure": "fatal: unable to get password from user",
+  "transport": "Configured GitHub connector create_blob/create_tree/create_commit/update_ref; no force push",
+  "remote_readback_pending": true
+}
