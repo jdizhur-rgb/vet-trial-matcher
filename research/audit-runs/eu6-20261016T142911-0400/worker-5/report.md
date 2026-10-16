@@ -1,6 +1,6 @@
 # Франция — национальная проверка онкологической помощи
 
-Run eu6-20261016T142911-0400; slot5; настоящий agent ID /root/recovery_fr; baseline main 2f7099307e174556883ca6eb97495bead2dc3401. Фактический старт по clock:2026-10-16 18:42:43 UTC. Отчёт сформирован 2026-10-16T19:34:52.872Z. Работа продолжается: research_complete=false, публикация не разрешена этой готовностью.
+Run eu6-20261016T142911-0400; slot5; настоящий agent ID /root/recovery_fr; baseline main 2f7099307e174556883ca6eb97495bead2dc3401. Фактический старт по clock:2026-10-16 18:42:43 UTC. Отчёт сформирован 2026-10-16T19:43:40.954Z. Работа продолжается: research_complete=false, публикация не разрешена этой готовностью.
 
 ## Унаследовано и действительно выполнено
 
@@ -45,6 +45,7 @@ Run eu6-20261016T142911-0400; slot5; настоящий agent ID /root/recovery_
 | Univet / Evidensia / MonVeto | Реальные сохранённые объёмы242/279/311; четыре точные прерванные очереди242/279/1983/250 не перезапущены. Цели/URL не превращены в количество онкологических клиник. Разрешённые независимые местные продолжения остаются. |
 | Sevetys / AniCura / Argos | Сохранены234/29/116 филиальных source-единиц. Их общие карточки не доказательство местных методов. Именованные доступные продолжения перечислены в remaining.json. |
 | Fovéa | Текущий собственный список48 филиалов совпал с сохранённым. Прочитаны все48 текущих местных клинических разделов:6 в блоке06 и42 в07.38 не продвигаются по проверенному тексту;10 уже проверенных/предложенных профилей. Bords de l’Adour Dax — дополнительное узкое предложение. Связанный Castelnauvet CGF2026 явно ограничивает канцерологию диагностической пункцией. Конкретных процедур из общих карточек нет. |
+| Synervet.COM, Бретань | Все16 именованных актуальных филиальных страниц прочитаны;4 уже предложенных физических провайдера (Noës/Sainte-Croix/Pipriac/Guipry),12 непроходящих по полному проверенному тексту. Баннер17 расходится с двумя фактическими каталогами16;17-й не выдуман. С Rouen Synervet.NET сеть не смешана. Pipriac:предложен отдельный полевой прирост ЭХТ по полному местному разделу; на Guipry не перенесён. |
 | VPlus |34 текущих уникальных филиала просмотрены;32 без достаточного местного противоопухолевого акта в проверенном тексте. Beaulieu:узкая хирургия опухолей века. Mascaret:предложенная узкая помощь/консультация, конкретные методы неизвестны. Полная опубликованная карта, новые связанные CGF и вакансия Blaye9октября прочитаны; сетевая химиотерапия не перенесена на филиал. |
 | Независимые / GP | Сохранённые квалифицированные врачи и местные акты сверены отдельно. Онкологический board не требуется для GP-химиотерапии. Другие сохранённые местные направления ещё доступны. |
 | ЛТ / ЭХТ | Sainte-Anne ЭХТ и конкретные локальные доказательства остальных предложений сохранены. MICEN — только общие химиотерапия/ЛТ; старая машина/энергия/техника не объявлены текущими. Brive-комната не стала тегом лечения. |
@@ -53,7 +54,9 @@ Run eu6-20261016T142911-0400; slot5; настоящий agent ID /root/recovery_
 
 ## Счётчики и единицы
 
-Assigned:159; содержательно рассмотрено в текущей ревалидации:149; полностью подтверждено по общему стандарту:75. NEW:69; UPDATE:0; DUPLICATE:6; EXCLUDED:71; UNRESOLVED среди текущих рассмотренных:3. Единица — реальный провайдер/самостоятельный сервис, не URL, поисковый запрос, врач-алиас или сеть.
+Assigned:171; содержательно рассмотрено в текущей ревалидации:161; полностью подтверждено по общему стандарту:75. NEW:69; UPDATE:0; DUPLICATE:6; EXCLUDED:83; UNRESOLVED среди текущих рассмотренных:3. Единица — реальный провайдер/самостоятельный сервис, не URL, поисковый запрос, врач-алиас или сеть.
+
+Отдельно полевых дополнений к ещё неопубликованным предложениям:1. Это не UPDATE-идентичность относительно main и не новый провайдер. У Pipriac прежние даты собственных химиотерапии/опухолевой хирургии сохранены; только новое точное филиальное доказательство ЭХТ имеет фактическую дату19:37:13UTC.
 
 Полные проверки включают сохранённые первичные факты и текущую семантическую сверку; это НЕ число свежих посещений источников. NEW относительно main:69; сохранённых неопубликованных предложений исходного пакета57, остальные — ревалидированные сохранённые направления. Новых открытий именно этого запуска:0. Уже опубликованные6 входят в DUP, не NEW. Других унаследованных неоднозначных исходов, ещё не пересмотренных в этом счётчике:10; они перечислены ниже. Все34 VPlus — отдельные физические идентичности; одинаковый телефон Pictavet/Beaulieu не превратил их в один адрес. Исправлена ошибка составителя остатка: сравнение двух неопределённых ID скрывало10 записей из отображения, но не удаляло исходные данные; теперь используются только заданный ID или точный URL.
 
@@ -117,7 +120,7 @@ Assigned:159; содержательно рассмотрено в текуще�
 - Clinique vétérinaire Argos Brive Les Cèdres — Brive-la-Gaillarde: локальная онкологическая помощь. https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/brive-les-cedres-216
 - Clinique vétérinaire Sainte-Croix — Châteaugiron: локальная онкологическая помощь; химиотерапия; онкологическая хирургия. https://www.veterinairesaintecroix.com/
 - Clinique vétérinaire des Noës — Plélan-le-Grand: локальная онкологическая помощь; онкологическая хирургия. https://cliniquedesnoes.fr/
-- Clinique vétérinaire de la Pierre Bleue — Pipriac — Pipriac: локальная онкологическая помощь; химиотерапия; онкологическая хирургия. https://pipriac.cliniques-veterinaires-pierre-bleue-et-vilaine.fr
+- Clinique vétérinaire de la Pierre Bleue — Pipriac — Pipriac: локальная онкологическая помощь; химиотерапия; онкологическая хирургия; электрохимиотерапия. https://pipriac.cliniques-veterinaires-pierre-bleue-et-vilaine.fr
 - Clinique vétérinaire ProvenceVet — Avignon — Montfavet: локальная онкологическая помощь; химиотерапия; онкологическая хирургия. https://www.provencevet.fr/cancerologie/
 - Clinique vétérinaire de Miribel — Miribel: локальная онкологическая помощь; химиотерапия. https://www.cliniqueveterinairemiribel.com/chimiotherapie/
 - Clinique vétérinaire de la Vilaine — Guipry — Guipry: локальная онкологическая помощь; онкологическая хирургия. https://guipry.cliniques-veterinaires-pierre-bleue-et-vilaine.fr/
@@ -217,6 +220,18 @@ EXCLUDED означает отсутствие достаточного подт
 - Clinique vétérinaire Saint Avertin (37), Saint-Avertin : https://fovea-vet.fr/cliniques/clinique-veterinaire-saint-avertin/. Полный местный раздел услуг проверен. Общая хирургия, визуализация и сопутствующие специальности не дают достаточного доказательства онкологического лечения. Это не вывод об отсутствии помощи или закрытии.
 - Clinique vétérinaire Saint Léonard à Chemillé (49), Chemillé en Anjou : https://fovea-vet.fr/cliniques/clinique-veterinaire-saint-leonard/. Полный местный раздел услуг проверен. Общая хирургия, визуализация и сопутствующие специальности не дают достаточного доказательства онкологического лечения. Это не вывод об отсутствии помощи или закрытии.
 - Clinique vétérinaire Alliance à Bordeaux (33), Bordeaux : https://fovea-vet.fr/cliniques/clinique-veterinaire-alliance/. Полный текущий филиальный текст: общие услуги, а онкология/радиотерапия только в квалификации врача. Направление и экстренная помощь BordeauxSud не являются процедурами в Alliance на8boulevardGodard.
+- Cabinet Vétérinaire De Val D'Izé - Groupe du Cormier, VAL D'IZÉ : https://www.synervet.com/fiche-annuaire/cabinet-veterinaire-de-val-dize-groupe-du-cormier/. Полный местный раздел услуг проверен. Общая хирургия, визуализация и сопутствующие специальности не дают достаточного доказательства онкологического лечения. Это не вывод об отсутствии помощи или закрытии.
+- Cabinet Vétérinaire d'Antrain - Groupe Vétérinaire de l'Arche, Val Couesnon : https://www.synervet.com/fiche-annuaire/site-dantrain-groupe-de-larche/. Полный местный раздел услуг проверен. Общая хирургия, визуализация и сопутствующие специальности не дают достаточного доказательства онкологического лечения. Это не вывод об отсутствии помощи или закрытии.
+- Clinique Vétérinaire de Sens de Bretagne - Groupe Vétérinaire de l'Arche, Sens de Bretagne : https://www.synervet.com/fiche-annuaire/groupe-de-larche/. Полный местный раздел услуг проверен. Общая хирургия, визуализация и сопутствующие специальности не дают достаточного доказательства онкологического лечения. Это не вывод об отсутствии помощи или закрытии.
+- Clinique Vétérinaire de Saint-Aubin d'Aubigné - Groupe Vétérinaire de l'Arche, Saint-Aubin-d'Aubigné : https://www.synervet.com/fiche-annuaire/site-de-saint-aubin-daubigne-groupe-de-larche/. Полный местный раздел услуг проверен. Общая хирургия, визуализация и сопутствующие специальности не дают достаточного доказательства онкологического лечения. Это не вывод об отсутствии помощи или закрытии.
+- Clinique Vétérinaire de Surzur, Surzur : https://www.synervet.com/fiche-annuaire/clinique-veterinaire-de-surzur/. Полный местный раздел услуг проверен. Общая хирургия, визуализация и сопутствующие специальности не дают достаточного доказательства онкологического лечения. Это не вывод об отсутствии помощи или закрытии.
+- Clinique Vétérinaire des Faluns, Saint-Grégoire : https://www.synervet.com/fiche-annuaire/clinique-veterinaire-des-faluns/. Полный местный раздел услуг проверен. Общая хирургия, визуализация и сопутствующие специальности не дают достаточного доказательства онкологического лечения. Это не вывод об отсутствии помощи или закрытии.
+- Clinique Vétérinaire des Marches de Bretagne - site de Fougères, Fougères : https://www.synervet.com/fiche-annuaire/clinique-veterinaire-des-marches-de-bretagne-fougeres/. Полный местный раздел услуг проверен. Общая хирургия, визуализация и сопутствующие специальности не дают достаточного доказательства онкологического лечения. Это не вывод об отсутствии помощи или закрытии.
+- Clinique Vétérinaire des Marches de Bretagne - site de Lécousse, Lécousse : https://www.synervet.com/fiche-annuaire/clinique-veterinaire-des-marches-de-bretagne-lecousse/. Полный местный раздел услуг проверен. Общая хирургия, визуализация и сопутствующие специальности не дают достаточного доказательства онкологического лечения. Это не вывод об отсутствии помощи или закрытии.
+- Clinique Vétérinaire des Marches de Bretagne - site de Saint-Brice-en-Coglès, 47, Bd du Maréchal Leclerc 35 460 Saint-Brice-en-Coglès : https://www.synervet.com/fiche-annuaire/clinique-veterinaire-des-marches-de-bretagne-saint-brice-en-cogles/. Полный местный раздел услуг проверен. Общая хирургия, визуализация и сопутствующие специальности не дают достаточного доказательства онкологического лечения. Это не вывод об отсутствии помощи или закрытии.
+- Clinique Vétérinaire des Rivières, Breteil : https://www.synervet.com/fiche-annuaire/clinique-veterinaire-des-rivieres/. Полный местный раздел услуг проверен. Общая хирургия, визуализация и сопутствующие специальности не дают достаточного доказательства онкологического лечения. Это не вывод об отсутствии помощи или закрытии.
+- Clinique Vétérinaire du Cormier - Groupe du Cormier, Saint-Aubin-du-Cormier : https://www.synervet.com/fiche-annuaire/clinique-veterinaire-du-cormier-groupe-du-cormier/. Полный местный раздел услуг проверен. Общая хирургия, визуализация и сопутствующие специальности не дают достаточного доказательства онкологического лечения. Это не вывод об отсутствии помощи или закрытии.
+- Clinique Vétérinaire du Semnon, Martigné-Ferchaud : https://www.synervet.com/fiche-annuaire/clinique-veterinaire-semnon/. Полный местный раздел услуг проверен. Общая хирургия, визуализация и сопутствующие специальности не дают достаточного доказательства онкологического лечения. Это не вывод об отсутствии помощи или закрытии.
 
 ### Текущая незакрытая полная проверка
 
@@ -246,7 +261,6 @@ EXCLUDED означает отсутствие достаточного подт
 - Sevetys Hénin-Beaumont alias reconciliation, CrozatierParis, OccitanieMontpellier; no40oncology-card fanout
 - AniCura LorraineVet and actual remaining29branch local allocations outside exact denied routes
 - VetPartners actual approximately43 stage-roster branches and current permitted own sites
-- Distinct Synervet.COM Brittany16branch local service frontier, not Rouen Synervet.NET
 - MonVeto311 local pages/current actual acts outside heldCGF250, independent IVC211own-sites outside fullheldchild1983 queue. Guard every exact target; missing retained outputs do not release holds
 - Argos116 source outcomes retained; cancer-specific local statement at Brive is narrowcare only; no network-wide modalities
 
@@ -283,11 +297,13 @@ EXCLUDED означает отсутствие достаточного подт
 
 Отдельно44 точных отказа/барьера URL из прошлой фазы; они не запрещают всю Францию. LesVet:точная недостающая филиальная команда. Salève:редакционное решение о паллиативной-only помощи. Brive:комната против реально выполняемых методов. Miramas:временное закрытие, не постоянное. Ни один доступный непройденный источник не назван внешним препятствием.
 
+Текущий блок08:явная отмена разрешения native-poll остановила пакет из2 точных URL — Faluns CGF https://www.faluns.fr/mentions-legales-clinique-des-faluns и Synervet https://www.synervet.com/le-reseau/. Статусы/времена запросов/результаты пакета UNKNOWN, не HTTP403 по предположению. Никакого повторного клиента/пути/poll. До отдельного указания родителя был выполнен local ls/sed; это отклонение явно раскрыто, результаты не использованы для проверки. Файл пакета помещён в логический карантин:исключён из последующих чтений guard и checkpoint, не передаётся в backup. Сохранена только metadata-only квитанция restriction-08-01/ready-v002.json. Независимый Semnon downloads затем разрешённо прочитанHTTP200; Франция целиком не заблокирована.
+
 ## Даты источников, идентичность и удалённое сохранение
 
 У Web сохраняется точность только до даты2026-10-16, когда точное время не предоставлено. Новые native-посещения имеют собственные реальные timezone-aware timestamps. Сохранённые успешные даты не обновляются от ревалидации, неудачного запроса или интеграции. Точные первые потерянные времена не придуманы. Репозиторий/production не менялись; commit/push/deploy не выполнялись этим исполнителем.
 
-Последняя подтверждённая родителем удалённая квитанция по текущему структурированному остатку: data f9ce1e77e20b6ccf62c5204c71d3da8eba009168; receipt 4ae1c0a55f22a2ce224ee901efda62e25ee804c3; объём blocks01–05 remotely VERIFIED013; current06 not yet durable. Новые локальные блоки сверх этого объёма ещё не объявлены удалённо долговечными.
+Последняя подтверждённая родителем удалённая квитанция по текущему структурированному остатку: data 6396b9c001c887da494892e39c561033122eb78f; receipt 212e8d6617c9b24392da049c3cfe39d76e1460ad; объём blocks01–06 remotely VERIFIED017 at19:30:15UTC; current07/08 not yet durabilityconfirmed here. Новые локальные блоки сверх этого объёма ещё не объявлены удалённо долговечными.
 
 Начальная удалённая копия исследований:research/europe-recovery-eu6-20261016T142911-0400 @f09a1608b2fbc09b8d25a9e3d29f756fa1fae0ed; замороженные план/критерии/шесть отчётов @14451a2d260de887f6b2db343b1e98607cd5d5ba. Родитель подтвердил backup002 data5e43e4b5c0252c394fc56ff02d7f9fb22842ff3b /receipt e40c1cb4666f628cc24aeb5220f4c62a57dec650 и backup003 data2ea76afd3e478db507055ef6d8dd0ad6333d2766 /receipt0ee5900b58d3089b62b3da0390e539805334e697. Это сохранение исследований, не публикация сайта. Новая локальная ready-квитанция сама по себе не удалённая долговечность. Пути каждого блока и SHA256 находятся в его ready.json; родитель отдельно сериализует удалённую запись и чтение обратно.
 

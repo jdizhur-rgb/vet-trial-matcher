@@ -176,3 +176,22 @@ Drautalvet — повторно подтверждённый унаследов�
 
 Собственный доступный остаток отдельно: текущая batch21sources/8baseline providers Niederösterreich/Kärnten требует полного чтения и сводки; remaining Wien/Steiermark/Oberösterreich baseline; 17+ новых региональных GP leads; Mario Sauer/Andrea Schmid/mobile/remote DocOrbit; An­nabichl venue; Krieger/Hampel/Frauental/Inn­sbruck service leads; новые undated services/openings, RT/ECT и национальный повторный frontier. External source gates/technical/integrity/branch-scope ambiguities не подменяют эти доступные задания. Четыре Stadtgraben координатных поля WITHHELD, Rieder/Stadtgraben-Wolf/Vöcklabruck реальные holds не сняты. Root restriction shard Muttendorf после seal не изменялся; новых gates пока нет.
 
+# Блок 09 — оставшиеся baseline Niederösterreich/Kärnten
+
+Текущий промежуточный счёт: assigned 140, processed 94, fully_verified 82; NEW27(18 inherited +9 discovery), UPDATE20identities/38fields, DUPLICATE36, EXCLUDED3, UNRESOLVED8. Фактических новых discovery queries75. Два новых lead — Zoodoc Wien и Christian Kucher/Graz — зарегистрированы, ещё не processed. Страна не завершена.
+
+Полностью сведены восемь current baseline кандидатов: Johanna Forster Amstetten, Victoria Kuntner Käfermühle/Neustadtl, Rebecca Zika Linde/Sollenau, Dreier-Schöpf Baden, Ebenthal/Kronberg, Tierärzteteam am Rathausplatz Spittal, Reyersdorf и Leisser Zwettl. Первые три и Zwettl повторяют уже live Surgery. Городские landing pages Seeboden не создают дополнительную клинику к Rathausplatz Spittal; это не Drautalvet/Villacher28.
+
+Новые exact UPDATE относительно frozen baseline:
+
+| Provider | Field change | Current primary |
+|---|---|---|
+| Dreier-Schöpf, Baden | добавить Surgery; уточнить own daily tumor surgery/cryosurgery и access | https://www.dreier.at/leistungen/chirurgie/ |
+| Ebenthal, Kärnten | clinician_review: Alan Kronberg Fachtierarzt für Kleintiere, current oncology/surgery clinical areas; Maria Kronberg/Elina Schullnig current vets | https://tierarzt-ebenthal.at/team/ |
+| Tierärzteteam am Rathausplatz, Spittal | clinician_review: Patricia Winkler и Gudrun Pichler, опубликованные veterinary roles/studies | https://www.tierarzt-spittal.at/team |
+| Reyersdorf | добавить Local oncology care к существующей Surgery; current GP team и точный scope/access | https://www.tierarzt-reyersdorf.at/leistungen/onkologie/ ; /ueber-uns/ |
+
+Reyersdorf действительно составляет индивидуальный cancer therapy plan, но общая образовательная перечисленная chemo/RT не стала local delivery tag. Mistel-эффективность не принята как факт. National Fachtierarzt у Christina Dreier-Schöpf/Alan Kronberg не переименован в European oncology board. Zwettl: current Stefan Leisser, Vienna veterinary study; региональный Notdienst0501964 не выдан за гарантированное круглосуточное присутствие собственной клиники. Linde: student не принят за врача; истёкшие отпуска не текущие закрытия.
+
+Source-only receipts следующего блока уже сохраняются, но НЕ добавлены к processed94: 18 baseline Wien/Steiermark/Oberösterreich, новые именные prior leads, DocOrbit, Schmid, TGZ Innsbruck и будущий Rathaus. VUK official public post полностью прочитан57lines: Rathaus прямо планируется на декабрь2026, поэтому не будет NEW действующей клиники. Изображения персонала Thalerhof потребовали отдельного получения оригинала; одних Web image references недостаточно для visual QA — это явно различено в receipts. Никакие недоступные/пустые/JS-shell источники не обновили clinical successful date. Доступный national frontier, mobile/remote/current openings/RT/ECT продолжается без приёмки страны.
+

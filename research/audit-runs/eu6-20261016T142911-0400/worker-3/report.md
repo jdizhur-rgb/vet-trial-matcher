@@ -1,12 +1,12 @@
-# Польша — промежуточный блок 5
+# Польша — промежуточный блок 6
 
-Исполнитель: /root/recovery_pl, slot 3. Фактическое начало: 2026-10-16 18:41:40 UTC. Фиксация: 2026-10-16 19:32:24 UTC. Baseline: 2f7099307e174556883ca6eb97495bead2dc3401. Национальный поиск продолжается, research_complete=false.
+Исполнитель: /root/recovery_pl, slot 3. Фактическое начало: 2026-10-16 18:41:40 UTC. Фиксация: 2026-10-16 19:39:31 UTC. Baseline: 2f7099307e174556883ca6eb97495bead2dc3401. Национальный поиск продолжается, research_complete=false.
 
 ## Наследство и результаты этого запуска
 
-Унаследованы 147 предложений, 136 прежних заявлений fully verified, 637 Web-receipts и 324 запроса. В полных current-каталогах 20 прежних идентичностей уже представлены, 127 отсутствуют. Это 127 inherited_absent_candidates, НЕ 127 принятых NEW; inherited_unpublished_revalidated теперь 10; оставшиеся117 отсутствующих ещё pending. Собственная клиническая proof-QA всего прежнего массива ещё открыта.
+Унаследованы 147 предложений, 136 прежних заявлений fully verified, 637 Web-receipts и 324 запроса. В полных current-каталогах 20 прежних идентичностей уже представлены, 127 отсутствуют. Это 127 inherited_absent_candidates, НЕ 127 принятых NEW; inherited_unpublished_revalidated теперь 30; оставшиеся97 отсутствующих ещё pending. Собственная клиническая proof-QA всего прежнего массива ещё открыта.
 
-Сейчас проверены 7 прежних saved leads и 29 действительно новых региональных клиник: 36 собственных qualifying NEW плюс10 отдельно восстановленных inherited-unpublished, всего46qualifyingNEW proposed, UPDATE=0. Provisional proposal-candidate inventory 163=127+7+29 не является числом подтверждённых добавлений. Новые 29 прошли current physical/supplemental/inventory/acvim сравнение по ID, адресу/городу, телефону, имени и домену; также проверен полный tele-input (62 service units, польских строк нет), пересечений с прежними 147 по официальным доменам не найдено. Итоговый семантический пересчёт будет повторён после исследования.
+Сейчас проверены 7 прежних saved leads и 29 действительно новых региональных клиник: 36 собственных qualifying NEW плюс30 отдельно восстановленных inherited-unpublished, всего66qualifyingNEW proposed, UPDATE=0. Provisional proposal-candidate inventory 163=127+7+29 не является числом подтверждённых добавлений. Новые 29 прошли current physical/supplemental/inventory/acvim сравнение по ID, адресу/городу, телефону, имени и домену; также проверен полный tele-input (62 service units, польских строк нет), пересечений с прежними 147 по официальным доменам не найдено. Итоговый семантический пересчёт будет повторён после исследования.
 
 ## Новый региональный блок
 
@@ -88,3 +88,16 @@ Current-baseline exactfieldcomparison20ужеmain:19совпалиполност
 ## Свежий backup status
 
 Block4 remote013 VERIFIED parentreceipt: 4ae1c0a55f22a2ce224ee901efda62e25ee804c3; data f9ce1e77e20b6ccf62c5204c71d3da8eba009168; archive/control/memberhash PASS, errors0. Это backup, не publication/clinicalacceptance. Текущий block5 до remote receipt считается только localready. Работа продолжается; research_complete=false.
+
+
+## Delta блока 6: ещё20 восстановленных inherited identities
+
+Вручную проверены30–49 (20отдельных новых дляcurrentmain провайдеров, НЕfreshdiscovery): Veterio Warszawa; LoVeT Kraków; Szmaragdowa иREX Lublin; TKW Gdańsk; OCW OstrówWielkopolski; Boliłapka иTropek Białystok; VetPremium Kraków иLux-VetPremium Bielsko-Biała; VetClinic Łódź; AniCuraAnimal Broniewskiego Łódź; 4PET Toruń; CZMZ Gorzów; SFORA Warszawa; Jamniczek Piotrków; Giszowiec Katowice; Wnuk Kraków; Elwet Warszawa; Arka Kraków. Точные адреса/телефоны/официальныеURL/цитаты/квалификации/новые значения — working/inherited-revalidated002/003. Повторное full4catalog semanticID/phone/addresscity/namecity/fullrowhost сравнение20:совпадений0. Всегоrootchanges66уникальныхNEW,UPDATE0;29newdiscovery+7saved+30restored. 113ownqueriesбезприроста:новыезапросыбылиopen/find,а неsearch.
+
+Полные свежие body web070–082 и точный normalTLSrootREX200 вnative005 закрыли missingstaff/service/contact. Полные retainedWnuk/Elwet/Arka/Boliłapka прочитаны с реальными первичными посетительными датами16Oct, а не получили искусственную датуfreshsourcevisit. Veterio иTropek прежние optionaldetail_unresolved не мешают corecomplete: текущий именнойqualifiedGP/реальное местное лечение/точныйstreetphonewebsiteaccess подтверждены. УVeterio исторический Dublin опытАнныХалки не назван текущей localoncologyassignment. УTropek конфликтпочтовогоиндекса15-703/15-777 сохранён какдеталь, не подмена реального адреса.
+
+SFORA/TKW localECT напрямую подтверждены собственными клиническими страницами. У4PET явный запрет home/weekend/holidayvisits; VetPremium не оказываеттелефонныхконсультаций — телефон служитзаписи, неremoteoncology. ВетPremiumдвафизическихотделенияс местным спискомnamedlek.wet.и общей услугой, прямоназывающейKraków/Bielsko, оставленыLocaloncologycare, не перенесеныchemo/RT/targeted. Триостальныхфактическихbranch(Jaworze/Skoczów/Wilamowice)ещёнужноownfinalscreen;SEOcatchmenttownsнеbranch.
+
+Giszowiec: текущая независимая разрешённая полная hematologyстраница явно«Diagnozujemy i leczymy…białaczkę…nowotwory krwi», содержитqualifiedGPs/точныйKatowiceaddressphoneaccess. ПоэтомуprovidercoreNEWподтверждён сMedicaloncology. Старый Surgicaloncologyquoteизуспешногопрошлогопосещениясохранён отдельно,но полныйоригинальныйbodyне найденвпредоставленномsalvage,а exactchirurgiaURLимеет429hold. Его не открывалиповторно/другимклиентом. В предлагаемойнынешнейзаписиSurgicaloncologyвременноне включён,вопроспомеченнауровнемодальности,некакпричинавыброситьклиникуилиложныйновыйdenial. Это неUPDATEpublishedзаписи,clinicabsentcurrent. Новаяsuccessfuldateдляheldsurgeryне выдана.
+
+Полнаявыше национальнаятаблицаостаётсярабочей: ниодинрегион/университет/крупнаясеть не закрыт автоматически этойдвадцаткой. Следом97inherited+domain636/currentrosters/secondarycities/mobile/RTECT,newsignals;доступныйостатокнеexternal. RootsixJSONвалидны,66IDunique;candidate/source deltaappend-only. Block6 localready покаожидаетremoteproof.

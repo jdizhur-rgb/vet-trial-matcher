@@ -14,6 +14,12 @@ def collect():
         for ready in sorted(ready_paths):
             superseded={(4,'checkpoints/block-02/ready.json'):'Worker declared erroneous draft; superseded by block-02delta/ready.json.',(4,'checkpoints/block-02delta/ready.json'):'Mutable root references corrected by block-02delta-seal; original bytes restored from verified archive003.',(4,'checkpoints/block-03/ready.json'):'Mutable root references corrected by block-03-seal; payload unchanged.',(3,'checkpoints/block-3/ready.json'):'Header omitted baseline_sha; superseded by block-3-corrected-ready.json. Payload preserved as history.'}
             reason=superseded.get((item['slot'],ready.relative_to(w).as_posix()))
+            if item['slot']==5 and ready.relative_to(w).as_posix()=='checkpoints/restriction-08-01/ready.json':
+                reason='Metadata-only cancellation notice missing baseline_sha header; superseded by ready-v002.json, same two safe members'
+            if item['slot']==2 and ready.relative_to(w).as_posix().startswith('checkpoints/block-08') and not ready.relative_to(w).as_posix().startswith('checkpoints/block-08-public-safe-v3/'):
+                reason='Original or intermediate UNSAFE KVL-derived block08: LOCAL QUARANTINE; only public-safe-v3 is permitted'
+            if item['slot']==2 and ready.relative_to(w).as_posix() in {'checkpoints/block-08/ready.json','checkpoints/restriction-07/ready.json'}:
+                reason='PRIVATE-USE KVL database extraction/withdrawn row in payload: LOCAL QUARANTINE, not permitted in public backup; await worker public-safe derivative with independent evidence'
             if item['slot']==6 and ready.relative_to(w).as_posix() in {'source-events/restriction-007-ready.json','source-events/restriction-008-ready.json'}:
                 reason='Missing baseline_sha header; superseded by corresponding ready-v002.json with unchanged evidence'
             if reason:
@@ -29,9 +35,19 @@ def collect():
                 for name,z in entries:
                     sha=z.get("sha256") if isinstance(z,dict) else z
                     candidates=[ready.parent/name,w/name]
-                    hits=[q for q in candidates if q.is_file() and not q.is_symlink() and q.resolve().is_relative_to(w.resolve()) and digest(q)==sha]
+                    permitted=[]
+                    for candidate in candidates:
+                        if not candidate.resolve().is_relative_to(w.resolve()):continue
+                        ownrel=candidate.resolve().relative_to(w.resolve()).as_posix()
+                        if item['slot']==5 and ownrel=='receipts/block08-network-faluns-details.json':continue
+                        protected_cz={'block-08-source-h.json','block-08-source-i.json','block-08-outcome-delta.json','block08_outcomes.py','restriction-07-withdrawal.json'}
+                        if item['slot']==2 and (candidate.name in protected_cz or ownrel.startswith('checkpoints/block-08/')):
+                            if not ownrel.startswith('checkpoints/block-08-public-safe-v3/'):continue
+                        permitted.append(candidate)
+                    hits=[q for q in permitted if q.is_file() and not q.is_symlink() and q.resolve().is_relative_to(w.resolve()) and digest(q)==sha]
                     assert hits,("Missing/changed frozen file",name)
                     q=hits[0];rel=str(q.relative_to(ROOT))
+                    assert not(item['slot']==5 and q.relative_to(w).as_posix()=='receipts/block08-network-faluns-details.json'),('Cancelled approval batch content is quarantined, not backup material',rel)
                     assert not(q.parent==w and q.name in {'report.md','result.json','proposed_changes.json','evidence.json','queries.json','remaining.json'}),('Mutable root file cannot be frozen checkpoint target',rel)
                     if rel in uploaded:assert uploaded[rel]==sha,("Previously backed immutable file changed",rel)
                     else:block_files[rel]={"path":rel,"sha256":sha,"bytes":q.stat().st_size}
