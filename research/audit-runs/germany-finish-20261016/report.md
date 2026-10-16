@@ -1,147 +1,166 @@
-# Германия: полный отчёт о выполненном и препятствиях
+# Германия: полный итог доступного прохода 16 октября 2026
 
-**Статус: Германия НЕ завершена. Это итог разрешённой документальной сверки, а не сертификат национальной полноты.**
+Доступный конечный проход завершён. Подготовлено **55 новых физических мест лечения, 2 новых дистанционных сервиса и 1 содержательное обновление существующей клиники**. Это не 58 новых клиник. В Германии каталог меняется с **165 до 220 физических мест**, глобально с827 до882; дистанционный каталог с62 до64 сервисов.
 
-Работа выполнялась отдельно от других стран, в чистой копии текущего remote main `54da45666528c6e1f1007625e56d6871243ee21c`. Производственные данные, matcher и другие исполнители не изменялись. Новых клинических сетевых запросов в этой сверке — 0; удержанные действия не повторялись.
+Страна **не объявляется полностью проверенной без остатка**: обязательные сведения по39 из87 ранее именованных кандидатов не достигли порога публикации. Из них9 затронуты автоматическими отказами чтения результатов,1 ограничен реальным403,3 недоступны обычными методами,26 имеют конкретные недостатки доступных первичных сведений. Проверенные результаты публикуются только после этого конечного прохода и проверки diff. Окончательный SHA/deploy/readback сохраняется отдельно в publication-receipt.json; до наличия этой квитанции этот отчёт не доказывает публикацию.
 
-## Что проверено и доведено до результата
+## Что фактически проверено
 
-Разобран весь сохранённый остаток из 333 неклассифицированных URL: каждому дана маршрутная категория и основание в general-333-route-review.json. Это проверка смысла сохранённого URL/названия и назначения источника; страницы заново не открывались, находки не превращались в проверенные клиники.
+В явном разрешённом списке доказательств210 записей обращений к209 уникальным URLs:196 читаемых ответов200,1 пустой ответ,12 HTTP ошибок,1 транспортный сбой. Это маршруты источников, не число клиник.202 записи имеют фактический timestamp обращения;8 восстановлены из ранее успешно сохранённого raw без точного времени запроса. Дата16октября и фактическое время сохранения остаются отдельно. Повторная сборка не обновляет дату визита. Содержимое двух запрещённых результатов batch25 / named-finite-last-nine не использовалось и не включено в резервные копии.
 
-Сохранены все 102 кандидата из последнего индивидуального индекса; для 87 незакрытых имён собраны сохранившиеся точные URL, исходные даты доказательств, конкретные недостающие факты и разрешительный статус. Все 87 имеют хотя бы reference URL, но только18distinctclinicalURLs сохранены: профессиональная запись не подменяет клинический источник.
+Рассмотрены все87 старых именованных кандидатов:47 физических NEW,1 remote NEW,26 отложены по недостаточности первичного подтверждения,9 заблокированы автоматической проверкой,1 реальным ограничением сайта,3 недоступны. Отдельно добавлены4 ранее готовых Schleswig-Holstein и4 новых физических результата национального sweep; Cristina Popa — второй remote результат вне87.87 dispositions сохранены построчно, а не заменены счётчиком успешных GET.
 
-## Результаты клиник
+## Национальное покрытие и пределы
 
-Счётчики предшествующей сверки не обновлялись искусственно: 102 assigned; 69 processed;4 NEW draft;8 DUPLICATE;3 EXCLUDED;54 UNRESOLVED;33 identity-only unprocessed. 9 полностьюпроверенных по прежней системе включают5 already-live + 4 draft, а не9 новых. Не суммировать эти единицы с1176URL/171 профессиональными ссылками/109 записями Saarland.
-
-| Готовый проект | Подтверждённая местная услуга | Первичный источник |
+| Направление | Выполнено | Точный предел |
 |---|---|---|
-| Dr. Boris Sülzle, Nortorf | Удаление опухолей | http://www.tierarztpraxis-nortorf.de/kleintierpraxis.php |
-| Angelika Drensler, Elmshorn | Онкохирургия, химиотерапия | https://www.tierarzt-drensler.de/leistungen/ |
-| Dr. Steffen Sager, Schönberg | Tumor-OP | https://www.tierarzt-schoenberg.de/leistungen/chirurgie |
-| Nicolas Genz, Wedel | Удаление опухолей в собственных операционных | https://www.tierarztpraxis-elbe.de/chirurgie |
+| Все16 земель | Новый немецкоязычный sweep в national-01…04-search.json; сохранены текущие/недатированные и новые сигналы, использована прежняя региональная/городская карта | Поиск не доказывает актуальность лечения; новые результаты включены только после собственных клинических страниц |
+| Города | Унаследованный набор21 крупного города и новые городские результаты в16 региональных запросах, включая независимые GP | Не выдаётся за перечень каждого неизвестного GP страны |
+|5 университетов | LMU, TiHo, JLU, FU прочитаны по доступным официальным страницам; Leipzig обязательные clinical/contact маршруты фактически502 и same-URL Web502 | У FU подтверждён текущий отдел oncology/contact, но общий отдел не расширяет подтверждённые модальности; у Leipzig сохраняется внешняя clinical-gap |
+| Сети и ветви | Сверены именные ветви Evidensia/AniCura по доступным собственным clinical/team/contact источникам; filu12 ветвей прочитаны полностью | AniCura национальный roster имеет сохранённый403; нельзя объявлять полный свежий roster. Исторические837/854 пакетных holds не считаются клиническими проверками. У12 filu общая tumor surgery не распределена по ветвям |
+| GP, хирургия, химиотерапия | Обычная практика допускается без oncology board; услуги и квалификация проверяются отдельно | Generic Surgery и справочник Patella не подтверждают cancer surgery; chemo не копируется из объяснений/направления в другую клинику |
+| RT/ECT | Отдельный просмотр текущих университетских и новых oncology сигналов; NIICE остаётся Surgery-only, chemotherapy/ECT «in Kürze» не активированы | Новых достоверных локальных RT/ECT в этом пакете0. Dresden и Wasbek прямо направляют на RT вовне; generic laser не RT |
+| Выездные/remote | Nestler физический адрес с дополнительными выездами; VetOnkologie и HaustierDocs подтверждены как дистанционные | Anke Wendel — consiliary listing без полного самостоятельного intake; Callavet held. Адрес партнёра/регистрации не становится кабинетом лечения |
 
-Точные клинические выдержки частично уцелели после прошлого сбоя; это retained selected excerpts, а не полный rawpage. Текущая регистрационная идентичность/контакты проверялись ранее отдельными официальными профессиональными источниками. Все исходные даты сохранены; эта offline сверка не является новой датой визита. Специалист-онколог, химиотерапия или лучевая терапия сверх явно подтверждённого не приписываются. Публичные цены/направление/приём новых пациентов, если не опубликованы, требуют уточнения. QA родителя дополнительно проверила отсутствие sourceID/телефон/адрес/website совпадений в свежем main. Эти четыре проекта НЕ опубликованы, потому что полный поиск страны ещё не завершён.
+При одинаковом пороге ограниченная карточка Local oncology care допустима для Preetz, Bockenheim и Britta Richter: текущая собственная клиническая услуга, ветеринар, адрес, связь и запись подтверждены. Специфические Chemotherapy/Surgery не присваиваются. Schafflund получает только Surgery по явному направлению операций из Tarp в главную практику и её операционным; Tarp не получает эти услуги автоматически.
 
-Дубли: Mario Erler (Kassel), Tierklinik Oberhaching, Kleintierklinik Bremen KasparFaberStraße4, AniCura Bremen StaderStraße35, Rosenhof/Claudia Hartke (Mühlhausen), Anja Zogall (Schwerin), Niendorf/Sabine Rudat, LMU Kleintierklinik. Существующие записи сохраняются, новых копий нет.
+## Почему предыдущая работа не заканчивалась
 
-Исключённые источники и кандидаты: Pferdeklinik Eutin и Pferdeklinik Bilsen — сохранённое первичное доказательство относится к лошадям; VetMRT — диагностическая MRI/CT, не лучевая терапия. Это не утверждение о закрытии клиник.
+1. Сохранившийся frontier смешивал клиники и справочные маршруты: из333 URLs только28 относились к clinical/provider routes.305 справочных/неклинических маршрутов увеличивали счётчики без решения вопроса местного лечения.
+2. По87 кандидатам было54 unresolved и33 identity-only. Профессиональные справочники восстанавливали личность, но не утраченные clinical payloads.61 потерянный clinical payload и поля11 Trier updates нельзя объявлять восстановленными по snippets.
+3. У старых автоматических отказов837/854 сохранилась ретроспектива, но не исходный stated reason и не полная исходная очередь. Это реальная потеря scope/доказательств, а не установленный технический reset. Новое адресное разрешение пользователя позволило заново читать клинические источники; реальный403 не исчез от разрешения.
+4. Первый новый парсер останавливался на пустом HTML. Успешные raw первых запросов сохранились, точные timestamps части запросов нет. Исправлено инкрементальное сохранение и обработка пустого тела; недостающие времена не придуманы.
+5. Смешанные пакеты с маршрутами AniCura были остановлены автоматической проверкой при опросе процесса. Это задержало и соседние независимые targets. Их результаты не использованы; последующая работа продолжена только по другим разрешённым источникам. Отчёт фиксирует это как blocker, а не как «все сайты недоступны».
+6. Публикация и цикл проверки раньше подменяли окончание поиска. Здесь сначала завершены доступные именные и национальные направления, затем сформирован минимальный field diff и отдельная publication branch. Неподтверждённое осталось в research.
 
-## Национальное покрытие
+## Проверенные новые физические места
 
-| Обязательное направление | Реально достигнуто | Чего не хватает |
+| Название | Город | Подтверждённые услуги | Официальный клинический источник |
+|---|---|---|---|
+| Kleintierpraxis Eckernförde – Dr. med. vet. Eva Brockhaus | Eckernförde | Surgery | https://kleintierpraxis-brockhaus.de/leistungen/ |
+| Tierärztin Karin Rieckhoff – Fachpraxis für Kleintiere und Zahnheilkunde | Rendsburg | Surgery | https://www.fachtierarzt-rendsburg.de/seite/697815/leistungen.html |
+| Nestler Mobile Tierärzte | Dohna | Surgery | https://www.tierarzt-nestler.de/ |
+| 5-E Tierarztpraxis Thomas Backhaus | Thalfang | Surgery | https://www.tierarztpraxis-thomasbackhaus.de/ |
+| Fachtierärztliche Praxis Dr. Peter Beck | Rossach | Chemotherapy | https://www.dr-beck.com/ |
+| Kleintierpraxis Stauferland | Rechberghausen | Surgery | https://www.kleintierpraxis-stauferland.de/leistungen/ |
+| Tierarztpraxis Almenhof – Dr. Andreas Haag | Mannheim | Surgery | https://www.tierarzt-in-mannheim.de/leistungen/ |
+| Tierarztpraxis Rahnsdorf | Berlin | Surgery | https://tierarztpraxis-rahnsdorf.de/leistungen/ |
+| Tierarztpraxis Dr. Volker Janssen | Halle (Westfalen) | Surgery | https://www.tierarzt-janssen.de/de/ |
+| Tierarztpraxis Westerhorn | Westerhorn | Surgery | https://www.tierarztpraxis-westerhorn.de/ |
+| Tierarztpraxis Dr. Bungartz | Reuth | Surgery | https://tierarztpraxis-bungartz.de/leistungen/kleintiere |
+| Kleintierpraxis Dr. Astrid Fritzenschaf | Eggenstein | Surgery | https://www.tierarztpraxis-fritzenschaf.online/leistungen/behandlung/ |
+| Tierarztpraxis Schmidl | Bremen | Surgery | https://www.tierarztpraxis-schmidl.de/leistungen.php |
+| Tierarztpraxis Rudloff | Elzach | Surgery | https://www.tierarzt-rudloff.de/leistung.html |
+| Tierarztpraxis Dr. Jessica Höch | Mühlhausen OT Saalfeld | Surgery | https://tierarztpraxis-hoech.de/ |
+| Tierarztpraxis Markus Sliwon | Dormagen (Delrath) | Surgery | https://www.tierarzt-sliwon.de/ |
+| Kleintierpraxis Strutz | Schwentinental | Surgery | https://www.kleintierpraxis-strutz.de/onkologie/ |
+| Kleintierzentrum Uetersen | Uetersen | Chemotherapy, Surgery | https://www.kleintierzentrum-uetersen.de/leistungen/chirugie |
+| Tierarztpraxis Liane Kruse | Österdeichstrich | Surgery | https://www.tierarzt-kruse.de/Leistungen/ |
+| Kleintierzentrum am Obermain | Lichtenfels | Chemotherapy, Surgery | https://kleintierzentrumobermain.de/leistungen/onkologie/ |
+| Tierarztpraxis Biet & Wanschura | Nagold | Surgery | https://www.biet-wanschura.de/leistungen/chirurgie/ |
+| Kleintierpraxis Weimar – Olma & Zeise | Weimar | Surgery | https://www.kleintierpraxis-weimar.de/leistungen |
+| Tierarztpraxis Reinhard Seffner | Bremervörde | Surgery | https://www.tierarzt-seffner.de/leistungen/chirurgische-eingriffe |
+| Dr. Stief – Tagesklinik für Tiere | Mühlhausen | Chemotherapy, Surgery | https://www.drstief.de/onkologie/ |
+| Tierarztpraxis Nicole Hänel | Hartmannsdorf-Reichenau | Surgery | https://tierarzt-haenel.de/leistungen.html |
+| Tierarztpraxis in Rondorf | Köln-Rondorf | Surgery | https://www.vet-rondorf.de/leistungen/ |
+| Tierarztpraxis Harald Pfeiffer | Murrhardt | Surgery | https://www.tierarztpfeiffer.de/leistungen/kleintierpraxis |
+| Tierärztliche Praxis Dres. Arui | Donaueschingen | Surgery | https://www.kleintierpraxis-arui.de/leistungen/ |
+| Tierarztpraxis am Rotenbühl | Saarbrücken | Surgery | https://tierarztpraxisrotenbuehl.de/ueber-mich/chirurgie/ |
+| Fachtierarztpraxis Dr. Peter Grommelt | Kehl-Kork | Surgery | https://www.tierarztpraxis-grommelt.de/chirurgie/ |
+| Kleintierpraxis Alexander Schumacher | Simmerath-Lammersdorf | Chemotherapy, Surgery | https://www.eifel-kleintierpraxis.de/leistungen.html |
+| Kleintierpraxis in Arsten | Bremen | Surgery | https://www.tierpfoetchen.de/de/unsere-leistungen |
+| Kleintierpraxis Müllheim | Müllheim | Chemotherapy, Surgery | https://www.kleintierpraxis-muellheim.de/leistungen |
+| Kleintierpraxis Blankenese | Hamburg-Blankenese | Surgery | https://kleintierpraxis-blankenese.de/chirurgie-operationen/ |
+| Tierarztpraxis Hamburg Altona | Hamburg | Surgery | https://www.tierarzt-hh-altona.de/de/unsere-leistungen |
+| Tiergesundheitszentrum Bad Birnbach | Bad Birnbach | Surgery | https://tierarzt-badbirnbach.de/leistungen/chirurgie/ |
+| Kleintierpraxis Wissenbach | Eschenburg-Wissenbach | Surgery | https://www.kleintierpraxis-wissenbach.de/leistungen/chirurgie/ |
+| Tierarztpraxis Itterburg | Eberbach | Surgery | https://www.tierarztpraxis-itterburg.de/portfolio_page/weichteilchirurgie/ |
+| Diagnostikzentrum für Kleintiere – Tagesklinik | Dresden | Chemotherapy, Surgery | https://www.tagesklinik-kleintiere.de/leistungen/onkologie/ |
+| Tierarztpraxis Hinter den Höfen | Schimberg OT Ershausen | Surgery | https://www.tierarzt-hinterdenhoefen.de/kleintierpraxis.html |
+| Tierärztliche Praxis Dr. Theo Schöne & Dr. Birgit Schepp-Schöne | Herborn | Surgery | https://www.tierarztpraxis-herborn.de/leistungen/onkologie |
+| Tierarztpraxis Dr. Ammon | Much | Chemotherapy, Surgery | https://tierarztpraxis-ammon.de/onkologie/ |
+| Kleintierklinik Wasbek | Wasbek | Surgery, Chemotherapy | https://www.kleintierklinik-wasbek.de/unsere-leistungen/fachgebiete/ |
+| Tierarztpraxis Dr. Peter Saur | Garmisch-Partenkirchen | Chemotherapy | https://www.tierarzt-garmisch.com/leistungen/onkologie/ |
+| Tierarztpraxis Karl Sewastianiuk | Stockach | Surgery | https://www.tierarzt-bodensee.de/therapien.html |
+| Fachtierarztpraxis Grünheide – Ariane Valentin | Grünheide (Mark) | Chemotherapy, Surgery | https://www.tierarztpraxis-valentin.de/unsere-leistungen.html |
+| Tierarztpraxis Bramfeld | Hamburg | Surgery | https://tierarztpraxis-bramfeld.de/leistungen/ |
+| Kleintierpraxis Preetz / Schellhorn – Dr. Gesine Krefft | Schellhorn | Local oncology care | http://www.kleintierpraxis-preetz-schellhorn.de/leistungen.html |
+| Tierarztpraxis Dr. Boris Sülzle | Nortorf | Surgery | http://www.tierarztpraxis-nortorf.de/kleintierpraxis.php |
+| Fachtierarztpraxis Dr. Angelika Drensler | Elmshorn | Chemotherapy, Surgery | https://www.tierarzt-drensler.de/leistungen/ |
+| Kleintierpraxis Schönberg – Dr. Steffen Sager | Schönberg | Surgery | https://www.tierarzt-schoenberg.de/leistungen/chirurgie |
+| Tierarztpraxis an der Elbe – Nicolas Genz | Wedel | Surgery | https://www.tierarztpraxis-elbe.de/chirurgie |
+| Tierklinik Bockenheim | Frankfurt am Main | Local oncology care | https://www.tierklinik-bockenheim.de/team-tierklinik-praxisrundgang/onkologie/ |
+| Tierarztpraxis im Sonnenschein – Dr. Britta Richter | Handewitt | Local oncology care | https://tierarztpraxisimsonnenschein.de/Leistungen/ |
+| Nord-Ostsee Tierärzte – Schafflund | Schafflund | Surgery | https://nordostsee-tieraerzte.de/kleintiere/onkologie |
+
+Ранее готовые Sülzle, Drensler, Sager и an der Elbe используют сохранённые реальные16октября clinical excerpts и отдельные профессиональные источники. Они не представлены как вновь прочитанные clinical pages; сохранённое клиническое содержимое частичное. Не перенесены справочные даты на клинические услуги.
+
+## Обновление, дистанционные сервисы и отсутствие изменений
+
+* **Am Westend, Berlin — UPDATE:** существующая Chemotherapy карточка сохранена. Добавлены закрытие12–17октября и объявленное открытие19октября по Heerstraße18–20,14052Berlin. Текущий адрес не заменён будущим до даты переезда. Телефон/email по объявлению прежние. Источник: https://www.tierarztamwestend.de/ .
+* **VetOnkologie / Zweitmeinung Tierarzt — NEW remote:** одна реальная intake identity, Sandra Kühnel-Lawatsch; owner email/phone/video и предварительные документы. EUR220–400 плюс НДС за первичную30–60мин, больший объём дороже. https://www.vetonkologie.de/zweitmeinung/ ; https://www.vetonkologie.de/home/ueber-mich/ ; https://zweitmeinung-tierarzt.de/preise . Не создана новая физическая клиника по партнёрам.
+* **HaustierDocs / Cristina Popa — NEW remote:** собственная booking страница требует Premium для oncology/second opinion, EUR139.95; WhatsAppvideo или phone, документы заранее. Certificate of Knowledge in Canine and Feline Oncology2025 не превращён в board certification. https://haustierdocs.de/profil/dr-cristina-popa/ .
+* **NIICE Potsdam — NO CHANGE:** уже существующая Surgery-only запись, те же «in Kürze» chemo/ECT. Не новый центр и не новая активная модальность.
+* **Новые сигналы без публикации:** Hafencity — generic oncology без специфической местной модальности и полного clinical core; Ettlingen и Frankenthal — обсуждение вариантов само по себе не подтверждает местные Chemo/RT; frontier.vet medical-oncology native502 и same-URL Web502. Эти4 дополнительных national leads не замаскированы под87 или под новые клиники.
+
+## Именованный остаток87
+
+Это39 клинических кандидатных identities, а не39 необработанных заданий.Ниже финальный ledger является источником точных counts:26 недостаточных,9 autoheld,1 siteheld,3 unreachable. Отложенная публикация не означает, что практика не лечит рак.
+
+| Кандидат | Итог | Конкретный недостающий факт/ограничение |
 |---|---|---|
-| Все16 земель и21 крупныйгород | Ранее сохранены current/undated иnewsignalпоиски115queries/30searchcalls | Постатейная проверка клинических кандидатов не завершена |
-| FU Berlin, TiHo Hannover, JLU Giessen, Leipzig, LMU | Все 5 в поисковом плане; LMUcredentialcorroborated | Полная свежая клиническая сверка5 университетов не доказана |
-| AniCura, Evidensia, TAPP, VUK | Сохранены сетевые discovery/rosterleads | Исходные heldclinicalqueues частично утрачены; нет подтверждения branchclinicalполноты |
-| filu | Ранее перечислены12 веток | 0 веток подтверждены по онкоуслугам; все12 остаются в87namedlist |
-| НезависимыеGP/химиотерапия/хирургия | 4 достаточных проекта, остальные имена сохранены | 61 утраченныйclinicalpayload не восстановлен; частичныеprofessionalreferences не подтверждают лечение |
-| RT/ECT/mobile/visiting/remote | Сигналы и конкретные имена сохранены | Местное выполнение, врач и доступ не подтверждены во всём остатке |
+| AniCura Krefeld Saumstraße | BLOCKED_AUTO_REVIEW | Clinical result cannot be read after denied polling; named-finite-last-nine.json and automatic-rejection-two.json preserve exact scope. No result bodies used. |
+| Stockelsdorf | BLOCKED_AUTO_REVIEW | Clinical result cannot be read after denied polling; batch25 target manifest and new-automatic-rejection.json preserve exact scope. No result bodies used. |
+| Bencec Linkenheim-Hochstetten | BLOCKED_AUTO_REVIEW | Clinical result cannot be read after denied polling; batch25 target manifest and new-automatic-rejection.json preserve exact scope. No result bodies used. |
+| Callavet mobile service | BLOCKED_AUTO_REVIEW | Clinical result cannot be read after denied polling; batch25 target manifest and new-automatic-rejection.json preserve exact scope. No result bodies used. |
+| Nord-Ostsee Tarp | REVIEWED_INSUFFICIENT_PRIMARY | Owned site confirms Tarp is small-animal branch; complex operations routed to Schafflund. Group oncology page does not allocate chemotherapy to Tarp. Do not copy main-branch surgery or chemotherapy into Tarp. |
+| Düsseldorf Münsterstraße359 | BLOCKED_AUTO_REVIEW | Clinical result cannot be read after denied polling; batch25 target manifest and new-automatic-rejection.json preserve exact scope. No result bodies used. |
+| Stahl Menden | BLOCKED_REAL_SITE | Preserved actual403 restriction on official service URL; no retry or alias. |
+| Beyen Hirschberg | REVIEWED_INSUFFICIENT_PRIMARY | Current own veterinarian/contact/owner pages and full service home reviewed. No explicit local anticancer treatment established from general surgery. |
+| Pommerening Wolfenbüttel | REVIEWED_INSUFFICIENT_PRIMARY | Pommerening root/services readable but recovered list only generic surgery/laser; no tumor-specific treatment proof in reviewed list. Follow actual child clinical detail or retain unconfirmed modalities. |
+| Neufahrn | UNREACHABLE_PRIMARY | Two known Neufahrn official routes returnedHTTP502 in this run. Preserve current record; do not infer closure. Need current cancer services/team/intake from readable primary source. |
+| Asterlagen Duisburg | BLOCKED_AUTO_REVIEW | Clinical result cannot be read after denied polling; named-finite-last-nine.json and automatic-rejection-two.json preserve exact scope. No result bodies used. |
+| AniCura Neu-Ulm | BLOCKED_AUTO_REVIEW | Clinical result cannot be read after denied polling; named-finite-last-nine.json and automatic-rejection-two.json preserve exact scope. No result bodies used. |
+| KlickVet Quickborn / van Haaren | REVIEWED_INSUFFICIENT_PRIMARY | KlickVet services read200, but retrieved list lacks explicit cancer modality. Need clinical child-page proof/current clinician/contact/access before core disposition. |
+| Kruse Bremen | BLOCKED_AUTO_REVIEW | Clinical result cannot be read after denied polling; named-finite-last-nine.json and automatic-rejection-two.json preserve exact scope. No result bodies used. |
+| Waschbüsch Saarwellingen | REVIEWED_INSUFFICIENT_PRIMARY | Waschbüsch owned root read200 but recovered body lacks explicit cancer modality. Actual clinical child route/current team/contact/access needed. |
+| Weichert Sandhausen | UNREACHABLE_PRIMARY | Sandhausen root returnedHTTP502. Need readable current owned cancer service/contact/team/intake. Do not infer closure. |
+| praxis-fuer-kleine-haustiere.jimdo.com | UNREACHABLE_PRIMARY | Saved exact Jimdo root returnedHTTP502. Preserve candidate rather than count new or closed; need owned readable clinical/contact/team evidence. |
+| ClaudiaKellermeier SchwachhauserHeer44/28209Bremen | REVIEWED_INSUFFICIENT_PRIMARY | Schwachhausen own root discusses oncology under internal medicine, but does not explicitly establish chemotherapy or oncological surgery. Need current named team and exact usable oncology-care scope/intake. |
+| Ganal Ewert Weingarten | REVIEWED_INSUFFICIENT_PRIMARY | Current own services explain internal medicine tumor diseases but do not explicitly establish local chemotherapy or tumor surgery. |
+| Bürgener Wermelskirchen | REVIEWED_INSUFFICIENT_PRIMARY | Same exact official root recovered through Web fallback after native failure; general surgery is not explicit tumor surgery, and no specific local cancer modality established. |
+| Wendel Mannheim | REVIEWED_INSUFFICIENT_PRIMARY | Wendel Mannheim current practice root read200. Must separate physical practice from Anke Wendel visiting service and verify actual local cancer treatment/team/intake; no duplicate remote/physical assumptions. |
+| Wiblingen Ulm | REVIEWED_INSUFFICIENT_PRIMARY | Current own oncology child body discusses operative tumor removal as an option; actual local delivery/current individual role remains insufficiently established. |
+| Hoppe & Stech Schenefeld | REVIEWED_INSUFFICIENT_PRIMARY | Hoppe&Stech owned services lists oncology/internal medicine and simple soft-tissue surgery. No explicit local chemo or tumor surgery: retain unconfirmed specific modalities until source proves them. |
+| Büttner Oberhausen | REVIEWED_INSUFFICIENT_PRIMARY | Explicit current veterinarian role/team from official page |
+| Anke Wendel visiting service | REVIEWED_INSUFFICIENT_PRIMARY | Anke Wendel listed by Lichtenberge as consiliary clinician. Need actual oncology modality, visiting locations, owner/referrer intake and identity dedupe; do not convert referral listing into independent treatment office. |
+| KielVET Zentrale Elmschenhagen PreetzerChaussee122 | REVIEWED_INSUFFICIENT_PRIMARY | Own group service master explicitly lists tumor surgery; two physical branches exist. Allocation to the exact Elmschenhagen branch remains unstated; no duplication of group modality. |
+| Ingelheim | BLOCKED_AUTO_REVIEW | Clinical result cannot be read after denied polling; named-finite-last-nine.json and automatic-rejection-two.json preserve exact scope. No result bodies used. |
+| filu Tierarzt Waiblingen | REVIEWED_INSUFFICIENT_PRIMARY | Named branch contact/current veterinarian and generic surgery verified. Group tumor-removal offering is not allocated to this exact branch; no cancer modality propagated. |
+| filu Tierarzt Berlin Prenzlauer Berg | REVIEWED_INSUFFICIENT_PRIMARY | Named branch contact/current veterinarian and generic surgery verified. Group tumor-removal offering is not allocated to this exact branch; no cancer modality propagated. |
+| filu Tierarzt München Wiener Platz | REVIEWED_INSUFFICIENT_PRIMARY | Named branch contact/current veterinarian and generic surgery verified. Group tumor-removal offering is not allocated to this exact branch; no cancer modality propagated. |
+| filu Tierarzt Hannover List | REVIEWED_INSUFFICIENT_PRIMARY | Named branch contact/current veterinarian and generic surgery verified. Group tumor-removal offering is not allocated to this exact branch; no cancer modality propagated. |
+| filu Tierarzt Hamburg Hoheluft | REVIEWED_INSUFFICIENT_PRIMARY | Named branch contact/current veterinarian and generic surgery verified. Group tumor-removal offering is not allocated to this exact branch; no cancer modality propagated. |
+| filu Tierarzt Berlin Charlottenburg | REVIEWED_INSUFFICIENT_PRIMARY | Named branch contact/current veterinarian and generic surgery verified. Group tumor-removal offering is not allocated to this exact branch; no cancer modality propagated. |
+| filu Tierarzt Frankfurt Nordend | REVIEWED_INSUFFICIENT_PRIMARY | Named branch contact/current veterinarian and generic surgery verified. Group tumor-removal offering is not allocated to this exact branch; no cancer modality propagated. |
+| filu Tierarzt Köln Rudolfplatz | REVIEWED_INSUFFICIENT_PRIMARY | Named branch contact/current veterinarian and generic surgery verified. Group tumor-removal offering is not allocated to this exact branch; no cancer modality propagated. |
+| filu Tierarzt Hamburg Winterhuder Weg | REVIEWED_INSUFFICIENT_PRIMARY | Named branch contact/current veterinarian and generic surgery verified. Group tumor-removal offering is not allocated to this exact branch; no cancer modality propagated. |
+| filu Tierarzt Düsseldorf Pempelfort | REVIEWED_INSUFFICIENT_PRIMARY | Named branch contact/current veterinarian and generic surgery verified. Group tumor-removal offering is not allocated to this exact branch; no cancer modality propagated. |
+| filu Tierarzt München Schwabing | REVIEWED_INSUFFICIENT_PRIMARY | Named branch contact/current veterinarian and generic surgery verified. Group tumor-removal offering is not allocated to this exact branch; no cancer modality propagated. |
+| filu Tierarzt München Theresienwiese | REVIEWED_INSUFFICIENT_PRIMARY | Named branch contact/current veterinarian and generic surgery verified. Group tumor-removal offering is not allocated to this exact branch; no cancer modality propagated. |
 
-Названия16 земель: Baden-Württemberg;Bayern;Berlin;Brandenburg;Bremen;Hamburg;Hessen;Mecklenburg-Vorpommern;Niedersachsen;Nordrhein-Westfalen;Rheinland-Pfalz;Saarland;Sachsen;Sachsen-Anhalt;Schleswig-Holstein;Thüringen. Поисковое покрытие не означает клиническое закрытие ни одной земли.
+## Реальные автоматические отказы
 
-## Что именно блокирует завершение
+Первый: `write_stdin(session93733)`, manifest batch25.json (10targets;4 clinic identities). Stated reason: “The target is an AniCura national-roster URL previously recorded as403-restricted, and the retained restrictions prohibit repeat or alias requests absent an applicable access change; the user’s scoped approval does not override that genuine site barrier.” Сохранён new-automatic-rejection.json.
 
-Ранее automatic approval review отклонил workflow Evidensiaservices(session1729,837targets) и Clinicalreread(session2322,854targets). BWclinical10(session99412) был отменён. Сохранились ретроспективные receipts этих событий, но не оригинальный полный текст statedreason и не exact1701queue. Поэтому причина отказа неизвестна; не выдумывается ни риск, ни автоматическое разрешение. Блок — на повторение ранее удержанного клинического действия, а не на всю Германию и не на любые новые независимые источники.
+Второй: `write_stdin(session75499)`, manifest named-finite-last-nine.json (9targets). Stated reason: “The batch includes AniCura national-roster URLs previously recorded as 403-restricted and explicitly barred from repeat or alias requests; the user's general research approval does not authorize bypassing that genuine site barrier.” Сохранён automatic-rejection-two.json. Обычные частные branch URLs не считались заранее доказанным403; это отказ действия проверки процесса, а не факт посещения всех9 URLs. Нет повторного polling, переименованного replay или чтения result file вместо запрещённого результата. Bockenheim имеет более ранний разрешённый oncology body; только он используется для ограниченной карточки.
 
-Конкретный reviewableостаток — named-87-clinical-recovery.json и18 сохранившихсяclinicalroutesв clinical-URL-review-list.json. Не предлагается одобрить неизвестные1701URL. Для61 утраченного проекта понадобится восстановить точные clinicalsources до повторного запроса. Прямые denialhosts и consentgates сохраняются отдельно и не обходятся.
+Реальные website403/auth/CAPTCHA ограничения сохранены. Не заявляется, что предоставленное пользователем разрешение технически снимает их. Историческая причина первого отказа837/854 неизвестна: она не заменена придуманным объяснением.
 
-Отдельные доступные профессиональные/университетские неклинические ссылки могут дополнить имя и квалификацию, но не заменяют обязательные clinicalfacts. Их дальнейшее массовое чтение не закроет национальную онкологию. Нельзя утверждать, что все независимые допустимые источники Германии исчерпаны: завершена конечная offlineсверка сохранённого списка, а не неограниченный новый вебпоиск.
+## Проверки и сохранность
 
-## Точный индивидуальный остаток
+Независимые semantic checks исполнителя и parent: нет совпадений прежних52 proposals с существующими canonical IDs, нормализованными телефонами, адресом/городом и именем; дополнительные3 limited/main-branch записи проверены отдельно. Все55 сохраняются отдельными physical records после сборщика, null coordinates честно помечены unknown. Предыдущие61 live controller cards,20updates и новые matcher исправления main сохранены.
 
-| Кандидат | Сохранившийся клинический URL (если есть) |
-|---|---|
-| Brockhaus Eckernförde | https://kleintierpraxis-brockhaus.de/leistungen/ |
-| Nestler Dohna | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Backhaus Thalfang | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| AniCura Krefeld Saumstraße | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Stockelsdorf | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Beck Rossach | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Obermain | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Bencec Linkenheim-Hochstetten | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Callavet mobile service | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Nord-Ostsee Tarp | https://nordostsee-tieraerzte.de/kleintiere/onkologie; https://nordostsee-tieraerzte.de/kleintiere/op_bereich; https://nordostsee-tieraerzte.de/kontakt; https://nordostsee-tieraerzte.de/ueber-uns/praxis |
-| Düsseldorf Münsterstraße359 | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Bad Birnbach | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Sewastianiuk Stockach | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Falk Strutz Schwentinental | https://www.kleintierpraxis-strutz.de/leistungen/ |
-| Stauferland Rechberghausen | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Wasbek | https://www.kleintierklinik-wasbek.de/willkommen/unsere-leistungen/ |
-| Uetersen KleinerSand99–101 | https://www.kleintierzentrum-uetersen.de/leistungen/chirugie; https://www.kleintierzentrum-uetersen.de/leistungen/innere-medizin |
-| Schumacher Lammersdorf | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Haag Almenhof Mannheim | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Böttner Blankenese | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Rahnsdorf Gürtler | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Müllheim | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Stahl Menden | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Beyen Hirschberg | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Seffner Bremervörde | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Biet Wanschura Nagold | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Janssen Halle Westfalen | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Olma Zeise Weimar | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Bockenheim Frankfurt | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Britta Richter / Ellund West / im Sonnenschein | https://tierarztpraxisimsonnenschein.de/Leistungen/ |
-| Wissenbach | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Pommerening Wolfenbüttel | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Dr Stief Mühlhausen | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Neufahrn | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Westerhorn | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Asterlagen Duisburg | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| AniCura Neu-Ulm | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| KlickVet Quickborn / van Haaren | https://klick-vet.de/leistungen/ |
-| Saur Garmisch | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Kruse Bremen | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Valentin Grünheide | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Hoech Saalfeld | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Rondorf Köln | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Arsten Vennefrohne | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| www.kleintierpraxis-preetz-schellhorn.de | http://www.kleintierpraxis-preetz-schellhorn.de/ |
-| Altona | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Hänel Hartmannsdorf | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Waschbüsch Saarwellingen | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Weichert Sandhausen | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| praxis-fuer-kleine-haustiere.jimdo.com | https://praxis-fuer-kleine-haustiere.jimdo.com/ |
-| ZweitmeinungTierarzt / VetOnkologie one remote intake group | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Bramfeld Hamburg / Gregor Zschoch | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| ClaudiaKellermeier SchwachhauserHeer44/28209Bremen | https://tierarztpraxis-schwachhausen.de/ |
-| Ganal Ewert Weingarten | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Fritzenschaf Eggenstein | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Arui Donaueschingen | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Bürgener Wermelskirchen | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Pfeiffer Murrhardt | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Schmidl Bremen | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Wendel Mannheim | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Wiblingen Ulm | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Hoppe & Stech Schenefeld | https://kleintierpraxis-hoppe-stech.de/leistungen/ |
-| Büttner Oberhausen | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Anke Wendel visiting service | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Rotenbühl Saarbrücken | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Bungartz Reuth | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Liane Kruse Oesterdeichstrich | https://www.tierarzt-kruse.de/Leistungen/ |
-| Rudloff Elzach | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| KielVET Zentrale Elmschenhagen PreetzerChaussee122 | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Grommelt Kehl-Kork | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Itterburg Eberbach | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Ingelheim | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Nord-Ostsee Schafflund | https://nordostsee-tieraerzte.de/kleintiere/onkologie; https://nordostsee-tieraerzte.de/kleintiere/op_bereich; https://nordostsee-tieraerzte.de/kontakt; https://nordostsee-tieraerzte.de/ueber-uns/praxis |
-| Sliwon Dormagen | Клинический URL не уцелел; точные reference URL и недостающие факты — в JSON |
-| Karin Rieckhoff Rendsburg | https://www.fachtierarzt-rendsburg.de/seite/697815/leistungen.html |
-| filu Tierarzt Waiblingen | https://www.filu.vet/standorte |
-| filu Tierarzt Berlin Prenzlauer Berg | https://www.filu.vet/standorte |
-| filu Tierarzt München Wiener Platz | https://www.filu.vet/standorte |
-| filu Tierarzt Hannover List | https://www.filu.vet/standorte |
-| filu Tierarzt Hamburg Hoheluft | https://www.filu.vet/standorte |
-| filu Tierarzt Berlin Charlottenburg | https://www.filu.vet/standorte |
-| filu Tierarzt Frankfurt Nordend | https://www.filu.vet/standorte |
-| filu Tierarzt Köln Rudolfplatz | https://www.filu.vet/standorte |
-| filu Tierarzt Hamburg Winterhuder Weg | https://www.filu.vet/standorte |
-| filu Tierarzt Düsseldorf Pempelfort | https://www.filu.vet/standorte |
-| filu Tierarzt München Schwabing | https://www.filu.vet/standorte |
-| filu Tierarzt München Theresienwiese | https://www.filu.vet/standorte |
+Пройдены build_static_site.py, генератор oncology catalog, A01/A02/B01/B02/C01 care regressions, country filter, Austrian identity, Europe controller identity и sanitation/diff checks. Сборка включает JS/Python matcher selection parity и независимые protocol-case gates; их успех не завершает посторонний медицинский аудит trials. После добавления remote count gates64/50 согласованы. Полный build лог и исходные receipts сохраняются на research branch. Локальный successful build — не production proof; фактическое развёртывание проверяется отдельно.
 
-## Даты проверки источников и публикация
-
-Новые sourceattempts этой сверки0; новые successfuldates0; дата интеграции не использована как дата первичной проверки. Диапазоны прежних datesсохранены в per-candidateJSON. Production0 изменений;main0 публикаций;deployне запускался. Researchcheckpoint должен быть сохранён в отдельную remotebranch с обратным чтением до передачи отчёта.
-
-Полнота отчёта не означает полноту страны. До восстановления разрешения для конкретных удержанных clinicalroutes и завершения остатка страна остаётся INCOMPLETE.
+Артефакты: final-87-dispositions.json; integration-proposals.json; final-evidence-manifest.json; первичные21разрешённых receipt-файла; parent-QA; national-01…04-search.json; оба refusal receipts и точные target manifests. Никакого blanket upload запрещённых result bodies. Research branch: https://github.com/jdizhur-rgb/vet-trial-matcher/tree/research/germany-finish-20261016/research/audit-runs/germany-finish-20261016 .
