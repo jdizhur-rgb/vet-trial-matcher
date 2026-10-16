@@ -1,0 +1,50 @@
+# Германия: завершение повторной проверки 39 кандидатов
+
+Доступный конечный проход завершён. Подготовлено 18 новых записей: 17 физических клиник и один выездной сервис. Ранее опубликованные 882 записи сохранены без изменения всех полей; итоговый каталог содержит 900 мест оказания помощи, из них 238 в Германии. Удалённых консультаций по-прежнему 64.
+
+## Подтверждённые дополнения
+
+| Провайдер | Город / территория | Подтверждённая помощь | Официальный источник |
+|---|---|---|---|
+| Kleintierzentrum Beyen Hirschberg | Hirschberg an der Bergstraße | Surgery | https://www.kleintierzentrum-hirschberg.de/home/ |
+| Tierarztpraxis Schwachhausen – Dr. Claudia Kellermeier | Bremen | Local oncology care | https://tierarztpraxis-schwachhausen.de/ |
+| Kleintierzentrum Kiel – kielVET Elmschenhagen | Kiel | Surgery | https://kielvet.de/leistungen/ |
+| Internistische Kleintierpraxis Hoppe & Stech | Schenefeld | Local oncology care | https://kleintierpraxis-hoppe-stech.de/leistungen/ |
+| Tierärzte Wiblingen | Ulm | Local oncology care | https://www.tieraerzte-wiblingen.de/fachgebiete |
+| Tierarztpraxis Daniela Pommerening | Wolfenbüttel | Surgery | https://tierarztpraxis-pommerening.de/leistungen/operation.html |
+| Kleintierpraxis Wendel | Mannheim | Surgery | https://kleintierpraxis-wendel.de/leistungen/ |
+| Tierklinik Ganal & Ewert | Weingarten | Surgery | https://www.tierklinik-ganal-ewert.de/ueber-uns/leistungen/operative-eingriffe-chirurgie |
+| Tierarztpraxis Dr. Jörg Waschbüsch | Saarwellingen | Chemotherapy, Surgery | https://tierarzt-waschbuesch.de/behandlungsspektrum/ |
+| Kleintierpraxis Oberhausen – K. Büttner | Oberhausen | Surgery | https://www.kleintierpraxis-oberhausen.de/leistungen/ |
+| Tierklinik auf dem Lichtenberge | Steyerberg | Surgery | https://tierklinik-lichtenberge.de/leistungen/chirurgie-bei-kleintieren/ |
+| Kleintierpraxis Eckhard Bürgener | Wermelskirchen | Surgery | https://www.tierarzt-buergener.de/seite/492776/operationen.html |
+| Zentrum für Tiergesundheit Linkenheim-Hochstetten | Linkenheim-Hochstetten | Surgery | https://www.tierarzt-liho.de/leistungen/chirurgie/ |
+| Kleintierpraxis Stockelsdorf | Stockelsdorf | Chemotherapy, Surgery | https://www.tierarzt-stockelsdorf.de/onkologie.html |
+| callavet – mobile veterinary service | Wiesbaden / Frankfurt / Mainz area | Chemotherapy | https://callavet.de/leistungen/tieraerztliche-leistungen/ |
+| AniCura Tierärztliche Praxis Ingelheim | Ingelheim | Surgery | https://ingelheimer-tieraerzte.de/leistungen/ |
+| Kleintierpraxis Dr. Tanja Kruse | Bremen-Oberneuland | Surgery | https://www.kleintierpraxis-kruse.de/unsere-leistungen/innere-medizin-orthopaedie-und-chirurgie |
+| KleinTierzentrum Asterlagen | Duisburg-Asterlagen | Chemotherapy, Surgery | https://www.tierklinik-duisburg-asterlagen.de/index.php/auf-einen-blick/alle-fachbereiche/onkologie?view=article&id=9 |
+
+## Итог всех 39
+
+18 новых записей готовы к публикации. Из 21 остальных: десять действующих филиалов filu требуют подтверждения, в каком именно филиале выполняют лечение опухолей; два филиала ещё не открылись (Prenzlauer Berg — 19 октября 2026, Waiblingen — ноябрь); Tarp сопоставлен с опубликованной основной клиникой Schafflund для сложной помощи; у KlickVet на доступных собственных страницах не найдено достаточного онкологического сигнала. Это не утверждение, что клиника не лечит рак.
+
+Оставшиеся семь внешних пробелов: три точных маршрута AniCura сохраняют ограничение действия, страница Stahl сохраняет реальный HTTP403, а официальные сайты Neufahrn, Sandhausen и Jimdo не дали доступного текущего первичного подтверждения. Таким образом, прямое подтверждение нужно для 17 провайдеров (10 filu и 7 отдельных); ещё два ожидают открытия. Подробные факты, вопросы и ссылки находятся в final-39-dispositions.json и unsent-confirmation-requests-de.md. Письма и формы не отправлялись.
+
+## Почему прежние проверки зависали
+
+Автоматический отказ смешанного запроса ошибочно был распространён на независимые сайты всего пакета. Фактический риск относился к маршрутам национального списка AniCura. Новые отдельные обычные запросы к шести независимым провайдерам, исключавшие ограниченные маршруты национального списка AniCura и запрещённые перенаправления, оказались доступны. Результаты старых отклонённых пакетов не использовались. Настоящие ограничения конкретных URL сохраняются.
+
+Остальные клинические пробелы разрешены чтением собственных страниц операций, команды и контактов, а также единым порогом limited Local oncology care: явное текущее лечение или консультация по раку с квалифицированным врачом и доступным приёмом допускаются без выдуманной химиотерапии или хирургии. Только диагностика и направление к другим провайдерам недостаточны.
+
+## Проверки и сохранение прежних данных
+
+Полная сборка успешна; A01/A02/B01/B02/C01, sanitation, европейские и немецкие identity-регрессии пройдены. Семантическая проверка 18 новых записей не нашла совпадений идентификатора, телефона или адреса с прежними 882 и внутри дополнения.
+
+Найдена и исправлена конкретная ошибка автоматического объединения двух разных практик Saarwellingen: Am Steinhübel и Waschbüsch. Добавлено исключение ровно для этой пары и регрессионный тест. Старые адрес, телефон, врач, Chemo/Surgery и ограничение «не принимает новых клиентов» Am Steinhübel полностью сохранены. Новый провайдер имеет другой адрес, телефон и врача.
+
+## Продолжение
+
+Не повторять поиск 87/39 с нуля. Использовать germany-continuation.json, финальный ledger и восемь подготовленных, но не отправленных немецких запросов. Поиск новых регионов и автоматизации не запускались. Полное подтверждение всех провайдеров Германии не заявляется.
+
+Статус публикации: подготовлено; фактический SHA и production readback будут записаны в publication-receipt.json после выпуска.
