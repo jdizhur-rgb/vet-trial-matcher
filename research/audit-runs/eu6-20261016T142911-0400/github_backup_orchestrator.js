@@ -8,7 +8,7 @@ if(!m.files.length){text({status:"NO_NEW_FROZEN_FILES",errors:m.errors});return;
 const manifestPath=base+"/backups/checkpoint-"+seq+"-manifest.json";
 text(await tools.apply_patch("*** Begin Patch\n*** Add File: "+root+"/"+manifestPath+"\n+"+JSON.stringify(m)+"\n*** End Patch"));
 const archive="/workspace/scratch/2d03a6db0cc6/"+run+"-checkpoint-"+seq+".tar.zst";
-const extras=[base+"/assignments.json",base+"/criteria.json",base+"/controller-plan.json",base+"/collect_frozen_backup.py",base+"/github_backup_orchestrator.js",base+"/backups/ledger.json"];
+const extras=[base+"/assignments.json",base+"/criteria.json",base+"/controller-plan.json",base+"/collect_frozen_backup.py",base+"/github_backup_orchestrator.js",base+"/backups/ledger.json",base+"/report.md",base+"/restore-guide.md"];
 const packCode="import pathlib,json,subprocess,hashlib,tarfile,zstandard,re\n"+
 "m=json.loads(pathlib.Path("+JSON.stringify(manifestPath)+").read_text()); expected={x['path']:x['sha256'] for x in m['files']}\n"+
 "paths=list(expected)+["+[manifestPath,...extras].map(x=>JSON.stringify(x)).join(",")+"]\n"+
