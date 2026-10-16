@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "file": "data/oncology_centers.json",
+      "old": 513,
+      "new": 577,
+      "added": 64,
+      "old_rows_unchanged": true
+    },
+    {
+      "file": "data/oncology_centers_supplemental.json",
+      "old": 505,
+      "new": 569,
+      "added": 64,
+      "old_rows_unchanged": true
+    },
+    {
+      "file": "data/oncology_care_source_inventory.json",
+      "old": 586,
+      "new": 650,
+      "added": 64,
+      "old_rows_unchanged": true
+    }
+  ],
+  "build_tail": [
+    "MATCHER_DATA_OK total=165 treatment=160 access=5",
+    "ONCOLOGY_CENTER_CATALOG_OK profiles=458 acvim_locations=216 matched=68 supplemental_added=343 centers=577",
+    "ONCOLOGY_CENTER_FINDER_OK centers=577",
+    "ONCOLOGY_CENTERS_OK centers=577 states=52",
+    "ARTICLE_CATALOG_OK articles=13 categories=4",
+    "SEO_INDEX_POLICY_OK indexable=172 noindex=41",
+    "HELP_CONTENT_OK details= 24",
+    "CENTER_DIRECTORY_PICKER_OK sections=4",
+    "CENTER_PROFILES_OK pages=111 verified_profiles=93 redirects_skipped=18",
+    "SENTENCE_CASE_OK pages=215",
+    "SITE_SEARCH_OK pages=193",
+    "CENTER_URL_REGRESSION_OK historical_routes=14 redirects=18",
+    "RESTORED_CENTER_PROFILES_REGRESSION_OK profiles=5",
+    "PRODUCTION_SYNC_OK total=165 treatment=160 access=5 matcher_ids=165 internal_links=6921",
+    "MATCHER_LOGIC_OK trials=165 mct=5 yasha=0 mammary=6 osteosarcoma=20 bladder=8 brain=8",
+    "SOURCE_DERIVED_SELECTION_OK reviewed=55 cases=247",
+    "MATCHER_SELECTION_OK canonical=310 public=165 checks=1483 criteria=166",
+    "MATCHER_SELECTION_PARITY_OK public=165 disease_checks=19800",
+    "ONCOLOGY_COUNTRY_FILTER_OK 11 countries; 8 German locations; combined filters, state reset, stale ZIP suppression",
+    "AUSTRIAN_CARE_IDENTITY_OK 64 distinct sites; branch addresses, phones and services preserved",
+    "NO_TRACKING_OK",
+    "PUBLIC_PAGE_SHELL_OK 216"
+  ],
+  "regressions": [
+    "A01 JS",
+    "A02 Python",
+    "B01 Python",
+    "B02 Python",
+    "C01 Python",
+    "Austrian branch identity",
+    "evidence key scan",
+    "git diff --check"
+  ],
+  "identity_bug": "Before fix 4 confirmed branch identities lost during assembly; after fix all64 survive with own name/address/phone/services. No prior-main rows altered.",
+  "strict_fully_verified": 0,
+  "core_sufficient": 64,
+  "unknown_coordinates": 64,
+  "no_trial_changes": true,
+  "no_UI_changes": true
+}

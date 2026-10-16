@@ -323,6 +323,17 @@ def center_from_group(group: list[dict], organization_sites: dict[str, str], zip
 def center_match(seed: dict, candidate: dict) -> bool:
     if seed["country"] != candidate["country"] or seed["region"] != candidate["region"]:
         return False
+    # Official Austrian branch/contact review confirms these are distinct sites.
+    # Similar clinic names and a shared Vienna postal code are not identity proof.
+    separate_austrian_sites = {
+        frozenset(("tierplus-kagran", "tierplus-stadlau")),
+        frozenset(("tierklinik-doebling-wien", "tierklinik-hutter-wien")),
+        frozenset(("vetklinikum-wien", "veterinaria-wien-mauer")),
+        frozenset(("tierarztpraxis-pragerstrasse-wien", "veterinaria-strebersdorf")),
+    }
+    if seed["country"] == "Austria" and frozenset((
+            seed.get("source_id"), candidate.get("source_id"))) in separate_austrian_sites:
+        return False
     same_zip = bool(seed["postal_code"] and seed["postal_code"] == candidate["postal_code"])
     same_city = bool(seed["city"] and seed["city"].casefold() == candidate["city"].casefold())
     # The two Akron hospitals are distinct despite similar names in one ZIP.
