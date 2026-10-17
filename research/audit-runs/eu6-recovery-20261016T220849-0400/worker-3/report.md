@@ -1,11 +1,11 @@
-# Польша — промежуточная сверка остатка, блок 46
+# Польша — промежуточный блок 47
 
-eu6-recovery-20261016T220849-0400; slot3; /root/oct16_pl; baseline b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45; 2026-10-17 07:27:35 UTC.
+2026-10-17 07:34:47 UTC; /root/oct16_pl; run eu6-recovery-20261016T220849-0400; baseline b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45.
 
-Счётчики не изменены:360=358обработанных+2необработанных;358=214NEW+2UP+18DUP+49EXCL+75UNRES.234полностьюподтвержденывключая20baseline;216effectiveproposals,474actualqueries. Новых запросов к клиническим источникам в этой offlineсверке нет.
+Фактически выполнены 75 поисковых запросов по всем 75 именованным UNRES: только независимые публичные платформы Booksy/WetTermin/ZnanyLekarz/Vetineo. Сохранены минимальные названия/URL/refs результатов и действительные запросы; полные поисковые тела, отзывы, чужие медицинские сведения и закрытые источники не архивируются. Объединённая выдача не приписывается отдельному запросу.
 
-Все75UNRES сопоставлены с фактическими собственными immutable path+SHA256+JSONpointer и конкретным недостающим фактом;0без доказуемого identityrecord/0без missingfact. Строгий filenameallowlist перед любым bodyread/hash, без quarantine/rawdeniedoutputs. Это проверка происхождения данных, не повторный клинический визит.
+Счётчики поставщиков не менялись: assigned360 = processed358 + unprocessed2; 214NEW + 2UP +18DUP +49EXCL +75UNRES =358. Fully234 включая20baseline; активных предложений216. Запросов549 (было474); legacy retrieval-batchunits442 (было423), это не число клинических успешных посещений.
 
-У AVET Olsztyn и обоих Medican исправлено устаревшее qualificationunknown: уже реально сохранённые target-only publicZLZ30Sep2026 дают qualifiedregisteredheads MałgorzataKander/IzabellaBabińska/IwonaBorkowska. Не требуются oncoboard/личное ежедневное присутствие. Но registryнеcancertreatment: остаётся неизвестен explicitlocalcanceract/intake; номера/индексы с разными owncurrent/registryзначениями не переписаны. Никакого нового GET/NEW/processed/renewedsuccessdate.
+Доступная собственная работа: отдельно проверить фактически найденные разрешённые профили/записи с предварительной полной картой ограничений; прежде прочитанные и не относящиеся к целевой идентичности источники не выдавать за новые проверки. Новый возможный GoldenVet/AgnieszkaRudnickaWrocław — только lead, требует identity/dedupe/первичного клинического подтверждения; не три филиала по общему каталогу.
 
-Нулевой список буквальных URL в старом genericnextstep сам по себе не доказывает exhaustion. Реальная независимая direction ещё доступна: текущие опубликованные physician/provider-managed clinicalbooking profiles Booksy/WetTermin/Znany/Vetineo по всем75именованным остаткам. Её прохождение начинается после этого checkpoint; ни75планируемых queries, ни потенциальные источники не засчитаны заранее. Не поиск helddomains/body/cache, не отзывы/категории, не backend/auth/forms. Реальные новые primaryleads будут отдельно guarded и обработаны. Research_complete=false; та же Польша продолжается, не остановка ради интеграции/публикации.
+Все exact/provider/workflow holds сохранены, Facebook workflow не используется. research_complete=false. Parent068 подтвердил backup45/46 data7af7708272d9cb34bf788080f5276e4e63b7d4b7 /receipt53f975f37a1bd4699bb05fa5725e418d96f11d5f; это не приёмка и не публикация.
