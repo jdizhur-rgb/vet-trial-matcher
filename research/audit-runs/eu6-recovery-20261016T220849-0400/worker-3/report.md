@@ -446,3 +446,24 @@ Brynów, FolwarkZwierzęcy, NaNaramowicach и TauzenWet — nonpromotion по т
 Ограничения011: FolwarkDawidDymacz429; отдельно advertisedSkotbookingwidgetnotaccessible. Случайный сторонний Maps credential в native script-URL output не сохранён/нехэширован/неиспользован. В источниках только безопасные metadata и релевантные факты, никаких fullHTML/бинарныхPDF/скриптов. Родитель уведомлён; формы не отправлялись. 150 source-receipt batch units,99actualownqueries, не буквальное число файлов. Источники131–139 минимизированы в sources/safe131-139.json.
 
 research_complete=false:14 необработанных +36точных UNRES и национальные направления остаются собственной доступной работой. Продолжаю ту же Польшу. Блок22 не назван remote-saved до фактического parent readback.
+
+
+## Блок 23 — retained regional leads, 2026-10-17 03:54:19 UTC
+
+259=254обработанных+5необработанных. 254=162NEW+3UPDATE+17DUPLICATE+31EXCLUDED/nonpromotion+41UNRESOLVED. Fully182=160NEWphysical+2network+20baseline. NEW162=127старых+6late-saved+27regional+2network; свежих discovery0.
+
+Przychodnia weterynaryjna VetMania — Gdańsk, Local oncology care; https://vetmania.vet/uslugi.html
+
+Przychodnia Weterynaryjna DOG — Remigiusz Cichoń — Skarżysko-Kamienna, Medical oncology, Chemotherapy, Surgery; https://www.dog.com.pl/uslugi/szczegolowa-oferta-firmy
+
+Przychodnia weterynaryjna Dr.Wet — Karolina Malińska — Warszawa, Medical oncology, Chemotherapy, Surgery; https://dr-wet.pl/onkologia/
+
+Все три — физические сохранённые regional leads, повторно проверенные, не три новых discovery. VetMania: прямое лечение новообразований, текущие GP, normalTLS200 текущих service/team снимает вопрос cachefreshness; specific chemo/surgery не добавляются. DOG: прямо онкохирургия и chemo в ограниченном объёме; сохраняю ограничение и сотрудничество сД.Ягельским, не приписываю ему постоянную местную ставку. Dr.Wet: qualifiedOlgaOrłowska, прямые surgery/chemo и текущее clinical booking4516; ВаршаваZaruby9/E2, не Ełkeducationprofile. Baseline3229+отдельноtele64: совпадений identity нет.
+
+Новые UNRES: ASStarachowice (current provider-written role/contact есть, полный разрешённый cancer-service текст не прочитан); AlfaVetRzeszów (currentJSshell, clinicalbody/role не установлены); NowaHutaWet/Janta (Webtimeout+normalTLS502, identity не слита); MarcinKuchcińskiOpole (root200 с2014post не доказывает2026role/cancertherapy; heldservices не читались); PulsVet и Wetmedyka (независимые current booking контакты, oncology/qualifiedrole не установлены). PulsVetbooking отдельно объявляет переезд наTaneczna30 с5октября2026, footer по-прежнемуPuławska403 — точный конфликт, не вторая карточка. Reptilio разрешённым sameURLnormalTLS200+самостоятельными полными services/contact переведён UNRES→EXCL: текущая помощь smallmammals/exotics/reptiles, не дог-кэт онкологическая служба.
+
+Остановка workflow013: попытка native mixed batch14230 с AlfaVetJSbundle и отдельным ASproviderprofile привела к отказу auto-review приpoll. Причина — скачивание скрипта против действующего ограничения минимальной проверки. Output НЕ читался, НЕ сохранялся/хэшировался/восстанавливался черезcache, и обе его части не использованы. Не называю этоHTTP403/закрытием/отсутствием услуг. Консервативно остановлены JS/backend/script/download/denied-output routes; независимые уже прочитанные клинические primary других провайдеров продолжаются. Родитель уведомлён. Clinical proof отсутствующего ASservice не подменено поисковым snippet. Безопасная metadata013ready сохранена отдельно.
+
+Источники: working/inherited-revalidated-026.json, regional-outcomes-006.json, ledger018, dedupe007, sources/safe140-145.json, native-safe-011.json, queries015. 157 разрешённых receipt-batch units +1отдельный denied workflow; 114фактических запросов. Не буквальное число физических файлов/успешных сайтов. Parent remote026(block21/010): data41b608e9a8588daac9d69663692ae2929801b7c6 receipt148e346cfd524586fc0cdeff43e7351c61960d24 PASS03:47:49UTC;027(011): dataa95ffe298a5e9235d81a1426102d9a895492dce0 receiptd153483b878968cbb19903c5c66a5b306edb9875 PASS03:51:01UTC. 22/23 пока без заявленногоremoteproof.
+
+research_complete=false:5namedunprocessed+41concreteUNRES+actualnationalfrontier. Продолжаю Польшу, без смены страны и без остановки ради интеграции.

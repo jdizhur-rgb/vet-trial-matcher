@@ -1,8 +1,8 @@
 # Нидерланды — национальное исследование НЕ завершено
 
-run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_sha=b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45; agent_id=/root/oct16_nl; started_at=2026-10-17T02:12:30Z. Рабочий период 2026-10-17T02:12:30Z — 2026-10-17T03:50:14.165Z (продолжается).
+run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_sha=b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45; agent_id=/root/oct16_nl; started_at=2026-10-17T02:12:30Z. Рабочий период 2026-10-17T02:12:30Z — 2026-10-17T03:54:38.759Z (продолжается).
 
-research_complete=false; publication_permitted=false. Нулевой PENDING внутри текущего известного ledger не означает исчерпания страны: доступно ещё 46 IVC-label directions и другие собственные направления.
+research_complete=false; publication_permitted=false. Нулевой PENDING внутри текущего известного ledger не означает исчерпания страны: доступно ещё 37 IVC-label directions и другие собственные направления.
 
 ## Восстановленное, потерянное и действительно проверенное
 
@@ -12,27 +12,27 @@ research_complete=false; publication_permitted=false. Нулевой PENDING в�
 
 | Показатель | Фактическое значение |
 |---|---|
-| assigned | 427 |
-| processed | 427 |
-| fully_verified | 75 |
-| NEW | 70 |
+| assigned | 443 |
+| processed | 437 |
+| fully_verified | 76 |
+| NEW | 71 |
 | UPDATE | 5 |
 | DUPLICATE | 10 |
-| EXCLUDED | 293 |
-| UNRESOLVED | 49 |
-| PENDING | 0 |
+| EXCLUDED | 299 |
+| UNRESOLVED | 52 |
+| PENDING | 6 |
 
-NEW включает 4 отдельных NETWORK listings, не новых физических клиник. Остальные 66 — физические provider records, в том числе partial/hold. Переобработка одного provider не увеличивает processed; URLs, aliases, branchFinder/recruitment labels и referencegroups не providers.
+NEW включает 4 отдельных NETWORK listings, не новых физических клиник. Остальные 67 — физические provider records, в том числе partial/hold. Переобработка одного provider не увеличивает processed; URLs, aliases, branchFinder/recruitment labels и referencegroups не providers.
 
 | Fully: разные основания | Количество |
 |---|---|
 | Исторический inherited claim | 50 |
-| Cumulative claimed | 75 |
-| Найден обязательный payload либо текущий reverify | 75 |
-| Текущий freshly reverified core | 43 |
+| Cumulative claimed | 76 |
+| Найден обязательный payload либо текущий reverify | 76 |
+| Текущий freshly reverified core | 44 |
 | Parent clinical acceptance | не получено |
 
-DependencyQA002 исправляет001. Отсутствие полногоHTML не автоматически отсутствие факта: сохранённая точнаяцитата+URL может поддерживать field; неподтверждённый обязательный факт удерживается. Current freshly reverified counter includes one mixed-date Barendrecht record: exactaddress inherited15October, current namedvetrole/contact/access17October, not all-field fresh. Текущих open/click requests 780, reader extractions 22, exact actual queries 90. Не все requests успешны: header-only/ошибка/challenge не clinical verification. Web checked_at17October date-only; exact request timestamps не выдуманы.
+DependencyQA002 исправляет001. Отсутствие полногоHTML не автоматически отсутствие факта: сохранённая точнаяцитата+URL может поддерживать field; неподтверждённый обязательный факт удерживается. Current freshly reverified counter includes one mixed-date Barendrecht record: exactaddress inherited15October, current namedvetrole/contact/access17October, not all-field fresh. Текущих open/click requests 819, reader extractions 22, exact actual queries 114. Не все requests успешны: header-only/ошибка/challenge не clinical verification. Web checked_at17October date-only; exact request timestamps не выдуманы.
 
 ## Именные NEW и UPDATE
 
@@ -114,6 +114,7 @@ DependencyQA002 исправляет001. Отсутствие полногоHTML
 | Dierenkliniek Nuenen | Nuenen | NEW | Surgery | https://www.dierenklinieknuenen.nl/algemeen | всегда parent acceptance до публикации |
 | Dierenkliniek Schiedam-Noord | Schiedam | NEW | Surgery | https://www.dklschiedamnoord.nl/expertises | всегда parent acceptance до публикации |
 | Veterinair Verwijscentrum Korte Akkeren / Dierenkliniek Korte Akkeren | Gouda | NEW | Surgery, Chemotherapy, Radiation | https://www.vvka.nl/chirurgie | всегда parent acceptance до публикации |
+| Dierenkliniek Veenendaal | Veenendaal | NEW | Surgery | https://www.dierenkliniekveenendaal.nl/nl-nl/expertise | всегда parent acceptance до публикации |
 
 55 inherited NEW — не55 fresh discoveries. Wellensiek3 иZOD3 уже были квалифицированным наследием; DeArkMiddelburg — сохранённый lead, один receiving physical siteStevenPil, не nationwide mobile service. Новые network contacts DierenDokters/Topzorg/DGCZuidLimburg: адрес/город/индекс пусты, coordinates=null, distance suppressed; подтвердить филиал/врача/приём. Общие booking routes advertised-only, формы не отправлялись. Topzorg onlineconsult intake, операция по телефону выбранного филиала, не выдуманный centralphone.
 
@@ -152,7 +153,7 @@ Bingelrade: собственные dog/cat service-index pages прямо пре
 |---|---|---|
 | Университет Utrecht | review001: localRT/Chemo/Surgery+currentteam/contact/intake; exactOnGo challenge restriction001 | Не трактовать как trial access |
 | AniCura85 | inherited85roster, prior80processed + current5baseline outcomesreview010 | Not85freshvisits; final fieldQA |
-| IVC220 | Freshmaster turn3465view0; sparse crosswalk001–014:155mapped+15ambiguous/held+4noncompanion+46available | 46labels требуют actualidentity/clinicalscope; это не число новыхклиник |
+| IVC220 | Freshmaster turn3465view0; sparse crosswalk001–015:164mapped+15ambiguous/held+4noncompanion+37available | 37labels требуют actualidentity/clinicalscope; это не число новыхклиник |
 | BestCare21NL | Current retained10clinicalgroups/21NLsites; DeArk3 review005; Ossehoofd2 currentpracticechemo/team/contactreview009 | Осsehoofd exactbranch/commonroute and other genuine holds |
 | Другие сети | DierenDokters11 oldlocaloutcomes+1network; Topzorg3partial+1network; StadLand9currentEXCL; DGCZuidLimburg2held+1network | VetPartners actualdirections; Caressa/StadLand legacy identities |
 | GP независимые | current BingelradeChemo; retainedGP Surgery acrossallregions; A7Noord3/Deen currentEXCL; IVC13newactualidentitiesreview015 | Не все независимые клиники страны исчерпаны |
@@ -217,6 +218,9 @@ EXCLUDED — nonpromotion, не отсутствие лечения. StadLand9 g
 | Pets Health Den Haag | https://www.pets-health-den-haag.nl/?lang=nl-nl | ["Actual specific current cancer treatment, named veterinarian and clinic address/contact; new-patient eligibility must account for currentstop. Independently permitted source direction remains; exact two failed linkedtarget workflows held."] |
 | Dierenkliniek de Oude Melkfabriek — Leunen | https://www.dierenkliniekdeoudemelkfabriek.nl/ | ["Actual current Leunen exact address/operatingstatus and cancer act/current veterinaryrole; inaccessible exactroot held. Allowed independent parentclinical pages do not allocate cancer act."] |
 | Dierenkliniek De Langstraat — Kaatsheuvel lead | https://dierenkliniekdelangstraat.nl/ | ["Current precise clinical identity/address/veterinaryrole/canceract and relation to rosterPetsHealthKaatsheuvel; independently advertised AnimalCenter direction remains available, held root not replayed."] |
+| Dierenkliniek Elburg | https://werkenbij.ivcevidensia.nl/locations/dierenkliniek-elburg | ["Current localoperatingstatus/address/canceract/namedvet through independentlypermittedprimary. Heldparentrootandredirect not replayed; thirdpartyclosure/oldFBsnippet insufficient."] |
+| Mijn Dierenarts Groesbeek / Dierenzorggroep de Molen | https://werkenbij.ivcevidensia.nl/locations/mijn-dierenarts-groesbeek | ["Actual current ownerclinicalentry/address/status/namedvet/canceract missing; independent officialclinicalroutes remain unexplored. OldFBclosureweek52 has no verifieddatebody and is not restoredfromsnippet."] |
+| Dierenziekenhuis Veenendaal | https://www.dz-veenendaal.nl/ | ["Confirm explicit localcancer treatment/byvisitingTies atHootsenheem1 from permitted ownedclinical/visitorcurrentsource. Not IVCVeenendaalCastor3 norKerkewijk identity."] |
 
 PartialNEW отдельно: Diergeneeskundig Centrum Zeeland [dc-zeeland-noordwelle]; Dierenkliniek de Watermolen [dierenkliniek-de-watermolen-haaksbergen]; De Wagenrenk — Diergeneeskundig Specialistisch Centrum [de-wagenrenk-wageningen]; Dierenkliniek ’t Gooi [dierenkliniek-t-gooi-laren]; Dierenkliniek Europawijk [dierenkliniek-europawijk-haarlem]; HVMC Westhage / Dierenkliniek Westhage — Dokter John [dierenkliniek-westhage-den-haag]; Dierenkliniek Goudenregenstraat (formerly EDZ Den Haag) [goudenregenstraat-den-haag].
 
@@ -249,11 +253,13 @@ PartialNEW отдельно: Diergeneeskundig Centrum Zeeland [dc-zeeland-noordw
 | — | 2026-10-17; undefined; undefined | Hold both exact observed linkedtarget workflows; no repeat/guessURL/variant/client/query/cache reconstruction. Currentalreadyreadroot remains separate. No inference403/CAPTCHA or allPetsHealthdomainban. Повтор только после явного снятия ограничения; не globaldomainban. |
 | https://www.dierenkliniekdeoudemelkfabriek.nl/ | 2026-10-17; Web open; URL is not accessible via this tool | Hold exactsource/root; no repeat/variant/client/querycache bodyreconstruction. Independentlyalreadyread currentHorst/newbrandservicepages and oldDAPHorstrootclinicalheader are separatepublishedsources, notblockedbodyreconstruction. No permanentclosure inferred. Повтор только после явного снятия ограничения; не globaldomainban. |
 | https://dierenkliniekdelangstraat.nl/ | 2026-10-17; Web open; Header-only Internal Error; underlying cause not exposed | Hold exact root and failed workflow; no replay, URL variant, other client, query/cache reconstruction. No HTTP403 or challenge claimed. Independently advertised existing clinical provider sources require a separate scope guard. Повтор только после явного снятия ограничения; не globaldomainban. |
+| https://www.dierenziekenhuisnunspeet.nl/ | 2026-10-17; Web click; HTTP500 transport response; redirected target marked not safe to open (non-retryable) | Exact root/redirect workflow and exposed target held; no retry, variant, alternateclient/querycache or retainedblockedbody reconstruction. This is not HTTP403 and not a country/domainwide ban. No Elburg closure inferred from this failure. Повтор только после явного снятия ограничения; не globaldomainban. |
+| https://www.facebook.com/mijndierenartsgroesbeek.nl/ | 2026-10-17; Web open; Facebook temporarily blocked / sign-in surface; no clinical body used | Exact provider Facebook source/workflow held; no repeat, locale/URLvariant/client/querycache reconstruction of unavailable page. Search's oldclosure lead not current clinicalproof. No globalban on independent official clinics. Повтор только после явного снятия ограничения; не globaldomainban. |
 
 Inherited exactholds и неизвестные lostexactscopes в records/restoration-001.json +input/history/source-events: VSC403,VetPartnersklinieken,DeArkroot,Terneuzenlegacy surgery403,StadWestabout,GVEfullmaster,WellensiekFAQ/Nijkerk,sixlegacyStadLandteam; furtherHoorn/Koog/Heemstede/DenHelder andCaressaWalenburg/Amersfoort exactroutes unknown-held; twoFacebookidentities. Они не запрашивались заново, не обходились черезequivalentworkflow/client/query/cache/localblockedresult. Независимые разрешённые страницы обрабатываются отдельно. Старые external_gaps вremaining.json сохраняют исходные даты и historicalqualification; recheck23Oct не разрешениеобхода. Не все индивидуальные вопросы стали внешнимblocker: выше явно остаётся собственная доступнаяработа.
 
 ## Сохранность и итоговый gate
 
-Последнее фактически полученное parent-confirmation: {"run_id":"eu6-recovery-20261016T220849-0400","slot":6,"country":"Netherlands","baseline_sha":"b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45","agent_id":"/root/oct16_nl","verification_basis":"Parent reported archive/member/control/receipt readbacksPASS, not workerindependentremoteverification or parentclinicalacceptance","parent_checkpoint":"025","remote_branch":"research/europe-recovery-eu6-recovery-20261016T220849-0400","own_archive_path":"research/audit-runs/eu6-recovery-20261016T220849-0400/worker-6","verified_utc":"2026-10-17T03:43:08Z","data_sha":"be8d7e9912d3d7a2595a3d0fec5df56d68db883a","receipt_sha":"320e6839f89726002f8d2a72287f4f230e7c552e","includes":"block34+Elzehold","additional_parent_reported":[{"checkpoint":"024","verified_utc":"2026-10-17T03:39:38Z","data_sha":"bfa0ae38ba7a0c08b3776fb5e8e93cdf33daf6a3","receipt_sha":"db09471dabc78e2f209a977c3be2d53ee64c2630","includes":"block33+fieldprovenanceamendment001"}],"earlier_proof":"records/parent-backup-proof-007.json","local_later_not_claimed_remote":"block35+36 pendingparentreadback"}. Это parentreported archive/member/control/receiptSHA PASS, не workerindependentremotecheck и не clinicalacceptance. Более поздние localready не объявляются remote без нового proof. Immutablecheckpoint последовательность выводится изфактических файлов, frozenpayload не перезаписывались. Источники/кандидаты/запросы сохраняются incrementally, без дублированияfullledger.
+Последнее фактически полученное parent-confirmation: {"run_id":"eu6-recovery-20261016T220849-0400","slot":6,"country":"Netherlands","baseline_sha":"b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45","agent_id":"/root/oct16_nl","verification_basis":"Parentreported archive/control/member/receiptreadbackPASS, notworkerindependentremote or clinicalacceptance","parent_checkpoint":"027","remote_branch":"research/europe-recovery-eu6-recovery-20261016T220849-0400","own_archive_path":"research/audit-runs/eu6-recovery-20261016T220849-0400/worker-6","verified_utc":"2026-10-17T03:51:01Z","data_sha":"a95ffe298a5e9235d81a1426102d9a895492dce0","receipt_sha":"d153483b878968cbb19903c5c66a5b306edb9875","includes":"restriction015ready/source","additional_parent_reported":[{"checkpoint":"026","verified_utc":"2026-10-17T03:47:49Z","data_sha":"41b608e9a8588daac9d69663692ae2929801b7c6","receipt_sha":"148e346cfd524586fc0cdeff43e7351c61960d24","includes":"block35+restriction013/014"}],"earlier_proof":"records/parent-backup-proof-008.json","local_later_not_claimed_remote":"block36+37 pendingparentreadback"}. Это parentreported archive/member/control/receiptSHA PASS, не workerindependentremotecheck и не clinicalacceptance. Более поздние localready не объявляются remote без нового proof. Immutablecheckpoint последовательность выводится изфактических файлов, frozenpayload не перезаписывались. Источники/кандидаты/запросы сохраняются incrementally, без дублированияfullledger.
 
 research_complete=false: национальный frontier действительно доступен и не исчерпан. Это не остановка по времени/счётчику/удобству/контроллеру. Production/sharedstate/commit/push/deploy/outreach/trials не изменялись.
