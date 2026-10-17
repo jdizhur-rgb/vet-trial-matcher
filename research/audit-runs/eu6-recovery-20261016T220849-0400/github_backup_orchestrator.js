@@ -41,6 +41,7 @@ extras.push(base+"/parent-native-reader-independent-tests.json",base+"/controlle
 extras.push(base+"/parent-netherlands-hosted-surgery-and-address-review.json");
 extras.push(base+"/controller-exec-disconnect-038-recovery.json");
 extras.push(base+"/controller_verify_poland_proposal_closure.py",base+"/parent-poland-proposal-closure-185-review.json");
+extras.push(base+"/parent-germany-17-report-and-query-review.json");
 const packCode="import pathlib,json,subprocess,hashlib,tarfile,zstandard,re\n"+
 "m=json.loads(pathlib.Path("+JSON.stringify(manifestPath)+").read_text()); expected={x['path']:x['sha256'] for x in m['files']}\n"+
 "controller_paths=["+[manifestPath,...extras].map(x=>JSON.stringify(x)).join(",")+"];controller_hashes={p:hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest() for p in controller_paths};expected.update(controller_hashes);paths=list(expected)\n"+
