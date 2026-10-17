@@ -1,5 +1,11 @@
 # Европа — промежуточный отчёт контроллера
 
+## Актуализация 2026-10-17 03:33:54 UTC — поиск продолжается
+
+Ниже сохранён исторический snapshot015; его промежуточные числа не текущий итог. Последний проверенный backup021: data dc4d7c590bf3c8bf4b74fcd39d87f4009d32f8f7, receipt82d0ffdbdc876405e2efcc2d99e1fad30ba7fb46, remote readback03:32:12UTC. Он сохраняет PL16/hold007, FR21, NL31/hold011. На этом snapshot: PL259assigned/195processed/166fully,146NEW/3UP,64ownunprocessed; FR508assigned/479processed/150fully,143NEW/0UP,28Argos+SaintMaxpending и54SevetysURLunits; NL387assigned/processed/69supportedfully,64NEW/6UP,78IVClabelsavailable плюс национальный frontier. Поздние localblocks не считаются remote-saved до receipt.
+
+Родительская проверка немецкого completion выявила доступный OFFLINE остаток шире7hypotheses:171professionalreference/589mixedclinicalroutes, сохранённые Saar109/Saxonynewsignals. Тот же /root/oct16_de возобновил адресный scope-review без внешних sourcecalls. Это собственная недоделанная работа, не external-only и не повод останавливать PL/FR/NL. Теперь реально активны четыре исследователя; AT/CZ приняты, все шесть completion по-прежнему false. Свежий bounded fetch main вернул прежний b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45, production data/seo/.github diff пуст. Сайт/курсор/автоматизации не менялись.
+
 Run eu6-recovery-20261016T220849-0400. Состояние на 2026-10-17 03:01:58 UTC (16октября, вечер America/New_York). Это НЕ обычное завершение и НЕ итог шести стран: три исследователя реально продолжают работу; Австрия и Чехия независимо приняты как завершённое доступное исследование, Германия передала полный содержательный отчёт, но национальный completion не принят.
 
 ## Реальная среда, восстановление и шесть исполнителей
