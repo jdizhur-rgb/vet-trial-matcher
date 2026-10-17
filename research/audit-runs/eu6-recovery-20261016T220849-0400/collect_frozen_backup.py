@@ -58,6 +58,8 @@ def collect():
                     if q.name=="report.md":
                         match=re.search(r'/block-(\d+)',rel)
                         logical=int(match.group(1)) if match else 0
+                        if q.parent.name.startswith('final'):
+                            logical=1000000+logical # Report delivery alias only; never independent research acceptance.
                         block_reports[str(item["slot"])]={"source_path":rel,"target_path":item["worker_directory"]+"/report.md","sha256":sha,"ready_file_mtime_ns":ready_mtime,"logical_block":logical,"order_note":"Logical block first, actual ready mtime only tie-break; historical repairs do not advance country. NOT source checked_at or acceptance"}
                 assert ready.read_bytes()==raw,"Ready changed during read"
                 rr=str(ready.relative_to(ROOT));rs=hashlib.sha256(raw).hexdigest()

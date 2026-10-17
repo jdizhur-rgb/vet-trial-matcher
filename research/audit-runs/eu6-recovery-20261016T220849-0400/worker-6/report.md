@@ -1,6 +1,6 @@
 # Нидерланды — национальное исследование продолжается
 
-run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_sha=b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45; agent_id=/root/oct16_nl; started_at=2026-10-17T02:12:30Z. Обновлено 2026-10-17T02:47:46.574Z. research_complete=false; publication_permitted=false.
+run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_sha=b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45; agent_id=/root/oct16_nl; started_at=2026-10-17T02:12:30Z. Обновлено 2026-10-17T02:50:20.681Z. research_complete=false; publication_permitted=false.
 
 ## Наследие и восстановление
 
@@ -8,7 +8,7 @@ run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_
 
 ## Фактическая текущая работа
 
-{"assigned":283,"processed":283,"fully_verified":64,"NEW":60,"UPDATE":5,"DUPLICATE":9,"EXCLUDED":176,"UNRESOLVED":33,"PENDING":0} — cumulative уникальные provider/service identities, не URLs/aliases/query/referencegroups. Текущий run: 81 substantive provider reviews, 263 Web open/click requests, 13 actual queries. Failed/challenge не successful source verification.
+{"assigned":285,"processed":285,"fully_verified":64,"NEW":60,"UPDATE":5,"DUPLICATE":9,"EXCLUDED":177,"UNRESOLVED":34,"PENDING":0} — cumulative уникальные provider/service identities, не URLs/aliases/query/referencegroups. Текущий run: 83 substantive provider reviews, 272 Web open/click requests, 13 actual queries. Failed/challenge не successful source verification.
 
 | Provider / город | Решение / лечение | Официальный URL |
 |---|---|---|
@@ -93,6 +93,8 @@ run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_
 | A7 Noord — de Drait / Drachten | EXCLUDED;  | https://www.a7noorddierenartsen.nl/ |
 | Dierenartspraktijk Anna Deen / Assen | EXCLUDED;  | https://dierenartsdeen.nl/ |
 | Wellensiek Dierenartsen — Amersfoort Vathorst / Amersfoort | NEW; Surgery | https://wellensiek.nl/vestigingen/amersfoort-vathorst/ |
+| Dierenkliniek Wulven / Houten | EXCLUDED;  | https://www.dierenkliniekwulven.nl/ |
+| Petcare Dierenartsen / Eindhoven | UNRESOLVED;  | https://www.petcaredierenartsen.nl/ |
 
 ## Покрытие
 
