@@ -1,0 +1,56 @@
+{
+  "run_id": "eu6-recovery-20261016T220849-0400",
+  "slot": 4,
+  "country": "Germany",
+  "agent_id": "/root/oct16_de",
+  "baseline_sha": "b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45",
+  "parent": "/root",
+  "observed_after_independent_primary_read_at": "2026-10-17 05:19:28 UTC",
+  "source_checked_at": "2026-10-17",
+  "source_timestamp_precision": "Web actualread date-only UTC; observation clock is not claimed network response timestamp",
+  "source_id": "de-berlinvets-berlin",
+  "identity": {
+    "name": "BerlinVets – Zentrum für Kleintiermedizin Adam & Lehmann (GbR)",
+    "street": "Frankfurter Allee 213-217",
+    "city": "Berlin-Lichtenberg",
+    "postal_code": "10365",
+    "phone": "+49 30 50178500",
+    "entity": "ONE_PHYSICAL_BRANCH",
+    "coordinates": null
+  },
+  "primary_sources": [
+    {
+      "url": "https://www.berlinvets.de/chirurgie",
+      "ref": "turn4167view0",
+      "relevant_lines": "73–89;102–110",
+      "short_quote": "Tumorchirurgie",
+      "facts": "Current owned local tumour operations for dogs/cats/small pets. Orthopaedics described as future; no Chemo/ECT/RT inferred."
+    },
+    {
+      "url": "https://www.berlinvets.de/praxis",
+      "ref": "turn4168view0",
+      "relevant_lines": "46–64",
+      "short_quote": "Julia Lehmann; Tierärztin und Inhaberin",
+      "facts": "Current JuliaLehmann GPCertDentistryOralSurgery(ISVPS), JasminMaxiAdam GPCertSmallAnimalMedicine(ISVPS), LuisevonFoerster generalvet. No oncology board credential."
+    },
+    {
+      "url": "https://www.berlinvets.de/kontakt",
+      "ref": "turn4168view1",
+      "relevant_lines": "38–46",
+      "short_quote": "Frankfurter Allee 213-217 in 10365 Berlin Lichtenberg",
+      "facts": "Phone03050178500, clinicalemailinfo@berlinvets.de, Mon–Fri9–20, weekend/publicholidayclosed. Petleo publicappointmentlink advertised only, not opened/submitted; urgent cases phonefirst/capacity caveat."
+    }
+  ],
+  "baseline_independent_dedupe": {
+    "method": "Read-only case-insensitive normalized brand/principal/street/phone token scan across full current oncology*.json/acvim*.json and tele.py",
+    "matches": 0,
+    "qualification": "Fresh main semantic reconciliation still required before phase2."
+  },
+  "clinical_source_facts_accepted": true,
+  "services_accepted": [
+    "Surgery"
+  ],
+  "proposal_quote_amendment": "Original18 contact fields used irrelevant Petleo short_quote; worker19append-only corrects from retained genuine200facts, not newGET or frozen18rewrite. Final19 field amendment still needs exactpayload verification.",
+  "country_research_complete_accepted": false,
+  "site_publication": false
+}

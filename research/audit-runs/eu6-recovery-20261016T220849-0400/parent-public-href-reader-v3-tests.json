@@ -1,0 +1,31 @@
+{
+  "run_id": "eu6-recovery-20261016T220849-0400",
+  "parent": "/root",
+  "checked_at": "2026-10-17T05:20:51.041878+00:00",
+  "kind": "INDEPENDENT_LOCAL_MOCK_REVIEW_PUBLIC_HREF_READER_V3",
+  "code_path": "worker-5/read_public_branch_public_href_v3.py",
+  "code_sha256": "5da76bf0415eaf131426fe9c24b9fa8693625e8745458a512ce1b6b8390c0c38",
+  "diff_review": "Only metadata handling of actual own public href query/fragment and exclusion of external userinfo. Network/size/noRedirect/firstrestrictionstop/explicit-subset guards unchanged.",
+  "tests": {
+    "inherited_negative_stop_tests": 13,
+    "all_pass": true,
+    "public_query_id_fragment_exact": 4,
+    "sensitive_href_redacted": 7,
+    "includes": [
+      "generic64hexquery",
+      "bareJWTfragment",
+      "opaque32fragment",
+      "token",
+      "nonce",
+      "ownuserinfo",
+      "externaluserinfo"
+    ],
+    "credential_sentinels_absent": true,
+    "real_network_attempts": 0,
+    "real_source_body_reads": 0,
+    "real_source_hashes": 0,
+    "worker_files_written": 0
+  },
+  "approval_scope": "This exact code hash, ONE explicit URL per fresh separately completed guard; no permission release/automatic redirects/guessed URLs/backend or form calls. Credential-shaped href metadata stays UNKNOWN_DO_NOT_REQUEST.",
+  "site_publication": false
+}
