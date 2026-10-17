@@ -50,6 +50,7 @@ extras.push(base+"/parent-zahn-hamburg-and-field-quotes-19-review.json",base+"/b
 extras.push(base+"/controller_verify_netherlands_final.py",base+"/parent-netherlands-final-structural-review.json");
 extras.push(base+"/parent-netherlands-field-and-primary-review.json",base+"/parent-poland-proposal-closure-205-review.json",base+"/controller-progress-051.json");
 extras.push(base+"/worker-acceptance-6.json");
+extras.push(base+"/worker-acceptance-5.json");
 extras.push(base+"/parent-france-vetesia-network-primary-review.json");
 extras.push(base+"/parent-france-final66-structural-and-scope-review.json",base+"/parent-france-alfort-triovet-primary-review.json");
 extras.push(base+"/parent-poland-contact-and-closure214-review.json");
