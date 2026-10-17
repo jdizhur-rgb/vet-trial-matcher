@@ -321,6 +321,11 @@ def center_from_group(group: list[dict], organization_sites: dict[str, str], zip
 
 
 def center_match(seed: dict, candidate: dict) -> bool:
+    # Network access routes are separate entities, never branch/location aliases.
+    if "network" in {seed.get("location_type"), candidate.get("location_type")}:
+        return (seed.get("location_type") == candidate.get("location_type") == "network"
+                and seed.get("country") == candidate.get("country")
+                and bool(seed.get("source_id")) and seed.get("source_id") == candidate.get("source_id"))
     if seed["country"] != candidate["country"] or seed["region"] != candidate["region"]:
         return False
     # Official branch/contact review confirms these are distinct sites.
@@ -426,7 +431,7 @@ def main() -> None:
                 "latitude": candidate["latitude"],
                 "longitude": candidate["longitude"],
             }
-        elif candidate.get("location_type") == "mobile" or candidate.get("coordinates_unknown"):
+        elif candidate.get("location_type") in {"mobile", "network"} or candidate.get("coordinates_unknown"):
             # A service area/mailbox is not a fixed treatment or distance pin.
             coordinates = {"latitude": None, "longitude": None}
         elif candidate["country"] == "USA":
@@ -439,7 +444,7 @@ def main() -> None:
         if existing:
             supplemental_matched += 1
             existing.update({key: value for key, value in candidate.items() if key not in {"latitude", "longitude"}})
-            if candidate.get("replace_coordinates") or candidate.get("location_type") == "mobile" or candidate.get("coordinates_unknown"):
+            if candidate.get("replace_coordinates") or candidate.get("location_type") in {"mobile", "network"} or candidate.get("coordinates_unknown"):
                 # Address corrections and mobile conversions must replace the
                 # old coordinate point as well as the displayed address.
                 existing.update({key: coordinates[key] for key in ("latitude", "longitude")})
@@ -479,6 +484,8 @@ def main() -> None:
         "supplemental_locations_added": supplemental_added,
         "supplemental_locations_matched": supplemental_matched,
         "final_location_count": len(centers),
+        "network_listing_count": sum(x.get("location_type") == "network" for x in centers),
+        "fixed_and_mobile_location_count": sum(x.get("location_type") != "network" for x in centers),
         "usa_location_count": sum(x["country"] == "USA" for x in centers),
         "usa_regions": sorted({x["region"] for x in centers if x["country"] == "USA"}),
         "usa_states_covered": len(covered_states),
