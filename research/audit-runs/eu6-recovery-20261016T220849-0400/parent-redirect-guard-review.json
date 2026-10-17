@@ -1,0 +1,35 @@
+{
+  "run_id": "eu6-recovery-20261016T220849-0400",
+  "slot": 5,
+  "country": "France",
+  "reviewed_by": "/root",
+  "reviewed_at": "2026-10-17 04:27:37 UTC",
+  "scope": "Technical research source reader only; no production changes or source-permission release.",
+  "frozen_path": "worker-5/checkpoints/guard-no-redirect-20261017T0426",
+  "read_code": true,
+  "code_observations": [
+    "NoAutomaticRedirect.redirect_request returns None",
+    "open_no_redirect used for actual reader",
+    "HTTP301302303307308 stores Location metadata only; no e.read, no bodyhash; queue breaks",
+    "HTTP401403429 and detected200auth/challenge break before next URL"
+  ],
+  "read_mock_test_code_and_result": true,
+  "mocked_outcomes": [
+    401,
+    403,
+    429,
+    302,
+    "challenge",
+    "auth"
+  ],
+  "planned_urls_per_test": 4,
+  "actual_mock_calls_per_test": 1,
+  "later_calls": 0,
+  "network_calls": 0,
+  "held_redirect_target_calls": 0,
+  "body_hash_created": false,
+  "actual_child_proof_at": "2026-10-17T04:25:38.243818+00:00",
+  "parent_executed_network_tests": false,
+  "held_provider_workflows_unchanged": true,
+  "notes": "Parent inspected immutable code/test/proof; did not reexecute worker script because test writes into own worker subtree. No denied or empty transient output read/hash/recovery."
+}

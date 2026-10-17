@@ -1,6 +1,6 @@
 # Нидерланды — национальное исследование НЕ завершено
 
-run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_sha=b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45; agent_id=/root/oct16_nl; started_at=2026-10-17T02:12:30Z. Рабочий период 2026-10-17T02:12:30Z — 2026-10-17T04:22:38.742Z (продолжается).
+run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_sha=b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45; agent_id=/root/oct16_nl; started_at=2026-10-17T02:12:30Z. Рабочий период 2026-10-17T02:12:30Z — 2026-10-17T04:26:05.978Z (продолжается).
 
 research_complete=false; publication_permitted=false. Нулевой PENDING внутри текущего известного ledger не означает исчерпания страны: доступно ещё 0 IVC-label directions и другие собственные направления.
 
@@ -12,27 +12,27 @@ research_complete=false; publication_permitted=false. Нулевой PENDING в�
 
 | Показатель | Фактическое значение |
 |---|---|
-| assigned | 501 |
-| processed | 501 |
-| fully_verified | 81 |
-| NEW | 77 |
+| assigned | 507 |
+| processed | 507 |
+| fully_verified | 82 |
+| NEW | 78 |
 | UPDATE | 5 |
 | DUPLICATE | 10 |
-| EXCLUDED | 343 |
-| UNRESOLVED | 66 |
+| EXCLUDED | 344 |
+| UNRESOLVED | 70 |
 | PENDING | 0 |
 
-NEW включает 5 отдельных NETWORK listings, не новых физических клиник. Остальные 72 — физические provider records, в том числе partial/hold. Переобработка одного provider не увеличивает processed; URLs, aliases, branchFinder/recruitment labels и referencegroups не providers.
+NEW включает 6 отдельных NETWORK listings, не новых физических клиник. Остальные 72 — физические provider records, в том числе partial/hold. Переобработка одного provider не увеличивает processed; URLs, aliases, branchFinder/recruitment labels и referencegroups не providers.
 
 | Fully: разные основания | Количество |
 |---|---|
 | Исторический inherited claim | 50 |
-| Cumulative claimed | 81 |
-| Найден обязательный payload либо текущий reverify | 81 |
-| Текущий freshly reverified core | 49 |
+| Cumulative claimed | 82 |
+| Найден обязательный payload либо текущий reverify | 82 |
+| Текущий freshly reverified core | 50 |
 | Parent clinical acceptance | не получено |
 
-DependencyQA002 исправляет001. Отсутствие полногоHTML не автоматически отсутствие факта: сохранённая точнаяцитата+URL может поддерживать field; неподтверждённый обязательный факт удерживается. Current freshly reverified counter includes one mixed-date Barendrecht record: exactaddress inherited15October, current namedvetrole/contact/access17October, not all-field fresh. Текущих open/click requests 995, reader extractions 29, exact actual queries 184. Не все requests успешны: header-only/ошибка/challenge не clinical verification. Web checked_at17October date-only; exact request timestamps не выдуманы.
+DependencyQA002 исправляет001. Отсутствие полногоHTML не автоматически отсутствие факта: сохранённая точнаяцитата+URL может поддерживать field; неподтверждённый обязательный факт удерживается. Current freshly reverified counter includes one mixed-date Barendrecht record: exactaddress inherited15October, current namedvetrole/contact/access17October, not all-field fresh. Текущих open/click requests 1027, reader extractions 29, exact actual queries 205. Не все requests успешны: header-only/ошибка/challenge не clinical verification. Web checked_at17October date-only; exact request timestamps не выдуманы.
 
 ## Именные NEW и UPDATE
 
@@ -121,6 +121,7 @@ DependencyQA002 исправляет001. Отсутствие полногоHTML
 | Dierenkliniek De Duinen | Den Haag | NEW | Surgery | https://www.dierenkliniek-deduinen.com/onze-service | HOLD/partial |
 | Dierenkliniek Billiton | Vlaardingen | NEW | Surgery | https://dierenkliniekvlaardingen.nl/specialisaties-dierenkliniek-billiton/ | всегда parent acceptance до публикации |
 | Dierenartsenpraktijk IJmond Noord | Castricum | NEW | Surgery | https://dap-ijmondnoord.nl/onze-diensten/ | всегда parent acceptance до публикации |
+| Dierenkliniek Hoogveld — Limburg network | NETWORK — без адреса | ADD | Surgery | https://www.dierenkliniekecht.nl/expertises/onderzoek-en-behandeling/chirurgie | всегда parent acceptance до публикации |
 
 55 inherited NEW — не55 fresh discoveries. Wellensiek3 иZOD3 уже были квалифицированным наследием; DeArkMiddelburg — сохранённый lead, один receiving physical siteStevenPil, не nationwide mobile service. Новые network contacts DierenDokters/Topzorg/DGCZuidLimburg: адрес/город/индекс пусты, coordinates=null, distance suppressed; подтвердить филиал/врача/приём. Общие booking routes advertised-only, формы не отправлялись. Topzorg onlineconsult intake, операция по телефону выбранного филиала, не выдуманный centralphone.
 
@@ -241,6 +242,10 @@ EXCLUDED — nonpromotion, не отсутствие лечения. StadLand9 g
 | Dierenkliniek Goes | https://www.dierenkliniekgoes.nl/ | ["Current localcanceract andcompleteclinicalcore through independentlypermittedprimaryclinicalroutes; exactrestrictedbody no replay/variant/querycache/client. No closure/no-care claim."] |
 | Dierenkliniek Nederweert (former Lintjeshof companion practice) | https://www.dierenklinieknederweert.nl/onderzoek-behandeling/narcose-operaties | ["Current localcanceract andcompleteclinicalcore through independentlypermittedprimaryclinicalroutes; exactrestrictedbody no replay/variant/querycache/client. No closure/no-care claim."] |
 | Dierenkliniek Heemskerk | https://www.dierenkliniekheemskerk.nl/ | ["Currentphysicalclinicalcore/canceract/intake fromgenuinelyindependentallowedclinicalsource; exactroot/equivalents held. Noquerycache/aliasclientreconstruction."] |
+| Dierenkliniek Hoogveld Limburg — Echt | https://www.dierenkliniekecht.nl/dierenkliniek-hoogveld-echt | ["Whichcurrentphysicalbranch performsownednetworktumor/thyroidtumoroperations? GroupofferNOTbranchallocation. ONEseparatetypednetworkproposed, nofanout."] |
+| Dierenkliniek Hoogveld Limburg — Roermond | https://www.dierenkliniekecht.nl/dierenkliniek-hoogveld-roermond | ["Whichcurrentphysicalbranch performsownednetworktumor/thyroidtumoroperations? GroupofferNOTbranchallocation. ONEseparatetypednetworkproposed, nofanout."] |
+| Dierenkliniek Hoogveld Limburg — Herten | https://www.dierenkliniekecht.nl/dierenkliniek-hoogveld-herten | ["Whichcurrentphysicalbranch performsownednetworktumor/thyroidtumoroperations? GroupofferNOTbranchallocation. ONEseparatetypednetworkproposed, nofanout."] |
+| Dierenkliniek Hoogveld Limburg — Susteren | https://www.dierenkliniekecht.nl/dierenkliniek-hoogveld-susteren | ["Whichcurrentphysicalbranch performsownednetworktumor/thyroidtumoroperations? GroupofferNOTbranchallocation. ONEseparatetypednetworkproposed, nofanout."] |
 
 PartialNEW отдельно: Diergeneeskundig Centrum Zeeland [dc-zeeland-noordwelle]; Dierenkliniek de Watermolen [dierenkliniek-de-watermolen-haaksbergen]; De Wagenrenk — Diergeneeskundig Specialistisch Centrum [de-wagenrenk-wageningen]; Dierenkliniek ’t Gooi [dierenkliniek-t-gooi-laren]; Dierenkliniek Europawijk [dierenkliniek-europawijk-haarlem]; HVMC Westhage / Dierenkliniek Westhage — Dokter John [dierenkliniek-westhage-den-haag]; Dierenkliniek Goudenregenstraat (formerly EDZ Den Haag) [goudenregenstraat-den-haag]; Dierenkliniek De Duinen [de-duinen-arnoldspoelstraat].
 
@@ -591,16 +596,17 @@ PartialNEW отдельно: Diergeneeskundig Centrum Zeeland [dc-zeeland-noordw
 | Huisdierenkliniek Hornstra / Arnhem | https://dedierenarts.nl/over-ons/ / 2026-10-17 | Ownedcurrentactualsurgerydetailsgenericabdominaldarm/blaas/ortho/eye/ear/mouth/skin/tail, notexplicitcanceract. CurrentpublishedDierenartsrolesandKlaasVossurgeryspecialist doNOTprove localcancerdelivery. Haalbreng20kmtransportnotmobileoncology. ActualArnhemVanLawick38notSEO ArnhemZuid/Oosterbeek/Velpextraclinics. |
 | Dierenkliniek Pijnappel / Nijmegen | https://dierenkliniekpijnappel.nl/specialiteiten / 2026-10-17 | Ownedfullactualendoscopydetails: thoracic/bladdertumors investigationalbiopsy/visualisation notlocalresection; earpolyps explicitlybenigninflammatoryovergrowth notindependentcanceract. Otheroperationslapspay/knee, notanticancer. Ownlaserexplicitlynotadvisedontumors, no ECT/Radiation. SEOadjacentcities notbranches. CurrentbaliehoursMoTh09–17/Frapptto19 supersedeoldwww2024holidaytemplate, notsourceerror. |
 | Dierenartsenpraktijk Deil / Deil | https://www.dapdeil.nl/honden/ / 2026-10-17 | ActualnewindependentDeilclinicownpetcare/expertisesgeneraloperations/diagnostics only, noexplicitcanceract. OwnexpertisepagewrongtemplatedtitleGoereeOverflakkee but BODY clearlyDAPDeil+Boonakker3; notNoordwelleGOlegacyredirectnorKwakerDeil tOosteneind1b. No treatmentfanoutfromGO/Zeeland. |
+| Dierenarts @ Home Boxtel / Boxtel | https://www.dierenartsathome.nl/ / 2026-10-17 | Ownedcurrentfullpractice/clinicalcapabilitiesreview: generalsurgery/laparoscopy/dental/diagnostics. Actualhomevisitsvaccination/control/euthanasia notmobileoncology. SimonvandeBergDierenartsEigenaar/AukjeGezelleMeerburgDierenarts2014notcanceract. October12,2026hoursnoticecurrentbutnotcancernewsignal. ONEhybridprovider notseparatehousecallcompany;24/7referralEDZHartBrabantnotownward. |
 
 ## Собственный доступный остаток и точные внешние ограничения
 
 | Доступное собственное направление | Следующий разрешённый шаг |
 |---|---|
-| IVC220 clinical identity reconciliation | Continue exact official clinical links/current local services; labels, equine/admin entries, closed branches and aliases cannot be promoted automatically. |
+| IVC220 clinical identity reconciliation | 200 mapped +16 exactambiguity/held +4 noncompanion=220 labels reconciled. Hoorn110unknownexactlegacyworkflow hold isolated, notguessed/newprovider. Label-layerfinished, genuineexternalidentityquestionsremain; notcountrycompletion. |
 | EDZ four remaining existing providers: named current veterinary roles | Independently permitted clinical profiles/department directions remain. Exact team master held restriction004; no reconstruction. Existing baseline preserved, no all-hospital modality fanout. |
 | VetPartners / other current branch directions | Actual independent Hornstra/Pijnappel/Deil clinical routes reviewed EXCLUDED; IJmondNoord Castricum NEW qualified; Heemskerk root restriction026 exact externalgap. DGN owncorporateabout reference45NLlocations is not clinicalroster/currentcanceract. Full-master precisehold separate; no available unreviewed selectedprovider inthissavedbrandset. |
 | BES independent current/new/visiting directions | Review040 +queries024 performed14Dutch/English/Spanish searches and government/clinicalpartner routes. BVC limited Localoncologycare; KlinikaVeterinario canceract unresolved. Saba SFPCA governmentclinic hours and Eva2025not2026staff certainty; Statia current DrSharonVeira/ENI accessnotoncology. Noadditional selectedunprocessedlead inthese routes. Facebook platformscopeuncertain notinvented source403; no replay/outreach. Independent new signals remain partofnationalcurrent/new direction. |
-| Regional city/current-new signal layer | 12province current native queries recorded; many irrelevant hits, not exhaustion. Continue discovered official GP chemotherapy/tumor surgery, opening/move/clinic-conversion signals and major cities. A7Noord3/Deen reviewed nonpromotion, Vathorst reverified; no claim all local independent clinics screened. |
+| Regional city/current-new signal layer | 12province current native queries recorded; many irrelevant hits, notexhaustion. NewactualHoogveldLimburg4branch+ONE networkSurgery reviewed043 (notRosmalen); BoxtelDierenartsAtHomehybridEXCLUDEDgeneralcare. Freshquerydiscovered independentBeijum/Flevoland/Meppel/Drentheverbond actualclinicaldirections AVAILABLEnext; remaining8province narrowchemo/currentnewsignals required. No allindependentclinics screenclaim. |
 | RT / ECT / mobile / remote | Final independent national/source-specific care and branch allocation reconciliation; VSCtele scope partial, MaxBella genericlumps excluded, actual current UUIDradiotherapy verified. Ordinary imaging not radiotherapy; unrelated homevisits not homeoncology. |
 | Identity and source evidence QA | All three former mandatory dependency gaps Honselersdijk/Mijnzicht/EpeQuickborn resolved by current own service/team/contact review020; old exact Karin biography remains held independently. Final exact baselines/aliases/proposal counts and separate types before parent acceptance. |
 

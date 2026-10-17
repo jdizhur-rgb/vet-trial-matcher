@@ -512,3 +512,57 @@ NativepublicHTML: VetmedicSzczecin502; VETKASanok200, видимый клини�
 Счётчики:279assigned =279processed+0unprocessed;173NEW+3UP+17DUP+35EXCL+51UNRES=279.193fully =187fixed+5network+1mobile.173NEW =162inheritedphysical+5freshphysical+1freshmobile+5network; freshqualifieddiscovery8. Приращение assigned9 объяснено индивидуальными идентичностями ledger021; старые frozencounts не изменялись. Ownqueries157;196receiptbatchunits (не196успешныхсайтов). Полный baseline3229+Tele64 не содержит2новыхсетевыхidentity; не сравнивались только20польскихlive.
 
 Национальный остаток не закрыт:51preciseUNRES и сверка первичных направлений/метаданных636старыхдоменных групп. По фактически прочитанным заголовкам большинство636 — humanmedicine/reference/noise, не636клиник. Нельзя заявить countrycomplete до их аккуратной классификации и завершения доступных первичных направлений. Последняя полученная remoteproof —030(block24);25/26 пока не называются remotelysaved без receipt.
+
+
+## Поправка к активным рекомендациям: Gugała Stargardzka
+
+Предложение Medical oncology→Local oncology care удержано и удалено из активных изменений. В исходном baseline уже сознательно опубликован Medical oncology без утверждения химиотерапии. Старая local-care-reclassification27 прямо оставляла опубликованные20 неизменными и отдельно сужала MieszkaI62, не Stargardzka61. Положительного доказательства первоначальной ошибки/прекращения услуги не найдено; отсутствие слова chemo/board ничего не отменяет. Активные UP теперь2/поля2, DUP18, остальные счётчики неизменны; immutable исторические блоки не переписаны. Это internal QA, не новый визит источника. Подробно working/medical-label-hold-001.json.
+
+
+## Актуальная совокупная сверка Польши — блок27 (2026-10-17 04:27:13 UTC)
+
+279assigned =279processed+0unprocessed;174NEW+2UP+18DUP+35EXCL+50UNRES=279.194fully=188fixed+5network+1mobile;NEW174=163inheritedphysical+5freshphysical+1freshmobile+5networks. Из них свежих qualifyingdiscovery8, не174. Для Gugała Stargardzka сохранён исходный Medical oncology, активное сужение удержано working/medical-label-hold-001.json; исторические frozenUP3 теперь superseded, не переписаны. Два активных UP: OnkovetGliwice access_note, ZWIERZAKRzeszów законченная хирургическая специализация.
+
+Разрешён TelvetКошалин: криохирургия некоторых новообразований, https://www.telvet.pl/oferta/kriochirurgia-wymrazanie; текущий квалифицированный SzymonTeliński подтверждён https://www.zachizbawet.pl/przewodniczacy-czlonkowie-sadu-lekarsko-weterynaryjnego/ и официальной программой2026 https://e-dziennik.szczecin.uw.gov.pl/eli/POL_WOJ_ZP/2026/1033/ogl/pol/pdf (стр1/3). Муниципальная программа не доказывает онкологию сама, клиническая процедура подтверждена отдельно собственным источником. Это inheritedregionalreverified, не discovery. Безchemo/RT/ECT. WholePDFне сохранён/нехэширован; screenshottool вернул только textmarker, визуальная проверка не заявлена.
+
+Полностью сверены17старыхпервичных маршрутов и12directoryidentityroutes: реальные кандидаты уже вledger; Anika — профильэкспертаReptilio, MyTail — блог, AnnaJaśkiewicz ведёт к уже существующимElwet/RTWet, Jagielski — образовательныйпрофиль. Найдены ложные новые identity: NeoVetв URLBiałystok фактическиWrocławŚwit65; BarbaraHanusz — ужеPrzychodniaZielonaGóraOlbrychta1A; MedVetRybicki — ужеBrynówBrynowska25c. Этоaliases/reference, не ещё3NEW/DUPклиники. Подробный audit working/frontier-reconciliation-002.json. 636историческихhostgroups — не636providerleads; финальный категориальный ledgerметаданных ещё собственный доступный остаток.
+
+### Совокупная национальная матрица:16воеводств
+
+Фактические унаследованные324запроса лежат в input/older-salvage/checkpoint-28/queries.json. Запросы0–23 покрывают18крупныхгородов;68–75 — новые/открывающиесяуслуги по16регионам. Это настоящая inheritedcoverage16Oct, не новые визиты17Oct. Для каждого региона выполнен дополнительный запрос162–165 по вторичнымгородам, но смешанная выдача не приравнена к клиническому обзору всехгородов. Количество в таблице — только qualifyingNEWfixed, без20baseline/mobile/networks.
+
+| Воеводство | Крупные города | NEWfixed | Примеры фактически проверенных identity | Состояние |
+|---|---|---:|---|---|
+| Dolnośląskie | Wrocław | 13 | ERVet Specjalistyczna Przychodnia Weterynaryjna (Wrocław); AniCura Aksvet Przychodnia Weterynaryjna (Oława); Przychodnia Weterynaryjna Żernicka (Wrocław) | Поиски выполнены; followups/национальный остаток открыты |
+| Kujawsko-Pomorskie | Bydgoszcz/Toruń | 12 | Przychodnia Weterynaryjna Kościuszki (Toruń); Przychodnia Weterynaryjna VET-MED Toruń (Toruń); Przychodnia Weterynaryjna Toruń Wyszyńskiego (Toruń) | Поиски выполнены; followups/национальный остаток открыты |
+| Lubelskie | Lublin | 10 | Uniwersytet Przyrodniczy w Lublinie — Klinika Weterynaryjna / Katedra i Klinika Chirurgii Zwierząt (Lublin); Lubelska Poliklinika Weterynaryjna (Lublin); Lubelskie Centrum Małych Zwierząt (Lublin) | Поиски выполнены; followups/национальный остаток открыты |
+| Lubuskie | Zielona Góra/Gorzów | 5 | Animal Doctor Gabinet Weterynaryjny (Gorzów Wielkopolski); Przychodnia Weterynaryjna Help (Zielona Góra); Centrum Zdrowia Małych Zwierząt (Gorzów Wielkopolski) | Поиски выполнены; followups/национальный остаток открыты |
+| Łódzkie | Łódź | 5 | AniCura Animal Broniewskiego Przychodnia Weterynaryjna (Łódź); AniCura Animal Młynarska Przychodnia Weterynaryjna (Łódź); Przychodnia Weterynaryjna PRO-VET (Łódź) | Поиски выполнены; followups/национальный остаток открыты |
+| Małopolskie | Kraków | 18 | Uniwersytecka Poliklinika Weterynaryjna URK (Rząska); Przychodnia Weterynaryjna Multivet (Kraków); Przychodnia Weterynaryjna Bajeczna — Bajeczna 1 (Kraków) | Поиски выполнены; followups/национальный остаток открыты |
+| Mazowieckie | Warszawa | 49 | Vet4Pet Klinika Weterynaryjna (Warszawa); SpecVet Mokotów (Warszawa); SpecVet Ursynów (Warszawa) | Поиски выполнены; followups/национальный остаток открыты |
+| Opolskie | Opole | 2 | Przychodnia Weterynaryjna OnkolVet (Opole); Przychodnia Weterynaryjna 4 Łapy (Reńska Wieś) | Поиски выполнены; followups/национальный остаток открыты |
+| Podkarpackie | Rzeszów | 5 | Przychodnia Weterynaryjna US-WET (Szówsko); Przychodnia Weterynaryjna Wesoły Kundelek (Lesko); Przychodnia Weterynaryjna ADA (Rzeszów) | Поиски выполнены; followups/национальный остаток открыты |
+| Podlaskie | Białystok | 4 | ArkaNoego Gabinet Weterynaryjny Adam Tymiński (Białystok); Centrum Weterynaryjne Boliłapka (Białystok); Przychodnia Weterynaryjna Tropek — Katarzyna Żakiewicz (Białystok) | Поиски выполнены; followups/национальный остаток открыты |
+| Pomorskie | Gdańsk | 12 | AniCura ANIMAL.MED Przychodnia Weterynaryjna (Gdańsk); Centrum Weterynaryjne Zwierzyniec (Lębork); Gdyński Szpital Weterynaryjny (Gdynia) | Поиски выполнены; followups/национальный остаток открыты |
+| Śląskie | Katowice | 14 | ALMAVET Weterynaryjna Przychodnia Dermatologiczno-Onkologiczna (Sosnowiec); AniCura Gliwicka Przychodnia Weterynaryjna (Gliwice); AniCura Molicki Całodobowa Klinika Weterynaryjna (Dąbrowa Górnicza) | Поиски выполнены; followups/национальный остаток открыты |
+| Świętokrzyskie | Kielce | 2 | Przychodnia Weterynaryjna LABRADOR (Ostrowiec Świętokrzyski); Przychodnia Weterynaryjna DOG — Remigiusz Cichoń (Skarżysko-Kamienna) | Поиски выполнены; followups/национальный остаток открыты |
+| Warmińsko-Mazurskie | Olsztyn | 3 | Lecznica Weterynaryjna AS (Olsztyn); Przychodnia Weterynaryjna Dogtorki — Szczytno (Szczytno); Centrum Weterynaryjne Ars-Vet (Ełk) | Поиски выполнены; followups/национальный остаток открыты |
+| Wielkopolskie | Poznań | 10 | AniCura Pod Wieżami Przychodnia Weterynaryjna (Poznań); Przychodnia Weterynaryjna Na Polance (Poznań); Przychodnia Weterynaryjna Piotr Dąbrowski (Poznań) | Поиски выполнены; followups/национальный остаток открыты |
+| Zachodniopomorskie | Szczecin | 4 | Przychodnia Weterynaryjna Małych Zwierząt Leonard Gugała — Mieszka I (Szczecin); Gabinety Weterynaryjne Franciszkańska (Koszalin); Gabinet Weterynaryjny Vet Medica (Świnoujście) | Поиски выполнены; followups/национальный остаток открыты |
+
+### Все измерения плана
+
+| Направление | Фактическое состояние | Доказательство |
+|---|---|---|
+| Universities8 | All8actualindividualoutcomes;wholecountryfalse | working/university-matrix-001.json |
+| LuxVet | Historical57 roster56clinicalidentities+PerfectVettrainingreference reconciled; held403currentmastergap | working/frontier-reconciliation-002.json |
+| AniCura | Actualprehold12/11qual+1nonpromotion,allIDsledger; master403held | working/anicura-roster-001.json |
+| EDINA | 20knownallIDsledger,notfullcurrentmaster;JSdeliverygapseparate | working/frontier-reconciliation-002.json |
+| Smallerrosters | Maxvet2,Zviropolis4,Teodorowscy3,Medican2current;MaxvetPLUSvagueold6/7identitiesnotinvented;branchgapsUNRES | sources/safe170-181.json |
+| IndependentGPcancer/chemotherapy | ActualqualifiedGPsacceptedwithoutboardrequirement;163inheritedphysical+5freshphysicalNEW,otherclinicalgapsremain | working/provider-ledger-022.json |
+| RT/ECT | RTWetactualbaselineRT;knownlocalECT keptonlyactualproviderproof;CO2/RTG/referralnotRT;remainingdetailQAaccessible | remaining.json |
+| Mobile/visiting/remote | VetGoONErealKrakówmobile;ownervsprofessional/educationonlinekeptseparate,0qualifiedremote;Hippicahorseonlyexcluded | working/fresh-discovery-001.json;working/roster-outcomes-003.json |
+
+Остаток50UNRES не объявлен автоматически внешним: разрешённые независимые роли/филиальные услуги/контакты ещё проверяются. ExactheldURL/actions отдельно в restriction001–016/истории, не повторяются. Сохраняются baseline-detailQA GreenVet/Moonvet/NaPolance/Giszowiec/Napieraj; нет снятия услуг из молчания.
+
+Backup proof031: block25 data033b73c03c7c8a8bbff2f8f86054ec0af37ce23f, receipte451d7776a60fe6a872b197f26fb7f0e677ed5b4, readback04:11:42UTC. Proof032:block26 datad7d569d369b2d0e5c6e04754bf09d33464d6953c,receipte3d95bec15114c80fa758d9b5e707cbbd5480300,readback04:20:35UTC. Оба parentPASS archive/control/members/receipt. Block27 на моментсоздания толькоready, не remoteacceptance и не publication. research_complete=false.

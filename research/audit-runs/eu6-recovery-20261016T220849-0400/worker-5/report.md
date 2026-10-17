@@ -1,6 +1,6 @@
 # Франция — национальная проверка: исследование продолжается
 
-Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`; baseline `b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45`. Первая отметка clock 2026-10-17 02:12:29 UTC; документ обновлён 2026-10-17T04:18:24.050287+00:00. **research_complete=false**.
+Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`; baseline `b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45`. Первая отметка clock 2026-10-17 02:12:29 UTC; документ обновлён 2026-10-17T04:25:00.110738+00:00. **research_complete=false**.
 
 ## Восстановлено и действительно выполнено
 
@@ -42,7 +42,7 @@ Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`;
 
 ## Счётчики
 
-Регистр именованных кандидатов: assigned=624, processed=601 (171 унаследованный +429 текущих review), fully_verified=172, NEW=165, UPDATE=0, DUPLICATE=8, EXCLUDED=403, UNRESOLVED=25. Это пока частичный национальный регистр: неопределённое количество URL/поисковых ссылок и ещё не нормализованные rosters нельзя выдавать за уникальных провайдеров. Полный denominator остаётся собственным незавершённым действием. Новых индивидуальных провайдеров, впервые идентифицированных в текущем сохранённом запуске:40; новое предложение блока — ранее сохранённый непроверенный lead.
+Регистр именованных кандидатов: assigned=626, processed=603 (171 унаследованный +429 текущих review), fully_verified=172, NEW=165, UPDATE=0, DUPLICATE=8, EXCLUDED=403, UNRESOLVED=27. Это пока частичный национальный регистр: неопределённое количество URL/поисковых ссылок и ещё не нормализованные rosters нельзя выдавать за уникальных провайдеров. Полный denominator остаётся собственным незавершённым действием. Новых индивидуальных провайдеров, впервые идентифицированных в текущем сохранённом запуске:40; новое предложение блока — ранее сохранённый непроверенный lead.
 
 ## Именованные NEW и UPDATE
 
@@ -395,7 +395,7 @@ Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`;
 - EXCLUDED: Clinique vétérinaire de la Garenne - Langon — Langon. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-de-la-garenne-langon-lgn/ Own full branch About/team/local-services body substantively reviewed. General medicine/surgery, diagnostics and laser/physiotherapy do not establish an explicit local cancer-treatment act. Nonpromotion, not absence proof.
 - EXCLUDED: Clinique vétérinaire de la Gohelle - Liévin — Liévin. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-de-la-gohelle-lievin-lie/ Own full branch About/team/local-services body substantively reviewed. General medicine/surgery, diagnostics and laser/physiotherapy do not establish an explicit local cancer-treatment act. Nonpromotion, not absence proof.
 - EXCLUDED: Clinique Vétérinaire de Boulari – Mont-Dore — Mont-Dore. https://www.veterinairemontdore.nc/ Full current own clinic/services/team primary reviewed. General/soft-tissue surgery, cytology, therapeutic laser and home visits do not establish actual cancer care. No oncology treatment fanout from mainland or shared Yahoué team. Nonpromotion, not absence proof.
-- UNRESOLVED: Clinique vétérinaire territoriale de Saint-Pierre-et-Miquelon — Saint-Pierre. https://www.saint-pierre-et-miquelon.developpement-durable.gouv.fr/contacter-les-services-de-la-dtam-a808.html Current DTAM government primary updated24June2026 identifies actual veterinary clinic/contact, but no local anticancer act, named current veterinary clinician or clinical intake detail. Directory duplicates not separate clinics, human hospital chemo and reposted specialist innovation not allocated to this clinic.
+- UNRESOLVED: Clinique vétérinaire territoriale de Saint-Pierre-et-Miquelon — Saint-Pierre. https://www.saint-pierre-et-miquelon.developpement-durable.gouv.fr/contacter-les-services-de-la-dtam-a808.html Retained permitted territorial contact source names10rueMolière/0508413394 but not current cancer act/named veterinarian. Current2026 independent official tariff and relocationadministration document routes actualWeb403; no document content/pages/render/hash/clinicalcredit. General contact/current queries do not establish current local cancer-directed treatment. No claim that veterinary clinic absent.
 - EXCLUDED: Clinique vétérinaire de la Plage - Hendaye — Hendaye. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-de-la-plage-hendaye-hen/ Own entire clinical section with current team and local services reviewed. General surgery, diagnostics, therapeutic laser/physiotherapy or shared veterinary team/phone do not establish local anticancer care. Not absence proof.
 - EXCLUDED: Clinique vétérinaire de la porte des Weppes - Haubourdin — Haubourdin. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-de-la-porte-des-weppes-haubourdin-hau/ Own entire clinical section with current team and local services reviewed. General surgery, diagnostics, therapeutic laser/physiotherapy or shared veterinary team/phone do not establish local anticancer care. Not absence proof.
 - EXCLUDED: Clinique vétérinaire de la Porte du Quesne - Marcq-en-Barœul — Marcq-en-Barœul. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-de-la-porte-du-quesne-marcq-en-baroeul-meb/ Own entire clinical section with current team and local services reviewed. General surgery, diagnostics, therapeutic laser/physiotherapy or shared veterinary team/phone do not establish local anticancer care. Not absence proof.
@@ -650,6 +650,8 @@ Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`;
 - EXCLUDED: Clinique vétérinaire VETONAC — Vandœuvre-lès-Nancy. https://vetonac-nancy.fr/ Own full current primary explicitly devoted entirely to NAC care (birds, reptiles/amphibians, rodents etc), not demonstrated dog/cat oncology provider. No species fanout from name mammifères.
 - UNRESOLVED: Clinique vétérinaire du Grand Saule — Sens. https://grandsaule.meta.vet/ Advertised current official grandsaule.meta.vet native502 and exact same Web502; independently advertised historical official vetosens.fr native502 and exact same Web unavailable. No full clinic-authored current local cancer act/team scope. Imaging/directory data and emergency partnership do not establish cancer treatment.
 - DUPLICATE: AgoraVet — Strasbourg. https://www.agoravet.fr/nos-services/liste-de-nos-prestations/ Exact identity already published in full frozen baseline, source_idfr-agoravet. Newly advertised separate service-list route403, so no clinicalcredit or successrenewal. Existing permitted15Oct baseline service/team/contact proof remains its ownhistoricaldate; no newservicefanout/update.
+- UNRESOLVED: Clinique vétérinaire ABVET — Neuilly-sur-Seine (discovery metadata; not full current clinical verification). https://www.clinique-veterinaire-abvet.com/ Actual official root, dedicated oncology surgery, contact and reconstructive surgery routes native502; exact same official Web root timeout and threeclinical/contact502. Current named clinician/access/full treatment scope not retrieved; indexed primary snippets do not substitute for full current source. No403/auth denial asserted.
+- UNRESOLVED: Cabinet vétérinaire Domeon et Schuler — Mamoudzou — Cavani (secondary discovery identity only). https://veterinaire-mayotte.business.site/ Actual named Mayotte clinic discovered through current secondary listing and focused official-source searches; advertised official business.site URL not accessible via Web. No full current primary cancer-treatment act/team/identity/access proof. No claim of absent cancer care, no inferred403/auth status.
 
 ## Даты, QA и сохранение
 
@@ -661,7 +663,7 @@ research_complete=false: доступные сохранённые leads/rosters
 
 ## Раннее дополнение block02 и текущий pending-регистр
 
-Нормализован фактический сохранённый список Argos116: 0 ещё не пройденных уникальных ветвей после дедупликации по точному ветвевому URL. Поэтому исправленный assigned=624 (processed=601, unprocessed=23); прежний175 — только восстановленный тогда регистр, не национальный знаменатель. Ссылка URL не стала новым провайдером без названия/филиальной записи.
+Нормализован фактический сохранённый список Argos116: 0 ещё не пройденных уникальных ветвей после дедупликации по точному ветвевому URL. Поэтому исправленный assigned=626 (processed=603, unprocessed=23); прежний175 — только восстановленный тогда регистр, не национальный знаменатель. Ссылка URL не стала новым провайдером без названия/филиальной записи.
 
 Текущие первичные дополнения: Les Pléiades Toulon — собственная канцерологическая консультация и предложение лечения, Charlotte Denys Lyon2018/DE, narrow care; Argos Les Capucines Bourg-en-Bresse и Caluire Boucle — собственный локальный Cancerologie в разделе Nos services / Services médicaux и текущие названные ветеринары, контакты, приём. Никакие конкретные методы этим трём не присвоены. Ajaccio Îles/Sagone/Orchidées Baie-Mahault/Vetropical Les Abymes не продвигаются по опубликованному клиническому тексту. Generic mass removal и soft-tissue surgery не стали онкохирургией.
 
@@ -671,13 +673,13 @@ research_complete=false: доступные сохранённые leads/rosters
 
 Из NEW=165: 70 унаследованных полных предложений с сохранёнными source dates; 55 сохранённых индивидуальных направлений/сетевого маршрута доведены до предложения текущей проверкой; 40 провайдера впервые идентифицированы в текущем сохранённом запуске по свежему Sevetys roster и независимым первичным направлениям, индивидуальных URL которых в retainedinput не найдено. Это не утверждение открытия клиники в2026году и не восстановление утраченного246payload. Ранние0 discovery-counters в sealed07/08 были излишне консервативной категоризацией genericnetworkdirection; append-only discovery-amendment исправляет происхождение, не общее NEW и не даты посещений.
 
-## Последний выполненный блок block-32
+## Последний выполненный блок block-33
 
-Содержательно рассмотрено в этом блоке:3; исходы:{'NEW': 1, 'DUPLICATE': 2}. Точные новые/сохранённые primary даты и цитаты — в immutable new-reviews shard.
+Содержательно рассмотрено в этом блоке:3; исходы:{'UNRESOLVED': 3}. Точные новые/сохранённые primary даты и цитаты — в immutable new-reviews shard.
 
-- NEW: Clinique vétérinaire Sirius — Couzeix; https://www.sirius.vet/ https://www.sirius.vet/
-- DUPLICATE: Établissement vétérinaire Bordeaux Sud — Villenave-d’Ornon; https://veterinaire-bordeauxsud.fr/services/oncologie-veterinaire/ https://veterinaire-bordeauxsud.fr/services/oncologie-veterinaire/
-- DUPLICATE: AgoraVet — Strasbourg;  https://www.agoravet.fr/nos-services/liste-de-nos-prestations/
+- UNRESOLVED: Clinique vétérinaire ABVET — Neuilly-sur-Seine (discovery metadata; not full current clinical verification);  https://www.clinique-veterinaire-abvet.com/
+- UNRESOLVED: Cabinet vétérinaire Domeon et Schuler — Mamoudzou — Cavani (secondary discovery identity only);  https://veterinaire-mayotte.business.site/
+- UNRESOLVED: Clinique vétérinaire territoriale de Saint-Pierre-et-Miquelon — Saint-Pierre;  https://www.saint-pierre-et-miquelon.developpement-durable.gouv.fr/contacter-les-services-de-la-dtam-a808.html
 
 ## Текущее точное состояние rosters и исправлений
 
@@ -688,7 +690,7 @@ SOLEA — одна из унаследованных70NEW, а не свежее 
 
 ## Последнее фактически подтверждённое сохранение
 
-Родитель подтвердил remote027 в2026-10-17T03:51:01Z: data a95ffe298a5e9235d81a1426102d9a895492dce0; receipt d153483b878968cbb19903c5c66a5b306edb9875. Block26explicitSOLEAcorrection actualreadbackPASS;previous02624/25data41b608e9a8588daac9d69663692ae2929801b7c6receipt148e346cfd524586fc0cdeff43e7351c61960d24actual03:47:49. Current27notyetclaimedremote. Текущий checkpoint ещё не выдан за удалённо сохранённый.
+Родитель подтвердил remote032 в2026-10-17T04:20:35Z: data d7d569d369b2d0e5c6e04754bf09d33464d6953c; receipt e3d95bec15114c80fa758d9b5e707cbbd5480300. Parent confirmed actual remote snapshot30–32 and Agora/SPM metadatareadbacks; Combani NOTclaimedincluded. Parent03104:11:42 data033b73c03c7c8a8bbff2f8f86054ec0af37ce23f receipt e451d7776a60fe6a872b197f26fb7f0e677ed5b4 confirmed authoritative28safeV2+29 and33operationaldependencyclosure. Original28/V1 notaccepted. Текущий checkpoint ещё не выдан за удалённо сохранённый.
 
 ## Фактическое отклонение разрешений
 
