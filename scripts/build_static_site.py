@@ -204,6 +204,7 @@ def main() -> None:
     subprocess.run(["node", "scripts/test_oncology_country_filter.js"], cwd=ROOT, check=True)
     run("scripts/test_austrian_care_identity.py")
     run("scripts/test_germany_care_identity.py")
+    run("scripts/test_network_care.py")
     run("scripts/test_europe_controller_reconciliation.py")
 
 
