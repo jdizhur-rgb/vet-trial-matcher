@@ -1,0 +1,162 @@
+{
+  "run_id": "filu-network-20261017",
+  "baseline_sha": "2778bbc4d424dec227184a9483cf5b415f47d80b",
+  "owner_rule": "If an official network site explicitly offers cancer treatment without branch allocation, publish one network contact listing with a branch-confirmation caveat. Do not clone branches.",
+  "source_date": "2026-10-17",
+  "timestamp_precision": "date only; actual Web tool requests, no exact successful request timestamps exposed",
+  "sources": [
+    {
+      "url": "https://www.filu.vet/leistungen/chirurgie",
+      "result": "READABLE_PRIMARY",
+      "quote": "Entfernung von bösartigen und gutartigen Tumoren",
+      "facts": [
+        "Network explicitly offers removal of malignant and benign tumors.",
+        "Page links the official booking and branch finder.",
+        "No branch-specific treatment allocation established."
+      ]
+    },
+    {
+      "url": "https://www.filu.vet/rechtliches",
+      "result": "READABLE_PRIMARY",
+      "quote": "Dr. med. vet. Anna Magdalena Naderer. Berufsbezeichnung: Tierarzt",
+      "facts": [
+        "filu GmbH legal entity; official common email service@filu.vet.",
+        "Corporate address is not a treatment location and is omitted."
+      ]
+    },
+    {
+      "url": "https://www.filu.vet/standorte",
+      "result": "READABLE_PRIMARY",
+      "facts": [
+        "Official branch finder lists twelve locations; no per-branch surgery claim inferred."
+      ]
+    },
+    {
+      "url": "https://my.filu.vet/book",
+      "resolved_url": "https://my.filu.vet/book/select-clinic",
+      "result": "READABLE_PRIMARY_BOOKING_ENTRY",
+      "quote": "Choose your city",
+      "facts": [
+        "Public booking starts with clinic selection. No booking submitted or personal information entered."
+      ]
+    }
+  ],
+  "proposal": {
+    "source_id": "de-filu-network-germany",
+    "name": "filu — Germany network",
+    "street": "",
+    "city": "",
+    "region": "",
+    "postal_code": "",
+    "phone": "",
+    "email": "service@filu.vet",
+    "booking_url": "https://my.filu.vet/book",
+    "branch_finder_url": "https://www.filu.vet/standorte",
+    "country": "Germany",
+    "species": [
+      "Dog",
+      "Cat"
+    ],
+    "location_type": "network",
+    "service_scope": "network",
+    "branch_availability": "confirm_before_booking",
+    "network_search_terms": [
+      "Berlin",
+      "München",
+      "Munich",
+      "Hamburg",
+      "Hannover",
+      "Hanover",
+      "Frankfurt",
+      "Köln",
+      "Cologne",
+      "Düsseldorf",
+      "Dusseldorf"
+    ],
+    "latitude": null,
+    "longitude": null,
+    "coordinates_unknown": true,
+    "coordinate_source": "Network contact route; no single treatment location or distance point.",
+    "website": "https://www.filu.vet/leistungen/chirurgie",
+    "verification_url": "https://www.filu.vet/leistungen/chirurgie",
+    "services": [
+      "Surgery"
+    ],
+    "services_confirmation_status": "confirmed",
+    "clinician_review": "The official legal page names Dr. med. vet. Anna Magdalena Naderer as a veterinarian and managing director. The clinician performing cancer surgery must be confirmed with the chosen branch; no oncology board credential is claimed.",
+    "availability_note": "The network advertises cancer surgery. Confirm which branch provides it, the clinician and appointment availability before booking.",
+    "last_verified": "2026-10-17",
+    "supporting_urls": [
+      "https://www.filu.vet/rechtliches",
+      "https://www.filu.vet/standorte",
+      "https://my.filu.vet/book"
+    ],
+    "source": "Official network cancer-surgery offering, legal contact and advertised booking route. Service confirmation is at network level, not per branch.",
+    "audit_run_id": "filu-network-20261017",
+    "review_status": "complete_network_scope",
+    "review_reference": "research/audit-runs/filu-network-20261017/evidence.json",
+    "service_scope_provenance": "Network page explicitly offers removal of malignant and benign tumors. Branch allocation is intentionally unconfirmed."
+  },
+  "scope_limits": [
+    "No central telephone published as common contact in reviewed evidence; branch phones not used as central.",
+    "No chemotherapy or radiotherapy inferred.",
+    "Ten existing branch leads represented by one network route; their local-treatment evidence is not rewritten.",
+    "Two future openings and seven other provider gaps unchanged."
+  ],
+  "raw_page_dumps_published": false,
+  "native_followup_attempts": [
+    {
+      "url": "https://www.filu.vet/leistungen/chirurgie",
+      "attempted_at": "2026-10-17T00:23:36.070066+00:00",
+      "method": "ordinary public native GET",
+      "status": 200,
+      "resolved_url": "https://www.filu.vet/leistungen/chirurgie",
+      "bytes": 201010,
+      "sha256": "832d770036de66c19a3c04c1e0dd6648dee94159c0389073fe5cd18abb2a8ae1",
+      "visible_text_sha256": "12633466643235f9f4b2f3950a7298a753b7709329d5239af6807b42d76b1feb",
+      "fact_checks": {
+        "bösartigen und gutartigen Tumoren": true
+      }
+    },
+    {
+      "url": "https://www.filu.vet/rechtliches",
+      "attempted_at": "2026-10-17T00:23:36.071141+00:00",
+      "method": "ordinary public native GET",
+      "status": 200,
+      "resolved_url": "https://www.filu.vet/rechtliches",
+      "bytes": 154017,
+      "sha256": "88521f9813b15604a50d2a2cbef868e36fbe5eaa1eca6ec866ac108ba579fe6f",
+      "visible_text_sha256": "a14cc5bf33053b4ed95fe48fb0d827dbcb6565733be904acaf77d24e4febdb5f",
+      "fact_checks": {
+        "service@filu.vet": true,
+        "Anna Magdalena Naderer": true
+      }
+    },
+    {
+      "url": "https://www.filu.vet/standorte",
+      "attempted_at": "2026-10-17T00:23:39.619421+00:00",
+      "method": "ordinary public native GET",
+      "status": 200,
+      "resolved_url": "https://www.filu.vet/standorte",
+      "bytes": 175329,
+      "sha256": "6d201f62c0a8bae8d0177c55c2314dfc3819fdfc9701e1bb7bc5be499e3fc309",
+      "visible_text_sha256": "b2c7bdd96219d0284e0ff52683f5f88afc74dbcb35633ac3c71898add5a6ccd5",
+      "fact_checks": {
+        "Standorte": true
+      }
+    },
+    {
+      "url": "https://my.filu.vet/book",
+      "attempted_at": "2026-10-17T00:23:39.629910+00:00",
+      "method": "ordinary public native GET",
+      "status": 200,
+      "resolved_url": "https://my.filu.vet/book/select-clinic",
+      "bytes": 221644,
+      "sha256": "2a08efbd9c0b424e7f1314af9ee9571bf77f316802a3dd4424f3a98515fcd77e",
+      "visible_text_sha256": "e49a87803a4af4fded3bc79c0411c65e17a4b2aaf90000fd0179ea036a284fbe",
+      "fact_checks": {
+        "Choose your city": true
+      }
+    }
+  ]
+}

@@ -73,9 +73,31 @@
     "worker_subagents_or_automations_allowed": false,
     "worker_shared_production_edits_allowed": false,
     "parent_serial_publication_of_ready_checkpoints": true,
-    "required_result_identity": ["run_id", "slot", "country", "baseline_sha"],
+    "required_result_identity": [
+      "run_id",
+      "slot",
+      "country",
+      "baseline_sha"
+    ],
     "result_gate": "scripts/validate_europe_worker_result.py",
     "publication_is_not_country_completion": true,
     "exhausted_slot": "report_exhausted_without_inventing_country"
+  },
+  "network_level_care": {
+    "owner_decision_date": "2026-10-17",
+    "allowed_if": "current official network explicitly offers usable cancer treatment and publishes a common contact or booking route",
+    "representation": "one separately typed network listing per actual network/service geography",
+    "location_type": "network",
+    "service_scope": "network",
+    "branch_availability": "confirm_before_booking",
+    "specific_branch_services_require_local_evidence": true,
+    "network_claim_must_not_be_cloned_to_branches": true,
+    "network_must_not_merge_with_physical_branch": true,
+    "corporate_address_is_not_treatment_location": true,
+    "coordinates_must_be_null": true,
+    "country_and_confirmed_service_filters_apply": true,
+    "show_branch_confirmation_caveat": true,
+    "count_as": "network listing, not physical location",
+    "unknown_modalities_must_not_be_inferred": true
   }
 }

@@ -1,0 +1,31 @@
+{
+  "commands": [
+    {
+      "command": "python scripts/build_static_site.py",
+      "result": "PASS; fullbuild901listings including900fixed/mobile and1network;134/156 source-reviewed trial gate unchanged"
+    },
+    {
+      "command": "python scripts/test_network_care.py",
+      "result": "PASS; network identity/service/contact/type/branch-clone safeguards"
+    },
+    {
+      "command": "node scripts/test_oncology_country_filter.js",
+      "result": "PASS; Germany+Cancer surgery, Hamburg/Berlin/Munich, Chemo exclusion, no network distance even with malformed finite coordinates"
+    },
+    {
+      "command": "node scripts/test_a01_care_reconciliation.js;python scripts/test_a02_care_reconciliation.py;python scripts/test_b01_care_reconciliation.py;python scripts/test_b02_care_reconciliation.py;python scripts/test_c01_care_reconciliation.py",
+      "result": "PASS all five"
+    },
+    {
+      "command": "python scripts/validate_catalog_sanitation.py",
+      "result": "PASS; no new partial canonical records"
+    },
+    {
+      "command": "python scripts/check_evidence_keys.py;git diff --check",
+      "result": "PASS"
+    }
+  ],
+  "baseline_preservation": "Every field of900 prior compiled records unchanged; independent parent checkPASS. Exactly1newnetwork,0newphysical/mobile/remote.",
+  "source_dates": "Four official unique routes Webchecked2026-10-17 date-only and nativeHTTP200 at00:23:36.070066–00:23:39.629910UTC. Exact native source timestamp persisted in inventory; full per-route receipts in evidence.json.",
+  "parent_review": "PASS representation, clinical scope, contacts, baseline invariant and code diff"
+}
