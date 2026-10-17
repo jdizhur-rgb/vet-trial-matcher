@@ -261,3 +261,25 @@ Delta016,actualweb043–046,ledger003 savedimmutable; fullproposal112uniqueQA to
 Для Węgrzyn не переношу историческую onkochirurgia со страницы LuxVet403: новая текущая карточка только Local oncology care. Kochanowskiego физический филиал Kondratowicza остаётся Local; общая химиотерапия/иммунотерапия рассматривается отдельно как сеть без адреса/фан-аута; RT явно внешнее сотрудничество. HALIVET общие домашние визиты не подтверждают мобильное лечение рака. Все даты текущих успешных источников17Oct; неоткрытые исторические ссылки/даты квалификаций не становятся новыми посещениями.
 
 Родитель подтвердил remote013 для блока6: data6025992d8618f83f319759086b5e15926a17e991, receiptcf68e465ffa56438605cf1f322b5b0bc694d04ac, verified02:51:14UTC. Remote015 для блоков7/8 и ограничения005: data7404260a0dc64be5109c7619403b5d2a186304ba, receipt333fce04c3b37381db989c8d1d051ebff5466ad1, verified02:57:15UTC. Все readbacksPASS; это backup, не приёмка страны/публикация.
+
+
+## Блок10 — весь сохранившийся старый неопубликованный пакет восстановлен
+
+2026-10-17 03:03:30 UTC. 127/127 старых отсутствующих идентичностей теперь имеют собственные содержательные первичные пакеты; исторические20 опубликованных не считаются NEW и ещё проходят отдельный QA. Итог161assigned=138processed+23unprocessed. NEW129=127physical+2network, UPDATE0, EXCLUDED7, UNRESOLVED2, fully129. К старым неподкреплённым86 это не прибавляется.
+
+| Провайдер | Город | Подтверждённый объём | URL |
+|---|---|---|---|
+|Przychodnia Weterynaryjna Hołdowańscy|Pszenno|Medical oncology, Chemotherapy, Surgical oncology, Targeted therapy|https://weterynarz.swidnica.pl/specjalizacje/onkologia/|
+|Specjalistyczna Przychodnia Weterynaryjna Akacjowa|Kiełczów|Medical oncology, Chemotherapy, Surgery|https://weterynarz-akacjowa.pl/onkologia/|
+|Przychodnia Weterynaryjna Sanatus|Krosinko|Surgery|https://www.weterynarz-krosinko.pl/neurochirurgia|
+|Przychodnia Weterynaryjna Małych Zwierząt Leonard Gugała — Mieszka I|Szczecin|Local oncology care|https://przychodniawet-szczecin.pl/|
+|Lecznica Weterynaryjna MIRAK|Toruń|Local oncology care, Surgery|https://mirak.pl/uslugi/onkologia/|
+|Klinika Weterynaryjna TENVET|Kraków|Medical oncology, Chemotherapy, Surgical oncology|https://kwt24.pl/nasze-specjalizacje-onkologia.html|
+|AMVET Kraków|Kraków|Local oncology care|https://krakow.amvet.pl/uslugi/onkologia/|
+|Całodobowa Klinika Weterynaryjna PUŁAWSKA|Warszawa|Local oncology care|https://weterynarzpulawska.pl/uslugi-weterynaryjne/onkologia-weterynaryjna/|
+
+AMVET Kraków текущий пакет сужен до Local oncology care: фактическое ведение онкобольных подтверждено, условный список может включать химиотерапию/хирургию не подтверждает проведение. Почтовый индекс не блокирует ядро карточки.
+
+Kochanowskiego — ONE новая сетевая запись (Medical/Chemotherapy/Immunotherapy), общий контакт221503500/604711716 явно одинаков для двух филиалов, текущие полные официальные chemo/immuno/team/contact. Без адреса, city, pin и фан-аута; branchfinder https://www.kochanowskiegowet.pl/kontakt . RT только внешнее сотрудничество, ECT не подтверждена отдельно от образовательного описания. Физический Kochanowskiego23/H6 имеет текущую идентичность и GP, но местная онкология не распределена; именованная EXCLUDED_NONPROMOTION, не утверждение отсутствия/закрытия. Кондратовича18B отдельная уже подтверждённая Local запись.
+
+Продолжается весь доступный национальный frontier, включая20baseline QA,3actualPremiumbranches, networks/16regions/mobile/RT/newsignals. research_complete=false.
