@@ -16,6 +16,7 @@ const archive="/workspace/scratch/2d03a6db0cc6/"+run+"-checkpoint-"+seq+".tar.zs
 const extras=[base+"/assignments.json",base+"/criteria.json",base+"/controller-plan.json",base+"/collect_frozen_backup.py",base+"/github_backup_orchestrator.js",base+"/report.md",base+"/restore-guide.md",base+"/check_research_gate.py",base+"/publication-ledger.json",base+"/controller-report-readback-008.json",base+"/collector-history-scope-fix.json"];
 extras.push(base+"/controller_verify_germany_proposal_chain.py",base+"/parent-germany-additive38-review.json");
 extras.push(base+"/parent-poland-goldenvet48-review.json",base+"/controller-france-acceptance-remote-proof071.json");
+extras.push(base+"/controller-main-observation-20261017T080221Z.json",base+"/worker-3/input/main-8d9691-restrictions.json",base+"/worker-4/input/main-8d9691-restrictions.json");
 extras.push(base+"/controller-runtime-rehydration-010.json");
 extras.push(base+"/collector-path-normalization-fix.json");
 extras.push(base+"/report-alias-final-selection.json");
