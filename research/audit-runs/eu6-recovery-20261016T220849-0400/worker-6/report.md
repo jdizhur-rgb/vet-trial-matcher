@@ -1,6 +1,6 @@
 # Нидерланды — национальное исследование продолжается
 
-run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_sha=b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45; agent_id=/root/oct16_nl; started_at=2026-10-17T02:12:30Z. Обновлено 2026-10-17T02:21:07.996Z. research_complete=false; publication_permitted=false.
+run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_sha=b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45; agent_id=/root/oct16_nl; started_at=2026-10-17T02:12:30Z. Обновлено 2026-10-17T02:22:18.371Z. research_complete=false; publication_permitted=false.
 
 ## Наследие и восстановление
 
@@ -8,7 +8,7 @@ run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_
 
 ## Фактическая текущая работа
 
-{"assigned":266,"processed":225,"fully_verified":53,"EXCLUDED":149,"UNRESOLVED":14,"NEW":55,"DUPLICATE":4,"UPDATE":3,"PENDING":41} — cumulative уникальные provider/service identities, не URLs/aliases/query/referencegroups. Текущий run: 11 substantive provider reviews, 46 Web open/click requests, 8 actual queries. Failed/challenge не successful source verification.
+{"assigned":266,"processed":225,"fully_verified":53,"EXCLUDED":149,"UNRESOLVED":14,"NEW":55,"DUPLICATE":4,"UPDATE":3,"PENDING":41} — cumulative уникальные provider/service identities, не URLs/aliases/query/referencegroups. Текущий run: 15 substantive provider reviews, 59 Web open/click requests, 8 actual queries. Failed/challenge не successful source verification.
 
 | Provider / город | Решение / лечение | Официальный URL |
 |---|---|---|
@@ -23,6 +23,10 @@ run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_
 | Dierenkliniek Doorn / Doorn | NEW; Surgery | https://www.dierenkliniekdoorn.nl/ |
 | Dierenkliniek Kralingen / Rotterdam | NEW; Surgery | https://dierenkliniekkralingen.nl/ |
 | Dierenkliniek Makker / Den Haag | NEW; Surgery | https://www.dierenkliniekmakker.nl/ |
+| Dierenartsenpraktijk Alkmaar Noord / Alkmaar | NEW; Surgery | https://www.dierenarts-alkmaarnoord.nl/ |
+| Florens Dierenziekenhuis / Heerhugowaard | NEW; Surgery | https://www.florensdierenziekenhuis.nl/ |
+| Dierenziekenhuis Drachten / Drachten | NEW; Surgery | https://dierenziekenhuisdrachten.nl/ |
+| Noorder Dierenkliniek — Veendam / Veendam | NEW; Surgery | https://www.noorderdierenkliniek.nl/ |
 
 ## Покрытие
 
@@ -60,4 +64,4 @@ run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_
 
 Остаются доступные клинические identities/rosters/направления; поэтому research_complete=false, IN_PROGRESS. Production/sharedstate/commit/push/deploy не изменялись.
 
-Fully — разные показатели: inherited historical claim 50; cumulative claimed 53; located payload or current reverify 46; current run freshly reverified 11; parent clinical acceptance ещё не получено. File-existence QA не является медицинским подтверждением.
+Fully — разные показатели: inherited historical claim 50; cumulative claimed 53; located payload or current reverify 50; current run freshly reverified 15; parent clinical acceptance ещё не получено. File-existence QA не является медицинским подтверждением.

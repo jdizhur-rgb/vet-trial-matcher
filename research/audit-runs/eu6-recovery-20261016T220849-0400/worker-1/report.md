@@ -1,5 +1,9 @@
 # Austria: восстановление исследования
 
+## Немедленный safety update Knafl — 17.10.2026
+
+Web click точной собственной team-страницы Knafl вернул429 Too Many Requests. Сохранён exact team/workflow hold в new-restrictions-knafl-r02-01.json; никаких alternate client/alias/query reconstruction этого team content. Это не403 и не blanket country ban. Ранее успешно прочитанные root/service/branch/contact страницы не стали successful team check. Работа с независимыми австрийскими провайдерами продолжается.
+
 Run `eu6-recovery-20261016T220849-0400`, slot 1, Austria, baseline `b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45`. Настоящий исполнитель `/root/oct16_at`; фактическая работа начата 2026-10-17 02:11:09 UTC по clock. Период продолжается; это промежуточный отчёт.
 
 Прочитаны собственные assignment, AGENTS, PROJECT_OPERATIONS, criteria, last-verified report/result/remaining. Идёт сверка immutable historical shards и ограничений до любых запросов. Страна не завершена. Предыдущие 11/12 blocks не считаются восстановленными результатами; отдельные реально сохранившиеся source receipts можно использовать только с исходной датой и после самостоятельной оценки.
