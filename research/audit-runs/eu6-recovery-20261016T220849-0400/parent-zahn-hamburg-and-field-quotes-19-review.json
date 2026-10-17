@@ -1,0 +1,63 @@
+{
+  "run_id": "eu6-recovery-20261016T220849-0400",
+  "slot": 4,
+  "country": "Germany",
+  "agent_id": "/root/oct16_de",
+  "baseline_sha": "b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45",
+  "parent": "/root",
+  "source_checked_at": "2026-10-17",
+  "source_date_precision": "Actual Web reads date-only UTC; observed_after clock not fabricated response time",
+  "observed_after_primary_reads_at": "2026-10-17 05:23:35 UTC",
+  "source_id": "de-zentrum-tierzahnheilkunde-hamburg",
+  "identity": {
+    "name": "Zentrum für Tierzahnheilkunde Hamburg / VetZentrum Hafencity",
+    "street": "Baakenallee 90",
+    "postal_code": "20457",
+    "city": "Hamburg",
+    "phone": "+49 40 44191909",
+    "mobile_phone": "+49 171 9984976",
+    "entity": "ONE_CURRENT_PHYSICAL_PRACTICE",
+    "coordinates": null
+  },
+  "sources": [
+    {
+      "url": "https://www.tierzahnheilkunde-hamburg.de/leistungen/tumorchirurgie.html",
+      "ref": "turn4191view0",
+      "lines": "4;33–38",
+      "short_quote": "führen wir diese Operationen routinemäßig",
+      "facts": "Actual routine operative removal of benign/malignant jaw/oral/head tumours. Source service header shares currentBaaken90; onlySurgery accepted, not plain generic dentistry/referral."
+    },
+    {
+      "url": "https://www.tierzahnheilkunde-hamburg.de/kontakt.html",
+      "ref": "turn4191view1",
+      "lines": "27–29;33–64",
+      "short_quote": "Baakenallee 90; 20457 Hamburg",
+      "facts": "Public contacts/currentphysicalidentity outsideGoogleMaps consent. Bothphones/ownappointmentrecommendation; mapnotloaded/consented, onlinebookinglinknotopened. No exactbuildingcoordinates inferred."
+    },
+    {
+      "url": "https://www.tierzahnheilkunde-hamburg.de/",
+      "ref": "turn4191view2",
+      "lines": "98–120;33–34;121",
+      "short_quote": "Geleitet wird das Zentrum von Oriol Specht",
+      "facts": "Currentpublished leader and TierarztfürKleintiere, not Fachtierarzt/board. OldPöseldorf/Rotherbaum narrative remains; explicitcurrentcontact/header consistentlyBaaken90, ownerphoneconfirmation caveat retained. FounderMobilePractice reference not currentmobileprovider."
+    }
+  ],
+  "dedupe": {
+    "method": "Read-only domain/address/phone/principal scan full5care stores, no matches",
+    "new_relative_to_baseline": true,
+    "fresh_main_reconciliation_required": true
+  },
+  "proposal19_review": {
+    "BerlinVets_relevant_street_postal_city_phone_role_service_quotes": true,
+    "Zahn_relevant_street_postal_city_phone_role_service_quotes": true,
+    "source_facts_accepted": true,
+    "baseline_old_values_all_null_for_NEW": true,
+    "scope": "Frozen19 records, not canonical production application"
+  },
+  "services_accepted": [
+    "Surgery"
+  ],
+  "clinical_source_facts_accepted": true,
+  "country_research_complete_accepted": false,
+  "site_publication": false
+}
