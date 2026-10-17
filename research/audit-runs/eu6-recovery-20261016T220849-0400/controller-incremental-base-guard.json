@@ -1,0 +1,21 @@
+{
+  "run_id": "eu6-recovery-20261016T220849-0400",
+  "checked_at": "2026-10-17 04:36:50 UTC",
+  "scope": "Research collector verifies explicitly declared incremental base dependencies as well as actual new frozen payloads.",
+  "guards": [
+    "Own worker relative path only, no traversal/symlink",
+    "Minimal JSON/Markdown bases only",
+    "Known SHA in verified remote ledger or prior accepted frozen manifest BEFORE any body hash/read",
+    "Declared SHA must equal known SHA BEFORE reading base",
+    "France original17/28/V1 base quarantine unchanged"
+  ],
+  "negative_cases": 3,
+  "negative_cases_body_reads": 0,
+  "negative_tests_pass": true,
+  "real_checked": "Netherlands block51 fourbase50 paths/SHA exactremoteledger matches",
+  "collection_errors": 0,
+  "site_changes": 0,
+  "criteria_changed": false,
+  "incremental_alias_protection": "Declared incremental status cannot replace a full report alias, even if worker omitted redundant skip_report_alias boolean (PL28 retains full27).",
+  "latest_result_independent_of_report_alias": "FR35 latest compact result44operationalrefs checked while fullreport34alias retained; source/count metadata not tied to outdated full report."
+}

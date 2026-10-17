@@ -3,6 +3,23 @@ import json,pathlib,hashlib,datetime,re
 ROOT=pathlib.Path(__file__).resolve().parents[3]
 RUN=pathlib.Path(__file__).resolve().parent
 def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def verify_declared_bases(entries,known,worker,root,read_hash=digest):
+    checked=[]
+    for entry in entries:
+        value=entry['path']; pure=pathlib.PurePosixPath(value)
+        assert not pure.is_absolute() and '..' not in pure.parts,('Escaping base dependency',value)
+        assert pure.suffix in ('.json','.md'),('Non-minimal base dependency',value)
+        if worker.name=='worker-5':
+            assert not any(value.startswith(x) for x in ('checkpoints/block-17/','checkpoints/block-28/','checkpoints/block-28-safe/')),('Quarantined historical base',value)
+        target=worker/pure
+        assert target.resolve().is_relative_to(worker.resolve()),('Cross-worker base',value)
+        rel=target.resolve().relative_to(root.resolve()).as_posix()
+        assert rel in known,('Base not previously verified remote or frozen',rel)
+        assert entry['sha256']==known[rel],('Declared base SHA differs from verified ledger',rel)
+        assert target.is_file() and not target.is_symlink(),('Missing/unsafe base',rel)
+        assert read_hash(target)==entry['sha256'],('Base changed locally',rel)
+        checked.append({'path':rel,'sha256':entry['sha256']})
+    return checked
 def verify_operational_refs(values,known,worker,root,read_hash=digest):
     """Check known minimal JSON dependencies only; never probe unknown/quarantined bodies."""
     checked=[]
@@ -24,7 +41,7 @@ def collect():
     a=json.loads((RUN/"assignments.json").read_text())
     lp=RUN/"backups/ledger.json"
     uploaded=json.loads(lp.read_text()).get("uploaded_files",{}) if lp.exists() else {}
-    files={};blocks=[];reports={};errors=[];quarantined=[]
+    files={};blocks=[];reports={};results={};errors=[];quarantined=[]
     for item in a["assignments"]:
         w=ROOT/item["worker_directory"]
         ready_paths = [q for q in w.rglob("*.json") if q.relative_to(w).parts[0] != "input" and re.search(r'(?:^|-)ready(?:-[^.]+)?\.json$',q.name)]
@@ -55,7 +72,8 @@ def collect():
                 mf=v.get("files",v.get("file_checksums",v.get("sha256",{})))
                 entries=list(mf.items()) if isinstance(mf,dict) else [(x["path"],x.get("sha256")) for x in mf]
                 assert entries,"Empty frozen file list"
-                resolved=[];block_files={};block_reports={};ready_mtime=ready.stat().st_mtime_ns
+                resolved=[];block_files={};block_reports={};block_results={};ready_mtime=ready.stat().st_mtime_ns
+                declared_incremental=v.get('incremental') is True or v.get('status')=='READY_IMMUTABLE_INCREMENTAL_CHECKPOINT'
                 for name,z in entries:
                     sha=z.get("sha256") if isinstance(z,dict) else z
                     candidates=[ready.parent/name,w/name]
@@ -81,12 +99,16 @@ def collect():
                     else:block_files[rel]={"path":rel,"sha256":sha,"bytes":q.stat().st_size}
                     resolved.append(rel)
                     is_scope_addendum=(RUN.name=='eu6-recovery-20261016T220849-0400' and item['slot']==4 and ready.relative_to(w).as_posix()=='checkpoints/block-04/ready.json' and v.get('additive_scope_review'))
-                    if q.name=="report.md" and not v.get('skip_report_alias',False) and not is_scope_addendum:
-                        match=re.search(r'/block-(\d+)',rel)
-                        logical=int(match.group(1)) if match else 0
-                        if q.parent.name.startswith('final'):
-                            logical=1000000+logical # Report delivery alias only; never independent research acceptance.
+                    match=re.search(r'/block-(\d+)',rel)
+                    logical=int(match.group(1)) if match else 0
+                    if q.parent.name.startswith('final'):
+                        logical=1000000+logical # Delivery ordering only, never independent research acceptance.
+                    if q.name=='result.json':
+                        block_results[str(item['slot'])]={'source_path':rel,'sha256':sha,'ready_file_mtime_ns':ready_mtime,'logical_block':logical}
+                    if q.name=="report.md" and not v.get('skip_report_alias',False) and not is_scope_addendum and not declared_incremental:
                         block_reports[str(item["slot"])]={"source_path":rel,"target_path":item["worker_directory"]+"/report.md","sha256":sha,"ready_file_mtime_ns":ready_mtime,"logical_block":logical,"order_note":"Logical block first, actual ready mtime only tie-break; historical repairs do not advance country. NOT source checked_at or acceptance"}
+                known={**uploaded,**{p:f['sha256'] for p,f in files.items()},**{p:f['sha256'] for p,f in block_files.items()}}
+                base_dependencies=verify_declared_bases(v.get('base_dependencies',[]),known,w,ROOT)
                 assert ready.read_bytes()==raw,"Ready changed during read"
                 rr=str(ready.relative_to(ROOT));rs=hashlib.sha256(raw).hexdigest()
                 if rr not in uploaded:block_files[rr]={"path":rr,"sha256":rs,"bytes":len(raw)}
@@ -94,13 +116,15 @@ def collect():
                 files.update(block_files)
                 for slot,report in block_reports.items():
                     if slot not in reports or (report['logical_block'],report['ready_file_mtime_ns'])>(reports[slot]['logical_block'],reports[slot]['ready_file_mtime_ns']):reports[slot]=report
-                blocks.append({"slot":item["slot"],"country":item["country"],"ready":rr,"ready_sha256":rs,"file_count":len(resolved),"ready_file_mtime_ns":ready_mtime})
+                for slot,result in block_results.items():
+                    if slot not in results or (result['logical_block'],result['ready_file_mtime_ns'])>(results[slot]['logical_block'],results[slot]['ready_file_mtime_ns']):results[slot]=result
+                blocks.append({"slot":item["slot"],"country":item["country"],"ready":rr,"ready_sha256":rs,"file_count":len(resolved),"ready_file_mtime_ns":ready_mtime,"verified_base_dependencies":base_dependencies})
             except Exception as e:errors.append({"slot":item['slot'],"country":item['country'],"ready":str(ready.relative_to(ROOT)),"error":str(e)})
     closure=[]
-    if RUN.name=='eu6-recovery-20261016T220849-0400' and '5' in reports:
+    if RUN.name=='eu6-recovery-20261016T220849-0400' and '5' in results:
         try:
             worker=ROOT/next(x['worker_directory'] for x in a['assignments'] if x['slot']==5)
-            rp=pathlib.Path(reports['5']['source_path']).parent/'result.json'
+            rp=pathlib.Path(results['5']['source_path'])
             known={**uploaded,**{p:v['sha256'] for p,v in files.items()}}
             assert rp.as_posix() in known,('Latest result not frozen or remote',rp.as_posix())
             assert digest(ROOT/rp)==known[rp.as_posix()]
@@ -112,6 +136,6 @@ def collect():
             closure=verify_operational_refs(refs,known,worker,ROOT)
         except Exception as e:
             errors.append({'slot':5,'country':'France','stage':'latest-operational-dependency-closure','error':str(e)})
-    return {"run_id":RUN.name,"collected_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"files":list(files.values()),"ready_blocks":blocks,"latest_frozen_reports":reports,"errors":errors,"quarantined":quarantined,"latest_france_operational_dependencies_verified":closure,"new_file_count":len(files),"publication":False}
+    return {"run_id":RUN.name,"collected_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"files":list(files.values()),"ready_blocks":blocks,"latest_frozen_reports":reports,"latest_frozen_results":results,"errors":errors,"quarantined":quarantined,"latest_france_operational_dependencies_verified":closure,"new_file_count":len(files),"publication":False}
 if __name__=="__main__":print(json.dumps(collect(),ensure_ascii=False))
 
