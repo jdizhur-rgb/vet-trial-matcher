@@ -1,6 +1,6 @@
 # Нидерланды — национальное исследование продолжается
 
-run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_sha=b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45; agent_id=/root/oct16_nl; started_at=2026-10-17T02:12:30Z. Обновлено 2026-10-17T02:27:14.757Z. research_complete=false; publication_permitted=false.
+run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_sha=b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45; agent_id=/root/oct16_nl; started_at=2026-10-17T02:12:30Z. Обновлено 2026-10-17T02:32:12.827Z. research_complete=false; publication_permitted=false.
 
 ## Наследие и восстановление
 
@@ -8,7 +8,7 @@ run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_
 
 ## Фактическая текущая работа
 
-{"assigned":266,"processed":245,"fully_verified":54,"EXCLUDED":162,"UNRESOLVED":20,"NEW":56,"DUPLICATE":4,"UPDATE":3,"PENDING":21} — cumulative уникальные provider/service identities, не URLs/aliases/query/referencegroups. Текущий run: 35 substantive provider reviews, 81 Web open/click requests, 11 actual queries. Failed/challenge не successful source verification.
+{"assigned":271,"processed":259,"fully_verified":56,"EXCLUDED":171,"UNRESOLVED":23,"NEW":58,"DUPLICATE":4,"UPDATE":3,"PENDING":12} — cumulative уникальные provider/service identities, не URLs/aliases/query/referencegroups. Текущий run: 51 substantive provider reviews, 125 Web open/click requests, 11 actual queries. Failed/challenge не successful source verification.
 
 | Provider / город | Решение / лечение | Официальный URL |
 |---|---|---|
@@ -47,6 +47,22 @@ run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_
 | Dierenartsenpraktijk Nieuwegein / Evidensia EDZ co-address / — | UNRESOLVED;  | https://oncowaf.be/nl/veterinarian/treatmentOption/electrochemotherapy |
 | Parkstad Dierenartsen Veendam / — | UNRESOLVED;  | https://parkstaddierenartsen.nl/behandelingen/ |
 | 030 dierenartsen / — | UNRESOLVED;  | https://030dierenartsen.nl/diensten/ |
+| Stad & Land — amsterdam / amsterdam | EXCLUDED;  | https://www.dierenklinieken.net/nl-nl/dierenklinieken/dierenkliniek-amsterdam |
+| Stad & Land — alkmaar / alkmaar | EXCLUDED;  | https://www.dierenklinieken.net/nl-nl/dierenklinieken/dierenkliniek-alkmaar |
+| Stad & Land — amstelveen / amstelveen | EXCLUDED;  | https://www.dierenklinieken.net/nl-nl/dierenklinieken/dierenkliniek-amstelveen |
+| Stad & Land — assendelft / assendelft | EXCLUDED;  | https://www.dierenklinieken.net/nl-nl/dierenklinieken/dierenkliniek-assendelft |
+| Stad & Land — badhoevedorp / badhoevedorp | EXCLUDED;  | https://www.dierenklinieken.net/nl-nl/dierenklinieken/dierenkliniek-badhoevedorp |
+| Stad & Land — landsmeer / landsmeer | EXCLUDED;  | https://www.dierenklinieken.net/nl-nl/dierenklinieken/dierenkliniek-landsmeer |
+| Stad & Land — schagen / schagen | EXCLUDED;  | https://www.dierenklinieken.net/nl-nl/dierenklinieken/dierenkliniek-schagen |
+| Stad & Land — volendam / volendam | EXCLUDED;  | https://www.dierenklinieken.net/nl-nl/dierenklinieken/dierenkliniek-volendam |
+| Stad & Land — wormerveer / wormerveer | EXCLUDED;  | https://www.dierenklinieken.net/nl-nl/dierenklinieken/dierenkliniek-wormerveer |
+| DierenDokters — network contact / — | NEW; Surgery | https://www.dierendokters.com/ |
+| Topzorg Dierenklinieken — network contact / — | NEW; Surgery | https://www.topzorgdierenklinieken.nl/ |
+| Dierenkliniek ’t Ossehoofd — Heerhugowaard / Heerhugowaard | UNRESOLVED;  | https://www.ossehoofd.nl/ |
+| Dierenkliniek ’t Ossehoofd — Zuid-Scharwoude / Zuid-Scharwoude | UNRESOLVED;  | https://www.ossehoofd.nl/ |
+| Topzorg Dierenklinieken — Zeist / Zeist | UNRESOLVED;  | https://www.topzorgdierenklinieken.nl/contact |
+| Topzorg Dierenklinieken — Bunnik / Bunnik | UNRESOLVED;  | https://www.topzorgdierenklinieken.nl/contact |
+| Topzorg Dierenklinieken — Soesterberg / Soesterberg | UNRESOLVED;  | https://www.topzorgdierenklinieken.nl/contact |
 
 ## Покрытие
 
@@ -76,7 +92,7 @@ run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_
 
 ## Ограничения и точный остаток
 
-Все собственные exact inherited restrictions и неизвестные lost-route scopes удержаны в records/restoration-001.json; новый OnGo Anubis challenge — records/restriction-001.json. Никакой попытки обхода. Ключевые unresolved: VVKA named qualified vet; Middenwaard/Dokkum exactteam walls; Europawijk/Westhage postcode; VSC channel/geography; Осsehoofd branch allocation; DeArk clinical allocation; Bonaire/Statia/Saba cancer scope; full GVE master held. Это отдельно от доступных remaining workgroups и 21 необработанных identities в remaining.json. EXCLUDED означает nonpromotion, не отсутствие лечения.
+Все собственные exact inherited restrictions и неизвестные lost-route scopes удержаны в records/restoration-001.json; новый OnGo Anubis challenge — records/restriction-001.json. Никакой попытки обхода. Ключевые unresolved: VVKA named qualified vet; Middenwaard/Dokkum exactteam walls; Europawijk/Westhage postcode; VSC channel/geography; Осsehoofd branch allocation; DeArk clinical allocation; Bonaire/Statia/Saba cancer scope; full GVE master held. Это отдельно от доступных remaining workgroups и 12 необработанных identities в remaining.json. EXCLUDED означает nonpromotion, не отсутствие лечения.
 
 ## Даты и сохранность
 
@@ -84,4 +100,4 @@ run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_
 
 Остаются доступные клинические identities/rosters/направления; поэтому research_complete=false, IN_PROGRESS. Production/sharedstate/commit/push/deploy не изменялись.
 
-Fully — разные показатели: inherited historical claim 50; cumulative claimed 54; located payload or current reverify 51; current run freshly reverified 16; parent clinical acceptance ещё не получено. File-existence QA не является медицинским подтверждением.
+Fully — разные показатели: inherited historical claim 50; cumulative claimed 56; located payload or current reverify 53; current run freshly reverified 18; parent clinical acceptance ещё не получено. File-existence QA не является медицинским подтверждением.

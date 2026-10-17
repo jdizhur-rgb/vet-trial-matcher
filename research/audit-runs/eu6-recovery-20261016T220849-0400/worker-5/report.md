@@ -1,12 +1,12 @@
 # Франция — национальная проверка: исследование продолжается
 
-Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`; baseline `b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45`. Первая отметка clock 2026-10-17 02:12:29 UTC; документ обновлён 2026-10-17T02:26:30.445570+00:00. **research_complete=false**.
+Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`; baseline `b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45`. Первая отметка clock 2026-10-17 02:12:29 UTC; документ обновлён 2026-10-17T02:31:50.292132+00:00. **research_complete=false**.
 
 ## Восстановлено и действительно выполнено
 
 Собран рабочий cumulative из собственных frozen candidate shards block01–09:171 именованный исход, старые76 полных,70 NEW относительно старого baseline,6 уже опубликованных,85 EXCLUDED,10 UNRESOLVED. Это унаследованная выполненная работа, не171 новое посещение. Полная текущая physical/supplemental и tele база разобрана; совпадения существующих6 идентичностей сохранены. Все70 унаследованных предложений восстановлены с полевыми доказательствами и исходными датами. Новых source-success dates от восстановления нет.
 
-Текущих собственных первичных review: 27; проверены доступные сохранённые направления Vet’Natura, VetFélin, Allées, Hérimoncourt. У Vet’Natura собственная хирургия кожных опухолей, названный ветеринар, точные адрес/телефон и запись подтверждены. Не приписаны химиотерапия или польза альтернативной медицины. Три других не продвигаются по фактически опубликованным услугам; это не доказательство отсутствия онкопомощи.
+Текущих собственных первичных review: 42; проверены доступные сохранённые направления Vet’Natura, VetFélin, Allées, Hérimoncourt. У Vet’Natura собственная хирургия кожных опухолей, названный ветеринар, точные адрес/телефон и запись подтверждены. Не приписаны химиотерапия или польза альтернативной медицины. Три других не продвигаются по фактически опубликованным услугам; это не доказательство отсутствия онкопомощи.
 
 Последний сообщённый Sevetys246/241-unvisited payload утрачен и НЕ восстановлен. Доступны старые234 source leads и остальные собственные сохранённые направления. Ограничения:48 точных исторических/поздних URL holds плюс2756 workflow targets (включая2 Faluns/Synervet), эквивалентные пути не повторяются. Synervet.NET отдельный held от разрешённых исторических .COM clinical pages.
 
@@ -42,7 +42,7 @@ Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`;
 
 ## Счётчики
 
-Регистр именованных кандидатов: assigned=298, processed=198 (171 унаследованный +27 текущих review), fully_verified=87, NEW=81, UPDATE=0, DUPLICATE=6, EXCLUDED=99, UNRESOLVED=12. Это пока частичный национальный регистр: неопределённое количество URL/поисковых ссылок и ещё не нормализованные rosters нельзя выдавать за уникальных провайдеров. Полный denominator остаётся собственным незавершённым действием. Новых открытий именно этого запуска0; новое предложение блока — ранее сохранённый непроверенный lead.
+Регистр именованных кандидатов: assigned=313, processed=213 (171 унаследованный +42 текущих review), fully_verified=88, NEW=82, UPDATE=0, DUPLICATE=6, EXCLUDED=113, UNRESOLVED=12. Это пока частичный национальный регистр: неопределённое количество URL/поисковых ссылок и ещё не нормализованные rosters нельзя выдавать за уникальных провайдеров. Полный denominator остаётся собственным незавершённым действием. Новых открытий именно этого запуска0; новое предложение блока — ранее сохранённый непроверенный lead.
 
 ## Именованные NEW и UPDATE
 
@@ -127,6 +127,7 @@ Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`;
 - Clinique vétérinaire Argos Meylan — Meylan: Local oncology care. https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/meylan-91 (inherited_unprocessed_network_branch_now_primary_verified)
 - Clinique vétérinaire Sevetys Occitanie — Montpellier — Montpellier: Local oncology care. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-sevetys-occitanie-montpellier-mtp/ (inherited_unprocessed_saved_branch_now_primary_verified)
 - Sevetys France — oncology booking network — : Local oncology care. https://sevetys.fr/soins-veterinaires/oncologie/ (inherited_saved_network_source_newly_typed_access_route)
+- Clinique vétérinaire Advet - Longjumeau — Longjumeau: Local oncology care. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-advet-longjumeau-lgj/ (retained_network_direction_current_roster_branch_review)
 
 ## Уже опубликованные, исключения и точные вопросы
 
@@ -247,6 +248,20 @@ Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`;
 - EXCLUDED: Cabinet vétérinaire Argos Lyon Valmy — Lyon. https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/lyon-valmy-52 Own branch body explicitly exemplifies ovariectomy/castration/general surgery, not cancer surgery; no local oncology service claim in reviewed section. Full own branch clinical text, current named veterinary team and local service list reviewed. No oncology addition, not a claim that treatment does not exist.
 - UNRESOLVED: Clinique vétérinaire Crozatier — référés/urgences — Paris. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-crozatier-referes-urgences-gardes-24h-24-paris-sta/ Current group oncology entry names this clinic, but full current own branch lists general/referral services without explicit oncology activity. Current named veterinary roles,61rueCrozatier and0143431713 are published; reviews of masses/operations are not primary clinic treatment statements. Specific local cancer act remains unverified.
 - UNRESOLVED: Vet’Hauts de France — Hénin-Beaumont — Hénin-Beaumont. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-vet-hauts-de-france-henin-beaumont-vhf/ Same-address general branch and separate NAC-labelled service page distinguished. General dog/cat branch local service list has no oncology; oncology appears on exact100%NAC service page. It must not be propagated to dogs/cats. Dog/cat cancer act and actual allocation remain unverified.
+- EXCLUDED: Cabinet vétérinaire ARTOISVET - Aubigny-en-Artois — Aubigny-en-Artois. https://sevetys.fr/cliniques-veterinaires/cabinet-veterinaire-artoisvet-aubigny-en-artois-aea/ Full own About/team/local clinical-services body reviewed. Generic/general care and surgery/diagnostic services do not establish a current cancer-treatment act. No cancer addition; not a claim of treatment absence.
+- EXCLUDED: Cabinet vétérinaire Biot 3000 - Biot — Biot. https://sevetys.fr/cliniques-veterinaires/cabinet-veterinaire-biot-3000-biot-bio/ Full own About/team/local clinical-services body reviewed. Generic/general care and surgery/diagnostic services do not establish a current cancer-treatment act. No cancer addition; not a claim of treatment absence.
+- EXCLUDED: Cabinet vétérinaire Crozatier - Paris 12 - Consultations Chien et Chat — Paris. https://sevetys.fr/cliniques-veterinaires/cabinet-veterinaire-crozatier-paris-12-consultations-chien-chat-st2/ Full own About/team/local clinical-services body reviewed. Generic/general care and surgery/diagnostic services do not establish a current cancer-treatment act. No cancer addition; not a claim of treatment absence. This is47rueCrozatier/0143967457, a distinct physical cabinet from the61rueCrozatier referral clinic/0143431713; shared Felder/Zeboulon doctors do not merge addresses or transfer services.
+- EXCLUDED: Cabinet vétérinaire de Barlin — Barlin. https://sevetys.fr/cliniques-veterinaires/cabinet-veterinaire-de-barlin-bar/ Full own local body offers routine/general/soft-tissue surgery and diagnostics, no explicit cancer-treatment act. Network oncology not copied here; not absence proof.
+- EXCLUDED: Clinique vétérinaire de Cagny — Cagny. https://sevetys.fr/cliniques-veterinaires/cabinet-veterinaire-de-cagny-cag/ Current own body general medicine/diagnostic services and soft-tissue surgery without cancer context. Source URL says cabinet but current title/schema says Clinique de Cagny; same real branch, not two providers.
+- EXCLUDED: Cabinet vétérinaire de Claveyson — Claveyson. https://sevetys.fr/cliniques-veterinaires/cabinet-veterinaire-de-claveyson-cla/ Current own text explicitly equine-focused; no dog/cat anticancer act. Routine imaging/surgery labels not oncology. No dog/cat card, not a universal no-care claim.
+- EXCLUDED: Cabinet vétérinaire de Joncy — Joncy. https://sevetys.fr/cliniques-veterinaires/cabinet-veterinaire-de-joncy-jon/ Full current branch body lists routine/internal/preventive consultations and species, without cancer-treatment act. Current named veterinarian also not published in reviewed body; no card.
+- EXCLUDED: Cabinet vétérinaire de La Tour du Crieu — La Tour-du-Crieu. https://sevetys.fr/cliniques-veterinaires/cabinet-veterinaire-de-la-tour-du-crieu-tdc/ Full own local body general services including phytotherapy/physiotherapy and soft-tissue surgery, without cancer-specific clinical act. No alternative anticancer efficacy or cancer surgery inferred.
+- EXCLUDED: Cabinet vétérinaire de Mercurey — Mercurey. https://sevetys.fr/cliniques-veterinaires/cabinet-veterinaire-de-mercurey-mer/ Full exact own branch local service/body lists routine medicine/general surgery and diagnostics, not cancer treatment. No network fanout or absence claim.
+- EXCLUDED: Cabinet vétérinaire de Noiseau — Pontault-Combault. https://sevetys.fr/cliniques-veterinaires/cabinet-veterinaire-de-noiseau-noi/ Full own branch body at36rueRaoulDautry Pontault-Combault despite Noiseau name. Routine/general service list lacks qualifying cancer act; no name-based city correction invented and no cancer card.
+- EXCLUDED: Cabinet vétérinaire de Saint Fructueux - Lunel — Lunel. https://sevetys.fr/cliniques-veterinaires/cabinet-veterinaire-de-saint-fructueux-lunel-lun/ Full exact own body and named vet team show general medicine/soft-tissue surgery without oncology act; no addition or absence claim.
+- EXCLUDED: Cabinet vétérinaire du Moulin - Saint-Ay — Saint-Ay. https://sevetys.fr/cliniques-veterinaires/cabinet-veterinaire-du-moulin-saint-ay-say/ Full branch clinical section routine services/osteopathy/orthopaedics; no cancer-treatment act or current named veterinarian in viewed own text. No card, no absence inference.
+- EXCLUDED: Cabinet vétérinaire Nicolas Poussin - Les Andelys — Les Andelys. https://sevetys.fr/cliniques-veterinaires/cabinet-veterinaire-nicolas-poussin-les-andelys-la2/ Own current branch body has routine/general surgery, diagnostics and current named vet team but no explicit cancer-treatment act. No service propagation.
+- EXCLUDED: Clinique vétérinaire Altivet - Briançon — Briançon. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-altivet-briancon-bi2/ Full own clinical body general medicine/soft-tissue surgery, diagnostics, dog/cat/NAC/equine/farm scope, no explicit cancer treatment. No cancer surgery or network oncology inference.
 
 ## Даты, QA и сохранение
 
@@ -258,17 +273,25 @@ research_complete=false: доступные сохранённые leads/rosters
 
 ## Раннее дополнение block02 и текущий pending-регистр
 
-Нормализован фактический сохранённый список Argos116: 100 ещё не пройденных уникальных ветвей после дедупликации по точному ветвевому URL. Поэтому исправленный assigned=298 (processed=198, unprocessed=100); прежний175 — только восстановленный тогда регистр, не национальный знаменатель. Ссылка URL не стала новым провайдером без названия/филиальной записи.
+Нормализован фактический сохранённый список Argos116: 100 ещё не пройденных уникальных ветвей после дедупликации по точному ветвевому URL. Поэтому исправленный assigned=313 (processed=213, unprocessed=100); прежний175 — только восстановленный тогда регистр, не национальный знаменатель. Ссылка URL не стала новым провайдером без названия/филиальной записи.
 
 Текущие первичные дополнения: Les Pléiades Toulon — собственная канцерологическая консультация и предложение лечения, Charlotte Denys Lyon2018/DE, narrow care; Argos Les Capucines Bourg-en-Bresse и Caluire Boucle — собственный локальный Cancerologie в разделе Nos services / Services médicaux и текущие названные ветеринары, контакты, приём. Никакие конкретные методы этим трём не присвоены. Ajaccio Îles/Sagone/Orchidées Baie-Mahault/Vetropical Les Abymes не продвигаются по опубликованному клиническому тексту. Generic mass removal и soft-tissue surgery не стали онкохирургией.
 
 Родитель подтвердил фактический backup/readback блока01 в02:18:04UTC: data da5c026499c3af652715ec8558b443d099b1f5c5; receipt9ab36dac4b49ccdb67fc1356168c2a5150eb584e; все10 listedpayloads +ready. Это исследования, не сайт.
 
-## Последний выполненный блок block-05
+## Последний выполненный блок block-07
 
-Содержательно рассмотрено в этом блоке:4; исходы:{'NEW': 2, 'UNRESOLVED': 2}. Точные новые/сохранённые primary даты и цитаты — в immutable new-reviews shard.
+Содержательно рассмотрено в этом блоке:12; исходы:{'EXCLUDED': 11, 'NEW': 1}. Точные новые/сохранённые primary даты и цитаты — в immutable new-reviews shard.
 
-- NEW: Clinique vétérinaire Sevetys Occitanie — Montpellier — Montpellier; https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-sevetys-occitanie-montpellier-mtp/ https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-sevetys-occitanie-montpellier-mtp/
-- NEW: Sevetys France — oncology booking network — ; https://sevetys.fr/soins-veterinaires/oncologie/ https://sevetys.fr/soins-veterinaires/oncologie/
-- UNRESOLVED: Clinique vétérinaire Crozatier — référés/urgences — Paris;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-crozatier-referes-urgences-gardes-24h-24-paris-sta/
-- UNRESOLVED: Vet’Hauts de France — Hénin-Beaumont — Hénin-Beaumont;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-vet-hauts-de-france-henin-beaumont-vhf/
+- EXCLUDED: Cabinet vétérinaire de Barlin — Barlin;  https://sevetys.fr/cliniques-veterinaires/cabinet-veterinaire-de-barlin-bar/
+- EXCLUDED: Clinique vétérinaire de Cagny — Cagny;  https://sevetys.fr/cliniques-veterinaires/cabinet-veterinaire-de-cagny-cag/
+- EXCLUDED: Cabinet vétérinaire de Claveyson — Claveyson;  https://sevetys.fr/cliniques-veterinaires/cabinet-veterinaire-de-claveyson-cla/
+- EXCLUDED: Cabinet vétérinaire de Joncy — Joncy;  https://sevetys.fr/cliniques-veterinaires/cabinet-veterinaire-de-joncy-jon/
+- EXCLUDED: Cabinet vétérinaire de La Tour du Crieu — La Tour-du-Crieu;  https://sevetys.fr/cliniques-veterinaires/cabinet-veterinaire-de-la-tour-du-crieu-tdc/
+- EXCLUDED: Cabinet vétérinaire de Mercurey — Mercurey;  https://sevetys.fr/cliniques-veterinaires/cabinet-veterinaire-de-mercurey-mer/
+- EXCLUDED: Cabinet vétérinaire de Noiseau — Pontault-Combault;  https://sevetys.fr/cliniques-veterinaires/cabinet-veterinaire-de-noiseau-noi/
+- EXCLUDED: Cabinet vétérinaire de Saint Fructueux - Lunel — Lunel;  https://sevetys.fr/cliniques-veterinaires/cabinet-veterinaire-de-saint-fructueux-lunel-lun/
+- EXCLUDED: Cabinet vétérinaire du Moulin - Saint-Ay — Saint-Ay;  https://sevetys.fr/cliniques-veterinaires/cabinet-veterinaire-du-moulin-saint-ay-say/
+- EXCLUDED: Cabinet vétérinaire Nicolas Poussin - Les Andelys — Les Andelys;  https://sevetys.fr/cliniques-veterinaires/cabinet-veterinaire-nicolas-poussin-les-andelys-la2/
+- NEW: Clinique vétérinaire Advet - Longjumeau — Longjumeau; https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-advet-longjumeau-lgj/ https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-advet-longjumeau-lgj/
+- EXCLUDED: Clinique vétérinaire Altivet - Briançon — Briançon;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-altivet-briancon-bi2/

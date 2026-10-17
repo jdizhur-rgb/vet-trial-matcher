@@ -1,44 +1,28 @@
-# Чехия — checkpoint01: safe восстановление и текущие primary reviews
+# Чехия — checkpoint02: adjudication сохранённого GP frontier
 
-Run eu6-recovery-20261016T220849-0400; slot2; Czechia; baseline b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45; настоящий agent /root/oct16_cz. Actualclock начало2026-10-17 02:11:12 UTC, checkpoint02:19 UTC (precision minute). IN_PROGRESS; research_complete=false. Только свой worker-2; production/state/git/deploy не изменялись.
+Exact identity: {"run_id":"eu6-recovery-20261016T220849-0400","slot":2,"country":"Czechia","baseline_sha":"b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45","agent_id":"/root/oct16_cz"}. Work since02:19; sealed02:28UTC2026-10-17 (minute precision). IN_PROGRESS, research_complete=false; no production/state/git/push/deploy.
 
-## Унаследовано, потеряно, заново проверено
+Из старых actualnationalqueryresults выделены18 дополнительных/повторноименованных реальных providers: все18получили actualprimaryreview. Три exactsameIDs/address/phone — PrimaVetKroměříž, MedipetZlín, VETNEMOLibuš — уже currentbaseline, не NEW и не дополнительныеassigned. Изначальный domain-onlyscreen не видел website во вложенномbaseline_record; полная dedupe поймала это ДО seal. Cumulative153assigned/153processed/96fully,53NEW=51physical(47restored+4thisrecovery)+2network,9UPDATE,46DUP,12EXCL,33UNRES. Это153 uniqueprovider/serviceunits, не153клиники. Source visits prior16October не renewed.
 
-Сборка из разрешённых frozen shards воспроизвела В ТОЧНОСТИ verifiedblock09:135assigned/121processed/74fully/47NEW/4UPDATE/38DUP/3EXCL/29UNRES,14unprocessed. AliasBUDvetgroup/Kotlíková, speculativeU-Kostela hostname и Parník alias не удвоены; добавлена реальная SCINTIVET exclusion. Утраченный block10 не использован. Восстановление НЕ новый визит; original16October dates сохранены.
+## Реальные новые physical4
 
-В recovery13 existingphysical identities получили current full primary review. Strakonice inheritedexact403 retained без повторной попытки. Ещё2 network service candidates и реальный EliteVet opening содержательно обработаны. Cumulative {"assigned":138,"processed":138,"fully_verified":89,"NEW":49,"UPDATE":8,"DUPLICATE":47,"EXCLUDED":4,"UNRESOLVED":30,"UNPROCESSED":0}. NEW49 =47 восстановленных prior-unpublished physical locations (33olderrevalidated+14priorrundiscoveries) +2 новые network listings. Это не49новыхклиник и не49сегодняшнихвизитов. Fully89 включаетnetwork2. Existingtele29 и Skor не NEW.
+- PetClinicBrno, Vomáčkova2,+420543212414, currentMVDr.MartinBlaha/ValentynaYermolaieva/HanaBasovníková: actual dog/cat chemo protocols +tumorremoval. https://www.petclinic.cz/psi ; /team-4 . OldDenny/Kšírova218 alias/move2021, не anotherclinic.
+- MartinaKoptová, Bendlova329 HradecKrálové,+420777344887, currentMVDrexplicit: tumorremoval. https://veterinahradec.cz/ . AppointmentpriorSMS/phone; genericvisits not mobilechemo.
+- PetCareClinic, Tusarova1520/24 Praha,+420774116623,currentMVDr.IvoStehlík/AnnaGoldsbroughTvrdá: explicitneoplasmaresection and canceramputation. https://petcareclinic.cz/sluzby/chirurgie/ ; https://www.petcareclinic.cz/nas-tym/mvdr-ivo-stehlik/ . CPDspeakerboard not clinicianboard; distinctfromStehlíkBřeclav/PetHelp.
+- MiroslavŠilar, MaléHamry60 ÚstínadOrlicí,+420602534891,currentMVDrhomepage: ownabout explicittumorremoval and surgicalgallery. https://www.veterinasilar.cz/o-nas/ ; /sluzby/ ; /kontakt/ . GenericWebnodemenu hid actual relativehrefs; sameofficialpublicHTML showed advertisedpaths, not guessedpath/authbypass.
 
-## Именованные новые предложения и UPDATE
+NewUPDATE1: PrimaVet/Obvodová3607Kroměříž clinician_review exactunknownroster→current treatingMVDr.MarekŠindler/RomanZavřel/DitaAducciMahdalíčková from https://www.primavet.cz/ . Earliercompanyname alone not currentteam; fullcurrenthomepage explicit. Medipet/VETNEMO DUP. VETNEMO unchanged generalcytostatics not promoted toChemotherapy; preserveSurgery/Targetedtherapy/localcare and externalRT/immunotherapy.
 
-BUDvet ONE network cancer-care contact: https://www.budvet.cz/onkologie/ explicitchemo+oncologic surgery; qualified currentroster https://www.budvet.cz/ ; ОБЩИЙ info@budvet.cz https://www.budvet.cz/kontakt/ . Branchphones неcentral; street/city/postcode пустые, coordsnull, owner confirmsbranch/doctor/appointment. Rožnov/Trojická delivery остаётся branchambiguity, RT referralonly.
+## Nonpromotion и precise gaps
 
-VeterinaVýjezd ONE networkcard: https://veterinavyjezd.cz/cs/sluzby/ explicit «navržení a provádění chemoterapie», tumorremoval; общий veterinapraha@seznam.cz у обоихbranches https://veterinavyjezd.cz/cs/kontakt/ . Нет branchfanout, адресногоpin или mobilechemo. Currentpublished MVDrnetworkroles не назначают конкретноговрача.
+EXCLUDED8current-primaryscope: RainbowVet(homeeuthanasia, notanticancertreatment); JanŠašek(generic/livestock); JanaJeřábkováTřemošnice(genericsofttissue surgery/limitedoutcall); TrnováPardubice(generic surgery/newprogesterone); NovéMěstonadMetují(genericsurgery/oncologyCPD); VojtěchKos(mobilebasics/livestock); MiVetTeplice(explicitnooperations, basiccare); MiVetÚstí(currentnative200genericcare/no namedvet/cancertreatment; thirdpartylabels not sufficient). Это nonpromotion, не утверждение отсутствиярака/закрытия. CurrentMiVetTeplice opening signal не NEWcancercard.
 
-Fresh existingUPDATE4: Benešov/Táborská306 Surgery по explicitonkochirurgie; HaF/Plzeňská67 Surgery поoperacenádorů; RexCare/Vackova736/5 publishedPgCert.Neuro (неboard); Podkrušnohorská/1592 futureclosures28–30October,11–27November2026. Вместе с restoredHKvet/Animed/Vedilab/Jinvet =8uniqueUPDATE/8fields. Всеexactold/new+URL+shortquote+scope+dates вproposals.
+UNRESnew3: VišňovkaPardubice — actualanaltumorsurgery/currentservice/contact clear, personnelHTMLempty afterWeb+sameURLnative200; namedMVDr.MiloslavPleskot only2023legaloperatorpolicy, currenttreatingroleunproved. ZuzanaNevrláSezimovoÚstí — tumorremoval/currentMVDr/contact clear, butactualtemporaryclosed16–25October andhealthrestrictions; currenttreatmentbookingaccess afterclosure unconfirmed; recheck26October, noautomationcreated. Slavičín — current2025newowners/home/contact verified, linked2019oncologyreader crawled1.1yearsago; firstordinarysameURLnative403. Exactrestriction13held, no retry/alias/client. No source-success date renewed or NEWactivation. Fresh tongue-caseURLVišňovka robotserror exactheldrestriction12, not globaldomainban; independentanalcase read before/independently.
 
-## Именованные nonpromotion и ограничения
+## Даты, queries и remote proof
 
-EliteVet, Hybešova167/18 KarlovyVary,+420722599699: реальнооткрытая клиника, officialbooking opening14September2026, currentqualifiedMVDrroster. Fullhomepage genericcastration/abdominal surgery/internalmedicine; oncologyтолькоCPD. Неcancercard и не утверждение«никогданелечитрак». No24/7 currentstatement важнее newsambition. https://www.elite-vet.cz/ ; /nas-tym ; /rezervacni-system.
+LiveWeb date-only17October. NativeMiVet200 first02:21:59.818795UTC; navigationonlysamepageanchors confirmed02:22:37/02:24:06. NativeVišňovkapersonnel20002:22:54.612995UTC exposed no clinician names. NativeSilarhome20002:23:08.922947UTC exposed genuine publicrelativehrefs. Slavičín403attempt bounded02:24–02:26, exacttimestampunavailable; not fabricated.
 
-Strakoniceheldservice/contact403 не повторялись, baselineuntouched. Procházka deniedworkflow/output нечитались. KVLdatabase не извлекалась; CAVLMZmembers неиспользованы. Parentточечноразрешил sanitized input/history/checkpoints/block-08-public-safe-v3/block-08-outcome-delta.json послеredactionsmetadata removed2 registryobservations; path+SHA вevidence. Raw/intermediate08h/i/outcome/helper/withdrawal и raw09b/m/VAKPOnative unread.
+16newactualqueries (system2primarydomainfollowups +4system1regionalnewsignals) saved. System1again highnoise2026/krajofftopic; not countryabsenceproof. Actual savedgenericGPfrontier not hidden beneath externalgaps; all newlyidentified18 now adjudicated. Документальное национальноеclosing/qualityreview ещё продолжается; no newcountry/cursor.
 
-## Реальное национальное покрытие
-
-| Направление | Фактические inherited/current proofs | Остаток |
-|---|---|---|
-|14regions/13majorcities|Czechactualqueries block06national-a…e, block07regionalnewsignals; namedprimarydispositions вledger|Finishfactualcoverageledger; неcomplete|
-|VETINO|Currentroster4:JaggyBrno,JaggyPraha,Aesculap,HKvet; eachprocessed|Documentary reconciliation|
-|VetPark|Current6:Neratovice,Brandýs,Praha,Brno,Mělník,StaráBoleslav; legacyČelákoviceUNRES|Heldroster/localURL не повторяются|
-|Medicanima|Palmovkatreatment; SCINTIVEThyperthyroidismnoncancer; hotelreferenceexcluded|Documentary reconciliation|
-|VetCare|3CzechDuchek/Regia/ABClinic;7foreignreferences|Regia membershipconflict retained|
-|Universities|ČZU currentqualifiedoncologyroles, treatmentnotexplicit; VETUNIactualTurnstileheld|Precisesourcegap, no bypass|
-|RT/ECT|FullinheritedSÚJBpdf/NÚVRproject; Klatovy/Animed/Regia ECT; realforeignRTreferrals|No localRT inferred|
-|Mobile/visiting/remote|ExistingKotlíkovátele29, Skorheldexistingtele; genericVýjezd/FíVet/Weilovněvisits notchemo; Fajtovicurrentvisitingoncology|Closing reconciliation|
-
-## Даты и сохранение
-
-CurrentWebsuccessful17October2026 date-only. HANZA standard-library sameofficialURL fullpublicHTML200 actual2026-10-17T02:14:16.107466+00:00: hiddenpublicmodals explicitlycytostatics+oncologicsurgery; noUI/challenge/form. bs4importfailedBEFORErequest, notsourceattempt. Otherreader crawlages are caveats, not inventedcurrenttimestamp.
-
-Initialremote suppliedbyparent: research/europe-recovery-eu6-recovery-20261016T220849-0400 @ b159daa3ceb5de3feee6c539bc59ebd14a092eba. Это initialresearchbackup, НЕ proofэтогоcheckpoint. Checkpoint01localready, ждётactualparentremoteSHA/path.
-
-Продолжаю samecountry и доступную nationalclosing reconciliation; объёмproposal/elapsedtime не stopcondition.
+Parentactualproof checkpoint01: branch research/europe-recovery-eu6-recovery-20261016T220849-0400, checkpoint003 remoteverified02:20:28UTC; data61faedaadcaeae4c1a701df41f41b9e3b859c0e1, receipt/head7433f0216d775e8c3e2bb781deaf5d8fc35c8fcb; actualpayload/control/fullarchivehashPASS. Это backup, неparentclinicalacceptance/publication. Checkpoint02 покаlocalready.
