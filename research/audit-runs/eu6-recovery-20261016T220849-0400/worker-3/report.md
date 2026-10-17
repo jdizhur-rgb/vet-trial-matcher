@@ -344,3 +344,21 @@ Kochanowskiego — ONE новая сетевая запись (Medical/Chemother
 ABA-VETWarzycka37 не восстановлен автоматически из старого savedNEW: полные service/doctor/experience и отдельный официальный поиск подтверждают GP и общую строку «usuwanieguzów», но не явный противоопухолевый контекст в лечебной услуге. История онкокурсов сама по себе не лечение. Именованная nonpromotion, не отсутствие реального лечения. При появлении явного neoplasm/cancer localstatement вопрос можно пересмотреть. Это применение границы cancer-directed service, а не требование onc-board.
 
 6квалифицирующих совпадений в полном4JSONbaseline3229rows нет; отдельный полныйtele64Poland0. Каждая currentclinical/GP/contactстраница17Oct реально прочитана; старые утраченные sourcebody не называются восстановленными.35ownactualsearchqueries: новый query35 официальныйABA, exactrequest sources076 иqueries005. Остальной национальный фронт продолжается.
+
+
+## Блок14 — 2026-10-17 03:23:27 UTC
+259=177обработанных+82необработанных;177=135NEW+3UPDATE+17DUP+16EXCL+6UNRES. Полных155 безизменения. Пять непродвигаемых: iVetKatowice,Duo-WetWrocław,JaśminvetOrzesze,MultiVetOłowiana,MultiVetLutynia. Общие операции/курсы/направления не доказывают местное лечение рака; отсутствие лечения не утверждается. Четыре сохранённых unresolved: VETJaniszewskiLublin(онкохирургия есть, нет опубликованной текущей квалифицированной роли); MED-VETPałucka/Zachodnia(официальный независимый ZLZ10.09.2026 подтвердил руководителей IwonaWarulik/KatarzynaBajcar и адреса/телефоны, но распределение онкохирургии неясно); Vetspec(timeout+3exactHTTP502,безbody). Доступные шаги остаются; research_complete=false.
+PDFskill использован для контроля табличной структуры; текущий screenshot вернул только текстовые маркеры, поэтому визуальный просмотр2026 не заявлен. Сохраняются URL/дата/страница/релевантные факты; полныйPDF и mixedraw079/080 не включены и не хэшированы. Хэш PDF не заявлен. Реальные11запросов, всего46. Подробные поимённые причины/следующие шаги: working/saved-frontier-outcomes-002.json.
+Remote017block10: data0c1c7b4bbfd33f3bb50d4a6d5b7b0f4e0cdeb792,receipte5ec6553fba1fe105c34a9b68ab5c8bd4cb251ed,03:06:32UTC;018block11/12:data27e6f05a83c7001c2a701bd44d580930a93c6320,receipt7433ea62791d4812252890e90085bd2375bd7ea1,03:13:23UTC,parentreadbacksPASS.019pending не считается verified и не означает приёмку страны.
+
+
+## Блок15 — 2026-10-17 03:25:33 UTC
+259=183обработанных+76необработанных;183=140NEW+3UP+17DUP+16EXCL+7UNRES. Полных160:138NEWphysical+2network+20baseline. Новые не являются новым открытием этого исполнения: пять сохранённых региональных leads теперь подтверждены первичными источниками и отсутствуют во всех3229baselineстроках/64tele.
+| Кандидат | Город | Подтверждённое лечение | Официальный источник |
+|---|---|---|---|
+| Biegaławet | Inowrocław | Surgical oncology | https://www.biegalawet.pl/oferta/chirurgia |
+| Przychodnia Weterynaryjna Amicus | Chełm | Surgery | https://www.amicus-chelm.pl/chirurgia.html |
+| Przychodnia Weterynaryjna NaTuwima | Zamość | Surgery | https://www.natuwima.pl/uslugi/laser-chirurgiczny-co2/ |
+| Przychodnia Weterynaryjna Royal Vet | Zamość | Surgical oncology | https://royalvet.eu/chirurgia |
+| Gabinet Weterynaryjny VetMedica | Zamość | Surgery, Local oncology care | https://vetmedica-zamosc.pl/chirurgia/ |
+Biegaławet: текущий контактPopiełuszki12, старая биография упоминаетWojskaPolskiego17; это не второй новый филиал. NaTuwima: CO2хирургия неRT/ECT; cachedстарыйsurgeryтекст не назван свежейпроверкой. AnimalVETPuławy: текущие врачи/адрес проверены, но онкологический интерес врача не заменяет местное лечение; bookingстарыйадрес и рекламируемыйстарыйсайт502, разрешённыйfallback остаётся. Всего48реальныхзапросов,100receiptunits. research_complete=false; полный текущий nationalfrontier ещё доступен.
