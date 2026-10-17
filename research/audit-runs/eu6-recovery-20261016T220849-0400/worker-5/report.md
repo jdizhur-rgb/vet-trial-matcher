@@ -1,12 +1,12 @@
 # Франция — национальная проверка: исследование продолжается
 
-Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`; baseline `b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45`. Первая отметка clock 2026-10-17 02:12:29 UTC; документ обновлён 2026-10-17T04:07:38.115384+00:00. **research_complete=false**.
+Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`; baseline `b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45`. Первая отметка clock 2026-10-17 02:12:29 UTC; документ обновлён 2026-10-17T04:18:24.050287+00:00. **research_complete=false**.
 
 ## Восстановлено и действительно выполнено
 
 Собран рабочий cumulative из собственных frozen candidate shards block01–09:171 именованный исход, старые76 полных,70 NEW относительно старого baseline,6 уже опубликованных,85 EXCLUDED,10 UNRESOLVED. Это унаследованная выполненная работа, не171 новое посещение. Полная текущая physical/supplemental и tele база разобрана; совпадения существующих6 идентичностей сохранены. Все70 унаследованных предложений восстановлены с полевыми доказательствами и исходными датами. Новых source-success dates от восстановления нет.
 
-Текущих собственных первичных review: 424; проверены доступные сохранённые направления Vet’Natura, VetFélin, Allées, Hérimoncourt. У Vet’Natura собственная хирургия кожных опухолей, названный ветеринар, точные адрес/телефон и запись подтверждены. Не приписаны химиотерапия или польза альтернативной медицины. Три других не продвигаются по фактически опубликованным услугам; это не доказательство отсутствия онкопомощи.
+Текущих собственных первичных review: 429; проверены доступные сохранённые направления Vet’Natura, VetFélin, Allées, Hérimoncourt. У Vet’Natura собственная хирургия кожных опухолей, названный ветеринар, точные адрес/телефон и запись подтверждены. Не приписаны химиотерапия или польза альтернативной медицины. Три других не продвигаются по фактически опубликованным услугам; это не доказательство отсутствия онкопомощи.
 
 Последний сообщённый Sevetys246/241-unvisited payload утрачен и НЕ восстановлен. Доступны старые234 source leads и остальные собственные сохранённые направления. Ограничения:48 точных исторических/поздних URL holds плюс2756 workflow targets (включая2 Faluns/Synervet), эквивалентные пути не повторяются. Synervet.NET отдельный held от разрешённых исторических .COM clinical pages.
 
@@ -15,7 +15,7 @@ Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`;
 | Измерение | Доказанная опора | Остаток |
 |---|---|---|
 | Auvergne-Rhône-Alpes | CHUVAC — VetAgro Sup Lyon — https://chuvac.vetagro-sup.fr/services/cancerologie/; CHV AniCura Armonia — https://www.anicura.fr/cliniques/armonia/nos-services/cancerologie/ | Текущие/недатированные и новые сигналы не исчерпаны |
-| Bourgogne-Franche-Comté | Clinique vétérinaire des Ducs de Bourgogne — https://www.vetddb.fr/services/oncologie/ | Текущие/недатированные и новые сигналы не исчерпаны |
+| Bourgogne-Franche-Comté | Clinique vétérinaire des Ducs de Bourgogne — https://www.vetddb.fr/services/oncologie/; Clinique vétérinaire des Champs Blancs — https://www.veterinaire-champs-blancs-joigny.fr/ | Текущие/недатированные и новые сигналы не исчерпаны |
 | Bretagne | Clinique AniCura TRIOVet — https://www.anicura.fr/cliniques/triovet/nos-services/oncologie/; Clinique vétérinaire Sainte-Croix — https://www.veterinairesaintecroix.com/ | Текущие/недатированные и новые сигналы не исчерпаны |
 | Centre-Val de Loire | Clinique vétérinaire des Acacias — https://vetacacias.com/services/25; Clinique vétérinaire TouraineVet — https://www.tourainevet.fr/m%C3%A9decine-interne | Текущие/недатированные и новые сигналы не исчерпаны |
 | Corse | Сохранён первоначальный французский поиск; отсутствие не доказано | Текущие/недатированные и новые сигналы не исчерпаны |
@@ -42,7 +42,7 @@ Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`;
 
 ## Счётчики
 
-Регистр именованных кандидатов: assigned=610, processed=595 (171 унаследованный +424 текущих review), fully_verified=169, NEW=162, UPDATE=0, DUPLICATE=7, EXCLUDED=402, UNRESOLVED=24. Это пока частичный национальный регистр: неопределённое количество URL/поисковых ссылок и ещё не нормализованные rosters нельзя выдавать за уникальных провайдеров. Полный denominator остаётся собственным незавершённым действием. Новых индивидуальных провайдеров, впервые идентифицированных в текущем сохранённом запуске:38; новое предложение блока — ранее сохранённый непроверенный lead.
+Регистр именованных кандидатов: assigned=624, processed=601 (171 унаследованный +429 текущих review), fully_verified=172, NEW=165, UPDATE=0, DUPLICATE=8, EXCLUDED=403, UNRESOLVED=25. Это пока частичный национальный регистр: неопределённое количество URL/поисковых ссылок и ещё не нормализованные rosters нельзя выдавать за уникальных провайдеров. Полный denominator остаётся собственным незавершённым действием. Новых индивидуальных провайдеров, впервые идентифицированных в текущем сохранённом запуске:40; новое предложение блока — ранее сохранённый непроверенный lead.
 
 ## Именованные NEW и UPDATE
 
@@ -208,6 +208,9 @@ Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`;
 - Clinique vétérinaire Gergovia — Clermont-Ferrand: Local oncology care, Surgery. https://www.gergoviavet.fr/ (retained_saved234_independent_GP_actual_local_tumour_excision)
 - AMVET — Clinique vétérinaire de Montreuil-Juigné — Montreuil-Juigné: Local oncology care, Surgery. https://www.amvet.fr/clinique-de-montreuil-juigne (retained_saved234_independent_GP_actual_local_tumour_excision)
 - Clinique vétérinaire CMONVETO — Cabriès: Local oncology care, Chemotherapy, Surgery. https://cmonveto.fr/ (retained_saved234_feePDF_lead_resolved_by_current_independent_HTML)
+- Clinique vétérinaire du Coq à l’Âne — Bizanos: Local oncology care, Chemotherapy, Surgery. https://www.veterinairecoqalane.fr/ (retained_saved234_old_feePDF_lead_resolved_current_primary)
+- Clinique vétérinaire des Champs Blancs — Joigny: Local oncology care, Surgery. https://www.veterinaire-champs-blancs-joigny.fr/ (current_national_independent_GP_primary_discovery_not_retained234_or_inherited171)
+- Clinique vétérinaire Sirius — Couzeix: Local oncology care, Chemotherapy, Surgery. https://www.sirius.vet/ (current_national_independent_named_primary_discovery_no_retained234_or_inherited171_identity)
 
 ## Уже опубликованные, исключения и точные вопросы
 
@@ -226,7 +229,7 @@ Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`;
 - EXCLUDED: Jonzac — Jonzac. https://vplus.fr/nos-cliniques/jonzac/ Reviewed full local service section: general medicine/surgery and diagnostic imaging; ancillary specialties do not establish an explicit cancer-treatment act. Not a no-treatment or closure assertion.
 - DUPLICATE: CHUV de Toulouse — ENVT — Toulouse. https://envt.fr/services-cliniques-chuv/les-cliniques/offre-soins-cliniques/oncologie/ Already current-main identity, no new provider or proposed clinical update.
 - DUPLICATE: ONCOnseil — CHV VetOccitanie — Toulouse. https://onconseil.com/service-clinique/ Already current-main identity, no new provider or proposed clinical update.
-- DUPLICATE: Établissement vétérinaire Bordeaux Sud — Villenave-d’Ornon. https://veterinaire-bordeauxsud.fr/services/oncologie-veterinaire/ Already current-main identity, no new provider or proposed clinical update.
+- DUPLICATE: Établissement vétérinaire Bordeaux Sud — Villenave-d’Ornon. https://veterinaire-bordeauxsud.fr/services/oncologie-veterinaire/ Already published same exact BordeauxSud identity/address/phone. Full current service/team and job/serviceindex read. Existing localcare/chemo/surgery/targeted therapy corroborated; external-or-brachytherapy option lacks explicit onsite allocation, so no RT UPDATE or newphysicalprovider. No whole-record source-date renewal.
 - DUPLICATE: Clinique vétérinaire AixianceVet — Aix-en-Provence Puyricard. https://aixiancevet.com/cancerologie/ Already current-main identity, no new provider or proposed clinical update.
 - DUPLICATE: Clinique vétérinaire Castres Lameilhe — Castres. https://vetocastres.fr/chirurgie/chirurgie-maxillo-faciale/ Already current-main identity, no new provider or proposed clinical update.
 - DUPLICATE: CHEV Indivisa — UniLaSalle — Mont-Saint-Aignan. https://indivisa.unilasalle.fr/services-veterinaires/chirurgie Already current-main identity, no new provider or proposed clinical update.
@@ -325,7 +328,7 @@ Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`;
 - EXCLUDED: Clinique vétérinaire Argos Lyon Croix Rousse — Lyon. https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/lyon-croix-rousse-51 Own body describes routine medicine, diagnostic imaging and general surgery without a cancer-treatment act. External emergency routes not local oncology. Full own branch clinical text, current named veterinary team and local service list reviewed. No oncology addition, not a claim that treatment does not exist.
 - EXCLUDED: Clinique vétérinaire Argos Lyon Monplaisir — Lyon. https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/lyon-monplaisir-75 Own body and varying local list describe routine consultations, diagnostic imaging and elective surgery, with no cancer-specific act. Full own branch clinical text, current named veterinary team and local service list reviewed. No oncology addition, not a claim that treatment does not exist.
 - EXCLUDED: Cabinet vétérinaire Argos Lyon Valmy — Lyon. https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/lyon-valmy-52 Own branch body explicitly exemplifies ovariectomy/castration/general surgery, not cancer surgery; no local oncology service claim in reviewed section. Full own branch clinical text, current named veterinary team and local service list reviewed. No oncology addition, not a claim that treatment does not exist.
-- UNRESOLVED: Clinique vétérinaire Crozatier — référés/urgences — Paris. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-crozatier-referes-urgences-gardes-24h-24-paris-sta/ Current group oncology entry names this clinic, but full current own branch lists general/referral services without explicit oncology activity. Current named veterinary roles,61rueCrozatier and0143431713 are published; reviews of masses/operations are not primary clinic treatment statements. Specific local cancer act remains unverified.
+- UNRESOLVED: Clinique vétérinaire Crozatier — référés/urgences — Paris. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-crozatier-referes-urgences-gardes-24h-24-paris-sta/ Current job explicitly describes Saint-Antoine–Crozatier move to new Paris-Reuilly premises, planned firsthalf2027, and oncology recruitment1day/week. Does not establish actual current local cancer act at61rueCrozatier or future opened location. Existing branch identity remains one candidate;47rue cabinet distinct.
 - UNRESOLVED: Vet’Hauts de France — Hénin-Beaumont — Hénin-Beaumont. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-vet-hauts-de-france-henin-beaumont-vhf/ Same-address general branch and separate NAC-labelled service page distinguished. General dog/cat branch local service list has no oncology; oncology appears on exact100%NAC service page. It must not be propagated to dogs/cats. Dog/cat cancer act and actual allocation remain unverified.
 - EXCLUDED: Cabinet vétérinaire ARTOISVET - Aubigny-en-Artois — Aubigny-en-Artois. https://sevetys.fr/cliniques-veterinaires/cabinet-veterinaire-artoisvet-aubigny-en-artois-aea/ Full own About/team/local clinical-services body reviewed. Generic/general care and surgery/diagnostic services do not establish a current cancer-treatment act. No cancer addition; not a claim of treatment absence.
 - EXCLUDED: Cabinet vétérinaire Biot 3000 - Biot — Biot. https://sevetys.fr/cliniques-veterinaires/cabinet-veterinaire-biot-3000-biot-bio/ Full own About/team/local clinical-services body reviewed. Generic/general care and surgery/diagnostic services do not establish a current cancer-treatment act. No cancer addition; not a claim of treatment absence.
@@ -628,7 +631,7 @@ Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`;
 - EXCLUDED: Clinique vétérinaire du Grand Large — Saint-Benoît. https://www.vetograndlarge.fr/ Currentownexplicittemporaryclosureandactivelyrecruitingvets; closedclinicnotavailableoncology. Otheroldgenericservices/currenthoursdonotoverrideclosurebanner. Nonpromotionnotabsenceproof.
 - EXCLUDED: VetoAdom Alpin — Chambéry/Grenoble/Annecy. https://www.vetoadom-alpin.com/ Fullownmobileurgentcare/triage/serviceareabodyread. Genericendoflife/euthanasia/emergencyhomecare notspecificcancerpalliativeactorhomechemotherapy. Nooncologyremote/mobilepromotion. Nonpromotionnotabsenceproof.
 - EXCLUDED: Clinique vétérinaire du Rondeau — Grenoble. https://www.ophtalmovet-grenoble.fr/notre-clinique/ Fullownclinicandindependentlyadvertisedfullservicesread; genericgeneralcare,prevention,laboratoryandophthalmologyidentitynotlocalcanceract. Nonpromotionnotabsenceproof.
-- UNRESOLVED: Clinique vétérinaire du Petit Port — Annecy-le-Vieux. https://www.cliniquedupetitport.fr/ Actualrootnative502/Webtimeout; independentlyadvertisedpresentationnative502/Webtimeout. No fullcurrentprimaryclinicalbody,notabsenceproof/permissionhold. Owncurrent2026tariffrouteavailablefutureguard/readorserverrecheck. Nonpromotionnotabsenceproof.
+- UNRESOLVED: Clinique vétérinaire du Petit Port — Annecy-le-Vieux. https://www.cliniquedupetitport.fr/ Own root/presentation and advertised current2026 tariff route all ordinary native502 and exact same-route Web fetch failure; no full current treatment/team primary. Search snippets not clinical verification. No403/auth restriction established.
 - EXCLUDED: Clinique vétérinaire Lafayette — Annecy. https://www.veterinaire-annecy-lafayette.fr/ Entireactualscopedowncurrentclinicalservices/teamread:imagingtumourdiagnosis/generalsofttissuesurgery,currentspecialistrolesnotlocalcancerdirectedact. Nonpromotionnotabsenceproof.
 - EXCLUDED: Cabinet vétérinaire Armand Dutreix — Limoges. https://www.cvadutreix.com/ Actualfullowncurrentservices/team/identitybodyread; surgerylimitedpublishedconvenience,diagnosticimaging/labnotcancertreatment. Invalidschema+33undefinednotusedphone; explicit0555502787only. Nonpromotionnotabsenceproof.
 - EXCLUDED: Clinique vétérinaire du Parmelan — Pringy/Annecy. https://vetoparmelan.com/ Actualfullownrootanddedicatedsurgeryread:convenience/softtissue/trauma,dentistryandCAPdouleur,complexreferralnotlocalcanceract. Imaginglymphomadiagnosisnottherapy. Nonpromotionnotabsenceproof.
@@ -644,6 +647,9 @@ Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`;
 - EXCLUDED: Clinique vétérinaire du Moucherotte — Le Pont-de-Claix. https://cliniqueveterinairedumoucherotte.com/ Full own current services/team read, generic convenience/urinary/digestive surgery and nonspecific pain laser only; no direct cancer-directed act. Earlier late clinical extraction was incomplete; current full visible scope reviewed.
 - EXCLUDED: Monti’Vet — Clinique Montimaran — Béziers. https://cliniqueveterinaire-beziers.com/les-services/ Actual page identifies both named sites, generic soft-tissue/convenience surgery, imaging and hospitalisation only. No explicit local cancer-directed act; two actual branches, not two inferred oncology providers.
 - EXCLUDED: Monti’Vet — Cabinet Servian — Servian. https://cliniqueveterinaire-beziers.com/les-services/ Actual page identifies both named sites, generic soft-tissue/convenience surgery, imaging and hospitalisation only. No explicit local cancer-directed act; two actual branches, not two inferred oncology providers.
+- EXCLUDED: Clinique vétérinaire VETONAC — Vandœuvre-lès-Nancy. https://vetonac-nancy.fr/ Own full current primary explicitly devoted entirely to NAC care (birds, reptiles/amphibians, rodents etc), not demonstrated dog/cat oncology provider. No species fanout from name mammifères.
+- UNRESOLVED: Clinique vétérinaire du Grand Saule — Sens. https://grandsaule.meta.vet/ Advertised current official grandsaule.meta.vet native502 and exact same Web502; independently advertised historical official vetosens.fr native502 and exact same Web unavailable. No full clinic-authored current local cancer act/team scope. Imaging/directory data and emergency partnership do not establish cancer treatment.
+- DUPLICATE: AgoraVet — Strasbourg. https://www.agoravet.fr/nos-services/liste-de-nos-prestations/ Exact identity already published in full frozen baseline, source_idfr-agoravet. Newly advertised separate service-list route403, so no clinicalcredit or successrenewal. Existing permitted15Oct baseline service/team/contact proof remains its ownhistoricaldate; no newservicefanout/update.
 
 ## Даты, QA и сохранение
 
@@ -655,7 +661,7 @@ research_complete=false: доступные сохранённые leads/rosters
 
 ## Раннее дополнение block02 и текущий pending-регистр
 
-Нормализован фактический сохранённый список Argos116: 0 ещё не пройденных уникальных ветвей после дедупликации по точному ветвевому URL. Поэтому исправленный assigned=610 (processed=595, unprocessed=15); прежний175 — только восстановленный тогда регистр, не национальный знаменатель. Ссылка URL не стала новым провайдером без названия/филиальной записи.
+Нормализован фактический сохранённый список Argos116: 0 ещё не пройденных уникальных ветвей после дедупликации по точному ветвевому URL. Поэтому исправленный assigned=624 (processed=601, unprocessed=23); прежний175 — только восстановленный тогда регистр, не национальный знаменатель. Ссылка URL не стала новым провайдером без названия/филиальной записи.
 
 Текущие первичные дополнения: Les Pléiades Toulon — собственная канцерологическая консультация и предложение лечения, Charlotte Denys Lyon2018/DE, narrow care; Argos Les Capucines Bourg-en-Bresse и Caluire Boucle — собственный локальный Cancerologie в разделе Nos services / Services médicaux и текущие названные ветеринары, контакты, приём. Никакие конкретные методы этим трём не присвоены. Ajaccio Îles/Sagone/Orchidées Baie-Mahault/Vetropical Les Abymes не продвигаются по опубликованному клиническому тексту. Generic mass removal и soft-tissue surgery не стали онкохирургией.
 
@@ -663,25 +669,22 @@ research_complete=false: доступные сохранённые leads/rosters
 
 ## Происхождение новых предложений
 
-Из NEW=162: 70 унаследованных полных предложений с сохранёнными source dates; 54 сохранённых индивидуальных направлений/сетевого маршрута доведены до предложения текущей проверкой; 38 провайдера впервые идентифицированы в текущем сохранённом запуске по свежему Sevetys roster и независимым первичным направлениям, индивидуальных URL которых в retainedinput не найдено. Это не утверждение открытия клиники в2026году и не восстановление утраченного246payload. Ранние0 discovery-counters в sealed07/08 были излишне консервативной категоризацией genericnetworkdirection; append-only discovery-amendment исправляет происхождение, не общее NEW и не даты посещений.
+Из NEW=165: 70 унаследованных полных предложений с сохранёнными source dates; 55 сохранённых индивидуальных направлений/сетевого маршрута доведены до предложения текущей проверкой; 40 провайдера впервые идентифицированы в текущем сохранённом запуске по свежему Sevetys roster и независимым первичным направлениям, индивидуальных URL которых в retainedinput не найдено. Это не утверждение открытия клиники в2026году и не восстановление утраченного246payload. Ранние0 discovery-counters в sealed07/08 были излишне консервативной категоризацией genericnetworkdirection; append-only discovery-amendment исправляет происхождение, не общее NEW и не даты посещений.
 
-## Последний выполненный блок block-29
+## Последний выполненный блок block-32
 
-Содержательно рассмотрено в этом блоке:6; исходы:{'NEW': 2, 'EXCLUDED': 3, 'UNRESOLVED': 1}. Точные новые/сохранённые primary даты и цитаты — в immutable new-reviews shard.
+Содержательно рассмотрено в этом блоке:3; исходы:{'NEW': 1, 'DUPLICATE': 2}. Точные новые/сохранённые primary даты и цитаты — в immutable new-reviews shard.
 
-- NEW: Clinique vétérinaire CMONVETO — Cabriès; https://cmonveto.fr/ https://cmonveto.fr/
-- EXCLUDED: Clinique vétérinaire du Moucherotte — Le Pont-de-Claix;  https://cliniqueveterinairedumoucherotte.com/
-- EXCLUDED: Monti’Vet — Clinique Montimaran — Béziers;  https://cliniqueveterinaire-beziers.com/les-services/
-- EXCLUDED: Monti’Vet — Cabinet Servian — Servian;  https://cliniqueveterinaire-beziers.com/les-services/
-- NEW: Clinique vétérinaire Argos Angers la Roseraie — Angers; https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/angers-la-roseraie-263 https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/angers-la-roseraie-263
-- UNRESOLVED: Clinique vétérinaire de la Corniche — identity permission scope unresolved — Toulon (saved lead identity, not clinical validation);  https://www.cliniqueveterinairedelacorniche.com/
+- NEW: Clinique vétérinaire Sirius — Couzeix; https://www.sirius.vet/ https://www.sirius.vet/
+- DUPLICATE: Établissement vétérinaire Bordeaux Sud — Villenave-d’Ornon; https://veterinaire-bordeauxsud.fr/services/oncologie-veterinaire/ https://veterinaire-bordeauxsud.fr/services/oncologie-veterinaire/
+- DUPLICATE: AgoraVet — Strasbourg;  https://www.agoravet.fr/nos-services/liste-de-nos-prestations/
 
 ## Текущее точное состояние rosters и исправлений
 
 Свежий Sevetys247 (234clinique+13cabinet) действительно получен заново, все URLunits имеют substantive branch review или явный уже полный sameidentityaliasFrontdeMer. Argos116 actualnamedroster разобран. Это завершение двух направлений, не Франции. AniCura29/VetPartners≈43 имеют только историческое заявление: реальные rosterpayloads не найдены по фактической parentfilename/provenancecheck, поэтому не объявлены восстановленными или полностью рассмотренными. Heldmaster не восстановлен через иной путь.
 SOLEA — одна из унаследованных70NEW, а не свежее открытие текущего исследования. Ошибочный freshflag sealed25 отозван append-only26; общийNEW не завышался. VIVANIMA — тот же inheritedUNRES→NEW, не дополнительныйprovider;6сеансов относятся к одному пациенту. Publisherdates постов не видны и остаютсяunknown; опубликованный периодjobSep2026–Sep2027 известен отдельно.
 
-В общем unprocessed=15: 0 именованных Argos и15 поимённый held-провайдер Saint-Max. Его ошибочно полученное тело не даёт processed/fully/clinicalsuccess; точный permissiongap сохранён вremaining. Все2756 exactheldURLunits доступны в указанном immutable source-guard payload с проверенным фактическим SHA, не выданы за2756 уникальных провайдеров.
+В общем unprocessed=23: 0 именованных Argos и23 поимённый held-провайдер Saint-Max. Его ошибочно полученное тело не даёт processed/fully/clinicalsuccess; точный permissiongap сохранён вremaining. Все2756 exactheldURLunits доступны в указанном immutable source-guard payload с проверенным фактическим SHA, не выданы за2756 уникальных провайдеров.
 
 ## Последнее фактически подтверждённое сохранение
 
