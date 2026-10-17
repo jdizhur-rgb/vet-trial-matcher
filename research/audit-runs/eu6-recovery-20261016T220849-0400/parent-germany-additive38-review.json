@@ -1,0 +1,61 @@
+{
+  "run_id": "eu6-recovery-20261016T220849-0400",
+  "slot": 4,
+  "country": "Germany",
+  "baseline_sha": "b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45",
+  "reviewer": "/root",
+  "recorded_at": "2026-10-17 07:50:48 UTC",
+  "kind": "PARENT_ADDITIVE_PROPOSAL_AND_PRIMARY_SCOPE_REVIEW",
+  "manual_record_review": {
+    "blocks": "19-38",
+    "NEW": 40,
+    "scope": "Read all new-value objects and relevant clinical/contact/current-role/access field quotes. Earlier oversized partially truncated outputs were not counted as complete; focused rereads completed those objects. Derived internal metadata fields were not repetitively copied. All 39 NEW through37 were read before this receipt; Huhn38 object, all non-null clinical field evidence and both minimal primary receipts now read.",
+    "country_complete_claimed": false
+  },
+  "chain_test": {
+    "blocks": 20,
+    "NEW": 40,
+    "UPDATE": 1,
+    "status": "PASS",
+    "amendments": ["25:Kahle staged NEW services and availability only", "36:Marzahn name evidence only, value unchanged"],
+    "test_correction": "First assertion compared entire base_proposal mapping against path/hash and failed on an additional descriptive meaning key. Corrected comparison checks both exact provenance keys without rejecting descriptive metadata; second execution PASS. No worker values were changed.",
+    "not_clinical_or_country_acceptance": true
+  },
+  "parent_primary_readings": [
+    {
+      "url": "https://www.zfk-ol.de/leistungen/chirurgie/",
+      "ref": "turn4417view0",
+      "scope": "Own tumour removal. Optional reCAPTCHA/Turnstile/media unlock and forms not loaded, solved or submitted. Initial Web crawl7months old is not fresh clinical proof; worker actual current17October minimal receipt supports current verification."
+    },
+    {
+      "url": "https://www.zfk-ol.de/leistungen/internistik/",
+      "ref": "turn4417view1",
+      "scope": "Own oncology diagnosis AND therapy supports Local oncology care, not unmentioned chemotherapy. Crawl age separate from worker current minimal proof."
+    },
+    {
+      "url": "https://tierarzt-allach.de/kontakt/",
+      "ref": "turn4417view2",
+      "scope": "Current Jutta Herrle qualified small-animal veterinarian, Hertwig7/80997Muenchen/0898144800; former Obermenzing address not second NEW."
+    },
+    {
+      "url": "https://tierarztpraxis-huhn.de/leistungen/chemotherapie/",
+      "refs": ["turn4439view2", "turn4441view0"],
+      "scope": "First result had10month crawl; subsequent actual retrieval reports today and explicitly chemotherapy ambulatory in own practice. Chemo ONLY: generic introduction naming surgery/radiation is not local allocation. Oral medication at home is not a separate home-visiting service. Current qualified team/contact from separate owned minimal receipt."
+    },
+    {
+      "url": "https://tierarztpraxis-chemnitz.de/tieraerztliche-leistungen/",
+      "refs": ["turn4439view3", "turn4441view1"],
+      "scope": "Own current service page explicitly tumour surgery AND performing chemotherapy. Resolves parent concern that field-selected quote initially showed only Tumorchirurgie. No efficacy/safety/protocol/dosing claims adopted. Ordinary slash removal redirect is not an access denial. This is Riedel & Riedel, not the separately held Eulitz/Meyer VET Chemnitz identity."
+    }
+  ],
+  "source_preservation": "Minimal public clinical/business facts and short quotes only; no unnecessary whole sites or optional component payloads. Source checked_at remains worker actual original date/time, not parent readback or reference date.",
+  "remote_proposal_authentication": {
+    "checkpoint": "071",
+    "data_sha": "d444b1fc50bfe0297356be27be7d8d0c530cee5d",
+    "all20_proposal_file_sha_equal_remote_ledger": true,
+    "last_proposal_sha256": "78954bb946d9a2423a754323763a75d680ee675ba905ddc796d1da007d808092"
+  },
+  "unresolved": "Country remains actively researched. Full cumulative national coverage/remaining/counter/semantic identity acceptance is still required; this receipt does not open publication gate.",
+  "country_research_accepted": false,
+  "production_publication": false
+}
