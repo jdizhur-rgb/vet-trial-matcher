@@ -1,12 +1,12 @@
 # Франция — национальная проверка: исследование продолжается
 
-Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`; baseline `b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45`. Первая отметка clock 2026-10-17 02:12:29 UTC; документ обновлён 2026-10-17T02:22:40.850269+00:00. **research_complete=false**.
+Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`; baseline `b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45`. Первая отметка clock 2026-10-17 02:12:29 UTC; документ обновлён 2026-10-17T02:26:30.445570+00:00. **research_complete=false**.
 
 ## Восстановлено и действительно выполнено
 
 Собран рабочий cumulative из собственных frozen candidate shards block01–09:171 именованный исход, старые76 полных,70 NEW относительно старого baseline,6 уже опубликованных,85 EXCLUDED,10 UNRESOLVED. Это унаследованная выполненная работа, не171 новое посещение. Полная текущая physical/supplemental и tele база разобрана; совпадения существующих6 идентичностей сохранены. Все70 унаследованных предложений восстановлены с полевыми доказательствами и исходными датами. Новых source-success dates от восстановления нет.
 
-Текущих собственных первичных review: 23; проверены доступные сохранённые направления Vet’Natura, VetFélin, Allées, Hérimoncourt. У Vet’Natura собственная хирургия кожных опухолей, названный ветеринар, точные адрес/телефон и запись подтверждены. Не приписаны химиотерапия или польза альтернативной медицины. Три других не продвигаются по фактически опубликованным услугам; это не доказательство отсутствия онкопомощи.
+Текущих собственных первичных review: 27; проверены доступные сохранённые направления Vet’Natura, VetFélin, Allées, Hérimoncourt. У Vet’Natura собственная хирургия кожных опухолей, названный ветеринар, точные адрес/телефон и запись подтверждены. Не приписаны химиотерапия или польза альтернативной медицины. Три других не продвигаются по фактически опубликованным услугам; это не доказательство отсутствия онкопомощи.
 
 Последний сообщённый Sevetys246/241-unvisited payload утрачен и НЕ восстановлен. Доступны старые234 source leads и остальные собственные сохранённые направления. Ограничения:48 точных исторических/поздних URL holds плюс2756 workflow targets (включая2 Faluns/Synervet), эквивалентные пути не повторяются. Synervet.NET отдельный held от разрешённых исторических .COM clinical pages.
 
@@ -42,7 +42,7 @@ Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`;
 
 ## Счётчики
 
-Регистр именованных кандидатов: assigned=294, processed=194 (171 унаследованный +23 текущих review), fully_verified=85, NEW=79, UPDATE=0, DUPLICATE=6, EXCLUDED=99, UNRESOLVED=10. Это пока частичный национальный регистр: неопределённое количество URL/поисковых ссылок и ещё не нормализованные rosters нельзя выдавать за уникальных провайдеров. Полный denominator остаётся собственным незавершённым действием. Новых открытий именно этого запуска0; новое предложение блока — ранее сохранённый непроверенный lead.
+Регистр именованных кандидатов: assigned=298, processed=198 (171 унаследованный +27 текущих review), fully_verified=87, NEW=81, UPDATE=0, DUPLICATE=6, EXCLUDED=99, UNRESOLVED=12. Это пока частичный национальный регистр: неопределённое количество URL/поисковых ссылок и ещё не нормализованные rosters нельзя выдавать за уникальных провайдеров. Полный denominator остаётся собственным незавершённым действием. Новых открытий именно этого запуска0; новое предложение блока — ранее сохранённый непроверенный lead.
 
 ## Именованные NEW и UPDATE
 
@@ -125,6 +125,8 @@ Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`;
 - Clinique vétérinaire Argos Grenoble Esplanade — Grenoble: Local oncology care. https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/grenoble-esplanade-53 (inherited_unprocessed_network_branch_now_primary_verified)
 - Clinique vétérinaire Argos Le Chambon-Feugerolles — Le Chambon-Feugerolles: Local oncology care. https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/le-chambon-feugerolles-239 (inherited_unprocessed_network_branch_now_primary_verified)
 - Clinique vétérinaire Argos Meylan — Meylan: Local oncology care. https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/meylan-91 (inherited_unprocessed_network_branch_now_primary_verified)
+- Clinique vétérinaire Sevetys Occitanie — Montpellier — Montpellier: Local oncology care. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-sevetys-occitanie-montpellier-mtp/ (inherited_unprocessed_saved_branch_now_primary_verified)
+- Sevetys France — oncology booking network — : Local oncology care. https://sevetys.fr/soins-veterinaires/oncologie/ (inherited_saved_network_source_newly_typed_access_route)
 
 ## Уже опубликованные, исключения и точные вопросы
 
@@ -243,6 +245,8 @@ Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`;
 - EXCLUDED: Clinique vétérinaire Argos Lyon Croix Rousse — Lyon. https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/lyon-croix-rousse-51 Own body describes routine medicine, diagnostic imaging and general surgery without a cancer-treatment act. External emergency routes not local oncology. Full own branch clinical text, current named veterinary team and local service list reviewed. No oncology addition, not a claim that treatment does not exist.
 - EXCLUDED: Clinique vétérinaire Argos Lyon Monplaisir — Lyon. https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/lyon-monplaisir-75 Own body and varying local list describe routine consultations, diagnostic imaging and elective surgery, with no cancer-specific act. Full own branch clinical text, current named veterinary team and local service list reviewed. No oncology addition, not a claim that treatment does not exist.
 - EXCLUDED: Cabinet vétérinaire Argos Lyon Valmy — Lyon. https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/lyon-valmy-52 Own branch body explicitly exemplifies ovariectomy/castration/general surgery, not cancer surgery; no local oncology service claim in reviewed section. Full own branch clinical text, current named veterinary team and local service list reviewed. No oncology addition, not a claim that treatment does not exist.
+- UNRESOLVED: Clinique vétérinaire Crozatier — référés/urgences — Paris. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-crozatier-referes-urgences-gardes-24h-24-paris-sta/ Current group oncology entry names this clinic, but full current own branch lists general/referral services without explicit oncology activity. Current named veterinary roles,61rueCrozatier and0143431713 are published; reviews of masses/operations are not primary clinic treatment statements. Specific local cancer act remains unverified.
+- UNRESOLVED: Vet’Hauts de France — Hénin-Beaumont — Hénin-Beaumont. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-vet-hauts-de-france-henin-beaumont-vhf/ Same-address general branch and separate NAC-labelled service page distinguished. General dog/cat branch local service list has no oncology; oncology appears on exact100%NAC service page. It must not be propagated to dogs/cats. Dog/cat cancer act and actual allocation remain unverified.
 
 ## Даты, QA и сохранение
 
@@ -254,21 +258,17 @@ research_complete=false: доступные сохранённые leads/rosters
 
 ## Раннее дополнение block02 и текущий pending-регистр
 
-Нормализован фактический сохранённый список Argos116: 100 ещё не пройденных уникальных ветвей после дедупликации по точному ветвевому URL. Поэтому исправленный assigned=294 (processed=194, unprocessed=100); прежний175 — только восстановленный тогда регистр, не национальный знаменатель. Ссылка URL не стала новым провайдером без названия/филиальной записи.
+Нормализован фактический сохранённый список Argos116: 100 ещё не пройденных уникальных ветвей после дедупликации по точному ветвевому URL. Поэтому исправленный assigned=298 (processed=198, unprocessed=100); прежний175 — только восстановленный тогда регистр, не национальный знаменатель. Ссылка URL не стала новым провайдером без названия/филиальной записи.
 
 Текущие первичные дополнения: Les Pléiades Toulon — собственная канцерологическая консультация и предложение лечения, Charlotte Denys Lyon2018/DE, narrow care; Argos Les Capucines Bourg-en-Bresse и Caluire Boucle — собственный локальный Cancerologie в разделе Nos services / Services médicaux и текущие названные ветеринары, контакты, приём. Никакие конкретные методы этим трём не присвоены. Ajaccio Îles/Sagone/Orchidées Baie-Mahault/Vetropical Les Abymes не продвигаются по опубликованному клиническому тексту. Generic mass removal и soft-tissue surgery не стали онкохирургией.
 
 Родитель подтвердил фактический backup/readback блока01 в02:18:04UTC: data da5c026499c3af652715ec8558b443d099b1f5c5; receipt9ab36dac4b49ccdb67fc1356168c2a5150eb584e; все10 listedpayloads +ready. Это исследования, не сайт.
 
-## Последний выполненный блок block-04
+## Последний выполненный блок block-05
 
-Содержательно рассмотрено в этом блоке:8; исходы:{'EXCLUDED': 5, 'NEW': 3}. Точные новые/сохранённые primary даты и цитаты — в immutable new-reviews shard.
+Содержательно рассмотрено в этом блоке:4; исходы:{'NEW': 2, 'UNRESOLVED': 2}. Точные новые/сохранённые primary даты и цитаты — в immutable new-reviews shard.
 
-- EXCLUDED: Clinique vétérinaire Argos Gannat — Gannat;  https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/gannat-252
-- NEW: Clinique vétérinaire Argos Grenoble Esplanade — Grenoble; https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/grenoble-esplanade-53 https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/grenoble-esplanade-53
-- EXCLUDED: Clinique vétérinaire Argos Grésy La Cascade — Grésy-sur-Aix;  https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/gresy-la-cascade-238
-- NEW: Clinique vétérinaire Argos Le Chambon-Feugerolles — Le Chambon-Feugerolles; https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/le-chambon-feugerolles-239 https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/le-chambon-feugerolles-239
-- EXCLUDED: Clinique vétérinaire Argos Lyon Croix Rousse — Lyon;  https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/lyon-croix-rousse-51
-- EXCLUDED: Clinique vétérinaire Argos Lyon Monplaisir — Lyon;  https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/lyon-monplaisir-75
-- EXCLUDED: Cabinet vétérinaire Argos Lyon Valmy — Lyon;  https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/lyon-valmy-52
-- NEW: Clinique vétérinaire Argos Meylan — Meylan; https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/meylan-91 https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/meylan-91
+- NEW: Clinique vétérinaire Sevetys Occitanie — Montpellier — Montpellier; https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-sevetys-occitanie-montpellier-mtp/ https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-sevetys-occitanie-montpellier-mtp/
+- NEW: Sevetys France — oncology booking network — ; https://sevetys.fr/soins-veterinaires/oncologie/ https://sevetys.fr/soins-veterinaires/oncologie/
+- UNRESOLVED: Clinique vétérinaire Crozatier — référés/urgences — Paris;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-crozatier-referes-urgences-gardes-24h-24-paris-sta/
+- UNRESOLVED: Vet’Hauts de France — Hénin-Beaumont — Hénin-Beaumont;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-vet-hauts-de-france-henin-beaumont-vhf/

@@ -1,6 +1,6 @@
 # Нидерланды — национальное исследование продолжается
 
-run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_sha=b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45; agent_id=/root/oct16_nl; started_at=2026-10-17T02:12:30Z. Обновлено 2026-10-17T02:25:29.842Z. research_complete=false; publication_permitted=false.
+run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_sha=b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45; agent_id=/root/oct16_nl; started_at=2026-10-17T02:12:30Z. Обновлено 2026-10-17T02:27:14.757Z. research_complete=false; publication_permitted=false.
 
 ## Наследие и восстановление
 
@@ -8,7 +8,7 @@ run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_
 
 ## Фактическая текущая работа
 
-{"assigned":266,"processed":235,"fully_verified":54,"EXCLUDED":158,"UNRESOLVED":14,"NEW":56,"DUPLICATE":4,"UPDATE":3,"PENDING":31} — cumulative уникальные provider/service identities, не URLs/aliases/query/referencegroups. Текущий run: 25 substantive provider reviews, 72 Web open/click requests, 11 actual queries. Failed/challenge не successful source verification.
+{"assigned":266,"processed":245,"fully_verified":54,"EXCLUDED":162,"UNRESOLVED":20,"NEW":56,"DUPLICATE":4,"UPDATE":3,"PENDING":21} — cumulative уникальные provider/service identities, не URLs/aliases/query/referencegroups. Текущий run: 35 substantive provider reviews, 81 Web open/click requests, 11 actual queries. Failed/challenge не successful source verification.
 
 | Provider / город | Решение / лечение | Официальный URL |
 |---|---|---|
@@ -37,6 +37,16 @@ run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_
 | Dierenkliniek Waddinxveen — Lotte Godijn / Waddinxveen | EXCLUDED;  | https://dierenkliniekwaddinxveen.nl/ |
 | Diergeneeskundig Centrum Breda / Breda | EXCLUDED;  | https://www.diergeneeskundigcentrumbreda.nl/ |
 | Max & Bella — dierenarts aan huis / — | EXCLUDED;  |  |
+| De Zwolse Dierenkliniek / Zwolle | EXCLUDED;  | https://dezwolsedierenkliniek.nl/behandelingen/ |
+| Dierenziekenhuis Dongen / Dierenkliniek Procureurweg / Dongen | EXCLUDED;  | https://www.dierenziekenhuisdongen.nl/ |
+| Dierenziekenhuis Groningen — Vechtstraat / Groningen | EXCLUDED;  | https://www.huisdierenkliniek.nl/ |
+| Diergeneeskundig Centrum West — Zwolle consult branch / Zwolle | EXCLUDED;  | https://diergeneeskundigcentrumwest.nl/dierenarts-zwolle/ |
+| Dierenkliniek Dordrecht independent / — | UNRESOLVED;  | https://dierenkliniekdordrecht.pro/ |
+| Butterhuizen / Thom van Dam / — | UNRESOLVED;  | https://www.dierenartsvandam.nl/ |
+| Dierenkliniek Middenwaard / — | UNRESOLVED;  | https://dierenkliniekmiddenwaard.nl/algemene-informatie/ |
+| Dierenartsenpraktijk Nieuwegein / Evidensia EDZ co-address / — | UNRESOLVED;  | https://oncowaf.be/nl/veterinarian/treatmentOption/electrochemotherapy |
+| Parkstad Dierenartsen Veendam / — | UNRESOLVED;  | https://parkstaddierenartsen.nl/behandelingen/ |
+| 030 dierenartsen / — | UNRESOLVED;  | https://030dierenartsen.nl/diensten/ |
 
 ## Покрытие
 
@@ -66,7 +76,7 @@ run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_
 
 ## Ограничения и точный остаток
 
-Все собственные exact inherited restrictions и неизвестные lost-route scopes удержаны в records/restoration-001.json; новый OnGo Anubis challenge — records/restriction-001.json. Никакой попытки обхода. Ключевые unresolved: VVKA named qualified vet; Middenwaard/Dokkum exactteam walls; Europawijk/Westhage postcode; VSC channel/geography; Осsehoofd branch allocation; DeArk clinical allocation; Bonaire/Statia/Saba cancer scope; full GVE master held. Это отдельно от доступных remaining workgroups и 31 необработанных identities в remaining.json. EXCLUDED означает nonpromotion, не отсутствие лечения.
+Все собственные exact inherited restrictions и неизвестные lost-route scopes удержаны в records/restoration-001.json; новый OnGo Anubis challenge — records/restriction-001.json. Никакой попытки обхода. Ключевые unresolved: VVKA named qualified vet; Middenwaard/Dokkum exactteam walls; Europawijk/Westhage postcode; VSC channel/geography; Осsehoofd branch allocation; DeArk clinical allocation; Bonaire/Statia/Saba cancer scope; full GVE master held. Это отдельно от доступных remaining workgroups и 21 необработанных identities в remaining.json. EXCLUDED означает nonpromotion, не отсутствие лечения.
 
 ## Даты и сохранность
 

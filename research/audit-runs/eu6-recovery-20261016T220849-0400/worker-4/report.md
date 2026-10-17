@@ -1,12 +1,12 @@
 # Германия — сверка восстановленного фронтира с текущей базой
 
-Run `eu6-recovery-20261016T220849-0400`, slot **4**, country **Germany**, baseline `b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45`, фактический исполнитель `/root/oct16_de`. Работа: 2026-10-17T02:11:49Z — 2026-10-17T02:16:04Z; это время документарной работы, не посещения клиник. Отчёт собственный, не копия отчёта другой страны.
+Run `eu6-recovery-20261016T220849-0400`, slot **4**, country **Germany**, baseline `b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45`, фактический исполнитель `/root/oct16_de`. Работа: 2026-10-17T02:11:49Z — 2026-10-17T02:21:26Z (America/New_York: 16октября2026,22:11:49–22:21:26 EDT,UTC−04:00); это время документарной работы, не посещения клиник. Отчёт собственный, не копия отчёта другой страны.
 
 ## Результат и граница завершения
 
-Весь доступный **конечный именной followup сопоставлен**: 102 реальных кандидата получили решения по сохранённым первичным доказательствам, поздним ledgers и текущим полным каталогам. Относительно текущего baseline **NEW0, UPDATE0 providers /0 fields**. 89 DUPLICATE/уже представленных маршрутов,4 EXCLUDED,9 UNRESOLVED (7 точных внешних provider questions +2 будущих открытия).75 имеют полный сохранённый clinical/core gate; **новых первичных полных проверок в этом запуске0**. Физические адреса с неизвестными координатами допустимы и не превращены в mobile.
+Весь доступный **конечный именной followup сопоставлен**: 102 реальных кандидата получили решения по сохранённым первичным доказательствам, поздним ledgers и текущим полным каталогам. Относительно текущего baseline **NEW0, UPDATE0 providers /0 fields**. 78 DUPLICATE/тождественных current identities,15 EXCLUDED (непродвижение ветвей и иных leads),9 UNRESOLVED (7 точных внешних provider questions +2 будущих открытия).75 имеют полный сохранённый clinical/core gate; **новых первичных полных проверок в этом запуске0**. Физические адреса с неизвестными координатами допустимы и не превращены в mobile.
 
-`finite_followup_complete=true`, собственный доступный остаток в позднем согласованном scope0. **`research_complete=false` и `coverage_complete=false` для национального доказательства**, поскольку свежий полный сетевой roster/клинический охват страны не установлен. Отсутствие доказательства не является отсутствием лечения. Переход к другой стране не разрешён. Полный национальный replay запрещён поздним owner continuation; это не замаскированный лимит времени или числа клиник.
+`finite_followup_complete=true`, собственный немедленно выполнимый остаток по конечному scope0; отдельный национальный clinical frontier имеет неразрешённый permission scope, а не доказанную внешнюю исчерпанность. **`research_complete=false` и `coverage_complete=false` для национального доказательства**, поскольку свежий полный сетевой roster/клинический охват страны не установлен. Отсутствие доказательства не является отсутствием лечения. Переход к другой стране не разрешён. Полный национальный replay запрещён поздним owner continuation; это не замаскированный лимит времени или числа клиник.
 
 До любого нового source request родителю сообщён точный конфликт: block07 оставлял171 professional/333 general-reference URL и национальные направления; поздние операции и Germany87/39 объявили доступный конечный проход законченным и запретили его перезапуск. Родитель подтвердил поздний scope и сверку102. **Новых source requests и поисковых запросов0**; outreach, формы, booking, paid APIs, trials, UI, commit/push/deploy, automations не выполнялись.
 
@@ -53,13 +53,40 @@ Run `eu6-recovery-20261016T220849-0400`, slot **4**, country **Germany**, baseli
 
 | Обязательное направление | Фактическое сохранённое основание | Что не установлено |
 |---|---|---|
-| Все16земель/21город, GP/current/new signals | Указанные query layers; поздний finish report описывает national01–04 и triage333 как305 reference+28clinical | Search/snippets не clinical gate, не полный перечень неизвестных практик; поздние national raw queries не полностью скопированы в input |
+| Все16земель/21город, GP/current/new signals | Указанные query layers; поздний finish report описывает national01–04 и triage333 как305 reference+28clinical | Search/snippets не clinical gate, не полный перечень неизвестных практик; точные16поздних national queries теперь восстановлены и прочитаны; это усиливает поиск, но не доказывает клиническую обработку всех leads |
 | Университеты FU Berlin,TiHo,JLU,Leipzig,LMU | Поздний finish report: доступные clinical/contact FU/TiHo/JLU/LMU; LMU exact baseline identity + EBVS/Weiterbildungsstätte corroboration | Leipzig clinical/contact native502 +sameURL Web502; реестр подтверждает роль, не local oncology modality |
 | Evidensia/AniCura и ветви | Именные ветви87/39; current catalog; exact restriction-scope-resolution | AniCura national roster403/aliases held; нельзя заявить свежий полный national roster. Старые837/854 queues потеряны |
 | filu |12 исторических branch leads;10 open leads представлены одним current network contact; official network Surgery/contact/booking proof | Ни одной местной cancer-surgery allocation этим не подтверждено;2 будущих открытия не активны |
 | Независимые/GP/хирургия/chemo |75 сохранённых qualifying core records, local named role/contact/access;73 exact core proposal comparisons | GP chemo допустима без board oncology; generic surgery/lump discussion/referral не cancer act |
 | RT/ECT | Исторические университетские/new-signal слои, NIICE already-live Surgery-only | NIICE chemo/ECT «in Kürze» не активны; диагностический MRI/CT или external RT referral не local radiation; новых RT/ECT0 |
 | Visiting/mobile/remote | callavet exact real service area без treatment-office адреса; VetOnkologie один intake identity; receiving Lichtenberge отдельная physical identity | Anke Wendel listing не доказывает самостоятельный mobile oncology service/личное назначение; remote legal office не клиника |
+
+## Восстановленный национальный frontier: фактическая дополнительная проверка
+
+Прочитаны12разрешённых curated файлов с remote Git `9d7268e510bdfae682b2b403791eab565eff2795`, branch `research/germany-finish-20261016`; все12SHA256 совпали с `input/germany-finish-research-supplement/provenance.json`. Это историческое восстановление, source visits0, denied raw outputs0. Точные national01–04 содержат16 запросов по16землям; это исполненный исторический поисковый слой, а не нынешняя клиническая проверка.
+
+Фактический `general-333-route-review.json` — metadata URL triage:28 clinical/provider routes и305 иных категорий, **не305 окончательно проверенных исключённых провайдеров**. `provider-28-route-review.json` прямо сохраняет unknownscope/no request для всех28. Поэтому старый national frontier не был доказан исчерпанным поздним конечным87/39. Это существенная поправка к прежней общей формулировке отчёта, не разрешение обходить ограничения.
+
+Наш `national-gap-audit.json` отдельно разбирает все28 URL/18hosts:
+-6filu navigation/booking URL уже ведут к одной существующей сети, но не идентичны physical branches;
+-1HaustierDocs route — существующий remote service;1TZN Bergheim reference — существующая клиника;1AniCura Potsdam management news — существующая identity, без нового treatment;
+-2AniCura national referral/roster routes held,1ECT network news и1историческая SHopeningnews не устанавливают branch allocation;
+-2generic remote leads (Tinodi,naftie) не имеют доказанного oncology/qualified-veterinary scope;2nononcology term/reference routes (animal psychology,microcurrent),1cold-plasma product и1historicalskin-tumourPDF не являются самостоятельными verified clinic additions;
+-9URLroutes дают **7конкретных provider-lead hypotheses**: Berlin Vets; Zentrum für Tierzahnheilkunde Hamburg (www/root aliases); VET Chemnitz (/besitzer/+/impressum/); Tierarztpraxis Svea Lucas,Schwerin; felmo tumor/cancer service; TebbeVet2026opening; The Vet House.
+
+| Не закрытый clinical/identity lead | Точный сохранённый URL | Недостающий факт |
+|---|---|---|
+| Berlin Vets | https://www.berlinvets.de/chirurgie | Local cancer act/current vet/contact/access; generic surgery недостаточно |
+| Zahnheilkunde Hamburg | https://www.tierzahnheilkunde-hamburg.de/ ; https://tierzahnheilkunde-hamburg.de/ | Одна host hypothesis, не2клиники; dentistry не доказательство cancer surgery |
+| VET Chemnitz | https://www.vet-chemnitz.de/besitzer/ ; https://www.vet-chemnitz.de/impressum/ | Одна provider hypothesis; текущая local oncology/core не проверены |
+| Svea Lucas,Schwerin | https://www.svea-lucas.de/kontakt/ | Контактный lead не clinical scope |
+| felmo | https://felmo.de/leistungen/tumor-und-krebsbehandlungen | Current oncology service/access/geography и delivery scope; Halleincident body исключён |
+| TebbeVet | https://www.tebbe-vet.de/neueroeffnung/ | Newopening signal не подтверждает cancer service/current intake |
+| The Vet House | https://www.thevethouse.de/ | Current cancer-care/core scope не установлен homepage title |
+
+Для этих hypotheses отсутствие same-host в supplied stores не доказывает NEW или отсутствие иной семантической записи. Они **не добавлены** к assigned102 и не посчитаны обработанными clinical providers. Их clinical review не выполнен; held-scope принадлежность/разрешённый независимый путь не установлен. Это **не подтверждённые внешние blockers с исчерпанными routes**, а permission-unknown/unperformed national evidence gap.
+
+Этот точный конфликт снова передан родителю **до любого source request**. Получена директива: закончить только разрешённое offline сопоставление, сохранить national gate=false, не выполнять held requests и не переигрывать87/39. Offline28review закончен; дальнейшая клиническая работа требует source-specific scope решения, не автоматического broad replay. Семь прежних external provider questions и2future openings остаются отдельным конечным остатком, **не всем остатком национального исследования**.
 
 Никакая строка таблицы не заменяет полный свежий roster и не выдаёт «нет клиник». Незавершённость национального доказательства оставлена явной; available finite followup и national completeness — разные измерения.
 
@@ -145,13 +172,41 @@ Run `eu6-recovery-20261016T220849-0400`, slot **4**, country **Germany**, baseli
 | Tierarztpraxis Markus Sliwon | Dormagen (Delrath) | Surgery | https://www.tierarzt-sliwon.de/ |
 | Tierärztin Karin Rieckhoff – Fachpraxis für Kleintiere und Zahnheilkunde | Rendsburg | Surgery | https://www.fachtierarzt-rendsburg.de/seite/697815/leistungen.html |
 
+78 DUPLICATE =77 current direct identities +1 remote. Десять отдельных filu branch leads и Tarp — **не дубликаты** сети/Schafflund; они относятся к15 EXCLUDED_NONPROMOTION (4 исходных +10 filu +1 Tarp), с сохранённым маршрутом обращения и без утверждения отсутствия местной помощи. Сетевое представление — route access, не семантическое слияние.
+
 LMU и две Bremen aliases также уже представлены, но не включены в75 как свежее полное клиническое доказательство. Tarp направляет сложные операции в существующий Schafflund; одна receiving identity не новое местоTarp. Anke Wendel lead разрешён в реальную принимающую Tierklinik auf dem Lichtenberge, не в новый самостоятельный visiting service.
 
 filu — **одна** `de-filu-network-germany`, `location_type=network/service_scope=network`, Surgery; service@filu.vet, https://my.filu.vet/book и https://www.filu.vet/standorte. Нет улицы/города/индекса/координат/расстояния и branch fanout. Оговорка остаётся: подтвердить филиал, врача и доступность при записи. Управляющий директор Anna Magdalena Naderer не приписана всем операциям. В10 branch leads local allocation=false.
 
+### Все11 непродвигаемых physical-branch leads поимённо
+
+Каждая строка — **отдельная физическая ветвь-кандидат**, не semantic duplicate принимающей клиники или сети. Решение не устанавливает отсутствие лечения; оно запрещает неподтверждённую local promotion.
+
+| Ветвь | Решение | Отдельный существующий маршрут | Сохранённый официальный URL |
+|---|---|---|---|
+| Nord-Ostsee Tarp | Referral/operations-transfer nonpromotion: Schafflund receiving route, не местная cancer surgery вTarp | Nord-Ostsee Tierärzte – Schafflund (`de-nord-ostsee-tieraerzte-schafflund`) | https://nordostsee-tieraerzte.de/kleintiere/onkologie ; https://nordostsee-tieraerzte.de/kleintiere/op_bereich ; https://nordostsee-tieraerzte.de/kontakt ; https://nordostsee-tieraerzte.de/ueber-uns/praxis |
+| filu Tierarzt München Wiener Platz | Branch nonpromotion: существующий filu network contact, local allocation=false | filu — Germany network (`de-filu-network-germany`) | https://www.filu.vet/standorte/wiener-platz ; https://www.filu.vet/standorte |
+| filu Tierarzt Hannover List | Branch nonpromotion: существующий filu network contact, local allocation=false | filu — Germany network (`de-filu-network-germany`) | https://www.filu.vet/standorte/hannover-list ; https://www.filu.vet/standorte |
+| filu Tierarzt Hamburg Hoheluft | Branch nonpromotion: существующий filu network contact, local allocation=false | filu — Germany network (`de-filu-network-germany`) | https://www.filu.vet/standorte/hamburg-hoheluft ; https://www.filu.vet/standorte |
+| filu Tierarzt Berlin Charlottenburg | Branch nonpromotion: существующий filu network contact, local allocation=false | filu — Germany network (`de-filu-network-germany`) | https://www.filu.vet/standorte/berlin ; https://www.filu.vet/standorte |
+| filu Tierarzt Frankfurt Nordend | Branch nonpromotion: существующий filu network contact, local allocation=false | filu — Germany network (`de-filu-network-germany`) | https://www.filu.vet/standorte/frankfurt ; https://www.filu.vet/standorte |
+| filu Tierarzt Köln Rudolfplatz | Branch nonpromotion: существующий filu network contact, local allocation=false | filu — Germany network (`de-filu-network-germany`) | https://www.filu.vet/standorte/koeln ; https://www.filu.vet/standorte |
+| filu Tierarzt Hamburg Winterhuder Weg | Branch nonpromotion: существующий filu network contact, local allocation=false | filu — Germany network (`de-filu-network-germany`) | https://www.filu.vet/standorte/hamburg ; https://www.filu.vet/standorte |
+| filu Tierarzt Düsseldorf Pempelfort | Branch nonpromotion: существующий filu network contact, local allocation=false | filu — Germany network (`de-filu-network-germany`) | https://www.filu.vet/standorte/dusseldorf ; https://www.filu.vet/standorte |
+| filu Tierarzt München Schwabing | Branch nonpromotion: существующий filu network contact, local allocation=false | filu — Germany network (`de-filu-network-germany`) | https://www.filu.vet/standorte/schwabing ; https://www.filu.vet/standorte |
+| filu Tierarzt München Theresienwiese | Branch nonpromotion: существующий filu network contact, local allocation=false | filu — Germany network (`de-filu-network-germany`) | https://www.filu.vet/standorte/theresienwiese ; https://www.filu.vet/standorte |
+
+### Три истинные current identity duplicates вне75таблицы
+
+| Именной кандидат | Текущая запись | Точный current адрес | Почему вне75full-core |
+|---|---|---|---|
+| LMU Kleintierklinik – Onkologie | `de-lmu-kleintierklinik-muenchen` | Veterinärstr.13,München | Сохранённое EBVS/Weiterbildungsstätte подтверждение роли, не новая полная local clinical review |
+| Kleintierklinik Bremen,Kaspar-Faber-Straße4 | `de-kleintierklinik-bremen` | Kaspar-Faber-Straße4,Bremen | Сохранённая baseline physical alias identity; не свежий полный clinical gate |
+| AniCura Bremen,StaderStraße35 | `de-anicura-bremen` | StaderStr.35,Bremen | Сохранённая baseline physical alias identity; не свежий полный clinical gate |
+
 ## Исключённые и нерешённые
 
-EXCLUDED4: Pferdeklinik Eutin и Pferdeklinik Bilsen — собственный horse-clinic scope, не dog/cat oncology; vetmrt.de — диагностическая MRI/CT referral practice, не therapeutic RT; KlickVet Quickborn — недостаточный собственный cancer-care сигнал, не доказательство отсутствия лечения. Их исходные официальные URLs/короткие цитаты/даты сохранены построчно. Новых exclusions production нет.
+Четыре исходных nonpromotion: Pferdeklinik Eutin и Pferdeklinik Bilsen — собственный horse-clinic scope, не dog/cat oncology; vetmrt.de — диагностическая MRI/CT referral practice, не therapeutic RT; KlickVet Quickborn — недостаточный собственный cancer-care сигнал, не доказательство отсутствия лечения. Их исходные официальные URLs/короткие цитаты/даты сохранены построчно. Дополнительно10filu и1Tarp — непродвижение отдельной physical branch при доступном внешнем/сетевом маршруте; не отсутствие услуги и не semantic duplicate. Всего EXCLUDED15. Новых exclusions production нет.
 
 Точные7 внешних provider questions:
 
@@ -175,8 +230,14 @@ EXCLUDED4: Pferdeklinik Eutin и Pferdeklinik Bilsen — собственный 
 
 Текущий запуск: source attempts0 / fresh successes0 / source-date writes0. Original successful dates сохранены; интеграция/реставрация не обновляет source freshness. filu inherited native range2026-10-17T00:23:36.070066–00:23:39.629910+00:00; ранние Web dates-only отдельно. Brockhaus recovered raw без точного request time остаётся null; file completion time не превращён в успешный визит. Транспортные/403 timestamps не выданы за successful clinical dates.
 
-Локально проверены JSON identity всех6файлов,102 уникальных candidate IDs, суммы89+4+9=102,75 full core без Tarp/filu branch inflation,0 new operations и0 differing core fields73 inherited proposals. Это документарная QA, не validator/build/production medical-audit PASS. Общие production валидаторы/скрипты за пределами собственного subtree не запускались.
+Локально проверены JSON identity всех6файлов,102 уникальных candidate IDs, суммы78+15+9=102,75 full core без Tarp/filu branch inflation,0 new operations и0 differing core fields73 inherited proposals. Это документарная QA, не validator/build/production medical-audit PASS. Общие production валидаторы/скрипты за пределами собственного subtree не запускались.
 
-Удалённый исходный backup, сообщённый родителем до запуска: branch `research/europe-recovery-eu6-recovery-20261016T220849-0400`, initial SHA `b159daa3ceb5de3feee6c539bc59ebd14a092eba`, содержит21старый архив. Предыдущий block07 data backup `089d7fa746c98d6aa6faae6a92bee17828dc1f91`, receipt `87f114dfb7381672e1ba302a89aaaa9a44aa336d` — исторические parent proofs. Этот worker не commit/push. Собственный immutable `checkpoints/block-01/ready.json` должен быть сериализован родителем и получить отдельный remote SHA/readback; до ответа родителя собственный новый remote backup **PENDING**, не заявлен успешным.
+Удалённый исходный backup, сообщённый родителем до запуска: branch `research/europe-recovery-eu6-recovery-20261016T220849-0400`, initial SHA `b159daa3ceb5de3feee6c539bc59ebd14a092eba`, содержит21старый архив. Исправленный parent-verified OLD block07 backup: checkpoint021, data `82bd8e0e1a4771d7217275f57eda1d9f2a5995c8`, receipt `67697594526d4a0e60e23f584ed212301d845115`. Ранее ошибочно приведённая пара checkpoint020 относится к более раннему состоянию, не к block07; эта неточность исправлена только новым immutable отчётом. Этот worker не commit/push. Первый interim `checkpoints/block-01/ready.json` (счётчики routes-asDUP89 затем исправлены immutable block02) должен быть сериализован родителем и получить отдельный remote SHA/readback; до ответа родителя собственный новый remote backup **PENDING**, не заявлен успешным.
 
-Итог блока01: конечный доступный Germany followup сопоставлен; production delta0. Национальное доказательство не объявлено завершённым. Родитель сообщил о предстоящем восстановлении разрешённого curated national evidence supplement; его фактическое чтение и оценка ещё не выполнены. Поэтому это interim checkpoint, не финальная приёмка страны. Ожидаю supplement, независимой parent review и remote-backup receipt; фоновых обещаний нет.
+Итог: конечный102followup и запрошенный offline28route national-gap audit выполнены; production delta0. Национальный клинический frontier не исчерпан и permission scope не доказан. Research_complete=false. Ожидаю независимой parent review и remote-backup receipt; фоновых обещаний нет.
+
+Block01 не переписывался. Block02 содержит append-only исправление11identity dispositions, итоговые frozen report/result/remaining и изменённые evidence/query/proposal shards; базовый candidate evidence наследуется из block01 с явным delta. Корректные итоговые счётчики78/15/9, не прежние89/4/9.
+
+Родитель подтвердил фактический research backup промежуточного block01: checkpoint003, 2026-10-17T02:20:28UTC, data SHA `61faedaadcaeae4c1a701df41f41b9e3b859c0e1`, receipt SHA `7433f0216d775e8c3e2bb781deaf5d8fc35c8fcb`. Это не приёмка прежних89DUP и не завершение страны. Backup итогового block02 до отдельного подтверждения PENDING.
+
+Append-only block03: по parent review добавлены все10filu+Tarp names и3currentduplicates, исправлен OLDblock07backup на021, добавлено времяAmerica/New_York и устранены literal-backslash-n артефакты. Block01/02 не менялись; клинические факты,75core и итоговые78DUP/15EXCL/9UNRES не изменены.
