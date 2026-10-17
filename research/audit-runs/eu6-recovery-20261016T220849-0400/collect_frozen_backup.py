@@ -27,6 +27,8 @@ def collect():
                 reason='Full third-party raw CGF PDF and unnecessary source-body asset are local-only. Use immutable block-17-safe derivative with same research facts, dates, URL/hash/page/short quote evidence. Not a rejection of clinical findings.'
             if RUN.name=='eu6-recovery-20261016T220849-0400' and item['slot']==5 and ready.relative_to(w).as_posix()=='checkpoints/block-28/ready.json':
                 reason='Worker identified semantic future/unsealed pending-payload dependency before parent acceptance. Use immutable block28-safe derivative with actual complete frozen pending payload and corrected references; original is not durable-evidence closure or independently accepted completion. Clinical findings are not rejected.'
+            if RUN.name=='eu6-recovery-20261016T220849-0400' and item['slot']==5 and ready.relative_to(w).as_posix()=='checkpoints/block-28-safe/ready.json':
+                reason='V1 derivative retains an operational candidate reference to quarantined original28. Snapshot030 preserves historical draft bytes, not accepted operational closure. Use block-28-safe-v2 only; no source facts/count/date change.'
             if reason:
                 quarantined.append({'ready':str(ready.relative_to(ROOT)),'reason':reason+' Not an independently accepted result.'})
                 continue
