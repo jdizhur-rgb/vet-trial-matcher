@@ -49,7 +49,7 @@ def collect():
                         permitted.append(candidate)
                     hits=[q for q in permitted if q.is_file() and not q.is_symlink() and q.resolve().is_relative_to(w.resolve()) and digest(q)==sha]
                     assert hits,("Missing/changed frozen file",name)
-                    q=hits[0];rel=str(q.relative_to(ROOT))
+                    q=hits[0].resolve();rel=str(q.relative_to(ROOT))
                     assert not(item['slot']==5 and q.relative_to(w).as_posix()=='receipts/block08-network-faluns-details.json'),('Cancelled approval batch content is quarantined, not backup material',rel)
                     assert not(q.parent==w and q.name in {'report.md','result.json','proposed_changes.json','evidence.json','queries.json','remaining.json'}),('Mutable root file cannot be frozen checkpoint target',rel)
                     if rel in uploaded:assert uploaded[rel]==sha,("Previously backed immutable file changed",rel)

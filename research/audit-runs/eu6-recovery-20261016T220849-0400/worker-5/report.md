@@ -1,12 +1,12 @@
 # Франция — национальная проверка: исследование продолжается
 
-Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`; baseline `b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45`. Первая отметка clock 2026-10-17 02:12:29 UTC; документ обновлён 2026-10-17T02:37:01.307876+00:00. **research_complete=false**.
+Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`; baseline `b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45`. Первая отметка clock 2026-10-17 02:12:29 UTC; документ обновлён 2026-10-17T02:47:16.085614+00:00. **research_complete=false**.
 
 ## Восстановлено и действительно выполнено
 
 Собран рабочий cumulative из собственных frozen candidate shards block01–09:171 именованный исход, старые76 полных,70 NEW относительно старого baseline,6 уже опубликованных,85 EXCLUDED,10 UNRESOLVED. Это унаследованная выполненная работа, не171 новое посещение. Полная текущая physical/supplemental и tele база разобрана; совпадения существующих6 идентичностей сохранены. Все70 унаследованных предложений восстановлены с полевыми доказательствами и исходными датами. Новых source-success dates от восстановления нет.
 
-Текущих собственных первичных review: 65; проверены доступные сохранённые направления Vet’Natura, VetFélin, Allées, Hérimoncourt. У Vet’Natura собственная хирургия кожных опухолей, названный ветеринар, точные адрес/телефон и запись подтверждены. Не приписаны химиотерапия или польза альтернативной медицины. Три других не продвигаются по фактически опубликованным услугам; это не доказательство отсутствия онкопомощи.
+Текущих собственных первичных review: 77; проверены доступные сохранённые направления Vet’Natura, VetFélin, Allées, Hérimoncourt. У Vet’Natura собственная хирургия кожных опухолей, названный ветеринар, точные адрес/телефон и запись подтверждены. Не приписаны химиотерапия или польза альтернативной медицины. Три других не продвигаются по фактически опубликованным услугам; это не доказательство отсутствия онкопомощи.
 
 Последний сообщённый Sevetys246/241-unvisited payload утрачен и НЕ восстановлен. Доступны старые234 source leads и остальные собственные сохранённые направления. Ограничения:48 точных исторических/поздних URL holds плюс2756 workflow targets (включая2 Faluns/Synervet), эквивалентные пути не повторяются. Synervet.NET отдельный held от разрешённых исторических .COM clinical pages.
 
@@ -42,7 +42,7 @@ Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`;
 
 ## Счётчики
 
-Регистр именованных кандидатов: assigned=336, processed=236 (171 унаследованный +65 текущих review), fully_verified=91, NEW=85, UPDATE=0, DUPLICATE=6, EXCLUDED=133, UNRESOLVED=12. Это пока частичный национальный регистр: неопределённое количество URL/поисковых ссылок и ещё не нормализованные rosters нельзя выдавать за уникальных провайдеров. Полный denominator остаётся собственным незавершённым действием. Новых индивидуальных провайдеров, впервые идентифицированных в текущем сохранённом запуске:4; новое предложение блока — ранее сохранённый непроверенный lead.
+Регистр именованных кандидатов: assigned=348, processed=248 (171 унаследованный +77 текущих review), fully_verified=91, NEW=85, UPDATE=0, DUPLICATE=6, EXCLUDED=145, UNRESOLVED=12. Это пока частичный национальный регистр: неопределённое количество URL/поисковых ссылок и ещё не нормализованные rosters нельзя выдавать за уникальных провайдеров. Полный denominator остаётся собственным незавершённым действием. Новых индивидуальных провайдеров, впервые идентифицированных в текущем сохранённом запуске:4; новое предложение блока — ранее сохранённый непроверенный lead.
 
 ## Именованные NEW и UPDATE
 
@@ -285,6 +285,18 @@ Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`;
 - EXCLUDED: Clinique vétérinaire d'Azay-le-Rideau — Azay-le-Rideau. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-d-azay-le-rideau-aza/ Full exact own clinical body/team/local-service scope reviewed. Routine medicine, diagnostics, general surgery and physical/alternative therapies do not establish explicit anticancer act. No oncology addition, not treatment-absence proof.
 - EXCLUDED: Clinique vétérinaire d'Herbignac — Herbignac. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-d-herbignac-her/ Full exact own clinical body/team/local-service scope reviewed. Routine medicine, diagnostics, general surgery and physical/alternative therapies do not establish explicit anticancer act. No oncology addition, not treatment-absence proof.
 - EXCLUDED: Clinique vétérinaire d'Houdain — Houdain. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-d-houdain-hod/ Full exact own clinical body/team/local-service scope reviewed. Routine medicine, diagnostics, general surgery and physical/alternative therapies do not establish explicit anticancer act. No oncology addition, not treatment-absence proof.
+- EXCLUDED: Clinique vétérinaire de Barjols — Barjols. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-de-barjols-brj/ Entire retained own branch About/team/local-services clinical body substantively reviewed on resumption. Published general medicine, soft-tissue surgery and diagnostic/supportive services do not establish an explicit local cancer-treatment act. This is nonpromotion on the reviewed scope, never treatment-absence or closure proof.
+- EXCLUDED: Clinique vétérinaire de Beauvais — Beauvais. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-de-beauvais-bea/ Entire retained own branch About/team/local-services clinical body substantively reviewed on resumption. Published general medicine, soft-tissue surgery and diagnostic/supportive services do not establish an explicit local cancer-treatment act. This is nonpromotion on the reviewed scope, never treatment-absence or closure proof.
+- EXCLUDED: Clinique vétérinaire de Bois d'Arcy — Bois-d'Arcy. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-de-bois-d-arcy-boi/ Entire retained own branch About/team/local-services clinical body substantively reviewed on resumption. Published general medicine, soft-tissue surgery and diagnostic/supportive services do not establish an explicit local cancer-treatment act. This is nonpromotion on the reviewed scope, never treatment-absence or closure proof.
+- EXCLUDED: Clinique vétérinaire de Brou-Sur-Chantereine — Brou-sur-Chantereine. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-de-brou-sur-chantereine-bro/ Entire retained own branch About/team/local-services clinical body substantively reviewed on resumption. Published general medicine, soft-tissue surgery and diagnostic/supportive services do not establish an explicit local cancer-treatment act. This is nonpromotion on the reviewed scope, never treatment-absence or closure proof.
+- EXCLUDED: Clinique vétérinaire de Bussy Saint-Georges — Bussy-Saint-Georges. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-de-bussy-saint-georges-bus/ Entire retained own branch About/team/local-services clinical body substantively reviewed on resumption. Published general medicine, soft-tissue surgery and diagnostic/supportive services do not establish an explicit local cancer-treatment act. This is nonpromotion on the reviewed scope, never treatment-absence or closure proof.
+- EXCLUDED: Clinique vétérinaire de la Bascule - Caudry — Caudry. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-de-caudry-cad/ Entire retained own branch About/team/local-services clinical body substantively reviewed on resumption. Published general medicine, soft-tissue surgery and diagnostic/supportive services do not establish an explicit local cancer-treatment act. This is nonpromotion on the reviewed scope, never treatment-absence or closure proof.
+- EXCLUDED: Clinique vétérinaire de Château-Renault — Château-Renault. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-de-chateau-renault-cha/ Entire retained own branch About/team/local-services clinical body substantively reviewed on resumption. Published general medicine, soft-tissue surgery and diagnostic/supportive services do not establish an explicit local cancer-treatment act. This is nonpromotion on the reviewed scope, never treatment-absence or closure proof.
+- EXCLUDED: Clinique vétérinaire de Clichy — Clichy. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-de-clichy-cli/ Entire retained own branch About/team/local-services clinical body substantively reviewed on resumption. Published general medicine, soft-tissue surgery and diagnostic/supportive services do not establish an explicit local cancer-treatment act. This is nonpromotion on the reviewed scope, never treatment-absence or closure proof.
+- EXCLUDED: Clinique vétérinaire de Cognac — Cognac. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-de-cognac-cog/ Entire retained own branch About/team/local-services clinical body substantively reviewed on resumption. Published general medicine, soft-tissue surgery and diagnostic/supportive services do not establish an explicit local cancer-treatment act. This is nonpromotion on the reviewed scope, never treatment-absence or closure proof.
+- EXCLUDED: Clinique vétérinaire de Draguignan — Draguignan. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-de-draguignan-drg/ Entire retained own branch About/team/local-services clinical body substantively reviewed on resumption. Published general medicine, soft-tissue surgery and diagnostic/supportive services do not establish an explicit local cancer-treatment act. This is nonpromotion on the reviewed scope, never treatment-absence or closure proof.
+- EXCLUDED: Clinique vétérinaire de Drancy — Drancy. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-de-drancy-dra/ Entire retained own branch About/team/local-services clinical body substantively reviewed on resumption. Published general medicine, soft-tissue surgery and diagnostic/supportive services do not establish an explicit local cancer-treatment act. This is nonpromotion on the reviewed scope, never treatment-absence or closure proof.
+- EXCLUDED: Clinique vétérinaire de Duras — Duras. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-de-duras-dur/ Entire retained own branch About/team/local-services clinical body substantively reviewed on resumption. Published general medicine, soft-tissue surgery and diagnostic/supportive services do not establish an explicit local cancer-treatment act. This is nonpromotion on the reviewed scope, never treatment-absence or closure proof.
 
 ## Даты, QA и сохранение
 
@@ -296,7 +308,7 @@ research_complete=false: доступные сохранённые leads/rosters
 
 ## Раннее дополнение block02 и текущий pending-регистр
 
-Нормализован фактический сохранённый список Argos116: 100 ещё не пройденных уникальных ветвей после дедупликации по точному ветвевому URL. Поэтому исправленный assigned=336 (processed=236, unprocessed=100); прежний175 — только восстановленный тогда регистр, не национальный знаменатель. Ссылка URL не стала новым провайдером без названия/филиальной записи.
+Нормализован фактический сохранённый список Argos116: 100 ещё не пройденных уникальных ветвей после дедупликации по точному ветвевому URL. Поэтому исправленный assigned=348 (processed=248, unprocessed=100); прежний175 — только восстановленный тогда регистр, не национальный знаменатель. Ссылка URL не стала новым провайдером без названия/филиальной записи.
 
 Текущие первичные дополнения: Les Pléiades Toulon — собственная канцерологическая консультация и предложение лечения, Charlotte Denys Lyon2018/DE, narrow care; Argos Les Capucines Bourg-en-Bresse и Caluire Boucle — собственный локальный Cancerologie в разделе Nos services / Services médicaux и текущие названные ветеринары, контакты, приём. Никакие конкретные методы этим трём не присвоены. Ajaccio Îles/Sagone/Orchidées Baie-Mahault/Vetropical Les Abymes не продвигаются по опубликованному клиническому тексту. Generic mass removal и soft-tissue surgery не стали онкохирургией.
 
@@ -306,18 +318,19 @@ research_complete=false: доступные сохранённые leads/rosters
 
 Из NEW=85: 70 унаследованных полных предложений с сохранёнными source dates; 11 сохранённых индивидуальных направлений/сетевого маршрута доведены до предложения текущей проверкой; 4 провайдера впервые идентифицированы в текущем сохранённом запуске по свежему Sevetys roster, индивидуальных URL которых в retainedinput не найдено. Это не утверждение открытия клиники в2026году и не восстановление утраченного246payload. Ранние0 discovery-counters в sealed07/08 были излишне консервативной категоризацией genericnetworkdirection; append-only discovery-amendment исправляет происхождение, не общее NEW и не даты посещений.
 
-## Последний выполненный блок block-09
+## Последний выполненный блок block-10
 
-Содержательно рассмотрено в этом блоке:11; исходы:{'EXCLUDED': 10, 'NEW': 1}. Точные новые/сохранённые primary даты и цитаты — в immutable new-reviews shard.
+Содержательно рассмотрено в этом блоке:12; исходы:{'EXCLUDED': 12}. Точные новые/сохранённые primary даты и цитаты — в immutable new-reviews shard.
 
-- EXCLUDED: Clinique vétérinaire Chab'Leman vet - Douvaine — Douvaine;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-chableman-vet-douvaine-dou/
-- EXCLUDED: Clinique vétérinaire Paris 18 - Clignancourt — Paris;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-clignancourt-paris-squ/
-- EXCLUDED: Clinique vétérinaire Compendium - Communay — Communay;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-compendium-communay-com/
-- EXCLUDED: Clinique vétérinaire d'Alfortville — Alfortville;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-d-alfortville-alf/
-- EXCLUDED: Clinique vétérinaire d'Amilly — Amilly;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-d-amilly-ami/
-- EXCLUDED: Clinique vétérinaire d'Artois - Olivet — Olivet;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-d-artois-olivet-oli/
-- EXCLUDED: Clinique vétérinaire d'Asnières-sur-Seine — Asnières-sur-Seine;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-d-asnieres-sur-seine-asn/
-- NEW: Clinique vétérinaire d'Aÿ-Champagne — Aÿ-Champagne; https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-d-ay-champagne-ayc/ https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-d-ay-champagne-ayc/
-- EXCLUDED: Clinique vétérinaire d'Azay-le-Rideau — Azay-le-Rideau;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-d-azay-le-rideau-aza/
-- EXCLUDED: Clinique vétérinaire d'Herbignac — Herbignac;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-d-herbignac-her/
-- EXCLUDED: Clinique vétérinaire d'Houdain — Houdain;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-d-houdain-hod/
+- EXCLUDED: Clinique vétérinaire de Barjols — Barjols;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-de-barjols-brj/
+- EXCLUDED: Clinique vétérinaire de Beauvais — Beauvais;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-de-beauvais-bea/
+- EXCLUDED: Clinique vétérinaire de Bois d'Arcy — Bois-d'Arcy;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-de-bois-d-arcy-boi/
+- EXCLUDED: Clinique vétérinaire de Brou-Sur-Chantereine — Brou-sur-Chantereine;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-de-brou-sur-chantereine-bro/
+- EXCLUDED: Clinique vétérinaire de Bussy Saint-Georges — Bussy-Saint-Georges;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-de-bussy-saint-georges-bus/
+- EXCLUDED: Clinique vétérinaire de la Bascule - Caudry — Caudry;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-de-caudry-cad/
+- EXCLUDED: Clinique vétérinaire de Château-Renault — Château-Renault;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-de-chateau-renault-cha/
+- EXCLUDED: Clinique vétérinaire de Clichy — Clichy;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-de-clichy-cli/
+- EXCLUDED: Clinique vétérinaire de Cognac — Cognac;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-de-cognac-cog/
+- EXCLUDED: Clinique vétérinaire de Draguignan — Draguignan;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-de-draguignan-drg/
+- EXCLUDED: Clinique vétérinaire de Drancy — Drancy;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-de-drancy-dra/
+- EXCLUDED: Clinique vétérinaire de Duras — Duras;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-de-duras-dur/
