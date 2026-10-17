@@ -1,0 +1,90 @@
+{
+  "data_main_sha": "5b01073d4c7f0ccff07428a692d5c3330b1f098b",
+  "pr_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/pull/23",
+  "publication_branch_head": "e08822ae63900006229ca6d96f64d6dd52d44811",
+  "receipt_written_at": "2026-10-17T00:30:11.438150+00:00",
+  "main_readback": "All23 publication files exactly match verified local files; sourceinventory timestamp independently read back from main",
+  "baseline_invariant": "All900 prior compiled records unchanged in every field; independent parentQA PASS",
+  "changes": {
+    "new_network": 1,
+    "new_physical": 0,
+    "new_mobile": 0,
+    "new_remote": 0,
+    "existing_provider_field_updates": 0,
+    "filu_leads_represented_by_network": 10
+  },
+  "counts": {
+    "global_listings": 901,
+    "global_fixed_mobile_locations": 900,
+    "global_network_listings": 1,
+    "germany_listings": 239,
+    "germany_physical": 237,
+    "germany_mobile": 1,
+    "germany_network": 1,
+    "remote_consultations": 64,
+    "remaining_external_provider_confirmations": 7,
+    "remaining_future_openings": 2
+  },
+  "source_dates": {
+    "official_unique_routes": 4,
+    "native_attempts": 4,
+    "native_successes": 4,
+    "native_attempt_min": "2026-10-17T00:23:36.070066+00:00",
+    "native_attempt_max": "2026-10-17T00:23:39.629910+00:00",
+    "persisted_source_id": "de-filu-network-germany",
+    "inventory_last_checked": "2026-10-17",
+    "inventory_last_checked_at": "2026-10-17T00:23:36.070066+00:00",
+    "remote_timestamp_readback": "PASS",
+    "earlier_web_requests": "date-only precision; retained separately",
+    "branch_source_dates_renewed": false
+  },
+  "workflow_runs": [
+    {
+      "id": 38986491001,
+      "name": "Check copied evidence keys",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/38986491001"
+    },
+    {
+      "id": 38986490979,
+      "name": "Full catalog integrity audit",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/38986490979"
+    },
+    {
+      "id": 38986491042,
+      "name": "Build and deploy static site",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/38986491042"
+    }
+  ],
+  "production": [
+    {
+      "url": "https://vettrialfinder.com/matcher/centers/",
+      "checked_at": "2026-10-17T00:29:12.012487+00:00",
+      "status": 200,
+      "bytes": 880401,
+      "sha256": "7f567e239a0d1510618297b570a57ceb5145594722742e6f4547961cf2159139",
+      "local_sha256": "7f567e239a0d1510618297b570a57ceb5145594722742e6f4547961cf2159139",
+      "byte_equal_local_wrapped_build": true
+    },
+    {
+      "url": "https://vettrialfinder.com/online-oncology-consultations/",
+      "checked_at": "2026-10-17T00:29:15.310546+00:00",
+      "status": 200,
+      "bytes": 172029,
+      "sha256": "449d48ff730f125baca3dc6e5c0450ae07a0dbc75253d4bcd404d9ac776c3d5c",
+      "local_sha256": "449d48ff730f125baca3dc6e5c0450ae07a0dbc75253d4bcd404d9ac776c3d5c",
+      "byte_equal_local_wrapped_build": true
+    }
+  ],
+  "production_filu_checks": "Exactly1 explicit network card; email/book/finder/disclaimer present; no office address or coordinates; surgery only",
+  "production_runtime_filter_test": "PASS actual downloaded publicHTML; Germany+Cancer surgery and Berlin/Munich/Hamburg; noChemotherapy and noNetworkDistance",
+  "independent_parent_live_check": "PASS fresh fetch exact880401 bytes/SHA and exactly1filu card with contacts/type/caveat",
+  "fully_closed_country": false,
+  "messages_or_bookings_submitted": false,
+  "raw_source_dumps_published": false
+}
