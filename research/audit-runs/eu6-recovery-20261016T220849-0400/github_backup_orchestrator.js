@@ -27,6 +27,10 @@ extras.push(base+"/report-alias-scope-addendum-correction.json");
 extras.push(base+"/controller-fr28-dependency-review.json");
 extras.push(base+"/parent-fr28-v2-closure-proof.json");
 extras.push(base+"/parent-germany-secondary-reference-review.json");
+extras.push(base+"/parent-lmu-credential-and-nrw-metadata-review.json");
+extras.push(base+"/controller-progress-032.json");
+extras.push(base+"/controller-operational-dependency-guard.json");
+extras.push(base+"/parent-vetlink-permission-incident-review.json");
 const packCode="import pathlib,json,subprocess,hashlib,tarfile,zstandard,re\n"+
 "m=json.loads(pathlib.Path("+JSON.stringify(manifestPath)+").read_text()); expected={x['path']:x['sha256'] for x in m['files']}\n"+
 "controller_paths=["+[manifestPath,...extras].map(x=>JSON.stringify(x)).join(",")+"];controller_hashes={p:hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest() for p in controller_paths};expected.update(controller_hashes);paths=list(expected)\n"+

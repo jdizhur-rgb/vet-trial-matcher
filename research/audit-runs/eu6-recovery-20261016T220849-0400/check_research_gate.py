@@ -1,10 +1,12 @@
 """Fail closed before site integration; research-only backups are independent."""
-import hashlib,json,pathlib,sys
+import hashlib,json,pathlib,sys,re
 RUN=pathlib.Path(__file__).resolve().parent
 def check():
     assignments=json.loads((RUN/'assignments.json').read_text())['assignments']
     assert len(assignments)==6,'Six fixed country assignments required'
     issues=[]
+    ledger=json.loads((RUN/'backups/ledger.json').read_text())
+    verified_data_shas={x['data_sha'] for x in ledger['checkpoints']}
     for item in assignments:
         path=RUN/f"worker-acceptance-{item['slot']}.json"
         if not path.exists():
@@ -18,11 +20,13 @@ def check():
             assert v.get('research_complete') is True,'Research unfinished'
             assert v.get('accessible_remaining_count')==0,'Available research frontier remains'
             assert v.get('full_report_content_reviewed') is True,'Substantive Russian report not reviewed'
+            assert v.get('own_substantive_final_received') is True,'Own substantive worker final message not received/reviewed'
             assert v.get('evidence_identity_counter_reviewed') is True,'Evidence/identity/count review missing'
             report=(RUN/v['frozen_report_relative_path']).resolve()
             assert report.is_relative_to((RUN/f"worker-{item['slot']}").resolve()),'Wrong worker report scope'
             assert hashlib.sha256(report.read_bytes()).hexdigest()==v['frozen_report_sha256'],'Accepted report changed'
-            assert v.get('remote_backup_verified_sha'),'No verified remote research checkpoint'
+            assert re.fullmatch(r'[a-f0-9]{40}',v.get('remote_backup_verified_sha','')),'No valid verified remote research checkpoint SHA'
+            assert v['remote_backup_verified_sha'] in verified_data_shas,'Acceptance backup absent from verified remote ledger'
         except (AssertionError,KeyError,OSError) as e:
             issues.append({'slot':item['slot'],'country':item['country'],'reason':str(e)})
     print(json.dumps({'run_id':RUN.name,'site_integration_allowed':not issues,'research_only_backup_allowed':True,'issues':issues},ensure_ascii=False))

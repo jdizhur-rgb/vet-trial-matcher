@@ -3,6 +3,23 @@ import json,pathlib,hashlib,datetime,re
 ROOT=pathlib.Path(__file__).resolve().parents[3]
 RUN=pathlib.Path(__file__).resolve().parent
 def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def verify_operational_refs(values,known,worker,root,read_hash=digest):
+    """Check known minimal JSON dependencies only; never probe unknown/quarantined bodies."""
+    checked=[]
+    for value in values:
+        assert isinstance(value,str),('Non-string operational reference',value)
+        pure=pathlib.PurePosixPath(value)
+        assert not pure.is_absolute() and '..' not in pure.parts,('Escaping operational reference',value)
+        assert pure.suffix=='.json',('Not minimal JSON operational payload',value)
+        assert not any(value.startswith(x) for x in ('checkpoints/block-17/','checkpoints/block-28/','checkpoints/block-28-safe/')),('Quarantined historical dependency',value)
+        target=worker/pure
+        assert target.resolve().is_relative_to(worker.resolve()),('Cross-worker dependency',value)
+        rel=target.resolve().relative_to(root.resolve()).as_posix()
+        assert rel in known,('Dependency not in verified ledger or accepted frozen manifest',rel)
+        assert target.is_file() and not target.is_symlink(),('Missing/unsafe operational dependency',rel)
+        assert read_hash(target)==known[rel],('Operational dependency hash changed',rel)
+        checked.append({'path':rel,'sha256':known[rel]})
+    return checked
 def collect():
     a=json.loads((RUN/"assignments.json").read_text())
     lp=RUN/"backups/ledger.json"
@@ -79,6 +96,22 @@ def collect():
                     if slot not in reports or (report['logical_block'],report['ready_file_mtime_ns'])>(reports[slot]['logical_block'],reports[slot]['ready_file_mtime_ns']):reports[slot]=report
                 blocks.append({"slot":item["slot"],"country":item["country"],"ready":rr,"ready_sha256":rs,"file_count":len(resolved),"ready_file_mtime_ns":ready_mtime})
             except Exception as e:errors.append({"slot":item['slot'],"country":item['country'],"ready":str(ready.relative_to(ROOT)),"error":str(e)})
-    return {"run_id":RUN.name,"collected_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"files":list(files.values()),"ready_blocks":blocks,"latest_frozen_reports":reports,"errors":errors,"quarantined":quarantined,"new_file_count":len(files),"publication":False}
+    closure=[]
+    if RUN.name=='eu6-recovery-20261016T220849-0400' and '5' in reports:
+        try:
+            worker=ROOT/next(x['worker_directory'] for x in a['assignments'] if x['slot']==5)
+            rp=pathlib.Path(reports['5']['source_path']).parent/'result.json'
+            known={**uploaded,**{p:v['sha256'] for p,v in files.items()}}
+            assert rp.as_posix() in known,('Latest result not frozen or remote',rp.as_posix())
+            assert digest(ROOT/rp)==known[rp.as_posix()]
+            result=json.loads((ROOT/rp).read_text())
+            item=next(x for x in a['assignments'] if x['slot']==5)
+            for k in ['run_id','slot','country','baseline_sha','agent_id']:assert result[k]==item[k]
+            refs=result.get('candidate_payload_references',[])+result.get('pending_payload_references',[])
+            assert refs,'Latest France result omitted operational payload references'
+            closure=verify_operational_refs(refs,known,worker,ROOT)
+        except Exception as e:
+            errors.append({'slot':5,'country':'France','stage':'latest-operational-dependency-closure','error':str(e)})
+    return {"run_id":RUN.name,"collected_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"files":list(files.values()),"ready_blocks":blocks,"latest_frozen_reports":reports,"errors":errors,"quarantined":quarantined,"latest_france_operational_dependencies_verified":closure,"new_file_count":len(files),"publication":False}
 if __name__=="__main__":print(json.dumps(collect(),ensure_ascii=False))
 

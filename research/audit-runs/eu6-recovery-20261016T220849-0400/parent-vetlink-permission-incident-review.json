@@ -1,0 +1,44 @@
+{
+  "run_id": "eu6-recovery-20261016T220849-0400",
+  "slot": 5,
+  "country": "France",
+  "reviewed_by": "/root",
+  "reviewed_at": "2026-10-17 04:24:43 UTC",
+  "kind": "ACTUAL_PROCEDURAL_DEVIATION_METADATA_ONLY",
+  "worker_report": "worker-5/checkpoints/restriction-vetlink-procedural-20261017T0422/restriction.json",
+  "first_403": {
+    "url": "https://vetlink-sudouest.com/",
+    "at": "2026-10-17T04:21:53.566305+00:00"
+  },
+  "later_requests_after_first_403": [
+    {
+      "url": "https://vetlink-sudouest.com/tarifs",
+      "at": "2026-10-17T04:21:59.200198+00:00",
+      "status": 403
+    },
+    {
+      "url": "https://vetlink-sudouest.com/a-propos",
+      "at": "2026-10-17T04:22:04.842468+00:00",
+      "status": 403
+    }
+  ],
+  "queued_unknown": {
+    "url": "https://vetlink-sudouest.com/zones-d-intervention",
+    "attempted": null,
+    "status": null
+  },
+  "stop_observed": {
+    "action": "worker one stop-only Ctrl-C",
+    "exit_code": 130,
+    "own_process_lookup": "no PID, exit1; observed before parent no-poll instruction"
+  },
+  "denied_body_parent_read": false,
+  "denied_body_worker_use": false,
+  "body_hash_or_recovery": false,
+  "clinical_credit": 0,
+  "successful_date_credit": 0,
+  "cause": "Already-running preapproved native loop did not internally stop on first403; subsequent same-provider requests executed before worker observed restriction.",
+  "correction_review": "Parent read immutable reader and mocked401403429 tests, each4planned→1call/0later/0network. Reader now breaks internally at firstaccessstop. New no-auto-redirect and destination guard requested for remaining calls, pending additive child proof.",
+  "hold": "Entire VetLink provider workflow; no alternateclient/path/query/cache recovery. Unrelated independentlyallowed work continues.",
+  "site_publication": false
+}

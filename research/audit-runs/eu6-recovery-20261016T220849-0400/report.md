@@ -1,5 +1,25 @@
 # Европа — промежуточный отчёт контроллера
 
+### Дополнение по разрешениям источников, 17октября
+
+Фактическое отклонение VetLink: после root40304:21:53.566305UTC уже запущенный цикл сделал ещё два nativeGET к/tarifs и/a-propos (оба403);queued/zones-d-intervention имеет неизвестный факт исполнения/status, не выдан за посещённый или403. Worker остановил loop Ctrl-C/exit130 и проверил отсутствие ownPID до последующего запрета polling.403body не читался/не хешировался/не восстанавливался, clinical/datecredit0; весь providerworkflowheld, другие разрешённые провайдеры продолжаются. Причина — отсутствие немедленного break внутри reader, не «обычный transport fallback». Parent прочитал metadata, исправленный break и localmock401/403/429:4planned→1call/0later/0network. Запрошен отдельный failclosed redirectguard до будущих GET. Remote receipt этого нового блока будет указан отдельно, а не приписан checkpoint032.
+
+## Актуализация 17 октября 2026, 00:22 America/New_York — это не завершение
+
+Удалённо проверен checkpoint032: data `d7d569d369b2d0e5c6e04754bf09d33464d6953c`, receipt `e3d95bec15114c80fa758d9b5e707cbbd5480300`, readback04:20:35UTC. В нём PL26, DE10, FR30–32 и NL43–46; поздние пакеты не объявляются сохранёнными раньше собственного receipt. Четыре реальных исполнителя продолжают работу, AT/CZ independently accepted. Ни страна, ни курсор не продвигаются.
+
+|Страна / agent|Последний remote пакет|Assigned / processed / fully|Draft NEW / UP|Что ещё не принято|
+|---|---|---|---|---|
+|Austria /root/oct16_at|final-delivery|160 /160 /119|45 /30 identities,51fields|Исследование принято, сайт не опубликован|
+|Czechia /root/oct16_cz|final-publicsafe|153 /153 /105|53 /10 identities,10fields|Исследование принято, сайт не опубликован|
+|Poland /root/oct16_pl|26|279 /279 /193|173 /3 в historical26, effective2 после следующей поправки|Доступные followups и национальный поиск продолжаются; Gugala Medical сохраняется после проверки исходной истории, downgrade отменён|
+|Germany /root/oct16_de|10|Исходные102 /102 /75 inherited,0freshclinical|0 /1 identity,2fields|Поле LMU credentials принято по exactEBVS profile body;760URL и109statutorycards не клиники; доступный frontier продолжается|
+|France /root/oct16_fr|32|624 /601 /172|165 /0|Новые самостоятельные и remote/new направления, доступные leads и конкретные held questions; не nationalcomplete|
+|Netherlands /root/oct16_nl|46|501 /501 /81 payload-supported|77 /5|Часть NEW partial/nonpublic, текущая география/национальный frontier продолжается;220rosterlabels не клиники|
+
+Числа являются snapshot отдельных сохранённых пакетов, не итогом запуска. Gugala amendment появился после032 и будет подтверждён отдельно. LMU — точное добавление Oncology в подтверждённый specialist credential, не новая услуга/клиника/дата визита. Saarland107новых publicreferenceчтений+2старых дают identity/qualification, не подтверждают лечение рака. Никакой интеграции, сборки, maincommit/push, deploy или productionreadback этого запуска пока нет. Полные шесть итогов и независимый all-six gate остаются обязательны.
+
+
 ## Актуализация 2026-10-17 03:33:54 UTC — поиск продолжается
 
 Ниже сохранён исторический snapshot015; его промежуточные числа не текущий итог. Последний проверенный backup021: data dc4d7c590bf3c8bf4b74fcd39d87f4009d32f8f7, receipt82d0ffdbdc876405e2efcc2d99e1fad30ba7fb46, remote readback03:32:12UTC. Он сохраняет PL16/hold007, FR21, NL31/hold011. На этом snapshot: PL259assigned/195processed/166fully,146NEW/3UP,64ownunprocessed; FR508assigned/479processed/150fully,143NEW/0UP,28Argos+SaintMaxpending и54SevetysURLunits; NL387assigned/processed/69supportedfully,64NEW/6UP,78IVClabelsavailable плюс национальный frontier. Поздние localblocks не считаются remote-saved до receipt.
