@@ -7,7 +7,7 @@ def run(root,module_relative):
     ledger=json.loads((base/'backups/ledger.json').read_text())['uploaded_files']
     path=root/module_relative
     assert path.resolve().is_relative_to((base/'worker-5/checkpoints').resolve())
-    assert not path.is_symlink() and path.name=='provider_identity_normalization.py'
+    assert not path.is_symlink() and path.name in ('provider_identity_normalization.py','provider_identity_normalization_v2.py')
     expected=ledger[module_relative]
     assert hashlib.sha256(path.read_bytes()).hexdigest()==expected
     spec=importlib.util.spec_from_file_location('parent_alias_pure',path)
@@ -16,11 +16,15 @@ def run(root,module_relative):
     canonical=dict(source_id='canonical',fully_verified=True,record=dict(country='France',street='32 Avenue de Fumel',city='Montayral',postal_code='47500',phone='+33 553409355'))
     proof={**identity,'alias_source_id':'alias','canonical_source_id':'canonical','permission_scope_adjudicated':True,'source_body_recovery':False,'source_request_for_normalization':False,'canonical_address_verified_from_saved_current_primary':True,'current_canonical_street':'32 Avenue de Fumel','current_canonical_city':'Montayral','current_canonical_postal':'47500','alias_phone':'0553409355','previous_saved_canonical_explicit_alias_recognition':True,'own_alias_named_veterinarians':['A','B','C'],'saved_current_canonical_named_veterinarians':['A','B','C'],'same_actual_city_and_practice_context':True}
     alias=dict(source_id='alias',identity_alias_of='canonical',identity_normalization_proof=proof,fully_verified=False,clinical_source_date=None,reason='parent synthetic fixture, not evidence')
+    proof['actual_recognition_text']='Saved canonical alias recognition: parent synthetic fixture, not evidence'
     negatives=[]
     for key,value in [('country','Germany'),('run_id','wrong'),('agent_id','wrong'),('baseline_sha','wrong'),('slot',4),('alias_source_id','wrong'),('canonical_source_id','wrong'),('current_canonical_street','99 Otherstreet'),('current_canonical_city','Othercity'),('current_canonical_postal','00000'),('alias_phone','000'),('permission_scope_adjudicated',False),('source_body_recovery',True),('source_request_for_normalization',True),('own_alias_named_veterinarians',['A']),('previous_saved_canonical_explicit_alias_recognition',False),('previous_saved_canonical_explicit_alias_recognition','false')]:
         x=copy.deepcopy(alias);x['identity_normalization_proof'][key]=value
         negatives.append((key+':'+str(value),[canonical,x]))
     wrong_country=copy.deepcopy(canonical);wrong_country['record']['country']='Germany'
+    for key,value in [('slot',5.0),('previous_saved_canonical_explicit_alias_recognition','true'),('actual_recognition_text','')]:
+        x=copy.deepcopy(alias);x['identity_normalization_proof'][key]=value
+        negatives.append((key+':'+str(value),[canonical,x]))
     negatives.extend([('canonical_country_wrong',[wrong_country,alias]),('duplicate_identity',[canonical,canonical,alias]),('self_reference',[canonical,{**alias,'identity_alias_of':'alias'}]),('missing_target',[alias])])
     rejected=[];accepted=[]
     with patch('builtins.open',side_effect=AssertionError('Unexpected body read')) as read_mock,patch('socket.socket',side_effect=AssertionError('Unexpected network')) as network_mock,patch('urllib.request.urlopen',side_effect=AssertionError('Unexpected URL read')) as url_mock:
