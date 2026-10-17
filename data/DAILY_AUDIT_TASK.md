@@ -77,3 +77,11 @@ Daily включает клинические trial pages BluePearl/VCA/Ethos; �
 ## Независимая проверка условий и выдачи
 
 Для каждого нового или существенно изменённого trial выполни independent protocol-to-selection review из алгоритма: сначала ожидаемые положительные, отрицательные и неопределённые случаи по первичному протоколу, затем сравнение с данными и поиск. Запускай сохранённые независимые случаи и при NO CHANGE. Полную независимую сверку всех текущих публичных записей повторяй не реже 28 дней; дату считай по фактическому protocol-review evidence, а не по fingerprint или успешным тестам. Незавершённый полный проход сохраняй в durable queue и явно показывай checked/total, blocked/unresolved/pending. Проверка каталога и мировой discovery — отдельные показатели; ни один не доказывает другой.
+
+## Mandatory independent completion gates — 2026-10-17
+
+Execute BOTH parts of the daily run; do not substitute source traversal for trial-level review:
+
+1. **Existing public protocols:** freeze all public IDs and open protocol-review backlog; write per-trial study-level current-primary read/status, sites, eligibility, funding, contacts, prior-to-current changes, independent source-derived positive/negative/unknown matching cases, and precise blocked/pending reasons. An unchanged index page is NOT a verified protocol. Track checked/total and carry incomplete work forward.
+2. **Worldwide discovery:** visit full durable source inventory and permitted study pages, scan current/undated plus recent seven-day overlap for all 12 regions/languages, and record EVERY candidate and primary-URL disposition versus the full canonical catalog. No new-trial=0 claim unless all due rounds and every discovered lead are accounted for. Discovery sources are not equivalent to clinical trials.
+3. **Mandatory result and durable handoff:** source processed/total, trial-verified/total, independent eligibility-verified/total, candidate decisions, unperformed permitted steps versus outside access blocks, code/data delta, validators, deployment readback and a complete Russian report VISIBLE in the task response. A saved file alone does not deliver a report. Never say COMPLETE if any independent gate is incomplete. See overriding section dated 2026-10-17 in `data/DAILY_AUDIT_ALGORITHM.md`.
