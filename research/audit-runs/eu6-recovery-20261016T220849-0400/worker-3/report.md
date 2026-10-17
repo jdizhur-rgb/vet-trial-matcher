@@ -326,3 +326,21 @@ Kochanowskiego — ONE новая сетевая запись (Medical/Chemother
 Предыдущий assigned161 был явно provisional ограниченным ledger, а не национальным знаменателем. Теперь из полных собственных input-кандидатур и retained named report извлечены ещё98 уникальных фактических provider candidates:15saved +8identity +54regional +3CZZ/Dogtorki additionalbranch +17LuxVet/EDINAclinicalbranch +1MultiVetLutynia. Все98 UNPROCESSED: старые заявленные86/123 без потерянных body не принимаются. Контекст старых кандидатов001/002 присутствует, но утраченные clinicalsources не выдуманы восстановленными. Никакие636доменов не названы636клиниками. PerfectVettraining, Anikaclinicianreference, MyTailblog, Jagielski/Jaśkiewicz educational/personalreferences, Hanusz/Rybicki/falsecityNeoVet/legacyMedicaVet не дополнительные providerunits.
 
 Текущий259assigned=161processed+98unprocessed. Сумма161=129NEW+3UPDATE+17DUP+10EXCL+2UNRES, fully149. NEW129 остаётся127physical+2network. Структурная инвентаризация98 не клиническое выполнение. Полный именной список с URL/типом происхождения — ledger007. Сначала их собственные разрешённые primaryмаршруты, затем остаток636классификации, explicitOR16regions/currentnew, networks/mobile/RT. research_complete=false.
+
+
+## Блок13 — семь поздних saved leads проверены заново
+
+2026-10-17 03:13:57 UTC.259=168processed+91unprocessed.168=135NEW+3UPDATE+17DUP+11EXCL+2UNRES,fully155. NEW135=127старыхphysical+6late-savedphysical+2network; собственное freshdiscovery по-прежнему0: это реальные повторные проверки сохранённых кандидатов, не выдуманный возврат потерянных sources.
+
+| Провайдер | Город | Текущий объём | URL |
+|---|---|---|---|
+|Przychodnia Weterynaryjna Przy Kładce|Bydgoszcz|Surgical oncology|https://weterynarz-przykladce.pl/chirurgia/|
+|Przychodnia Weterynaryjna DR HAU|Kraków|Surgical oncology|https://drhau.pl/uslugi/chirurgia|
+|Całodobowa Lecznica Weterynaryjna Dobrywet|Bobrowiec|Medical oncology, Chemotherapy, Surgical oncology, Electrochemotherapy|https://dobrywet.com/services/onkologia/|
+|Przychodnia Weterynaryjna VetHome|Długołęka|Surgical oncology|https://vethome.pl/uslugi/chirurgia/|
+|Lecznica Weterynaryjna AS|Olsztyn|Local oncology care|https://lecznica.olsztyn.pl/zakres-swiadczen/|
+|Przychodnia Weterynaryjna Lupus|Kraków|Local oncology care|https://lupusvet.pl/|
+
+ABA-VETWarzycka37 не восстановлен автоматически из старого savedNEW: полные service/doctor/experience и отдельный официальный поиск подтверждают GP и общую строку «usuwanieguzów», но не явный противоопухолевый контекст в лечебной услуге. История онкокурсов сама по себе не лечение. Именованная nonpromotion, не отсутствие реального лечения. При появлении явного neoplasm/cancer localstatement вопрос можно пересмотреть. Это применение границы cancer-directed service, а не требование onc-board.
+
+6квалифицирующих совпадений в полном4JSONbaseline3229rows нет; отдельный полныйtele64Poland0. Каждая currentclinical/GP/contactстраница17Oct реально прочитана; старые утраченные sourcebody не называются восстановленными.35ownactualsearchqueries: новый query35 официальныйABA, exactrequest sources076 иqueries005. Остальной национальный фронт продолжается.
