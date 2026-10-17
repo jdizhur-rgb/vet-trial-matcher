@@ -50,6 +50,7 @@ extras.push(base+"/parent-zahn-hamburg-and-field-quotes-19-review.json",base+"/b
 extras.push(base+"/controller_verify_netherlands_final.py",base+"/parent-netherlands-final-structural-review.json");
 extras.push(base+"/parent-netherlands-field-and-primary-review.json",base+"/parent-poland-proposal-closure-205-review.json",base+"/controller-progress-051.json");
 extras.push(base+"/worker-acceptance-6.json");
+extras.push(base+"/controller-main-observation-20261017T063659Z.json");
 extras.push(base+"/controller_test_provider_identity_normalization.py",base+"/parent-provider-alias-normalization-independent-tests-v1.json");
 extras.push(base+"/parent-local-care-threshold-consistency-review.json");
 extras.push(base+"/controller-progress-058.json",base+"/parent-poland-proposal-closure-211-review.json");

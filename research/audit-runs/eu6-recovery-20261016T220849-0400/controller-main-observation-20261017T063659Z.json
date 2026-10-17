@@ -1,0 +1,22 @@
+{
+  "run_id": "eu6-recovery-20261016T220849-0400",
+  "kind": "READ_ONLY_FRESH_MAIN_OBSERVATION",
+  "observed_at": "2026-10-17 06:36:59 UTC",
+  "bounded_fetch": {
+    "command": "timeout 45s env GIT_TERMINAL_PROMPT=0 git -c credential.interactive=false fetch origin main",
+    "actual_session_id": 64608,
+    "exit_code": 0
+  },
+  "remote_main_sha": "b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45",
+  "production_tracked_diff_paths": [],
+  "untracked_scope": [
+    "research/audit-runs/eu6-recovery-20261016T220849-0400/",
+    "research/audit-runs/var/"
+  ],
+  "builds_started": false,
+  "site_integration_started": false,
+  "main_commits_pushes": [],
+  "deployment_actions": [],
+  "production_readbacks": [],
+  "qualification": "Observation time is not an invented exact network-fetch completion timestamp. Fresh-main reconciliation will be repeated before any phase-two package; this does not renew clinic source dates."
+}
