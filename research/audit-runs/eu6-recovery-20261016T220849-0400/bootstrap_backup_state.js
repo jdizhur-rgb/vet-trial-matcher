@@ -7,6 +7,10 @@ const output=await command("set -euo pipefail\ntimeout 45 git -c credential.inte
 const lines=output.split("\n"),objects=lines.filter(s=>/^[0-9a-f]{40}$/.test(s)),hashes=lines.filter(s=>/^[0-9a-f]{64} /.test(s)).map(s=>s.slice(0,64));
 if(objects.length!==2||hashes.length!==2||hashes[0]!==hashes[1])throw Error("Remote/local ledger mismatch or incomplete native proof; reconcile actual pending commit/receipt before writes");
 const ledger=JSON.parse(await readText(base+"/backups/ledger.json"));if(!ledger.uploaded_files||!Array.isArray(ledger.checkpoints))throw Error("Invalid backup ledger");
+const remoteEntries=(await command("git ls-tree -r --name-only FETCH_HEAD -- "+base+"/backups",15000)).trim().split("\n");
+const numbered=pattern=>remoteEntries.flatMap(p=>{const m=p.match(pattern);return m?[m[1]]:[]}).sort();
+const controls=numbered(/checkpoint-([0-9]+)-control[.]json$/),receipts=numbered(/checkpoint-([0-9]+)-remote-receipt[.]json$/),journal=ledger.checkpoints.map(x=>x.checkpoint).sort();
+if(JSON.stringify(controls)!==JSON.stringify(journal)||JSON.stringify(receipts)!==JSON.stringify(journal))throw Error("Unfinished remote data checkpoint or receipt/ledger mismatch; reconcile before any write");
 const routine=await readText(base+"/github_backup_orchestrator.js");if(typeof eval(routine)!=="function")throw Error("Backup source not function");
 store("eu6Root",root);store("eu6Run",run);store("eu6Branch",branch);store("eu6RemoteHead",objects[0]);store("eu6RemoteTree",objects[1]);store("eu6BackupLedger",ledger);store("eu6BackupRoutine",routine);store("eu6LastBackupVerifiedAt",ledger.last_verified_at);store("eu6PendingCheckpoint",null);
 return {run_id:run,remote_head:objects[0],remote_tree:objects[1],ledger_remote_local_sha256_match:true,verified_checkpoints:ledger.checkpoints.length,last_verified_at:ledger.last_verified_at,no_remote_write:true};

@@ -47,4 +47,6 @@ Initial+21 реально сохранённый старый архив вос�
 
 ## Сайт и очередь
 
+Дополнение: реальный source-permission incident France Saint-Max сохранён metadata-only в017 (data0c1c7b4bbfd33f3bb50d4a6d5b7b0f4e0cdeb792, receipt e5ec6553fba1fe105c34a9b68ab5c8bd4cb251ed,03:06:32UTC). Worker ошибочно вызвал held exactURL после найденного guardmatch в том же exec. Body не используется/не копируется/не хешируется; клинические credit/dates0, hold unchanged, lead сохраняется как внешний вопрос. Parent body не читал. Новая guardпроверка отдельно формирует allowed/blocked и fail-closed передsourcecall, отрицательные локальные tests безWeb зафиксированы работником. Это реальное отклонение, не разрешённый fallback и не успешная проверка; phase-twoURLaudit обязателен.
+
 Фаза сайта НЕ начата. Gatecheck: независимые приёмки1/2 есть;3/5/6 ещё работают;4researchincomplete. Нет integration/build/maincommit/push/deploy/production-readback этого запуска. Researchветку нельзя mergeвmain: она наследует старые canonical snapshots. Только после all-sixgate возможен отдельный свежийmain и verifiedfielddeltas+полныеvalidators/deploy/readback. Курсоры стран не продвинуты; других automationнастроек не меняли. Фоновое продолжение послеfinalне обещается.

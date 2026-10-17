@@ -283,3 +283,46 @@ AMVET Kraków текущий пакет сужен до Local oncology care: ф�
 Kochanowskiego — ONE новая сетевая запись (Medical/Chemotherapy/Immunotherapy), общий контакт221503500/604711716 явно одинаков для двух филиалов, текущие полные официальные chemo/immuno/team/contact. Без адреса, city, pin и фан-аута; branchfinder https://www.kochanowskiegowet.pl/kontakt . RT только внешнее сотрудничество, ECT не подтверждена отдельно от образовательного описания. Физический Kochanowskiego23/H6 имеет текущую идентичность и GP, но местная онкология не распределена; именованная EXCLUDED_NONPROMOTION, не утверждение отсутствия/закрытия. Кондратовича18B отдельная уже подтверждённая Local запись.
 
 Продолжается весь доступный национальный frontier, включая20baseline QA,3actualPremiumbranches, networks/16regions/mobile/RT/newsignals. research_complete=false.
+
+
+## Блок11 —20 уже опубликованных, реальные изменения отдельно
+
+2026-10-17 03:07:55 UTC. 161assigned=158processed+3unprocessed. Взаимоисключающая сумма158=129NEW+3UPDATE+17DUPLICATE_ALREADY_APPLIED+7EXCLUDED+2UNRESOLVED. Fully149=129новых+20существующих с текущим полным ядром. NEW129=127physical+2network;20baseline никогда не NEW. Текущие первичные059–068 просмотрены содержательно; старые поисковые snippets не заменяют body.
+
+| Уже существующая запись | Город | Решение | Текущий официальный источник |
+|---|---|---|---|
+|RTWet — Polski Ośrodek Radioterapii Weterynaryjnej|Wiskitki|DUPLICATE_ALREADY_APPLIED|https://radioterapiaweterynaryjna.pl/en/home-english/|
+|Onkovet Przychodnia Weterynaryjna|Gliwice|UPDATE|https://onkovet.pl/uslugi/|
+|Przychodnia Weterynaryjna Neo Vet|Poznań|DUPLICATE_ALREADY_APPLIED|https://neo-vet.pl/onkologia|
+|GreenVet Przychodnia Weterynaryjna|Zielona Góra|DUPLICATE_ALREADY_APPLIED|https://greenvet.zgora.pl/onkologia/|
+|Przychodnia Weterynaryjna VETHOUSE|Lublin|DUPLICATE_ALREADY_APPLIED|https://vethouse.pl/uslugi/onkologia/|
+|Praska — Przychodnia Weterynaryjna|Kraków|DUPLICATE_ALREADY_APPLIED|https://weterynarzpraska.pl/uslugi/onkologia/|
+|Dom-Vet Przychodnia Weterynaryjna / OnkoWet|Warszawa-Wesoła|DUPLICATE_ALREADY_APPLIED|https://www.domvet.pl/onkologia-weterynaryjna|
+|Moonvet — Przychodnia Weterynaryjna Moniki Morawskiej|Łódź|DUPLICATE_ALREADY_APPLIED|https://moonvet.pl/|
+|Przychodnia Weterynaryjna Żurawiniec|Poznań|DUPLICATE_ALREADY_APPLIED|https://zurawiniec.grupaluxvet.pl/uslugi/onkologia/|
+|Weterynaryjne Centrum Kliniczne Kurosz|Gorzów Wielkopolski|DUPLICATE_ALREADY_APPLIED|https://klinikakurosz.pl/uslugi/onkologia/|
+|Przychodnia Weterynaryjna Pobłocki i Miazga|Kosakowo|DUPLICATE_ALREADY_APPLIED|https://poblocki-miazga.pl/chemioterapia/|
+|Całodobowa Klinika Weterynaryjna VETKA|Warszawa|DUPLICATE_ALREADY_APPLIED|https://www.lecznica-vetka.pl/zakres-uslug/onkologia/|
+|Mokotowska Klinika Weterynaryjna|Warszawa|DUPLICATE_ALREADY_APPLIED|https://mkw-24.pl/nasze-specjalizacje-onkologia.html|
+|LEW Weterynaryjne Centrum Zdrowia|Olsztyn|DUPLICATE_ALREADY_APPLIED|https://www.wetlew.pl/onkologia|
+|Azyl Przychodnia Weterynaryjna|Horodniany|DUPLICATE_ALREADY_APPLIED|https://azylweterynarz.pl/uslugi/chirurgia/|
+|Przychodnia Weterynaryjna Bilscy|Kielce|DUPLICATE_ALREADY_APPLIED|https://przychodniawet.pl/uslugi/|
+|Gabinet Weterynaryjny ZWIERZAK|Rzeszów|UPDATE|https://zwierzak.rzeszow.pl/uslugi/|
+|Przychodnia Weterynaryjna Krzycka|Wrocław|DUPLICATE_ALREADY_APPLIED|https://weterynarz.wroclaw.pl/uslugi/onkologia/|
+|Specjalistyczne Centrum Weterynaryjne — Stanisław Firlik|Opole|DUPLICATE_ALREADY_APPLIED|https://www.klinika.opole.pl/zakres-uslug/onkologia/|
+|Przychodnia Weterynaryjna Leonard Gugała 24h — Grupa EDINA|Szczecin|UPDATE|https://www.klinikavet24h.pl/|
+
+Три UPDATE /три поля: Onkovet Gliwice access_note — действующий местный список явно включает Stelfonta (без обещания исхода/универсальной пригодности); ZWIERZAK Rzeszów clinician_review — Jakub Szpunar теперь прямо опубликован как завершивший специализацию хирургии, вместо прежнего «учится» (дата завершения не выдумана); Gugała SzosaStargardzka61 services — Local oncology care вместо Medical, так как актуальная подтверждённая первичная формулировка описывает клиническое ведение рака, не самостоятельное системное введение препаратов. Это не закрытие/исчезновение помощи. Конкретные old/new+URL/цитата/branch/date в baseline-updates001; эквивалентный rawbaseline уже существует в собственномinput, не копирую20полных payloadов заново.
+
+Текущий RTWet подтверждает действующий приём на RT и свой квалифицированный штат. Противоположная старая национальная фраза Kurosz «недоступно в Польше» не используется как актуальный факт. VETHOUSE и Krzycka общие RT-описания не становятся localRT. Praska Sirolimus оказался каплями для пигментного кератита, не раковой услугой; не создаёт онкологическую возможность по названию препарата. Домашние визиты ZWIERZAK/MIRAK не доказывают мобильную химиотерапию.
+
+Продолжение:3actualPremiumbranches, все региональные/сетевые/мобильные/новые сигналы, точный разбор actual636host frontier. research_complete=false.
+
+
+## Блок12 — Premium3 и честный полный именованный frontier
+
+2026-10-17 03:11:26 UTC. Все5 actualPremiumbranches рассмотрены:2ранее qualifiedLocal(Kraków/Bielsko),3ныне nonpromotion(Jaworze/Skoczów/Wilamowice). Их полные собственные body содержат общую хирургию, не подтверждают cancer-directed delivery; меню сети не становится местной процедурой. Branches не закрыты/не объявлены нелечащими. Общий онкологический центральный контакт не установлен: Jaworze730080700 — emergencyline, не centraloncology. Отдельная networkcard не создаётся. CurrentSkoczów body/contacts694589016 против navigation794700910 — честный конфликт.
+
+Предыдущий assigned161 был явно provisional ограниченным ledger, а не национальным знаменателем. Теперь из полных собственных input-кандидатур и retained named report извлечены ещё98 уникальных фактических provider candidates:15saved +8identity +54regional +3CZZ/Dogtorki additionalbranch +17LuxVet/EDINAclinicalbranch +1MultiVetLutynia. Все98 UNPROCESSED: старые заявленные86/123 без потерянных body не принимаются. Контекст старых кандидатов001/002 присутствует, но утраченные clinicalsources не выдуманы восстановленными. Никакие636доменов не названы636клиниками. PerfectVettraining, Anikaclinicianreference, MyTailblog, Jagielski/Jaśkiewicz educational/personalreferences, Hanusz/Rybicki/falsecityNeoVet/legacyMedicaVet не дополнительные providerunits.
+
+Текущий259assigned=161processed+98unprocessed. Сумма161=129NEW+3UPDATE+17DUP+10EXCL+2UNRES, fully149. NEW129 остаётся127physical+2network. Структурная инвентаризация98 не клиническое выполнение. Полный именной список с URL/типом происхождения — ledger007. Сначала их собственные разрешённые primaryмаршруты, затем остаток636классификации, explicitOR16regions/currentnew, networks/mobile/RT. research_complete=false.
