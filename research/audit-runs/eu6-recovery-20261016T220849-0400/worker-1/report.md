@@ -1,5 +1,15 @@
 # Austria: восстановление исследования
 
+## Блок r03 — текущий национальный frontier и публичные реестры
+
+Промежуточно17October02:33UTC:159actualprovider identities assigned,159processed,118fully_verified; NEW45, UPDATE30, DUPLICATE44, EXCLUDED19, UNRESOLVED21. NEW45:28retained unpublished (включая1network),14saved-lead fresh revalidation,3actual current-run discoveries. В этом блоке добавлены Seewald/Innsbruck и Elterleinplatz/Wien с прямо опубликованными tumor operations, current named vets/contact/booking; не chemo/RT. До этого у Vorgartenstraße было1actualdiscovery. Общая хирургия Josefiau, Liebenau, Steinberg, Greißing и alternative-only cancer claim Kölbel/Sverak не продвинуты. Planner-Winsauer exactownrootWeb502+native502 остается внешним transport/clinical gap, не auth.
+
+Fürstenfeld current own service/team/contact повторно прочитаны: chemotherapy/ELC и национальная Fachtierärztin Sandra Utzmann подтверждены; это existing identity уже с этими услугами, не новый центр/новая услуга. Контакт8280 против header8020 сохранён честно.
+
+VÖK current public oncology section прочитана полностью: руководство Wiebogen-Wessely/Wolfesberger/Dreier-Schöpf, обучение, не current clinical provider roster. Historical VONA2018 региональные имена — не сегодняшний roster и не сетевой treatmentlisting. ÖTK July2026 diploma list публичная ссылка явно требует file permission/login; exactdocument/equivalent workflow HELD. Неизвестный HTTPstatus не выдумывается. Сохраняется только короткая metadata restriction; raw loginresponse не включается в ready. Independent current clinic reviews допустимы.
+
+Нет текущих неразобранных provider leads в registry, но national plan ещё не объявлен завершённым: остаются numerical branch reconciliation всех сетей/полная baseline semantic QA, проверка retained clinical questions (TiKo Annabichl venue, Judenburg restriction identity), current permitted roster routes. Это собственная доступная работа, не externalgap. research_complete=false. Последующие amendments заменят промежуточные counters/remaining, не source dates.
+
 ## Немедленный safety update Knafl — 17.10.2026
 
 Web click точной собственной team-страницы Knafl вернул429 Too Many Requests. Сохранён exact team/workflow hold в new-restrictions-knafl-r02-01.json; никаких alternate client/alias/query reconstruction этого team content. Это не403 и не blanket country ban. Ранее успешно прочитанные root/service/branch/contact страницы не стали successful team check. Работа с независимыми австрийскими провайдерами продолжается.

@@ -83,3 +83,98 @@ Actual package:21 qualifying NEW=20 inherited fixed+1 отдельно typed Spe
 Current12 AniCura identities реально наблюдались в успешном web017 ДО subsequent403; сумма city counts12. 11qualifying; SosnowiecRysia2a nonpromotion, oncology attachedtoDąbrowa notSosnowiec, не утверждение отсутствия/закрытия. NewLuxVet403/AniCura403/EDINAadvertisedmapJSinaccessible сохранены restrictions001–003, не повторяются. СтарыеLuxVet57 historicalleads, неcurrentmasterproof. Independently published branch/news allowed. EDINA placeholders не clinical network contact. Web023 incidental held-master search snippets quarantined, не доказательство.
 
 Parent004 REMOTE VERIFIED2026-10-17 02:22:49UTC data633b0123d6b3df6c7e24f44271c1beab062fbd66 receiptf7e2bc259e217fc93a3a57c230297be905b8dc0c includesblock2actualfiles. Parent005 VERIFIED02:24:18UTC data1208993df6ff2a41d9ee1de899c9cd74bf0543db receiptbc6c398764bcfce84ee2cb4ceedd209d974cb5f6 includesnewrestrictions001–003explicitmembers. Fullcontrol/archiveSHA PASS, неcountryacceptance/sitepub. Block3localready pendingremoteproof. Research_complete=false; продолжаюPoland.
+
+
+## Блок 4 — authoritative current tally и сохранённые LuxVet branch proofs
+
+Измеренный clock при подготовке: 2026-10-17 02:34:01 UTC. Actual qualifying47 NEW=46 inherited fixed+1 network reclassification; UPDATE0; freshdiscovery0. Processed54=47 qualifying+6 nonpromotion+1 unresolved; assigned155 provisional namedunits. Remaining81of127 olderabsent. Это НЕ47 поверх потерянного86. Rootresult checkpoint_at теперь measured; прежнееblock3значение02:31:30Z недостоверно и отменено append-only working/clock-correction001; реальныйready.created_at не отменяется.
+
+Retained primary service/team/contact bodies с фактической датой16Oct достаточны для следующих самостоятельных локальных GP/provider units;17Oct здесь дата пересмотра, не свежий интернетвизит. Независимые current17Oct Ostródzka clinical page и openingnews подтверждают действующуюbranchcare после planned5Octoberopening, NataliaWiak lek.wet.oncology на ownservicepage; failedprofile НЕпревращён вsuccess.
+
+| Единица | Город | Подтверждённый локальный объём | Primary URL |
+|---|---|---|---|
+| Przychodnia Weterynaryjna 4 Łapy | Reńska Wieś | Local oncology care | https://4lapywet.pl/uslugi/onkologia/ |
+| Centrum Weterynaryjne Zwierzyniec | Lębork | Surgery | https://centrum-zwierzyniec.pl/uslugi/chirurgia/ |
+| Przychodnia Weterynaryjna Pavet | Warszawa | Surgery | https://pavet.pl/uslugi/zabiegi-chirurgiczne/ |
+| Animal Doctor Gabinet Weterynaryjny | Gorzów Wielkopolski | Surgical oncology | https://animal-doctor.pl/uslugi/chirurgia-miekka/ |
+| Gdyński Szpital Weterynaryjny | Gdynia | Surgery | https://gswet.pl/uslugi/chirurgia/ |
+| Przychodnia Weterynaryjna Multivet | Kraków | Surgical oncology | https://multivet.com.pl/uslugi/chirurgia/ |
+| Przychodnia Weterynaryjna Ostródzka | Warszawa | Medical oncology | https://ostrodzka-wet.pl/uslugi/onkologia/ |
+| Gabinet Weterynaryjny Nesta | Grodzisk Mazowiecki | Surgery | https://nesta-wet.pl/uslugi/chirurgia/ |
+| Przychodnia Weterynaryjna Orka | Czechowice-Dziedzice | Surgical oncology | https://klinikaorka.pl/uslugi/chirurgia-ogolna/ |
+| Przychodnia Weterynaryjna Ampułka | Mińsk Mazowiecki | Surgery | https://ampulka.com.pl/uslugi/chirurgia/ |
+| Lubelska Poliklinika Weterynaryjna | Lublin | Surgical oncology | https://poliklinikaweterynaryjna.pl/uslugi/chirurgia/ |
+| Przychodnia Weterynaryjna Bokserska | Warszawa | Surgery | https://bokserska.waw.pl/uslugi/zabiegi-chirurgiczne/ |
+| Przychodnia Weterynaryjna Bytom | Bytom | Surgery | https://weterynariabytom.pl/uslugi/chirurgia/ |
+| Przychodnia Weterynaryjna Bajeczna — Bajeczna 1 | Kraków | Surgery | https://bajeczna.com.pl/uslugi/chirurgia/ |
+| Przychodnia Weterynaryjna Help | Zielona Góra | Surgery | https://help.zgora.pl/uslugi/chirurgia/ |
+| Przychodnia Weterynaryjna Kościuszki | Toruń | Surgery | https://weterynariakosciuszki.pl/uslugi/chirurgia/ |
+| Przychodnia Weterynaryjna Tarnowskie Góry | Tarnowskie Góry | Surgery | https://weterynariatarnowskiegory.pl/uslugi/chirurgia-miekka/ |
+| Przychodnia Weterynaryjna US-WET | Szówsko | Surgery | https://us-wet.pl/uslugi/chirurgia/ |
+| Przychodnia Weterynaryjna VET-MED Toruń | Toruń | Surgery | https://vet-med.pl/uslugi/chirurgia/ |
+| Przychodnia Weterynaryjna VETIKA | Grodzisk Mazowiecki | Surgical oncology | https://vetika-grodzisk.pl/uslugi/chirurgia/ |
+| Przychodnia Weterynaryjna Wesoły Kundelek | Lesko | Surgical oncology | https://przychodniawesolykundelek.pl/uslugi/chirurgia/ |
+| Przychodnia Weterynaryjna WIBRYS | Płock | Surgery | https://wibrys.pl/zespol/piotr-pawlowski/ |
+| Przychodnia Weterynaryjna Żernicka | Wrocław | Surgery | https://wroclaw-weterynarz.pl/uslugi/chirurgia-weterynaryjna/ |
+| Przychodnia Weterynaryjna Toruń Wyszyńskiego | Toruń | Surgery | https://wyszynskiego.lecznicatorun.pl/uslugi/chirurgia/ |
+| Gabinet Weterynaryjny Toruń Migdałowa | Toruń | Surgery | https://migdalowa.lecznicatorun.pl/uslugi/chirurgia-miekka/ |
+| Gabinet Weterynaryjny Lubicz | Lubicz Górny | Surgery | https://lubicz.lecznicatorun.pl/uslugi/chirurgia/ |
+
+4Łapy/ReńskaWieś narrowed Local: no antineoplasticdrug modality proven. ZwierzyniecLębork limitedeyelidtumorremoval; GdyńskiSzpital limitedocular/aural cancersurgery; do not infer24/7 fromname, RT fromimaging, ECT fromCO2laser. Bajeczna explicitaboutpage assigns advancedoperations toBajeczna1, notOfiarDąbia4; no automatic servicefanout. Lubicz narrowselectedtumorremoval; ToruńWyszyńskiego/Migdałowa differentactualbranches andownservicebodies. Migdałowa ownrepeated14 prioritizedoveroldnetwork13, retainedcaveat/no pin. Wibryspostcode09-409vsold09-410 optionaldetail, exactHubalczyków6 proven; Poliklinika20-718vsold20-400 likewise, not disqualification byoptionalpostcode.
+
+ZebrzydowickaWET Rybnik processednonpromotion: currentqualifiedteam/identity/contact but service/surgeryheadingalone no localcancerproof; thirdpartyoncologyiconnotpromotion. Group31March2026acquisitionnews is realindependent newbranchsignal, notcurrentheldmasterreconstruction. EDINAblog/placowki successfulvisibleHTMLempty; no placeholderphone/networkcancerlisting; heldmapJS neverretried. Currentinputtele AST64 actualservices fullyidentity-reviewed (not62staleclaim), zeroPL; existingPolish-speakingUKVOS/Purzycka notnewPolandteleunit. Baseline3229rows+64tele noqualifyingidentitycollision found.
+
+Newdeltas004–006 actualfullcandidates+retained sourcekeys/refs saved; query003 actual3queries; web024–028 actualreceipts. Block4localready; remoteproofpending. Own nationalfrontier all16/smallnetworks/EDINA/RT-ECT/mobile-remote stillavailable: research_complete=false, continuingPoland.
+
+
+## Блок 5 — authoritative current tally:82 qualifying units
+
+Measured metadata clock:2026-10-17 02:38:59 UTC. Actual82NEW=81inheritedphysical+1separatelytypednetwork; UPDATE0; freshdiscovery0. Processed91=82qualifying+6nonpromotion+3unresolved(UPWr genuineexternalgate; Pasiak/Przasnysz ownavailable). Assigned156provisional actualnamedunits, not aliases.45of127oldabsent unreviewed, exactlyindices20–69excludingalready23/41/55/64/69. Старый86reportclaim НЕ cumulativepayload, позже123/87/37по-прежнему LOST.20baselineunits неNEW.
+
+Ниже35дополнительно восстановленных clinical units: actual retained16Oct bodies/qualification/contact/branch scope; не35 freshvisits. Полныеold/new/sourceid/quotes/URLs/date/method в deltas007–011. Sourceidentity/date remains16Oct; этотrunreview17Oct.
+
+| Единица | Город | Локально подтверждено | Primary URL |
+|---|---|---|---|
+| Lecznica Weterynaryjna VET-MED Brwinów | Brwinów | Surgery | https://brwinow.vetmed.com.pl/uslugi/chirurgia/ |
+| Gabinet Weterynaryjny MAXVET PLUS Pułtusk | Pułtusk | Surgery | https://maxvetplus.com.pl/uslugi/chirurgia-miekka/ |
+| Przychodnia Weterynaryjna VIVOVET | Iwiny | Local oncology care; Surgery | https://vivovet.pl/uslugi/onkologia/ |
+| Klinika Weterynaryjna VETS | Warszawa | Surgery | https://vets.pl/uslugi/chirurgia/ |
+| Vets&Pets Zakładowa | Wrocław | Surgery | https://zakladowa.vetsandpets.pl/uslugi/chirurgia-miekka/ |
+| Vets&Pets Brzozy | Wrocław | Surgery | https://brzozy.vetsandpets.pl/uslugi/chirurgia-miekka/ |
+| Vets&Pets Kamienna | Wrocław | Surgery | https://kamienna.vetsandpets.pl/uslugi/chirurgia-miekka/ |
+| Przychodnia Weterynaryjna GAJA | Warszawa | Surgery | https://www.przychodniagaja.pl/chirurgia/ |
+| Przychodnia Weterynaryjna HYRAX | Kraków | Surgery | https://www.hyrax.pl/chirurgia-miekka/ |
+| Lecznica Weterynaryjna LuxVet24 | Kraków | Local oncology care | https://luxvet24.pl/team/julia-sliwa/ |
+| Przychodnia Weterynaryjna Na Polance | Poznań | Surgery | https://www.napolance.pl/chirurgia/ |
+| Klinika Weterynaryjna NEW VET 24h | Gdynia | Surgery | https://www.newvet24h.pl/chirurgia/ |
+| Klinika Weterynaryjna MULTIWET | Warszawa | Surgical oncology | https://multiwet.pl/uslugi/chirurgia-miekka/ |
+| ŻKW Przychodnia Weterynaryjna | Warszawa | Local oncology care | https://weterynaria.waw.pl/stomatologia-weterynaryjna/ |
+| Klinika Weterynaryjna Marysin | Warszawa | Medical oncology; Chemotherapy; Surgery | https://www.wetmarysin.pl/onkologia |
+| HemaTeamVet | Warszawa | Local oncology care | https://hemateamvet.pl/uslugi/ |
+| Zviropolis Klinika Wilanów | Warszawa | Surgery | https://zviropolis.pl/weterynarz-stomatolog-warszawa/ |
+| Zviropolis Klinika Ochota | Warszawa | Surgery | https://zviropolis.pl/weterynarz-stomatolog-warszawa/ |
+| Zviropolis Klinika Praga | Warszawa | Medical oncology; Chemotherapy; Surgery | https://zviropolis.pl/weterynarz-stomatolog-warszawa/ |
+| Zviropolis Klinika Żoliborz | Warszawa | Surgery | https://zviropolis.pl/weterynarz-stomatolog-warszawa/ |
+| Vet-Service Przychodnia Weterynaryjna | Siedlce | Surgical oncology | https://www.vetservicesiedlce.pl/chirurgia |
+| Wetmedic | Warszawa | Medical oncology; Chemotherapy; Surgical oncology | https://wetmedic.pl/onkologia-2/ |
+| Klinika Teodorowscy Warszawa | Warszawa | Local oncology care | https://www.klinikadlazwierzat.pl/nasz-zespol/ |
+| Klinika Weterynaryjna dr n. wet. Dariusz Niedzielski | Wrocław | Surgery | https://www.klinikapsaikota.pl/chirurgia-miekka |
+| Przychodnia Weterynaryjna Vetin | Wrocław | Surgical oncology | https://vetin.wroclaw.pl/leczenie-zwierzat |
+| Przychodnia Weterynaryjna Strzyża | Gdańsk | Local oncology care | https://przychodniastrzyza.pl/uslugi/onkolog-zwierzecy/ |
+| Przychodnia Weterynaryjna Zdrowy Kurczak i Azorek | Siedlce | Surgical oncology | https://weterynarz-siedlce.pl/chirurgia/ |
+| Przychodnia Weterynaryjna Piotr Dąbrowski | Poznań | Medical oncology; Chemotherapy; Surgery | https://www.wet.pl/specjalizacje.html |
+| Animal Center | Warszawa | Medical oncology; Chemotherapy; Surgical oncology | https://animal-center.pl/chemioterapia-psow-i-kotow/ |
+| KoniczynaVET | Warszawa | Medical oncology; Chemotherapy | https://koniczynavet.pl/konsultacja-onkologiczne |
+| Lubelskie Centrum Małych Zwierząt | Lublin | Medical oncology; Chemotherapy; Surgical oncology | https://lcmz.pl/klinika-24h/onkologia |
+| ArkaNoego Gabinet Weterynaryjny Adam Tymiński | Białystok | Local oncology care; Surgical oncology | https://noegoweterynarz.pl/oferta/ |
+| Przychodnia Weterynaryjna ADA | Rzeszów | Surgery | https://ada.rzeszow.pl/uslugi/chirurgia |
+| ART VET Gabinet Weterynaryjny | Grębocin | Local oncology care; Surgical oncology | https://www.art-vet.pl/ |
+| Gabinet Weterynaryjny Barbara Szarszewska | Toruń | Surgery | https://weterynarz.torun.pl/chirurgia/ |
+
+GAJA current own contact/dayhours prioritizedoverold24h biography; failedMichałImbierski challenge notused/retried, independent ŁukaszSokalskiSGGW2007/surgeryspecialist body supportscurrentqualifiedstaff. VIVOVET/GAJA optionalpostcodes conflict retainednotbarrier. LuxVet24Kraków currentJuliaŚliwa ownfullbody oncologycasecare valid despiteheld429serviceindex; notsameentityasLuxVetgroupmaster. NaPolance: ownSurgery+lek.wet.MilenaSobótka fullysupported, extraLocalconsultation claim fromoldnativeZattbody NOTstructurallyrecovered, narrowedtoSurgery; explicitappend-only noteamendmentnetwork-frontier-outcomes002. HemaTeamVet currentSebastianBorowikSGGW2005+actualhematologic/neoplasmtherapy qualifiesLocal, notunpublishedspecificdrugmodality. TeodorowscyWarsaw AliaksandrAnisko explicitlywithinWarsawroster, Polishpracticeauthorized, Localcareonly; do notfanoutsharedtumorsurgeryacross3clinics.
+
+Zviropolisfouractualaddresses have explicitdentalstatement proceduresperformedall4+oral-tumorremoval and qualifiedshared/localGPs: this is directpublishedall4allocation, notautomaticfanout. Chemo ONLYPraga viaexplicitlyassignedKarolBaranowski currentvetWrocław2021+ownfullbioIV/intracavity/metronomictherapy. No oncologydiplomateinferred. AnimalCenterZamiany12 differentAniCuraSarmacka9; WołominSEOcatchmentnotnewbranch; ownIV/oralchemo andcancersurgerysupported; ECT404notcareabsence/noRTfromeducation. ART VET Grębocin87-122top/87-162footer optionalconflict retainednotbarrierexactKowalewska11, no countywidehomeoncologyclaim. Currentofficialstatedtreatment counts independentlyfromGPqualification, unknowncoords notbarrier.
+
+PasiakSiedlce retainedspecifictumorremoval+namedqualifiedGP/contact38 are real; about25 remainscorestreetconflict pendingindependentmunicipalrecordprioritycheck, notpromotedfullyyet. MAXVETPLUSPrzasnysz olddistinctbranchlead nowexactredirectPułtusk, cannotcopyPułtusk surgery/callclosed; remains ownavailable. Allbroadnational/roster/region/mobileRTremote tasks continue. Earlierfullall16table is explicitly inheritedreport-level context, currentexactowncandidateproofs are the immutable delta shards; missinglateworkingpaths notrestoredbytableassertions.
+
+Block5localready pendingremotereadback; no newbackupproofasserted. Research_complete=false. Continuing SAMEPoland saved45frontier then remainingnetwork/regionaldimensions.
