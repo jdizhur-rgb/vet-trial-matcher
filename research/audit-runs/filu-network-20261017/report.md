@@ -16,4 +16,4 @@
 
 Полная сборка, новый network gate, country/service/search/distance regression, A01/A02/B01/B02/C01, sanitation и evidence-key проверка пройдены. Root независимо подтвердил инвариант 900 записей и diff. Подробности — validation-receipt.json и build-verification.log. Письма, формы и бронирования не отправлялись; новых автоматизаций или страновых поисков нет.
 
-Статус выпуска: подготовлено, фактические main/deploy/production подтверждения будут добавлены после публикации.
+Опубликовано: PR23, data/main `5b01073d4c7f0ccff07428a692d5c3330b1f098b`. Все три workflow завершены успешно: deploy 38986491042, integrity 38986490979, evidence keys 38986491001. Production HTTP200 побайтово совпадает с полной сборкой: centers 880401 байт, SHA256 `7f567e239a0d1510618297b570a57ceb5145594722742e6f4547961cf2159139`; tele 172029 байт, прежний SHA256 `449d48ff730f125baca3dc6e5c0450ae07a0dbc75253d4bcd404d9ac776c3d5c`. На фактически скачанной публичной HTML-странице успешно выполнен runtime test фильтров. Root отдельно подтвердил live SHA, единственную сетевую карточку, её контакты и оговорку. Полная квитанция: publication-receipt.json.
