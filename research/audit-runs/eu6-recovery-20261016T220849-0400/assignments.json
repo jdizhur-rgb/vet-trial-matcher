@@ -52,7 +52,7 @@
       "worker_directory": "research/audit-runs/eu6-recovery-20261016T220849-0400/worker-1",
       "input_path": "research/audit-runs/eu6-recovery-20261016T220849-0400/worker-1/input",
       "agent_id": "/root/oct16_at",
-      "status": "REAL_AGENT_RUNNING",
+      "status": "OWN_FULL_REPORT_DELIVERED_RESEARCH_ACCEPTED",
       "country_cursor_advance_allowed": false,
       "prior_run": "eu6-20261016T142911-0400",
       "prior_backup_branch": "research/europe-recovery-eu6-20261016T142911-0400",
@@ -73,7 +73,11 @@
       "all_six_observed_running_at": "2026-10-17 02:12:54 UTC",
       "spawn_order": 1,
       "spawn_timing_precision": "Six consecutive actual spawn calls before first list/wait; per-call tool timestamps not exposed",
-      "worker_started_at": "2026-10-17T02:11:09Z"
+      "worker_started_at": "2026-10-17T02:11:09Z",
+      "parent_reviewed_at": "2026-10-17 02:59:19 UTC",
+      "research_complete": true,
+      "final_own_answer_received": true,
+      "final_report_path": "worker-1/checkpoints/final-delivery/report.md"
     },
     {
       "slot": 2,
@@ -127,7 +131,7 @@
       "worker_directory": "research/audit-runs/eu6-recovery-20261016T220849-0400/worker-2",
       "input_path": "research/audit-runs/eu6-recovery-20261016T220849-0400/worker-2/input",
       "agent_id": "/root/oct16_cz",
-      "status": "REAL_AGENT_RUNNING",
+      "status": "OWN_FULL_REPORT_DELIVERED_RESEARCH_ACCEPTED",
       "country_cursor_advance_allowed": false,
       "prior_run": "eu6-20261016T142911-0400",
       "prior_backup_branch": "research/europe-recovery-eu6-20261016T142911-0400",
@@ -148,7 +152,11 @@
       "all_six_observed_running_at": "2026-10-17 02:12:54 UTC",
       "spawn_order": 2,
       "spawn_timing_precision": "Six consecutive actual spawn calls before first list/wait; per-call tool timestamps not exposed",
-      "worker_started_at": "2026-10-17T02:11:12Z"
+      "worker_started_at": "2026-10-17T02:11:12Z",
+      "parent_reviewed_at": "2026-10-17 02:59:19 UTC",
+      "research_complete": true,
+      "final_own_answer_received": true,
+      "final_report_path": "worker-2/checkpoints/final-publicsafe/report.md"
     },
     {
       "slot": 3,
@@ -501,5 +509,16 @@
       "spawn_timing_precision": "Six consecutive actual spawn calls before first list/wait; per-call tool timestamps not exposed",
       "worker_started_at": "2026-10-17T02:12:30Z"
     }
-  ]
+  ],
+  "updated_at": "2026-10-17 02:59:19 UTC",
+  "worker_reports_delivered": [
+    1,
+    2,
+    4
+  ],
+  "independently_accepted_research_slots": [
+    1,
+    2
+  ],
+  "all_six_research_complete": false
 }

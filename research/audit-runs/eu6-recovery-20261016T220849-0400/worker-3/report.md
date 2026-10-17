@@ -241,3 +241,23 @@ PathQA: four task-created mistargetduplicates under /workspace/scratch/2d03a6db0
 Giszowiec surgery429 NEVERretried. Independent currenthematologyprimary explicitly treatsbloodcancers/leukemia/lymphoma andnameslek.wet.AgataHandy/KrystynaOchman-Bojarska, actualMysłowicka65aKatowice/322201010. CurrentpackageLocaloncologycareONLY: olderpre429surgerysuccessclaimisretainedhistorically,butfullsuccessfulbodynotlocatedinretained637yet; no chemo/Surgicaltagfrommissingbody. Thisdoesnotmeanactualsurgeryabsence orclinicclosure. SeparateBrzęczkowicenotfanout. Napieraj currentnamedMichałNapierajrole+actualLaluniachemocase12September2024onowncurrentservicepagequalifyMedical/Chemo; currentmayincludeparagraphandguzowatecasesnotalonecancerdirectedSurgeryproof, soSurgeryheldasdetailQA.
 
 Delta016,actualweb043–046,ledger003 savedimmutable; fullproposal112uniqueQA tofreeze. Newsourcefactsnotolderreportcounts. Block8localreadyremoteproofpending; research_complete=false, available16+20+3+regional/roster/RT/mobile/remote frontiercontinues SAMEPoland.
+
+
+## Блок 9 — восемь текущих официальных пакетов
+
+Время фиксации: 2026-10-17 03:01:03 UTC. Текущий итог: assigned159 = processed128 + unprocessed31; NEW120 =119 унаследованных физических +1 сеть; UPDATE0; EXCLUDED6; UNRESOLVED2; fully120. Оставшиеся31:8 старых неопубликованных+20baseline QA+3 фактических филиала Premium. Все числа provisional до полного национального frontier.
+
+| Клиника | Город | Подтверждённый местный объём | Официальный источник |
+|---|---|---|---|
+| Przychodnia Weterynaryjna HALIVET | Halinów | Surgical oncology | https://www.halivet.pl/uslugi/ |
+| Przychodnia Weterynaryjna Kochanowskiego — Kondratowicza | Warszawa | Local oncology care | https://www.kochanowskiegowet.pl/onkologia-weterynaryjna |
+| Przychodnia Weterynaryjna Zalesie | Rzeszów | Surgery | https://przychodniazalesie.pl/uslugi/chirurgia/ |
+| Przychodnia i Szpital dla Zwierząt Podkarpacka 52 | Rzeszów | Surgery | https://weterynarz-rzeszow.pl/chirurgia |
+| Przychodnia Weterynaryjna VETKA | Bielsko-Biała | Surgery | https://vetka.pl/uslugi/onkologia/ |
+| Przychodnia Weterynaryjna Węgrzyn Weterynaria | Strzelce Krajeńskie | Local oncology care | https://strzelce.wegrzynweterynaria.pl/uslugi/onkologia/ |
+| Przychodnia Weterynaryjna Zielona Góra | Zielona Góra | Surgery | https://lecznica.zgora.pl/uslugi/chirurgia-ogolna/ |
+| Specjalistyczna Przychodnia Weterynaryjna Tomasz Dmuchała | Gdynia | Surgery | https://dmuchala.pl/uslugi/chirurgia/ |
+
+Для Węgrzyn не переношу историческую onkochirurgia со страницы LuxVet403: новая текущая карточка только Local oncology care. Kochanowskiego физический филиал Kondratowicza остаётся Local; общая химиотерапия/иммунотерапия рассматривается отдельно как сеть без адреса/фан-аута; RT явно внешнее сотрудничество. HALIVET общие домашние визиты не подтверждают мобильное лечение рака. Все даты текущих успешных источников17Oct; неоткрытые исторические ссылки/даты квалификаций не становятся новыми посещениями.
+
+Родитель подтвердил remote013 для блока6: data6025992d8618f83f319759086b5e15926a17e991, receiptcf68e465ffa56438605cf1f322b5b0bc694d04ac, verified02:51:14UTC. Remote015 для блоков7/8 и ограничения005: data7404260a0dc64be5109c7619403b5d2a186304ba, receipt333fce04c3b37381db989c8d1d051ebff5466ad1, verified02:57:15UTC. Все readbacksPASS; это backup, не приёмка страны/публикация.

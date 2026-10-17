@@ -1,43 +1,50 @@
-# Европа: текущий отчёт контроллера
+# Европа — промежуточный отчёт контроллера
 
-Run eu6-recovery-20261016T220849-0400. Состояние на 2026-10-17 02:35:49 UTC (America/New_York:16октября, вечер): ПЯТЬ исполнителей продолжают поиск; собственный полный немецкий итог доставлен, содержание принято, национальный completion НЕ принят. Это промежуточный отчёт, не окончательная сдача шести стран.
+Run eu6-recovery-20261016T220849-0400. Состояние на 2026-10-17 03:01:58 UTC (16октября, вечер America/New_York). Это НЕ обычное завершение и НЕ итог шести стран: три исследователя реально продолжают работу; Австрия и Чехия независимо приняты как завершённое доступное исследование, Германия передала полный содержательный отчёт, но национальный completion не принят.
 
-## Восстановление и реальная делегация
+## Реальная среда, восстановление и шесть исполнителей
 
-Shell/Git/Python реально работают. Текущий baseline b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45 получен конечными Git-запросами. AGENTS/operations прочитаны полностью; новая схема owner14:24 и более позднее сетевое правило учтены. Старых активных агентов в этом дереве перед стартом не было. Шесть реальных spawn с fork_turns=none выполнены до ожидания; настоящие ID/start clocks в assignments.json. Новых стран и автоматизаций нет.
+Shell/Git/Python проверены; remote main baseline b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45 получен конечными запросами. Полные AGENTS/PROJECT_OPERATIONS и актуальные care policy/state прочитаны. Назначения зафиксированы до шести реальных spawn с fork_turns=none; actualIDs/start clocks в assignments.json. Все шесть наблюдались одновременно активными. Дочерних исполнителей, новых стран, автоматизаций, outreach и платных сервисов нет.
 
-После очистки scratch восстановлены initial+21 удалённый архив, полные SHA256 и member hashes проверены: restoration-receipt.json. Восстановление не равно свежему посещению источника. Post021 неподкреплённые сообщения не объявлены восстановленными payloads.
+Initial+21 реально сохранённый старый архив восстановлены, archive SHA и listed member hashes проверены. Старые источники не получили новую дату от восстановления. Потерянные post021пакеты не выданы за доказательства; уже опубликованные61NEW/20UP и поздние Germanyпубликации не считаются нынешнимиNEW. Native push не использован для извлечения credentials: research GitHub connector blob/tree/commit/ref выполняет parent с expected_sha и force=false. Deployment triggers проверены: эта researchветка не вызывает site deployment.
 
-Обнаружены и документированы две проблемы сохранения: старый PLready не включал referenced working evidence/candidate/query payload; historical metadata quarantine по повторяющемуся имени ошибочно пропускал новые DE02/03 (и был исправлен с привязкой к exactoldrun). Файлы DE не потеряны, затем реально сохранены007. Source-permission guards не ослаблены. Новые ready явно включают actual payloads, не только counters/manifest.
+## Принятые и сохранённые собственные результаты
 
-## Последние удалённо сохранённые результаты — НЕ окончательная приёмка
+Источник таблицы — удалённо проверенный checkpoint015. NEW — предложение относительно полного frozenbaseline, не публикация; включает inherited unpublished, реальные новые discovery и отдельно mobile/network units. Числа не суммируются в мнимый общий национальный успех до приёмки всех шести.
 
-Источник таблицы checkpoint008; цифры предложений самих работников относительно b76, не число опубликованных клиник. NEW включает отдельно типизированные network/mobile/remote записи и inherited unpublished revalidation, не только fresh discovery. Fully — заявленная сохранённая проверка работника, не автоматическое parent medical approval. NL отдельно ведёт payload-supported/currentfresh и historicalclaims; у DE75 inherited/0fresh.
-
-| Slot/страна/реальный ID | Последний сохранённый пакет | Assigned/processed/fully | Draft NEW/UPDATE | Состояние |
+|Slot / страна / настоящий agent ID|Последний сохранённый пакет|Assigned / processed / fully|Собственные draft NEW / UPDATE|Приёмка / доступный остаток|
 |---|---|---:|---:|---|
-|1 Austria /root/oct16_at|r02|157/151/116|43/30|Research продолжается; новые r03 ещё отдельная очередьbackup|
-|2 Czechia /root/oct16_cz|block02|153/153/96|53/9|Национальная/roster QA продолжается; physical51+network2 NEW|
-|3 Poland /root/oct16_pl|block3|155/27/21|21/0|Доступные inherited и национальные направления продолжаются; старый86claim не принят как восстановленный payload|
-|4 Germany /root/oct16_de|block03|102/102/75inherited|0/0|Собственный полный ответ доставлен;78DUP/15EXCL/9UNRES; nationalresearch_complete=false|
-|5 France /root/oct16_fr|block07|313/213/88|82/0|Доступные Argos/Sevetys и другие направления продолжаются; URLfrontier не клиники|
-|6 Netherlands /root/oct16_nl|block11|271/259/56claimed|58/3|Dependency QA и действительный национальный остаток продолжаются; сети отдельно от физических|
+|1 Austria /root/oct16_at|final-delivery+r05|160 /160 /119|45 /30identities,51fields|Research independently accepted;0available,22provider+3modality/reference gaps|
+|2 Czechia /root/oct16_cz|final-publicsafe+metadata amendment|153 /153 /105|53 /10identities,10fields|Research independently accepted;0available,33provider+2existingDUPfield gaps|
+|3 Poland /root/oct16_pl|block8|159 /120 /112|112 /0|Продолжается:16oldabsent+20baselineQA+3currentPremiumleads и национальные направления|
+|4 Germany /root/oct16_de|block03 full report|102 /102 /75inherited,0fresh|0 /0|Содержание полного собственного отчёта принято; research_complete=false|
+|5 France /root/oct16_fr|block12|375 /275 /98|92 /0|Продолжается:100namedArgos+166SevetysURLunits и национальные направления; URLunits не клиники|
+|6 Netherlands /root/oct16_nl|block20|299 /299 /66claimed,29fresh|62 /5|Knownledger обработан, но148IVClabelmapping/региональный/BES frontier остаётся доступным|
 
-Семь новых national hypotheses Германии из28исторических URL разобраны offline, но permission/clinical scope не установлен: BerlinVets, ZahnheilkundeHamburg, VETChemnitz, SveaLucas, felmo, TebbeVet, TheVetHouse. Они не NEW и не доказанные исчерпанные внешние препятствия. Отдельно сохраняются прежние7external providerquestions+2futureopenings. worker-acceptance-4.json принимает только содержание отчёта, не researchcomplete/cursor/publication.
+### 1. Austria
+Полный собственный русский report55KB содержит9земель, университет, GP, RT/ECT, mobile/remote и все найденные сети: Veterinaria19/19,AniCura6/6,TIERplus6/6,IVC2/2,VUK5/5. NEW45=43physical+1Angerermobile+1Stiglhubernetwork; происхождение28inheritedunpublished+14savedrevalidated+3actualdiscovery(Vorgartenstraße,Seewald,Elterleinplatz). Parent recompute160identities/119fully,51oldvaluechecks и307evidence-index hashes PASS. AnifECT withheld после конкретного review4clinicalroutes; Surgery/identity сохранены, equipment/doctorarea не выданы за delivery. [Полный отчёт](https://github.com/jdizhur-rgb/vet-trial-matcher/blob/7404260a0dc64be5109c7619403b5d2a186304ba/research/audit-runs/eu6-recovery-20261016T220849-0400/worker-1/report.md).
 
-## Сохранение и отсутствие публикации
+### 2. Czechia
+Полный собственный report58KB содержит14регионов/13городов/9directions,110inherited+20actualrecoveryqueries,47restoredunpublished+4freshphysical(PetClinic,Koptová,PetCare,Šilar) и2network(BUDvet,Výjezd). Parent recompute153/153/105,10oldvaluechecks,23PUBLICSAFEshardSHA и exactsemanticname/phone/address candidates PASS. KVLprivate-use/deniedoutputs исключены; исправлены falseNEW и ошибочные metadata timestamps отдельными immutable amendments. [Полный отчёт](https://github.com/jdizhur-rgb/vet-trial-matcher/blob/7404260a0dc64be5109c7619403b5d2a186304ba/research/audit-runs/eu6-recovery-20261016T220849-0400/worker-2/report.md).
 
-Последний подтверждённый research backup008: data1a9e16a4e5847a61f63c8aa3fedaf58850905492, receipt839ce21d260e1ca6e829fad9d8b0ea0147eee212, actual2026-10-17T02:34:28UTC. Control и весь SHA архива прочитаны обратно; errors0. Backup выполняется после смысловых блоков и чаще15минут. Исторические ограничения/KVLprivateuse/approvalcancelled/auth/CAPTCHA сохраняются до новых запросов; нет bypass.
+### 3. Poland
+Собственный поиск продолжается, окончательного ответа ещё нет. В112NEW входят111восстановленных/revalidatedphysical+1SpecVetnetwork, не112freshdiscovery; старый86claim без пропущенных payloads не суммируется. Giszowiec лишь подтверждённая localhematologycare, surgery429не повторён; Napierajlocalchemo подтверждена, genericmassнеSurgeryproof. Ledger159=120processed+39available на block8. [Текущий собственный отчёт](https://github.com/jdizhur-rgb/vet-trial-matcher/blob/7404260a0dc64be5109c7619403b5d2a186304ba/research/audit-runs/eu6-recovery-20261016T220849-0400/worker-3/report.md).
 
-Фаза сайта НЕ начата: all-six gate CLOSED, ни integration/build/maincommit/push/deploy/production-readback этого запуска. Ни одна историческая публикация61NEW/20UP или поздние Germany updates не посчитаны текущим NEW. Research-ветку нельзя merge вmain: она наследует старые canonical snapshots; для сайта потребуется отдельный свежийmain и только verified field deltas. Другие automation настройки не менялись.
+### 4. Germany
+Собственный полный ответ доставлен. Finite102 reconciliation:78trueDUP/15EXCL/9UNRES;10filuphysicalbranches иTarpasroute не выданы за дубли networkidentity. Germany current main уже включает поздние55+17physical/2remote/1mobile иfilunetwork — не нынешниеNEW. Из28historicalclinicalroutes offline выделены7hypotheses(BerlinVets,ZahnheilkundeHamburg,VETChemnitz,SveaLucas,felmo,TebbeVet,TheVetHouse), но exactpermission/clinicalscope не восстановлен. Это не завершение страны и не доказанные external-only outcomes. Отдельно7externalquestions+2futureopenings. [Полный собственный отчёт](https://github.com/jdizhur-rgb/vet-trial-matcher/blob/7404260a0dc64be5109c7619403b5d2a186304ba/research/audit-runs/eu6-recovery-20261016T220849-0400/worker-4/report.md).
 
-## Отчёты последнего backup (промежуточные, кроме доставленного немецкого содержания)
+### 5. France
+Собственный поиск продолжается. Идёт actualbranch-by-branch проверка свежего247URLSevetysroster и Argos; networks не разнесены по филиалам. Примеры подтверждённых draftproviders: MazetsRiom-ès-Montagnes explicitchemo, Pau/Wizernes limitedlocalcare. Onirisveterinarian-only generalinternalmedicine telemedicine не превращена в oncology ownertele. Более поздние13/14blocks ещё ожидают следующего remote receipt; не объявляются данным checkpoint015. [Текущий собственный отчёт](https://github.com/jdizhur-rgb/vet-trial-matcher/blob/7404260a0dc64be5109c7619403b5d2a186304ba/research/audit-runs/eu6-recovery-20261016T220849-0400/worker-5/report.md).
 
-- [Austria](https://github.com/jdizhur-rgb/vet-trial-matcher/blob/839ce21d260e1ca6e829fad9d8b0ea0147eee212/research/audit-runs/eu6-recovery-20261016T220849-0400/worker-1/report.md)
-- [Czechia](https://github.com/jdizhur-rgb/vet-trial-matcher/blob/839ce21d260e1ca6e829fad9d8b0ea0147eee212/research/audit-runs/eu6-recovery-20261016T220849-0400/worker-2/report.md)
-- [Poland](https://github.com/jdizhur-rgb/vet-trial-matcher/blob/839ce21d260e1ca6e829fad9d8b0ea0147eee212/research/audit-runs/eu6-recovery-20261016T220849-0400/worker-3/report.md)
-- [Germany](https://github.com/jdizhur-rgb/vet-trial-matcher/blob/839ce21d260e1ca6e829fad9d8b0ea0147eee212/research/audit-runs/eu6-recovery-20261016T220849-0400/worker-4/report.md)
-- [France](https://github.com/jdizhur-rgb/vet-trial-matcher/blob/839ce21d260e1ca6e829fad9d8b0ea0147eee212/research/audit-runs/eu6-recovery-20261016T220849-0400/worker-5/report.md)
-- [Netherlands](https://github.com/jdizhur-rgb/vet-trial-matcher/blob/839ce21d260e1ca6e829fad9d8b0ea0147eee212/research/audit-runs/eu6-recovery-20261016T220849-0400/worker-6/report.md)
+### 6. Netherlands
+Собственный поиск продолжается:0pendingknownledger НЕ завершение страны, IVC220labels ещё требуют actualidentity mapping. Bingelrade: одинphysicaldraft с localcare/chemo на самостоятельныхpublisheddog/catpages; exactoncologypagehold сохранён. BVCBonaire лишь limitedlocaloncologycare, неSurgery/Chemo; stale visitingDrSwanston paragraph не текущий врач после8Octmemorial. Networkкарт и физических адресов не смешивать. [Текущий собственный отчёт](https://github.com/jdizhur-rgb/vet-trial-matcher/blob/7404260a0dc64be5109c7619403b5d2a186304ba/research/audit-runs/eu6-recovery-20261016T220849-0400/worker-6/report.md).
 
-Точные evidence/proposal/query/remaining payloads — в immutable archives по backups/ledger.json. Наличие файлов и успешного backup не означает завершение страны. Остальные исполнители не остановлены ради интеграции; после завершения turn фоновой работы не обещается.
+## Сохранность и технические исправления
+
+Последний подтверждённый researchbackup015: data7404260a0dc64be5109c7619403b5d2a186304ba, receipt333fce04c3b37381db989c8d1d051ebff5466ad1, actual2026-10-17T02:57:15UTC. Control/entirearchiveSHA/memberhashes/receipt readbackPASS. Изменяемые workerrootфайлы не читаются во время seal-интеграции: берутся только explicit hashed immutable payloads. Все точные proposals/evidence/queries/remaining сохранены incrementalarchives по backups/ledger.json. Rootreportaliases актуальны, но другие convenience rootJSON могут оставатьсяstarterдоfinaldelivery; авторитетны frozenpackages/архивы, не startercounters.
+
+Исправлены: старыйPLready без referencedpayload; quarantineправила толькодляhistoricalexactrun; normalize внутриownsubtree после permission/hashguards для ../references; final-reportaliaspriority чтобы короткая поправка не заменяла полный countryreport; guardedbootstrap после потери functionsstores с remote/localledgerSHA proof. Failed local009/011 НЕ считаются удалённымиbackups. Четыре ошибочныеPLкопии из undefined/ recoverably moved в controller-quarantine/pl-path-error; authoritativeownpayloads сохранены, ничего навсегда не удалено.
+
+## Сайт и очередь
+
+Фаза сайта НЕ начата. Gatecheck: независимые приёмки1/2 есть;3/5/6 ещё работают;4researchincomplete. Нет integration/build/maincommit/push/deploy/production-readback этого запуска. Researchветку нельзя mergeвmain: она наследует старые canonical snapshots. Только после all-sixgate возможен отдельный свежийmain и verifiedfielddeltas+полныеvalidators/deploy/readback. Курсоры стран не продвинуты; других automationнастроек не меняли. Фоновое продолжение послеfinalне обещается.

@@ -1,11 +1,12 @@
 (async function(seq){
 const repo="jdizhur-rgb/vet-trial-matcher",root=load("eu6Root"),run=load("eu6Run"),branch=load("eu6Branch"),base="research/audit-runs/"+run,opts={workdir:root,yield_time_ms:1000};
+if(typeof root!=="string"||!root.startsWith("/workspace/scratch/")||typeof run!=="string"||!run.startsWith("eu6-recovery-")||branch!=="research/europe-recovery-"+run||!load("eu6BackupLedger")?.uploaded_files||!/^([a-f0-9]{40})$/.test(load("eu6RemoteHead")||"")||!/^([a-f0-9]{40})$/.test(load("eu6RemoteTree")||""))throw Error("Research backup state incomplete; rehydrate verified remote state before any file write");
 const read=async cmd=>{let r=await tools.exec_command({...opts,cmd,max_output_tokens:50000}),output=r.output;while(r.session_id){r=await tools.write_stdin({session_id:r.session_id,chars:"",yield_time_ms:1000,max_output_tokens:50000});output+=r.output;}if(r.exit_code!==0)throw Error("Command failed: "+JSON.stringify({...r,output:output.slice(-2000)}));return output;};
 const readText=async(p,expected)=>{const py="import pathlib,json,hashlib\nb=pathlib.Path("+JSON.stringify(p)+").read_bytes()\n"+(expected?"assert hashlib.sha256(b).hexdigest()=="+JSON.stringify(expected)+", 'Frozen/controller file changed'\n":"")+"s=b.decode('utf-8')\n";const meta=JSON.parse(await read("python - <<'PY'\n"+py+"print(json.dumps({'characters':len(s),'content':s if len(s)<=32000 else None},ensure_ascii=False))\nPY"));if(meta.content!==null)return meta.content;const chunks=[];for(let i=0;i<meta.characters;i+=32000)chunks.push(JSON.parse(await read("python - <<'PY'\n"+py+"print(json.dumps(s["+i+":"+Math.min(i+32000,meta.characters)+"],ensure_ascii=False))\nPY")));const result=chunks.join("");if(result.length<meta.characters)throw Error("Truncated text chunks");return result;};
 const put=async content=>{for(let k=0;k<2;k++){const r=await tools.mcp__codex_apps__github_create_blob({repository_full_name:repo,content,encoding:"utf-8"});if(r.structuredContent?.sha)return r.structuredContent.sha;if(k)throw Error("blob failed "+JSON.stringify(r));}};
 const m=JSON.parse(await read("python "+base+"/collect_frozen_backup.py"));store("eu6LatestCollection",m);
 if(m.errors.length)notify({checkpoint_collection_errors:m.errors});
-if(!m.files.length){text({status:"NO_NEW_FROZEN_FILES",errors:m.errors});return;}
+if(!m.files.length)text({status:"CONTROLLER_ONLY_CHECKPOINT",errors:m.errors});
 const manifestPath=base+"/backups/checkpoint-"+seq+"-manifest.json";
 text(await tools.apply_patch("*** Begin Patch\n*** Add File: "+root+"/"+manifestPath+"\n+"+JSON.stringify(m)+"\n*** End Patch"));
 const archive="/workspace/scratch/2d03a6db0cc6/"+run+"-checkpoint-"+seq+".tar.zst";
@@ -13,6 +14,8 @@ const extras=[base+"/assignments.json",base+"/criteria.json",base+"/controller-p
 extras.push(base+"/controller-runtime-rehydration-010.json");
 extras.push(base+"/collector-path-normalization-fix.json");
 extras.push(base+"/report-alias-final-selection.json");
+extras.push(base+"/worker-acceptance-1.json",base+"/worker-acceptance-2.json",base+"/worker-acceptance-4.json");
+extras.push(base+"/bootstrap_backup_state.js");
 const packCode="import pathlib,json,subprocess,hashlib,tarfile,zstandard,re\n"+
 "m=json.loads(pathlib.Path("+JSON.stringify(manifestPath)+").read_text()); expected={x['path']:x['sha256'] for x in m['files']}\n"+
 "controller_paths=["+[manifestPath,...extras].map(x=>JSON.stringify(x)).join(",")+"];controller_hashes={p:hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest() for p in controller_paths};expected.update(controller_hashes);paths=list(expected)\n"+
