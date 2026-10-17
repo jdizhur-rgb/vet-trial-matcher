@@ -1,5 +1,17 @@
 # Европа — промежуточный отчёт контроллера
 
+## Текущий срез: 17 октября 2026, 04:07 America/New_York
+
+Приняты исследования Austria/Czechia/France/Netherlands; Poland/Germany продолжают доступный национальный поиск, а не остановлены ради интеграции. All-six gate закрыт, сайт не интегрирован/не собран/не опубликован этим запуском. Research backup076 реально прочитан обратно: data `2793021c2b6a64b7781a6eeba2e748f3282bb091`, receipt `988bbbe51081e0c1eac397357ef645dfe248ad5c`,33новых файла,0ошибок. OwnparentacceptanceFrance дополнительно имеет точный directGitreadback071 (SHA2569f7fa5...cc37); это не приписывается раннему070.
+
+Свежий main `8d9691a408f9743e3d288c9bddd5f45406914544`: care JSON/tele/AGENTS без изменений относительно baselineb76; отдельный trial-аудит и его изменения не тронуты. Актуальные50точных global-denial records и2inventory-only ограничения полностью прочитаны, переданы работающим исполнителям в их собственныхinputcapsules и приняты ими вdispatchguards. OPS изменён только4строкамиappend о сохранении поздних ограничений/явных master-denial narratives; прочитанный прежний полный текст и точный новыйdiff согласованы. Capsule и main-observation находятся в076; очередная публикация впоследствии требует ещё одного fresh-main fetch и только field-scoped deltas, не merge research-ветки.
+
+Poland50:366assignedhypotheses/364processed/239FULL(including20baseline),219NEW/2UPDATE/18DUPLICATE/49EXCLUDED/76processedUNRES/2pending. Parent прочёл полные baseindices0–175 (включая2UPDATE), поздние214–218 и конкретные дополнительные primary proofs. Это не приёмка всех currentproposals: chronological revisions и остальной closure проверяются отдельно. Четыре вопроса86/107/111/112 получили конкретные сохранённые primary contexts, работник заморозил51 без новых visits/dates/counts; parent ещё сверяет точные поправки. Для сетей172–174 запрошено убрать branch-only телефоны изcentralcontact и перенести город172 вservice_area; общий клиническийemail остаётся полезным разрешённым маршрутом.
+
+Germany41: inherited142frontier —87processed/55unvisited,48NEW/13EXCL/81UNRES (rawUNRES включает55unvisited);51доступное независимое направление и4конкретныхscopeunknown. Отдельно3новые physical-branch гипотезыUNRES, не часть142. Первые102/75retainedFULL/1UPDATE не выдаются за новую повторную проверку. Parent прочёл все46NEW19–40; Jähnig physicalChemotherapy НЕпринят только пообщемукаталогу+genericmain surgicalreferral context: требуется точнаяbranchallocation либо честныйONE typednetwork с действительнообщиммаршрутом. Другие проверенные клиники из-за этого не остановлены. Новые restriction40/42 сохраняются отдельно от ordinary404/502/shell и не превращаются в выдуманные403/закрытия.
+
+Все нижеследующие срезы — сохранённая история; новые количества не означают публикацию, завершение страны или обещание количества добавлений.
+
 ## Приёмка France: 17 октября 2026, 03:41 America/New_York
 
 Исследование Франции независимо принято родителем: полный66, журнал67 и офлайн-поправки68 проверены по фактическому содержимому, точным remote-хешам и старым значениям. Полный отчёт64 был прочитан целиком (1672строки), затем весь содержательный diff66; все183предложения и field-evidence просмотрены вручную. ТелефонSaint-Leu исправлен на+262262349164; ParisIII получает подтверждённыйChemotherapy из прежнего разрешённого чтения без повтора позднее held-страницы. Никакого дополнительногоNEW/UPDATE/processed/даты от этих трёх полей. Текущий планARCEP2026 отдельно подтверждает+262 и исключение национального0.
