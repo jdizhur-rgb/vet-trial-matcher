@@ -1,0 +1,68 @@
+{
+  "run_id": "eu6-recovery-20261016T220849-0400",
+  "slot": 4,
+  "country": "Germany",
+  "baseline_sha": "b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45",
+  "reviewer": "/root",
+  "reviewed_at": "2026-10-17 06:22:18 UTC",
+  "kind": "PARENT_RETAINED_FIELD_AND_PRIMARY_RECEIPT_REVIEW_27",
+  "records": [
+    {
+      "source_id": "de-cadomo-hermannsburg-bremen",
+      "city": "Bremen",
+      "physical_address": "Hermannsburg 2, 28259 Bremen",
+      "phone": "+49 421 5769000",
+      "services": [
+        "Surgery"
+      ],
+      "scope": "Explicit own oncological/reconstructive surgery; Mertin current lead veterinarian/GPCert SAS, not oncology diplomate. Hermannsburg is the street/practice name here, not a second town/branch. Mobile cardiology consultant is not mobile cancer care."
+    },
+    {
+      "source_id": "de-kleintierzentrum-am-waldpark-dresden",
+      "physical_address": "Loschwitzer Straße 3, 01309 Dresden",
+      "phone": "+49 351 31906140",
+      "services": [
+        "Surgery",
+        "Chemotherapy"
+      ],
+      "scope": "Own oncology list explicitly tumour/reconstructive surgery and chemotherapy (lymphoma example); Anne Klötzer current qualified veterinarian/GPSAS. Species unknown retained, no invented board title. Separate dendritic-cell offer preserved in research only, no new normalized medical modality/editorial/efficacy/regulatory claim approved."
+    },
+    {
+      "source_id": "de-tieraerzte-herzogstrasse-duesseldorf",
+      "physical_address": "Herzogstr. 53, 40215 Düsseldorf-Friedrichstadt",
+      "phone": "+49 211 97177734",
+      "services": [
+        "Local oncology care",
+        "Surgery"
+      ],
+      "scope": "Own local oncology consultation and surgical tumour removal; current Sommer/Schröder veterinary roles. CT/MRI/emergency referral not own RT/Chemo/second physical branch/mobile cancer act."
+    }
+  ],
+  "reviewed_scope": "All three new-value objects and key field quotes read without truncation on focused second read; all eight immutable minimal primary source receipts read, actual 200 dates, URLs, short quotes, branch/contact/current-role scope checked. Initial overly long four-object output was truncated and not claimed fully read.",
+  "remote_materials": {
+    "checkpoint": "054",
+    "data_sha": "f5381782f0af0fb2e4323b81bf0acf24f41ef6f5",
+    "all_eight_source_and_three_delta_file_sha_matched_remote_ledger": true
+  },
+  "semantic_dedupe": {
+    "actual_json_rows": 3229,
+    "containers": {
+      "centers": 901,
+      "supplemental_centers": 893,
+      "sources": 977,
+      "profiles": 458
+    },
+    "literal_tele_ROWS": 64,
+    "domain_name_normalized_phone_hits": [],
+    "positive_controls": {
+      "DOMVET": 4,
+      "MOONVET": 3
+    },
+    "phone_normalization_tests": 2,
+    "probe_defects": "Initial inline regex escaping made that probe's normalized-phone check invalid; no receipt/pass was saved from it. Subsequent corrected probe had a typo in a test's expected literal and failed before any pass. Final digit-by-character probe passed two explicit controls and all actual-row assertions. Only that final execution supports this receipt."
+  },
+  "parent_new_source_requests": 0,
+  "field_scope_accepted_for_later_integration": true,
+  "country_research_acceptance": false,
+  "site_publication": false
+}

@@ -2,7 +2,7 @@
 import argparse,collections,hashlib,json,pathlib
 def canonical(v):
     return json.dumps(v,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode('utf-8')
-def verify(root,base,patches,revisions=()):
+def verify(root,base,patches=(),revisions=(),steps=()):
     own=root/base/'worker-3'
     ledger=json.loads((root/base/'backups/ledger.json').read_text())['uploaded_files']
     def remote_json(rel):
@@ -19,10 +19,8 @@ def verify(root,base,patches,revisions=()):
         assert (obj['run_id'],obj['slot'],obj['country'],obj['baseline_sha'])==(base.name,3,'Poland','b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45')
         return obj
     rows=[]
-    closure_paths=['working/effective-proposal-closure-001.json',*patches]
-    for rel in closure_paths:
-        obj=remote_json(rel)
-        rows+=obj.get('records',obj.get('added_records',[]))
+    assert not steps or not (patches or revisions), 'Use explicit chronological steps OR legacy patch/revision arguments'
+    closure_paths=['working/effective-proposal-closure-001.json',*(steps or [*patches,*revisions])]
     files={}
     def verify_record(row):
         rel=pathlib.PurePosixPath(row['frozen_path'])
@@ -48,17 +46,26 @@ def verify(root,base,patches,revisions=()):
             assert record['old_value'] is None
         assert 'old_value' in record and 'new_value' in record
         return record
-    # Authenticate the complete original chain before applying immutable revisions.
-    # A revision replaces one existing locator; it must never create another NEW.
-    for row in rows:
-        verify_record(row)
+    # Authenticate chronological append/revision steps. Revisions replace exactly
+    # one existing locator and must never be counted as another NEW.
     revision_count=0
-    previous_path=closure_paths[-1]
-    for rel in revisions:
+    previous_path=None;seen_paths=[]
+    for rel in closure_paths:
         obj=remote_json(rel)
-        assert obj['base']['path']==previous_path
-        assert obj['base']['sha256']==ledger[(own/previous_path).relative_to(root).as_posix()]
-        for revision in obj['revised_records']:
+        if previous_path is not None:
+            if 'base' in obj:
+                assert obj['base']['path']==previous_path
+                assert obj['base']['sha256']==ledger[(own/previous_path).relative_to(root).as_posix()]
+            else:
+                # Early immutable patches 003/004 used an exact cumulative path
+                # list instead of one previous-path/hash pair. Every listed
+                # file has already passed the remote-ledger SHA check above.
+                assert obj['bases']==seen_paths
+        added=obj.get('records',obj.get('added_records',[]))
+        for row in added:
+            verify_record(row)
+        rows+=added
+        for revision in obj.get('revised_records',[]):
             index=revision['effective_index']
             matches=[i for i,row in enumerate(rows) if row['effective_index']==index]
             assert len(matches)==1,('Revision target must exist exactly once',index)
@@ -70,8 +77,14 @@ def verify(root,base,patches,revisions=()):
             new=dict(old,**revision['new_locator'])
             verify_record(new)
             rows[i]=new;revision_count+=1
-        assert len(rows)==obj['effective_count']
+        if 'effective_count' in obj:
+            assert len(rows)==obj['effective_count']
+        elif 'validation' in obj and 'effective_count' in obj['validation']:
+            assert len(rows)==obj['validation']['effective_count']
+        elif 'effective_counts' in obj:
+            assert len(rows)==obj['effective_counts']['total']
         previous_path=rel
+        seen_paths.append(rel)
     indices=[];identities=[];counts=collections.Counter();new_flags={k:collections.Counter() for k in ('publication_eligible','apply_permitted','strict_fully_verified','core_fields_sufficient')}
     for row in rows:
         record=verify_record(row)
@@ -86,4 +99,5 @@ def verify(root,base,patches,revisions=()):
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--root',required=True);p.add_argument('--base',required=True);p.add_argument('--patch',action='append',default=[])
     p.add_argument('--revision',action='append',default=[])
-    a=p.parse_args();print(json.dumps(verify(pathlib.Path(a.root),pathlib.Path(a.base),a.patch,a.revision),ensure_ascii=False,indent=2))
+    p.add_argument('--step',action='append',default=[])
+    a=p.parse_args();print(json.dumps(verify(pathlib.Path(a.root),pathlib.Path(a.base),a.patch,a.revision,a.step),ensure_ascii=False,indent=2))
