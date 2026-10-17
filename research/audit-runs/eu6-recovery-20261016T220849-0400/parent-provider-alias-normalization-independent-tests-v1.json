@@ -1,0 +1,46 @@
+{
+  "kind": "PARENT_PURE_ALIAS_NORMALIZATION_NEGATIVE_TESTS",
+  "module_path": "research/audit-runs/eu6-recovery-20261016T220849-0400/worker-5/checkpoints/provider-identity-normalization-20261017T0624/provider_identity_normalization.py",
+  "module_sha256": "5605f07d0bb1c1c66907836a666fbb0d0f9f17524f5b16f6c37a3a868748cd91",
+  "positive_tests": 1,
+  "negative_tests": 21,
+  "rejected": [
+    "country:Germany",
+    "run_id:wrong",
+    "agent_id:wrong",
+    "baseline_sha:wrong",
+    "alias_source_id:wrong",
+    "canonical_source_id:wrong",
+    "current_canonical_street:99 Otherstreet",
+    "current_canonical_city:Othercity",
+    "current_canonical_postal:00000",
+    "alias_phone:000",
+    "permission_scope_adjudicated:False",
+    "source_body_recovery:True",
+    "source_request_for_normalization:True",
+    "own_alias_named_veterinarians:['A']",
+    "previous_saved_canonical_explicit_alias_recognition:False",
+    "duplicate_identity",
+    "self_reference",
+    "missing_target"
+  ],
+  "unexpectedly_accepted": [
+    "slot:4",
+    "previous_saved_canonical_explicit_alias_recognition:false",
+    "canonical_country_wrong"
+  ],
+  "guarded_IO_calls": {
+    "body_open": 0,
+    "socket": 0,
+    "urlopen": 0
+  },
+  "result": "FAIL_CLOSED_GAPS",
+  "production_modified": false,
+  "clinical_source_requests": 0,
+  "run_id": "eu6-recovery-20261016T220849-0400",
+  "slot": 5,
+  "country": "France",
+  "reviewed_at": "2026-10-17 06:32:54 UTC",
+  "actual_Montayral_identity_invalidated": false,
+  "country_research_acceptance": false
+}
