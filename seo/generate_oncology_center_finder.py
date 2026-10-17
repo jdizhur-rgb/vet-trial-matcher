@@ -56,8 +56,9 @@ def normalized(value: str) -> str:
 
 
 def card(center: dict) -> str:
+    network = center.get("location_type") == "network"
     state_name = STATE_NAMES.get(center["region"], center["region"])
-    search = normalized(" ".join((center["name"], center["street"], center["city"], center["region"], state_name, center["postal_code"], center["country"])))
+    search = normalized(" ".join((center["name"], center["street"], center["city"], center["region"], state_name, center["postal_code"], center["country"], " ".join(center.get("network_search_terms", [])))))
     service_names = set(center["services"])
     filter_groups = [
         normalized(label)
@@ -72,20 +73,33 @@ def card(center: dict) -> str:
         "data-filters": "|".join(filter_groups),
         "data-lat": center["latitude"],
         "data-lon": center["longitude"],
+        "data-location-type": center.get("location_type", "physical"),
     }
     attr_text = " ".join(f'{key}="{esc(value)}"' for key, value in attrs.items())
     street = f'{esc(center["street"])}<br>' if center.get("street") else ""
     phone = f'<p>☎️ {esc(center["phone"])}</p>' if center.get("phone") else ""
+    location = (f'<p><strong>Network contact · {esc(center["country"])}</strong></p>' if network else
+                f'<p>{street}{esc(center["city"])}, {esc(center["region"])} {esc(center["postal_code"])} · {esc(center["country"])}</p>')
+    contacts = ""
+    if network:
+        for field, label in (("booking_url", "Book through the network"), ("branch_finder_url", "Find a branch")):
+            if center.get(field):
+                contacts += f'<p><a href="{esc(center[field])}" target="_blank" rel="noopener">{label} →</a></p>'
+        if center.get("email"):
+            contacts += f'<p><a href="mailto:{esc(center["email"])}">{esc(center["email"])}</a></p>'
+    contact_target = "network" if network else "hospital"
+    availability_text = center.get("availability_note", "")
+    if network:
+        availability_text = availability_text.rstrip(".")
     availability = (
-        f'<p><strong>Availability:</strong> {esc(center["availability_note"])}. Contact the hospital before making plans.</p>'
+        f'<p><strong>Availability:</strong> {esc(availability_text)}. Contact the {contact_target} before making plans.</p>'
         if center.get("availability_note") else ""
     )
     tags = "".join(f"<span>{esc(x)}</span>" for x in center["services"])
     link_label = "ACVIM specialist listing →" if "vetspecialists.com/vet-detail" in center["website"] else "Official website →"
     return (
         f'<article class="p-card" {attr_text}><h2>{esc(center["name"])}</h2>'
-        f'<p>{street}{esc(center["city"])}, {esc(center["region"])} {esc(center["postal_code"])} · {esc(center["country"])}</p>'
-        f'<p class="distance" hidden></p>{phone}{availability}<div class="tags">{tags}</div>'
+        f'{location}<p class="distance" hidden></p>{phone}{availability}{contacts}<div class="tags">{tags}</div>'
         f'<p><a href="{esc(center["website"])}" target="_blank" rel="noopener">{link_label}</a></p></article>'
     )
 
@@ -105,18 +119,18 @@ def portal(centers: list[dict]) -> str:
         for country in sorted(countries, key=lambda country: (country != "USA", country))
     )
     cards = "".join(card(x) for x in centers)
-    return f'''<section class="portal"><style>.portal [hidden]{{display:none!important}}.portal>.note{{font-size:.875rem;line-height:1.5;color:#607086;margin:24px 0 0}}</style><link rel="stylesheet" href="../matcher-nav.css"><nav class="matcher-tools" aria-label="Finder sections"><a href="../">🐾 Clinical trials</a><a class="active" aria-current="page" href="../centers/">🏥 Oncology centers</a><a href="../advanced/">🧬 Advanced treatments</a><a href="../genomic-tests/">🧬 Genomic tests</a></nav><h1>Find veterinary oncology care near you</h1><p class="lead">Find veterinary oncology clinics by country, city or hospital name. For US locations, you can also search by state or ZIP code. Filter by service to compare options.</p><div class="controls"><select id="country" aria-label="Filter by country">{country_options}</select><input id="q" type="search" placeholder="Hospital or city" aria-label="Search by hospital or city"><input id="zip" hidden disabled inputmode="numeric" pattern="[0-9]{{5}}" maxlength="5" placeholder="ZIP code for nearest centers" aria-label="ZIP code for nearest centers"><select id="state" hidden disabled aria-label="Filter by US state">{state_options}</select><select id="svc" aria-label="Filter by service">{options}</select></div><p id="status" class="count" aria-live="polite"></p><p class="count"><span id="n">{len(centers)}</span> oncology locations shown</p><div class="grid" id="cards">{cards}</div><details id="international" hidden><summary><span id="intl-n">0</span> international centers — distance not calculated</summary><div class="grid" id="intl-cards"></div></details><p class="note"><strong>Directory notice:</strong> Service information is compiled from clinic websites and professional public directories. Vet Trial Finder does not independently verify clinicians, licenses, credentials or quality of care, and a listing is not a recommendation. Confirm the clinician, service, cost and current availability directly with the clinic before making plans.</p><script>
+    return f'''<section class="portal"><style>.portal [hidden]{{display:none!important}}.portal>.note{{font-size:.875rem;line-height:1.5;color:#607086;margin:24px 0 0}}</style><link rel="stylesheet" href="../matcher-nav.css"><nav class="matcher-tools" aria-label="Finder sections"><a href="../">🐾 Clinical trials</a><a class="active" aria-current="page" href="../centers/">🏥 Oncology centers</a><a href="../advanced/">🧬 Advanced treatments</a><a href="../genomic-tests/">🧬 Genomic tests</a></nav><h1>Find veterinary oncology care near you</h1><p class="lead">Find veterinary oncology clinics by country, city or hospital name. For US locations, you can also search by state or ZIP code. Filter by service to compare options.</p><div class="controls"><select id="country" aria-label="Filter by country">{country_options}</select><input id="q" type="search" placeholder="Hospital or city" aria-label="Search by hospital or city"><input id="zip" hidden disabled inputmode="numeric" pattern="[0-9]{{5}}" maxlength="5" placeholder="ZIP code for nearest centers" aria-label="ZIP code for nearest centers"><select id="state" hidden disabled aria-label="Filter by US state">{state_options}</select><select id="svc" aria-label="Filter by service">{options}</select></div><p id="status" class="count" aria-live="polite"></p><p class="count"><span id="n">{len(centers)}</span> oncology care listings shown</p><div class="grid" id="cards">{cards}</div><details id="international" hidden><summary><span id="intl-n">0</span> international centers — distance not calculated</summary><div class="grid" id="intl-cards"></div></details><p class="note"><strong>Directory notice:</strong> Service information is compiled from clinic websites and professional public directories. Vet Trial Finder does not independently verify clinicians, licenses, credentials or quality of care, and a listing is not a recommendation. Confirm the clinician, service, cost and current availability directly with the clinic before making plans.</p><script>
 const country=document.querySelector('#country'),q=document.querySelector('#q'),zip=document.querySelector('#zip'),svc=document.querySelector('#svc'),state=document.querySelector('#state'),cards=[...document.querySelectorAll('.p-card')],grid=document.querySelector('#cards'),n=document.querySelector('#n'),status=document.querySelector('#status'),intl=document.querySelector('#international'),intlGrid=document.querySelector('#intl-cards'),intlN=document.querySelector('#intl-n'),original=new Map(cards.map((c,i)=>[c,i]));
 const norm=v=>v.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
 const rad=v=>v*Math.PI/180, miles=(a,b)=>{{const x=rad(b.lat-a.lat),y=rad(b.lon-a.lon),h=Math.sin(x/2)**2+Math.cos(rad(a.lat))*Math.cos(rad(b.lat))*Math.sin(y/2)**2;return 3958.8*2*Math.asin(Math.sqrt(h))}};
 let seq=0;const cache=new Map();async function zipPoint(z){{if(!cache.has(z))cache.set(z,fetch('https://api.zippopotam.us/us/'+z).then(r=>{{if(!r.ok)throw Error();return r.json()}}).then(d=>({{lat:+d.places[0].latitude,lon:+d.places[0].longitude,place:d.places[0]['place name'],state:d.places[0]['state abbreviation']}})));return cache.get(z)}}
 function reset(){{cards.sort((a,b)=>original.get(a)-original.get(b)).forEach(c=>{{c.hidden=false;c.querySelector('.distance').hidden=true;grid.appendChild(c)}});intl.hidden=true;status.textContent=''}}
 const hasService=(c,service)=>!service||c.dataset.filters.split('|').includes(service);
-const hasFixedLocation=c=>c.dataset.lat!==''&&c.dataset.lon!==''&&Number.isFinite(+c.dataset.lat)&&Number.isFinite(+c.dataset.lon);
+const hasFixedLocation=c=>c.dataset.locationType!=='network'&&c.dataset.lat!==''&&c.dataset.lon!==''&&Number.isFinite(+c.dataset.lat)&&Number.isFinite(+c.dataset.lon);
 const hasCountry=c=>!country.value||c.dataset.country===country.value;
 const hasState=c=>country.value!=='USA'||!state.value||(c.dataset.country==='USA'&&c.dataset.region===state.value);
 function updateCountry(){{const us=country.value==='USA';zip.hidden=state.hidden=!us;zip.disabled=state.disabled=!us;if(!us){{zip.value='';state.value=''}}}}
-function textFilter(){{const needle=norm(q.value),service=svc.value;let count=0;cards.forEach(c=>{{const show=(!needle||c.dataset.search.includes(needle))&&hasService(c,service)&&hasCountry(c)&&hasState(c);c.hidden=!show;if(show)count++}});n.textContent=count;status.textContent=needle||service||country.value||state.value?(count?count+' matching '+(count===1?'center.':'centers.'):'No listed centers match that search.'):''}}
+function textFilter(){{const needle=norm(q.value),service=svc.value;let count=0;cards.forEach(c=>{{const show=(!needle||c.dataset.search.includes(needle))&&hasService(c,service)&&hasCountry(c)&&hasState(c);c.hidden=!show;if(show)count++}});n.textContent=count;status.textContent=needle||service||country.value||state.value?(count?count+' matching '+(count===1?'listing.':'listings.'):'No listed centers match that search.'):''}}
 async function zipFilter(z,mySeq){{status.textContent='Finding the nearest listed centers…';try{{const origin=await zipPoint(z);if(mySeq!==seq)return;const service=svc.value,eligible=cards.filter(c=>hasService(c,service)&&hasCountry(c)&&hasState(c)),us=eligible.filter(c=>c.dataset.country==='USA'&&hasFixedLocation(c)),mobile=eligible.filter(c=>c.dataset.country==='USA'&&!hasFixedLocation(c)),other=eligible.filter(c=>c.dataset.country!=='USA');cards.forEach(c=>c.hidden=true);us.map(c=>({{c,d:miles(origin,{{lat:+c.dataset.lat,lon:+c.dataset.lon}})}})).sort((a,b)=>a.d-b.d).forEach(x=>{{x.c.hidden=false;const p=x.c.querySelector('.distance');p.textContent='Approximately '+Math.round(x.d)+' miles';p.hidden=false;grid.appendChild(x.c)}});mobile.forEach(c=>{{c.hidden=false;c.querySelector('.distance').hidden=true;grid.appendChild(c)}});other.forEach(c=>{{c.hidden=false;intlGrid.appendChild(c)}});intlN.textContent=other.length;intl.hidden=!other.length;n.textContent=us.length+mobile.length;status.textContent=us.length?'Nearest matching US centers first from '+origin.place+', '+origin.state+'. Straight-line distance.':mobile.length?'':'No listed US centers match that service filter.'}}catch{{if(mySeq!==seq)return;reset();textFilter();status.textContent='We could not locate that ZIP code. Check the five digits or search by city, state or hospital name.'}}}}
 function run(){{const mySeq=++seq,z=zip.value.trim();if(country.value==='USA'&&/^\\d{{5}}$/.test(z)){{q.value='';zipFilter(z,mySeq)}}else{{reset();textFilter()}}}}
 country.addEventListener('change',()=>{{updateCountry();run()}});
