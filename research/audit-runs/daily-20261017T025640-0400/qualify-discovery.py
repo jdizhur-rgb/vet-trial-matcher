@@ -1,0 +1,57 @@
+"""Qualify signals without manufacturing current owner access or duplicate trials."""
+import json,hashlib,collections
+from pathlib import Path
+from datetime import datetime
+from zoneinfo import ZoneInfo
+from urllib.parse import urlsplit,unquote,parse_qsl
+P=Path(__file__).parent; ROOT=P.parents[2]
+def read(p):return json.loads(p.read_text())
+def write(p,d):p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n')
+at=datetime.now(ZoneInfo('America/New_York')).isoformat()
+leads=[
+ {'lead_id':'cambridge-ctvt-20261016','publication_date':'2026-10-16','url':'https://www.vet.cam.ac.uk/news/get-free-diagnostic-testing-suspected-canine-transmissible-cancer-cases','disposition':'excluded_diagnostic_signal_primary_unavailable','reason':'Search returns a diagnostic-testing invitation, not a treatment protocol. Native502 then timeout, same-URL Web403. No further retry or access bypass. No therapy/current cohort inferred from snippet.','evidence':['discovery-c2.json','discovery-primary-web1.json#turn836view0']},
+ {'lead_id':'mibagents-directory','publication_date':'2024-03-19','url':'https://mibagents.org/research/canine-trials','disposition':'new_discovery_source_secondary_stale','reason':'Foundation directory retained as source112.29 entries assessed by their existing identities or nontherapeutic scope. Older recruitment descriptions never override current source evidence; no new treatment imported.','evidence':['discovery-primary-web1.json#turn836view1','mib-reconciliation.json']},
+ {'lead_id':'upm-nus-msc','publication_date':'2023-10-27','url':'https://vet.upm.edu.my/berita/exchanging_memorandum_of_understanding_between_upm_and_nus_paves_the_way_for_revolutionary_companion_animal_cancer_treatment-76111?L=en','disposition':'existing_watch_enriched_not_current_intake','reason':'Full official article says future dog/cat end-stage cancer MSC recruitment in2023; no2026 patient protocol/cost/current intake. Same NUS collaboration as existing watch issue, not a second trial.','evidence':['evidence/2ffe3a9114bcc97c4d.json']},
+ {'lead_id':'feline-cetuximab-paper','publication_date':'2026-10-09','url':'https://pubmed.ncbi.nlm.nih.gov/42854821/','disposition':'bibliographic_lead_not_verified_owner_access','reason':'Search bibliographic signal predates fresh window Oct10–17; native203 cookie shell, same-URL Web only footer. Abstract/model details NOT VERIFIED. No current clinical enrollment inferred and no preclinical/clinical classification invented.','evidence':['discovery-c3.json','discovery-primary-web1.json#turn836view2']},
+ {'lead_id':'fapesp-ndv-grant','url':'https://bv.fapesp.br/pt/bolsas/220773/ensaio-clinico-de-fase-i-do-virus-oncolitico-ndv-gfp-em-caes/','disposition':'existing_usp_research_watch','reason':'Official grant24/11189-1, start2024-09-01, scholarship status Interrompido. PhaseI safety/dose plan for up to20dogs; does not confirm current owner intake and scholarship interruption does not prove protocol closure.','evidence':['evidence/f614a72d8bd885f2a8.json'],'shared_issue_id':'source-question-brazil-usp-loct-oncolytic-virus-program'},
+ {'lead_id':'fapesp-oxc101-slu','url':'https://bv.fapesp.br/pt/bolsas/233375/ensaio-clinico-com-oxc-101-em-caes-com-linfoma-hemangiossarcoma-ou-cancer-de-mama/','disposition':'existing_slu_watch_new_supporting_evidence','reason':'Grant25/23134-0 is a research placement abroad at SLU Sweden,2026-02-01–2027-01-31, to observe OXC-101 work. Not a Brazilian enrollment programme. Material signal triggered one specific SLU primary reread: SilverBullet2.0 September2026–August2030 programme for lymphoma/HSA/mammary tumours confirmed; no named current owner intake or cost criteria. Both existing OXC records remain nonmatchable; no duplicate.','evidence':['evidence/016fe856a2eaaf87be.json','evidence/6bc9dc6409292f3d0b.json'],'canonical_ids':['se-slu-oxc101-lymphoma-hsa-watch','se-slu-oxc101-precision-cancer']},
+ {'lead_id':'actrec-comparative-oncology','url':'https://actrec.gov.in/hi/node/997','disposition':'new_discovery_source_programme','reason':'Full current official investigator/laboratory profile read. Comparative oncology facilities and research/biorepository, no named current dog/cat treatment protocol with owner access. No exhaustive trial roster required of lab profile.','evidence':['evidence/d54b7dab6543cc266a.json']},
+ {'lead_id':'japan-icat','url':'https://cure-cancer.jp/','disposition':'duplicate_source_route','reason':'Already an official fallback under Yamaguchi source; current source pass covers the route. Not a new master or a new trial.','evidence':['receipt-final.json#japan-yamaguchi-vmc-clinical-trials']},
+ {'lead_id':'linkedin-discovery','disposition':'no_new_primary_recruitment_signal','reason':'Actual public LinkedIn search completed. Returned already-known PurduePDL1, UCDglioma/oral trials, LEAH, Ethos, UGA, CosMyc, TCE and ACI signals. No repost or snippet used to override primary access/status, and known denied routes not reopened.','evidence':['discovery-c6.json']},
+ {'lead_id':'other_search_noise','disposition':'rejected_scope_or_historical','reason':'Human registries; conferences/markets; observational/biobank/diagnostic studies; CTVT detection; sheep OPA experimental model; historic Monepantel/Paccal/Ardent cohorts. No new dog/cat usable anticancer treatment established.','evidence':['discovery-matrix.json']}
+]
+write(P/'discovery-dispositions.json',{'run_id':P.name,'reviewed_at':at,'new_clinical_records':0,'canonical_updates':0,'new_durable_sources':2,'source_roles_preserved':True,'rows':leads})
+# References are the retrieved secondary-page link IDs; current primary judgments
+# are separately available in the source receipt. An unmatched old card is a lead,
+# never a new active canonical entry.
+mapping=[(46,'csu-osa-carboplatin-pain','known_protocol'),(48,'csu-osa-car-t-met','known_protocol'),(49,'csu-osa-dual-energy-ct','nontherapeutic'),(50,'anivive-sine-osa-carboplatin','secondary_on_hold_not_site_override'),('51a','csu-cotc033-vaccine-immunity','known_protocol'),('51b',None,'historical_characterization_not_treatment'),('51c','mizzou-cotc027-hypomethylating','research_only'),(52,'ethos-mimic-osa-lung','known_protocol'),(53,None,'dysbiosis_not_treatment'),(54,'ethos-rapamycin-cancer','research_only'),(55,None,'pain_activity_observation_not_treatment'),(56,'osu-osa-ai-sbrt','known_protocol'),(31,None,'purdue_tissue_sampling_not_treatment'),(58,'uf-osa-vaccine','known_protocol'),(60,'uf-osa-mrna','known_protocol'),(61,None,'relapse_blood_test_not_treatment'),(62,'ca-ovc-osa-hifu','known_protocol'),(63,None,'historical_illinois_olaparib_identity_not_currently_established'),(64,None,'historical_illinois_cpg_identity_not_currently_established'),(65,'ill-osa-car-t-current','historical_cart_no_reactivation'),('66a','umn-coed-osa-part2','confirmed_closed_canonical'),('66b',None,'historical_meteor_no_current_therapeutic_invitation'),('66c',None,'amputation_sampling'),('66d',None,'cancer_healthy_sampling'),('66e',None,'early_stage_blood_sampling'),(40,None,'missouri_il12_on_hold'),(67,'penn-osa-carinkt','known_protocol'),(68,'vt-osa-histotripsy','canonical_closed_no_reactivation'),(70,'therajan-her2-egfr-vaccine','known_protocol_confirm_alias_in_primary_receipt')]
+cat=read(ROOT/'data/trials_base.json');ids={v['id'] for v in cat}
+for i,(ref,cid,decision) in enumerate(mapping):
+ if cid and cid not in ids:
+  matches=[v['id'] for v in cat if ref==70 and ('therajan' in str(v).lower() or 'egfr/her2' in str(v).lower())];assert len(matches)==1,matches;mapping[i]=(ref,matches[0],decision)
+write(P/'mib-reconciliation.json',{'at':at,'secondary_page_date':'2024-03-19','secondary_recruitment_not_primary_proof':True,'signal_count':29,'current_primary_evidence':'receipt-final.json; csu-comparison.json; registry-comparison.json','rows':[{'secondary_link_ref':str(r),'canonical_id':c,'disposition':d} for r,c,d in mapping],'new_records':0,'unpublished_current_intake_not_inferred':True})
+issues=read(P/'issues.json')
+for x in issues['issues']:
+ if x['issue_id']=='discovery-nus-msc-current-veterinary-intake':x['additional_current_evidence']={'read_at':at,'file':'evidence/2ffe3a9114bcc97c4d.json','article_date':'2023-10-27','new_visit_to_old_article_not_new_trial':True}
+ if x['issue_id']=='source-question-brazil-usp-loct-oncolytic-virus-program':x['additional_current_evidence']=['evidence/f614a72d8bd885f2a8.json; scholarship_interrupted_not_trial_closure','evidence/016fe856a2eaaf87be.json; separate_Sweden_research_placement']
+write(P/'issues.json',issues)
+# Include the cross-method restriction deviations transparently.
+dev=read(P/'execution-deviations.json');deny=read(ROOT/'data/source_access_restrictions.json')['routes']
+def key(u):
+ s=urlsplit(u);return((s.hostname or '').removeprefix('www.'),unquote(s.path).rstrip('/'),tuple(sorted(parse_qsl(s.query,keep_blank_values=True))))
+denied={key(r['url']) for r in deny};w=[a for a in read(P/'web-attempts.json') if key(a['url']) in denied]
+dev['Web_requests_to_prior_protocol403_before_guard']=w
+prior=dev['additional_prior_receipt_gaps']['current_requests_before_this_receipt_was_inspected'];dev['summary']={'prior_protocol_denial_routes':len(deny),'native_requests_to_these_routes':len(prior),'native_unique_urls':len({key(x['current']['url']) for x in prior}),'Web_requests_to_these_routes':len(w),'additional_WSU_narrative_gate_native_requests':1,'execution_policy_status':'FAIL_DEVIATIONS_RECORDED','repaired_dispatch_guard':'policy-guard-check.json','new_network_requests_in_guard_test':0}
+write(P/'execution-deviations.json',dev)
+native=[json.loads(x) for x in (P/'attempts.jsonl').read_text().splitlines()]
+def peak(v):
+ n=m=0
+ for t,d in sorted(v):n+=d;m=max(m,n)
+ return m
+events=[];domains=collections.defaultdict(list)
+for a in native:
+ es=[(a['attempted_at'],1),(a['completed_at'],-1)];events.extend(es);domains[urlsplit(a['url']).hostname].extend(es)
+sources=read(P/'before-source_inventory.json')['sources'];ids={s['id'] for s in sources};original=[a for a in native if a['source_id'] in ids];attempts=read(P/'receipt-final.json')['sources'];allurls={a['url'].rstrip('/') for r in attempts for a in r['attempted_urls'] if a.get('new_visit_this_run')}
+fallbacks=[(s['id'],u) for s in sources for u in s.get('fallback_urls',[])];attempted=[(sid,u) for sid,u in fallbacks if u.rstrip('/') in allurls]
+write(P/'execution-compliance.json',{'at':at,'native_request_count':len(native),'original_source_native_requests':len(original),'Web_original_source_requests':len(read(P/'web-attempts.json')),'Web_discovery_primary_requests':3,'native_peak_overlap':peak(events),'domain_peak_overlap':{k:peak(v) for k,v in domains.items()},'limits':{'global':6,'domain':2,'connect_seconds':5,'total_seconds':20,'transient_retries':1},'original_configured_fallbacks':len(fallbacks),'configured_fallbacks_actually_attempted':len(attempted),'configured_fallbacks_not_retried_due_inherited_gates':[(sid,u) for sid,u in fallbacks if u.rstrip('/') not in allurls],'execution_policy_status':'FAIL_DEVIATIONS_RECORDED','deviations':dev['summary'],'checkpoint_evidence':['segment-01.md','segment-02.md','segment-03.md.json'],'clinical_catalog_bytes_unchanged':(ROOT/'data/trials_base.json').read_bytes()==(P/'before-trials_base.json').read_bytes()})
+print(json.dumps(dev['summary']));print('native',len(native),'overlap',peak(events),'fallbacks',len(attempted),len(fallbacks))

@@ -1,0 +1,111 @@
+{
+  "run_id": "daily-20261017T025640-0400",
+  "reviewed_at": "2026-10-17T03:16:19.982537-04:00",
+  "new_clinical_records": 0,
+  "canonical_updates": 0,
+  "new_durable_sources": 2,
+  "source_roles_preserved": true,
+  "rows": [
+    {
+      "lead_id": "cambridge-ctvt-20261016",
+      "publication_date": "2026-10-16",
+      "url": "https://www.vet.cam.ac.uk/news/get-free-diagnostic-testing-suspected-canine-transmissible-cancer-cases",
+      "disposition": "excluded_diagnostic_signal_primary_unavailable",
+      "reason": "Search returns a diagnostic-testing invitation, not a treatment protocol. Native502 then timeout, same-URL Web403. No further retry or access bypass. No therapy/current cohort inferred from snippet.",
+      "evidence": [
+        "discovery-c2.json",
+        "discovery-primary-web1.json#turn836view0"
+      ]
+    },
+    {
+      "lead_id": "mibagents-directory",
+      "publication_date": "2024-03-19",
+      "url": "https://mibagents.org/research/canine-trials",
+      "disposition": "new_discovery_source_secondary_stale",
+      "reason": "Foundation directory retained as source112.29 entries assessed by their existing identities or nontherapeutic scope. Older recruitment descriptions never override current source evidence; no new treatment imported.",
+      "evidence": [
+        "discovery-primary-web1.json#turn836view1",
+        "mib-reconciliation.json"
+      ]
+    },
+    {
+      "lead_id": "upm-nus-msc",
+      "publication_date": "2023-10-27",
+      "url": "https://vet.upm.edu.my/berita/exchanging_memorandum_of_understanding_between_upm_and_nus_paves_the_way_for_revolutionary_companion_animal_cancer_treatment-76111?L=en",
+      "disposition": "existing_watch_enriched_not_current_intake",
+      "reason": "Full official article says future dog/cat end-stage cancer MSC recruitment in2023; no2026 patient protocol/cost/current intake. Same NUS collaboration as existing watch issue, not a second trial.",
+      "evidence": [
+        "evidence/2ffe3a9114bcc97c4d.json"
+      ]
+    },
+    {
+      "lead_id": "feline-cetuximab-paper",
+      "publication_date": "2026-10-09",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42854821/",
+      "disposition": "bibliographic_lead_not_verified_owner_access",
+      "reason": "Search bibliographic signal predates fresh window Oct10–17; native203 cookie shell, same-URL Web only footer. Abstract/model details NOT VERIFIED. No current clinical enrollment inferred and no preclinical/clinical classification invented.",
+      "evidence": [
+        "discovery-c3.json",
+        "discovery-primary-web1.json#turn836view2"
+      ]
+    },
+    {
+      "lead_id": "fapesp-ndv-grant",
+      "url": "https://bv.fapesp.br/pt/bolsas/220773/ensaio-clinico-de-fase-i-do-virus-oncolitico-ndv-gfp-em-caes/",
+      "disposition": "existing_usp_research_watch",
+      "reason": "Official grant24/11189-1, start2024-09-01, scholarship status Interrompido. PhaseI safety/dose plan for up to20dogs; does not confirm current owner intake and scholarship interruption does not prove protocol closure.",
+      "evidence": [
+        "evidence/f614a72d8bd885f2a8.json"
+      ],
+      "shared_issue_id": "source-question-brazil-usp-loct-oncolytic-virus-program"
+    },
+    {
+      "lead_id": "fapesp-oxc101-slu",
+      "url": "https://bv.fapesp.br/pt/bolsas/233375/ensaio-clinico-com-oxc-101-em-caes-com-linfoma-hemangiossarcoma-ou-cancer-de-mama/",
+      "disposition": "existing_slu_watch_new_supporting_evidence",
+      "reason": "Grant25/23134-0 is a research placement abroad at SLU Sweden,2026-02-01–2027-01-31, to observe OXC-101 work. Not a Brazilian enrollment programme. Material signal triggered one specific SLU primary reread: SilverBullet2.0 September2026–August2030 programme for lymphoma/HSA/mammary tumours confirmed; no named current owner intake or cost criteria. Both existing OXC records remain nonmatchable; no duplicate.",
+      "evidence": [
+        "evidence/016fe856a2eaaf87be.json",
+        "evidence/6bc9dc6409292f3d0b.json"
+      ],
+      "canonical_ids": [
+        "se-slu-oxc101-lymphoma-hsa-watch",
+        "se-slu-oxc101-precision-cancer"
+      ]
+    },
+    {
+      "lead_id": "actrec-comparative-oncology",
+      "url": "https://actrec.gov.in/hi/node/997",
+      "disposition": "new_discovery_source_programme",
+      "reason": "Full current official investigator/laboratory profile read. Comparative oncology facilities and research/biorepository, no named current dog/cat treatment protocol with owner access. No exhaustive trial roster required of lab profile.",
+      "evidence": [
+        "evidence/d54b7dab6543cc266a.json"
+      ]
+    },
+    {
+      "lead_id": "japan-icat",
+      "url": "https://cure-cancer.jp/",
+      "disposition": "duplicate_source_route",
+      "reason": "Already an official fallback under Yamaguchi source; current source pass covers the route. Not a new master or a new trial.",
+      "evidence": [
+        "receipt-final.json#japan-yamaguchi-vmc-clinical-trials"
+      ]
+    },
+    {
+      "lead_id": "linkedin-discovery",
+      "disposition": "no_new_primary_recruitment_signal",
+      "reason": "Actual public LinkedIn search completed. Returned already-known PurduePDL1, UCDglioma/oral trials, LEAH, Ethos, UGA, CosMyc, TCE and ACI signals. No repost or snippet used to override primary access/status, and known denied routes not reopened.",
+      "evidence": [
+        "discovery-c6.json"
+      ]
+    },
+    {
+      "lead_id": "other_search_noise",
+      "disposition": "rejected_scope_or_historical",
+      "reason": "Human registries; conferences/markets; observational/biobank/diagnostic studies; CTVT detection; sheep OPA experimental model; historic Monepantel/Paccal/Ardent cohorts. No new dog/cat usable anticancer treatment established.",
+      "evidence": [
+        "discovery-matrix.json"
+      ]
+    }
+  ]
+}

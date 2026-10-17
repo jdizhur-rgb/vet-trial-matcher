@@ -1,0 +1,713 @@
+{
+  "rows": [
+    {
+      "source_id": "usa-wsu-vth-clinical-studies",
+      "url": "https://hospital.vetmed.wsu.edu/appointments/",
+      "kind": "previous_narrative_gate_missing_structured_URL",
+      "actual_attempt": {
+        "source_id": "usa-wsu-vth-clinical-studies",
+        "url": "https://hospital.vetmed.wsu.edu/appointments/",
+        "route": "master",
+        "attempted_at": "2026-10-17T02:57:21.571139-04:00",
+        "completed_at": "2026-10-17T02:57:28.054162-04:00",
+        "method": "shell_curl",
+        "retry": 0,
+        "http_status": 403,
+        "effective_url": "https://hospital.vetmed.wsu.edu/appointments/",
+        "content_type": "text/html",
+        "exit_code": 0,
+        "stderr": "",
+        "text_length": 27,
+        "text_sha256": "9fb94c9b1e18c4133ec7d13ffb1fb7af8391bf53994162e914f9b880c2834020",
+        "evidence_file": "research/audit-runs/daily-20261017T025640-0400/evidence/1c67cf50380839e272.json",
+        "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261017T025640-0400/1c67cf50380839e272.body",
+        "result": "retrieved_page"
+      },
+      "corrective_action": "Exact403 persisted in source inventory; no repeat/Web. Planner must also honor explicit source master denial narrative, not only serialized attempt URLs."
+    }
+  ],
+  "additional_prior_receipt_gaps": {
+    "prior403_count": 49,
+    "current_requests_before_this_receipt_was_inspected": [
+      {
+        "url": "https://www.anicura.fr/cliniques/armonia/etudes-cliniques-en-cours-chv-anicura-armonia/",
+        "trial_ids": [
+          "eu-fr-hifu-urothelial"
+        ],
+        "prior_at": "2026-10-16T18:59:47.653454+00:00",
+        "current": {
+          "source_id": "fr-armonia-current-clinical-studies",
+          "url": "https://www.anicura.fr/cliniques/armonia/etudes-cliniques-en-cours-chv-anicura-armonia/",
+          "route": "master",
+          "attempted_at": "2026-10-17T02:58:04.933090-04:00",
+          "completed_at": "2026-10-17T02:58:09.832951-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://www.anicura.fr/cliniques/armonia/etudes-cliniques-en-cours-chv-anicura-armonia/",
+          "content_type": "text/html; charset=utf-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 6208,
+          "text_sha256": "d03e82f102995e50ffaff3a0e64847db2e9845264f3973f1d25e1e04586c8d78",
+          "evidence_file": "research/audit-runs/daily-20261017T025640-0400/evidence/b3bdab5f8787accc94.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261017T025640-0400/b3bdab5f8787accc94.body",
+          "result": "retrieved_page"
+        }
+      },
+      {
+        "url": "https://vrcvet.com/clinical-trials/",
+        "trial_ids": [
+          "wsu-sts-local-immunotherapy"
+        ],
+        "prior_at": "2026-10-16T18:59:57.548904+00:00",
+        "current": {
+          "source_id": "usa-vrcco-clinical-trials",
+          "url": "https://vrcvet.com/clinical-trials/",
+          "route": "master",
+          "attempted_at": "2026-10-17T02:57:20.925885-04:00",
+          "completed_at": "2026-10-17T02:57:30.074446-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://vrcvet.com/clinical-trials/",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 11475,
+          "text_sha256": "30a55b53e822cdb6b3fe0de72b2454ac44f9e94c1d3c4fd48b3450695ab85dd2",
+          "evidence_file": "research/audit-runs/daily-20261017T025640-0400/evidence/a9043b6fc95538bbfc.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261017T025640-0400/a9043b6fc95538bbfc.body",
+          "result": "retrieved_page"
+        }
+      },
+      {
+        "url": "https://www.ethosdiscovery.org/clinical-study/stratification-of-outcomes-for-lymphoma-in-dogs-with-relapsed-lymphoma-solid-relapse/",
+        "trial_ids": [
+          "ethos-solid-relapse"
+        ],
+        "prior_at": "2026-10-16T19:00:07.177324+00:00",
+        "current": {
+          "source_id": "usa-metropolitan-vet-current-trials",
+          "url": "https://www.ethosdiscovery.org/clinical-study/stratification-of-outcomes-for-lymphoma-in-dogs-with-relapsed-lymphoma-solid-relapse/",
+          "route": "official_fallback",
+          "attempted_at": "2026-10-17T02:58:57.618342-04:00",
+          "completed_at": "2026-10-17T02:59:01.433088-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://www.ethosdiscovery.org/clinical-study/stratification-of-outcomes-for-lymphoma-in-dogs-with-relapsed-lymphoma-solid-relapse/",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 4191,
+          "text_sha256": "31827e9a04c1c0d6a852c028ddeb660ee3cbbdaba6c5871c7b40e0541cb9704f",
+          "evidence_file": "research/audit-runs/daily-20261017T025640-0400/evidence/cd9abf39826fd56c79.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261017T025640-0400/cd9abf39826fd56c79.body",
+          "result": "retrieved_page"
+        }
+      },
+      {
+        "url": "https://www.ethosdiscovery.org/clinical-study/ethos-precision-medicine-umbrella-study-for-hemangiosarcoma-epush/",
+        "trial_ids": [
+          "ethos-epush-hsa"
+        ],
+        "prior_at": "2026-10-16T19:00:07.187498+00:00",
+        "current": {
+          "source_id": "usa-ethos-discovery-studies",
+          "url": "https://www.ethosdiscovery.org/clinical-study/ethos-precision-medicine-umbrella-study-for-hemangiosarcoma-epush/",
+          "route": "documented_official_navigation",
+          "attempted_at": "2026-10-17T02:59:33.814320-04:00",
+          "completed_at": "2026-10-17T02:59:38.506099-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://www.ethosdiscovery.org/clinical-study/ethos-precision-medicine-umbrella-study-for-hemangiosarcoma-epush/",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 4911,
+          "text_sha256": "2b896bf6d24e96773c8157504680eadeca5c28179f5c8d4e586f4a041b640ab7",
+          "evidence_file": "research/audit-runs/daily-20261017T025640-0400/evidence/130a5331584b081a4d.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261017T025640-0400/130a5331584b081a4d.body",
+          "result": "retrieved_page"
+        }
+      },
+      {
+        "url": "https://www.ethosdiscovery.org/clinical-study/minimally-invasive-metastasectomy-in-canines-mimic-2/",
+        "trial_ids": [
+          "ethos-mimic-osa-lung"
+        ],
+        "prior_at": "2026-10-16T19:00:07.188130+00:00",
+        "current": {
+          "source_id": "usa-ethos-discovery-studies",
+          "url": "https://www.ethosdiscovery.org/clinical-study/minimally-invasive-metastasectomy-in-canines-mimic-2/",
+          "route": "documented_official_navigation",
+          "attempted_at": "2026-10-17T02:59:29.104439-04:00",
+          "completed_at": "2026-10-17T02:59:32.728399-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://www.ethosdiscovery.org/clinical-study/minimally-invasive-metastasectomy-in-canines-mimic-2/",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 3367,
+          "text_sha256": "7e2b9569f557597c1cbb3ef76e1b2c95e6141b3cb9933c9cf5ebfbd6aaa0e8d3",
+          "evidence_file": "research/audit-runs/daily-20261017T025640-0400/evidence/1668c163fe6e145492.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261017T025640-0400/1668c163fe6e145492.body",
+          "result": "retrieved_page"
+        }
+      },
+      {
+        "url": "https://eliasanimalhealth.com/clinical-studies/eci-combined-with-chemotherapy/",
+        "trial_ids": [
+          "elias-eci-chemo-osa"
+        ],
+        "prior_at": "2026-10-16T19:00:07.472440+00:00",
+        "current": {
+          "source_id": "sponsor-elias-clinical-studies",
+          "url": "https://eliasanimalhealth.com/clinical-studies/eci-combined-with-chemotherapy/",
+          "route": "official_fallback",
+          "attempted_at": "2026-10-17T02:58:58.481266-04:00",
+          "completed_at": "2026-10-17T02:59:01.418385-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://eliasanimalhealth.com/clinical-studies/eci-combined-with-chemotherapy/",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 3979,
+          "text_sha256": "fc5907d127413c92113326f131c61d413b2f1d3096923f0b426039975867fbba",
+          "evidence_file": "research/audit-runs/daily-20261017T025640-0400/evidence/94318c178c75002f4b.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261017T025640-0400/94318c178c75002f4b.body",
+          "result": "retrieved_page"
+        }
+      },
+      {
+        "url": "https://www.petcura.cn/zh/mrna-vaccine/study/",
+        "trial_ids": [
+          "china-petcura-personalized-mrna-iit-2026"
+        ],
+        "prior_at": "2026-10-16T19:00:31.448824+00:00",
+        "current": {
+          "source_id": "china-petcura-mrna-iit",
+          "url": "https://www.petcura.cn/zh/mrna-vaccine/study/",
+          "route": "master",
+          "attempted_at": "2026-10-17T02:57:22.296215-04:00",
+          "completed_at": "2026-10-17T02:57:27.306256-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": null,
+          "effective_url": "https://www.petcura.cn/zh/mrna-vaccine/study/",
+          "content_type": "",
+          "exit_code": 28,
+          "stderr": "curl: (28) Proxy CONNECT aborted due to timeout\n",
+          "text_length": 0,
+          "text_sha256": null,
+          "evidence_file": "research/audit-runs/daily-20261017T025640-0400/evidence/8cd6a794c624ae2c3a.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261017T025640-0400/8cd6a794c624ae2c3a.body",
+          "result": "transport_error"
+        }
+      },
+      {
+        "url": "https://www.petcura.cn/zh/mrna-vaccine/study/",
+        "trial_ids": [
+          "china-petcura-personalized-mrna-iit-2026"
+        ],
+        "prior_at": "2026-10-16T19:00:31.448824+00:00",
+        "current": {
+          "source_id": "china-petcura-mrna-iit",
+          "url": "https://www.petcura.cn/zh/mrna-vaccine/study/",
+          "route": "master",
+          "attempted_at": "2026-10-17T02:57:28.306607-04:00",
+          "completed_at": "2026-10-17T02:57:33.612128-04:00",
+          "method": "shell_curl",
+          "retry": 1,
+          "http_status": 200,
+          "effective_url": "https://www.petcura.cn/zh/mrna-vaccine/study/",
+          "content_type": "text/html; charset=utf-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 2311,
+          "text_sha256": "434e88e039855eff7141b5b171f9b54d7fd1e0790de675f798037e1358c974bc",
+          "evidence_file": "research/audit-runs/daily-20261017T025640-0400/evidence/1c3b421bd9c26e9450.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261017T025640-0400/1c3b421bd9c26e9450.body",
+          "result": "retrieved_page"
+        }
+      },
+      {
+        "url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+        "trial_ids": [
+          "jhu-cigat-osa-cryo-immunotherapy-2026",
+          "jhu-cigat-brain-rt-tmz-2026",
+          "jhu-cigat-mammary-kubanda-cryo-2026"
+        ],
+        "prior_at": "2026-10-16T19:00:31.465749+00:00",
+        "current": {
+          "source_id": "usa-johns-hopkins-cigat",
+          "url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+          "route": "master",
+          "attempted_at": "2026-10-17T02:56:50.864888-04:00",
+          "completed_at": "2026-10-17T02:56:54.589145-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+          "content_type": "text/html; charset=utf-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 14045,
+          "text_sha256": "247def663165b35d9c61300f56b5007751d252b176952bb98a1e50739bb6ee8b",
+          "evidence_file": "research/audit-runs/daily-20261017T025640-0400/evidence/3d4bcaccae4033b129.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261017T025640-0400/3d4bcaccae4033b129.body",
+          "result": "retrieved_page"
+        }
+      },
+      {
+        "url": "https://www.vet.upenn.edu/research/research-programs/comparative-immunotherapy-program/clinical-trials/",
+        "trial_ids": [
+          "penn-osa-car-inkt-newly-diagnosed",
+          "penn-anti-pd1-urothelial-carcinoma",
+          "penn-bcell-car-t-registry"
+        ],
+        "prior_at": "2026-10-16T19:00:38.046703+00:00",
+        "current": {
+          "source_id": "usa-penn-comparative-immunotherapy-trials",
+          "url": "https://www.vet.upenn.edu/research/research-programs/comparative-immunotherapy-program/clinical-trials/",
+          "route": "master",
+          "attempted_at": "2026-10-17T02:57:11.322910-04:00",
+          "completed_at": "2026-10-17T02:57:14.927705-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://www.vet.upenn.edu/research/research-programs/comparative-immunotherapy-program/clinical-trials/",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 11530,
+          "text_sha256": "42d9c05d08e72038cfc6867918820288608fc94e999dab6b1832a27a2db630f7",
+          "evidence_file": "research/audit-runs/daily-20261017T025640-0400/evidence/bb7ced54a91319528a.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261017T025640-0400/bb7ced54a91319528a.body",
+          "result": "retrieved_page"
+        }
+      },
+      {
+        "url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+        "trial_ids": [
+          "penn-atherton-steap1-car-t-hs"
+        ],
+        "prior_at": "2026-10-16T19:00:42.635965+00:00",
+        "current": {
+          "source_id": "usa-penn-atherton-laboratory",
+          "url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+          "route": "master",
+          "attempted_at": "2026-10-17T02:57:19.663272-04:00",
+          "completed_at": "2026-10-17T02:57:22.295935-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 8838,
+          "text_sha256": "fc0e7cd0155c0a58a3a28369bcd15b2c0e915bd90662717e17a9c970adce9274",
+          "evidence_file": "research/audit-runs/daily-20261017T025640-0400/evidence/f1d48a9ccaac6f7784.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261017T025640-0400/f1d48a9ccaac6f7784.body",
+          "result": "retrieved_page"
+        }
+      },
+      {
+        "url": "https://www.hopkinsmedicine.org/radiology/vctn",
+        "trial_ids": [],
+        "prior_at": "2026-10-16T19:05:31.471550+00:00",
+        "current": {
+          "source_id": "usa-johns-hopkins-cigat",
+          "url": "https://www.hopkinsmedicine.org/radiology/vctn",
+          "route": "official_fallback",
+          "attempted_at": "2026-10-17T02:58:16.046350-04:00",
+          "completed_at": "2026-10-17T02:58:19.728143-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://www.hopkinsmedicine.org/radiology/vctn",
+          "content_type": "text/html; charset=utf-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 6579,
+          "text_sha256": "e8d9fb237d2cc3088a1770f45fdc1af118d511d4172a7c377083af4176db2922",
+          "evidence_file": "research/audit-runs/daily-20261017T025640-0400/evidence/74a95e31f84bdcaff1.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261017T025640-0400/74a95e31f84bdcaff1.body",
+          "result": "retrieved_page"
+        }
+      },
+      {
+        "url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials",
+        "trial_ids": [],
+        "prior_at": "2026-10-16T19:05:31.472089+00:00",
+        "current": {
+          "source_id": "usa-minnesota-current-clinical-trials",
+          "url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials",
+          "route": "master",
+          "attempted_at": "2026-10-17T02:56:51.185056-04:00",
+          "completed_at": "2026-10-17T02:56:56.194612-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": null,
+          "effective_url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials",
+          "content_type": "",
+          "exit_code": 28,
+          "stderr": "curl: (28) Proxy CONNECT aborted due to timeout\n",
+          "text_length": 0,
+          "text_sha256": null,
+          "evidence_file": "research/audit-runs/daily-20261017T025640-0400/evidence/803b47daf2e8771d96.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261017T025640-0400/803b47daf2e8771d96.body",
+          "result": "transport_error"
+        }
+      },
+      {
+        "url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials",
+        "trial_ids": [],
+        "prior_at": "2026-10-16T19:05:31.472089+00:00",
+        "current": {
+          "source_id": "usa-minnesota-current-clinical-trials",
+          "url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials",
+          "route": "master",
+          "attempted_at": "2026-10-17T02:56:57.195197-04:00",
+          "completed_at": "2026-10-17T02:57:00.797044-04:00",
+          "method": "shell_curl",
+          "retry": 1,
+          "http_status": 200,
+          "effective_url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials",
+          "content_type": "text/html; charset=utf-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 9459,
+          "text_sha256": "7033e2081550317ab4b7afac3bc22da1c7aa1185bbfdf21e0ce50efc081b10a9",
+          "evidence_file": "research/audit-runs/daily-20261017T025640-0400/evidence/09c675197d284d670d.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261017T025640-0400/09c675197d284d670d.body",
+          "result": "retrieved_page"
+        }
+      },
+      {
+        "url": "https://www.vet.upenn.edu/clinical-trials/",
+        "trial_ids": [],
+        "prior_at": "2026-10-16T19:05:31.472712+00:00",
+        "current": {
+          "source_id": "usa-penn-vet-clinical-trials",
+          "url": "https://www.vet.upenn.edu/clinical-trials/",
+          "route": "master",
+          "attempted_at": "2026-10-17T02:56:54.678496-04:00",
+          "completed_at": "2026-10-17T02:56:58.756485-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://www.vet.upenn.edu/ryan-hospital/clinical-trials/",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 17499,
+          "text_sha256": "909d6e68cf6e88c911618a974337c44a8667472785a05451d58362355365ea99",
+          "evidence_file": "research/audit-runs/daily-20261017T025640-0400/evidence/8b336ebd8608eedea4.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261017T025640-0400/8b336ebd8608eedea4.body",
+          "result": "retrieved_page"
+        }
+      },
+      {
+        "url": "https://www.vet.upenn.edu/clinical-trial/",
+        "trial_ids": [],
+        "prior_at": "2026-10-16T19:05:31.473231+00:00",
+        "current": {
+          "source_id": "usa-penn-vet-clinical-trials",
+          "url": "https://www.vet.upenn.edu/clinical-trial/",
+          "route": "official_fallback",
+          "attempted_at": "2026-10-17T02:58:18.285637-04:00",
+          "completed_at": "2026-10-17T02:58:23.295734-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": null,
+          "effective_url": "https://www.vet.upenn.edu/clinical-trial/",
+          "content_type": "",
+          "exit_code": 28,
+          "stderr": "curl: (28) Proxy CONNECT aborted due to timeout\n",
+          "text_length": 0,
+          "text_sha256": null,
+          "evidence_file": "research/audit-runs/daily-20261017T025640-0400/evidence/f14ad895b1e85f8208.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261017T025640-0400/f14ad895b1e85f8208.body",
+          "result": "transport_error"
+        }
+      },
+      {
+        "url": "https://www.vet.upenn.edu/clinical-trial/",
+        "trial_ids": [],
+        "prior_at": "2026-10-16T19:05:31.473231+00:00",
+        "current": {
+          "source_id": "usa-penn-vet-clinical-trials",
+          "url": "https://www.vet.upenn.edu/clinical-trial/",
+          "route": "official_fallback",
+          "attempted_at": "2026-10-17T02:58:24.296154-04:00",
+          "completed_at": "2026-10-17T02:58:29.305638-04:00",
+          "method": "shell_curl",
+          "retry": 1,
+          "http_status": null,
+          "effective_url": "https://www.vet.upenn.edu/clinical-trial/",
+          "content_type": "",
+          "exit_code": 28,
+          "stderr": "curl: (28) Proxy CONNECT aborted due to timeout\n",
+          "text_length": 0,
+          "text_sha256": null,
+          "evidence_file": "research/audit-runs/daily-20261017T025640-0400/evidence/7b1ca5fca4dad0083b.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261017T025640-0400/7b1ca5fca4dad0083b.body",
+          "result": "transport_error"
+        }
+      },
+      {
+        "url": "https://www.vet.upenn.edu/veterinary_specialty/oncology/",
+        "trial_ids": [],
+        "prior_at": "2026-10-16T19:05:31.473938+00:00",
+        "current": {
+          "source_id": "usa-penn-vet-clinical-trials",
+          "url": "https://www.vet.upenn.edu/veterinary_specialty/oncology/",
+          "route": "official_fallback",
+          "attempted_at": "2026-10-17T02:58:18.710428-04:00",
+          "completed_at": "2026-10-17T02:58:23.720451-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": null,
+          "effective_url": "https://www.vet.upenn.edu/veterinary_specialty/oncology/",
+          "content_type": "",
+          "exit_code": 28,
+          "stderr": "curl: (28) Proxy CONNECT aborted due to timeout\n",
+          "text_length": 0,
+          "text_sha256": null,
+          "evidence_file": "research/audit-runs/daily-20261017T025640-0400/evidence/0e4e70dbaed81b6824.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261017T025640-0400/0e4e70dbaed81b6824.body",
+          "result": "transport_error"
+        }
+      },
+      {
+        "url": "https://www.vet.upenn.edu/veterinary_specialty/oncology/",
+        "trial_ids": [],
+        "prior_at": "2026-10-16T19:05:31.473938+00:00",
+        "current": {
+          "source_id": "usa-penn-vet-clinical-trials",
+          "url": "https://www.vet.upenn.edu/veterinary_specialty/oncology/",
+          "route": "official_fallback",
+          "attempted_at": "2026-10-17T02:58:24.720839-04:00",
+          "completed_at": "2026-10-17T02:58:29.730740-04:00",
+          "method": "shell_curl",
+          "retry": 1,
+          "http_status": null,
+          "effective_url": "https://www.vet.upenn.edu/veterinary_specialty/oncology/",
+          "content_type": "",
+          "exit_code": 28,
+          "stderr": "curl: (28) Proxy CONNECT aborted due to timeout\n",
+          "text_length": 0,
+          "text_sha256": null,
+          "evidence_file": "research/audit-runs/daily-20261017T025640-0400/evidence/25f872530670cd7fe5.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261017T025640-0400/25f872530670cd7fe5.body",
+          "result": "transport_error"
+        }
+      },
+      {
+        "url": "https://www.vet.upenn.edu/ryan-hospital/clinical-trials/",
+        "trial_ids": [],
+        "prior_at": "2026-10-16T19:05:31.477451+00:00",
+        "current": {
+          "source_id": "usa-penn-vet-clinical-trials",
+          "url": "https://www.vet.upenn.edu/ryan-hospital/clinical-trials/",
+          "route": "official_fallback",
+          "attempted_at": "2026-10-17T02:58:29.306069-04:00",
+          "completed_at": "2026-10-17T02:58:30.119508-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://www.vet.upenn.edu/ryan-hospital/clinical-trials/",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 17499,
+          "text_sha256": "909d6e68cf6e88c911618a974337c44a8667472785a05451d58362355365ea99",
+          "evidence_file": "research/audit-runs/daily-20261017T025640-0400/evidence/370f7ef909c95ccb94.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261017T025640-0400/370f7ef909c95ccb94.body",
+          "result": "retrieved_page"
+        }
+      },
+      {
+        "url": "https://www.ethosdiscovery.org/clinical-studies/",
+        "trial_ids": [],
+        "prior_at": "2026-10-16T19:05:34.171248+00:00",
+        "current": {
+          "source_id": "usa-ethos-discovery-studies",
+          "url": "https://www.ethosdiscovery.org/clinical-studies/",
+          "route": "master",
+          "attempted_at": "2026-10-17T02:57:02.603891-04:00",
+          "completed_at": "2026-10-17T02:57:06.755037-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 404,
+          "effective_url": "https://www.ethosdiscovery.org/clinical-studies/",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 1218,
+          "text_sha256": "c37139b963aeb8ad90a00e499f2f951a4f90b75342b6082c16ce4a2edf821520",
+          "evidence_file": "research/audit-runs/daily-20261017T025640-0400/evidence/2465998e38f17dfbf6.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261017T025640-0400/2465998e38f17dfbf6.body",
+          "result": "retrieved_page"
+        }
+      },
+      {
+        "url": "https://www.ethosdiscovery.org/scientific-programs/",
+        "trial_ids": [],
+        "prior_at": "2026-10-16T19:05:34.796801+00:00",
+        "current": {
+          "source_id": "usa-ethos-discovery-studies",
+          "url": "https://www.ethosdiscovery.org/scientific-programs/",
+          "route": "official_fallback",
+          "attempted_at": "2026-10-17T02:58:26.590769-04:00",
+          "completed_at": "2026-10-17T02:58:30.096769-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://www.ethosdiscovery.org/scientific-programs/",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 8630,
+          "text_sha256": "880132089ad9d54c3ac3ad0d4273ec7d2d1085eb27cdc7d875b81e8d8b867cce",
+          "evidence_file": "research/audit-runs/daily-20261017T025640-0400/evidence/d7659ed798aff845e4.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261017T025640-0400/d7659ed798aff845e4.body",
+          "result": "retrieved_page"
+        }
+      },
+      {
+        "url": "https://www.ethosdiscovery.org/scientific-programs/page/2/",
+        "trial_ids": [],
+        "prior_at": "2026-10-16T19:05:36.364282+00:00",
+        "current": {
+          "source_id": "usa-ethos-discovery-studies",
+          "url": "https://www.ethosdiscovery.org/scientific-programs/page/2/",
+          "route": "official_fallback",
+          "attempted_at": "2026-10-17T02:58:26.900628-04:00",
+          "completed_at": "2026-10-17T02:58:29.472467-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://www.ethosdiscovery.org/scientific-programs/page/2/",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 7428,
+          "text_sha256": "4132505036e46cbda1a23bed181dd7ecc6230777a9de01de612847ed667c92af",
+          "evidence_file": "research/audit-runs/daily-20261017T025640-0400/evidence/b36fefad1ecfd1edcc.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261017T025640-0400/b36fefad1ecfd1edcc.body",
+          "result": "retrieved_page"
+        }
+      },
+      {
+        "url": "https://www.ethosdiscovery.org/scientific-programs/page/3/",
+        "trial_ids": [],
+        "prior_at": "2026-10-16T19:05:36.381957+00:00",
+        "current": {
+          "source_id": "usa-ethos-discovery-studies",
+          "url": "https://www.ethosdiscovery.org/scientific-programs/page/3/",
+          "route": "official_fallback",
+          "attempted_at": "2026-10-17T02:58:29.472855-04:00",
+          "completed_at": "2026-10-17T02:58:34.484010-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": null,
+          "effective_url": "https://www.ethosdiscovery.org/scientific-programs/page/3/",
+          "content_type": "",
+          "exit_code": 28,
+          "stderr": "curl: (28) Proxy CONNECT aborted due to timeout\n",
+          "text_length": 0,
+          "text_sha256": null,
+          "evidence_file": "research/audit-runs/daily-20261017T025640-0400/evidence/17947c7beee21ee786.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261017T025640-0400/17947c7beee21ee786.body",
+          "result": "transport_error"
+        }
+      },
+      {
+        "url": "https://www.ethosdiscovery.org/scientific-programs/page/3/",
+        "trial_ids": [],
+        "prior_at": "2026-10-16T19:05:36.381957+00:00",
+        "current": {
+          "source_id": "usa-ethos-discovery-studies",
+          "url": "https://www.ethosdiscovery.org/scientific-programs/page/3/",
+          "route": "official_fallback",
+          "attempted_at": "2026-10-17T02:58:35.484347-04:00",
+          "completed_at": "2026-10-17T02:58:36.794377-04:00",
+          "method": "shell_curl",
+          "retry": 1,
+          "http_status": 200,
+          "effective_url": "https://www.ethosdiscovery.org/scientific-programs/page/3/",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 6407,
+          "text_sha256": "a37711cdaa952b72a1d4bd522c38e54198b5f6bb5bf03bed084f41863bfe26d9",
+          "evidence_file": "research/audit-runs/daily-20261017T025640-0400/evidence/89f534113f7687f379.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261017T025640-0400/89f534113f7687f379.body",
+          "result": "retrieved_page"
+        }
+      }
+    ],
+    "root_cause": "Planner loaded last daily receipt, not later same-day independent protocol attempt403 metadata.",
+    "correction": "No more requests/Web to these URLs; persist exact routes and include later protocol receipts in access planning. Actual attempts not hidden or backdated."
+  },
+  "Web_requests_to_prior_protocol403_before_guard": [
+    {
+      "source_id": "usa-ethos-discovery-studies",
+      "url": "https://www.ethosdiscovery.org/clinical-studies/",
+      "route": "same_url_Web_fallback",
+      "method": "Web",
+      "attempted_at": "2026-10-17T02:57:24-04:00",
+      "result": "retrieval_error",
+      "http_status": null,
+      "text_length": 244,
+      "evidence_file": "research/audit-runs/daily-20261017T025640-0400/web-01.json",
+      "evidence_reference": "turn822view3",
+      "freshness": "Actual Web crawl freshness retained in source result; cached text alone not current enrollment proof."
+    },
+    {
+      "source_id": "usa-penn-vet-clinical-trials",
+      "url": "https://www.vet.upenn.edu/clinical-trial/",
+      "route": "same_url_Web_fallback",
+      "method": "Web",
+      "attempted_at": "2026-10-17T03:00:18-04:00",
+      "result": "retrieved_page",
+      "http_status": null,
+      "text_length": 9550,
+      "evidence_file": "research/audit-runs/daily-20261017T025640-0400/web-03.json",
+      "evidence_reference": "turn824view2",
+      "freshness": "Actual Web crawl freshness retained in source result; cached text alone not current enrollment proof."
+    },
+    {
+      "source_id": "usa-penn-vet-clinical-trials",
+      "url": "https://www.vet.upenn.edu/veterinary_specialty/oncology/",
+      "route": "same_url_Web_fallback",
+      "method": "Web",
+      "attempted_at": "2026-10-17T03:00:18-04:00",
+      "result": "retrieved_page",
+      "http_status": null,
+      "text_length": 7810,
+      "evidence_file": "research/audit-runs/daily-20261017T025640-0400/web-03.json",
+      "evidence_reference": "turn824view3",
+      "freshness": "Actual Web crawl freshness retained in source result; cached text alone not current enrollment proof."
+    }
+  ],
+  "summary": {
+    "prior_protocol_denial_routes": 49,
+    "native_requests_to_these_routes": 25,
+    "native_unique_urls": 20,
+    "Web_requests_to_these_routes": 3,
+    "additional_WSU_narrative_gate_native_requests": 1,
+    "execution_policy_status": "FAIL_DEVIATIONS_RECORDED",
+    "repaired_dispatch_guard": "policy-guard-check.json",
+    "new_network_requests_in_guard_test": 0
+  }
+}

@@ -1,0 +1,140 @@
+[
+  {
+    "command": [
+      "python",
+      "scripts/validate_audit_receipt.py",
+      "/workspace/scratch/7a43f0b7d905/vet-trial-matcher/research/audit-runs/daily-20261017T025640-0400/receipt-final.json"
+    ],
+    "started_at": "2026-10-17T03:16:44.014452-04:00",
+    "ended_at": "2026-10-17T03:16:44.061297-04:00",
+    "exit_code": 1,
+    "log": "research/audit-runs/daily-20261017T025640-0400/validators/00-validate_audit_receipt.txt",
+    "status": "INCOMPLETE"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_audit_gap_review.py",
+      "/workspace/scratch/7a43f0b7d905/vet-trial-matcher/research/audit-runs/daily-20261017T025640-0400/gap-review.json",
+      "--receipt",
+      "/workspace/scratch/7a43f0b7d905/vet-trial-matcher/research/audit-runs/daily-20261017T025640-0400/receipt-final.json"
+    ],
+    "started_at": "2026-10-17T03:16:44.061537-04:00",
+    "ended_at": "2026-10-17T03:16:44.106129-04:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261017T025640-0400/validators/01-validate_audit_gap_review.txt",
+    "status": "PASS"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_catalog_sanitation.py"
+    ],
+    "started_at": "2026-10-17T03:16:44.106370-04:00",
+    "ended_at": "2026-10-17T03:16:44.137692-04:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261017T025640-0400/validators/02-validate_catalog_sanitation.txt",
+    "status": "PASS"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_trials_catalog.py"
+    ],
+    "started_at": "2026-10-17T03:16:44.137919-04:00",
+    "ended_at": "2026-10-17T03:16:44.178727-04:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261017T025640-0400/validators/03-validate_trials_catalog.txt",
+    "status": "PASS"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_source_inventory.py"
+    ],
+    "started_at": "2026-10-17T03:16:44.178960-04:00",
+    "ended_at": "2026-10-17T03:16:44.211597-04:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261017T025640-0400/validators/04-validate_source_inventory.txt",
+    "status": "PASS"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_repository_hygiene.py"
+    ],
+    "started_at": "2026-10-17T03:16:44.211823-04:00",
+    "ended_at": "2026-10-17T03:16:44.260310-04:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261017T025640-0400/validators/05-validate_repository_hygiene.txt",
+    "status": "PASS"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/test_matcher_selection.py"
+    ],
+    "started_at": "2026-10-17T03:16:44.260701-04:00",
+    "ended_at": "2026-10-17T03:16:44.584076-04:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261017T025640-0400/validators/06-test_matcher_selection.txt",
+    "status": "PASS"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/test_matcher_selection.js"
+    ],
+    "started_at": "2026-10-17T03:16:44.584360-04:00",
+    "ended_at": "2026-10-17T03:16:44.816487-04:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261017T025640-0400/validators/07-test_matcher_selection.txt",
+    "status": "PASS"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/test_matcher_protocol_sources.js"
+    ],
+    "started_at": "2026-10-17T03:16:44.816801-04:00",
+    "ended_at": "2026-10-17T03:16:44.927923-04:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261017T025640-0400/validators/08-test_matcher_protocol_sources.txt",
+    "status": "PASS"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/test_audit_gap_review.py"
+    ],
+    "started_at": "2026-10-17T03:16:44.928209-04:00",
+    "ended_at": "2026-10-17T03:16:44.980287-04:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261017T025640-0400/validators/09-test_audit_gap_review.txt",
+    "status": "PASS"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/check_evidence_keys.py",
+      "--redact",
+      "/workspace/scratch/7a43f0b7d905/vet-trial-matcher/research/audit-runs/daily-20261017T025640-0400"
+    ],
+    "started_at": "2026-10-17T03:16:44.980581-04:00",
+    "ended_at": "2026-10-17T03:16:45.055707-04:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261017T025640-0400/validators/10-check_evidence_keys.txt",
+    "status": "PASS"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/check_evidence_keys.py"
+    ],
+    "started_at": "2026-10-17T03:16:45.055994-04:00",
+    "ended_at": "2026-10-17T03:16:45.726382-04:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261017T025640-0400/validators/11-check_evidence_keys.txt",
+    "status": "PASS"
+  }
+]
