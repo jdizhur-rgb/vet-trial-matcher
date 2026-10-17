@@ -1,0 +1,138 @@
+{
+  "run_id": "eu6-recovery-20261016T220849-0400",
+  "parent": "/root",
+  "checked_at": "2026-10-17T04:44:48.337130+00:00",
+  "frozen_code_sha256": "0f1e1cf2f600a51be87b75bd8a274b7bc9f2ab24aec890b95082fcd47e5c622a",
+  "tests": [
+    {
+      "test": "missing-subset",
+      "expected_mock_calls": 0,
+      "actual_mock_calls": 0,
+      "network_attempts": 0,
+      "real_source_body_reads": 0,
+      "real_source_hashes": 0,
+      "pass": true
+    },
+    {
+      "test": "only-second",
+      "expected_mock_calls": 1,
+      "actual_mock_calls": 1,
+      "network_attempts": 0,
+      "real_source_body_reads": 0,
+      "real_source_hashes": 0,
+      "pass": true
+    },
+    {
+      "test": "unknown",
+      "expected_mock_calls": 0,
+      "actual_mock_calls": 0,
+      "network_attempts": 0,
+      "real_source_body_reads": 0,
+      "real_source_hashes": 0,
+      "pass": true
+    },
+    {
+      "test": "unexpected-flag",
+      "expected_mock_calls": 0,
+      "actual_mock_calls": 0,
+      "network_attempts": 0,
+      "real_source_body_reads": 0,
+      "real_source_hashes": 0,
+      "pass": true
+    },
+    {
+      "test": "no-whitelist",
+      "expected_mock_calls": 0,
+      "actual_mock_calls": 0,
+      "network_attempts": 0,
+      "real_source_body_reads": 0,
+      "real_source_hashes": 0,
+      "pass": true
+    },
+    {
+      "test": "duplicate",
+      "expected_mock_calls": 0,
+      "actual_mock_calls": 0,
+      "network_attempts": 0,
+      "real_source_body_reads": 0,
+      "real_source_hashes": 0,
+      "pass": true
+    },
+    {
+      "test": "new-hold",
+      "expected_mock_calls": 0,
+      "actual_mock_calls": 0,
+      "network_attempts": 0,
+      "real_source_body_reads": 0,
+      "real_source_hashes": 0,
+      "pass": true
+    },
+    {
+      "test": "stop-401",
+      "expected_mock_calls": 1,
+      "actual_mock_calls": 1,
+      "network_attempts": 0,
+      "real_source_body_reads": 0,
+      "real_source_hashes": 0,
+      "pass": true
+    },
+    {
+      "test": "stop-403",
+      "expected_mock_calls": 1,
+      "actual_mock_calls": 1,
+      "network_attempts": 0,
+      "real_source_body_reads": 0,
+      "real_source_hashes": 0,
+      "pass": true
+    },
+    {
+      "test": "stop-429",
+      "expected_mock_calls": 1,
+      "actual_mock_calls": 1,
+      "network_attempts": 0,
+      "real_source_body_reads": 0,
+      "real_source_hashes": 0,
+      "pass": true
+    },
+    {
+      "test": "stop-302",
+      "expected_mock_calls": 1,
+      "actual_mock_calls": 1,
+      "network_attempts": 0,
+      "real_source_body_reads": 0,
+      "real_source_hashes": 0,
+      "pass": true
+    },
+    {
+      "test": "stop-auth",
+      "expected_mock_calls": 1,
+      "actual_mock_calls": 1,
+      "network_attempts": 0,
+      "real_source_body_reads": 0,
+      "real_source_hashes": 0,
+      "pass": true
+    },
+    {
+      "test": "stop-challenge",
+      "expected_mock_calls": 1,
+      "actual_mock_calls": 1,
+      "network_attempts": 0,
+      "real_source_body_reads": 0,
+      "real_source_hashes": 0,
+      "pass": true
+    }
+  ],
+  "all_pass": true,
+  "worker_files_written": 0,
+  "source_requests": 0,
+  "operational_authorization": {
+    "scope": "Technical reader version only, not source-permission release or research completion.",
+    "allowed_mode": "ONE explicit URL per native call; separate newly completed ONE-URL preflight after all observed source errors/holds persisted. Current reader hash must equal independently tested version.",
+    "no_reuse_stale_broad_whitelist": true,
+    "no_simultaneous_web_native_request_for_same_workflow": true,
+    "no_held_or_unknown_output_recovery": true,
+    "no_automatic_redirects": true,
+    "source_holds_unchanged": true,
+    "after_any_new_restriction": "Stop exact source workflow, metadata immediately before further source calls; never alternate host/client/cache/alias."
+  }
+}

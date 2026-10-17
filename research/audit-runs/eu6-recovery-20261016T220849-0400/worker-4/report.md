@@ -1,94 +1,165 @@
-# Германия — сверка восстановленного фронтира с текущей базой
+# Германия — полный накопительный исследовательский отчёт, блок14
 
-Run `eu6-recovery-20261016T220849-0400`, slot **4**, country **Germany**, baseline `b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45`, фактический исполнитель `/root/oct16_de`. Работа: 2026-10-17T02:11:49Z — 2026-10-17T02:21:26Z (America/New_York: 16октября2026,22:11:49–22:21:26 EDT,UTC−04:00); это время документарной работы, не посещения клиник. Отчёт собственный, не копия отчёта другой страны.
+Run `eu6-recovery-20261016T220849-0400`; slot4; Germany; baseline `b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45`; исполнитель `/root/oct16_de`. Составлен 2026-10-17 04:44:00 UTC. Это полный cumulative country report, объединяющий принятую сверку03 и фактически выполненные04–14; короткие addenda не подменяют его. Работа началась17октября02:11:49UTC(16октября22:11:49EDT America/New_York); исходная сверка закончена02:21:26UTC(22:21:26EDT), дополнительный национальный scope/reference проход начат03:30:37UTC(23:30:37EDT) и документирован до времени этого отчёта. Это время работы, не даты визитов на сайты.
 
-## Результат и граница завершения
+## Итог — завершённая сверка не равна завершению страны
 
-Весь доступный **конечный именной followup сопоставлен**: 102 реальных кандидата получили решения по сохранённым первичным доказательствам, поздним ledgers и текущим полным каталогам. Относительно текущего baseline **NEW0, UPDATE0 providers /0 fields**. 78 DUPLICATE/тождественных current identities,15 EXCLUDED (непродвижение ветвей и иных leads),9 UNRESOLVED (7 точных внешних provider questions +2 будущих открытия).75 имеют полный сохранённый clinical/core gate; **новых первичных полных проверок в этом запуске0**. Физические адреса с неизвестными координатами допустимы и не превращены в mobile.
+NEW0. Принята для последующей интеграции UPDATE1 существующей клиники/2 логических полей: точная oncology-квалификация Nataliia Ignatenko и источник EBVS в LMU München. Parent field review actual17Oct04:21:39.773649UTC PASS, receipt сохранён033. Никакие production данные, modality, clinicaldate, availability или сайт не изменены.
 
-`finite_followup_complete=true`, собственный немедленно выполнимый остаток по конечному scope0; отдельный национальный clinical frontier имеет неразрешённый permission scope, а не доказанную внешнюю исчерпанность. **`research_complete=false` и `coverage_complete=false` для национального доказательства**, поскольку свежий полный сетевой roster/клинический охват страны не установлен. Отсутствие доказательства не является отсутствием лечения. Переход к другой стране не разрешён. Полный национальный replay запрещён поздним owner continuation; это не замаскированный лимит времени или числа клиник.
+| Единицы | Фактическое состояние |
+|---|---|
+| Исходные102 уникальных именных кандидата | assigned102/processed102; conserved snapshot NEW0/UP0/DUP78/EXCL15/UNRES9 |
+| Эффективные непересекающиеся102 после accepted LMU delta | NEW0/UPDATE1/DUP77/EXCL15/UNRES9; не103 |
+| Полные core flags |75 унаследованных;0freshclinicalfull; нет credit изпрофессионального каталога |
+| Дополнительный национальный frontier |760 URLs(старые171reference+589mixed), отдельные поздние333/28 и109Saarcards — НЕ количества клиник и не складываются как уникальные провайдеры |
+| Новые действия этого followup |113 ordinary reference GET:109 readable200,1Wolf502,2exactPDF404,1RCVS403;12 credential-role поисковых запросов в5calls |
+| National research/coverage complete |false; finite followup complete=true; все документированные доступные offline/reference-направления классифицированы, clinical permission/act gaps сохранены поимённо |
 
-До любого нового source request родителю сообщён точный конфликт: block07 оставлял171 professional/333 general-reference URL и национальные направления; поздние операции и Germany87/39 объявили доступный конечный проход законченным и запретили его перезапуск. Родитель подтвердил поздний scope и сверку102. **Новых source requests и поисковых запросов0**; outreach, формы, booking, paid APIs, trials, UI, commit/push/deploy, automations не выполнялись.
+Относительно текущего main уже опубликованные55physical+2remote, затем17physical+1mobile, затем1filuNETWORK не объявлены новыми. Текущий compiled901; Германия239=237physical+1mobile+1network, включая165legacy физических с пустым location_type; supplemental893/inventory977/ACVIM458/tele64 прочитаны как полные suppliedstores. Physical/mobile/network/remote semantic identity различаются. Unknowncoords не барьер; адрес не превращается вmobile.
 
-## Что унаследовано, что уже опубликовано, что потеряно
+Начальное прочтение позднего finite87/39 как запрета любого дальнейшего whole-country research исправлено после root/currentOPS657–674 review: запрет — автоматический broad replay ИЗ finite39/повтор87/39, а не независимо разрешённые national/reference направления. Поэтому не остановился на7гипотезах/28routes: обработаны760,109Saar,303PDFpages и индивидуальные scope решения328. Обратная ошибка также недопустима: whole-country scope сам не снимает actualdenials/unknown854/BW10 membership. Research_complete=false — не для удобства интеграции и не из-за лимита времени.
 
-Последний старый удалённо проверенный block07: assigned102/processed69/fully9, NEW4/DUP8/EXCL3/UNRES54,33 identity-only — это **старый baseline2f709930**, не новые результаты нынешней работы. Его четыре SH-кандидата (Sülzle,Drensler,Sager,Genz) теперь найдены в current catalog и не продвигаются повторно. Старые1176 URLs — единицы маршрутов, не1176 провайдеров; generic references и aliases исключены из102.
+## Унаследовано, уже live, восстановлено и потеряно
 
-Текущий supplied compiled catalog:901 listings; Германия239 =237 физических +1 mobile +1 network. Legacy location_type отсутствует у165 немецких физических записей; они не посчитаны как network/mobile из-за null поля. Дистанционных сервисов всего64, отдельный источник. Прочитаны все пять supplied stores: compiled, supplemental, source inventory, raw ACVIM и teleconsultation source.75 полных сохранённых core records — это68 физических из старого именованного фронтира +1 mobile +1 remote +5 ранее опубликованных физических; Tarp не считается полностью локально проверенным.
+Old block07 был102assigned/69processed/9full/4NEW/8DUP/3EXCL/54UNRES/33unprocessed относительно2f709930, не нынешнего baseline. ЧетыреSHoldNEW(Sülzle,Drensler,Sager,Genz) ужеcurrent.1176старыхURL не1176providers.
 
-| Уже опубликованный пакет | Единицы | Доказательство публикации |
+Germany-finish publication receipt dataSHA7a01ccdbec5e2a51074dedeed2fa3512e1216cc1;remaining39SHAf8e19c7c8d2216ceade92ef802b33cb1fec43c5a;filuSHA5b01073d4c7f0ccff07428a692d5c3330b1f098b — унаследованные publication/readback receipts, не новая live-проверка сейчас.77compiledidentity name/city/street/phone/services parent сравнил с0mismatches; ранее73proposalcore checks также0mismatches. Old clinical payload61 и11Trier old/new operations не восстановлены побайтово; Trier ужеcurrent, reconstruction не делалась. Exact837Evidensia+854clinicalreread+BW10 queues1701 остаются потерянными: нельзя угадать membership или объявить глобальный Germanyban.
+
+12curated файлов из9d7268e510bdfae682b2b403791eab565eff2795 проверены поprovenanceSHA; denied raw outputs не скопированы/не использованы. Parent дополнительно восстановил только allowlisted derivative10universityattempts(actual8readable200+2Leipzig502), recovered_at03:48:43UTC. Restore time не обновляет successful source date16октября.
+
+## Все16земель — фактический query слой и пределы
+
+Точная машиночитаемая привязка каждой земли к пяти query layers, полному q, recency, дате и файлу: `checkpoints/block-14/coverage-16-lands-exact-query-proof.json`. Ниже filenames без.json: первые четыре семейства находятся вinput/history/search-shards; последнийnational — вinput/germany-finish-research-supplement. Все исторические запросы16октября, timestamp precision date-only; это не свежий clinicalgate.
+
+| Земля | Точный current/undated GP/treatment запрос | Сохранённые слои current/new/refined/professional/laternational | Выполнено и ограничения |
+|---|---|---|---|
+| Baden-Württemberg | Baden-Württemberg Tierarzt Chemotherapie Tumorchirurgie Elektrochemotherapie | search-01; search-new-1; search-refined-new-1; search-national-professional-36-1; national-01 | BW:109training-строк;61small/general;никакой localcanceract изреестра. BW10/Reif held;новыйFTA-PDF404. |
+| Bayern | Bayern Tierarzt Chemotherapie Tumorchirurgie Elektrochemotherapie | search-01; search-new-1; search-refined-new-1; search-national-professional-36-1; national-01 | Bayern:165страниц trainingPDF;LMUcredentialUPпринята. Не полный roster клиник/онкологов. |
+| Berlin | Berlin Tierarzt Chemotherapie Tumorchirurgie Elektrochemotherapie | search-01; search-new-1; search-refined-new-1; search-national-professional-36-1; national-01 | FU200 — только generic contact/навигация;BerlinVets exactclinicalscopeнеустановлен. |
+| Brandenburg | Brandenburg Tierarzt Chemotherapie Tumorchirurgie Elektrochemotherapie | search-01; search-new-1; search-refined-new-1; search-national-professional-36-1; national-01 | NIICE Potsdam ужеSurgery;chemo/ECT ещёplanned;неAniCuraPotsdam. |
+| Bremen | Bremen Tierarzt Chemotherapie Tumorchirurgie Elektrochemotherapie | search-02; search-new-2; search-refined-new-2; search-national-professional-36-2; national-02 | Две Bremenaliases ужеcurrent;новыеGP/service-страницы требуют точного clinicalscope. |
+| Hamburg | Hamburg Tierarzt Chemotherapie Tumorchirurgie Elektrochemotherapie | search-02; search-new-2; search-refined-new-2; search-national-professional-36-2; national-02 | ТекущиеNiendorf/Blankenese/TGZ;ZahnHamburglead бездоказанной cancer-операции. |
+| Hessen | Hessen Tierarzt Chemotherapie Tumorchirurgie Elektrochemotherapie | search-02; search-new-2; search-refined-new-2; search-national-professional-36-2; national-02 | HessenPDF8facilities:3currentclinic+1institution+4referenceleads. JLU surgery ужеcurrent. |
+| Mecklenburg-Vorpommern | Mecklenburg-Vorpommern Tierarzt Chemotherapie Tumorchirurgie Elektrochemotherapie | search-02; search-new-2; search-refined-new-2; search-national-professional-36-2; national-02 | Zogall/SiebenSeen ужеcurrent;SveaLucas exactclinicalscope неизвестен. |
+| Niedersachsen | Niedersachsen Tierarzt Chemotherapie Tumorchirurgie Elektrochemotherapie | search-03; search-new-3; search-refined-new-3; search-national-professional-36-3; national-03 | TiHo dailyChemo ужеcurrent;RT/SurgeryUP0. tknds actual403workflowheld. |
+| Nordrhein-Westfalen | Nordrhein-Westfalen Tierarzt Chemotherapie Tumorchirurgie Elektrochemotherapie | search-03; search-new-3; search-refined-new-3; search-national-professional-36-3; national-03 | NRWstaticPDF10smallanimalrefs;mapaliasesheld. Münster359/Krefeld actionheld;Stahl403. |
+| Rheinland-Pfalz | Rheinland-Pfalz Tierarzt Chemotherapie Tumorchirurgie Elektrochemotherapie | search-03; search-new-3; search-refined-new-3; search-national-professional-36-3; national-03 | Trier11oldUP ужеcurrent;не восстановлены/не повторены. Новые точные routes unknownscope. |
+| Saarland | Saarland Tierarzt Chemotherapie Tumorchirurgie Elektrochemotherapie | search-03; search-new-3; search-refined-new-3; search-national-professional-36-3; national-03 | Saar109cards:107fresh(106200+1Wolf502)+2historical. Нет localcanceract вкарточках. |
+| Sachsen | Sachsen Tierarzt Chemotherapie Tumorchirurgie Elektrochemotherapie | search-04; search-new-4; search-refined-new-4; search-national-professional-36-4; national-04 | Saxony16PDFpages;MKKужеcurrent;riesaVETsopenGPlead безcanceract;Leipzig502неclosure. |
+| Sachsen-Anhalt | Sachsen-Anhalt Tierarzt Chemotherapie Tumorchirurgie Elektrochemotherapie | search-04; search-new-4; search-refined-new-4; search-national-professional-36-4; national-04 | Magdeburg/Stendal current;WBOнеcare. Exact2022WBS404;безalternatepath. |
+| Schleswig-Holstein | Schleswig-Holstein Tierarzt Chemotherapie Tumorchirurgie Elektrochemotherapie | search-04; search-new-4; search-refined-new-4; search-national-professional-36-4; national-04 | SH4oldNEWтеперьcurrent;Tarp≠Schafflund. Референсы неlocalact. |
+| Thüringen | Thüringen Tierarzt Chemotherapie Tumorchirurgie Elektrochemotherapie | search-04; search-new-4; search-refined-new-4; search-national-professional-36-4; national-04 | Thüringenactual04.08.2026:11facilitygroups/3currentrelations;JenaStockholmer8≠Erfurter50. |
+
+Дополнительно21город(Berlin,Hamburg,München,Köln,Frankfurt,Stuttgart,Düsseldorf,Leipzig,Dortmund,Essen,Bremen,Hannover,Dresden,Nürnberg,Kiel,Magdeburg,Erfurt,Saarbrücken,Potsdam,Schwerin,Mainz) имеет actualqueries вhistory/queries иsearch-cities-1..6.91querymanifest иold115reportedcount различают сохранённую полноту; ниодно не выдано за12нынешних credentialqueries. New-signal recency730 и уточняющие opening queries действительно записаны, не подменены словами «вся Германия просмотрена».
+
+| Направление | Фактическое доказательство | Предел/остаток |
 |---|---|---|
-| Germany finish |55 physical +2 remote +1 existing availability update | `input/germany-finish-20261016/publication-receipt.json`, data SHA `7a01ccdbec5e2a51074dedeed2fa3512e1216cc1` |
-| Remaining39 |17 physical +1 mobile | `input/germany-remaining39-20261016/publication-receipt.json`, SHA `f8e19c7c8d2216ceade92ef802b33cb1fec43c5a` |
-| filu |1 network;0 physical | `input/filu-network-20261017/publication-receipt.json`, SHA `5b01073d4c7f0ccff07428a692d5c3330b1f098b` |
+| GP/independent surgery/chemo |16lands+21cities actualq;75inheritedfullcore;760metadata;current5stores | GPchemo допустима безoncologyboard;genericlump/surgery/cryosurgery/referral неlocalcanceract.49exactprimarylexical+35GP/contact membershipquestions в13 |
+| Университеты | LMU service/team16Oct21:51/21:54+EBVS19:02;TiHo dailyChemo;JLU tumourservice/Peppler;FUcontact;Leipzig502 | FU generic200 неoncologyproof;Leipzig502 неclosure;TiHo RT/SurgeryUP0 |
+| AniCura/Evidensia |87/39namedbranch receipts/currentbaseline;separateexactguard | AniCura nationalroster/functionalaliasesheld;837/854lost;3Ani actions remainheld. Нетfreshnationalrosterclaim |
+| filu |ONEexistingNETWORK Surgery/contact/booking, explicitscope/caveat;10separatephysicalleads retained | Не10NEW/не10DUP;localbranchallocationfalse;2futureopenings |
+| Mobile/visiting/remote | callavet реальнаяservicearea;VetOnkologieoneintake;receivingLichtenbergephysicalseparate | AnkeWendel неnewindependentvisitingservice;genericvideoGP неoncologytele;Nestleralreadycurrent |
+| RT/ECT | LMUexistingservice list;Saxon/newsignalqueries;NIICEexistingSurgery-only | CT/MRI неtherapeuticRT;StiefmetadataexplicitexternalRT;NIICEchemo/ECT«inKürze»notactive;newmodalityUP0 |
+| Professional/statutory | old153positiveexactpreflightURLs alreadyactuallyattempted;Saar109;10archivedPDF303pages;BW109trainingrows;Hesse8newreference | Credential/contact неclinicalact;university/trainingauthority неcurrentemployment/allbranches;countryfilter неspecialty |
+| Новые сигналы | MKKretainedactualdailycancercare alreadycurrent; riesaVETs actualopeningMarch2026;16independentnews+12providernews metadata | Не вся openingnews cancerclinic;PferdeLüsche outside dog/cat;newaddress/futureunit неpromoted |
+| Human/aliases/references |760purposeamendments separates105human;film/news/admin/research;query-preservingdedupe;full5stores | Humanoncology/MD/samehostname неvetclinicalcredit;BPTpagination неоднаSülzleclinic |
 
-Эти receipts включают deployment/production byte readback. Они прочитаны как унаследованные квитанции, **не новая проверка live сегодня**.73 physical/mobile historical proposals сравнивались с current source_id по name/street/city/postal_code/phone/services/clinician_review/location_type:0 отличий в указанных непустых core полях. Полный список102 и точные identities/даты/цитаты находится в `reconciliation.json`.
+## Университетский контекст — без усиления вырезанных фрагментов
 
-Старые61 clinical payload и11 Trier old/new field operations **не восстановлены побайтово**. Они не реконструированы по snippets или профессиональным реестрам. Поздние независимо подтверждённые и опубликованные записи снимают необходимость их повторной интеграции, но не восстанавливают потерянную историю. Текущий Trier уже имеет Herzogenbuscherstr.3, телефон +4965199790740, Chemotherapy, Lara Hafenecker и доступ по записи; новой UPDATE нет. Am Westend уже сохраняет закрытие12–17октября и объявленный19октября переезд; будущий адрес не подставлен преждевременно.
+LMU München: собственный service URL https://www.vetmed.lmu.de/kleintierklinik/de/fachgebiete/onkologie/leistungen-onkologie/ actual16Oct21:51:35.565970/200;team https://www.vetmed.lmu.de/kleintierklinik/de/fachgebiete/onkologie/team-onkologie/ actual21:54:36.814997/200. Veterinärstr13,+498921802650;Nataliia headoncology/radiation. СписокChemo/ECT/PDT/RT поддерживает ужеcurrentservice; source-date не обновлён.
 
-## Национальное покрытие: факты и пределы
+TiHo https://www.tiho-hannover.de/kliniken-institute/kliniken/klinik-fuer-kleintiere/fachabteilungen/onkologie actual16Oct21:51:36.130944/200 прямо подтверждает dailyambulatorychemo. VerenaNerschbach/VictoriaPeters/PeterPonn — отделение, неавтоматическиoncologyboard. Parent прочёл весь retainedcontext: фразы обоперациях/наркозе/RTplanning недостаточны дляlocalRT/SurgeryUP. Chemo сохраняется,никакойдобавкиRT/Surgery. FooterBünteweg2 не подставляется какaddressлечащегоотделения.
 
-Ниже фактически сохранённые исторические query layers. Все пути — внутри `input/history/search-shards/`; время этих запросов16октября с исходной точностью до даты. Ни один из них не объявлен новым поиском этого worker.
+JLU https://www.uni-giessen.de/de/fbz/fb10/institute_klinikum/klinikum/kleintierklinik/Chirurgie/leistungsspektrum actual16Oct21:54:31.652501/200 поддерживает опухоль-направленные операции;teamchir/index21:54:31.653119/200 —ChristinePeppler lead+surgicalECVS, неoncologyboard. CurrentFrankfurter114 не заменяется общим87–130trainingrosterадресом. FUinstitutionalOertzenweg19b/+493083862422 actual21:51:40.761045/200 иservices21:54:31.649040/200 содержат лишь genericконтекст;новаяонкопомощь не квалифицирована. Leipzig clinical21:51:32.278972/contact21:51:34.971749 оба502;не absence/неfreshsuccess.
 
-| Земля | Текущий/недатированный + new-signal слой | Предел |
+## Единственная UPDATE: квалификация LMU, не лечение
+
+`de-lmu-kleintierklinik-muenchen`,München,Veterinärstr13. Exact EBVS https://www.ebvs.eu/profile-public/8246 actual16Oct19:02:38.412622/200, sourceSHAe72eebfec1ae57898402e3e8478d69dec5293b4d0609e1a9de3cc0461658c5cb. Индивидуальная строка ПОСЛЕSEARCH, неdropdown: «Ignatenko Nataliia, DVM, PhD, Dipl. ECVIM-CA (Oncology)». ТекущаяLMUteam independently tiesname/role/address/phone.
+
+1) clinician_review: generic«Dip.ECVIM-CA»→«Dipl.ECVIM-CA(Oncology)», без изменения caution оresidents/medicalphysicist.
+2) supporting_urls: exactEBVS8246 добавлен ксуществующим3sources.
+
+Полные old/newstrings,URLs,date,shortquote,branchscope вproposed_changes.json. Parentactualfieldreview04:21:39.773649 PASS; это1identity/2logicalfields во всех mirroredstores, не3UPDATE. Services/address/phone/coordinates/last_verified/availability не меняются. Worker production не редактировал.
+
+## Дополнительный национальный frontier: сделанное и то, что нельзя объявить завершённым
+
+760route records офлайн сверены поpurpose/currentownedidentity/remote/network/aliases. Изменения72purpose rows убрали humanmedicine,education иresearch изproviderfrontier. Query-preserving routekey исправляет прежние30ложныхexactrelations:23BPTpagination неSülzle;проверенных текущих exactroutes7. В этом auditнетnewclinicalcredit.
+
+328formerlyunallocated/thirdparty routes получили самостоятельные17shards13:49primarylexicalcancer,35primaryGP/contact,99thirdpartylexicaloncologycategories,3namedthirdpartywithoutcancerterms,26currentmetadatarelations,19university/legacy,11ownedcontact/referral/admin,47genericdirectory/advice,5independentmunicipal/secondary/general,12providernews,16independentnews,6genericremote. Каждаястрока имеетexactURL,originalrecordedrouteclass,negative/laterguard,actualq/date/preflight/searchshard иallowednext.99directoryclaims не99verifiedproviders/не99externalblockers. MunicipalNienburg listing неproviderownedclinicalURL; consumerTrustpilot/recruitment/impressum/emergencyrota неcancer-treatment.
+
+Clinicalpages49+35 имеют **конкретные ранее сохранённые exactHOLD_SCOPE_UNKNOWN source records** иapproveddiscoverypreflight, который прямо НЕ разрешалclinicalopens. Не установлена принадлежность данного provider-service кlost854/BW10/group. Этоpermission-question,НЕactualsite403 иНЕдоказанная внешняя исчерпанность. Ни один такойURL не открыт. Root получил13дляfactualperroute review; отсутствиеключа вpartialguard неразрешение. Provenindependentstatutory/college sources, напротив, продолжались безпроизвольного ожиданияapproval каждогоGET.
+
+Короткий shortlist49первичных онкологических lexical leads ниже — **не49uniqueclinics/NEW**, неcurrentlocalactproof; все35прочихprimary ивсе328полныхsourcequestions находятсяв13. Заголовки итерминыsearchmetadata служатrouting,неprimaryproof.
+
+| Именной route/index | ExactURL | Actualsavedqueryprovenance иточныйследующийвопрос |
 |---|---|---|
-| Baden-Württemberg | search-01.json + search-new-1.json | Исторический поиск 16.10; не новая клиническая проверка |
-| Bayern | search-01.json + search-new-1.json | Исторический поиск 16.10; не новая клиническая проверка |
-| Berlin | search-01.json + search-new-1.json | Исторический поиск 16.10; не новая клиническая проверка |
-| Brandenburg | search-01.json + search-new-1.json | Исторический поиск 16.10; не новая клиническая проверка |
-| Bremen | search-02.json + search-new-2.json | Исторический поиск 16.10; не новая клиническая проверка |
-| Hamburg | search-02.json + search-new-2.json | Исторический поиск 16.10; не новая клиническая проверка |
-| Hessen | search-02.json + search-new-2.json | Исторический поиск 16.10; не новая клиническая проверка |
-| Mecklenburg-Vorpommern | search-02.json + search-new-2.json | Исторический поиск 16.10; не новая клиническая проверка |
-| Niedersachsen | search-03.json + search-new-3.json | Исторический поиск 16.10; не новая клиническая проверка |
-| Nordrhein-Westfalen | search-03.json + search-new-3.json | Исторический поиск 16.10; не новая клиническая проверка |
-| Rheinland-Pfalz | search-03.json + search-new-3.json | Исторический поиск 16.10; не новая клиническая проверка |
-| Saarland | search-03.json + search-new-3.json | Исторический поиск 16.10; не новая клиническая проверка |
-| Sachsen | search-04.json + search-new-4.json | Исторический поиск 16.10; не новая клиническая проверка |
-| Sachsen-Anhalt | search-04.json + search-new-4.json | Исторический поиск 16.10; не новая клиническая проверка |
-| Schleswig-Holstein | search-04.json + search-new-4.json | Исторический поиск 16.10; не новая клиническая проверка |
-| Thüringen | search-04.json + search-new-4.json | Исторический поиск 16.10; не новая клиническая проверка |
+| 2: Unsere Leistungen - Tierarztpraxis Sarah Watson | https://www.tierarzt-watson.de/leistungen/ | search-01.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 3: Tierärzteteam Hansavet — Tierarztpraxis für Hunde & Katzen in Berlin | https://team-hansavet.de/ | search-01.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 8: Kleintierpraxis Köpenick - Dr. Jörg Lode | https://www.xn--kleintierpraxis-kpenick-olc.de/ | search-01.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 17: Chirurgie - Tierarztpraxis Strausberg Tierarzt Heiko Irmscher Strausberg Petershagen Eggersdorf MOL Neuenhagen Hennickendorf RüdersdorfHoppegarten | https://www.tierarztpraxis-strausberg.de/leistungen/chirurgie/ | search-01.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 19: Kleintierpraxis in Potsdam - Tierarztpraxis Activet Potsdam | https://activet-potsdam.de/ | search-01.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 26: Tierarzt-Blockdiek - Unsere Leistungen | https://www.tierarzt-blockdiek.de/home/unsere-leistungen/ | search-02.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 27: Tierarztpraxis Bergmann & Stutte – Wir freuen uns auf Sie! | https://www.tieraerzte-bergmann-stutte.de/ | search-02.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 31: Chirurgie – Tierarztpraxis Sievershagen | https://www.tierarztpraxis-ostseepark.de/chirurgie/ | search-02.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 34: Chirurgie / Tierklinik Lademannbogen / Tierarzt / Tieraugenarzt in Hamburg | https://www.tierklinik-lademannbogen.de/leistungen/chirurgie/ | search-02.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 37: Behandlung / Tierarztpraxis Dr. Jach GmbH | https://tierarzt-jach.de/behandlung/ | search-02.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 38: Cadomo Tierarztpraxis Hermannsburg in Bremen | https://cadomo-hermannsburg.de/leistungen/ | search-02.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 39: Leistungen – Tierarztpraxis Bergmann & Stutte | https://www.tieraerzte-bergmann-stutte.de/leistungen/ | search-02.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 40: Fachtierarztpraxis für Kleintiere - Anke Hinrichs - Wismar / Tierärztin Anke Hinrichs - Wismar | https://www.tieraerztin-anke-hinrichs.de/leistungen/ | search-02.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 43: Kryochirurgie | https://tierarzthh.de/leistungen/kryochirurgie/ | search-02.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 53: Tierarzt-Blockdiek - Home | https://www.tierarzt-blockdiek.de/home/ | search-02.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 59: Tumorchirurgie in Düsseldorf / Tierarztpraxis Wolfgang Kahle | https://tierarztpraxis-kahle.de/spezialgebiete/tumorchirurgie/ | search-03.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 62: Tierarztpraxis Dr. Ursula Peitgen / Lachener Straße 16 / 67433 Neustadt / Praxis für Kleintiere, Hund, Katze, Maus | https://www.peitgen-tierarzt.de/ | search-03.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 63: Operationen & Chirurgie – Tierarztpraxis - Tierarzt Dr. Kersebohm in Lünen bei Dortmund - NRW | https://www.tierarzt-kersebohm.de/leistungen/operationen-chirurgie.html | search-03.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 66: Kleintierpraxis Reichling in Weeze Niederrhein / Tierarzt | https://www.tierarztpraxis-weeze.de/kleintierpraxis | search-03.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 67: Tierarztpraxis Activet Hannover - Tierarztpraxis Activet Hannover | https://activet-hannover.de/ | search-03.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 74: Tierarzt Ingmar Meth | https://www.ingmarmeth.de/ | search-03.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 76: Traumatologie & Chirurgie – Tierarzt Praxis Saarland | https://www.tierarzt-brebach.de/chirurgie/ | search-03.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 77: Chirurgie und Zahnmedizin - Tierarzt Illingen Saarland Notdienst Tierärzte Hund Katze Reptilien | https://tierarztpraxisanderill.de/tieraerzte-saarland/chirurgie-und-zahnmedizin/ | search-03.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 80: Leistungen / Tierarztpraxis Riedel & Riedel in Chemnitz | https://www.tierarztpraxis-chemnitz.de/tieraerztliche-leistungen | search-04.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 89: Chirurgie - Tierarzt Kim Heckers | https://www.exotentierarzt-kiel.de/chirurgie-2/ | search-04.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 90: Ambulanz - Tierarzt Weidmann Kirchhasel Rudolstadt | https://www.tierarzt-weidmann.de/leistungen/ambulanz.html | search-04.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 91: Leistungen im Details / Tp K | https://www.tierarztpraxis-kuschel.de/leistungen-im-details | search-04.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 92: Kleintierpraxis Lohse/Feige – Tierarztpraxis für Klein- und Heimtiere | https://www.kleintierpraxis-lohse-feige.de/ | search-04.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 96: Onkologie | https://www.tierarzt-dresden-waldpark.de/leistungen?catid=2&id=24&view=article | search-04.json, search-cities-4.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 103: leistungsspektrum / Ihre Tierarzt Praxis in Köln / Anja Baltes und Dr. Sandra Feith | https://ihre-tierarzt-praxis.de/leistungsspektrum/ | search-cities-1.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 106: Tierarztpraxis im Panketal – Schwanebeck bei Berlin | https://tierarzt-panketal.de/ | search-cities-1.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 121: Tierarztpraxis Dr. Steffen Hoffmann - München Freimann | https://www.tierarzt-dr-hoffmann.de/onkologie.html | search-cities-1.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 129: Ihre Tierarzt Praxis in Köln / Anja Baltes und Dr. Sandra Feith / Unser Ziel ist es, Ihren tierischen Freund lange gesund und fröhlich zu erhalten. | https://ihre-tierarzt-praxis.de/ | search-cities-1.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 146: Tierarztpraxis Canale in Düsseldorf / Kompetente Versorgung | https://www.tierarzt-canale.de/ | search-cities-2.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 148: Onkologie (Tumorerkrankungen) | https://www.fachtierarztpraxis-duesseldorf.de/fachbereiche/onkologie-tumorerkrankungen | search-cities-2.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 155: Dr-med-vet-Grübl-Kleintierpraxis-Spezielle Medizin | https://www.tierarzt-dr-gruebl.de/spezielle-medizin/ | search-cities-2.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 156: Dr-med-vet-Grübl-Kleintierpraxis-Onkologie-Krebserkrankungen | https://www.tierarzt-dr-gruebl.de/onkologie/ | search-cities-2.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 157: Leistungen / Tierarztpraxis in Leipzig-Großzschocher | https://www.tierarztpraxis-grosszschocher.de/leistungen | search-cities-2.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 184: Unsere Leistungen - Tierarztpraxis Dr. med. vet. Annette Baltes | https://tierarzt-essen.de/leistungen/ | search-cities-3.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 232: Spezialistensprechstunde / Tierklinik Nürnberg Hafen | https://www.tierklinik-nbg.de/leistungen/akut-spezialmedizin/spezialistensprechstunde/ | search-cities-4.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 236: Das Tierklinik-Team / Tierklinik Nürnberg Hafen | https://www.tierklinik-nbg.de/ueber-uns/team/ | search-cities-4.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 241: Tagesklinik für Kleintiere Dresden Koch & Land | https://www.kleintierspezialisten-dresden.de/leistungen | search-cities-4.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 246: Leistungen | https://www.tierarzt-dresden-waldpark.de/leistungen | search-cities-4.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 377: Team Tierärzte « Kleintierpraxis Aartalsee | https://www.kleintierpraxis-aartalsee.de/praxis/team-tieraerzte/ | search-reference-2.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 383: Über uns / tierarztpraxis-schneidersgarten.de | https://www.tierarztpraxis-schneidersgarten.de/about-1 | search-reference-2.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 385: Kleintierpraxis in Berlin Mitte - Tierarzt für Hunde & Katzen | https://kleintierpraxis-torstrasse.berlin/ | search-reference-2.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 407: Tumorbehandlung / Operation Voruntersuchung / felmo | https://felmo.de/leistungen/tumorbehandlung-tierarztpraxis-berlin | search-reference-3.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 412: Tierarzt Neukölln • Mobil & Stressfrei / felmo | https://felmo.de/tierarzt/berlin/neukoelln | search-reference-3.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
+| 421: Mobile Tierarztpraxis stressfrei nach Hause / felmo | https://felmo.de/ | search-reference-3.json; source-specific membership854/BW10неустановлен, НЕwebsite403 |
 
-21 крупный город (Berlin,Hamburg,München,Köln,Frankfurt,Stuttgart,Düsseldorf,Leipzig,Dortmund,Essen,Bremen,Hannover,Dresden,Nürnberg,Kiel,Magdeburg,Erfurt,Saarbrücken,Potsdam,Schwerin,Mainz) имеет сохранённые query entries в `input/history/queries.json` и шесть city-shards. Манифест содержит91 точный запрос; block07 сообщает115 с последующими отдельными shards. Это разная сохранённая полнота, не115 новых запросов.
+Поздние333/28 разобраны отдельно, не заменяют760. Их7providerhypotheses: BerlinVets https://www.berlinvets.de/chirurgie ; ZahnheilkundeHamburg https://www.tierzahnheilkunde-hamburg.de/ (www/rootonehypothesis);VETChemnitz https://www.vet-chemnitz.de/besitzer/ и/impressum/;SveaLucasSchwerin https://www.svea-lucas.de/kontakt/;felmo https://felmo.de/leistungen/tumor-und-krebsbehandlungen ;TebbeVet https://www.tebbe-vet.de/neueroeffnung/ ;TheVetHouse https://www.thevethouse.de/ . Отсутствуют полные currentcanceract/namevet/contact/access иpositiveclinicalscope. Семь — не весьнациональныйfrontier и не7доказанноexternal-onlyblockers.
 
-| Обязательное направление | Фактическое сохранённое основание | Что не установлено |
-|---|---|---|
-| Все16земель/21город, GP/current/new signals | Указанные query layers; поздний finish report описывает national01–04 и triage333 как305 reference+28clinical | Search/snippets не clinical gate, не полный перечень неизвестных практик; точные16поздних national queries теперь восстановлены и прочитаны; это усиливает поиск, но не доказывает клиническую обработку всех leads |
-| Университеты FU Berlin,TiHo,JLU,Leipzig,LMU | Поздний finish report: доступные clinical/contact FU/TiHo/JLU/LMU; LMU exact baseline identity + EBVS/Weiterbildungsstätte corroboration | Leipzig clinical/contact native502 +sameURL Web502; реестр подтверждает роль, не local oncology modality |
-| Evidensia/AniCura и ветви | Именные ветви87/39; current catalog; exact restriction-scope-resolution | AniCura national roster403/aliases held; нельзя заявить свежий полный national roster. Старые837/854 queues потеряны |
-| filu |12 исторических branch leads;10 open leads представлены одним current network contact; official network Surgery/contact/booking proof | Ни одной местной cancer-surgery allocation этим не подтверждено;2 будущих открытия не активны |
-| Независимые/GP/хирургия/chemo |75 сохранённых qualifying core records, local named role/contact/access;73 exact core proposal comparisons | GP chemo допустима без board oncology; generic surgery/lump discussion/referral не cancer act |
-| RT/ECT | Исторические университетские/new-signal слои, NIICE already-live Surgery-only | NIICE chemo/ECT «in Kürze» не активны; диагностический MRI/CT или external RT referral не local radiation; новых RT/ECT0 |
-| Visiting/mobile/remote | callavet exact real service area без treatment-office адреса; VetOnkologie один intake identity; receiving Lichtenberge отдельная physical identity | Anke Wendel listing не доказывает самостоятельный mobile oncology service/личное назначение; remote legal office не клиника |
+НовыеSaxonyсигналы взяты излегитимного chamber20016Oct19:26:50.948118 https://www.tieraerztekammer-sachsen.de/seite/503139/tier%C3%A4rztinnen-tier%C3%A4rzte.html . MKKLeipzig объявляет реальносуществующуюdailycancercare,ноужеcurrentde-mkk-leipzig/Kelbestraße1/+4934169762150/Chemo+Surgery. RiesaVETs открытаMarch2026;DrChristianBoeltzig/FTAKleintiere+GPAdvCertCardiology,GlogauerStr7,03525734074,https://www.riesavets.de/ — namedGPopening,НЕcanceract. Сайтнеоткрывалсяприunknownclinicalscope.
 
-## Восстановленный национальный frontier: фактическая дополнительная проверка
+## Reference-проход: реальные результаты, не clinical denominator
 
-Прочитаны12разрешённых curated файлов с remote Git `9d7268e510bdfae682b2b403791eab565eff2795`, branch `research/germany-finish-20261016`; все12SHA256 совпали с `input/germany-finish-research-supplement/provenance.json`. Это историческое восстановление, source visits0, denied raw outputs0. Точные national01–04 содержат16 запросов по16землям; это исполненный исторический поисковый слой, а не нынешняя клиническая проверка.
+Saar109actualadvertisedcards полностьюсопоставлены:2oldlegitdetails(Waschbüsch/Morisse) сохраняют16Octdates;107freshattempts17Oct03:42:56.574468–04:13:05.728377:106readable200/1Wolf50203:55:45.712310. Ни однойcardcurrentlocalcanceract.90freshcardsKleintier,13equine/livestock-only,3other/narrow,1error. Horse-only Doll,Galas,Götz,Groß,Medina,Mennicke,Klein,Pawicki,Reis,SchneiderPeterschmitt,Schubert,Schuberth,Rupp — referencepurpose/nonpromotion,неотсутствиелечениясобак/кошекмиром. NarrowWürtzbehaviour/CarolinLauckchiro-acupuncture также неонкология. Дваточныхcurrentname/address/phone/sitecorrelations:Kehr/Pack/Scherer→ElversbergHüttenstr20;KaiWeber→AmSteinhübel32. FooterElversberg/Ruppнеприсвоеностальным109. ScholzStIngbertBlumen4иBexbachGruben4—разныеадреса;общийdomainнеDUP.
 
-Фактический `general-333-route-review.json` — metadata URL triage:28 clinical/provider routes и305 иных категорий, **не305 окончательно проверенных исключённых провайдеров**. `provider-28-route-review.json` прямо сохраняет unknownscope/no request для всех28. Поэтому старый national frontier не был доказан исчерпанным поздним конечным87/39. Это существенная поправка к прежней общей формулировке отчёта, не разрешение обходить ограничения.
+10архивныхPDF/303страницы parsedallpages;239currentGermancontactrecords сопоставлены. Bayern165pages/WBS;Saxony16pages;Thüringen4pages;NRW1page;BPT95pages(Patella91+PKD4);DVG22pages. ПолныеPDFвновыйbackupне копируются. УSaxonyвpurpose-stringblock12ошибочнонаписано24pages;исправлениездесь16(12+4),общий303изactualallpages-summaryвсегдаверен. PDFskillиспользовандляlayout-awareanalysis ивизуальнойпроверкиSaxonyMKKrow/BayernLMUoncotrainingrow;строки/колонкинеперенесенынасоседей.
 
-Наш `national-gap-audit.json` отдельно разбирает все28 URL/18hosts:
--6filu navigation/booking URL уже ведут к одной существующей сети, но не идентичны physical branches;
--1HaustierDocs route — существующий remote service;1TZN Bergheim reference — существующая клиника;1AniCura Potsdam management news — существующая identity, без нового treatment;
--2AniCura national referral/roster routes held,1ECT network news и1историческая SHopeningnews не устанавливают branch allocation;
--2generic remote leads (Tinodi,naftie) не имеют доказанного oncology/qualified-veterinary scope;2nononcology term/reference routes (animal psychology,microcurrent),1cold-plasma product и1historicalskin-tumourPDF не являются самостоятельными verified clinic additions;
--9URLroutes дают **7конкретных provider-lead hypotheses**: Berlin Vets; Zentrum für Tierzahnheilkunde Hamburg (www/root aliases); VET Chemnitz (/besitzer/+/impressum/); Tierarztpraxis Svea Lucas,Schwerin; felmo tumor/cancer service; TebbeVet2026opening; The Vet House.
+BWlegitimateHTML actual16Oct19:34:07.513013/200:109training-authorityrows,61small/general,41rawaddresskeys(Reifдветипографическиеразновидностиоднойname/phonehypothesis,недвеклиники);20domain/phonecorrelatedrows+Weingarten/Beyen/Heilbronnname/addresscorrelations. WeingartenAmEisweiher11неGanalEwertWilhelm31;старыйHeilbronnphone0713189090неoverwritecurrent07131205340. Credentials/trainingauthorityнеcurrentemployment/localcanceract. ВNRWstaticPDF10smallanimal+6horse+1pigeon:exactactualreceipt16Oct19:29:09.076991/200/9765B иpositiveindependentpreflightparentподтверждены;эторазрешённыйhistoricalreference,НЕразрешениеheldlanding/map. ThüringendocStand04Aug2026,неfilename2020;11smallanimalfacilitygroups,3currentcorrelations,прочиеKröll/PfeilMonig/Eichner/Schaub/Werrmann/Gensen/Trogisch/Fischer—namedtrainingleadsбезcanceract.
 
-| Не закрытый clinical/identity lead | Точный сохранённый URL | Недостающий факт |
-|---|---|---|
-| Berlin Vets | https://www.berlinvets.de/chirurgie | Local cancer act/current vet/contact/access; generic surgery недостаточно |
-| Zahnheilkunde Hamburg | https://www.tierzahnheilkunde-hamburg.de/ ; https://tierzahnheilkunde-hamburg.de/ | Одна host hypothesis, не2клиники; dentistry не доказательство cancer surgery |
-| VET Chemnitz | https://www.vet-chemnitz.de/besitzer/ ; https://www.vet-chemnitz.de/impressum/ | Одна provider hypothesis; текущая local oncology/core не проверены |
-| Svea Lucas,Schwerin | https://www.svea-lucas.de/kontakt/ | Контактный lead не clinical scope |
-| felmo | https://felmo.de/leistungen/tumor-und-krebsbehandlungen | Current oncology service/access/geography и delivery scope; Halleincident body исключён |
-| TebbeVet | https://www.tebbe-vet.de/neueroeffnung/ | Newopening signal не подтверждает cancer service/current intake |
-| The Vet House | https://www.thevethouse.de/ | Current cancer-care/core scope не установлен homepage title |
+HesseexacttrainingPDFfresh20017Oct04:21:33.006910,170397B,SHA2d90c3daa79ee6fc51a1a4a84656b1f00972d84c8538c9a458a9a2a99033aca3:8facilities;Hofheim/Egelsbach/NeuIsenburgcurrentname/address;JLUтолькоinstitutionrelation;KalbachFrankfurt/AartalseeHohenahr/Walluf/SkupinLenhardBruchköbel—4referenceleadsбезlocalcancerproof. Printeddate/phoneотсутствуют,никакойcurrentemploymentinference.
 
-Для этих hypotheses отсутствие same-host в supplied stores не доказывает NEW или отсутствие иной семантической записи. Они **не добавлены** к assigned102 и не посчитаны обработанными clinical providers. Их clinical review не выполнен; held-scope принадлежность/разрешённый независимый путь не установлен. Это **не подтверждённые внешние blockers с исчерпанными routes**, а permission-unknown/unperformed national evidence gap.
+НовыйBWexactFTA-PDF17Oct04:26:00.739186иSTexactWBS-PDF04:26:16.019068вернули404:не403/auth/hostban,ошибочныетела нечитались,alternatepathsнеподбирались. НовыеEBVSindividualprofilesFinotello8161actual20004:26:27.405650→Italy;Conti11677actual20004:26:36.306917→France. НеGermanyизgenericfilter/обучения;другаястрана неисследуется,clinicentriesнеприписываются. Ilektra12428explicitUS/VirginiaTechвlegitsavedindividualmetadata,TiHo2011прошлоеобучение—лишнийGETнесделан.
 
-Этот точный конфликт снова передан родителю **до любого source request**. Получена директива: закончить только разрешённое offline сопоставление, сохранить national gate=false, не выполнять held requests и не переигрывать87/39. Offline28review закончен; дальнейшая клиническая работа требует source-specific scope решения, не автоматического broad replay. Семь прежних external provider questions и2future openings остаются отдельным конечным остатком, **не всем остатком национального исследования**.
-
-Никакая строка таблицы не заменяет полный свежий roster и не выдаёт «нет клиник». Незавершённость национального доказательства оставлена явной; available finite followup и national completeness — разные измерения.
+ПятьGermanEBVSprofilequalificationquestions(CsillaFejős8149,FranziskaHergt8231,MartinKessler8266,SiljaMarionLaberke8290,DanielaSimonBetz8500) имеютactual16Oct200individualOncologyGermany,нонеместоcurrentприёма.12newofficialprofessionalrolequeries(8system1+4system2)непринеслиновойusableaffiliation:system1игнорировалdomain/literalsiteфильтры/давалnamesakes;outsideResearchGate/papers/bodiesнеиспользованы/неархивированы,system2пусто—неabsenceproof. SameLaberkeEBVS не«freshclinic». ОдинactualusefulstatutoryRCVSrouteпослеотдельногоcompletedguard/readingвернул40317Oct04:38:27.327477: https://www.rcvs.org.uk/animal-owners/find-a-vet/people/silja-marion-laberke-7084023 . STOPprofile/workflow,безbody/query/cache/alternateclient/retry;никакогоfallbackLaberkeпосле403. Это точныйaccessgap,неglobalGermany/EBVSban.
 
 ## Именные qualifying записи: уже current, НЕ NEW
 
@@ -172,7 +243,7 @@ Run `eu6-recovery-20261016T220849-0400`, slot **4**, country **Germany**, baseli
 | Tierarztpraxis Markus Sliwon | Dormagen (Delrath) | Surgery | https://www.tierarzt-sliwon.de/ |
 | Tierärztin Karin Rieckhoff – Fachpraxis für Kleintiere und Zahnheilkunde | Rendsburg | Surgery | https://www.fachtierarzt-rendsburg.de/seite/697815/leistungen.html |
 
-78 DUPLICATE =77 current direct identities +1 remote. Десять отдельных filu branch leads и Tarp — **не дубликаты** сети/Schafflund; они относятся к15 EXCLUDED_NONPROMOTION (4 исходных +10 filu +1 Tarp), с сохранённым маршрутом обращения и без утверждения отсутствия местной помощи. Сетевое представление — route access, не семантическое слияние.
+Консервированный исходный snapshot102:78 DUPLICATE=77 direct identities+1 remote. После принятой LMU credential UPDATE эффективные непересекающиеся dispositions:77 DUPLICATE+1 UPDATE+15 EXCLUDED+9 UNRESOLVED=102. Десять отдельных filu branch leads и Tarp — **не дубликаты** сети/Schafflund; они относятся к15 EXCLUDED_NONPROMOTION (4 исходных +10 filu +1 Tarp), с сохранённым маршрутом обращения и без утверждения отсутствия местной помощи. Сетевое представление — route access, не семантическое слияние.
 
 LMU и две Bremen aliases также уже представлены, но не включены в75 как свежее полное клиническое доказательство. Tarp направляет сложные операции в существующий Schafflund; одна receiving identity не новое местоTarp. Anke Wendel lead разрешён в реальную принимающую Tierklinik auf dem Lichtenberge, не в новый самостоятельный visiting service.
 
@@ -196,7 +267,7 @@ filu — **одна** `de-filu-network-germany`, `location_type=network/service_
 | filu Tierarzt München Schwabing | Branch nonpromotion: существующий filu network contact, local allocation=false | filu — Germany network (`de-filu-network-germany`) | https://www.filu.vet/standorte/schwabing ; https://www.filu.vet/standorte |
 | filu Tierarzt München Theresienwiese | Branch nonpromotion: существующий filu network contact, local allocation=false | filu — Germany network (`de-filu-network-germany`) | https://www.filu.vet/standorte/theresienwiese ; https://www.filu.vet/standorte |
 
-### Три истинные current identity duplicates вне75таблицы
+### Три существующие identity relations вне75таблицы: LMU теперь UPDATE, две Bremen aliases DUP
 
 | Именной кандидат | Текущая запись | Точный current адрес | Почему вне75full-core |
 |---|---|---|---|
@@ -226,18 +297,17 @@ filu — **одна** `de-filu-network-germany`, `location_type=network/service_
 
 Старые actual restrictions tknds.de403, professional-map consent и Halle3 incident исключены из новых действий. Смешанный aggregate rejection не превращён в403 всех независимых доменов. Exact1701 heldqueue bytes по-прежнему потеряны; они не восстановлены догадкой, denied outputs не использовались.
 
-## Даты источников, проверки и backup
 
-Текущий запуск: source attempts0 / fresh successes0 / source-date writes0. Original successful dates сохранены; интеграция/реставрация не обновляет source freshness. filu inherited native range2026-10-17T00:23:36.070066–00:23:39.629910+00:00; ранние Web dates-only отдельно. Brockhaus recovered raw без точного request time остаётся null; file completion time не превращён в успешный визит. Транспортные/403 timestamps не выданы за successful clinical dates.
 
-Локально проверены JSON identity всех6файлов,102 уникальных candidate IDs, суммы78+15+9=102,75 full core без Tarp/filu branch inflation,0 new operations и0 differing core fields73 inherited proposals. Это документарная QA, не validator/build/production medical-audit PASS. Общие production валидаторы/скрипты за пределами собственного subtree не запускались.
+## Точный остаток, условия продолжения и backup
 
-Удалённый исходный backup, сообщённый родителем до запуска: branch `research/europe-recovery-eu6-recovery-20261016T220849-0400`, initial SHA `b159daa3ceb5de3feee6c539bc59ebd14a092eba`, содержит21старый архив. Исправленный parent-verified OLD block07 backup: checkpoint021, data `82bd8e0e1a4771d7217275f57eda1d9f2a5995c8`, receipt `67697594526d4a0e60e23f584ed212301d845115`. Ранее ошибочно приведённая пара checkpoint020 относится к более раннему состоянию, не к block07; эта неточность исправлена только новым immutable отчётом. Этот worker не commit/push. Первый interim `checkpoints/block-01/ready.json` (счётчики routes-asDUP89 затем исправлены immutable block02) должен быть сериализован родителем и получить отдельный remote SHA/readback; до ответа родителя собственный новый remote backup **PENDING**, не заявлен успешным.
+Finite7providerquestions+2futureopenings выше неизменны. ДополнительныйнациональныйостатокНЕсводитсякним:84exactprimarymembershipquestions13,поздние7hypotheses/28routing,thirdpartyнепроверенныеlocalallocationclaims,5namedprofessionalcurrentclinicquestions,FU/Leipzigclinicalprooflimits. Статусэтихвопросовнеодинаков:source-purpose-onlyнеblocker;recordedunknownclinicalmembershipтребуетpreciseauthorization/positiveindependence;actual403требуетapplicableaccesschange;502/404неclosureи неglobalban;futureopeningsперепроверяютсяпослесрока/новогосигнала. ВсеточныеURLs/allowednext/recheckв14remaining и13per-route shards. Outreach/paid/clinicaltrials/UIнеразрешены.
 
-Итог: конечный102followup и запрошенный offline28route national-gap audit выполнены; production delta0. Национальный клинический frontier не исчерпан и permission scope не доказан. Research_complete=false. Ожидаю независимой parent review и remote-backup receipt; фоновых обещаний нет.
+Выполнимых без новогоscope/accessproof действий внутри **документированного обнаруженного полезного reference/offlinefrontier** сейчас0:непрочитанныхSaarcards0;760/328/125purpose и10PDFallpages обработаны;новыеполезныеindependentroleURLнеобнаруженыпослеcredentialpass,RCVSactualblocked. ЭтоНЕдоказательствоотсутствиявсехнеизвестныхклиник/исчерпанностивсехвнешнихмаршрутов. Rootпроверяет13exactscope;countryclinicalgateостаётсяfalse,курсордругойстранынепереходит,sitepublicationзакрыта.
 
-Block01 не переписывался. Block02 содержит append-only исправление11identity dispositions, итоговые frozen report/result/remaining и изменённые evidence/query/proposal shards; базовый candidate evidence наследуется из block01 с явным delta. Корректные итоговые счётчики78/15/9, не прежние89/4/9.
+Originalsuccessfulclinical/reference dates16Octостаются16Oct;restore/search/readbackнеобновляютlast_verified. Freshreference113неfreshclinical113. Voswinkel/controllerincident06исправлен07поизначальномуactual200output03:51:33.047918—никакойsource-replay/denialнебыло;query-preservingfixсохраняется. No denied bodies/approvalbypass,productionwrites/commit/push/deploy/automations/subagentsнепроводились.
 
-Родитель подтвердил фактический research backup промежуточного block01: checkpoint003, 2026-10-17T02:20:28UTC, data SHA `61faedaadcaeae4c1a701df41f41b9e3b859c0e1`, receipt SHA `7433f0216d775e8c3e2bb781deaf5d8fc35c8fcb`. Это не приёмка прежних89DUP и не завершение страны. Backup итогового block02 до отдельного подтверждения PENDING.
+Backup: durablebranch research/europe-recovery-eu6-recovery-20261016T220849-0400 initialb159daa3ceb5de3feee6c539bc59ebd14a092eba сохраняет21старыйархив. Oldblock07точноcheckpoint021 data82bd8e0e1a4771d7217275f57eda1d9f2a5995c8/receipt67697594526d4a0e60e23f584ed212301d845115. Full03remote007datae850b7e4efa3983f8c7f2eda0f422580f2fbe69c/receipt009eeba84074bef57a0cf9f97b2180ce185e2110. Latestparentverified036 actual04:41:40UTC dataabaeef8b6de625ef4165fe2c8f995bc7932797a7/receipt64175a03933399e0f58a8ab4972c167d460f4893 содержит13/26files+14-restriction/3files. Этоresearchbackup,неpublication. Дляданногоfull14remoteproofпокаPENDING—не заявляюнесуществующийSHA.
 
-Append-only block03: по parent review добавлены все10filu+Tarp names и3currentduplicates, исправлен OLDblock07backup на021, добавлено времяAmerica/New_York и устранены literal-backslash-n артефакты. Block01/02 не менялись; клинические факты,75core и итоговые78DUP/15EXCL/9UNRES не изменены.
+Итог: исходныйfinite102сверен;wholeaccessible documentedreference/offlinefrontierдействительноотработанповерхнего,а не7/28подменёнстраной;NEW0,acceptedUPDATE1/2fields,75inherited/0freshfull. Research_complete=falseиз-заявныхнеразрешённыхnationalclinicalscope/actвопросов. Полныйсобственныйотчётпередаётсянаfactualparentreview,безфоновыхобещаний.
+
