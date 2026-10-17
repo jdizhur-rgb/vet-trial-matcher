@@ -1,0 +1,58 @@
+{
+  "run_id": "daily-20261017T025640-0400",
+  "publication_sha": "68f2888662bbe28d19c6b3e946fbeb5c427f8bbf",
+  "deploy_completed_at": "2026-10-17T07:25:07Z",
+  "method": "Actual public browser reload after deployment, native select controls, Find potential trials click, read rendered #matcher-results .result-card h4 titles",
+  "expected_results": "expected-live-search.json, recomputed from the current catalog and matcher implementation; counts are not hard-coded regression expectations",
+  "required_form_values_observed": {
+    "species": "Dog",
+    "cancer": "Cancer — any type",
+    "diagnosis_status": "I don't know",
+    "age": "",
+    "weight": "",
+    "zip_code": "",
+    "approach": "",
+    "approach_label": "Any approach",
+    "prefs_checked": [
+      "Chemotherapy",
+      "Radiation",
+      "Surgery",
+      "Immunotherapy",
+      "Targeted therapy",
+      "Experimental drug"
+    ],
+    "other_disease_and_prior_treatment_fields": "I don't know"
+  },
+  "countries": {
+    "USA": {
+      "observed_at": "2026-10-17T07:25:53.242Z",
+      "count": 103,
+      "title_set_checksum": [
+        510216096,
+        3961879350,
+        7249
+      ],
+      "visible_summary": "Results103 oncology opportunity(ies) may be worth contacting",
+      "first_sorted_title": "3D-printed implant limb-sparing treatment for giant-breed dogs with primary bone tumors",
+      "last_sorted_title": "cPD-L1 immunotherapy with vinblastine and deracoxib for canine invasive urothelial carcinoma",
+      "status": "PASS"
+    },
+    "Japan": {
+      "observed_at": "2026-10-17T07:25:54.492Z",
+      "count": 10,
+      "title_set_checksum": [
+        3140355449,
+        1986116165,
+        644
+      ],
+      "visible_summary": "Results10 oncology opportunity(ies) may be worth contacting",
+      "first_sorted_title": "Anti-PD-1 antibody immunotherapy for canine histiocytic sarcoma",
+      "last_sorted_title": "Survivin peptide cancer vaccine for dogs",
+      "status": "PASS"
+    }
+  },
+  "checksum_algorithm": "Two independent deterministic 32bit accumulators over JSON.stringify(sorted rendered title strings), plus string length, same algorithm as expected-live.js",
+  "initial_locator_issue": "HTML labels are not associated with controls for getByLabel. One label locator timed out without a page change. Actual DOM control names were inspected and ordinary selectOption/click succeeded. This was a test selector issue; no website change or injected page execution.",
+  "search_status": "PASS",
+  "initial_source_audit_publication_sha": "49d263c01b5e86838eef5d6388ec87ae414b1e81"
+}

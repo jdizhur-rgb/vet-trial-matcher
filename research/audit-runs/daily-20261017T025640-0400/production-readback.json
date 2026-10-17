@@ -1,0 +1,52 @@
+{
+  "verified_at": "2026-10-17T03:25:51.717225-04:00",
+  "publication_sha": "68f2888662bbe28d19c6b3e946fbeb5c427f8bbf",
+  "status": "PASS",
+  "script_version": "./matcher.js?v=selection-review-20261016",
+  "catalog_version": "./trials.json?v=55063c3aa1966747",
+  "note": "Clinical catalog and matcher JavaScript unchanged in this audit. Live bytes and HTML script/catalog versions must equal the freshly tested build; a new query version is not invented for unchanged assets.",
+  "checks": [
+    {
+      "name": "html",
+      "url": "https://vettrialfinder.com/matcher/",
+      "attempted_at": "2026-10-17T03:25:40.099137-04:00",
+      "completed_at": "2026-10-17T03:25:43.314261-04:00",
+      "method": "shell_curl",
+      "exit_code": 0,
+      "http_status": "200",
+      "expected_sha256": "6f565e555d39e6a576496a4edbc6bcbd4df799f694cf26fb9c5fbbdbd840928e",
+      "live_sha256": "6f565e555d39e6a576496a4edbc6bcbd4df799f694cf26fb9c5fbbdbd840928e",
+      "bytes": 62070,
+      "equal": true,
+      "stderr": ""
+    },
+    {
+      "name": "javascript",
+      "url": "https://vettrialfinder.com/matcher/matcher.js?v=selection-review-20261016",
+      "attempted_at": "2026-10-17T03:25:43.314466-04:00",
+      "completed_at": "2026-10-17T03:25:48.030430-04:00",
+      "method": "shell_curl",
+      "exit_code": 0,
+      "http_status": "200",
+      "expected_sha256": "1120c4823a5feb71bb6f68009c401288838e7fdc44f5068adb7e019a0d3d345b",
+      "live_sha256": "1120c4823a5feb71bb6f68009c401288838e7fdc44f5068adb7e019a0d3d345b",
+      "bytes": 55496,
+      "equal": true,
+      "stderr": ""
+    },
+    {
+      "name": "catalog",
+      "url": "https://vettrialfinder.com/matcher/trials.json?v=55063c3aa1966747",
+      "attempted_at": "2026-10-17T03:25:48.030647-04:00",
+      "completed_at": "2026-10-17T03:25:51.716683-04:00",
+      "method": "shell_curl",
+      "exit_code": 0,
+      "http_status": "200",
+      "expected_sha256": "55063c3aa1966747d36ef4cbc604ff2d5397473815becb834b0c64f280ff5e40",
+      "live_sha256": "55063c3aa1966747d36ef4cbc604ff2d5397473815becb834b0c64f280ff5e40",
+      "bytes": 343694,
+      "equal": true,
+      "stderr": ""
+    }
+  ]
+}
