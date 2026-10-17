@@ -60,3 +60,15 @@ IN_PROGRESS; research_complete=false. Последний подтверждён�
 ## Проверки и backup
 
 Six identity fields одинаковы; текущие3 source IDs unique. Semantic screen20baseline+127absent сохранён в working/recovery-identity-audit-001.json; каждое предложение содержит old/new/officialURL/quote/branch/date/method и retained receipt refs. Первый checkpoint пока local-ready; удалённое подтверждение нового run ещё не получено. Исторические receipt/data SHA не переименованы в новый backup.
+
+## Блок 2 — университеты и сохранённые клинические источники
+
+Фактически reviewed15 уникальных units:9 qualifying fixed+1 qualifying network,4 nonpromotion,1 unresolved exactUPWr gates. NEW10=9 inherited physical+1 separately typed network access reclassification;fresh discovery0,UPDATE0. Старые147 кроме20baseline —127absent;9 nowreviewed,118 stillownunreviewed. Поздний86claim не сложен с10, чтобы не считать потерянные payload повторно. assigned153 пока provisional minimum namedunits, не окончательный национальный denominator.
+
+Ещё восстановлены ALMAVET Sosnowiec (Będzińska16; currentEmiliaWiśniowska-Antonik veterinarian,localchemo), ERVet Wrocław (Morelowskiego27; AlicjaBryłkowska veterinaryrole,localchemo), OnkolVet Opole (Domańskiego16; AleksandraMarcinowska residency-trained,localchemo/cancersurgery/targeted/immunotherapy;notRT). Их полные сохранённые body датированы16Oct, не17Oct. SGGW freshclinic/currentstaffcard+officialcredentialPDF p1 закрыли coreветеринарнойквалификацииJoannaBonecka;Aprilcalendar не сталOctoberavailability. Lublinfreshmain/service/oralcare/Polkowska+reproductionmammarytherapy подтверждены. URKfreshserviceдоступен,старыйfullcredential16Octсохранён;новыйexactprofile404НЕдатаsuccess/НЕдоказательствоухода.
+
+Матрица8universities — working/university-matrix-001.json. UMKnormalTLSexactservices200/generalonly; UWMnormalTLSexactworkshop200/generalonly; Poznańcurrentprimarytitle+officialanniversarygeneral; UwBfullMay22primaryfutureclinicwithdegreeOctober2027,notcurrent. UPWrheldmaster/thoracic403неоткрывалисьповторно. Триgenericindependentqueries web015 incidentalreturnedheldthoracicsearchcache:quarantined,notclinicalproof. SharedSpecVetcurrentprimaryexplicitchemo+common533333111email/branchfinder supports ONE network,street/cityempty/coordsnull;branchclinicalallocationforownerconfirmation,physicalLocalcardsnotexpanded.
+
+24 actualPolishqueries now explicitly logged with actualengine/request/batchresultpointer;16 currentreceiptfiles include15Webcalls+normalTLSsummary. Noauth/CAPTCHA/heldURLreplay. Some source readers ordinaryfailed, independentlyallowednormalTLS suppliedUMK/UWM200;URK404 preserved. No successfultimestamp created from failedrequests.
+
+Backup block1 REMOTE VERIFIED parent: data460a6c85d26a023f84df4b98fc1060566e852911;receipt/heade5d37690aaea5072efd981e8c403857f00b03249 at2026-10-17 02:15:25UTC;control/archivehashPASS. This proves listedactualpayloadshards preserved, notcountryacceptance/sitepublication. Block2 pendingremoteproof. National all16table above remains inheritedIN_PROGRESS;newuniversitymatrix addsactualproof withoutfabricatingfreshregionalvisits. Research continues SAME Poland.

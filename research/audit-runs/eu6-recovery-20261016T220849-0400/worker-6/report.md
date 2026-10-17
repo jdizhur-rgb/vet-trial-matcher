@@ -1,6 +1,6 @@
 # Нидерланды — национальное исследование продолжается
 
-run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_sha=b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45; agent_id=/root/oct16_nl; started_at=2026-10-17T02:12:30Z. Обновлено 2026-10-17T02:18:22.490Z. research_complete=false; publication_permitted=false.
+run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_sha=b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45; agent_id=/root/oct16_nl; started_at=2026-10-17T02:12:30Z. Обновлено 2026-10-17T02:21:07.996Z. research_complete=false; publication_permitted=false.
 
 ## Наследие и восстановление
 
@@ -8,13 +8,21 @@ run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_
 
 ## Фактическая текущая работа
 
-{"assigned":266,"processed":225,"fully_verified":53,"EXCLUDED":149,"UNRESOLVED":14,"NEW":55,"DUPLICATE":4,"UPDATE":3,"PENDING":41} — cumulative уникальные provider/service identities, не URLs/aliases/query/referencegroups. Текущий run: 3 substantive provider reviews, 24 Web open/click requests, 8 actual queries. Failed/challenge не successful source verification.
+{"assigned":266,"processed":225,"fully_verified":53,"EXCLUDED":149,"UNRESOLVED":14,"NEW":55,"DUPLICATE":4,"UPDATE":3,"PENDING":41} — cumulative уникальные provider/service identities, не URLs/aliases/query/referencegroups. Текущий run: 11 substantive provider reviews, 46 Web open/click requests, 8 actual queries. Failed/challenge не successful source verification.
 
 | Provider / город | Решение / лечение | Официальный URL |
 |---|---|---|
 | Universitair Dierenziekenhuis — Kankercentrum voor Dieren / Utrecht | DUPLICATE; Medical oncology, Chemotherapy, Surgery, Radiation therapy | https://diergeneeskunde.nl/klinieken/uu-kankercentrum-dieren/ |
 | Dierenkliniek Geleen (formerly Dierenkliniek Pijls) / Geleen | DUPLICATE; Local oncology care, Chemotherapy, Surgery | https://www.dierenkliniek-geleen.nl/ |
 | Dierenkliniek De Arker / Nijkerk | DUPLICATE; Local oncology care | https://www.dierenkliniekdearker.nl/ |
+| Veterinair Centrum Noord Nederland / Noordwolde | NEW; Surgery | https://veterinaircentrumnoordnederland.nl/ |
+| Diergeneeskundig Centrum West — Dronten / Dronten | NEW; Surgery | https://diergeneeskundigcentrumwest.nl/ |
+| Dierenkliniek Epe-Centrum / Epe | NEW; Surgery | https://dierenkliniek-epe.nl/ |
+| Dierenkliniek Putten / Putten | NEW; Surgery | https://www.dierenkliniekputten.nl/ |
+| Dierenkliniek Capelle / Capelle aan den IJssel | NEW; Surgery | https://www.dierenkliniekcapelle.nl/ |
+| Dierenkliniek Doorn / Doorn | NEW; Surgery | https://www.dierenkliniekdoorn.nl/ |
+| Dierenkliniek Kralingen / Rotterdam | NEW; Surgery | https://dierenkliniekkralingen.nl/ |
+| Dierenkliniek Makker / Den Haag | NEW; Surgery | https://www.dierenkliniekmakker.nl/ |
 
 ## Покрытие
 
@@ -51,3 +59,5 @@ run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_
 Текущие фактически просмотренные Web pages: 2026-10-17 date-only; exact network request times не выдуманы. Recovery/offline не обновляют исходные даты. Parent сообщил remote verified block01: data460a6c85d26a023f84df4b98fc1060566e852911, receipt e5d37690aaea5072efd981e8c403857f00b03249, 2026-10-17 02:15:25UTC; research/europe-recovery-eu6-recovery-20261016T220849-0400. Это backup, не clinical acceptance/publication.
 
 Остаются доступные клинические identities/rosters/направления; поэтому research_complete=false, IN_PROGRESS. Production/sharedstate/commit/push/deploy не изменялись.
+
+Fully — разные показатели: inherited historical claim 50; cumulative claimed 53; located payload or current reverify 46; current run freshly reverified 11; parent clinical acceptance ещё не получено. File-existence QA не является медицинским подтверждением.
