@@ -58,11 +58,25 @@ function assertCountry(country) {
   selectCountry('Germany');
   const germanCount = visible().length;
   assert(germanCount > 0, 'Germany must never become a false zero');
+  const network = cards.find(c => c.dataset.search.includes('filu') && c.dataset['location-type'] === 'network');
+  assert(network, 'The confirmed filu network access route must be listed');
+  elements.svc.value = 'cancer surgery';
+  elements.svc.handlers.change();
+  assert(visible().includes(network), 'Country + cancer surgery must retain the network route');
+  for (const city of ['hamburg', 'berlin', 'munich']) {
+    elements.q.value = city; elements.q.handlers.input();
+    assert(visible().includes(network), 'Network city search must retain the explicitly labelled contact route: '+city);
+  }
+  assert(network.distance.hidden);
+  elements.q.value = ''; elements.q.handlers.input();
+  assert.equal(vm.runInContext("hasFixedLocation({dataset:{locationType:'network',lat:'48',lon:'11'}})", context), false,
+    'Even malformed network coordinates must never produce a proximity distance');
   elements.svc.value = 'chemotherapy';
   elements.svc.handlers.change();
   const chemo = cards.filter(c => c.dataset.country === 'Germany' && c.dataset.filters.split('|').includes('chemotherapy'));
   assert(chemo.length > 0);
   assert.deepEqual(visible(), chemo);
+  assert(!visible().includes(network), 'Network surgery is not chemotherapy');
   elements.q.value = 'zzzz-no-such-hospital';
   elements.q.handlers.input();
   assert.equal(visible().length, 0);
@@ -94,5 +108,5 @@ function assertCountry(country) {
   assert(visible().filter(c => c.dataset.lat === '').every(c => c.distance.hidden));
   selectCountry('');
   assertCountry('');
-  console.log('ONCOLOGY_COUNTRY_FILTER_OK', options.length - 1, 'countries;', germanCount, 'German locations; combined filters, state reset, stale ZIP suppression');
+  console.log('ONCOLOGY_COUNTRY_FILTER_OK', options.length - 1, 'countries;', germanCount, 'German listings; combined filters, state reset, stale ZIP suppression');
 })().catch(e => { console.error(e); process.exitCode = 1; });
