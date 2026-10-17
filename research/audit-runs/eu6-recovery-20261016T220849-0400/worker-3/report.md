@@ -362,3 +362,17 @@ Remote017block10: data0c1c7b4bbfd33f3bb50d4a6d5b7b0f4e0cdeb792,receipte5ec6553fb
 | Przychodnia Weterynaryjna Royal Vet | Zamość | Surgical oncology | https://royalvet.eu/chirurgia |
 | Gabinet Weterynaryjny VetMedica | Zamość | Surgery, Local oncology care | https://vetmedica-zamosc.pl/chirurgia/ |
 Biegaławet: текущий контактPopiełuszki12, старая биография упоминаетWojskaPolskiego17; это не второй новый филиал. NaTuwima: CO2хирургия неRT/ECT; cachedстарыйsurgeryтекст не назван свежейпроверкой. AnimalVETPuławy: текущие врачи/адрес проверены, но онкологический интерес врача не заменяет местное лечение; bookingстарыйадрес и рекламируемыйстарыйсайт502, разрешённыйfallback остаётся. Всего48реальныхзапросов,100receiptunits. research_complete=false; полный текущий nationalfrontier ещё доступен.
+
+
+## Блок16 — 2026-10-17 03:28:47 UTC
+259=195обработанных+64необработанных;195=146NEW+3UP+17DUP+17EXCL+12UNRES. Полных166=144NEWphysical+2network+20baseline.
+| Сохранённый кандидат, теперь подтверждённый | Город | Лечение | Официальный источник |
+|---|---|---|---|
+| Przychodnia Weterynaryjna Promienna | Tarnów | Surgical oncology, Local oncology care | https://weterynarztarnow.com.pl/ |
+| Gabinet Weterynaryjny Dobry Weterynarz | Myślenice | Surgery, Local oncology care | https://dobryweterynarz.pl/leczenie |
+| Animal Centrum | Ostrołęka | Surgical oncology | https://www.animal-centrum.pl/ |
+| Przychodnia Weterynaryjna Chiron | Płock | Local oncology care | https://chiron.com.pl/onkologia/ |
+| Centrum Zdrowia Zwierząt — Radom | Radom | Surgical oncology | https://www.czz.com.pl/oferta-medyczna/onkologia |
+| Przychodnia Weterynaryjna Dogtorki — Szczytno | Szczytno | Local oncology care | https://dogtorki.pl/onkologia/ |
+Chiron ограничен Local oncology care: текущая собственная онкологическая страница прямо называет lek.wet.KamilaFormańska-Zimoń; неудачный team/загружаемый календарь не назван свежей проверкой биографии/назначений. DogtorkiSzczytno ограничен Local: планирование терапии не подтверждает фактическую инъекционнуюхимиотерапию/операции. CZZRadom имеет собственную хирургическуюонкологию/контактSylwiaMolenda; нет переноса наIłża/Krzyżanowice. ParkowaSłupsk EXCLnonpromotion(общиеуслуги), отсутствие реального лечения не утверждается. AnimaliaMedicaNowySącz UNRESтекущийврач (2009founderнеавтоматически2026клиницист); CZZIłża/Krzyżanowice/DogtorkiDźwierzuty UNRESместнаяонкология;GiVet UNREStimeout+доступныйfollowup. Реальные3запроса→51,107receiptunits. Подробно:regional-outcomes002. research_complete=false.
+Parent подтвердил remote019 в03:21:14UTC:datae85bb6829d0620a1f89d8b5a569e41d3e978b68d,receipt66b1508ed06b413fe78d7662edb124dc96325af1,archive/control/members/receiptreadbackPASS(block13+restriction006). Blocks14/15pending020, не выдаются за backup или приёмкустраны.
