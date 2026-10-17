@@ -2,7 +2,7 @@
   "commands": [
     {
       "command": "python scripts/build_static_site.py",
-      "result": "PASS; fullbuild901listings including900fixed/mobile and1network;134/156 source-reviewed trial gate unchanged"
+      "result": "PASS; full build901 listings including900 fixed/mobile locations and1 network."
     },
     {
       "command": "python scripts/test_network_care.py",
@@ -23,6 +23,10 @@
     {
       "command": "python scripts/check_evidence_keys.py;git diff --check",
       "result": "PASS"
+    },
+    {
+      "command": "node scripts/test_oncology_country_filter.js /tmp/filu-network-production-centers.html",
+      "result": "PASS against actual downloaded production HTML: country/service/city searches, Chemo exclusion, network distance suppression and staleZIP protection"
     }
   ],
   "baseline_preservation": "Every field of900 prior compiled records unchanged; independent parent checkPASS. Exactly1newnetwork,0newphysical/mobile/remote.",
