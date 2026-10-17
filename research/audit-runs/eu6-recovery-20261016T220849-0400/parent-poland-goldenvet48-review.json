@@ -207,5 +207,51 @@
     }
   },
   "country_research_accepted": false,
-  "site_publication": false
+  "site_publication": false,
+  "parent_strong_baseline_QA_0823": {
+    "kind": "PARENT_STRONG_BASELINE_READONLY_IDENTITY_QA",
+    "baseline_rows": 3229,
+    "tele_rows_separately_parsed_not_autochecked": 64,
+    "PL_NEW": 219,
+    "DE_NEW": 48,
+    "strong_identity_hits": [
+      {
+        "country": "Poland",
+        "source_id": "pl-neovet-wroclaw",
+        "baseline_file": "data/oncology_centers.json",
+        "baseline_index": 882,
+        "name": "Przychodnia Weterynaryjna Neo Vet",
+        "keys": [
+          "exact_name"
+        ]
+      },
+      {
+        "country": "Poland",
+        "source_id": "pl-neovet-wroclaw",
+        "baseline_file": "data/oncology_centers_supplemental.json",
+        "baseline_index": 768,
+        "name": "Przychodnia Weterynaryjna Neo Vet",
+        "keys": [
+          "exact_name"
+        ]
+      },
+      {
+        "country": "Poland",
+        "source_id": "pl-neovet-wroclaw",
+        "baseline_file": "data/oncology_care_source_inventory.json",
+        "baseline_index": 850,
+        "name": "Przychodnia Weterynaryjna Neo Vet",
+        "keys": [
+          "exact_name"
+        ]
+      }
+    ],
+    "positive_phone_controls": true,
+    "not_full_semantic_or_permission_gate": true,
+    "source_IO": 0,
+    "checked_at": "2026-10-17 08:24:07 UTC",
+    "normalization_test_correction": "First comparator incorrectly split German area-code slash as a phone separator, so positive control failed and result was not accepted. Split only semicolon/comma, preserving slash inside number; rerun two country-format controls PASS. Read-only, no provider/source/date modification.",
+    "manual_name_hit_resolution": "Three hits refer to ONE already-live Neo Vet Poznan: Sielska8/1,phones618659034/530560550,neo-vet.pl vs proposed NeoVetWroclaw Swit65,713371962/518068588,neovetwroc.pl; own local roles/service and branchscope distinct, no semantic duplicate. Both full actual records read; not dedupe by generic name alone.",
+    "site_publication": false
+  }
 }
