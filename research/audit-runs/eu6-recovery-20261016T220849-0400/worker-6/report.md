@@ -1,6 +1,6 @@
 # Нидерланды — национальное исследование продолжается
 
-run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_sha=b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45; agent_id=/root/oct16_nl; started_at=2026-10-17T02:12:30Z. Обновлено 2026-10-17T02:50:20.681Z. research_complete=false; publication_permitted=false.
+run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_sha=b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45; agent_id=/root/oct16_nl; started_at=2026-10-17T02:12:30Z. Обновлено 2026-10-17T02:52:24.874Z. research_complete=false; publication_permitted=false.
 
 ## Наследие и восстановление
 
@@ -8,7 +8,7 @@ run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_
 
 ## Фактическая текущая работа
 
-{"assigned":285,"processed":285,"fully_verified":64,"NEW":60,"UPDATE":5,"DUPLICATE":9,"EXCLUDED":177,"UNRESOLVED":34,"PENDING":0} — cumulative уникальные provider/service identities, не URLs/aliases/query/referencegroups. Текущий run: 83 substantive provider reviews, 272 Web open/click requests, 13 actual queries. Failed/challenge не successful source verification.
+{"assigned":298,"processed":298,"fully_verified":64,"NEW":60,"UPDATE":5,"DUPLICATE":9,"EXCLUDED":188,"UNRESOLVED":36,"PENDING":0} — cumulative уникальные provider/service identities, не URLs/aliases/query/referencegroups. Текущий run: 96 substantive provider reviews, 311 Web open/click requests, 21 actual queries. Failed/challenge не successful source verification.
 
 | Provider / город | Решение / лечение | Официальный URL |
 |---|---|---|
@@ -95,6 +95,19 @@ run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_
 | Wellensiek Dierenartsen — Amersfoort Vathorst / Amersfoort | NEW; Surgery | https://wellensiek.nl/vestigingen/amersfoort-vathorst/ |
 | Dierenkliniek Wulven / Houten | EXCLUDED;  | https://www.dierenkliniekwulven.nl/ |
 | Petcare Dierenartsen / Eindhoven | UNRESOLVED;  | https://www.petcaredierenartsen.nl/ |
+| Dierenkliniek de Baronie / Prinsenbeek | EXCLUDED;  | https://www.dierenkliniekdebaronie.nl/ |
+| Animal World / Dierenkliniek de Baronie / Oudenbosch | EXCLUDED;  | https://www.dierenkliniekdebaronie.nl/ |
+| Dierenkliniek de Beemd / Oosterhout | EXCLUDED;  | https://www.dierenkliniekdebeemd.nl/ |
+| Dierenkliniek de Zuidwesthoek — Bergen op Zoom / Bergen op Zoom | EXCLUDED;  | https://www.dierenkliniekdezuidwesthoek.nl/ |
+| Dierenkliniek de Zuidwesthoek — Hoogerheide / Hoogerheide | EXCLUDED;  | https://www.dierenkliniekdezuidwesthoek.nl/ |
+| Mijn Dierenkliniek — Leiden / Leiden | EXCLUDED;  | https://www.mijndierenkliniek.nl/nl-nl |
+| Mijn Dierenkliniek — De Mare / Leiden | EXCLUDED;  | https://www.mijndierenkliniek.nl/nl-nl |
+| Mijn Dierenkliniek — Lisse / Lisse | EXCLUDED;  | https://www.mijndierenkliniek.nl/nl-nl |
+| Mijn Dierenkliniek — Leidschendam / Leidschendam | EXCLUDED;  | https://www.mijndierenkliniek.nl/nl-nl |
+| Mijn Dierenkliniek — Hillegom / Hillegom | UNRESOLVED;  | https://www.mijndierenkliniek.nl/nl-nl |
+| Mijn Dierenkliniek — Noordwijkerhout / Noordwijkerhout | UNRESOLVED;  | https://www.mijndierenkliniek.nl/nl-nl |
+| Groepspraktijk Dierenartsen Apeldoorn — Gemzenstraat / Apeldoorn | EXCLUDED;  | https://www.groepspraktijkdierenartsenapeldoorn.nl/nl-nl |
+| Groepspraktijk Dierenartsen Apeldoorn — Waleweingaarde / Apeldoorn | EXCLUDED;  | https://www.groepspraktijkdierenartsenapeldoorn.nl/nl-nl |
 
 ## Покрытие
 
