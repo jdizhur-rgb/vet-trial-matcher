@@ -1,0 +1,7 @@
+{
+ "run_id":"eu6-recovery-20261016T220849-0400",
+ "scope":"Research backup convenience report alias only; no country/data acceptance",
+ "finding":"DE block04 is7575-byte scope addendum, not a replacement for42736-byte full block03 country report. Checkpoint025/026 root alias may point to addendum; all immutable full03 and04 evidence remain backed.",
+ "fix":"Collector now respects explicit skip_report_alias=true and skips exact DE04 additive_scope_review as full-report alias. Next backup restores full03 convenience alias until worker supplies own cumulative full report. Sealed originals unchanged.",
+ "site_publication":false
+}

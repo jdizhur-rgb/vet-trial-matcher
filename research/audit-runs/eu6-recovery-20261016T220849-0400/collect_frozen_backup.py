@@ -59,7 +59,8 @@ def collect():
                     if rel in uploaded:assert uploaded[rel]==sha,("Previously backed immutable file changed",rel)
                     else:block_files[rel]={"path":rel,"sha256":sha,"bytes":q.stat().st_size}
                     resolved.append(rel)
-                    if q.name=="report.md":
+                    is_scope_addendum=(RUN.name=='eu6-recovery-20261016T220849-0400' and item['slot']==4 and ready.relative_to(w).as_posix()=='checkpoints/block-04/ready.json' and v.get('additive_scope_review'))
+                    if q.name=="report.md" and not v.get('skip_report_alias',False) and not is_scope_addendum:
                         match=re.search(r'/block-(\d+)',rel)
                         logical=int(match.group(1)) if match else 0
                         if q.parent.name.startswith('final'):

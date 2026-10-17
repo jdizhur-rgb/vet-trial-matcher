@@ -21,6 +21,8 @@ extras.push(base+"/bootstrap-remote-closure-validation.json",base+"/controller-p
 extras.push(base+"/source-minimal-backup-policy-receipt.json");
 extras.push(base+"/parent-baseline-input-integrity.json");
 extras.push(base+"/parent-germany-reference-scope-review.json");
+extras.push(base+"/worker-4/input/parent-university-evidence-recovered-001.json");
+extras.push(base+"/report-alias-scope-addendum-correction.json");
 const packCode="import pathlib,json,subprocess,hashlib,tarfile,zstandard,re\n"+
 "m=json.loads(pathlib.Path("+JSON.stringify(manifestPath)+").read_text()); expected={x['path']:x['sha256'] for x in m['files']}\n"+
 "controller_paths=["+[manifestPath,...extras].map(x=>JSON.stringify(x)).join(",")+"];controller_hashes={p:hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest() for p in controller_paths};expected.update(controller_hashes);paths=list(expected)\n"+

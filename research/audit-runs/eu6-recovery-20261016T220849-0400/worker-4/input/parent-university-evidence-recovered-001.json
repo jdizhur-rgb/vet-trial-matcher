@@ -1,0 +1,229 @@
+{
+  "run_id": "eu6-recovery-20261016T220849-0400",
+  "slot": 4,
+  "country": "Germany",
+  "baseline_sha": "b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45",
+  "agent_id": "/root/oct16_de",
+  "recovered_by": "/root",
+  "recovered_at": "2026-10-17 03:48:43 UTC",
+  "source_ref": "9d7268e510bdfae682b2b403791eab565eff2795",
+  "files": [
+    {
+      "path": "research/audit-runs/germany-finish-20261016/university-remote-results.json",
+      "sha256": "a04bb51561948418f9bd1e5d11be860a953b6f6c43c2d8ffeb848e5579325a65"
+    },
+    {
+      "path": "research/audit-runs/germany-finish-20261016/university-news-followup-results.json",
+      "sha256": "76e45a1665ab84a56db88f4e3c04e51b5a09692655c1684b921e22369db981c3"
+    }
+  ],
+  "records": [
+    {
+      "url": "https://kleintierklinik.uni-leipzig.de/klinik/abteilungen/innere-medizin",
+      "attempted_at": "2026-10-16T21:51:32.278972+00:00",
+      "authorization": "Owner explicit scoped reauthorization after review of87candidates/18routes: Разрешаю.",
+      "method": "ordinary public GET",
+      "status": 502,
+      "result": "HTTP_ERROR",
+      "final_url": "https://kleintierklinik.uni-leipzig.de/klinik/abteilungen/innere-medizin",
+      "source_receipt_path": "research/audit-runs/germany-finish-20261016/university-remote-results.json",
+      "supporting_quotes": [],
+      "parent_recovered_facts": [],
+      "limits": [
+        "Actual historical502 only; no clinical fact, source-success date or closure inferred. No network replay performed by this recovery."
+      ],
+      "source_checked_date": null,
+      "fresh_source_request": false
+    },
+    {
+      "url": "https://www.kleintierklinik.uni-leipzig.de/klinik/kontakt",
+      "attempted_at": "2026-10-16T21:51:34.971749+00:00",
+      "authorization": "Owner explicit scoped reauthorization after review of87candidates/18routes: Разрешаю.",
+      "method": "ordinary public GET",
+      "status": 502,
+      "result": "HTTP_ERROR",
+      "final_url": "https://www.kleintierklinik.uni-leipzig.de/klinik/kontakt",
+      "source_receipt_path": "research/audit-runs/germany-finish-20261016/university-remote-results.json",
+      "supporting_quotes": [],
+      "parent_recovered_facts": [],
+      "limits": [
+        "Actual historical502 only; no clinical fact, source-success date or closure inferred. No network replay performed by this recovery."
+      ],
+      "source_checked_date": null,
+      "fresh_source_request": false
+    },
+    {
+      "url": "https://www.vetmed.lmu.de/kleintierklinik/de/fachgebiete/onkologie/leistungen-onkologie/",
+      "attempted_at": "2026-10-16T21:51:35.565970+00:00",
+      "authorization": "Owner explicit scoped reauthorization after review of87candidates/18routes: Разрешаю.",
+      "method": "ordinary public GET",
+      "status": 200,
+      "result": "READABLE_PRIMARY",
+      "final_url": "https://www.vetmed.lmu.de/kleintierklinik/de/fachgebiete/onkologie/leistungen-onkologie/",
+      "source_receipt_path": "research/audit-runs/germany-finish-20261016/university-remote-results.json",
+      "supporting_quotes": [
+        "Chemotherapie Elektrochemotherapie / Photodynamische Therapie Bestrahlung"
+      ],
+      "parent_recovered_facts": [
+        "LMU own oncology service lists these treatment modalities for dogs/cats with tumours.",
+        "Listed oncology intake Monday-Friday09:00-17:00, Kleintier.Onkologie@lmu.de, +49 89 2180 2650.",
+        "Footer lists Veterinärstr.13,80539München."
+      ],
+      "limits": [
+        "Clipped retained 'we again offer radiation' passage not reconstructed; modality list retained as actual available passage.",
+        "Not a new2026-10-17 visit."
+      ],
+      "source_checked_date": "2026-10-16",
+      "fresh_source_request": false
+    },
+    {
+      "url": "https://www.tiho-hannover.de/kliniken-institute/kliniken/klinik-fuer-kleintiere/fachabteilungen/onkologie",
+      "attempted_at": "2026-10-16T21:51:36.130944+00:00",
+      "authorization": "Owner explicit scoped reauthorization after review of87candidates/18routes: Разрешаю.",
+      "method": "ordinary public GET",
+      "status": 200,
+      "result": "READABLE_PRIMARY",
+      "final_url": "https://www.tiho-hannover.de/kliniken-institute/kliniken/klinik-fuer-kleintiere/fachabteilungen/onkologie",
+      "source_receipt_path": "research/audit-runs/germany-finish-20261016/university-remote-results.json",
+      "supporting_quotes": [
+        "Ambulante Chemotherapien werden in unserer onkologischen Abteilung täglich durchgeführt.",
+        "kurativen und palliativen Entfernung von Tumoren",
+        "Die Strahlentherapie erfolgt in Narkose."
+      ],
+      "parent_recovered_facts": [
+        "TiHo own oncology department describes daily ambulatory chemotherapy, curative/palliative tumour operations and radiation treatment planning/procedure.",
+        "Department names Verena Nerschbach, Victoria Peters and Peter Ponn."
+      ],
+      "limits": [
+        "University footer Bünteweg2 is NOT assumed a verified treating-clinic street address.",
+        "No board credentials inferred from department membership."
+      ],
+      "source_checked_date": "2026-10-16",
+      "fresh_source_request": false
+    },
+    {
+      "url": "https://www.uni-giessen.de/de/fbz/fb10/institute_klinikum/klinikum/kleintierklinik/Chirurgie",
+      "attempted_at": "2026-10-16T21:51:38.651129+00:00",
+      "authorization": "Owner explicit scoped reauthorization after review of87candidates/18routes: Разрешаю.",
+      "method": "ordinary public GET",
+      "status": 200,
+      "result": "READABLE_PRIMARY",
+      "final_url": "https://www.uni-giessen.de/de/fbz/fb10/institute_klinikum/klinikum/kleintierklinik/Chirurgie",
+      "source_receipt_path": "research/audit-runs/germany-finish-20261016/university-remote-results.json",
+      "supporting_quotes": [],
+      "parent_recovered_facts": [
+        "JLU surgery-root retained passage is only generic footer/navigation."
+      ],
+      "limits": [
+        "Readable200 is not clinical cancer-treatment evidence."
+      ],
+      "source_checked_date": "2026-10-16",
+      "fresh_source_request": false
+    },
+    {
+      "url": "https://www.fu-berlin.de/einrichtungen/fachbereiche/fb/vetmed/we20_klinik_haustiere/index.html",
+      "attempted_at": "2026-10-16T21:51:40.761045+00:00",
+      "authorization": "Owner explicit scoped reauthorization after review of87candidates/18routes: Разрешаю.",
+      "method": "ordinary public GET",
+      "status": 200,
+      "result": "READABLE_PRIMARY",
+      "final_url": "https://www.fu-berlin.de/einrichtungen/fachbereiche/fb/vetmed/we20_klinik_haustiere/index.html",
+      "source_receipt_path": "research/audit-runs/germany-finish-20261016/university-remote-results.json",
+      "supporting_quotes": [
+        "Adresse Oertzenweg 19 b 14163 Berlin Telefon +49 30 838 624 22"
+      ],
+      "parent_recovered_facts": [
+        "FU official institutional page provides small/exotic-animal clinic identity, address, telephone and kleintierklinik@vetmed.fu-berlin.de."
+      ],
+      "limits": [
+        "Generic institutional contact does NOT prove current oncology services or clinician assignment."
+      ],
+      "source_checked_date": "2026-10-16",
+      "fresh_source_request": false
+    },
+    {
+      "url": "https://www.vetmed.fu-berlin.de/einrichtungen/kliniken/we20/tierhalter/leistungen/",
+      "attempted_at": "2026-10-16T21:54:31.649040+00:00",
+      "authorization": "Owner explicit scoped reauthorization after review of87candidates/18routes: Разрешаю.",
+      "method": "ordinary public GET",
+      "status": 200,
+      "result": "READABLE_PRIMARY",
+      "final_url": "https://www.vetmed.fu-berlin.de/einrichtungen/kliniken/we20/tierhalter/leistungen/",
+      "source_receipt_path": "research/audit-runs/germany-finish-20261016/university-news-followup-results.json",
+      "supporting_quotes": [],
+      "parent_recovered_facts": [
+        "Retained FU services-route passages contain only generic navigation/footer, no usable oncology treatment sentence."
+      ],
+      "limits": [
+        "Readable200 is not successful oncology-field verification."
+      ],
+      "source_checked_date": "2026-10-16",
+      "fresh_source_request": false
+    },
+    {
+      "url": "https://www.uni-giessen.de/de/fbz/fb10/institute_klinikum/klinikum/kleintierklinik/Chirurgie/leistungsspektrum",
+      "attempted_at": "2026-10-16T21:54:31.652501+00:00",
+      "authorization": "Owner explicit scoped reauthorization after review of87candidates/18routes: Разрешаю.",
+      "method": "ordinary public GET",
+      "status": 200,
+      "result": "READABLE_PRIMARY",
+      "final_url": "https://www.uni-giessen.de/de/fbz/fb10/institute_klinikum/klinikum/kleintierklinik/Chirurgie/leistungsspektrum",
+      "source_receipt_path": "research/audit-runs/germany-finish-20261016/university-news-followup-results.json",
+      "supporting_quotes": [
+        "Chirurgische Entfernung von auch invasiv wachsenden Nebennierentumoren"
+      ],
+      "parent_recovered_facts": [
+        "JLU surgical service explicitly describes tumour-directed operations including adrenal, lung, spleen, bladder and pancreatic indications."
+      ],
+      "limits": [
+        "No chemotherapy, radiation or oncology-board qualification inferred."
+      ],
+      "source_checked_date": "2026-10-16",
+      "fresh_source_request": false
+    },
+    {
+      "url": "https://www.uni-giessen.de/de/fbz/fb10/institute_klinikum/klinikum/kleintierklinik/Chirurgie/teamchir/index",
+      "attempted_at": "2026-10-16T21:54:31.653119+00:00",
+      "authorization": "Owner explicit scoped reauthorization after review of87candidates/18routes: Разрешаю.",
+      "method": "ordinary public GET",
+      "status": 200,
+      "result": "READABLE_PRIMARY",
+      "final_url": "https://www.uni-giessen.de/de/fbz/fb10/institute_klinikum/klinikum/kleintierklinik/Chirurgie/teamchir/index",
+      "source_receipt_path": "research/audit-runs/germany-finish-20261016/university-news-followup-results.json",
+      "supporting_quotes": [
+        "Dr. Christine Peppler Leitende Oberärztin Chirurgie Diplomate des European College of Veterinary Surgeons (Dipl. ECVS)"
+      ],
+      "parent_recovered_facts": [
+        "JLU team excerpt associates Christine Peppler with senior surgical role and ECVS credential."
+      ],
+      "limits": [
+        "Surgical credential, not oncology-board credential; preserve exact context."
+      ],
+      "source_checked_date": "2026-10-16",
+      "fresh_source_request": false
+    },
+    {
+      "url": "https://www.vetmed.lmu.de/kleintierklinik/de/fachgebiete/onkologie/team-onkologie/",
+      "attempted_at": "2026-10-16T21:54:36.814997+00:00",
+      "authorization": "Owner explicit scoped reauthorization after review of87candidates/18routes: Разрешаю.",
+      "method": "ordinary public GET",
+      "status": 200,
+      "result": "READABLE_PRIMARY",
+      "final_url": "https://www.vetmed.lmu.de/kleintierklinik/de/fachgebiete/onkologie/team-onkologie/",
+      "source_receipt_path": "research/audit-runs/germany-finish-20261016/university-news-followup-results.json",
+      "supporting_quotes": [
+        "Tierärztin Nataliia Ignatenko, Dip. ECVIM-CA Leitung Onkologie und Strahlentherapie"
+      ],
+      "parent_recovered_facts": [
+        "LMU current oncology team lead is named; residents separately labelled in retained passage."
+      ],
+      "limits": [
+        "Do not infer oncology-subspecialty board status from Dip.ECVIM-CA alone; specific credential requires its own evidence."
+      ],
+      "source_checked_date": "2026-10-16",
+      "fresh_source_request": false
+    }
+  ],
+  "allowlist_proof": "Source ref final-evidence-manifest.json explicitly allows BOTH files and excludes batch25-results/named-finite-last-nine-results. Parent read authorization metadata and original relevant review_passages. No denied output or current source request.",
+  "scope": "Minimal factual/short-quote derivative of10 historical university attempts, not a new independent clinical visit or country completion. Source-date precision retained; raw HTML/site bodies and full receipt excerpts not copied."
+}
