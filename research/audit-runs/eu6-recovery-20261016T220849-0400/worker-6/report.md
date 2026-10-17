@@ -1,8 +1,8 @@
 # Нидерланды — национальное исследование НЕ завершено
 
-run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_sha=b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45; agent_id=/root/oct16_nl; started_at=2026-10-17T02:12:30Z. Рабочий период 2026-10-17T02:12:30Z — 2026-10-17T03:37:37.452Z (продолжается).
+run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_sha=b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45; agent_id=/root/oct16_nl; started_at=2026-10-17T02:12:30Z. Рабочий период 2026-10-17T02:12:30Z — 2026-10-17T03:40:06.145Z (продолжается).
 
-research_complete=false; publication_permitted=false. Нулевой PENDING внутри текущего известного ledger не означает исчерпания страны: доступно ещё 67 IVC-label directions и другие собственные направления.
+research_complete=false; publication_permitted=false. Нулевой PENDING внутри текущего известного ledger не означает исчерпания страны: доступно ещё 60 IVC-label directions и другие собственные направления.
 
 ## Восстановленное, потерянное и действительно проверенное
 
@@ -12,27 +12,27 @@ research_complete=false; publication_permitted=false. Нулевой PENDING в�
 
 | Показатель | Фактическое значение |
 |---|---|
-| assigned | 402 |
-| processed | 401 |
-| fully_verified | 70 |
+| assigned | 409 |
+| processed | 409 |
+| fully_verified | 71 |
 | NEW | 66 |
-| UPDATE | 6 |
-| DUPLICATE | 9 |
-| EXCLUDED | 277 |
-| UNRESOLVED | 43 |
-| PENDING | 1 |
+| UPDATE | 5 |
+| DUPLICATE | 10 |
+| EXCLUDED | 282 |
+| UNRESOLVED | 46 |
+| PENDING | 0 |
 
 NEW включает 4 отдельных NETWORK listings, не новых физических клиник. Остальные 62 — физические provider records, в том числе partial/hold. Переобработка одного provider не увеличивает processed; URLs, aliases, branchFinder/recruitment labels и referencegroups не providers.
 
 | Fully: разные основания | Количество |
 |---|---|
 | Исторический inherited claim | 50 |
-| Cumulative claimed | 70 |
-| Найден обязательный payload либо текущий reverify | 70 |
-| Текущий freshly reverified core | 37 |
+| Cumulative claimed | 71 |
+| Найден обязательный payload либо текущий reverify | 71 |
+| Текущий freshly reverified core | 38 |
 | Parent clinical acceptance | не получено |
 
-DependencyQA002 исправляет001. Отсутствие полногоHTML не автоматически отсутствие факта: сохранённая точнаяцитата+URL может поддерживать field; неподтверждённый обязательный факт удерживается. Current freshly reverified counter includes one mixed-date Barendrecht record: exactaddress inherited15October, current namedvetrole/contact/access17October, not all-field fresh. Текущих open/click requests 668, reader extractions 20, exact actual queries 84. Не все requests успешны: header-only/ошибка/challenge не clinical verification. Web checked_at17October date-only; exact request timestamps не выдуманы.
+DependencyQA002 исправляет001. Отсутствие полногоHTML не автоматически отсутствие факта: сохранённая точнаяцитата+URL может поддерживать field; неподтверждённый обязательный факт удерживается. Current freshly reverified counter includes one mixed-date Barendrecht record: exactaddress inherited15October, current namedvetrole/contact/access17October, not all-field fresh. Текущих open/click requests 695, reader extractions 20, exact actual queries 84. Не все requests успешны: header-only/ошибка/challenge не clinical verification. Web checked_at17October date-only; exact request timestamps не выдуманы.
 
 ## Именные NEW и UPDATE
 
@@ -43,7 +43,7 @@ DependencyQA002 исправляет001. Отсутствие полногоHTML
 | Dierenkliniek Epe-Centrum | Epe | NEW | Surgery | https://dierenkliniek-epe.nl/specialistische-chirurgie-2/ | всегда parent acceptance до публикации |
 | Dierenkliniek Putten | Putten | NEW | Surgery | https://www.dierenkliniekputten.nl/vakgebieden/weke-delen-chirurgie | всегда parent acceptance до публикации |
 | Dierenkliniek de Watermolen | Haaksbergen | NEW | Local oncology care | https://www.watermolendierenartsen.nl/oncologie/ | HOLD/partial |
-| Dierenkliniek Elze | не назначен | UPDATE | Local oncology care, Surgery | https://www.dierenkliniek-elze.nl/cms/php/page.php?id=244 | всегда parent acceptance до публикации |
+| Dierenkliniek Elze | Enschede | UPDATE | Local oncology care, Surgery | https://www.dierenkliniek-elze.nl/cms/php/page.php?id=244 | HOLD/partial |
 | Dierenkliniek Capelle | Capelle aan den IJssel | NEW | Surgery | https://www.dierenkliniekcapelle.nl/diensten/chirurgie | всегда parent acceptance до публикации |
 | Dierenkliniek Doorn | Doorn | NEW | Surgery | https://www.dierenkliniekdoorn.nl/wat-wij-doen/algemene-chirurgie | всегда parent acceptance до публикации |
 | Dierenkliniek Kralingen | Rotterdam | NEW | Surgery | https://dierenkliniekkralingen.nl/totale-zorg/chirurgie/ | всегда parent acceptance до публикации |
@@ -117,7 +117,7 @@ Bingelrade: собственные dog/cat service-index pages прямо пре
 
 | UPDATE identity | Field | Old | New | Exact field provenance |
 |---|---|---|---|---|
-| dierenkliniek-elze-enschede | services | ["Local oncology care"] | ["Local oncology care","Surgery"] | [{"field":"services","official_url":"https://www.dierenkliniek-elze.nl/cms/php/page.php?id=244","url":"https://www.dierenkliniek-elze.nl/cms/php/page.php?id=244","supporting_quote":"Specialist voor tumoren bij hond of kat (kanker) ... Bultjes onderzoeken en verwijderen ... Behandeling van kanker","quote":"Specialist voor tumoren bij hond of kat (kanker) ... Bultjes onderzoeken en verwijderen ... Behandeling van kanker","branch_scope":"Lasondersingel 186, Enschede","checked_at":"2026-10-16","method":"Retained actual primary-source quote/URL from 2026-10-16; current offline dependency/report attribution only, NOT a fresh source visit. Exact original request method/timestamp not asserted from candidate record.","retained_payload_reference":"input/history/candidate-records/inherited/dierenkliniek-elze-enschede-v001.json","retained_payload_sha256":"5c823c3e6fff1561a562fa11142ac177e88f0bea058ded0a1bbe7d361af7b51a"}] |
+| dierenkliniek-elze-enschede | services | ["Local oncology care"] | ["Local oncology care","Surgery"] | [{"official_url":"https://www.dierenkliniek-elze.nl/cms/php/page.php?id=244","url":"https://www.dierenkliniek-elze.nl/cms/php/page.php?id=244","quote":"Bultjes onderzoeken en verwijderen; Behandeling van kanker","branch_scope":"Lasondersingel186Enschede; separatebulletitems, notexplicitlinkedcancertumorresection","checked_at":"2026-10-17","method":"Actual current Web open","ref":"turn3714view0"}] |
 | anicura-de-tweede-lijn-zwolle | services | ["Local oncology care"] | ["Local oncology care","Surgery"] | [{"field":"services","official_url":"https://www.anicura.nl/klinieken/overijssel/zwolle/expertises/chirurgie/","url":"https://www.anicura.nl/klinieken/overijssel/zwolle/expertises/chirurgie/","supporting_quote":"verwijdering tumoren","quote":"verwijdering tumoren","branch_scope":"Schrevenweg13-15, Zwolle; current team names Jeanine Deterd Oude Weme as surgery veterinarian; referral required","checked_at":"2026-10-16","method":"Retained actual primary-source quote/URL from 2026-10-16; current offline dependency/report attribution only, NOT a fresh source visit. Exact original request method/timestamp not asserted from candidate record.","retained_payload_reference":"input/history/candidate-records/inherited/anicura-de-tweede-lijn-zwolle-v001.json","retained_payload_sha256":"30d5ce1867f655bf5d6211c01db14695c32648f4dabd36c188f8401cfa0b8ca4"}] |
 | anicura-stroowaert-oud-beijerland | services | ["Local oncology care"] | ["Local oncology care","Surgery"] | [{"field":"services","official_url":"https://www.anicura.nl/klinieken/oud-beijerland/oud-beijerland/expertises/weke-delen-chirurgie/","url":"https://www.anicura.nl/klinieken/oud-beijerland/oud-beijerland/expertises/weke-delen-chirurgie/","supporting_quote":"tumoren verwijderen","quote":"tumoren verwijderen","branch_scope":"Stougjesdijk294b, Oud-Beijerland. Current local surgical page, named team and contact read; no generic chemotherapy or radiotherapy transfer.","checked_at":"2026-10-16","method":"Retained actual primary-source quote/URL from 2026-10-16; current offline dependency/report attribution only, NOT a fresh source visit. Exact original request method/timestamp not asserted from candidate record.","retained_payload_reference":"input/history/candidate-records/inherited/anicura-stroowaert-oud-beijerland-v001.json","retained_payload_sha256":"78524ccab248c582bdfba7767b5ac779e7d25f4e992845fae4c1242d96073147"}] |
 | anicura-mcd-amsterdam | services | ["Medical oncology","Chemotherapy"] | ["Medical oncology","Chemotherapy","Surgery"] | [{"field":"services:Surgery","url":"https://www.anicura.nl/klinieken/noord-holland/mcd/over-ons/expertises/weke-delen-chirurgie/","ref":"turn3429view5","quote":"verwijdering van tumoren","checked_at":"2026-10-17","method":"Web open"}] |
@@ -148,7 +148,7 @@ Bingelrade: собственные dog/cat service-index pages прямо пре
 |---|---|---|
 | Университет Utrecht | review001: localRT/Chemo/Surgery+currentteam/contact/intake; exactOnGo challenge restriction001 | Не трактовать как trial access |
 | AniCura85 | inherited85roster, prior80processed + current5baseline outcomesreview010 | Not85freshvisits; final fieldQA |
-| IVC220 | Freshmaster turn3465view0; sparse crosswalk001–011:135mapped+14ambiguous/held+4noncompanion+67available | 67labels требуют actualidentity/clinicalscope, не88 уже новыхклиник |
+| IVC220 | Freshmaster turn3465view0; sparse crosswalk001–012:141mapped+15ambiguous/held+4noncompanion+60available | 60labels требуют actualidentity/clinicalscope, не88 уже новыхклиник |
 | BestCare21NL | Current retained10clinicalgroups/21NLsites; DeArk3 review005; Ossehoofd2 currentpracticechemo/team/contactreview009 | Осsehoofd exactbranch/commonroute and other genuine holds |
 | Другие сети | DierenDokters11 oldlocaloutcomes+1network; Topzorg3partial+1network; StadLand9currentEXCL; DGCZuidLimburg2held+1network | VetPartners actualdirections; Caressa/StadLand legacy identities |
 | GP независимые | current BingelradeChemo; retainedGP Surgery acrossallregions; A7Noord3/Deen currentEXCL; IVC13newactualidentitiesreview015 | Не все независимые клиники страны исчерпаны |
@@ -207,6 +207,9 @@ EXCLUDED — nonpromotion, не отсутствие лечения. StadLand9 g
 | Pets Health Dierenkliniek Eemland | https://www.pets-health-eemland.nl/contact?lang=nl-nl | ["Actual local owned cancer treatment and named current veterinarian; permitted independent current team/other source route remains.","Any actual oncologyhomevisit offer? Label alone insufficient; exact failed linked workflow held."] |
 | WB Dierenartsen — clinical service identity unresolved | https://www.wbdierenartsen.nl/ | ["Actual current clinics/pet-treatment locations and owned specificanticanceract plus namedqualifiedvet/contact/intake; only successful primarybody canresolve.","Denied WB fallback workflow/targets remain held until explicit approval/restrictionlift; no alternateclient/cache/query reconstruction."] |
 | PlusDierenkliniek Westerwatering | https://www.plusdierenklinieken.nl/nl-nl | ["ActualWesterwatering currentclinicstatus/alias and operatinglocation; any currentownedcancercare. Applicable independentlypermittedofficialdirection remains; noclosurefromsilence."] |
+| Dierenkliniek Amsterdam — Westerpark | https://www.dierenkliniekamsterdam.nl/nl-nl/contact | ["Does group actually provide current cancer therapy beyond specialistdiagnostics/consult, and which ofthese3exactbranches? Namedtreatingveterinarian/intakeconfirm. No requirement foroncboard."] |
+| Dierenkliniek Amsterdam — Frederik Hendrikstraat | https://www.dierenkliniekamsterdam.nl/nl-nl/contact | ["Does group actually provide current cancer therapy beyond specialistdiagnostics/consult, and which ofthese3exactbranches? Namedtreatingveterinarian/intakeconfirm. No requirement foroncboard."] |
+| Dierenkliniek Amsterdam — Rembrandtpark | https://www.dierenkliniekamsterdam.nl/nl-nl/contact | ["Does group actually provide current cancer therapy beyond specialistdiagnostics/consult, and which ofthese3exactbranches? Namedtreatingveterinarian/intakeconfirm. No requirement foroncboard."] |
 
 PartialNEW отдельно: Diergeneeskundig Centrum Zeeland [dc-zeeland-noordwelle]; Dierenkliniek de Watermolen [dierenkliniek-de-watermolen-haaksbergen]; De Wagenrenk — Diergeneeskundig Specialistisch Centrum [de-wagenrenk-wageningen]; Dierenkliniek ’t Gooi [dierenkliniek-t-gooi-laren]; Dierenkliniek Europawijk [dierenkliniek-europawijk-haarlem]; HVMC Westhage / Dierenkliniek Westhage — Dokter John [dierenkliniek-westhage-den-haag]; Dierenkliniek Goudenregenstraat (formerly EDZ Den Haag) [goudenregenstraat-den-haag].
 
@@ -241,6 +244,6 @@ Inherited exactholds и неизвестные lostexactscopes в records/restor
 
 ## Сохранность и итоговый gate
 
-Последнее фактически полученное parent-confirmation: {"run_id":"eu6-recovery-20261016T220849-0400","slot":6,"country":"Netherlands","baseline_sha":"b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45","agent_id":"/root/oct16_nl","verification_basis":"Parent-reported archive/control/members/receipt readbacks PASS, notworkerindependentremote/clinicalacceptance.","remote_branch":"research/europe-recovery-eu6-recovery-20261016T220849-0400","own_archive_path":"research/audit-runs/eu6-recovery-20261016T220849-0400/worker-6","parent_checkpoint":"021","verified_utc":"2026-10-17T03:32:12Z","data_sha":"dc4d7c590bf3c8bf4b74fcd39d87f4009d32f8f7","receipt_sha":"82d0ffdbdc876405e2efcc2d99e1fad30ba7fb46","includes":"block31+restriction011","earlier_proof":"records/parent-backup-proof-005.json","local_later_not_claimed_remote":"block32 onward pendingparentreadback"}. Это parentreported archive/member/control/receiptSHA PASS, не workerindependentremotecheck и не clinicalacceptance. Более поздние localready не объявляются remote без нового proof. Immutablecheckpoint последовательность выводится изфактических файлов, frozenpayload не перезаписывались. Источники/кандидаты/запросы сохраняются incrementally, без дублированияfullledger.
+Последнее фактически полученное parent-confirmation: {"run_id":"eu6-recovery-20261016T220849-0400","slot":6,"country":"Netherlands","baseline_sha":"b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45","agent_id":"/root/oct16_nl","verification_basis":"ParentreportedreadbacksPASS only, notworkerremote/clinicalacceptance","parent_checkpoint":"022","remote_branch":"research/europe-recovery-eu6-recovery-20261016T220849-0400","own_archive_path":"research/audit-runs/eu6-recovery-20261016T220849-0400/worker-6","verified_utc":"2026-10-17T03:35:10Z","data_sha":"a53a975394b8c075b5a6af52cc9a5abac2a55879e","receipt_sha":"b9cc38b8d97af6f3cc16771658a3b17e7a8260ba","includes":"block32+restriction012","earlier_proof":"records/parent-backup-proof-006.json","local_later_not_claimed_remote":"block33+ later pendingparentreadback"}. Это parentreported archive/member/control/receiptSHA PASS, не workerindependentremotecheck и не clinicalacceptance. Более поздние localready не объявляются remote без нового proof. Immutablecheckpoint последовательность выводится изфактических файлов, frozenpayload не перезаписывались. Источники/кандидаты/запросы сохраняются incrementally, без дублированияfullledger.
 
 research_complete=false: национальный frontier действительно доступен и не исчерпан. Это не остановка по времени/счётчику/удобству/контроллеру. Production/sharedstate/commit/push/deploy/outreach/trials не изменялись.

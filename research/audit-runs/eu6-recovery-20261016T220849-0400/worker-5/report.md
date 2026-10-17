@@ -1,12 +1,12 @@
 # Франция — национальная проверка: исследование продолжается
 
-Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`; baseline `b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45`. Первая отметка clock 2026-10-17 02:12:29 UTC; документ обновлён 2026-10-17T03:35:03.165761+00:00. **research_complete=false**.
+Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`; baseline `b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45`. Первая отметка clock 2026-10-17 02:12:29 UTC; документ обновлён 2026-10-17T03:40:41.911094+00:00. **research_complete=false**.
 
 ## Восстановлено и действительно выполнено
 
 Собран рабочий cumulative из собственных frozen candidate shards block01–09:171 именованный исход, старые76 полных,70 NEW относительно старого baseline,6 уже опубликованных,85 EXCLUDED,10 UNRESOLVED. Это унаследованная выполненная работа, не171 новое посещение. Полная текущая physical/supplemental и tele база разобрана; совпадения существующих6 идентичностей сохранены. Все70 унаследованных предложений восстановлены с полевыми доказательствами и исходными датами. Новых source-success dates от восстановления нет.
 
-Текущих собственных первичных review: 343; проверены доступные сохранённые направления Vet’Natura, VetFélin, Allées, Hérimoncourt. У Vet’Natura собственная хирургия кожных опухолей, названный ветеринар, точные адрес/телефон и запись подтверждены. Не приписаны химиотерапия или польза альтернативной медицины. Три других не продвигаются по фактически опубликованным услугам; это не доказательство отсутствия онкопомощи.
+Текущих собственных первичных review: 375; проверены доступные сохранённые направления Vet’Natura, VetFélin, Allées, Hérimoncourt. У Vet’Natura собственная хирургия кожных опухолей, названный ветеринар, точные адрес/телефон и запись подтверждены. Не приписаны химиотерапия или польза альтернативной медицины. Три других не продвигаются по фактически опубликованным услугам; это не доказательство отсутствия онкопомощи.
 
 Последний сообщённый Sevetys246/241-unvisited payload утрачен и НЕ восстановлен. Доступны старые234 source leads и остальные собственные сохранённые направления. Ограничения:48 точных исторических/поздних URL holds плюс2756 workflow targets (включая2 Faluns/Synervet), эквивалентные пути не повторяются. Synervet.NET отдельный held от разрешённых исторических .COM clinical pages.
 
@@ -42,7 +42,7 @@ Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`;
 
 ## Счётчики
 
-Регистр именованных кандидатов: assigned=530, processed=513 (171 унаследованный +343 текущих review), fully_verified=155, NEW=148, UPDATE=0, DUPLICATE=7, EXCLUDED=339, UNRESOLVED=19. Это пока частичный национальный регистр: неопределённое количество URL/поисковых ссылок и ещё не нормализованные rosters нельзя выдавать за уникальных провайдеров. Полный denominator остаётся собственным незавершённым действием. Новых индивидуальных провайдеров, впервые идентифицированных в текущем сохранённом запуске:30; новое предложение блока — ранее сохранённый непроверенный lead.
+Регистр именованных кандидатов: assigned=550, processed=545 (171 унаследованный +375 текущих review), fully_verified=162, NEW=155, UPDATE=0, DUPLICATE=7, EXCLUDED=364, UNRESOLVED=19. Это пока частичный национальный регистр: неопределённое количество URL/поисковых ссылок и ещё не нормализованные rosters нельзя выдавать за уникальных провайдеров. Полный denominator остаётся собственным незавершённым действием. Новых индивидуальных провайдеров, впервые идентифицированных в текущем сохранённом запуске:34; новое предложение блока — ранее сохранённый непроверенный lead.
 
 ## Именованные NEW и UPDATE
 
@@ -194,6 +194,13 @@ Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`;
 - Clinique vétérinaire Horizon - La Réole — La Réole: Local oncology care. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-horizon-la-reole-reo/ (current_run_current_roster_discovery_retained_individual_lead_absent)
 - Clinique vétérinaire Immavet de Saint-Nazaire — Saint-Nazaire: Local oncology care. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-immavet-de-saint-nazaire-sna/ (current_run_current_roster_discovery_retained_individual_lead_absent)
 - Clinique vétérinaire Argos Pérols des Etangs — Pérols: Local oncology care. https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/perols-des-etangs-242 (inherited_unprocessed_network_branch_now_primary_verified)
+- Clinique vétérinaire Mermoz Vet - Référés, Urgences & Gardes 24h/24 - Lyon — Lyon: Local oncology care. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-memoz-vet-mz1/ (current_run_current_roster_discovery_retained_individual_lead_absent)
+- Clinique vétérinaire Paris 15 - Pasteur — Paris: Local oncology care. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-pasteur-paris-bpa/ (current_run_current_roster_discovery_retained_individual_lead_absent)
+- Clinique vétérinaire Perrochel de Boulogne-sur-Mer — Boulogne-sur-Mer: Local oncology care. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-perrochel-de-boulogne-sur-mer-bo2/ (current_run_current_roster_discovery_retained_individual_lead_absent)
+- Clinique vétérinaire Argos Lorient la Découverte — Lorient: Local oncology care. https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/lorient-la-decouverte-930 (inherited_unprocessed_network_branch_now_primary_verified)
+- Clinique vétérinaire Argos Rennes Coëtlogon — Rennes: Local oncology care. https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/rennes-coetlogon-54 (inherited_unprocessed_network_branch_now_primary_verified)
+- Clinique vétérinaire Argos Angers la Roseraie — Angers: Local oncology care. https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/angers-la-roseraie-263 (inherited_unprocessed_network_branch_now_primary_verified)
+- SQYVET — Trappes: Local oncology care, Chemotherapy, Surgery. https://www.sqyvet.fr/ (current_run_fresh_independent_regional_new_service_query)
 
 ## Уже опубликованные, исключения и точные вопросы
 
@@ -561,7 +568,32 @@ Run `eu6-recovery-20261016T220849-0400`; slot 5; France; agent `/root/oct16_fr`;
 - EXCLUDED: Clinique vétérinaire Argos Concarneau Maison Blanche — Concarneau. https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/concarneau-maison-blanche-155 Actual full own current clinical, local services and team scope reviewed; no direct cancer act established; no network-wide service inference. Full own branch clinical text, current named veterinary team and local service list reviewed. No oncology addition, not a claim that treatment does not exist.
 - EXCLUDED: Clinique vétérinaire Argos Brest Branda — Brest. https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/brest-branda-184 Actual full own current clinical, local services and team scope reviewed; no direct cancer act established; no network-wide service inference. Full own branch clinical text, current named veterinary team and local service list reviewed. No oncology addition, not a claim that treatment does not exist.
 - EXCLUDED: Clinique vétérinaire du Sablard — Limoges. https://www.macliniqueveto.fr/ Full current own clinical service/roster/contact/intake body read. General surgery/orthopedics/CAPdouleur and internal medicine qualification do not establish cancer-directed local act. No cancer treatment proposal; not absence proof.
-- UNRESOLVED: Clinique vétérinaire de la Paix — Pau. https://www.cliniquedelapaix.fr/ Actual root Web timeout and ordinary exact-root native502; independently advertised own team/surgery pages Web502 and sameexactURLs native502. No current full primary clinical/team/access body acquired; indexed veterinary oncology interest is lead-only, not actual local care. Not a permissionhold or completed external exhaustion.
+- UNRESOLVED: Clinique vétérinaire de la Paix — Pau. https://www.cliniquedelapaix.fr/ Ordinary server/transport gap: root, advertised team, surgery, clinic and charter routes actually attempted by Web and ordinary same-URL native client, all timeout/502. No full current primary clinical/team/access body acquired; indexed interest remains lead-only. Not permissionhold or absence proof.
+- EXCLUDED: Clinique vétérinaire Lagny Centre - Lagny-sur-Marne — Lagny-sur-Marne. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-lagny-centre-lagny-sur-marne-lsm/ Actual full local clinical, service and team scope reviewed; general surgery, imaging and referral do not establish local cancer act. Nonpromotion, not absence proof.
+- EXCLUDED: Clinique vétérinaire Le Tilleul - Garéoult — Garéoult. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-le-tilleul-gareoult-glt/ Actual full local clinical, service and team scope reviewed; general surgery, imaging and referral do not establish local cancer act. Nonpromotion, not absence proof.
+- EXCLUDED: Clinique vétérinaire les acanthes - Millau — Millau. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-les-acanthes-millau-mll/ Actual full local clinical, service and team scope reviewed; general surgery, imaging and referral do not establish local cancer act. Nonpromotion, not absence proof.
+- EXCLUDED: Clinique vétérinaire Les Alouettes - Montceau-les-Mines — Montceau-les-Mines. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-les-alouettes-montceau-les-mines-mlm/ Actual full local clinical, service and team scope reviewed; general surgery, imaging and referral do not establish local cancer act. Nonpromotion, not absence proof.
+- EXCLUDED: Clinique vétérinaire Les Falaises - Les Andelys — Les Andelys. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-les-falaises-les-andelys-la1/ Actual full local clinical, service and team scope reviewed; general surgery, imaging and referral do not establish local cancer act. Nonpromotion, not absence proof.
+- EXCLUDED: Clinique vétérinaire Les Maurilloux - Trélissac — Trelissac. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-les-maurilloux-trelissac-tre/ Actual full local clinical, service and team scope reviewed; general surgery, imaging and referral do not establish local cancer act. Nonpromotion, not absence proof.
+- EXCLUDED: Clinique vétérinaire Les Palmiers - La Baule — La Baule-Escoublac. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-les-palmiers-la-baule-lba/ Actual full local clinical, service and team scope reviewed; general surgery, imaging and referral do not establish local cancer act. Nonpromotion, not absence proof.
+- EXCLUDED: Clinique vétérinaire les Peupliers - Val-de-Reuil — Val-de-Reuil. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-les-peupliers-val-de-reuil-sevetys-vdr/ Actual full local clinical, service and team scope reviewed; general surgery, imaging and referral do not establish local cancer act. Nonpromotion, not absence proof.
+- EXCLUDED: Clinique vétérinaire de Mazeran - Béziers — Béziers. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-mazeran-de-beziers-bez/ Actual full local clinical, service and team scope reviewed; general surgery, imaging and referral do not establish local cancer act. Nonpromotion, not absence proof.
+- EXCLUDED: Clinique vétérinaire Monge Paris — Paris. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-monge-paris-mon/ Actual full local clinical, service and team scope reviewed; general surgery, imaging and referral do not establish local cancer act. Nonpromotion, not absence proof.
+- EXCLUDED: Clinique vétérinaire Montaigne - Brest — Brest. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-montaigne-brest-br1/ Actual full local clinical, service and team scope reviewed; general surgery, imaging and referral do not establish local cancer act. Nonpromotion, not absence proof.
+- EXCLUDED: Clinique vétérinaire NéoNoé - Somain — Somain. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-neonoe-somain-sm2/ Actual full local clinical, service and team scope reviewed; general surgery, imaging and referral do not establish local cancer act. Nonpromotion, not absence proof.
+- EXCLUDED: Clinique vétérinaire Paris 18 - Picard — Paris. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-picard-paris-pic/ Actual full local clinical, service and team scope reviewed; general surgery, imaging and referral do not establish local cancer act. Nonpromotion, not absence proof.
+- EXCLUDED: Clinique vétérinaire Paris 12 - Picpus — Paris. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-picpus-paris-p12/ Actual full local clinical, service and team scope reviewed; general surgery, imaging and referral do not establish local cancer act. Nonpromotion, not absence proof.
+- EXCLUDED: Clinique vétérinaire Place de la République - Lens — Lens. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-place-de-la-republique-lens-len/ Actual full local clinical, service and team scope reviewed; general surgery, imaging and referral do not establish local cancer act. Nonpromotion, not absence proof.
+- EXCLUDED: Clinique vétérinaire Pont-Neuf - Brest — Brest. https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-pont-neuf-brest-br2/ Actual full local clinical, service and team scope reviewed; general surgery, imaging and referral do not establish local cancer act. Nonpromotion, not absence proof.
+- EXCLUDED: Clinique vétérinaire Argos Bannalec — Bannalec. https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/bannalec-170 Full actual own local clinical/team/services reviewed; no direct local cancer-care act established; no network fanout. Full own branch clinical text, current named veterinary team and local service list reviewed. No oncology addition, not a claim that treatment does not exist.
+- EXCLUDED: Clinique vétérinaire Argos Hennebont — Hennebont. https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/hennebont-168 Full actual own local clinical/team/services reviewed; no direct local cancer-care act established; no network fanout. Full own branch clinical text, current named veterinary team and local service list reviewed. No oncology addition, not a claim that treatment does not exist.
+- EXCLUDED: Clinique vétérinaire Argos Vern-sur-Seiche — Vern-sur-Seiche. https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/vern-sur-seiche-177 Full actual own local clinical/team/services reviewed; no direct local cancer-care act established; no network fanout. Full own branch clinical text, current named veterinary team and local service list reviewed. No oncology addition, not a claim that treatment does not exist.
+- EXCLUDED: Clinique vétérinaire Argos Saint-Erblon — Saint-Erblon. https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/saint-erblon-158 Full actual own local clinical/team/services reviewed; no direct local cancer-care act established; no network fanout. Full own branch clinical text, current named veterinary team and local service list reviewed. No oncology addition, not a claim that treatment does not exist.
+- EXCLUDED: Clinique vétérinaire Argos de l Erdre - Nort S/E. — Nort-sur-Erdre. https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/de-l-erdre-nort-s-e-223 Full actual own local clinical/team/services reviewed; no direct local cancer-care act established; no network fanout. Full own branch clinical text, current named veterinary team and local service list reviewed. No oncology addition, not a claim that treatment does not exist.
+- EXCLUDED: Clinique vétérinaire Argos Nantes Cens — Orvault. https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/nantes-cens-92 Full actual own local clinical/team/services reviewed; no direct local cancer-care act established; no network fanout. Full own branch clinical text, current named veterinary team and local service list reviewed. No oncology addition, not a claim that treatment does not exist.
+- EXCLUDED: Cabinet vétérinaire Argos Nantes République — Nantes. https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/nantes-republique-94 Full actual own local clinical/team/services reviewed; no direct local cancer-care act established; no network fanout. Full own branch clinical text, current named veterinary team and local service list reviewed. No oncology addition, not a claim that treatment does not exist.
+- EXCLUDED: Clinique vétérinaire Argos Saint-Herblain — Saint-Herblain. https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/saint-herblain-39 Full actual own local clinical/team/services reviewed; no direct local cancer-care act established; no network fanout. Full own branch clinical text, current named veterinary team and local service list reviewed. No oncology addition, not a claim that treatment does not exist.
+- EXCLUDED: Cabinet vétérinaire Argos Nantes Saint-Clément — Nantes. https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/nantes-saint-clement-182 Full actual own local clinical/team/services reviewed; no direct local cancer-care act established; no network fanout. Full own branch clinical text, current named veterinary team and local service list reviewed. No oncology addition, not a claim that treatment does not exist.
 
 ## Даты, QA и сохранение
 
@@ -573,7 +605,7 @@ research_complete=false: доступные сохранённые leads/rosters
 
 ## Раннее дополнение block02 и текущий pending-регистр
 
-Нормализован фактический сохранённый список Argos116: 16 ещё не пройденных уникальных ветвей после дедупликации по точному ветвевому URL. Поэтому исправленный assigned=530 (processed=513, unprocessed=17); прежний175 — только восстановленный тогда регистр, не национальный знаменатель. Ссылка URL не стала новым провайдером без названия/филиальной записи.
+Нормализован фактический сохранённый список Argos116: 4 ещё не пройденных уникальных ветвей после дедупликации по точному ветвевому URL. Поэтому исправленный assigned=550 (processed=545, unprocessed=5); прежний175 — только восстановленный тогда регистр, не национальный знаменатель. Ссылка URL не стала новым провайдером без названия/филиальной записи.
 
 Текущие первичные дополнения: Les Pléiades Toulon — собственная канцерологическая консультация и предложение лечения, Charlotte Denys Lyon2018/DE, narrow care; Argos Les Capucines Bourg-en-Bresse и Caluire Boucle — собственный локальный Cancerologie в разделе Nos services / Services médicaux и текущие названные ветеринары, контакты, приём. Никакие конкретные методы этим трём не присвоены. Ajaccio Îles/Sagone/Orchidées Baie-Mahault/Vetropical Les Abymes не продвигаются по опубликованному клиническому тексту. Generic mass removal и soft-tissue surgery не стали онкохирургией.
 
@@ -581,53 +613,51 @@ research_complete=false: доступные сохранённые leads/rosters
 
 ## Происхождение новых предложений
 
-Из NEW=148: 70 унаследованных полных предложений с сохранёнными source dates; 48 сохранённых индивидуальных направлений/сетевого маршрута доведены до предложения текущей проверкой; 30 провайдера впервые идентифицированы в текущем сохранённом запуске по свежему Sevetys roster и независимым первичным направлениям, индивидуальных URL которых в retainedinput не найдено. Это не утверждение открытия клиники в2026году и не восстановление утраченного246payload. Ранние0 discovery-counters в sealed07/08 были излишне консервативной категоризацией genericnetworkdirection; append-only discovery-amendment исправляет происхождение, не общее NEW и не даты посещений.
+Из NEW=155: 70 унаследованных полных предложений с сохранёнными source dates; 51 сохранённых индивидуальных направлений/сетевого маршрута доведены до предложения текущей проверкой; 34 провайдера впервые идентифицированы в текущем сохранённом запуске по свежему Sevetys roster и независимым первичным направлениям, индивидуальных URL которых в retainedinput не найдено. Это не утверждение открытия клиники в2026году и не восстановление утраченного246payload. Ранние0 discovery-counters в sealed07/08 были излишне консервативной категоризацией genericnetworkdirection; append-only discovery-amendment исправляет происхождение, не общее NEW и не даты посещений.
 
-## Последний выполненный блок block-22
+## Последний выполненный блок block-23
 
-Содержательно рассмотрено в этом блоке:35; исходы:{'EXCLUDED': 29, 'NEW': 5, 'UNRESOLVED': 1}. Точные новые/сохранённые primary даты и цитаты — в immutable new-reviews shard.
+Содержательно рассмотрено в этом блоке:33; исходы:{'EXCLUDED': 25, 'NEW': 7, 'UNRESOLVED': 1}. Точные новые/сохранённые primary даты и цитаты — в immutable new-reviews shard.
 
-- EXCLUDED: Clinique vétérinaire du val de Sensée - Aubigny-au-Bac — Aubigny-au-Bac;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-du-val-de-sensee-aubigny-au-bac-aab/
-- EXCLUDED: Clinique vétérinaire du Valasse - Gruchet-le-Valasse — Gruchet-le-Valasse;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-du-valasse-gruchet-le-valasse-glv/
-- EXCLUDED: Clinique vétérinaire du vent d'Ouest - Saint-Hilaire-de-Riez — Saint-Hilaire-de-Riez;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-du-vent-d-ouest-saint-hilaire-de-riez-shr/
-- EXCLUDED: Clinique vétérinaire Elysée - La Celle Saint-Cloud — La Celle-Saint-Cloud;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-elysee-la-celle-saint-cloud-lcc/
-- EXCLUDED: Clinique vétérinaire Exotic Clinic - Nandy — Nandy;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-exotic-clinic-nandy-nan/
-- EXCLUDED: Clinique vétérinaire Faubourg - Bergerac — Bergerac;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-faubourg-bergerac-be2/
-- EXCLUDED: Clinique vétérinaire Fénelon - Vergt — Vergt;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-fenelon-vergt-vgt/
-- EXCLUDED: Clinique vétérinaire Paris 15 - Frémicourt — Paris;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-fremicourt-paris-fre/
-- EXCLUDED: Clinique vétérinaire Galilée - Challans — Challans;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-galilee-challans-chl/
-- EXCLUDED: Clinique vétérinaire Gambetta - Poissy — Poissy;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-gambetta-poissy-poi/
-- NEW: Clinique vétérinaire Grand Angles — Les Angles; https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-grand-angles-agl/ https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-grand-angles-agl/
-- EXCLUDED: Clinique vétérinaire Grand Pont - Digne-les-Bains — Digne-les-Bains;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-grand-pont-digne-les-bains-dlb/
-- EXCLUDED: Clinique vétérinaire Halle'Vet - Vernon — Vernon;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-halle-vet-vernon-vrn/
-- NEW: Clinique vétérinaire Horizon - La Réole — La Réole; https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-horizon-la-reole-reo/ https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-horizon-la-reole-reo/
-- NEW: Clinique vétérinaire Immavet de Saint-Nazaire — Saint-Nazaire; https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-immavet-de-saint-nazaire-sna/ https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-immavet-de-saint-nazaire-sna/
-- EXCLUDED: Clinique vétérinaire Jean Jaurès - La Côte-Saint-André — La Côte-Saint-André;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-jean-jaures-la-cote-saint-andre-sevetys-csa/
-- EXCLUDED: Clinique vétérinaire Paris 8 - La Boétie — Paris;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-la-boetie-paris-boe/
-- EXCLUDED: Clinique vétérinaire la clef Saint Pierre - Elancourt — Élancourt;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-la-clef-saint-pierre-elancourt-sevetys-ela/
-- EXCLUDED: Clinique vétérinaire la Garenne - Hauterives — Hauterives;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-la-garenne-hauterives-htr/
-- EXCLUDED: Clinique vétérinaire La Paix - Somain — Somain;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-la-paix-somain-smn/
-- EXCLUDED: Clinique vétérinaire Argos Béziers Jean Moulin — Béziers;  https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/beziers-jean-moulin-245
-- EXCLUDED: Clinique vétérinaire Argos Albi Pastel — Albi;  https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/albi-pastel-205
-- EXCLUDED: Cabinet vétérinaire Argos Grabels — Grabels;  https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/grabels-243
-- EXCLUDED: Clinique vétérinaire Argos Montpellier Gambetta — Montpellier;  https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/montpellier-gambetta-255
-- NEW: Clinique vétérinaire Argos Pérols des Etangs — Pérols; https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/perols-des-etangs-242 https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/perols-des-etangs-242
-- EXCLUDED: Clinique vétérinaire Argos Portet-sur-Garonne — Portet-sur-Garonne;  https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/portet-sur-garonne-46
-- EXCLUDED: Cabinet vétérinaire Argos Saint-Martin-de-Londres — Saint-Martin-de-Londres;  https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/saint-martin-de-londres-256
-- EXCLUDED: Clinique vétérinaire Argos Toulouse les Carmes — Toulouse;  https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/toulouse-les-carmes-95
-- EXCLUDED: Clinique vétérinaire Argos Toulouse Montaudran — Toulouse;  https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/toulouse-montaudran-111
-- EXCLUDED: Clinique vétérinaire Argos Le Relecq - VetOcéane — Le Relecq-Kerhuon;  https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/le-relecq-vetoceane-926
-- EXCLUDED: Clinique vétérinaire Argos Concarneau Maison Blanche — Concarneau;  https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/concarneau-maison-blanche-155
-- EXCLUDED: Clinique vétérinaire Argos Brest Branda — Brest;  https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/brest-branda-184
-- EXCLUDED: Clinique vétérinaire du Sablard — Limoges;  https://www.macliniqueveto.fr/
+- EXCLUDED: Clinique vétérinaire Lagny Centre - Lagny-sur-Marne — Lagny-sur-Marne;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-lagny-centre-lagny-sur-marne-lsm/
+- EXCLUDED: Clinique vétérinaire Le Tilleul - Garéoult — Garéoult;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-le-tilleul-gareoult-glt/
+- EXCLUDED: Clinique vétérinaire les acanthes - Millau — Millau;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-les-acanthes-millau-mll/
+- EXCLUDED: Clinique vétérinaire Les Alouettes - Montceau-les-Mines — Montceau-les-Mines;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-les-alouettes-montceau-les-mines-mlm/
+- EXCLUDED: Clinique vétérinaire Les Falaises - Les Andelys — Les Andelys;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-les-falaises-les-andelys-la1/
+- EXCLUDED: Clinique vétérinaire Les Maurilloux - Trélissac — Trelissac;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-les-maurilloux-trelissac-tre/
+- EXCLUDED: Clinique vétérinaire Les Palmiers - La Baule — La Baule-Escoublac;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-les-palmiers-la-baule-lba/
+- EXCLUDED: Clinique vétérinaire les Peupliers - Val-de-Reuil — Val-de-Reuil;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-les-peupliers-val-de-reuil-sevetys-vdr/
+- EXCLUDED: Clinique vétérinaire de Mazeran - Béziers — Béziers;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-mazeran-de-beziers-bez/
+- NEW: Clinique vétérinaire Mermoz Vet - Référés, Urgences & Gardes 24h/24 - Lyon — Lyon; https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-memoz-vet-mz1/ https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-memoz-vet-mz1/
+- EXCLUDED: Clinique vétérinaire Monge Paris — Paris;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-monge-paris-mon/
+- EXCLUDED: Clinique vétérinaire Montaigne - Brest — Brest;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-montaigne-brest-br1/
+- EXCLUDED: Clinique vétérinaire NéoNoé - Somain — Somain;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-neonoe-somain-sm2/
+- NEW: Clinique vétérinaire Paris 15 - Pasteur — Paris; https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-pasteur-paris-bpa/ https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-pasteur-paris-bpa/
+- NEW: Clinique vétérinaire Perrochel de Boulogne-sur-Mer — Boulogne-sur-Mer; https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-perrochel-de-boulogne-sur-mer-bo2/ https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-perrochel-de-boulogne-sur-mer-bo2/
+- EXCLUDED: Clinique vétérinaire Paris 18 - Picard — Paris;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-picard-paris-pic/
+- EXCLUDED: Clinique vétérinaire Paris 12 - Picpus — Paris;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-picpus-paris-p12/
+- EXCLUDED: Clinique vétérinaire Place de la République - Lens — Lens;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-place-de-la-republique-lens-len/
+- EXCLUDED: Clinique vétérinaire Pont-Neuf - Brest — Brest;  https://sevetys.fr/cliniques-veterinaires/clinique-veterinaire-pont-neuf-brest-br2/
+- EXCLUDED: Clinique vétérinaire Argos Bannalec — Bannalec;  https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/bannalec-170
+- EXCLUDED: Clinique vétérinaire Argos Hennebont — Hennebont;  https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/hennebont-168
+- NEW: Clinique vétérinaire Argos Lorient la Découverte — Lorient; https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/lorient-la-decouverte-930 https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/lorient-la-decouverte-930
+- NEW: Clinique vétérinaire Argos Rennes Coëtlogon — Rennes; https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/rennes-coetlogon-54 https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/rennes-coetlogon-54
+- EXCLUDED: Clinique vétérinaire Argos Vern-sur-Seiche — Vern-sur-Seiche;  https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/vern-sur-seiche-177
+- EXCLUDED: Clinique vétérinaire Argos Saint-Erblon — Saint-Erblon;  https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/saint-erblon-158
+- EXCLUDED: Clinique vétérinaire Argos de l Erdre - Nort S/E. — Nort-sur-Erdre;  https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/de-l-erdre-nort-s-e-223
+- NEW: Clinique vétérinaire Argos Angers la Roseraie — Angers; https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/angers-la-roseraie-263 https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/angers-la-roseraie-263
+- EXCLUDED: Clinique vétérinaire Argos Nantes Cens — Orvault;  https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/nantes-cens-92
+- EXCLUDED: Cabinet vétérinaire Argos Nantes République — Nantes;  https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/nantes-republique-94
+- EXCLUDED: Clinique vétérinaire Argos Saint-Herblain — Saint-Herblain;  https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/saint-herblain-39
+- EXCLUDED: Cabinet vétérinaire Argos Nantes Saint-Clément — Nantes;  https://www.argos-veterinaire.com/nos-cliniques-veterinaires-2/clinique/nantes-saint-clement-182
+- NEW: SQYVET — Trappes; https://www.sqyvet.fr/ https://www.sqyvet.fr/referer-un-animal/
 - UNRESOLVED: Clinique vétérinaire de la Paix — Pau;  https://www.cliniquedelapaix.fr/
-- NEW: Centre hospitalier vétérinaire VIVANIMA — Le Mesnil-Esnard; https://vivanima-chv.fr/ https://fr.linkedin.com/posts/vivanima-chv_chv-vivanima-v%C3%A9t%C3%A9rinaire-activity-7354042672073879553-TNl_
 
-В общем unprocessed=17: 16 именованных Argos и1 поимённый held-провайдер Saint-Max. Его ошибочно полученное тело не даёт processed/fully/clinicalsuccess; точный permissiongap сохранён вremaining. Все2756 exactheldURLunits доступны в указанном immutable source-guard payload с проверенным фактическим SHA, не выданы за2756 уникальных провайдеров.
+В общем unprocessed=5: 4 именованных Argos и1 поимённый held-провайдер Saint-Max. Его ошибочно полученное тело не даёт processed/fully/clinicalsuccess; точный permissiongap сохранён вremaining. Все2756 exactheldURLunits доступны в указанном immutable source-guard payload с проверенным фактическим SHA, не выданы за2756 уникальных провайдеров.
 
 ## Последнее фактически подтверждённое сохранение
 
-Родитель подтвердил remote021 в2026-10-17T03:32:12Z: data dc4d7c590bf3c8bf4b74fcd39d87f4009d32f8f7; receipt 82d0ffdbdc876405e2efcc2d99e1fad30ba7fb46. Block21 including updatedguardconsumers/PriorParisIIIprovenance actualreadbackPASS. Previous02019/20+AniCura7metadata-only actual03:30:12 data9e89ce6c4d9caed91856911fb18a6a77294d6fc3 receipt9a73aaaa602abb7316064f539419e37372fde568.019safe17/18actual03:21:14 datae85bb6829d0620a1f89d8b5a569e41d3e978b68d receipt66b1508ed06b413fe78d7662edb124dc96325af1. Current22notyetclaimedremote. Текущий checkpoint ещё не выдан за удалённо сохранённый.
+Родитель подтвердил remote023 в2026-10-17T03:37:00Z: data fd6f1c99e155e9d7ec4005b22eb507f0fabc7ef2; receipt ef499dd6718a99d6e07c3ef5496ee074c94839e4. Block22 archive/member/control/receiptreadbacksPASS. Current23 notyetclaimedremote. Текущий checkpoint ещё не выдан за удалённо сохранённый.
 
 ## Фактическое отклонение разрешений
 

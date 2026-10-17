@@ -44,7 +44,7 @@ def collect():
                         ownrel=candidate.resolve().relative_to(w.resolve()).as_posix()
                         if item['slot']==5 and ownrel=='receipts/block08-network-faluns-details.json':continue
                         if item['slot']==3 and candidate.name=='evidence-quarantine-001.json':continue # Incidental held passport/earlier-text output is local-only, never hash or archive.
-                        if item['slot']==3 and ownrel in {'sources/web079.json','sources/web080.json','sources/web79.json','sources/web80.json'}:continue # Worker identified these mixed held-passport returns before backup; no body/hash/archive.
+                        if item['slot']==3 and ownrel in {'sources/web079.json','sources/web080.json','sources/web79.json','sources/web80.json','sources/web119.json','sources/web120.json'}:continue # Worker identified these mixed held-passport returns before backup; no body/hash/archive. Safe separate derivatives use different explicit names.
                         never_read_cz={'block-09-source-b.json','block-09-source-m.json','block-09-vakpo-public-native.json','block-04-prochazka-service.json'}
                         if item['slot']==2 and candidate.name in never_read_cz:continue
                         protected_cz={'block-08-source-h.json','block-08-source-i.json','block-08-outcome-delta.json','block08_outcomes.py','restriction-07-withdrawal.json'}
