@@ -1,0 +1,73 @@
+{
+  "run_id": "eu6-recovery-20261016T220849-0400",
+  "slot": 5,
+  "country": "France",
+  "block": "66",
+  "ready_sha256": "e94b4fea7692b765c7659a357c3012a7b3971914c194cf300c6fe988b488849f",
+  "assigned": 725,
+  "processed": 662,
+  "fully_verified": 190,
+  "classification_counts": {
+    "NEW": 183,
+    "EXCLUDED": 422,
+    "DUPLICATE": 8,
+    "UNRESOLVED": 49
+  },
+  "unprocessed_external": 63,
+  "verified_frozen_files": 171,
+  "operational_dependency_count": 103,
+  "actual_query_payloads": 58,
+  "baseline_catalog_rows": {
+    "oncology_centers.json": 901,
+    "oncology_centers_supplemental.json": 893,
+    "oncology_care_source_inventory.json": 977,
+    "acvim_oncology_profiles.json": 458
+  },
+  "baseline_tele_rows": 64,
+  "strong_baseline_identity_hits": [],
+  "strong_own_identity_hits_requiring_adjudication": [
+    {
+      "new": "fr-sevetys-clinique-veterinaire-vetos-alpilles-mouries-sevetys-mou",
+      "other": "fr-sevetys-clinique-veterinaire-vetos-alpilles-saint-remy-de-provence-srp",
+      "classification": "NEW",
+      "match": [
+        "phone"
+      ]
+    },
+    {
+      "new": "fr-sevetys-clinique-veterinaire-vetos-alpilles-saint-remy-de-provence-srp",
+      "other": "fr-sevetys-clinique-veterinaire-vetos-alpilles-mouries-sevetys-mou",
+      "classification": "NEW",
+      "match": [
+        "phone"
+      ]
+    }
+  ],
+  "research_complete_worker_claim": true,
+  "country_parent_acceptance": false,
+  "clinical_evidence_acceptance": false,
+  "publication": false,
+  "qualification": "Read-only structural/remote-member and strong-identity audit only. Manual field/source, report, fuzzy aliases, full tele semantics, coverage and external-gap adjudication remain required.",
+  "review_observed_at": "2026-10-17 07:18:53 UTC",
+  "full_report_base_read": {
+    "block": "64",
+    "all_lines": 1672,
+    "completed_at": "2026-10-17 07:14:31 UTC",
+    "delta66": "Entire untruncated semantic diff read after lossless factoring OLD displayed categorylabels saved56→saved57 and fresh57→fresh56; actual files unchanged. Initial oversized rawdiff truncated and not counted."
+  },
+  "all183_new_values_exactly_unchanged_64_to_66": true,
+  "worker_own_substantive_final_received": true,
+  "clinical_field_manual_read_completed_indices": [
+    [
+      0,
+      24
+    ]
+  ],
+  "manual_field_review_pending_indices": [
+    [
+      25,
+      182
+    ]
+  ],
+  "no_country_acceptance_yet": true
+}

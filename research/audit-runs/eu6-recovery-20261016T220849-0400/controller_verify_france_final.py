@@ -64,10 +64,22 @@ def audit(block='64'):
     for path, sha in ready['files'].items():
         read(path, path.endswith('.json'))
         assert verified[path] == sha
-    packet = {n: read(prefix + n) for n in ('result.json', 'proposed_changes.json', 'evidence.json', 'queries.json', 'remaining.json', 'candidate-register.json')}
+    packet = {n: read(prefix + n) for n in ('result.json', 'proposed_changes.json', 'evidence.json', 'queries.json', 'remaining.json')}
     assert all(identity(o) == EXPECTED for o in packet.values())
     result = packet['result.json']
-    register = packet['candidate-register.json']
+    dependencies = read(result['operational_dependency_proof'])
+    assert identity(dependencies) == EXPECTED
+    for dep in dependencies['files']:
+        read(dep['path'])
+        assert verified[dep['path']] == dep['sha256']
+    register_path = prefix + 'candidate-register.json'
+    if register_path not in ready['files']:
+        register_refs = [d for d in dependencies['files'] if d['path'].endswith('/candidate-register.json')]
+        assert len(register_refs) == 1, 'An authoritative exact register dependency is required'
+        register_path = register_refs[0]['path']
+    register = read(register_path)
+    assert identity(register) == EXPECTED
+    packet['candidate-register.json'] = register
     rows = register['results']
     pending = register['pending_candidates']
     counts = collections.Counter(r['classification'] for r in rows)
@@ -79,11 +91,6 @@ def audit(block='64'):
     names = {'NEW': 'NEW', 'UPDATE': 'UPDATE', 'DUP': 'DUPLICATE', 'DUPLICATE': 'DUPLICATE', 'EXCL': 'EXCLUDED', 'EXCLUDED': 'EXCLUDED', 'UNRES': 'UNRESOLVED', 'UNRESOLVED': 'UNRESOLVED'}
     for k, count in counts.items():
         assert count == result[names[k]], (k, count)
-    dependencies = read(result['operational_dependency_proof'])
-    assert identity(dependencies) == EXPECTED
-    for dep in dependencies['files']:
-        read(dep['path'])
-        assert verified[dep['path']] == dep['sha256']
     queries = packet['queries.json']
     assert len(queries['actual_query_metadata_payloads']) == queries['actual_query_payload_count']
     for dep in queries['actual_query_metadata_payloads']:
