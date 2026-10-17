@@ -1,0 +1,16 @@
+{
+  "run_id": "eu6-recovery-20261016T220849-0400",
+  "slot": 3,
+  "country": "Poland",
+  "agent_id": "/root/oct16_pl",
+  "reviewed_at": "2026-10-17 06:25:44 UTC",
+  "kind": "LOCAL_READ_SCOPE_VIOLATION_REPORTED_NOT_NEW_WEBSITE_DENIAL",
+  "worker_incident_ready": "working/retained-quarantine-read-scope-incident-001-ready.json",
+  "worker_metadata_payload": "working/retained-quarantine-read-scope-incident-001.json",
+  "expected_metadata_sha256": "5ffbca20f98fee02235206397ba5bc6744447f8d086e22d03fa5ed8bb04f08fe",
+  "known_scope": "Worker reported rg on working/*.json followed by output filtering, so a quarantined basename could have been opened before filtering. Absence of that file's lines from returned output is not proof no read occurred.",
+  "parent_action": "No reading, hashing, replay, stdout recovery or inspection of the quarantined body to investigate. No new permission/source-success/clinical verification inferred. Explicit safe filename allowlist and prohibited-basename checks required before any body reader; rg -l is not metadata-only, rg --files is filename inventory only.",
+  "unverified_limit": "Exact body access cannot be independently resolved without prohibited inspection and is not asserted absent. Worker reports no quarantined returned text used as evidence. Metadata incident is retained rather than erasing it.",
+  "country_stop": false,
+  "site_publication": false
+}

@@ -50,6 +50,7 @@ extras.push(base+"/parent-zahn-hamburg-and-field-quotes-19-review.json",base+"/b
 extras.push(base+"/controller_verify_netherlands_final.py",base+"/parent-netherlands-final-structural-review.json");
 extras.push(base+"/parent-netherlands-field-and-primary-review.json",base+"/parent-poland-proposal-closure-205-review.json",base+"/controller-progress-051.json");
 extras.push(base+"/worker-acceptance-6.json");
+extras.push(base+"/parent-poland-amvet-immutable-flag-review.json",base+"/parent-poland-local-quarantine-search-incident-review.json");
 extras.push(base+"/parent-germany-block27-field-scope-review.json");
 extras.push(base+"/parent-germany-lohse-copying-scope-review.json",base+"/parent-poland-proposal-closure-209-review.json");
 const packCode="import pathlib,json,subprocess,hashlib,tarfile,zstandard,re\n"+
