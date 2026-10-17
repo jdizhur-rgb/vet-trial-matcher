@@ -1,6 +1,6 @@
 # Нидерланды — национальное исследование продолжается
 
-run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_sha=b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45; agent_id=/root/oct16_nl; started_at=2026-10-17T02:12:30Z. Обновлено 2026-10-17T02:22:18.371Z. research_complete=false; publication_permitted=false.
+run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_sha=b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45; agent_id=/root/oct16_nl; started_at=2026-10-17T02:12:30Z. Обновлено 2026-10-17T02:25:29.842Z. research_complete=false; publication_permitted=false.
 
 ## Наследие и восстановление
 
@@ -8,7 +8,7 @@ run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_
 
 ## Фактическая текущая работа
 
-{"assigned":266,"processed":225,"fully_verified":53,"EXCLUDED":149,"UNRESOLVED":14,"NEW":55,"DUPLICATE":4,"UPDATE":3,"PENDING":41} — cumulative уникальные provider/service identities, не URLs/aliases/query/referencegroups. Текущий run: 15 substantive provider reviews, 59 Web open/click requests, 8 actual queries. Failed/challenge не successful source verification.
+{"assigned":266,"processed":235,"fully_verified":54,"EXCLUDED":158,"UNRESOLVED":14,"NEW":56,"DUPLICATE":4,"UPDATE":3,"PENDING":31} — cumulative уникальные provider/service identities, не URLs/aliases/query/referencegroups. Текущий run: 25 substantive provider reviews, 72 Web open/click requests, 11 actual queries. Failed/challenge не successful source verification.
 
 | Provider / город | Решение / лечение | Официальный URL |
 |---|---|---|
@@ -27,6 +27,16 @@ run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_
 | Florens Dierenziekenhuis / Heerhugowaard | NEW; Surgery | https://www.florensdierenziekenhuis.nl/ |
 | Dierenziekenhuis Drachten / Drachten | NEW; Surgery | https://dierenziekenhuisdrachten.nl/ |
 | Noorder Dierenkliniek — Veendam / Veendam | NEW; Surgery | https://www.noorderdierenkliniek.nl/ |
+| Dierenkliniek De Ark — Middelburg / Steven Pil Chirurgie / Middelburg | NEW; Surgery | https://dierenkliniekdeark.nl/steven-pil-dierchirurgie/ |
+| Dierenkliniek De Ark — Vlissingen / Vlissingen | EXCLUDED;  | https://dierenkliniekdeark.nl/contact/ |
+| Dierenkliniek De Ark — Oost-Souburg / Oost-Souburg | EXCLUDED;  | https://dierenkliniekdeark.nl/contact/ |
+| Dierenkliniek Oosterbeek / Oosterbeek | EXCLUDED;  | https://dierenkliniekoosterbeek.nl/ |
+| Dierenkliniek IJzendijke / IJzendijke | EXCLUDED;  | https://www.dierenkliniekijzendijke.nl/ |
+| Dierenkliniek Kapellebrug / Kapellebrug | EXCLUDED;  | https://www.dierenkliniekkapellebrug.nl/ |
+| Dierenkliniek Poortugaal — formerly Dierenkliniek Hoogvliet / Poortugaal | EXCLUDED;  | https://www.dierenkliniekpoortugaal.nl/ |
+| Dierenkliniek Waddinxveen — Lotte Godijn / Waddinxveen | EXCLUDED;  | https://dierenkliniekwaddinxveen.nl/ |
+| Diergeneeskundig Centrum Breda / Breda | EXCLUDED;  | https://www.diergeneeskundigcentrumbreda.nl/ |
+| Max & Bella — dierenarts aan huis / — | EXCLUDED;  |  |
 
 ## Покрытие
 
@@ -56,7 +66,7 @@ run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_
 
 ## Ограничения и точный остаток
 
-Все собственные exact inherited restrictions и неизвестные lost-route scopes удержаны в records/restoration-001.json; новый OnGo Anubis challenge — records/restriction-001.json. Никакой попытки обхода. Ключевые unresolved: VVKA named qualified vet; Middenwaard/Dokkum exactteam walls; Europawijk/Westhage postcode; VSC channel/geography; Осsehoofd branch allocation; DeArk clinical allocation; Bonaire/Statia/Saba cancer scope; full GVE master held. Это отдельно от доступных remaining workgroups и 41 необработанных identities в remaining.json. EXCLUDED означает nonpromotion, не отсутствие лечения.
+Все собственные exact inherited restrictions и неизвестные lost-route scopes удержаны в records/restoration-001.json; новый OnGo Anubis challenge — records/restriction-001.json. Никакой попытки обхода. Ключевые unresolved: VVKA named qualified vet; Middenwaard/Dokkum exactteam walls; Europawijk/Westhage postcode; VSC channel/geography; Осsehoofd branch allocation; DeArk clinical allocation; Bonaire/Statia/Saba cancer scope; full GVE master held. Это отдельно от доступных remaining workgroups и 31 необработанных identities в remaining.json. EXCLUDED означает nonpromotion, не отсутствие лечения.
 
 ## Даты и сохранность
 
@@ -64,4 +74,4 @@ run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_
 
 Остаются доступные клинические identities/rosters/направления; поэтому research_complete=false, IN_PROGRESS. Production/sharedstate/commit/push/deploy не изменялись.
 
-Fully — разные показатели: inherited historical claim 50; cumulative claimed 53; located payload or current reverify 50; current run freshly reverified 15; parent clinical acceptance ещё не получено. File-existence QA не является медицинским подтверждением.
+Fully — разные показатели: inherited historical claim 50; cumulative claimed 54; located payload or current reverify 51; current run freshly reverified 16; parent clinical acceptance ещё не получено. File-existence QA не является медицинским подтверждением.
