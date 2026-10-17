@@ -49,6 +49,7 @@ extras.push(base+"/controller_test_reader_public_hrefs.py",base+"/parent-public-
 extras.push(base+"/parent-zahn-hamburg-and-field-quotes-19-review.json",base+"/backup-content-blob-reuse-review.json");
 extras.push(base+"/controller_verify_netherlands_final.py",base+"/parent-netherlands-final-structural-review.json");
 extras.push(base+"/parent-netherlands-field-and-primary-review.json",base+"/parent-poland-proposal-closure-205-review.json",base+"/controller-progress-051.json");
+extras.push(base+"/worker-acceptance-6.json");
 const packCode="import pathlib,json,subprocess,hashlib,tarfile,zstandard,re\n"+
 "m=json.loads(pathlib.Path("+JSON.stringify(manifestPath)+").read_text()); expected={x['path']:x['sha256'] for x in m['files']}\n"+
 "controller_paths=["+[manifestPath,...extras].map(x=>JSON.stringify(x)).join(",")+"];controller_hashes={p:hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest() for p in controller_paths};expected.update(controller_hashes);paths=list(expected)\n"+

@@ -1,5 +1,17 @@
 # Европа — промежуточный отчёт контроллера
 
+## Последний срез: 17 октября 2026, 01:58 America/New_York — поиск продолжается
+
+Независимо приняты исследования Austria, Czechia и Netherlands; Poland, Germany и France продолжают тот же доступный национальный frontier. Сайт НЕ интегрировался, не собирался и не публиковался: all-six gate закрыт по slots3/4/5. Новый bounded fetch завершён, remote main по-прежнему `b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45`; production data/seo/.github diff пуст.
+
+Remote checkpoint051 реально проверен 05:56:20UTC: data `4b2a6fa606d5b6b551ca3103f42abb90eeb8e9bb`, receipt `e05511b5bd184fdcdff5cb9ebf67bcd800c8d17d`,96files/294frozenblocks,0errors. Включены PL36, DE24/Facebooknotice/25restriction, FR52 и NL69–70. Parent acceptance6 создана позже в05:57:47UTC, поэтому её собственное remote-сохранение ещё не приписано051.
+
+Netherlands: полностью прочитан report67(733строки) и addenda68–70;554assigned/551clinicalprocessed/95fully(64current+31retained),83NEW(79eligible+4partialheld),9UPDATE,10DUPLICATE,380EXCLUDED,72UNRESOLVED(включая3metadata-only unprocessed),0available. Девять old_values совпали с обеими текущими baselineкопиями;95core имеют67exactSHAdependencies,3исторических proposals сверены с реально прочитанными remote manifests. Все83NEW fieldproofs/6networkscopes и64tele rows проверены, выполнены13независимых primaryreads. Пять ранних поисковых ответов не сохранены:277 — loggedqueryrecords,272с metadata различной полноты, не277восстановленных выдач. Это internal loggingdefect, не403; национальный план отдельно подтверждён поздними сохранёнными provincial/city/Utrecht/roster/current-new sources. Полные оговорки в принятом отчёте и worker-acceptance-6.json.
+
+Последние продолжающиеся worker-срезы (не countryacceptance): PL36 —356assigned/350processed/225fully,205NEW/2UP,6unprocessed; DE25 —additional142hypotheses:21processed/121unvisited,13freshNEW,1baselineUP/2fields, отдельная Kahle chemo amendment без дополнительногоNEW; FR53 —705assigned/646processed/181fully,174NEW/0UP,59pending. Ни один из этих доступных остатков не объявлен externalgap или завершённой страной.
+
+Все нижеследующие разделы — исторические snapshots соответствующих проверок. Текущую приёмку определяют отдельные parent receipts, а remote-сохранность — exact backup ledger/controls/readback, не название раздела или локальный файл.
+
 ## Текущий срез 17 октября 2026, 01:12 America/New_York — работа не завершена
 
 Ниже прежние разделы оставлены как **исторические snapshots**, не текущие счётчики. Последний remote backup041: data `81628c32f69debd6feafc5ad6cb612dbad17e954`, receipt `4b3bab0d4a07a58582a6eaacdad5f05b9c7e8dac`, readback05:11:44UTC. Новейшие local sealed-пакеты ещё не считаются remote без собственных manifest/receipt; подробности в controller-progress-042.json. Сбой exec038 был временным, тот же архив успешно сохранён и прочитан обратно; никаких вымышленных шести новых исполнителей или фонового продолжения нет.
