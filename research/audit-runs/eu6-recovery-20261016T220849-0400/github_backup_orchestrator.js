@@ -24,6 +24,7 @@ extras.push(base+"/parent-germany-reference-scope-review.json");
 // Immutable university derivative was saved and read back in027; inherited remote file/archive remain authoritative. Do not repeat its full payload as a controller snapshot at every checkpoint.
 if(seq==="027")extras.push(base+"/worker-4/input/parent-university-evidence-recovered-001.json");
 extras.push(base+"/report-alias-scope-addendum-correction.json");
+extras.push(base+"/controller-fr28-dependency-review.json");
 const packCode="import pathlib,json,subprocess,hashlib,tarfile,zstandard,re\n"+
 "m=json.loads(pathlib.Path("+JSON.stringify(manifestPath)+").read_text()); expected={x['path']:x['sha256'] for x in m['files']}\n"+
 "controller_paths=["+[manifestPath,...extras].map(x=>JSON.stringify(x)).join(",")+"];controller_hashes={p:hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest() for p in controller_paths};expected.update(controller_hashes);paths=list(expected)\n"+
