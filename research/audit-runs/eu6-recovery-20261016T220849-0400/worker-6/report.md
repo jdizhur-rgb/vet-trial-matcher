@@ -1,8 +1,8 @@
 # Нидерланды — национальное исследование НЕ завершено
 
-run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_sha=b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45; agent_id=/root/oct16_nl; started_at=2026-10-17T02:12:30Z. Рабочий период 2026-10-17T02:12:30Z — 2026-10-17T03:33:54.618Z (продолжается).
+run_id=eu6-recovery-20261016T220849-0400; slot=6; country=Netherlands; baseline_sha=b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45; agent_id=/root/oct16_nl; started_at=2026-10-17T02:12:30Z. Рабочий период 2026-10-17T02:12:30Z — 2026-10-17T03:37:37.452Z (продолжается).
 
-research_complete=false; publication_permitted=false. Нулевой PENDING внутри текущего известного ledger не означает исчерпания страны: доступно ещё 78 IVC-label directions и другие собственные направления.
+research_complete=false; publication_permitted=false. Нулевой PENDING внутри текущего известного ledger не означает исчерпания страны: доступно ещё 67 IVC-label directions и другие собственные направления.
 
 ## Восстановленное, потерянное и действительно проверенное
 
@@ -12,17 +12,17 @@ research_complete=false; publication_permitted=false. Нулевой PENDING в�
 
 | Показатель | Фактическое значение |
 |---|---|
-| assigned | 389 |
-| processed | 389 |
+| assigned | 402 |
+| processed | 401 |
 | fully_verified | 70 |
-| NEW | 65 |
+| NEW | 66 |
 | UPDATE | 6 |
 | DUPLICATE | 9 |
-| EXCLUDED | 267 |
-| UNRESOLVED | 42 |
-| PENDING | 0 |
+| EXCLUDED | 277 |
+| UNRESOLVED | 43 |
+| PENDING | 1 |
 
-NEW включает 4 отдельных NETWORK listings, не новых физических клиник. Остальные 61 — физические provider records, в том числе partial/hold. Переобработка одного provider не увеличивает processed; URLs, aliases, branchFinder/recruitment labels и referencegroups не providers.
+NEW включает 4 отдельных NETWORK listings, не новых физических клиник. Остальные 62 — физические provider records, в том числе partial/hold. Переобработка одного provider не увеличивает processed; URLs, aliases, branchFinder/recruitment labels и referencegroups не providers.
 
 | Fully: разные основания | Количество |
 |---|---|
@@ -32,7 +32,7 @@ NEW включает 4 отдельных NETWORK listings, не новых фи
 | Текущий freshly reverified core | 37 |
 | Parent clinical acceptance | не получено |
 
-DependencyQA002 исправляет001. Отсутствие полногоHTML не автоматически отсутствие факта: сохранённая точнаяцитата+URL может поддерживать field; неподтверждённый обязательный факт удерживается. Current freshly reverified counter includes one mixed-date Barendrecht record: exactaddress inherited15October, current namedvetrole/contact/access17October, not all-field fresh. Текущих open/click requests 634, reader extractions 18, exact actual queries 75. Не все requests успешны: header-only/ошибка/challenge не clinical verification. Web checked_at17October date-only; exact request timestamps не выдуманы.
+DependencyQA002 исправляет001. Отсутствие полногоHTML не автоматически отсутствие факта: сохранённая точнаяцитата+URL может поддерживать field; неподтверждённый обязательный факт удерживается. Current freshly reverified counter includes one mixed-date Barendrecht record: exactaddress inherited15October, current namedvetrole/contact/access17October, not all-field fresh. Текущих open/click requests 668, reader extractions 20, exact actual queries 84. Не все requests успешны: header-only/ошибка/challenge не clinical verification. Web checked_at17October date-only; exact request timestamps не выдуманы.
 
 ## Именные NEW и UPDATE
 
@@ -43,7 +43,7 @@ DependencyQA002 исправляет001. Отсутствие полногоHTML
 | Dierenkliniek Epe-Centrum | Epe | NEW | Surgery | https://dierenkliniek-epe.nl/specialistische-chirurgie-2/ | всегда parent acceptance до публикации |
 | Dierenkliniek Putten | Putten | NEW | Surgery | https://www.dierenkliniekputten.nl/vakgebieden/weke-delen-chirurgie | всегда parent acceptance до публикации |
 | Dierenkliniek de Watermolen | Haaksbergen | NEW | Local oncology care | https://www.watermolendierenartsen.nl/oncologie/ | HOLD/partial |
-| Dierenkliniek Elze | не назначен | UPDATE | Local oncology care, Surgery | точныеfield_evidence | всегда parent acceptance до публикации |
+| Dierenkliniek Elze | не назначен | UPDATE | Local oncology care, Surgery | https://www.dierenkliniek-elze.nl/cms/php/page.php?id=244 | всегда parent acceptance до публикации |
 | Dierenkliniek Capelle | Capelle aan den IJssel | NEW | Surgery | https://www.dierenkliniekcapelle.nl/diensten/chirurgie | всегда parent acceptance до публикации |
 | Dierenkliniek Doorn | Doorn | NEW | Surgery | https://www.dierenkliniekdoorn.nl/wat-wij-doen/algemene-chirurgie | всегда parent acceptance до публикации |
 | Dierenkliniek Kralingen | Rotterdam | NEW | Surgery | https://dierenkliniekkralingen.nl/totale-zorg/chirurgie/ | всегда parent acceptance до публикации |
@@ -58,7 +58,7 @@ DependencyQA002 исправляет001. Отсутствие полногоHTML
 | AniCura Dierenkliniek Eersel | Duizel | NEW | Surgery | https://www.anicura.nl/klinieken/noord-brabant/eersel/expertises/weke-delen-chirurgie/ | всегда parent acceptance до публикации |
 | AniCura Dierenziekenhuis Tilburg | Berkel-Enschot | NEW | Surgery | https://www.anicura.nl/klinieken/noord-brabant/tilburg/expertises/dierenziekenhuis/weke-delen-chirurgie/ | всегда parent acceptance до публикации |
 | AniCura Kerkelanden — Hilversum | Hilversum | NEW | Surgery | https://www.anicura.nl/klinieken/noord-holland/kerkelanden/expertises/chirurgie/ | всегда parent acceptance до публикации |
-| AniCura de Tweede Lijn - Zwolle | не назначен | UPDATE | Local oncology care, Surgery | точныеfield_evidence | всегда parent acceptance до публикации |
+| AniCura de Tweede Lijn - Zwolle | не назначен | UPDATE | Local oncology care, Surgery | https://www.anicura.nl/klinieken/overijssel/zwolle/expertises/chirurgie/ | всегда parent acceptance до публикации |
 | Dierenkliniek Meppel | Meppel | NEW | Surgery | https://dkmeppel.nl/operaties/ | всегда parent acceptance до публикации |
 | Dierenkliniek Emmen | Emmen | NEW | Surgery | https://www.dierenkliniekemmen.nl/onze-diensten-specialisaties | всегда parent acceptance до публикации |
 | Kattenkliniek van Groningen | Groningen | NEW | Surgery | https://kattenkliniekgroningen.nl/wat-we-doen/operatie-en-opname/ | всегда parent acceptance до публикации |
@@ -69,7 +69,7 @@ DependencyQA002 исправляет001. Отсутствие полногоHTML
 | Dierenkliniek Kortenoord | Wageningen | NEW | Surgery, Chemotherapy | https://www.dierenkliniek-kortenoord.nl/honden/ziektes-aandoeningen | всегда parent acceptance до публикации |
 | De Wagenrenk — Diergeneeskundig Specialistisch Centrum | Wageningen | NEW | Surgery | https://wagenrenk.com/weke-delen-chirurgie/ | HOLD/partial |
 | Dierenkliniek ’t Gooi | Laren | NEW | Surgery | https://www.dierenkliniektgooi.nl/vakgebieden/chirurgie | HOLD/partial |
-| AniCura Dierenziekenhuis Stroowaert | не назначен | UPDATE | Local oncology care, Surgery | точныеfield_evidence | всегда parent acceptance до публикации |
+| AniCura Dierenziekenhuis Stroowaert | не назначен | UPDATE | Local oncology care, Surgery | https://www.anicura.nl/klinieken/oud-beijerland/oud-beijerland/expertises/weke-delen-chirurgie/ | всегда parent acceptance до публикации |
 | Dierenkliniek Tiel-Drumpt | Tiel | NEW | Surgery | https://www.dierenkliniektiel.nl/dierenarts-voor-asch/ | всегда parent acceptance до публикации |
 | Dierenkliniek Beneden-Leeuwen | Beneden-Leeuwen | NEW | Surgery | https://dierenkliniekbenedenleeuwen.nl/diergeneeskunde/weke-delen-chirurgie | всегда parent acceptance до публикации |
 | Dierenkliniek De Laan | Nunspeet | NEW | Surgery | https://dierenkliniekdelaan.nl/operaties/ | всегда parent acceptance до публикации |
@@ -109,6 +109,7 @@ DependencyQA002 исправляет001. Отсутствие полногоHTML
 | Dierenkliniek Bokhove & Bouman | Amsterdam | NEW | Surgery | https://www.dierenkliniekbokhovebouman.nl/mogelijkheden/chirurgie | всегда parent acceptance до публикации |
 | Dier en Dokter — network contact | NETWORK — без адреса | NEW | Surgery | https://www.dier-en-dokter.nl/nl-nl/behandelingen/operaties | всегда parent acceptance до публикации |
 | Dierenkliniek Kenaupark | Haarlem | NEW | Surgery | https://www.dierenkliniekkenaupark.nl/mastocytomen-in-de-huid-bij-de-hond | всегда parent acceptance до публикации |
+| Dierenkliniek Goudenregenstraat (formerly EDZ Den Haag) | Den Haag | NEW | Surgery | https://www.dierenkliniekgoudenregenstraat.nl/diensten | HOLD/partial |
 
 55 inherited NEW — не55 fresh discoveries. Wellensiek3 иZOD3 уже были квалифицированным наследием; DeArkMiddelburg — сохранённый lead, один receiving physical siteStevenPil, не nationwide mobile service. Новые network contacts DierenDokters/Topzorg/DGCZuidLimburg: адрес/город/индекс пусты, coordinates=null, distance suppressed; подтвердить филиал/врача/приём. Общие booking routes advertised-only, формы не отправлялись. Topzorg onlineconsult intake, операция по телефону выбранного филиала, не выдуманный centralphone.
 
@@ -116,9 +117,9 @@ Bingelrade: собственные dog/cat service-index pages прямо пре
 
 | UPDATE identity | Field | Old | New | Exact field provenance |
 |---|---|---|---|---|
-| dierenkliniek-elze-enschede | services | ["Local oncology care"] | ["Local oncology care","Surgery"] | [] |
-| anicura-de-tweede-lijn-zwolle | services | ["Local oncology care"] | ["Local oncology care","Surgery"] | [] |
-| anicura-stroowaert-oud-beijerland | services | ["Local oncology care"] | ["Local oncology care","Surgery"] | [] |
+| dierenkliniek-elze-enschede | services | ["Local oncology care"] | ["Local oncology care","Surgery"] | [{"field":"services","official_url":"https://www.dierenkliniek-elze.nl/cms/php/page.php?id=244","url":"https://www.dierenkliniek-elze.nl/cms/php/page.php?id=244","supporting_quote":"Specialist voor tumoren bij hond of kat (kanker) ... Bultjes onderzoeken en verwijderen ... Behandeling van kanker","quote":"Specialist voor tumoren bij hond of kat (kanker) ... Bultjes onderzoeken en verwijderen ... Behandeling van kanker","branch_scope":"Lasondersingel 186, Enschede","checked_at":"2026-10-16","method":"Retained actual primary-source quote/URL from 2026-10-16; current offline dependency/report attribution only, NOT a fresh source visit. Exact original request method/timestamp not asserted from candidate record.","retained_payload_reference":"input/history/candidate-records/inherited/dierenkliniek-elze-enschede-v001.json","retained_payload_sha256":"5c823c3e6fff1561a562fa11142ac177e88f0bea058ded0a1bbe7d361af7b51a"}] |
+| anicura-de-tweede-lijn-zwolle | services | ["Local oncology care"] | ["Local oncology care","Surgery"] | [{"field":"services","official_url":"https://www.anicura.nl/klinieken/overijssel/zwolle/expertises/chirurgie/","url":"https://www.anicura.nl/klinieken/overijssel/zwolle/expertises/chirurgie/","supporting_quote":"verwijdering tumoren","quote":"verwijdering tumoren","branch_scope":"Schrevenweg13-15, Zwolle; current team names Jeanine Deterd Oude Weme as surgery veterinarian; referral required","checked_at":"2026-10-16","method":"Retained actual primary-source quote/URL from 2026-10-16; current offline dependency/report attribution only, NOT a fresh source visit. Exact original request method/timestamp not asserted from candidate record.","retained_payload_reference":"input/history/candidate-records/inherited/anicura-de-tweede-lijn-zwolle-v001.json","retained_payload_sha256":"30d5ce1867f655bf5d6211c01db14695c32648f4dabd36c188f8401cfa0b8ca4"}] |
+| anicura-stroowaert-oud-beijerland | services | ["Local oncology care"] | ["Local oncology care","Surgery"] | [{"field":"services","official_url":"https://www.anicura.nl/klinieken/oud-beijerland/oud-beijerland/expertises/weke-delen-chirurgie/","url":"https://www.anicura.nl/klinieken/oud-beijerland/oud-beijerland/expertises/weke-delen-chirurgie/","supporting_quote":"tumoren verwijderen","quote":"tumoren verwijderen","branch_scope":"Stougjesdijk294b, Oud-Beijerland. Current local surgical page, named team and contact read; no generic chemotherapy or radiotherapy transfer.","checked_at":"2026-10-16","method":"Retained actual primary-source quote/URL from 2026-10-16; current offline dependency/report attribution only, NOT a fresh source visit. Exact original request method/timestamp not asserted from candidate record.","retained_payload_reference":"input/history/candidate-records/inherited/anicura-stroowaert-oud-beijerland-v001.json","retained_payload_sha256":"78524ccab248c582bdfba7767b5ac779e7d25f4e992845fae4c1242d96073147"}] |
 | anicura-mcd-amsterdam | services | ["Medical oncology","Chemotherapy"] | ["Medical oncology","Chemotherapy","Surgery"] | [{"field":"services:Surgery","url":"https://www.anicura.nl/klinieken/noord-holland/mcd/over-ons/expertises/weke-delen-chirurgie/","ref":"turn3429view5","quote":"verwijdering van tumoren","checked_at":"2026-10-17","method":"Web open"}] |
 | anicura-haaglanden-rijswijk | services | ["Local oncology care"] | ["Local oncology care","Surgery"] | [{"field":"services:Surgery","url":"https://www.anicura.nl/klinieken/zuid-holland/haaglanden/verwijscentrum/weke-delen-chirurgie/","ref":"turn3430view2","quote":"verwijdering van tumoren","checked_at":"2026-10-17","method":"Web open"}] |
 | evidensia-barendrecht | clinician_review | "No named current treating oncologist or oncology board credential is established by the accessible branch roster. Confirm clinician assignment with the hospital. Historical indexed biographies are not used as current staffing proof." | "Current official branch-scoped profile names Patricia Vester, Dierenarts Chirurgie. This verifies a named veterinarian/role at Barendrecht, not oncology-board status or assignment to oncology appointments. Confirm the clinician and local modalities when referred; ESAVS certificate pathway described as in progress, not completed qualification." | [{"field":"clinician_review","url":"https://evidensiadierenziekenhuis.nl/dierenziekenhuizen/barendrecht/team/patricia-vester/","primary_url":"https://evidensiadierenziekenhuis.nl/dierenziekenhuizen/barendrecht/team/patricia-vester/","ref":"turn3534view0","checked_at":"2026-10-17","method":"Web open actual published primary branch biography","quote":"Patricia Vester; Functie: Dierenarts Chirurgie","scope":"Barendrecht hospital, no personal oncology assignment or board certification inferred"}] |
@@ -147,7 +148,7 @@ Bingelrade: собственные dog/cat service-index pages прямо пре
 |---|---|---|
 | Университет Utrecht | review001: localRT/Chemo/Surgery+currentteam/contact/intake; exactOnGo challenge restriction001 | Не трактовать как trial access |
 | AniCura85 | inherited85roster, prior80processed + current5baseline outcomesreview010 | Not85freshvisits; final fieldQA |
-| IVC220 | Freshmaster turn3465view0; sparse crosswalk001–010:124mapped+14ambiguous/held+4noncompanion+78available | 78labels требуют actualidentity/clinicalscope, не88 уже новыхклиник |
+| IVC220 | Freshmaster turn3465view0; sparse crosswalk001–011:135mapped+14ambiguous/held+4noncompanion+67available | 67labels требуют actualidentity/clinicalscope, не88 уже новыхклиник |
 | BestCare21NL | Current retained10clinicalgroups/21NLsites; DeArk3 review005; Ossehoofd2 currentpracticechemo/team/contactreview009 | Осsehoofd exactbranch/commonroute and other genuine holds |
 | Другие сети | DierenDokters11 oldlocaloutcomes+1network; Topzorg3partial+1network; StadLand9currentEXCL; DGCZuidLimburg2held+1network | VetPartners actualdirections; Caressa/StadLand legacy identities |
 | GP независимые | current BingelradeChemo; retainedGP Surgery acrossallregions; A7Noord3/Deen currentEXCL; IVC13newactualidentitiesreview015 | Не все независимые клиники страны исчерпаны |
@@ -205,8 +206,9 @@ EXCLUDED — nonpromotion, не отсутствие лечения. StadLand9 g
 | Dier en Dokter — eindhoven-hoogstraat | https://www.dier-en-dokter.nl/nl-nl/klinieken/eindhoven-hoogstraat | ["Does this exact branch deliver tumorremoval, or are operations referred withinDierEnDokter; exactcurrentoperatingbranch? Namedassignedclinician/intakecaseconfirm."] |
 | Pets Health Dierenkliniek Eemland | https://www.pets-health-eemland.nl/contact?lang=nl-nl | ["Actual local owned cancer treatment and named current veterinarian; permitted independent current team/other source route remains.","Any actual oncologyhomevisit offer? Label alone insufficient; exact failed linked workflow held."] |
 | WB Dierenartsen — clinical service identity unresolved | https://www.wbdierenartsen.nl/ | ["Actual current clinics/pet-treatment locations and owned specificanticanceract plus namedqualifiedvet/contact/intake; only successful primarybody canresolve.","Denied WB fallback workflow/targets remain held until explicit approval/restrictionlift; no alternateclient/cache/query reconstruction."] |
+| PlusDierenkliniek Westerwatering | https://www.plusdierenklinieken.nl/nl-nl | ["ActualWesterwatering currentclinicstatus/alias and operatinglocation; any currentownedcancercare. Applicable independentlypermittedofficialdirection remains; noclosurefromsilence."] |
 
-PartialNEW отдельно: Diergeneeskundig Centrum Zeeland [dc-zeeland-noordwelle]; Dierenkliniek de Watermolen [dierenkliniek-de-watermolen-haaksbergen]; De Wagenrenk — Diergeneeskundig Specialistisch Centrum [de-wagenrenk-wageningen]; Dierenkliniek ’t Gooi [dierenkliniek-t-gooi-laren]; Dierenkliniek Europawijk [dierenkliniek-europawijk-haarlem]; HVMC Westhage / Dierenkliniek Westhage — Dokter John [dierenkliniek-westhage-den-haag].
+PartialNEW отдельно: Diergeneeskundig Centrum Zeeland [dc-zeeland-noordwelle]; Dierenkliniek de Watermolen [dierenkliniek-de-watermolen-haaksbergen]; De Wagenrenk — Diergeneeskundig Specialistisch Centrum [de-wagenrenk-wageningen]; Dierenkliniek ’t Gooi [dierenkliniek-t-gooi-laren]; Dierenkliniek Europawijk [dierenkliniek-europawijk-haarlem]; HVMC Westhage / Dierenkliniek Westhage — Dokter John [dierenkliniek-westhage-den-haag]; Dierenkliniek Goudenregenstraat (formerly EDZ Den Haag) [goudenregenstraat-den-haag].
 
 ## Собственный доступный остаток и точные внешние ограничения
 

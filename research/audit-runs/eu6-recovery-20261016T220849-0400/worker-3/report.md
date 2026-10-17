@@ -401,3 +401,14 @@ Remote020 parentPASS03:30:12UTC:data9e89ce6c4d9caed91856911fb18a6a77294d6fc3,rec
 | Gabinety Weterynaryjne Franciszkańska | Koszalin | Surgical oncology | https://lecznica.org/chirurgia/ |
 REHAwetexplicitchemo+surgery, RTвнешняякооперация; MILOVETexplicitподготовкаИвведениецитостатиковсобакам/кошкам,квалифицированнаяJustynaCaganowskaтекущаяроль. Ars-Vetместнаяонкохирургия,химиотерапия/RTпоexternalreferral. FIVETZabrzeгородresolved,направлениямеждународныйconsiliumнеотдельныйremote. Franciszkańska:733753739клиника,943416399магазин. MaciejMalecTczewnonpromotiongeneraloperations,freeemailнеотдельныйremoteoncology. IławaUNRES:онкоразделдиагностический,общиеguzy/mammaryproceduresнеподтверждаютточнуюместнуюпротивоопухолевуюуслугу. BiałogardUNRES:услугиchemo+surgeryесть,homepage200не даётявнойветеринарнойроли/точнойулицы;heldabout/contactнеповторены.64реальныхзапроса,121receiptunits. research_complete=false.
 Parentremote021PASS03:32:12UTC:datadc4d7c590bf3c8bf4b74fcd39d87f4009d32f8f7,receipt82d0ffdbdc876405e2efcc2d99e1fad30ba7fb46,block16+007saved. Block17pendingnext. Это backupнеcountryacceptance/sitepublication.
+
+
+## Блок19 — 2026-10-17 03:37:22 UTC
+259=222обработанных+37необработанных;222=158NEW+3UP+17DUP+21EXCL+23UNRES. Полных178=156NEWphysical+2network+20baseline.158NEW—не158discovery:127older+6late-saved+23regionalphysical+2networkrule, freshdiscoverythisexecution0.
+| Сохранённый кандидат, теперь подтверждённый | Город | Лечение | Официальный источник |
+|---|---|---|---|
+| Leszczyńskie Centrum Weterynaryjne Misiu | Leszno | Surgery, Local oncology care | https://www.weterynarz-leszno.pl/uslugi/chirurgia/ |
+| Przychodnia Weterynaryjna Adam Hauke / HAUWET | Konin | Surgical oncology | https://hauwet.pl/ |
+| Gabinet Weterynaryjny Vet Medica | Świnoujście | Surgery | https://www.e-vetmedica.pl/service |
+Misiu: bookingподтвердилПодgórna7a/605840851, актуальные Monika/MateuszBrzezewski;несвязанныйкоммерческийвнешнийтекстhomepageнеиспользован/нескопирован/неоткрыт. .euизbookingперенаправляет.pl,однаклиника. HAUWETявнаяонкохирургия;news17Oct2025не2026новаяклиника. VetMedicaŚwinoujścieявнаяneoplasmsurgery+MartaKarwan-Zimolągqualifiedcurrent. Canisia:общиеуслуги/пустаяsurgeryстраницаnonpromotion; VetBrand:сейчастолькоофтальмология,cornealmelanosisнезлокачественныйракависячаяинтерпретация—непродвигается. Boliłapka/Stargardtimeout+native502UNRES; Telvetcurrentcryoremovalneoplasms/intakeесть,ноcurrentnamedqualifiedvetнеподтверждён;privacychallengeнеповторён,независимыешагиостаются.66реальныхзапросов,127receiptunits(legacykeysource_receipt_filesобозначаетединицыпопыток/пакетов,небуквальночислофизическихфайловпослеminimal-safeaggregation). research_complete=false.
+Remote022parentPASS03:35:10UTC:data53a975394b8c075b5a6af52cc9a5abac2a55879e,receiptb9cc38b8d97af6f3cc16771658a3b17e7a8260ba,block17saved. Block18pending023,неbackupclaim.
