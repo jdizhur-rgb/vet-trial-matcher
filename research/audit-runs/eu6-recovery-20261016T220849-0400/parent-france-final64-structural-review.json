@@ -1,0 +1,77 @@
+{
+  "run_id": "eu6-recovery-20261016T220849-0400",
+  "slot": 5,
+  "country": "France",
+  "block": "64",
+  "ready_sha256": "7c58f3b41013e8b244f165c1b5a9576b2c553bd611ac445a5cd13595bee46ffb",
+  "assigned": 727,
+  "processed": 664,
+  "fully_verified": 190,
+  "classification_counts": {
+    "NEW": 183,
+    "EXCLUDED": 424,
+    "DUPLICATE": 8,
+    "UNRESOLVED": 49
+  },
+  "unprocessed_external": 63,
+  "verified_frozen_files": 163,
+  "operational_dependency_count": 94,
+  "actual_query_payloads": 58,
+  "baseline_catalog_rows": {
+    "oncology_centers.json": 901,
+    "oncology_centers_supplemental.json": 893,
+    "oncology_care_source_inventory.json": 977,
+    "acvim_oncology_profiles.json": 458
+  },
+  "baseline_tele_rows": 64,
+  "strong_baseline_identity_hits": [],
+  "strong_own_identity_hits_requiring_adjudication": [
+    {
+      "new": "fr-sevetys-clinique-veterinaire-vetos-alpilles-mouries-sevetys-mou",
+      "other": "fr-sevetys-clinique-veterinaire-vetos-alpilles-saint-remy-de-provence-srp",
+      "classification": "NEW",
+      "match": [
+        "phone"
+      ]
+    },
+    {
+      "new": "fr-sevetys-clinique-veterinaire-vetos-alpilles-saint-remy-de-provence-srp",
+      "other": "fr-sevetys-clinique-veterinaire-vetos-alpilles-mouries-sevetys-mou",
+      "classification": "NEW",
+      "match": [
+        "phone"
+      ]
+    }
+  ],
+  "research_complete_worker_claim": true,
+  "country_parent_acceptance": false,
+  "clinical_evidence_acceptance": false,
+  "publication": false,
+  "qualification": "Read-only structural/remote-member and strong-identity audit only. Manual field/source, report, fuzzy aliases, full tele semantics, coverage and external-gap adjudication remain required.",
+  "review_observed_at": "2026-10-17 07:08:12 UTC",
+  "full_report_read_ranges_confirmed": [
+    [
+      1,
+      430
+    ],
+    [
+      832,
+      843
+    ],
+    [
+      1652,
+      1672
+    ]
+  ],
+  "report_ranges_not_fully_read_yet": [
+    [
+      431,
+      831
+    ],
+    [
+      844,
+      1651
+    ]
+  ],
+  "targeted_followup": "Paix Pau own NEW vs UNRES identity, all-own classification semantic review; VetFelin/VetoHome exact retained threshold context, Alpilles shared-phone independent physical identity."
+}
