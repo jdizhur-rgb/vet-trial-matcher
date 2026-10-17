@@ -388,3 +388,16 @@ Parent подтвердил remote019 в03:21:14UTC:datae85bb6829d0620a1f89d8b5a
 | Sosken Vet 24h | Gdańsk | Local oncology care | https://sosken.pl/zakres-uslug/onkologia/ |
 PRO-WET: собственные актуальные service/teamстраницы подтвердилихимиотерапию иврачей, не отзывы/старыйреестр. Designerhostaliasнеотдельнаяклиника. VITA: наружнаяконсультацияцентраRTне местнаяRT; ARGO:NuQдиагностика не лечение; Sosken ограниченLocalconsultation/therapeuticassessment,безchemo/Surgery. OpolskiePogotowiePrószków EXCLnonpromotion:oxygenadjunct/emergencycareне противоопухолевое лечение. VetCentrumKluczbork/ZłotorzyńscySuwałki Webtimeout+native502, cachedиндекс не свежаяверификация. CMZPrzemyśl possiblegate007metadataonly безвыдуманного403/CAPTCHA. ProvetNowySącz/ZapiesekMyślenice/DagmaraDobrzyńSuwałki обработаны по реальным сохранённым16Octclinicalfailedattempts, не повторялись и датыуспеха не обновлены; независимые допустимыешаги ещёнеисчерпаны.62реальныхзапроса:4system1изэтогоблокадали нерелевантныйnoise, не доказательствоотсутствия; корректныеdomainfilteredsystem2 иfullprimaryseparate.116receiptunits. research_complete=false.
 Remote020 parentPASS03:30:12UTC:data9e89ce6c4d9caed91856911fb18a6a77294d6fc3,receipt9a73aaaa602abb7316064f539419e37372fde568,explicitmembers14/15. Block16/007pending021, неclaimedremoteдоreadback.
+
+
+## Блок18 — 2026-10-17 03:35:00 UTC
+259=214обработанных+45необработанных;214=155NEW+3UP+17DUP+19EXCL+20UNRES. Полных175=153NEWphysical+2network+20baseline.
+| Сохранённый кандидат, теперь подтверждённый | Город | Лечение | Официальный источник |
+|---|---|---|---|
+| Gabinet Weterynaryjny FIVET | Zabrze | Surgical oncology | https://fivet.pl/zakres-uslug |
+| Centrum Weterynaryjne Ars-Vet | Ełk | Surgical oncology | https://www.arsvet-elk.pl/chirurgia |
+| Klinika Weterynaryjna REHAwet | Piła | Medical oncology, Chemotherapy, Surgical oncology | https://rehawet.pila.pl/uslugi/onkologia |
+| Przychodnia Weterynaryjna MILOVET | Konin | Medical oncology, Chemotherapy | https://milovetkonin.pl/ |
+| Gabinety Weterynaryjne Franciszkańska | Koszalin | Surgical oncology | https://lecznica.org/chirurgia/ |
+REHAwetexplicitchemo+surgery, RTвнешняякооперация; MILOVETexplicitподготовкаИвведениецитостатиковсобакам/кошкам,квалифицированнаяJustynaCaganowskaтекущаяроль. Ars-Vetместнаяонкохирургия,химиотерапия/RTпоexternalreferral. FIVETZabrzeгородresolved,направлениямеждународныйconsiliumнеотдельныйremote. Franciszkańska:733753739клиника,943416399магазин. MaciejMalecTczewnonpromotiongeneraloperations,freeemailнеотдельныйremoteoncology. IławaUNRES:онкоразделдиагностический,общиеguzy/mammaryproceduresнеподтверждаютточнуюместнуюпротивоопухолевуюуслугу. BiałogardUNRES:услугиchemo+surgeryесть,homepage200не даётявнойветеринарнойроли/точнойулицы;heldabout/contactнеповторены.64реальныхзапроса,121receiptunits. research_complete=false.
+Parentremote021PASS03:32:12UTC:datadc4d7c590bf3c8bf4b74fcd39d87f4009d32f8f7,receipt82d0ffdbdc876405e2efcc2d99e1fad30ba7fb46,block16+007saved. Block17pendingnext. Это backupнеcountryacceptance/sitepublication.
