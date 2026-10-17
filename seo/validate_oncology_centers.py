@@ -44,7 +44,14 @@ def main() -> None:
         if phone and center["country"] in {"USA", "Canada"}:
             digits = re.sub(r"\D", "", phone)
             assert len(digits) == 10, (center["name"], phone)
-        if center.get("location_type") == "mobile":
+        if center.get("location_type") == "network":
+            assert center["latitude"] is None and center["longitude"] is None, center["name"]
+            assert not any(center.get(k) for k in ("street", "city", "postal_code")), center["name"]
+            assert center.get("service_scope") == "network", center["name"]
+            assert center.get("branch_availability") == "confirm_before_booking", center["name"]
+            assert center.get("phone") or center.get("email") or center.get("booking_url"), center["name"]
+            assert center.get("availability_note") and center.get("branch_finder_url"), center["name"]
+        elif center.get("location_type") == "mobile":
             assert center["latitude"] is None and center["longitude"] is None, center["name"]
             assert center.get("service_area"), center["name"]
         elif center.get("coordinates_unknown"):
