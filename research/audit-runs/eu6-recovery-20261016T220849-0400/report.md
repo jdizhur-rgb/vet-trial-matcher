@@ -1,5 +1,15 @@
 # Европа — промежуточный отчёт контроллера
 
+## Текущий срез: 17 октября 2026, 04:21 America/New_York
+
+Исследования слотов1/2/5/6 независимо приняты; исполнители3Poland и4Germany реально продолжают доступный поиск. Фаза публикации сайта закрыта, main/build/deploy не запускались. Research-only079 проверен удалённым readback: data `3c653b5eb4f1e2ac9f9470593951d7120fb1f838`, receipt `a756048816f118ac53d95e7fe22b38cf234770c3`,28файлов,0ошибок; предыдущая078 включает польские52/revision005. Точные Gitblobs обеих52-route inputcapsules дополнительно прочитаны с remote076, SHA256совпали. Уже выполненные trialизменения свежегоmain8d9691 сохранены; это не запуск trial-discovery.
+
+Польша: родитель прочитал все221 effective proposal objects (219NEW/2UPDATE) с branchscope/цитатами/контактами/квалификацией черезpatch018/revision005, в том числе исправленныеPRO-VET/Giszowiec/Napieraj/HALIVET/AMVET/Therios и три сетевых маршрута. У branch-only номеров172–174 снята ложная роль общего телефона; остаются подтверждённые общие clinicalemail+finder, без физических пинов. Это проверка полей, НЕ приёмка полного национального покрытия. Iława отдельная текущая поправка ещё не принята/не опубликована.
+
+Германия: exactSHA chain19–42 и withdrawal old40 PASS,1positive/5negative tests без sourceIO. Неприменённая physicalNEWJähnig отозвана, не удалена с сайта; вместо неё ONEtypednetwork с официальным companyemail+2branchfinder, без адреса/центральногофилиальногоphone/pins. Schönefeld/Mockau остаются отдельными allocationUNRES. Effective48NEW=45physical+2network+1mobile и1baselineUPDATE;43блок позднее готов и требует собственной проверки. Доступный фронт не объявлен внешним препятствием и исполнители не остановлены для интеграции.
+
+Нижеследующие срезы — неизменённая история прогресса, не текущий финальный статус.
+
 ## Текущий срез: 17 октября 2026, 04:07 America/New_York
 
 Приняты исследования Austria/Czechia/France/Netherlands; Poland/Germany продолжают доступный национальный поиск, а не остановлены ради интеграции. All-six gate закрыт, сайт не интегрирован/не собран/не опубликован этим запуском. Research backup076 реально прочитан обратно: data `2793021c2b6a64b7781a6eeba2e748f3282bb091`, receipt `988bbbe51081e0c1eac397357ef645dfe248ad5c`,33новых файла,0ошибок. OwnparentacceptanceFrance дополнительно имеет точный directGitreadback071 (SHA2569f7fa5...cc37); это не приписывается раннему070.
