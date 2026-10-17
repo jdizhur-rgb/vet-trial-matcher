@@ -131,7 +131,11 @@ def collect():
             result=json.loads((ROOT/rp).read_text())
             item=next(x for x in a['assignments'] if x['slot']==5)
             for k in ['run_id','slot','country','baseline_sha','agent_id']:assert result[k]==item[k]
-            refs=result.get('candidate_payload_references',[])+result.get('pending_payload_references',[])
+            refs=[]
+            for reference_group in ('candidate_payload_references','pending_payload_references','pending_identity_amendment_references'):
+                group=result.get(reference_group,[])
+                assert isinstance(group,list),('Invalid operational reference group',reference_group)
+                refs.extend(group)
             assert refs,'Latest France result omitted operational payload references'
             closure=verify_operational_refs(refs,known,worker,ROOT)
         except Exception as e:
