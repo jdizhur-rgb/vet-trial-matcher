@@ -191,3 +191,53 @@ PasiakSiedlce corepartial nowresolved: successful17Oct cityprimary record turn34
 MAXVETPLUSPrzasnysz current independentsearchsurfaced exactbranchsurgerypage withmammarytumorresection/contact28, but directWebserviceInternalError andteamredirectPułtusk: stillUNRESOLVED, notfanout/notclosure; ordinarysameofficialURLtransport route remainsallowed, noauthdenial. UPWr genuineexactgatesremainexternal. National16regions and allremainingdimensions stillIN_PROGRESS.
 
 Remote010 VERIFIED perparent: data20a3d05428036e1357d6067b553121c593fe1dc6 receipteda2d75f537b7be20295260275305962725f378d includesblock4/5actualpayloads; source/data proof, notcountryacceptance/sitepub. Earlier008 data1a9e16a4e5847a61f63c8aa3fedaf58850905492 receipt839ce21d260e1ca6e829fad9d8b0ea0147eee212 measured02:34:28UTC includesblock3+amendments; fakeblock3checkpoint_at remainscancelled. Block6localready pendingremoteproof; research_complete=false. ContinuePoland.
+
+
+## Блок 7 —103 квалифицируемые единицы, не завершение страны
+
+Измеренное время:2026-10-17 02:53:48 UTC. Actual NEW103=102inheritedphysical+1SpecVetnetwork, UPDATE0; processed111=103qualifying+6nonpromotion+2unresolved. Namedledger002:159assigned=111processed+25oldabsentunprocessed+20alreadybaselineexistingQA+3newactualLuxVetPremiumbranches. Полный национальный denominator пока provisional, не числоURL/aliases. Старые20 неNEW/неавтоматическиprocessed. Sourcefielddates fresh17Oct толькогдеуспешнопрочитаны; olderunchangedreceipts16Oct остаются16Oct.
+
+| Единица | Город | Локально подтверждено | Primary URL |
+|---|---|---|---|
+| Veterio — Całodobowa Klinika Weterynaryjna | Warszawa | Medical oncology; Chemotherapy; Surgical oncology; Targeted therapy; Immunotherapy | https://veterio.pl/onkologia-weterynaryjna-warszawa/ |
+| Przychodnia Weterynaryjna LoVeT | Kraków | Medical oncology; Chemotherapy; Surgical oncology | https://lovet-przychodnia.com/ |
+| Klinika Weterynaryjna Szmaragdowa | Lublin | Medical oncology; Chemotherapy; Surgical oncology | https://klinikaszmaragdowa.pl/uslugi/onkologia-weterynaryjna/ |
+| Przychodnia Weterynaryjna REX | Lublin | Medical oncology; Chemotherapy; Surgery | https://lublin-weterynarz.pl/uslugi/onkologia/ |
+| Trójmiejska Klinika Weterynaryjna | Gdańsk | Medical oncology; Chemotherapy; Surgery; Electrochemotherapy | https://tkw24.pl/uslugi/onkologia/ |
+| Ostrowskie Centrum Weterynaryjne | Ostrów Wielkopolski | Medical oncology; Chemotherapy; Surgical oncology | https://ocw.com.pl/onkologia |
+| Centrum Weterynaryjne Boliłapka | Białystok | Surgical oncology | https://www.bolilapkabialystok.pl/chirurgia-i-ortopedia |
+| Przychodnia Weterynaryjna Tropek — Katarzyna Żakiewicz | Białystok | Surgical oncology | https://www.tropek-wet.pl/oferta/chirurgia-miekka |
+| Vet Premium Kraków — Lux-Vet Premium | Kraków | Local oncology care | https://lux-vet.pl/uslugi/onkologia/ |
+| Specjalistyczna Przychodnia Lux-Vet Premium — Bielsko-Biała | Bielsko-Biała | Local oncology care | https://lux-vet.pl/uslugi/onkologia/ |
+| Vet Clinic — Przychodnia Weterynaryjna | Łódź | Medical oncology; Chemotherapy | https://vetcliniclodz.pl/onkologia |
+
+Veterio currentnamedqualifiedGPAnnaHałka/internalmedicine+explicitcurrentlocalclinicaldrug/surgerycare sufficiently establishcore; specificoncologyappointmentclinician/session remainsbookingdetail, priorIrishoncologyexperience notassignedasWarsawservice. Oldwkrótce conflict preservedhistorically; currenttreatmentpresenttense/contactbookingnotfuture. LoVeT currentteam oncologyDrewniak/Gromny+cancersurgeonŻukowski; SzmaragdowacurrentMucha/Kot/Więcek roles separatefrommodalities; REX localparagraph supportschemo/Surgery butnotgenericRT/immunotherapy. TKW currentreadableoncologyserviceexplicitchemo/ECT andnamedlek.wet.AnnaKurczewska; heldbiography/aboutneverretried, nootherbranchfanout. OCW localRTclaim remains specificunresolvedpubliccorroboration question, noRTfilter. BoliłapkaBiałystok explicitoncologicsurgery+TomaszBiedulewicz1998vet/2007surgeon. Tropek optionalpostcode15-703/15-777notcorebarrier; actualJanaPawłaII59a/2+phone/KatarzynaŻakiewiczqualifiedrole/surgeryverified, stricttrue.
+
+Lux-Vet/VetPremium current5actualbranches: Kraków/Bielsko Localonly restoredwithownbranchrosters/contacts, sharedservice explicitlynames2cities. BroadsharedRT/chemo/surgeryparagraph is notbranchmodalityassignment. JaworzeSłoneczna118, SkoczówTargowa26, WilamowicePaderewskiego28G nowactualunprocessedcandidateunits; 40+ SEOcatchmenttownlinks explicitlypatientsfromtowns, NOTbranchfanout. No extra networklisting: commononcologycontact notindependentlyestablished. VetClinicŁódź dedicatedoncopage explicitchemo, linkedownroster nameslek.wet.AlicjaFornalczyk; unrelatedgamblinginjectedhomepage text ignored, noexternalgamblinglinksfollowed.
+
+Przasnysz independentpre403searchdiscoveredbranchsurgeryclaim, ordinarysameURLnormalTLSfallback got403at2026-10-17T02:50:56.579669+00:00. Exactnewhold restrictions005+native004sealedimmediately; nofurtherreplay/client/cache/variant. ClinicnotpromotedfromdeniedsearchcacheorPułtuskprofile. Savedleader remains genuineunit notclosure. Allavailablecountryfrontier continues, research_complete=false.
+
+PathQA: four task-created mistargetduplicates under /workspace/scratch/2d03a6db0cc6/undefined were recoverably quarantined byparent into controller-quarantine/pl-path-error; authoritative absoluteownroot deltas012/013 andweb029–033 aretheonlynewproof. Notcountedtwice/notdeletedpermanently. Blocks6/7remoteproofpending; earlierremote010 actualdata/receipt remains lastproved atthiswrite. ContinuePoland.
+
+
+## Блок 8 —112 qualifying; GP chemo/ECT и независимая гематология
+
+Измеренныечасы:2026-10-17 02:56:02 UTC. NEW112=111inheritedfixed+1network; UPDATE0; processed120=112qualifying+6EXCL+2UNRES. Ledger003:159=120processed+16oldabsentunprocessed+20baselineexistingQA+3actualLuxVetPremiumbranches. Freshdiscovery0; report-level86 НЕплюсуется. All9clinicalunits below current17Octsuccessfulsourceproof; не timestampотfailures.
+
+| Единица | Город | Локально подтверждено | Primary URL |
+|---|---|---|---|
+| Przychodnia Weterynaryjna 4PET | Toruń | Medical oncology; Chemotherapy; Surgical oncology | https://www.przychodnia4pet.pl/uslugi/ |
+| Centrum Zdrowia Małych Zwierząt | Gorzów Wielkopolski | Medical oncology; Chemotherapy; Surgery | https://czmz-gorzow.pl/uslugi/onkologia-zwierzat-onkologia-weterynaryjna/ |
+| Klinika Weterynaryjna SFORA | Warszawa | Medical oncology; Chemotherapy; Electrochemotherapy | https://klinikasfora.pl/uslugi/onkologia/ |
+| Przychodnia Weterynaryjna Jamniczek | Piotrków Trybunalski | Medical oncology; Chemotherapy; Surgical oncology | https://jamniczek24.pl/uslugi/onkologia/ |
+| Klinika Weterynaryjna Giszowiec | Katowice | Local oncology care | https://wetklinika.pl/uslugi/hematologia-weterynaryjna/ |
+| Przychodnia dla Zwierząt Wnuk | Kraków | Medical oncology; Chemotherapy; Surgery | https://www.przychodniawnuk.pl/onkologia |
+| Całodobowa Klinika Weterynaryjna Elwet | Warszawa | Medical oncology; Chemotherapy; Surgical oncology | https://www.elwet.pl/onkologia |
+| Klinika Weterynaryjna Arka | Kraków | Medical oncology | https://arka-vet.pl/uslugi/onkologia-weterynaryjna/ |
+| Napieraj i Synowie | Radom | Medical oncology; Chemotherapy | https://weterynarz.radom.pl/uslugi/onkologia/ |
+
+4PET currentIV/oralchemo+cancersurgery+qualifiedMarcinPrzystalski2010vet/2017surgery; explicitlyNOhomevisits/weekend/holiday. CZMZGorzów fullcurrenthighdose/metronomic/etc chemo+tumorremoval; PawełStolarek1995vet/2007surgery, cryo/electrosurgeryNOTECT. SFORA fullcurrentPha-Seal/metronomic/ECT andpublishedcurrentJacekMicuńprofessionalrole, notboardcredential. Jamniczek IV/oralchemo+explicitcancersurgery, namedqualifiedGPstaffsufficientwithoutindividualoperatorassignment; externalRTonly. Wnuk currentGPchemo/surgery; RCVSanesthesia/ECC credentialsnotoncologyboard. Elwet currentAnnaJaśkiewiczoncology/MarekGalantysurgery, no24honcologistpromise. Arka currentGrażynaGaworvet1992+explicitcurrentoncopharmacologicalcare, noPhDfromgenericdrlabel.
+
+Giszowiec surgery429 NEVERretried. Independent currenthematologyprimary explicitly treatsbloodcancers/leukemia/lymphoma andnameslek.wet.AgataHandy/KrystynaOchman-Bojarska, actualMysłowicka65aKatowice/322201010. CurrentpackageLocaloncologycareONLY: olderpre429surgerysuccessclaimisretainedhistorically,butfullsuccessfulbodynotlocatedinretained637yet; no chemo/Surgicaltagfrommissingbody. Thisdoesnotmeanactualsurgeryabsence orclinicclosure. SeparateBrzęczkowicenotfanout. Napieraj currentnamedMichałNapierajrole+actualLaluniachemocase12September2024onowncurrentservicepagequalifyMedical/Chemo; currentmayincludeparagraphandguzowatecasesnotalonecancerdirectedSurgeryproof, soSurgeryheldasdetailQA.
+
+Delta016,actualweb043–046,ledger003 savedimmutable; fullproposal112uniqueQA tofreeze. Newsourcefactsnotolderreportcounts. Block8localreadyremoteproofpending; research_complete=false, available16+20+3+regional/roster/RT/mobile/remote frontiercontinues SAMEPoland.

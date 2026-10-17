@@ -2,7 +2,7 @@
 
 Исполнитель: /root/oct16_at. Run: eu6-recovery-20261016T220849-0400. Baseline: b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45. Фактическое начало: 17 октября 2026, 02:11:09 UTC. Окончание содержательной сверки: 2026-10-17T02:47:05.157Z.
 
-Доступная национальная программа выполнена; research_complete=true. Это означает отсутствие известных необработанных доступных кандидатов, списков филиалов и направлений, а не доказательство отсутствия неизвестных клиник. Сохраняются 22 внешних вопроса по провайдерам и два отдельных вопроса по модальности/справочному реестру. Страна передана на проверку родителю, не принята контроллером и не опубликована. Никаких commit, push, deploy, production/shared edits, подагентов, outreach, оплат, регистрации аккаунтов, trial sweep или UI-действий не выполнялось.
+Доступная национальная программа выполнена; research_complete=true. Это означает отсутствие известных необработанных доступных кандидатов, списков филиалов и направлений, а не доказательство отсутствия неизвестных клиник. Сохраняются 22 внешних вопроса по провайдерам и три отдельных вопроса по модальности/справочному реестру (Hutter ECT, ÖTK roster, Anif ECT). Страна передана на проверку родителю, не принята контроллером и не опубликована. Никаких commit, push, deploy, production/shared edits, подагентов, outreach, оплат, регистрации аккаунтов, trial sweep или UI-действий не выполнялось.
 
 ## Счётчики и происхождение
 
@@ -16,11 +16,11 @@
 | DUPLICATE — существующие identities без нового изменения | 44 |
 | EXCLUDED — не продвигаются по нынешним доказательствам | 19 |
 | UNRESOLVED — конкретные внешние вопросы | 22 |
-| Новых фактических поисковых выполнений / source-read attempts | 46 / 168 |
+| Новых фактических поисковых выполнений / source-read attempts | 46 / 172 |
 
-NEW45 = 43 физических места, одна выездная служба Angerer и одна строго типизированная сеть Stiglhuber. По происхождению: 28 унаследованных неопубликованных записей с исходными датами (27 прежних NEW плюс допустимая сетевая упаковка Stiglhuber); 14 сохранённых leads, заново проверенных сейчас; три действительных открытия текущего run — Vorgartenstraße/Wien, Seewald/Innsbruck и Elterleinplatz/Wien. Старые опубликованные 11/20 и baseline76 не считаются NEW. Содержательно проверены в текущий день 45 уникальных identities; 112 обработанных унаследованы, ещё четыре реальных исторических restriction dispositions отдельно, не новые посещения.
+NEW45 = 43 физических места, одна выездная служба Angerer и одна строго типизированная сеть Stiglhuber. По происхождению: 28 унаследованных неопубликованных записей с исходными датами (27 прежних NEW плюс допустимая сетевая упаковка Stiglhuber); 14 сохранённых leads, заново проверенных сейчас; три действительных открытия текущего run — Vorgartenstraße/Wien, Seewald/Innsbruck и Elterleinplatz/Wien. Старые опубликованные 11/20 и baseline76 не считаются NEW. В r04 содержательно проверены в текущий день 45 уникальных identities; дополнительный targeted modality-review Anif17октября указан отдельно. Эти provenance counters не являются непересекающимся арифметическим разбиением160. 112 обработанных унаследованы, ещё четыре реальных исторических restriction dispositions отдельно, не новые посещения.
 
-168 попыток чтения не равны 168 клиникам или успешным клиническим проверкам. HTTP200 для JS-shell или посторонней торговли не принят за clinical success. Board certification и координаты не обязательны; GP tumor surgery/chemo допустимы. Общая хирургия, направления, диагностическая радиология и альтернативные обещания не выданы за лечение рака.
+172 попытки чтения не равны 172 клиникам или успешным клиническим проверкам. HTTP200 для JS-shell или посторонней торговли не принят за clinical success. Board certification и координаты не обязательны; GP tumor surgery/chemo допустимы. Общая хирургия, направления, диагностическая радиология и альтернативные обещания не выданы за лечение рака.
 
 Восстановлены реальные immutable candidate/evidence/query shards blocks01–10; прежний run eu6-20261016T142911-0400 завершился фактическим usage limit и cleanup, сохранён до checkpoint021. Поздние решения/payload11–12 потеряны и не выданы за восстановленные. Отдельные сохранившиеся source-only receipts разобраны поштучно с их исходными датами. Никакая дата сборки/восстановления не заменяет дату чтения источника.
 
@@ -48,7 +48,7 @@ NEW45 = 43 физических места, одна выездная служб
 | IVC | 2/2 Austria: Tulln и Perchtoldsdorf Ost | native-03b-ivc-roster, blocks04/05; held German workflow не посещён |
 | VUK | 5 текущих: Althangrund, Vetklinikum, Schwarzmann, TAPS, Anif; Rathaus планируется на декабрь2026, не текущий центр | blocks05/07/10 и реальный public VUK post block09 |
 | Vetmeduni / RT | Университетские oncology/team/LINAC/booking подтверждены; единственное подтверждённое местное RT-место среди рассмотренных первичных источников, не универсальное утверждение об отсутствии других | retained block03 |
-| ECT | Fürstenfeld: ELC/chemo и Sandra Utzmann повторно подтверждены; Anif — retained branch evidence. Hutter ECT — точный внешний пробел, не вывод из заголовка | web-r03-03/04/05; retained Anif; Hutter restriction |
+| ECT | Fürstenfeld: ELC/chemo и Sandra Utzmann повторно подтверждены. Anif: после точечного review ECT снята как недостаточно подтверждённая patient-delivery modality, Surgery сохранена. Hutter ECT — отдельный внешний пробел. | web-r03-03/04/05; checkpoints/r05-anif/web-r05-anif-01.json и scoped amendment; Hutter restriction |
 | GP и независимые | Реальная tumor surgery и узкая oncology care приняты без требования board credentials; generic surgery не продвинута | work-deltas/r01..r04 и per-field evidence |
 | Выездная / visiting | Sauer — действительное сотрудничество с GP; Angerer — mobile cancer palliation, без пина; Schmid — receiving Pabst, не новая широкая mobile practice | retained mobile evidence; web-r02-13 |
 | Удалённая | DocOrbit: owner/vet written oncology review route прочитан, но named veterinary oncologist/current assignment/Austria eligibility не опубликованы; не продвинут | r01 source receipts, current r03 remote queries; аккаунт/платёж не создавался |
@@ -79,7 +79,7 @@ NEW45 = 43 физических места, одна выездная служб
 | Tierarztpraxis Steinerkirchen | Steinerkirchen an der Traun | Surgery | https://www.veterinaria.at/standorte/steinerkirchen |
 | Tierklinik Wels | Wels | Local oncology care, Chemotherapy, Surgery | https://www.tierklinik-wels.at/onkologie/ |
 | TIERplus Klagenfurt — Mag. Tanja Schurian | Klagenfurt | Local oncology care, Surgery | https://www.tierplus.at/wp-content/uploads/2023/06/Web_TIERplus_Praxenfolder_Klagenfurt_A5.pdf |
-| VetZentrum Anif | Anif | Surgery, Electrochemotherapy | https://www.vetzentrum-anif.at/chirurgie |
+| VetZentrum Anif | Anif | Surgery | https://www.vetzentrum-anif.at/chirurgie |
 | Tierklinik Perchtoldsdorf Ost | Perchtoldsdorf | Surgery | https://www.tierklinik-perchtoldsdorf-ost.at/leistungen/weichteilchirurgie |
 | TAPS — Tierarztpraxis am Stadtpark | Wien | Local oncology care, Chemotherapy, Surgery | https://www.taps.vet/leistungen/onkologie/ |
 | Drautalvet — Tierarztpraxis Dr. Siegfried Gütler Feistritz/Drau | Feistritz an der Drau | Surgery | https://www.tierarzt-villach-land.at/leistungen/chirurgie/ |
@@ -219,6 +219,31 @@ Initial research branch: research/europe-recovery-eu6-recovery-20261016T220849-0
 | r02 / 008 | 1a9e16a4e5847a61f63c8aa3fedaf58850905492 | 839ce21d260e1ca6e829fad9d8b0ea0147eee212 | 2026-10-17T02:34:28Z |
 | r03 / 010 | 20a3d05428036e1357d6067b553121c593fe1dc6 | eda2d75f537b7be20295260275305962725f378d | Подтверждено сообщением родителя; точный clock не предоставлен |
 
-Финальный immutable путь: worker-1/checkpoints/r04/ready.json. Его remote proof на момент сборки не получен и не заявляется. Manifest перечисляет фактические changed candidate/proposal/evidence/query/index/QA payloads; входные immutable источники и предыдущие блоки привязаны к подтверждённым backup SHA. Это исследовательская сохранность, не production publication.
+Финальный полный delivery: worker-1/checkpoints/final-delivery/ready.json. Он содержит шесть полных cumulative-файлов с учтённым Anif amendment, а effective-manifest.json фиксирует точные запечатанные r04+r05 пути и SHA256. r04 реально подтверждён родителем как REMOTE013: data6025992d8618f83f319759086b5e15926a17e991, receiptcf68e465ffa56438605cf1f322b5b0bc694d04ac, 02:51:14UTC; archive/member/control/receipt readbackPASS. r05 и final-delivery remote proof пока не получены. Это исследовательская сохранность, не production publication.
 
 Основание research_complete=true: выполнены все девять земель, current/undated и new-opening local-German слои, университет, все обнаруженные сети и филиалы, GP/independents, RT/ECT, visiting/mobile/remote; все известные доступные кандидаты и направления разобраны; ограничения и оставшиеся внешние вопросы названы поимённо. Проверка/сборка/контроллер не использованы как причина преждевременной остановки поиска. Ожидается review родителя и затем отдельная all-six acceptance/publication. Никакого фонового наблюдения после этого handoff не обещается.
+
+
+---
+
+## История точечной Anif-поправки, включённой в полный итог
+
+
+Исполнитель /root/oct16_at; run eu6-recovery-20261016T220849-0400; slot1 Austria; baseline b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45. Targeted review 2026-10-17T02:54:15.745Z. r04 immutable не изменён.
+
+Вердикт: из NEW vetzentrum-anif снят только Electrochemotherapy tag; Surgery и NEW identity сохранены. Не установлено отдельного прямого утверждения о текущем ECT-приёме/доставке пациентам. Это не отсутствие услуги.
+
+Кроме career equipment mention реально сохранена team-страница https://www.vetzentrum-anif.at/team: Mag.Wolfgang Biebl, LEITUNG,TIERARZT, в clinical-area list указана Elektrochemotherapie. Exact native receipt: input/history/checkpoints/block-03/native-03c-anif-team.json, attempted2026-10-16T18:57:04.718Z, received18:57:08.068Z, HTTP200. Это описание роли/области врача, не новое посещение и не самодостаточный patient-access proof.
+
+Сегодня прочитаны только четыре разрешённых опубликованных маршрута: /leistungsuebersicht, /aktuelles, /chirurgie, /team. Полные Web reads в web-r05-anif-01.json. Team по-прежнему содержит ECT clinical area; overview и news не описывают ECT treatment access, surgery прямо перечисляет операции Mammatumore/Vaginaltumore, не ECT. Меню не даёт отдельного ECT service route. Не выполнялись broad search, held routes, URL guessing, outreach, аккаунты или платежи.
+
+AMEND_NEW services: [Surgery,Electrochemotherapy] → [Surgery]. Availability note отдельно переписан, чтобы не обещать ECT. Clinician role и equipment остаются честной provenance, не services proof. Исходные даты и retained факты не переписаны. Полные точные old/new поля — proposed_changes.json этого amendment.
+
+Counts unchanged:160unique/160processed/119fully; NEW45,UPDATE30identities/51fields,DUP44,EXCL19,UNRES22. Это не новый UPDATE существующего baseline-провайдера, а поправка модальности внутри NEW. Отдельных modality/reference gaps теперь3 (HutterECT,ÖTKroster,AnifECT). National research_complete=true сохраняется: известный доступный targeted route исчерпан, unknowncoords/board не причина исключения. Всего172source attempts,46queries; текущий targeted блок4reads/0queries. Provenance counters retained112/current45 в r04 не являются непересекающимся разбиением160.
+
+Родитель реально подтвердил r04 REMOTE013: data6025992d8618f83f319759086b5e15926a17e991,receiptcf68e465ffa56438605cf1f322b5b0bc694d04ac,02:51:14UTC; archive/member/control/receipt readbackPASS. r04 reportSHA3863b71e254dc8dbdd22c22d554072f91748535f33da5900409bc240062bf126. Remote proof r05 ещё не получен. Production/publication не изменены.
+
+
+## Окончательная доставка полного отчёта
+
+Сборка 2026-10-17T02:55:51.061Z — только доставка существующих доказательств, не новый source visit. Счётчики160/160/119, NEW45, UPDATE30/51, DUP44, EXCL19, UNRES22 неизменны;172reads,46queries,3modality/referencegaps. Anif в основной NEW-таблице уже только Surgery. Общенациональный поиск не перезапускался. Все шесть окончательных cumulative-файлов заморожены вместе; короткий Anif amendment не заменяет этот полный отчёт.
