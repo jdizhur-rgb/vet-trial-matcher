@@ -1,5 +1,19 @@
 # Европа — промежуточный отчёт контроллера
 
+## Актуальный срез: 17 октября 2026, 03:33 America/New_York
+
+Austria, Czechia и Netherlands независимо приняты. France передала собственный полный итог66 и подробное дополнение67; родитель прочитал все183 предложенных записи и их field-evidence, но пока не принял страну: возвращены две точные офлайн-поправки телефона La Réunion и фильтра Chemotherapy Paris III. Это не возобновление общего поиска и не новые визиты. Poland и Germany продолжают доступный поиск тех же стран без лимита кандидатов. Site integration/build/main commit/push/deploy/production readback этого запуска не начинались; all-six gate закрыт.
+
+Research checkpoint068 реально сохранён и прочитан обратно в07:30:18UTC: data `7af7708272d9cb34bf788080f5276e4e63b7d4b7`, receipt `53f975f37a1bd4699bb05fa5725e418d96f11d5f`,54новых immutable файлов. Подтверждены PL45–46, DE36 и FR67. Collector ошибочно выбрал metadata-only result67 вместо полного66 для operational closure; ошибка видима в068 и не скрыта. Данные67 сохранены; отдельная точечная правка контроллера теперь аутентифицирует base66 по remote SHA, сохраняет67 как addendum и оставляет country result66. Повторная проверка:0errors/85actualcandidate-pending references. Изменённый контроллер ещё не приписывается старому068; он войдёт в следующий checkpoint.
+
+Poland46:360assigned/358processed/234fully,214NEW/2UPDATE/18DUPLICATE/49EXCLUDED/75processedUNRES,2unprocessed.216effective proposal locators независимо сверены по файлам,JSONpointers,recordSHA,old/new и последовательности:51файл/3immutable revisions/PASS. Это не clinical/country acceptance. Доступный дополнительный проход по75именованным самостоятельным врачебным/clinic-managed профилям продолжается; плановые или ещё не замороженные запросы не прибавлены к474.
+
+Germany37: исходные102обработанные записи с75retainedFULL/1UPDATE сохраняются. Дополнительный inherited frontier142:72processed/70unvisited,39NEW/11EXCLUDED/92UNRES (UNRES здесь включает unvisited; не считать их клинически обработанными). Отдельно2новые физические гипотезы Aartal processedUNRES, а услуги сети —одна networkNEW без физического pin.67доступных независимых направлений ещё не завершены;3Activet/felmo имеют точную изолированную scope-неопределённость, не вымышленный403 и не глобальный запрет.
+
+France66:725registeredprovider/servicehypotheses/662processed/190fully;183NEW(70retainedunpublished+57savedreverified+56freshdiscoveries),0UPDATE,8DUPLICATE,422EXCLUDED,49processedUNRES,63unprocessedexternal/conditional. Поиск по документированному плану завершён по заявлению работника, независимая приёмка ещё не объявлена.67проверяет58querypayloads/416loggedrecords/412точных строк:6исходных ответов потеряны внутренне,363имеют только sharedbatchmetadata; это не416полных выдач, не403 и не нулевые результаты. Vétéa/AzurVet/Vetologie отдельно имеют сохранённые первичные доказательства; они не подставлены вместо утраченных поисковых ответов. Полные master-rosters AniCura/VetPartners не объявлены пройденными: точные403/lostpayload gaps сохранены отдельно от реально проверенных филиалов.
+
+Все нижеследующие срезы сохранены как история, не текущие результаты. Main остаётся последним реально проверенным `b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45`; опубликованное до этого запуска повторно не считается NEW.
+
 ## Актуальный срез: 17 октября 2026, 02:28 America/New_York
 
 Исследования Austria, Czechia и Netherlands независимо приняты; Poland, Germany и France продолжают доступный национальный поиск. All-six publication gate по-прежнему закрыт. Интеграции сайта, сборки, main commit/push, deploy и production readback этого запуска нет. Research backup — отдельное сохранение, не публикация сайта.

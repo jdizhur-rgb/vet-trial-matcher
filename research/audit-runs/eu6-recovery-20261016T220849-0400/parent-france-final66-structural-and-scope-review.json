@@ -60,14 +60,33 @@
   "clinical_field_manual_read_completed_indices": [
     [
       0,
-      24
-    ]
-  ],
-  "manual_field_review_pending_indices": [
-    [
-      25,
       182
     ]
   ],
+  "manual_field_review_pending_indices": [],
+  "manual_field_review_observed_at": "2026-10-17 07:32:28 UTC",
+  "manual_field_review_precision": "All 183 record values and field-evidence objects read, including all service, clinician-role/credential, contact/address, access and branch restrictions. Oversized initial 0-24/45-69/70-79 outputs were not treated as complete: missing 7-20,54-59 and74 were explicitly reread in untruncated bounded outputs. Subsequent 80-182 outputs untruncated. No held raw body was requested or read.",
+  "parent_field_questions_returned_to_same_worker": [
+    {"source_id":"fr-sevetys-clinique-veterinaire-de-la-vague-saint-leu-ru2","field":"phone","question":"Metro +33 normalization was applied to La Reunion 0262349164. Offline territory-code/contact verification and append-only correction requested; no source-date refresh."},
+    {"source_id":"fr-anicura-paris-3-review","field":"services","question":"Exact earlier permitted clinic-specific Chimiotherapie proof appears sufficient for Chemotherapy, but draft currently only Local oncology care. Requested specific retained-context clarification/correction without held-page replay."}
+  ],
+  "phase_two_formatting_not_country_search": [
+    "Normalize explicit Cancer surgery wording to the repository's canonical Surgery modality if required by current schema; do not infer surgery from general operating-room capability.",
+    "CHUVA Jean-Baptiste Eon profile-level assistant/resident labels conflict; retain only unambiguous current veterinarian association or omit optional level, never assert diplomate from either label.",
+    "Published building addresses without validated coordinates remain eligible; no invented geocoordinates, overseas country/display mapping to be checked before production integration."
+  ],
+  "all64_baseline_tele_names_clinicians_and_urls_independently_read": true,
+  "tele_semantic_identity_adjudication": "Olliolis remote service and Doliger remote service do not occur in any of the 64 baseline remote entries. Onkolia/Paul Ghislain is the same clinician as physical Lingostiere, but a different patient-access/service format, not a duplicate remote listing. Physical/mobile/network/remote unit distinctions retained.",
+  "journal_addendum67_parent_review": {
+    "remote_checkpoint": "068",
+    "remote_data_sha": "7af7708272d9cb34bf788080f5276e4e63b7d4b7",
+    "ready_sha256": "b56400fdb3928e91332cdecf748dcacfa371b6326541ee4985079df2b5421907",
+    "own_substantive_addendum_received_and_full_report_text_read": true,
+    "independent_recount": "58 remote-SHA-authenticated query payloads; 416 actual query rows/412 unique exact strings; q27/query389. Classification counts independently recomputed exactly:27 row-summary,363 shared-batch-only,11 row+batch,9 prefix-only,6 missing responses. All six missing in block16 indices0-5. No source_attempts substituted for responses.",
+    "journal_defect": "INTERNAL preservation gap, not external403 or zero-result proof. Original six responses unavailable; later primary proof of Vetea/AzurVet/Vetologie independently confirms those existing candidate outcomes. No query replay or invented response/ref/count.",
+    "collector068_warning": "Metadata-only result67 was incorrectly selected as current full result for operational-reference closure, producing an explicit warning. All sealed67 bytes were saved and read back. Controller selection corrected with exact metadata-kind, zero source/query/count changes and remote authenticated base66. Bounded actual rerun:0errors, country result66,85candidate/pending references. Fix is new controller code, not retroactively claimed in068.",
+    "country_acceptance": false,
+    "site_publication": false
+  },
   "no_country_acceptance_yet": true
 }

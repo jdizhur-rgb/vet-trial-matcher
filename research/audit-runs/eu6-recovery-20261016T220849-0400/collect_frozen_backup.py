@@ -104,7 +104,31 @@ def collect():
                     if q.parent.name.startswith('final'):
                         logical=1000000+logical # Delivery ordering only, never independent research acceptance.
                     if q.name in {'result.json','result-delta.json'}:
-                        block_results[str(item['slot'])]={'source_path':rel,'sha256':sha,'ready_file_mtime_ns':ready_mtime,'logical_block':logical}
+                        # A sealed journal-only addendum is backed up, but it is
+                        # not a replacement country result. Its explicit base is
+                        # authenticated below before the block can be collected.
+                        metadata_only = (item['slot']==5 and
+                            v.get('kind')=='QUERY_JOURNAL_METADATA_ADDENDUM')
+                        if metadata_only:
+                            addendum=json.loads(q.read_text())
+                            assert addendum.get('kind')==v['kind']
+                            for key in ('run_id','slot','country','baseline_sha','agent_id'):
+                                assert addendum[key]==item[key]
+                            assert addendum.get('count_change')==0
+                            assert addendum.get('source_requests')==0
+                            assert addendum.get('query_replays')==0
+                            base=addendum['base_final_result']
+                            pure=pathlib.PurePosixPath(base['path'])
+                            assert not pure.is_absolute() and '..' not in pure.parts
+                            assert pure.parts[0]=='checkpoints' and pure.name=='result.json'
+                            target=w/pure
+                            base_rel=target.relative_to(ROOT).as_posix()
+                            base_sha=uploaded.get(base_rel) or files.get(base_rel,{}).get('sha256')
+                            assert base_sha==base['sha256'],('Unbacked metadata-addendum base',base_rel)
+                            assert not target.is_symlink() and target.resolve().is_relative_to(w.resolve())
+                            assert digest(target)==base_sha
+                        else:
+                            block_results[str(item['slot'])]={'source_path':rel,'sha256':sha,'ready_file_mtime_ns':ready_mtime,'logical_block':logical}
                     if q.name=="report.md" and not v.get('skip_report_alias',False) and not is_scope_addendum and not declared_incremental:
                         block_reports[str(item["slot"])]={"source_path":rel,"target_path":item["worker_directory"]+"/report.md","sha256":sha,"ready_file_mtime_ns":ready_mtime,"logical_block":logical,"order_note":"Logical block first, actual ready mtime only tie-break; historical repairs do not advance country. NOT source checked_at or acceptance"}
                 known={**uploaded,**{p:f['sha256'] for p,f in files.items()},**{p:f['sha256'] for p,f in block_files.items()}}
