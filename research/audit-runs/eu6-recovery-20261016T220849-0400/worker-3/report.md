@@ -433,3 +433,16 @@ Remote023parentPASS03:37:00UTC:datafd6f1c99e155e9d7ec4005b22eb507f0fabc7ef2,rece
 Родитель подтвердил remote024 (19): data abfa0ae38ba7a0c08b3776fb5e8e93cdf33daf6a3, receipt db09471dabc78e2f209a977c3be2d53ee64c2630, PASS 03:39:38 UTC. Remote025 (20 + holds008/009): data be8d7e9912d3d7a2595a3d0fec5df56d68db883a, receipt 320e6839f89726002f8d2a72287f4f230e7c552e, PASS 03:43:08 UTC. Это резервная копия исследования, не country acceptance/публикация. Блок21 пока не объявляю удалённо сохранённым.
 
 research_complete=false: остаются 23 реальные единицы, независимые разрешённые уточнения UNRESOLVED и национальные направления. Продолжаю Польшу.
+
+
+## Блок 22 — branch scope и Serwin, 2026-10-17 03:50:00 UTC
+
+259 уникальных предварительно назначенных единиц =245 обработанных+14 необработанных. Обработанные:159NEW+3UPDATE+17DUPLICATE+30EXCLUDED/nonpromotion+36UNRESOLVED=245. Полностью проверены179 (157NEW физических+2сетевых+20baseline). NEW159=127старых физических+6late-saved+24региональных повторно проверенных+2сетевых; свежих discovery0.
+
+Новая подтверждённая запись из сохранённого регионального lead: Lecznica weterynaryjna Serwin, Nowy Sącz, Młyńska22,33-300,+48184411780 (также572501513), https://www.lecznicaserwin.pl/. Cancer surgery подтверждена прямым предложением удаления почки при новообразовании: https://www.lecznicaserwin.pl/pl/chirurgia-ogolna.html. Действующие квалифицированные MaciejSerwin и PatrycjaKamionka опубликованы в https://www.lecznicaserwin.pl/zespol-pl/; текущий intake/hours — https://www.lecznicaserwin.pl/kontakt.html. Не вывожу chemo/RT/ECT из оборудования, а старый сигнал переезда2025 не считаю будущим открытием2026. Полный baseline3229JSON-строк и ранее проверенный tele64 не содержат этой identity; delta025 + dedupe006.
+
+Brynów, FolwarkZwierzęcy, NaNaramowicach и TauzenWet — nonpromotion по текущим полным общим услугам: generic surgery, generic hematology и даже image-alt «onkologi» не устанавливают местную противоопухолевую терапию. Это не отсутствие лечения. Индивидуальные старые held-профили не повторялись. Skotnicka24: текущие oncology-label и квалифицированная SabinaGalganek установлены, но actual therapeutic consultation/scope и dogcat allocation остаются вопросом; booking-shell не даёт clinical credit. NewVetChełm: home текущий, services429hold012, team ordinary error. Reptilio: точный primary-root ordinary Web error без выдуманного403; разрешённый normalTLS fallback ещё собственный остаток. MultiwetBemowo: текущая home identity, старый held-surgery429 не повторялся, явная local cancer scope не подтверждена.
+
+Ограничения011: FolwarkDawidDymacz429; отдельно advertisedSkotbookingwidgetnotaccessible. Случайный сторонний Maps credential в native script-URL output не сохранён/нехэширован/неиспользован. В источниках только безопасные metadata и релевантные факты, никаких fullHTML/бинарныхPDF/скриптов. Родитель уведомлён; формы не отправлялись. 150 source-receipt batch units,99actualownqueries, не буквальное число файлов. Источники131–139 минимизированы в sources/safe131-139.json.
+
+research_complete=false:14 необработанных +36точных UNRES и национальные направления остаются собственной доступной работой. Продолжаю ту же Польшу. Блок22 не назван remote-saved до фактического parent readback.
