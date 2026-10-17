@@ -1,0 +1,110 @@
+{
+  "run_id": "eu6-recovery-20261016T220849-0400",
+  "recorded_at": "2026-10-17 05:13:17 UTC",
+  "kind": "INTERIM_RESEARCH_PROGRESS_NOT_FINAL_DELIVERY",
+  "latest_verified_backup": {
+    "checkpoint": "041",
+    "data_sha": "81628c32f69debd6feafc5ad6cb612dbad17e954",
+    "receipt_sha": "4b3bab0d4a07a58582a6eaacdad5f05b9c7e8dac",
+    "verified_at": "2026-10-17 05:11:44 UTC"
+  },
+  "independently_research_accepted": [
+    1,
+    2
+  ],
+  "running_same_agents": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "site_integration_allowed": false,
+  "main_commits": [],
+  "deploys": [],
+  "production_readbacks": [],
+  "slot_snapshots": [
+    {
+      "slot": 1,
+      "country": "Austria",
+      "agent_id": "/root/oct16_at",
+      "block": "final-delivery",
+      "assigned": 160,
+      "processed": 160,
+      "fully_verified": 119,
+      "NEW": 45,
+      "UPDATE": 30,
+      "update_fields": 51,
+      "research_complete_accepted": true
+    },
+    {
+      "slot": 2,
+      "country": "Czechia",
+      "agent_id": "/root/oct16_cz",
+      "block": "final-publicsafe",
+      "assigned": 153,
+      "processed": 153,
+      "fully_verified": 105,
+      "NEW": 53,
+      "UPDATE": 10,
+      "update_fields": 10,
+      "research_complete_accepted": true
+    },
+    {
+      "slot": 3,
+      "country": "Poland",
+      "agent_id": "/root/oct16_pl",
+      "block": "31",
+      "assigned": 322,
+      "processed": 318,
+      "fully_verified": 215,
+      "NEW": 195,
+      "UPDATE": 2,
+      "research_complete_accepted": false
+    },
+    {
+      "slot": 4,
+      "country": "Germany",
+      "agent_id": "/root/oct16_de",
+      "block": "17",
+      "original_assigned": 102,
+      "original_processed": 102,
+      "inherited_fully": 75,
+      "additional_hypotheses": 142,
+      "additional_processed": 2,
+      "additional_full": 0,
+      "NEW": 0,
+      "UPDATE": 1,
+      "update_fields": 2,
+      "pending_later_draft": "BerlinVets18 actual3source200/1freshfull pending sealed evidence/parent QA; not counted in17",
+      "research_complete_accepted": false
+    },
+    {
+      "slot": 5,
+      "country": "France",
+      "agent_id": "/root/oct16_fr",
+      "block": "44",
+      "assigned": 665,
+      "processed": 631,
+      "fully_verified": 177,
+      "NEW": 170,
+      "UPDATE": 0,
+      "research_complete_accepted": false
+    },
+    {
+      "slot": 6,
+      "country": "Netherlands",
+      "agent_id": "/root/oct16_nl",
+      "block": "62",
+      "assigned": 554,
+      "processed": 551,
+      "fully_verified": 91,
+      "NEW": 83,
+      "UPDATE": 9,
+      "new_partial": 8,
+      "external_metadata_only_unprocessed": 3,
+      "research_complete_accepted": false
+    }
+  ],
+  "qualification": "Current immutable local snapshots, not all included in041. Each payload's remote inclusion only by exact ledger/receipt. Counts are proposals, not published clinics; inherited unpublished separate from fresh discovery. Germany hypothesis labels not yet all unique physical providers. Full final reports and independent all-six gate still required.",
+  "technical_fix": "Collector now recognizes immutable result-delta.json as latest state without replacing full report alias. Local collectorQA no errors, NL62 chosen instead of stale50; France58operationalreferences closed. Not independent research acceptance."
+}

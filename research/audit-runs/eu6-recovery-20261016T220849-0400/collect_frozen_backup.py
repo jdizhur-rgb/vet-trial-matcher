@@ -103,7 +103,7 @@ def collect():
                     logical=int(match.group(1)) if match else 0
                     if q.parent.name.startswith('final'):
                         logical=1000000+logical # Delivery ordering only, never independent research acceptance.
-                    if q.name=='result.json':
+                    if q.name in {'result.json','result-delta.json'}:
                         block_results[str(item['slot'])]={'source_path':rel,'sha256':sha,'ready_file_mtime_ns':ready_mtime,'logical_block':logical}
                     if q.name=="report.md" and not v.get('skip_report_alias',False) and not is_scope_addendum and not declared_incremental:
                         block_reports[str(item["slot"])]={"source_path":rel,"target_path":item["worker_directory"]+"/report.md","sha256":sha,"ready_file_mtime_ns":ready_mtime,"logical_block":logical,"order_note":"Logical block first, actual ready mtime only tie-break; historical repairs do not advance country. NOT source checked_at or acceptance"}

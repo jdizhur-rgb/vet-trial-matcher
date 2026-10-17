@@ -1,5 +1,22 @@
 # Европа — промежуточный отчёт контроллера
 
+## Текущий срез 17 октября 2026, 01:12 America/New_York — работа не завершена
+
+Ниже прежние разделы оставлены как **исторические snapshots**, не текущие счётчики. Последний remote backup041: data `81628c32f69debd6feafc5ad6cb612dbad17e954`, receipt `4b3bab0d4a07a58582a6eaacdad5f05b9c7e8dac`, readback05:11:44UTC. Новейшие local sealed-пакеты ещё не считаются remote без собственных manifest/receipt; подробности в controller-progress-042.json. Сбой exec038 был временным, тот же архив успешно сохранён и прочитан обратно; никаких вымышленных шести новых исполнителей или фонового продолжения нет.
+
+|Slot / страна / реальный agent|Срез пакета|Assigned / processed / fully|Draft NEW / UPDATE|Приёмка|
+|---|---|---|---|---|
+|1 Austria /root/oct16_at|final-delivery|160 /160 /119|45 /30identities,51fields|Researchaccepted, sitepending|
+|2 Czechia /root/oct16_cz|final-publicsafe|153 /153 /105|53 /10identities,10fields|Researchaccepted, sitepending|
+|3 Poland /root/oct16_pl|31|322 /318 /215|195 /2|Active; ownnationalfrontier,4unprocessed. 195неfreshdiscovery:29freshqualified отдельно|
+|4 Germany /root/oct16_de|17|Original102/102/75inherited; additional142hypotheses/2blockedprocessed/0full|0 /1identity,2fields|Active.138candidate-specific available workflows+2felmoallocationquestions; genericlost854неblanketban. BerlinVets18laterdraft отдельно, не включёнв17|
+|5 France /root/oct16_fr|44|665 /631 /177|170 /0|Active;34namedpending+nationalcoverageaudit, noearlycompletion|
+|6 Netherlands /root/oct16_nl|62|554 /551 /91|83 /9|Active finalsource/identityQA.8partialNEW, не3;3metadata-only externalidentitiesнеclinicalprocessed|
+
+Сверены целостность185польских effectiveproposals (183NEW/2UP,36payloadfiles,exactSHA/JSONpointer/recordSHA/ID/op/field) и немецкие91historicalqueries/24responseшарды,16земель×5слоёв80строк. Это не независимая clinical/completenessприёмка. ВNL237ownerfinderrecords сопоставлены232identityreferences+2noncompanion+3externalmetadataquestions; это не237новыхклиник.
+
+До independentall-sixgate интеграция сайта, сборка, maincommit/push/deploy/productionreadback не начаты. Research backup не является публикацией сайта. Курсоры и прочие задачи не менялись. Шесть полноценных итогов и прямые reportссылки будут итоговой доставкой только после фактической работы/приёмки, а не обещанием готового результата.
+
 ### Дополнение по разрешениям источников, 17октября
 
 Фактическое отклонение VetLink: после root40304:21:53.566305UTC уже запущенный цикл сделал ещё два nativeGET к/tarifs и/a-propos (оба403);queued/zones-d-intervention имеет неизвестный факт исполнения/status, не выдан за посещённый или403. Worker остановил loop Ctrl-C/exit130 и проверил отсутствие ownPID до последующего запрета polling.403body не читался/не хешировался/не восстанавливался, clinical/datecredit0; весь providerworkflowheld, другие разрешённые провайдеры продолжаются. Причина — отсутствие немедленного break внутри reader, не «обычный transport fallback». Parent прочитал metadata, исправленный break и localmock401/403/429:4planned→1call/0later/0network. Запрошен отдельный failclosed redirectguard до будущих GET. Remote receipt этого нового блока будет указан отдельно, а не приписан checkpoint032.
