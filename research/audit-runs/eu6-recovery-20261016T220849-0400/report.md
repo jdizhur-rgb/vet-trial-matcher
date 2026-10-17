@@ -1,5 +1,17 @@
 # Европа — промежуточный отчёт контроллера
 
+## Актуальный срез: 17 октября 2026, 02:28 America/New_York
+
+Исследования Austria, Czechia и Netherlands независимо приняты; Poland, Germany и France продолжают доступный национальный поиск. All-six publication gate по-прежнему закрыт. Интеграции сайта, сборки, main commit/push, deploy и production readback этого запуска нет. Research backup — отдельное сохранение, не публикация сайта.
+
+Последний remote checkpoint057 проверен 06:26:59 UTC: data `ad82f926a4095a82a19121e366011ffeed14d737`, receipt `2bded9e4199cd9a5af6c11fb92800230ee9eb8e7`. В него вошли Poland39 и metadata incident034; France58 тогда ещё не был сохранён удалённо и передаётся в следующий058. Приёмка Netherlands6 отдельно уже byte-readback подтверждена052.
+
+Текущие собственные срезы, НЕ окончательная приёмка стран: Poland39 —359 assigned/356 processed/228 fully,209 NEW(208 eligible,1 partial Therios)/2 UPDATE; Germany28 — исходные102(75 retained full,1 UPDATE) плюс142 новых гипотезы, из которых31 processed/20 NEW full,111 ещё не посещены; France58 —726 assigned/655 processed/186 fully,179 NEW,71 unprocessed. Новые польские Filipiński/LABROS, французские Bercy/Arcadia/Halles/NiceVet/Argovet и немецкие Cadomo/Waldpark/Herzogstraße не считаются опубликованными.
+
+Независимая техническая проверка Poland211 exact file/pointer/record SHA и двух immutable revisions выполнена:209 NEW/2 UPDATE,45 файлов. Исправлен старый AMVET strict-флаг: optional postcode conflict не барьер подтверждённой локальной помощи; повторного NEW/визита/fully increment нет. Therios сохраняет положительное врачебное описание лечения, но остаётся partial source-provenance hold, без применения в production.
+
+Ошибочные dedupe-method claims Poland017/018 заменены отдельным проверенным чтением3229 реальных JSON-строк с positive controls. Дополнительно сохранён scope incident: rg по маске мог прочитать изолированный файл до фильтрации; отсутствие его строк в выводе не доказывает отсутствие чтения. Никакого повторного чтения/хэширования quarantine для расследования; последующие чтения только по предварительному разрешённому списку. France Montayral исправляется как alias уже имеющейся новой записи, не вторая клиника. Все предыдущие разделы ниже — исторические снимки, не текущие итоги.
+
 ## Последний срез: 17 октября 2026, 01:58 America/New_York — поиск продолжается
 
 Независимо приняты исследования Austria, Czechia и Netherlands; Poland, Germany и France продолжают тот же доступный национальный frontier. Сайт НЕ интегрировался, не собирался и не публиковался: all-six gate закрыт по slots3/4/5. Новый bounded fetch завершён, remote main по-прежнему `b76a77b99d41caa62d5f91dc0c1f1bdef4f64e45`; production data/seo/.github diff пуст.
