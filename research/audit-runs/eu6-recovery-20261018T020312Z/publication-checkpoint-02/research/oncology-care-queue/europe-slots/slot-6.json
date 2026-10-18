@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "slot": 6,
+  "countries": [
+    "Netherlands",
+    "Denmark",
+    "Greece",
+    "Croatia",
+    "Estonia",
+    "Iceland",
+    "San Marino"
+  ],
+  "cursor": 1,
+  "runs": [
+    {
+      "local_date": "2026-10-15",
+      "country": "Netherlands",
+      "disposition": "INCOMPLETE",
+      "audit_directory": "research/audit-runs/europe-slot-6-20261015",
+      "remaining": [
+        {
+          "name": "AniCura Eersel / Tilburg",
+          "url": "https://www.anicura.nl/klinieken/noord-brabant/eersel/expertises/oncologische-verwijszorg/",
+          "classification": "branch_delivery_ambiguous",
+          "assessment": "executor_unfinished",
+          "next": "Follow current Tilburg cancer-treatment route and reconcile Eersel treatment versus referral; generic Eersel page names Tilburg."
+        },
+        {
+          "name": "De Zwolse Dierenkliniek",
+          "url": "https://dezwolsedierenkliniek.nl/",
+          "classification": "treatment_unestablished",
+          "assessment": "executor_unfinished",
+          "next": "Opening lead and accessible home page reviewed, but specific tumor-removal service/team/contact traversal remains."
+        },
+        {
+          "name": "Niessen Forcada / Sarah Mason",
+          "url": "https://niessenforcada.com/ons-team",
+          "classification": "remote_oncology_confirmed_identity_pending",
+          "assessment": "executor_unfinished",
+          "next": "Reconcile actual service identity/booking/practice geography with existing OncoTails Sarah Mason before adding or updating remote listing; Houten physical offering does not establish physical oncology."
+        },
+        {
+          "name": "Kapellebrug and IJzendijke",
+          "url": "https://www.dierenkliniekkapellebrug.nl/specialisaties/gezelschapsdieren/",
+          "classification": "interbranch_delivery_unclear",
+          "assessment": "executor_unfinished",
+          "next": "Both current service pages say oncology in cooperation with Kapellebrug; resolve named clinician and actual treatment location, do not duplicate shared generic text."
+        },
+        {
+          "name": "Spijkenisse",
+          "url": "https://dierenkliniekspijkenisse.nl/jan-willem-van-den-bosch/",
+          "classification": "clinician_interest_only",
+          "assessment": "executor_unfinished",
+          "next": "Follow real service links and cancer procedure evidence; oncology interest alone is not delivery proof. Guessed /chirurgie/ reader route failed."
+        },
+        {
+          "name": "Dierenziekenhuis Dongen",
+          "url": "https://www.dierenziekenhuisdongen.nl/",
+          "classification": "surgical_oncology_interest_not_delivery_proof",
+          "assessment": "executor_unfinished",
+          "next": "Home names Giel Vettorato and interest in oncologic surgery; follow referral/current service route before asserting administered cancer surgery."
+        },
+        {
+          "name": "Groningen Vechtstraat",
+          "url": "https://www.huisdierenkliniek.nl/",
+          "classification": "patient_story_lead",
+          "assessment": "executor_unfinished",
+          "next": "Current home/contact reachable; investigate actual local chemotherapy rather than infer from Reddit owner report."
+        },
+        {
+          "name": "National network/provincial frontier",
+          "assessment": "executor_unfinished",
+          "next": "Complete AniCura location-to-local-treatment traversal, independent GP follow-up in Friesland/Groningen/Flevoland, visiting/mobile providers and radiation/ECT-specific branch routes; finish comparison of six prior cards. Search execution covered province names but did not establish exhaustive regional rosters."
+        }
+      ],
+      "new": 12,
+      "update": 0,
+      "next_country": "Denmark"
+    },
+    {
+      "run_id": "europe-controller-20261016T092604-0400",
+      "local_date": "2026-10-16",
+      "country": "Netherlands",
+      "agent_id": "/root/eu16_slot6_nl",
+      "disposition": "INCOMPLETE",
+      "checkpoint": "research/audit-runs/europe-controller-20261016T092604-0400/worker-6/checkpoint-02",
+      "remaining_file": "research/audit-runs/europe-controller-20261016T092604-0400/worker-6/checkpoint-02/remaining.json",
+      "accepted_at": "2026-10-16T21:42:07.899167+08:00",
+      "published_new": 1,
+      "publication_status": "PUBLISHED_DEPLOYED_PRODUCTION_EQUAL",
+      "publication_sha": "e3f4786267ed4040327dd8c8619e8de545f22eaa",
+      "deploy_run": 38910089852,
+      "production_receipt": "research/audit-runs/europe-controller-20261016T092604-0400/production-01.json"
+    },
+    {
+      "run_id": "eu6-recovery-20261018T020312Z",
+      "local_date": "2026-10-17",
+      "accepted_at": "2026-10-18T00:52:35.154588-04:00",
+      "country": "Netherlands",
+      "agent_id": "/root/eu17_nl",
+      "disposition": "COMPLETE",
+      "research_complete": true,
+      "coverage_complete": true,
+      "all_six_independent_acceptance": true,
+      "parent_accepted": true,
+      "available_remaining": 0,
+      "report_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/blob/bb4c0f3d79c5b07528ebd9351d62876e1e49c7cc/research/audit-runs/eu6-recovery-20261018T020312Z/worker-6/checkpoints/block-03/report.md",
+      "report_sha256": "b2b56ce5ab68387f4ea916a5736087b4f6096002cb1d85900543c2d2c0bd515a",
+      "NEW_approved": 79,
+      "UPDATE_identities": 9,
+      "UPDATE_fields": 9,
+      "current_new_country_started": false,
+      "publication_status": "LOCAL_INTEGRATED_VALIDATION_PENDING",
+      "publication_ledger": "research/audit-runs/eu6-recovery-20261018T020312Z/publication-ledger.json",
+      "external_gaps_reference": "research/oncology-care-queue/access-restriction-index.json"
+    }
+  ],
+  "follow_ups": [],
+  "current_country": "Netherlands",
+  "status": "RESEARCH_COMPLETE",
+  "last_accepted_run_id": "eu6-recovery-20261018T020312Z",
+  "historical_follow_ups": [
+    {
+      "country": "Netherlands",
+      "from_local_date": "2026-10-15",
+      "remaining": [
+        {
+          "name": "AniCura Eersel / Tilburg",
+          "url": "https://www.anicura.nl/klinieken/noord-brabant/eersel/expertises/oncologische-verwijszorg/",
+          "classification": "branch_delivery_ambiguous",
+          "assessment": "executor_unfinished",
+          "next": "Follow current Tilburg cancer-treatment route and reconcile Eersel treatment versus referral; generic Eersel page names Tilburg."
+        },
+        {
+          "name": "De Zwolse Dierenkliniek",
+          "url": "https://dezwolsedierenkliniek.nl/",
+          "classification": "treatment_unestablished",
+          "assessment": "executor_unfinished",
+          "next": "Opening lead and accessible home page reviewed, but specific tumor-removal service/team/contact traversal remains."
+        },
+        {
+          "name": "Niessen Forcada / Sarah Mason",
+          "url": "https://niessenforcada.com/ons-team",
+          "classification": "remote_oncology_confirmed_identity_pending",
+          "assessment": "executor_unfinished",
+          "next": "Reconcile actual service identity/booking/practice geography with existing OncoTails Sarah Mason before adding or updating remote listing; Houten physical offering does not establish physical oncology."
+        },
+        {
+          "name": "Kapellebrug and IJzendijke",
+          "url": "https://www.dierenkliniekkapellebrug.nl/specialisaties/gezelschapsdieren/",
+          "classification": "interbranch_delivery_unclear",
+          "assessment": "executor_unfinished",
+          "next": "Both current service pages say oncology in cooperation with Kapellebrug; resolve named clinician and actual treatment location, do not duplicate shared generic text."
+        },
+        {
+          "name": "Spijkenisse",
+          "url": "https://dierenkliniekspijkenisse.nl/jan-willem-van-den-bosch/",
+          "classification": "clinician_interest_only",
+          "assessment": "executor_unfinished",
+          "next": "Follow real service links and cancer procedure evidence; oncology interest alone is not delivery proof. Guessed /chirurgie/ reader route failed."
+        },
+        {
+          "name": "Dierenziekenhuis Dongen",
+          "url": "https://www.dierenziekenhuisdongen.nl/",
+          "classification": "surgical_oncology_interest_not_delivery_proof",
+          "assessment": "executor_unfinished",
+          "next": "Home names Giel Vettorato and interest in oncologic surgery; follow referral/current service route before asserting administered cancer surgery."
+        },
+        {
+          "name": "Groningen Vechtstraat",
+          "url": "https://www.huisdierenkliniek.nl/",
+          "classification": "patient_story_lead",
+          "assessment": "executor_unfinished",
+          "next": "Current home/contact reachable; investigate actual local chemotherapy rather than infer from Reddit owner report."
+        },
+        {
+          "name": "National network/provincial frontier",
+          "assessment": "executor_unfinished",
+          "next": "Complete AniCura location-to-local-treatment traversal, independent GP follow-up in Friesland/Groningen/Flevoland, visiting/mobile providers and radiation/ECT-specific branch routes; finish comparison of six prior cards. Search execution covered province names but did not establish exhaustive regional rosters."
+        }
+      ],
+      "completed": false
+    },
+    {
+      "country": "Netherlands",
+      "from_run": "europe-controller-20261016T092604-0400",
+      "disposition": "INCOMPLETE",
+      "remaining_file": "research/audit-runs/europe-controller-20261016T092604-0400/worker-6/checkpoint-02/remaining.json",
+      "same_day_resume_country": "Netherlands"
+    }
+  ],
+  "own_remaining": [],
+  "external_follow_ups": [
+    {
+      "country": "Netherlands",
+      "from_run": "eu6-recovery-20261018T020312Z",
+      "disposition": "EXTERNAL_FACT_ACCESS_OR_OWNER_DECISION_GAPS",
+      "provider_service_questions": 72,
+      "additional_field_or_profile_questions": 0,
+      "report_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/blob/bb4c0f3d79c5b07528ebd9351d62876e1e49c7cc/research/audit-runs/eu6-recovery-20261018T020312Z/worker-6/checkpoints/block-03/report.md",
+      "remaining_sha256": "f103faebad103176f661e8ac766a2bb7af21792db89c0b30df3b7b54ecc28b10",
+      "restriction_index": "research/oncology-care-queue/access-restriction-index.json"
+    }
+  ],
+  "last_research_complete_run_id": "eu6-recovery-20261018T020312Z",
+  "research_complete": true,
+  "publication_status": "LOCAL_INTEGRATED_VALIDATION_PENDING",
+  "progress_note": "Initial country completed after independent all-six acceptance; historic receipts unchanged, no country switch in this run and no double cursor advance."
+}

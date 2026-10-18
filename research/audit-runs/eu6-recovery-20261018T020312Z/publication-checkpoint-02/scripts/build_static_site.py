@@ -1,0 +1,213 @@
+#!/usr/bin/env python3
+"""Build the complete production website from the files committed to main."""
+
+from __future__ import annotations
+
+import hashlib
+import os
+import re
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+SITE = ROOT / "seo" / "site"
+sys.path.insert(0, str(ROOT / "seo"))
+
+from site_shell import apply_page_title_component, wrap_html  # noqa: E402
+
+
+FORBIDDEN_TRACKING_MARKERS = (
+    "cloud.umami.is",
+    "window.umami",
+    "matcher-search",
+)
+
+
+def run(*args: str, pythonpath: str | None = None) -> None:
+    env = os.environ.copy()
+    if pythonpath:
+        env["PYTHONPATH"] = str(ROOT / pythonpath)
+    subprocess.run([sys.executable, *args], cwd=ROOT, env=env, check=True)
+
+
+def validate_no_tracking() -> None:
+    findings: list[str] = []
+    for path in SITE.rglob("*"):
+        if not path.is_file() or path.suffix.lower() not in {".html", ".js"}:
+            continue
+        text = path.read_text(encoding="utf-8")
+        for marker in FORBIDDEN_TRACKING_MARKERS:
+            if marker in text:
+                findings.append(f"{path.relative_to(ROOT)}: {marker}")
+    if findings:
+        raise RuntimeError("Tracking code found in production output:\n" + "\n".join(findings))
+    print("NO_TRACKING_OK")
+
+
+def validate_public_page_shell() -> None:
+    pages = list(SITE.rglob("*.html"))
+    missing_title_component: list[str] = []
+    missing_header_links: list[str] = []
+    missing_article_headers: list[str] = []
+    expected_links = (
+        '<form id="header-site-search" class="header-search" role="search" action="https://vettrialfinder.com/search/" method="get">',
+        '<a href="https://vettrialfinder.com/matcher/">Find clinical trials</a>',
+        '<a href="https://vettrialfinder.com/veterinary-cancer-clinical-trials/">About clinical trials</a>',
+        '<a href="https://vettrialfinder.com/matcher/centers/">Find oncology care near you</a>',
+        '<a href="https://vettrialfinder.com/centers/">Clinical trial centers &amp; research programs</a>',
+    )
+    for path in pages:
+        text = path.read_text(encoding="utf-8")
+        h1_tags = re.findall(r"<h1\b[^>]*>", text, flags=re.IGNORECASE)
+        if h1_tags and any(
+            not re.search(r'class=["\'][^"\']*\bpage-title\b', tag) for tag in h1_tags
+        ):
+            missing_title_component.append(str(path.relative_to(ROOT)))
+        if '<header class="site-header">' in text and any(link not in text for link in expected_links):
+            missing_header_links.append(str(path.relative_to(ROOT)))
+        if SITE / "articles" in path.parents and '<header class="site-header">' not in text:
+            missing_article_headers.append(str(path.relative_to(ROOT)))
+    if missing_title_component:
+        raise RuntimeError(
+            "Public H1 missing shared page-title component:\n"
+            + "\n".join(missing_title_component)
+        )
+    if missing_header_links:
+        raise RuntimeError(
+            "Shared header missing required trial or oncology-care links:\n"
+            + "\n".join(missing_header_links)
+        )
+    if missing_article_headers:
+        raise RuntimeError(
+            "Article page missing shared site header:\n"
+            + "\n".join(missing_article_headers)
+        )
+    homepage = SITE / "index.html"
+    home_text = homepage.read_text(encoding="utf-8")
+    if len(re.findall(r"<h1\b", home_text, flags=re.IGNORECASE)) != 1:
+        raise RuntimeError("Homepage must contain exactly one H1")
+
+    matcher = SITE / "matcher" / "index.html"
+    matcher_text = matcher.read_text(encoding="utf-8")
+    canonical_tags = re.findall(
+        r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']',
+        matcher_text,
+        flags=re.IGNORECASE,
+    )
+    if canonical_tags != ["https://vettrialfinder.com/matcher/"]:
+        raise RuntimeError(f"Matcher canonical must be clean and unique: {canonical_tags}")
+    internal_query_links = []
+    for page in SITE.rglob("*.html"):
+        text = page.read_text(encoding="utf-8")
+        if "https://vettrialfinder.com/matcher/?" in text:
+            internal_query_links.append(str(page.relative_to(ROOT)))
+    if internal_query_links:
+        raise RuntimeError(
+            "Internal pages must not link to crawlable matcher query URLs:\n"
+            + "\n".join(internal_query_links)
+        )
+
+    print("PUBLIC_PAGE_SHELL_OK", len(pages))
+
+
+def main() -> None:
+    # Production builds must remain reproducible from committed source. This
+    # rejects workflows that rewrite the repository after a push.
+    run("scripts/validate_repository_hygiene.py")
+
+    # The deployment artifact is generated, not an incremental cache. Starting
+    # clean prevents retired pages committed by an older generator from being
+    # carried into the next build with stale canonicals or metadata.
+    shutil.rmtree(SITE, ignore_errors=True)
+    run("seo/build_production_site.py")
+    run("seo/validate_cancer_depth.py", "--site", "seo/site", pythonpath="seo")
+    run("scripts/build_matcher_data.py")
+    run("scripts/build_oncology_center_catalog.py")
+    run("seo/generate_oncology_center_finder.py")
+    run("seo/validate_oncology_centers.py")
+
+    # The committed matcher templates are the single source for /matcher/.
+    # Copy only that tree; preview and rollback routes are intentionally absent.
+    static = ROOT / "seo" / "static"
+    matcher_source = static / "matcher"
+    matcher = SITE / "matcher"
+    if not matcher_source.exists():
+        raise RuntimeError("Missing canonical matcher templates")
+    # A supervised/local preview may create the destination between the clean
+    # build and this copy. The matcher output is fully generated, so merge the
+    # freshly built files instead of failing on the pre-created directory.
+    shutil.copytree(matcher_source, matcher, dirs_exist_ok=True)
+    # A new catalog must not reuse an older browser/CDN cache entry.
+    catalog_version = hashlib.sha256((matcher / "trials.json").read_bytes()).hexdigest()[:16]
+    matcher_index = matcher / "index.html"
+    index_text = matcher_index.read_text(encoding="utf-8")
+    if "window.MATCHER_DATA_URL='./trials.json';" not in index_text:
+        raise RuntimeError("Missing canonical matcher catalog URL")
+    matcher_index.write_text(index_text.replace(
+        "window.MATCHER_DATA_URL='./trials.json';",
+        f"window.MATCHER_DATA_URL='./trials.json?v={catalog_version}';",
+    ), encoding="utf-8")
+    for page in matcher.rglob("*.html"):
+        text = wrap_html(page.read_text(encoding="utf-8"))
+        if page.relative_to(matcher) != Path("ect/index.html"):
+            text = re.sub(
+                r'<meta name="robots" content="noindex[^"]*">',
+                "",
+                text,
+                flags=re.IGNORECASE,
+            )
+        page.write_text(text, encoding="utf-8")
+
+    # Copy immutable shared assets and verification files explicitly. This
+    # avoids treating seo/static as a second, implicit website generator.
+    for source in static.iterdir():
+        if source.name == "matcher":
+            continue
+        destination = SITE / source.name
+        if source.is_dir():
+            shutil.copytree(source, destination)
+        else:
+            shutil.copy2(source, destination)
+
+    # Owner-facing articles generated here enter the same final indexing pass
+    # as the rest of the production site.
+    run("seo/clinical_trials_for_pets_article.py", pythonpath="seo")
+    run("seo/lump_before_surgery_article.py", pythonpath="seo")
+    run("seo/article_catalog.py", pythonpath="seo")
+
+    # These deterministic finishing stages operate on the generated HTML.
+    run("seo_index_cleanup.py")
+    run("help_content_update.py")
+    run("center_directory_picker.py")
+    run("seo/validate_center_profiles.py")
+    run("seo/enforce_sentence_case.py", pythonpath="seo")
+    run("scripts/build_site_search.py")
+    run("scripts/test_center_url_redirects.py")
+    run("scripts/validate_production_sync.py")
+    for page in SITE.rglob("*.html"):
+        page.write_text(
+            apply_page_title_component(page.read_text(encoding="utf-8")),
+            encoding="utf-8",
+        )
+    validate_no_tracking()
+    validate_public_page_shell()
+    subprocess.run(
+        ["node", "scripts/test_matcher_logic.js"],
+        cwd=ROOT,
+        check=True,
+    )
+    subprocess.run(["node", "scripts/test_matcher_selection.js"], cwd=ROOT, check=True)
+    run("scripts/test_matcher_selection.py")
+    subprocess.run(["node", "scripts/test_oncology_country_filter.js"], cwd=ROOT, check=True)
+    run("scripts/test_austrian_care_identity.py")
+    run("scripts/test_germany_care_identity.py")
+    run("scripts/test_network_care.py")
+    run("scripts/test_europe_controller_reconciliation.py")
+    run("scripts/test_europe_recovery.py")
+
+
+if __name__ == "__main__":
+    main()

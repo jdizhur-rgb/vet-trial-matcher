@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "effective_date": "2026-10-16",
+  "owner_approval": "European discovery: one whole country per task, no ten-candidate cap; exclude Russia, Belarus and Ukraine (Ukraine until owner changes decision). Existing non-European limits preserved.",
+  "max_parallel_workers": 6,
+  "existing_review_records_per_worker": 5,
+  "discovery_candidates_per_worker": 10,
+  "max_discovery_candidates_per_round": 60,
+  "rounds_per_run": 1,
+  "one_limited_territory_per_discovery_worker": true,
+  "saved_unprocessed_leads_before_new_search": true,
+  "within_assigned_day_direction": true,
+  "stop_at_package_boundary": true,
+  "allow_smaller_packages_when_no_real_candidates": true,
+  "publish_confirmed_results_when_ready": true,
+  "preserve_evidence_depth_and_source_requirements": true,
+  "unresolved_requires_exact_question_urls_and_recheck_after": true,
+  "historical_receipts_and_assignments_immutable": true,
+  "daily_directions_unchanged": true,
+  "european_discovery": {
+    "assignment_unit": "one_entire_country",
+    "candidate_limit": null,
+    "stop_after_ten_candidates": false,
+    "split_country_automatically": false,
+    "coverage": [
+      "all_regions",
+      "university_hospitals",
+      "specialty_networks_and_each_branch",
+      "independent_and_general_practices_with_cancer_treatment",
+      "radiotherapy",
+      "electrochemotherapy",
+      "visiting_mobile_and_remote_services"
+    ],
+    "original_language_search_required": true,
+    "current_undated_and_new_signal_search_required": true,
+    "saved_leads_first_without_replacing_national_discovery": true,
+    "completed_requires_country_coverage_evidence": true,
+    "unfinished_country_remains_incomplete_with_exact_remainder": true,
+    "queue_file": "europe-country-queue.json"
+  },
+  "excluded_discovery_countries": [
+    {
+      "country": "Russia",
+      "reason": "owner exclusion",
+      "until": "owner changes decision"
+    },
+    {
+      "country": "Belarus",
+      "reason": "owner exclusion",
+      "until": "owner changes decision"
+    },
+    {
+      "country": "Ukraine",
+      "reason": "temporary owner exclusion",
+      "until": "owner changes decision"
+    }
+  ],
+  "discovery_candidates_per_worker_scope": "non-European discovery only; European full-country tasks override ten-candidate/sixty-per-round/package-stop caps",
+  "europe_controller": {
+    "owner_decision_date": "2026-10-16",
+    "architecture": "one_controller_exactly_six_real_parallel_agents",
+    "fork_turns": "none",
+    "one_country_per_agent_per_run": true,
+    "assignments_frozen_before_spawn": true,
+    "persistent_slot_states": "europe-slots/slot-N.json",
+    "incomplete_country_before_cursor": true,
+    "same_local_day_max_new_countries_per_slot": 1,
+    "candidate_limit": null,
+    "total_candidate_limit": null,
+    "old_test_time_limit_applies": false,
+    "weekday_directions_apply_to_this_controller": false,
+    "independent_country_automations_allowed": false,
+    "worker_subagents_or_automations_allowed": false,
+    "worker_shared_production_edits_allowed": false,
+    "parent_serial_publication_of_ready_checkpoints": false,
+    "required_result_identity": [
+      "run_id",
+      "slot",
+      "country",
+      "baseline_sha"
+    ],
+    "result_gate": "scripts/validate_europe_worker_result.py",
+    "publication_is_not_country_completion": true,
+    "exhausted_slot": "report_exhausted_without_inventing_country",
+    "owner_priority_decision": "2026-10-16 14:24 America/New_York",
+    "publication_gate": "all_assigned_countries_independently_accepted_research_complete",
+    "phases": [
+      "complete_accessible_national_research_and_all_six_report_acceptance",
+      "fresh_main_field_delta_validation_build_publish_deploy_readback"
+    ],
+    "research_only_remote_backups_required": true,
+    "backup_max_interval_seconds": 900,
+    "backup_after_each_semantic_block_and_restriction": true,
+    "backup_requires_remote_sha_and_content_readback": true,
+    "full_russian_report_per_actual_worker_required": true,
+    "no_integration_capacity_or_elapsed_time_stop": true,
+    "publication_entry_point": "scripts/integrate_europe_recovery.py",
+    "restriction_index": "access-restriction-index.json"
+  },
+  "network_level_care": {
+    "owner_decision_date": "2026-10-17",
+    "allowed_if": "current official network explicitly offers usable cancer treatment and publishes a common contact or booking route",
+    "representation": "one separately typed network listing per actual network/service geography",
+    "location_type": "network",
+    "service_scope": "network",
+    "branch_availability": "confirm_before_booking",
+    "specific_branch_services_require_local_evidence": true,
+    "network_claim_must_not_be_cloned_to_branches": true,
+    "network_must_not_merge_with_physical_branch": true,
+    "corporate_address_is_not_treatment_location": true,
+    "coordinates_must_be_null": true,
+    "country_and_confirmed_service_filters_apply": true,
+    "show_branch_confirmation_caveat": true,
+    "count_as": "network listing, not physical location",
+    "unknown_modalities_must_not_be_inferred": true
+  }
+}
