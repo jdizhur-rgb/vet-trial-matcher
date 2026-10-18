@@ -1,0 +1,46 @@
+{
+  "status": "ONLY_EXTRA_LOCAL_FINAL_NEWLINE",
+  "paths": [
+    "research/audit-runs/eu6-recovery-20261018T020312Z/final-publication.json",
+    "research/audit-runs/eu6-recovery-20261018T020312Z/controller-report.md",
+    "research/audit-runs/eu6-recovery-20261018T020312Z/production-verification.json",
+    "research/audit-runs/eu6-recovery-20261018T020312Z/publication-ledger.json",
+    "research/audit-runs/eu6-recovery-20261018T020312Z/validation.json",
+    "research/audit-runs/eu6-recovery-20261018T020312Z/publication-receipt-1.json",
+    "research/audit-runs/eu6-recovery-20261018T020312Z/publication-receipt-2.json",
+    "research/audit-runs/eu6-recovery-20261018T020312Z/publication-receipt-3.json",
+    "research/audit-runs/eu6-recovery-20261018T020312Z/publication-receipt-4.json",
+    "research/audit-runs/eu6-recovery-20261018T020312Z/publication-receipt-5.json",
+    "research/audit-runs/eu6-recovery-20261018T020312Z/publication-receipt-6.json",
+    "research/audit-runs/eu6-recovery-20261018T020312Z/final-main-readback.json",
+    "research/audit-runs/eu6-recovery-20261018T020312Z/main-publication-manifest.json",
+    "research/audit-runs/eu6-recovery-20261018T020312Z/post-publication-main-manifest.json"
+  ],
+  "worker_payloads_changed": false,
+  "main_production_files_changed": false,
+  "cause": "The old Add-file patch wrapper appended one extra local final newline. Remote uploaded strings and all worker payloads were unchanged; no clinical-content mismatch occurred.",
+  "correction": "Preserve exact requested final-newline count in both Add and Update patch paths; normalize only the14 local mirrored metadata files to their already-correct remote bytes.",
+  "self_test": {
+    "status": "PASS",
+    "checks": [
+      {
+        "add_final_newlines": 1,
+        "update_final_newlines": 3,
+        "result": "PASS"
+      },
+      {
+        "add_final_newlines": 2,
+        "update_final_newlines": 2,
+        "result": "PASS"
+      },
+      {
+        "add_final_newlines": 3,
+        "update_final_newlines": 1,
+        "result": "PASS"
+      }
+    ]
+  },
+  "final_readback_status": "PASS",
+  "corrected_writer": "research/audit-runs/eu6-recovery-20261018T020312Z/research_backup_v2.js",
+  "historical_receipts_rewritten": false
+}
