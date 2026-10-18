@@ -1,0 +1,43 @@
+{
+  "run_id": "eu6-recovery-20261018T020312Z",
+  "slot": 5,
+  "country": "France",
+  "baseline_sha": "2fed31c822a626339b86d752c49949259de7b1ee",
+  "reviewed_at": "2026-10-18 02:56:30 UTC",
+  "scope": "Independent parent supplement for the two NEW tele tuples; general dict-based baseline script skips list-valued NEW, so this check is separate and not inferred from its physical hit count.",
+  "baseline_tele_rows": 64,
+  "baseline_france_rows": [
+    {
+      "name": "Onkolia",
+      "website": "https://www.onkolia.fr/articles/avis-cancerologique-veterinaire-distance-confrere",
+      "clinician": "Paul Ghislain"
+    }
+  ],
+  "new_tele": [
+    {
+      "source_id": "fr-olliolis-tele-expertise",
+      "name": "Olliolis — veterinary tele-expertise",
+      "access": "Vet only",
+      "website": "https://referentsolliolis.fr/tele-expertise.html",
+      "clinician": "Mathilde Lajoinie (current clinic specialist; case-assigned reviewer not published)",
+      "geography": "eligible countries unpublished; no inferred global access",
+      "duplicate_hits": 0,
+      "physical_distinction": "Separate signed-report vet-only workflow, not another physical clinic/pin or proof of a new physical modality."
+    },
+    {
+      "source_id": "fr-doliger-oncology-tele-expertise",
+      "name": "Dr Stéphane Doliger — oncology tele-expertise",
+      "access": "Vet only",
+      "website": "https://cancerologie-veterinaire.com/contact/",
+      "clinician": "Stéphane Doliger; no board credential inferred",
+      "geography": "eligible countries unpublished; no inferred global access",
+      "duplicate_hits": 0,
+      "physical_distinction": "Written/telephone support to treating veterinarian, distinct from physical receiving clinic and no owner teleconsultation claim."
+    }
+  ],
+  "evidence_review": "Full named source/role/access distinctions already read in worker full report and retained field evidence. This supplement is offline identity/format review, not a new source visit.",
+  "no_source_date_refresh": true,
+  "status": "PASS",
+  "site_publication": false
+}
+
