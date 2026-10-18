@@ -1,0 +1,19 @@
+# Польша — восстановление и текущая сверка
+
+Исполнитель `/root/eu17_pl`, slot 3, run `eu6-recovery-20261018T020312Z`, baseline `2fed31c822a626339b86d752c49949259de7b1ee`. Это промежуточный checkpoint, не итог всей страны.
+
+Восстановлены все 222 эффективных полевых предложения: 220 NEW и 2 UPDATE. Проверены SHA-256 всех 55 конечных файлов-носителей и канонические SHA-256 каждого из 222 объектов; применены все хронологические patches/revisions, в том числе revision005 и patch019. Восстановлен provider ledger по 366 уникальным идентичностям: 364 обработаны, 2 не обработаны; 220 NEW, 2 UP, 18 DUP, 49 EXCL, 75 UNRES. Унаследованные 240 FULL включают 20 baseline, а не 240 новых сегодняшних клиник. Сегодня новых source requests, NEW и UP пока 0.
+
+Отдельно собрана текущая 77-строчная gap QA: 75 клинически нерешённых и 2 непроверенных первично кандидата. Старая строка Iława из frontier046 удалена из нерешённого остатка, ARWET добавлен, более поздние outcomes048/049/050/052/053 включены. Уже выполненные 17 октября 75 платформенных запросов не запускаются заново и не считаются сегодняшними. Необязательный email Iława опущен: точного retained locator для него нет; это не клинический барьер и не повод для нового GET.
+
+Сохранены все полевые ограничения: Gugała Stargardzka Medical; Mieszka отдельный Local; AMVET Local-only; Therios Local/Surgery/ECT; Giszowiec Local без held Surgery; PRO-VET/Napieraj/HALIVET узкая подтверждённая Surgery; семь network без адресов/координат и branch-phone fanout. Исходные source dates не обновлялись. Запрещённые web079/080/119/120, private-passport/quarantine и denied sessions не читались и не хешировались.
+
+Собственная доступная работа: завершить содержательную route-status QA 77 строк, проверить покрытие 16 регионов/университетов/сетевых филиалов и подготовить полный именованный русский итог. `research_complete=false`; checkpoint не означает национальную полноту или публикацию.
+
+## Фактическое продолжение 18 октября
+
+При QA обнаружены три конкретных ранее не завершённых independent platform routes: BemoVet WetTermin45321, TomaszGarbal professional profile, MedicaVet professional place profile. Выполнены 3 Web reads: 2 полных разрешённых профиля (25/152 строки), 1 недоступный профиль без известного HTTP status. NEW/UP/FULL и число обработанных клиник не увеличились. BemoVet даёт независимую текущую contact identity, но не actual cancer act/ветеринарную роль; MedicaVet даёт generic care и ещё один конфликтующий адрес, не новую филиальную карточку. Garbal exact profile получил консервативный hold001; тело не читалось/не восстанавливалось, fallback не выполнялся. Старые clinical dates не обновлялись. Сохранены exact guard/outcome/restriction records. Национальная QA продолжается.
+
+## Дополнительная exact platform группа
+
+Завершены ещё12 конкретных независимых public profiles из сохранённого75-target pass. Итого15actual URL requests по14 уже известным provider identities:14 читаемых relevant bodies и1tool-not-accessible. Current NEW/UP/FULL/processed delta=0. BemoVet получил независимую qualified-current physician association через собственное профессиональное описание UrszulaGrzesiuk, но её dentistry/exotics/general-surgery scope не даёт раковую терапию; устаревшая квалификационная gap снимается, cancer-treatment gap остаётся. Остальныеprofile дают generic clinical labels/identity/contact, не branchchemo/Surgery/RT. Полный source-specific outcome находится в current-primary-outcomes-002.json.
