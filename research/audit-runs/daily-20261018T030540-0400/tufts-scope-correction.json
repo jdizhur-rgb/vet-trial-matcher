@@ -1,0 +1,158 @@
+{
+  "primary": "research/audit-runs/daily-20261018T030540-0400/evidence/57295bf9a7d5620236.json",
+  "source_read_at": "2026-10-18T03:10:09.935191-04:00",
+  "old_excludes": {
+    "prior_chemo": true,
+    "prior_radiation": true,
+    "prior_surgery": true,
+    "prior_immunotherapy": true,
+    "regional_lymph_node_metastasis": true,
+    "pulmonary_metastasis": true,
+    "significant_comorbidity": true
+  },
+  "new_excludes": {
+    "prior_radiation": true,
+    "regional_lymph_node_metastasis": true,
+    "pulmonary_metastasis": true,
+    "significant_comorbidity": true,
+    "prior_target_tumor_treatment": true
+  },
+  "behavior": "Known target-tumour treatment excludes; lifetime history with unknown indication requires study-team confirmation. No UI control added; published source eligibility not broadened to treated lung tumours.",
+  "cases": [
+    {
+      "name": "fresh primary supported candidate",
+      "patient": {
+        "cancer": "Primary lung tumor"
+      },
+      "expected": "review"
+    },
+    {
+      "name": "prior surgery",
+      "patient": {
+        "cancer": "Primary lung tumor",
+        "surgery": "Yes",
+        "target_tumor_treated": "Yes"
+      },
+      "expected": "exclude"
+    },
+    {
+      "name": "different species outside protocol",
+      "patient": {
+        "cancer": "Primary lung tumor",
+        "species": "Cat"
+      },
+      "expected": "exclude"
+    },
+    {
+      "name": "primary carcinoma candidate requires staging",
+      "patient": {
+        "cancer": "Pulmonary carcinoma"
+      },
+      "expected": "review",
+      "unknown_contains": [
+        "tumor size"
+      ],
+      "retained_from_reviewed_at": "2026-10-13T06:20:42.806673-04:00"
+    },
+    {
+      "name": "different lung-metastasis disease cohort",
+      "patient": {
+        "cancer": "Osteosarcoma"
+      },
+      "expected": "exclude",
+      "retained_from_reviewed_at": "2026-10-13T06:20:42.806673-04:00"
+    },
+    {
+      "name": "previous chemotherapy for lung tumor excludes",
+      "patient": {
+        "cancer": "Pulmonary carcinoma",
+        "chemo": "Previously received",
+        "target_tumor_treated": "Yes"
+      },
+      "expected": "exclude",
+      "retained_from_reviewed_at": "2026-10-13T06:20:42.806673-04:00"
+    },
+    {
+      "name": "positive regional nodes exclude",
+      "patient": {
+        "cancer": "Pulmonary carcinoma",
+        "node_status": "Positive"
+      },
+      "expected": "exclude",
+      "retained_from_reviewed_at": "2026-10-13T06:20:42.806673-04:00"
+    },
+    {
+      "name": "radiation declined excludes",
+      "patient": {
+        "cancer": "Pulmonary carcinoma",
+        "prefs": [
+          "Immunotherapy"
+        ]
+      },
+      "expected": "exclude",
+      "retained_from_reviewed_at": "2026-10-13T06:20:42.806673-04:00"
+    },
+    {
+      "name": "Prior history with unknown target: chemo",
+      "patient": {
+        "country": "USA",
+        "cancer": "Primary lung tumor",
+        "chemo": "Previously received"
+      },
+      "expected": "review",
+      "unknown_contains": [
+        "previous treatment for the lung tumor"
+      ]
+    },
+    {
+      "name": "Prior history with unknown target: surgery",
+      "patient": {
+        "country": "USA",
+        "cancer": "Primary lung tumor",
+        "surgery": "Yes"
+      },
+      "expected": "review",
+      "unknown_contains": [
+        "previous treatment for the lung tumor"
+      ]
+    },
+    {
+      "name": "Prior history with unknown target: immunotherapy_history",
+      "patient": {
+        "country": "USA",
+        "cancer": "Primary lung tumor",
+        "immunotherapy_history": "Previously received"
+      },
+      "expected": "review",
+      "unknown_contains": [
+        "previous treatment for the lung tumor"
+      ]
+    },
+    {
+      "name": "Known prior therapy of this lung tumour excludes",
+      "patient": {
+        "cancer": "Primary lung tumor",
+        "target_tumor_treated": "Yes"
+      },
+      "expected": "exclude"
+    },
+    {
+      "name": "Confirmed unrelated previous chemotherapy is not a lifetime ban",
+      "patient": {
+        "cancer": "Primary lung tumor",
+        "chemo": "Previously received",
+        "target_tumor_treated": "No"
+      },
+      "expected": "review"
+    },
+    {
+      "name": "Known radiation to this tumour excludes",
+      "patient": {
+        "cancer": "Primary lung tumor",
+        "radiation": "Previously received"
+      },
+      "expected": "exclude"
+    }
+  ],
+  "owner_editorial_changes": false
+}

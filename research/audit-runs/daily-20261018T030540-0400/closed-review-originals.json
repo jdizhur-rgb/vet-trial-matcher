@@ -1,0 +1,54 @@
+[
+  {
+    "trial_id": "mizzou-epitheliotropic-laverdia",
+    "source_url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+    "reviewed_at": "2026-10-12T22:56:12.647421-04:00",
+    "criteria": "Dog; histologically diagnosed cutaneous epitheliotropic lymphoma; no previous cytotoxic chemotherapy/radiation; no concurrent Apoquel/cyclosporine; steroids have conditional washout/stability/progression exceptions.",
+    "cases": [
+      {
+        "name": "source-supported candidate",
+        "patient": {
+          "cancer": "Cutaneous epitheliotropic lymphoma",
+          "steroids": "Currently taking"
+        },
+        "expected": "review"
+      },
+      {
+        "name": "source hard contradiction",
+        "patient": {
+          "cancer": "Cutaneous epitheliotropic lymphoma",
+          "steroids": "Currently taking",
+          "radiation": "Previously received"
+        },
+        "expected": "exclude"
+      },
+      {
+        "name": "source hard contradiction",
+        "patient": {
+          "cancer": "Cutaneous epitheliotropic lymphoma",
+          "steroids": "Currently taking",
+          "chemo": "Previously received"
+        },
+        "expected": "exclude"
+      },
+      {
+        "name": "source hard contradiction",
+        "patient": {
+          "cancer": "Cutaneous epitheliotropic lymphoma",
+          "steroids": "Currently taking",
+          "immunosuppressive": "Yes"
+        },
+        "expected": "exclude"
+      },
+      {
+        "name": "source hard contradiction",
+        "patient": {
+          "cancer": "B-cell lymphoma",
+          "steroids": "Currently taking"
+        },
+        "expected": "exclude"
+      }
+    ],
+    "selection_sha256": "d905b52405deeda9285cc4dc07b5dabb95b3a1a841268601c2352852d4cdc7a0"
+  }
+]

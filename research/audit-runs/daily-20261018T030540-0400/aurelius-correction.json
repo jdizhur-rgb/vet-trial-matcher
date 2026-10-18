@@ -1,0 +1,154 @@
+{
+  "source_url": "https://aureliusbio.com/",
+  "current_primary_evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/8b8248af58bcfd8957.json",
+  "previous": {
+    "id": "aurelius-lytix-bcell-lymphoma",
+    "title": "Aurelius/Lytix oncolytic peptide plus adoptive T-cell immunotherapy for canine B-cell lymphoma",
+    "center": "Aurelius Biotherapeutics",
+    "country": "USA",
+    "state": "Washington",
+    "species": "Dog",
+    "cancers": [
+      "B-cell lymphoma"
+    ],
+    "status": "Actively recruiting — confirmed on Aurelius current pilot-study page",
+    "url": "https://aureliusbio.com/",
+    "contacts": "Theresa Westfall, DVM — info@aureliusbio.com; (360) 961-3529 or (360) 734-0720",
+    "funding": "Fully funded; Aurelius states there is no additional expense to owners for the trial.",
+    "requires": {
+      "confirmed": true,
+      "active_treatment_target": true,
+      "previously_untreated": true
+    },
+    "excludes": {
+      "prior_cancer_treatment": true
+    },
+    "notes": "Initial pilot study combining an oncolytic peptide with adoptive T-cell immunotherapy for previously untreated stage 3–5(a) canine B-cell lymphoma. Almost all study treatment is performed in Bellingham, Washington; initial treatment requires about three days, followed by at least two later visits approximately a month afterward.",
+    "verified": "2026-10-18",
+    "study_type": "treatment",
+    "available_for_matching": true,
+    "status_confidence": "confirmed_current",
+    "owner_prescreen_required": true,
+    "treatment_approaches": [
+      "oncolytic_microbe",
+      "immunotherapy"
+    ]
+  },
+  "current": {
+    "id": "aurelius-lytix-bcell-lymphoma",
+    "title": "Aurelius/Lytix oncolytic peptide plus adoptive T-cell immunotherapy for canine B-cell lymphoma",
+    "center": "Aurelius Biotherapeutics",
+    "country": "USA",
+    "state": "Washington",
+    "species": "Dog",
+    "cancers": [
+      "B-cell lymphoma"
+    ],
+    "status": "Actively recruiting — confirmed on Aurelius current pilot-study page",
+    "url": "https://aureliusbio.com/",
+    "contacts": "Theresa Westfall, DVM — info@aureliusbio.com; (360) 961-3529 or (360) 734-0720",
+    "funding": "Fully funded; Aurelius states there is no additional expense to owners for the trial.",
+    "requires": {
+      "confirmed": true,
+      "active_treatment_target": true,
+      "previously_untreated": true,
+      "bcell_lymphoma_stage_iii_to_v_a": true
+    },
+    "excludes": {
+      "prior_cancer_treatment": true,
+      "prior_lymphoma_treatment": true
+    },
+    "notes": "Initial pilot study combining an oncolytic peptide with adoptive T-cell immunotherapy for previously untreated stage 3–5(a) canine B-cell lymphoma. Almost all study treatment is performed in Bellingham, Washington; initial treatment requires about three days, followed by at least two later visits approximately a month afterward.",
+    "verified": "2026-10-18",
+    "study_type": "treatment",
+    "available_for_matching": true,
+    "status_confidence": "confirmed_current",
+    "owner_prescreen_required": true,
+    "treatment_approaches": [
+      "immunotherapy"
+    ]
+  },
+  "reason": "Current pilot specifies previously untreated stage3–5(a) B-cell disease and oncolytic PEPTIDES plus adoptive T cells, not viruses/bacteria. Unknown stage/history remains a study-team question; known explicit contradictions are excluded.",
+  "added_form_controls": 0,
+  "cases": [
+    {
+      "name": "Published exact cohort candidate",
+      "patient": {
+        "species": "Dog",
+        "country": "USA",
+        "cancer": "B-cell lymphoma"
+      },
+      "expected": "review"
+    },
+    {
+      "name": "Outside published disease cohort",
+      "patient": {
+        "species": "Dog",
+        "country": "USA",
+        "cancer": "T-cell lymphoma"
+      },
+      "expected": "exclude"
+    },
+    {
+      "name": "Unknown clinical details require prescreening",
+      "patient": {
+        "species": "Dog",
+        "country": "USA",
+        "cancer": "B-cell lymphoma"
+      },
+      "expected": "review"
+    },
+    {
+      "name": "Oncolytic peptide is not a virus or bacterium",
+      "patient": {
+        "cancer": "B-cell lymphoma",
+        "approach": "oncolytic_microbe"
+      },
+      "expected": "exclude"
+    },
+    {
+      "name": "Known earlier-stage disease outside published III–V(a)",
+      "patient": {
+        "cancer": "B-cell lymphoma",
+        "lymphoma_stage_substage": "IIa"
+      },
+      "expected": "exclude"
+    },
+    {
+      "name": "Known substage b outside the published a cohort",
+      "patient": {
+        "cancer": "B-cell lymphoma",
+        "lymphoma_stage_substage": "IVb"
+      },
+      "expected": "exclude"
+    },
+    {
+      "name": "Previously treated lymphoma conflicts with naive pilot",
+      "patient": {
+        "cancer": "B-cell lymphoma",
+        "lymphoma_previously_treated": "Yes"
+      },
+      "expected": "exclude"
+    },
+    {
+      "name": "Unknown stage and target-treatment history require team confirmation",
+      "patient": {
+        "cancer": "B-cell lymphoma"
+      },
+      "expected": "review",
+      "unknown_contains": [
+        "stage III",
+        "previous lymphoma treatment"
+      ]
+    },
+    {
+      "name": "Published untreated stage IIIa pilot candidate",
+      "patient": {
+        "cancer": "B-cell lymphoma",
+        "lymphoma_stage_substage": "IIIa",
+        "lymphoma_previously_treated": "No"
+      },
+      "expected": "review"
+    }
+  ]
+}

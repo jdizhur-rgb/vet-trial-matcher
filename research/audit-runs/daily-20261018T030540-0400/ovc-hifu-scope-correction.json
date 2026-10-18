@@ -1,0 +1,270 @@
+{
+  "before": {
+    "id": "ca-ovc-osa-hifu",
+    "title": "MRI-guided high-intensity focused ultrasound (HIFU) for canine limb osteosarcoma",
+    "center": "Ontario Veterinary College / Hospital for Sick Children",
+    "country": "Canada",
+    "species": "Dog",
+    "cancers": [
+      "Osteosarcoma"
+    ],
+    "status": "Actively recruiting — listed on current OVC canine oncology trials page",
+    "url": "https://ovcclinicaltrials.uoguelph.ca/evaluating-a-non-invasive-heat-therapy-for-the-treatment-of-bone-cancer-in-dogs-2/",
+    "contacts": "OVC Clinical Trials — ovc.clinicaltrials@uoguelph.ca; official study contact form",
+    "funding": "🟡 Partially funded. The study covers MRI(s), HIFU treatment, associated anesthesia, study biopsies and analyses.",
+    "requires": {
+      "confirmed": true,
+      "active_treatment_target": true,
+      "no_metastasis": true,
+      "appendicular_location": true
+    },
+    "excludes": {
+      "prior_surgery": true,
+      "prior_local_radiation": true
+    },
+    "notes": "Pilot treatment study for confirmed osteosarcoma of the distal radius with no evidence of metastasis. No previous surgery or radiation for the osteosarcoma. Prior chemotherapy and/or bisphosphonate treatment is evaluated case-by-case. Requires visits to SickKids in Toronto and OVC in Guelph.",
+    "verified": "2026-10-18",
+    "study_type": "treatment",
+    "available_for_matching": true,
+    "status_confidence": "confirmed_current",
+    "owner_prescreen_required": true,
+    "funding_status": "Partially funded",
+    "treatment_approaches": [
+      "focused_ultrasound"
+    ],
+    "special_requirement": "The osteosarcoma must be in the distal radius (lower forelimb); an appendicular/limb answer alone does not establish this location. The study team must confirm exact anatomy and any prior chemotherapy/bisphosphonate use."
+  },
+  "after": {
+    "id": "ca-ovc-osa-hifu",
+    "title": "MRI-guided high-intensity focused ultrasound (HIFU) for canine limb osteosarcoma",
+    "center": "Ontario Veterinary College / Hospital for Sick Children",
+    "country": "Canada",
+    "species": "Dog",
+    "cancers": [
+      "Osteosarcoma"
+    ],
+    "status": "Actively recruiting — listed on current OVC canine oncology trials page",
+    "url": "https://ovcclinicaltrials.uoguelph.ca/evaluating-a-non-invasive-heat-therapy-for-the-treatment-of-bone-cancer-in-dogs-2/",
+    "contacts": "OVC Clinical Trials — ovc.clinicaltrials@uoguelph.ca; official study contact form",
+    "funding": "🟡 Partially funded. The study covers MRI(s), HIFU treatment, associated anesthesia, study biopsies and analyses.",
+    "requires": {
+      "confirmed": true,
+      "active_treatment_target": true,
+      "no_metastasis": true,
+      "appendicular_location": true,
+      "distal_radius_osa": true
+    },
+    "excludes": {
+      "prior_local_radiation": true,
+      "prior_target_tumor_surgery": true
+    },
+    "notes": "Pilot treatment study for confirmed osteosarcoma of the distal radius with no evidence of metastasis. No previous surgery or radiation for the osteosarcoma. Prior chemotherapy and/or bisphosphonate treatment is evaluated case-by-case. Requires visits to SickKids in Toronto and OVC in Guelph.",
+    "verified": "2026-10-18",
+    "study_type": "treatment",
+    "available_for_matching": true,
+    "status_confidence": "confirmed_current",
+    "owner_prescreen_required": true,
+    "funding_status": "Partially funded",
+    "treatment_approaches": [
+      "focused_ultrasound"
+    ],
+    "special_requirement": "The osteosarcoma must be in the distal radius (lower forelimb); an appendicular/limb answer alone does not establish this location. The study team must confirm exact anatomy and any prior chemotherapy/bisphosphonate use."
+  },
+  "original_review": {
+    "trial_id": "ca-ovc-osa-hifu",
+    "source_url": "https://ovcclinicaltrials.uoguelph.ca/evaluating-a-non-invasive-heat-therapy-for-the-treatment-of-bone-cancer-in-dogs-2/",
+    "reviewed_at": "2026-10-18T07:18:57.446516+00:00",
+    "criteria": "Dog; Confirmed distal-radius osteosarcoma, no metastasis; MRI-guided HIFU; No prior surgery/radiation for OSA; previous chemotherapy or bisphosphonates case-by-case, not automatically excluded.; SickKids Toronto and OVC Guelph visits; MRI/HIFU/anesthesia/study biopsies and analyses covered.; Dr Brigitte Brisson / OVC Clinical Trials; Exact anatomy and prior treatment indication remain screening questions.",
+    "cases": [
+      {
+        "name": "Limb candidate still needs exact distal-radius confirmation",
+        "patient": {
+          "country": "Canada",
+          "cancer": "Osteosarcoma",
+          "osa_location": "Appendicular — limb bone"
+        },
+        "expected": "review",
+        "unknown_contains": [
+          "distal radius"
+        ]
+      },
+      {
+        "name": "Known axial osteosarcoma contradicts distal-radius protocol",
+        "patient": {
+          "country": "Canada",
+          "cancer": "Osteosarcoma",
+          "osa_location": "Axial — skull, spine, rib, or pelvis"
+        },
+        "expected": "exclude"
+      },
+      {
+        "name": "Unknown anatomy is a screening question, not false exclusion",
+        "patient": {
+          "country": "Canada",
+          "cancer": "Osteosarcoma"
+        },
+        "expected": "review",
+        "unknown_contains": [
+          "distal radius"
+        ]
+      },
+      {
+        "name": "Metastatic OSA excluded",
+        "patient": {
+          "country": "Canada",
+          "cancer": "Osteosarcoma",
+          "metastasis": "Confirmed metastases"
+        },
+        "expected": "exclude"
+      },
+      {
+        "name": "Previous OSA surgery excluded",
+        "patient": {
+          "country": "Canada",
+          "cancer": "Osteosarcoma",
+          "surgery": "Yes"
+        },
+        "expected": "exclude"
+      },
+      {
+        "name": "Wrong species",
+        "patient": {
+          "species": "Cat",
+          "country": "Canada",
+          "cancer": "Osteosarcoma"
+        },
+        "expected": "exclude"
+      }
+    ],
+    "selection_sha256": "b276c24c868f5a630a7f73e97ef2004a7388e2b14c5080e9f903b421cec79982",
+    "source_read_at": "2026-10-18T03:08:51.970484-04:00",
+    "current_primary_evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/61cc1a1997ac5bee18.json",
+    "field_review": {
+      "species": "Dog",
+      "diagnosis": "Confirmed distal-radius osteosarcoma, no metastasis",
+      "intervention": "MRI-guided HIFU",
+      "eligibility": "No prior surgery/radiation for OSA; previous chemotherapy or bisphosphonates case-by-case, not automatically excluded.",
+      "site": "SickKids Toronto and OVC Guelph visits",
+      "funding": "MRI/HIFU/anesthesia/study biopsies and analyses covered.",
+      "contact": "Dr Brigitte Brisson / OVC Clinical Trials",
+      "unpublished": "Exact anatomy and prior treatment indication remain screening questions."
+    }
+  },
+  "current_review": {
+    "trial_id": "ca-ovc-osa-hifu",
+    "source_url": "https://ovcclinicaltrials.uoguelph.ca/evaluating-a-non-invasive-heat-therapy-for-the-treatment-of-bone-cancer-in-dogs-2/",
+    "reviewed_at": "2026-10-18T07:18:57.446516+00:00",
+    "criteria": "Dog; Confirmed distal-radius osteosarcoma, no metastasis; MRI-guided HIFU; No prior surgery/radiation for OSA; previous chemotherapy or bisphosphonates case-by-case, not automatically excluded.; SickKids Toronto and OVC Guelph visits; MRI/HIFU/anesthesia/study biopsies and analyses covered.; Dr Brigitte Brisson / OVC Clinical Trials; Exact anatomy and prior treatment indication remain screening questions. Literal-scope correction: previous surgery excludes only surgery for this OSA, not unrelated operations; distal-radius site is a specific team-screening field.",
+    "cases": [
+      {
+        "name": "Limb candidate still needs exact distal-radius confirmation",
+        "patient": {
+          "country": "Canada",
+          "cancer": "Osteosarcoma",
+          "osa_location": "Appendicular — limb bone"
+        },
+        "expected": "review",
+        "unknown_contains": [
+          "distal radius"
+        ]
+      },
+      {
+        "name": "Known axial osteosarcoma contradicts distal-radius protocol",
+        "patient": {
+          "country": "Canada",
+          "cancer": "Osteosarcoma",
+          "osa_location": "Axial — skull, spine, rib, or pelvis"
+        },
+        "expected": "exclude"
+      },
+      {
+        "name": "Unknown anatomy is a screening question, not false exclusion",
+        "patient": {
+          "country": "Canada",
+          "cancer": "Osteosarcoma"
+        },
+        "expected": "review",
+        "unknown_contains": [
+          "distal radius"
+        ]
+      },
+      {
+        "name": "Metastatic OSA excluded",
+        "patient": {
+          "country": "Canada",
+          "cancer": "Osteosarcoma",
+          "metastasis": "Confirmed metastases"
+        },
+        "expected": "exclude"
+      },
+      {
+        "name": "Previous OSA surgery excluded",
+        "patient": {
+          "country": "Canada",
+          "cancer": "Osteosarcoma",
+          "surgery": "Yes",
+          "target_tumor_prior_surgery": "Yes"
+        },
+        "expected": "exclude",
+        "clinical_scope_correction": "Explicit OSA surgery, not an unrelated historical operation."
+      },
+      {
+        "name": "Wrong species",
+        "patient": {
+          "species": "Cat",
+          "country": "Canada",
+          "cancer": "Osteosarcoma"
+        },
+        "expected": "exclude"
+      },
+      {
+        "name": "General previous surgery of unknown indication needs screening",
+        "patient": {
+          "country": "Canada",
+          "cancer": "Osteosarcoma",
+          "surgery": "Yes"
+        },
+        "expected": "review",
+        "unknown_contains": [
+          "previous surgery for this osteosarcoma"
+        ]
+      },
+      {
+        "name": "Known unrelated prior surgery does not exclude distal-radius OSA",
+        "patient": {
+          "country": "Canada",
+          "cancer": "Osteosarcoma",
+          "surgery": "Yes",
+          "target_tumor_prior_surgery": "No",
+          "osa_site_detail": "Distal radius"
+        },
+        "expected": "review"
+      },
+      {
+        "name": "Known femur site is not distal radius",
+        "patient": {
+          "country": "Canada",
+          "cancer": "Osteosarcoma",
+          "osa_location": "Appendicular — limb bone",
+          "osa_site_detail": "Femur"
+        },
+        "expected": "exclude"
+      }
+    ],
+    "selection_sha256": "7e47c7b779c7f8edc10e26b57130baa39fdb50ff23b9a0970da4f515d996fe23",
+    "source_read_at": "2026-10-18T03:08:51.970484-04:00",
+    "current_primary_evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/61cc1a1997ac5bee18.json",
+    "field_review": {
+      "species": "Dog",
+      "diagnosis": "Confirmed distal-radius osteosarcoma, no metastasis",
+      "intervention": "MRI-guided HIFU",
+      "eligibility": "No prior surgery/radiation for OSA; previous chemotherapy or bisphosphonates case-by-case, not automatically excluded.",
+      "site": "SickKids Toronto and OVC Guelph visits",
+      "funding": "MRI/HIFU/anesthesia/study biopsies and analyses covered.",
+      "contact": "Dr Brigitte Brisson / OVC Clinical Trials",
+      "unpublished": "Exact anatomy and prior treatment indication remain screening questions."
+    }
+  },
+  "evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/61cc1a1997ac5bee18.json",
+  "reason": "Full current primary explicitly limits prior surgery/radiation exclusion to the osteosarcoma. General history question cannot establish that indication; missing specific facts remain screening. Distal-radius cohort must not silently become every limb OSA."
+}

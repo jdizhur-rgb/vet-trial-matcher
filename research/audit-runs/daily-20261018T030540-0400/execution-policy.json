@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "finite_single_pass": true,
+  "native_requests": 332,
+  "Web_URL_reads": 81,
+  "explicit_prior_restricted_routes_not_retried": 62,
+  "mandatory_unperformed_source_actions": 0,
+  "full_discovery_regions": 12,
+  "no_same_run_partial_requeue": true,
+  "known_tool_method_failure_is_not_access_denial": "research/audit-runs/daily-20261018T030540-0400/nonretryable-Web-method-failures.json",
+  "new_actual_denials": [
+    {
+      "url": "https://onlinelibrary.wiley.com/doi/full/10.1111/vco.70050",
+      "do_not_retry": true,
+      "observed_at": "2026-10-18T03:24:00.250611-04:00",
+      "http_status": 403,
+      "origin": "research/audit-runs/daily-20261018T030540-0400/evidence/3b58a9630b049bae2f.json"
+    },
+    {
+      "url": "https://www.kodevet9.com/monitoring-visits",
+      "observed_at": "2026-10-18T03:32:37-04:00",
+      "origin": "research/audit-runs/daily-20261018T030540-0400/kv9-web-0.json",
+      "method": "Web",
+      "do_not_retry": true,
+      "reason": "access_denied"
+    },
+    {
+      "url": "https://www.anzcvs.org.au/chapters/veterinary%2Boncology/documentlibrary",
+      "do_not_retry": true,
+      "observed_at": "2026-10-18T04:01:20-04:00",
+      "method": "Web",
+      "reason": "Explicit Chapter Members only login gate",
+      "origin": "research/audit-runs/daily-20261018T030540-0400/discovery-primary-recovery-3.json"
+    }
+  ],
+  "clinical_incomplete_is_separate": 34,
+  "new_site_address_retrieval_scope": "Eight explicitly named Kv9 trial sites only; no care inventory edits."
+}

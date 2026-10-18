@@ -1,0 +1,273 @@
+[
+  {
+    "trial_id": "ca-ovc-oral-melanoma-palladia",
+    "old_review": {
+      "trial_id": "ca-ovc-oral-melanoma-palladia",
+      "source_url": "https://ovcclinicaltrials.uoguelph.ca/evaluating-palladia-for-the-treatment-of-canine-oral-melanoma/",
+      "reviewed_at": "2026-10-16T03:07:34.593947-04:00",
+      "criteria": "Current active canine roster plus full individual primary: dog, biopsy-confirmed oral melanoma, measurable disease, no previous chemotherapy; previous melanoma vaccine permitted. Administered trial therapy is Palladia/toceranib, not a vaccine. Multiple OVC visits; initial staging, Palladia and dispensing/administration covered. Other fees remain to confirm.",
+      "cases": [
+        {
+          "name": "Current toceranib candidate",
+          "patient": {
+            "species": "Dog",
+            "country": "Canada",
+            "cancer": "Oral melanoma",
+            "approach": "targeted_therapy"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Prior vaccine allowance does not mean administered vaccine trial",
+          "patient": {
+            "country": "Canada",
+            "cancer": "Oral melanoma",
+            "approach": "cancer_vaccine"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Explicit previous chemotherapy exclusion",
+          "patient": {
+            "country": "Canada",
+            "cancer": "Oral melanoma",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Wrong species",
+          "patient": {
+            "species": "Cat",
+            "country": "Canada",
+            "cancer": "Oral melanoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Unknown measurable disease requires screening",
+          "patient": {
+            "country": "Canada",
+            "cancer": "Oral melanoma"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "measurable"
+          ]
+        }
+      ],
+      "selection_sha256": "2b8f71c49ea374a8fc2fbb8558f9517f785fdf2779f08235f4cf37a393b9d918"
+    }
+  },
+  {
+    "trial_id": "ca-ovc-osa-hifu",
+    "old_review": {
+      "trial_id": "ca-ovc-osa-hifu",
+      "source_url": "https://ovcclinicaltrials.uoguelph.ca/evaluating-a-non-invasive-heat-therapy-for-the-treatment-of-bone-cancer-in-dogs-2/",
+      "reviewed_at": "2026-10-16T03:07:34.594054-04:00",
+      "criteria": "Current active canine roster plus full individual primary: canine osteosarcoma of DISTAL RADIUS, no metastasis, no previous OSA surgery or radiation. Prior chemotherapy/bisphosphonates assessed case-by-case. MRI-guided HIFU at SickKids Toronto plus multiple OVC Guelph visits. MRI, HIFU, anesthesia, study biopsies/analyses funded; unrelated care not inferred free. Appendicular form answer is necessary but not sufficient to establish the exact distal-radius location.",
+      "cases": [
+        {
+          "name": "Limb candidate still needs exact distal-radius confirmation",
+          "patient": {
+            "country": "Canada",
+            "cancer": "Osteosarcoma",
+            "osa_location": "Appendicular — limb bone"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "distal radius"
+          ]
+        },
+        {
+          "name": "Known axial osteosarcoma contradicts distal-radius protocol",
+          "patient": {
+            "country": "Canada",
+            "cancer": "Osteosarcoma",
+            "osa_location": "Axial — skull, spine, rib, or pelvis"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Unknown anatomy is a screening question, not false exclusion",
+          "patient": {
+            "country": "Canada",
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "distal radius"
+          ]
+        },
+        {
+          "name": "Metastatic OSA excluded",
+          "patient": {
+            "country": "Canada",
+            "cancer": "Osteosarcoma",
+            "metastasis": "Confirmed metastases"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Previous OSA surgery excluded",
+          "patient": {
+            "country": "Canada",
+            "cancer": "Osteosarcoma",
+            "surgery": "Yes"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Wrong species",
+          "patient": {
+            "species": "Cat",
+            "country": "Canada",
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "b276c24c868f5a630a7f73e97ef2004a7388e2b14c5080e9f903b421cec79982"
+    }
+  },
+  {
+    "trial_id": "ca-ovc-feline-oscc-porphysome-pdt",
+    "old_review": null
+  },
+  {
+    "trial_id": "aurelius-lytix-bcell-lymphoma",
+    "old_review": null
+  },
+  {
+    "trial_id": "tufts-primary-pulmonary-carcinoma-sbrt",
+    "old_review": {
+      "trial_id": "tufts-primary-pulmonary-carcinoma-sbrt",
+      "source_url": "https://vet.tufts.edu/clinical-trials/sbrt-canine-lung-tumor-study",
+      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
+      "criteria": "Tufts primary-lung SBRT requires a single primary pulmonary carcinoma strictly>1cm in shortest diameter,no previous lung-tumor treatment,no regional nodes or pulmonary metastases.",
+      "cases": [
+        {
+          "name": "fresh primary supported candidate",
+          "patient": {
+            "cancer": "Primary lung tumor"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "prior surgery",
+          "patient": {
+            "cancer": "Primary lung tumor",
+            "surgery": "Yes"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "different species outside protocol",
+          "patient": {
+            "cancer": "Primary lung tumor",
+            "species": "Cat"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "primary carcinoma candidate requires staging",
+          "patient": {
+            "cancer": "Pulmonary carcinoma"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "tumor size"
+          ],
+          "retained_from_reviewed_at": "2026-10-13T06:20:42.806673-04:00"
+        },
+        {
+          "name": "different lung-metastasis disease cohort",
+          "patient": {
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "exclude",
+          "retained_from_reviewed_at": "2026-10-13T06:20:42.806673-04:00"
+        },
+        {
+          "name": "previous chemotherapy for lung tumor excludes",
+          "patient": {
+            "cancer": "Pulmonary carcinoma",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude",
+          "retained_from_reviewed_at": "2026-10-13T06:20:42.806673-04:00"
+        },
+        {
+          "name": "positive regional nodes exclude",
+          "patient": {
+            "cancer": "Pulmonary carcinoma",
+            "node_status": "Positive"
+          },
+          "expected": "exclude",
+          "retained_from_reviewed_at": "2026-10-13T06:20:42.806673-04:00"
+        },
+        {
+          "name": "radiation declined excludes",
+          "patient": {
+            "cancer": "Pulmonary carcinoma",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude",
+          "retained_from_reviewed_at": "2026-10-13T06:20:42.806673-04:00"
+        }
+      ],
+      "selection_sha256": "c55bf8be02b6365ea5111353eebb90f38e45b35b69d3226eae891d1bd0641d28"
+    },
+    "old_record": {
+      "id": "tufts-primary-pulmonary-carcinoma-sbrt",
+      "title": "SBRT for canine primary pulmonary carcinoma",
+      "center": "Tufts University Cummings School of Veterinary Medicine",
+      "country": "USA",
+      "species": "Dog",
+      "cancers": [
+        "Pulmonary carcinoma"
+      ],
+      "status": "Recruiting — official Tufts individual protocol",
+      "url": "https://vet.tufts.edu/clinical-trials/sbrt-canine-lung-tumor-study",
+      "contacts": "Tufts Clinical Trials Office — clinicaltrials@tufts.edu",
+      "funding": "Partially funded: up to $4,000 for anesthesia, radiation planning and SBRT; up to $1,000 may be available for follow-up chest radiographs. Owners pay pre-enrollment bloodwork, planning CT, diagnosis confirmation and hospitalization for complications.",
+      "funding_status": "Partially funded",
+      "requires": {
+        "confirmed": true,
+        "active_treatment_target": true,
+        "planned_radiation": true,
+        "min_tumor_cm_exclusive": 1,
+        "single_primary_pulmonary_carcinoma": true
+      },
+      "excludes": {
+        "prior_chemo": true,
+        "prior_radiation": true,
+        "prior_surgery": true,
+        "prior_immunotherapy": true,
+        "regional_lymph_node_metastasis": true,
+        "pulmonary_metastasis": true,
+        "significant_comorbidity": true
+      },
+      "notes": "A single cytologically or histopathologically confirmed primary pulmonary carcinoma must measure more than 1 cm in its shortest diameter and have received no previous tumor treatment. Multiple pulmonary nodules consistent with metastasis, regional node metastasis and pulmonary carcinomatosis exclude. No other malignant tumor diagnosed outside the lung within 30 days; a prior non-carcinoma malignancy can be allowed in remission if expected median survival exceeds one year. Screening CBC, chemistry and abdominal ultrasound within 30 days; anesthesia and SBRT suitability require clinician assessment. This is a VRTOG multicenter protocol, but the page does not name the other participating institutions; only the verified Tufts enrollment site is listed. Distinct from the Tufts SABR trial for progressive lung metastases.",
+      "verified": "2026-10-13",
+      "study_type": "treatment",
+      "available_for_matching": true,
+      "status_confidence": "confirmed_current",
+      "owner_prescreen_required": true,
+      "sites": [
+        {
+          "hospital": "Tufts Cummings School of Veterinary Medicine",
+          "name": "Tufts Cummings School of Veterinary Medicine",
+          "city": "North Grafton",
+          "state": "MA"
+        }
+      ],
+      "treatment_approaches": [
+        "radiation_therapy"
+      ],
+      "special_requirement": "Single primary lung carcinoma, shortest diameter greater than 1 cm; no prior treatment for that tumor, regional node metastasis, pulmonary carcinomatosis or multiple pulmonary metastatic nodules. Study-team review of recent other malignancy, current staging, organ function and anesthesia eligibility is required."
+    }
+  }
+]

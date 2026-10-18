@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-10-17",
+  "updated": "2026-10-18",
   "purpose": "Exact prior public-source route restrictions. Read before daily master, fallback, protocol or Web plans; do not retry by alternate tool. A source or domain is not globally forbidden from one denied protocol URL.",
   "routes": [
     {
@@ -486,6 +486,184 @@
       "record_ids": [],
       "origin": "research/audit-runs/daily-20261017T025640-0400/discovery-primary-web1.json#turn836view0",
       "reason": "First permitted discovery primary read returned Web403; do not repeat through another method."
+    },
+    {
+      "url": "https://www.ethosvet.com/clinical-studies/",
+      "do_not_retry": true,
+      "origin": "daily-20261017/inherited-gates.json",
+      "historical_scope": {
+        "source_id": "usa-ethos-clinical-studies",
+        "evidence": {
+          "url": "https://www.ethosvet.com/clinical-studies/",
+          "method": "Web",
+          "attempted_at": "2026-10-15T03:19:02-04:00",
+          "http_status": 403,
+          "result": "explicit_denial",
+          "evidence_file": "research/audit-runs/daily-20261015T030225-0400/web-15.json",
+          "evidence_reference": "turn746view3",
+          "do_not_retry": true,
+          "reason": "Retain the exact previously denied URL even when its parent source is partial and a later erroneous request returns404."
+        }
+      }
+    },
+    {
+      "url": "https://hospital.vetmed.wsu.edu/appointments/",
+      "do_not_retry": true,
+      "origin": "explicit_prior_master_denial_narrative",
+      "source_id": "usa-wsu-vth-clinical-studies"
+    },
+    {
+      "url": "https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/",
+      "do_not_retry": true,
+      "origin": "explicit_prior_master_denial_narrative",
+      "source_id": "usa-wisconsin-oncology-studies"
+    },
+    {
+      "url": "https://vetoncology.sites.uu.nl/research/interventional/",
+      "do_not_retry": true,
+      "origin": "explicit_prior_master_denial_narrative",
+      "source_id": "netherlands-utrecht-interventional-oncology"
+    },
+    {
+      "url": "https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre",
+      "do_not_retry": true,
+      "origin": "explicit_prior_master_denial_narrative",
+      "source_id": "uk-rvc-clinical-investigation-centre"
+    },
+    {
+      "url": "https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre/projects",
+      "do_not_retry": true,
+      "origin": "daily-20261017/inherited-gates.json",
+      "historical_scope": {
+        "source_id": "uk-rvc-clinical-investigation-centre",
+        "evidence": {
+          "url": "https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre/projects",
+          "route": "fallback_or_individual_primary",
+          "method": "Web",
+          "result": "read_error_or_insufficient",
+          "http_status": 403,
+          "text_sha256": "48555688d490ac07006d015e057779123aa2ce3f6eecd48edd558983f3a4a54a",
+          "evidence_reference": "turn609view1",
+          "crawl_freshness": "unknown",
+          "attempted_at": "2026-10-14T03:50:30-04:00"
+        }
+      }
+    },
+    {
+      "url": "https://hospital.vetmed.wsu.edu/small-animal/cats-and-dogs/oncology/",
+      "do_not_retry": true,
+      "origin": "daily-20261017/inherited-gates.json",
+      "historical_scope": {
+        "source_id": "usa-wsu-vth-clinical-studies",
+        "evidence": {
+          "source_id": "usa-wsu-vth-clinical-studies",
+          "url": "https://hospital.vetmed.wsu.edu/small-animal/cats-and-dogs/oncology/",
+          "effective_url": "https://hospital.vetmed.wsu.edu/small-animal/cats-and-dogs/oncology/",
+          "route": "targeted_official_fallback",
+          "method": "shell_curl",
+          "attempted_at": "2026-10-14T07:05:16.332608-04:00",
+          "completed_at": "2026-10-14T07:05:16.985457-04:00",
+          "http_status": 403,
+          "retry": 1,
+          "result": "retrieved_page",
+          "text_sha256": "9fb94c9b1e18c4133ec7d13ffb1fb7af8391bf53994162e914f9b880c2834020",
+          "title": "403 Forbidden",
+          "text_length": 27,
+          "exit_code": 0,
+          "visit_origin_run_id": "reconcile-68-20261014T070053-0400",
+          "new_visit_in_finalizer": false,
+          "stored_text_sha256": "9fb94c9b1e18c4133ec7d13ffb1fb7af8391bf53994162e914f9b880c2834020"
+        }
+      }
+    },
+    {
+      "url": "https://ccr.cancer.gov/comparative-oncology-program/trials",
+      "do_not_retry": true,
+      "origin": "explicit_prior_master_denial_narrative",
+      "source_id": "usa-nci-comparative-oncology-trials"
+    },
+    {
+      "url": "https://www.jvcog.jp/clinical/index.html",
+      "do_not_retry": true,
+      "origin": "explicit_prior_master_denial_narrative",
+      "source_id": "japan-jvcog-current-clinical-trials"
+    },
+    {
+      "url": "https://www.jvcog.jp/clinical/03rinsho.html",
+      "do_not_retry": true,
+      "origin": "daily-20261017/inherited-gates.json",
+      "historical_scope": {
+        "source_id": "japan-jvcog-current-clinical-trials",
+        "inherited_gate": {
+          "remaining_fact": "Current JVCOG public oncology protocols behind professional attestation.",
+          "routes_exhausted_evidence": {
+            "historical_explicit_gate": "inherited-gates.json",
+            "source_id": "japan-jvcog-current-clinical-trials",
+            "new_visits": false
+          },
+          "available_reconciliation_done_evidence": "Inherited JVCOG attestation/access gate inspected, not opened or bypassed; source dates unchanged. Public other Japanese protocols do not establish this roster."
+        },
+        "previous_run": "daily-20261016T025651-0400"
+      }
+    },
+    {
+      "url": "https://jornal.usp.br/ciencias/tratamento-com-injecoes-de-virus-zika-destroi-tumor-cerebral-em-roedores-sem-causar-lesao-neurologica/",
+      "do_not_retry": true,
+      "origin": "daily-20261017/inherited-gates.json",
+      "historical_scope": {
+        "source_id": "discovery-br-usp-zika",
+        "prior_attempt": {
+          "source_id": "discovery-br-usp-zika",
+          "url": "https://jornal.usp.br/ciencias/tratamento-com-injecoes-de-virus-zika-destroi-tumor-cerebral-em-roedores-sem-causar-lesao-neurologica/",
+          "route": "discovery_primary_official_fallback",
+          "attempted_at": "2026-10-16T03:27:09.244378-04:00",
+          "completed_at": "2026-10-16T03:27:13.218369-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 403,
+          "effective_url": "https://jornal.usp.br/ciencias/tratamento-com-injecoes-de-virus-zika-destroi-tumor-cerebral-em-roedores-sem-causar-lesao-neurologica/",
+          "content_type": "text/html; charset=iso-8859-1",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 74,
+          "text_sha256": "4f46b48d51fcd5d226a20fc1daa0eef7b322e52ab9a489bcd1b0829a5dd6d7d3",
+          "evidence_file": "research/audit-runs/daily-20261016T025651-0400/evidence/19e57bd7b7d4f5f4df.json",
+          "raw_file": "/workspace/scratch/6d9ea24f2cf9/raw-evidence/daily-20261016T025651-0400/19e57bd7b7d4f5f4df.body",
+          "result": "retrieved_page"
+        },
+        "new_visit": false
+      }
+    },
+    {
+      "url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/trike-new",
+      "do_not_retry": true,
+      "origin": "research/audit-runs/full-chat-20261017-execution-receipt.md",
+      "http_status": 403,
+      "observed_date": "2026-10-17",
+      "exact_time_unknown": true
+    },
+    {
+      "url": "https://onlinelibrary.wiley.com/doi/full/10.1111/vco.70050",
+      "do_not_retry": true,
+      "observed_at": "2026-10-18T03:24:00.250611-04:00",
+      "http_status": 403,
+      "origin": "research/audit-runs/daily-20261018T030540-0400/evidence/3b58a9630b049bae2f.json"
+    },
+    {
+      "url": "https://www.kodevet9.com/monitoring-visits",
+      "observed_at": "2026-10-18T03:32:37-04:00",
+      "origin": "research/audit-runs/daily-20261018T030540-0400/kv9-web-0.json",
+      "method": "Web",
+      "do_not_retry": true,
+      "reason": "access_denied"
+    },
+    {
+      "url": "https://www.anzcvs.org.au/chapters/veterinary%2Boncology/documentlibrary",
+      "do_not_retry": true,
+      "observed_at": "2026-10-18T04:01:20-04:00",
+      "method": "Web",
+      "reason": "Explicit Chapter Members only login gate",
+      "origin": "research/audit-runs/daily-20261018T030540-0400/discovery-primary-recovery-3.json"
     }
   ]
 }

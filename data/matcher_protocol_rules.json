@@ -467,6 +467,36 @@
     "histology_or_long_bone_osa_exception": {
       "label": "histologic confirmation, or MedVet approval of a long-bone OSA lesion when amputation is declined",
       "confirmation_or_appendicular_osa": true
+    },
+    "bcell_lymphoma_stage_iii_to_v_a": {
+      "label": "B-cell lymphoma at stage III–V(a)",
+      "field": "lymphoma_stage_substage",
+      "allowed": [
+        "IIIa",
+        "IVa",
+        "Va"
+      ]
+    },
+    "kv9_concurrent_drugs_eligible": {
+      "label": "Kv9-compatible concurrent medication (Apoquel, Cytopoint, Beransa and recent vaccination may be allowed)",
+      "field": "kv9_concurrent_drugs_eligible",
+      "allowed": [
+        "Yes"
+      ]
+    },
+    "distal_radius_osa": {
+      "label": "osteosarcoma of the distal radius",
+      "field": "osa_site_detail",
+      "allowed": [
+        "Distal radius"
+      ]
+    },
+    "oral_tumor_not_excised": {
+      "label": "oral melanoma has not been surgically excised (diagnostic biopsy is a separate procedure)",
+      "field": "oral_tumor_excised",
+      "allowed": [
+        "No"
+      ]
     }
   },
   "excludes": {
@@ -736,6 +766,27 @@
     },
     "distant_metastasis": {
       "label": "cancer spread beyond nearby lymph nodes"
+    },
+    "prior_target_tumor_treatment": {
+      "label": "previous treatment for the lung tumor",
+      "field": "target_tumor_treated",
+      "disallowed": [
+        "Yes"
+      ]
+    },
+    "prior_lymphoma_treatment": {
+      "label": "previous lymphoma treatment",
+      "field": "lymphoma_previously_treated",
+      "disallowed": [
+        "Yes"
+      ]
+    },
+    "prior_target_tumor_surgery": {
+      "label": "previous surgery for this osteosarcoma",
+      "field": "target_tumor_prior_surgery",
+      "disallowed": [
+        "Yes"
+      ]
     }
   }
 }

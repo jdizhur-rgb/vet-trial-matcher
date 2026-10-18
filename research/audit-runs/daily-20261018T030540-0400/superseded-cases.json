@@ -1,0 +1,46 @@
+[
+  {
+    "old_case": {
+      "name": "prior surgery",
+      "patient": {
+        "cancer": "Primary lung tumor",
+        "surgery": "Yes"
+      },
+      "expected": "exclude"
+    },
+    "replacement": {
+      "name": "prior surgery",
+      "patient": {
+        "cancer": "Primary lung tumor",
+        "surgery": "Yes",
+        "target_tumor_treated": "Yes"
+      },
+      "expected": "exclude"
+    },
+    "reason": "The current primary prohibits prior treatment for the lung tumour, not all lifetime anticancer treatment. Original negative retained with explicit target indication; unrelated/unknown histories get independent new cases.",
+    "source": "research/audit-runs/daily-20261018T030540-0400/evidence/57295bf9a7d5620236.json"
+  },
+  {
+    "old_case": {
+      "name": "previous chemotherapy for lung tumor excludes",
+      "patient": {
+        "cancer": "Pulmonary carcinoma",
+        "chemo": "Previously received"
+      },
+      "expected": "exclude",
+      "retained_from_reviewed_at": "2026-10-13T06:20:42.806673-04:00"
+    },
+    "replacement": {
+      "name": "previous chemotherapy for lung tumor excludes",
+      "patient": {
+        "cancer": "Pulmonary carcinoma",
+        "chemo": "Previously received",
+        "target_tumor_treated": "Yes"
+      },
+      "expected": "exclude",
+      "retained_from_reviewed_at": "2026-10-13T06:20:42.806673-04:00"
+    },
+    "reason": "The current primary prohibits prior treatment for the lung tumour, not all lifetime anticancer treatment. Original negative retained with explicit target indication; unrelated/unknown histories get independent new cases.",
+    "source": "research/audit-runs/daily-20261018T030540-0400/evidence/57295bf9a7d5620236.json"
+  }
+]

@@ -1868,7 +1868,12 @@
           "expected": "exclude"
         }
       ],
-      "selection_sha256": "d905b52405deeda9285cc4dc07b5dabb95b3a1a841268601c2352852d4cdc7a0"
+      "selection_sha256": "6ad22569d74a7e8bd34d75c42235ad7f8f2aa34d63b851d5c2678b806f039215",
+      "status_review": {
+        "at": "2026-10-18T03:34:38.196816-04:00",
+        "evidence": "research/audit-runs/daily-20261018T030540-0400/completed-status-decisions.json",
+        "decision": "Completed, nonmatchable under standing owner decision; original clinical cases/date retained. All retained cases now must reject the inactive record."
+      }
     },
     {
       "trial_id": "mizzou-pulmonary-carcinoma-gilvetmab",
@@ -2731,8 +2736,8 @@
     {
       "trial_id": "tufts-primary-pulmonary-carcinoma-sbrt",
       "source_url": "https://vet.tufts.edu/clinical-trials/sbrt-canine-lung-tumor-study",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Tufts primary-lung SBRT requires a single primary pulmonary carcinoma strictly>1cm in shortest diameter,no previous lung-tumor treatment,no regional nodes or pulmonary metastases.",
+      "reviewed_at": "2026-10-18T07:18:57.446516+00:00",
+      "criteria": "Single confirmed primary lung carcinoma strictly>1cm shortest dimension; no previous treatment FOR THE LUNG TUMOR. Prior unrelated non-carcinoma malignancy can be eligible in remission with expected median survival>1year, subject to30day other-malignancy rule. Known prior radiation to this tumor still excludes. General past chemo/surgery/immunotherapy alone does not identify treatment of this lung lesion; missing indication remains explicit screening, never Likely match.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -2745,7 +2750,8 @@
           "name": "prior surgery",
           "patient": {
             "cancer": "Primary lung tumor",
-            "surgery": "Yes"
+            "surgery": "Yes",
+            "target_tumor_treated": "Yes"
           },
           "expected": "exclude"
         },
@@ -2780,7 +2786,8 @@
           "name": "previous chemotherapy for lung tumor excludes",
           "patient": {
             "cancer": "Pulmonary carcinoma",
-            "chemo": "Previously received"
+            "chemo": "Previously received",
+            "target_tumor_treated": "Yes"
           },
           "expected": "exclude",
           "retained_from_reviewed_at": "2026-10-13T06:20:42.806673-04:00"
@@ -2804,9 +2811,72 @@
           },
           "expected": "exclude",
           "retained_from_reviewed_at": "2026-10-13T06:20:42.806673-04:00"
+        },
+        {
+          "name": "Prior history with unknown target: chemo",
+          "patient": {
+            "country": "USA",
+            "cancer": "Primary lung tumor",
+            "chemo": "Previously received"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "previous treatment for the lung tumor"
+          ]
+        },
+        {
+          "name": "Prior history with unknown target: surgery",
+          "patient": {
+            "country": "USA",
+            "cancer": "Primary lung tumor",
+            "surgery": "Yes"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "previous treatment for the lung tumor"
+          ]
+        },
+        {
+          "name": "Prior history with unknown target: immunotherapy_history",
+          "patient": {
+            "country": "USA",
+            "cancer": "Primary lung tumor",
+            "immunotherapy_history": "Previously received"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "previous treatment for the lung tumor"
+          ]
+        },
+        {
+          "name": "Known prior therapy of this lung tumour excludes",
+          "patient": {
+            "cancer": "Primary lung tumor",
+            "target_tumor_treated": "Yes"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Confirmed unrelated previous chemotherapy is not a lifetime ban",
+          "patient": {
+            "cancer": "Primary lung tumor",
+            "chemo": "Previously received",
+            "target_tumor_treated": "No"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Known radiation to this tumour excludes",
+          "patient": {
+            "cancer": "Primary lung tumor",
+            "radiation": "Previously received"
+          },
+          "expected": "exclude"
         }
       ],
-      "selection_sha256": "c55bf8be02b6365ea5111353eebb90f38e45b35b69d3226eae891d1bd0641d28"
+      "selection_sha256": "857556b90f8da1419596182743aa93a44afaa9793a1c0c887df6737690b1c18f",
+      "source_read_at": "2026-10-18T03:10:09.935191-04:00",
+      "current_primary_evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/57295bf9a7d5620236.json"
     },
     {
       "trial_id": "ethos-solid-relapse",
@@ -3835,8 +3905,8 @@
     {
       "trial_id": "ca-ovc-oral-melanoma-palladia",
       "source_url": "https://ovcclinicaltrials.uoguelph.ca/evaluating-palladia-for-the-treatment-of-canine-oral-melanoma/",
-      "reviewed_at": "2026-10-16T03:07:34.593947-04:00",
-      "criteria": "Current active canine roster plus full individual primary: dog, biopsy-confirmed oral melanoma, measurable disease, no previous chemotherapy; previous melanoma vaccine permitted. Administered trial therapy is Palladia/toceranib, not a vaccine. Multiple OVC visits; initial staging, Palladia and dispensing/administration covered. Other fees remain to confirm.",
+      "reviewed_at": "2026-10-18T07:18:57.446516+00:00",
+      "criteria": "Dog; Biopsy-confirmed oral melanoma; Palladia/toceranib; Measurable disease; no previous chemotherapy. Previous melanoma vaccine explicitly allowed.; OVC Guelph; Initial staging, study drug, dispensing and administration paid; other fees not inferred.; Dr Anthony Mutsaers / Dr Gabby Allegrini; OVC trial service; Other individual screening criteria require team confirmation.",
       "cases": [
         {
           "name": "Current toceranib candidate",
@@ -3887,13 +3957,25 @@
           ]
         }
       ],
-      "selection_sha256": "2b8f71c49ea374a8fc2fbb8558f9517f785fdf2779f08235f4cf37a393b9d918"
+      "selection_sha256": "2b8f71c49ea374a8fc2fbb8558f9517f785fdf2779f08235f4cf37a393b9d918",
+      "source_read_at": "2026-10-18T03:08:51.052093-04:00",
+      "current_primary_evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/dc149d227d67883b05.json",
+      "field_review": {
+        "species": "Dog",
+        "diagnosis": "Biopsy-confirmed oral melanoma",
+        "intervention": "Palladia/toceranib",
+        "eligibility": "Measurable disease; no previous chemotherapy. Previous melanoma vaccine explicitly allowed.",
+        "site": "OVC Guelph",
+        "funding": "Initial staging, study drug, dispensing and administration paid; other fees not inferred.",
+        "contact": "Dr Anthony Mutsaers / Dr Gabby Allegrini; OVC trial service",
+        "unpublished": "Other individual screening criteria require team confirmation."
+      }
     },
     {
       "trial_id": "ca-ovc-osa-hifu",
       "source_url": "https://ovcclinicaltrials.uoguelph.ca/evaluating-a-non-invasive-heat-therapy-for-the-treatment-of-bone-cancer-in-dogs-2/",
-      "reviewed_at": "2026-10-16T03:07:34.594054-04:00",
-      "criteria": "Current active canine roster plus full individual primary: canine osteosarcoma of DISTAL RADIUS, no metastasis, no previous OSA surgery or radiation. Prior chemotherapy/bisphosphonates assessed case-by-case. MRI-guided HIFU at SickKids Toronto plus multiple OVC Guelph visits. MRI, HIFU, anesthesia, study biopsies/analyses funded; unrelated care not inferred free. Appendicular form answer is necessary but not sufficient to establish the exact distal-radius location.",
+      "reviewed_at": "2026-10-18T07:18:57.446516+00:00",
+      "criteria": "Dog; Confirmed distal-radius osteosarcoma, no metastasis; MRI-guided HIFU; No prior surgery/radiation for OSA; previous chemotherapy or bisphosphonates case-by-case, not automatically excluded.; SickKids Toronto and OVC Guelph visits; MRI/HIFU/anesthesia/study biopsies and analyses covered.; Dr Brigitte Brisson / OVC Clinical Trials; Exact anatomy and prior treatment indication remain screening questions. Literal-scope correction: previous surgery excludes only surgery for this OSA, not unrelated operations; distal-radius site is a specific team-screening field.",
       "cases": [
         {
           "name": "Limb candidate still needs exact distal-radius confirmation",
@@ -3941,9 +4023,11 @@
           "patient": {
             "country": "Canada",
             "cancer": "Osteosarcoma",
-            "surgery": "Yes"
+            "surgery": "Yes",
+            "target_tumor_prior_surgery": "Yes"
           },
-          "expected": "exclude"
+          "expected": "exclude",
+          "clinical_scope_correction": "Explicit OSA surgery, not an unrelated historical operation."
         },
         {
           "name": "Wrong species",
@@ -3953,9 +4037,54 @@
             "cancer": "Osteosarcoma"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "General previous surgery of unknown indication needs screening",
+          "patient": {
+            "country": "Canada",
+            "cancer": "Osteosarcoma",
+            "surgery": "Yes"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "previous surgery for this osteosarcoma"
+          ]
+        },
+        {
+          "name": "Known unrelated prior surgery does not exclude distal-radius OSA",
+          "patient": {
+            "country": "Canada",
+            "cancer": "Osteosarcoma",
+            "surgery": "Yes",
+            "target_tumor_prior_surgery": "No",
+            "osa_site_detail": "Distal radius"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Known femur site is not distal radius",
+          "patient": {
+            "country": "Canada",
+            "cancer": "Osteosarcoma",
+            "osa_location": "Appendicular — limb bone",
+            "osa_site_detail": "Femur"
+          },
+          "expected": "exclude"
         }
       ],
-      "selection_sha256": "b276c24c868f5a630a7f73e97ef2004a7388e2b14c5080e9f903b421cec79982"
+      "selection_sha256": "7e47c7b779c7f8edc10e26b57130baa39fdb50ff23b9a0970da4f515d996fe23",
+      "source_read_at": "2026-10-18T03:08:51.970484-04:00",
+      "current_primary_evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/61cc1a1997ac5bee18.json",
+      "field_review": {
+        "species": "Dog",
+        "diagnosis": "Confirmed distal-radius osteosarcoma, no metastasis",
+        "intervention": "MRI-guided HIFU",
+        "eligibility": "No prior surgery/radiation for OSA; previous chemotherapy or bisphosphonates case-by-case, not automatically excluded.",
+        "site": "SickKids Toronto and OVC Guelph visits",
+        "funding": "MRI/HIFU/anesthesia/study biopsies and analyses covered.",
+        "contact": "Dr Brigitte Brisson / OVC Clinical Trials",
+        "unpublished": "Exact anatomy and prior treatment indication remain screening questions."
+      }
     },
     {
       "trial_id": "uk-liverpool-dogfight-glioma-ferumoxytol-rt",
@@ -5731,8 +5860,8 @@
     {
       "trial_id": "uf-oral-melanoma-vaccine-pd1",
       "source_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/vaccine-and-anti-pd1-study-in-dogs-with-malignant-melanoma/",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "UF oral-melanoma vaccine+PD1 protocol requires the oral tumor not already excised.",
+      "reviewed_at": "2026-10-18T03:42:08.724620-04:00",
+      "criteria": "UF oral-melanoma vaccine+PD1 protocol requires the oral tumor not already excised. Current full protocol explicitly says the oral tumor must not have been excised; general history of surgery does not prove this. Required diagnostic tumor biopsies are distinct from tumor excision.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -5749,9 +5878,11 @@
             "species": "Dog",
             "country": "USA",
             "cancer": "Oral melanoma",
-            "surgery": "Yes"
+            "surgery": "Yes",
+            "oral_tumor_excised": "Yes"
           },
-          "expected": "exclude"
+          "expected": "exclude",
+          "clinical_scope_correction": "Confirmed oral tumor excision is excluded; general unrelated surgery alone does not establish that."
         },
         {
           "name": "different species outside protocol",
@@ -5761,9 +5892,45 @@
             "cancer": "Oral melanoma"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Unknown indication of past surgery requires screening",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Oral melanoma",
+            "surgery": "Yes"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "oral melanoma has not"
+          ]
+        },
+        {
+          "name": "Unrelated surgery does not establish oral tumor excision",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Oral melanoma",
+            "surgery": "Yes",
+            "oral_tumor_excised": "No"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Known excised oral melanoma remains excluded",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Oral melanoma",
+            "oral_tumor_excised": "Yes"
+          },
+          "expected": "exclude"
         }
       ],
-      "selection_sha256": "b4836f89981d629f1225bb1a960f9a8921eb151bb7bbad5bc91e550a3ff7d258"
+      "selection_sha256": "1a9dffe3ffeb8861b68af37e8c5d2417bbbd08fb456e1a655451014ea363aa83",
+      "source_read_at": "2026-10-18T03:09:34.680264-04:00",
+      "current_primary_evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/cc6e93a64043cb4e45.json"
     },
     {
       "trial_id": "tufts-z007-broad-solid-2026",
@@ -6821,6 +6988,434 @@
         }
       ],
       "selection_sha256": "3f94174d8ceaeb4c3f30c83f47406fb7ff63d56878dd9917db0b563903f92049"
+    },
+    {
+      "trial_id": "ca-ovc-feline-oscc-porphysome-pdt",
+      "source_url": "https://ovcclinicaltrials.uoguelph.ca/all-active-feline-clinical-trials-onco/",
+      "reviewed_at": "2026-10-18T07:18:57.446516+00:00",
+      "cases": [
+        {
+          "name": "Published exact cohort candidate",
+          "patient": {
+            "species": "Cat",
+            "country": "Canada",
+            "cancer": "Oral squamous cell carcinoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Outside published disease cohort",
+          "patient": {
+            "species": "Cat",
+            "country": "Canada",
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Unknown clinical details require prescreening",
+          "patient": {
+            "species": "Cat",
+            "country": "Canada",
+            "cancer": "Oral squamous cell carcinoma"
+          },
+          "expected": "review"
+        }
+      ],
+      "criteria": "Cat; Confirmed oral-cavity SCC; Porphysome nanoparticles plus phototherapy, oral subproject; Cat OCSCC is the published active cohort; broader dog/cat solid-tumour scientific title does not broaden the listed feline intake.; OVC; Not publicly specified; retained Unknown, not free.; Dr Michelle Oblak / OVC Clinical Trials; Full stage/size/prior-treatment limits and owner-covered costs are not supplied by this study section.",
+      "source_read_at": "2026-10-18T03:08:21.384222-04:00",
+      "current_primary_evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/4b9298f440e024f4a8.json",
+      "field_review": {
+        "species": "Cat",
+        "diagnosis": "Confirmed oral-cavity SCC",
+        "intervention": "Porphysome nanoparticles plus phototherapy, oral subproject",
+        "eligibility": "Cat OCSCC is the published active cohort; broader dog/cat solid-tumour scientific title does not broaden the listed feline intake.",
+        "site": "OVC",
+        "funding": "Not publicly specified; retained Unknown, not free.",
+        "contact": "Dr Michelle Oblak / OVC Clinical Trials",
+        "unpublished": "Full stage/size/prior-treatment limits and owner-covered costs are not supplied by this study section."
+      },
+      "selection_sha256": "2202804cd67acf243936b557201e496b726abfdcbdb54058e60d3a6e86f8469c"
+    },
+    {
+      "trial_id": "aurelius-lytix-bcell-lymphoma",
+      "source_url": "https://aureliusbio.com/",
+      "reviewed_at": "2026-10-18T07:20:10.816822+00:00",
+      "cases": [
+        {
+          "name": "Published exact cohort candidate",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "B-cell lymphoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Outside published disease cohort",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "T-cell lymphoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Unknown clinical details require prescreening",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "B-cell lymphoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Oncolytic peptide is not a virus or bacterium",
+          "patient": {
+            "cancer": "B-cell lymphoma",
+            "approach": "oncolytic_microbe"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Known earlier-stage disease outside published III–V(a)",
+          "patient": {
+            "cancer": "B-cell lymphoma",
+            "lymphoma_stage_substage": "IIa"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Known substage b outside the published a cohort",
+          "patient": {
+            "cancer": "B-cell lymphoma",
+            "lymphoma_stage_substage": "IVb"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Previously treated lymphoma conflicts with naive pilot",
+          "patient": {
+            "cancer": "B-cell lymphoma",
+            "lymphoma_previously_treated": "Yes"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Unknown stage and target-treatment history require team confirmation",
+          "patient": {
+            "cancer": "B-cell lymphoma"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "stage III",
+            "previous lymphoma treatment"
+          ]
+        },
+        {
+          "name": "Published untreated stage IIIa pilot candidate",
+          "patient": {
+            "cancer": "B-cell lymphoma",
+            "lymphoma_stage_substage": "IIIa",
+            "lymphoma_previously_treated": "No"
+          },
+          "expected": "review"
+        }
+      ],
+      "criteria": "Dog; Previously untreated B-cell lymphoma stage3–5(a); Oncolytic peptide plus adoptive T cells; current pilot cohort; Previously untreated, stage3–5a; owner consent and almost all study treatment in Bellingham.; Bellingham WA; initial3days and at least two later visits around1month; Study explicitly fully funded with no additional owner expense; travel coverage not separately stated.; Theresa Westfall DVM; info@aureliusbio.com;3609613529 /3607340720; Complete eligibility still confirmed by study team.",
+      "source_read_at": "2026-10-18T03:09:06.367897-04:00",
+      "current_primary_evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/8b8248af58bcfd8957.json",
+      "field_review": {
+        "species": "Dog",
+        "diagnosis": "Previously untreated B-cell lymphoma stage3–5(a)",
+        "intervention": "Oncolytic peptide plus adoptive T cells; current pilot cohort",
+        "eligibility": "Previously untreated, stage3–5a; owner consent and almost all study treatment in Bellingham.",
+        "site": "Bellingham WA; initial3days and at least two later visits around1month",
+        "funding": "Study explicitly fully funded with no additional owner expense; travel coverage not separately stated.",
+        "contact": "Theresa Westfall DVM; info@aureliusbio.com;3609613529 /3607340720",
+        "unpublished": "Complete eligibility still confirmed by study team."
+      },
+      "selection_sha256": "c6129f1bf627a26d0d64c544ee03f22f9706243f8ce263074c1c6e9f6e583ce2"
+    },
+    {
+      "trial_id": "nz-kvs-kv9-solid-tumor-pilot",
+      "source_url": "https://www.kodevet9.com/clinical-trial",
+      "source_read_at": "2026-10-18T03:31:08.357843-04:00",
+      "evidence_file": "research/audit-runs/daily-20261018T030540-0400/evidence/5da77f62be16a1a699.json",
+      "reviewed_at": "2026-10-18T03:34:26.479115-04:00",
+      "criteria": "Fresh individual primary protocol and owner FAQ read in full, with all eight published centres; current dogs/cats invitation. Pathologist-confirmed listed accessible solid tumors, approximately1–5cm, intratumoral Kv9, no concurrent chemotherapy; selected immunomodulatory medication exceptions explicit. Prior surgery allowed with injectable residual/recurrent disease. Source does not establish lymphoma, oral treatment, oncolytic microbe therapy or an administered cancer vaccine; no benefit guarantee. Study drug/visits covered; diagnosis and unrelated care owner-paid. Cat-specific histology/site criteria remain team screening.",
+      "field_review": {
+        "intervention": "Intratumoral Kv9 immunotherapy, usually up to three treatments about two weeks apart, followed by at least nine monitoring visits over two years",
+        "eligibility": "Pathologist-confirmed cytology or biopsy; accessible tumor approximately 1–5 cm. No concurrent chemotherapy or disallowed immune-modulating medication, but the protocol explicitly permits Apoquel, Cytopoint, Beransa and recent vaccination. Soft tissue sarcoma must not have surface wounds; other tumor types are assessed individually. Residual/recurrent tumors after surgery may qualify if at least 1 × 1 cm remains. Full referral, feline-specific criteria, medication exceptions and site availability require KVS screening.",
+        "funding": "Kv9, treatment appointments and study monitoring visits are covered. Owners pay the initial tumor diagnosis and other veterinarian-recommended tests. Unrelated care, pre-existing conditions and agreed exclusions remain owner-paid; travel coverage is not stated.",
+        "sites": [
+          {
+            "name": "Onewa Road Veterinary Hospital",
+            "hospital": "Onewa Road Veterinary Hospital",
+            "city": "Auckland",
+            "country": "New Zealand",
+            "address": "181 Onewa Road, Birkenhead, Auckland 0626, New Zealand",
+            "address_source": "https://www.onewavets.co.nz/",
+            "address_verified_at": "2026-10-18T04:03:25.393559-04:00"
+          },
+          {
+            "name": "CareVets Glen Eden",
+            "hospital": "CareVets Glen Eden",
+            "city": "Auckland",
+            "country": "New Zealand",
+            "address": "69 West Coast Road, Glen Eden, Auckland 0602, New Zealand",
+            "address_source": "https://carevets.co.nz/clinics/",
+            "address_verified_at": "2026-10-18T04:03:25.395033-04:00"
+          },
+          {
+            "name": "Remuera Veterinary Clinic & Hospital",
+            "hospital": "Remuera Veterinary Clinic & Hospital",
+            "city": "Auckland",
+            "country": "New Zealand",
+            "address": "23 Ascot Avenue, Remuera, Auckland 1050, New Zealand",
+            "address_source": "https://carevets.co.nz/remuera-vets/",
+            "address_verified_at": "2026-10-18T04:03:52.513082-04:00"
+          },
+          {
+            "name": "CareVets Rototuna",
+            "hospital": "CareVets Rototuna",
+            "city": "Hamilton",
+            "country": "New Zealand",
+            "address": "Corner Horsham Downs and Thomas Road, Rototuna, Hamilton 3210, New Zealand",
+            "address_source": "https://carevets.co.nz/clinics/",
+            "address_verified_at": "2026-10-18T04:03:25.395033-04:00"
+          },
+          {
+            "name": "Vet Services Napier",
+            "hospital": "Vet Services Napier",
+            "city": "Napier",
+            "country": "New Zealand",
+            "address": "170 Taradale Road, Napier 4112, New Zealand",
+            "address_source": "https://www.vshb.co.nz/contact/napier/",
+            "address_verified_at": "2026-10-18T04:03:25.396536-04:00"
+          },
+          {
+            "name": "Vet Services Dannevirke",
+            "hospital": "Vet Services Dannevirke",
+            "city": "Dannevirke",
+            "country": "New Zealand",
+            "address": "193–195 High Street, Dannevirke 4930, New Zealand",
+            "address_source": "https://www.vsdvk.co.nz/contact/",
+            "address_verified_at": "2026-10-18T04:03:25.397296-04:00"
+          },
+          {
+            "name": "Rappaw Central Veterinary Hospital",
+            "hospital": "Rappaw Central Veterinary Hospital",
+            "city": "Porirua",
+            "country": "New Zealand",
+            "address": "73 Kenepuru Drive, Kenepuru, Porirua 5022, New Zealand",
+            "address_source": "https://www.rappaw.co.nz/book-veterinary-care",
+            "address_verified_at": "2026-10-18T04:03:25.398041-04:00"
+          },
+          {
+            "name": "CareVets Kilbirnie",
+            "hospital": "CareVets Kilbirnie",
+            "city": "Wellington",
+            "country": "New Zealand",
+            "address": "35 Mahora Street, Kilbirnie, Wellington 6022, New Zealand",
+            "address_source": "https://carevets.co.nz/clinics/",
+            "address_verified_at": "2026-10-18T04:03:25.395033-04:00"
+          }
+        ],
+        "status_evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/0c6f6f4b64a5985950.json",
+        "unpublished": "Complete embedded referral criteria not exposed by native or same-URL Web; feline specifics require KVS. Visit resources native JS shell and Web403, not retried."
+      },
+      "selection_sha256": "fb13e37faf1e86c644ed491b6bb593cda7dc3d74417b3d21503bf45c50783589",
+      "cases": [
+        {
+          "name": "Dog solid tumor candidate remains screening",
+          "patient": {
+            "species": "Dog",
+            "country": "New Zealand",
+            "cancer": "Soft tissue sarcoma"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "minimum tumor size",
+            "maximum tumor size"
+          ]
+        },
+        {
+          "name": "Cat invitation retains feline team screening",
+          "patient": {
+            "species": "Cat",
+            "country": "New Zealand",
+            "cancer": "Mammary carcinoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "All countries can discover the new NZ pilot",
+          "patient": {
+            "species": "Dog",
+            "country": "All countries",
+            "cancer": "Mast cell tumor"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "No USA site inferred",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Soft tissue sarcoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Lymphoma is not this solid tumor cohort",
+          "patient": {
+            "species": "Dog",
+            "country": "New Zealand",
+            "cancer": "B-cell lymphoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Concurrent chemotherapy prohibited",
+          "patient": {
+            "species": "Dog",
+            "country": "New Zealand",
+            "cancer": "Soft tissue sarcoma",
+            "chemo": "Currently receiving"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Known disallowed concurrent medication",
+          "patient": {
+            "species": "Dog",
+            "country": "New Zealand",
+            "cancer": "Soft tissue sarcoma",
+            "kv9_concurrent_drugs_eligible": "No"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Unknown concurrent medication requires screen",
+          "patient": {
+            "species": "Dog",
+            "country": "New Zealand",
+            "cancer": "Mast cell tumor"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "Kv9-compatible"
+          ]
+        },
+        {
+          "name": "Prior surgery does not itself exclude residual tumor",
+          "patient": {
+            "species": "Dog",
+            "country": "New Zealand",
+            "cancer": "Soft tissue sarcoma",
+            "surgery": "Previously received"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Apoquel history is not an automatic class exclusion",
+          "patient": {
+            "species": "Dog",
+            "country": "New Zealand",
+            "cancer": "Mast cell tumor",
+            "immunosuppressive": "Yes",
+            "kv9_concurrent_drugs_eligible": "Yes"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Peptide-like surface marking is not a virus therapy",
+          "patient": {
+            "species": "Dog",
+            "country": "New Zealand",
+            "cancer": "Soft tissue sarcoma",
+            "approach": "oncolytic_microbe"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Vaccine-like immune effect is not an administered vaccine cohort",
+          "patient": {
+            "species": "Dog",
+            "country": "New Zealand",
+            "cancer": "Soft tissue sarcoma",
+            "approach": "cancer_vaccine"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "site_address_review": [
+        {
+          "site": "Onewa Road Veterinary Hospital",
+          "address": "181 Onewa Road, Birkenhead, Auckland 0626, New Zealand",
+          "url": "https://www.onewavets.co.nz/",
+          "at": "2026-10-18T04:03:25.393559-04:00",
+          "method": "shell_curl",
+          "evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/8bdf490148a45e5483.json"
+        },
+        {
+          "site": "CareVets Glen Eden",
+          "address": "69 West Coast Road, Glen Eden, Auckland 0602, New Zealand",
+          "url": "https://carevets.co.nz/clinics/",
+          "at": "2026-10-18T04:03:25.395033-04:00",
+          "method": "shell_curl",
+          "evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/169f83f9470547bc59.json"
+        },
+        {
+          "site": "Remuera Veterinary Clinic & Hospital",
+          "address": "23 Ascot Avenue, Remuera, Auckland 1050, New Zealand",
+          "url": "https://carevets.co.nz/remuera-vets/",
+          "at": "2026-10-18T04:03:52.513082-04:00",
+          "method": "shell_curl",
+          "evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/ed4d38198d3ebdd245.json"
+        },
+        {
+          "site": "CareVets Rototuna",
+          "address": "Corner Horsham Downs and Thomas Road, Rototuna, Hamilton 3210, New Zealand",
+          "url": "https://carevets.co.nz/clinics/",
+          "at": "2026-10-18T04:03:25.395033-04:00",
+          "method": "shell_curl",
+          "evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/169f83f9470547bc59.json"
+        },
+        {
+          "site": "Vet Services Napier",
+          "address": "170 Taradale Road, Napier 4112, New Zealand",
+          "url": "https://www.vshb.co.nz/contact/napier/",
+          "at": "2026-10-18T04:03:25.396536-04:00",
+          "method": "shell_curl",
+          "evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/2ccf2ed71ec3fa6c10.json"
+        },
+        {
+          "site": "Vet Services Dannevirke",
+          "address": "193–195 High Street, Dannevirke 4930, New Zealand",
+          "url": "https://www.vsdvk.co.nz/contact/",
+          "at": "2026-10-18T04:03:25.397296-04:00",
+          "method": "shell_curl",
+          "evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/7e2d1db6a14596f1e4.json"
+        },
+        {
+          "site": "Rappaw Central Veterinary Hospital",
+          "address": "73 Kenepuru Drive, Kenepuru, Porirua 5022, New Zealand",
+          "url": "https://www.rappaw.co.nz/book-veterinary-care",
+          "at": "2026-10-18T04:03:25.398041-04:00",
+          "method": "shell_curl",
+          "evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/6783d11e19b48d4446.json"
+        },
+        {
+          "site": "CareVets Kilbirnie",
+          "address": "35 Mahora Street, Kilbirnie, Wellington 6022, New Zealand",
+          "url": "https://carevets.co.nz/clinics/",
+          "at": "2026-10-18T04:03:25.395033-04:00",
+          "method": "shell_curl",
+          "evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/169f83f9470547bc59.json"
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,1 @@
+Actual baseline frozen 2026-10-18T03:05:40.493487-04:00. No source visits or clinical verification yet. All113 sources and all156 public IDs retained;40 pending eligibility reviews carried forward. Restrictions frozen before first request.
