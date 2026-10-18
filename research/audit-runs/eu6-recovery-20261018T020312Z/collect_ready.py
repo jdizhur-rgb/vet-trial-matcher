@@ -110,5 +110,12 @@ def collect(seq):
     b=archive.read_bytes();payload['archive']={'local_path':str(archive),'path':archive.relative_to(ROOT).as_posix(),'sha256':sha(b),'bytes':len(b)}
     return payload
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('seq');args=p.parse_args();assert re.fullmatch(r'[0-9]{3}',args.seq)
-    print(json.dumps(collect(args.seq),ensure_ascii=False))
+    p=argparse.ArgumentParser();p.add_argument('seq');p.add_argument('--manifest-file',action='store_true');args=p.parse_args();assert re.fullmatch(r'[0-9]{3}',args.seq)
+    payload=collect(args.seq)
+    if args.manifest_file:
+        target=BASE/'backups'/f'{args.seq}-draft-manifest.json'
+        encoded=(json.dumps(payload,ensure_ascii=False,indent=2)+'\n').encode('utf-8')
+        target.write_bytes(encoded)
+        print(json.dumps({'manifest_path':str(target),'bytes':len(encoded),'sha256':sha(encoded)}))
+    else:
+        print(json.dumps(payload,ensure_ascii=False))
