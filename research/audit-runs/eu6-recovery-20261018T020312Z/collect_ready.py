@@ -44,16 +44,20 @@ def collect(seq):
     for p,row in found.items():
         if p in old['uploaded_files']:assert old['uploaded_files'][p]==row['sha256'],('Previously backed frozen path changed',p)
         else:new.append(row)
-    payload={'run_id':ASSIGN['run_id'],'baseline_sha':ASSIGN['baseline_sha'],'seq':seq,'collected_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'files':new,'ready_blocks':ready_proofs,'errors':errors,'site_publication':False}
+    content_paths={h:p for p,h in old['uploaded_files'].items()};archive_rows=[];reused=[]
+    for row in new:
+        if row['sha256'] in content_paths:reused.append({**row,'from_path':content_paths[row['sha256']]})
+        else:archive_rows.append(row);content_paths[row['sha256']]=row['path']
+    payload={'run_id':ASSIGN['run_id'],'baseline_sha':ASSIGN['baseline_sha'],'seq':seq,'collected_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'archive_layout_version':2,'files':new,'archive_files':archive_rows,'reused_payloads':reused,'ready_blocks':ready_proofs,'errors':errors,'site_publication':False}
     archive=BASE/'backups'/f'{seq}.tar.zst';archive.parent.mkdir(exist_ok=True)
     # Only the immutable files selected above enter the incremental archive.
     with archive.open('wb') as sink:
         with zstandard.ZstdCompressor(level=10,threads=2).stream_writer(sink) as compressed:
             with tarfile.open(fileobj=compressed,mode='w|') as tf:
-                for row in new:
+                for row in archive_rows:
                     p=ROOT/row['path'];b=p.read_bytes();assert sha(b)==row['sha256']
                     ti=tarfile.TarInfo(row['path']);ti.size=len(b);ti.mode=0o644;tf.addfile(ti,io.BytesIO(b))
-    expected={r['path']:r['sha256'] for r in new};seen={}
+    expected={r['path']:r['sha256'] for r in archive_rows};seen={}
     with archive.open('rb') as src:
         with zstandard.ZstdDecompressor().stream_reader(src) as dec:
             with tarfile.open(fileobj=dec,mode='r|') as tf:
