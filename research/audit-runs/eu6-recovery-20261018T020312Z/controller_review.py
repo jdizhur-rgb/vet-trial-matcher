@@ -1,7 +1,7 @@
 """Independent controller integrity, baseline-old-value and retained-delta checks; no source requests or production writes."""
 import ast,collections,hashlib,json,pathlib,re,sys,unicodedata,urllib.parse
 ROOT=pathlib.Path(__file__).resolve().parents[3];BASE=pathlib.Path(__file__).resolve().parent
-A=json.loads((BASE/'assignments.json').read_text());SLOTS={1:'block-03-final',2:'normalized-final',3:'block-5',5:'normalized-final',6:'block-03'}
+A=json.loads((BASE/'assignments.json').read_text());SLOTS={1:'block-03-final',2:'normalized-final',3:'block-6',5:'normalized-final',6:'block-03'}
 OLD={1:'final-delivery',2:'final-publicsafe',3:None,5:'block-66',6:'block-67'}
 def read(p):return json.loads(p.read_text())
 def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
