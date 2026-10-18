@@ -1,0 +1,53 @@
+{
+  "run_id": "eu6-recovery-20261018T020312Z",
+  "checked_at": "2026-10-18 03:39:17 UTC",
+  "kind": "READ_ONLY_PRE_ACCEPTANCE_GERMANY_CLINICAL_PROOF_QA",
+  "germany_accepted": false,
+  "clinical_proofs": [
+    {
+      "source_id": "de-riedel-riedel-chemnitz",
+      "source_file": "research/audit-runs/eu6-recovery-20261018T020312Z/worker-4/input/prior/checkpoints/block-26/proposed_changes.json",
+      "sha256": "79b6c64ce184d76ad3c9dc55b728f4c08d66138dc1ac8dadf087ffdd6294cecc",
+      "json_pointer": "/operations/3/fields/18",
+      "proof": {
+        "field": "services",
+        "old": null,
+        "new": [
+          "Surgery",
+          "Chemotherapy"
+        ],
+        "evidence_id": "de-riedel-service-20261017",
+        "url": "https://tierarztpraxis-chemnitz.de/tieraerztliche-leistungen",
+        "checked_at": "2026-10-17T05:59:43.990717+00:00",
+        "short_quote": "Tumorchirurgie",
+        "additional_short_quote": "führen wir auch Chemotherapien durch.",
+        "evidence_scope": "Actualfield-relevantpublishedtext, formattingnormalizedwhereappropriate.",
+        "branch_scope": "OnephysicalStelzendorfer Gutsweg 5/09116Chemnitz practice, nohistorical/network/mobile/otherbranchfanout."
+      }
+    },
+    {
+      "source_id": "de-kleintierzentrum-am-waldpark-dresden",
+      "source_file": "research/audit-runs/eu6-recovery-20261018T020312Z/worker-4/input/prior/checkpoints/block-27/proposed_changes.json",
+      "sha256": "5de6847acc11397fd59da276964e463bfe029efa3657e1b67832ff37a8da6ec7",
+      "json_pointer": "/operations/1/fields/18",
+      "proof": {
+        "field": "services",
+        "old": null,
+        "new": [
+          "Surgery",
+          "Chemotherapy"
+        ],
+        "evidence_id": "de-waldpark-service-20261017",
+        "url": "https://www.tierarzt-dresden-waldpark.de/leistungen?catid=2&id=24&view=article",
+        "checked_at": "2026-10-17T06:04:40.329284+00:00",
+        "short_quote": "Tumorchirurgie inkl. rekonstruktive Chirurgie",
+        "additional_short_quote": "Chemotherapie (z.B. Lymphom)",
+        "evidence_scope": "Actualfield-relevantpublishedtext, normalizationwhereappropriate.",
+        "branch_scope": "OnephysicalLoschwitzer Straße 3/01309Dresden practice, no referral/network/mobile/historicalfanout."
+      }
+    }
+  ],
+  "FU_Berlin": "Parent found 'treated' insufficient to prove Surgery. Worker acknowledged exact issue and will narrow to Local oncology care in next immutable checkpoint; not yet claiming amendment sealed.",
+  "source_requests": 0,
+  "site_publication": false
+}
