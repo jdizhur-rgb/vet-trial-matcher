@@ -1,8 +1,8 @@
 """Independent controller integrity, baseline-old-value and retained-delta checks; no source requests or production writes."""
 import ast,collections,hashlib,json,pathlib,re,sys,unicodedata,urllib.parse
 ROOT=pathlib.Path(__file__).resolve().parents[3];BASE=pathlib.Path(__file__).resolve().parent
-A=json.loads((BASE/'assignments.json').read_text());SLOTS={1:'block-03-final',2:'final',5:'recovery-01',6:'block-02'}
-OLD={1:'final-delivery',2:'final-publicsafe',5:'block-66',6:'block-67'}
+A=json.loads((BASE/'assignments.json').read_text());SLOTS={1:'block-03-final',2:'normalized-final',3:'block-5',5:'normalized-final',6:'block-03'}
+OLD={1:'final-delivery',2:'final-publicsafe',3:None,5:'block-66',6:'block-67'}
 def read(p):return json.loads(p.read_text())
 def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def norm(x):return re.sub('[^a-z0-9]','',unicodedata.normalize('NFKD',str(x).casefold().replace('ß','ss')).encode('ascii','ignore').decode())
@@ -22,7 +22,7 @@ for t in tele:rows.append(('tele',dict(zip(['region','country','name','clinician
 byid=collections.defaultdict(list)
 for f,r in rows:
  if r.get('source_id') or r.get('id'):byid[r.get('source_id') or r['id']].append((f,r))
-def signature(c):return (c.get('operation'),c.get('source_id'),c.get('field'))
+def signature(c):return ('NEW' if c.get('operation')=='ADD' else c.get('operation'),c.get('source_id'),c.get('field'))
 output={'run_id':A['run_id'],'baseline_sha':A['baseline_sha'],'controller':'/root','five_input_row_counts':row_counts,'total_representation_rows':sum(row_counts.values()),'slots':[]}
 allnew=[]
 for slot,folder in SLOTS.items():
@@ -33,7 +33,7 @@ for slot,folder in SLOTS.items():
   proof['files'][name]={'sha256':digest(p/name),'bytes':(p/name).stat().st_size}
  report=(p/'report.md').read_text();assert len(report)>10000 and country in report and A['run_id'] in report
  proof['files']['report.md']={'sha256':digest(p/'report.md'),'bytes':(p/'report.md').stat().st_size,'lines':len(report.splitlines())}
- current=read(p/'proposed_changes.json');previous=read(own/'input/prior/checkpoints'/OLD[slot]/'proposed_changes.json')
+ current=read(p/'proposed_changes.json');previous=read(own/'input/prior/checkpoints'/OLD[slot]/'proposed_changes.json') if OLD[slot] else read(own/'checkpoints/block-1/proposed_changes.json')
  oldmap={signature(c):c for c in previous['changes']};changes=current['changes'];proof['operations']=dict(collections.Counter(c.get('operation') for c in changes));deltas=[]
  for c in changes:
   sid=c.get('source_id');key=signature(c);op=c.get('operation');value=c.get('new_value')
@@ -61,7 +61,7 @@ for slot,folder in SLOTS.items():
   if value.get('location_type')=='network':
    bad={k:value.get(k) for k in ['street','city','postal_code','latitude','longitude'] if value.get(k) not in [None,'']}
    if bad:proof['network_pin_errors'].append({'source_id':sid,'fields':bad})
- proof['new_value_deltas_against_accepted_prior']=deltas;proof['research_complete_claim']=read(p/'result.json').get('research_complete');proof['prior_acceptance']=read(own/f'input/worker-acceptance-{slot}.json')
+ proof['new_value_deltas_against_accepted_prior']=deltas;proof['research_complete_claim']=read(p/'result.json').get('research_complete');ap=own/f'input/worker-acceptance-{slot}.json';proof['prior_acceptance']=read(ap) if ap.exists() else {'parent_accepted':False,'reason':'Prior country research not completed/accepted; initial restored effective proposals independently checked separately'}
  output['slots'].append(proof)
 output['cross_country_strong_hits']=[]
 for i,(s1,id1,r1) in enumerate(allnew):
