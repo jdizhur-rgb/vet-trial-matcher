@@ -1,0 +1,51 @@
+{
+  "verified_at": "2026-10-18T04:10:25.952661-04:00",
+  "publication_sha": "daaabf2b38e4268433d2f2a9405467254ad140ff",
+  "status": "PASS",
+  "script_version": "./matcher.js?v=target-scope-20261018",
+  "catalog_version": "./trials.json?v=021f7d5b76fad62d",
+  "checks": [
+    {
+      "name": "html",
+      "url": "https://vettrialfinder.com/matcher/",
+      "attempted_at": "2026-10-18T04:10:16.893244-04:00",
+      "completed_at": "2026-10-18T04:10:20.263289-04:00",
+      "method": "shell_curl",
+      "exit_code": 0,
+      "http_status": "200",
+      "expected_sha256": "a8664d83f7f719a84285362404ab6e0d672964d16096d79b224a1278a5cb371e",
+      "live_sha256": "a8664d83f7f719a84285362404ab6e0d672964d16096d79b224a1278a5cb371e",
+      "bytes": 62066,
+      "equal": true,
+      "stderr": ""
+    },
+    {
+      "name": "javascript",
+      "url": "https://vettrialfinder.com/matcher/matcher.js?v=target-scope-20261018",
+      "attempted_at": "2026-10-18T04:10:20.263409-04:00",
+      "completed_at": "2026-10-18T04:10:23.048149-04:00",
+      "method": "shell_curl",
+      "exit_code": 0,
+      "http_status": "200",
+      "expected_sha256": "37f707ad136304bcca2880cdb1847b22b2d7c9012bb994ddc60f15a5047fd733",
+      "live_sha256": "37f707ad136304bcca2880cdb1847b22b2d7c9012bb994ddc60f15a5047fd733",
+      "bytes": 56590,
+      "equal": true,
+      "stderr": ""
+    },
+    {
+      "name": "catalog",
+      "url": "https://vettrialfinder.com/matcher/trials.json?v=021f7d5b76fad62d",
+      "attempted_at": "2026-10-18T04:10:23.048296-04:00",
+      "completed_at": "2026-10-18T04:10:25.952082-04:00",
+      "method": "shell_curl",
+      "exit_code": 0,
+      "http_status": "200",
+      "expected_sha256": "021f7d5b76fad62d5923501f502620a6510ab593fe6d2dba439a44c76da32c58",
+      "live_sha256": "021f7d5b76fad62d5923501f502620a6510ab593fe6d2dba439a44c76da32c58",
+      "bytes": 344943,
+      "equal": true,
+      "stderr": ""
+    }
+  ]
+}

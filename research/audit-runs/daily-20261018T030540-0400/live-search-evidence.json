@@ -1,0 +1,106 @@
+{
+  "url": "https://vettrialfinder.com/matcher/",
+  "publication_sha": "daaabf2b38e4268433d2f2a9405467254ad140ff",
+  "script_src": "./matcher.js?v=target-scope-20261018",
+  "status": "PASS",
+  "mandatory_live_searches": [
+    {
+      "country": "USA",
+      "parameters": {
+        "species": "Dog",
+        "cancer": "Cancer — any type",
+        "diagnosis_status": "I don't know",
+        "age": "",
+        "weight": "",
+        "zip_code": "",
+        "approach": "",
+        "checked_preferences": [
+          "Chemotherapy",
+          "Radiation",
+          "Surgery",
+          "Immunotherapy",
+          "Targeted therapy",
+          "Experimental drug"
+        ],
+        "country": "USA"
+      },
+      "actual_read_at": "2026-10-18T08:11:04.033Z",
+      "method": "Browser UI select+manual submit; Japan country-change auto-submit also read before manual submit",
+      "displayed_count": 101,
+      "displayed_all_titles_checksum": [
+        2649243546,
+        1660804742,
+        7133
+      ],
+      "expected_from_current_built_catalog_count": 101,
+      "expected_all_titles_checksum": [
+        2649243546,
+        1660804742,
+        7133
+      ],
+      "status": "PASS"
+    },
+    {
+      "country": "Japan",
+      "parameters": {
+        "species": "Dog",
+        "cancer": "Cancer — any type",
+        "diagnosis_status": "I don't know",
+        "age": "",
+        "weight": "",
+        "zip_code": "",
+        "approach": "",
+        "checked_preferences": [
+          "Chemotherapy",
+          "Radiation",
+          "Surgery",
+          "Immunotherapy",
+          "Targeted therapy",
+          "Experimental drug"
+        ],
+        "country": "Japan"
+      },
+      "actual_read_at": "2026-10-18T08:11:13.062Z",
+      "method": "Browser UI select+manual submit; Japan country-change auto-submit also read before manual submit",
+      "displayed_count": 10,
+      "displayed_all_titles_checksum": [
+        3140355449,
+        1986116165,
+        644
+      ],
+      "expected_from_current_built_catalog_count": 10,
+      "expected_all_titles_checksum": [
+        3140355449,
+        1986116165,
+        644
+      ],
+      "status": "PASS"
+    }
+  ],
+  "new_protocol_live_checks": [
+    {
+      "actual_read_at": "2026-10-18T08:12:17.913Z",
+      "species": "Dog",
+      "cancer": "Mast cell tumor",
+      "country": "All countries",
+      "expected_count": 17,
+      "displayed_count": 17,
+      "kv9_card": "Possible match",
+      "all8_addresses_visible": true,
+      "status": "PASS"
+    },
+    {
+      "actual_read_at": "2026-10-18T08:12:08.955Z",
+      "species": "Cat",
+      "cancer": "Feline mammary carcinoma",
+      "country": "All countries",
+      "expected_count": 8,
+      "displayed_count": 8,
+      "kv9_card": "Possible match",
+      "feline_specific_screening_disclosed": true,
+      "all8_addresses_visible": true,
+      "status": "PASS"
+    }
+  ],
+  "limitation": "Existing country selector has no dedicated New Zealand option; new protocol is visible with All countries. No UI changes authorized or made. Initial rapid country/cancer interaction was read while prior browse results remained; stable manual disease-specific submissions were separately verified. No retained mismatch after submission."
+}

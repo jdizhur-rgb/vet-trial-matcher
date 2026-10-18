@@ -1,0 +1,46 @@
+[
+  {
+    "command": [
+      "python",
+      "scripts/validate_source_inventory.py"
+    ],
+    "at": "2026-10-18T04:18:26.644509-04:00",
+    "exit_code": 0,
+    "stdout": "SOURCE_INVENTORY_VALIDATION_OK sources=119 digest=44e67b379f16\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_audit_receipt.py",
+      "research/audit-runs/daily-20261018T030540-0400/receipt-final.json"
+    ],
+    "at": "2026-10-18T04:18:26.675895-04:00",
+    "exit_code": 1,
+    "stdout": "{\n  \"status\": \"INCOMPLETE\",\n  \"receipt\": \"research/audit-runs/daily-20261018T030540-0400/receipt-final.json\",\n  \"inventory\": \"/workspace/scratch/7a43f0b7d905/vet-trial-audit-20261018/data/source_inventory.json\",\n  \"errors\": [],\n  \"coverage_gaps\": [\n    \"registry-avma-veterinary-clinical-trials: current roster/status not proven despite protocols_seen=66\",\n    \"directory-veterinary-cancer-society: current roster/status not proven\",\n    \"usa-colorado-state-vth-clinical-trials: current roster/status not proven despite protocols_seen=15\",\n    \"usa-iowa-state-vmc-clinical-trials: current roster/status not proven\",\n    \"usa-johns-hopkins-cigat: mandatory source was not attempted this run\",\n    \"usa-michigan-state-oncology-trials: current roster/status not proven\",\n    \"usa-minnesota-current-clinical-trials: mandatory source was not attempted this run\",\n    \"usa-missouri-oncology-clinical-trials: current roster/status not proven despite protocols_seen=5\",\n    \"usa-nc-state-clinical-trials: current roster/status not proven despite protocols_seen=7\",\n    \"usa-purdue-wcorc-clinical-trials: current roster/status not proven despite protocols_seen=11\",\n    \"usa-tufts-clinical-trials: current roster/status not proven despite protocols_seen=9\",\n    \"usa-georgia-clinical-trials: current roster/status not proven despite protocols_seen=2\",\n    \"usa-illinois-clinical-trials: current roster/status not proven despite protocols_seen=8\",\n    \"usa-wisconsin-oncology-studies: mandatory source was not attempted this run\",\n    \"usa-utsw-vroc-clinical-trials: current roster/status not proven despite protocols_seen=8\",\n    \"usa-ethos-clinical-studies: current roster/status not proven\",\n    \"usa-anivive-trials: current roster/status not proven\",\n    \"canada-ovc-active-oncology-trials: current roster/status not proven despite protocols_seen=9\",\n    \"europe-esvonc-ongoing-trials: current roster/status not proven\",\n    \"europe-oncowaf-clinical-trials: current roster/status not proven despite protocols_seen=24\",\n    \"netherlands-utrecht-interventional-oncology: mandatory source was not attempted this run\",\n    \"switzerland-zurich-clinical-studies: current roster/status not proven despite protocols_seen=9\",\n    \"uk-rvc-clinical-investigation-centre: mandatory source was not attempted this run\",\n    \"usa-amcny-current-clinical-trials: current roster/status not proven despite protocols_seen=1\",\n    \"usa-penn-comparative-immunotherapy-trials: mandatory source was not attempted this run\",\n    \"australia-uq-school-veterinary-clinical-trials: current roster/status not proven despite protocols_seen=2\",\n    \"australia-sash-clinical-research: current roster/status not proven despite protocols_seen=2\",\n    \"australia-caninecancer-state-research-guide: current roster/status not proven\",\n    \"usa-penn-atherton-laboratory: mandatory source was not attempted this run\",\n    \"usa-canine-cancer-alliance-research: current roster/status not proven despite protocols_seen=7\",\n    \"usa-vrcco-clinical-trials: mandatory source was not attempted this run\",\n    \"usa-wsu-vth-clinical-studies: mandatory source was not attempted this run\",\n    \"china-dongjun-oncology-trials: current roster/status not proven despite protocols_seen=3\",\n    \"china-petcura-mrna-iit: mandatory source was not attempted this run\",\n    \"usa-nci-comparative-oncology-trials: mandatory source was not attempted this run\",\n    \"japan-yamaguchi-vmc-clinical-trials: current roster/status not proven despite protocols_seen=5\",\n    \"japan-jsamc-current-clinical-trials: current roster/status not proven despite protocols_seen=5\",\n    \"global-vettrials-directory: current roster/status not proven despite protocols_seen=292\",\n    \"japan-jvcog-current-clinical-trials: mandatory source was not attempted this run\",\n    \"brazil-usp-loct-oncolytic-virus-program: current roster/status not proven\",\n    \"brazil-estima-coe-clinical-studies: current roster/status not proven\",\n    \"france-alfort-innovative-clinical-trials: current roster/status not proven despite protocols_seen=3\",\n    \"sponsor-evvivax-clinical-trials: current roster/status not proven despite protocols_seen=4\",\n    \"sponsor-curelab-veterinary-research: current roster/status not proven\",\n    \"india-the-cancer-vet-clinical-trials: current roster/status not proven\",\n    \"japan-hokkaido-vmth-clinical-research: current roster/status not proven despite protocols_seen=1\",\n    \"sponsor-benno-therapeutics-research: current roster/status not proven despite protocols_seen=3\",\n    \"sponsor-leah-labs-clinical-trial: current roster/status not proven despite protocols_seen=1\",\n    \"usa-oklahoma-state-clinical-trials: current roster/status not proven\",\n    \"usa-veterinary-oncology-services-trials: current roster/status not proven\",\n    \"japan-nihon-anmec-clinical-research: current roster/status not proven despite protocols_seen=4\",\n    \"germany-lmu-small-animal-research: current roster/status not proven despite protocols_seen=2\",\n    \"uk-edinburgh-small-animal-clinical-trials: current roster/status not proven\",\n    \"sponsor-akston-oncology-pipeline: current roster/status not proven despite protocols_seen=4\",\n    \"fr-armonia-current-clinical-studies: mandatory source was not attempted this run\",\n    \"foundation-mibagents-canine-trials: current roster/status not proven\",\n    \"india-actrec-comparative-oncology-program: current roster/status not proven\",\n    \"new-zealand-kode-veterinary-sciences-trials: current roster/status not proven despite protocols_seen=1\",\n    \"malaysia-upm-comparative-oncology: current roster/status not proven\",\n    \"australia-anzcvs-oncology-research-news: current roster/status not proven\"\n  ],\n  \"coverage_gap_count\": 60\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_audit_gap_review.py",
+      "research/audit-runs/daily-20261018T030540-0400/gap-review.json",
+      "--receipt",
+      "research/audit-runs/daily-20261018T030540-0400/receipt-final.json"
+    ],
+    "at": "2026-10-18T04:18:26.734842-04:00",
+    "exit_code": 0,
+    "stdout": "{\n  \"review_validation\": \"PASS\",\n  \"errors\": [],\n  \"gap_total\": 60,\n  \"categories\": {\n    \"protocol_uncertainty\": 27,\n    \"freshness_uncertain\": 10,\n    \"source_unavailable\": 13,\n    \"roster_unestablished\": 1,\n    \"discovery_source_not_trial_roster\": 9\n  },\n  \"processing_assessments\": {\n    \"external_blocker\": 60\n  },\n  \"processing_completion\": \"EXTERNAL_GAPS_ONLY\",\n  \"strict_coverage_status\": \"INCOMPLETE\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python",
+      "scripts/check_evidence_keys.py"
+    ],
+    "at": "2026-10-18T04:18:26.788501-04:00",
+    "exit_code": 0,
+    "stdout": "PASS: no unredacted Google API keys.\n",
+    "stderr": ""
+  }
+]

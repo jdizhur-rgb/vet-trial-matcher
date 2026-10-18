@@ -2,7 +2,7 @@
   "run_id": "daily-20261018T030540-0400",
   "mode": "DAILY GLOBAL WORK AUDIT",
   "started_at": "2026-10-18T03:05:40.493487-04:00",
-  "source_pass_sealed_at": "2026-10-18T04:05:40.290693-04:00",
+  "source_pass_sealed_at": "2026-10-18T04:18:00.947636-04:00",
   "base_main_sha": "73ee3252fdfb7c28be9c2934f71972c722cf4514",
   "source_total": 119,
   "attempted_total": 106,
@@ -6469,7 +6469,7 @@
       "category": "protocol_uncertainty",
       "question": "Does the historical cutaneous T-cell lymphoma gemcitabine/BDI protocol currently enroll? Individual official URL is404 by native and Web; current full index does not list it and no exact current AVMA identity was found. Cached1.3year recruitment is insufficient. Distinct B-cell BDI Completed identity must not be conflated.",
       "next_action": "Read a new official ETCL/gemcitabine status or current protocol page. Preserve current cPDL1 combination phase separately from completed monotherapy.",
-      "reconciliation": "Fresh full retrieved text and all published links compared against October17 evidence; no substantive roster difference. Purdue eleven identities, current combination backbones and closed/paused phases unchanged. Historical ETCL/gemcitabine signal qualified against individual404, current whole index and full851registry; no active card added.",
+      "reconciliation": "Fresh full retrieved text and all published links compared against October17 evidence; no substantive roster difference. Purdue eleven identities, current combination backbones and closed/paused phases unchanged. Historical ETCL/gemcitabine signal qualified against individual404, current whole index and full851registry; no active card added. Current general clinical portal and its whole canine/feline indices read after the404signal. Canine index datedMay2025 links oncology back to the already read WCORC master; feline page explicitly asofJan2023 no studies, not accepted as current2026negative. Current lymphoma page July2026 lists B/T multicentric HIFU and links the already read tumor-ablation protocol; ETCL/gemcitabine is not named. No novel protocol or definitive closure inferred. This closes the newly identified permitted route, not a second source-queue pass.",
       "current_comparison_evidence": [
         {
           "source_id": "usa-purdue-wcorc-clinical-trials",
@@ -6680,6 +6680,82 @@
           "text_sha256": "21636135fa5384d1c5430fb4079f6b6ab5776641a2372fa28ce9e17461980b4a",
           "retrieved_text": "Internal Error ()\n【turn889view0】 [wordlim: 200] Source: open({\"ref_id\":\"https://www.vet.purdue.edu/wcorc/clinical-trials/canine-t-cell-lymphoma.php\",\"lineno\":null}); Total lines: 1\nL0: Failed to fetch https://www.vet.purdue.edu/wcorc/clinical-trials/canine-t-cell-lymphoma.php: (404) Not Found\n",
           "mapping_verified": true
+        },
+        {
+          "source_id": "usa-purdue-wcorc-clinical-trials",
+          "url": "https://vet.purdue.edu/ctr/clinical-research/veterinary-clinical-trials.php",
+          "route": "current_official_clinical_index_link_on_retired_protocol404",
+          "attempted_at": "2026-10-18T04:16:05.505979-04:00",
+          "completed_at": "2026-10-18T04:16:09.189672-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://vet.purdue.edu/ctr/clinical-research/veterinary-clinical-trials.php",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 5462,
+          "text_sha256": "33515e20294078002470e58533c70eb0cc71ed6c517f36287b51023ddd586f32",
+          "evidence_file": "research/audit-runs/daily-20261018T030540-0400/evidence/668a94b8d1ad0a7216.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261018T030540-0400/668a94b8d1ad0a7216.body",
+          "result": "retrieved_page"
+        },
+        {
+          "source_id": "usa-purdue-wcorc-clinical-trials",
+          "url": "https://vet.purdue.edu/ctr/clinical-research/feline.php",
+          "route": "current_canine_feline_index_link",
+          "attempted_at": "2026-10-18T04:16:30.695146-04:00",
+          "completed_at": "2026-10-18T04:16:33.901234-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://vet.purdue.edu/ctr/clinical-research/feline.php",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 3681,
+          "text_sha256": "2a2f8123977e02ac68ef569be5f8d94fe78664df14c881012c34183e5b4a157a",
+          "evidence_file": "research/audit-runs/daily-20261018T030540-0400/evidence/6824d3ca4ea5e90d85.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261018T030540-0400/6824d3ca4ea5e90d85.body",
+          "result": "retrieved_page"
+        },
+        {
+          "source_id": "usa-purdue-wcorc-clinical-trials",
+          "url": "https://vet.purdue.edu/ctr/clinical-research/canine.php",
+          "route": "current_canine_feline_index_link",
+          "attempted_at": "2026-10-18T04:16:30.694332-04:00",
+          "completed_at": "2026-10-18T04:16:34.136990-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://vet.purdue.edu/ctr/clinical-research/canine.php",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 9875,
+          "text_sha256": "8d8455665d0e320817c229e1a5fbbcdac51928cac9ea763a36f1e633eb426835",
+          "evidence_file": "research/audit-runs/daily-20261018T030540-0400/evidence/ee6fee966edce04213.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261018T030540-0400/ee6fee966edce04213.body",
+          "result": "retrieved_page"
+        },
+        {
+          "source_id": "usa-purdue-wcorc-clinical-trials",
+          "url": "https://vet.purdue.edu/wcorc/clinical-trials/canine-lymphoma.php",
+          "route": "published_full_current_lymphoma_protocol",
+          "attempted_at": "2026-10-18T04:17:00.317650-04:00",
+          "completed_at": "2026-10-18T04:17:04.405086-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://vet.purdue.edu/wcorc/clinical-trials/canine-lymphoma.php",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 4824,
+          "text_sha256": "7a23d4d438fdb171300847b8d98bd2dfa3cc901a33b5e2085b21a56a17e47329",
+          "evidence_file": "research/audit-runs/daily-20261018T030540-0400/evidence/c8f877f94937047b2d.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261018T030540-0400/c8f877f94937047b2d.body",
+          "result": "retrieved_page"
         }
       ],
       "attempted_urls": [
@@ -6830,6 +6906,82 @@
           "text_sha256": "21636135fa5384d1c5430fb4079f6b6ab5776641a2372fa28ce9e17461980b4a",
           "retrieved_text": "Internal Error ()\n【turn889view0】 [wordlim: 200] Source: open({\"ref_id\":\"https://www.vet.purdue.edu/wcorc/clinical-trials/canine-t-cell-lymphoma.php\",\"lineno\":null}); Total lines: 1\nL0: Failed to fetch https://www.vet.purdue.edu/wcorc/clinical-trials/canine-t-cell-lymphoma.php: (404) Not Found\n",
           "mapping_verified": true
+        },
+        {
+          "source_id": "usa-purdue-wcorc-clinical-trials",
+          "url": "https://vet.purdue.edu/ctr/clinical-research/veterinary-clinical-trials.php",
+          "route": "current_official_clinical_index_link_on_retired_protocol404",
+          "attempted_at": "2026-10-18T04:16:05.505979-04:00",
+          "completed_at": "2026-10-18T04:16:09.189672-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://vet.purdue.edu/ctr/clinical-research/veterinary-clinical-trials.php",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 5462,
+          "text_sha256": "33515e20294078002470e58533c70eb0cc71ed6c517f36287b51023ddd586f32",
+          "evidence_file": "research/audit-runs/daily-20261018T030540-0400/evidence/668a94b8d1ad0a7216.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261018T030540-0400/668a94b8d1ad0a7216.body",
+          "result": "retrieved_page"
+        },
+        {
+          "source_id": "usa-purdue-wcorc-clinical-trials",
+          "url": "https://vet.purdue.edu/ctr/clinical-research/feline.php",
+          "route": "current_canine_feline_index_link",
+          "attempted_at": "2026-10-18T04:16:30.695146-04:00",
+          "completed_at": "2026-10-18T04:16:33.901234-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://vet.purdue.edu/ctr/clinical-research/feline.php",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 3681,
+          "text_sha256": "2a2f8123977e02ac68ef569be5f8d94fe78664df14c881012c34183e5b4a157a",
+          "evidence_file": "research/audit-runs/daily-20261018T030540-0400/evidence/6824d3ca4ea5e90d85.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261018T030540-0400/6824d3ca4ea5e90d85.body",
+          "result": "retrieved_page"
+        },
+        {
+          "source_id": "usa-purdue-wcorc-clinical-trials",
+          "url": "https://vet.purdue.edu/ctr/clinical-research/canine.php",
+          "route": "current_canine_feline_index_link",
+          "attempted_at": "2026-10-18T04:16:30.694332-04:00",
+          "completed_at": "2026-10-18T04:16:34.136990-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://vet.purdue.edu/ctr/clinical-research/canine.php",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 9875,
+          "text_sha256": "8d8455665d0e320817c229e1a5fbbcdac51928cac9ea763a36f1e633eb426835",
+          "evidence_file": "research/audit-runs/daily-20261018T030540-0400/evidence/ee6fee966edce04213.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261018T030540-0400/ee6fee966edce04213.body",
+          "result": "retrieved_page"
+        },
+        {
+          "source_id": "usa-purdue-wcorc-clinical-trials",
+          "url": "https://vet.purdue.edu/wcorc/clinical-trials/canine-lymphoma.php",
+          "route": "published_full_current_lymphoma_protocol",
+          "attempted_at": "2026-10-18T04:17:00.317650-04:00",
+          "completed_at": "2026-10-18T04:17:04.405086-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://vet.purdue.edu/wcorc/clinical-trials/canine-lymphoma.php",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 4824,
+          "text_sha256": "7a23d4d438fdb171300847b8d98bd2dfa3cc901a33b5e2085b21a56a17e47329",
+          "evidence_file": "research/audit-runs/daily-20261018T030540-0400/evidence/c8f877f94937047b2d.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261018T030540-0400/c8f877f94937047b2d.body",
+          "result": "retrieved_page"
         }
       ],
       "mandatory_routes": [
@@ -6845,6 +6997,42 @@
             }
           ],
           "inherited_or_current_prohibition": null
+        },
+        {
+          "url": "https://vet.purdue.edu/ctr/clinical-research/veterinary-clinical-trials.php",
+          "actual_attempt_evidence": [
+            {
+              "method": "shell_curl",
+              "at": "2026-10-18T04:16:05.505979-04:00",
+              "evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/668a94b8d1ad0a7216.json",
+              "result": "retrieved_page",
+              "http_status": 200
+            }
+          ]
+        },
+        {
+          "url": "https://vet.purdue.edu/ctr/clinical-research/canine.php",
+          "actual_attempt_evidence": [
+            {
+              "method": "shell_curl",
+              "at": "2026-10-18T04:16:30.694332-04:00",
+              "evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/ee6fee966edce04213.json",
+              "result": "retrieved_page",
+              "http_status": 200
+            }
+          ]
+        },
+        {
+          "url": "https://vet.purdue.edu/ctr/clinical-research/feline.php",
+          "actual_attempt_evidence": [
+            {
+              "method": "shell_curl",
+              "at": "2026-10-18T04:16:30.695146-04:00",
+              "evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/6824d3ca4ea5e90d85.json",
+              "result": "retrieved_page",
+              "http_status": 200
+            }
+          ]
         }
       ],
       "processing_complete": true,
@@ -6859,9 +7047,9 @@
         "shell_curl"
       ],
       "fingerprint_preserved_from_prior_same_day_visit": false,
-      "actual_last_attempt_at": "2026-10-18T04:00:53-04:00",
+      "actual_last_attempt_at": "2026-10-18T04:17:00.317650-04:00",
       "new_last_checked": "2026-10-18",
-      "new_last_checked_at": "2026-10-18T04:00:53-04:00",
+      "new_last_checked_at": "2026-10-18T04:17:00.317650-04:00",
       "new_last_result": "partial",
       "completion_decision": {
         "remaining_fact": "Does the historical cutaneous T-cell lymphoma gemcitabine/BDI protocol currently enroll? Individual official URL is404 by native and Web; current full index does not list it and no exact current AVMA identity was found. Cached1.3year recruitment is insufficient. Distinct B-cell BDI Completed identity must not be conflated.",
@@ -6883,11 +7071,117 @@
             "primary_route": "https://www.vet.purdue.edu/wcorc/clinical-trials/canine-t-cell-lymphoma.php",
             "native_evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/eccab6ecc3f9aababb.json",
             "Web_evidence": "research/audit-runs/daily-20261018T030540-0400/discovery-primary-recovery-2.json"
+          },
+          {
+            "url": "https://vet.purdue.edu/ctr/clinical-research/veterinary-clinical-trials.php",
+            "at": "2026-10-18T04:16:05.505979-04:00",
+            "method": "shell_curl",
+            "evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/668a94b8d1ad0a7216.json",
+            "http_status": 200
+          },
+          {
+            "url": "https://vet.purdue.edu/ctr/clinical-research/feline.php",
+            "at": "2026-10-18T04:16:30.695146-04:00",
+            "method": "shell_curl",
+            "evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/6824d3ca4ea5e90d85.json",
+            "http_status": 200
+          },
+          {
+            "url": "https://vet.purdue.edu/ctr/clinical-research/canine.php",
+            "at": "2026-10-18T04:16:30.694332-04:00",
+            "method": "shell_curl",
+            "evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/ee6fee966edce04213.json",
+            "http_status": 200
+          },
+          {
+            "url": "https://vet.purdue.edu/wcorc/clinical-trials/canine-lymphoma.php",
+            "at": "2026-10-18T04:17:00.317650-04:00",
+            "method": "shell_curl",
+            "evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/c8f877f94937047b2d.json",
+            "http_status": 200
           }
         ],
         "available_reconciliation_done_evidence": {
-          "source_specific_reconciliation": "Fresh full retrieved text and all published links compared against October17 evidence; no substantive roster difference. Purdue eleven identities, current combination backbones and closed/paused phases unchanged. Historical ETCL/gemcitabine signal qualified against individual404, current whole index and full851registry; no active card added.",
-          "current_full_comparisons": [
+          "decision": "Fresh full retrieved text and all published links compared against October17 evidence; no substantive roster difference. Purdue eleven identities, current combination backbones and closed/paused phases unchanged. Historical ETCL/gemcitabine signal qualified against individual404, current whole index and full851registry; no active card added. Current general clinical portal and its whole canine/feline indices read after the404signal. Canine index datedMay2025 links oncology back to the already read WCORC master; feline page explicitly asofJan2023 no studies, not accepted as current2026negative. Current lymphoma page July2026 lists B/T multicentric HIFU and links the already read tumor-ablation protocol; ETCL/gemcitabine is not named. No novel protocol or definitive closure inferred. This closes the newly identified permitted route, not a second source-queue pass.",
+          "new_routes_actual_evidence": [
+            {
+              "source_id": "usa-purdue-wcorc-clinical-trials",
+              "url": "https://vet.purdue.edu/ctr/clinical-research/veterinary-clinical-trials.php",
+              "route": "current_official_clinical_index_link_on_retired_protocol404",
+              "attempted_at": "2026-10-18T04:16:05.505979-04:00",
+              "completed_at": "2026-10-18T04:16:09.189672-04:00",
+              "method": "shell_curl",
+              "retry": 0,
+              "http_status": 200,
+              "effective_url": "https://vet.purdue.edu/ctr/clinical-research/veterinary-clinical-trials.php",
+              "content_type": "text/html; charset=UTF-8",
+              "exit_code": 0,
+              "stderr": "",
+              "text_length": 5462,
+              "text_sha256": "33515e20294078002470e58533c70eb0cc71ed6c517f36287b51023ddd586f32",
+              "evidence_file": "research/audit-runs/daily-20261018T030540-0400/evidence/668a94b8d1ad0a7216.json",
+              "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261018T030540-0400/668a94b8d1ad0a7216.body",
+              "result": "retrieved_page"
+            },
+            {
+              "source_id": "usa-purdue-wcorc-clinical-trials",
+              "url": "https://vet.purdue.edu/ctr/clinical-research/feline.php",
+              "route": "current_canine_feline_index_link",
+              "attempted_at": "2026-10-18T04:16:30.695146-04:00",
+              "completed_at": "2026-10-18T04:16:33.901234-04:00",
+              "method": "shell_curl",
+              "retry": 0,
+              "http_status": 200,
+              "effective_url": "https://vet.purdue.edu/ctr/clinical-research/feline.php",
+              "content_type": "text/html; charset=UTF-8",
+              "exit_code": 0,
+              "stderr": "",
+              "text_length": 3681,
+              "text_sha256": "2a2f8123977e02ac68ef569be5f8d94fe78664df14c881012c34183e5b4a157a",
+              "evidence_file": "research/audit-runs/daily-20261018T030540-0400/evidence/6824d3ca4ea5e90d85.json",
+              "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261018T030540-0400/6824d3ca4ea5e90d85.body",
+              "result": "retrieved_page"
+            },
+            {
+              "source_id": "usa-purdue-wcorc-clinical-trials",
+              "url": "https://vet.purdue.edu/ctr/clinical-research/canine.php",
+              "route": "current_canine_feline_index_link",
+              "attempted_at": "2026-10-18T04:16:30.694332-04:00",
+              "completed_at": "2026-10-18T04:16:34.136990-04:00",
+              "method": "shell_curl",
+              "retry": 0,
+              "http_status": 200,
+              "effective_url": "https://vet.purdue.edu/ctr/clinical-research/canine.php",
+              "content_type": "text/html; charset=UTF-8",
+              "exit_code": 0,
+              "stderr": "",
+              "text_length": 9875,
+              "text_sha256": "8d8455665d0e320817c229e1a5fbbcdac51928cac9ea763a36f1e633eb426835",
+              "evidence_file": "research/audit-runs/daily-20261018T030540-0400/evidence/ee6fee966edce04213.json",
+              "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261018T030540-0400/ee6fee966edce04213.body",
+              "result": "retrieved_page"
+            },
+            {
+              "source_id": "usa-purdue-wcorc-clinical-trials",
+              "url": "https://vet.purdue.edu/wcorc/clinical-trials/canine-lymphoma.php",
+              "route": "published_full_current_lymphoma_protocol",
+              "attempted_at": "2026-10-18T04:17:00.317650-04:00",
+              "completed_at": "2026-10-18T04:17:04.405086-04:00",
+              "method": "shell_curl",
+              "retry": 0,
+              "http_status": 200,
+              "effective_url": "https://vet.purdue.edu/wcorc/clinical-trials/canine-lymphoma.php",
+              "content_type": "text/html; charset=UTF-8",
+              "exit_code": 0,
+              "stderr": "",
+              "text_length": 4824,
+              "text_sha256": "7a23d4d438fdb171300847b8d98bd2dfa3cc901a33b5e2085b21a56a17e47329",
+              "evidence_file": "research/audit-runs/daily-20261018T030540-0400/evidence/c8f877f94937047b2d.json",
+              "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261018T030540-0400/c8f877f94937047b2d.body",
+              "result": "retrieved_page"
+            }
+          ],
+          "prior_full_comparisons": [
             {
               "source_id": "usa-purdue-wcorc-clinical-trials",
               "url": "https://www.vet.purdue.edu/wcorc/clinical-trials/",
@@ -6947,64 +7241,6 @@
               "same_entire_text": true,
               "same_entire_linkset": true,
               "changed_text": null
-            }
-          ],
-          "actual_attempts": [
-            {
-              "url": "https://www.vet.purdue.edu/wcorc/clinical-trials/",
-              "attempted_at": "2026-10-18T03:06:16.880651-04:00",
-              "method": "shell_curl",
-              "result": "retrieved_page",
-              "evidence_file": "research/audit-runs/daily-20261018T030540-0400/evidence/37a43035b036c6a69b.json"
-            },
-            {
-              "url": "https://vet.purdue.edu/wcorc/clinical-trials/emerging-canine-cancer.php",
-              "attempted_at": "2026-10-18T03:08:53.582674-04:00",
-              "method": "shell_curl",
-              "result": "retrieved_page",
-              "evidence_file": "research/audit-runs/daily-20261018T030540-0400/evidence/82a1cdc6070d11c4ea.json"
-            },
-            {
-              "url": "https://vet.purdue.edu/wcorc/clinical-trials/canine-urinary-bladder-cancer.php",
-              "attempted_at": "2026-10-18T03:08:53.633032-04:00",
-              "method": "shell_curl",
-              "result": "retrieved_page",
-              "evidence_file": "research/audit-runs/daily-20261018T030540-0400/evidence/b8a5ff231bf370bad2.json"
-            },
-            {
-              "url": "https://vet.purdue.edu/wcorc/clinical-trials/tumor-ablation.php",
-              "attempted_at": "2026-10-18T03:08:56.717898-04:00",
-              "method": "shell_curl",
-              "result": "retrieved_page",
-              "evidence_file": "research/audit-runs/daily-20261018T030540-0400/evidence/2c2cf4d4d1c4d64d83.json"
-            },
-            {
-              "url": "https://vet.purdue.edu/wcorc/clinical-trials/emerging-immunotherapy-study.php",
-              "attempted_at": "2026-10-18T03:08:56.869748-04:00",
-              "method": "shell_curl",
-              "result": "retrieved_page",
-              "evidence_file": "research/audit-runs/daily-20261018T030540-0400/evidence/b2515efa0bc13933d3.json"
-            },
-            {
-              "url": "https://vet.purdue.edu/wcorc/clinical-trials/canine-osteosarcoma.php",
-              "attempted_at": "2026-10-18T03:08:59.570082-04:00",
-              "method": "shell_curl",
-              "result": "retrieved_page",
-              "evidence_file": "research/audit-runs/daily-20261018T030540-0400/evidence/c4427fca1435c9fbd8.json"
-            },
-            {
-              "url": "https://www.vet.purdue.edu/wcorc/clinical-trials/canine-t-cell-lymphoma.php",
-              "attempted_at": "2026-10-18T04:00:26.054973-04:00",
-              "method": "shell_curl",
-              "result": "retrieved_page",
-              "evidence_file": "research/audit-runs/daily-20261018T030540-0400/evidence/eccab6ecc3f9aababb.json"
-            },
-            {
-              "url": "https://www.vet.purdue.edu/wcorc/clinical-trials/canine-t-cell-lymphoma.php",
-              "attempted_at": "2026-10-18T04:00:53-04:00",
-              "method": "Web",
-              "result": "retrieval_error",
-              "evidence_file": "research/audit-runs/daily-20261018T030540-0400/discovery-primary-recovery-2.json"
             }
           ]
         }
