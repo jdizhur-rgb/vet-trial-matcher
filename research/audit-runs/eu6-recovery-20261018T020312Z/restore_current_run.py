@@ -21,13 +21,25 @@ def restore(ref,dest,sequences):
      if out.exists():assert sha(out.read_bytes())==sha(data)
      else:out.write_bytes(data)
   assert seen==expected
+  for r in m.get('chunked_payloads',[]):
+   parts=[]
+   for piece in r['chunks']:
+    if 'archive_path' in piece:data=(dest/pathlib.Path(safe(piece['archive_path']))).read_bytes()
+    else:
+     source=dest/pathlib.Path(safe(piece['from_path']));assert isinstance(piece['start'],int) and piece['start']>=0
+     with source.open('rb') as f:f.seek(piece['start']);data=f.read(piece['bytes'])
+    assert len(data)==piece['bytes'] and sha(data)==piece['sha256'];parts.append(data)
+   data=b''.join(parts);assert len(data)==r['bytes'] and sha(data)==r['sha256']
+   out=dest/pathlib.Path(safe(r['path']));out.parent.mkdir(parents=True,exist_ok=True)
+   if out.exists():assert sha(out.read_bytes())==r['sha256']
+   else:out.write_bytes(data)
   for r in m.get('reused_payloads',[]):
    out=dest/pathlib.Path(safe(r['path']));src=dest/pathlib.Path(safe(r['from_path']));data=src.read_bytes();assert sha(data)==r['sha256']
    out.parent.mkdir(parents=True,exist_ok=True)
    if out.exists():assert sha(out.read_bytes())==r['sha256']
    else:out.write_bytes(data)
   for r in m['files']:assert sha((dest/pathlib.Path(safe(r['path']))).read_bytes())==r['sha256']
-  print(json.dumps({'seq':seq,'archive_sha256':sha(blob),'files_verified':len(m['files']),'stored_unique_members':len(expected),'reused_by_hash':len(m.get('reused_payloads',[]))}))
+  print(json.dumps({'seq':seq,'archive_sha256':sha(blob),'files_verified':len(m['files']),'stored_unique_members':len(expected),'reused_by_hash':len(m.get('reused_payloads',[])),'chunked_files':len(m.get('chunked_payloads',[])),'bytes_reused_from_verified_files':sum(x['bytes_reused'] for x in m.get('chunked_payloads',[]))}))
 if __name__=='__main__':
  p=argparse.ArgumentParser();p.add_argument('ref');p.add_argument('destination',type=pathlib.Path);p.add_argument('sequences',nargs='+');a=p.parse_args();assert all(re.fullmatch('[0-9]{3}',s) for s in a.sequences)
  a.destination.mkdir(parents=True,exist_ok=True);restore(a.ref,a.destination,a.sequences)
