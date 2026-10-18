@@ -16,6 +16,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 from validate_europe_worker_result import validate
 from build_oncology_center_catalog import center_match
+from integrate_europe_recovery import all_country_gate
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -49,6 +50,9 @@ def main():
     parser.add_argument('--approval', type=Path, required=True)
     args = parser.parse_args()
     approval = read(args.approval)
+    # Historical ready-checkpoint publication is not permission to bypass the
+    # owner's October16 all-country research-completion gate.
+    all_country_gate(ROOT, approval)
     run = ROOT / 'research/audit-runs' / approval['run_id']
     assert approval['independent_parent_review'] is True
     head = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()

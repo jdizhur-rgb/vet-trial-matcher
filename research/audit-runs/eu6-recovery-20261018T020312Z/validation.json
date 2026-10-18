@@ -1,0 +1,130 @@
+{
+  "run_id": "eu6-recovery-20261018T020312Z",
+  "baseline_sha": "2fed31c822a626339b86d752c49949259de7b1ee",
+  "status": "PASS",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "scripts/build_static_site.py"
+      ],
+      "started_at": "2026-10-18T05:01:55.662201+00:00",
+      "finished_at": "2026-10-18T05:02:08.107823+00:00",
+      "exit_code": 0,
+      "stdout": "REPOSITORY_HYGIENE_OK\nADDRESS_PREFLIGHT {\"centers\": 84, \"coverage_placeholders\": 9, \"missing_centers\": 0, \"missing_sites\": 0, \"physical_sites\": 86}\nGenerated 45 pages from 152 treatment opportunities\nCANCER_PAGES_ENHANCED 44\nCENTER_PAGES_SKIPPED_UNPROFILED 11 | Animal Medical Center, Gifu University; Hokkaido University Veterinary Teaching Hospital; Hospital Veterinario Puchol / ReachGlio; Japan Small Animal Cancer Center; Kamogawa Animal Medical Center; Nihon University Animal Medical Center; Nippon Veterinary and Life Science University Veterinary Medical Center; Nippon Zenyaku Kogyo multicenter veterinary trial; University of Tokyo Veterinary Medical Center; VCA Dallas Animal Specialty Hospital; Yamaguchi University Veterinary Medical Center\nCENTER_PAGES_OK 95\nCENTER_OWNER_PAGES_OK 84\nCENTER_PAGES_ENHANCED 84\nCANCER_PAGE_CONSISTENCY_OK 44\nCANCER_COVERAGE_OK 22 21 1\nHELP_CENTER_OK https://vettrialfinder.com/help/\nCENTER_PROFILES_OK pages=84 verified_profiles=84 redirects_skipped=0\nSITE_SHELL_OK 151\nABOUT_PAGE_OK\nRETAINED_CENTER_PROFILES_OK restored=5\nCENTER_URL_REDIRECTS_OK redirects=18\nCANCER_DEPTH_VALIDATION_OK 22 diagnoses x 2 species\nCANCER_PAGE_SEMANTIC_BUILD_OK 44 generated pages\nMATCHER_TAXONOMY_SYNC_OK\nMATCHER_DATA_OK total=156 treatment=152 access=4\nONCOLOGY_CENTER_CATALOG_OK profiles=458 acvim_locations=216 matched=68 supplemental_added=1345 centers=1579\nONCOLOGY_CENTER_FINDER_OK centers=1579\nONCOLOGY_CENTERS_OK centers=1579 states=52\nARTICLE_CATALOG_OK articles=13 categories=4\nSEO_INDEX_POLICY_OK indexable=167 noindex=42\nHELP_CONTENT_OK details= 24\nCENTER_DIRECTORY_PICKER_OK sections=4\nCENTER_PROFILES_OK pages=107 verified_profiles=89 redirects_skipped=18\nSENTENCE_CASE_OK pages=211\nSITE_SEARCH_OK pages=189\nCENTER_URL_REGRESSION_OK historical_routes=14 redirects=18\nRESTORED_CENTER_PROFILES_REGRESSION_OK profiles=5\nPRODUCTION_SYNC_OK total=156 treatment=152 access=4 matcher_ids=156 internal_links=6785\nMATCHER_LOGIC_OK trials=156 mct=4 yasha=0 mammary=5 osteosarcoma=19 bladder=7 brain=8\nSOURCE_DERIVED_SELECTION_OK public_reviewed=134/156 pending=22 retained_reviews=135 cases=604\nMATCHER_SELECTION_OK canonical=310 public=156 checks=1465 criteria=206\nMATCHER_SELECTION_PARITY_OK public=156 disease_checks=18720\nONCOLOGY_COUNTRY_FILTER_OK 13 countries; 339 German listings; combined filters, state reset, stale ZIP suppression\nAUSTRIAN_CARE_IDENTITY_OK 121 distinct sites; branch addresses, phones and services preserved\nGERMANY_CARE_IDENTITY_OK two separate Saarwellingen providers; individual access limits preserved\nNETWORK_CARE_OK one network route; no branch clones, office address, phone invention or physical identity merge\nEUROPE_CONTROLLER_IDENTITIES_OK 61 independently preserved cards\nEUROPE_RECOVERY_OK six-country fail-closed gate; 680 NEW; 53 UPDATE identities/79 fields; baseline hashes and 78 exact identity pairs preserved\nNO_TRACKING_OK\nPUBLIC_PAGE_SHELL_OK 212\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "scripts/test_a01_care_reconciliation.js"
+      ],
+      "started_at": "2026-10-18T05:02:08.107844+00:00",
+      "finished_at": "2026-10-18T05:02:08.205396+00:00",
+      "exit_code": 0,
+      "stdout": "A01_CARE_REGRESSION_OK identities, service flags, WA ZIP/state sorting, mobile distance suppression\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "scripts/test_a02_care_reconciliation.py"
+      ],
+      "started_at": "2026-10-18T05:02:08.205438+00:00",
+      "finished_at": "2026-10-18T05:02:08.280162+00:00",
+      "exit_code": 0,
+      "stdout": "A02_CARE_REGRESSION_OK identities, retired/watchlist exclusion, local modality limits, mobile coordinates, doctor credentials, remote audiences\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "scripts/test_b01_care_reconciliation.py"
+      ],
+      "started_at": "2026-10-18T05:02:08.280180+00:00",
+      "finished_at": "2026-10-18T05:02:08.333718+00:00",
+      "exit_code": 0,
+      "stdout": "B01_CARE_REGRESSION_OK 25 sources, 26 sites, Malvern separation, branch modalities, credentials and contacts\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "scripts/test_b02_care_reconciliation.py"
+      ],
+      "started_at": "2026-10-18T05:02:08.333735+00:00",
+      "finished_at": "2026-10-18T05:02:08.417020+00:00",
+      "exit_code": 0,
+      "stdout": "B02_CARE_REGRESSION_OK branch modalities, credentials, aliases, relocation coordinates, network scope\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "scripts/test_c01_care_reconciliation.py"
+      ],
+      "started_at": "2026-10-18T05:02:08.417040+00:00",
+      "finished_at": "2026-10-18T05:02:08.469798+00:00",
+      "exit_code": 0,
+      "stdout": "C01_CARE_REGRESSION_OK 24 unique branches, corrected coordinates/identity, conservative filters, credentials and named treatments\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "scripts/test_evidence_keys.py"
+      ],
+      "started_at": "2026-10-18T05:02:08.469816+00:00",
+      "finished_at": "2026-10-18T05:02:08.514712+00:00",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "..\n----------------------------------------------------------------------\nRan 2 tests in 0.001s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/check_evidence_keys.py"
+      ],
+      "started_at": "2026-10-18T05:02:08.514728+00:00",
+      "finished_at": "2026-10-18T05:02:09.175058+00:00",
+      "exit_code": 0,
+      "stdout": "PASS: no unredacted Google API keys.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "scripts/test_matcher_protocol_sources.js"
+      ],
+      "started_at": "2026-10-18T05:02:09.175077+00:00",
+      "finished_at": "2026-10-18T05:02:09.279910+00:00",
+      "exit_code": 0,
+      "stdout": "SOURCE_DERIVED_SELECTION_OK public_reviewed=134/156 pending=22 retained_reviews=135 cases=604\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "scripts/test_matcher_catalog_loading.js"
+      ],
+      "started_at": "2026-10-18T05:02:09.279928+00:00",
+      "finished_at": "2026-10-18T05:02:09.352253+00:00",
+      "exit_code": 0,
+      "stdout": "Japan: 10 results after delayed load\nUSA: 103 results after delayed load\nCatalog-loading regression PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate_europe_worker_result.py",
+        "--self-test"
+      ],
+      "started_at": "2026-10-18T05:02:09.352271+00:00",
+      "finished_at": "2026-10-18T05:02:09.382764+00:00",
+      "exit_code": 0,
+      "stdout": "EUROPE_WORKER_IDENTITY_SELF_TEST_OK\n",
+      "stderr": ""
+    }
+  ]
+}
+

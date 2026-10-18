@@ -72,7 +72,7 @@
     "independent_country_automations_allowed": false,
     "worker_subagents_or_automations_allowed": false,
     "worker_shared_production_edits_allowed": false,
-    "parent_serial_publication_of_ready_checkpoints": true,
+    "parent_serial_publication_of_ready_checkpoints": false,
     "required_result_identity": [
       "run_id",
       "slot",
@@ -81,7 +81,21 @@
     ],
     "result_gate": "scripts/validate_europe_worker_result.py",
     "publication_is_not_country_completion": true,
-    "exhausted_slot": "report_exhausted_without_inventing_country"
+    "exhausted_slot": "report_exhausted_without_inventing_country",
+    "owner_priority_decision": "2026-10-16 14:24 America/New_York",
+    "publication_gate": "all_assigned_countries_independently_accepted_research_complete",
+    "phases": [
+      "complete_accessible_national_research_and_all_six_report_acceptance",
+      "fresh_main_field_delta_validation_build_publish_deploy_readback"
+    ],
+    "research_only_remote_backups_required": true,
+    "backup_max_interval_seconds": 900,
+    "backup_after_each_semantic_block_and_restriction": true,
+    "backup_requires_remote_sha_and_content_readback": true,
+    "full_russian_report_per_actual_worker_required": true,
+    "no_integration_capacity_or_elapsed_time_stop": true,
+    "publication_entry_point": "scripts/integrate_europe_recovery.py",
+    "restriction_index": "access-restriction-index.json"
   },
   "network_level_care": {
     "owner_decision_date": "2026-10-17",

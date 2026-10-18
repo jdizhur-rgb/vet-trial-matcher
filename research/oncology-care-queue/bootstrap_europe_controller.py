@@ -55,7 +55,15 @@ def main():
         old = read(path) if path.exists() else None
         assert old is None or old['countries'] == countries
         history = (old or {}).get('runs', [])
-        unfinished = [x for x in history if x.get('disposition') == 'INCOMPLETE' or x.get('coverage_complete') is False]
+        # Historical INCOMPLETE receipts remain immutable. Only the latest
+        # disposition of each country controls recovery; a later independently
+        # accepted completion must not be stranded by an old cursor/run.
+        latest_by_country = {}
+        for index, item in enumerate(history):
+            latest_by_country[item['country']] = (index, item)
+        unfinished = [item for _, item in sorted(latest_by_country.values())
+                      if item.get('disposition') == 'INCOMPLETE'
+                      or item.get('coverage_complete') is False]
         if unfinished:
             country = unfinished[-1]['country']
             reason = 'Continue explicit incomplete country; numeric cursor is not completion proof'

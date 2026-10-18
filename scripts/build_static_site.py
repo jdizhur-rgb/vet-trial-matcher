@@ -206,6 +206,7 @@ def main() -> None:
     run("scripts/test_germany_care_identity.py")
     run("scripts/test_network_care.py")
     run("scripts/test_europe_controller_reconciliation.py")
+    run("scripts/test_europe_recovery.py")
 
 
 if __name__ == "__main__":

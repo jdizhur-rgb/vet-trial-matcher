@@ -18,6 +18,12 @@ OUTPUT = ROOT / "data" / "oncology_centers.json"
 AUDIT = ROOT / "data" / "oncology_center_audit.json"
 ZIP_COORDINATES = ROOT / "data" / "us_zip_centroids.json"
 SUPPLEMENTAL = ROOT / "data" / "oncology_centers_supplemental.json"
+DISTINCT_SITE_REVIEW = ROOT / "data" / "oncology_care_distinct_sites.json"
+VERIFIED_DISTINCT_SITE_PAIRS = {
+    frozenset(item["source_ids"])
+    for item in json.loads(DISTINCT_SITE_REVIEW.read_text())["pairs"]
+}
+assert all(len(pair) == 2 and None not in pair for pair in VERIFIED_DISTINCT_SITE_PAIRS)
 US_STATES = {
     "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
     "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
@@ -347,6 +353,7 @@ def center_match(seed: dict, candidate: dict) -> bool:
         # streets and phones; the shared 66793 postal code is not identity.
         frozenset(("de-tierarztpraxis-am-steinhuebel", "de-joerg-waschbuesch-saarwellingen")),
     }
+    separate_verified_sites |= VERIFIED_DISTINCT_SITE_PAIRS
     if frozenset((seed.get("source_id"), candidate.get("source_id"))) in separate_verified_sites:
         return False
     same_zip = bool(seed["postal_code"] and seed["postal_code"] == candidate["postal_code"])
@@ -456,9 +463,12 @@ def main() -> None:
         if override:
             center["website"] = override
     centers.sort(key=lambda x: (x["country"] != "USA", x["region"], x["city"], x["name"]))
+    # Assembly is not a new whole-directory source visit. Keep the existing
+    # aggregate audit date; individual new/updated source dates carry evidence.
+    prior_catalog_date = json.loads(OUTPUT.read_text())["last_verified"]
     payload = {
-        "last_verified": date.today().isoformat(),
-        "method": "Verified seed directory merged with unique physical locations in the ACVIM VetSpecialists oncology directory.",
+        "last_verified": prior_catalog_date,
+        "method": "Verified seed and source records with separately typed physical, mobile and network care; branch/service scope retained.",
         "centers": centers,
     }
     OUTPUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
