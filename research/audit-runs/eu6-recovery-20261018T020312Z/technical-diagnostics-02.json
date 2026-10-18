@@ -1,0 +1,35 @@
+{
+  "run_id": "eu6-recovery-20261018T020312Z",
+  "checked_at": "2026-10-18 03:00:07 UTC",
+  "phase": "RESEARCH_ONLY_READ_ONLY_DIAGNOSTICS",
+  "integration_started": false,
+  "findings": [
+    {
+      "area": "Existing integrator",
+      "path": "scripts/integrate_europe_checkpoint.py",
+      "finding": "Only accepts entity physical/inventory and prebuilt inventory_record; current six proposals additionally have network/mobile/tele, missing entity aliases, field provider_record, structured Czech candidate metadata. Do not call unchanged or weaken clinical gate."
+    },
+    {
+      "area": "Technical schema normalization",
+      "finding": "Some accepted NEWs lack mandatory source/coordinates keys. Czech all53 use checked_at instead of last_verified; 40 lack latitude/longitude, two networks lack region. Preserve actual per-record successful checked_at dates, insert explicit null/unknown coordinate state only when supported, never integration date or guessed point. Existing missing source is provenance metadata, not missing clinical proof."
+    },
+    {
+      "area": "Service aliases",
+      "finding": "Accepted proof uses Surgery/Surgical oncology/Cancer surgery, Medical oncology/Medical, Chemotherapy/Chemo, Radiation therapy/Radiation. Normalize only semantically equivalent confirmed tags to current schema, not a generic surgery-to-oncology inference."
+    },
+    {
+      "area": "Publication eligibility",
+      "finding": "Dutch4 withheld drafts have publication_eligible/core_fields_sufficient/review_status flags sometimes inside new_value as well as at change root. Approval must explicitly select79 eligible IDs, not default83. Withheld: dc-zeeland-noordwelle, Wagenrenk no-new-patient draft, goudenregenstraat-den-haag, DeDuinen current-vet-role draft. Resolve exact IDs from full report before integration."
+    },
+    {
+      "area": "Remote",
+      "finding": "France2tele NEW values are11-element tuples (Olliolis and Doliger), not physical dicts. Need separate tele ROWS/count/owner-vet audience reconciliation after all-six gate; parent-tele-identity-01.json documents independent identity review."
+    },
+    {
+      "area": "Scope of any future apply",
+      "finding": "After all-six independent research acceptance only: fresh-main field deltas, all old/new checks before writes, explicit approved IDs/fields and preservation audits. No main clinical trial changes. Check builder predicted false merges and fix only proven distinct pairs; preserve old regressions and published61NEW20updates."
+    }
+  ],
+  "source_request_count": 0,
+  "site_changes": 0
+}
