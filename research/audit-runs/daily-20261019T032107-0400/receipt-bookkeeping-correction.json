@@ -1,0 +1,11 @@
+{
+  "recorded_at": "2026-10-19T04:12:51-04:00",
+  "timing_precision": "Measured clock time of documentary recording; actual validator and receipt regeneration timestamps are in their files",
+  "finding": "Initial readback compared the current-run not_checked disposition with the persisted previous last_result of15 unvisited restricted sources. All inventory bytes and dates already matched remote; only receipt new_last_result was mislabeled.",
+  "correction": "For unvisited sources retain actual prior inventory last_result in receipt new_last_result. Keep source_result=not_checked and strict source gap unchanged.",
+  "source_inventory_changed": false,
+  "source_inventory_sha256": "bde5182cbf8d0b41d0a999c72095db5df559a69a64e610a8e6be67d622427546",
+  "new_source_visits": 0,
+  "processing_counts_changed": false,
+  "prior_readback_preserved": "remote-main-readback-initial.json"
+}

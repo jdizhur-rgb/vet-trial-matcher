@@ -1,0 +1,47 @@
+{
+  "run_id": "daily-20261019T032107-0400",
+  "at": "2026-10-19T04:13:29.865541-04:00",
+  "immutable_segment": true,
+  "source_processing": "119/120; one Cambridge alias NOT VERIFIED",
+  "source_sufficiency": "56fully_reconciled/47partial/2unreachable/15not_checked",
+  "discovery": "85queries,12regions,bothpasses; primary signal adjudication retained",
+  "clinical_full_fresh_gate_remaining": 33,
+  "publication_data_commit": "99d76c53051bda21c88da3bd46dd46caff250a39",
+  "production_byte_readback": "PASS",
+  "live_searches": {
+    "comparison_at": "2026-10-19T04:10:48.027388-04:00",
+    "method": "Real production browser UI search plus DOM-rendered headings and card links; expected current catalog calculated independently in Work. No injected results or hidden application state.",
+    "production_code_commit": "99d76c53051bda21c88da3bd46dd46caff250a39",
+    "cases": [
+      {
+        "country": "USA",
+        "actual_browser_at": "2026-10-19T08:09:13.847Z",
+        "actual_count": 100,
+        "expected_count": 100,
+        "whole_rendered_roster_equal": true,
+        "missing": [],
+        "extra": [],
+        "all_requested_controls_verified": true,
+        "closed_vgs002_absent": true,
+        "status": "PASS",
+        "evidence_file": "research/audit-runs/daily-20261019T032107-0400/live-USA.json"
+      },
+      {
+        "country": "Japan",
+        "actual_browser_at": "2026-10-19T08:09:54.870Z",
+        "actual_count": 10,
+        "expected_count": 10,
+        "whole_rendered_roster_equal": true,
+        "missing": [],
+        "extra": [],
+        "all_requested_controls_verified": true,
+        "closed_vgs002_absent": true,
+        "status": "PASS",
+        "evidence_file": "research/audit-runs/daily-20261019T032107-0400/live-Japan.json"
+      }
+    ],
+    "overall": "PASS"
+  },
+  "pending_work": "Receipt bookkeeping/result parity correction and final report preservation/readback; not another source traversal.",
+  "budget": "Before06:00 America/New_York; deploy wait bounded10minutes."
+}
