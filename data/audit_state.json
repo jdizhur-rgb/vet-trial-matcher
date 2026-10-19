@@ -2,25 +2,34 @@
   "schema_version": 1,
   "purpose": "Persistent state for incremental discovery and deep-audit cost control. Source fingerprints live in source_inventory.json; this file tracks audit scheduling and unresolved work.",
   "last_full_deep_audit": null,
-  "last_incremental_audit": "2026-10-18T04:03:02.851516-04:00",
+  "last_incremental_audit": "2026-10-19T03:55:18.328936-04:00",
   "last_source_discovery_attempt": {
-    "run_id": "daily-20261018T030540-0400",
-    "started_at": "2026-10-18T03:05:40.493487-04:00",
-    "source_pass_sealed_at": "2026-10-18T04:18:00.947636-04:00",
-    "source_total": 119,
-    "attempted_total": 106,
+    "run_id": "daily-20261019T032107-0400",
+    "mode": "DAILY GLOBAL WORK AUDIT",
+    "started_at": "2026-10-19T03:21:07-04:00",
+    "source_total": 120,
+    "attempted_total": 105,
+    "content_sufficient_total": 56,
     "processing_complete_total": 119,
-    "content_sufficient_total": 59,
-    "processing_status": "ALL_PROCESSED_EXTERNAL_GAPS",
-    "executor_unfinished_actions": 0,
-    "new_source_count": 6,
-    "coverage_receipt": "research/audit-runs/daily-20261018T030540-0400/receipt-final.json",
-    "gap_review": "research/audit-runs/daily-20261018T030540-0400/gap-review.json",
-    "issues": "research/audit-runs/daily-20261018T030540-0400/issues.json",
+    "source_result_counts": {
+      "partial": 47,
+      "fully_reconciled": 56,
+      "not_checked": 15,
+      "unreachable": 2
+    },
+    "executor_incomplete_source_ids": [
+      "uk-cambridge-veterinary-clinical-trials"
+    ],
+    "executor_unfinished_actions": 1,
+    "unconfirmed_processing_sources": 0,
+    "source_pass_at": "2026-10-19T03:55:18.328936-04:00",
+    "rejected_mixed_batch_not_used": true,
+    "strict_status": "INCOMPLETE",
     "status": "INCOMPLETE",
-    "pending_source_ids": [],
-    "separate_protocol_review_gaps": 34,
-    "global_discovery_regions": 12
+    "coverage_receipt": "research/audit-runs/daily-20261019T032107-0400/receipt-final.json",
+    "gap_review": "research/audit-runs/daily-20261019T032107-0400/gap-review.json",
+    "global_discovery_regions": 12,
+    "separate_protocol_review_gaps": 33
   },
   "forced_full_reread_days": 28,
   "rules": {
@@ -57,12 +66,12 @@
     "source_cases": "data/protocol_selection_cases.json",
     "last_full_completed_at": null,
     "forced_full_rereview_days": 28,
-    "progress_receipt": "research/audit-runs/daily-20261018T030540-0400/trial-review.json",
-    "last_progress_at": "2026-10-18T04:03:02.851516-04:00",
-    "current_public_total": 155,
+    "progress_receipt": "research/audit-runs/daily-20261019T032107-0400/trial-review.json",
+    "last_progress_at": "2026-10-19T03:53:13-04:00",
+    "current_public_total": 154,
     "independently_reviewed_current_public": 136,
-    "pending_independent_review_total": 19,
-    "full_fresh_gate_remaining": 34
+    "pending_independent_review_total": 18,
+    "full_fresh_gate_remaining": 33
   },
   "last_targeted_source_reconciliation": {
     "run_id": "finalize-68-20261014T185109-0400",
