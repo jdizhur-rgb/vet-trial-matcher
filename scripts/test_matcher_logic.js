@@ -408,9 +408,23 @@ if (rows.some(row => row.id === 'bluepearl-hsa-paccal')) {
   throw new Error('Completed BluePearl Paccal Vet pilot remained in treatment matching');
 }
 
-const cotc033 = rows.find(row => row.id === 'csu-cotc033-vaccine-immunity');
+const canonicalRows = JSON.parse(fs.readFileSync(path.join(root, 'data/trials_base.json'), 'utf8'));
+const cotc033 = canonicalRows.find(row => row.id === 'csu-cotc033-vaccine-immunity');
 if (!cotc033 || !cotc033.sites.some(site => site.state === 'MO')) {
-  throw new Error('COTC033 matcher record is missing the confirmed Missouri site');
+  throw new Error('COTC033 canonical history lost its previously confirmed Missouri site');
+}
+// Exact AVMA Completed status (2026-10-20) overrides the still-open Missouri index.
+// Keep historical sites, but neither broad browsing nor unknown answers may revive it.
+for (const id of ['csu-cotc033-vaccine-immunity', 'elias-eci-chemo-osa', 'osu-probiome-bladder']) {
+  const closed = canonicalRows.find(row => row.id === id);
+  if (!closed || closed.available_for_matching !== false || rows.some(row => row.id === id)) {
+    throw new Error(`Confirmed closed protocol leaked into public catalog: ${id}`);
+  }
+  for (const overrides of [{}, {cancer:'Cancer — any type'}, {cancer:'Cancer — any type', diagnosis_status:UNKNOWN, tumor_status:UNKNOWN}]) {
+    if (matcher.matchTrial(closed, patient(overrides)) !== null) {
+      throw new Error(`Confirmed closed protocol matched patient: ${id}`);
+    }
+  }
 }
 
 const blocked = {

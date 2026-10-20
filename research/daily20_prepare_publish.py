@@ -1,0 +1,12 @@
+from daily20 import ROOT,RUN,read,write,now,checkpoint
+import subprocess,json,hashlib
+rel=str(RUN.relative_to(ROOT));state=read(ROOT/'data/audit_state.json');state['last_incremental_audit']['publication']='Tracked separately in '+rel+'/publication.json';write(ROOT/'data/audit_state.json',state)
+write(RUN/'publication.json',{'run_id':RUN.name,'at':now(),'status':'READY_NOT_YET_PUBLISHED','base_main_sha':read(RUN/'baseline.json')['base_main_sha'],'clean_build':read(RUN/'build-root.json'),'canonical_changes':['elias-eci-chemo-osa','csu-cotc033-vaccine-immunity','osu-probiome-bladder'],'public_before':154,'public_after':152,'site_text_ui_css_changes':False})
+logs=read(RUN/'validators.json')
+for cmd in [['python','scripts/validate_source_inventory.py'],['python','scripts/validate_audit_receipt.py',rel+'/receipt-final.json'],['python','scripts/validate_audit_gap_review.py',rel+'/gap-review.json','--receipt',rel+'/receipt-final.json'],['node','scripts/test_matcher_catalog_loading.js'],['node','scripts/test_matcher_logic.js'],['python','scripts/check_evidence_keys.py'],['git','diff','--check']]:
+ cwd=read(RUN/'build-root.json')['path'] if cmd[1]=='scripts/test_matcher_logic.js' else ROOT
+ at=now();p=subprocess.run(cmd,cwd=cwd,text=True,capture_output=True);logs.append(dict(command=cmd,cwd=str(cwd),started_at=at,finished_at=now(),exit_code=p.returncode,output=p.stdout+p.stderr,scope='Final reference-normalization check; matcher logic uses complete isolated built site, not unbuilt working directory'));print(cmd,p.returncode,p.stdout[-800:])
+write(RUN/'validators.json',logs)
+base=read(RUN/'before-trials_base.json');current=read(ROOT/'data/trials_base.json');changed=[r['id'] for r in current if r!=next(b for b in base if b['id']==r['id'])];assert set(changed)=={'elias-eci-chemo-osa','csu-cotc033-vaccine-immunity','osu-probiome-bladder'}
+write(RUN/'change-manifest.json',{'at':now(),'exact_canonical_changed_ids':changed,'canonical_ids_preserved':{r['id'] for r in base}=={r['id'] for r in current},'source_ids_preserved':set(read(RUN/'baseline.json')['source_ids'])<={s['id'] for s in read(ROOT/'data/source_inventory.json')['sources']},'current_sha256':{n:hashlib.sha256((ROOT/n).read_bytes()).hexdigest() for n in ['data/trials_base.json','data/source_inventory.json','data/audit_source_coverage.json','seo/static/matcher/trials.json','seo/static/matcher/matcher.js','scripts/test_matcher_logic.js']}})
+checkpoint()
