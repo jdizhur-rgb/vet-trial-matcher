@@ -1,0 +1,75 @@
+{
+  "run_id": "daily-20261020T030334-0400",
+  "started_at": "2026-10-20T03:03:34-04:00",
+  "finished_at": "2026-10-20T04:07:34.502349-04:00",
+  "overall": "INCOMPLETE",
+  "confirmed_updates_published": 3,
+  "new_hidden_public_records": 2,
+  "new_sources": 2,
+  "new_active_trials": 0,
+  "source_receipt": {
+    "run_id": "daily-20261020T030334-0400",
+    "mode": "DAILY GLOBAL WORK AUDIT",
+    "started_at": "2026-10-20T03:03:34-04:00",
+    "source_total": 123,
+    "attempted_total": 106,
+    "content_sufficient_total": 57,
+    "processing_complete_total": 122,
+    "source_result_counts": {
+      "partial": 46,
+      "fully_reconciled": 57,
+      "not_checked": 17,
+      "unreachable": 3
+    },
+    "executor_incomplete_source_ids": [
+      "uk-cambridge-veterinary-clinical-trials"
+    ],
+    "executor_unfinished_actions": 1,
+    "unconfirmed_processing_sources": 1,
+    "source_pass_at": "2026-10-20T03:53:18.257675-04:00",
+    "strict_status": "INCOMPLETE",
+    "evidence_normalized_at": "2026-10-20T03:55:25.518059-04:00"
+  },
+  "clinical_fresh_review_gate": {
+    "reviewed": 120,
+    "public": 152,
+    "pending": 32,
+    "new_full_reviews_today": 0
+  },
+  "deployment": "PASS",
+  "loading_regression": "PASS",
+  "live_searches": [
+    {
+      "country": "USA",
+      "actual_browser_at": "2026-10-20T08:05:12.588Z",
+      "actual_count": 98,
+      "expected_count": 98,
+      "whole_rendered_roster_equal": true,
+      "missing": [],
+      "extra": [],
+      "all_requested_controls_verified": true,
+      "status": "PASS",
+      "evidence_file": "research/audit-runs/daily-20261020T030334-0400/live-pair.json"
+    },
+    {
+      "country": "Japan",
+      "actual_browser_at": "2026-10-20T08:05:22.115Z",
+      "actual_count": 10,
+      "expected_count": 10,
+      "whole_rendered_roster_equal": true,
+      "missing": [],
+      "extra": [],
+      "all_requested_controls_verified": true,
+      "status": "PASS",
+      "evidence_file": "research/audit-runs/daily-20261020T030334-0400/live-pair.json"
+    }
+  ],
+  "production_bytes": "PASS",
+  "remote_main_readback": "PASS",
+  "source_inventory_sha256": "c0c59b9ac8e79a7911f86543118bb7cb31c6346923d2404b9df04c065f705933",
+  "notes": [
+    "Transient exec-server transport failure recovered in the same invocation; temporary task pause reversed.",
+    "Initial cross-method concurrency maximum6 NOT VERIFIED; later native/Web batches serialized.",
+    "Strict receipt validator deliberately not weakened; sources with missing current roster proof remain gaps."
+  ]
+}
