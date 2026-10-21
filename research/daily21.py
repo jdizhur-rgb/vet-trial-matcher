@@ -21,7 +21,7 @@ def attempts():return [json.loads(l) for l in (RUN/'attempts.jsonl').read_text()
 def checkpoint():
  a=attempts();b=read(RUN/'baseline.json');rows=read(RUN/'receipt-final.json').get('sources',[]) if (RUN/'receipt-final.json').exists() else []
  t=datetime.now(ZoneInfo('America/New_York')).strftime('%H%M%S')
- v={'run_id':RUN.name,'at':now(),'actual_native_requests':len(a),'visited_source_ids':sorted({x['source_id'] for x in a}),'processed_sources':sum(r.get('processing_complete',False) for r in rows),'source_total':b['counts']['sources'],'remaining_source_ids':[s for s in b['source_ids'] if s not in {r['source_id'] for r in rows if r.get('processing_complete')}],'deadline':'2026-10-21T06:00:00-04:00','note':'Requests are not reconciliation. No date or clinical sign-off inferred from a fetch.'}
+ v={'run_id':RUN.name,'at':now(),'actual_native_requests':len(a),'visited_source_ids':sorted({x['source_id'] for x in a}),'processed_sources':sum(r.get('processing_complete',False) for r in rows),'source_total':len(read(ROOT/'data/source_inventory.json')['sources']),'frozen_start_source_total':b['counts']['sources'],'remaining_source_ids':[s['id'] for s in read(ROOT/'data/source_inventory.json')['sources'] if s['id'] not in {r['source_id'] for r in rows if r.get('processing_complete')}],'deadline':'2026-10-21T06:00:00-04:00','note':'Requests are not reconciliation. No date or clinical sign-off inferred from a fetch.'}
  write(RUN/('checkpoint-'+t+'.json'),v)
  (RUN/('segment-'+t+'.md')).write_text(f"# Immutable segment {t}\n\nAt {v['at']}: {len(a)} actual native request receipts; {v['processed_sources']}/{v['source_total']} processing decisions. Clinical and discovery completion require separate saved evidence.\n")
 m.checkpoint=checkpoint

@@ -1,0 +1,985 @@
+{
+  "run_id": "daily-20261021T030035-0400",
+  "at": "2026-10-21T04:08:29.741448-04:00",
+  "remaining_original40": 32,
+  "new_full_clinical_reviews_today": 0,
+  "actual_run_cutoff": "2026-10-21T03:00:35-04:00",
+  "strict_current_run_gate": "0/152 fresh; inherited reviews not new execution",
+  "cumulative_full_review_gate_since_original_cutoff": "120/152;32 pending",
+  "rows": [
+    {
+      "trial_id": "eu-fr-hifu-urothelial",
+      "title": "High-intensity focused ultrasound (HIFU) for canine urothelial carcinoma",
+      "primary_url": "https://www.anicura.fr/cliniques/armonia/etudes-cliniques-en-cours-chv-anicura-armonia/",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": true,
+      "exact_question": "Прямой протокол Armonia вернул403. Европейский список подтверждает диагноз/метод, но не полный актуальный набор критериев. Today: Exact individual primary route has a saved explicit/nonretryable gate; it was not revisited. Current permitted shared source evidence reconciled separately; no fresh full-protocol date assigned.",
+      "actual_current_primary_attempts": [],
+      "inherited_restriction_evidence": {
+        "url": "https://www.anicura.fr/cliniques/armonia/etudes-cliniques-en-cours-chv-anicura-armonia/",
+        "do_not_retry": true,
+        "origin": "daily-20261017/inherited-gates.json",
+        "historical_scope": {
+          "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json",
+          "prior_attempt": {
+            "url": "https://www.anicura.fr/cliniques/armonia/etudes-cliniques-en-cours-chv-anicura-armonia/",
+            "trial_ids": [
+              "eu-fr-hifu-urothelial"
+            ],
+            "attempted_at": "2026-10-16T18:59:47.653454+00:00",
+            "method": "urllib",
+            "key": "2aa59e1211b7ccc8",
+            "result": "http_error",
+            "status": 403
+          }
+        }
+      },
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "eu-fr-oral-intratumoral-immunotherapy",
+      "title": "Intratumoral immunotherapy for canine oral malignant tumors",
+      "primary_url": "https://www.vetagro-sup.fr/recherche-expertise/cicv-centre-investigation-clinique-veterinaire/etude-pour-developper-un-nouveau-medicament-pour-traiter-les-melanomes-et-carcinomes-epidermoides-buccaux/",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": false,
+      "exact_question": "Current VetAgro oral-immunotherapy primary read; complete numeric/clinical restrictions and current cohort identity remain unexposed. Secondary-only weight/metastasis/prior-treatment details cannot be silently adopted.",
+      "actual_current_primary_attempts": [
+        {
+          "url": "https://www.vetagro-sup.fr/recherche-expertise/cicv-centre-investigation-clinique-veterinaire/etude-pour-developper-un-nouveau-medicament-pour-traiter-les-melanomes-et-carcinomes-epidermoides-buccaux/",
+          "attempted_at": "2026-10-21T03:08:42.577323-04:00",
+          "completed_at": "2026-10-21T03:08:47.694366-04:00",
+          "method": "shell_curl",
+          "http_status": 200,
+          "result": "retrieved_page",
+          "evidence_file": "research/audit-runs/daily-20261021T030035-0400/evidence/6d40877e8fc6520404.json",
+          "reference": null,
+          "freshness": null
+        }
+      ],
+      "inherited_restriction_evidence": null,
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "uk-edinburgh-oral-melanoma-tigilanol-tiglate",
+      "title": "Tigilanol tiglate immunotherapy for canine oral melanoma",
+      "primary_url": "https://vet.ed.ac.uk/news/latest-news/2024/drug-trial-studies-plant-based-oral-cancer-therapy-dogs",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": false,
+      "exact_question": "Official2024 invitation/current2026 abstract do not publish complete size/site/metastasis/prior-treatment criteria, present capacity or owner costs. Grant funding is not owner-cost coverage.",
+      "actual_current_primary_attempts": [
+        {
+          "url": "https://vet.ed.ac.uk/news/latest-news/2024/drug-trial-studies-plant-based-oral-cancer-therapy-dogs",
+          "attempted_at": "2026-10-21T03:27:06.294798-04:00",
+          "completed_at": "2026-10-21T03:27:10.741696-04:00",
+          "method": "shell_curl",
+          "http_status": 200,
+          "result": "retrieved_page",
+          "evidence_file": "research/audit-runs/daily-20261021T030035-0400/evidence/c289db9ac22dbc8ea6.json",
+          "reference": null,
+          "freshness": null
+        }
+      ],
+      "inherited_restriction_evidence": null,
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "ncsu-mammary-inspire",
+      "title": "INSPIRE therapy for canine mammary carcinoma",
+      "primary_url": "https://cvm.ncsu.edu/clinical-trial/inspire-therapy-for-canine-mammary-carcinoma/",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": true,
+      "exact_question": "NCSU текущий онкологический индекс подтверждает INSPIRE и размеры1–3см; прямой протокол и листовка403. Остальные условия не удалось заново подтвердить. Today: Exact individual primary route has a saved explicit/nonretryable gate; it was not revisited. Current permitted shared source evidence reconciled separately; no fresh full-protocol date assigned.",
+      "actual_current_primary_attempts": [],
+      "inherited_restriction_evidence": {
+        "url": "https://cvm.ncsu.edu/clinical-trial/inspire-therapy-for-canine-mammary-carcinoma/",
+        "do_not_retry": true,
+        "origin": "daily-20261017/inherited-gates.json",
+        "historical_scope": {
+          "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json",
+          "prior_attempt": {
+            "url": "https://cvm.ncsu.edu/clinical-trial/inspire-therapy-for-canine-mammary-carcinoma/",
+            "trial_ids": [
+              "ncsu-mammary-inspire"
+            ],
+            "attempted_at": "2026-10-16T18:59:55.544091+00:00",
+            "method": "urllib",
+            "key": "19c828543d5bf055",
+            "result": "http_error",
+            "status": 403
+          }
+        }
+      },
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "uga-bcell-ivp",
+      "title": "Investigational veterinary product for canine large B-cell lymphoma",
+      "primary_url": "https://vet.uga.edu/clinical-trial/dogs-diagnosed-with-b-cell-lymphoma/",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": true,
+      "exact_question": "UGA прямой протокол403; клинический индекс не заменяет полного протокола BI705564 и местных условий набора. Today: Exact individual primary route has a saved explicit/nonretryable gate; it was not revisited. Current permitted shared source evidence reconciled separately; no fresh full-protocol date assigned.",
+      "actual_current_primary_attempts": [],
+      "inherited_restriction_evidence": {
+        "url": "https://vet.uga.edu/clinical-trial/dogs-diagnosed-with-b-cell-lymphoma/",
+        "do_not_retry": true,
+        "origin": "daily-20261017/inherited-gates.json",
+        "historical_scope": {
+          "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json",
+          "prior_attempt": {
+            "url": "https://vet.uga.edu/clinical-trial/dogs-diagnosed-with-b-cell-lymphoma/",
+            "trial_ids": [
+              "uga-bcell-ivp"
+            ],
+            "attempted_at": "2026-10-16T18:59:57.475697+00:00",
+            "method": "urllib",
+            "key": "6402255bd07cc455",
+            "result": "http_error",
+            "status": 403
+          }
+        }
+      },
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "wsu-sts-local-immunotherapy",
+      "title": "Local T-cell engager immunotherapy before surgery for canine soft tissue sarcoma",
+      "primary_url": "https://vrcvet.com/clinical-trials/",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": true,
+      "exact_question": "VRCCO403; регистровый TCE-протокол получен, но клинические ограничения текущего VRCCO-когортного набора и статус WSU нельзя объединять без подтверждения. Today: Exact individual primary route has a saved explicit/nonretryable gate; it was not revisited. Current permitted shared source evidence reconciled separately; no fresh full-protocol date assigned.",
+      "actual_current_primary_attempts": [],
+      "inherited_restriction_evidence": {
+        "url": "https://vrcvet.com/clinical-trials/",
+        "do_not_retry": true,
+        "origin": "daily-20261017/inherited-gates.json",
+        "historical_scope": {
+          "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json",
+          "prior_attempt": {
+            "url": "https://vrcvet.com/clinical-trials/",
+            "trial_ids": [
+              "wsu-sts-local-immunotherapy"
+            ],
+            "attempted_at": "2026-10-16T18:59:57.548904+00:00",
+            "method": "urllib",
+            "key": "254a79b1b80fdc53",
+            "result": "http_error",
+            "status": 403
+          }
+        }
+      },
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "ethos-gilvetmab-melanoma",
+      "title": "Gilvetmab treatment study for canine malignant melanoma",
+      "primary_url": "https://www.ethosvet.com/clinical-study/melanoma-treatment-study/",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": true,
+      "exact_question": "Прямая страница Ethos403. Обход запрета не предпринимался; свежего полного протокола нет. Today: Exact individual primary route has a saved explicit/nonretryable gate; it was not revisited. Current permitted shared source evidence reconciled separately; no fresh full-protocol date assigned.",
+      "actual_current_primary_attempts": [],
+      "inherited_restriction_evidence": {
+        "url": "https://www.ethosvet.com/clinical-study/melanoma-treatment-study/",
+        "do_not_retry": true,
+        "origin": "daily-20261017/inherited-gates.json",
+        "historical_scope": {
+          "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json",
+          "prior_attempt": {
+            "url": "https://www.ethosvet.com/clinical-study/melanoma-treatment-study/",
+            "trial_ids": [
+              "ethos-gilvetmab-melanoma"
+            ],
+            "attempted_at": "2026-10-16T19:00:00.485037+00:00",
+            "method": "urllib",
+            "key": "b19f93fcf7402c4e",
+            "result": "http_error",
+            "status": 403
+          }
+        }
+      },
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "ethos-bcell-oral",
+      "title": "Investigational oral treatment for newly diagnosed canine B-cell lymphoma",
+      "primary_url": "https://www.ethosvet.com/clinical-study/canine-b-cell-lymphoma-study/",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": true,
+      "exact_question": "Прямая страница Ethos403. Похожая старая запись B-cell в AVMA не подтверждает идентичность текущего перорального препарата. Today: Exact individual primary route has a saved explicit/nonretryable gate; it was not revisited. Current permitted shared source evidence reconciled separately; no fresh full-protocol date assigned.",
+      "actual_current_primary_attempts": [],
+      "inherited_restriction_evidence": {
+        "url": "https://www.ethosvet.com/clinical-study/canine-b-cell-lymphoma-study/",
+        "do_not_retry": true,
+        "origin": "daily-20261017/inherited-gates.json",
+        "historical_scope": {
+          "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json",
+          "prior_attempt": {
+            "url": "https://www.ethosvet.com/clinical-study/canine-b-cell-lymphoma-study/",
+            "trial_ids": [
+              "ethos-bcell-oral"
+            ],
+            "attempted_at": "2026-10-16T19:00:00.500809+00:00",
+            "method": "urllib",
+            "key": "a5e0e366faa6f03f",
+            "result": "http_error",
+            "status": 403
+          }
+        }
+      },
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "ethos-osa-vaccine",
+      "title": "Novel vaccine versus carboplatin after amputation for canine appendicular osteosarcoma",
+      "primary_url": "https://www.ethosvet.com/clinical-study/osteosarcoma-vaccine-study/",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": true,
+      "exact_question": "Прямая страница Ethos403. Свежего полного протокола вакцины и местного набора нет. Today: Exact individual primary route has a saved explicit/nonretryable gate; it was not revisited. Current permitted shared source evidence reconciled separately; no fresh full-protocol date assigned.",
+      "actual_current_primary_attempts": [],
+      "inherited_restriction_evidence": {
+        "url": "https://www.ethosvet.com/clinical-study/osteosarcoma-vaccine-study/",
+        "do_not_retry": true,
+        "origin": "daily-20261017/inherited-gates.json",
+        "historical_scope": {
+          "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json",
+          "prior_attempt": {
+            "url": "https://www.ethosvet.com/clinical-study/osteosarcoma-vaccine-study/",
+            "trial_ids": [
+              "ethos-osa-vaccine"
+            ],
+            "attempted_at": "2026-10-16T19:00:00.729060+00:00",
+            "method": "urllib",
+            "key": "7999be058ab21edb",
+            "result": "http_error",
+            "status": 403
+          }
+        }
+      },
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "tamu-mct-acid-suppressant",
+      "title": "Acid-suppressant effects on resectable canine mast cell tumors",
+      "primary_url": "https://vetmed.tamu.edu/gilab/research/studies/",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": true,
+      "exact_question": "Основной протокол TAMU GI Lab403. Условия резектабельного MCT и финансирования сохранены без новой даты подтверждения. Today: Exact individual primary route has a saved explicit/nonretryable gate; it was not revisited. Current permitted shared source evidence reconciled separately; no fresh full-protocol date assigned.",
+      "actual_current_primary_attempts": [],
+      "inherited_restriction_evidence": {
+        "url": "https://vetmed.tamu.edu/gilab/research/studies/",
+        "do_not_retry": true,
+        "origin": "daily-20261017/inherited-gates.json",
+        "historical_scope": {
+          "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json",
+          "prior_attempt": {
+            "url": "https://vetmed.tamu.edu/gilab/research/studies/",
+            "trial_ids": [
+              "tamu-mct-acid-suppressant"
+            ],
+            "attempted_at": "2026-10-16T19:00:04.300717+00:00",
+            "method": "urllib",
+            "key": "e993bc58215bf24d",
+            "result": "http_error",
+            "status": 403
+          }
+        }
+      },
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "mizzou-osa-carboplatin-timing",
+      "title": "Timing of carboplatin chemotherapy after amputation for canine osteosarcoma",
+      "primary_url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": false,
+      "exact_question": "Exact historical carboplatin-timing cohort absent from current whole five-section Missouri roster; targeted search did not establish an exact current organizer protocol. Absence is not closure.",
+      "actual_current_primary_attempts": [
+        {
+          "url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+          "attempted_at": "2026-10-21T03:06:32.406927-04:00",
+          "completed_at": "2026-10-21T03:06:35.644875-04:00",
+          "method": "shell_curl",
+          "http_status": 200,
+          "result": "retrieved_page",
+          "evidence_file": "research/audit-runs/daily-20261021T030035-0400/evidence/743c0c8a3d1a72c485.json",
+          "reference": null,
+          "freshness": null
+        }
+      ],
+      "inherited_restriction_evidence": null,
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "ethos-solid-relapse",
+      "title": "SOLID-Relapse — treatment study for dogs with relapsed multicentric nodal lymphoma",
+      "primary_url": "https://www.ethosdiscovery.org/clinical-study/stratification-of-outcomes-for-lymphoma-in-dogs-with-relapsed-lymphoma-solid-relapse/",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": true,
+      "exact_question": "Прямая страница SOLID-RELAPSE и все сохранённые официальные маршруты Ethos Discovery403. Требуются актуальные правила relapse/refractory и предыдущего лечения. Today: Exact individual primary route has a saved explicit/nonretryable gate; it was not revisited. Current permitted shared source evidence reconciled separately; no fresh full-protocol date assigned.",
+      "actual_current_primary_attempts": [],
+      "inherited_restriction_evidence": {
+        "url": "https://www.ethosdiscovery.org/clinical-study/stratification-of-outcomes-for-lymphoma-in-dogs-with-relapsed-lymphoma-solid-relapse/",
+        "do_not_retry": true,
+        "origin": "daily-20261017/inherited-gates.json",
+        "historical_scope": {
+          "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json",
+          "prior_attempt": {
+            "url": "https://www.ethosdiscovery.org/clinical-study/stratification-of-outcomes-for-lymphoma-in-dogs-with-relapsed-lymphoma-solid-relapse/",
+            "trial_ids": [
+              "ethos-solid-relapse"
+            ],
+            "attempted_at": "2026-10-16T19:00:07.177324+00:00",
+            "method": "urllib",
+            "key": "9008d2f122989293",
+            "result": "http_error",
+            "status": 403
+          }
+        }
+      },
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "ethos-epush-hsa",
+      "title": "Ethos-PUSH precision-medicine umbrella study for splenic hemangiosarcoma",
+      "primary_url": "https://www.ethosdiscovery.org/clinical-study/ethos-precision-medicine-umbrella-study-for-hemangiosarcoma-epush/",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": true,
+      "exact_question": "AVMA Ethos-PUSH получен, но его предоперационная когорта с гемоперитонеумом не доказывает актуальные условия нынешней фазы. Прямой спонсорский протокол403. Today: Exact individual primary route has a saved explicit/nonretryable gate; it was not revisited. Current permitted shared source evidence reconciled separately; no fresh full-protocol date assigned.",
+      "actual_current_primary_attempts": [],
+      "inherited_restriction_evidence": {
+        "url": "https://www.ethosdiscovery.org/clinical-study/ethos-precision-medicine-umbrella-study-for-hemangiosarcoma-epush/",
+        "do_not_retry": true,
+        "origin": "daily-20261017/inherited-gates.json",
+        "historical_scope": {
+          "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json",
+          "prior_attempt": {
+            "url": "https://www.ethosdiscovery.org/clinical-study/ethos-precision-medicine-umbrella-study-for-hemangiosarcoma-epush/",
+            "trial_ids": [
+              "ethos-epush-hsa"
+            ],
+            "attempted_at": "2026-10-16T19:00:07.187498+00:00",
+            "method": "urllib",
+            "key": "beaba16da7dd71f5",
+            "result": "http_error",
+            "status": 403
+          }
+        }
+      },
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "ethos-mimic-osa-lung",
+      "title": "MIMIC — minimally invasive metastasectomy for osteosarcoma lung metastases",
+      "primary_url": "https://www.ethosdiscovery.org/clinical-study/minimally-invasive-metastasectomy-in-canines-mimic-2/",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": true,
+      "exact_question": "AVMA MIMIC получен, но более общий протокол не устанавливает идентичность нынешней MIMIC2-когорты. Нельзя автоматически переносить диагнозы/ограничения между фазами. Today: Exact individual primary route has a saved explicit/nonretryable gate; it was not revisited. Current permitted shared source evidence reconciled separately; no fresh full-protocol date assigned.",
+      "actual_current_primary_attempts": [],
+      "inherited_restriction_evidence": {
+        "url": "https://www.ethosdiscovery.org/clinical-study/minimally-invasive-metastasectomy-in-canines-mimic-2/",
+        "do_not_retry": true,
+        "origin": "daily-20261017/inherited-gates.json",
+        "historical_scope": {
+          "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json",
+          "prior_attempt": {
+            "url": "https://www.ethosdiscovery.org/clinical-study/minimally-invasive-metastasectomy-in-canines-mimic-2/",
+            "trial_ids": [
+              "ethos-mimic-osa-lung"
+            ],
+            "attempted_at": "2026-10-16T19:00:07.188130+00:00",
+            "method": "urllib",
+            "key": "4d2b18e7a233e193",
+            "result": "http_error",
+            "status": 403
+          }
+        }
+      },
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "anivive-sine-osa-carboplatin",
+      "title": "SINE/Laverdia-CA1 (verdinexor) + carboplatin for canine osteosarcoma",
+      "primary_url": "https://www.anitrial.com/trial/selective-inhibition-of-nuclear-export-sine-and-canine-osteosarcoma",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": true,
+      "exact_question": "Прямая страница Anitrial SINE+carboplatin403. Свежего полного протокола нет. Today: Exact individual primary route has a saved explicit/nonretryable gate; it was not revisited. Current permitted shared source evidence reconciled separately; no fresh full-protocol date assigned.",
+      "actual_current_primary_attempts": [],
+      "inherited_restriction_evidence": {
+        "url": "https://www.anitrial.com/trial/selective-inhibition-of-nuclear-export-sine-and-canine-osteosarcoma",
+        "do_not_retry": true,
+        "origin": "daily-20261017/inherited-gates.json",
+        "historical_scope": {
+          "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json",
+          "prior_attempt": {
+            "url": "https://www.anitrial.com/trial/selective-inhibition-of-nuclear-export-sine-and-canine-osteosarcoma",
+            "trial_ids": [
+              "anivive-sine-osa-carboplatin"
+            ],
+            "attempted_at": "2026-10-16T19:00:07.749583+00:00",
+            "method": "urllib",
+            "key": "5f04e2ad9e4c82dc",
+            "result": "http_error",
+            "status": 403
+          }
+        }
+      },
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "uk-ndsr-osa-rfil2-watch",
+      "title": "Neoadjuvant immunotherapy before surgery for canine limb osteosarcoma",
+      "primary_url": "https://www.ndsr.co.uk/information-sheets/osteosarcoma-2/",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": true,
+      "exact_question": "NDSR osteosarcoma protocol403. Нет свежего полного подтверждения rFeIL2 и условий стандартного лечения. Today: Exact individual primary route has a saved explicit/nonretryable gate; it was not revisited. Current permitted shared source evidence reconciled separately; no fresh full-protocol date assigned.",
+      "actual_current_primary_attempts": [],
+      "inherited_restriction_evidence": {
+        "url": "https://www.ndsr.co.uk/information-sheets/osteosarcoma-2/",
+        "do_not_retry": true,
+        "origin": "daily-20261017/inherited-gates.json",
+        "historical_scope": {
+          "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json",
+          "prior_attempt": {
+            "url": "https://www.ndsr.co.uk/information-sheets/osteosarcoma-2/",
+            "trial_ids": [
+              "uk-ndsr-osa-rfil2-watch"
+            ],
+            "attempted_at": "2026-10-16T19:00:09.635756+00:00",
+            "method": "urllib",
+            "key": "a5e2d444d230a302",
+            "result": "http_error",
+            "status": 403
+          }
+        }
+      },
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "eu-uk-ndsr-high-grade-mammary-current",
+      "title": "Clinical trial for dogs with high-grade mammary carcinoma",
+      "primary_url": "https://www.ndsr.co.uk/insights/canine-mammary-cancer/",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": true,
+      "exact_question": "NDSR403; индексированный официальный текст подтверждает исследование high-grade mammary carcinoma, но не полный протокол/текущие условия. Today: Exact individual primary route has a saved explicit/nonretryable gate; it was not revisited. Current permitted shared source evidence reconciled separately; no fresh full-protocol date assigned.",
+      "actual_current_primary_attempts": [],
+      "inherited_restriction_evidence": {
+        "url": "https://www.ndsr.co.uk/insights/canine-mammary-cancer/",
+        "do_not_retry": true,
+        "origin": "daily-20261017/inherited-gates.json",
+        "historical_scope": {
+          "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json",
+          "prior_attempt": {
+            "url": "https://www.ndsr.co.uk/insights/canine-mammary-cancer/",
+            "trial_ids": [
+              "eu-uk-ndsr-high-grade-mammary-current"
+            ],
+            "attempted_at": "2026-10-16T19:00:09.688273+00:00",
+            "method": "urllib",
+            "key": "8d10df3f5e0fdfd2",
+            "result": "http_error",
+            "status": 403
+          }
+        }
+      },
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "ncsu-canine-sts-xcsgel",
+      "title": "Radiation therapy plus XCSgel immunotherapy for canine soft tissue sarcoma",
+      "primary_url": "https://cvm.ncsu.edu/clinical-trial/now-recruiting-dogs-with-soft-tissue-sarcoma/",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": true,
+      "exact_question": "Свежий NCSU индекс подтверждает XCSgel+облучение+операцию; прямой протокол403, все дополнительные критерии заново не подтверждены. Today: Exact individual primary route has a saved explicit/nonretryable gate; it was not revisited. Current permitted shared source evidence reconciled separately; no fresh full-protocol date assigned.",
+      "actual_current_primary_attempts": [],
+      "inherited_restriction_evidence": {
+        "url": "https://cvm.ncsu.edu/clinical-trial/now-recruiting-dogs-with-soft-tissue-sarcoma/",
+        "do_not_retry": true,
+        "origin": "daily-20261017/inherited-gates.json",
+        "historical_scope": {
+          "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json",
+          "prior_attempt": {
+            "url": "https://cvm.ncsu.edu/clinical-trial/now-recruiting-dogs-with-soft-tissue-sarcoma/",
+            "trial_ids": [
+              "ncsu-canine-sts-xcsgel"
+            ],
+            "attempted_at": "2026-10-16T19:00:13.886211+00:00",
+            "method": "urllib",
+            "key": "6e2e456e9ed06a7d",
+            "result": "http_error",
+            "status": 403
+          }
+        }
+      },
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "ncsu-feline-oral-pivot-c",
+      "title": "PIVOT-C intratumoral FVRCP vaccine therapy for feline oral tumors",
+      "primary_url": "https://cvm.ncsu.edu/clinical-trial/pivot-c-pilot-intratumoral-vaccine-therapy-for-oral-tumors-in-cats/",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": true,
+      "exact_question": "Свежий NCSU индекс подтверждает PIVOT-C и характер вмешательства; прямой протокол403, точные диагнозы/ограничения требуют полного текста. Today: Exact individual primary route has a saved explicit/nonretryable gate; it was not revisited. Current permitted shared source evidence reconciled separately; no fresh full-protocol date assigned.",
+      "actual_current_primary_attempts": [],
+      "inherited_restriction_evidence": {
+        "url": "https://cvm.ncsu.edu/clinical-trial/pivot-c-pilot-intratumoral-vaccine-therapy-for-oral-tumors-in-cats/",
+        "do_not_retry": true,
+        "origin": "daily-20261017/inherited-gates.json",
+        "historical_scope": {
+          "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json",
+          "prior_attempt": {
+            "url": "https://cvm.ncsu.edu/clinical-trial/pivot-c-pilot-intratumoral-vaccine-therapy-for-oral-tumors-in-cats/",
+            "trial_ids": [
+              "ncsu-feline-oral-pivot-c"
+            ],
+            "attempted_at": "2026-10-16T19:00:13.985802+00:00",
+            "method": "urllib",
+            "key": "43fc96858d4052a8",
+            "result": "http_error",
+            "status": 403
+          }
+        }
+      },
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "umn-feline-mammary-olaparib-meloxicam",
+      "title": "Olaparib plus meloxicam for feline mammary carcinoma",
+      "primary_url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/olaparib",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": true,
+      "exact_question": "UMN протокол, текущий индекс, taxonomy и свежая официальная статья403. Найденный AVMA Mammary tumors in cats относится к OSU и отклонён как другой протокол. Today: Exact individual primary route has a saved explicit/nonretryable gate; it was not revisited. Current permitted shared source evidence reconciled separately; no fresh full-protocol date assigned.",
+      "actual_current_primary_attempts": [],
+      "inherited_restriction_evidence": {
+        "url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/olaparib",
+        "do_not_retry": true,
+        "origin": "daily-20261017/inherited-gates.json",
+        "historical_scope": {
+          "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json",
+          "prior_attempt": {
+            "url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/olaparib",
+            "trial_ids": [
+              "umn-feline-mammary-olaparib-meloxicam"
+            ],
+            "attempted_at": "2026-10-16T19:00:17.272492+00:00",
+            "method": "urllib",
+            "key": "846ecf59db4f3c6d",
+            "result": "http_error",
+            "status": 403
+          }
+        }
+      },
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "penn-flash-rt-extremity-sts",
+      "title": "Proton FLASH radiation therapy for canine extremity soft tissue sarcoma",
+      "primary_url": "https://www.vet.upenn.edu/clinical-trial/evaluation-of-proton-flash-rt-in-naturally-occurring-canine-extremity-sarcoma/",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": true,
+      "exact_question": "Прямой Penn FLASH-STS протокол и все официальные сохранённые индексы403. Нет свежей проверки локализации/гистологии/размеров. Today: Exact individual primary route has a saved explicit/nonretryable gate; it was not revisited. Current permitted shared source evidence reconciled separately; no fresh full-protocol date assigned.",
+      "actual_current_primary_attempts": [],
+      "inherited_restriction_evidence": {
+        "url": "https://www.vet.upenn.edu/clinical-trial/evaluation-of-proton-flash-rt-in-naturally-occurring-canine-extremity-sarcoma/",
+        "do_not_retry": true,
+        "origin": "daily-20261017/inherited-gates.json",
+        "historical_scope": {
+          "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json",
+          "prior_attempt": {
+            "url": "https://www.vet.upenn.edu/clinical-trial/evaluation-of-proton-flash-rt-in-naturally-occurring-canine-extremity-sarcoma/",
+            "trial_ids": [
+              "penn-flash-rt-extremity-sts"
+            ],
+            "attempted_at": "2026-10-16T19:00:21.403376+00:00",
+            "method": "urllib",
+            "key": "e7c5e57a1525eb03",
+            "result": "http_error",
+            "status": 403
+          }
+        }
+      },
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "umn-canine-oral-melanoma-aav-vaccine",
+      "title": "AAV Cancer Vaccine for Canine Oral Melanoma",
+      "primary_url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/new-vaccine",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": true,
+      "exact_question": "UMN текущий клинический индекс и конкретная страница403; текущая AAV-вакцинная когорта не перечитана. Today: Exact individual primary route has a saved explicit/nonretryable gate; it was not revisited. Current permitted shared source evidence reconciled separately; no fresh full-protocol date assigned.",
+      "actual_current_primary_attempts": [],
+      "inherited_restriction_evidence": {
+        "url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/new-vaccine",
+        "do_not_retry": true,
+        "origin": "daily-20261017/inherited-gates.json",
+        "historical_scope": {
+          "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json",
+          "prior_attempt": {
+            "url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/new-vaccine",
+            "trial_ids": [
+              "umn-canine-oral-melanoma-aav-vaccine"
+            ],
+            "attempted_at": "2026-10-16T19:00:22.188075+00:00",
+            "method": "urllib",
+            "key": "8e40f86f9da61c65",
+            "result": "http_error",
+            "status": 403
+          }
+        }
+      },
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "ch-anicura-aoi-superficial-tumor-immunocytokines",
+      "title": "Intralesional immunocytokine therapy for canine superficial tumors",
+      "primary_url": "https://www.anicura.ch/standorte/aoi/onkologie/weitere-therapien/",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": true,
+      "exact_question": "Прямая AOI immunocytokine страница403. Нельзя считать подтверждённым допуск каждой гистологии только из поверхностной локализации. Today: Exact individual primary route has a saved explicit/nonretryable gate; it was not revisited. Current permitted shared source evidence reconciled separately; no fresh full-protocol date assigned.",
+      "actual_current_primary_attempts": [],
+      "inherited_restriction_evidence": {
+        "url": "https://www.anicura.ch/standorte/aoi/onkologie/weitere-therapien/",
+        "do_not_retry": true,
+        "origin": "daily-20261017/inherited-gates.json",
+        "historical_scope": {
+          "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json",
+          "prior_attempt": {
+            "url": "https://www.anicura.ch/standorte/aoi/onkologie/weitere-therapien/",
+            "trial_ids": [
+              "ch-anicura-aoi-superficial-tumor-immunocytokines"
+            ],
+            "attempted_at": "2026-10-16T19:00:27.773237+00:00",
+            "method": "urllib",
+            "key": "63351a6063c79f47",
+            "result": "http_error",
+            "status": 403
+          }
+        }
+      },
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "china-petcura-personalized-mrna-iit-2026",
+      "title": "Personalized mRNA-LNP immunotherapy for canine malignant tumors",
+      "primary_url": "https://www.petcura.cn/zh/mrna-vaccine/study/",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": true,
+      "exact_question": "PETcura прямой протокол403. Старый развёрнутый список диагнозов и исключения сохранены, но не представлены как заново проверенные. Today: Exact individual primary route has a saved explicit/nonretryable gate; it was not revisited. Current permitted shared source evidence reconciled separately; no fresh full-protocol date assigned.",
+      "actual_current_primary_attempts": [],
+      "inherited_restriction_evidence": {
+        "url": "https://www.petcura.cn/zh/mrna-vaccine/study/",
+        "do_not_retry": true,
+        "origin": "daily-20261017/inherited-gates.json",
+        "historical_scope": {
+          "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json",
+          "prior_attempt": {
+            "url": "https://www.petcura.cn/zh/mrna-vaccine/study/",
+            "trial_ids": [
+              "china-petcura-personalized-mrna-iit-2026"
+            ],
+            "attempted_at": "2026-10-16T19:00:31.448824+00:00",
+            "method": "urllib",
+            "key": "c7de572cc9d6c5e1",
+            "result": "http_error",
+            "status": 403
+          }
+        }
+      },
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "jhu-cigat-osa-cryo-immunotherapy-2026",
+      "title": "Cryotherapy or intratumoral immunotherapy before amputation for canine osteosarcoma",
+      "primary_url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": true,
+      "exact_question": "JHU прямой индекс, VCTN и доступная сохранённая листовка403. Не удалось заново прочитать OSA cryo-immunotherapy. Today: Exact individual primary route has a saved explicit/nonretryable gate; it was not revisited. Current permitted shared source evidence reconciled separately; no fresh full-protocol date assigned.",
+      "actual_current_primary_attempts": [],
+      "inherited_restriction_evidence": {
+        "url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+        "do_not_retry": true,
+        "origin": "daily-20261017/inherited-gates.json",
+        "historical_scope": {
+          "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json",
+          "prior_attempt": {
+            "url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+            "trial_ids": [
+              "jhu-cigat-osa-cryo-immunotherapy-2026",
+              "jhu-cigat-brain-rt-tmz-2026",
+              "jhu-cigat-mammary-kubanda-cryo-2026"
+            ],
+            "attempted_at": "2026-10-16T19:00:31.465749+00:00",
+            "method": "urllib",
+            "key": "80b4ae437dc6db6d",
+            "result": "http_error",
+            "status": 403
+          }
+        }
+      },
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "jhu-cigat-brain-rt-tmz-2026",
+      "title": "Radiation therapy plus temozolomide for canine brain tumors",
+      "primary_url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": true,
+      "exact_question": "JHU индекс/VCTN403. Нет свежего полного протокола glioma RT/TMZ. Today: Exact individual primary route has a saved explicit/nonretryable gate; it was not revisited. Current permitted shared source evidence reconciled separately; no fresh full-protocol date assigned.",
+      "actual_current_primary_attempts": [],
+      "inherited_restriction_evidence": {
+        "url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+        "do_not_retry": true,
+        "origin": "daily-20261017/inherited-gates.json",
+        "historical_scope": {
+          "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json",
+          "prior_attempt": {
+            "url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+            "trial_ids": [
+              "jhu-cigat-osa-cryo-immunotherapy-2026",
+              "jhu-cigat-brain-rt-tmz-2026",
+              "jhu-cigat-mammary-kubanda-cryo-2026"
+            ],
+            "attempted_at": "2026-10-16T19:00:31.465749+00:00",
+            "method": "urllib",
+            "key": "80b4ae437dc6db6d",
+            "result": "http_error",
+            "status": 403
+          }
+        }
+      },
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "jhu-cigat-mammary-kubanda-cryo-2026",
+      "title": "Kubanda veterinary cryotherapy for canine mammary cancer",
+      "primary_url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": true,
+      "exact_question": "JHU индекс/VCTN/листовка403; старая AVMA Kubanda запись Completed не устанавливает текущую фазу нынешнего клинического доступа. Today: Exact individual primary route has a saved explicit/nonretryable gate; it was not revisited. Current permitted shared source evidence reconciled separately; no fresh full-protocol date assigned.",
+      "actual_current_primary_attempts": [],
+      "inherited_restriction_evidence": {
+        "url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+        "do_not_retry": true,
+        "origin": "daily-20261017/inherited-gates.json",
+        "historical_scope": {
+          "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json",
+          "prior_attempt": {
+            "url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+            "trial_ids": [
+              "jhu-cigat-osa-cryo-immunotherapy-2026",
+              "jhu-cigat-brain-rt-tmz-2026",
+              "jhu-cigat-mammary-kubanda-cryo-2026"
+            ],
+            "attempted_at": "2026-10-16T19:00:31.465749+00:00",
+            "method": "urllib",
+            "key": "80b4ae437dc6db6d",
+            "result": "http_error",
+            "status": 403
+          }
+        }
+      },
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "mexico-ensenada-silver-nanoparticle-cancer-2026",
+      "title": "Experimental silver nanoparticle treatment for canine and feline cancer",
+      "primary_url": "https://zonanorte.mx/main/mozaico/nid/8542",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": false,
+      "exact_question": "Current linked Zonanorte article is secondary news, not an organizer protocol. Official UNAM patent route503/retry and same-URL Web timeout. Full current silver formulation/regimen, intake, criteria and expenses not established.",
+      "actual_current_primary_attempts": [
+        {
+          "url": "https://zonanorte.mx/main/mozaico/nid/8542",
+          "attempted_at": "2026-10-21T03:09:28.964332-04:00",
+          "completed_at": "2026-10-21T03:09:32.480268-04:00",
+          "method": "shell_curl",
+          "http_status": 200,
+          "result": "retrieved_page",
+          "evidence_file": "research/audit-runs/daily-20261021T030035-0400/evidence/a26bc0d73517ff540e.json",
+          "reference": null,
+          "freshness": null
+        }
+      ],
+      "inherited_restriction_evidence": null,
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "umn-orbit-lymphoma",
+      "title": "ORBIT: VSV plus anti-PD-1 for canine aggressive lymphoma",
+      "primary_url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/orbit-vsv",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": true,
+      "exact_question": "UMN ORBIT/VSV прямой протокол и индекс403. Нет свежей проверки агрессивной лимфомы/когорт и предыдущего лечения. Today: Exact individual primary route has a saved explicit/nonretryable gate; it was not revisited. Current permitted shared source evidence reconciled separately; no fresh full-protocol date assigned.",
+      "actual_current_primary_attempts": [],
+      "inherited_restriction_evidence": {
+        "url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/orbit-vsv",
+        "do_not_retry": true,
+        "origin": "daily-20261017/inherited-gates.json",
+        "historical_scope": {
+          "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json",
+          "prior_attempt": {
+            "url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/orbit-vsv",
+            "trial_ids": [
+              "umn-orbit-lymphoma"
+            ],
+            "attempted_at": "2026-10-16T19:00:38.811697+00:00",
+            "method": "urllib",
+            "key": "4f23b68c51f0aad3",
+            "result": "http_error",
+            "status": 403
+          }
+        }
+      },
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "penn-atherton-steap1-car-t-hs",
+      "title": "Pilot anti-STEAP1 CAR-T cell therapy for canine histiocytic sarcoma",
+      "primary_url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": true,
+      "exact_question": "Penn Atherton и другие индексы403. Пилотный STEAP1 HS набор и остаток мест заново не подтверждены. Today: Exact individual primary route has a saved explicit/nonretryable gate; it was not revisited. Current permitted shared source evidence reconciled separately; no fresh full-protocol date assigned.",
+      "actual_current_primary_attempts": [],
+      "inherited_restriction_evidence": {
+        "url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+        "do_not_retry": true,
+        "origin": "daily-20261017/inherited-gates.json",
+        "historical_scope": {
+          "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json",
+          "prior_attempt": {
+            "url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+            "trial_ids": [
+              "penn-atherton-steap1-car-t-hs"
+            ],
+            "attempted_at": "2026-10-16T19:00:42.635965+00:00",
+            "method": "urllib",
+            "key": "5dc3d14cd6476036",
+            "result": "http_error",
+            "status": 403
+          }
+        }
+      },
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "au-melbourne-hsa-autologous-vaccine-multicenter",
+      "title": "Autologous tumour vaccine with doxorubicin after surgery for canine splenic hemangiosarcoma",
+      "primary_url": "https://medipaws.com.au/clinical-research/dogs-with-splenic-haemangiosarcoma",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": true,
+      "exact_question": "MediPaws403; найденный индексированный материал подтверждает UMelbourne35274 как проект, но не заменяет перечитанного текущего протокола набора. Today: Exact individual primary route has a saved explicit/nonretryable gate; it was not revisited. Current permitted shared source evidence reconciled separately; no fresh full-protocol date assigned.",
+      "actual_current_primary_attempts": [],
+      "inherited_restriction_evidence": {
+        "url": "https://medipaws.com.au/clinical-research/dogs-with-splenic-haemangiosarcoma",
+        "do_not_retry": true,
+        "origin": "daily-20261017/inherited-gates.json",
+        "historical_scope": {
+          "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json",
+          "prior_attempt": {
+            "url": "https://medipaws.com.au/clinical-research/dogs-with-splenic-haemangiosarcoma",
+            "trial_ids": [
+              "au-melbourne-hsa-autologous-vaccine-multicenter"
+            ],
+            "attempted_at": "2026-10-16T19:00:46.744832+00:00",
+            "method": "urllib",
+            "key": "af92a5dfd4a81c04",
+            "result": "http_error",
+            "status": 403
+          }
+        }
+      },
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    },
+    {
+      "trial_id": "penn-glioma-flash-gilvetmab-2026",
+      "title": "FLASH proton radiation with or without gilvetmab for canine glioma",
+      "primary_url": "https://www.vet.upenn.edu/clinical-trial/flash-based-radioimmunotherapy-in-canine-glioma/",
+      "full_fresh_review_today": false,
+      "processing_assessment": "external_blocker",
+      "route_explicitly_restricted": true,
+      "exact_question": "Прямой Penn glioma FLASH/gilvetmab протокол и сохранённые индексы403. Полные современные ограничения не перечитаны. Today: Exact individual primary route has a saved explicit/nonretryable gate; it was not revisited. Current permitted shared source evidence reconciled separately; no fresh full-protocol date assigned.",
+      "actual_current_primary_attempts": [],
+      "inherited_restriction_evidence": {
+        "url": "https://www.vet.upenn.edu/clinical-trial/flash-based-radioimmunotherapy-in-canine-glioma/",
+        "do_not_retry": true,
+        "origin": "daily-20261017/inherited-gates.json",
+        "historical_scope": {
+          "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json",
+          "prior_attempt": {
+            "url": "https://www.vet.upenn.edu/clinical-trial/flash-based-radioimmunotherapy-in-canine-glioma/",
+            "trial_ids": [
+              "penn-glioma-flash-gilvetmab-2026"
+            ],
+            "attempted_at": "2026-10-16T19:00:48.735170+00:00",
+            "method": "urllib",
+            "key": "2eef5343960a78c4",
+            "result": "http_error",
+            "status": 403
+          }
+        }
+      },
+      "next_permitted_action": "Review new permitted primary evidence or a clarified access permission; no repeated denied route or automatic same-run source requeue.",
+      "unperformed_steps": []
+    }
+  ]
+}

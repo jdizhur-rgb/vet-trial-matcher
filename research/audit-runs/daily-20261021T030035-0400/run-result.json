@@ -1,0 +1,77 @@
+{
+  "run_id": "daily-20261021T030035-0400",
+  "started_at": "2026-10-21T03:00:35-04:00",
+  "finished_at": "2026-10-21T04:14:23.235751-04:00",
+  "overall": "INCOMPLETE",
+  "confirmed_updates_published": 1,
+  "new_active_trials": 0,
+  "new_hidden_public_records": 0,
+  "new_sources": 10,
+  "source_receipt": {
+    "run_id": "daily-20261021T030035-0400",
+    "mode": "DAILY GLOBAL WORK AUDIT",
+    "started_at": "2026-10-21T03:00:35-04:00",
+    "source_total": 133,
+    "attempted_total": 116,
+    "content_sufficient_total": 57,
+    "processing_complete_total": 132,
+    "source_result_counts": {
+      "partial": 56,
+      "fully_reconciled": 57,
+      "not_checked": 17,
+      "unreachable": 3
+    },
+    "executor_incomplete_source_ids": [
+      "uk-cambridge-veterinary-clinical-trials"
+    ],
+    "executor_unfinished_actions": 1,
+    "unconfirmed_processing_sources": 1,
+    "source_pass_at": "2026-10-21T03:55:09.045839-04:00",
+    "strict_status": "INCOMPLETE"
+  },
+  "clinical_fresh_review_gate": {
+    "fresh_today": 0,
+    "total_public": 152,
+    "cumulative_full_review_since_original_cutoff": 120,
+    "pending_original40": 32,
+    "blocked_primary_routes": 28,
+    "remaining_missing_protocol_facts": 4
+  },
+  "deployment": "PASS",
+  "loading_regression": "PASS",
+  "live_searches": [
+    {
+      "country": "USA",
+      "actual_browser_at": "2026-10-21T08:05:17.071Z",
+      "actual_count": 98,
+      "expected_count": 98,
+      "whole_rendered_roster_equal": true,
+      "missing": [],
+      "extra": [],
+      "all_requested_controls_verified": true,
+      "status": "PASS",
+      "evidence_file": "research/audit-runs/daily-20261021T030035-0400/live-pair.json"
+    },
+    {
+      "country": "Japan",
+      "actual_browser_at": "2026-10-21T08:05:27.277Z",
+      "actual_count": 10,
+      "expected_count": 10,
+      "whole_rendered_roster_equal": true,
+      "missing": [],
+      "extra": [],
+      "all_requested_controls_verified": true,
+      "status": "PASS",
+      "evidence_file": "research/audit-runs/daily-20261021T030035-0400/live-pair.json"
+    }
+  ],
+  "production_bytes": "PASS",
+  "remote_main_readback": "PASS",
+  "publication_commit": "b596699282c7dd4323344d426838f17b69a01d21",
+  "source_inventory_sha256": "e3aa53b2684504be25328a0bac85463429040f5fc79b949b08209a078f55c309",
+  "notes": [
+    "One source action not established: Cambridge alias permission scope; not claimed complete.",
+    "Strict source evidence76 gaps, independent clinical32 pending, retained separately from technical PASS.",
+    "No fresh medical/funding dates inferred from unchanged pages, JSON or passing tests."
+  ]
+}
