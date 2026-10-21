@@ -3,22 +3,23 @@
   "purpose": "Persistent state for incremental discovery and deep-audit cost control. Source fingerprints live in source_inventory.json; this file tracks audit scheduling and unresolved work.",
   "last_full_deep_audit": null,
   "last_incremental_audit": {
-    "run_id": "daily-20261020T030334-0400",
-    "started_at": "2026-10-20T03:03:34-04:00",
-    "at": "2026-10-20T03:53:20.969428-04:00",
+    "run_id": "daily-20261021T030035-0400",
+    "started_at": "2026-10-21T03:00:35-04:00",
+    "at": "2026-10-21T03:56:27.071035-04:00",
     "mode": "DAILY GLOBAL WORK AUDIT",
     "status": "INCOMPLETE",
-    "canonical_status_changes": [
-      "elias-eci-chemo-osa",
-      "csu-cotc033-vaccine-immunity",
-      "osu-probiome-bladder"
+    "canonical_changes": [
+      "uk-edinburgh-oral-melanoma-tigilanol-tiglate"
     ],
     "new_active_trials": 0,
-    "new_sources": 2,
-    "source_receipt": "research/audit-runs/daily-20261020T030334-0400/receipt-final.json",
-    "trial_review_receipt": "research/audit-runs/daily-20261020T030334-0400/trial-review.json",
+    "new_sources": 10,
+    "source_receipt": "research/audit-runs/daily-20261021T030035-0400/receipt-final.json",
+    "trial_review_receipt": "research/audit-runs/daily-20261021T030035-0400/trial-review.json",
     "clinical_full_fresh_gate": "INCOMPLETE",
-    "publication": "Tracked separately in research/audit-runs/daily-20261020T030334-0400/publication.json",
+    "source_processing_completed": 132,
+    "source_total": 133,
+    "executor_unconfirmed_source_actions": 1,
+    "publication": "Tracked separately in research/audit-runs/daily-20261021T030035-0400/publication.json",
     "prior40": {
       "starting": 40,
       "fresh_primary_reviews": 4,
@@ -59,17 +60,13 @@
         "penn-glioma-flash-gilvetmab-2026"
       ],
       "today_full_fresh_reviews": 0,
-      "today_confirmed_completions": [
-        "elias-eci-chemo-osa",
-        "csu-cotc033-vaccine-immunity",
-        "osu-probiome-bladder"
-      ],
+      "today_confirmed_completions": [],
       "not_fresh_reviews_from_unchanged_pages": true,
-      "note": "Only ELIAS was in the independent40 backlog; COTC033 and Probiome status changes do not double-subtract it."
+      "note": "All32 remaining original40 IDs preserved today. Four full reviews and four confirmed closures are cumulative prior work; no new medical completion inferred from October21 source visits."
     }
   },
   "last_source_discovery_attempt": {
-    "run_id": "daily-20261020T030334-0400",
+    "run_id": "daily-20261021T030035-0400",
     "mode": "DAILY GLOBAL WORK AUDIT",
     "started_at": "2026-10-20T03:03:34-04:00",
     "source_total": 123,
@@ -94,9 +91,10 @@
     "gap_review": "research/audit-runs/daily-20261020T030334-0400/gap-review.json",
     "global_discovery_regions": 12,
     "discovery_status": "TWO_PASSES_DONE_WITH_UNRESOLVED_PRIMARY_GAPS",
-    "discovery_receipt": "research/audit-runs/daily-20261020T030334-0400/discovery-ledger.json",
-    "new_sources": 2,
-    "new_active_trials": 0
+    "discovery_receipt": "research/audit-runs/daily-20261021T030035-0400/discovery-ledger.json",
+    "new_sources": 10,
+    "new_active_trials": 0,
+    "at": "2026-10-21T03:56:27.070486-04:00"
   },
   "forced_full_reread_days": 28,
   "rules": {
