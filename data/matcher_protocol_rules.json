@@ -501,6 +501,33 @@
     "eligible_cohorts": {
       "label": "eligible protocol cohort",
       "alternative_owner_cohorts": true
+    },
+    "splenic_primary": {
+      "label": "primary splenic hemangiosarcoma",
+      "field": "hsa_site",
+      "allowed": [
+        "Spleen"
+      ]
+    },
+    "pre_splenectomy": {
+      "label": "enrollment before splenectomy",
+      "when_field": {
+        "surgery": [
+          "Yes"
+        ]
+      },
+      "field": "prior_procedure",
+      "disallowed": [
+        "Splenectomy"
+      ]
+    },
+    "bcell_lymphoma_lineage": {
+      "label": "confirmed B-cell lymphoma lineage",
+      "when_family": "lymphoma",
+      "field": "lymphoma_type",
+      "allowed": [
+        "B-cell"
+      ]
     }
   },
   "excludes": {
@@ -790,6 +817,22 @@
       "field": "target_tumor_prior_surgery",
       "disallowed": [
         "Yes"
+      ]
+    },
+    "tcell_lymphoma_lineage": {
+      "label": "T-cell lymphoma lineage",
+      "when_family": "lymphoma",
+      "field": "lymphoma_type",
+      "disallowed": [
+        "T-cell"
+      ]
+    },
+    "relapsed_lymphoma": {
+      "label": "relapsed lymphoma",
+      "field": "lymphoma_response",
+      "disallowed": [
+        "First relapse after remission",
+        "More than one relapse"
       ]
     }
   }

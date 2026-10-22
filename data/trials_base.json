@@ -526,7 +526,8 @@
       "confirmed": true,
       "prior_chemo": false,
       "post_splenectomy": true,
-      "planned_doxorubicin": true
+      "planned_doxorubicin": true,
+      "splenic_primary": true
     },
     "excludes": {},
     "notes": "Splenic HSA after splenectomy; treatment-naive and able to receive standard doxorubicin chemotherapy. Vaccine is added to standard care.",
@@ -934,7 +935,8 @@
       "min_weight_kg": 10,
       "prior_chemo": false,
       "post_splenectomy": true,
-      "planned_doxorubicin": true
+      "planned_doxorubicin": true,
+      "splenic_primary": true
     },
     "excludes": {},
     "notes": "Dogs must weigh at least 10 kg, have splenic HSA without obvious spread beyond the spleen, have no serious heart, lung, kidney or liver disease, and have received no prior HSA treatment. Recent splenectomy elsewhere may be accepted after histopathology confirmation. Protocol combines doxorubicin with mutation-guided oral small-molecule inhibitors and serial liquid-biopsy/CT monitoring.",
@@ -5480,7 +5482,12 @@
     "requires": {
       "confirmed": true,
       "prior_chemo": true,
-      "active_treatment_target": true
+      "active_treatment_target": true,
+      "lymphoma_response": [
+        "First relapse after remission",
+        "More than one relapse"
+      ],
+      "planned_chemo": true
     },
     "why": "Ethos Discovery's live SOLID-Relapse page is accepting enrollment requests at multiple specialty hospitals.",
     "intervention": "Randomized lymphoma treatment under an Ethos oncologist plus genomic/biomarker sampling",
@@ -5547,10 +5554,13 @@
     "status_confidence": "current",
     "available_for_matching": true,
     "requires": {
-      "min_weight_lb": 11,
       "no_metastasis": true,
-      "max_weight_lb": 99.2,
-      "active_treatment_target": true
+      "active_treatment_target": true,
+      "splenic_primary": true,
+      "planned_surgery": true,
+      "pre_splenectomy": true,
+      "min_weight_kg_exclusive": 5,
+      "max_weight_kg_exclusive": 45
     },
     "why": "Ethos Discovery and current participating-hospital pages explicitly list ePUSH as open/currently enrolling for dogs presenting with a ruptured splenic tumor and proceeding to splenectomy.",
     "intervention": "Phase 1 splenectomy/hemoabdomen study; dogs confirmed with non-metastatic splenic HSA can continue to fully funded active-treatment Phase 2, with treatment assigned among doxorubicin, doxorubicin+rapamycin, doxorubicin+sorafenib, or oral paclitaxel regimens.",
@@ -9489,7 +9499,10 @@
     },
     "excludes": {
       "prior_cancer_treatment": true,
-      "prior_lymphoma_treatment": true
+      "prior_lymphoma_treatment": true,
+      "prior_chemo": true,
+      "prior_local_radiation": true,
+      "prior_immunotherapy": true
     },
     "notes": "Initial pilot study combining an oncolytic peptide with adoptive T-cell immunotherapy for previously untreated stage 3–5(a) canine B-cell lymphoma. Almost all study treatment is performed in Bellingham, Washington; initial treatment requires about three days, followed by at least two later visits approximately a month afterward.",
     "verified": "2026-10-18",
@@ -9838,7 +9851,10 @@
       "Glioma",
       "Brain tumor"
     ],
-    "special_requirement": "Generally age ≥2 years and weight ≥5 kg; the project explicitly allows individual assessment of smaller dogs, so low weight alone does not automatically exclude prescreening. Requires suitable fresh or correctly frozen tumor and paired normal tissue, LNP tolerance testing, adequate organ function and expected survival ≥6 months. No T-cell lymphoma or brain tumor; recent chemo/radiation/high-dose steroids require study-team review. Enrollment is assigned through PETcura across the nine published cities; exact hospitals and owner-paid sampling/sequencing costs are supplied at assessment."
+    "special_requirement": "Generally age ≥2 years and weight ≥5 kg; the project explicitly allows individual assessment of smaller dogs, so low weight alone does not automatically exclude prescreening. Requires suitable fresh or correctly frozen tumor and paired normal tissue, LNP tolerance testing, adequate organ function and expected survival ≥6 months. No T-cell lymphoma or brain tumor; recent chemo/radiation/high-dose steroids require study-team review. Enrollment is assigned through PETcura across the nine published cities; exact hospitals and owner-paid sampling/sequencing costs are supplied at assessment.",
+    "excludes": {
+      "tcell_lymphoma_lineage": true
+    }
   },
   {
     "id": "jhu-cigat-osa-cryo-immunotherapy-2026",
@@ -9901,7 +9917,9 @@
       "active_treatment_target": true,
       "min_age_years": 1,
       "min_weight_kg": 10,
-      "brain_tumor_present": true
+      "brain_tumor_present": true,
+      "planned_radiation": true,
+      "planned_chemo": true
     },
     "excludes": {
       "prior_local_radiation": true,
@@ -11157,7 +11175,8 @@
       "untreated_newly_diagnosed": true,
       "intermediate_or_large_cell_multicentric_lymphoma": true,
       "planned_chop": true,
-      "min_weight_kg_exclusive": 8
+      "min_weight_kg_exclusive": 8,
+      "prior_chemo": false
     },
     "excludes": {
       "small_cell_lymphoma": true,
@@ -11165,7 +11184,8 @@
       "extranodal_lymphoma": true,
       "recent_chemotherapy_3w": true,
       "recent_steroids_2w": true,
-      "significant_liver_or_kidney_dysfunction": true
+      "significant_liver_or_kidney_dysfunction": true,
+      "relapsed_lymphoma": true
     },
     "notes": "Purdue treatment trial for untreated intermediate- or large-cell multicentric B- or T-cell lymphoma. One enlarged lymph node is partially ablated with HIFU; paired lymph-node and blood samples assess local and systemic immune effects, followed immediately by standard UW-25 CHOP chemotherapy. Final eligibility requires Purdue staging and prescreening.",
     "intervention": "Partial HIFU ablation of one lymph node followed by standard UW-25 CHOP chemotherapy",
@@ -11609,7 +11629,10 @@
     "funding_status": "Partially funded",
     "requires": {
       "confirmed": true,
-      "no_metastasis": true
+      "no_metastasis": true,
+      "splenic_primary": true,
+      "post_splenectomy": true,
+      "planned_doxorubicin": true
     },
     "excludes": {},
     "notes": "University of Melbourne Animal Ethics Committee project 35274. At the verified Sydney site, dogs must have a confirmed splenic hemangiosarcoma diagnosis, completed splenectomy, no visible metastatic disease before chemotherapy and a plan to receive doxorubicin. The vaccine is prepared from the removed tumour. This is one multicentre protocol; other participating hospitals are not listed until their specific enrolment pathway is confirmed. Eligibility and tissue suitability require oncology-team assessment. Experimental vaccine efficacy is unknown.",
@@ -12666,7 +12689,8 @@
     "url": "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=4502",
     "funding_source": "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=4502",
     "requires": {
-      "confirmed": true
+      "confirmed": true,
+      "bcell_lymphoma_lineage": true
     },
     "excludes": {},
     "intervention": "Investigational proteasome-inhibitor targeted anticancer therapy; the public protocol does not name the study drug.",

@@ -2884,7 +2884,7 @@
       "trial_id": "ethos-solid-relapse",
       "source_url": "https://www.ethosdiscovery.org/clinical-study/stratification-of-outcomes-for-lymphoma-in-dogs-with-relapsed-lymphoma-solid-relapse/",
       "reviewed_at": "2026-10-13T06:50:54.314639-04:00",
-      "criteria": "Relapsed biopsy-accessible peripheral nodal lymphoma, prior Ethos-SOLID enrollment and at least one completed four-week CHOP cycle; seven-day chemotherapy/steroid washout. Prior-trial/cycle conditions require study-team screening and must not produce Likely match.",
+      "criteria": "Cytologically confirmed relapsed nodal lymphoma after original Ethos-SOLID/CHOP enrollment. Relapse and further chemotherapy are required; unknown original-trial history remains prescreening.",
       "cases": [
         {
           "name": "previously treated relapsed lymphoma requires original-trial/cycle prescreen",
@@ -2912,9 +2912,54 @@
             "chemo": "Previously received"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "first presentation is not relapse",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "B-cell lymphoma",
+            "lymphoma_response": "Newly diagnosed / untreated"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "partial response alone is not qualifying relapse",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "B-cell lymphoma",
+            "lymphoma_response": "Partial response"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "documented first relapse",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "B-cell lymphoma",
+            "lymphoma_response": "First relapse after remission"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "required chemotherapy declined",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "B-cell lymphoma",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
         }
       ],
-      "selection_sha256": "9d9a06e43e7d86039338a3f8a9c9bb0ba17fca2626e271f0e345ed9d30f7381d"
+      "selection_sha256": "4d9d7e05eac22ffcff815250652f8586d1ee9062271e73b0455b60d515a5a035",
+      "selection_reconciled_at": "2026-10-22T01:20:49.544983+00:00",
+      "source_evidence_reused": true,
+      "source_visit_refreshed_this_run": false
     },
     {
       "trial_id": "eu-fr-hifu-urothelial",
@@ -3011,8 +3056,8 @@
       "trial_id": "china-petcura-personalized-mrna-iit-2026",
       "source_url": "https://www.petcura.cn/zh/mrna-vaccine/study/",
       "reviewed_at": "2026-10-14T03:55:08.716598-04:00",
-      "criteria": "Current Chinese primary explicitly permits case-by-case assessment below general5kg. Dog malignant-tumor IIT; T-cell lymphoma and brain tumors excluded. Age≥2; suitable tissue and tolerance/organ function/life expectancy require project prescreen. Whole published city roster (9cities/12 unnamed hospitals) reread.",
-      "selection_sha256": "c00bfde17031eadf5ab88879d936b98be4d71d8367ac9dc8439dc6d3890d0fe5",
+      "criteria": "Primary explicitly excludes T-cell lymphoma and brain tumors. Enforce known T-cell phenotype even when the main diagnosis is Lymphoma — other or cutaneous epitheliotropic lymphoma; ignore hidden phenotype for non-lymphoma diagnoses.",
+      "selection_sha256": "48b2c6e0f9c3d43faba441671ba7167e5bc993378f8dae90d0c345fe2bf5dec7",
       "cases": [
         {
           "name": "small dog is eligible for individual prescreening",
@@ -3064,8 +3109,41 @@
             "cancer": "Histiocytic sarcoma"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "generic lymphoma cannot conceal known T-cell phenotype",
+          "patient": {
+            "species": "Dog",
+            "country": "China",
+            "cancer": "Lymphoma — other",
+            "lymphoma_type": "T-cell"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "B-cell phenotype remains for review",
+          "patient": {
+            "species": "Dog",
+            "country": "China",
+            "cancer": "B-cell lymphoma",
+            "lymphoma_type": "B-cell"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "hidden phenotype cannot exclude sarcoma",
+          "patient": {
+            "species": "Dog",
+            "country": "China",
+            "cancer": "Soft tissue sarcoma",
+            "lymphoma_type": "T-cell"
+          },
+          "expected": "review"
         }
-      ]
+      ],
+      "selection_reconciled_at": "2026-10-22T01:20:49.544983+00:00",
+      "source_evidence_reused": true,
+      "source_visit_refreshed_this_run": false
     },
     {
       "trial_id": "jhu-cigat-mammary-kubanda-cryo-2026",
@@ -4132,8 +4210,8 @@
     {
       "trial_id": "tufts-hsa-liquid",
       "source_url": "https://vet.tufts.edu/clinical-trials/optimizing-integration-veterinary-clinical-research-findings-human-health-systems-improve-strategies-early-detection-and",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Tufts admits recently splenectomized dogs with splenic HSA and no obvious spread. Gross remaining tumor is not required; doxorubicin is mandatory and prior HSA treatment is excluded.",
+      "reviewed_at": "2026-10-22T01:20:49.544983+00:00",
+      "criteria": "Splenic primary required with no obvious spread; HSA in heart/other primary site does not qualify.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -4177,9 +4255,41 @@
             "species": "Cat"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "heart primary cannot satisfy splenic protocol",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Hemangiosarcoma",
+            "hsa_site": "Heart / right atrium"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "other primary cannot satisfy splenic protocol",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Hemangiosarcoma",
+            "hsa_site": "Other"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "unknown primary requires screening",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Hemangiosarcoma",
+            "hsa_site": "I don't know"
+          },
+          "expected": "review"
         }
       ],
-      "selection_sha256": "da27671e224c71b588d9b57ec8747246eb6a5da391a9960888760e6625fca973"
+      "selection_sha256": "a0770bf7131887750439417d79abd378b6840d2073ad8e35f4c2af35be52b317",
+      "selection_reconciled_at": "2026-10-22T01:20:49.544983+00:00",
+      "source_visit_refreshed_this_run": true
     },
     {
       "trial_id": "wisc-lymphoma-half-body-rt-chop",
@@ -4859,8 +4969,8 @@
     {
       "trial_id": "purdue-hifu-lymphoma",
       "source_url": "https://vet.purdue.edu/wcorc/clinical-trials/tumor-ablation.php",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Current Purdue HIFU protocol requires age>=1year and weight strictly>8kg; disease-specific staging,washouts and standard chemotherapy requirements remain.",
+      "reviewed_at": "2026-10-22T01:20:49.544983+00:00",
+      "criteria": "Primary body explicitly says dogs have not yet received chemotherapy and all receive CHOP after HIFU. Untreated newly diagnosed lymphoma excludes known prior chemotherapy and reported relapse; prior steroids still follow published washout/team review.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -4889,9 +4999,42 @@
             "species": "Cat"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "previous chemotherapy contradicts untreated intake",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Lymphoma",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "relapsed lymphoma contradicts new diagnosis",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Lymphoma",
+            "lymphoma_response": "First relapse after remission"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "no chemotherapy and newly diagnosed",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Lymphoma",
+            "chemo": "Never",
+            "lymphoma_response": "Newly diagnosed / untreated"
+          },
+          "expected": "review"
         }
       ],
-      "selection_sha256": "686e27bb95bc0718234d8413c0f015ab32a08542e894b9212888568690995496"
+      "selection_sha256": "4bc6ccb871b312c12fb5441304d1f90a854821cd117bb4079f57079a229d4dc7",
+      "selection_reconciled_at": "2026-10-22T01:20:49.544983+00:00",
+      "source_visit_refreshed_this_run": true
     },
     {
       "trial_id": "purdue-hifu-osteosarcoma",
@@ -5543,8 +5686,8 @@
     {
       "trial_id": "uf-hsa-vaccine",
       "source_url": "https://research.vetmed.ufl.edu/clinical-trials/small-animal/vaccine-study-for-dogs-with-hemangiosarcoma/",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "UF splenic-HSA vaccine requires splenectomy and doxorubicin with no previous chemotherapy.",
+      "reviewed_at": "2026-10-22T01:20:49.544983+00:00",
+      "criteria": "Splenic primary required; doxorubicin after splenectomy. A primary heart/other site is not accepted.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -5573,9 +5716,41 @@
             "cancer": "Hemangiosarcoma"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "heart primary cannot satisfy splenic protocol",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Hemangiosarcoma",
+            "hsa_site": "Heart / right atrium"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "other primary cannot satisfy splenic protocol",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Hemangiosarcoma",
+            "hsa_site": "Other"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "unknown primary requires screening",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Hemangiosarcoma",
+            "hsa_site": "I don't know"
+          },
+          "expected": "review"
         }
       ],
-      "selection_sha256": "8bdb208295ee4f5a7f016ddfec273840065eaebaae9f7f91c02fbebe1b46e24c"
+      "selection_sha256": "00350be8dd2afee7b96511efb2ee3c2aeae1681f75f25e7c639125b4bee34958",
+      "selection_reconciled_at": "2026-10-22T01:20:49.544983+00:00",
+      "source_visit_refreshed_this_run": true
     },
     {
       "trial_id": "uf-melanoma",
@@ -7066,8 +7241,8 @@
     {
       "trial_id": "jp-nihon-proteasome-inhibitor-b-cell-tumors",
       "source_url": "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=4502",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Nihon proteasome-inhibitor source requires B-cell lineage in dogs/cats;T-cell lymphoma is outside that stated cohort.",
+      "reviewed_at": "2026-10-22T01:20:49.544983+00:00",
+      "criteria": "Primary requires confirmed B-cell lymphoid neoplasm. A known T-cell/other lymphoma subtype must not pass from the generic Lymphoma — other choice; non-lymphoma diagnoses ignore a stale hidden lymphoma-type answer.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -7086,9 +7261,41 @@
             "cancer": "T-cell lymphoma"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "generic lymphoma cannot conceal known T-cell phenotype",
+          "patient": {
+            "species": "Dog",
+            "country": "Japan",
+            "cancer": "Lymphoma — other",
+            "lymphoma_type": "T-cell"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "B-cell phenotype remains for review",
+          "patient": {
+            "species": "Dog",
+            "country": "Japan",
+            "cancer": "B-cell lymphoma",
+            "lymphoma_type": "B-cell"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "hidden phenotype cannot exclude myeloma",
+          "patient": {
+            "species": "Dog",
+            "country": "Japan",
+            "cancer": "Multiple myeloma / plasma cell cancer",
+            "lymphoma_type": "T-cell"
+          },
+          "expected": "review"
         }
       ],
-      "selection_sha256": "3f94174d8ceaeb4c3f30c83f47406fb7ff63d56878dd9917db0b563903f92049"
+      "selection_sha256": "9255085d797a2c0a227bcfe66cb84fb6a709d79a7add9f773ea38ebb36025c57",
+      "selection_reconciled_at": "2026-10-22T01:20:49.544983+00:00",
+      "source_visit_refreshed_this_run": true
     },
     {
       "trial_id": "ca-ovc-feline-oscc-porphysome-pdt",
@@ -7221,9 +7428,39 @@
             "lymphoma_previously_treated": "No"
           },
           "expected": "review"
+        },
+        {
+          "name": "untreated excludes prior chemo",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "B-cell lymphoma",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "untreated excludes prior radiation",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "B-cell lymphoma",
+            "radiation": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "untreated excludes prior immunotherapy_history",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "B-cell lymphoma",
+            "immunotherapy_history": "Previously received"
+          },
+          "expected": "exclude"
         }
       ],
-      "criteria": "Dog; Previously untreated B-cell lymphoma stage3–5(a); Oncolytic peptide plus adoptive T cells; current pilot cohort; Previously untreated, stage3–5a; owner consent and almost all study treatment in Bellingham.; Bellingham WA; initial3days and at least two later visits around1month; Study explicitly fully funded with no additional owner expense; travel coverage not separately stated.; Theresa Westfall DVM; info@aureliusbio.com;3609613529 /3607340720; Complete eligibility still confirmed by study team.",
+      "criteria": "Published primary criteria require previously untreated stage III–V(a) B-cell lymphoma. Known prior lymphoma chemotherapy, tumor radiation or immunotherapy contradict untreated status.",
       "source_read_at": "2026-10-18T03:09:06.367897-04:00",
       "current_primary_evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/8b8248af58bcfd8957.json",
       "field_review": {
@@ -7236,7 +7473,10 @@
         "contact": "Theresa Westfall DVM; info@aureliusbio.com;3609613529 /3607340720",
         "unpublished": "Complete eligibility still confirmed by study team."
       },
-      "selection_sha256": "c6129f1bf627a26d0d64c544ee03f22f9706243f8ce263074c1c6e9f6e583ce2"
+      "selection_sha256": "73581fb8a0874e50edcd1c8e62911e7c0f14cb27181dbe651db831c433767e38",
+      "selection_reconciled_at": "2026-10-22T01:20:49.544983+00:00",
+      "source_evidence_reused": true,
+      "source_visit_refreshed_this_run": false
     },
     {
       "trial_id": "nz-kvs-kv9-solid-tumor-pilot",
@@ -7517,6 +7757,288 @@
           "evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/169f83f9470547bc59.json"
         }
       ]
+    },
+    {
+      "trial_id": "ethos-epush-hsa",
+      "source_url": "https://www.ethosdiscovery.org/clinical-study/ethos-precision-medicine-umbrella-study-for-hemangiosarcoma-epush/",
+      "reviewed_at": "2026-10-10",
+      "criteria": "Entry before splenectomy for ruptured splenic tumor. Primary splenic location and planned surgery are required; published bounds are strictly >5 and <45kg.",
+      "cases": [
+        {
+          "name": "published diagnosis with missing material answers remains for screening",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Hemangiosarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "wrong species outside protocol",
+          "patient": {
+            "species": "Cat",
+            "country": "USA",
+            "cancer": "Hemangiosarcoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "heart primary cannot satisfy splenic protocol",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Hemangiosarcoma",
+            "hsa_site": "Heart / right atrium"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "other primary cannot satisfy splenic protocol",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Hemangiosarcoma",
+            "hsa_site": "Other"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "unknown primary requires screening",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Hemangiosarcoma",
+            "hsa_site": "I don't know"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "completed splenectomy misses preoperative entry",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Hemangiosarcoma",
+            "surgery": "Yes",
+            "prior_procedure": "Splenectomy"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "required surgery declined",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Hemangiosarcoma",
+            "prefs": [
+              "Chemotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "strict published weight boundary 5",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Hemangiosarcoma",
+            "weight_known": true,
+            "weight_lb": 11.023113109
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "strict published weight boundary 45",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Hemangiosarcoma",
+            "weight_known": true,
+            "weight_lb": 99.208017981
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "phase-one funded splenectomy is a genuine surgical pathway pending screening",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Hemangiosarcoma",
+            "surgery": "No",
+            "hsa_site": "Spleen",
+            "prefs": [
+              "Surgery"
+            ]
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "Phase"
+          ]
+        }
+      ],
+      "source_evidence_reused": true,
+      "selection_reconciled_at": "2026-10-22T01:20:49.544983+00:00",
+      "source_visit_refreshed_this_run": false,
+      "selection_sha256": "68398ae235e5c21059d0539ae658f6f9f2f36022658110bebb1af037351ad83b"
+    },
+    {
+      "trial_id": "au-melbourne-hsa-autologous-vaccine-multicenter",
+      "source_url": "https://medipaws.com.au/clinical-research/dogs-with-splenic-haemangiosarcoma",
+      "reviewed_at": "2026-09-26",
+      "criteria": "MediPaws primary eligibility: confirmed splenic HSA, completed splenectomy, no visible metastasis before chemotherapy, planned doxorubicin. The autologous vaccine is adjunctive.",
+      "cases": [
+        {
+          "name": "published diagnosis with missing material answers remains for screening",
+          "patient": {
+            "species": "Dog",
+            "country": "Australia",
+            "cancer": "Hemangiosarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "wrong species outside protocol",
+          "patient": {
+            "species": "Cat",
+            "country": "Australia",
+            "cancer": "Hemangiosarcoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "heart primary cannot satisfy splenic protocol",
+          "patient": {
+            "species": "Dog",
+            "country": "Australia",
+            "cancer": "Hemangiosarcoma",
+            "hsa_site": "Heart / right atrium"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "other primary cannot satisfy splenic protocol",
+          "patient": {
+            "species": "Dog",
+            "country": "Australia",
+            "cancer": "Hemangiosarcoma",
+            "hsa_site": "Other"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "unknown primary requires screening",
+          "patient": {
+            "species": "Dog",
+            "country": "Australia",
+            "cancer": "Hemangiosarcoma",
+            "hsa_site": "I don't know"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "no previous splenectomy",
+          "patient": {
+            "species": "Dog",
+            "country": "Australia",
+            "cancer": "Hemangiosarcoma",
+            "surgery": "No"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "amputation is not splenectomy",
+          "patient": {
+            "species": "Dog",
+            "country": "Australia",
+            "cancer": "Hemangiosarcoma",
+            "surgery": "Yes",
+            "prior_procedure": "Other"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "vaccine does not replace doxorubicin",
+          "patient": {
+            "species": "Dog",
+            "country": "Australia",
+            "cancer": "Hemangiosarcoma",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        }
+      ],
+      "source_evidence_reused": true,
+      "selection_reconciled_at": "2026-10-22T01:20:49.544983+00:00",
+      "source_visit_refreshed_this_run": false,
+      "selection_sha256": "fed35a3bb212ea02fc480c7f3906a10a666d20e21e7b3f807ae9741bc2970430"
+    },
+    {
+      "trial_id": "jhu-cigat-brain-rt-tmz-2026",
+      "source_url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+      "reviewed_at": "2026-09-07",
+      "criteria": "Published protocol combines five consecutive weekdays of radiation with concurrent oral temozolomide. Both radiation and chemotherapy must be acceptable.",
+      "cases": [
+        {
+          "name": "published diagnosis with missing material answers remains for screening",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Brain tumor / glioma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "wrong species outside protocol",
+          "patient": {
+            "species": "Cat",
+            "country": "USA",
+            "cancer": "Brain tumor / glioma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "radiation declined",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Brain tumor / glioma",
+            "prefs": [
+              "Chemotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "temozolomide declined",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Brain tumor / glioma",
+            "prefs": [
+              "Radiation"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "combination acceptable",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Brain tumor / glioma",
+            "prefs": [
+              "Radiation",
+              "Chemotherapy"
+            ]
+          },
+          "expected": "review"
+        }
+      ],
+      "source_evidence_reused": true,
+      "selection_reconciled_at": "2026-10-22T01:20:49.544983+00:00",
+      "source_visit_refreshed_this_run": false,
+      "selection_sha256": "7783b02569ee40ba9784984248f5d9aceb427a9f045d0351463bbca844d0f822"
     }
   ]
 }

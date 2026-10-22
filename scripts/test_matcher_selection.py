@@ -68,3 +68,19 @@ for case in next(r for r in json.loads((ROOT / 'data/protocol_selection_cases.js
     excluded, _ = protocol_screening(by_id['tufts-osa-actionable-targets-2026'], patient)
     assert excluded == (case['expected'] == 'exclude'), case['name']
 print('TUFTS_OSA_COHORT_PARITY_OK cases=8')
+
+# Primary-site and lineage answers must affect the real shared Python gate.
+for trial_id in ['uf-hsa-vaccine', 'tufts-hsa-liquid', 'ethos-epush-hsa', 'au-melbourne-hsa-autologous-vaccine-multicenter']:
+    trial = by_id[trial_id]
+    assert protocol_screening(trial, {'hsa_site': 'Heart / right atrium', 'prefs': {'Surgery', 'Chemotherapy'}})[0]
+    assert not protocol_screening(trial, {'hsa_site': "I don't know", 'prefs': {'Surgery', 'Chemotherapy'}})[0]
+nihon = by_id['jp-nihon-proteasome-inhibitor-b-cell-tumors']
+petcura = by_id['china-petcura-personalized-mrna-iit-2026']
+for trial in [nihon, petcura]:
+    assert protocol_screening(trial, {'cancer': 'Lymphoma — other', 'lymphoma_type': 'T-cell'})[0]
+assert not protocol_screening(nihon, {'cancer': 'Multiple myeloma / plasma cell cancer', 'lymphoma_type': 'T-cell'})[0]
+assert not protocol_screening(petcura, {'cancer': 'Soft tissue sarcoma', 'lymphoma_type': 'T-cell'})[0]
+preop = by_id['ethos-epush-hsa']
+assert protocol_screening(preop, {'surgery': 'Yes', 'prior_procedure': 'Splenectomy'})[0]
+assert not protocol_screening(preop, {'surgery': 'No', 'prior_procedure': 'Splenectomy'})[0]
+print('PRIMARY_SITE_LINEAGE_PHASE_PARITY_OK')

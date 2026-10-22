@@ -96,6 +96,10 @@ def protocol_screening(trial, patient):
             rule = PROTOCOL_RULES[group].get(key)
             if rule is None:
                 raise ValueError(f'Unclassified matcher constraint: {group}.{key}')
+            if rule.get('when_family') and rule['when_family'] not in FAMILIES.get(patient.get('cancer'), []):
+                continue
+            if rule.get('when_field') and not all(patient.get(field) in allowed for field, allowed in rule['when_field'].items()):
+                continue
             if rule.get('alternative_owner_cohorts'):
                 excluded |= not owner_cohort_possible(value, patient)
                 continue
