@@ -1,0 +1,49 @@
+{
+  "at": "2026-10-22T04:03:54.807843-04:00",
+  "expected_data_url": "./trials.json?v=345fb1c23f98484d",
+  "expected_script_url": "./matcher.js?v=clinical-gi-20261022",
+  "js_source_changed": true,
+  "catalog_cache_version_changed": true,
+  "rows": [
+    {
+      "url": "https://vettrialfinder.com/matcher/",
+      "file": "research/audit-runs/daily-20261022T030531-0400/production-readback/index.html",
+      "attempted_at": "2026-10-22T04:03:42.949541-04:00",
+      "finished_at": "2026-10-22T04:03:47.960318-04:00",
+      "method": "shell_curl",
+      "http_status": "000",
+      "exit_code": 28,
+      "stderr": "curl: (28) Proxy CONNECT aborted due to timeout\n",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_sha256": "56c02f1583a8d179adfd4040595aeceedf298089c5eec12c540ca724d1ec29a9",
+      "identical_bytes": false
+    },
+    {
+      "url": "https://vettrialfinder.com/matcher/matcher.js?v=clinical-gi-20261022",
+      "file": "research/audit-runs/daily-20261022T030531-0400/production-readback/matcher.js",
+      "attempted_at": "2026-10-22T04:03:47.960404-04:00",
+      "finished_at": "2026-10-22T04:03:49.796763-04:00",
+      "method": "shell_curl",
+      "http_status": "200",
+      "exit_code": 0,
+      "stderr": "",
+      "sha256": "ae1433e3c7909d9e4bd63f044ecde382b0409a8f653b19d85ef8b21fdf3dd758",
+      "expected_sha256": "1a50aed1f59cc47b22e6f255c9c96659df99eb44a52620b2abe1a27c45d765d4",
+      "identical_bytes": false
+    },
+    {
+      "url": "https://vettrialfinder.com/matcher/trials.json?v=345fb1c23f98484d",
+      "file": "research/audit-runs/daily-20261022T030531-0400/production-readback/trials.json",
+      "attempted_at": "2026-10-22T04:03:49.796866-04:00",
+      "finished_at": "2026-10-22T04:03:54.807584-04:00",
+      "method": "shell_curl",
+      "http_status": "000",
+      "exit_code": 28,
+      "stderr": "curl: (28) Proxy CONNECT aborted due to timeout\n",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_sha256": "345fb1c23f98484d697e9c3a300b8df310802f9ce75c4122b411c2c13f4ca99a",
+      "identical_bytes": false
+    }
+  ],
+  "byte_readback": "NOT_VERIFIED"
+}
