@@ -61,3 +61,10 @@ for cancer, location, expected in [
 ]:
     assert protocol_screening(medvet, {'cancer': cancer, 'osa_location': location, 'diagnosis_status': 'Suspected / not confirmed'})[0] == expected
 print(f'MATCHER_SELECTION_PARITY_OK public={len(matrix)} disease_checks={checks}')
+
+# Source-derived Tufts cohort cases exercise the shared legacy screening path.
+for case in next(r for r in json.loads((ROOT / 'data/protocol_selection_cases.json').read_text())['reviews'] if r['trial_id'] == 'tufts-osa-actionable-targets-2026')['cases'][3:]:
+    patient = {**case['patient'], 'prefs': set(case['patient'].get('prefs', ['Surgery', 'Targeted therapy']))}
+    excluded, _ = protocol_screening(by_id['tufts-osa-actionable-targets-2026'], patient)
+    assert excluded == (case['expected'] == 'exclude'), case['name']
+print('TUFTS_OSA_COHORT_PARITY_OK cases=8')

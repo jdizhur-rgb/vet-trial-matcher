@@ -6645,8 +6645,8 @@
     {
       "trial_id": "tufts-osa-actionable-targets-2026",
       "source_url": "https://vet.tufts.edu/clinical-trials/defining-actionable-targets-osteosarcoma",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Tufts actionable-target protocol has distinct preamputation and metastatic-postamputation cohorts;minimum15kg and clinician cohort assignment remain.",
+      "reviewed_at": "2026-10-22T01:02:20.082203+00:00",
+      "criteria": "Current Tufts primary: Group A requires newly diagnosed limb OSA without obvious spread and planned amputation. Group B requires prior amputation plus carboplatin or study-drug treatment and metastatic disease outside bone. Known owner answers must leave at least one group possible; unknown staging/history and exact prior drugs remain prescreening. No new form questions.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -6676,9 +6676,106 @@
             "cancer": "Osteosarcoma"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Group A limb disease before amputation",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Osteosarcoma",
+            "surgery": "No",
+            "osa_location": "Appendicular — limb bone",
+            "metastasis": "No known metastases"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Group B metastatic after amputation",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Osteosarcoma",
+            "surgery": "Yes",
+            "prior_procedure": "Amputation",
+            "metastasis": "Confirmed metastases",
+            "chemo": "Previously received"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "No group after amputation without spread",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Osteosarcoma",
+            "surgery": "Yes",
+            "prior_procedure": "Amputation",
+            "metastasis": "No known metastases"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "No group metastatic without surgery",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Osteosarcoma",
+            "surgery": "No",
+            "metastasis": "Confirmed metastases"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "No group axial untreated",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Osteosarcoma",
+            "surgery": "No",
+            "osa_location": "Axial — skull, spine, rib, or pelvis"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Unknown staging after amputation needs review",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Osteosarcoma",
+            "surgery": "Yes",
+            "prior_procedure": "Amputation",
+            "metastasis": "Suspected / staging incomplete"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Study-drug history cannot be excluded by no chemotherapy",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Osteosarcoma",
+            "surgery": "Yes",
+            "prior_procedure": "Amputation",
+            "metastasis": "Confirmed metastases",
+            "chemo": "Never"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "No group refusing surgery before treatment",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Osteosarcoma",
+            "surgery": "No",
+            "prefs": [
+              "Targeted therapy"
+            ]
+          },
+          "expected": "exclude"
         }
       ],
-      "selection_sha256": "cb4556ced14e1876ebd544a4aae5118f43904785775302906fa5040c697915b6"
+      "selection_sha256": "d8da4ac5dbe0027b06eee047742f10bd75588ffb66002c29b78209ad999ce70f"
     },
     {
       "trial_id": "jp-tokyo-organoid-guided-targeted-therapy-2026",

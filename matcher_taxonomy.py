@@ -63,6 +63,28 @@ def universal_limits_pass(requirements, patient):
     return True
 
 
+def owner_cohort_possible(cohorts, patient):
+    """At least one protocol cohort must survive known owner answers.
+
+    Uncertain staging and missing answers require prescreening. Procedure type
+    is meaningful only when cancer surgery was actually performed.
+    """
+    for cohort in cohorts:
+        rejected = False
+        for field, allowed in cohort.items():
+            if field == 'required_preferences':
+                rejected |= not set(allowed).issubset(patient.get('prefs', set()))
+                continue
+            if field == 'prior_procedure' and patient.get('surgery') == 'No':
+                continue
+            answer = patient.get(field)
+            if answer not in (None, "I don't know", 'Suspected / staging incomplete'):
+                rejected |= answer not in allowed
+        if not rejected:
+            return True
+    return False
+
+
 def protocol_screening(trial, patient):
     """Evaluate additional stored constraints or leave a visible screening item."""
     unknown = []
@@ -74,6 +96,9 @@ def protocol_screening(trial, patient):
             rule = PROTOCOL_RULES[group].get(key)
             if rule is None:
                 raise ValueError(f'Unclassified matcher constraint: {group}.{key}')
+            if rule.get('alternative_owner_cohorts'):
+                excluded |= not owner_cohort_possible(value, patient)
+                continue
             if rule.get('handled'):
                 continue
             if rule.get('confirmation_or_appendicular_osa'):

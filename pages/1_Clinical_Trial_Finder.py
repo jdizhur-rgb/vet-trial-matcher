@@ -494,7 +494,7 @@ if search_clicked:
         req = tr.get('requires', {})
         exc = tr.get('excludes', {})
         reasons=[]
-        excluded, unknown = protocol_screening(tr, dict(cancer=cancer, diagnosis_status=diagnosis_status, osa_location=osa_location, node_status=node_status, surgery=surgery, chemo=chemo, radiation=radiation, steroids=steroids, immunosuppressive=immunosuppressive, metastasis=metastasis, prefs=prefs))
+        excluded, unknown = protocol_screening(tr, dict(cancer=cancer, diagnosis_status=diagnosis_status, osa_location=osa_location, node_status=node_status, surgery=surgery, prior_procedure=prior_procedure, chemo=chemo, radiation=radiation, steroids=steroids, immunosuppressive=immunosuppressive, metastasis=metastasis, prefs=prefs))
 
         # Diagnosis certainty is protocol-specific: most treatment trials require
         # pathology/cytology confirmation, while some screening/observational studies do not.
