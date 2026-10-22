@@ -1,0 +1,107 @@
+{
+  "trial_id": "mizzou-feline-highgrade-lymphoma-wart",
+  "source_url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+  "reviewed_at": "2026-10-22T03:20:31.318106-04:00",
+  "source_attempt": {
+    "method": "shell_curl",
+    "attempted_at": "2026-10-22T03:15:20.494563-04:00",
+    "evidence_file": "research/audit-runs/daily-20261022T030531-0400/evidence/2e08ea3023eebeaf3d.json"
+  },
+  "criteria": "Missouri currently enrolls cats with cytology/histology-confirmed high-grade/large-cell gastrointestinal lymphoma confined to the abdomen, chemotherapy-naive, FeLV/FIV-negative and fit for anesthesia. Whole-abdomen radiation precedes COP/doxorubicin chemotherapy. Radiation is funded and $1,000 VHC credit follows radiation; screening/chemotherapy/travel costs are not stated. Weekly visits at least eight weeks, then five visits every three weeks. No separate protocol link is published; the named full primary study section is the protocol.",
+  "cases": [
+    {
+      "name": "untreated cat with investigator screening of abdominal GI grade",
+      "patient": {
+        "species": "Cat",
+        "country": "USA",
+        "cancer": "Lymphoma — other",
+        "chemo": "Never received"
+      },
+      "expected": "review"
+    },
+    {
+      "name": "unknown diagnosis certainty and treatment history remain screening",
+      "patient": {
+        "species": "Cat",
+        "country": "USA",
+        "cancer": "Lymphoma — other"
+      },
+      "expected": "review",
+      "unknown_contains": [
+        "high-grade",
+        "FeLV"
+      ]
+    },
+    {
+      "name": "previous chemotherapy contradicts naive enrollment",
+      "patient": {
+        "species": "Cat",
+        "country": "USA",
+        "cancer": "Lymphoma — other",
+        "chemo": "Previously received"
+      },
+      "expected": "exclude"
+    },
+    {
+      "name": "current chemotherapy contradicts naive enrollment",
+      "patient": {
+        "species": "Cat",
+        "country": "USA",
+        "cancer": "Lymphoma — other",
+        "chemo": "Currently receiving"
+      },
+      "expected": "exclude"
+    },
+    {
+      "name": "radiation without required chemotherapy is not protocol",
+      "patient": {
+        "species": "Cat",
+        "country": "USA",
+        "cancer": "Lymphoma — other",
+        "prefs": [
+          "Radiation"
+        ]
+      },
+      "expected": "exclude"
+    },
+    {
+      "name": "chemotherapy without required radiation is not protocol",
+      "patient": {
+        "species": "Cat",
+        "country": "USA",
+        "cancer": "Lymphoma — other",
+        "prefs": [
+          "Chemotherapy"
+        ]
+      },
+      "expected": "exclude"
+    },
+    {
+      "name": "dog cannot enter feline cohort",
+      "patient": {
+        "species": "Dog",
+        "country": "USA",
+        "cancer": "Lymphoma — other"
+      },
+      "expected": "exclude"
+    },
+    {
+      "name": "oral SCC is a different disease",
+      "patient": {
+        "species": "Cat",
+        "country": "USA",
+        "cancer": "Oral squamous cell carcinoma"
+      },
+      "expected": "exclude"
+    },
+    {
+      "name": "no Canadian study site published",
+      "patient": {
+        "species": "Cat",
+        "country": "Canada",
+        "cancer": "Lymphoma — other"
+      },
+      "expected": "exclude"
+    }
+  ]
+}

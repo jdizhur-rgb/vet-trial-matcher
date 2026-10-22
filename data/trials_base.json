@@ -5965,26 +5965,32 @@
     "city": "Columbia",
     "state": "MO",
     "cancers": [
-      "Lymphoma"
+      "B-cell lymphoma",
+      "T-cell lymphoma",
+      "Lymphoma — other"
     ],
-    "title": "Whole-abdominal radiation followed by COP/doxorubicin for feline high-grade lymphoma",
-    "status": "Newly funded FY2027 study — patient enrollment not yet independently confirmed",
+    "title": "Whole-abdomen radiation followed by COP/doxorubicin for feline high-grade gastrointestinal lymphoma",
+    "status": "Currently enrolling — University of Missouri Veterinary Health Center",
     "study_type": "treatment",
-    "verified": "2026-09-02",
-    "status_confidence": "needs_reconfirmation",
-    "available_for_matching": false,
+    "verified": "2026-10-22",
+    "status_confidence": "confirmed_current",
+    "available_for_matching": true,
     "requires": {
-      "confirmed": true
+      "confirmed": true,
+      "planned_radiation": true,
+      "planned_chemo": true,
+      "high_grade_abdominal_gi_lymphoma": true,
+      "felv_fiv_negative": true
     },
     "why": "University of Missouri's current Recent Awards page lists an EveryCat Health Foundation award for an integrated high-grade feline lymphoma treatment study using whole-abdominal radiation followed by COP/doxorubicin.",
-    "intervention": "Whole-abdominal radiation induction followed by COP/doxorubicin chemotherapy",
-    "funding": "EveryCat Health Foundation award: $50,000; owner-level covered costs have not yet been published.",
-    "contact": "University of Missouri Veterinary Health Center Oncology / Oncology Clinical Trials service",
-    "url": "https://cvm.missouri.edu/research/recent-awards/",
-    "notes": "Strong current pipeline lead, but a research award is not the same as an owner-facing recruiting protocol. Keep on watchlist and out of matching until Missouri publishes recruitment/eligibility or confirms enrollment.",
+    "intervention": "Whole-abdomen radiation therapy followed by COP/doxorubicin chemotherapy",
+    "funding": "Partially funded. The study covers whole-abdomen radiation and provides a $1,000 credit for care at the VHC after radiation is completed. Published information does not specify screening, COP/doxorubicin chemotherapy, other care or travel coverage; confirm these costs with the study team.",
+    "contact": "Oncology Clinical Trials — cvmclinicaltrials@missouri.edu; VHC 573-882-7821",
+    "url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+    "notes": "The current official named protocol now explicitly invites enrollment, replacing the earlier award-only watch signal. High-grade/large-cell GI disease and absence of lymphoma outside the abdomen require investigator confirmation; a general lymphoma match is prescreening only. Radiation is delivered during the first week, followed by COP/doxorubicin. Screening, chemotherapy, other care and travel coverage are not stated. This is distinct from the Texas A&M small-cell GI lymphoma radiation protocol.",
     "country": "USA",
-    "contacts": "Oncology Clinical Trials Service 573-882-7821; muoncology@missouri.edu",
-    "contact_source": "verified institution fallback",
+    "contacts": "Oncology Clinical Trials — cvmclinicaltrials@missouri.edu; VHC 573-882-7821",
+    "contact_source": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
     "sites": [
       {
         "hospital": "📍 University of Missouri Vet Med",
@@ -5993,7 +5999,27 @@
         "state": "MO"
       }
     ],
-    "location_source": "seo/center_directory.py"
+    "location_source": "seo/center_directory.py",
+    "source_url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+    "owner_prescreen_required": true,
+    "excludes": {
+      "prior_chemo": true,
+      "current_chemo": true,
+      "small_cell_lymphoma": true,
+      "severe_systemic_disease": true
+    },
+    "funding_status": "Partially funded; radiation covered and $1,000 VHC credit after radiation",
+    "funding_source": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+    "funding_verified": "2026-10-22",
+    "treatments": [
+      "Radiation",
+      "Chemotherapy"
+    ],
+    "treatment_approaches": [
+      "radiation_innovation",
+      "chemotherapy"
+    ],
+    "special_requirement": "Cytology or histopathology must confirm high-grade / large-cell gastrointestinal lymphoma confined to the abdomen. No previous chemotherapy; FeLV/FIV-negative and suitable for anesthesia. Investigator screening includes blood count, chemistry, urinalysis, chest radiographs and abdominal ultrasound. Visits in Columbia, Missouri weekly for at least eight weeks, then every three weeks for five more visits."
   },
   {
     "id": "cornell-feline-gi-lymphoma-cfdna-2026",

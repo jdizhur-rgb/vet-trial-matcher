@@ -1,0 +1,207 @@
+{
+  "python scripts/validate_trials_catalog.py": {
+    "command": [
+      "python",
+      "scripts/validate_trials_catalog.py"
+    ],
+    "cwd": "/workspace/scratch/7a43f0b7d905/trial-build-c0lhioge",
+    "started_at": "2026-10-22T03:56:14.254854-04:00",
+    "finished_at": "2026-10-22T03:56:14.319852-04:00",
+    "exit_code": 0,
+    "output": "TRIAL_CATALOG_VALIDATION_OK records=311 unique_ids=311 active=151 required_active_fields=11\n"
+  },
+  "python scripts/validate_catalog_sanitation.py": {
+    "command": [
+      "python",
+      "scripts/validate_catalog_sanitation.py"
+    ],
+    "cwd": "/workspace/scratch/7a43f0b7d905/trial-build-c0lhioge",
+    "started_at": "2026-10-22T03:56:14.320265-04:00",
+    "finished_at": "2026-10-22T03:56:14.351709-04:00",
+    "exit_code": 0,
+    "output": "{\n  \"records\": 311,\n  \"partial_records\": 4,\n  \"known_unresolved\": 4,\n  \"new_partial_records\": [],\n  \"resolved_but_still_queued\": [\n    \"eu-ch-sinonasal-heterogeneous-rt\",\n    \"fr-fregis-chemodectoma-thermoablation\",\n    \"fr-fregis-hepatic-embolization\",\n    \"fr-fregis-hepatic-tumor-thermoablation\",\n    \"nl-utrecht-osteosarcoma-oncolytic-virus-access\",\n    \"uk-rvc-insulinoma-toceranib\"\n  ]\n}\n"
+  },
+  "python scripts/semantic_dedupe_catalog.py": {
+    "command": [
+      "python",
+      "scripts/semantic_dedupe_catalog.py"
+    ],
+    "cwd": "/workspace/scratch/7a43f0b7d905/trial-build-c0lhioge",
+    "started_at": "2026-10-22T03:56:14.352183-04:00",
+    "finished_at": "2026-10-22T03:56:16.387695-04:00",
+    "exit_code": 0,
+    "output": "{\n  \"mode\": \"audit\",\n  \"effective_matchable_treatments\": 147,\n  \"probable_duplicates\": 0,\n  \"pairs\": []\n}\n"
+  },
+  "python scripts/validate_source_inventory.py": {
+    "command": [
+      "python",
+      "scripts/validate_source_inventory.py"
+    ],
+    "cwd": "/workspace/scratch/7a43f0b7d905/trial-build-c0lhioge",
+    "started_at": "2026-10-22T03:56:16.388046-04:00",
+    "finished_at": "2026-10-22T03:56:16.420080-04:00",
+    "exit_code": 0,
+    "output": "SOURCE_INVENTORY_VALIDATION_OK sources=141 digest=eed6bc301f99\n"
+  },
+  "node research/test_daily20_status.js": {
+    "command": [
+      "node",
+      "research/test_daily20_status.js"
+    ],
+    "cwd": "/workspace/scratch/7a43f0b7d905/trial-build-c0lhioge",
+    "started_at": "2026-10-22T03:56:16.420384-04:00",
+    "finished_at": "2026-10-22T03:56:16.502188-04:00",
+    "exit_code": 0,
+    "output": "DAILY20_SOURCE_DERIVED_STATUS_PASS cases=9\n"
+  },
+  "python scripts/build_static_site.py": {
+    "command": [
+      "python",
+      "scripts/build_static_site.py"
+    ],
+    "cwd": "/workspace/scratch/7a43f0b7d905/trial-build-c0lhioge",
+    "started_at": "2026-10-22T03:56:16.502558-04:00",
+    "finished_at": "2026-10-22T03:56:32.834392-04:00",
+    "exit_code": 0,
+    "output": "REPOSITORY_HYGIENE_OK\nADDRESS_PREFLIGHT {\"centers\": 84, \"coverage_placeholders\": 9, \"missing_centers\": 0, \"missing_sites\": 0, \"physical_sites\": 94}\nGenerated 45 pages from 147 treatment opportunities\nCANCER_PAGES_ENHANCED 44\nCENTER_PAGES_SKIPPED_UNPROFILED 20 | Animal Medical Center, Gifu University; CareVets Glen Eden; CareVets Kilbirnie; CareVets Rototuna; Hokkaido University Veterinary Teaching Hospital; Hospital Veterinario Puchol / ReachGlio; Japan Small Animal Cancer Center; Kamogawa Animal Medical Center; Kode Veterinary Sciences — New Zealand multicentre pilot; Nihon University Animal Medical Center; Nippon Veterinary and Life Science University Veterinary Medical Center; Nippon Zenyaku Kogyo multicenter veterinary trial; Onewa Road Veterinary Hospital; Rappaw Central Veterinary Hospital; Remuera Veterinary Clinic & Hospital; University of Tokyo Veterinary Medical Center; VCA Dallas Animal Specialty Hospital; Vet Services Dannevirke; Vet Services Napier; Yamaguchi University Veterinary Medical Center\nCENTER_PAGES_OK 104\nCENTER_OWNER_PAGES_OK 84\nCENTER_PAGES_ENHANCED 84\nCANCER_PAGE_CONSISTENCY_OK 44\nCANCER_COVERAGE_OK 22 21 1\nHELP_CENTER_OK https://vettrialfinder.com/help/\nCENTER_PROFILES_OK pages=84 verified_profiles=84 redirects_skipped=0\nSITE_SHELL_OK 151\nABOUT_PAGE_OK\nRETAINED_CENTER_PROFILES_OK restored=5\nCENTER_URL_REDIRECTS_OK redirects=18\nCANCER_DEPTH_VALIDATION_OK 22 diagnoses x 2 species\nCANCER_PAGE_SEMANTIC_BUILD_OK 44 generated pages\nMATCHER_TAXONOMY_SYNC_OK\nMATCHER_DATA_OK total=151 treatment=147 access=4\nONCOLOGY_CENTER_CATALOG_OK profiles=458 acvim_locations=216 matched=68 supplemental_added=1345 centers=1579\nONCOLOGY_CENTER_FINDER_OK centers=1579\nONCOLOGY_CENTERS_OK centers=1579 states=52\nARTICLE_CATALOG_OK articles=13 categories=4\nSEO_INDEX_POLICY_OK indexable=167 noindex=42\nHELP_CONTENT_OK details= 24\nCENTER_DIRECTORY_PICKER_OK sections=4\nCENTER_PROFILES_OK pages=107 verified_profiles=89 redirects_skipped=18\nSENTENCE_CASE_OK pages=211\nSITE_SEARCH_OK pages=189\nCENTER_URL_REGRESSION_OK historical_routes=14 redirects=18\nRESTORED_CENTER_PROFILES_REGRESSION_OK profiles=5\nPRODUCTION_SYNC_OK total=151 treatment=147 access=4 matcher_ids=151 internal_links=6785\nMATCHER_LOGIC_OK trials=151 mct=4 yasha=0 mammary=5 osteosarcoma=17 bladder=6 brain=8\nSOURCE_DERIVED_SELECTION_OK public_reviewed=136/151 pending=15 retained_reviews=142 cases=702\nMATCHER_SELECTION_OK canonical=311 public=151 checks=1437 criteria=221\nMATCHER_SELECTION_PARITY_OK public=151 disease_checks=18120\nTUFTS_OSA_COHORT_PARITY_OK cases=8\nPRIMARY_SITE_LINEAGE_PHASE_PARITY_OK\nONCOLOGY_COUNTRY_FILTER_OK 13 countries; 339 German listings; combined filters, state reset, stale ZIP suppression\nAUSTRIAN_CARE_IDENTITY_OK 121 distinct sites; branch addresses, phones and services preserved\nGERMANY_CARE_IDENTITY_OK two separate Saarwellingen providers; individual access limits preserved\nNETWORK_CARE_OK one network route; no branch clones, office address, phone invention or physical identity merge\nEUROPE_CONTROLLER_IDENTITIES_OK 61 independently preserved cards\nEUROPE_RECOVERY_OK six-country fail-closed gate; 680 NEW; 53 UPDATE identities/79 fields; baseline hashes and 78 exact identity pairs preserved\nNO_TRACKING_OK\nPUBLIC_PAGE_SHELL_OK 212\n"
+  },
+  "node scripts/test_matcher_catalog_loading.js": {
+    "command": [
+      "node",
+      "scripts/test_matcher_catalog_loading.js"
+    ],
+    "cwd": "/workspace/scratch/7a43f0b7d905/trial-build-c0lhioge",
+    "started_at": "2026-10-22T03:56:32.834776-04:00",
+    "finished_at": "2026-10-22T03:56:32.914730-04:00",
+    "exit_code": 0,
+    "output": "Japan: 10 results after delayed load\nUSA: 97 results after delayed load\nCatalog-loading regression PASS\n"
+  },
+  "node scripts/test_matcher_logic.js": {
+    "command": [
+      "node",
+      "scripts/test_matcher_logic.js"
+    ],
+    "cwd": "/workspace/scratch/7a43f0b7d905/trial-build-c0lhioge",
+    "started_at": "2026-10-22T03:56:32.915096-04:00",
+    "finished_at": "2026-10-22T03:56:33.168055-04:00",
+    "exit_code": 0,
+    "output": "MATCHER_LOGIC_OK trials=151 mct=4 yasha=0 mammary=5 osteosarcoma=17 bladder=6 brain=8\n"
+  },
+  "node scripts/test_matcher_selection.js": {
+    "command": [
+      "node",
+      "scripts/test_matcher_selection.js"
+    ],
+    "cwd": "/workspace/scratch/7a43f0b7d905/trial-build-c0lhioge",
+    "started_at": "2026-10-22T03:56:33.168452-04:00",
+    "finished_at": "2026-10-22T03:56:33.417748-04:00",
+    "exit_code": 0,
+    "output": "SOURCE_DERIVED_SELECTION_OK public_reviewed=136/151 pending=15 retained_reviews=142 cases=702\nMATCHER_SELECTION_OK canonical=311 public=151 checks=1437 criteria=221\n"
+  },
+  "python scripts/test_matcher_selection.py": {
+    "command": [
+      "python",
+      "scripts/test_matcher_selection.py"
+    ],
+    "cwd": "/workspace/scratch/7a43f0b7d905/trial-build-c0lhioge",
+    "started_at": "2026-10-22T03:56:33.418146-04:00",
+    "finished_at": "2026-10-22T03:56:33.732774-04:00",
+    "exit_code": 0,
+    "output": "MATCHER_SELECTION_PARITY_OK public=151 disease_checks=18120\nTUFTS_OSA_COHORT_PARITY_OK cases=8\nPRIMARY_SITE_LINEAGE_PHASE_PARITY_OK\n"
+  },
+  "node scripts/test_matcher_protocol_sources.js": {
+    "command": [
+      "node",
+      "scripts/test_matcher_protocol_sources.js"
+    ],
+    "cwd": "/workspace/scratch/7a43f0b7d905/trial-build-c0lhioge",
+    "started_at": "2026-10-22T03:56:33.734174-04:00",
+    "finished_at": "2026-10-22T03:56:33.836677-04:00",
+    "exit_code": 0,
+    "output": "SOURCE_DERIVED_SELECTION_OK public_reviewed=136/151 pending=15 retained_reviews=142 cases=702\n"
+  },
+  "python scripts/validate_production_sync.py": {
+    "command": [
+      "python",
+      "scripts/validate_production_sync.py"
+    ],
+    "cwd": "/workspace/scratch/7a43f0b7d905/trial-build-c0lhioge",
+    "started_at": "2026-10-22T03:56:33.837058-04:00",
+    "finished_at": "2026-10-22T03:56:35.298636-04:00",
+    "exit_code": 0,
+    "output": "PRODUCTION_SYNC_OK total=151 treatment=147 access=4 matcher_ids=151 internal_links=6785\n"
+  },
+  "node scripts/test_matcher_protocol_sources.js --reviewed-since=2026-10-16T18:59:47.653454Z --require-full-review": {
+    "command": [
+      "node",
+      "scripts/test_matcher_protocol_sources.js",
+      "--reviewed-since=2026-10-16T18:59:47.653454Z",
+      "--require-full-review"
+    ],
+    "cwd": "/workspace/scratch/7a43f0b7d905/trial-build-c0lhioge",
+    "started_at": "2026-10-22T03:56:35.299145-04:00",
+    "finished_at": "2026-10-22T03:56:35.405237-04:00",
+    "exit_code": 1,
+    "output": "SOURCE_DERIVED_SELECTION_OK public_reviewed=119/151 pending=32 retained_reviews=142 cases=702\nINDEPENDENT_REVIEW_INCOMPLETE eu-fr-hifu-urothelial,eu-fr-oral-intratumoral-immunotherapy,uk-edinburgh-oral-melanoma-tigilanol-tiglate,ncsu-mammary-inspire,uga-bcell-ivp,wsu-sts-local-immunotherapy,ethos-gilvetmab-melanoma,ethos-bcell-oral,ethos-osa-vaccine,tamu-mct-acid-suppressant,mizzou-osa-carboplatin-timing,ethos-solid-relapse,ethos-epush-hsa,ethos-mimic-osa-lung,anivive-sine-osa-carboplatin,uk-ndsr-osa-rfil2-watch,eu-uk-ndsr-high-grade-mammary-current,ncsu-canine-sts-xcsgel,ncsu-feline-oral-pivot-c,umn-feline-mammary-olaparib-meloxicam,penn-flash-rt-extremity-sts,umn-canine-oral-melanoma-aav-vaccine,ch-anicura-aoi-superficial-tumor-immunocytokines,china-petcura-personalized-mrna-iit-2026,jhu-cigat-osa-cryo-immunotherapy-2026,jhu-cigat-brain-rt-tmz-2026,jhu-cigat-mammary-kubanda-cryo-2026,mexico-ensenada-silver-nanoparticle-cancer-2026,umn-orbit-lymphoma,penn-atherton-steap1-car-t-hs,au-melbourne-hsa-autologous-vaccine-multicenter,penn-glioma-flash-gilvetmab-2026\n"
+  },
+  "python scripts/validate_audit_receipt.py research/audit-runs/daily-20261022T030531-0400/receipt-final.json": {
+    "command": [
+      "python",
+      "scripts/validate_audit_receipt.py",
+      "research/audit-runs/daily-20261022T030531-0400/receipt-final.json"
+    ],
+    "cwd": "/workspace/scratch/7a43f0b7d905/vet-trial-audit-20261022",
+    "started_at": "2026-10-22T03:56:35.405647-04:00",
+    "finished_at": "2026-10-22T03:56:35.489567-04:00",
+    "exit_code": 1,
+    "output": "{\n  \"status\": \"INCOMPLETE\",\n  \"receipt\": \"research/audit-runs/daily-20261022T030531-0400/receipt-final.json\",\n  \"inventory\": \"/workspace/scratch/7a43f0b7d905/vet-trial-audit-20261022/data/source_inventory.json\",\n  \"errors\": [],\n  \"coverage_gaps\": [\n    \"registry-avma-veterinary-clinical-trials: current roster/status not proven despite protocols_seen=444\",\n    \"directory-veterinary-cancer-society: current roster/status not proven\",\n    \"usa-johns-hopkins-cigat: mandatory source was not attempted this run\",\n    \"usa-michigan-state-oncology-trials: current roster/status not proven despite protocols_seen=5\",\n    \"usa-minnesota-current-clinical-trials: mandatory source was not attempted this run\",\n    \"usa-missouri-oncology-clinical-trials: current roster/status not proven despite protocols_seen=6\",\n    \"usa-nc-state-clinical-trials: current roster/status not proven despite protocols_seen=7\",\n    \"usa-penn-vet-clinical-trials: mandatory source was not attempted this run\",\n    \"usa-purdue-wcorc-clinical-trials: current roster/status not proven despite protocols_seen=7\",\n    \"usa-tufts-clinical-trials: current roster/status not proven despite protocols_seen=9\",\n    \"usa-georgia-clinical-trials: current roster/status not proven despite protocols_seen=2\",\n    \"usa-illinois-clinical-trials: current roster/status not proven despite protocols_seen=8\",\n    \"usa-wisconsin-oncology-studies: mandatory source was not attempted this run\",\n    \"usa-utsw-vroc-clinical-trials: current roster/status not proven despite protocols_seen=8\",\n    \"usa-ethos-clinical-studies: mandatory source was not attempted this run\",\n    \"usa-ethos-discovery-studies: mandatory source was not attempted this run\",\n    \"usa-anivive-trials: current roster/status not proven\",\n    \"canada-ovc-active-oncology-trials: current roster/status not proven despite protocols_seen=9\",\n    \"europe-esvonc-ongoing-trials: current roster/status not proven\",\n    \"europe-oncowaf-clinical-trials: current roster/status not proven\",\n    \"netherlands-utrecht-interventional-oncology: mandatory source was not attempted this run\",\n    \"switzerland-zurich-clinical-studies: current roster/status not proven despite protocols_seen=10\",\n    \"uk-rvc-clinical-investigation-centre: mandatory source was not attempted this run\",\n    \"usa-amcny-current-clinical-trials: current roster/status not proven despite protocols_seen=1\",\n    \"usa-penn-comparative-immunotherapy-trials: mandatory source was not attempted this run\",\n    \"australia-uq-school-veterinary-clinical-trials: current roster/status not proven despite protocols_seen=2\",\n    \"australia-pettrials-directory: current roster/status not proven despite protocols_seen=1\",\n    \"australia-sash-clinical-research: current roster/status not proven despite protocols_seen=2\",\n    \"australia-caninecancer-state-research-guide: current roster/status not proven\",\n    \"australia-anzcvs-science-week-oncology: current roster/status not proven\",\n    \"usa-penn-atherton-laboratory: mandatory source was not attempted this run\",\n    \"usa-canine-cancer-alliance-research: current roster/status not proven despite protocols_seen=7\",\n    \"usa-vrcco-clinical-trials: mandatory source was not attempted this run\",\n    \"usa-wsu-vth-clinical-studies: mandatory source was not attempted this run\",\n    \"china-dongjun-oncology-trials: current roster/status not proven despite protocols_seen=3\",\n    \"china-petcura-mrna-iit: mandatory source was not attempted this run\",\n    \"usa-nci-comparative-oncology-trials: mandatory source was not attempted this run\",\n    \"japan-yamaguchi-vmc-clinical-trials: current roster/status not proven despite protocols_seen=5\",\n    \"japan-jsamc-current-clinical-trials: current roster/status not proven despite protocols_seen=5\",\n    \"global-vettrials-directory: current roster/status not proven despite protocols_seen=100\",\n    \"japan-jvcog-current-clinical-trials: mandatory source was not attempted this run\",\n    \"brazil-usp-loct-oncolytic-virus-program: current roster/status not proven\",\n    \"brazil-estima-coe-clinical-studies: current roster/status not proven\",\n    \"france-alfort-innovative-clinical-trials: current roster/status not proven\",\n    \"foundation-perseus-clinical-trial-discovery: current roster/status not proven\",\n    \"sponsor-evvivax-clinical-trials: current roster/status not proven\",\n    \"sponsor-curelab-veterinary-research: current roster/status not proven\",\n    \"india-the-cancer-vet-clinical-trials: current roster/status not proven\",\n    \"foundation-dog-cancer-foundation-trial-directory: current roster/status not proven\",\n    \"japan-hokkaido-vmth-clinical-research: current roster/status not proven\",\n    \"sponsor-benno-therapeutics-research: current roster/status not proven\",\n    \"sponsor-leah-labs-clinical-trial: current roster/status not proven\",\n    \"usa-oklahoma-state-clinical-trials: current roster/status not proven\",\n    \"usa-veterinary-oncology-services-trials: current roster/status not proven\",\n    \"belgium-ghent-small-animal-clinical-research: current roster/status not proven\",\n    \"japan-nihon-anmec-clinical-research: current roster/status not proven\",\n    \"germany-lmu-small-animal-research: current roster/status not proven\",\n    \"uk-edinburgh-small-animal-clinical-trials: current roster/status not proven\",\n    \"sponsor-akston-oncology-pipeline: current roster/status not proven\",\n    \"fr-armonia-current-clinical-studies: mandatory source was not attempted this run\",\n    \"fr-vetagro-cicv-current-studies: current roster/status not proven despite protocols_seen=1\",\n    \"foundation-mibagents-canine-trials: current roster/status not proven\",\n    \"india-actrec-comparative-oncology-program: current roster/status not proven\",\n    \"new-zealand-kode-veterinary-sciences-trials: current roster/status not proven\",\n    \"malaysia-upm-comparative-oncology: current roster/status not proven\",\n    \"uk-cambridge-veterinary-clinical-trials: mandatory source was not attempted this run\",\n    \"australia-anzcvs-oncology-research-news: current roster/status not proven\",\n    \"sponsor-vmd-sciences-clinical-studies: current roster/status not proven\",\n    \"sweden-slu-oxc101-canine-oncology: current roster/status not proven despite protocols_seen=1\",\n    \"australia-dog-oncology-group-cancv: current roster/status not proven despite protocols_seen=1\",\n    \"usa-midwestern-animal-clinical-studies: current roster/status not proven\",\n    \"spain-auna-oncology-clinical-studies: current roster/status not proven\",\n    \"spain-ucm-mammary-oncology-studies: current roster/status not proven\",\n    \"brazil-usp-onvex-precision-oncology: current roster/status not proven\",\n    \"sponsor-therajan-egfr-her2-trial: current roster/status not proven\",\n    \"japan-vmdp-clinical-development: current roster/status not proven\",\n    \"japan-yamaguchi-mizuno-clinical-trials: current roster/status not proven\",\n    \"japan-tokyo-maeda-clinical-research: current roster/status not proven\",\n    \"australia-thekids-sarcoma-gel-research: current roster/status not proven\",\n    \"australia-adelaide-fido-mammary-research: current roster/status not proven\",\n    \"jp-jasmine-oncology-studies: current roster/status not proven despite protocols_seen=2\",\n    \"tw-gongwin-animal-oncology: current roster/status not proven despite protocols_seen=1\",\n    \"kr-namc-solid-tumor-study: current roster/status not proven\",\n    \"in-ivri-oncology-research: current roster/status not proven despite protocols_seen=1\",\n    \"global-pettrialfinder-secondary: current roster/status not proven despite protocols_seen=4\",\n    \"usa-calusa-uconn-study-signal: current roster/status not proven\"\n  ],\n  \"coverage_gap_count\": 86\n}\n"
+  },
+  "python scripts/validate_audit_gap_review.py research/audit-runs/daily-20261022T030531-0400/gap-review.json --receipt research/audit-runs/daily-20261022T030531-0400/receipt-final.json": {
+    "command": [
+      "python",
+      "scripts/validate_audit_gap_review.py",
+      "research/audit-runs/daily-20261022T030531-0400/gap-review.json",
+      "--receipt",
+      "research/audit-runs/daily-20261022T030531-0400/receipt-final.json"
+    ],
+    "cwd": "/workspace/scratch/7a43f0b7d905/vet-trial-audit-20261022",
+    "started_at": "2026-10-22T03:56:35.490153-04:00",
+    "finished_at": "2026-10-22T03:56:35.601445-04:00",
+    "exit_code": 0,
+    "output": "{\n  \"review_validation\": \"PASS\",\n  \"errors\": [],\n  \"gap_total\": 86,\n  \"categories\": {\n    \"protocol_uncertainty\": 36,\n    \"discovery_source_not_trial_roster\": 17,\n    \"source_unavailable\": 22,\n    \"roster_unestablished\": 3,\n    \"freshness_uncertain\": 8\n  },\n  \"processing_assessments\": {\n    \"external_blocker\": 85,\n    \"not_established\": 1\n  },\n  \"processing_completion\": \"NOT_VERIFIED\",\n  \"strict_coverage_status\": \"INCOMPLETE\"\n}\n"
+  },
+  "python scripts/check_evidence_keys.py": {
+    "command": [
+      "python",
+      "scripts/check_evidence_keys.py"
+    ],
+    "cwd": "/workspace/scratch/7a43f0b7d905/vet-trial-audit-20261022",
+    "started_at": "2026-10-22T03:56:35.602044-04:00",
+    "finished_at": "2026-10-22T03:56:36.740403-04:00",
+    "exit_code": 0,
+    "output": "PASS: no unredacted Google API keys.\n"
+  },
+  "python scripts/audit_preflight.py": {
+    "command": [
+      "python",
+      "scripts/audit_preflight.py"
+    ],
+    "cwd": "/workspace/scratch/7a43f0b7d905/trial-build-c0lhioge",
+    "started_at": "2026-10-22T03:56:36.741235-04:00",
+    "finished_at": "2026-10-22T03:56:37.273338-04:00",
+    "exit_code": 0,
+    "output": "{\n  \"status\": \"PASS_WITH_INCONCLUSIVE\",\n  \"safe_to_continue\": true,\n  \"checks\": [\n    {\n      \"name\": \"catalog\",\n      \"ok\": true,\n      \"returncode\": 0,\n      \"output\": \"TRIAL_CATALOG_VALIDATION_OK records=311 unique_ids=311 active=151 required_active_fields=11\"\n    },\n    {\n      \"name\": \"sources\",\n      \"ok\": true,\n      \"returncode\": 0,\n      \"output\": \"SOURCE_INVENTORY_VALIDATION_OK sources=141 digest=eed6bc301f99\"\n    },\n    {\n      \"name\": \"hygiene\",\n      \"ok\": true,\n      \"returncode\": 0,\n      \"output\": \"REPOSITORY_HYGIENE_OK\"\n    },\n    {\n      \"name\": \"matcher-selection\",\n      \"ok\": true,\n      \"returncode\": 0,\n      \"output\": \"MATCHER_SELECTION_PARITY_OK public=151 disease_checks=18120\\nTUFTS_OSA_COHORT_PARITY_OK cases=8\\nPRIMARY_SITE_LINEAGE_PHASE_PARITY_OK\"\n    },\n    {\n      \"name\": \"streamlit\",\n      \"ok\": false,\n      \"returncode\": 1,\n      \"output\": \"Traceback (most recent call last):\\n  File \\\"/workspace/scratch/7a43f0b7d905/trial-build-c0lhioge/scripts/test_streamlit_pages.py\\\", line 5, in <module>\\n    from streamlit.testing.v1 import AppTest\\nModuleNotFoundError: No module named 'streamlit'\"\n    }\n  ]\n}\n"
+  },
+  "git diff --check": {
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "cwd": "/workspace/scratch/7a43f0b7d905/trial-build-c0lhioge",
+    "started_at": "2026-10-22T03:56:37.273873-04:00",
+    "finished_at": "2026-10-22T03:56:37.320264-04:00",
+    "exit_code": 0,
+    "output": ""
+  }
+}
