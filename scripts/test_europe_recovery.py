@@ -34,6 +34,38 @@ def sha(value):
     return hashlib.sha256(canonical(value).encode()).hexdigest()
 
 
+def before_later_ri_pass(rows, path):
+    """Project the exact accepted RI delta out of the historical EU proof.
+
+    Every changed current row is checked first. The original European counts,
+    hashes, dates and branch-identity assertions below remain unchanged.
+    """
+    manifest = read(ROOT / 'research/audit-runs/ri-care-20261022/baseline-projection.json')
+    spec = manifest['collections'][path]
+    key = spec['key']
+    assert len(rows) == spec['after_count']
+    changes = {c['id']: c for c in spec['changes']}
+    assert len(changes) == 11
+    assert sum(c['before'] is None for c in changes.values()) == 10
+    assert set(changes) == {'ocean-state-veterinary-specialists'} | {
+        r['source_id'] for r in read(ROOT / 'research/audit-runs/ri-care-20261022/published-records.json')
+    }
+    result, seen = [], set()
+    for row in rows:
+        change = changes.get(row.get(key))
+        if change is None:
+            result.append(row)
+            continue
+        assert row[key] not in seen, row[key]
+        seen.add(row[key])
+        assert sha(row) == change['after_sha256'], (row[key], 'unreviewed later RI drift')
+        if change['before'] is not None:
+            result.append(copy.deepcopy(change['before']))
+    assert seen == set(changes)
+    assert len(result) == spec['before_count']
+    return result
+
+
 def tele_rows():
     module = ast.parse((ROOT / 'seo/oncology_teleconsultations.py').read_text())
     return ast.literal_eval(next(node.value for node in module.body
@@ -126,9 +158,11 @@ def test_data():
     assert len({x['source_id'] for x in updates}) == 53
     assert not integration['already_applied'] and len(integration['deferred']) == 4
     catalog = read(ROOT / 'data/oncology_centers.json')
-    public = catalog['centers']
-    supp = read(ROOT / 'data/oncology_centers_supplemental.json')['centers']
-    inventory = read(ROOT / 'data/oncology_care_source_inventory.json')['sources']
+    public = before_later_ri_pass(catalog['centers'], 'data/oncology_centers.json')
+    supp = before_later_ri_pass(read(ROOT / 'data/oncology_centers_supplemental.json')['centers'],
+                               'data/oncology_centers_supplemental.json')
+    inventory = before_later_ri_pass(read(ROOT / 'data/oncology_care_source_inventory.json')['sources'],
+                                    'data/oncology_care_source_inventory.json')
     care_new = {x['source_id']: x for x in news if 'record_sha256' in x}
     assert len(care_new) == 678 and len(public) == 1579
     assert catalog['last_verified'] == proof['baseline_catalog_date']

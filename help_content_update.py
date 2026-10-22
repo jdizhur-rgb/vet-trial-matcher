@@ -22,7 +22,9 @@ def main() -> None:
         'A clear “no matches” is more useful than showing a study that does not fit.',
         'mailto:info@vettrialfinder.com',
     )
-    missing = [item for item in required if item not in text]
+    # Shared sentence-case normalization can run while the shell is assembled.
+    # Verify the required content without depending on obsolete Title Case.
+    missing = [item for item in required if item.casefold() not in text.casefold()]
     if missing:
         raise AssertionError(f'Help content missing: {missing}')
     details = text.count('<details>')

@@ -1,0 +1,291 @@
+{
+  "run_id": "ri-care-20261022",
+  "baseline_commit": "74b964f138b92c3905e3a4573b29d7a6990d7ec0",
+  "purpose": "Reverse exactly this verified RI delta before applying immutable October18 European baseline hash assertions. Current new/updated rows must match the accepted after hashes; no generic growth allowance.",
+  "collections": {
+    "data/oncology_centers.json": {
+      "key": "source_id",
+      "before_count": 1579,
+      "after_count": 1589,
+      "changes": [
+        {
+          "id": "ri-tiogue-veterinary-clinic",
+          "after_sha256": "2967770830fe1b50e40246efa99098353af2e8f966a19695a27ac08cd3308418",
+          "before": null
+        },
+        {
+          "id": "ri-abbott-valley-veterinary-center",
+          "after_sha256": "a3f80c99e12f034ad40aef7fec80e64c5f5dddcbaad97d03e6ffa22c3a8e9ade",
+          "before": null
+        },
+        {
+          "id": "ocean-state-veterinary-specialists",
+          "after_sha256": "4774550abe0d85858499576647f9f3d9028efcfffc8ed005a1559242b005d0cd",
+          "before": {
+            "name": "Ocean State Veterinary Specialists",
+            "street": "1480 S County Trail",
+            "city": "East Greenwich",
+            "region": "RI",
+            "postal_code": "02818",
+            "country": "USA",
+            "phone": "401-886-6787",
+            "services": [
+              "Medical oncology",
+              "Chemotherapy",
+              "Immunotherapy",
+              "Melanoma vaccine"
+            ],
+            "website": "https://www.osvs.net/",
+            "latitude": 41.6498,
+            "longitude": -71.474,
+            "source": "Official branch reconciliation; e-packages-publish-20261012 (E03)",
+            "verification_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=42f07803-80a2-4913-9fcf-5435960dd072",
+            "oncologist_count": 1,
+            "source_id": "ocean-state-veterinary-specialists",
+            "review_reference": "research/audit-runs/e-packages-publish-20261012/integration.json",
+            "clinician_review": "Caleb Alexander — DVM, board-certified ACVIM medical oncology. Kellie Snider — DVM, practice limited to oncology, residency completed; не DACVIM из этого источника. Susan Newell DACVR — diagnostic radiology, не radiation oncology.",
+            "availability_note": "In-person oncology by appointment and primary veterinarian referral; chemotherapy is administered locally. Radiation referrals go to nearby facilities, including sister hospital Bay State Veterinary Emergency & Specialty Services.",
+            "last_verified": "2026-10-12",
+            "supporting_urls": [
+              "https://osvs.net/",
+              "https://osvs.net/contact",
+              "https://osvs.net/oncology",
+              "https://osvs.net/veterinary-specialists/"
+            ],
+            "service_scope_provenance": "Добавить chemotherapy/immunotherapy/melanoma vaccine без неподтверждённого бренда ONCEPT; RT оставить внешним маршрутом.",
+            "review_questions": [
+              "Бренд melanoma vaccine отдельно не указан. Не приравнивать Snider к board-certified Alexander."
+            ]
+          }
+        },
+        {
+          "id": "ri-community-pet-project",
+          "after_sha256": "4e1840c4967f2b83d98f9a4ef3e272037b1ee5f5e805d2d1b8ca979ddc4be690",
+          "before": null
+        },
+        {
+          "id": "ri-riverside-animal-hospital",
+          "after_sha256": "6b7699a912ddba4acf193253b63a4c0536ddc92bfe5990680b4b8c4015d4684a",
+          "before": null
+        },
+        {
+          "id": "ri-cowesett-animal-hospital",
+          "after_sha256": "61e35315247d9960fe9ae2cd2771c802c4f63240e4edb42fb4622a89dc7623e4",
+          "before": null
+        },
+        {
+          "id": "ri-veterinary-dentistry-oral-surgery",
+          "after_sha256": "8203a2490bc90200835298ccea3041e2cfd577032093fb567dca6116506ad5d4",
+          "before": null
+        },
+        {
+          "id": "ri-warwick-animal-hospital",
+          "after_sha256": "4e2502a4d658bc36a137ff199c06d07a93fe938107dced8f852e153c5821b3ba",
+          "before": null
+        },
+        {
+          "id": "ri-west-shore-animal-clinic",
+          "after_sha256": "57e249ac515bae1001ef6d632958913c8de16fc3d874fc67c4527b209bf8c89e",
+          "before": null
+        },
+        {
+          "id": "ri-salt-ponds-animal-hospital",
+          "after_sha256": "6aabc32905610d1dac1d183ae4caba9c75601aaf98e82e32bd7463c012cf845a",
+          "before": null
+        },
+        {
+          "id": "ri-wood-river-animal-hospital",
+          "after_sha256": "d0edb989a1feb0e3a6c3070661c2432db9fcf5fd501583980736bc58b62a45cc",
+          "before": null
+        }
+      ]
+    },
+    "data/oncology_centers_supplemental.json": {
+      "key": "source_id",
+      "before_count": 1571,
+      "after_count": 1581,
+      "changes": [
+        {
+          "id": "ocean-state-veterinary-specialists",
+          "after_sha256": "4774550abe0d85858499576647f9f3d9028efcfffc8ed005a1559242b005d0cd",
+          "before": {
+            "name": "Ocean State Veterinary Specialists",
+            "street": "1480 S County Trail",
+            "city": "East Greenwich",
+            "region": "RI",
+            "postal_code": "02818",
+            "country": "USA",
+            "phone": "401-886-6787",
+            "services": [
+              "Medical oncology",
+              "Chemotherapy",
+              "Immunotherapy",
+              "Melanoma vaccine"
+            ],
+            "website": "https://www.osvs.net/",
+            "latitude": 41.6498,
+            "longitude": -71.474,
+            "source": "Official branch reconciliation; e-packages-publish-20261012 (E03)",
+            "verification_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=42f07803-80a2-4913-9fcf-5435960dd072",
+            "oncologist_count": 1,
+            "source_id": "ocean-state-veterinary-specialists",
+            "review_reference": "research/audit-runs/e-packages-publish-20261012/integration.json",
+            "clinician_review": "Caleb Alexander — DVM, board-certified ACVIM medical oncology. Kellie Snider — DVM, practice limited to oncology, residency completed; не DACVIM из этого источника. Susan Newell DACVR — diagnostic radiology, не radiation oncology.",
+            "availability_note": "In-person oncology by appointment and primary veterinarian referral; chemotherapy is administered locally. Radiation referrals go to nearby facilities, including sister hospital Bay State Veterinary Emergency & Specialty Services.",
+            "last_verified": "2026-10-12",
+            "supporting_urls": [
+              "https://osvs.net/",
+              "https://osvs.net/contact",
+              "https://osvs.net/oncology",
+              "https://osvs.net/veterinary-specialists/"
+            ],
+            "service_scope_provenance": "Добавить chemotherapy/immunotherapy/melanoma vaccine без неподтверждённого бренда ONCEPT; RT оставить внешним маршрутом.",
+            "review_questions": [
+              "Бренд melanoma vaccine отдельно не указан. Не приравнивать Snider к board-certified Alexander."
+            ]
+          }
+        },
+        {
+          "id": "ri-wood-river-animal-hospital",
+          "after_sha256": "d0edb989a1feb0e3a6c3070661c2432db9fcf5fd501583980736bc58b62a45cc",
+          "before": null
+        },
+        {
+          "id": "ri-west-shore-animal-clinic",
+          "after_sha256": "57e249ac515bae1001ef6d632958913c8de16fc3d874fc67c4527b209bf8c89e",
+          "before": null
+        },
+        {
+          "id": "ri-warwick-animal-hospital",
+          "after_sha256": "4e2502a4d658bc36a137ff199c06d07a93fe938107dced8f852e153c5821b3ba",
+          "before": null
+        },
+        {
+          "id": "ri-community-pet-project",
+          "after_sha256": "4e1840c4967f2b83d98f9a4ef3e272037b1ee5f5e805d2d1b8ca979ddc4be690",
+          "before": null
+        },
+        {
+          "id": "ri-veterinary-dentistry-oral-surgery",
+          "after_sha256": "8203a2490bc90200835298ccea3041e2cfd577032093fb567dca6116506ad5d4",
+          "before": null
+        },
+        {
+          "id": "ri-riverside-animal-hospital",
+          "after_sha256": "6b7699a912ddba4acf193253b63a4c0536ddc92bfe5990680b4b8c4015d4684a",
+          "before": null
+        },
+        {
+          "id": "ri-tiogue-veterinary-clinic",
+          "after_sha256": "2967770830fe1b50e40246efa99098353af2e8f966a19695a27ac08cd3308418",
+          "before": null
+        },
+        {
+          "id": "ri-cowesett-animal-hospital",
+          "after_sha256": "61e35315247d9960fe9ae2cd2771c802c4f63240e4edb42fb4622a89dc7623e4",
+          "before": null
+        },
+        {
+          "id": "ri-salt-ponds-animal-hospital",
+          "after_sha256": "6aabc32905610d1dac1d183ae4caba9c75601aaf98e82e32bd7463c012cf845a",
+          "before": null
+        },
+        {
+          "id": "ri-abbott-valley-veterinary-center",
+          "after_sha256": "a3f80c99e12f034ad40aef7fec80e64c5f5dddcbaad97d03e6ffa22c3a8e9ade",
+          "before": null
+        }
+      ]
+    },
+    "data/oncology_care_source_inventory.json": {
+      "key": "id",
+      "before_count": 1657,
+      "after_count": 1667,
+      "changes": [
+        {
+          "id": "ocean-state-veterinary-specialists",
+          "after_sha256": "cde0fca3dc2a9f51d35b4f4ea06029bdbe66317ab4d9f930c90ec152a2bb1b2d",
+          "before": {
+            "id": "ocean-state-veterinary-specialists",
+            "name": "Ocean State Veterinary Specialists",
+            "source_type": "center",
+            "master_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=42f07803-80a2-4913-9fcf-5435960dd072",
+            "supporting_urls": [
+              "https://osvs.net/",
+              "https://osvs.net/contact",
+              "https://osvs.net/oncology",
+              "https://osvs.net/veterinary-specialists/"
+            ],
+            "required_cadence": "weekly",
+            "last_checked": "2026-10-12",
+            "last_checked_at": "2026-10-12T23:58:49.526748+00:00",
+            "last_result": "partial",
+            "http_status": 200,
+            "working_url": "https://www.osvs.net/",
+            "fingerprint_sha256": "2e18e9f79c37c0faa4a2bd4c6deb1c25843e7ee3e6152903ca4b938e391c80de",
+            "content_sufficient": false,
+            "fingerprint_method": "sha256-visible-text",
+            "last_run_id": "e-packages-publish-20261012",
+            "last_review_note": "Добавить chemotherapy/immunotherapy/melanoma vaccine без неподтверждённого бренда ONCEPT; RT оставить внешним маршрутом.",
+            "last_reviewed_at": "2026-10-12",
+            "last_review_run_id": "e-packages-publish-20261012",
+            "review_questions": [
+              "Бренд melanoma vaccine отдельно не указан. Не приравнивать Snider к board-certified Alexander."
+            ],
+            "needs_recheck": true
+          }
+        },
+        {
+          "id": "ri-wood-river-animal-hospital",
+          "after_sha256": "fa461228889ffa178103c6faa47f0338ae192b9b19904faf071b1d3ad73f0c43",
+          "before": null
+        },
+        {
+          "id": "ri-west-shore-animal-clinic",
+          "after_sha256": "086f9b11dfccab7b6c09c2f6ad20bcae48afcffe437f902764a2b2e394949505",
+          "before": null
+        },
+        {
+          "id": "ri-warwick-animal-hospital",
+          "after_sha256": "97c4a2519f87d6ac6d877798dcf98f430a71a2493963cfe2483619b463fcf537",
+          "before": null
+        },
+        {
+          "id": "ri-community-pet-project",
+          "after_sha256": "8cae399771b871a2bb5d5fdfa99c040df88f013463612bea4aa6fd1958eb59e3",
+          "before": null
+        },
+        {
+          "id": "ri-veterinary-dentistry-oral-surgery",
+          "after_sha256": "111012baba472988cbc83d4c5946c11a52e1ba30b8160aa20a8889dedadae822",
+          "before": null
+        },
+        {
+          "id": "ri-riverside-animal-hospital",
+          "after_sha256": "e0e812f5299a9b874897713e2d466531074951598c0b8dbd13b3f59eb40511f7",
+          "before": null
+        },
+        {
+          "id": "ri-tiogue-veterinary-clinic",
+          "after_sha256": "fe9b22c590919b7b9b2ed543d06cc90c4e6a2a3a8f4c5ccbd33c62b6772422e8",
+          "before": null
+        },
+        {
+          "id": "ri-cowesett-animal-hospital",
+          "after_sha256": "bbcdb6c94f732570de97ab180e7e9c532f07c4e927eb4d13fa8b05a27a271e9e",
+          "before": null
+        },
+        {
+          "id": "ri-salt-ponds-animal-hospital",
+          "after_sha256": "cdf28e5db5f82c29f93df87d6a52c3275eb5d02355ee9f5e62b61cf8e1aa75a6",
+          "before": null
+        },
+        {
+          "id": "ri-abbott-valley-veterinary-center",
+          "after_sha256": "e14ea536d1d80fe26427a777df75c6d94b71af8a3664f4b498b165f458881ffc",
+          "before": null
+        }
+      ]
+    }
+  }
+}

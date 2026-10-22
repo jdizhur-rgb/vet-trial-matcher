@@ -1,0 +1,66 @@
+{
+  "run_id": "ri-care-20261022",
+  "territory": "RI",
+  "checked_date": "2026-10-22",
+  "date_precision": "day",
+  "agents_used": 1,
+  "automations_created_or_modified": 0,
+  "baseline_RI_physical_locations": 1,
+  "verified_new_physical_locations": 10,
+  "result_RI_physical_locations": 11,
+  "updated_existing_ids": [
+    "ocean-state-veterinary-specialists"
+  ],
+  "new_source_ids": [
+    "ri-wood-river-animal-hospital",
+    "ri-west-shore-animal-clinic",
+    "ri-warwick-animal-hospital",
+    "ri-community-pet-project",
+    "ri-veterinary-dentistry-oral-surgery",
+    "ri-riverside-animal-hospital",
+    "ri-tiogue-veterinary-clinic",
+    "ri-cowesett-animal-hospital",
+    "ri-salt-ponds-animal-hospital",
+    "ri-abbott-valley-veterinary-center"
+  ],
+  "new_services": {
+    "ri-wood-river-animal-hospital": [
+      "Chemotherapy",
+      "ECT",
+      "Cancer vaccines (brand unspecified)"
+    ],
+    "nine_other_new_locations": "Mass/growth or oral-tumor removal; no chemotherapy or oncology board credentials inferred"
+  },
+  "search_queries_executed": 39,
+  "search_engines_used": 2,
+  "search_layers": [
+    "Current known records and full-catalog semantic comparison",
+    "Specialist/oncology and general-practice chemotherapy",
+    "Tumor/growth removal and oral tumor surgery",
+    "Providence/Kent/Newport/Bristol/Washington county city clusters",
+    "Mobile/visiting providers and original source cross-check",
+    "New-service/opening discovery",
+    "Directories/social/reviews as leads only"
+  ],
+  "search_limitations": [
+    "Yelp search reported non-retryable robots restriction",
+    "Google Maps UI was not searched; source websites supplied address facts",
+    "No exhaustive enumeration of every general veterinary practice",
+    "No contacts/forms/messages sent"
+  ],
+  "state_coverage_complete": false,
+  "executor_remaining": [],
+  "other_dispositions_reference": "remaining.json",
+  "primary_evidence_reference": "web-evidence.json",
+  "source_date_policy": "Only actual new source reads dated October22; previous OSVS row dates preserved in baseline-projection.json. No exact successful visit times invented.",
+  "publication_status": "owner_approved_pending_push",
+  "validation": {
+    "full_static_build": "PASS",
+    "care_schema_and_finder": "PASS",
+    "country_state_service_filters": "PASS",
+    "matcher_loading": "PASS",
+    "six_worker_historical_regression": "PASS",
+    "europe_baseline_preservation": "PASS with exact later-RI inverse delta; original hashes unchanged",
+    "legacy_E_packages": "NONBLOCKING existing test assumes every unknown-coordinate non-mobile record has street; preexisting network entries violate that outdated assumption. Current dedicated network/schema and full build pass."
+  }
+}

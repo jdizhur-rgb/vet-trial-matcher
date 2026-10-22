@@ -14219,7 +14219,8 @@
         "Medical oncology",
         "Chemotherapy",
         "Immunotherapy",
-        "Melanoma vaccine"
+        "Melanoma vaccine",
+        "Surgery"
       ],
       "website": "https://www.osvs.net/",
       "latitude": 41.6498,
@@ -14236,12 +14237,17 @@
         "https://osvs.net/",
         "https://osvs.net/contact",
         "https://osvs.net/oncology",
-        "https://osvs.net/veterinary-specialists/"
+        "https://osvs.net/veterinary-specialists/",
+        "https://osvs.net/surgery/"
       ],
-      "service_scope_provenance": "Добавить chemotherapy/immunotherapy/melanoma vaccine без неподтверждённого бренда ONCEPT; RT оставить внешним маршрутом.",
+      "service_scope_provenance": "Добавить chemotherapy/immunotherapy/melanoma vaccine без неподтверждённого бренда ONCEPT; RT оставить внешним маршрутом. Local tumor-removal surgery independently confirmed on official surgery page 2026-10-22; other service/clinician dates preserved.",
       "review_questions": [
         "Бренд melanoma vaccine отдельно не указан. Не приравнивать Snider к board-certified Alexander."
-      ]
+      ],
+      "service_verification_dates": {
+        "Surgery": "2026-10-22"
+      },
+      "surgery_review_reference": "research/audit-runs/ri-care-20261022/result.json"
     },
     {
       "name": "Pacific Northwest Pet ER and Specialty Center",
@@ -55969,6 +55975,402 @@
       "review_reference": "https://github.com/jdizhur-rgb/vet-trial-matcher/blob/bb4c0f3d79c5b07528ebd9351d62876e1e49c7cc/research/audit-runs/eu6-recovery-20261018T020312Z/worker-6/checkpoints/block-03/report.md",
       "publication_run_id": "eu6-recovery-20261018T020312Z",
       "audit_run_id": "eu6-recovery-20261016T220849-0400"
+    },
+    {
+      "source_id": "ri-wood-river-animal-hospital",
+      "name": "Wood River Animal Hospital",
+      "street": "28 Kingstown Road",
+      "city": "Wyoming",
+      "region": "RI",
+      "postal_code": "02898",
+      "country": "USA",
+      "phone": "401-539-1199",
+      "website": "https://www.woodriveranimalhospitalinc.com/services",
+      "verification_url": "https://www.woodriveranimalhospitalinc.com/services",
+      "services": [
+        "Local oncology care",
+        "Chemotherapy",
+        "ECT",
+        "Immunotherapy"
+      ],
+      "supporting_urls": [
+        "https://www.woodriveranimalhospitalinc.com/contact",
+        "https://www.woodriveranimalhospitalinc.com/our-practice"
+      ],
+      "last_verified": "2026-10-22",
+      "source": "Official service page explicitly lists the three modalities; current contact and practice pages establish local care and booking. No oncology board certification or vaccine brand inferred.",
+      "availability_note": "The clinic lists chemotherapy, electrochemotherapy and cancer vaccines. Call to confirm suitability, the treating veterinarian, vaccine type and treatment scheduling.",
+      "location_type": "physical",
+      "service_scope": "physical",
+      "latitude": null,
+      "longitude": null,
+      "coordinates_unknown": true,
+      "coordinate_source": "Street address verified from the official clinic; building coordinates not independently obtained in this pass.",
+      "review_reference": "research/audit-runs/ri-care-20261022/result.json",
+      "audit_run_id": "ri-care-20261022",
+      "review_questions": [
+        "Current assigned clinician and cancer-vaccine brand/eligibility require confirmation; staff page returned 403."
+      ]
+    },
+    {
+      "source_id": "ri-west-shore-animal-clinic",
+      "name": "West Shore Animal Clinic",
+      "street": "2500 West Shore Road",
+      "city": "Warwick",
+      "region": "RI",
+      "postal_code": "02889",
+      "country": "USA",
+      "phone": "401-738-3447",
+      "website": "https://westshoreanimalclinic.com/services/pet-soft-tissue-surgery",
+      "verification_url": "https://westshoreanimalclinic.com/services/pet-soft-tissue-surgery",
+      "services": [
+        "Local oncology care",
+        "Surgery"
+      ],
+      "supporting_urls": [
+        "https://westshoreanimalclinic.com/veterinarians"
+      ],
+      "last_verified": "2026-10-22",
+      "source": "Official branch service page confirms mass/tumor removal; named general veterinarians are not assigned oncology credentials.",
+      "availability_note": "Mass/tumor removal is listed among local soft-tissue operations. Contact the clinic for case assessment and a surgical appointment.",
+      "location_type": "physical",
+      "service_scope": "physical",
+      "latitude": null,
+      "longitude": null,
+      "coordinates_unknown": true,
+      "coordinate_source": "Street address verified from the official clinic; building coordinates not independently obtained in this pass.",
+      "review_reference": "research/audit-runs/ri-care-20261022/result.json",
+      "audit_run_id": "ri-care-20261022",
+      "care_clinicians": [
+        {
+          "published_label": "Kaitlin Gelsomino, DVM",
+          "url": "https://westshoreanimalclinic.com/veterinarians"
+        },
+        {
+          "published_label": "Kathryn Proulx, DVM",
+          "url": "https://westshoreanimalclinic.com/veterinarians"
+        },
+        {
+          "published_label": "Devon Young, DVM",
+          "url": "https://westshoreanimalclinic.com/veterinarians"
+        }
+      ]
+    },
+    {
+      "source_id": "ri-warwick-animal-hospital",
+      "name": "Warwick Animal Hospital",
+      "street": "1950 Elmwood Avenue",
+      "city": "Warwick",
+      "region": "RI",
+      "postal_code": "02888",
+      "country": "USA",
+      "phone": "401-785-2222",
+      "website": "https://warwickanimalhospitalri.com/services/pet-soft-tissue-surgery",
+      "verification_url": "https://warwickanimalhospitalri.com/services/pet-soft-tissue-surgery",
+      "services": [
+        "Local oncology care",
+        "Surgery"
+      ],
+      "supporting_urls": [
+        "https://warwickanimalhospitalri.com/warwick-veterinarians"
+      ],
+      "last_verified": "2026-10-22",
+      "source": "Official branch service page confirms mass/tumor removal and contact; current team checked without oncology credential inference.",
+      "availability_note": "Mass/tumor removal is listed among local soft-tissue operations. Call or request an appointment for case assessment.",
+      "location_type": "physical",
+      "service_scope": "physical",
+      "latitude": null,
+      "longitude": null,
+      "coordinates_unknown": true,
+      "coordinate_source": "Street address verified from the official clinic; building coordinates not independently obtained in this pass.",
+      "review_reference": "research/audit-runs/ri-care-20261022/result.json",
+      "audit_run_id": "ri-care-20261022",
+      "care_clinicians": [
+        {
+          "published_label": "Daniel Echt, MVB",
+          "url": "https://warwickanimalhospitalri.com/warwick-veterinarians"
+        },
+        {
+          "published_label": "Lindsay Bosworth, DVM",
+          "url": "https://warwickanimalhospitalri.com/warwick-veterinarians"
+        }
+      ]
+    },
+    {
+      "source_id": "ri-community-pet-project",
+      "name": "Rhode Island Community Pet Project",
+      "street": "186 Amaral Street",
+      "city": "Riverside",
+      "region": "RI",
+      "postal_code": "02915",
+      "country": "USA",
+      "phone": "401-270-3832",
+      "website": "https://www.ricpp.org/services",
+      "verification_url": "https://www.ricpp.org/services",
+      "services": [
+        "Local oncology care",
+        "Surgery"
+      ],
+      "supporting_urls": [
+        "https://www.ricpp.org/about",
+        "https://www.ricpp.org/"
+      ],
+      "last_verified": "2026-10-22",
+      "source": "Official current clinic service/about pages establish tumor removal, address, appointment route and income/residency restriction. Discounted care is not free care. Individual surgeon not publicly identified in the pages read.",
+      "availability_note": "Tumor-removal surgery for qualified low-income Rhode Island residents. Call to confirm income eligibility, case acceptance, costs and scheduling. The clinic publishes a spay/neuter requirement for ongoing care; ask how it applies to your pet.",
+      "location_type": "physical",
+      "service_scope": "physical",
+      "latitude": null,
+      "longitude": null,
+      "coordinates_unknown": true,
+      "coordinate_source": "Street address verified from the official clinic; building coordinates not independently obtained in this pass.",
+      "review_reference": "research/audit-runs/ri-care-20261022/result.json",
+      "audit_run_id": "ri-care-20261022",
+      "review_questions": [
+        "Income qualification and spay/neuter policy application are confirmed by the clinic when booking; individual surgeon not identified."
+      ]
+    },
+    {
+      "source_id": "ri-veterinary-dentistry-oral-surgery",
+      "name": "Veterinary Dentistry and Oral Surgery of Rhode Island",
+      "street": "151 Centerville Road",
+      "city": "Warwick",
+      "region": "RI",
+      "postal_code": "02886",
+      "country": "USA",
+      "phone": "401-379-5100",
+      "website": "https://veterinarydentistri.com/",
+      "verification_url": "https://veterinarydentistri.com/",
+      "services": [
+        "Local oncology care",
+        "Surgery"
+      ],
+      "supporting_urls": [
+        "https://veterinarydentistri.com/contact/"
+      ],
+      "last_verified": "2026-10-22",
+      "source": "Official clinic homepage explicitly confirms oral tumor removal, named dental specialists, complete address and consultation route. Dental credentials do not imply oncology board certification.",
+      "availability_note": "Removal of oral tumors and masses. Call for a consultation and confirmation of the appropriate surgeon and procedure.",
+      "location_type": "physical",
+      "service_scope": "physical",
+      "latitude": null,
+      "longitude": null,
+      "coordinates_unknown": true,
+      "coordinate_source": "Street address verified from the official clinic; building coordinates not independently obtained in this pass.",
+      "review_reference": "research/audit-runs/ri-care-20261022/result.json",
+      "audit_run_id": "ri-care-20261022",
+      "care_clinicians": [
+        {
+          "published_label": "Daniel Clayton, VMD, DAVDC",
+          "url": "https://veterinarydentistri.com/"
+        },
+        {
+          "published_label": "Kristina Feigin, DVM, DAVDC, DEVDC",
+          "url": "https://veterinarydentistri.com/"
+        }
+      ]
+    },
+    {
+      "source_id": "ri-riverside-animal-hospital",
+      "name": "Riverside Animal Hospital",
+      "street": "815 Willett Avenue",
+      "city": "Riverside",
+      "region": "RI",
+      "postal_code": "02915",
+      "country": "USA",
+      "phone": "401-433-2070",
+      "website": "https://riversideanimalhospitalri.com/services/pet-soft-tissue-surgery",
+      "verification_url": "https://riversideanimalhospitalri.com/services/pet-soft-tissue-surgery",
+      "services": [
+        "Local oncology care",
+        "Surgery"
+      ],
+      "supporting_urls": [
+        "https://riversideanimalhospitalri.com/RI-veterinarians"
+      ],
+      "last_verified": "2026-10-22",
+      "source": "Official branch service page confirms mass/tumor removal; current veterinary team and appointment/contact route checked.",
+      "availability_note": "Mass/tumor removal is listed among local soft-tissue operations. Call or request an appointment for case assessment.",
+      "location_type": "physical",
+      "service_scope": "physical",
+      "latitude": null,
+      "longitude": null,
+      "coordinates_unknown": true,
+      "coordinate_source": "Street address verified from the official clinic; building coordinates not independently obtained in this pass.",
+      "review_reference": "research/audit-runs/ri-care-20261022/result.json",
+      "audit_run_id": "ri-care-20261022",
+      "care_clinicians": [
+        {
+          "published_label": "Anna Portnoy, DVM",
+          "url": "https://riversideanimalhospitalri.com/RI-veterinarians"
+        }
+      ]
+    },
+    {
+      "source_id": "ri-tiogue-veterinary-clinic",
+      "name": "Tiogue Veterinary Clinic",
+      "street": "916 Tiogue Avenue",
+      "city": "Coventry",
+      "region": "RI",
+      "postal_code": "02816",
+      "country": "USA",
+      "phone": "401-821-6927",
+      "website": "https://tiogueveterinaryclinic.com/services/pet-soft-tissue-surgery",
+      "verification_url": "https://tiogueveterinaryclinic.com/services/pet-soft-tissue-surgery",
+      "services": [
+        "Local oncology care",
+        "Surgery"
+      ],
+      "supporting_urls": [
+        "https://tiogueveterinaryclinic.com/services/pet-dental-surgery",
+        "https://tiogueveterinaryclinic.com/coventry-veterinarians"
+      ],
+      "last_verified": "2026-10-22",
+      "source": "Official local soft-tissue and dental service pages establish tumor removal/oral cancer care; no chemotherapy inferred.",
+      "availability_note": "Mass/tumor removal and oral cancer care are listed. Contact the clinic to confirm the procedure, treating veterinarian and appointment availability.",
+      "location_type": "physical",
+      "service_scope": "physical",
+      "latitude": null,
+      "longitude": null,
+      "coordinates_unknown": true,
+      "coordinate_source": "Street address verified from the official clinic; building coordinates not independently obtained in this pass.",
+      "review_reference": "research/audit-runs/ri-care-20261022/result.json",
+      "audit_run_id": "ri-care-20261022",
+      "care_clinicians": [
+        {
+          "published_label": "Caroline Mailloux, DVM",
+          "url": "https://tiogueveterinaryclinic.com/coventry-veterinarians"
+        },
+        {
+          "published_label": "Karen Turcotte, DVM",
+          "url": "https://tiogueveterinaryclinic.com/coventry-veterinarians"
+        }
+      ]
+    },
+    {
+      "source_id": "ri-cowesett-animal-hospital",
+      "name": "Cowesett Animal Hospital",
+      "street": "50 Calhoun Avenue",
+      "city": "Warwick",
+      "region": "RI",
+      "postal_code": "02886",
+      "country": "USA",
+      "phone": "401-732-4050",
+      "website": "https://www.cowesettanimalhospital.com/",
+      "verification_url": "https://www.cowesettanimalhospital.com/",
+      "services": [
+        "Local oncology care",
+        "Surgery"
+      ],
+      "supporting_urls": [
+        "https://www.cowesettanimalhospital.com/meet-our-staff/"
+      ],
+      "last_verified": "2026-10-22",
+      "source": "Official clinic homepage explicitly confirms tumor removal; current named veterinarian and contact checked. Directory oncology label does not establish chemotherapy.",
+      "availability_note": "Tumor removal and surgical biopsies are listed among local soft-tissue procedures. Call for case assessment and scheduling.",
+      "location_type": "physical",
+      "service_scope": "physical",
+      "latitude": null,
+      "longitude": null,
+      "coordinates_unknown": true,
+      "coordinate_source": "Street address verified from the official clinic; building coordinates not independently obtained in this pass.",
+      "review_reference": "research/audit-runs/ri-care-20261022/result.json",
+      "audit_run_id": "ri-care-20261022",
+      "care_clinicians": [
+        {
+          "published_label": "Beth Labriola, DVM",
+          "url": "https://www.cowesettanimalhospital.com/meet-our-staff/"
+        }
+      ]
+    },
+    {
+      "source_id": "ri-salt-ponds-animal-hospital",
+      "name": "Salt Ponds Animal Hospital",
+      "street": "31 Post Road",
+      "city": "Westerly",
+      "region": "RI",
+      "postal_code": "02891",
+      "country": "USA",
+      "phone": "401-596-0858",
+      "website": "https://www.saltpondsanimalhospital.com/services/surgical-procedures/",
+      "verification_url": "https://www.saltpondsanimalhospital.com/services/surgical-procedures/",
+      "services": [
+        "Local oncology care",
+        "Surgery"
+      ],
+      "supporting_urls": [
+        "https://www.saltpondsanimalhospital.com/",
+        "https://www.saltpondsanimalhospital.com/about-us/team/"
+      ],
+      "last_verified": "2026-10-22",
+      "source": "Official branch surgical page explicitly offers mass removal and oral mass surgery, with local-versus-referral screening. The advanced-care SEO title alone does not establish chemotherapy or an on-site oncologist.",
+      "availability_note": "Mass removal and surgery for oral masses are listed. Following assessment, the clinic confirms whether surgery can be performed locally or needs referral.",
+      "location_type": "physical",
+      "service_scope": "physical",
+      "latitude": null,
+      "longitude": null,
+      "coordinates_unknown": true,
+      "coordinate_source": "Street address verified from the official clinic; building coordinates not independently obtained in this pass.",
+      "review_reference": "research/audit-runs/ri-care-20261022/result.json",
+      "audit_run_id": "ri-care-20261022",
+      "care_clinicians": [
+        {
+          "published_label": "Fred Levy, DVM",
+          "url": "https://www.saltpondsanimalhospital.com/about-us/team/"
+        },
+        {
+          "published_label": "Sam Lester, DVM",
+          "url": "https://www.saltpondsanimalhospital.com/about-us/team/"
+        }
+      ]
+    },
+    {
+      "source_id": "ri-abbott-valley-veterinary-center",
+      "name": "Abbott Valley Veterinary Center",
+      "street": "4232 Diamond Hill Road",
+      "city": "Cumberland",
+      "region": "RI",
+      "postal_code": "02864",
+      "country": "USA",
+      "phone": "401-334-2765",
+      "website": "https://www.abbottvalleyvetcenter.com/services",
+      "verification_url": "https://www.abbottvalleyvetcenter.com/services",
+      "services": [
+        "Local oncology care",
+        "Surgery"
+      ],
+      "supporting_urls": [
+        "https://www.abbottvalleyvetcenter.com/staff"
+      ],
+      "last_verified": "2026-10-22",
+      "source": "Official local service page explicitly offers growth removal. No chemotherapy or cancer-specialist certification inferred; visiting surgeons are not individually assigned to tumor procedures.",
+      "availability_note": "The clinic lists growth removal among its general surgical procedures. Call for assessment of your pet’s mass, the procedure and appointment availability.",
+      "location_type": "physical",
+      "service_scope": "physical",
+      "latitude": null,
+      "longitude": null,
+      "coordinates_unknown": true,
+      "coordinate_source": "Street address verified from the official clinic; building coordinates not independently obtained in this pass.",
+      "review_reference": "research/audit-runs/ri-care-20261022/result.json",
+      "audit_run_id": "ri-care-20261022",
+      "care_clinicians": [
+        {
+          "published_label": "Carly Fielding, DVM",
+          "url": "https://www.abbottvalleyvetcenter.com/staff"
+        },
+        {
+          "published_label": "Joyce Gifford, DVM",
+          "url": "https://www.abbottvalleyvetcenter.com/staff"
+        },
+        {
+          "published_label": "Brandy Tanguay, DVM",
+          "url": "https://www.abbottvalleyvetcenter.com/staff"
+        },
+        {
+          "published_label": "Jonathan Goff, DVM",
+          "url": "https://www.abbottvalleyvetcenter.com/staff"
+        }
+      ]
     }
   ]
 }

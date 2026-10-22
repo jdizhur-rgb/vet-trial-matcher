@@ -5577,22 +5577,22 @@
         "https://osvs.net/veterinary-specialists/"
       ],
       "required_cadence": "weekly",
-      "last_checked": "2026-10-12",
-      "last_checked_at": "2026-10-12T23:58:49.526748+00:00",
+      "last_checked": "2026-10-22",
       "last_result": "partial",
       "http_status": 200,
       "working_url": "https://www.osvs.net/",
       "fingerprint_sha256": "2e18e9f79c37c0faa4a2bd4c6deb1c25843e7ee3e6152903ca4b938e391c80de",
       "content_sufficient": false,
       "fingerprint_method": "sha256-visible-text",
-      "last_run_id": "e-packages-publish-20261012",
-      "last_review_note": "Добавить chemotherapy/immunotherapy/melanoma vaccine без неподтверждённого бренда ONCEPT; RT оставить внешним маршрутом.",
+      "last_run_id": "ri-care-20261022",
+      "last_review_note": "Current official oncology and surgery pages read. Local tumor-removal surgery added; earlier clinician roster and other service dates retained. Vaccine brand remains unspecified.",
       "last_reviewed_at": "2026-10-12",
       "last_review_run_id": "e-packages-publish-20261012",
       "review_questions": [
         "Бренд melanoma vaccine отдельно не указан. Не приравнивать Snider к board-certified Alexander."
       ],
-      "needs_recheck": true
+      "needs_recheck": true,
+      "review_reference": "research/audit-runs/ri-care-20261022/result.json"
     },
     {
       "id": "oncovetpr",
@@ -42970,6 +42970,209 @@
       "last_run_id": "eu6-recovery-20261016T220849-0400",
       "review_reference": "https://github.com/jdizhur-rgb/vet-trial-matcher/blob/bb4c0f3d79c5b07528ebd9351d62876e1e49c7cc/research/audit-runs/eu6-recovery-20261018T020312Z/worker-6/checkpoints/block-03/report.md",
       "publication_run_id": "eu6-recovery-20261018T020312Z",
+      "needs_recheck": false,
+      "service_scope": "physical"
+    },
+    {
+      "id": "ri-wood-river-animal-hospital",
+      "name": "Wood River Animal Hospital",
+      "source_type": "center",
+      "master_url": "https://www.woodriveranimalhospitalinc.com/services",
+      "supporting_urls": [
+        "https://www.woodriveranimalhospitalinc.com/contact",
+        "https://www.woodriveranimalhospitalinc.com/our-practice"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-22",
+      "last_result": "verified_core_care",
+      "working_url": "https://www.woodriveranimalhospitalinc.com/services",
+      "content_sufficient": true,
+      "last_run_id": "ri-care-20261022",
+      "review_reference": "research/audit-runs/ri-care-20261022/result.json",
+      "needs_recheck": true,
+      "service_scope": "physical",
+      "review_questions": [
+        "Current assigned clinician and cancer-vaccine brand/eligibility require confirmation; staff page returned 403."
+      ],
+      "access_restrictions": [
+        {
+          "url": "https://www.woodriveranimalhospitalinc.com/",
+          "result": "403",
+          "observed_date": "2026-10-22",
+          "scope": "exact URL",
+          "method": "Web"
+        },
+        {
+          "url": "https://www.woodriveranimalhospitalinc.com/staff",
+          "result": "403",
+          "observed_date": "2026-10-22",
+          "scope": "exact URL",
+          "method": "Web"
+        }
+      ]
+    },
+    {
+      "id": "ri-west-shore-animal-clinic",
+      "name": "West Shore Animal Clinic",
+      "source_type": "center",
+      "master_url": "https://westshoreanimalclinic.com/services/pet-soft-tissue-surgery",
+      "supporting_urls": [
+        "https://westshoreanimalclinic.com/veterinarians"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-22",
+      "last_result": "verified_core_care",
+      "working_url": "https://westshoreanimalclinic.com/services/pet-soft-tissue-surgery",
+      "content_sufficient": true,
+      "last_run_id": "ri-care-20261022",
+      "review_reference": "research/audit-runs/ri-care-20261022/result.json",
+      "needs_recheck": false,
+      "service_scope": "physical"
+    },
+    {
+      "id": "ri-warwick-animal-hospital",
+      "name": "Warwick Animal Hospital",
+      "source_type": "center",
+      "master_url": "https://warwickanimalhospitalri.com/services/pet-soft-tissue-surgery",
+      "supporting_urls": [
+        "https://warwickanimalhospitalri.com/warwick-veterinarians"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-22",
+      "last_result": "verified_core_care",
+      "working_url": "https://warwickanimalhospitalri.com/services/pet-soft-tissue-surgery",
+      "content_sufficient": true,
+      "last_run_id": "ri-care-20261022",
+      "review_reference": "research/audit-runs/ri-care-20261022/result.json",
+      "needs_recheck": false,
+      "service_scope": "physical"
+    },
+    {
+      "id": "ri-community-pet-project",
+      "name": "Rhode Island Community Pet Project",
+      "source_type": "center",
+      "master_url": "https://www.ricpp.org/services",
+      "supporting_urls": [
+        "https://www.ricpp.org/about",
+        "https://www.ricpp.org/"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-22",
+      "last_result": "verified_core_care",
+      "working_url": "https://www.ricpp.org/services",
+      "content_sufficient": true,
+      "last_run_id": "ri-care-20261022",
+      "review_reference": "research/audit-runs/ri-care-20261022/result.json",
+      "needs_recheck": false,
+      "service_scope": "physical"
+    },
+    {
+      "id": "ri-veterinary-dentistry-oral-surgery",
+      "name": "Veterinary Dentistry and Oral Surgery of Rhode Island",
+      "source_type": "center",
+      "master_url": "https://veterinarydentistri.com/",
+      "supporting_urls": [
+        "https://veterinarydentistri.com/contact/"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-22",
+      "last_result": "verified_core_care",
+      "working_url": "https://veterinarydentistri.com/",
+      "content_sufficient": true,
+      "last_run_id": "ri-care-20261022",
+      "review_reference": "research/audit-runs/ri-care-20261022/result.json",
+      "needs_recheck": false,
+      "service_scope": "physical"
+    },
+    {
+      "id": "ri-riverside-animal-hospital",
+      "name": "Riverside Animal Hospital",
+      "source_type": "center",
+      "master_url": "https://riversideanimalhospitalri.com/services/pet-soft-tissue-surgery",
+      "supporting_urls": [
+        "https://riversideanimalhospitalri.com/RI-veterinarians"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-22",
+      "last_result": "verified_core_care",
+      "working_url": "https://riversideanimalhospitalri.com/services/pet-soft-tissue-surgery",
+      "content_sufficient": true,
+      "last_run_id": "ri-care-20261022",
+      "review_reference": "research/audit-runs/ri-care-20261022/result.json",
+      "needs_recheck": false,
+      "service_scope": "physical"
+    },
+    {
+      "id": "ri-tiogue-veterinary-clinic",
+      "name": "Tiogue Veterinary Clinic",
+      "source_type": "center",
+      "master_url": "https://tiogueveterinaryclinic.com/services/pet-soft-tissue-surgery",
+      "supporting_urls": [
+        "https://tiogueveterinaryclinic.com/services/pet-dental-surgery",
+        "https://tiogueveterinaryclinic.com/coventry-veterinarians"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-22",
+      "last_result": "verified_core_care",
+      "working_url": "https://tiogueveterinaryclinic.com/services/pet-soft-tissue-surgery",
+      "content_sufficient": true,
+      "last_run_id": "ri-care-20261022",
+      "review_reference": "research/audit-runs/ri-care-20261022/result.json",
+      "needs_recheck": false,
+      "service_scope": "physical"
+    },
+    {
+      "id": "ri-cowesett-animal-hospital",
+      "name": "Cowesett Animal Hospital",
+      "source_type": "center",
+      "master_url": "https://www.cowesettanimalhospital.com/",
+      "supporting_urls": [
+        "https://www.cowesettanimalhospital.com/meet-our-staff/"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-22",
+      "last_result": "verified_core_care",
+      "working_url": "https://www.cowesettanimalhospital.com/",
+      "content_sufficient": true,
+      "last_run_id": "ri-care-20261022",
+      "review_reference": "research/audit-runs/ri-care-20261022/result.json",
+      "needs_recheck": false,
+      "service_scope": "physical"
+    },
+    {
+      "id": "ri-salt-ponds-animal-hospital",
+      "name": "Salt Ponds Animal Hospital",
+      "source_type": "center",
+      "master_url": "https://www.saltpondsanimalhospital.com/services/surgical-procedures/",
+      "supporting_urls": [
+        "https://www.saltpondsanimalhospital.com/",
+        "https://www.saltpondsanimalhospital.com/about-us/team/"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-22",
+      "last_result": "verified_core_care",
+      "working_url": "https://www.saltpondsanimalhospital.com/services/surgical-procedures/",
+      "content_sufficient": true,
+      "last_run_id": "ri-care-20261022",
+      "review_reference": "research/audit-runs/ri-care-20261022/result.json",
+      "needs_recheck": false,
+      "service_scope": "physical"
+    },
+    {
+      "id": "ri-abbott-valley-veterinary-center",
+      "name": "Abbott Valley Veterinary Center",
+      "source_type": "center",
+      "master_url": "https://www.abbottvalleyvetcenter.com/services",
+      "supporting_urls": [
+        "https://www.abbottvalleyvetcenter.com/staff"
+      ],
+      "required_cadence": "weekly",
+      "last_checked": "2026-10-22",
+      "last_result": "verified_core_care",
+      "working_url": "https://www.abbottvalleyvetcenter.com/services",
+      "content_sufficient": true,
+      "last_run_id": "ri-care-20261022",
+      "review_reference": "research/audit-runs/ri-care-20261022/result.json",
       "needs_recheck": false,
       "service_scope": "physical"
     }
