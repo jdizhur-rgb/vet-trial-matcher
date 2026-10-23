@@ -13,6 +13,10 @@ from site_config import SITE
 from site_shell import wrap_html
 
 NEWS_URL = f"{SITE}/news/"
+MISSOURI_GI_URL = f"{NEWS_URL}missouri-feline-gi-lymphoma-radiation/"
+MISSOURI_GI_IMAGE = f"{SITE}/assets/social/missouri-feline-gi-lymphoma.jpg"
+MISSOURI_GI_OFFICIAL = "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/"
+MISSOURI_GI_GRANT = "https://everycat.org/grant/ec26s-058-an-integrated-approach-to-high-grade-feline-lymphoma-induction-with-whole-abdominal-radiation-followed-by-cop-dox-chemotherapy-treatment/"
 MATCHER_URL = f"{SITE}/matcher/"
 CORNELL_URL = f"{NEWS_URL}cornell-smart-start-b-cell-lymphoma/"
 NC_STATE_URL = f"{NEWS_URL}nc-state-il12-bladder-cancer-deadline/"
@@ -86,12 +90,14 @@ def generate_news_section(root: Path) -> None:
     source_assets = Path(__file__).resolve().parent / "assets" / "social"
     built_assets = root / "assets" / "social"
     built_assets.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(source_assets / "missouri-feline-gi-lymphoma.jpg", built_assets / "missouri-feline-gi-lymphoma.jpg")
     for name in ("cancan-feline-tissue-core.jpg", "cancan-k9-liquidx.png", "purdue-ablation-1200x630.jpg", "purdue-ablation-story-1080x1920.jpg", "barc-dog-cat-cancer-trials.jpg", "barc-dog-cat-cancer-trials-square-safe.jpg", "penn-car-t-histiocytic-sarcoma-1200x630.jpg"):
         shutil.copy2(source_assets / name, built_assets / name)
     index_body = f'''<div class="registry-page news-index">
 <h1>Veterinary oncology news</h1>
 <p class="lead">Newly opened treatment trials, meaningful recruitment changes and other developments that may matter to owners looking for cancer treatment options.</p>
 <div class="directory-grid">
+<a class="directory-card" href="{MISSOURI_GI_URL}"><strong>Missouri recruits cats for radiation followed by chemotherapy for GI lymphoma</strong><span>October 23, 2026. The study tests whole-abdomen radiation before chemotherapy for untreated large-cell intestinal lymphoma; radiation costs are covered.</span></a>
 <a class="directory-card" href="{CANCAN_FELINE_URL}"><strong>CanCan launches a tumor sequencing panel for cats</strong><span>October 13, 2026. What the 75-gene tissue test examines, sample requirements, cost and the limits of its treatment suggestions.</span></a>
 <a class="directory-card" href="{CANOS_URL}"><strong>Canos studies a blood test for monitoring canine cancer</strong><span>October 10, 2026. How the test looks for cancer-associated DNA patterns and how owners can apply for free testing.</span></a>
 <a class="directory-card" href="{CANCAN_URL}"><strong>K9-LiquiDX: looking for canine cancer signals in the blood</strong><span>October 1, 2026. What CanCan’s blood test is offered for, early clinical experience, costs and ordering through your veterinarian.</span></a>
@@ -110,6 +116,23 @@ def generate_news_section(root: Path) -> None:
     index_dir.mkdir(parents=True, exist_ok=True)
     index_page = g.page("Veterinary Oncology News | Vet Trial Finder", "New veterinary cancer treatment trials, recruitment changes and other oncology developments for dogs and cats.", index_body, NEWS_URL)
     (index_dir / "index.html").write_text(wrap_html(index_page), encoding="utf-8")
+
+    missouri_body = f'''<p class="eyebrow">Feline treatment trial · October 23, 2026</p>
+<h1>Missouri recruits cats for radiation followed by chemotherapy for GI lymphoma</h1>
+<figure><img src="{MISSOURI_GI_IMAGE}" alt="Illustration of a gray tabby cat resting on a veterinary examination blanket" width="1536" height="1024" style="display:block;width:100%;height:auto;border-radius:12px"><figcaption>AI-generated illustration. The cat pictured is not a study participant.</figcaption></figure>
+<p>The University of Missouri is enrolling cats with large-cell gastrointestinal lymphoma in a study of whole-abdomen radiation followed by chemotherapy. The question is whether giving radiation first can improve the response to treatment and survival in this aggressive form of feline cancer.</p>
+<p>The <a href="{MISSOURI_GI_GRANT}">EveryCat-funded pilot</a> plans to enroll 10 cats. Radiation is given over two days, followed by a COP/DOX chemotherapy protocol. Researchers will track the cats’ response and side effects through examinations, blood tests and imaging. This is an early study; whether the sequence improves outcomes remains to be established.</p>
+<h2>Which cats may qualify</h2>
+<p>Cats need confirmed high-grade gastrointestinal lymphoma, with no evidence of lymphoma outside the abdomen. They must not have received chemotherapy; the grant description also specifies no prior radiation. FeLV- or FIV-positive cats and cats with serious illnesses that make general anesthesia higher risk are excluded. The study team makes the final eligibility decision.</p>
+<p>This is a different setting from the <a href="{TAMU_GI_URL}">Texas A&amp;M radiation study we previously covered</a>, which is for small-cell gastrointestinal lymphoma after an insufficient response to standard treatment or relapse. The Missouri protocol is for large-cell disease before chemotherapy.</p>
+<h2>Costs and visits</h2>
+<p>The study covers the radiation portion of care and provides a <strong>$1,000 credit for use at Missouri’s Veterinary Health Center after radiation is completed</strong>. The public listing does not promise full coverage of chemotherapy or screening. Owners should request an itemized estimate for the remaining care and travel.</p>
+<p>Treatment takes place in Columbia, Missouri. The hospital lists weekly visits for at least eight weeks, then five more visits at three-week intervals; radiation is given during the first week.</p>
+<p>Owners and referring veterinarians can contact the Oncology Clinical Trials Service at <a href="mailto:cvmclinicaltrials@missouri.edu">cvmclinicaltrials@missouri.edu</a> or <a href="tel:+15738827821">573-882-7821</a>, specifying the feline GI lymphoma radiation and chemotherapy study.</p>
+<p><a href="{MISSOURI_GI_OFFICIAL}" target="_blank" rel="noopener">Read the official Missouri study listing</a> · <a href="{MISSOURI_GI_GRANT}" target="_blank" rel="noopener">Read the EveryCat grant summary</a></p>
+<p><a href="{MATCHER_URL}">Find more cancer treatment trials for cats and dogs</a></p>'''
+    write_article(root, "missouri-feline-gi-lymphoma-radiation", "Missouri recruits cats for radiation followed by chemotherapy for GI lymphoma", "A Missouri trial tests whole-abdomen radiation before chemotherapy for untreated large-cell feline GI lymphoma. Eligibility, covered costs, visits and study contacts.", missouri_body, "University of Missouri current clinical trials; EveryCat Health Foundation grant EC26S-058", "October 23, 2026", "2026-10-23", MISSOURI_GI_IMAGE, (1536, 1024))
+    add_to_sitemap(root, (MISSOURI_GI_URL,))
 
 
     canos_body = f'''<p class="eyebrow">Canine cancer testing · October 10, 2026</p>
