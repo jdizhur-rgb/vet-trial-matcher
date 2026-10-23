@@ -1,0 +1,256 @@
+{
+  "reviewed_at": "2026-10-23T06:23:07.338959-04:00",
+  "primary_urls": [
+    "https://familiartx.com/studies/fam-010",
+    "https://familiartx.com/pipeline"
+  ],
+  "Web_references": [
+    "turn1124view0",
+    "turn1124view1"
+  ],
+  "native_shell": "Three connect-timeout attempts, actual receipts preserved. Same URLs read by Web; browser independently verified the live inquiry form.",
+  "status": "Owner-approved upcoming public listing; not confirmed open dose-group enrollment.",
+  "contact_route": "Contact the study team opens a three-step inquiry form, step1 name/email/phone/ZIP and consent; observed2026-10-23T10:21:31.570Z. No information entered or sent.",
+  "institution_index": "Supporting Illinois index does not yet name FAM-010. Sponsor is the direct protocol and enrollment-inquiry primary.",
+  "owner_scope": "Specific owner request to publish after reading dose/safety and enrolling-soon limitations; no other inactive program promoted.",
+  "dedupe": "Full canonical311 reviewed by protocol id, sponsor, intervention, site, diagnosis and source. No FAM-010 identity; other Illinois and splenic-HSA protocols have different interventions.",
+  "unpublished": [
+    "Exact start date and next open dose group",
+    "Histologic/metastatic and organ-function criteria not stated beyond public page",
+    "Coverage of prior splenectomy and unrelated care"
+  ],
+  "no_inference": [
+    "No demonstrated survival or heart-toxicity advantage",
+    "No blanket no-cost surgery",
+    "No submission, contact or enrollment performed"
+  ],
+  "source_review": {
+    "trial_id": "illinois-fam010-splenic-hemangiosarcoma",
+    "source_url": "https://familiartx.com/studies/fam-010",
+    "reviewed_at": "2026-10-23T06:23:07.325553-04:00",
+    "criteria": "Current individual sponsor protocol: splenic canine HSA, splenectomy completed or scheduled, first dose within21days, no previous chemo/radiation/other investigational drugs, no breeding. Pathology may be pending at inquiry. Owner approves upcoming dose-finding listing; functioning inquiry form observed, not confirmed open treatment enrollment.",
+    "cases": [
+      {
+        "name": "post-splenectomy candidate, no previous systemic treatment",
+        "patient": {
+          "species": "Dog",
+          "country": "USA",
+          "cancer": "Hemangiosarcoma",
+          "hsa_site": "Spleen",
+          "surgery": "Yes",
+          "prior_procedure": "Splenectomy",
+          "chemo": "Never",
+          "radiation": "Never"
+        },
+        "expected": "review",
+        "unknown_contains": [
+          "21 days",
+          "enrolling soon"
+        ]
+      },
+      {
+        "name": "pathology pending may inquire",
+        "patient": {
+          "species": "Dog",
+          "country": "USA",
+          "cancer": "Hemangiosarcoma",
+          "diagnosis_status": "Suspected / not confirmed",
+          "surgery": "Yes",
+          "prior_procedure": "Splenectomy"
+        },
+        "expected": "review",
+        "unknown_contains": [
+          "pathology"
+        ]
+      },
+      {
+        "name": "scheduled splenectomy inquiry before surgery",
+        "patient": {
+          "species": "Dog",
+          "country": "USA",
+          "cancer": "Hemangiosarcoma",
+          "surgery": "No",
+          "prefs": [
+            "Surgery",
+            "Chemotherapy"
+          ]
+        },
+        "expected": "review",
+        "unknown_contains": [
+          "splenectomy"
+        ]
+      },
+      {
+        "name": "surgery already completed does not require accepting a second operation",
+        "patient": {
+          "species": "Dog",
+          "country": "USA",
+          "cancer": "Hemangiosarcoma",
+          "surgery": "Yes",
+          "prior_procedure": "Splenectomy",
+          "prefs": [
+            "Chemotherapy"
+          ]
+        },
+        "expected": "review"
+      },
+      {
+        "name": "no prior surgery and surgery declined",
+        "patient": {
+          "species": "Dog",
+          "country": "USA",
+          "cancer": "Hemangiosarcoma",
+          "surgery": "No",
+          "prefs": [
+            "Chemotherapy"
+          ]
+        },
+        "expected": "exclude"
+      },
+      {
+        "name": "other surgery does not establish splenectomy when surgery declined",
+        "patient": {
+          "species": "Dog",
+          "country": "USA",
+          "cancer": "Hemangiosarcoma",
+          "surgery": "Yes",
+          "prior_procedure": "Other",
+          "prefs": [
+            "Chemotherapy"
+          ]
+        },
+        "expected": "exclude"
+      },
+      {
+        "name": "other previous surgery with planned splenectomy requires review",
+        "patient": {
+          "species": "Dog",
+          "country": "USA",
+          "cancer": "Hemangiosarcoma",
+          "surgery": "Yes",
+          "prior_procedure": "Other",
+          "prefs": [
+            "Surgery",
+            "Chemotherapy"
+          ]
+        },
+        "expected": "review"
+      },
+      {
+        "name": "cardiac hemangiosarcoma excluded",
+        "patient": {
+          "species": "Dog",
+          "country": "USA",
+          "cancer": "Hemangiosarcoma",
+          "hsa_site": "Heart / right atrium"
+        },
+        "expected": "exclude"
+      },
+      {
+        "name": "other non-splenic primary excluded",
+        "patient": {
+          "species": "Dog",
+          "country": "USA",
+          "cancer": "Hemangiosarcoma",
+          "hsa_site": "Other"
+        },
+        "expected": "exclude"
+      },
+      {
+        "name": "previous chemotherapy excluded",
+        "patient": {
+          "species": "Dog",
+          "country": "USA",
+          "cancer": "Hemangiosarcoma",
+          "chemo": "Previously received"
+        },
+        "expected": "exclude"
+      },
+      {
+        "name": "current chemotherapy excluded",
+        "patient": {
+          "species": "Dog",
+          "country": "USA",
+          "cancer": "Hemangiosarcoma",
+          "chemo": "Currently receiving"
+        },
+        "expected": "exclude"
+      },
+      {
+        "name": "previous radiation excluded",
+        "patient": {
+          "species": "Dog",
+          "country": "USA",
+          "cancer": "Hemangiosarcoma",
+          "radiation": "Previously received"
+        },
+        "expected": "exclude"
+      },
+      {
+        "name": "current radiation excluded",
+        "patient": {
+          "species": "Dog",
+          "country": "USA",
+          "cancer": "Hemangiosarcoma",
+          "radiation": "Currently receiving"
+        },
+        "expected": "exclude"
+      },
+      {
+        "name": "chemotherapy declined",
+        "patient": {
+          "species": "Dog",
+          "country": "USA",
+          "cancer": "Hemangiosarcoma",
+          "prefs": [
+            "Surgery",
+            "Immunotherapy"
+          ]
+        },
+        "expected": "exclude"
+      },
+      {
+        "name": "unknown site and history remain screening questions",
+        "patient": {
+          "species": "Dog",
+          "country": "USA",
+          "cancer": "Hemangiosarcoma"
+        },
+        "expected": "review",
+        "unknown_contains": [
+          "splenic",
+          "21 days",
+          "infertility"
+        ]
+      },
+      {
+        "name": "wrong species",
+        "patient": {
+          "species": "Cat",
+          "country": "USA",
+          "cancer": "Hemangiosarcoma"
+        },
+        "expected": "exclude"
+      },
+      {
+        "name": "wrong country",
+        "patient": {
+          "species": "Dog",
+          "country": "Japan",
+          "cancer": "Hemangiosarcoma"
+        },
+        "expected": "exclude"
+      },
+      {
+        "name": "different sarcoma",
+        "patient": {
+          "species": "Dog",
+          "country": "USA",
+          "cancer": "Histiocytic sarcoma"
+        },
+        "expected": "exclude"
+      }
+    ],
+    "selection_sha256": "3853816306f65ca416116aa73ece389a8eaed3389246fd01142a4747617347ed"
+  }
+}
