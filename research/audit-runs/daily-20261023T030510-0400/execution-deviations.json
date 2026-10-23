@@ -1,0 +1,68 @@
+{
+  "run_id": "daily-20261023T030510-0400",
+  "at": "2026-10-23T03:57:31.748045-04:00",
+  "items": [
+    {
+      "issue": "Cambridge inherited alias action-scope not established",
+      "assessment": "No replay or workaround; one unconfirmed executor action, old dates retained."
+    },
+    {
+      "issue": "Consolidated native metadata missing for one actual Saskatchewan response",
+      "assessment": "Retained current page, rawresponse and stdout prove realvisit. Restored from actual HTTPDate03:08:07, explicitly not recovered client start/end; see metadata-recovery.json."
+    },
+    {
+      "issue": "Auxiliary VetTrials total initially defaulted to292",
+      "assessment": "Corrected parser to actual data.pagination.total=293. All293unique currentobjects vs293reported; no externalcountergap claimed."
+    },
+    {
+      "issue": "Two duplicate source-followup requests",
+      "assessment": "OneCimCurehomepagefragment and one repeatedOXCgrantlink fetched redundantly. All actual requests retained; fetch helper now deduplicates normalizedroutes and skips previouslyrequested routes. No whole-source requeue.",
+      "duplicate_routes": [
+        {
+          "route": [
+            "vhc.missouri.edu",
+            "/small-animal-hospital/oncology/clinical-trials/current-clinical-trials",
+            []
+          ],
+          "first_attempt_count": 2
+        },
+        {
+          "route": [
+            "vmc.vet.osu.edu",
+            "/clinical-trials-office/current-trials",
+            []
+          ],
+          "first_attempt_count": 2
+        },
+        {
+          "route": [
+            "bluepearlvet.com",
+            "/current-clinical-studies",
+            []
+          ],
+          "first_attempt_count": 2
+        },
+        {
+          "route": [
+            "bv.fapesp.br",
+            "/pt/bolsas/233375/ensaio-clinico-com-oxc-101-em-caes-com-linfoma-hemangiossarcoma-ou-cancer-de-mama",
+            []
+          ],
+          "first_attempt_count": 3
+        },
+        {
+          "route": [
+            "cimcure.com",
+            "",
+            []
+          ],
+          "first_attempt_count": 2
+        }
+      ]
+    },
+    {
+      "issue": "Independent full clinical gate still incomplete",
+      "assessment": "119/151 historical fullreviews, original32pending preserved; zero new complete clinicalsignoffs today."
+    }
+  ]
+}
