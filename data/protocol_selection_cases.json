@@ -7127,8 +7127,8 @@
     },
     {
       "trial_id": "tufts-sabr-pulmonary-metastases-2026",
-      "source_url": "https://vet.tufts.edu/clinical-trials/stereotactic-ablative-radiotherapy-sabr-lun-metastases",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
+      "source_url": "https://vet.tufts.edu/clinical-trials/stereotactic-ablative-radiotherapy-sabr-lung-metastases",
+      "reviewed_at": "2026-10-23T10:27:50.298709+00:00",
       "criteria": "Tufts SABR source requires2–10progressive pulmonary metastases,controlled primary/other disease and safe stereotactic radiation.",
       "cases": [
         {
@@ -7156,6 +7156,52 @@
             "species": "Cat",
             "country": "USA",
             "cancer": "Soft tissue sarcoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "fibrosarcoma without metastases is excluded",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Fibrosarcoma",
+            "metastasis": "No known metastases"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "fibrosarcoma with metastases requires pulmonary prescreening",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Fibrosarcoma",
+            "metastasis": "Confirmed metastases"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "lung metastases"
+          ]
+        },
+        {
+          "name": "fibrosarcoma with unknown staging is only a candidate",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Fibrosarcoma"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "whether metastasis is confirmed",
+            "lung metastases"
+          ]
+        },
+        {
+          "name": "feline fibrosarcoma is outside canine protocol",
+          "patient": {
+            "species": "Cat",
+            "country": "USA",
+            "cancer": "Fibrosarcoma",
+            "metastasis": "Confirmed metastases"
           },
           "expected": "exclude"
         }
