@@ -13,7 +13,7 @@ if sys.argv[1]=='prepare':
   if not raw:continue
   path=raw.decode();b=(ROOT/path).read_bytes();sha=subprocess.check_output(['git','hash-object','--',path],cwd=ROOT,text=True).strip();e=dict(path=path,mode='100644',type='blob')
   if sha in known:e['sha']=sha
-  elif len(b)>150000:e['sha']=sha;big[sha]=dict(path=path,sha=sha,bytes=len(b),chunks=(len(b)+99998)//99999)
+  elif len(b)>150000 or path.lower().endswith(('.jpg','.jpeg','.png','.webp')):e['sha']=sha;big[sha]=dict(path=path,sha=sha,bytes=len(b),chunks=(len(b)+99998)//99999)
   else:e['content']=b.decode()
   entries.append(e)
  batches=[];batch=[];size=0
