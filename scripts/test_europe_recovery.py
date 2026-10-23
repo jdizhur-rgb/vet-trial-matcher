@@ -62,6 +62,14 @@ def before_later_ri_pass(rows, path):
     Every changed current row is checked first. The original European counts,
     hashes, dates and branch-identity assertions below remain unchanged.
     """
+    # Exact independently accepted Foster addition; historical baselines stay frozen.
+    spec = read(ROOT / 'research/audit-runs/ri-six-final-20261023/baseline-projection.json')['collections'][path]
+    assert spec['id'] == 'ri-foster-veterinary-clinic'
+    assert len(rows) == spec['after_count']
+    added = [r for r in rows if r.get(spec['key']) == spec['id']]
+    assert len(added) == 1 and sha(added[0]) == spec['after_sha256']
+    rows = [r for r in rows if r.get(spec['key']) != spec['id']]
+    assert len(rows) == spec['before_count']
     rows = before_ri_finish(rows, path)
     manifest = read(ROOT / 'research/audit-runs/ri-care-20261022/baseline-projection.json')
     spec = manifest['collections'][path]
