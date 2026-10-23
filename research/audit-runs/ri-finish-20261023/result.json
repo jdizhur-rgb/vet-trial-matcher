@@ -1,0 +1,39 @@
+{
+  "run_id": "ri-finish-20261023",
+  "territory": "RI",
+  "date": "2026-10-23",
+  "agents_used": 1,
+  "automations_changed": 0,
+  "baseline_commit": "8d3f23849ccf6d0ccfcffc50edc07884208f265e",
+  "state_pass_status": "systematic_discovery_complete_with_documented_exceptions",
+  "processing_complete": true,
+  "original_candidates_processed": 24,
+  "new_verified_physical_locations": 2,
+  "result_RI_physical_locations": 13,
+  "confirmed_chemotherapy_locations": 2,
+  "confirmed_ECT_locations": 1,
+  "new_medical_oncologists": 0,
+  "geographic_municipalities_screened": 39,
+  "directory_areas_screened": 44,
+  "directory_profiles_screened": 122,
+  "unprocessed_discovery_candidates": 0,
+  "exceptions_reference": "exceptions.json",
+  "scope_limits": [
+    "Directory/search geographic screen is not a primary review of every RI veterinarian.",
+    "No exhaustive Google Maps census and no Yelp robots bypass.",
+    "RIVMA and VCS directory entry routes returned403; no bypass or reattempt.",
+    "No messages, forms or bookings submitted."
+  ],
+  "source_date_policy": "New successful primary visits use actual October23 date; October22 inherited evidence dates retained. Exact times only from native request receipts.",
+  "publication_status": "READY_TO_PUBLISH",
+  "validation": {
+    "full_static_build": "PASS python scripts/build_static_site.py",
+    "ri_delta": "PASS13locations/2chemo/1ECT;2surgery-only additions;Fergusonabsent",
+    "unrelated_rows": "PASS exact full-row hashes preserved in all3collections",
+    "historical_europe_baseline": "PASS exact two-row inverse projection; existing22October manifest unchanged",
+    "country_state_service_filters": "PASS",
+    "matcher_loading": "PASS",
+    "keys_and_diff": "PASS",
+    "initial_build_attempts": "Two preliminary builds produced inconsistent intermediate sitemap/home artifacts; clean diagnostic build and final standard full build passed. No unrelated SEO/source fix applied."
+  }
+}

@@ -34,12 +34,35 @@ def sha(value):
     return hashlib.sha256(canonical(value).encode()).hexdigest()
 
 
+def before_ri_finish(rows, path):
+    """Validate and remove the two accepted October23 RI additions only."""
+    manifest = read(ROOT / 'research/audit-runs/ri-finish-20261023/baseline-projection.json')
+    spec = manifest['collections'][path]
+    changes = {c['id']: c for c in spec['changes']}
+    assert set(changes) == {'ri-hope-veterinary-care', 'ri-cumberland-animal-hospital'}
+    assert len(rows) == spec['after_count']
+    result, seen = [], set()
+    for row in rows:
+        identity = row.get(spec['key'])
+        if identity not in changes:
+            result.append(row)
+            continue
+        assert identity not in seen
+        seen.add(identity)
+        assert changes[identity]['before'] is None
+        assert sha(row) == changes[identity]['after_sha256'], identity
+    assert seen == set(changes)
+    assert len(result) == spec['before_count']
+    return result
+
+
 def before_later_ri_pass(rows, path):
     """Project the exact accepted RI delta out of the historical EU proof.
 
     Every changed current row is checked first. The original European counts,
     hashes, dates and branch-identity assertions below remain unchanged.
     """
+    rows = before_ri_finish(rows, path)
     manifest = read(ROOT / 'research/audit-runs/ri-care-20261022/baseline-projection.json')
     spec = manifest['collections'][path]
     key = spec['key']

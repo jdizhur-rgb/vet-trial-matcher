@@ -520,62 +520,23 @@
     {
       "territory": "RI",
       "direction": "US discovery",
-      "status": "systematic_state_search_with_documented_gaps",
+      "status": "systematic_state_pass_complete_with_documented_exceptions",
       "coverage_reference": "research/audit-runs/care-discovery-20261013T220028-0400/us-coverage-baseline.json",
       "remaining": [
-        "Resolve documented source/identity/cancer-scope gaps in remaining.json when new evidence becomes available.",
-        "No exhaustive map-based census performed; do not claim every RI practice found."
+        "Six named current-service/identity uncertainties are retained in exceptions.json; trigger-based followup only.",
+        "PCC Providence announced opening November30; verify actual opening and patient access after that date.",
+        "Professional directory access exceptions and non-exhaustive census limits are recorded in result.json."
       ],
-      "completed": false,
-      "latest_coverage_reference": "research/audit-runs/care-discovery-20261014T215849-0400/us-coverage-baseline.json",
-      "last_run": "ri-care-20261022",
-      "result_reference": "research/audit-runs/ri-care-20261022/result.json",
-      "remaining_leads": [
-        {
-          "name": "Pet Cancer Center of Providence",
-          "url": "https://job-boards.greenhouse.io/pcc-ri/jobs/5222412007",
-          "status": "future_opening",
-          "reason_remaining": "Official employer recruitment confirms pre-opening. Official-site discovery result names November30 opening, but full homepage could not be read. Verify actual opening and patient booking after November30; no live card."
-        },
-        {
-          "name": "Compassionate Care Veterinary Clinic",
-          "url": "https://ccvcri.com/",
-          "status": "source_inaccessible",
-          "reason_remaining": "Root timeout then502. Indexed cancer newsletter is educational; does not prove administration. Candidate remains unconfirmed."
-        },
-        {
-          "name": "Ferguson Animal Hospital",
-          "url": "https://www.fergusonanimalhospital.com/",
-          "status": "source_restricted",
-          "reason_remaining": "Homepage403; no retry. Third-party chemotherapy/radiation claims cannot establish local services."
-        },
-        {
-          "name": "West Bay / WestPaws Veterinary Center",
-          "url": "https://www.westpaws.com/",
-          "status": "identity_and_source_gap",
-          "reason_remaining": "Historical directory name West Bay; third-party rebrand lead WestPaws. Official homepage inaccessible; current oncology not established."
-        },
-        {
-          "name": "Animal Care Services, Warwick",
-          "url": "https://vetswift.com/dir/vets/rhode-island/oncology/",
-          "status": "identity_gap",
-          "reason_remaining": "Directory-only oncology label. Provider identity and current primary cancer-treatment evidence not resolved by targeted discovery."
-        },
-        {
-          "name": "Northern Rhode Island Animal Hospital",
-          "url": "https://www.thrivepetcare.com/locations/rhode-island/forestdale/northern-rhode-island-animal-hospitals",
-          "status": "empty_primary_page",
-          "reason_remaining": "Official branch page returned no text; available snippet confirms primary care only. No oncology inference."
-        },
-        {
-          "name": "Westerly Animal Hospital",
-          "url": "https://www.westerlyanimalhospital.net/",
-          "status": "source_restricted",
-          "reason_remaining": "Official homepage403; no retry. General-care discovery result does not establish anticancer service."
-        }
-      ],
+      "completed": true,
+      "latest_coverage_reference": "research/audit-runs/ri-finish-20261023/geographic-coverage.json",
+      "last_run": "ri-finish-20261023",
+      "result_reference": "research/audit-runs/ri-finish-20261023/result.json",
+      "remaining_leads": [],
       "source_followup_reference": "research/audit-runs/ri-source-followup-20261022/result.json",
-      "remaining_dispositions_reference": "research/audit-runs/ri-source-followup-20261022/candidate-dispositions.json"
+      "remaining_dispositions_reference": "research/audit-runs/ri-finish-20261023/original-24-dispositions.json",
+      "processing_complete": true,
+      "exhaustive_practice_census": false,
+      "exceptions_reference": "research/audit-runs/ri-finish-20261023/exceptions.json"
     },
     {
       "territory": "SC",
