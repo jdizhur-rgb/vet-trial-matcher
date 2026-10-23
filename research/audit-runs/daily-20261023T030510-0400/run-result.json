@@ -1,0 +1,108 @@
+{
+  "run_id": "daily-20261023T030510-0400",
+  "started_at": "2026-10-23T03:05:10-04:00",
+  "finished_at": "2026-10-23T04:25:24.754774-04:00",
+  "finish_scope": "Audit, data publication, production verification and report sealing; subsequent report artifact delivery is separately verified.",
+  "overall": "INCOMPLETE",
+  "new_canonical_records": 0,
+  "confirmed_existing_watch_activations_published": 0,
+  "new_hidden_public_records": 0,
+  "new_sources": 2,
+  "source_receipt": {
+    "run_id": "daily-20261023T030510-0400",
+    "mode": "DAILY GLOBAL WORK AUDIT",
+    "started_at": "2026-10-23T03:05:10-04:00",
+    "source_total": 143,
+    "attempted_total": 125,
+    "content_sufficient_total": 55,
+    "processing_complete_total": 142,
+    "source_result_counts": {
+      "partial": 67,
+      "fully_reconciled": 55,
+      "not_checked": 18,
+      "unreachable": 3
+    },
+    "executor_incomplete_source_ids": [
+      "uk-cambridge-veterinary-clinical-trials"
+    ],
+    "executor_unfinished_actions": 1,
+    "unconfirmed_processing_sources": 1,
+    "source_pass_at": "2026-10-23T03:46:39.839823-04:00",
+    "strict_status": "INCOMPLETE"
+  },
+  "clinical_fresh_review_gate": {
+    "fresh_today": 0,
+    "total_public": 151,
+    "cumulative_full_review_since_original_cutoff": 119,
+    "pending_original40": 32
+  },
+  "deployment": "PASS",
+  "loading_regression": "PASS",
+  "live_searches": [
+    {
+      "country": "USA",
+      "actual_browser_at": "2026-10-23T08:21:34.014Z",
+      "actual_count": 97,
+      "expected_count": 97,
+      "actual_roster_fingerprint": {
+        "characters": 11974,
+        "sha256": "9aa45473cec5bb2baa167f29c4a269fd6aaf165e1df9b1ebaacfab8e39a4a114",
+        "value": "0809508f2d77569d"
+      },
+      "expected_roster_fingerprint": {
+        "value": "0809508f2d77569d",
+        "characters": 11974,
+        "sha256": "9aa45473cec5bb2baa167f29c4a269fd6aaf165e1df9b1ebaacfab8e39a4a114"
+      },
+      "whole_rendered_roster_fingerprint_equal": true,
+      "all_requested_controls_verified": true,
+      "script_version_verified": true,
+      "status": "PASS"
+    },
+    {
+      "country": "Japan",
+      "actual_browser_at": "2026-10-23T08:21:40.365Z",
+      "actual_count": 10,
+      "expected_count": 10,
+      "actual_roster_fingerprint": {
+        "characters": 1164,
+        "sha256": "6997950bc59a2d4f41786b1a40813b61ba905837fd3bc79a42463af322bc5f33",
+        "value": "2c822c90212b13c8"
+      },
+      "expected_roster_fingerprint": {
+        "value": "2c822c90212b13c8",
+        "characters": 1164,
+        "sha256": "6997950bc59a2d4f41786b1a40813b61ba905837fd3bc79a42463af322bc5f33"
+      },
+      "whole_rendered_roster_fingerprint_equal": true,
+      "all_requested_controls_verified": true,
+      "script_version_verified": true,
+      "status": "PASS"
+    }
+  ],
+  "production_bytes": "PASS",
+  "remote_main_readback": "PASS",
+  "publication_commit": "9e0d12a77c1b604839830b3203b4754387e39db8",
+  "source_inventory_sha256": "2d7233088f52c32d3d357affab63247636058cf59029999c1ae68828bdbf3860",
+  "canonical_sha256": "5241f7c6d039ce6dd72a134222b5232a623104d0fcb4a535fcf07d137b43b493",
+  "before": {
+    "canonical": 311,
+    "public_matchable": 151,
+    "treatment_trials": 147,
+    "other_treatment_access": 4,
+    "sources": 141
+  },
+  "after": {
+    "canonical": 311,
+    "public_matchable": 151,
+    "treatment_trials": 147,
+    "other_treatment_access": 4,
+    "sources": 143
+  },
+  "notes": [
+    "One unconfirmed executor source action: Cambridge alias permission scope.",
+    "88 strict source gaps:87 external blockers and1 not established.",
+    "Independent full clinical review119/151, original32pending preserved; zero new full medical signoffs today.",
+    "No clinical dates, open recruitment or site changes inferred from old cases, JSON or mechanical test success."
+  ]
+}
