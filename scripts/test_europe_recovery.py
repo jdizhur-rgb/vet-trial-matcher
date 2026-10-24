@@ -62,6 +62,28 @@ def before_later_ri_pass(rows, path):
     Every changed current row is checked first. The original European counts,
     hashes, dates and branch-identity assertions below remain unchanged.
     """
+    # Four later ND surgery locations and the exact Red River surgery update.
+    nd_finish = read(ROOT / 'research/audit-runs/nd-finish-20261024/baseline-projection.json')['collections'][path]
+    assert len(rows) == nd_finish['after_count']
+    delta = {c['id']: c for c in nd_finish['changes']}
+    assert set(delta) == {'nd-enderlin-veterinary-clinic', 'nd-valley-veterinary-hospital-fargo',
+                         'nd-two-rivers-veterinary-hospital', 'nd-new-salem-veterinary-clinic',
+                         'red-river-animal-emergency-hospital-referral-center'}
+    assert sum(c['before'] is None for c in delta.values()) == 4
+    projected, seen = [], set()
+    for row in rows:
+        identity = row.get(nd_finish['key'])
+        change = delta.get(identity)
+        if change is None:
+            projected.append(row)
+            continue
+        assert identity not in seen and sha(row) == change['after_sha256'], identity
+        seen.add(identity)
+        if change['before'] is not None:
+            projected.append(copy.deepcopy(change['before']))
+    assert seen == set(delta)
+    rows = projected
+    assert len(rows) == nd_finish['before_count']
     # Inverse-project only the exact accepted ND data delta. Existing historical
     # European/RI/NE hashes and counts below remain frozen.
     nd = read(ROOT / 'research/audit-runs/nd-care-20261024/baseline-projection.json')['collections'][path]
