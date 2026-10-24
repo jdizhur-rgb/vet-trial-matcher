@@ -62,6 +62,17 @@ def before_later_ri_pass(rows, path):
     Every changed current row is checked first. The original European counts,
     hashes, dates and branch-identity assertions below remain unchanged.
     """
+    # Remove only the eight individually reviewed Nebraska additions after
+    # verifying their exact current hashes. Historical European/RI proof stays frozen.
+    ne = read(ROOT / 'research/audit-runs/ne-care-20261023/baseline-projection.json')['collections'][path]
+    assert len(rows) == ne['after_count']
+    changes = {c['id']: c for c in ne['changes']}
+    assert len(changes) == 8
+    added = [r for r in rows if r.get(ne['key']) in changes]
+    assert len(added) == 8
+    assert all(sha(r) == changes[r[ne['key']]]['after_sha256'] for r in added)
+    rows = [r for r in rows if r.get(ne['key']) not in changes]
+    assert len(rows) == ne['before_count']
     # Exact independently accepted Foster addition; historical baselines stay frozen.
     spec = read(ROOT / 'research/audit-runs/ri-six-final-20261023/baseline-projection.json')['collections'][path]
     assert spec['id'] == 'ri-foster-veterinary-clinic'
