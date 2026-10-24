@@ -500,47 +500,35 @@
     {
       "territory": "ND",
       "direction": "US discovery",
-      "status": "partial_bounded_search_complete",
+      "status": "dense_primary_candidate_pass_complete_state_discovery_partial",
       "coverage_reference": "research/audit-runs/care-discovery-20261013T220028-0400/us-coverage-baseline.json",
-      "remaining": "Outside Fargo initial discovery covered Rugby and Dickinson; Bismarck/Mandan, Minot, Grand Forks, Williston and other rural areas remain incompletely explored. Zero engine hits are not coverage completion.",
+      "remaining": [
+        "Four named discovery-only clinics need current owned primary sources; retain candidate-specific access/service questions in dispositions.json.",
+        "Continue systematic rural locality screening; secondary directories are not a complete current census."
+      ],
       "completed": false,
-      "last_run": "care-discovery-20261013T220028-0400",
-      "result_reference": "research/audit-runs/care-discovery-20261013T220028-0400/ND/result.json",
+      "last_run": "nd-care-20261024",
+      "result_reference": "research/audit-runs/nd-care-20261024/result.json",
       "remaining_leads": [
         {
-          "name": "Missouri Valley Vet",
-          "url": "https://www.missourivalleyvet.com/about-us/our-veterinarians.html",
-          "reason": "Three Bismarck/Mandan branches and veterinarian oncology interest; treatment and branch attribution unverified",
-          "status": "unprocessed",
-          "next_action": "Read official small-animal service and individual branch pages; do not spread group interest to all branches"
+          "name": "Golden Valley Veterinary Clinic — Park River",
+          "next": "Find current owned service/contact page; professional directory is a lead only."
         },
         {
-          "name": "Pinkerton Animal Hospital",
-          "url": "https://pinkertonanimalhospital.com/",
-          "reason": "Minot geographic gap; current general-care lead, oncology not established",
-          "status": "unprocessed",
-          "next_action": "Read actual services and clinician routes"
+          "name": "Northwest Veterinary Services — Powers Lake",
+          "next": "Find current primary treatment information; no chemotherapy inferred from directory tags."
         },
         {
-          "name": "Watson Veterinary Services",
-          "url": "https://www.watsonvetservices.com/",
-          "reason": "Mobile Mandan/Bismarck regional service; no established anticancer delivery",
-          "status": "unprocessed",
-          "next_action": "Check treatment vs hospice/supportive-only scope"
+          "name": "Bowman Veterinary Clinic",
+          "next": "Locate ND-owned current service source; bowmanvet.com is a California practice and must not be used."
         },
         {
-          "name": "West Dakota Veterinary Clinic",
-          "url": "https://www.westdakotavet.com/",
-          "reason": "Dickinson regional provider; ordinary-care lead",
-          "status": "unprocessed",
-          "next_action": "Read current official local cancer-service evidence"
+          "name": "All Pets Veterinary Clinic — Bismarck",
+          "next": "Find current owned cancer-service evidence beyond generic recruitment/roster."
         },
         {
-          "name": "Petcetera Animal Clinic",
-          "url": "https://www.petcgfk.com/services/",
-          "reason": "Grand Forks geographic gap; ordinary-care lead",
-          "status": "unprocessed",
-          "next_action": "Read current official services, not generic article library"
+          "name": "Remaining rural localities",
+          "next": "Continue locality-by-locality screening beyond the reviewed named candidates; 52-city secondary directory is noisy and not a census."
         }
       ],
       "latest_coverage_reference": "research/audit-runs/care-discovery-20261014T215849-0400/us-coverage-baseline.json"

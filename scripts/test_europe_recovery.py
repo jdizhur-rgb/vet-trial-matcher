@@ -62,6 +62,29 @@ def before_later_ri_pass(rows, path):
     Every changed current row is checked first. The original European counts,
     hashes, dates and branch-identity assertions below remain unchanged.
     """
+    # Inverse-project only the exact accepted ND data delta. Existing historical
+    # European/RI/NE hashes and counts below remain frozen.
+    nd = read(ROOT / 'research/audit-runs/nd-care-20261024/baseline-projection.json')['collections'][path]
+    assert len(rows) == nd['after_count']
+    changes = {c['id']: c for c in nd['changes']}
+    expected_count = 16 if path.endswith('source_inventory.json') else 15
+    assert len(changes) == expected_count
+    assert sum(c['before'] is None for c in changes.values()) == 13
+    result, seen = [], set()
+    for row in rows:
+        identity = row.get(nd['key'])
+        change = changes.get(identity)
+        if change is None:
+            result.append(row)
+            continue
+        assert identity not in seen
+        seen.add(identity)
+        assert sha(row) == change['after_sha256'], identity
+        if change['before'] is not None:
+            result.append(copy.deepcopy(change['before']))
+    assert seen == set(changes)
+    rows = result
+    assert len(rows) == nd['before_count']
     # Remove only the eight individually reviewed Nebraska additions after
     # verifying their exact current hashes. Historical European/RI proof stays frozen.
     ne = read(ROOT / 'research/audit-runs/ne-care-20261023/baseline-projection.json')['collections'][path]
