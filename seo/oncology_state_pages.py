@@ -16,6 +16,19 @@ TITLE = 'Veterinary oncologists and cancer care in Rhode Island'
 DESCRIPTION = 'Find veterinary oncology, chemotherapy, electrochemotherapy and tumor surgery in Rhode Island. Compare local services, addresses, phone numbers and official sources.'
 
 
+GUIDE_CSS = '''.ri-care-guide{max-width:1000px;margin:0 auto}.ri-care-guide .lead{max-width:850px}
+.ri-care-guide .ri-summary{padding:16px 20px;background:#edf4f8;border:1px solid #d5e2ea;border-radius:10px;margin:22px 0}
+.ri-care-guide .ri-summary p{margin:0}.ri-care-guide .ri-summary nav{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:12px}
+.ri-listings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.ri-care-guide .ri-listing{margin:0;padding:20px;border:1px solid #d9e2ea;border-radius:10px;min-width:0}
+.ri-care-guide .ri-listing h3{margin:0 0 8px;font-size:1.15rem;line-height:1.35}
+.ri-address,.ri-source-date{color:#607086}.ri-source-date{font-size:.8rem}
+.ri-services{display:flex;flex-wrap:wrap;gap:7px;list-style:none;padding:0;margin:14px 0}
+.ri-services li{padding:4px 9px;background:#edf4f8;border-radius:6px;color:#315f7d;font-size:.84rem}
+.ri-contacts{display:flex;flex-wrap:wrap;gap:10px 20px}.ri-contacts a{overflow-wrap:anywhere}
+.ri-care-guide section{margin:30px 0}.ri-care-guide .ri-notice{padding-top:18px;border-top:1px solid #d9e2ea;font-size:.88rem;color:#607086}
+@media(max-width:650px){.ri-listings{grid-template-columns:1fr}.ri-care-guide .ri-listing{padding:17px}.ri-care-guide .ri-summary{padding:15px}}'''
+
 def esc(value):
     return html.escape(str(value or ''), quote=True)
 
@@ -61,18 +74,7 @@ def generate(root):
             sections += f'<section id="{anchor}"><h2>{heading}</h2><div class="ri-listings">' + ''.join(listing(r) for r in records) + '</div></section>'
     body = f'''<div class="ri-care-guide">
 <style>
-.ri-care-guide{{max-width:1000px;margin:0 auto}}.ri-care-guide .lead{{max-width:850px}}
-.ri-care-guide .ri-summary{{padding:16px 20px;background:#edf4f8;border:1px solid #d5e2ea;border-radius:10px;margin:22px 0}}
-.ri-care-guide .ri-summary p{{margin:0}}.ri-care-guide .ri-summary nav{{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:12px}}
-.ri-listings{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}}
-.ri-care-guide .ri-listing{{margin:0;padding:20px;border:1px solid #d9e2ea;border-radius:10px;min-width:0}}
-.ri-care-guide .ri-listing h3{{margin:0 0 8px;font-size:1.15rem;line-height:1.35}}
-.ri-address,.ri-source-date{{color:#607086}}.ri-source-date{{font-size:.8rem}}
-.ri-services{{display:flex;flex-wrap:wrap;gap:7px;list-style:none;padding:0;margin:14px 0}}
-.ri-services li{{padding:4px 9px;background:#edf4f8;border-radius:6px;color:#315f7d;font-size:.84rem}}
-.ri-contacts{{display:flex;flex-wrap:wrap;gap:10px 20px}}.ri-contacts a{{overflow-wrap:anywhere}}
-.ri-care-guide section{{margin:30px 0}}.ri-care-guide .ri-notice{{padding-top:18px;border-top:1px solid #d9e2ea;font-size:.88rem;color:#607086}}
-@media(max-width:650px){{.ri-listings{{grid-template-columns:1fr}}.ri-care-guide .ri-listing{{padding:17px}}.ri-care-guide .ri-summary{{padding:15px}}}}
+{GUIDE_CSS}
 </style>
 <p><a href="/matcher/centers/">Find oncology care</a> / Rhode Island</p>
 <h1>Veterinary oncology and cancer care in Rhode Island</h1>
