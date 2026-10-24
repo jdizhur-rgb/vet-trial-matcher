@@ -1,0 +1,22 @@
+pwd
+python --version
+git --version
+git clone https://github.com/jdizhur-rgb/vet-trial-matcher.git
+python research/audit-runs/daily-20261024T030229-0400/run.py init
+python research/audit-runs/daily-20261024T030229-0400/run.py master 0 143
+python research/audit-runs/daily-20261024T030229-0400/run.py requests fallback-plan.json
+Web opens: 47 official master/fallback routes; 5 batches
+Global discovery: 24 region/pass queries; 12/12 regions, two passes
+python scripts/validate_catalog_sanitation.py
+python scripts/validate_trials_catalog.py
+python scripts/semantic_dedupe_catalog.py
+python scripts/validate_source_inventory.py
+python scripts/build_matcher_data.py
+node scripts/test_matcher_selection.js
+python scripts/test_matcher_selection.py
+python scripts/build_static_site.py
+node scripts/test_matcher_catalog_loading.js
+node scripts/test_matcher_logic.js
+python scripts/validate_production_sync.py
+python scripts/validate_audit_receipt.py research/audit-runs/daily-20261024T030229-0400/receipt-final.json
+python scripts/validate_audit_gap_review.py research/audit-runs/daily-20261024T030229-0400/gap-review.json --receipt research/audit-runs/daily-20261024T030229-0400/receipt-final.json

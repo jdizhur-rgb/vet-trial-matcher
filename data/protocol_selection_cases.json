@@ -8422,6 +8422,55 @@
         }
       ],
       "selection_sha256": "3853816306f65ca416116aa73ece389a8eaed3389246fd01142a4747617347ed"
+    },
+    {
+      "trial_id": "penn-oral-scc-nir-margin-2026",
+      "source_url": "https://www.vet.upenn.edu/clinical-trial/intraoperative-detection-of-oral-squamous-cell-carcinoma-margins-in-dogs-using-cathepsin-activated-near-infrared-nir-imaging/",
+      "reviewed_at": "2026-10-24T03:12:18-04:00",
+      "criteria": "Penn Vet primary page requires a dog with diagnosed oral SCC eligible for surgical excision, no prior/current treatment for this cancer, and travel to Philadelphia; study adds IV cathepsin-activated NIR margin imaging during surgery.",
+      "cases": [
+        {
+          "name": "source-supported candidate pending study-team checks",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Oral squamous cell carcinoma",
+            "prefs": [
+              "Surgery"
+            ]
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "confirmation"
+          ]
+        },
+        {
+          "name": "different species outside protocol",
+          "patient": {
+            "species": "Cat",
+            "country": "USA",
+            "cancer": "Oral squamous cell carcinoma",
+            "prefs": [
+              "Surgery"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "prior surgery for target cancer excludes entry",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Oral squamous cell carcinoma",
+            "surgery": "Yes",
+            "prefs": [
+              "Surgery"
+            ]
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "fb983593a00c6f58d1d2b7d65b113b4ef629d9e515751bee5a9494e4c19b8cb2"
     }
   ]
 }
