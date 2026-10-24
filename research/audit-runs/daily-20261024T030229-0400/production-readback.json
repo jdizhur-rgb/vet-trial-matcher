@@ -1,0 +1,51 @@
+{
+  "run_id": "daily-20261024T030229-0400",
+  "checked_at": "2026-10-24T03:34:22-04:00",
+  "site": "https://vettrialfinder.com/matcher/",
+  "deployment": "PASS",
+  "evidence": "Live matcher rendered the new Penn Vet trial; live catalog content hash matches the built catalog.",
+  "html": {
+    "status": "PASS",
+    "catalog_version": "228b14612d245439",
+    "script_version": "clinical-gi-20261022",
+    "local_sha256": "d1f1eb0aeff07397127da64e723d282fc88cbcaf30045ddfa99d26a9eaff3966",
+    "web_reference": "turn1140view0"
+  },
+  "catalog": {
+    "status": "PASS",
+    "url": "https://vettrialfinder.com/matcher/trials.json?v=228b14612d245439",
+    "live_sha256": "228b14612d245439e62702438b6829347e5540981185c8e7b31047928847d640",
+    "local_sha256": "228b14612d245439e62702438b6829347e5540981185c8e7b31047928847d640",
+    "new_id_present": true
+  },
+  "javascript": {
+    "status": "PASS_FUNCTIONAL_VERSION",
+    "url": "https://vettrialfinder.com/matcher/matcher.js?v=clinical-gi-20261022",
+    "local_sha256": "1a50aed1f59cc47b22e6f255c9c96659df99eb44a52620b2abe1a27c45d765d4",
+    "version_loaded": "clinical-gi-20261022",
+    "functional_evidence": "The live script loaded and produced 99 USA and 10 Japan result cards. Direct standalone JS navigation was blocked by the browser client, so an independent live byte hash was not obtained."
+  },
+  "live_search": {
+    "common": {
+      "species": "Dog",
+      "cancer": "Cancer — any type",
+      "diagnosis_certainty": "I don't know",
+      "age": "",
+      "weight": "",
+      "zip": "",
+      "treatments": "all selected",
+      "approach": "Any approach"
+    },
+    "USA": {
+      "status": "PASS",
+      "rendered_results": 99,
+      "expected_from_current_catalog": 99,
+      "new_trial_rendered": true
+    },
+    "Japan": {
+      "status": "PASS",
+      "rendered_results": 10,
+      "expected_from_current_catalog": 10
+    }
+  }
+}

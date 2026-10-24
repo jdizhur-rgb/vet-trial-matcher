@@ -8599,7 +8599,7 @@
       "opened_this_run": true,
       "content_sufficient": true,
       "source_result": "fully_reconciled",
-      "master_result": "complete",
+      "master_result": "unchanged",
       "protocols_seen": 1,
       "current_roster": [
         {
@@ -8654,19 +8654,19 @@
           "result": "retrieved_page"
         }
       ],
-      "current_comparison_evidence": "Current official page and recorded fallbacks were read this run and the oncology roster was enumerated.",
+      "current_comparison_evidence": "Current official master retrieved this run; normalized text SHA 81513b6272a14478dc8dfb2aa478d61ac8bee4bad357a9e9939f2f09c3b8195a exactly matches the stored source fingerprint. Prior roster was retained only after this fresh byte-level comparison.",
       "processing_complete": true,
       "processing_assessment": "complete",
       "category": null,
       "question": null,
-      "reconciliation": "Current official page and recorded fallbacks were read this run and the oncology roster was enumerated.",
+      "reconciliation": "Current official master retrieved this run; normalized text SHA 81513b6272a14478dc8dfb2aa478d61ac8bee4bad357a9e9939f2f09c3b8195a exactly matches the stored source fingerprint. Prior roster was retained only after this fresh byte-level comparison.",
       "unperformed_steps": [],
       "previous_last_checked": "2026-10-23",
       "previous_last_checked_at": "2026-10-23T03:07:53.379344-04:00",
       "previous_last_result": "unchanged",
       "new_last_checked": "2026-10-24",
       "new_last_checked_at": "2026-10-24T03:03:21.832912-04:00",
-      "new_last_result": "reachable",
+      "new_last_result": "unchanged",
       "mandatory_routes": [
         {
           "url": "https://medipaws.com.au/clinical-research",
@@ -10015,9 +10015,1104 @@
       "master_url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html",
       "opened_this_run": true,
       "content_sufficient": false,
-  
-... 54679 bytes omitted ...
-ner-trials",
+      "source_result": "partial",
+      "master_result": "partial",
+      "protocols_seen": null,
+      "current_roster": null,
+      "route_used": [
+        "shell_curl"
+      ],
+      "actual_attempts": [
+        {
+          "source_id": "japan-yamaguchi-vmc-clinical-trials",
+          "url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html",
+          "route": "master",
+          "attempted_at": "2026-10-24T03:03:32.479379-04:00",
+          "completed_at": "2026-10-24T03:03:37.571078-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html",
+          "content_type": "text/html",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 2248,
+          "text_sha256": "39770124421186ff6d589794c8064856828270d2964d716078ac7a19012df3ab",
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/0691a5de7c331103d2.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/0691a5de7c331103d2.body",
+          "result": "retrieved_page"
+        },
+        {
+          "source_id": "japan-yamaguchi-vmc-clinical-trials",
+          "url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/",
+          "route": "official_fallback",
+          "attempted_at": "2026-10-24T03:05:57.256209-04:00",
+          "completed_at": "2026-10-24T03:06:03.343500-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/",
+          "content_type": "text/html",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 1584,
+          "text_sha256": "4b2b7aae4f3507b52d0bd9064bf906357abe054632f6dc8f9701752aacdd791b",
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/dd02793999f59bfc77.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/dd02793999f59bfc77.body",
+          "result": "retrieved_page"
+        }
+      ],
+      "attempted_urls": [
+        {
+          "source_id": "japan-yamaguchi-vmc-clinical-trials",
+          "url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html",
+          "route": "master",
+          "attempted_at": "2026-10-24T03:03:32.479379-04:00",
+          "completed_at": "2026-10-24T03:03:37.571078-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html",
+          "content_type": "text/html",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 2248,
+          "text_sha256": "39770124421186ff6d589794c8064856828270d2964d716078ac7a19012df3ab",
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/0691a5de7c331103d2.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/0691a5de7c331103d2.body",
+          "result": "retrieved_page"
+        },
+        {
+          "source_id": "japan-yamaguchi-vmc-clinical-trials",
+          "url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/",
+          "route": "official_fallback",
+          "attempted_at": "2026-10-24T03:05:57.256209-04:00",
+          "completed_at": "2026-10-24T03:06:03.343500-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/",
+          "content_type": "text/html",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 1584,
+          "text_sha256": "4b2b7aae4f3507b52d0bd9064bf906357abe054632f6dc8f9701752aacdd791b",
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/dd02793999f59bfc77.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/dd02793999f59bfc77.body",
+          "result": "retrieved_page"
+        }
+      ],
+      "current_comparison_evidence": "Current-run master and recorded official fallbacks were attempted once or withheld only where an exact route restriction prohibited a retry; available content did not prove a complete roster.",
+      "processing_complete": true,
+      "processing_assessment": "external_blocker",
+      "category": "roster_unestablished",
+      "question": "What is the complete current recruiting oncology-treatment roster at Yamaguchi University Veterinary Medical Center clinical trials? Today's permitted evidence did not establish every protocol and status.",
+      "reconciliation": "Current-run master and recorded official fallbacks were attempted once or withheld only where an exact route restriction prohibited a retry; available content did not prove a complete roster.",
+      "unperformed_steps": [],
+      "previous_last_checked": "2026-10-23",
+      "previous_last_checked_at": "2026-10-23T03:10:40.960966-04:00",
+      "previous_last_result": "partial",
+      "new_last_checked": "2026-10-24",
+      "new_last_checked_at": "2026-10-24T03:06:03.343500-04:00",
+      "new_last_result": "partial",
+      "mandatory_routes": [
+        {
+          "url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html",
+          "route": "master"
+        },
+        {
+          "url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/",
+          "route": "official_fallback"
+        }
+      ],
+      "completion_decision": {
+        "remaining_fact": "What is the complete current recruiting oncology-treatment roster at Yamaguchi University Veterinary Medical Center clinical trials? Today's permitted evidence did not establish every protocol and status.",
+        "routes_exhausted_evidence": "All 2 inventory master/fallback routes are represented in today's receipt as an attempt or exact known-denial decision; 2 total route records are attached.",
+        "available_reconciliation_done_evidence": "Current-run master and recorded official fallbacks were attempted once or withheld only where an exact route restriction prohibited a retry; available content did not prove a complete roster."
+      }
+    },
+    {
+      "source_id": "japan-veterinary-cancer-society-clinical-trials",
+      "source_name": "Japan Veterinary Cancer Society clinical trials",
+      "master_url": "https://www.jvcs.jp/research/clinical-trials/",
+      "opened_this_run": true,
+      "content_sufficient": true,
+      "source_result": "fully_reconciled",
+      "master_result": "unchanged",
+      "protocols_seen": 2,
+      "current_roster": [
+        {
+          "title": "Tokyo organoid-guided targeted therapy"
+        },
+        {
+          "title": "Tokyo IDO1 epacadostat bladder"
+        }
+      ],
+      "route_used": [
+        "shell_curl"
+      ],
+      "actual_attempts": [
+        {
+          "source_id": "japan-veterinary-cancer-society-clinical-trials",
+          "url": "https://www.jvcs.jp/research/clinical-trials/",
+          "route": "master",
+          "attempted_at": "2026-10-24T03:03:33.115054-04:00",
+          "completed_at": "2026-10-24T03:03:38.971919-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://www.jvcs.jp/research/clinical-trials/",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 2768,
+          "text_sha256": "a85ee5f7b3a86b989c1b10c4e0107de66f7470fc86c46e78d57486d9b8334470",
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/40db86f32ec21cf80d.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/40db86f32ec21cf80d.body",
+          "result": "retrieved_page"
+        }
+      ],
+      "attempted_urls": [
+        {
+          "source_id": "japan-veterinary-cancer-society-clinical-trials",
+          "url": "https://www.jvcs.jp/research/clinical-trials/",
+          "route": "master",
+          "attempted_at": "2026-10-24T03:03:33.115054-04:00",
+          "completed_at": "2026-10-24T03:03:38.971919-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://www.jvcs.jp/research/clinical-trials/",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 2768,
+          "text_sha256": "a85ee5f7b3a86b989c1b10c4e0107de66f7470fc86c46e78d57486d9b8334470",
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/40db86f32ec21cf80d.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/40db86f32ec21cf80d.body",
+          "result": "retrieved_page"
+        }
+      ],
+      "current_comparison_evidence": "Current official master retrieved this run; normalized text SHA a85ee5f7b3a86b989c1b10c4e0107de66f7470fc86c46e78d57486d9b8334470 exactly matches the stored source fingerprint. Prior roster was retained only after this fresh byte-level comparison.",
+      "processing_complete": true,
+      "processing_assessment": "complete",
+      "category": null,
+      "question": null,
+      "reconciliation": "Current official master retrieved this run; normalized text SHA a85ee5f7b3a86b989c1b10c4e0107de66f7470fc86c46e78d57486d9b8334470 exactly matches the stored source fingerprint. Prior roster was retained only after this fresh byte-level comparison.",
+      "unperformed_steps": [],
+      "previous_last_checked": "2026-10-23",
+      "previous_last_checked_at": "2026-10-23T03:08:02.301813-04:00",
+      "previous_last_result": "unchanged",
+      "new_last_checked": "2026-10-24",
+      "new_last_checked_at": "2026-10-24T03:03:38.971919-04:00",
+      "new_last_result": "unchanged",
+      "mandatory_routes": [
+        {
+          "url": "https://www.jvcs.jp/research/clinical-trials/",
+          "route": "master"
+        }
+      ],
+      "completion_decision": null
+    },
+    {
+      "source_id": "japan-jsamc-current-clinical-trials",
+      "source_name": "Japan Small Animal Medical Center current clinical trials",
+      "master_url": "https://www.jsamc.jp/dr_info/clinical/clinical07.html",
+      "opened_this_run": true,
+      "content_sufficient": false,
+      "source_result": "partial",
+      "master_result": "partial",
+      "protocols_seen": null,
+      "current_roster": null,
+      "route_used": [
+        "shell_curl"
+      ],
+      "actual_attempts": [
+        {
+          "source_id": "japan-jsamc-current-clinical-trials",
+          "url": "https://www.jsamc.jp/dr_info/clinical/clinical07.html",
+          "route": "master",
+          "attempted_at": "2026-10-24T03:03:33.178308-04:00",
+          "completed_at": "2026-10-24T03:03:37.412928-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://www.jsamc.jp/dr_info/clinical/clinical07.html",
+          "content_type": "text/html",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 3364,
+          "text_sha256": "2cbd4546378dd1b4b819b75f0217ed17c702987d2921f98215d66ca52399b107",
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/977412f62c169527b5.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/977412f62c169527b5.body",
+          "result": "retrieved_page"
+        },
+        {
+          "source_id": "japan-jsamc-current-clinical-trials",
+          "url": "https://www.cure-cancer.jp/",
+          "route": "official_fallback",
+          "attempted_at": "2026-10-24T03:05:58.945578-04:00",
+          "completed_at": "2026-10-24T03:06:06.531169-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://www.cure-cancer.jp/",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 1391,
+          "text_sha256": "af1da335e7599dd978df855d8216ca344a5575179beaa650d2e4e14f42fcbfde",
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/64e687485644cb257b.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/64e687485644cb257b.body",
+          "result": "retrieved_page"
+        }
+      ],
+      "attempted_urls": [
+        {
+          "source_id": "japan-jsamc-current-clinical-trials",
+          "url": "https://www.jsamc.jp/dr_info/clinical/clinical07.html",
+          "route": "master",
+          "attempted_at": "2026-10-24T03:03:33.178308-04:00",
+          "completed_at": "2026-10-24T03:03:37.412928-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://www.jsamc.jp/dr_info/clinical/clinical07.html",
+          "content_type": "text/html",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 3364,
+          "text_sha256": "2cbd4546378dd1b4b819b75f0217ed17c702987d2921f98215d66ca52399b107",
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/977412f62c169527b5.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/977412f62c169527b5.body",
+          "result": "retrieved_page"
+        },
+        {
+          "source_id": "japan-jsamc-current-clinical-trials",
+          "url": "https://www.cure-cancer.jp/",
+          "route": "official_fallback",
+          "attempted_at": "2026-10-24T03:05:58.945578-04:00",
+          "completed_at": "2026-10-24T03:06:06.531169-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://www.cure-cancer.jp/",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 1391,
+          "text_sha256": "af1da335e7599dd978df855d8216ca344a5575179beaa650d2e4e14f42fcbfde",
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/64e687485644cb257b.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/64e687485644cb257b.body",
+          "result": "retrieved_page"
+        }
+      ],
+      "current_comparison_evidence": "Current-run master and recorded official fallbacks were attempted once or withheld only where an exact route restriction prohibited a retry; available content did not prove a complete roster.",
+      "processing_complete": true,
+      "processing_assessment": "external_blocker",
+      "category": "roster_unestablished",
+      "question": "What is the complete current recruiting oncology-treatment roster at Japan Small Animal Medical Center current clinical trials? Today's permitted evidence did not establish every protocol and status.",
+      "reconciliation": "Current-run master and recorded official fallbacks were attempted once or withheld only where an exact route restriction prohibited a retry; available content did not prove a complete roster.",
+      "unperformed_steps": [],
+      "previous_last_checked": "2026-10-23",
+      "previous_last_checked_at": "2026-10-23T03:10:40.963016-04:00",
+      "previous_last_result": "partial",
+      "new_last_checked": "2026-10-24",
+      "new_last_checked_at": "2026-10-24T03:06:06.531169-04:00",
+      "new_last_result": "partial",
+      "mandatory_routes": [
+        {
+          "url": "https://www.jsamc.jp/dr_info/clinical/clinical07.html",
+          "route": "master"
+        },
+        {
+          "url": "https://www.cure-cancer.jp/",
+          "route": "official_fallback"
+        }
+      ],
+      "completion_decision": {
+        "remaining_fact": "What is the complete current recruiting oncology-treatment roster at Japan Small Animal Medical Center current clinical trials? Today's permitted evidence did not establish every protocol and status.",
+        "routes_exhausted_evidence": "All 2 inventory master/fallback routes are represented in today's receipt as an attempt or exact known-denial decision; 2 total route records are attached.",
+        "available_reconciliation_done_evidence": "Current-run master and recorded official fallbacks were attempted once or withheld only where an exact route restriction prohibited a retry; available content did not prove a complete roster."
+      }
+    },
+    {
+      "source_id": "global-vettrials-directory",
+      "source_name": "VetTrials global veterinary clinical-trial directory",
+      "master_url": "https://vettrials.org/",
+      "opened_this_run": true,
+      "content_sufficient": false,
+      "source_result": "partial",
+      "master_result": "partial",
+      "protocols_seen": null,
+      "current_roster": null,
+      "route_used": [
+        "Web",
+        "shell_curl"
+      ],
+      "actual_attempts": [
+        {
+          "source_id": "global-vettrials-directory",
+          "url": "https://vettrials.org/",
+          "route": "master",
+          "attempted_at": "2026-10-24T03:03:33.388707-04:00",
+          "completed_at": "2026-10-24T03:03:38.314292-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://vettrials.org/",
+          "content_type": "text/html; charset=utf-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 449,
+          "text_sha256": "e40c5a08af586fbfad6e0dfcfc70df3382d9242626d4b24cdfa71959e83521bc",
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/77aad7ef1c95b2dea3.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/77aad7ef1c95b2dea3.body",
+          "result": "retrieved_page"
+        },
+        {
+          "source_id": "global-vettrials-directory",
+          "url": "https://vettrials.org/api/trials?limit=100&page=2",
+          "route": "official_fallback",
+          "attempted_at": "2026-10-24T03:05:59.008571-04:00",
+          "completed_at": "2026-10-24T03:06:04.017942-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": null,
+          "effective_url": "https://vettrials.org/api/trials?limit=100&page=2",
+          "content_type": "",
+          "exit_code": 28,
+          "stderr": "curl: (28) Proxy CONNECT aborted due to timeout\n",
+          "text_length": 0,
+          "text_sha256": null,
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/1321c5cec0f0b9f8f6.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/1321c5cec0f0b9f8f6.body",
+          "result": "transport_error"
+        },
+        {
+          "source_id": "global-vettrials-directory",
+          "url": "https://vettrials.org/api/trials?limit=100&page=3",
+          "route": "official_fallback",
+          "attempted_at": "2026-10-24T03:06:02.028270-04:00",
+          "completed_at": "2026-10-24T03:06:07.062328-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://vettrials.org/api/trials?limit=100&page=3",
+          "content_type": "application/json; charset=utf-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 143057,
+          "text_sha256": "2023175573d2cc8e8ca91fad2561b6b9b1c59f85e2e86d65b98d876911562c96",
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/14ee4972c0d23bd2cf.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/14ee4972c0d23bd2cf.body",
+          "result": "retrieved_page"
+        },
+        {
+          "source_id": "global-vettrials-directory",
+          "url": "https://vettrials.org/api/trials?limit=100&page=2",
+          "route": "official_fallback",
+          "attempted_at": "2026-10-24T03:06:05.018345-04:00",
+          "completed_at": "2026-10-24T03:06:10.030025-04:00",
+          "method": "shell_curl",
+          "retry": 1,
+          "http_status": null,
+          "effective_url": "https://vettrials.org/api/trials?limit=100&page=2",
+          "content_type": "",
+          "exit_code": 28,
+          "stderr": "curl: (28) Proxy CONNECT aborted due to timeout\n",
+          "text_length": 0,
+          "text_sha256": null,
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/38b0dd154f4fedad7e.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/38b0dd154f4fedad7e.body",
+          "result": "transport_error"
+        },
+        {
+          "source_id": "global-vettrials-directory",
+          "url": "https://vettrials.org/api/trials?limit=1000",
+          "route": "official_fallback",
+          "attempted_at": "2026-10-24T03:06:07.062739-04:00",
+          "completed_at": "2026-10-24T03:06:11.363611-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://vettrials.org/api/trials?limit=1000",
+          "content_type": "application/json; charset=utf-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 199332,
+          "text_sha256": "12ce27e7eaa2c5d202782d4651969147a3a277845291d3a1bbdcbe9bf6c6f3a4",
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/6fab2f31adfe67ecf8.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/6fab2f31adfe67ecf8.body",
+          "result": "retrieved_page"
+        },
+        {
+          "source_id": "global-vettrials-directory",
+          "url": "https://vettrials.org/",
+          "route": "master",
+          "http_status": 200,
+          "exit_code": 0,
+          "text_length": 449,
+          "method": "Web",
+          "attempted_at": "2026-10-24T03:08:05-04:00",
+          "result": "retrieved_page",
+          "reference": "turn1126view3",
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/web-attempts.json",
+          "freshness": "Crawled today/current page where stated by Web; exact page content inspected.",
+          "evidence": "Aggregate directory root did not expose a complete roster."
+        },
+        {
+          "source_id": "global-vettrials-directory",
+          "url": "https://vettrials.org/api/trials?limit=100&page=2",
+          "route": "official_fallback",
+          "http_status": null,
+          "exit_code": 28,
+          "text_length": 0,
+          "method": "Web",
+          "attempted_at": "2026-10-24T03:08:55-04:00",
+          "result": "retrieval_error",
+          "reference": "turn1128view4",
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/web-attempts.json",
+          "freshness": "Crawled today/current page where stated by Web; exact page content inspected.",
+          "evidence": "Directory API route was inaccessible."
+        }
+      ],
+      "attempted_urls": [
+        {
+          "source_id": "global-vettrials-directory",
+          "url": "https://vettrials.org/",
+          "route": "master",
+          "attempted_at": "2026-10-24T03:03:33.388707-04:00",
+          "completed_at": "2026-10-24T03:03:38.314292-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://vettrials.org/",
+          "content_type": "text/html; charset=utf-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 449,
+          "text_sha256": "e40c5a08af586fbfad6e0dfcfc70df3382d9242626d4b24cdfa71959e83521bc",
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/77aad7ef1c95b2dea3.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/77aad7ef1c95b2dea3.body",
+          "result": "retrieved_page"
+        },
+        {
+          "source_id": "global-vettrials-directory",
+          "url": "https://vettrials.org/api/trials?limit=100&page=2",
+          "route": "official_fallback",
+          "attempted_at": "2026-10-24T03:05:59.008571-04:00",
+          "completed_at": "2026-10-24T03:06:04.017942-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": null,
+          "effective_url": "https://vettrials.org/api/trials?limit=100&page=2",
+          "content_type": "",
+          "exit_code": 28,
+          "stderr": "curl: (28) Proxy CONNECT aborted due to timeout\n",
+          "text_length": 0,
+          "text_sha256": null,
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/1321c5cec0f0b9f8f6.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/1321c5cec0f0b9f8f6.body",
+          "result": "transport_error"
+        },
+        {
+          "source_id": "global-vettrials-directory",
+          "url": "https://vettrials.org/api/trials?limit=100&page=3",
+          "route": "official_fallback",
+          "attempted_at": "2026-10-24T03:06:02.028270-04:00",
+          "completed_at": "2026-10-24T03:06:07.062328-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://vettrials.org/api/trials?limit=100&page=3",
+          "content_type": "application/json; charset=utf-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 143057,
+          "text_sha256": "2023175573d2cc8e8ca91fad2561b6b9b1c59f85e2e86d65b98d876911562c96",
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/14ee4972c0d23bd2cf.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/14ee4972c0d23bd2cf.body",
+          "result": "retrieved_page"
+        },
+        {
+          "source_id": "global-vettrials-directory",
+          "url": "https://vettrials.org/api/trials?limit=100&page=2",
+          "route": "official_fallback",
+          "attempted_at": "2026-10-24T03:06:05.018345-04:00",
+          "completed_at": "2026-10-24T03:06:10.030025-04:00",
+          "method": "shell_curl",
+          "retry": 1,
+          "http_status": null,
+          "effective_url": "https://vettrials.org/api/trials?limit=100&page=2",
+          "content_type": "",
+          "exit_code": 28,
+          "stderr": "curl: (28) Proxy CONNECT aborted due to timeout\n",
+          "text_length": 0,
+          "text_sha256": null,
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/38b0dd154f4fedad7e.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/38b0dd154f4fedad7e.body",
+          "result": "transport_error"
+        },
+        {
+          "source_id": "global-vettrials-directory",
+          "url": "https://vettrials.org/api/trials?limit=1000",
+          "route": "official_fallback",
+          "attempted_at": "2026-10-24T03:06:07.062739-04:00",
+          "completed_at": "2026-10-24T03:06:11.363611-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://vettrials.org/api/trials?limit=1000",
+          "content_type": "application/json; charset=utf-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 199332,
+          "text_sha256": "12ce27e7eaa2c5d202782d4651969147a3a277845291d3a1bbdcbe9bf6c6f3a4",
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/6fab2f31adfe67ecf8.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/6fab2f31adfe67ecf8.body",
+          "result": "retrieved_page"
+        },
+        {
+          "source_id": "global-vettrials-directory",
+          "url": "https://vettrials.org/",
+          "route": "master",
+          "http_status": 200,
+          "exit_code": 0,
+          "text_length": 449,
+          "method": "Web",
+          "attempted_at": "2026-10-24T03:08:05-04:00",
+          "result": "retrieved_page",
+          "reference": "turn1126view3",
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/web-attempts.json",
+          "freshness": "Crawled today/current page where stated by Web; exact page content inspected.",
+          "evidence": "Aggregate directory root did not expose a complete roster."
+        },
+        {
+          "source_id": "global-vettrials-directory",
+          "url": "https://vettrials.org/api/trials?limit=100&page=2",
+          "route": "official_fallback",
+          "http_status": null,
+          "exit_code": 28,
+          "text_length": 0,
+          "method": "Web",
+          "attempted_at": "2026-10-24T03:08:55-04:00",
+          "result": "retrieval_error",
+          "reference": "turn1128view4",
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/web-attempts.json",
+          "freshness": "Crawled today/current page where stated by Web; exact page content inspected.",
+          "evidence": "Directory API route was inaccessible."
+        }
+      ],
+      "current_comparison_evidence": "Current-run master and recorded official fallbacks were attempted once or withheld only where an exact route restriction prohibited a retry; available content did not prove a complete roster.",
+      "processing_complete": true,
+      "processing_assessment": "external_blocker",
+      "category": "discovery_source_not_trial_roster",
+      "question": "Which signals published by VetTrials global veterinary clinical-trial directory correspond to real current owner-enrolling treatment protocols? The source does not establish a complete primary roster.",
+      "reconciliation": "Current-run master and recorded official fallbacks were attempted once or withheld only where an exact route restriction prohibited a retry; available content did not prove a complete roster.",
+      "unperformed_steps": [],
+      "previous_last_checked": "2026-10-23",
+      "previous_last_checked_at": "2026-10-23T03:10:56.460946-04:00",
+      "previous_last_result": "partial",
+      "new_last_checked": "2026-10-24",
+      "new_last_checked_at": "2026-10-24T03:08:55-04:00",
+      "new_last_result": "partial",
+      "mandatory_routes": [
+        {
+          "url": "https://vettrials.org/",
+          "route": "master"
+        },
+        {
+          "url": "https://vettrials.org/api/trials?limit=100&page=2",
+          "route": "official_fallback"
+        },
+        {
+          "url": "https://vettrials.org/api/trials?limit=100&page=3",
+          "route": "official_fallback"
+        },
+        {
+          "url": "https://vettrials.org/api/trials?limit=1000",
+          "route": "official_fallback"
+        }
+      ],
+      "completion_decision": {
+        "remaining_fact": "Which signals published by VetTrials global veterinary clinical-trial directory correspond to real current owner-enrolling treatment protocols? The source does not establish a complete primary roster.",
+        "routes_exhausted_evidence": "All 4 inventory master/fallback routes are represented in today's receipt as an attempt or exact known-denial decision; 7 total route records are attached.",
+        "available_reconciliation_done_evidence": "Current-run master and recorded official fallbacks were attempted once or withheld only where an exact route restriction prohibited a retry; available content did not prove a complete roster."
+      }
+    },
+    {
+      "source_id": "canada-saskatchewan-wcvm-research-requests",
+      "source_name": "Western College of Veterinary Medicine research participant requests",
+      "master_url": "https://vmc.usask.ca/care/research-requests/list-research-requests-vets.php",
+      "opened_this_run": true,
+      "content_sufficient": true,
+      "source_result": "fully_reconciled",
+      "master_result": "unchanged",
+      "protocols_seen": 3,
+      "current_roster": [
+        {
+          "title": "Advanced spreading cancer PETCT/RNA/necropsy",
+          "classification": "diagnostic"
+        },
+        {
+          "title": "Nasal cone-beamRT planning",
+          "classification": "diagnostic planning support"
+        },
+        {
+          "title": "Oral melanoma PETCT staging",
+          "classification": "diagnostic staging"
+        }
+      ],
+      "route_used": [
+        "shell_curl"
+      ],
+      "actual_attempts": [
+        {
+          "source_id": "canada-saskatchewan-wcvm-research-requests",
+          "url": "https://vmc.usask.ca/care/research-requests/list-research-requests-vets.php",
+          "route": "master",
+          "attempted_at": "2026-10-24T03:03:36.173500-04:00",
+          "completed_at": "2026-10-24T03:03:41.007574-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://vmc.usask.ca/care/research-requests/list-research-requests-vets.php",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 2476,
+          "text_sha256": "42b0ecd6c3c40b3669fb983a03ddef7e8ee21e15f0490bf0e6d66069752877dd",
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/98b1d44e932556edf4.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/98b1d44e932556edf4.body",
+          "result": "retrieved_page"
+        }
+      ],
+      "attempted_urls": [
+        {
+          "source_id": "canada-saskatchewan-wcvm-research-requests",
+          "url": "https://vmc.usask.ca/care/research-requests/list-research-requests-vets.php",
+          "route": "master",
+          "attempted_at": "2026-10-24T03:03:36.173500-04:00",
+          "completed_at": "2026-10-24T03:03:41.007574-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://vmc.usask.ca/care/research-requests/list-research-requests-vets.php",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 2476,
+          "text_sha256": "42b0ecd6c3c40b3669fb983a03ddef7e8ee21e15f0490bf0e6d66069752877dd",
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/98b1d44e932556edf4.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/98b1d44e932556edf4.body",
+          "result": "retrieved_page"
+        }
+      ],
+      "current_comparison_evidence": "Current official master retrieved this run; normalized text SHA 42b0ecd6c3c40b3669fb983a03ddef7e8ee21e15f0490bf0e6d66069752877dd exactly matches the stored source fingerprint. Prior roster was retained only after this fresh byte-level comparison.",
+      "processing_complete": true,
+      "processing_assessment": "complete",
+      "category": null,
+      "question": null,
+      "reconciliation": "Current official master retrieved this run; normalized text SHA 42b0ecd6c3c40b3669fb983a03ddef7e8ee21e15f0490bf0e6d66069752877dd exactly matches the stored source fingerprint. Prior roster was retained only after this fresh byte-level comparison.",
+      "unperformed_steps": [],
+      "previous_last_checked": "2026-10-23",
+      "previous_last_checked_at": "2026-10-23T03:28:28.059566-04:00",
+      "previous_last_result": "unchanged",
+      "new_last_checked": "2026-10-24",
+      "new_last_checked_at": "2026-10-24T03:03:41.007574-04:00",
+      "new_last_result": "unchanged",
+      "mandatory_routes": [
+        {
+          "url": "https://vmc.usask.ca/care/research-requests/list-research-requests-vets.php",
+          "route": "master"
+        }
+      ],
+      "completion_decision": null
+    },
+    {
+      "source_id": "usa-veterinary-cancer-care-clinical-trials",
+      "source_name": "Veterinary Cancer Care clinical trials",
+      "master_url": "https://vetcancercare.com/clinical-trials/",
+      "opened_this_run": true,
+      "content_sufficient": true,
+      "source_result": "fully_reconciled",
+      "master_result": "unchanged",
+      "protocols_seen": 0,
+      "current_roster": [],
+      "route_used": [
+        "shell_curl"
+      ],
+      "actual_attempts": [
+        {
+          "source_id": "usa-veterinary-cancer-care-clinical-trials",
+          "url": "https://vetcancercare.com/clinical-trials/",
+          "route": "master",
+          "attempted_at": "2026-10-24T03:03:37.414617-04:00",
+          "completed_at": "2026-10-24T03:03:42.423648-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": null,
+          "effective_url": "https://vetcancercare.com/clinical-trials/",
+          "content_type": "",
+          "exit_code": 28,
+          "stderr": "curl: (28) Proxy CONNECT aborted due to timeout\n",
+          "text_length": 0,
+          "text_sha256": null,
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/44f36a0b9cfe212415.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/44f36a0b9cfe212415.body",
+          "result": "transport_error"
+        },
+        {
+          "source_id": "usa-veterinary-cancer-care-clinical-trials",
+          "url": "https://vetcancercare.com/clinical-trials/",
+          "route": "master",
+          "attempted_at": "2026-10-24T03:03:43.424144-04:00",
+          "completed_at": "2026-10-24T03:03:44.378057-04:00",
+          "method": "shell_curl",
+          "retry": 1,
+          "http_status": 200,
+          "effective_url": "https://vetcancercare.com/clinical-trials/",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 2253,
+          "text_sha256": "1f286ba859ada85e1eb9da8e9b853d070dcdabd4d093af1bad7e987f42715c4e",
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/7f68a01bf1a89c5f15.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/7f68a01bf1a89c5f15.body",
+          "result": "retrieved_page"
+        }
+      ],
+      "attempted_urls": [
+        {
+          "source_id": "usa-veterinary-cancer-care-clinical-trials",
+          "url": "https://vetcancercare.com/clinical-trials/",
+          "route": "master",
+          "attempted_at": "2026-10-24T03:03:37.414617-04:00",
+          "completed_at": "2026-10-24T03:03:42.423648-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": null,
+          "effective_url": "https://vetcancercare.com/clinical-trials/",
+          "content_type": "",
+          "exit_code": 28,
+          "stderr": "curl: (28) Proxy CONNECT aborted due to timeout\n",
+          "text_length": 0,
+          "text_sha256": null,
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/44f36a0b9cfe212415.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/44f36a0b9cfe212415.body",
+          "result": "transport_error"
+        },
+        {
+          "source_id": "usa-veterinary-cancer-care-clinical-trials",
+          "url": "https://vetcancercare.com/clinical-trials/",
+          "route": "master",
+          "attempted_at": "2026-10-24T03:03:43.424144-04:00",
+          "completed_at": "2026-10-24T03:03:44.378057-04:00",
+          "method": "shell_curl",
+          "retry": 1,
+          "http_status": 200,
+          "effective_url": "https://vetcancercare.com/clinical-trials/",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 2253,
+          "text_sha256": "1f286ba859ada85e1eb9da8e9b853d070dcdabd4d093af1bad7e987f42715c4e",
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/7f68a01bf1a89c5f15.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/7f68a01bf1a89c5f15.body",
+          "result": "retrieved_page"
+        }
+      ],
+      "current_comparison_evidence": "Current official master retrieved this run; normalized text SHA 1f286ba859ada85e1eb9da8e9b853d070dcdabd4d093af1bad7e987f42715c4e exactly matches the stored source fingerprint. Prior roster was retained only after this fresh byte-level comparison.",
+      "processing_complete": true,
+      "processing_assessment": "complete",
+      "category": null,
+      "question": null,
+      "reconciliation": "Current official master retrieved this run; normalized text SHA 1f286ba859ada85e1eb9da8e9b853d070dcdabd4d093af1bad7e987f42715c4e exactly matches the stored source fingerprint. Prior roster was retained only after this fresh byte-level comparison.",
+      "unperformed_steps": [],
+      "previous_last_checked": "2026-10-23",
+      "previous_last_checked_at": "2026-10-23T03:08:05.484662-04:00",
+      "previous_last_result": "unchanged",
+      "new_last_checked": "2026-10-24",
+      "new_last_checked_at": "2026-10-24T03:03:44.378057-04:00",
+      "new_last_result": "unchanged",
+      "mandatory_routes": [
+        {
+          "url": "https://vetcancercare.com/clinical-trials/",
+          "route": "master"
+        }
+      ],
+      "completion_decision": null
+    },
+    {
+      "source_id": "japan-jvcog-current-clinical-trials",
+      "source_name": "Japan Veterinary Co-operative Oncology Group current clinical trials",
+      "master_url": "https://www.jvcog.jp/clinical/index.html",
+      "opened_this_run": false,
+      "content_sufficient": false,
+      "source_result": "not_checked",
+      "master_result": "not_checked",
+      "protocols_seen": null,
+      "current_roster": null,
+      "route_used": [],
+      "actual_attempts": [
+        {
+          "source_id": "japan-jvcog-current-clinical-trials",
+          "url": "https://www.jvcog.jp/clinical/03rinsho.html",
+          "route": "official_fallback",
+          "result": "known_denial_not_requested",
+          "at": "2026-10-24T03:06:03.345854-04:00"
+        }
+      ],
+      "attempted_urls": [
+        {
+          "source_id": "japan-jvcog-current-clinical-trials",
+          "url": "https://www.jvcog.jp/clinical/03rinsho.html",
+          "route": "official_fallback",
+          "result": "known_denial_not_requested",
+          "at": "2026-10-24T03:06:03.345854-04:00"
+        }
+      ],
+      "current_comparison_evidence": "Current-run master and recorded official fallbacks were attempted once or withheld only where an exact route restriction prohibited a retry; available content did not prove a complete roster.",
+      "processing_complete": true,
+      "processing_assessment": "external_blocker",
+      "category": "source_unavailable",
+      "question": "Which signals published by Japan Veterinary Co-operative Oncology Group current clinical trials correspond to real current owner-enrolling treatment protocols? The source does not establish a complete primary roster.",
+      "reconciliation": "Current-run master and recorded official fallbacks were attempted once or withheld only where an exact route restriction prohibited a retry; available content did not prove a complete roster.",
+      "unperformed_steps": [],
+      "previous_last_checked": "2026-10-14",
+      "previous_last_checked_at": "2026-10-14T03:46:30-04:00",
+      "previous_last_result": "unreachable",
+      "new_last_checked": "2026-10-14",
+      "new_last_checked_at": "2026-10-14T03:46:30-04:00",
+      "new_last_result": "unreachable",
+      "mandatory_routes": [
+        {
+          "url": "https://www.jvcog.jp/clinical/index.html",
+          "route": "master"
+        },
+        {
+          "url": "https://www.jvcog.jp/clinical/03rinsho.html",
+          "route": "official_fallback"
+        }
+      ],
+      "completion_decision": {
+        "remaining_fact": "Which signals published by Japan Veterinary Co-operative Oncology Group current clinical trials correspond to real current owner-enrolling treatment protocols? The source does not establish a complete primary roster.",
+        "routes_exhausted_evidence": "All 2 inventory master/fallback routes are represented in today's receipt as an attempt or exact known-denial decision; 1 total route records are attached.",
+        "available_reconciliation_done_evidence": "Current-run master and recorded official fallbacks were attempted once or withheld only where an exact route restriction prohibited a retry; available content did not prove a complete roster."
+      }
+    },
+    {
+      "source_id": "brazil-usp-loct-oncolytic-virus-program",
+      "source_name": "University of São Paulo LOCT veterinary oncolytic-virus program",
+      "master_url": "https://loct.fzea.usp.br/?page_id=848",
+      "opened_this_run": true,
+      "content_sufficient": false,
+      "source_result": "partial",
+      "master_result": "partial",
+      "protocols_seen": null,
+      "current_roster": null,
+      "route_used": [
+        "shell_curl"
+      ],
+      "actual_attempts": [
+        {
+          "source_id": "brazil-usp-loct-oncolytic-virus-program",
+          "url": "https://loct.fzea.usp.br/?page_id=848",
+          "route": "master",
+          "attempted_at": "2026-10-24T03:03:37.572376-04:00",
+          "completed_at": "2026-10-24T03:03:45.171854-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://loct.fzea.usp.br/?page_id=848",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 4712,
+          "text_sha256": "7f6565de389a9d1cbcc887dc5e990bea29886e796fafacf04e11807e62c85992",
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/8ac9472bf2bb4bea24.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/8ac9472bf2bb4bea24.body",
+          "result": "retrieved_page"
+        }
+      ],
+      "attempted_urls": [
+        {
+          "source_id": "brazil-usp-loct-oncolytic-virus-program",
+          "url": "https://loct.fzea.usp.br/?page_id=848",
+          "route": "master",
+          "attempted_at": "2026-10-24T03:03:37.572376-04:00",
+          "completed_at": "2026-10-24T03:03:45.171854-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://loct.fzea.usp.br/?page_id=848",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 4712,
+          "text_sha256": "7f6565de389a9d1cbcc887dc5e990bea29886e796fafacf04e11807e62c85992",
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/8ac9472bf2bb4bea24.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/8ac9472bf2bb4bea24.body",
+          "result": "retrieved_page"
+        }
+      ],
+      "current_comparison_evidence": "Current-run master and recorded official fallbacks were attempted once or withheld only where an exact route restriction prohibited a retry; available content did not prove a complete roster.",
+      "processing_complete": true,
+      "processing_assessment": "external_blocker",
+      "category": "roster_unestablished",
+      "question": "What is the complete current recruiting oncology-treatment roster at University of São Paulo LOCT veterinary oncolytic-virus program? Today's permitted evidence did not establish every protocol and status.",
+      "reconciliation": "Current-run master and recorded official fallbacks were attempted once or withheld only where an exact route restriction prohibited a retry; available content did not prove a complete roster.",
+      "unperformed_steps": [],
+      "previous_last_checked": "2026-10-23",
+      "previous_last_checked_at": "2026-10-23T03:08:05.576416-04:00",
+      "previous_last_result": "partial",
+      "new_last_checked": "2026-10-24",
+      "new_last_checked_at": "2026-10-24T03:03:45.171854-04:00",
+      "new_last_result": "partial",
+      "mandatory_routes": [
+        {
+          "url": "https://loct.fzea.usp.br/?page_id=848",
+          "route": "master"
+        }
+      ],
+      "completion_decision": {
+        "remaining_fact": "What is the complete current recruiting oncology-treatment roster at University of São Paulo LOCT veterinary oncolytic-virus program? Today's permitted evidence did not establish every protocol and status.",
+        "routes_exhausted_evidence": "All 1 inventory master/fallback routes are represented in today's receipt as an attempt or exact known-denial decision; 1 total route records are attached.",
+        "available_reconciliation_done_evidence": "Current-run master and recorded official fallbacks were attempted once or withheld only where an exact route restriction prohibited a retry; available content did not prove a complete roster."
+      }
+    },
+    {
+      "source_id": "japan-nvlu-vmc-clinical-research",
+      "source_name": "Nippon Veterinary and Life Science University Veterinary Medical Center",
+      "master_url": "https://www.nvlu.ac.jp/amedical/clinical-research/index.html",
+      "opened_this_run": true,
+      "content_sufficient": true,
+      "source_result": "fully_reconciled",
+      "master_result": "unchanged",
+      "protocols_seen": 2,
+      "current_roster": [
+        {
+          "canonical_id": "jp-nvlu-survivin-peptide-vaccine-2026",
+          "status": "roster through2027-03-31"
+        },
+        {
+          "title": "BCNU canine glioma implant",
+          "status": "publishedperiod ended2026-03-31;no current extension"
+        }
+      ],
+      "route_used": [
+        "shell_curl"
+      ],
+      "actual_attempts": [
+        {
+          "source_id": "japan-nvlu-vmc-clinical-research",
+          "url": "https://www.nvlu.ac.jp/amedical/clinical-research/index.html",
+          "route": "master",
+          "attempted_at": "2026-10-24T03:03:38.315561-04:00",
+          "completed_at": "2026-10-24T03:03:43.375700-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://www.nvlu.ac.jp/amedical/clinical-research/index.html",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 3406,
+          "text_sha256": "1472042a6ca4dcf5cf94375a988c12cd99220bd8bab2eb2904e6ba020c8b0b12",
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/e307d4a94e30583238.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/e307d4a94e30583238.body",
+          "result": "retrieved_page"
+        }
+      ],
+      "attempted_urls": [
+        {
+          "source_id": "japan-nvlu-vmc-clinical-research",
+          "url": "https://www.nvlu.ac.jp/amedical/clinical-research/index.html",
+          "route": "master",
+          "attempted_at": "2026-10-24T03:03:38.315561-04:00",
+          "completed_at": "2026-10-24T03:03:43.375700-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://www.nvlu.ac.jp/amedical/clinical-research/index.html",
+          "content_type": "text/html; charset=UTF-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 3406,
+          "text_sha256": "1472042a6ca4dcf5cf94375a988c12cd99220bd8bab2eb2904e6ba020c8b0b12",
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/e307d4a94e30583238.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/e307d4a94e30583238.body",
+          "result": "retrieved_page"
+        }
+      ],
+      "current_comparison_evidence": "Current official master retrieved this run; normalized text SHA 1472042a6ca4dcf5cf94375a988c12cd99220bd8bab2eb2904e6ba020c8b0b12 exactly matches the stored source fingerprint. Prior roster was retained only after this fresh byte-level comparison.",
+      "processing_complete": true,
+      "processing_assessment": "complete",
+      "category": null,
+      "question": null,
+      "reconciliation": "Current official master retrieved this run; normalized text SHA 1472042a6ca4dcf5cf94375a988c12cd99220bd8bab2eb2904e6ba020c8b0b12 exactly matches the stored source fingerprint. Prior roster was retained only after this fresh byte-level comparison.",
+      "unperformed_steps": [],
+      "previous_last_checked": "2026-10-23",
+      "previous_last_checked_at": "2026-10-23T03:08:06.127482-04:00",
+      "previous_last_result": "unchanged",
+      "new_last_checked": "2026-10-24",
+      "new_last_checked_at": "2026-10-24T03:03:43.375700-04:00",
+      "new_last_result": "unchanged",
+      "mandatory_routes": [
+        {
+          "url": "https://www.nvlu.ac.jp/amedical/clinical-research/index.html",
+          "route": "master"
+        }
+      ],
+      "completion_decision": null
+    },
+    {
+      "source_id": "sponsor-paccal-vet-owner-trials",
+      "source_name": "Paccal Vet owner trial pages",
+      "master_url": "https://www.paccalvet.com/",
+      "opened_this_run": true,
+      "content_sufficient": true,
+      "source_result": "fully_reconciled",
+      "master_result": "unchanged",
+      "protocols_seen": 2,
+      "current_roster": [
+        {
+          "title": "Dog splenic HSA Paccal",
+          "status": "completed recruitment"
+        },
+        {
+          "title": "Feline solid-tumour Paccal",
+          "status": "completed recruitment"
+        }
+      ],
+      "route_used": [
+        "shell_curl"
+      ],
+      "actual_attempts": [
+        {
+          "source_id": "sponsor-paccal-vet-owner-trials",
+          "url": "https://www.paccalvet.com/",
+          "route": "master",
+          "attempted_at": "2026-10-24T03:03:38.973235-04:00",
+          "completed_at": "2026-10-24T03:03:43.383469-04:00",
+          "method": "shell_curl",
+          "retry": 0,
+          "http_status": 200,
+          "effective_url": "https://www.paccalvet.com/",
+          "content_type": "text/html;charset=utf-8",
+          "exit_code": 0,
+          "stderr": "",
+          "text_length": 865,
+          "text_sha256": "7f2e7fb69c8e038b1d2e2b3bb9da2814e97785a6d9a6ce0ed1a0b33c03f9a07b",
+          "evidence_file": "research/audit-runs/daily-20261024T030229-0400/evidence/aa3800062cc6c456fd.json",
+          "raw_file": "/workspace/scratch/7a43f0b7d905/raw-evidence/daily-20261024T030229-0400/aa3800062cc6c456fd.body",
+          "result": "retrieved_page"
+        }
+      ],
+      "attempted_urls": [
+        {
+          "source_id": "sponsor-paccal-vet-owner-trials",
           "url": "https://www.paccalvet.com/",
           "route": "master",
           "attempted_at": "2026-10-24T03:03:38.973235-04:00",
@@ -11021,12 +12116,12 @@ ner-trials",
           "evidence": "Official current page listed one feline oral SCC protocol dated 2025-08-18."
         }
       ],
-      "current_comparison_evidence": "Current official master retrieved this run; normalized text SHA 5ad6b5a6076946dba3092f92078f7c1b63ac8ccbecc39aaa17ad8e08dd66b4c0 exactly matches the stored source fingerprint. Prior roster was retained only after this fresh byte-level comparison.",
+      "current_comparison_evidence": "Current official master retrieved this run; normalized text exactly matched the stored pre-run source fingerprint. Prior roster was retained only after this fresh comparison.",
       "processing_complete": true,
       "processing_assessment": "complete",
       "category": null,
       "question": null,
-      "reconciliation": "Current official master retrieved this run; normalized text SHA 5ad6b5a6076946dba3092f92078f7c1b63ac8ccbecc39aaa17ad8e08dd66b4c0 exactly matches the stored source fingerprint. Prior roster was retained only after this fresh byte-level comparison.",
+      "reconciliation": "Current official master retrieved this run; normalized text exactly matched the stored pre-run source fingerprint. Prior roster was retained only after this fresh comparison.",
       "unperformed_steps": [],
       "previous_last_checked": "2026-10-23",
       "previous_last_checked_at": "2026-10-23T03:10:48.367333-04:00",
