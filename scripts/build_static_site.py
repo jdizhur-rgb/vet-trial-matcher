@@ -177,6 +177,7 @@ def main() -> None:
     run("seo/clinical_trials_for_pets_article.py", pythonpath="seo")
     run("seo/lump_before_surgery_article.py", pythonpath="seo")
     run("seo/article_catalog.py", pythonpath="seo")
+    run("seo/oncology_state_pages.py", pythonpath="seo")
 
     # These deterministic finishing stages operate on the generated HTML.
     run("seo_index_cleanup.py")
@@ -202,6 +203,7 @@ def main() -> None:
     subprocess.run(["node", "scripts/test_matcher_selection.js"], cwd=ROOT, check=True)
     run("scripts/test_matcher_selection.py")
     subprocess.run(["node", "scripts/test_oncology_country_filter.js"], cwd=ROOT, check=True)
+    run("scripts/test_oncology_state_page.py")
     run("scripts/test_austrian_care_identity.py")
     run("scripts/test_germany_care_identity.py")
     run("scripts/test_network_care.py")
