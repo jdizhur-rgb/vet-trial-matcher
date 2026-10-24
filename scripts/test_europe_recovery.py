@@ -62,6 +62,14 @@ def before_later_ri_pass(rows, path):
     Every changed current row is checked first. The original European counts,
     hashes, dates and branch-identity assertions below remain unchanged.
     """
+    # One independently verified Cavalier surgery addition; all prior hashes stay frozen.
+    extra = read(ROOT / 'research/audit-runs/nd-extra-20261024/baseline-projection.json')['collections'][path]
+    assert len(rows) == extra['after_count']
+    assert extra['id'] == 'nd-gilbertson-veterinary-clinic'
+    added = [r for r in rows if r.get(extra['key']) == extra['id']]
+    assert len(added) == 1 and sha(added[0]) == extra['after_sha256']
+    rows = [r for r in rows if r.get(extra['key']) != extra['id']]
+    assert len(rows) == extra['before_count']
     # Four later ND surgery locations and the exact Red River surgery update.
     nd_finish = read(ROOT / 'research/audit-runs/nd-finish-20261024/baseline-projection.json')['collections'][path]
     assert len(rows) == nd_finish['after_count']
