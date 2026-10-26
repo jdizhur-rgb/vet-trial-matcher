@@ -1,0 +1,56 @@
+{
+  "run_id": "daily-20261026T030132-0400",
+  "checked_at": "2026-10-26T03:16:46-04:00",
+  "url": "https://vettrialfinder.com/matcher/",
+  "method": "cloud_browser",
+  "shell_readback": {
+    "status": "NOT_VERIFIED",
+    "reason": "Proxy CONNECT aborted due to timeout"
+  },
+  "html": {
+    "status": "PASS",
+    "script_url": "https://vettrialfinder.com/matcher/matcher.js?v=clinical-gi-20261022",
+    "catalog_version": "228b14612d245439"
+  },
+  "catalog": {
+    "status": "PASS",
+    "url": "https://vettrialfinder.com/matcher/trials.json?v=228b14612d245439",
+    "records": 153,
+    "first_id": "eu-fr-hifu-urothelial",
+    "last_id": "penn-oral-scc-nir-margin-2026",
+    "local_sha256": "228b14612d245439e62702438b6829347e5540981185c8e7b31047928847d640",
+    "live_version_prefix_matches_local_sha256": true
+  },
+  "javascript": {
+    "functional_status": "PASS",
+    "byte_hash_status": "NOT_VERIFIED",
+    "local_sha256": "1a50aed1f59cc47b22e6f255c9c96659df99eb44a52620b2abe1a27c45d765d4",
+    "reason": "Direct browser navigation to the JavaScript asset was blocked by the browser client; the live matcher loaded and executed the versioned asset successfully."
+  },
+  "live_matcher_search": {
+    "criteria": {
+      "species": "Dog",
+      "cancer": "Cancer — any type",
+      "diagnosis_certainty": "I don't know",
+      "age": "",
+      "weight": "",
+      "zip": "",
+      "treatments": "all selected",
+      "approach": "Any approach"
+    },
+    "USA": {
+      "status": "PASS",
+      "displayed_results": 99
+    },
+    "Japan": {
+      "status": "PASS",
+      "displayed_results": 10
+    }
+  },
+  "local_build": {
+    "catalog_sha256": "228b14612d245439e62702438b6829347e5540981185c8e7b31047928847d640",
+    "javascript_sha256": "1a50aed1f59cc47b22e6f255c9c96659df99eb44a52620b2abe1a27c45d765d4",
+    "html_sha256": "d1f1eb0aeff07397127da64e723d282fc88cbcaf30045ddfa99d26a9eaff3966"
+  },
+  "overall_status": "PASS_FUNCTIONAL; JAVASCRIPT_BYTE_HASH_NOT_VERIFIED"
+}
