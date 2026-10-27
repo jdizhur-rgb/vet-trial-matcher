@@ -8628,6 +8628,106 @@
         }
       ],
       "selection_sha256": "0dd88d20e9d1466c7c49b1278fef652fd8064cfda5b18f91ea6790166bb190bc"
+    },
+    {
+      "trial_id": "jp-nihon-head-neck-alternating-magnetic-field",
+      "source_url": "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=4035",
+      "reviewed_at": "2026-10-27T06:40:56.892543-04:00",
+      "source_retrieved_at": "2026-10-27T03:02:31-04:00",
+      "evidence_run": "daily-20261027T030001-0400",
+      "evidence_file": "research/audit-runs/daily-20261027T030001-0400/evidence/dc2eaef3be47b40991.json",
+      "criteria": "Small to medium-sized dogs with a malignant tumor of the head, mouth or neck. The study team must confirm device fit, tumor location and anesthesia suitability; the source gives no numeric weight cutoff.",
+      "cases": [
+        {
+          "name": "source-defined canine treatment candidate; team screening required",
+          "patient": {
+            "species": "Dog",
+            "country": "Japan",
+            "cancer": "Oral melanoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "unknown diagnosis remains a screening question",
+          "patient": {
+            "species": "Dog",
+            "country": "Japan",
+            "cancer": "Oral melanoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "feline patient outside published canine scope",
+          "patient": {
+            "species": "Cat",
+            "country": "Japan",
+            "cancer": "Oral melanoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "no remaining treatment target",
+          "patient": {
+            "species": "Dog",
+            "country": "Japan",
+            "cancer": "Oral melanoma",
+            "tumor_status": "No evidence of disease (NED)"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "7d8e39fef9e63c97d16175a09ab2b44bea8cb40f95adb18531f8274533fe3107"
+    },
+    {
+      "trial_id": "jp-nihon-canine-glioma-il12",
+      "source_url": "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=5145",
+      "reviewed_at": "2026-10-27T06:40:56.892543-04:00",
+      "source_retrieved_at": "2026-10-27T03:02:31-04:00",
+      "evidence_run": "daily-20261027T030001-0400",
+      "evidence_file": "research/audit-runs/daily-20261027T030001-0400/evidence/abbb8ea89466a11acb.json",
+      "criteria": "Glioma diagnosed by MRI or histopathology, including recurrence after surgery and/or radiotherapy. The procedure diagram refers to biopsy confirmation for the initial-treatment pathway; confirm the applicable diagnostic pathway, general health, anesthesia and treatment suitability with the team.",
+      "cases": [
+        {
+          "name": "source-defined canine treatment candidate; team screening required",
+          "patient": {
+            "species": "Dog",
+            "country": "Japan",
+            "cancer": "Brain tumor / glioma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "unknown diagnosis remains a screening question",
+          "patient": {
+            "species": "Dog",
+            "country": "Japan",
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "feline patient outside published canine scope",
+          "patient": {
+            "species": "Cat",
+            "country": "Japan",
+            "cancer": "Brain tumor / glioma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "no remaining treatment target",
+          "patient": {
+            "species": "Dog",
+            "country": "Japan",
+            "cancer": "Brain tumor / glioma",
+            "tumor_status": "No evidence of disease (NED)"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "5123be272f2827d7670c60879980220dec8e28c5df17c93e0fc62b1922ca7b4c"
     }
   ]
 }
