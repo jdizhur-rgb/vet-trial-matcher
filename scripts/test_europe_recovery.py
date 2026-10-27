@@ -62,6 +62,54 @@ def before_later_ri_pass(rows, path):
     Every changed current row is checked first. The original European counts,
     hashes, dates and branch-identity assertions below remain unchanged.
     """
+    # Independently reviewed Wyoming followup: four additions and one existing
+    # location's surgical evidence. Freeze the earlier Wyoming projection too.
+    follow = read(ROOT / 'research/audit-runs/wy-finish-20261026/baseline-projection.json')['collections'][path]
+    assert len(rows) == follow['after_count']
+    delta = {c['id']: c for c in follow['changes']}
+    assert set(delta) == {'wy-animal-health-center-laramie', 'wy-elevate-animal-care',
+                          'wy-western-veterinary-service-big-piney',
+                          'wy-heartland-animal-clinic-mobile',
+                          'vca-spring-creek-animal-care-hospital'}
+    assert sum(c['before'] is None for c in delta.values()) == 4
+    projected, seen = [], set()
+    for row in rows:
+        identity = row.get(follow['key'])
+        change = delta.get(identity)
+        if change is None:
+            projected.append(row)
+            continue
+        assert identity not in seen and sha(row) == change['after_sha256'], identity
+        seen.add(identity)
+        if change['before'] is not None:
+            projected.append(copy.deepcopy(change['before']))
+    assert seen == set(delta)
+    rows = projected
+    assert len(rows) == follow['before_count']
+    # Exact Wyoming data deltas, independently reviewed on October26. Validate
+    # each accepted current row before restoring the unchanged historical proof.
+    wy = read(ROOT / 'research/audit-runs/wy-care-20261026/baseline-projection.json')['collections'][path]
+    assert len(rows) == wy['after_count']
+    changes = {c['id']: c for c in wy['changes']}
+    expected = {r['source_id'] for r in read(ROOT / 'research/audit-runs/wy-care-20261026/published-records.json')} | {
+        'altitude-veterinary-hospital', 'casper-animal-medical-center',
+        'vca-spring-creek-animal-care-hospital'}
+    assert set(changes) == expected and len(expected) == 24
+    assert sum(c['before'] is None for c in changes.values()) == 21
+    projected, seen = [], set()
+    for row in rows:
+        identity = row.get(wy['key'])
+        change = changes.get(identity)
+        if change is None:
+            projected.append(row)
+            continue
+        assert identity not in seen and sha(row) == change['after_sha256'], identity
+        seen.add(identity)
+        if change['before'] is not None:
+            projected.append(copy.deepcopy(change['before']))
+    assert seen == expected
+    rows = projected
+    assert len(rows) == wy['before_count']
     # One independently verified Cavalier surgery addition; all prior hashes stay frozen.
     extra = read(ROOT / 'research/audit-runs/nd-extra-20261024/baseline-projection.json')['collections'][path]
     assert len(rows) == extra['after_count']

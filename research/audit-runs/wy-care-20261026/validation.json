@@ -1,0 +1,114 @@
+{
+  "run_id": "wy-care-20261026",
+  "build_static_site_exit_code": 0,
+  "catalog_count": 1639,
+  "wyoming": {
+    "physical": 23,
+    "mobile": 1,
+    "chemotherapy": 5,
+    "new_physical": 20,
+    "new_mobile": 1,
+    "existing_updated": 3
+  },
+  "checks": [
+    {
+      "command": "python scripts/test_a02_care_reconciliation.py",
+      "exit_code": 0,
+      "output": "A02_CARE_REGRESSION_OK identities, retired/watchlist exclusion, local modality limits, mobile coordinates, doctor credentials, remote audiences\n"
+    },
+    {
+      "command": "node scripts/test_a01_care_reconciliation.js",
+      "exit_code": 0,
+      "output": "A01_CARE_REGRESSION_OK identities, service flags, WA ZIP/state sorting, mobile distance suppression\n"
+    },
+    {
+      "command": "python scripts/test_b01_care_reconciliation.py",
+      "exit_code": 0,
+      "output": "B01_CARE_REGRESSION_OK 25 sources, 26 sites, Malvern separation, branch modalities, credentials and contacts\n"
+    },
+    {
+      "command": "python scripts/test_b02_care_reconciliation.py",
+      "exit_code": 0,
+      "output": "B02_CARE_REGRESSION_OK branch modalities, credentials, aliases, relocation coordinates, network scope\n"
+    },
+    {
+      "command": "python scripts/test_c01_care_reconciliation.py",
+      "exit_code": 0,
+      "output": "C01_CARE_REGRESSION_OK 24 unique branches, corrected coordinates/identity, conservative filters, credentials and named treatments\n"
+    },
+    {
+      "command": "python scripts/test_e_packages_reconciliation.py",
+      "exit_code": 1,
+      "output": "Traceback (most recent call last):\n  File \"/workspace/scratch/86c69eff1147/wyoming-care/scripts/test_e_packages_reconciliation.py\", line 64, in <module>\n    assert r['street']\n           ~^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "command": "python scripts/test_six_worker_test_reconciliation.py",
+      "exit_code": 0,
+      "output": "SIX_WORKER_TEST_RECONCILIATION_OK centers=1639 new=5\n"
+    },
+    {
+      "command": "python scripts/test_austrian_care_identity.py",
+      "exit_code": 0,
+      "output": "AUSTRIAN_CARE_IDENTITY_OK 121 distinct sites; branch addresses, phones and services preserved\n"
+    },
+    {
+      "command": "python scripts/test_germany_care_identity.py",
+      "exit_code": 0,
+      "output": "GERMANY_CARE_IDENTITY_OK two separate Saarwellingen providers; individual access limits preserved\n"
+    },
+    {
+      "command": "python scripts/test_network_care.py",
+      "exit_code": 0,
+      "output": "NETWORK_CARE_OK one network route; no branch clones, office address, phone invention or physical identity merge\n"
+    },
+    {
+      "command": "node scripts/test_oncology_country_filter.js",
+      "exit_code": 0,
+      "output": "ONCOLOGY_COUNTRY_FILTER_OK 13 countries; 339 German listings; combined filters, state reset, stale ZIP suppression\n"
+    }
+  ],
+  "additional_passes": [
+    "build_oncology_center_catalog",
+    "validate_oncology_centers",
+    "check_evidence_keys",
+    "validate_catalog_sanitation",
+    "validate_source_inventory",
+    "test_europe_recovery",
+    "exact unrelated-row preservation in all three changed data collections",
+    "21 distinct new source IDs; semantic duplicate match only to self"
+  ],
+  "known_baseline_failure": {
+    "test": "scripts/test_e_packages_reconciliation.py",
+    "line": 64,
+    "reason": "Requires street for all non-mobile coordinates_unknown records, including existing network contacts without an office. Same offending records already present at baseline 6254ff7. No Wyoming row causes this failure.",
+    "baseline_offending_ids": [
+      "nd-oakes-edgeley-ellendale-veterinary-service-network",
+      "cz-budvet-network",
+      "dier-en-dokter-network-netherlands",
+      "dierendokters-network-netherlands",
+      "dierenkliniek-ijsselstein-network",
+      "dgc-zuid-limburg-network-netherlands",
+      "de-kleintierpraxis-aartalsee-network",
+      "pl-arsvet-chodziez-zlotow-network",
+      "pl-kochanowskiego-network",
+      "fr-sevetys-network-oncology-access",
+      "pl-specvet-network",
+      "pl-szwarc-sobik-network",
+      "de-tagesklinik-jaehnig-network",
+      "topzorg-network-netherlands",
+      "cz-veterina-vyjezd-network",
+      "de-filu-network-germany",
+      "hoogveld-limburg-network",
+      "pl-maxvet-krakow-michalowice-network",
+      "de-puvogel-ruegen-network",
+      "de-risse-hagen-tecklenburg-network",
+      "fr-vetesia-network-cancer-care",
+      "de-dausend-weyand-saarland-network",
+      "kleintierordination-stiglhuber-network",
+      "pl-amicus-lodz-network",
+      "pl-teodorowscy-network"
+    ]
+  },
+  "post_rebase_static_build_exit_code": 0,
+  "rebased_on": "e35835df99bcd9fb0c5d5692bf0f8a2b79b8bd49"
+}
