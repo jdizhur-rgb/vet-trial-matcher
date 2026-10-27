@@ -21,6 +21,11 @@ def validate(review, receipt):
         errors.append("review must cover each insufficient source exactly once")
     if review.get("original_run_id") != receipt.get("run_id"):
         errors.append("review and receipt run IDs differ")
+    external_rows = [r for r in rows if r.get("processing_assessment") == "external_blocker"]
+    completion_text_counts = Counter(
+        str((r.get("completion_decision") or {}).get("available_reconciliation_done_evidence", "")).strip()
+        for r in external_rows
+    )
     for row in rows:
         sid = row.get("source_id")
         if row.get("category") not in CATEGORIES:
@@ -42,6 +47,15 @@ def validate(review, receipt):
             for key in ("remaining_fact", "routes_exhausted_evidence", "available_reconciliation_done_evidence"):
                 if not decision.get(key):
                     errors.append(f"{sid}: external blocker lacks {key}")
+            completion = str(decision.get("available_reconciliation_done_evidence", "")).strip()
+            if completion and completion_text_counts[completion] > 1:
+                errors.append(f"{sid}: repeated blanket reconciliation text is not source-specific completion proof")
+            if "All configured master/fallback routes were attempted today or withheld only" in completion:
+                errors.append(f"{sid}: route-attempt coverage is not proof of available reconciliation")
+            if row.get("unperformed_steps"):
+                errors.append(f"{sid}: external blocker still has unperformed executor steps")
+        if assessment in ("not_established", "executor_unfinished") and gaps.get(sid, {}).get("processing_complete") is True:
+            errors.append(f"{sid}: incomplete or unconfirmed processing cannot be marked complete")
         if assessment == "executor_unfinished" and not row.get("unperformed_steps"):
             errors.append(f"{sid}: executor unfinished lacks specific steps")
     summary = {

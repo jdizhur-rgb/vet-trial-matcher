@@ -1,0 +1,63 @@
+$ python scripts/test_audit_gap_review.py
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.000s
+
+OK
+exit=0
+$ python scripts/validate_catalog_sanitation.py
+{
+  "records": 313,
+  "partial_records": 4,
+  "known_unresolved": 4,
+  "new_partial_records": [],
+  "resolved_but_still_queued": [
+    "eu-ch-sinonasal-heterogeneous-rt",
+    "fr-fregis-chemodectoma-thermoablation",
+    "fr-fregis-hepatic-embolization",
+    "fr-fregis-hepatic-tumor-thermoablation",
+    "nl-utrecht-osteosarcoma-oncolytic-virus-access",
+    "uk-rvc-insulinoma-toceranib"
+  ]
+}
+exit=0
+$ python scripts/validate_trials_catalog.py
+TRIAL_CATALOG_VALIDATION_OK records=313 unique_ids=313 active=152 required_active_fields=11
+exit=0
+$ python scripts/validate_source_inventory.py
+SOURCE_INVENTORY_VALIDATION_OK sources=143 digest=4d147008d26c
+exit=0
+$ node scripts/test_matcher_catalog_loading.js
+Japan: 10 results after delayed load
+USA: 99 results after delayed load
+Catalog-loading regression PASS
+exit=0
+$ node scripts/test_matcher_logic.js
+MATCHER_LOGIC_OK trials=152 mct=4 yasha=0 mammary=5 osteosarcoma=17 bladder=6 brain=8
+exit=0
+$ python scripts/validate_production_sync.py
+PRODUCTION_SYNC_OK total=152 treatment=148 access=4 matcher_ids=152 internal_links=6896
+exit=0
+$ python scripts/validate_audit_gap_review.py /workspace/scratch/7a43f0b7d905/vet-trial-audit-20261024/research/audit-runs/gap-recovery-20261026T204639-0400/gap-review.json --receipt /workspace/scratch/7a43f0b7d905/vet-trial-audit-20261024/research/audit-runs/gap-recovery-20261026T204639-0400/receipt-final.json
+{
+  "review_validation": "PASS",
+  "errors": [],
+  "gap_total": 90,
+  "categories": {
+    "discovery_source_not_trial_roster": 10,
+    "source_unavailable": 18,
+    "roster_unestablished": 62
+  },
+  "processing_assessments": {
+    "not_established": 90
+  },
+  "processing_completion": "NOT_VERIFIED",
+  "strict_coverage_status": "INCOMPLETE"
+}
+exit=0
+$ python scripts/validate_repository_hygiene.py
+REPOSITORY_HYGIENE_OK
+exit=0
+$ python scripts/check_evidence_keys.py
+PASS: no unredacted Google API keys.
+exit=0
