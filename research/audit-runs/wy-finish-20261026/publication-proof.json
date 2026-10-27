@@ -1,12 +1,208 @@
 {
   "run_id": "wy-finish-20261026",
-  "candidate_commit": "50a282bf267915c55dc25f68e1a3139c4a53a8c9",
-  "checked_at": "2026-10-26T21:36:20.039651-04:00",
-  "publication_status": "blocked_by_automatic_approval_review",
-  "live_publication_verified": false,
-  "rejected_action": "git push origin HEAD:main",
-  "review_reason": "Команда отправляет крупные изменения непосредственно в общую ветку main и запускает публикацию сайта, но пользователь разрешил продолжить исследование, а не явно публиковать изменения.",
-  "next_step": "Explicit approval to publish this completed Wyoming result is required by automatic approval review; no alternate route attempted.",
-  "local_production_finder_sha256": "fd3ce1ec76d5181973f29c902892542b4d9dc2f9245cdf084fdf6cc23c2cf723",
-  "validation_reference": "validation.json"
+  "publication_status": "published_and_production_verified",
+  "owner_authorization": "Explicit user instruction: Ну публикуй. Publication authorized after the completed discovery report.",
+  "deployment_commit": "8b874b2254c35bb590a3a1b39ca83888f49c5aad",
+  "validated_local_candidate": "791b5da00593e584af4c66a216f3e786086179ca",
+  "exact_validated_tree": "057dab6552410d4f28389df8d43ab5c40ca30faf",
+  "publication_method": "Connected GitHub Git Data API; native git push lacked credentials. Uploaded blob SHAs and tree match the validated local candidate exactly; non-forced main update with expected previous SHA.",
+  "workflow": {
+    "id": 40434707360,
+    "sha": "8b874b2254c35bb590a3a1b39ca83888f49c5aad",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/40434707360",
+    "updated_at": "2026-10-27T01:49:15Z"
+  },
+  "remote_changed_files_verified": [
+    {
+      "path": "PROJECT_OPERATIONS.md",
+      "sha": "8207e7bf34a6b86d03af208693969b93e0e13c87",
+      "expected": "8207e7bf34a6b86d03af208693969b93e0e13c87"
+    },
+    {
+      "path": "data/oncology_care_source_inventory.json",
+      "sha": "94d84e49eca2fd512559aacd624a9df763108ad1",
+      "expected": "94d84e49eca2fd512559aacd624a9df763108ad1"
+    },
+    {
+      "path": "data/oncology_center_audit.json",
+      "sha": "f685c08e9cd6563ed43663299331f91cee16e220",
+      "expected": "f685c08e9cd6563ed43663299331f91cee16e220"
+    },
+    {
+      "path": "data/oncology_centers.json",
+      "sha": "071472309966ebbbdcdc1b0e449eb6c4c94b36c4",
+      "expected": "071472309966ebbbdcdc1b0e449eb6c4c94b36c4"
+    },
+    {
+      "path": "data/oncology_centers_supplemental.json",
+      "sha": "02c93d0f9dae972ae93727ff89e9c0d95d447862",
+      "expected": "02c93d0f9dae972ae93727ff89e9c0d95d447862"
+    },
+    {
+      "path": "research/audit-runs/wy-care-20261026/baseline-projection.json",
+      "sha": "5923898a023bc227dd9deb9bf4ce876e3d8ebc5e",
+      "expected": "5923898a023bc227dd9deb9bf4ce876e3d8ebc5e"
+    },
+    {
+      "path": "research/audit-runs/wy-care-20261026/directory-coverage.json",
+      "sha": "99ca30c0411925aa8bfdebaaec4f13b49cc5e520",
+      "expected": "99ca30c0411925aa8bfdebaaec4f13b49cc5e520"
+    },
+    {
+      "path": "research/audit-runs/wy-care-20261026/evidence.json",
+      "sha": "0f43a0190e13a256a577ea250bd442136bedb842",
+      "expected": "0f43a0190e13a256a577ea250bd442136bedb842"
+    },
+    {
+      "path": "research/audit-runs/wy-care-20261026/existing-updates.json",
+      "sha": "c5721e78dbca20221bcf1000fc66159af3ad5bd8",
+      "expected": "c5721e78dbca20221bcf1000fc66159af3ad5bd8"
+    },
+    {
+      "path": "research/audit-runs/wy-care-20261026/other-primary-dispositions.json",
+      "sha": "d92f2e09f76f1f403912e3b1975ed8e748e8224d",
+      "expected": "d92f2e09f76f1f403912e3b1975ed8e748e8224d"
+    },
+    {
+      "path": "research/audit-runs/wy-care-20261026/profile-screening.json",
+      "sha": "fd1d1f2bd3ddb74f0fa2afe0c3c4a4840e7bdccb",
+      "expected": "fd1d1f2bd3ddb74f0fa2afe0c3c4a4840e7bdccb"
+    },
+    {
+      "path": "research/audit-runs/wy-care-20261026/publication-proof.json",
+      "sha": "0c6918484e0adcef1c4c766e02356ef43cef6059",
+      "expected": "0c6918484e0adcef1c4c766e02356ef43cef6059"
+    },
+    {
+      "path": "research/audit-runs/wy-care-20261026/published-records.json",
+      "sha": "b83c6dc91907a8810e1b8d722046b0ee55525ea6",
+      "expected": "b83c6dc91907a8810e1b8d722046b0ee55525ea6"
+    },
+    {
+      "path": "research/audit-runs/wy-care-20261026/queries.json",
+      "sha": "8d58d8f92883a05998777079e742fd53e2834585",
+      "expected": "8d58d8f92883a05998777079e742fd53e2834585"
+    },
+    {
+      "path": "research/audit-runs/wy-care-20261026/regional-options.json",
+      "sha": "3d24ce23cf635420e4f148ff4290e0412aafec15",
+      "expected": "3d24ce23cf635420e4f148ff4290e0412aafec15"
+    },
+    {
+      "path": "research/audit-runs/wy-care-20261026/remaining.json",
+      "sha": "e68cc15f950f308061a8ffafe83d9d00347f7461",
+      "expected": "e68cc15f950f308061a8ffafe83d9d00347f7461"
+    },
+    {
+      "path": "research/audit-runs/wy-care-20261026/report.md",
+      "sha": "2e623d3e7d5bc0774fa3ad5c8060bc22592beff9",
+      "expected": "2e623d3e7d5bc0774fa3ad5c8060bc22592beff9"
+    },
+    {
+      "path": "research/audit-runs/wy-care-20261026/request-receipts.json",
+      "sha": "847a5ee103a116b3909f2335610de9d0f47f33df",
+      "expected": "847a5ee103a116b3909f2335610de9d0f47f33df"
+    },
+    {
+      "path": "research/audit-runs/wy-care-20261026/validation.json",
+      "sha": "05b5476785f73f88e5c7bd82f522c8cab7d1759b",
+      "expected": "05b5476785f73f88e5c7bd82f522c8cab7d1759b"
+    },
+    {
+      "path": "research/audit-runs/wy-finish-20261026/baseline-projection.json",
+      "sha": "ecb09795ea9607d7e3ee953a31a896d1a15f095a",
+      "expected": "ecb09795ea9607d7e3ee953a31a896d1a15f095a"
+    },
+    {
+      "path": "research/audit-runs/wy-finish-20261026/candidate-dispositions.json",
+      "sha": "3c7c67d8961b787fec5b13029af23c543e50ac32",
+      "expected": "3c7c67d8961b787fec5b13029af23c543e50ac32"
+    },
+    {
+      "path": "research/audit-runs/wy-finish-20261026/evidence.json",
+      "sha": "3ddf77a42cf2c5c60628550b09bea89d71344c0c",
+      "expected": "3ddf77a42cf2c5c60628550b09bea89d71344c0c"
+    },
+    {
+      "path": "research/audit-runs/wy-finish-20261026/existing-updates.json",
+      "sha": "4df7c0a55da15d28a43081080da0c17b76457f0f",
+      "expected": "4df7c0a55da15d28a43081080da0c17b76457f0f"
+    },
+    {
+      "path": "research/audit-runs/wy-finish-20261026/independent-directory-coverage.json",
+      "sha": "83d6fe24fd5c88e8e6ff722650ebffc8b9832854",
+      "expected": "83d6fe24fd5c88e8e6ff722650ebffc8b9832854"
+    },
+    {
+      "path": "research/audit-runs/wy-finish-20261026/publication-proof.json",
+      "sha": "14e4a4c3d1eccbdc40dfce592cd7c76708e82657",
+      "expected": "14e4a4c3d1eccbdc40dfce592cd7c76708e82657"
+    },
+    {
+      "path": "research/audit-runs/wy-finish-20261026/published-records.json",
+      "sha": "e6233bdfe263d7aac4909554ed72bae977318430",
+      "expected": "e6233bdfe263d7aac4909554ed72bae977318430"
+    },
+    {
+      "path": "research/audit-runs/wy-finish-20261026/queries.json",
+      "sha": "4a284de6c3566eade00f52ab6d36180069fd34be",
+      "expected": "4a284de6c3566eade00f52ab6d36180069fd34be"
+    },
+    {
+      "path": "research/audit-runs/wy-finish-20261026/remaining.json",
+      "sha": "a18406c64ed9bcd1d83838d8a05004b79b8714b8",
+      "expected": "a18406c64ed9bcd1d83838d8a05004b79b8714b8"
+    },
+    {
+      "path": "research/audit-runs/wy-finish-20261026/report.md",
+      "sha": "d3b7e5b63e4faebdb1bd79842328400bf773eb78",
+      "expected": "d3b7e5b63e4faebdb1bd79842328400bf773eb78"
+    },
+    {
+      "path": "research/audit-runs/wy-finish-20261026/request-receipts.json",
+      "sha": "a83c006c070b768aa598df478744d69fc0746838",
+      "expected": "a83c006c070b768aa598df478744d69fc0746838"
+    },
+    {
+      "path": "research/audit-runs/wy-finish-20261026/validation.json",
+      "sha": "a83a59c413abb8c1fb8b782668b0394deb2ca9bd",
+      "expected": "a83a59c413abb8c1fb8b782668b0394deb2ca9bd"
+    },
+    {
+      "path": "research/oncology-care-queue/access-restriction-index.json",
+      "sha": "5047135639a6fdda5fcd6767f0c9ac4273acd17f",
+      "expected": "5047135639a6fdda5fcd6767f0c9ac4273acd17f"
+    },
+    {
+      "path": "research/oncology-care-queue/territories.json",
+      "sha": "77da5719707a13ab3249e9ac3a2d8b6c2a623cdf",
+      "expected": "77da5719707a13ab3249e9ac3a2d8b6c2a623cdf"
+    },
+    {
+      "path": "scripts/test_europe_recovery.py",
+      "sha": "2fb106ccf5a74ed6f2d801b5f898bcf952546fc9",
+      "expected": "2fb106ccf5a74ed6f2d801b5f898bcf952546fc9"
+    },
+    {
+      "path": "seo/static/matcher/centers/index.html",
+      "sha": "9b71827c49b941d96cc5e4f905ef5d825bad5e15",
+      "expected": "9b71827c49b941d96cc5e4f905ef5d825bad5e15"
+    }
+  ],
+  "production": {
+    "checked_at": "2026-10-26T22:01:00.729614-04:00",
+    "url": "https://vettrialfinder.com/matcher/centers/",
+    "status": 200,
+    "bytes": 1682542,
+    "sha256": "fd3ce1ec76d5181973f29c902892542b4d9dc2f9245cdf084fdf6cc23c2cf723",
+    "exact_local_build_match": true,
+    "wyoming_cards": 28,
+    "physical": 26,
+    "mobile": 2,
+    "chemotherapy": 5,
+    "heartland_mobile_present": true
+  },
+  "previous_blocked_attempts": "Earlier approval rejections remain in prior receipt history. This publication followed explicit user authorization."
 }

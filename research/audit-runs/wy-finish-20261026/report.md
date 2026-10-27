@@ -38,3 +38,7 @@ All five changed identities (four additions andVCAupdate) have exact before/afte
 No new state page, navigation, UI, CSS, editorial article or outreach is part of this data change.
 
 Publication is blocked by automatic approval review: it requires explicit authorization for this main-branch deployment despite the standing data-publication instruction. Candidate50a282bf267915c55dc25f68e1a3139c4a53a8c9is committed and the full build passed; no live update is claimed. See publication-proof.json.
+
+## Publication completed after explicit owner approval
+
+Deployment commit 8b874b2254c35bb590a3a1b39ca83888f49c5aad; workflow 40434707360 completed successfully. The canonical production finder returned HTTP200 and exactly matched the validated local build (SHA256 fd3ce1ec76d5181973f29c902892542b4d9dc2f9245cdf084fdf6cc23c2cf723). Production readback found28Wyomingcards:26physical,2mobile,5chemotherapy; Heartland is mobile. All35changed remote file blobs matched the checked candidate. Earlier publication blocks above are historical and resolved by the owner's explicit publication instruction. Full proof: publication-proof.json.
