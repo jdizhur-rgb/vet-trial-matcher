@@ -1,0 +1,42 @@
+[
+  {
+    "command": [
+      "python",
+      "scripts/semantic_dedupe_catalog.py"
+    ],
+    "at": "2026-10-27T06:50:38.775741-04:00",
+    "exit_code": 0,
+    "stdout": "{\n  \"mode\": \"audit\",\n  \"effective_matchable_treatments\": 151,\n  \"probable_duplicates\": 0,\n  \"pairs\": []\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "node",
+      "scripts/test_matcher_catalog_loading.js"
+    ],
+    "at": "2026-10-27T06:50:38.918360-04:00",
+    "exit_code": 0,
+    "stdout": "Japan: 12 results after delayed load\nUSA: 100 results after delayed load\nCatalog-loading regression PASS\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "node",
+      "scripts/test_matcher_logic.js"
+    ],
+    "at": "2026-10-27T06:50:39.360683-04:00",
+    "exit_code": 0,
+    "stdout": "MATCHER_LOGIC_OK trials=155 mct=4 yasha=0 mammary=5 osteosarcoma=17 bladder=6 brain=8\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_production_sync.py"
+    ],
+    "at": "2026-10-27T06:50:41.006199-04:00",
+    "exit_code": 0,
+    "stdout": "PRODUCTION_SYNC_OK total=155 treatment=151 access=4 matcher_ids=155 internal_links=6934\n",
+    "stderr": ""
+  }
+]

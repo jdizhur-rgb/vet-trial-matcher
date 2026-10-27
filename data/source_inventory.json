@@ -733,7 +733,7 @@
       "last_checked": "2026-10-27",
       "last_result": "partial",
       "content_fingerprint": "sha256:58e6681967484e06eb6648d71b3af97bfa2ab7f965b6945e789cc943d9578f5c",
-      "last_checked_at": "2026-10-27T03:00:11.916439-04:00",
+      "last_checked_at": "2026-10-27T06:42:07.442903-04:00",
       "last_http_status": 200,
       "last_attempts": [
         {
@@ -754,6 +754,16 @@
           "evidence_file": "research/audit-runs/daily-20261027T030001-0400/evidence/27b2c4d5614189f44f.json",
           "raw_file": "/workspace/scratch/35b594db1381/raw-evidence/daily-20261027T030001-0400/27b2c4d5614189f44f.body",
           "result": "retrieved_page"
+        },
+        {
+          "source_id": "usa-missouri-oncology-clinical-trials",
+          "url": "https://mospace.umsystem.edu/bitstreams/84db1866-c616-444b-bfc2-03d3b3ebbf2c/download",
+          "route": "official_protocol_research_result",
+          "attempted_at": "2026-10-27T06:42:07.442903-04:00",
+          "method": "shell_curl",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/finish-20261027T063052-0400/mizzou-carboplatin-thesis.txt",
+          "result": "historical_cohort_results_not_current_intake"
         }
       ],
       "last_route_used": [
@@ -765,12 +775,12 @@
       "notes": "Fresh Missouri oncology list read. The historical ELIAS invitation is not the distinct active ECI-plus-chemotherapy protocol; explicit sponsor closure inherited from the morning is not undone. Missouri LEAH remains ON HOLD, as does the individually read Minnesota route. Sponsor still advertises Ohio enrollment; active Ohio and inactive sites remain separated.",
       "fingerprint_method": "Actual retrieved current text, not a claim of clinical/roster verification.",
       "last_visit_timestamp_precision": "instant",
-      "last_coverage_receipt": "research/audit-runs/daily-20261026T030132-0400/receipt-final.json",
+      "last_coverage_receipt": "research/audit-runs/finish-20261027T063052-0400/receipt-final.json",
       "content_sufficient": false,
       "recheck_after": "2026-10-21",
       "reconciliation_run_id": "finalize-68-20261014T185109-0400",
       "audit_last_run_id": "daily-20261026T030132-0400",
-      "last_check_summary": "All configured master/fallback routes were attempted today or withheld only by an exact recorded route restriction. The usable current evidence did not prove a complete primary oncology-treatment roster.",
+      "last_check_summary": "Current six-study oncology roster read at 03:00 today; targeted official May2026 thesis read at 2026-10-27T06:42:07.442903-04:00 reports old carboplatin-timing cohort enrollment August2024–August2025. Present new-cohort intake remains unconfirmed; no closure inferred.",
       "content_fingerprint_method": "shell_curl_retrieved_text",
       "last_http_status_at": "2026-10-23T03:10:52.615255-04:00"
     },
