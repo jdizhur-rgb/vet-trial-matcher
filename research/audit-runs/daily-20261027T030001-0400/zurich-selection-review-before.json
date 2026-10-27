@@ -1,0 +1,39 @@
+{
+  "trial_id": "ch-zurich-canine-high-grade-glioma-chemoradiation",
+  "source_url": "https://www.tierspital.uzh.ch/forschungsprojekte/studie-therapie-gliome-hund/",
+  "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
+  "criteria": "Zurich high-grade-glioma source requires MRI suspicion followed by biopsy confirmation and radiotherapy.",
+  "cases": [
+    {
+      "name": "fresh primary supported candidate",
+      "patient": {
+        "species": "Dog",
+        "country": "Switzerland",
+        "cancer": "Brain tumor / glioma"
+      },
+      "expected": "review"
+    },
+    {
+      "name": "source-specific contradiction",
+      "patient": {
+        "species": "Dog",
+        "country": "Switzerland",
+        "cancer": "Brain tumor / glioma",
+        "prefs": [
+          "Experimental drug"
+        ]
+      },
+      "expected": "exclude"
+    },
+    {
+      "name": "different species outside protocol",
+      "patient": {
+        "species": "Cat",
+        "country": "Switzerland",
+        "cancer": "Brain tumor / glioma"
+      },
+      "expected": "exclude"
+    }
+  ],
+  "selection_sha256": "57cfd7617aeca6579809249878536ba855137c91f588275edea479c96b8b1ca1"
+}

@@ -1,0 +1,27 @@
+ADDRESS_PREFLIGHT {"centers": 84, "coverage_placeholders": 10, "missing_centers": 0, "missing_sites": 0, "physical_sites": 95}
+Generated 45 pages from 149 treatment opportunities
+CANCER_PAGES_ENHANCED 44
+CENTER_PAGES_SKIPPED_UNPROFILED 20 | Animal Medical Center, Gifu University; CareVets Glen Eden; CareVets Kilbirnie; CareVets Rototuna; Hokkaido University Veterinary Teaching Hospital; Hospital Veterinario Puchol / ReachGlio; Japan Small Animal Cancer Center; Kamogawa Animal Medical Center; Kode Veterinary Sciences — New Zealand multicentre pilot; Nihon University Animal Medical Center; Nippon Veterinary and Life Science University Veterinary Medical Center; Nippon Zenyaku Kogyo multicenter veterinary trial; Onewa Road Veterinary Hospital; Rappaw Central Veterinary Hospital; Remuera Veterinary Clinic & Hospital; University of Tokyo Veterinary Medical Center; VCA Dallas Animal Specialty Hospital; Vet Services Dannevirke; Vet Services Napier; Yamaguchi University Veterinary Medical Center
+CENTER_PAGES_OK 104
+CENTER_OWNER_PAGES_OK 84
+CENTER_PAGES_ENHANCED 84
+CANCER_PAGE_CONSISTENCY_OK 44
+CANCER_COVERAGE_OK 22 21 1
+HELP_CENTER_OK https://vettrialfinder.com/help/
+CENTER_PROFILES_OK pages=84 verified_profiles=84 redirects_skipped=0
+SITE_SHELL_OK 151
+ABOUT_PAGE_OK
+RETAINED_CENTER_PROFILES_OK restored=5
+CENTER_URL_REDIRECTS_OK redirects=18
+Japan: 10 results after delayed load
+USA: 100 results after delayed load
+Catalog-loading regression PASS
+MATCHER_LOGIC_OK trials=153 mct=4 yasha=0 mammary=5 osteosarcoma=17 bladder=6 brain=8
+SOURCE_DERIVED_SELECTION_OK public_reviewed=138/153 pending=15 retained_reviews=145 cases=734
+Traceback (most recent call last):
+  File "/workspace/scratch/35b594db1381/audit/scripts/validate_production_sync.py", line 238, in <module>
+    main()
+  File "/workspace/scratch/35b594db1381/audit/scripts/validate_production_sync.py", line 73, in main
+    assert not title or "Vet Trial Finder" not in title[1], f"Keep page search titles unbranded: {page}"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Keep page search titles unbranded: /workspace/scratch/35b594db1381/audit/seo/site/index.html

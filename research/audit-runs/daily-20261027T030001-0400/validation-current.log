@@ -1,0 +1,13 @@
+TRIAL_CATALOG_VALIDATION_OK records=313 unique_ids=313 active=153 required_active_fields=11
+ADDRESS_PREFLIGHT {"centers": 84, "coverage_placeholders": 9, "missing_centers": 0, "missing_sites": 1, "physical_sites": 96}
+Traceback (most recent call last):
+  File "/workspace/scratch/35b594db1381/audit/seo/build_production_site.py", line 232, in <module>
+    main()
+  File "/workspace/scratch/35b594db1381/audit/seo/build_production_site.py", line 167, in main
+    generate_seo_strict.main()
+  File "/workspace/scratch/35b594db1381/audit/seo/generate_seo_strict.py", line 790, in main
+    rows=g.load_effective();report=preflight(rows)
+                                   ^^^^^^^^^^^^^^^
+  File "/workspace/scratch/35b594db1381/audit/seo/generate_seo_strict.py", line 322, in preflight
+    raise AssertionError('Address preflight failed: '+json.dumps({'centers':missing_centers,'sites':missing_sites},ensure_ascii=False,sort_keys=True))
+AssertionError: Address preflight failed: {"centers": [], "sites": [{"country": "USA", "name": "Pet's local oncologist (CSU-coordinated study)", "region": "North America", "trial_id": "csu-aml-trametinib"}]}

@@ -1,0 +1,128 @@
+{
+  "superseded": [
+    {
+      "trial_id": "csu-brain-cart-verdinexor",
+      "source_url": "https://clinicaltrials.csuveterinaryhealth.org/s/immunotherapy-car-t-treatment-for-canine-glioma-tumors-780192/?ref=gallery",
+      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
+      "criteria": "CSU CAR-T/verdinexor protocol accepts MRI glioma and requires weight strictly over10lb, radiation and home chemotherapy; prior chemotherapy/radiation is excluded.",
+      "cases": [
+        {
+          "name": "fresh primary supported candidate",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "weight_known": true,
+            "weight_lb": 11
+          },
+          "expected": "review"
+        },
+        {
+          "name": "exact10lb excluded",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "weight_known": true,
+            "weight_lb": 10
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "different species outside protocol",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "weight_known": true,
+            "weight_lb": 11,
+            "species": "Cat"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "source-supported candidate",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "review",
+          "retained_from_reviewed_at": "2026-10-12T22:41:17.625761-04:00"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude",
+          "retained_from_reviewed_at": "2026-10-12T22:41:17.625761-04:00"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "radiation": "Previously received"
+          },
+          "expected": "exclude",
+          "retained_from_reviewed_at": "2026-10-12T22:41:17.625761-04:00"
+        },
+        {
+          "name": "source hard contradiction",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude",
+          "retained_from_reviewed_at": "2026-10-12T22:41:17.625761-04:00"
+        },
+        {
+          "name": "material clinical criteria remain visible",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "MRI"
+          ],
+          "retained_from_reviewed_at": "2026-10-12T22:41:17.625761-04:00"
+        }
+      ],
+      "selection_sha256": "d60029f24d23d31bf13f977d59f43d68b84d407143b99657e9f8f0b4f255fff4"
+    },
+    {
+      "trial_id": "csu-aml-trametinib",
+      "source_url": "https://clinicaltrials.csuveterinaryhealth.org/s/pilot-clinical-trial-of-anti-cancer-therapy-with-trametinib-in-naturally-occurring-acute-myeloid-leukemia-860722/",
+      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
+      "criteria": "CSU trametinib protocol is specifically acute myeloid leukemia with circulating leukemia cells. Generic leukemia/CLL is not an accepted diagnosis.",
+      "cases": [
+        {
+          "name": "fresh primary supported candidate",
+          "patient": {
+            "cancer": "Acute myeloid leukemia"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "unspecified or chronic leukemia is not AML",
+          "patient": {
+            "cancer": "Leukemia — other"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "different species outside protocol",
+          "patient": {
+            "cancer": "Acute myeloid leukemia",
+            "species": "Cat"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "ecfaeba54a2803eed26a8476d6f90de65e164d96b5561f0d2229beada3dba97f"
+    }
+  ],
+  "reason": "Corrected false mandatory radiation gate and unsupported physical treatment-site allocation from current individual CSU primary; retained every clinical case."
+}

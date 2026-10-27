@@ -1,0 +1,65 @@
+[
+  {
+    "command": "node scripts/test_matcher_catalog_loading.js",
+    "at": "2026-10-27T05:34:15.424736-04:00",
+    "exit_code": 0,
+    "stdout": "Japan: 10 results after delayed load\nUSA: 100 results after delayed load\nCatalog-loading regression PASS\n",
+    "stderr": ""
+  },
+  {
+    "command": "node scripts/test_matcher_logic.js",
+    "at": "2026-10-27T05:34:15.575915-04:00",
+    "exit_code": 0,
+    "stdout": "MATCHER_LOGIC_OK trials=153 mct=4 yasha=0 mammary=5 osteosarcoma=17 bladder=6 brain=8\n",
+    "stderr": ""
+  },
+  {
+    "command": "python scripts/validate_production_sync.py",
+    "at": "2026-10-27T05:34:16.080079-04:00",
+    "exit_code": 0,
+    "stdout": "PRODUCTION_SYNC_OK total=153 treatment=149 access=4 matcher_ids=153 internal_links=6896\n",
+    "stderr": ""
+  },
+  {
+    "command": "node scripts/test_matcher_protocol_sources.js",
+    "at": "2026-10-27T05:34:17.916725-04:00",
+    "exit_code": 0,
+    "stdout": "SOURCE_DERIVED_SELECTION_OK public_reviewed=138/153 pending=15 retained_reviews=145 cases=741\n",
+    "stderr": ""
+  },
+  {
+    "command": "python scripts/validate_source_inventory.py",
+    "at": "2026-10-27T05:34:18.073856-04:00",
+    "exit_code": 0,
+    "stdout": "SOURCE_INVENTORY_VALIDATION_OK sources=146 digest=6a8010d51c38\n",
+    "stderr": ""
+  },
+  {
+    "command": "python scripts/validate_catalog_sanitation.py",
+    "at": "2026-10-27T05:34:18.136413-04:00",
+    "exit_code": 0,
+    "stdout": "{\n  \"records\": 313,\n  \"partial_records\": 4,\n  \"known_unresolved\": 4,\n  \"new_partial_records\": [],\n  \"resolved_but_still_queued\": [\n    \"eu-ch-sinonasal-heterogeneous-rt\",\n    \"fr-fregis-chemodectoma-thermoablation\",\n    \"fr-fregis-hepatic-embolization\",\n    \"fr-fregis-hepatic-tumor-thermoablation\",\n    \"nl-utrecht-osteosarcoma-oncolytic-virus-access\",\n    \"uk-rvc-insulinoma-toceranib\"\n  ]\n}\n",
+    "stderr": ""
+  },
+  {
+    "command": "python scripts/check_evidence_keys.py",
+    "at": "2026-10-27T05:34:18.177315-04:00",
+    "exit_code": 0,
+    "stdout": "PASS: no unredacted Google API keys.\n",
+    "stderr": ""
+  },
+  {
+    "command": "python scripts/test_matcher_selection.py",
+    "at": "2026-10-27T05:34:19.861977-04:00",
+    "exit_code": 0,
+    "stdout": "MATCHER_SELECTION_PARITY_OK public=153 disease_checks=18360\nTUFTS_OSA_COHORT_PARITY_OK cases=8\nPRIMARY_SITE_LINEAGE_PHASE_PARITY_OK\n",
+    "stderr": ""
+  },
+  {
+    "command": "node scripts/test_matcher_selection.js",
+    "at": "2026-10-27T05:34:20.391327-04:00",
+    "exit_code": 0,
+    "stdout": "SOURCE_DERIVED_SELECTION_OK public_reviewed=138/153 pending=15 retained_reviews=145 cases=741\nMATCHER_SELECTION_OK canonical=313 public=153 checks=1453 criteria=222\n",
+    "stderr": ""
+  }
+]

@@ -134,6 +134,17 @@ def known_denials():
     return {route_key(r['url']) for r in rows}
 
 def get(item):
+    # Reuse actual current-run evidence across source aliases and protocol rows.
+    # A local reread is not another network visit and must not renew dates.
+    attempts_path=RUN/'attempts.jsonl'
+    if attempts_path.exists():
+        with LOCK:
+            prior=[json.loads(l) for l in attempts_path.read_text().splitlines()]
+            shared=next((a for a in reversed(prior) if route_key(a['url'])==route_key(item['url'])),None)
+            if shared:
+                with (RUN/'evidence-reuse.jsonl').open('a') as f:
+                    f.write(json.dumps(dict(request=item,actual_attempt=shared,result='current_run_evidence_reused',at=now()))+'\n')
+                return
     if route_key(item['url']) in known_denials():
         with LOCK:
             with (RUN/'skipped-restricted-routes.jsonl').open('a') as f:f.write(json.dumps(dict(item,result='known_denial_not_requested',at=now()))+'\n')

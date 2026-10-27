@@ -1,0 +1,64 @@
+{
+  "trial_id": "korea-vaxleukin15-mammary-2026",
+  "source_url": "https://www.vaxcell-bio.com/en/animal01.php",
+  "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
+  "criteria": "Current Vaxcell product information establishes approved canine mammary-tumor treatment alongside surgical standard care,including postoperative adjuvant use. Previous surgery satisfies the backbone;another planned operation is not universally required.",
+  "cases": [
+    {
+      "name": "fresh primary supported candidate",
+      "patient": {
+        "country": "South Korea",
+        "cancer": "Mammary carcinoma",
+        "surgery": "Yes",
+        "tumor_status": "No evidence of disease (NED)",
+        "prefs": [
+          "Immunotherapy"
+        ]
+      },
+      "expected": "review"
+    },
+    {
+      "name": "neither previous nor planned surgery",
+      "patient": {
+        "country": "South Korea",
+        "cancer": "Mammary carcinoma",
+        "surgery": "No",
+        "prefs": [
+          "Immunotherapy"
+        ]
+      },
+      "expected": "exclude"
+    },
+    {
+      "name": "planned surgical standard care needs confirmation",
+      "patient": {
+        "country": "South Korea",
+        "cancer": "Mammary carcinoma",
+        "surgery": "No",
+        "prefs": [
+          "Surgery",
+          "Immunotherapy"
+        ]
+      },
+      "expected": "review",
+      "unknown_contains": [
+        "surgical standard care"
+      ]
+    },
+    {
+      "name": "different species outside protocol",
+      "patient": {
+        "country": "South Korea",
+        "cancer": "Mammary carcinoma",
+        "surgery": "Yes",
+        "tumor_status": "No evidence of disease (NED)",
+        "prefs": [
+          "Immunotherapy"
+        ],
+        "species": "Cat"
+      },
+      "expected": "exclude"
+    }
+  ],
+  "selection_sha256": "fafb97f66a19a34d1905601e9bece31aa4d17c463a1ced389953118ecbe4791b"
+}
