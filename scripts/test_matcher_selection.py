@@ -44,9 +44,11 @@ for surgery, prefs, expected_excluded, needs_screening in [
     ("I don't know", {'Immunotherapy'}, False, True),
     ('No', {'Surgery', 'Immunotherapy'}, False, True),
 ]:
-    excluded, unknown = protocol_screening(vax, {'surgery': surgery, 'prefs': prefs})
+    excluded, unknown = protocol_screening(vax, {'cancer': 'Mammary carcinoma', 'surgery': surgery, 'prefs': prefs})
     assert excluded == expected_excluded, (surgery, prefs, excluded)
     assert bool(unknown) == needs_screening, (surgery, prefs, unknown)
+assert not protocol_screening(vax, {'cancer': 'B-cell lymphoma', 'surgery': 'No', 'prefs': {'Chemotherapy', 'Immunotherapy'}})[0]
+assert protocol_screening(vax, {'cancer': 'T-cell lymphoma', 'prefs': {'Immunotherapy'}})[0]
 # Exercise the real legacy preference classifier without executing Streamlit.
 module = ast.parse((ROOT / 'pages/1_Clinical_Trial_Finder.py').read_text())
 fn = next(n for n in module.body if isinstance(n, ast.FunctionDef) and n.name == 'trial_modalities')

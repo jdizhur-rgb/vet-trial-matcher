@@ -5520,8 +5520,8 @@
     {
       "trial_id": "korea-vaxleukin15-mammary-2026",
       "source_url": "https://www.vaxcell-bio.com/en/animal01.php",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Current Vaxcell product information establishes approved canine mammary-tumor treatment alongside surgical standard care,including postoperative adjuvant use. Previous surgery satisfies the backbone;another planned operation is not universally required.",
+      "reviewed_at": "2026-10-27T04:41:55.806674-04:00",
+      "criteria": "Current Vaxcell product information establishes approved canine mammary-tumor treatment alongside surgical standard care,including postoperative adjuvant use. Previous surgery satisfies the backbone;another planned operation is not universally required. Current full product information also labels canine lymphoma as adjunct to chemotherapy; mammary surgical standard care does not apply to lymphoma. Feline development is not approved access. Costs remain undisclosed. One commercial product/program, no duplicate trial.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -5577,9 +5577,70 @@
             "species": "Cat"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Lymphoma with required chemotherapy does not require mammary surgery",
+          "patient": {
+            "country": "South Korea",
+            "cancer": "B-cell lymphoma",
+            "surgery": "No",
+            "prefs": [
+              "Chemotherapy",
+              "Immunotherapy"
+            ]
+          },
+          "expected": "review"
+        },
+        {
+          "name": "T-cell lymphoma without required chemotherapy excluded",
+          "patient": {
+            "country": "South Korea",
+            "cancer": "T-cell lymphoma",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Unknown lymphoma details require prescreen",
+          "patient": {
+            "country": "South Korea",
+            "cancer": "Lymphoma — other",
+            "prefs": [
+              "Chemotherapy",
+              "Immunotherapy"
+            ]
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Cats outside canine indication",
+          "patient": {
+            "country": "South Korea",
+            "cancer": "B-cell lymphoma",
+            "species": "Cat",
+            "prefs": [
+              "Chemotherapy",
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "HSA not inferred from a broad mechanism",
+          "patient": {
+            "country": "South Korea",
+            "cancer": "Hemangiosarcoma",
+            "prefs": [
+              "Chemotherapy",
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
         }
       ],
-      "selection_sha256": "fafb97f66a19a34d1905601e9bece31aa4d17c463a1ced389953118ecbe4791b"
+      "selection_sha256": "133c5f595d77b0893846574f13985341622b0cafb08bdf57d748bbf63307f068"
     },
     {
       "trial_id": "korea-vaxleukin15-lymphoma-2026",
@@ -6358,9 +6419,9 @@
     },
     {
       "trial_id": "ch-zurich-canine-high-grade-glioma-chemoradiation",
-      "source_url": "https://www.tierspital.uzh.ch/forschungsprojekte/studie-therapie-gliome-hund/",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Zurich high-grade-glioma source requires MRI suspicion followed by biopsy confirmation and radiotherapy.",
+      "source_url": "https://www.tierspital.uzh.ch/wp-content/uploads/2025/09/250916_Information_Study_english.pdf",
+      "reviewed_at": "2026-10-27T04:56:00.327928-04:00",
+      "criteria": "Full current Zurich glioma brochure: MRI-suspected high-grade glioma enters screening; minimally invasive funded biopsy confirms before treatment. Mandatory ten-session RT; randomization to TMZ+lomustine versus placebo; neurological and organ screening. A separate meningioma study is not this glioma cohort.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -6391,9 +6452,30 @@
             "cancer": "Brain tumor / glioma"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "MRI-suspected glioma can enter the funded biopsy pathway",
+          "patient": {
+            "country": "Switzerland",
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "biopsy"
+          ]
+        },
+        {
+          "name": "Confirmed meningioma is a different histology",
+          "patient": {
+            "country": "Switzerland",
+            "cancer": "Meningioma",
+            "diagnosis_status": "Confirmed by pathology/cytology"
+          },
+          "expected": "exclude"
         }
       ],
-      "selection_sha256": "57cfd7617aeca6579809249878536ba855137c91f588275edea479c96b8b1ca1"
+      "selection_sha256": "e031eecc5c8eb8a09e83595260828341878c92d0570be37b01f626d035465113"
     },
     {
       "trial_id": "be-ghent-fluorescence-lifetime-cancer-surgery",
