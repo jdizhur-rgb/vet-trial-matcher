@@ -3027,7 +3027,7 @@
     {
       "trial_id": "eu-fr-oral-intratumoral-immunotherapy",
       "source_url": "https://www.vetagro-sup.fr/recherche-expertise/cicv-centre-investigation-clinique-veterinaire/etude-pour-developper-un-nouveau-medicament-pour-traiter-les-melanomes-et-carcinomes-epidermoides-buccaux/",
-      "reviewed_at": "2026-10-13T19:17:16.074810-04:00",
+      "reviewed_at": "2026-10-27T06:47:18.703374-04:00",
       "criteria": "Dog oral melanoma or oral SCC; direct organizer protocol and current CICV index. Non-oral SCC is outside the published study. Detailed numeric/prior-treatment criteria remain secondary-only pending full protocol disclosure.",
       "selection_sha256": "9117eaefb46539c8edb7d508d7be5b6e1ebab47126c138a333b0d93e8c168b9a",
       "cases": [
@@ -3067,7 +3067,10 @@
           },
           "expected": "review"
         }
-      ]
+      ],
+      "source_evidence_file": "research/audit-runs/daily-20261027T030001-0400/evidence/ec5be81264f0557216.json",
+      "source_retrieved_at": "2026-10-27T03:02:36-04:00",
+      "review_notes": "Reread complete official primary and current index. All four retained species/disease cases agree. Detailed old numeric/prior-treatment restrictions remain explicitly secondary-only; no new primary certainty invented."
     },
     {
       "trial_id": "china-petcura-personalized-mrna-iit-2026",
@@ -8728,6 +8731,120 @@
         }
       ],
       "selection_sha256": "5123be272f2827d7670c60879980220dec8e28c5df17c93e0fc62b1922ca7b4c"
+    },
+    {
+      "trial_id": "ethos-mimic-osa-lung",
+      "source_url": "https://veterinaryclinicaltrials.org/s/minimally-invasive-metastasectomy-in-canines-mimic-trial-108296/?ref=gallery",
+      "reviewed_at": "2026-10-27T06:47:18.703374-04:00",
+      "full_protocol_reverified": false,
+      "source_evidence_file": "research/audit-runs/daily-20261027T030001-0400/avma-oncology-union.json#15839",
+      "criteria": "Official registry protocol describes canine lung metastases treated by video-assisted thoracoscopic surgery. Declining surgery contradicts the intervention; absent metastasis contradicts disease scope. Institutional current site/intake and numeric weight criteria remain unconfirmed, and are not independently derived from this registry description.",
+      "cases": [
+        {
+          "name": "canine OSA with lung metastases; team screening needed",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Osteosarcoma",
+            "metastasis": "Confirmed metastases"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "no metastatic disease",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Osteosarcoma",
+            "metastasis": "No known metastases"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "unknown metastasis remains for confirmation",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "declines protocol metastasectomy",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Osteosarcoma",
+            "metastasis": "Confirmed metastases",
+            "prefs": [
+              "Radiation",
+              "Chemotherapy",
+              "Immunotherapy",
+              "Targeted therapy",
+              "Experimental drug"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "cat outside canine protocol",
+          "patient": {
+            "species": "Cat",
+            "country": "USA",
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "48a2ab4a9dfeede3513aa7df4e46b136d8effac254e3d971affdfb4aca6c2f9b"
+    },
+    {
+      "trial_id": "uk-edinburgh-oral-melanoma-tigilanol-tiglate",
+      "source_url": "https://vet.ed.ac.uk/news/latest-news/2024/drug-trial-studies-plant-based-oral-cancer-therapy-dogs",
+      "reviewed_at": "2026-10-27T06:47:18.703374-04:00",
+      "full_protocol_reverified": false,
+      "source_evidence_file": "research/audit-runs/daily-20261027T030001-0400/evidence/737fbfdddbb53e7ac2.json",
+      "criteria": "The official 7 October 2024 invitation specifies dogs diagnosed with oral melanoma and intratumoral tigilanol tiglate. It does not publish current 2026 intake, a complete eligibility protocol or owner fee coverage. These are source-derived species/disease scenarios, not a fresh current-cohort verification.",
+      "cases": [
+        {
+          "name": "oral melanoma dog for study-team review",
+          "patient": {
+            "species": "Dog",
+            "country": "UK",
+            "cancer": "Oral melanoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "unknown confirmation remains for screening",
+          "patient": {
+            "species": "Dog",
+            "country": "UK",
+            "cancer": "Oral melanoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "cat outside published canine trial",
+          "patient": {
+            "species": "Cat",
+            "country": "UK",
+            "cancer": "Oral melanoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "oral SCC is not this melanoma cohort",
+          "patient": {
+            "species": "Dog",
+            "country": "UK",
+            "cancer": "Oral squamous cell carcinoma"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "fe9619029177a21f6e67be5cfb721a826283ed0d9d5ebb92173227b7af15b7cf"
     }
   ]
 }
