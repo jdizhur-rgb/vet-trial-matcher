@@ -300,6 +300,12 @@ for (const trial of [medvetVaccine, rows.find(row => row.id === 'leah-bcell-cart
   }
 }
 const leah = rows.find(row => row.id === 'leah-bcell-cart-2026');
+const localAml = rows.find(row => row.id === 'csu-aml-trametinib');
+if (!localAml?.sites?.length || localAml.sites.some(site =>
+  site.address || site.city || site.state || site.lat != null || site.lon != null
+)) {
+  throw new Error('The local-oncologist AML study must not inherit a Fort Collins treatment address or coordinates');
+}
 const osaVaccineSites = rows.find(row => row.id === 'ethos-osa-vaccine')?.sites || [];
 const metroCleveland = osaVaccineSites.find(site => site.hospital === 'Metropolitan Veterinary Hospital' && site.city === 'Cleveland');
 const metroAkron = osaVaccineSites.find(site => site.hospital === 'Metropolitan Veterinary Hospital' && site.city === 'Akron');

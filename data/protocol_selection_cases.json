@@ -791,8 +791,8 @@
     {
       "trial_id": "csu-brain-cart-verdinexor",
       "source_url": "https://clinicaltrials.csuveterinaryhealth.org/s/immunotherapy-car-t-treatment-for-canine-glioma-tumors-780192/?ref=gallery",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "CSU CAR-T/verdinexor protocol accepts MRI glioma and requires weight strictly over10lb, radiation and home chemotherapy; prior chemotherapy/radiation is excluded.",
+      "reviewed_at": "2026-10-27T04:27:30.811730-04:00",
+      "criteria": "Current CSU primary allows MRI-confirmed glioma, weight strictly over10lb, CAR-T and mandatory home verdinexor; radiation is an additional optional treatment. Prior chemotherapy/radiation exclude. Existing cases retained.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -876,9 +876,23 @@
             "MRI"
           ],
           "retained_from_reviewed_at": "2026-10-12T22:41:17.625761-04:00"
+        },
+        {
+          "name": "Optional radiation refusal must not exclude CAR-T plus required verdinexor",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "weight_known": true,
+            "weight_lb": 11,
+            "prefs": [
+              "Chemotherapy",
+              "Immunotherapy"
+            ],
+            "radiation_affordability": "Would not consider radiation"
+          },
+          "expected": "review"
         }
       ],
-      "selection_sha256": "d60029f24d23d31bf13f977d59f43d68b84d407143b99657e9f8f0b4f255fff4"
+      "selection_sha256": "24bc11bbcb1d2500e05a820f6bb4393774ae63c9d11907b457eb1132751c1506"
     },
     {
       "trial_id": "tufts-met-osa-vaccine-tme",
@@ -4780,8 +4794,8 @@
     {
       "trial_id": "csu-aml-trametinib",
       "source_url": "https://clinicaltrials.csuveterinaryhealth.org/s/pilot-clinical-trial-of-anti-cancer-therapy-with-trametinib-in-naturally-occurring-acute-myeloid-leukemia-860722/",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "CSU trametinib protocol is specifically acute myeloid leukemia with circulating leukemia cells. Generic leukemia/CLL is not an accepted diagnosis.",
+      "reviewed_at": "2026-10-27T04:27:30.811730-04:00",
+      "criteria": "CSU trametinib protocol is specifically acute myeloid leukemia with circulating leukemia cells. Generic leukemia/CLL is not an accepted diagnosis. Current protocol explicitly permits all visits with the pet’s local oncologist; no mandatory Fort Collins travel/site.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -4806,7 +4820,7 @@
           "expected": "exclude"
         }
       ],
-      "selection_sha256": "ecfaeba54a2803eed26a8476d6f90de65e164d96b5561f0d2229beada3dba97f"
+      "selection_sha256": "2e22d057c1345b3926eba491ffa7b929228442e112a27bd57e7c926bfc7f5232"
     },
     {
       "trial_id": "penn-osa-car-inkt-newly-diagnosed",

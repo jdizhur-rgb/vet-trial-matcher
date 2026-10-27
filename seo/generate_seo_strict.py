@@ -206,6 +206,8 @@ def site_active(s):
 
 def site_is_coverage_placeholder(s):
     """True for coverage records that name a city/network but not a real hospital."""
+    if s.get('site_type') == 'local_oncologist' and s.get('source_url'):
+        return True
     name=normalize(s.get('hospital') or s.get('name') or '')
     return 'partner hospital' in name or name in {'participating hospital','participating hospitals','partner site','partner sites'}
 
@@ -233,6 +235,8 @@ def site_labels(s,country=''):
 
 
 def row_locations(r):
+    if r.get('visit_location') == 'local_oncologist':
+        return []
     country=str(r.get('country') or '')
     vals=[]
     for s in r.get('sites',[]) if isinstance(r.get('sites'),list) else []:

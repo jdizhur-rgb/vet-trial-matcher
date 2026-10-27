@@ -59,6 +59,8 @@ _strict_row_locations = generate_seo_strict.row_locations
 
 
 def _production_row_locations(row):
+    if row.get("visit_location") == "local_oncologist":
+        return []
     locations = _strict_row_locations(row)
     if locations:
         return locations
