@@ -3920,8 +3920,8 @@
     {
       "trial_id": "leah-bcell-cart-2026",
       "source_url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Current Missouri LEAH xCAR-T primary explicitly evaluates lymphodepleting chemotherapy plus CAR-T. Conditioning chemotherapy is mandatory;Missouri-specific weight and prednisone rules must not become universal site criteria.",
+      "reviewed_at": "2026-10-27T03:05:07.964685-04:00",
+      "criteria": "Current Missouri LEAH xCAR-T primary explicitly evaluates lymphodepleting chemotherapy plus CAR-T. Conditioning chemotherapy is mandatory;Missouri-specific weight and prednisone rules must not become universal site criteria. Minnesota current primary is open and enrolling, >=10 kg/no Boxers/substage A, with site-specific screening; preserve all existing shared selection cases.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -3985,7 +3985,7 @@
           "retained_from_reviewed_at": "2026-10-16T03:05:22.392970-04:00"
         }
       ],
-      "selection_sha256": "9b33d291bf01bf97e2f276436dcf3bbacb276a5a7eec758cf0c71e785ca1057f"
+      "selection_sha256": "5e225489b22f266e691fbcf1583d23c8f410770d9cdbd1ae07d3a1daa0d96f9b"
     },
     {
       "trial_id": "ca-ovc-oral-melanoma-palladia",
@@ -8474,6 +8474,64 @@
         }
       ],
       "selection_sha256": "fb983593a00c6f58d1d2b7d65b113b4ef629d9e515751bee5a9494e4c19b8cb2"
+    },
+    {
+      "trial_id": "ncsu-liver-inspire",
+      "source_url": "https://cvm.ncsu.edu/clinical-trial/now-enrolling-canine-patients-with-liver-tumors/",
+      "reviewed_at": "2026-10-27T03:05:07.964685-04:00",
+      "criteria": "Current primary enrolling through July 1, 2027. Dogs with 1–2 liver tumors 1–8 cm, >=30 lb, cytological diagnosis, no metastasis/other cancer/major heart disease or arrhythmia. INSPIRE with lobectomy or up to three INSPIRE treatments; fully funded per primary flyer. Unavailable owner-form criteria remain investigator screening.",
+      "cases": [
+        {
+          "name": "Eligible liver-tumor candidate needs investigator screening",
+          "patient": {
+            "cancer": "Hepatocellular carcinoma",
+            "weight_known": true,
+            "weight_lb": 30,
+            "metastasis": "No known metastases"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Unknown diagnosis and stage remain screening",
+          "patient": {
+            "cancer": "Other liver tumor"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Below 30 lb excluded",
+          "patient": {
+            "cancer": "Hepatocellular carcinoma",
+            "weight_known": true,
+            "weight_lb": 29
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Metastatic disease excluded",
+          "patient": {
+            "cancer": "Hepatocellular carcinoma",
+            "metastasis": "Confirmed metastases"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Cats excluded",
+          "patient": {
+            "cancer": "Hepatocellular carcinoma",
+            "species": "Cat"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Unrelated diagnosis excluded",
+          "patient": {
+            "cancer": "B-cell lymphoma"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "0dd88d20e9d1466c7c49b1278fef652fd8064cfda5b18f91ea6790166bb190bc"
     }
   ]
 }

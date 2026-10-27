@@ -315,15 +315,24 @@ if (!pushHawaii?.address?.includes('345 N Nimitz Highway') || /Pensacola|FL 3250
 // October 16 current Missouri protocol supersedes its older ON HOLD page.
 // Site-specific Missouri criteria must not become universal Ohio restrictions.
 const leahMissouri = leah?.sites?.find(site => site.state === 'MO');
-if (!leah || leah.sites.length !== 2 ||
+// October 27 Minnesota protocol explicitly reopens enrollment, with its own
+// >=10 kg / no Boxer / 72-hour prednisone criteria and funded screening.
+const leahMinnesota = leah?.sites?.find(site => site.state === 'MN');
+if (!leah || leah.sites.length !== 3 ||
     !leah.sites.some(site => site.state === 'OH' && /sponsor/i.test(site.status || '')) ||
     !leahMissouri?.source_url?.includes('vhc.missouri.edu') ||
     !/enrolling/i.test(leahMissouri.status || '') ||
     !/72hours/.test(leahMissouri.eligibility || '') ||
-    !leah.inactive_sites?.some(site => site.state === 'MN' && /hold/i.test(site.status || '')) ||
+    !leahMinnesota?.source_url?.includes('vetmed.umn.edu') ||
+    !/open and enrolling/i.test(leahMinnesota.status || '') ||
+    !/at least 10 kg/.test(leahMinnesota.eligibility || '') ||
+    !/except Boxers/.test(leahMinnesota.eligibility || '') ||
+    !/72 hours/.test(leahMinnesota.eligibility || '') ||
+    !/including screening fully funded/.test(leahMinnesota.funding || '') ||
+    leah.inactive_sites?.some(site => site.state === 'MN') ||
     leah.inactive_sites?.some(site => site.state === 'MO') ||
     leah.requires?.min_weight_kg != null) {
-  throw new Error('LEAH must preserve current Missouri enrollment, qualified sponsor-listed Ohio, Minnesota hold and site-specific criteria');
+  throw new Error('LEAH must preserve current Missouri and Minnesota enrollment, qualified sponsor-listed Ohio and site-specific criteria');
 }
 for (const cancer of ['Osteosarcoma','Hemangiosarcoma','Urothelial carcinoma']) {
   if (!matches(patient({cancer})).some(row => row.trial.id === medvetVaccine.id)) {
