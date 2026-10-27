@@ -3,7 +3,7 @@
   "deviations": [
     {
       "action": "Remote checkpoint interval",
-      "finding": "Last earlier remote research checkpoint03:25; later local immutable checkpoints exist, but remote15min cadence was not maintained. Current full preservation does not erase that interval failure."
+      "finding": "The required15-minute checkpoint cadence was not consistently maintained locally/remotely. Last earlier remote research checkpoint03:25; full package finally preserved at main bd31fbed. Later preservation does not erase interval failures."
     },
     {
       "action": "Purdue shared primary",
@@ -24,6 +24,10 @@
     {
       "action": "Documentary classification",
       "finding": "IntermediateTuftsHSA/Marsgallery/MIBscope summaries corrected after full clinical read. Canonicaltherapeuticrecords were not removed by those documentaryerrors."
+    },
+    {
+      "action": "Transient environment interruption duringblobpreservation",
+      "finding": "exec-server transport disconnected; environment briefly unavailable, then pwd/Python/Git and preservedreceipt were actually rechecked. Same continuous run resumed at uploadedblob56, without repeating source visits. A later connector RemoteProtocolError retried only the unsavedblob."
     }
   ]
 }
