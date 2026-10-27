@@ -1,0 +1,22 @@
+{
+  "scope": "Owner-authorized Wyoming state guide and care-finder link only; no new clinic verification or catalog changes.",
+  "base_commit": "7d1095087ca0d036ccc4f1da3dcf008c8e9a5c58",
+  "physical_locations": 26,
+  "mobile_services": 2,
+  "physical_chemotherapy_locations": 5,
+  "coverage_review": "2026-10-26",
+  "checks": [
+    "Full static site build passed",
+    "Wyoming exact identity, service grouping, mobile identity, phone, source date and ItemList tests passed",
+    "Existing Rhode Island and North Dakota guide checks passed as part of build",
+    "Sitemap and internal search discoverability passed",
+    "Finder tracked HTML changes only by Wyoming guide link",
+    "git diff --check passed"
+  ],
+  "visual_qa": "Browser rendering unavailable: installed Playwright has no browser executable. Existing shared guide CSS and shell reused.",
+  "artifacts": {
+    "seo/site/veterinary-oncology/wyoming/index.html": "8422096d2c9db0b086e6080578a5b514c1433780f66d9bc14272881de84bfed0",
+    "seo/site/matcher/centers/index.html": "30d2f84830f72e0f6ce33f023ba6108afed39f63cc045dc5d044a1e4506b6da5",
+    "data/oncology_centers.json": "5e1f7eb0ed31196dfc2ec22c8bd3b426a5c5430c74bd38b0f874bc539f479c2e"
+  }
+}
