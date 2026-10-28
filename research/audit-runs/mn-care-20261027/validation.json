@@ -1,0 +1,78 @@
+{
+  "commands": [
+    {
+      "command": "python seo/validate_oncology_centers.py",
+      "started_at": "2026-10-28T01:09:32.915869+00:00",
+      "exit_code": 0,
+      "output": "ONCOLOGY_CENTERS_OK centers=1686 states=52\n"
+    },
+    {
+      "command": "python scripts/test_b01_care_reconciliation.py",
+      "started_at": "2026-10-28T01:09:33.947967+00:00",
+      "exit_code": 0,
+      "output": "B01_CARE_REGRESSION_OK 25 sources, 26 sites, Malvern separation, branch modalities, credentials and contacts\n"
+    },
+    {
+      "command": "python scripts/test_b02_care_reconciliation.py",
+      "started_at": "2026-10-28T01:09:34.062198+00:00",
+      "exit_code": 0,
+      "output": "B02_CARE_REGRESSION_OK branch modalities, credentials, aliases, relocation coordinates, network scope\n"
+    },
+    {
+      "command": "python scripts/test_c01_care_reconciliation.py",
+      "started_at": "2026-10-28T01:09:34.219921+00:00",
+      "exit_code": 0,
+      "output": "C01_CARE_REGRESSION_OK 24 unique branches, corrected coordinates/identity, conservative filters, credentials and named treatments\n"
+    },
+    {
+      "command": "python scripts/test_a02_care_reconciliation.py",
+      "started_at": "2026-10-28T01:09:34.310412+00:00",
+      "exit_code": 0,
+      "output": "A02_CARE_REGRESSION_OK identities, retired/watchlist exclusion, local modality limits, mobile coordinates, doctor credentials, remote audiences\n"
+    },
+    {
+      "command": "node scripts/test_a01_care_reconciliation.js",
+      "started_at": "2026-10-28T01:09:34.443900+00:00",
+      "exit_code": 0,
+      "output": "A01_CARE_REGRESSION_OK identities, service flags, WA ZIP/state sorting, mobile distance suppression\n"
+    },
+    {
+      "command": "python scripts/test_europe_recovery.py",
+      "started_at": "2026-10-28T01:09:34.625616+00:00",
+      "exit_code": 0,
+      "output": "EUROPE_RECOVERY_OK six-country fail-closed gate; 680 NEW; 53 UPDATE identities/79 fields; baseline hashes and 78 exact identity pairs preserved\n"
+    },
+    {
+      "command": "python scripts/validate_catalog_sanitation.py",
+      "started_at": "2026-10-28T01:09:35.140348+00:00",
+      "exit_code": 0,
+      "output": "{\n  \"records\": 315,\n  \"partial_records\": 4,\n  \"known_unresolved\": 4,\n  \"new_partial_records\": [],\n  \"resolved_but_still_queued\": [\n    \"eu-ch-sinonasal-heterogeneous-rt\",\n    \"fr-fregis-chemodectoma-thermoablation\",\n    \"fr-fregis-hepatic-embolization\",\n    \"fr-fregis-hepatic-tumor-thermoablation\",\n    \"nl-utrecht-osteosarcoma-oncolytic-virus-access\",\n    \"uk-rvc-insulinoma-toceranib\"\n  ]\n}\n"
+    },
+    {
+      "command": "node scripts/test_matcher_catalog_loading.js",
+      "started_at": "2026-10-28T01:09:35.186560+00:00",
+      "exit_code": 0,
+      "output": "Japan: 12 results after delayed load\nUSA: 100 results after delayed load\nCatalog-loading regression PASS\n"
+    },
+    {
+      "command": "git diff --check",
+      "started_at": "2026-10-28T01:09:35.294118+00:00",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "full_build": {
+    "command": "python scripts/build_static_site.py",
+    "exit_code": 0,
+    "result": "217 pages; production-sync, matcher/selection parity, country filters, RI/ND/WY guides, country/identity/network/no-tracking checks passed"
+  },
+  "mn": {
+    "listings": 49,
+    "physical": 43,
+    "mobile": 6,
+    "chemotherapy": 8,
+    "reviewed_source_records": 49,
+    "native_timestamp_sources": 28,
+    "Web_date_only_sources": 21
+  }
+}

@@ -62,6 +62,29 @@ def before_later_ri_pass(rows, path):
     Every changed current row is checked first. The original European counts,
     hashes, dates and branch-identity assertions below remain unchanged.
     """
+    # Exact accepted Minnesota additions/reconciliations, reversed before the
+    # frozen historical country proof. Other current rows must remain identical.
+    mnroot = ROOT / 'research/audit-runs/mn-care-20261027'
+    mn = read(mnroot / 'baseline-projection.json')['collections'][path]
+    expected = {r['source_id'] for name in ('published-records.json', 'existing-updates.json')
+                for r in read(mnroot / name)}
+    assert len(expected) == 49
+    assert len(rows) == mn['after_count']
+    changes = {r['id']: r for r in mn['changes']}
+    assert set(changes) == expected
+    projected, seen = [], set()
+    for row in rows:
+        identity = row.get(mn['key'])
+        change = changes.get(identity)
+        if change is None:
+            projected.append(row)
+            continue
+        assert identity not in seen and sha(row) == change['after_sha256'], identity
+        seen.add(identity)
+        if change['before'] is not None:
+            projected.append(copy.deepcopy(change['before']))
+    assert seen == expected and len(projected) == mn['before_count']
+    rows = projected
     # Independently reviewed Wyoming followup: four additions and one existing
     # location's surgical evidence. Freeze the earlier Wyoming projection too.
     follow = read(ROOT / 'research/audit-runs/wy-finish-20261026/baseline-projection.json')['collections'][path]
@@ -363,6 +386,15 @@ def test_data():
             old_tele[ix][index] = change['old_value']
     assert sha(old_tele) == proof['baseline_tele_reversed_delta_sha256']
     pairs = read(ROOT / 'data/oncology_care_distinct_sites.json')['pairs']
+    mn_pair = [p for p in pairs if set(p['source_ids']) == {
+        'mn-alexandria-veterinary-clinic', 'mn-animal-doctor-alexandria'}]
+    assert len(mn_pair) == 1
+    current = catalog['centers']
+    a, b = [next(r for r in current if r.get('source_id') == sid)
+            for sid in mn_pair[0]['source_ids']]
+    assert a['street'] != b['street'] and a['phone'] != b['phone']
+    assert not center_match(a, b) and not center_match(b, a)
+    pairs = [p for p in pairs if p is not mn_pair[0]]
     assert len(pairs) == 78
     for pair in pairs:
         a, b = [next(r for r in public + supp if r.get('source_id') == sid) for sid in pair['source_ids']]
