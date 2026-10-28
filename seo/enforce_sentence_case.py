@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Apply and validate Vet Trial Finder's sentence-case editorial style."""
+"""Apply and validate Vet Cancer Care Finder's sentence-case editorial style."""
 from __future__ import annotations
 
 import re
@@ -40,7 +40,7 @@ SITE_COPY = {
     "Oncology Centers & Research Programs": "Oncology centers and research programs",
     "Page Not Found": "Page not found",
     "Cancer Clinical Trials for Dogs and Cats": "Cancer clinical trials for dogs and cats",
-    "How to Use Vet Trial Finder": "How to use Vet Trial Finder",
+    "How to Use Vet Cancer Care Finder": "How to use Vet Cancer Care Finder",
     "Other Veterinary Cancer Treatments": "Other veterinary cancer treatments",
     "How We Verify Clinical Trial Listings": "How we verify clinical trial listings",
     "How we verify Clinical Trial Listings": "How we verify clinical trial listings",
@@ -78,7 +78,7 @@ def diagnosis_species(path: Path | None) -> str | None:
 
 
 SEARCH_TITLES = {
-    "index.html": "Vet Trial Finder | Find cancer care for dogs and cats",
+    "index.html": "Vet Cancer Care Finder | Find cancer care for dogs and cats",
     "matcher/index.html": "Find cancer clinical trials for dogs and cats",
     "matcher/centers/index.html": "Find a veterinary oncologist near you",
     "about/index.html": "About this project",
@@ -96,13 +96,17 @@ def search_title(text: str, path: Path | None) -> str:
                 return SEARCH_TITLES[route]
             if route in SEARCH_TITLES:
                 text = SEARCH_TITLES[route]
-    text = re.sub(r"\s*\|\s*Vet Trial Finder\s*$", "", text)
-    text = re.sub(r"^Vet Trial Finder\s*\|\s*", "", text)
-    text = text.replace("Vet Trial Finder", "this project").strip()
-    return f"{text} | Vet Trial Finder"
+    text = re.sub(r"\s*\|\s*Vet Cancer Care Finder\s*$", "", text)
+    text = re.sub(r"^Vet Cancer Care Finder\s*\|\s*", "", text)
+    text = text.replace("Vet Cancer Care Finder", "this project").strip()
+    return f"{text} | Vet Cancer Care Finder"
 
 
 def normalize(text: str, path: Path | None = None) -> str:
+    # Retained historical profiles may carry a previously rendered site shell.
+    # Normalize their public identity without rewriting historical receipts.
+    text = text.replace("Vet Trial Finder", "Vet Cancer Care Finder")
+    text = text.replace("VetTrialFinder", "VetCancerCareFinder")
     for old, new in SITE_COPY.items():
         text = text.replace(old, new)
     text = text.replace(" | Veterinary Oncology &amp; Clinical Trials |", " | Veterinary oncology and clinical trials |")
@@ -162,9 +166,9 @@ def validate(root: Path) -> None:
         if re.search(r" Clinical Trials for (Dogs|Cats)(?= \|)", text):
             failures.append(f"{path.relative_to(root)}: diagnosis SEO title")
         title = re.search(r"<title>(.*?)</title>", text, re.S)
-        if title and (not title[1].strip() or title[1].count("Vet Trial Finder") != 1):
+        if title and (not title[1].strip() or title[1].count("Vet Cancer Care Finder") != 1):
             failures.append(f"{path.relative_to(root)}: missing or duplicate title brand")
-        elif title and path != root / "index.html" and not title[1].endswith(" | Vet Trial Finder"):
+        elif title and path != root / "index.html" and not title[1].endswith(" | Vet Cancer Care Finder"):
             failures.append(f"{path.relative_to(root)}: missing title brand suffix")
         expected_title = SEARCH_TITLES.get(path.relative_to(root).as_posix())
         if expected_title and (not title or title[1] != search_title(expected_title, path)):

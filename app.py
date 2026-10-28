@@ -5,7 +5,7 @@ import streamlit.components.v1 as components
 MATCHER_URL = "https://vettrialfinder.com/matcher/"
 
 st.set_page_config(
-    page_title="Vet Trial Finder",
+    page_title="Vet Cancer Care Finder",
     page_icon="🎯",
     layout="centered",
 )
@@ -36,6 +36,6 @@ components.html(
     height=0,
 )
 
-st.title("Vet Trial Finder has moved")
+st.title("Vet Cancer Care Finder has moved")
 st.write("The cancer treatment trial matcher now lives on our main website.")
 st.link_button("Open the trial matcher", MATCHER_URL, type="primary")

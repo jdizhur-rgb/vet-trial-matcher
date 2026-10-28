@@ -5,7 +5,7 @@ from matcher_taxonomy import ALIASES as CANCER_ALIASES, FAMILIES as DIAGNOSIS_FA
 
 LYMPHOMA_CANCERS = {'B-cell lymphoma', 'T-cell lymphoma', 'Lymphoma — other'}
 
-st.set_page_config(page_title='Vet Trial Finder', page_icon='🐾', layout='centered')
+st.set_page_config(page_title='Vet Cancer Care Finder', page_icon='🐾', layout='centered')
 
 
 def _render_result_save_controls(matches):
@@ -114,7 +114,7 @@ label, [data-testid="stWidgetLabel"] p {
 </style>
 ''', unsafe_allow_html=True)
 
-st.title('🐾 Vet Trial Finder')
+st.title('🐾 Vet Cancer Care Finder')
 
 # SAFE_DATABASE_STATS_V1
 # Read-only summary of the catalog already loaded into TRIALS.

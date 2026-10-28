@@ -18,7 +18,7 @@ def generate_help_center(root: Path) -> None:
     url = f'{SITE}/help/'
     finder = g.FINDER
     sections = [
-        ('Using Vet Trial Finder', [
+        ('Using Vet Cancer Care Finder', [
             ('Where should I start?',
              f'<p>Use <a href="{finder}">Find trials</a> to compare one pet’s diagnosis and treatment history with current studies. Use <a href="{SITE}/matcher/centers/">Find oncology care</a> to search veterinary oncology locations by service or US ZIP code, including centers offering electrochemotherapy. Use <a href="{SITE}/cancer-types/">Cancer types</a> to read about a diagnosis and see current listings. <a href="{SITE}/centers/">Trial centers</a> lists institutions connected to treatment opportunities in our catalog. <a href="{SITE}/other-treatments/">Other treatments</a> covers selected newer treatments.</p>'),
             ('How do I use the trial finder?',
@@ -48,7 +48,7 @@ def generate_help_center(root: Path) -> None:
         ]),
         ('Oncology centers and trial centers', [
             ('How do I find oncology care or an ECT center?',
-             f'<p>Open <a href="{SITE}/matcher/centers/">Find oncology care</a> to search veterinary oncology locations by hospital, city or state, or enter a five-digit US ZIP code to see nearby US locations first. Use the service filter and choose <em>Electrochemotherapy</em> for ECT centers. This broader directory also includes local cancer-care clinics. Service information is compiled from clinic websites and professional public directories. Vet Trial Finder does not independently verify clinicians, licenses, credentials or quality of care, and a listing is not a recommendation. Confirm the clinician, service, cost and availability directly with the clinic.</p>'),
+             f'<p>Open <a href="{SITE}/matcher/centers/">Find oncology care</a> to search veterinary oncology locations by hospital, city or state, or enter a five-digit US ZIP code to see nearby US locations first. Use the service filter and choose <em>Electrochemotherapy</em> for ECT centers. This broader directory also includes local cancer-care clinics. Service information is compiled from clinic websites and professional public directories. Vet Cancer Care Finder does not independently verify clinicians, licenses, credentials or quality of care, and a listing is not a recommendation. Confirm the clinician, service, cost and availability directly with the clinic.</p>'),
             ('What are Trial Centers?',
              f'<p>These are universities, veterinary teaching hospitals, specialty hospitals, research organizations and multicenter programs connected to at least one current treatment opportunity in our catalog. A center page shows the cancer types currently listed there, where visits take place when that information is available, and the active studies or treatment programs linked to that institution. It is not a directory of every veterinary oncology clinic.</p>'),
             ('How do I find the nearest trial centers?',
@@ -59,8 +59,8 @@ def generate_help_center(root: Path) -> None:
              f'<p><a href="{SITE}/other-treatments/">Other treatments</a> links to <a href="{SITE}/matcher/centers/?service=electrochemotherapy">oncology centers offering electrochemotherapy</a>, <strong>selected treatments</strong> and a separate list of <strong>genomic tests</strong> you can filter by species, region and cancer type. A genomic test is not itself a treatment, and these listings do not decide what is medically appropriate.</p>'),
         ]),
         ('Contacting a study', [
-            ('Is Vet Trial Finder really free?',
-             f'<p>Yes. You can search the full catalog, view eligibility information, locations, contacts and official study links without creating an account or paying for a report. We do not ask for your name, email address or your pet’s medical records. Matcher answers are processed in your browser and are not stored or sent to analytics. Vet Trial Finder does not use an analytics or advertising tracker. Research teams and veterinary hospitals also do not pay to be listed. Read the <a href="{SITE}/privacy/">Privacy policy</a> for the separate ZIP-code lookup and email details.</p>'),
+            ('Is Vet Cancer Care Finder really free?',
+             f'<p>Yes. You can search the full catalog, view eligibility information, locations, contacts and official study links without creating an account or paying for a report. We do not ask for your name, email address or your pet’s medical records. Matcher answers are processed in your browser and are not stored or sent to analytics. Vet Cancer Care Finder does not use an analytics or advertising tracker. Research teams and veterinary hospitals also do not pay to be listed. Read the <a href="{SITE}/privacy/">Privacy policy</a> for the separate ZIP-code lookup and email details.</p>'),
             ('Does a match mean my pet is eligible?',
              '<p>No. The matcher is a prescreening tool. Final eligibility is decided by the research or treatment team after reviewing the diagnosis, records, previous treatment, current health and any tests required by the protocol.</p>'),
             ('What should I have ready?',
@@ -73,7 +73,7 @@ def generate_help_center(root: Path) -> None:
              '<p>Possibly. Some protocols require repeated visits to one hospital; others have several participating sites. Confirm the exact hospital, number of visits and which visits must be in person before making plans. Distances shown on the site are estimates, not travel instructions.</p>'),
             ('Do trials use placebos, and can I leave after enrolling?',
              '<p>Some trials use randomization or a placebo group and many do not. The consent documents should explain the groups, what standard care remains available and what happens if the disease progresses. Participation is generally voluntary; ask how withdrawal works before enrolling.</p>'),
-            ('How do I contact Vet Trial Finder?',
+            ('How do I contact Vet Cancer Care Finder?',
              '<p>For a correction, broken link or question about using the site, email <a href="mailto:info@vettrialfinder.com">info@vettrialfinder.com</a>. Do not email medical records, diagnostic images, financial information or an emergency request. For eligibility or medical advice, contact the study team or your veterinarian.</p>'),
         ]),
     ]
@@ -102,13 +102,13 @@ def generate_help_center(root: Path) -> None:
 @media(max-width:600px){{.help-center{{font-size:1rem}}.help-section{{margin:25px 0}}.help-section h2{{font-size:1.28rem}}.help-section summary{{padding:13px 41px 13px 14px;font-size:1rem}}.help-answer{{padding:13px 14px 15px;font-size:1rem}}}}
 </style>
 <div class="help-center"><h1>Help Center</h1>
-<p class="lead help-intro">Use this page to choose the right part of Vet Trial Finder, complete the matcher without guessing, understand the results and contact a study with the right records.</p>
+<p class="lead help-intro">Use this page to choose the right part of Vet Cancer Care Finder, complete the matcher without guessing, understand the results and contact a study with the right records.</p>
 {section_html}
 <p class="help-urgent"><strong>Urgent symptoms come first.</strong> Difficulty breathing, collapse, uncontrolled bleeding, severe pain or another emergency should be assessed by a veterinarian immediately rather than delayed for a trial search.</p>
 </div>'''
 
     html = g.page(
-        'How to Use Vet Trial Finder | Help Center',
+        'How to Use Vet Cancer Care Finder | Help Center',
         'How to use the veterinary cancer trial matcher, understand results, search trial centers and contact study teams.',
         body,
         url,

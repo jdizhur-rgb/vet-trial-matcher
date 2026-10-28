@@ -1,4 +1,4 @@
-# Vet Trial Finder article rules
+# Vet Cancer Care Finder article rules
 
 ## Voice and structure
 
@@ -19,18 +19,18 @@
 - Do not turn an early study, laboratory result or company announcement into a claim of clinical benefit.
 - Name the species, cancer type and clinical setting to which a result applies.
 - Verify claims about approval, availability, enrollment and commercial status before publication.
-- Link readers to the relevant Vet Trial Finder search or directory when the site has a useful matching tool.
+- Link readers to the relevant Vet Cancer Care Finder search or directory when the site has a useful matching tool.
 
 ## Attribution
 
 Every article uses this visible attribution:
 
-**Reviewed and edited by:** Yuliia Dizhur, Founder of Vet Trial Finder
+**Reviewed and edited by:** Yuliia Dizhur, Founder of Vet Cancer Care Finder
 
-The accompanying bio identifies her as the founder of Vet Trial Finder and a dog owner with extensive firsthand experience of canine cancer. Personal experience provides context but must not be presented as medical expertise.
+The accompanying bio identifies her as the founder of Vet Cancer Care Finder and a dog owner with extensive firsthand experience of canine cancer. Personal experience provides context but must not be presented as medical expertise.
 
 Include publication and last-updated dates, followed by this disclosure:
 
 **Editorial disclosure:** Prepared with AI assistance from the sources listed below and reviewed by Yuliia Dizhur. It has not been independently reviewed by a veterinarian and does not replace veterinary advice.
 
-Do not use a fictional editorial team or imply veterinary review that did not occur. Article structured data must identify Yuliia Dizhur as a Person, link to the About page and retain Vet Trial Finder as the publisher.
+Do not use a fictional editorial team or imply veterinary review that did not occur. Article structured data must identify Yuliia Dizhur as a Person, link to the About page and retain Vet Cancer Care Finder as the publisher.

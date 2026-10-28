@@ -92,7 +92,7 @@ more.addEventListener('click',showMore);input.addEventListener('input',render);l
 })();</script>'''.replace("__INDEX__", payload)
     target = SITE / "search"
     target.mkdir(exist_ok=True)
-    page = g.page("Search results", "Search results from Vet Trial Finder pages.", body, site_shell.SITE + "/search/")
+    page = g.page("Search results", "Search results from Vet Cancer Care Finder pages.", body, site_shell.SITE + "/search/")
     destination = target / "index.html"
     destination.write_text(normalize(site_shell.wrap_html(page), destination), encoding="utf-8")
     site_shell.add_to_sitemap(SITE, [site_shell.SITE + "/search/"])

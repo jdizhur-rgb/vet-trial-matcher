@@ -43,7 +43,7 @@ def generate_surgical_margins_article(root: Path) -> None:
 
 <p>Margin status provides important information about how completely the tumor was removed and the risk that it will return at the surgical site. But this finding alone is not enough to decide whether repeat surgery, radiation therapy, or observation is appropriate. Further decisions require the margins to be considered together with the tumor type, grade, mitotic activity, stage, location, and the animal’s overall condition.</p>
 
-<div class="article-byline"><p><strong>Reviewed and edited by:</strong> <a href="{SITE}/about/" rel="author">Yuliia Dizhur</a>, Founder of Vet Trial Finder</p><p><strong>Published:</strong> September 16, 2026</p><p><strong>Last updated:</strong> September 16, 2026</p><p>Yuliia Dizhur is the founder of Vet Trial Finder and a dog owner with extensive firsthand experience of canine cancer. She edits practical guides using peer-reviewed research, published clinical guidance and information from veterinary hospitals and research teams.</p><p><strong>Editorial disclosure:</strong> Prepared with AI assistance from the sources listed below and reviewed by Yuliia Dizhur. It has not been independently reviewed by a veterinarian and does not replace veterinary advice.</p></div>
+<div class="article-byline"><p><strong>Reviewed and edited by:</strong> <a href="{SITE}/about/" rel="author">Yuliia Dizhur</a>, Founder of Vet Cancer Care Finder</p><p><strong>Published:</strong> September 16, 2026</p><p><strong>Last updated:</strong> September 16, 2026</p><p>Yuliia Dizhur is the founder of Vet Cancer Care Finder and a dog owner with extensive firsthand experience of canine cancer. She edits practical guides using peer-reviewed research, published clinical guidance and information from veterinary hospitals and research teams.</p><p><strong>Editorial disclosure:</strong> Prepared with AI assistance from the sources listed below and reviewed by Yuliia Dizhur. It has not been independently reviewed by a veterinarian and does not replace veterinary advice.</p></div>
 
 <h2>Sources</h2>
 <ul class="article-sources"><li><a href="https://pubmed.ncbi.nlm.nih.gov/33331059/" rel="noopener">Abrams BE, et al. Variability in tumor margin reporting for soft tissue sarcoma and cutaneous mast cell tumors in dogs</a>. Veterinary Surgery. 2021.</li><li><a href="https://pubmed.ncbi.nlm.nih.gov/21139143/" rel="noopener">Dennis MM, et al. Prognostic factors for cutaneous and subcutaneous soft tissue sarcomas in dogs</a>. Veterinary Pathology. 2011.</li><li><a href="https://pubmed.ncbi.nlm.nih.gov/34438827/" rel="noopener">Scarpa F, et al. Surgical Margins in Canine Cutaneous Soft Tissue Sarcomas</a>. Animals. 2021.</li></ul>
@@ -52,14 +52,14 @@ def generate_surgical_margins_article(root: Path) -> None:
     directory = root / 'articles' / 'surgical-margins-after-tumor-removal'
     directory.mkdir(parents=True, exist_ok=True)
     rendered = g.page(
-        'Clean, Close, and Dirty Surgical Margins | Vet Trial Finder',
+        'Clean, Close, and Dirty Surgical Margins | Vet Cancer Care Finder',
         'What clean, close, and dirty surgical margins mean after tumor removal in dogs and cats, and what margins can and cannot tell you about recurrence risk.',
         body,
         url,
     )
     styles = '''<style>.margin-diagram figcaption{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:10px}.margin-diagram figcaption span{display:block;text-align:center;line-height:1.35}.margin-diagram figcaption strong{display:block;color:#315f7d;font-size:.9rem;margin-bottom:3px}@media(max-width:560px){.margin-diagram figcaption{gap:7px}.margin-diagram figcaption span{font-size:.65rem}.margin-diagram figcaption strong{font-size:.7rem}}</style>'''
     rendered = rendered.replace('</head>', styles + '</head>', 1)
-    social = f'''<meta property="og:type" content="article"><meta property="og:site_name" content="Vet Trial Finder"><meta property="og:title" content="Clean, Close, and Dirty Surgical Margins"><meta property="og:description" content="What surgical margins mean after tumor removal and what they can and cannot tell you about recurrence risk."><meta property="og:url" content="{url}"><meta property="og:image" content="{SITE}/assets/surgical-margins-diagram.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="675"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Clean, Close, and Dirty Surgical Margins"><meta name="twitter:description" content="What surgical margins mean after tumor removal and what they can and cannot tell you about recurrence risk."><meta name="twitter:image" content="{SITE}/assets/surgical-margins-diagram.jpg">'''
+    social = f'''<meta property="og:type" content="article"><meta property="og:site_name" content="Vet Cancer Care Finder"><meta property="og:title" content="Clean, Close, and Dirty Surgical Margins"><meta property="og:description" content="What surgical margins mean after tumor removal and what they can and cannot tell you about recurrence risk."><meta property="og:url" content="{url}"><meta property="og:image" content="{SITE}/assets/surgical-margins-diagram.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="675"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Clean, Close, and Dirty Surgical Margins"><meta name="twitter:description" content="What surgical margins mean after tumor removal and what they can and cannot tell you about recurrence risk."><meta name="twitter:image" content="{SITE}/assets/surgical-margins-diagram.jpg">'''
     rendered = rendered.replace('</head>', social + '</head>', 1)
     schema = {
         '@context': 'https://schema.org',
@@ -68,8 +68,8 @@ def generate_surgical_margins_article(root: Path) -> None:
         'image': [f'{SITE}/assets/surgical-margins-diagram.jpg'],
         'datePublished': '2026-09-16',
         'dateModified': '2026-09-16',
-        'author': {'@type': 'Person', 'name': 'Yuliia Dizhur', 'url': f'{SITE}/about/', 'jobTitle': 'Founder of Vet Trial Finder'},
-        'publisher': {'@type': 'Organization', 'name': 'Vet Trial Finder', 'url': f'{SITE}/'},
+        'author': {'@type': 'Person', 'name': 'Yuliia Dizhur', 'url': f'{SITE}/about/', 'jobTitle': 'Founder of Vet Cancer Care Finder'},
+        'publisher': {'@type': 'Organization', 'name': 'Vet Cancer Care Finder', 'url': f'{SITE}/'},
         'mainEntityOfPage': url,
     }
     rendered = rendered.replace('</head>', f'<script type="application/ld+json">{json.dumps(schema)}</script></head>', 1)

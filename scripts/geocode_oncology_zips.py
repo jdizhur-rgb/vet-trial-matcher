@@ -34,7 +34,7 @@ def fetch(postal_code: str) -> tuple[str, dict | None]:
     country = "pr" if postal_code.startswith("00") else "us"
     url = f"https://api.zippopotam.us/{country}/{postal_code}"
     try:
-        request = urllib.request.Request(url, headers={"User-Agent": "VetTrialFinder/1.0 ZIP lookup"})
+        request = urllib.request.Request(url, headers={"User-Agent": "VetCancerCareFinder/1.0 ZIP lookup"})
         with urllib.request.urlopen(request, timeout=20) as response:
             payload = json.load(response)
         place = payload["places"][0]

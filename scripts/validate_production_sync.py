@@ -65,16 +65,16 @@ def validate_internal_links() -> int:
 def main() -> None:
     for page in SITE.rglob("*.html"):
         html = read(page)
-        assert not re.search(r"Pet Cancer Trail|PetCancerTrail", html), f"Retired brand on {page}"
+        assert not re.search(r"Pet Cancer Trail|PetCancerTrail|Vet Trial Finder|VetTrialFinder", html), f"Retired brand on {page}"
         if '<header class="site-header">' in html:
-            assert 'aria-label="Vet Trial Finder"' in html, f"Brand missing from header: {page}"
-            assert '<meta property="og:site_name" content="Vet Trial Finder">' in html, f"Social site name drift: {page}"
+            assert 'aria-label="Vet Cancer Care Finder"' in html, f"Brand missing from header: {page}"
+            assert '<meta property="og:site_name" content="Vet Cancer Care Finder">' in html, f"Social site name drift: {page}"
         title = re.search(r"<title>(.*?)</title>", html, re.S)
         if page == SITE / "index.html":
-            assert title and title[1] == "Vet Trial Finder | Find cancer care for dogs and cats", "Homepage brand/search title drift"
+            assert title and title[1] == "Vet Cancer Care Finder | Find cancer care for dogs and cats", "Homepage brand/search title drift"
         elif title:
-            assert title[1].endswith(" | Vet Trial Finder"), f"Missing page search-title brand: {page}"
-            assert title[1].count("Vet Trial Finder") == 1, f"Duplicate page search-title brand: {page}"
+            assert title[1].endswith(" | Vet Cancer Care Finder"), f"Missing page search-title brand: {page}"
+            assert title[1].count("Vet Cancer Care Finder") == 1, f"Duplicate page search-title brand: {page}"
 
     public = current_public()
     treatments = current_treatments()
@@ -97,7 +97,7 @@ def main() -> None:
     home = read(SITE / "index.html")
     assert first_stat(home) == len(treatments)
     registry = read(SITE / "veterinary-cancer-clinical-trials" / "index.html")
-    assert 'How Vet Trial Finder selects and counts trials' in registry
+    assert 'How Vet Cancer Care Finder selects and counts trials' in registry
     assert '<div class="registry-stats">' not in registry
     assert '<div class="nav-shell">' in home
     assert '<button class="nav-toggle"' in home
@@ -148,7 +148,7 @@ def main() -> None:
     centers = read(MATCHER / "centers" / "index.html")
     required_directory_notice = (
         "Service information is compiled from clinic websites and professional public directories. "
-        "Vet Trial Finder does not independently verify clinicians, licenses, credentials or quality of care, "
+        "Vet Cancer Care Finder does not independently verify clinicians, licenses, credentials or quality of care, "
         "and a listing is not a recommendation. Confirm the clinician, service, cost and current availability "
         "directly with the clinic before making plans."
     )

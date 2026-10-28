@@ -86,7 +86,7 @@ class DirectoryParser(HTMLParser):
 
 
 def main() -> None:
-    request = urllib.request.Request(SOURCE_URL, headers={"User-Agent": "VetTrialFinder/1.0 directory audit"})
+    request = urllib.request.Request(SOURCE_URL, headers={"User-Agent": "VetCancerCareFinder/1.0 directory audit"})
     with urllib.request.urlopen(request, timeout=60) as response:
         source = response.read().decode("utf-8", errors="replace")
     match = re.search(r"Search Results,\s*([0-9,]+) items found", source)

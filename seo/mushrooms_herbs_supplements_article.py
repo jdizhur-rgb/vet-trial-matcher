@@ -94,7 +94,7 @@ def generate_mushrooms_herbs_supplements_article(root: Path) -> None:
 <li><a href="https://veterinarycannabissociety.org/" rel="noopener">Veterinary Cannabis Society</a></li>
 </ul>
 
-<div class="article-byline"><p><strong>Reviewed and edited by:</strong> <a href="{SITE}/about/" rel="author">Yuliia Dizhur</a>, Founder of Vet Trial Finder</p><p><strong>Published:</strong> September 20, 2026</p><p><strong>Last updated:</strong> September 20, 2026</p><p>Yuliia Dizhur is the founder of Vet Trial Finder and a dog owner with extensive firsthand experience of canine cancer. She edits practical guides using peer-reviewed research, published clinical guidance and information from veterinary hospitals and research teams.</p><p><strong>Editorial disclosure:</strong> Prepared with AI assistance from the sources listed below and reviewed by Yuliia Dizhur. It has not been independently reviewed by a veterinarian and does not replace veterinary advice.</p></div>
+<div class="article-byline"><p><strong>Reviewed and edited by:</strong> <a href="{SITE}/about/" rel="author">Yuliia Dizhur</a>, Founder of Vet Cancer Care Finder</p><p><strong>Published:</strong> September 20, 2026</p><p><strong>Last updated:</strong> September 20, 2026</p><p>Yuliia Dizhur is the founder of Vet Cancer Care Finder and a dog owner with extensive firsthand experience of canine cancer. She edits practical guides using peer-reviewed research, published clinical guidance and information from veterinary hospitals and research teams.</p><p><strong>Editorial disclosure:</strong> Prepared with AI assistance from the sources listed below and reviewed by Yuliia Dizhur. It has not been independently reviewed by a veterinarian and does not replace veterinary advice.</p></div>
 
 <h2>Sources</h2>
 <ul class="article-sources">
@@ -109,12 +109,12 @@ def generate_mushrooms_herbs_supplements_article(root: Path) -> None:
     directory = root / 'articles' / 'mushrooms-herbs-supplements-dogs-with-cancer'
     directory.mkdir(parents=True, exist_ok=True)
     rendered = g.page(
-        'Mushrooms, herbs, and supplements for dogs with cancer | Vet Trial Finder',
+        'Mushrooms, herbs, and supplements for dogs with cancer | Vet Cancer Care Finder',
         'How medicinal mushrooms, Chinese herbal formulas, curcumin, CBD, and other supplements can be selected as individualized supportive care for dogs with cancer.',
         body,
         url,
     )
-    social = f'''<meta property="og:type" content="article"><meta property="og:site_name" content="Vet Trial Finder"><meta property="og:title" content="Mushrooms, herbs, and supplements for dogs with cancer"><meta property="og:description" content="Why supportive supplements should be selected for the individual dog, purpose, and treatment plan."><meta property="og:url" content="{url}"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Mushrooms, herbs, and supplements for dogs with cancer"><meta name="twitter:description" content="Why supportive supplements should be selected for the individual dog, purpose, and treatment plan.">'''
+    social = f'''<meta property="og:type" content="article"><meta property="og:site_name" content="Vet Cancer Care Finder"><meta property="og:title" content="Mushrooms, herbs, and supplements for dogs with cancer"><meta property="og:description" content="Why supportive supplements should be selected for the individual dog, purpose, and treatment plan."><meta property="og:url" content="{url}"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Mushrooms, herbs, and supplements for dogs with cancer"><meta name="twitter:description" content="Why supportive supplements should be selected for the individual dog, purpose, and treatment plan.">'''
     rendered = rendered.replace('</head>', social + '</head>', 1)
     schema = {
         '@context': 'https://schema.org',
@@ -122,8 +122,8 @@ def generate_mushrooms_herbs_supplements_article(root: Path) -> None:
         'headline': 'Mushrooms, herbs, and supplements for dogs with cancer',
         'datePublished': '2026-09-20',
         'dateModified': '2026-09-20',
-        'author': {'@type': 'Person', 'name': 'Yuliia Dizhur', 'url': f'{SITE}/about/', 'jobTitle': 'Founder of Vet Trial Finder'},
-        'publisher': {'@type': 'Organization', 'name': 'Vet Trial Finder', 'url': f'{SITE}/'},
+        'author': {'@type': 'Person', 'name': 'Yuliia Dizhur', 'url': f'{SITE}/about/', 'jobTitle': 'Founder of Vet Cancer Care Finder'},
+        'publisher': {'@type': 'Organization', 'name': 'Vet Cancer Care Finder', 'url': f'{SITE}/'},
         'mainEntityOfPage': url,
     }
     rendered = rendered.replace('</head>', f'<script type="application/ld+json">{json.dumps(schema)}</script></head>', 1)

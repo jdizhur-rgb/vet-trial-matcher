@@ -15,7 +15,7 @@ from pathlib import Path
 
 ROOT_SITEMAP = "https://vcahospitals.com/-/sitemap/sitemap-hospitals.xml"
 OUTPUT = Path("/tmp/vca_oncology_scan.json")
-HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; VetTrialFinder/1.0; research audit)"}
+HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; VetCancerCareFinder/1.0; research audit)"}
 
 
 def fetch(url: str) -> tuple[str, str, str]:

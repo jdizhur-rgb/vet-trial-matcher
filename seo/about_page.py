@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate and validate the About page for Vet Trial Finder."""
+"""Generate and validate the About page for Vet Cancer Care Finder."""
 import shutil
 from pathlib import Path
 import generate_seo as g
@@ -32,7 +32,7 @@ def _validate_about_v2(root: Path) -> None:
         'class="story-break"',
         'class="story-scene yasha"',
         'class="founder-signoff"',
-        'Founder, Vet Trial Finder',
+        'Founder, Vet Cancer Care Finder',
         'color:#315f7d!important',
         'second surgery to remove the dirty margins',
         'experimental treatments, looking for something that might give him better chances',
@@ -83,10 +83,10 @@ def generate_about_page(root: Path) -> None:
 <section class="story-break"><div class="story-scene yasha"><figure class="story-photo yasha"><img src="/assets/yasha-about.jpg?v=about-v4" alt="Yasha"><figcaption>Yasha</figcaption></figure><div class="story-copy"><p>A year later, during an exam, a small lump was found in the armpit of our other dog, Yasha. I immediately asked for an aspiration. The test showed sarcoma. We were lucky to get in with an oncologist quickly because we were already patients at the hospital. A board-certified surgeon performed the surgery beautifully. Pathology showed histiocytic sarcoma, a very aggressive form of cancer.</p><p>Yasha is undergoing treatment now. I don’t know what is ahead of us, but this time I want to be prepared. I searched through the internet looking for information. I learned about the standard treatment protocols and prognosis and read several papers about experimental treatments, looking for something that might give him better chances.</p></div></div></section>
 <p>Unfortunately, right now there is nothing that fits Yasha. But if something becomes available, I want to know about it the same day. That is why I created this finder.</p>
 <section class="story-purpose"><p>Clinical trial information is updated daily. You can also find universities and specialty hospitals near you where board-certified veterinary oncologists practice. As I said, cancer doesn’t wait, and knowledge is power. I want to help confused and overwhelmed pet owners who have just heard the diagnosis and don’t know what to do get the information they need.</p><p>On this site, the main types of cancer and their standard treatments are explained in plain language. You can search for current clinical trials, see their basic eligibility requirements, locations and contacts, and find universities, specialty hospitals and oncology centers that may be able to help. We also collect information about treatments that are not available everywhere, such as electrochemotherapy, newer targeted and immunotherapy approaches, and expanded access programs.</p><p>Some of these options are experimental, some are already being used in veterinary oncology but can be difficult to find. None of them is right for every animal, but some may offer another option when standard treatment is not enough.</p><p class="story-close"><strong>We don’t promise anything and we don’t give false hope. But we provide information and help you find it when time matters.</strong></p></section>
-<div class="founder-signoff"><img src="/assets/yuliia-senya-about.jpg" alt="Yuliia Dizhur with Senya"><div><strong>Yuliia Dizhur</strong><span>Founder, Vet Trial Finder</span></div></div>
+<div class="founder-signoff"><img src="/assets/yuliia-senya-about.jpg" alt="Yuliia Dizhur with Senya"><div><strong>Yuliia Dizhur</strong><span>Founder, Vet Cancer Care Finder</span></div></div>
 </article>
 '''
     d = root / 'about'
     d.mkdir(parents=True, exist_ok=True)
-    (d / 'index.html').write_text(g.page('Why This Project Exists | Vet Trial Finder','The personal story behind Vet Trial Finder and why finding veterinary cancer information quickly matters.',body,f'{SITE}/about/'), encoding='utf-8')
+    (d / 'index.html').write_text(g.page('Why This Project Exists | Vet Cancer Care Finder','The personal story behind Vet Cancer Care Finder and why finding veterinary cancer information quickly matters.',body,f'{SITE}/about/'), encoding='utf-8')
     _validate_about_v2(root)
