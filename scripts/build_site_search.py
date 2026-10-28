@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "seo" / "site"
 sys.path.insert(0, str(ROOT / "seo"))
 import generate_seo as g  # noqa: E402
+from enforce_sentence_case import normalize  # noqa: E402
 import site_shell  # noqa: E402
 
 
@@ -92,7 +93,8 @@ more.addEventListener('click',showMore);input.addEventListener('input',render);l
     target = SITE / "search"
     target.mkdir(exist_ok=True)
     page = g.page("Search results", "Search results from Vet Trial Finder pages.", body, site_shell.SITE + "/search/")
-    (target / "index.html").write_text(site_shell.wrap_html(page), encoding="utf-8")
+    destination = target / "index.html"
+    destination.write_text(normalize(site_shell.wrap_html(page), destination), encoding="utf-8")
     site_shell.add_to_sitemap(SITE, [site_shell.SITE + "/search/"])
     print(f"SITE_SEARCH_OK pages={len(entries)}")
 

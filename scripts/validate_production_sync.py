@@ -72,8 +72,9 @@ def main() -> None:
         title = re.search(r"<title>(.*?)</title>", html, re.S)
         if page == SITE / "index.html":
             assert title and title[1] == "Vet Trial Finder | Find cancer care for dogs and cats", "Homepage brand/search title drift"
-        else:
-            assert not title or "Vet Trial Finder" not in title[1], f"Keep other page search titles unbranded: {page}"
+        elif title:
+            assert title[1].endswith(" | Vet Trial Finder"), f"Missing page search-title brand: {page}"
+            assert title[1].count("Vet Trial Finder") == 1, f"Duplicate page search-title brand: {page}"
 
     public = current_public()
     treatments = current_treatments()

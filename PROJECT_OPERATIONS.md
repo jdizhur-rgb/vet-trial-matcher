@@ -827,3 +827,8 @@ AVMA15839 supports MIMIC's mandatory thoracoscopic lung metastasectomy: preserve
 ## Homepage search-title brand restored — owner-authorized 2026-10-28
 
 The owner explicitly requested restoring Vet Trial Finder to the homepage search title after reviewing branded-query results. The final sentence-case pass now uses `Vet Trial Finder | Find cancer care for dogs and cats` for the homepage title and matching social-title metadata. This is a homepage-only exception to the October11 unbranded-title policy; other routes, visible headings, UI, schema and navigation remain unchanged. Keep both title validators aligned with this narrow exception so later rebuilds preserve it. The observed ranking issue does not prove that the previous title caused it or that restoring branding guarantees ranking recovery.
+
+
+## Internal-page title branding restored — owner-authorized 2026-10-28
+
+The owner subsequently authorized adding ` | Vet Trial Finder` to the end of internal-page titles. This supersedes the October11 unbranded-title policy and the homepage-only restriction above. Preserve the homepage title with its brand first; every other generated HTML page retains its descriptive title followed by one brand suffix, including matching og:title/twitter:title metadata. Visible H1 headings, navigation, body copy, canonical URLs and indexing policy remain unchanged. The final normalization is idempotent, removes a pre-existing brand affix before appending one suffix, and both build validators enforce the new policy.

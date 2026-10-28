@@ -92,11 +92,14 @@ def search_title(text: str, path: Path | None) -> str:
         parts = path.parts
         if "site" in parts:
             route = "/".join(parts[parts.index("site") + 1:])
-            if route in SEARCH_TITLES:
+            if route == "index.html":
                 return SEARCH_TITLES[route]
+            if route in SEARCH_TITLES:
+                text = SEARCH_TITLES[route]
     text = re.sub(r"\s*\|\s*Vet Trial Finder\s*$", "", text)
     text = re.sub(r"^Vet Trial Finder\s*\|\s*", "", text)
-    return text.replace("Vet Trial Finder", "this project").strip()
+    text = text.replace("Vet Trial Finder", "this project").strip()
+    return f"{text} | Vet Trial Finder"
 
 
 def normalize(text: str, path: Path | None = None) -> str:
@@ -159,10 +162,12 @@ def validate(root: Path) -> None:
         if re.search(r" Clinical Trials for (Dogs|Cats)(?= \|)", text):
             failures.append(f"{path.relative_to(root)}: diagnosis SEO title")
         title = re.search(r"<title>(.*?)</title>", text, re.S)
-        if title and (not title[1].strip() or ("Vet Trial Finder" in title[1] and path != root / "index.html")):
-            failures.append(f"{path.relative_to(root)}: empty or branded search title")
+        if title and (not title[1].strip() or title[1].count("Vet Trial Finder") != 1):
+            failures.append(f"{path.relative_to(root)}: missing or duplicate title brand")
+        elif title and path != root / "index.html" and not title[1].endswith(" | Vet Trial Finder"):
+            failures.append(f"{path.relative_to(root)}: missing title brand suffix")
         expected_title = SEARCH_TITLES.get(path.relative_to(root).as_posix())
-        if expected_title and (not title or title[1] != expected_title):
+        if expected_title and (not title or title[1] != search_title(expected_title, path)):
             failures.append(f"{path.relative_to(root)}: search title override")
         species = diagnosis_species(path)
         if species:
