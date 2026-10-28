@@ -11,6 +11,10 @@
     {
       "question": "Some Web tools expose only crawled date rather than exact retrieval timestamp",
       "disposition": "Actual tool completion timestamps retained where captured; others labelled date-only with saved/review time separate. No invented native/Web timestamps."
+    },
+    {
+      "question": "Initial publication included a runtime Python cache, so CI blocked build and full audit",
+      "disposition": "Removed tracked __pycache__/run.cpython-312.pyc in 5ac0eef9075fad18c825e8452167e6ceb31682dc. Corrected candidate e4ec0906b59b554d12ff01166c3f19757cf97bbc passed full catalog CI and build/deploy; production bytes and real USA/Japan searches verified. No clinical source traversal repeated."
     }
   ]
 }

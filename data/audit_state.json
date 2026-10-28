@@ -14,43 +14,31 @@
     "full_protocol_reviews": 4,
     "clinical_reconciliation": "INCOMPLETE",
     "prior31_remaining": 31,
-    "discovery": "INCOMPLETE_REGISTRY_ACCESS_GAP",
+    "discovery": "TWO_PASSES_PROCESSED_12_REGIONS_PRIMARY_GAPS_RETAINED",
     "source_attempted": 128,
     "source_restricted_not_visited": 19,
     "new_sources": [
       "south-africa-saaca-research-foundation"
     ],
-    "trial_review_receipt": "research/audit-runs/daily-20261028T030606-0400/trial-review-queue.json"
+    "trial_review_receipt": "research/audit-runs/daily-20261028T030606-0400/trial-review-queue.json",
+    "ended_at": "2026-10-28T03:55:34.354734-04:00",
+    "strict_receipt_status": "INCOMPLETE",
+    "gap_review_status": "PASS",
+    "executor_incomplete_source_ids": []
   },
   "last_source_discovery_attempt": {
-    "run_id": "daily-20261026T030132-0400",
-    "mode": "DAILY GLOBAL WORK AUDIT",
-    "started_at": "2026-10-26T03:01:32.546973-04:00",
-    "source_total": 143,
-    "attempted_total": 126,
-    "content_sufficient_total": 47,
-    "processing_complete_total": 143,
-    "source_result_counts": {
-      "partial": 78,
-      "fully_reconciled": 47,
-      "not_checked": 17,
-      "unreachable": 1
-    },
-    "executor_incomplete_source_ids": [],
-    "executor_unfinished_actions": 0,
-    "unconfirmed_processing_sources": 0,
-    "source_pass_at": "2026-10-26T03:09:37-04:00",
-    "strict_status": "INCOMPLETE",
-    "at": "2026-10-26T03:09:37-04:00",
+    "run_id": "daily-20261028T030606-0400",
+    "at": "2026-10-28T03:55:34.354734-04:00",
     "status": "INCOMPLETE",
-    "coverage_receipt": "research/audit-runs/daily-20261026T030132-0400/receipt-final.json",
-    "gap_review": "research/audit-runs/daily-20261026T030132-0400/gap-review.json",
-    "global_discovery_regions": 12,
-    "discovery_status": "TWO_PASSES_COMPLETE_NO_NEW_PRIMARY_CONFIRMED",
-    "discovery_receipt": "research/audit-runs/daily-20261026T030132-0400/discovery-matrix.json",
-    "new_sources": 0,
+    "processing": "COMPLETE",
+    "regions": 12,
+    "passes": 2,
+    "queries": 30,
+    "new_source_ids": [
+      "south-africa-saaca-research-foundation"
+    ],
     "new_active_trials": 0,
-    "activated_existing_watch_trials": 0
+    "receipt": "research/audit-runs/daily-20261028T030606-0400/discovery-matrix-final.json"
   },
   "forced_full_reread_days": 28,
   "rules": {
@@ -170,9 +158,16 @@
   },
   "publication_verification": {
     "audit_run_id": "daily-20261028T030606-0400",
-    "status": "PENDING",
-    "first_commit": "c0db6a941fbb7f7ddeb5979597480e6062e1ee85",
-    "initial_ci_blocker": "Runtime Python cache accidentally included in research tree; removed in 5ac0eef9075fad18c825e8452167e6ceb31682dc",
-    "next_step": "Build corrected candidate, verify production bytes and USA/Japan UI searches"
+    "status": "PASS",
+    "verified_site_commit": "e4ec0906b59b554d12ff01166c3f19757cf97bbc",
+    "deploy_run_id": 40652516917,
+    "html_js_catalog_exact_match": true,
+    "script_version": "clinical-audit-20261028-r2",
+    "live_search_USA": 100,
+    "live_search_Japan": 12,
+    "live_search_comparison": "PASS against current catalog render title hashes",
+    "evidence": "research/audit-runs/daily-20261028T030606-0400/production-readback.json",
+    "ui_evidence": "research/audit-runs/daily-20261028T030606-0400/live-search-results.json",
+    "initial_ci_failure": "Runtime Python cache included in research; removed in 5ac0eef9075fad18c825e8452167e6ceb31682dc; corrected candidate deployed successfully"
   }
 }

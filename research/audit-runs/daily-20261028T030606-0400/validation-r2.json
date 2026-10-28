@@ -1,0 +1,36 @@
+{
+  "recorded_at": "2026-10-28T07:57:37.096233+00:00",
+  "recording_time_is_not_command_timestamp": true,
+  "commands": [
+    {
+      "command": "python scripts/build_static_site.py",
+      "exit_code": 0,
+      "log": "research/audit-runs/daily-20261028T030606-0400/build-r2.txt"
+    },
+    {
+      "command": "node scripts/test_matcher_catalog_loading.js",
+      "exit_code": 0,
+      "stdout": "Japan: 12 results after delayed load; USA: 100 results after delayed load; Catalog-loading regression PASS"
+    },
+    {
+      "command": "node scripts/test_matcher_logic.js",
+      "exit_code": 0,
+      "stdout": "MATCHER_LOGIC_OK trials=155 mct=4 yasha=0 mammary=5 osteosarcoma=17 bladder=6 brain=8"
+    },
+    {
+      "command": "python scripts/validate_production_sync.py",
+      "exit_code": 0,
+      "stdout": "PRODUCTION_SYNC_OK total=155 treatment=151 access=4 matcher_ids=155 internal_links=6968"
+    },
+    {
+      "command": "python scripts/validate_repository_hygiene.py",
+      "exit_code": 0,
+      "stdout": "REPOSITORY_HYGIENE_OK"
+    },
+    {
+      "command": "python scripts/full_catalog_audit.py",
+      "exit_code": 0,
+      "log": "research/audit-runs/daily-20261028T030606-0400/full-catalog-r2.txt"
+    }
+  ]
+}
