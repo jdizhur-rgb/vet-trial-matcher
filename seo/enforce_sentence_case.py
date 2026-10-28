@@ -78,7 +78,7 @@ def diagnosis_species(path: Path | None) -> str | None:
 
 
 SEARCH_TITLES = {
-    "index.html": "Find cancer care for dogs and cats",
+    "index.html": "Vet Trial Finder | Find cancer care for dogs and cats",
     "matcher/index.html": "Find cancer clinical trials for dogs and cats",
     "matcher/centers/index.html": "Find a veterinary oncologist near you",
     "about/index.html": "About this project",
@@ -159,7 +159,7 @@ def validate(root: Path) -> None:
         if re.search(r" Clinical Trials for (Dogs|Cats)(?= \|)", text):
             failures.append(f"{path.relative_to(root)}: diagnosis SEO title")
         title = re.search(r"<title>(.*?)</title>", text, re.S)
-        if title and (not title[1].strip() or "Vet Trial Finder" in title[1]):
+        if title and (not title[1].strip() or ("Vet Trial Finder" in title[1] and path != root / "index.html")):
             failures.append(f"{path.relative_to(root)}: empty or branded search title")
         expected_title = SEARCH_TITLES.get(path.relative_to(root).as_posix())
         if expected_title and (not title or title[1] != expected_title):

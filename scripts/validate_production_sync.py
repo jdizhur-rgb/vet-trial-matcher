@@ -70,7 +70,10 @@ def main() -> None:
             assert 'aria-label="Vet Trial Finder"' in html, f"Brand missing from header: {page}"
             assert '<meta property="og:site_name" content="Vet Trial Finder">' in html, f"Social site name drift: {page}"
         title = re.search(r"<title>(.*?)</title>", html, re.S)
-        assert not title or "Vet Trial Finder" not in title[1], f"Keep page search titles unbranded: {page}"
+        if page == SITE / "index.html":
+            assert title and title[1] == "Vet Trial Finder | Find cancer care for dogs and cats", "Homepage brand/search title drift"
+        else:
+            assert not title or "Vet Trial Finder" not in title[1], f"Keep other page search titles unbranded: {page}"
 
     public = current_public()
     treatments = current_treatments()
