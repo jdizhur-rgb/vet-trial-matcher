@@ -62,6 +62,78 @@ def before_later_ri_pass(rows, path):
     Every changed current row is checked first. The original European counts,
     hashes, dates and branch-identity assertions below remain unchanged.
     """
+    # Reverse the exact later MA reconciliation before the frozen earlier
+    # projections. Accepted indexed-primary evidence retains its source limits.
+    resolveroot = ROOT / 'research/audit-runs/ma-resolve26-20261028'
+    resolve = read(resolveroot / 'baseline-projection.json')['collections'][path]
+    resolve_ids = {r['source_id'] for f in ('proposed-records.json', 'existing-updates.json')
+                   for r in read(resolveroot / f)}
+    assert len(resolve_ids) == 18 and len(rows) == resolve['after_count']
+    resolve_changes = {r['id']: r for r in resolve['changes']}
+    assert set(resolve_changes) == resolve_ids
+    resolved_rows, resolved_seen = [], set()
+    for row in rows:
+        identity = row.get(resolve['key'])
+        change = resolve_changes.get(identity)
+        if change is None:
+            resolved_rows.append(row)
+            continue
+        assert identity not in resolved_seen and sha(row) == change['after_sha256'], identity
+        resolved_seen.add(identity)
+        if change['before'] is not None:
+            resolved_rows.append(copy.deepcopy(change['before']))
+    assert resolved_seen == resolve_ids and len(resolved_rows) == resolve['before_count']
+    rows = resolved_rows
+    # Reverse the four individually reviewed MA follow-up additions and two
+    # failed source-attempt updates before the original MA projection.
+    finishroot = ROOT / 'research/audit-runs/ma-finish-20261028'
+    finish = read(finishroot / 'baseline-projection.json')['collections'][path]
+    expected_finish = {r['source_id'] for r in read(finishroot / 'proposed-records.json')}
+    assert len(expected_finish) == 4
+    if finish['key'] == 'id':
+        expected_finish |= {'animal-cancer-care-specialists', 'integrity-veterinary-center'}
+    assert len(rows) == finish['after_count']
+    changes_finish = {r['id']: r for r in finish['changes']}
+    assert set(changes_finish) == expected_finish
+    projected_finish, seen_finish = [], set()
+    for row in rows:
+        identity = row.get(finish['key'])
+        change = changes_finish.get(identity)
+        if change is None:
+            projected_finish.append(row)
+            continue
+        assert identity not in seen_finish and sha(row) == change['after_sha256'], identity
+        seen_finish.add(identity)
+        if change['before'] is not None:
+            projected_finish.append(copy.deepcopy(change['before']))
+    assert seen_finish == expected_finish
+    assert len(projected_finish) == finish['before_count']
+    rows = projected_finish
+    # Reverse only the individually accepted Massachusetts rows; keep the
+    # original European/Minnesota counts and hashes below unchanged.
+    maroot = ROOT / 'research/audit-runs/ma-care-20261028'
+    ma = read(maroot / 'baseline-projection.json')['collections'][path]
+    expected_ma = {r['source_id'] for name in ('published-records.json', 'existing-updates.json')
+                   for r in read(maroot / name)}
+    assert len(expected_ma) == 80
+    if ma['key'] == 'id':
+        expected_ma.add('integrity-veterinary-center')
+    assert len(rows) == ma['after_count']
+    changes_ma = {r['id']: r for r in ma['changes']}
+    assert set(changes_ma) == expected_ma
+    projected_ma, seen_ma = [], set()
+    for row in rows:
+        identity = row.get(ma['key'])
+        change = changes_ma.get(identity)
+        if change is None:
+            projected_ma.append(row)
+            continue
+        assert identity not in seen_ma and sha(row) == change['after_sha256'], identity
+        seen_ma.add(identity)
+        if change['before'] is not None:
+            projected_ma.append(copy.deepcopy(change['before']))
+    assert seen_ma == expected_ma and len(projected_ma) == ma['before_count']
+    rows = projected_ma
     # Exact accepted Minnesota additions/reconciliations, reversed before the
     # frozen historical country proof. Other current rows must remain identical.
     mnroot = ROOT / 'research/audit-runs/mn-care-20261027'
@@ -386,6 +458,24 @@ def test_data():
             old_tele[ix][index] = change['old_value']
     assert sha(old_tele) == proof['baseline_tele_reversed_delta_sha256']
     pairs = read(ROOT / 'data/oncology_care_distinct_sites.json')['pairs']
+    sturbridge = [p for p in pairs if set(p['source_ids']) == {
+        'ma-sturbridge-general', 'ma-vsc-sturbridge'}]
+    assert len(sturbridge) == 1
+    st_a, st_b = [next(r for r in catalog['centers'] if r.get('source_id') == sid)
+                  for sid in sturbridge[0]['source_ids']]
+    assert st_a['street'] == '6 Cedar Street' and st_b['street'] == '173 & 175 Charlton Road'
+    assert st_a['phone'] == '508-347-7374' and st_b['phone'] == '774-241-3111'
+    assert not center_match(st_a, st_b) and not center_match(st_b, st_a)
+    pairs = [p for p in pairs if p is not sturbridge[0]]
+    ma_pair = [p for p in pairs if set(p['source_ids']) == {
+        'ma-vca-lynnfield', 'ma-vca-wakefield'}]
+    assert len(ma_pair) == 1
+    a_ma, b_ma = [next(r for r in catalog['centers'] if r.get('source_id') == sid)
+                  for sid in ma_pair[0]['source_ids']]
+    assert a_ma['street'] == '19 Main Street' and b_ma['street'] == '60 Audubon Road'
+    assert a_ma['phone'] == '781-334-4161' and b_ma['phone'] == '781-245-0045'
+    assert not center_match(a_ma, b_ma) and not center_match(b_ma, a_ma)
+    pairs = [p for p in pairs if p is not ma_pair[0]]
     mn_pair = [p for p in pairs if set(p['source_ids']) == {
         'mn-alexandria-veterinary-clinic', 'mn-animal-doctor-alexandria'}]
     assert len(mn_pair) == 1

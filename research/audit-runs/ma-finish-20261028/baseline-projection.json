@@ -1,0 +1,157 @@
+{
+  "run_id": "ma-finish-20261028",
+  "baseline_sha": "0f5d069bdb32d17b9969c6dc7be969ecff71aac2",
+  "collections": {
+    "data/oncology_centers.json": {
+      "key": "source_id",
+      "before_count": 1749,
+      "after_count": 1753,
+      "changes": [
+        {
+          "id": "ma-thrive-wignall",
+          "before": null,
+          "after_sha256": "90387636638ad1dc75883ee2bbc99fea9a392b21ff278d4e1ddee91fe7a2cf6d"
+        },
+        {
+          "id": "ma-brookside-greenfield",
+          "before": null,
+          "after_sha256": "6f6cc721c1959e706a7c096997110bcf661c2cdca1819fb7df1172201de44c19"
+        },
+        {
+          "id": "ma-thrive-newton",
+          "before": null,
+          "after_sha256": "4f7abaedd31746309667adfc3b85a98680877fae6761f171c1b5b14a10a6be9f"
+        },
+        {
+          "id": "ma-secondchance-north-brookfield",
+          "before": null,
+          "after_sha256": "ad2dd8816f1fec97793589e065adbfbc93fe7937ba52e02f1db1c2584b173688"
+        }
+      ],
+      "unchanged_rows_sha256": "3ff12bbe9eec590b4a0de6523c4e7f411576592455a4667844e2ab6f2a7084ce"
+    },
+    "data/oncology_centers_supplemental.json": {
+      "key": "source_id",
+      "before_count": 1741,
+      "after_count": 1745,
+      "changes": [
+        {
+          "id": "ma-thrive-wignall",
+          "before": null,
+          "after_sha256": "90387636638ad1dc75883ee2bbc99fea9a392b21ff278d4e1ddee91fe7a2cf6d"
+        },
+        {
+          "id": "ma-thrive-newton",
+          "before": null,
+          "after_sha256": "4f7abaedd31746309667adfc3b85a98680877fae6761f171c1b5b14a10a6be9f"
+        },
+        {
+          "id": "ma-brookside-greenfield",
+          "before": null,
+          "after_sha256": "6f6cc721c1959e706a7c096997110bcf661c2cdca1819fb7df1172201de44c19"
+        },
+        {
+          "id": "ma-secondchance-north-brookfield",
+          "before": null,
+          "after_sha256": "ad2dd8816f1fec97793589e065adbfbc93fe7937ba52e02f1db1c2584b173688"
+        }
+      ],
+      "unchanged_rows_sha256": "2aae002ac9fd6ad7799e192805f9274dc21c055b4f266f2216f42d318fb5ca03"
+    },
+    "data/oncology_care_source_inventory.json": {
+      "key": "id",
+      "before_count": 1827,
+      "after_count": 1831,
+      "changes": [
+        {
+          "id": "animal-cancer-care-specialists",
+          "before": {
+            "id": "animal-cancer-care-specialists",
+            "name": "Animal Cancer Care Specialists",
+            "source_type": "center",
+            "master_url": "https://accsvets.com/services/",
+            "supporting_urls": [
+              "https://accsvets.com/services/",
+              "https://accsvets.com/about-us/team/",
+              "https://accsvets.com/about-us/location-hours/",
+              "https://accsvets.com/refer-a-patient/"
+            ],
+            "required_cadence": "weekly",
+            "last_checked": "2026-10-11",
+            "last_checked_at": "2026-10-11T15:32:27.437000-04:00",
+            "last_result": "success",
+            "http_status": 200,
+            "working_url": "https://accsvets.com/services/",
+            "fingerprint_sha256": "99bee5b0b8e8d01267d3ab529ca510eef48d051f7a0309485280a2037a8b94cd",
+            "content_sufficient": true,
+            "fingerprint_method": "sha256-preserved-primary-web-reader-response",
+            "last_run_id": "care-batched-20261011T143110-0400",
+            "last_review_note": "Current primary full service/team/location bodies retrieved through search reader: crawled yesterday, not a snippet. Explicit local Treatment Options We Offer lists injectable/oral chemotherapy, immunotherapy and small-molecule therapy. Surgery and all radiation are explicitly referrals; CT also unavailable locally. Current Erin Romansik DVM DACVIM Oncology, Deb Sapienza DVM not asserted board-certified. New Littleton address and phone confirmed; stale page title Acton does not override explicit moved notice. Direct transport remains 403; cached content freshness is recorded rather than fabricated live page success.",
+            "last_reviewed_at": "2026-10-11T16:08:42.718822-04:00",
+            "last_review_run_id": "care-batched-20261011T143110-0400",
+            "visit_method": "web.search primary full cached body; crawl yesterday",
+            "review_reference": "research/audit-runs/p00-reconciled-20261012/review.json",
+            "review_required": true,
+            "review_due": "next-oncology-care-pass",
+            "review_questions": [
+              "Next pass: obtain direct live service/team body; archived official content is cached and direct fetch returned 403."
+            ],
+            "retrieval_limitation": "Official full-body Web cache reviewed October 11; cache reported crawled yesterday. Direct transport returned 403; success denotes semantic review, not live direct HTTP success."
+          },
+          "after_sha256": "666d4136f5bffc25eeb708d03bf53a5cff1003e2fb8dc238ef79073c93b44c05"
+        },
+        {
+          "id": "integrity-veterinary-center",
+          "before": {
+            "id": "integrity-veterinary-center",
+            "name": "Integrity Veterinary Center",
+            "source_type": "center",
+            "master_url": "https://www.vetspecialists.com/vet-detail/?animals=dog&specs=Onco&country=United%20States&page=46&id=c28a3d36-066a-4451-a585-a6bc63d66dd8",
+            "supporting_urls": [
+              "https://integrityvetcenter.com/services/oncology/",
+              "https://integrityvetcenter.com/meet-the-specialists/",
+              "https://integrityvetcenter.com/chemotherapy/"
+            ],
+            "required_cadence": "weekly",
+            "last_checked": "2026-10-28",
+            "last_checked_at": "2026-10-29T00:23:55.669865+00:00",
+            "last_result": "unreachable",
+            "http_status": 200,
+            "working_url": "https://integrityvetcenter.com",
+            "fingerprint_sha256": "6e949b500f5d3252236ffcda7496f562d08be555b0d03ed8d1f15265081534ea",
+            "content_sufficient": false,
+            "fingerprint_method": "sha256-visible-text",
+            "last_run_id": "ma-care-20261028",
+            "last_review_note": "Exact current primary routes returned 403. Preserve prior clinical facts and successful verification date; do not infer closure or absent services.",
+            "last_reviewed_at": "2026-10-11T18:01:34.338004-04:00",
+            "last_review_run_id": "ma-care-20261028",
+            "needs_recheck": true,
+            "review_reference": "research/audit-runs/ma-care-20261028/remaining.json"
+          },
+          "after_sha256": "69dde131a73c14b7b0cc6127bb9b3d9fab1b2e4ecf5c1f968271b669f11a8266"
+        },
+        {
+          "id": "ma-thrive-wignall",
+          "before": null,
+          "after_sha256": "8b1f7c1176ca4768429574116d04ced7fb672ec71fb3656ccdbdd0d777d3b51c"
+        },
+        {
+          "id": "ma-thrive-newton",
+          "before": null,
+          "after_sha256": "0b1b98961e7d37768a0c160adf75bf0b5881d6f5e1e11e4857c9a999fb380dad"
+        },
+        {
+          "id": "ma-brookside-greenfield",
+          "before": null,
+          "after_sha256": "33141609d7dc71c1ad25153399382ef15b907c48f57614541fb668bf4181c5a1"
+        },
+        {
+          "id": "ma-secondchance-north-brookfield",
+          "before": null,
+          "after_sha256": "029d2ae5f1f89b4f9fa9aa0c98f5accce694aea62cb14b59649fe2ce28845e74"
+        }
+      ],
+      "unchanged_rows_sha256": "dd55650ddd0c2d2cf8e0d56f10350ef84303bc5eaa09422ce579c997ab1f8b28"
+    }
+  }
+}
