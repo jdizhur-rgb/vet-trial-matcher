@@ -1,0 +1,275 @@
+{
+  "actions": [
+    {
+      "id": 40837913714,
+      "name": "Check copied evidence keys",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "53fa1fb4803132a32417b350554ef2bfe1371b9b",
+      "run_started_at": "2026-10-29T07:49:31Z",
+      "updated_at": "2026-10-29T07:49:47Z",
+      "html_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/40837913714"
+    },
+    {
+      "id": 40837913673,
+      "name": "Full catalog integrity audit",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "53fa1fb4803132a32417b350554ef2bfe1371b9b",
+      "run_started_at": "2026-10-29T07:49:31Z",
+      "updated_at": "2026-10-29T07:49:47Z",
+      "html_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/40837913673"
+    },
+    {
+      "id": 40837913678,
+      "name": "Build and deploy static site",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "53fa1fb4803132a32417b350554ef2bfe1371b9b",
+      "run_started_at": "2026-10-29T07:49:31Z",
+      "updated_at": "2026-10-29T07:50:53Z",
+      "html_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/40837913678"
+    }
+  ],
+  "jobs": [
+    {
+      "id": 123326974661,
+      "name": "build-candidate",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-29T07:49:35Z",
+      "completed_at": "2026-10-29T07:50:24Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-29T07:49:36Z",
+          "completed_at": "2026-10-29T07:49:37Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-29T07:49:37Z",
+          "completed_at": "2026-10-29T07:49:46Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-29T07:49:46Z",
+          "completed_at": "2026-10-29T07:49:46Z"
+        },
+        {
+          "name": "Reject copied Google API keys before building",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-29T07:49:46Z",
+          "completed_at": "2026-10-29T07:49:48Z"
+        },
+        {
+          "name": "Build production site from committed source",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-29T07:49:48Z",
+          "completed_at": "2026-10-29T07:50:09Z"
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-29T07:50:09Z",
+          "completed_at": "2026-10-29T07:50:13Z"
+        },
+        {
+          "name": "Verify searches wait for catalog loading",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-29T07:50:13Z",
+          "completed_at": "2026-10-29T07:50:13Z"
+        },
+        {
+          "name": "Validate production site with current catalog",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-29T07:50:13Z",
+          "completed_at": "2026-10-29T07:50:13Z"
+        },
+        {
+          "name": "Save exact candidate artifact",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-10-29T07:50:13Z",
+          "completed_at": "2026-10-29T07:50:16Z"
+        },
+        {
+          "name": "Run actions/configure-pages@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-10-29T07:50:16Z",
+          "completed_at": "2026-10-29T07:50:17Z"
+        },
+        {
+          "name": "Run actions/upload-pages-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-10-29T07:50:17Z",
+          "completed_at": "2026-10-29T07:50:20Z"
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-10-29T07:50:20Z",
+          "completed_at": "2026-10-29T07:50:20Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-10-29T07:50:20Z",
+          "completed_at": "2026-10-29T07:50:20Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-10-29T07:50:20Z",
+          "completed_at": "2026-10-29T07:50:20Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-10-29T07:50:20Z",
+          "completed_at": "2026-10-29T07:50:20Z"
+        }
+      ]
+    },
+    {
+      "id": 123327279997,
+      "name": "deploy",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-29T07:50:27Z",
+      "completed_at": "2026-10-29T07:50:36Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-29T07:50:28Z",
+          "completed_at": "2026-10-29T07:50:28Z"
+        },
+        {
+          "name": "Deploy production site",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-29T07:50:28Z",
+          "completed_at": "2026-10-29T07:50:35Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-29T07:50:35Z",
+          "completed_at": "2026-10-29T07:50:35Z"
+        }
+      ]
+    },
+    {
+      "id": 123327348498,
+      "name": "notify-indexnow",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-29T07:50:38Z",
+      "completed_at": "2026-10-29T07:50:52Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-29T07:50:38Z",
+          "completed_at": "2026-10-29T07:50:39Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-29T07:50:39Z",
+          "completed_at": "2026-10-29T07:50:48Z"
+        },
+        {
+          "name": "Download deployed static-site artifact",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-29T07:50:48Z",
+          "completed_at": "2026-10-29T07:50:49Z"
+        },
+        {
+          "name": "Restore last submitted page hashes",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-29T07:50:49Z",
+          "completed_at": "2026-10-29T07:50:49Z"
+        },
+        {
+          "name": "Submit changed canonical pages to IndexNow",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-29T07:50:49Z",
+          "completed_at": "2026-10-29T07:50:50Z"
+        },
+        {
+          "name": "Save submitted page hashes",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-29T07:50:50Z",
+          "completed_at": "2026-10-29T07:50:50Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-10-29T07:50:50Z",
+          "completed_at": "2026-10-29T07:50:50Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-29T07:50:50Z",
+          "completed_at": "2026-10-29T07:50:50Z"
+        }
+      ]
+    }
+  ],
+  "user_notification_claimed": false
+}
