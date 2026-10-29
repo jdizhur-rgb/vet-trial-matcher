@@ -20,7 +20,7 @@ def generate_help_center(root: Path) -> None:
     sections = [
         ('Using Vet Cancer Care Finder', [
             ('Where should I start?',
-             f'<p>Use <a href="{finder}">Find trials</a> to compare one pet’s diagnosis and treatment history with current studies. Use <a href="{SITE}/matcher/centers/">Find oncology care</a> to search veterinary oncology locations by service or US ZIP code, including centers offering electrochemotherapy. Use <a href="{SITE}/cancer-types/">Cancer types</a> to read about a diagnosis and see current listings. <a href="{SITE}/centers/">Trial centers</a> lists institutions connected to treatment opportunities in our catalog. <a href="{SITE}/other-treatments/">Other treatments</a> covers selected newer treatments.</p>'),
+             f'<p>Use <a href="{finder}">Find trials</a> to compare one pet’s diagnosis and treatment history with current studies. Use <a href="{SITE}/matcher/centers/">Find oncology care</a> to search cancer-care locations by country, location and service, including centers offering electrochemotherapy. Use <a href="{SITE}/cancer-types/">Cancer types</a> to read about a diagnosis and see current listings. <a href="{SITE}/centers/">Trial centers</a> lists institutions connected to treatment opportunities in our catalog. <a href="{SITE}/other-treatments/">Other treatments</a> covers selected treatments and tests. <a href="{SITE}/online-oncology-consultations/">Online oncology consultations</a> lists remote services and explains whether owners can book directly or need their veterinarian to make contact.</p>'),
             ('How do I use the trial finder?',
              f'<p>Open <a href="{finder}">Find Trials</a> and complete the five sections:</p><ol><li><strong>Your pet:</strong> choose dog or cat and the country or region. Add age, weight and sex if known.</li><li><strong>Diagnosis:</strong> say whether it is confirmed by pathology or cytology, suspected, or unknown, then choose the cancer type.</li><li><strong>Current disease:</strong> enter whether the tumor is still present, removed, recurrent or not currently visible. Add what you know about margins, metastases and whether the disease is localized.</li><li><strong>Treatment:</strong> record surgery, chemotherapy, immunotherapy and radiation. Medication questions appear only when they matter to possible studies.</li><li><strong>Treatment options:</strong> leave selected only the kinds of treatment you would consider, then press <em>Find potential trials</em>.</li></ol><p>The form changes with the diagnosis. Lymphoma, mast cell tumor, osteosarcoma, hemangiosarcoma and some other cancers have additional questions because those details can change eligibility.</p>'),
             ('What if I do not know an answer?',
@@ -40,7 +40,7 @@ def generate_help_center(root: Path) -> None:
             ('Can I save or share the results?',
              '<p>Yes. Use <em>Copy results</em> for a text summary. <em>Save / print PDF</em> opens your browser’s print dialog, where you can choose to save a PDF or print the results. A saved result is a snapshot; recruitment and eligibility requirements can change later.</p>'),
             ('What if the finder shows no matches?',
-             f'<p>It means the currently verified catalog did not find a plausible study for the information entered. It does not mean that your pet has no treatment choices. Check the country, diagnosis and treatment preferences, then look at <a href="{SITE}/centers/">Trial Centers</a> and <a href="{SITE}/other-treatments/">Other Treatments</a>. A clear “no matches” is more useful than showing a study that does not fit.</p>'),
+             f'<p>It means the currently verified catalog did not find a plausible study for the information entered. It does not mean that your pet has no treatment choices. Check the country, diagnosis and treatment preferences, then look at <a href="{SITE}/matcher/centers/">Find oncology care</a>, <a href="{SITE}/online-oncology-consultations/">online consultations</a> and <a href="{SITE}/other-treatments/">Other Treatments</a>. A clear “no matches” is more useful than showing a study that does not fit.</p>'),
             ('Why can a trial disappear from the site?',
              '<p>A study can fill, pause, close or change its criteria. We remove it from patient-facing matching when current enrollment cannot be confirmed. It may return if the study reopens or its status is verified again.</p>'),
             ('What does “last verified” mean?',
@@ -48,15 +48,19 @@ def generate_help_center(root: Path) -> None:
         ]),
         ('Oncology centers and trial centers', [
             ('How do I find oncology care or an ECT center?',
-             f'<p>Open <a href="{SITE}/matcher/centers/">Find oncology care</a> to search veterinary oncology locations by hospital, city or state, or enter a five-digit US ZIP code to see nearby US locations first. Use the service filter and choose <em>Electrochemotherapy</em> for ECT centers. This broader directory also includes local cancer-care clinics. Service information is compiled from clinic websites and professional public directories. Vet Cancer Care Finder does not independently verify clinicians, licenses, credentials or quality of care, and a listing is not a recommendation. Confirm the clinician, service, cost and availability directly with the clinic.</p>'),
+             f'<p>Open <a href="{SITE}/matcher/centers/">Find oncology care</a> and select a country, then search by hospital or city and use the service filter. For US locations, you can also choose a state or enter a five-digit ZIP code to put closer locations first. Distances are approximate straight-line distances, not driving distances. Mobile services and network contacts may not have a fixed treatment address or a distance. Use the service filter and choose <em>Electrochemotherapy</em> for ECT centers. This broader directory also includes local cancer-care clinics. Service information is compiled from clinic websites and professional public directories. Vet Cancer Care Finder does not independently verify clinicians, licenses, credentials or quality of care, and a listing is not a recommendation. Confirm the clinician, service, cost and availability directly with the clinic.</p>'),
             ('What are Trial Centers?',
              f'<p>These are universities, veterinary teaching hospitals, specialty hospitals, research organizations and multicenter programs connected to at least one current treatment opportunity in our catalog. A center page shows the cancer types currently listed there, where visits take place when that information is available, and the active studies or treatment programs linked to that institution. It is not a directory of every veterinary oncology clinic.</p>'),
-            ('How do I find the nearest trial centers?',
-             f'<p>Open <a href="{SITE}/centers/">Trial Centers</a>. Enter a five-digit US ZIP code to sort listed US centers by approximate straight-line distance. The mileage is not driving distance. You can also search by hospital, city, state or country. This is a directory of centers connected to current opportunities in our catalog, not every veterinary oncology hospital near you.</p>'),
+            ('How do I browse trial centers by location?',
+             f'<p>Open <a href="{SITE}/centers/">Trial Centers</a>. Use <em>United States by state</em> or the country and region selectors in the university, specialty-hospital and research-program sections. This directory does not have ZIP-code distance sorting. For nearby cancer care, use <a href="{SITE}/matcher/centers/">Find oncology care</a>. A listed research organization or multicenter program is not necessarily a treatment hospital; check the participating locations for the individual study.</p>'),
+        ]),
+        ('Online consultations', [
+            ('How do I find an online oncology consultation?',
+             f'<p>Open <a href="{SITE}/online-oncology-consultations/">Online oncology consultations</a>. Search by clinician, service or country. Use <em>Who can request it?</em> to filter access and <em>Clinical focus</em> to choose an oncology field. Check whether the service accepts owners directly, works only with veterinarians or offers owner follow-up after an initial veterinary referral. The practice country does not necessarily describe every country it can advise.</p><p>Read the listing for the consultation format, clinician or team, geographic limits and booking route. Confirm who will review the case, the fee, required records and whether your local veterinarian needs to participate. A written case review is different from a video appointment, and remote advice does not automatically include diagnosis or prescribing.</p>'),
         ]),
         ('Other Treatments', [
             ('What is included under Other Treatments?',
-             f'<p><a href="{SITE}/other-treatments/">Other treatments</a> links to <a href="{SITE}/matcher/centers/?service=electrochemotherapy">oncology centers offering electrochemotherapy</a>, <strong>selected treatments</strong> and a separate list of <strong>genomic tests</strong> you can filter by species, region and cancer type. A genomic test is not itself a treatment, and these listings do not decide what is medically appropriate.</p>'),
+             f'<p><a href="{SITE}/other-treatments/">Other treatments</a> links to <a href="{SITE}/matcher/centers/?service=electrochemotherapy">oncology centers offering electrochemotherapy</a>, <a href="{SITE}/matcher/advanced/">selected treatments</a> and a separate list of <a href="{SITE}/matcher/genomic-tests/">genomic tests</a> you can filter by species, region and cancer type. A genomic test is not itself a treatment, and these listings do not decide what is medically appropriate.</p>'),
         ]),
         ('Contacting a study', [
             ('Is Vet Cancer Care Finder really free?',
@@ -74,7 +78,7 @@ def generate_help_center(root: Path) -> None:
             ('Do trials use placebos, and can I leave after enrolling?',
              '<p>Some trials use randomization or a placebo group and many do not. The consent documents should explain the groups, what standard care remains available and what happens if the disease progresses. Participation is generally voluntary; ask how withdrawal works before enrolling.</p>'),
             ('How do I contact Vet Cancer Care Finder?',
-             '<p>For a correction, broken link or question about using the site, email <a href="mailto:info@vettrialfinder.com">info@vettrialfinder.com</a>. Do not email medical records, diagnostic images, financial information or an emergency request. For eligibility or medical advice, contact the study team or your veterinarian.</p>'),
+             '<p>To report a correction or broken link, suggest a study, clinic, consultation, treatment or test, or ask about using the site, email <a href="mailto:info@vettrialfinder.com">info@vettrialfinder.com</a>. Do not email medical records, diagnostic images, financial information or an emergency request. For eligibility or medical advice, contact the study team or your veterinarian.</p>'),
         ]),
     ]
 
@@ -102,14 +106,14 @@ def generate_help_center(root: Path) -> None:
 @media(max-width:600px){{.help-center{{font-size:1rem}}.help-section{{margin:25px 0}}.help-section h2{{font-size:1.28rem}}.help-section summary{{padding:13px 41px 13px 14px;font-size:1rem}}.help-answer{{padding:13px 14px 15px;font-size:1rem}}}}
 </style>
 <div class="help-center"><h1>Help Center</h1>
-<p class="lead help-intro">Use this page to choose the right part of Vet Cancer Care Finder, complete the matcher without guessing, understand the results and contact a study with the right records.</p>
+<p class="lead help-intro">Use this page to search for clinical trials, find cancer care and online consultations, explore treatments and tests, and understand what the listings can tell you.</p>
 {section_html}
 <p class="help-urgent"><strong>Urgent symptoms come first.</strong> Difficulty breathing, collapse, uncontrolled bleeding, severe pain or another emergency should be assessed by a veterinarian immediately rather than delayed for a trial search.</p>
 </div>'''
 
     html = g.page(
         'How to Use Vet Cancer Care Finder | Help Center',
-        'How to use the veterinary cancer trial matcher, understand results, search trial centers and contact study teams.',
+        'Help with cancer trial matching, clinic and country filters, online oncology consultations, treatments, tests and contacting providers.',
         body,
         url,
     )

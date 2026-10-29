@@ -352,7 +352,7 @@ def add_contact_footer_link(text: str) -> str:
     return text[:footer_match.start()] + footer + text[footer_match.end():]
 
 
-def add_contact_section(text: str) -> str:
+def add_contact_section(text: str, general_resources: bool = False) -> str:
     """Add a small, useful contact block to About and Help."""
     if 'class="site-contact"' in text:
         return text
@@ -363,9 +363,10 @@ def add_contact_section(text: str) -> str:
         '.site-contact p{margin:0}'
     )
     text = text.replace('</style>', css + '</style>', 1)
+    question = 'Questions, corrections or a resource we should add?' if general_resources else 'Questions, corrections or a study we should add?'
     section = (
         '<section class="site-contact"><h2>Contact</h2>'
-        f'<p>Questions, corrections or a study we should add? '
+        f'<p>{question} '
         f'<a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a></p></section>'
     )
     return text.replace('</main>', section + '</main>', 1)
@@ -408,7 +409,7 @@ def main() -> None:
         text = add_verification_footer_link(text)
         text = add_contact_footer_link(text)
         if path in {"about", "help"}:
-            text = add_contact_section(text)
+            text = add_contact_section(text, general_resources=path == "help")
         page.write_text(text, encoding="utf-8")
 
     write_sitemap(root, indexable)

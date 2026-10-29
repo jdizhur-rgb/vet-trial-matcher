@@ -15,7 +15,9 @@ def main() -> None:
         '<h2>Oncology centers and trial centers</h2>',
         'How do I find oncology care or an ECT center?',
         'What are Trial Centers?',
-        'How do I find the nearest trial centers?',
+        'How do I find an online oncology consultation?',
+        'This directory does not have ZIP-code distance sorting.',
+        'How do I browse trial centers by location?',
         '<h2>Other Treatments</h2>',
         'What is included under Other Treatments?',
         'Is Vet Cancer Care Finder really free?',
@@ -28,8 +30,8 @@ def main() -> None:
     if missing:
         raise AssertionError(f'Help content missing: {missing}')
     details = text.count('<details>')
-    if details != 24:
-        raise AssertionError(f'Expected 24 Help accordions, found {details}')
+    if details != 25:
+        raise AssertionError(f'Expected 25 Help accordions, found {details}')
     if 'help-actions' in text:
         raise AssertionError('Help page still contains redundant navigation buttons')
     print('HELP_CONTENT_OK details=', details)
