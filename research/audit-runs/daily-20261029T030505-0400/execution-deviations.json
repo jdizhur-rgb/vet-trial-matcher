@@ -1,0 +1,31 @@
+{
+  "recorded_at": "2026-10-29T03:41:39.435463-04:00",
+  "items": [
+    {
+      "source_id": "brazil-usp-onvex-precision-oncology",
+      "issue": "Initial copied runner had an incorrect source-ID exclusion. A mixed action/poll including the restricted FAPESP route was rejected by automatic review. No accepted fresh evidence or source-date update is attributed to that action.",
+      "automatic_review_result": "This action was rejected due to unacceptable risk.",
+      "stated_reason": "bv.fapesp.br относится к ранее явно ограниченному маршруту, который должен быть пропущен без запроса; выполнение сетевого обращения нарушило бы установленный пользователем запрет, несмотря на read-only характер.",
+      "excluded_from_reconciliation_and_publication": [
+        "attempts.jsonl",
+        "evidence/",
+        "avma-current-all.json",
+        "avma-delta.json",
+        "changed-content.json",
+        "run.py"
+      ],
+      "independent_safer_segment": "permitted/allowlist.json explicitly excludes all fapesp.br and recorded exact gates; permitted/attempts.jsonl and evidence belong to separately accepted execution. No denied URL was retried through another tool.",
+      "processing_assessment": "not_established"
+    },
+    {
+      "source_id": "sweden-slu-oxc101-canine-oncology",
+      "issue": "Native SLU/sponsor programme routes read. Separate FAPESP support grant withheld under conservative action-scope exclusion; precise permission scope not established. No network visit or complete processing claim.",
+      "processing_assessment": "not_established"
+    },
+    {
+      "source_id": "global-pettrialfinder-secondary",
+      "issue": "Ad-hoc header/footer links produced duplicate Registry URL requests, including one transient attempt and its retry. All actual attempts/timestamps retained. This is an extra public read, not a second source traversal or new evidence claim.",
+      "next_action": "Deduplicate normalized URLs before any further ad-hoc dispatch."
+    }
+  ]
+}

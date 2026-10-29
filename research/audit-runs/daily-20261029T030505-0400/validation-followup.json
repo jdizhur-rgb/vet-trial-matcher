@@ -1,0 +1,42 @@
+[
+  {
+    "command": [
+      "python",
+      "scripts/validate_source_inventory.py"
+    ],
+    "at": "2026-10-29T03:48:10.445186-04:00",
+    "exit_code": 0,
+    "output": "research/audit-runs/daily-20261029T030505-0400/validation-final-0.txt"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_audit_receipt.py",
+      "research/audit-runs/daily-20261029T030505-0400/receipt-final.json"
+    ],
+    "at": "2026-10-29T03:48:10.490864-04:00",
+    "exit_code": 1,
+    "output": "research/audit-runs/daily-20261029T030505-0400/validation-final-1.txt"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_audit_gap_review.py",
+      "research/audit-runs/daily-20261029T030505-0400/gap-review.json",
+      "--receipt",
+      "research/audit-runs/daily-20261029T030505-0400/receipt-final.json"
+    ],
+    "at": "2026-10-29T03:48:10.540317-04:00",
+    "exit_code": 0,
+    "output": "research/audit-runs/daily-20261029T030505-0400/validation-final-2.txt"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/check_evidence_keys.py"
+    ],
+    "at": "2026-10-29T03:48:10.580111-04:00",
+    "exit_code": 0,
+    "output": "research/audit-runs/daily-20261029T030505-0400/validation-final-3.txt"
+  }
+]
