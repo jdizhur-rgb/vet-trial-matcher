@@ -1,0 +1,36 @@
+{
+  "status": "PASS_WITH_INCONCLUSIVE",
+  "safe_to_continue": true,
+  "checks": [
+    {
+      "name": "catalog",
+      "ok": true,
+      "returncode": 0,
+      "output": "TRIAL_CATALOG_VALIDATION_OK records=315 unique_ids=315 active=155 required_active_fields=11"
+    },
+    {
+      "name": "sources",
+      "ok": true,
+      "returncode": 0,
+      "output": "SOURCE_INVENTORY_VALIDATION_OK sources=148 digest=14fb627c6c1f"
+    },
+    {
+      "name": "hygiene",
+      "ok": true,
+      "returncode": 0,
+      "output": "REPOSITORY_HYGIENE_OK"
+    },
+    {
+      "name": "matcher-selection",
+      "ok": true,
+      "returncode": 0,
+      "output": "MATCHER_SELECTION_PARITY_OK public=155 disease_checks=18600\nTUFTS_OSA_COHORT_PARITY_OK cases=8\nPRIMARY_SITE_LINEAGE_PHASE_PARITY_OK"
+    },
+    {
+      "name": "streamlit",
+      "ok": false,
+      "returncode": 1,
+      "output": "Traceback (most recent call last):\n  File \"/workspace/scratch/55af69f9810e/audit-20261030/scripts/test_streamlit_pages.py\", line 5, in <module>\n    from streamlit.testing.v1 import AppTest\nModuleNotFoundError: No module named 'streamlit'"
+    }
+  ]
+}

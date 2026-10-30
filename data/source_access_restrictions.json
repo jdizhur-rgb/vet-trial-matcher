@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-10-27",
+  "updated": "2026-10-30",
   "purpose": "Exact prior public-source route restrictions. Read before daily master, fallback, protocol or Web plans; do not retry by alternate tool. A source or domain is not globally forbidden from one denied protocol URL.",
   "routes": [
     {
@@ -752,6 +752,16 @@
       "observed_on": "2026-10-29",
       "origin": "research/audit-runs/daily-20261029T030505-0400/execution-deviations.json",
       "reason": "Automatic approval review rejected mixed request/poll because this exact historical restricted route was included. Excluded entirely from the permitted segment."
+    },
+    {
+      "url": "https://www.vet.cam.ac.uk/node/2971",
+      "do_not_retry": true,
+      "method": "Web",
+      "http_status": 403,
+      "origin": "research/audit-runs/daily-20261030T030022-0400/web-3.json",
+      "observed_at": "2026-10-30",
+      "timestamp_precision": "date",
+      "reason": "Fresh same-URL Web403 after ordinary native failure; do not retry or bypass."
     }
   ]
 }
