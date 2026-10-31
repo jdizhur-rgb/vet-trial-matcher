@@ -1,0 +1,147 @@
+[
+  {
+    "command": [
+      "python",
+      "scripts/validate_catalog_sanitation.py"
+    ],
+    "started_at": "2026-10-31T03:09:09.137920-04:00",
+    "ended_at": "2026-10-31T03:09:09.172380-04:00",
+    "exit_code": 0,
+    "output": "research/audit-runs/daily-20261031T025801-0400/validation-00.txt"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_trials_catalog.py"
+    ],
+    "started_at": "2026-10-31T03:09:09.172654-04:00",
+    "ended_at": "2026-10-31T03:09:09.222540-04:00",
+    "exit_code": 0,
+    "output": "research/audit-runs/daily-20261031T025801-0400/validation-01.txt"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_source_inventory.py"
+    ],
+    "started_at": "2026-10-31T03:09:09.222890-04:00",
+    "ended_at": "2026-10-31T03:09:09.260650-04:00",
+    "exit_code": 0,
+    "output": "research/audit-runs/daily-20261031T025801-0400/validation-02.txt"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/check_evidence_keys.py"
+    ],
+    "started_at": "2026-10-31T03:09:09.260898-04:00",
+    "ended_at": "2026-10-31T03:09:11.377353-04:00",
+    "exit_code": 0,
+    "output": "research/audit-runs/daily-20261031T025801-0400/validation-03.txt"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/test_matcher_selection.py"
+    ],
+    "started_at": "2026-10-31T03:09:11.377789-04:00",
+    "ended_at": "2026-10-31T03:09:11.768875-04:00",
+    "exit_code": 0,
+    "output": "research/audit-runs/daily-20261031T025801-0400/validation-04.txt"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/test_matcher_protocol_sources.js"
+    ],
+    "started_at": "2026-10-31T03:09:11.769276-04:00",
+    "ended_at": "2026-10-31T03:09:11.893983-04:00",
+    "exit_code": 0,
+    "output": "research/audit-runs/daily-20261031T025801-0400/validation-05.txt"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/test_matcher_protocol_sources.js",
+      "--require-full-review"
+    ],
+    "started_at": "2026-10-31T03:09:11.894278-04:00",
+    "ended_at": "2026-10-31T03:09:12.008585-04:00",
+    "exit_code": 1,
+    "output": "research/audit-runs/daily-20261031T025801-0400/validation-06.txt"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/build_static_site.py"
+    ],
+    "started_at": "2026-10-31T03:09:12.008870-04:00",
+    "ended_at": "2026-10-31T03:09:25.850264-04:00",
+    "exit_code": 1,
+    "output": "research/audit-runs/daily-20261031T025801-0400/validation-07.txt"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/test_matcher_catalog_loading.js"
+    ],
+    "started_at": "2026-10-31T03:09:25.850671-04:00",
+    "ended_at": "2026-10-31T03:09:25.946034-04:00",
+    "exit_code": 0,
+    "output": "research/audit-runs/daily-20261031T025801-0400/validation-08.txt"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/test_matcher_logic.js"
+    ],
+    "started_at": "2026-10-31T03:09:25.946332-04:00",
+    "ended_at": "2026-10-31T03:09:26.268484-04:00",
+    "exit_code": 0,
+    "output": "research/audit-runs/daily-20261031T025801-0400/validation-09.txt"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_production_sync.py"
+    ],
+    "started_at": "2026-10-31T03:09:26.268795-04:00",
+    "ended_at": "2026-10-31T03:09:26.349804-04:00",
+    "exit_code": 1,
+    "output": "research/audit-runs/daily-20261031T025801-0400/validation-10.txt"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_audit_receipt.py",
+      "research/audit-runs/daily-20261031T025801-0400/receipt-final.json"
+    ],
+    "started_at": "2026-10-31T03:09:26.350102-04:00",
+    "ended_at": "2026-10-31T03:09:26.405016-04:00",
+    "exit_code": 1,
+    "output": "research/audit-runs/daily-20261031T025801-0400/validation-11.txt"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_audit_gap_review.py",
+      "research/audit-runs/daily-20261031T025801-0400/gap-review.json",
+      "--receipt",
+      "research/audit-runs/daily-20261031T025801-0400/receipt-final.json"
+    ],
+    "started_at": "2026-10-31T03:09:26.405639-04:00",
+    "ended_at": "2026-10-31T03:09:26.454876-04:00",
+    "exit_code": 0,
+    "output": "research/audit-runs/daily-20261031T025801-0400/validation-12.txt"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_repository_hygiene.py"
+    ],
+    "started_at": "2026-10-31T03:09:26.455108-04:00",
+    "ended_at": "2026-10-31T03:09:26.543000-04:00",
+    "exit_code": 0,
+    "output": "research/audit-runs/daily-20261031T025801-0400/validation-13.txt"
+  }
+]
