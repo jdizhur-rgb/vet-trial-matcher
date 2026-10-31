@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-10-30",
+  "updated": "2026-10-31",
   "purpose": "Exact prior public-source route restrictions. Read before daily master, fallback, protocol or Web plans; do not retry by alternate tool. A source or domain is not globally forbidden from one denied protocol URL.",
   "routes": [
     {
@@ -762,6 +762,32 @@
       "observed_at": "2026-10-30",
       "timestamp_precision": "date",
       "reason": "Fresh same-URL Web403 after ordinary native failure; do not retry or bypass."
+    },
+    {
+      "url": "https://loct.fzea.usp.br/?page_id=848",
+      "source_ids": [
+        "brazil-usp-loct-oncolytic-virus-program"
+      ],
+      "do_not_retry": true,
+      "observed_at": "2026-10-31T03:32:49.666146-04:00",
+      "http_status": null,
+      "restriction_kind": "automatic_review_scope_not_established",
+      "new_source_visit": false,
+      "reason": "Mixed action rejected because requested host appeared tied to frozen USP/FAPESP source. Exact permissible source scope remains NOT VERIFIED; temporary planning hold, not a claimed HTTP403 or global institution ban.",
+      "origin": "research/audit-runs/daily-20261031T032935-0400/automatic-review-rejection.json"
+    },
+    {
+      "url": "https://comunica.fmvz.usp.br/recrutamento-de-caes-para-pesquisa-de-cancer-na-area-retal/",
+      "source_ids": [
+        "br-usp-fmvz-clinical-recruitment-news"
+      ],
+      "do_not_retry": true,
+      "observed_at": "2026-10-31T03:32:49.666146-04:00",
+      "http_status": null,
+      "restriction_kind": "automatic_review_scope_not_established",
+      "new_source_visit": false,
+      "reason": "Mixed action rejected because requested host appeared tied to frozen USP/FAPESP source. Exact permissible source scope remains NOT VERIFIED; temporary planning hold, not a claimed HTTP403 or global institution ban.",
+      "origin": "research/audit-runs/daily-20261031T032935-0400/automatic-review-rejection.json"
     }
   ]
 }

@@ -896,3 +896,8 @@ The main build runs scripts/test_massachusetts_page.py alongside the existingRI/
 ## Live matcher result identity — 2026-10-30
 
 When verifying live USA/Japan searches, compare the complete rendered protocol-title list (`.result-card h4`) against a fresh submit-path rendering from the current built catalog, and preserve the actual selected controls. The h3 headings contain screening labels and centre names; matching h3 headings or a count alone does not establish the same protocol identities. Keep both lists when useful. The October30 readback matched all100 USA and12 Japan protocol titles; these counts are observations of that catalog, not permanent expectations.
+
+
+## 2026-10-31 — preserve rejected-action scope without inventing visits
+
+The same-day run `daily-20261031T032935-0400` received an automatic-review rejection on a mixed native request batch tied to the existing USP/FAPESP restriction. Its 89 emitted attempts are retained only in `excluded-mixed-action/` and do not establish current visits or dates. Unaffected domains were processed in a separate permitted batch. The exact LOCT and FMVZ recruitment-news URLs are now temporary `automatic_review_scope_not_established` planning holds in `data/source_access_restrictions.json`, with no HTTP403 or source visit claimed. Respect these exact holds in future plans; do not infer a global institutional ban, retry the rejected action through Web, or mark the four affected completion scopes complete without source-specific evidence.
