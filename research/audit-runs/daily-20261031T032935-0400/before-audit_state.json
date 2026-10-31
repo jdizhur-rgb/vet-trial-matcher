@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "purpose": "Persistent state for incremental discovery and deep-audit cost control. Source fingerprints live in source_inventory.json; this file tracks audit scheduling and unresolved work.",
+  "last_full_deep_audit": null,
+  "last_incremental_audit": {
+    "run_id": "daily-20261031T025801-0400",
+    "started_at": "2026-10-31T02:58:01.171612-04:00",
+    "at": "2026-10-31T03:07:25.013034-04:00",
+    "status": "INCOMPLETE",
+    "source_total": 149,
+    "source_processing_completed": 147,
+    "source_attempted": 128,
+    "source_receipt": "research/audit-runs/daily-20261031T025801-0400/receipt-final.json",
+    "clinical_reconciliation": "INCOMPLETE",
+    "prior31_remaining": 31,
+    "new_active_trials": 0,
+    "new_sources": [],
+    "execution_note": "All current requests filtered against frozen restrictions before dispatch. No FAPESP request or bypass; two permission/completion scopes remain NOT VERIFIED.",
+    "completed_at": "2026-10-31T03:20:36.832122-04:00"
+  },
+  "last_source_discovery_attempt": {
+    "run_id": "daily-20261031T025801-0400",
+    "at": "2026-10-31T03:15:28.224628-04:00",
+    "regions": 12,
+    "passes": 2,
+    "matrix_queries": 24,
+    "targeted_discovery_queries": 4,
+    "due_protocol_queries": 0,
+    "new_sources": [],
+    "receipt": "research/audit-runs/daily-20261031T025801-0400/discovery-matrix-final.json"
+  },
+  "forced_full_reread_days": 28,
+  "rules": {
+    "unchanged_master": "Do not reread every protocol solely because the master page is unchanged; verify changed, stale, unresolved, or due-for-forced-reread items.",
+    "changed_master": "Enumerate and reconcile protocol-level changes.",
+    "unresolved": "Retry only when recheck_after is due or source fingerprint changes."
+  },
+  "oncology_care_weekly": {
+    "run_id": "weekly-care-20261010T005822-0400",
+    "started_at": "2026-10-10T00:58:22-04:00",
+    "finished_at": "2026-10-10T01:26:22-04:00",
+    "status": "incomplete",
+    "sources_total": 487,
+    "sources_attempted": 487,
+    "sources_successful": 474,
+    "sources_partial_or_unreachable": 13,
+    "coverage_receipt": "research/audit-runs/weekly-care-20261010T005822-0400/coverage-receipt.json"
+  },
+  "last_incremental_resume": {
+    "run_id": "resume-20261010T201219-0400",
+    "parent_run_id": "daily-20261010T030027-0400",
+    "status": "INCOMPLETE",
+    "already_checked_sources_reopened": 0,
+    "newly_attempted_sources": 16,
+    "sufficient_sources_cumulative": 46,
+    "evidence_gaps_remaining": 62,
+    "processing_completion": "NOT_VERIFIED"
+  },
+  "protocol_selection_review": {
+    "status": "in_progress",
+    "baseline_public_total": 165,
+    "baseline_sha": "7c9b55485b3f0d1cb225c9d1143126c0318ef765",
+    "queue": "research/audit-runs/protocol-selection-20261012/queue.json",
+    "source_cases": "data/protocol_selection_cases.json",
+    "last_full_completed_at": null,
+    "forced_full_rereview_days": 28,
+    "progress_receipt": "research/audit-runs/finish-20261027T063052-0400/protocol-decisions.json",
+    "last_progress_at": "2026-10-27T06:50:28.623128-04:00",
+    "current_public_total": 155,
+    "independently_reviewed_current_public": 142,
+    "pending_independent_review_total": 13,
+    "full_fresh_gate_remaining": 31
+  },
+  "last_targeted_source_reconciliation": {
+    "run_id": "finish-20261027T063052-0400",
+    "started_at": "2026-10-27T06:30:52-04:00",
+    "at": "2026-10-27T06:49:59.536025-04:00",
+    "status": "INCOMPLETE_EXTERNAL_EVIDENCE",
+    "source_crosswalk_processed": 90,
+    "protocol_dispositions": 32,
+    "primary_reread_gap_resolved": [
+      "eu-fr-oral-intratumoral-immunotherapy"
+    ],
+    "remaining_full_protocol_ids": [
+      "eu-fr-hifu-urothelial",
+      "uk-edinburgh-oral-melanoma-tigilanol-tiglate",
+      "ncsu-mammary-inspire",
+      "uga-bcell-ivp",
+      "wsu-sts-local-immunotherapy",
+      "ethos-gilvetmab-melanoma",
+      "ethos-bcell-oral",
+      "ethos-osa-vaccine",
+      "tamu-mct-acid-suppressant",
+      "mizzou-osa-carboplatin-timing",
+      "ethos-solid-relapse",
+      "ethos-epush-hsa",
+      "ethos-mimic-osa-lung",
+      "anivive-sine-osa-carboplatin",
+      "uk-ndsr-osa-rfil2-watch",
+      "eu-uk-ndsr-high-grade-mammary-current",
+      "ncsu-canine-sts-xcsgel",
+      "ncsu-feline-oral-pivot-c",
+      "umn-feline-mammary-olaparib-meloxicam",
+      "penn-flash-rt-extremity-sts",
+      "umn-canine-oral-melanoma-aav-vaccine",
+      "ch-anicura-aoi-superficial-tumor-immunocytokines",
+      "china-petcura-personalized-mrna-iit-2026",
+      "jhu-cigat-osa-cryo-immunotherapy-2026",
+      "jhu-cigat-brain-rt-tmz-2026",
+      "jhu-cigat-mammary-kubanda-cryo-2026",
+      "mexico-ensenada-silver-nanoparticle-cancer-2026",
+      "umn-orbit-lymphoma",
+      "penn-atherton-steap1-car-t-hs",
+      "au-melbourne-hsa-autologous-vaccine-multicenter",
+      "penn-glioma-flash-gilvetmab-2026"
+    ],
+    "new_trials": [
+      "jp-nihon-head-neck-alternating-magnetic-field",
+      "jp-nihon-canine-glioma-il12"
+    ],
+    "confirmed_selection_fix": "ethos-mimic-osa-lung mandatory metastasectomy",
+    "receipt": "research/audit-runs/finish-20261027T063052-0400/continuation-receipt.json",
+    "does_not_retroactively_finish_oct26": true,
+    "ended_at": "2026-10-27T07:01:48.140849-04:00",
+    "data_commit": "7c4e73d40e83c427201d1857f2871f666f711f80",
+    "production": "PASS",
+    "live_USA_Japan": "PASS",
+    "report": "research/audit-runs/finish-20261027T063052-0400/report.md"
+  },
+  "last_gap_recovery": {
+    "run_id": "gap-recovery-20261026T204639-0400",
+    "at": "2026-10-26T20:50:59.911294-04:00",
+    "parent_run_id": "daily-20261026T030132-0400",
+    "reviewed_sources": [
+      "usa-auburn-vet-clinical-trials",
+      "usa-cornell-vet-clinical-trials",
+      "usa-illinois-clinical-trials",
+      "usa-lsu-vet-clinical-trials",
+      "australia-gamgee-cancer-vaccine-trial",
+      "japan-university-of-tokyo-vmc-clinical-research"
+    ],
+    "confirmed_enrollment_complete": [
+      "jp-tokyo-feline-tcc-lapatinib"
+    ],
+    "unconfirmed_processing_sources": 90,
+    "status": "INCOMPLETE"
+  },
+  "publication_verification": {
+    "run_id": "daily-20261031T025801-0400",
+    "at": "2026-10-31T03:20:36.832122-04:00",
+    "published_commit": "f887bcba236a4b6ac023163e7542be731bba5d32",
+    "deploy_run_id": 41180011712,
+    "deploy": "success",
+    "production_bytes": "PASS",
+    "loading_regression": "PASS",
+    "live_USA_search": "PASS",
+    "live_Japan_search": "PASS",
+    "live_USA_count": 100,
+    "live_Japan_count": 12,
+    "counts_basis": "fresh actual UI compared against this run current built catalog; not permanent expectations",
+    "receipt": "research/audit-runs/daily-20261031T025801-0400/production-ui-proof.json"
+  }
+}

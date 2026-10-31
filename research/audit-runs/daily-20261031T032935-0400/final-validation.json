@@ -1,0 +1,162 @@
+{
+  "checks": [
+    {
+      "command": [
+        "python",
+        "scripts/validate_catalog_sanitation.py"
+      ],
+      "started_at": "2026-10-31T03:42:56.682154-04:00",
+      "ended_at": "2026-10-31T03:42:56.723762-04:00",
+      "exit_code": 0,
+      "output": "research/audit-runs/daily-20261031T032935-0400/validation-00.txt"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate_trials_catalog.py"
+      ],
+      "started_at": "2026-10-31T03:42:56.724007-04:00",
+      "ended_at": "2026-10-31T03:42:56.773970-04:00",
+      "exit_code": 0,
+      "output": "research/audit-runs/daily-20261031T032935-0400/validation-01.txt"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate_source_inventory.py"
+      ],
+      "started_at": "2026-10-31T03:42:56.774218-04:00",
+      "ended_at": "2026-10-31T03:42:56.817483-04:00",
+      "exit_code": 0,
+      "output": "research/audit-runs/daily-20261031T032935-0400/validation-02.txt"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/check_evidence_keys.py"
+      ],
+      "started_at": "2026-10-31T03:42:56.818007-04:00",
+      "ended_at": "2026-10-31T03:42:59.272260-04:00",
+      "exit_code": 0,
+      "output": "research/audit-runs/daily-20261031T032935-0400/validation-03.txt"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/test_matcher_selection.py"
+      ],
+      "started_at": "2026-10-31T03:42:59.273098-04:00",
+      "ended_at": "2026-10-31T03:42:59.719635-04:00",
+      "exit_code": 0,
+      "output": "research/audit-runs/daily-20261031T032935-0400/validation-04.txt"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/test_matcher_protocol_sources.js"
+      ],
+      "started_at": "2026-10-31T03:42:59.720002-04:00",
+      "ended_at": "2026-10-31T03:42:59.841264-04:00",
+      "exit_code": 0,
+      "output": "research/audit-runs/daily-20261031T032935-0400/validation-05.txt"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/test_matcher_protocol_sources.js",
+        "--require-full-review"
+      ],
+      "started_at": "2026-10-31T03:42:59.841576-04:00",
+      "ended_at": "2026-10-31T03:42:59.978797-04:00",
+      "exit_code": 1,
+      "output": "research/audit-runs/daily-20261031T032935-0400/validation-06.txt"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/build_static_site.py"
+      ],
+      "started_at": "2026-10-31T03:42:59.979170-04:00",
+      "ended_at": "2026-10-31T03:43:21.573545-04:00",
+      "exit_code": 0,
+      "output": "research/audit-runs/daily-20261031T032935-0400/validation-07.txt"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/test_matcher_catalog_loading.js"
+      ],
+      "started_at": "2026-10-31T03:43:21.576530-04:00",
+      "ended_at": "2026-10-31T03:43:21.690654-04:00",
+      "exit_code": 0,
+      "output": "research/audit-runs/daily-20261031T032935-0400/validation-08.txt"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/test_matcher_logic.js"
+      ],
+      "started_at": "2026-10-31T03:43:21.691074-04:00",
+      "ended_at": "2026-10-31T03:43:22.119154-04:00",
+      "exit_code": 0,
+      "output": "research/audit-runs/daily-20261031T032935-0400/validation-09.txt"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate_production_sync.py"
+      ],
+      "started_at": "2026-10-31T03:43:22.120011-04:00",
+      "ended_at": "2026-10-31T03:43:23.721759-04:00",
+      "exit_code": 0,
+      "output": "research/audit-runs/daily-20261031T032935-0400/validation-10.txt"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate_audit_receipt.py",
+        "research/audit-runs/daily-20261031T032935-0400/receipt-final.json"
+      ],
+      "started_at": "2026-10-31T03:43:23.722389-04:00",
+      "ended_at": "2026-10-31T03:43:23.863508-04:00",
+      "exit_code": 1,
+      "output": "research/audit-runs/daily-20261031T032935-0400/validation-11.txt"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate_audit_gap_review.py",
+        "research/audit-runs/daily-20261031T032935-0400/gap-review.json",
+        "--receipt",
+        "research/audit-runs/daily-20261031T032935-0400/receipt-final.json"
+      ],
+      "started_at": "2026-10-31T03:43:23.864080-04:00",
+      "ended_at": "2026-10-31T03:43:24.003307-04:00",
+      "exit_code": 0,
+      "output": "research/audit-runs/daily-20261031T032935-0400/validation-12.txt"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate_repository_hygiene.py"
+      ],
+      "started_at": "2026-10-31T03:43:24.003762-04:00",
+      "ended_at": "2026-10-31T03:43:24.102824-04:00",
+      "exit_code": 0,
+      "output": "research/audit-runs/daily-20261031T032935-0400/validation-13.txt"
+    }
+  ],
+  "only_expected_incomplete_gates": [
+    "independent-full-review13",
+    "strict-receipt102"
+  ],
+  "source_inventory_final": "source-validator-final.txt",
+  "gap_review_final": "gap-validation-final.json",
+  "receipt_final": "receipt-validation-final.json",
+  "keys_final": "evidence-keys-final.txt",
+  "semantic_dedupe": "semantic-dedupe.json",
+  "build": "PASS",
+  "loading": "PASS",
+  "matcher_logic": "PASS",
+  "production_sync": "PASS"
+}
