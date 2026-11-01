@@ -18,6 +18,14 @@ Publish only candidates that met the workers' saved completeness gate: worker 5'
 
 # Vet Cancer Treatment Finder — Project Operations / Single Source of Truth
 
+## Common diagnosis wording — owner-requested 2026-11-01
+
+Extend the bladder-cancer correction across the reviewed diagnosis family. `seo/diagnosis_names.py` owns display/search labels for11diagnoses: bone/osteosarcoma, liver/hepatocellular carcinoma, breast/mammary carcinoma, brain/glioma, brain/meningioma, nose/nasal tumors, primary lung, mouth/oral melanoma, mouth/oral SCC, thyroid carcinoma and bladder/urothelial carcinoma. Preserve the exact subtype after the broad anatomy term; these are presentation labels, never new matching synonyms. Meningioma remains a brain tumor rather than an automatic malignant-cancer label. Keep primary lung separate from lung metastases. Do not equate hemangiosarcoma with all splenic cancer, MCT or melanoma with all skin cancer, or HS/myeloma/lymphoma with an invented interchangeable blood-cancer diagnosis.
+
+Apply the same labels to H1/title/social/schema title metadata, descriptions and the cancer-type/species/registry link lists; preserve permanent URLs, canonical/noindex policy, medical guides, protocol cards, counts and matching. Primary terminology references are retained with the display mapping and were reviewed on November1; this editorial review does not refresh clinical/source verification dates. No new diagnosis pages or broad matcher categories are created. The final sentence-case gate checks exact diagnosis titles so a rebuild cannot silently remove the reviewed owner wording.
+
+Validation: `python scripts/build_static_site.py` PASS; exact card/guide/off-label/canonical/noindex preservation and idempotent normalization PASS across44pages. Common labels and title/H1/WebPage-name/description agreement PASS for11diagnoses x2species. The actual generated internal-search index/scoring places the appropriate diagnosis among the top2results for bone cancer dogs, liver cancer dogs, breast cancer cats, brain tumor dogs, mouth cancer cats and nose cancer dogs. Output changes are limited to22diagnosis pages, the registry, cancer-types index, dog/cat trial indexes and generated search index. Catalog and matcher artifacts remain unchanged. `python scripts/check_evidence_keys.py` and `git diff --check` PASS.
+
 ## Diagnosis trial-first pages — owner-authorized 2026-11-01
 
 The owner authorized the systemic SEO/layout correction after the live-page audit. All 44 generated North American diagnosis/species pages now put the availability summary and trial/program cards before the preserved medical overview. The 25 positive pages at this baseline remain indexable; zero-result pages keep their explicit empty state and noindex policy. Off-label sorafenib evidence follows the trial cards and remains separate from their count. Preserve every reviewed guide paragraph, protocol card, canonical URL, clinical/source date and matcher rule.

@@ -6,6 +6,7 @@ import re
 from pathlib import Path
 
 import generate_seo as g
+from diagnosis_names import diagnosis_title
 
 
 SITE_COPY = {
@@ -137,10 +138,7 @@ def normalize(text: str, path: Path | None = None) -> str:
         species = diagnosis_species(path)
         if species:
             old_title = f"{sentence} clinical trials for {species}"
-            new_title = old_title
-            if key == "urothelial carcinoma":
-                terms = "TCC / urothelial carcinoma" if species == "dogs" else "urothelial carcinoma"
-                new_title = f"Bladder cancer clinical trials for {species} ({terms})"
+            new_title = diagnosis_title(key, species)
             text = text.replace(old_title, new_title)
             text = text.replace(f"{sentence} in {species}: treatment, prognosis and clinical trials", new_title)
             text = re.sub(
@@ -181,10 +179,11 @@ def validate(root: Path) -> None:
         if species:
             h1 = re.search(r"<h1\b[^>]*>(.*?)</h1>", text, re.S)
             title = re.search(r"<title>(.*?)</title>", text, re.S)
-            expected = f"clinical trials for {species}"
-            if not h1 or expected not in h1.group(1):
+            key = path.parent.name.replace('-', ' ')
+            expected = diagnosis_title(key, species)
+            if not h1 or expected != h1.group(1):
                 failures.append(f"{path.relative_to(root)}: diagnosis H1")
-            if not title or expected not in title.group(1):
+            if not title or title.group(1) != expected + " | Vet Cancer Care Finder":
                 failures.append(f"{path.relative_to(root)}: diagnosis SEO title")
             if path.parent.name == "urothelial-carcinoma":
                 common_name = f"Bladder cancer clinical trials for {species}"

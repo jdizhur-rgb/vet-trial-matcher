@@ -5,6 +5,7 @@ import json, re, shutil
 from pathlib import Path
 from urllib.parse import urlencode
 import generate_seo as g
+from diagnosis_names import owner_diagnosis_name
 from site_config import SITE
 # The shared shell is also imported by standalone article generators. Keep its
 # production destination independent of generate_seo import order.
@@ -167,7 +168,7 @@ def cancer_index(root,rows):
  items=[]
  north_america=[r for r in rows if r.get('country') in {'USA','Canada'}]
  for key in sorted(g.DISEASE_INFO):
-  label=g.display_name(key);slug=g.slugify(key)
+  label=owner_diagnosis_name(key);slug=g.slugify(key)
   dogs=sum(1 for r in north_america if g.species_ok(r,'Dog') and key in g.row_cancers(r,'Dog'))
   cats=sum(1 for r in north_america if g.species_ok(r,'Cat') and key in g.row_cancers(r,'Cat'))
   links=[f'<a href="{SITE}/north-america/dogs/{slug}/">Dogs <span class="catalog-count">{dogs}</span></a>',f'<a href="{SITE}/north-america/cats/{slug}/">Cats <span class="catalog-count">{cats}</span></a>']
@@ -182,7 +183,7 @@ def species_trial_pages(root,rows):
   for key in sorted(g.DISEASE_INFO,key=lambda value:g.display_name(value)):
    count=sum(1 for r in species_rows if key in g.row_cancers(r,species))
    if not count:continue
-   label=g.display_name(key)
+   label=owner_diagnosis_name(key)
    diagnosis_slug=g.slugify(key)
    diagnoses.append(f'<a class="registry-diagnosis" href="{SITE}/north-america/{slug}/{diagnosis_slug}/">{g.esc(label)}<span>{count} current {"option" if count==1 else "options"}</span></a>')
   url=f'{SITE}/{slug}/cancer-clinical-trials/'
@@ -309,8 +310,7 @@ def trial_registry(root, stats, rows):
   dog_count=sum(1 for r in usa if g.species_ok(r,'Dog') and key in g.row_cancers(r,'Dog'))
   cat_count=sum(1 for r in usa if g.species_ok(r,'Cat') and key in g.row_cancers(r,'Cat'))
   if not dog_count and not cat_count:continue
-  links=[];slug=g.slugify(key);label=g.display_name(key)
-  if key == 'urothelial carcinoma':label='Bladder cancer (urothelial carcinoma)'
+  links=[];slug=g.slugify(key);label=owner_diagnosis_name(key)
   if dog_count:links.append(f'<a class="registry-diagnosis" href="{diagnosis_page_url("Dog", key)}">{g.esc(label)} in dogs<span>{dog_count} current {"option" if dog_count==1 else "options"}</span></a>')
   if cat_count:links.append(f'<a class="registry-diagnosis" href="{diagnosis_page_url("Cat", key)}">{g.esc(label)} in cats<span>{cat_count} current {"option" if cat_count==1 else "options"}</span></a>')
   diagnoses.extend(links)
