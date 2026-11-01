@@ -19,3 +19,7 @@ Advertised sitemaps and relevant surgical/team/contact routes were reviewed for 
 ## Preservation and validation
 
 Only three new care/source identities are intended. Exact inverse projection checks all three final rows before restoring every older frozen proof. All unrelated logical care/source rows remain identical. Full production build and care/source checks must pass before publication. Deployment and exact wrapped production readback will be recorded separately in publication-proof.json.
+
+## Publication verified
+
+Data commit85f4bf33c81dade2fc8fa56fb681a91dfd1e6883; remote20 changed-file blob hashes match local content. Build/deploy run41339010319 successful. Production readback2026-11-01T18:55:42.830159+00:00 returned23SD cards and exactly matched wrapped local production bytes, SHA256c32c4e2bac1946bb70d9e39417e8e79e6a2944cfc81b2b07ba1c7649a3dc8578. Three remote source rows preserve real attempt dates and partial/source limitations. See publication-proof.json. Clinical census remains incomplete.
