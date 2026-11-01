@@ -5,6 +5,7 @@ import json, subprocess, sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 CORE=[
+ ("audit-execution-regressions","scripts/test_audit_execution_gate.py"),
  ("catalog","scripts/validate_trials_catalog.py"),
  ("sources","scripts/validate_source_inventory.py"),
  ("hygiene","scripts/validate_repository_hygiene.py"),

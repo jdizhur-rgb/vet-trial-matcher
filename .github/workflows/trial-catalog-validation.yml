@@ -19,6 +19,9 @@ on:
       - 'scripts/validate_trials_catalog.py'
       - 'scripts/validate_audit_gap_review.py'
       - 'scripts/test_audit_gap_review.py'
+      - 'scripts/audit_execution_gate.py'
+      - 'scripts/test_audit_execution_gate.py'
+      - 'scripts/audit_preflight.py'
       - '.github/workflows/trial-catalog-validation.yml'
   push:
     branches: [main]
@@ -38,6 +41,9 @@ on:
       - 'scripts/validate_trials_catalog.py'
       - 'scripts/validate_audit_gap_review.py'
       - 'scripts/test_audit_gap_review.py'
+      - 'scripts/audit_execution_gate.py'
+      - 'scripts/test_audit_execution_gate.py'
+      - 'scripts/audit_preflight.py'
       - '.github/workflows/trial-catalog-validation.yml'
   workflow_dispatch:
 
@@ -64,3 +70,5 @@ jobs:
           python scripts/test_matcher_selection.py
       - name: Reject unsupported external-gap completion claims
         run: python scripts/test_audit_gap_review.py
+      - name: Check current evidence and durable audit completion
+        run: python scripts/test_audit_execution_gate.py

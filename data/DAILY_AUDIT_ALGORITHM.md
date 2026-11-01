@@ -1,5 +1,55 @@
 # Daily Veterinary Oncology Trial Audit Algorithm
 
+## Current-evidence execution and durable issue accounting — 2026-11-01
+
+This correction takes precedence over earlier source-status/completion shortcuts.
+Use `scripts/audit_execution_gate.py` and `data/AUDIT_EXECUTION_CONTRACT.md` in
+every future actual daily run. Initialize the run before external requests;
+validate the current evidence/issue/discovery ledger before final accounting and
+persist the validated handoff in `data/audit_execution_queue.json`. Keep the
+strict receipt/gap-review validators; no historical run is retroactively repaired.
+
+- Derive source sufficiency from today's reviewed official roster, enumerated
+  protocol identities and catalog dispositions. Never require yesterday's
+  content_sufficient flag, inherit an old sufficient count, or use
+  `any(whole_text_equal)` as a source sign-off. Review every changed compared
+  page for clinical impact; previous partial sources may improve and previous
+  complete sources may worsen. Reading/transport and clinical sign-off remain
+  separate. Do not reuse historical run-specific finalizers as current logic.
+- Process the exact durable per-trial issue queue, including retained full
+  protocol reviews, missing independent cases, unknown/28-day-old verification
+  and newly discovered problems. Every inherited issue gets an individual
+  current decision: resolved, available work, exact external blocker, a justified
+  future recheck, or owner decision. Keep original evidence dates and resolved
+  identities. Copying a ledger with a new timestamp is not progress. Report
+  before/resolved/remaining and actual permitted unfinished steps separately.
+- A blocked source/protocol is not a forgotten visit. Preserve exact restrictions
+  and unpublished facts; finish other permitted work. Do not claim all remaining
+  questions are executable, or repeatedly retry forbidden routes to improve a
+  percentage. Do not expand a specific action denial into an institution ban.
+- Execute separate country/language queries and follow current/undated plus
+  recent leads across all 12 regions. Two broad mixed-language queries per region
+  is not a completion quota. Expand weak regional results and retain the actual
+  country/language frontier and gaps. A known source is not a duplicate protocol:
+  each treatment lead needs primary evidence and exact canonical IDs/semantic
+  comparison, or an explicit unresolved disposition. Inspect named protocol
+  links even when their domain is already in inventory.
+- Keep the dedicated daily deadline check independent of equality and deferral
+  rules. Extract semantic dates from primary text/PDFs with site/cohort/timezone
+  scope; the new accounting gate does not prove a date parser medically correct.
+- Before stopping, save the actual reason: no available work remains, the frozen
+  real execution limit was reached, or an evidenced runtime failure. Do not stop
+  after a fast fetch/build cycle while permitted review work remains. Do not idle
+  until 06:00 when only documented external gaps remain. An honest incomplete
+  run can still publish independently verified changes; gate/schema PASS is not
+  clinical completion or proof of exhaustive world discovery.
+
+The November 1 analysis found unchanged source totals partly caused by inherited
+status predicates, a byte-copied 31-question ledger, and 34 source-level discovery
+classifications lacking exact protocol identity. These are execution defects;
+they do not establish that a particular new trial was missed. Preserve the
+existing owner-decision boundaries and all actual verification dates.
+
 ## Mandatory evidence-first execution and honest completion — 2026-10-17 (owner directive)
 
 This section takes precedence over prior single-pass language wherever a processed source could be mistaken for a verified current clinical protocol. The daily 03:00 run has TWO independent workstreams and TWO separate completion gates: (A) existing public trial and eligibility/status/site/funding/contact reconciliation and (B) new global discovery. Successful traversal, HTTP 200, hashes, registry comparisons, deployment, and generated matcher tests do not satisfy either clinical gate.
