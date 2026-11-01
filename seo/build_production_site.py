@@ -30,7 +30,7 @@ import generate_seo_strict
 import generate_cancer_coverage
 import validate_center_profiles
 from center_page_enhancements import enhance_center_pages
-from finalize_cancer_pages import finalize_cancer_pages
+from finalize_cancer_pages import finalize_cancer_pages, prioritize_trial_listings
 from practical_cancer_pages import apply_practical_cancer_guides, apply_feline_practical_guides
 from off_label_cancer_evidence import move_blocks_to_treatment_options
 from feline_practical_content import FELINE_PRACTICAL
@@ -171,6 +171,7 @@ def main():
     apply_feline_practical_guides(SEO_DIR / "site")
     move_blocks_to_treatment_options(SEO_DIR / "site")
     apply_canine_hs_guide(SEO_DIR / "site")
+    prioritize_trial_listings(SEO_DIR / "site")
     generate_cancer_coverage.main()
     generate_help_center(SEO_DIR / "site")
     generate_about_page(SEO_DIR / "site")

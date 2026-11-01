@@ -18,6 +18,14 @@ Publish only candidates that met the workers' saved completeness gate: worker 5'
 
 # Vet Cancer Treatment Finder — Project Operations / Single Source of Truth
 
+## Diagnosis trial-first pages — owner-authorized 2026-11-01
+
+The owner authorized the systemic SEO/layout correction after the live-page audit. All 44 generated North American diagnosis/species pages now put the availability summary and trial/program cards before the preserved medical overview. The 25 positive pages at this baseline remain indexable; zero-result pages keep their explicit empty state and noindex policy. Off-label sorafenib evidence follows the trial cards and remains separate from their count. Preserve every reviewed guide paragraph, protocol card, canonical URL, clinical/source date and matcher rule.
+
+Diagnosis H1/title metadata now lead with the diagnosis and clinical trials for dogs/cats. Canine bladder cancer includes TCC / urothelial carcinoma; the feline title retains urothelial carcinoma. This supersedes the old treatment/prognosis/trials title order. The registry's diagnosis links point to permanent North American diagnosis pages, while the separate eligibility action still opens the matcher. Keep the final sentence-case pass and semantic/link validators aligned so rebuilds cannot restore the old layout or fragment-only registry links. No ranking improvement is established by deployment alone.
+
+Validation: `python scripts/build_static_site.py` passed before and after the change; `python scripts/validate_production_sync.py` passed with permanent diagnosis-link checks. Independent before/after comparison preserved exact card, medical-guide and off-label-evidence bytes plus canonical/noindex metadata across44pages. The25positive pages place the first card after24–31main-content words. Sentence-case normalization is idempotent on all44pages. Only44diagnosis HTML pages, the registry and generated search index changed; canonical catalog/matcher data and other public pages were unchanged. `python scripts/check_evidence_keys.py` and `git diff --check` passed. Discard the builder's generated oncology-center audit timestamp before committing.
+
 ## Minnesota systematic care discovery — 2026-10-27
 
 Owner requested a full state search. Add37 physical local/surgical locations and6 visiting/mobile services; reconcile the6 existing records. Current MN directory:43physical+6mobile,8physical chemotherapy listings and5locations with named medical oncologists. Borgatti appears at UMN and Arden Hills and is one person. AERC Oakdale now explicitly lists both Briana Keller and Sam Keepman; St.Paul ER is not another oncology site. New local chemotherapy is Northern Valley Rochester and Dougherty Duluth. General treatment discussions at Blue Cross do not confirm local chemotherapy/radiation; publish its separately explicit mass surgery only. UMN gains confirmed surgical oncology.

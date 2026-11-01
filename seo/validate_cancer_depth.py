@@ -145,6 +145,7 @@ def validate_built_site(root=Path('seo/site')):
                 if cards:
                     assert count and int(count.group(1)) == len(cards), f'{page}: trial card count mismatch'
                     assert not zero, f'{page}: cards and empty state both shown'
+                    assert raw.rindex('</article>') < raw.index('<section class="disease owner-guide">'), f'{page}: medical overview precedes trial listings'
                 else:
                     assert not count and zero, f'{page}: empty trial state mismatch'
                 off_label = 'class="off-label-evidence"' in raw
@@ -152,7 +153,7 @@ def validate_built_site(root=Path('seo/site')):
                     assert off_label, f'{page}: missing off-label evidence'
                     assert raw.index('class="options-transition"') < raw.index('class="off-label-evidence"'), f'{page}: off-label evidence is outside treatment options'
                     if cards:
-                        assert raw.index('class="off-label-evidence"') < raw.index('<article class="card">'), f'{page}: off-label evidence should precede trial cards'
+                        assert raw.rindex('</article>') < raw.index('class="off-label-evidence"'), f'{page}: off-label evidence should follow trial cards'
                 else:
                     assert not off_label, f'{page}: unexpected off-label evidence'
                 checked += 1

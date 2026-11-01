@@ -137,8 +137,12 @@ def normalize(text: str, path: Path | None = None) -> str:
         species = diagnosis_species(path)
         if species:
             old_title = f"{sentence} clinical trials for {species}"
-            new_title = f"{sentence} in {species}: treatment, prognosis and clinical trials"
+            new_title = old_title
+            if key == "urothelial carcinoma":
+                terms = "TCC / urothelial carcinoma" if species == "dogs" else "urothelial carcinoma"
+                new_title = f"Bladder cancer clinical trials for {species} ({terms})"
             text = text.replace(old_title, new_title)
+            text = text.replace(f"{sentence} in {species}: treatment, prognosis and clinical trials", new_title)
             text = re.sub(
                 rf"(<h1\b[^>]*>){re.escape(sentence)}(</h1>)",
                 rf"\1{new_title}\2",
@@ -177,11 +181,15 @@ def validate(root: Path) -> None:
         if species:
             h1 = re.search(r"<h1\b[^>]*>(.*?)</h1>", text, re.S)
             title = re.search(r"<title>(.*?)</title>", text, re.S)
-            expected = f"in {species}: treatment, prognosis and clinical trials"
+            expected = f"clinical trials for {species}"
             if not h1 or expected not in h1.group(1):
                 failures.append(f"{path.relative_to(root)}: diagnosis H1")
             if not title or expected not in title.group(1):
                 failures.append(f"{path.relative_to(root)}: diagnosis SEO title")
+            if path.parent.name == "urothelial-carcinoma":
+                common_name = f"Bladder cancer clinical trials for {species}"
+                if not h1 or common_name not in h1[1] or not title or common_name not in title[1]:
+                    failures.append(f"{path.relative_to(root)}: bladder cancer search wording")
     if failures:
         raise AssertionError("Sentence-case validation failed:\n" + "\n".join(failures[:40]))
 

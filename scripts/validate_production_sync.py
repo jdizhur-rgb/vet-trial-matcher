@@ -99,6 +99,15 @@ def main() -> None:
     registry = read(SITE / "veterinary-cancer-clinical-trials" / "index.html")
     assert 'How Vet Cancer Care Finder selects and counts trials' in registry
     assert '<div class="registry-stats">' not in registry
+    diagnosis_links = re.findall(r'<a class="registry-diagnosis" href="([^"]+)"', registry)
+    assert diagnosis_links, "Trial registry has no diagnosis links"
+    for link in diagnosis_links:
+        parsed = urlparse(link)
+        assert parsed.netloc == "vettrialfinder.com" and parsed.path.startswith("/north-america/"), link
+        assert not parsed.query and not parsed.fragment, f"Diagnosis link must use a permanent page: {link}"
+        destination = read(SITE / parsed.path.strip("/") / "index.html")
+        assert f'<link rel="canonical" href="{link}">' in destination, link
+        assert 'content="noindex' not in destination, f"Registry links to an inactive diagnosis: {link}"
     assert '<div class="nav-shell">' in home
     assert '<button class="nav-toggle"' in home
     assert '<details class="nav-shell">' not in home

@@ -297,6 +297,10 @@ def matcher_diagnosis_url(species, disease):
  return f'{FINDER}#{urlencode({"species": species, "country": "USA", "cancer": MATCHER_CANCER_BY_DISEASE[disease], "autostart": "1"})}'
 
 
+def diagnosis_page_url(species, disease):
+ return f'{SITE}/north-america/{species.lower()}s/{g.slugify(disease)}/'
+
+
 def trial_registry(root, stats, rows):
  # Long-form guide; live catalog counts remain in the diagnosis links below.
  usa=[r for r in rows if r.get('country') == 'USA']
@@ -306,8 +310,9 @@ def trial_registry(root, stats, rows):
   cat_count=sum(1 for r in usa if g.species_ok(r,'Cat') and key in g.row_cancers(r,'Cat'))
   if not dog_count and not cat_count:continue
   links=[];slug=g.slugify(key);label=g.display_name(key)
-  if dog_count:links.append(f'<a class="registry-diagnosis" href="{matcher_diagnosis_url("Dog", key)}">{g.esc(label)} in dogs<span>{dog_count} current {"option" if dog_count==1 else "options"}</span></a>')
-  if cat_count:links.append(f'<a class="registry-diagnosis" href="{matcher_diagnosis_url("Cat", key)}">{g.esc(label)} in cats<span>{cat_count} current {"option" if cat_count==1 else "options"}</span></a>')
+  if key == 'urothelial carcinoma':label='Bladder cancer (urothelial carcinoma)'
+  if dog_count:links.append(f'<a class="registry-diagnosis" href="{diagnosis_page_url("Dog", key)}">{g.esc(label)} in dogs<span>{dog_count} current {"option" if dog_count==1 else "options"}</span></a>')
+  if cat_count:links.append(f'<a class="registry-diagnosis" href="{diagnosis_page_url("Cat", key)}">{g.esc(label)} in cats<span>{cat_count} current {"option" if cat_count==1 else "options"}</span></a>')
   diagnoses.extend(links)
  url=f'{SITE}/veterinary-cancer-clinical-trials/'
  body=f'''<div class="registry-page"><h1>Veterinary cancer clinical trials: what they are and how they work</h1>

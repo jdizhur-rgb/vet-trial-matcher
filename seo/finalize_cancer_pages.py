@@ -59,5 +59,31 @@ def finalize_cancer_pages(root: Path) -> int:
     return checked
 
 
+def prioritize_trial_listings(root: Path) -> int:
+    """Keep current opportunities ahead of the preserved medical overview."""
+    checked = 0
+    for path in Path(root).glob('north-america/*/*/index.html'):
+        text = path.read_text(encoding='utf-8')
+        guide = re.search(r'<section class="disease owner-guide">.*?</section>', text, re.S)
+        if not guide:
+            raise AssertionError(f'{path}: missing reviewed owner guide')
+        revised = text[:guide.start()] + text[guide.end():]
+        evidence = re.findall(r'<aside class="off-label-evidence">.*?</aside>', revised, re.S)
+        revised = re.sub(r'<aside class="off-label-evidence">.*?</aside>', '', revised, flags=re.S)
+        cards = list(re.finditer(r'<article class="card">.*?</article>', revised, re.S))
+        transition = re.search(r'<section class="options-transition">.*?</section>', revised, re.S)
+        if not transition:
+            raise AssertionError(f'{path}: missing trial availability summary')
+        end = cards[-1].end() if cards else transition.end()
+        revised = revised[:end] + ''.join(evidence) + guide[0] + revised[end:]
+        revised = revised.replace(OPTIONS_HEADING, '<h2>Current clinical trials and treatment programs</h2>', 1)
+        path.write_text(revised, encoding='utf-8')
+        checked += 1
+    if not checked:
+        raise AssertionError('No diagnosis pages found for trial-first layout')
+    print('TRIAL_FIRST_PAGES_OK', checked)
+    return checked
+
+
 if __name__ == '__main__':
     finalize_cancer_pages(Path(__file__).resolve().parent / 'site')
