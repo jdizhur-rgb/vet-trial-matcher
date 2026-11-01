@@ -1,0 +1,98 @@
+{
+  "source_commit": "47dadc380136358030fbb170133b789f99fbd2e5",
+  "source_tree": "399b7df3aea8074432a7bf3f8a0ec8d48c418f01",
+  "source_blobs": [
+    {
+      "path": "PROJECT_OPERATIONS.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b8276d4149a9fc130cf4f37e1db0eac85798125"
+    },
+    {
+      "path": "scripts/build_static_site.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "57e95bed72a2532d4d1ba3a10d3417453a4f644f"
+    },
+    {
+      "path": "seo/generate_oncology_center_finder.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "797af6a5e553a041a6b92ba33fc88cdd10db8d14"
+    },
+    {
+      "path": "seo/static/matcher/centers/index.html",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8687afb4945ce3f6864f87a149aa5ae3b7149952"
+    },
+    {
+      "path": "scripts/test_south_dakota_page.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e2f7cce6d04f987db6514cd83b9c91d58cc916c2"
+    },
+    {
+      "path": "seo/oncology_south_dakota.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8051f12e3401183139c8c2ae972012570b5248f3"
+    }
+  ],
+  "workflow_run_id": 41363653359,
+  "validation": {
+    "full_production_build": "PASS",
+    "state_page_gate": "PASS:23 physical,2 chemotherapy,exact canonical identities/dates/contacts,service limits,canonical/ItemList/sitemap/search/finder link",
+    "evidence_key_scan": "PASS",
+    "diff_check": "PASS",
+    "clinical_source_dates": "unchanged",
+    "clinical_census_complete": false
+  },
+  "new_clinical_source_visits": 0,
+  "workflow_jobs": [
+    {
+      "id": 125019156565,
+      "name": "build-candidate",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 125019359806,
+      "name": "deploy",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 125019411034,
+      "name": "notify-indexnow",
+      "status": "in_progress",
+      "conclusion": null
+    }
+  ],
+  "production_readback": [
+    {
+      "url": "https://vettrialfinder.com/veterinary-oncology/south-dakota/",
+      "checked_at": "2026-11-01T23:46:37.727303+00:00",
+      "http_status": 200,
+      "exact_bytes_match": true,
+      "production_sha256": "6210e91dc1b3e498614b9319779b3ccd5f17e6c8fe8f60c0174428d82465aa35",
+      "local_sha256": "6210e91dc1b3e498614b9319779b3ccd5f17e6c8fe8f60c0174428d82465aa35",
+      "sd_cards": 23
+    },
+    {
+      "url": "https://vettrialfinder.com/matcher/centers/",
+      "checked_at": "2026-11-01T23:46:41.285730+00:00",
+      "http_status": 200,
+      "exact_bytes_match": true,
+      "production_sha256": "3da4fa282ffb919044cb3c4e268cb630e21c7ad11b7c9aaf1d7a764fdf5f666e",
+      "local_sha256": "3da4fa282ffb919044cb3c4e268cb630e21c7ad11b7c9aaf1d7a764fdf5f666e",
+      "sd_cards": 23
+    }
+  ],
+  "unchanged_canonical_sha256": {
+    "data/trials_base.json": "d1cc641fe32d49a6e88d1929d6014628b79e146798a1b4eccfb80f434a385205",
+    "data/oncology_centers.json": "af12fa8b66e53592f782558d4a6a98966dfa40377255f5bb5960410285d9043f",
+    "data/oncology_centers_supplemental.json": "7af8c2ca998b72f8c5ad0ffcd922a2726f7ca7d8c6a789b0294d27502895ef57",
+    "data/oncology_care_source_inventory.json": "d271eebb38ee88d200a61971110ece06b05c8b1eb8f9e09a63e0a672c498381c"
+  }
+}
