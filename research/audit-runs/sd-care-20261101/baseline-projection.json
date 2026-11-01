@@ -1,0 +1,649 @@
+{
+  "run_id": "sd-care-20261101",
+  "baseline_commit": "351a78e3f743b225248abc95b15ef73358d213aa",
+  "collections": {
+    "data/oncology_centers.json": {
+      "key": "source_id",
+      "before_count": 1768,
+      "after_count": 1785,
+      "changes": [
+        {
+          "id": "sd-brandon-valley-veterinary-clinic",
+          "before": null,
+          "after_sha256": "6b3db740e6acf390671ec804941c9ab5137abdfd7599618e17a3d540ffe15e0d"
+        },
+        {
+          "id": "dunes-animal-hospital",
+          "before": {
+            "name": "Dunes Animal Hospital",
+            "street": "387 W Steamboat Drive",
+            "city": "Dakota Dunes",
+            "region": "SD",
+            "postal_code": "57049",
+            "country": "USA",
+            "phone": "605-242-5412",
+            "website": "https://www.dunesanimal.com/",
+            "latitude": 42.5249,
+            "longitude": -96.5074,
+            "services": [
+              "Local oncology care",
+              "Chemotherapy"
+            ],
+            "source": "Official branch service, team and contact evidence; P00 reconciliation",
+            "verification_url": "https://www.dunesanimal.com/services/oncology",
+            "source_id": "dunes-animal-hospital",
+            "last_verified": "2026-10-11",
+            "review_reference": "research/audit-runs/p00-reconciled-20261012/review.json",
+            "clinician_review": "Current local oncology page explicitly states injectable chemotherapy is administered at practice. Current general veterinary roster and location/telephone checked. Generic radiation recommendations do not establish equipment or local radiation service; no radiation tag added. Local oncology care retained without claiming a board-certified oncologist.",
+            "evidence": [
+              {
+                "official_url": "https://www.dunesanimal.com/services/oncology",
+                "quotes": [
+                  "ts who are undergoing surgery, radiation, or chemotherapy.\nIt is important to understand that these treatment options do not necessarily cure your pet’s"
+                ],
+                "checked_at": "2026-10-11T07:06:44.235781-04:00",
+                "branch": {
+                  "name": "Dunes Animal Hospital",
+                  "street": "387 W Steamboat Drive",
+                  "city": "Dakota Dunes",
+                  "region": "SD",
+                  "postal_code": "57049"
+                },
+                "file": "research/audit-runs/care-20261011T065613-0400/pages/8089127cbcebfb97cd.json",
+                "method": "shell.urllib"
+              },
+              {
+                "official_url": "https://www.dunesanimal.com/services/oncology",
+                "quotes": [
+                  "ts who are undergoing surgery, radiation, or chemotherapy.\nIt is important to understand that these treatment options do not necessarily cure your pet’s"
+                ],
+                "checked_at": "2026-10-11T16:09:04.925924-04:00",
+                "branch": {
+                  "name": "Dunes Animal Hospital",
+                  "street": "387 W Steamboat Drive",
+                  "city": "Dakota Dunes",
+                  "region": "SD",
+                  "postal_code": "57049"
+                },
+                "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/8089127cbcebfb97cd.json",
+                "method": "shell.urllib"
+              }
+            ]
+          },
+          "after_sha256": "27f26c85c5dd1bb682119b1692af12d52823ba91e43e7d2cadc8dc70f977fa53"
+        },
+        {
+          "id": "sd-cheyenne-river-animal-hospital",
+          "before": null,
+          "after_sha256": "22cdfad0b96eec0ef4a3aada2a302e8bde134c80383572073ba9497a653a783d"
+        },
+        {
+          "id": "sd-dakota-large-animal-clinic",
+          "before": null,
+          "after_sha256": "c305072353dcd7ed8b49e629c56b3e586ec0ea69068f545065282c73e24039eb"
+        },
+        {
+          "id": "sd-prairie-view-highmore",
+          "before": null,
+          "after_sha256": "945f830399297e43f2ea633458d3e4bfde757ec801cbcd51f2c5e07e0bd38b5a"
+        },
+        {
+          "id": "all-creatures-veterinary-hospital-rapid-city",
+          "before": {
+            "source_id": "all-creatures-veterinary-hospital-rapid-city",
+            "name": "All Creatures Veterinary Hospital",
+            "street": "1825 Clear View Ln",
+            "city": "Rapid City",
+            "region": "SD",
+            "postal_code": "57702",
+            "country": "USA",
+            "phone": "605-342-0052",
+            "website": "https://allcreaturesrc.com/",
+            "services": [
+              "Surgery"
+            ],
+            "source": "Official branch advanced surgical services and contact pages: visiting specialist performs skin, abdominal and liver mass removal locally.",
+            "verification_url": "https://allcreaturesrc.com/service/advanced-surgical-services/",
+            "supporting_urls": [
+              "https://allcreaturesrc.com/service/advanced-surgical-services/",
+              "https://allcreaturesrc.com/contact/",
+              "https://allcreaturesrc.com/about/veterinarians/",
+              "https://midwestvetsurg.com/"
+            ],
+            "last_verified": "2026-10-13",
+            "last_verified_at": "2026-10-13T22:05:03-04:00",
+            "care_delivery": "physical branch; monthly visiting surgical specialist",
+            "availability_note": "Monthly visits by Kari Swanson for specialty surgery, including skin, abdominal and liver mass removal. Call the hospital for an initial consultation; the hospital coordinates records and surgery with the visiting surgeon.",
+            "clinician_review": "Kari Swanson is listed by the hospital as a Diplomate of the American College of Veterinary Surgeons and visiting surgeon. Her own service describes her as a board-certified small animal veterinary surgeon. This is a surgery credential; oncology board certification is not claimed. The branch roster lists Dean Falcon, Grace Evans and Wendy Blickensderfer; they are not represented as oncologists.",
+            "review_status": "complete",
+            "latitude": null,
+            "longitude": null,
+            "coordinates_unknown": true,
+            "coordinate_source": "Exact address verified on official branch contact page; building coordinates and a validated ZIP centroid were not established.",
+            "review_reference": "research/audit-runs/care-discovery-20261013T220028-0400/SD/result.json",
+            "audit_run_id": "care-discovery-20261013T220028-0400"
+          },
+          "after_sha256": "6e48fe661879f6c479a3689f9f7e9d3e9a0744e291a5182786fddc0f264f05f3"
+        },
+        {
+          "id": "sd-animal-clinic-rapid-city",
+          "before": null,
+          "after_sha256": "fecc806001b2d08f05268fc83102360be70a5e88df1d4211b62fbd8cc4cfe699"
+        },
+        {
+          "id": "sd-cook-veterinary-clinic",
+          "before": null,
+          "after_sha256": "c3670f2a4df5993e480682043307eee791a6f70f84d441cda4ffbea4dfcd0fbd"
+        },
+        {
+          "id": "sd-dakota-hills-veterinary-clinic",
+          "before": null,
+          "after_sha256": "568bf24b02660ddf3f10725cf09ef5aa44918d0e7c222e27a8979c7c4c37d460"
+        },
+        {
+          "id": "sd-meiners-animal-clinic",
+          "before": null,
+          "after_sha256": "41367f6ec8a907f3e48ef1831a471b2fee94f16917740d18f40cd09e4503987c"
+        },
+        {
+          "id": "sd-mountain-view-animal-hospital",
+          "before": null,
+          "after_sha256": "cd455d860958c1a005c3e473127f460f8f81f6a1b1960dcab1c43c68fb8fae28"
+        },
+        {
+          "id": "sd-all-city-pet-care-veh",
+          "before": null,
+          "after_sha256": "52ecbfc6abbf8d672f468813b2680d91b3da9d4df6c8caa98c89c3ffe74d861c"
+        },
+        {
+          "id": "sd-best-care-pet-hospital",
+          "before": null,
+          "after_sha256": "c6a46471804e775638c0835560115d949fb3beb19567215c51bfd1e542ec51e1"
+        },
+        {
+          "id": "sd-faithful-friends-veterinary-care",
+          "before": null,
+          "after_sha256": "fe44c5a9cf3fdf8257c730135d555a19370850bff855483b2dfb05ce8c618cca"
+        },
+        {
+          "id": "sd-heather-ridge-pet-hospital",
+          "before": null,
+          "after_sha256": "3d6717d1dc4910e64ce8bd36f33a8de541d7000deaf15c35ae504c9c7094cc48"
+        },
+        {
+          "id": "upleash-veterinary-hospital",
+          "before": {
+            "name": "Upleash Veterinary Hospital",
+            "street": "208 W. 37th Street",
+            "city": "Sioux Falls",
+            "region": "SD",
+            "postal_code": "57105",
+            "country": "USA",
+            "phone": "605-271-3442",
+            "website": "https://upleash.com/veterinary-services/oncology/",
+            "services": [
+              "Local oncology care",
+              "Chemotherapy"
+            ],
+            "source": "Official branch service/team/contact review; A03 owner-approved reconciliation, 2026-10-11",
+            "verification_url": "https://upleash.com/veterinary-services/oncology/",
+            "source_id": "upleash-veterinary-hospital",
+            "verified_at": "2026-10-11",
+            "supporting_urls": [
+              "https://upleash.com/veterinary-services/oncology/",
+              "https://upleash.com/about-upleash-veterinary-hospital/",
+              "https://upleash.com/contact-upleash-veterinary-hospital/"
+            ],
+            "availability_note": "Local chemotherapy is offered. A visiting surgeon is mentioned, but the surgeon and availability of tumor surgery at this location remain unconfirmed",
+            "clinician_review": "Joe Spoo — DACVSMR (Canine), спортивная медицина/реабилитация; Krista Hardy — DABVP (Canine/Feline), общая клиническая практика; Evan Ward — DVM/реабилитация. Эти дипломы не означают DACVIM Oncology. Упоминается visiting board-certified surgeon, имя и график не установлены.",
+            "review_status": "partial",
+            "owner_review": {
+              "basis": "owner_review_uncertainty",
+              "decision": "Retain local chemotherapy; tumor surgery remains unconfirmed. No Oncology board credential inferred from VSMR/ABVP.",
+              "owner_statement": "7 хирург неочевидно. Небось режет"
+            },
+            "unconfirmed_services": [
+              "Surgery"
+            ],
+            "latitude": 43.5149,
+            "longitude": -96.7311
+          },
+          "after_sha256": "cb0c68b9e6fb66c9afdc09c7f91716f2b939ac0663295417b49fb5a5179b6aa2"
+        },
+        {
+          "id": "sd-neighborhood-veterinary-care",
+          "before": null,
+          "after_sha256": "2d2759ee8f916c7b21282a642e54c91b389356c0f0676b4c042391d721cd0ce6"
+        },
+        {
+          "id": "sd-apex-veterinary-center",
+          "before": null,
+          "after_sha256": "a51dbe5bc229285525fe8569726e6d803ed5401f7c2c51c0e83ca9ee546a3477"
+        },
+        {
+          "id": "sd-glacial-lakes-veterinary-clinic",
+          "before": null,
+          "after_sha256": "dbabe0437f424319ffdb6606027649047719ec5ea0690d92bfe7536f67612cbe"
+        },
+        {
+          "id": "sd-lewis-clark-yankton",
+          "before": null,
+          "after_sha256": "f6775c385fa4190f5547ceb0dd63e44852cae02f318fad40f74a532318239467"
+        }
+      ]
+    },
+    "data/oncology_centers_supplemental.json": {
+      "key": "source_id",
+      "before_count": 1760,
+      "after_count": 1777,
+      "changes": [
+        {
+          "id": "upleash-veterinary-hospital",
+          "before": {
+            "name": "Upleash Veterinary Hospital",
+            "street": "208 W. 37th Street",
+            "city": "Sioux Falls",
+            "region": "SD",
+            "postal_code": "57105",
+            "country": "USA",
+            "phone": "605-271-3442",
+            "website": "https://upleash.com/veterinary-services/oncology/",
+            "services": [
+              "Local oncology care",
+              "Chemotherapy"
+            ],
+            "source": "Official branch service/team/contact review; A03 owner-approved reconciliation, 2026-10-11",
+            "verification_url": "https://upleash.com/veterinary-services/oncology/",
+            "source_id": "upleash-veterinary-hospital",
+            "verified_at": "2026-10-11",
+            "supporting_urls": [
+              "https://upleash.com/veterinary-services/oncology/",
+              "https://upleash.com/about-upleash-veterinary-hospital/",
+              "https://upleash.com/contact-upleash-veterinary-hospital/"
+            ],
+            "availability_note": "Local chemotherapy is offered. A visiting surgeon is mentioned, but the surgeon and availability of tumor surgery at this location remain unconfirmed",
+            "clinician_review": "Joe Spoo — DACVSMR (Canine), спортивная медицина/реабилитация; Krista Hardy — DABVP (Canine/Feline), общая клиническая практика; Evan Ward — DVM/реабилитация. Эти дипломы не означают DACVIM Oncology. Упоминается visiting board-certified surgeon, имя и график не установлены.",
+            "review_status": "partial",
+            "owner_review": {
+              "basis": "owner_review_uncertainty",
+              "decision": "Retain local chemotherapy; tumor surgery remains unconfirmed. No Oncology board credential inferred from VSMR/ABVP.",
+              "owner_statement": "7 хирург неочевидно. Небось режет"
+            },
+            "unconfirmed_services": [
+              "Surgery"
+            ]
+          },
+          "after_sha256": "48691fe241a71d09c2ae91c8a9ab5cb0c44cbb1bbcd446d62b1f2372ee64b52a"
+        },
+        {
+          "id": "dunes-animal-hospital",
+          "before": {
+            "name": "Dunes Animal Hospital",
+            "street": "387 W Steamboat Drive",
+            "city": "Dakota Dunes",
+            "region": "SD",
+            "postal_code": "57049",
+            "country": "USA",
+            "phone": "605-242-5412",
+            "website": "https://www.dunesanimal.com/",
+            "latitude": 42.5249,
+            "longitude": -96.5074,
+            "services": [
+              "Local oncology care",
+              "Chemotherapy"
+            ],
+            "source": "Official branch service, team and contact evidence; P00 reconciliation",
+            "verification_url": "https://www.dunesanimal.com/services/oncology",
+            "source_id": "dunes-animal-hospital",
+            "last_verified": "2026-10-11",
+            "review_reference": "research/audit-runs/p00-reconciled-20261012/review.json",
+            "clinician_review": "Current local oncology page explicitly states injectable chemotherapy is administered at practice. Current general veterinary roster and location/telephone checked. Generic radiation recommendations do not establish equipment or local radiation service; no radiation tag added. Local oncology care retained without claiming a board-certified oncologist.",
+            "evidence": [
+              {
+                "official_url": "https://www.dunesanimal.com/services/oncology",
+                "quotes": [
+                  "ts who are undergoing surgery, radiation, or chemotherapy.\nIt is important to understand that these treatment options do not necessarily cure your pet’s"
+                ],
+                "checked_at": "2026-10-11T07:06:44.235781-04:00",
+                "branch": {
+                  "name": "Dunes Animal Hospital",
+                  "street": "387 W Steamboat Drive",
+                  "city": "Dakota Dunes",
+                  "region": "SD",
+                  "postal_code": "57049"
+                },
+                "file": "research/audit-runs/care-20261011T065613-0400/pages/8089127cbcebfb97cd.json",
+                "method": "shell.urllib"
+              },
+              {
+                "official_url": "https://www.dunesanimal.com/services/oncology",
+                "quotes": [
+                  "ts who are undergoing surgery, radiation, or chemotherapy.\nIt is important to understand that these treatment options do not necessarily cure your pet’s"
+                ],
+                "checked_at": "2026-10-11T16:09:04.925924-04:00",
+                "branch": {
+                  "name": "Dunes Animal Hospital",
+                  "street": "387 W Steamboat Drive",
+                  "city": "Dakota Dunes",
+                  "region": "SD",
+                  "postal_code": "57049"
+                },
+                "file": "research/audit-runs/care-batched-20261011T143110-0400/pages/8089127cbcebfb97cd.json",
+                "method": "shell.urllib"
+              }
+            ]
+          },
+          "after_sha256": "27f26c85c5dd1bb682119b1692af12d52823ba91e43e7d2cadc8dc70f977fa53"
+        },
+        {
+          "id": "all-creatures-veterinary-hospital-rapid-city",
+          "before": {
+            "source_id": "all-creatures-veterinary-hospital-rapid-city",
+            "name": "All Creatures Veterinary Hospital",
+            "street": "1825 Clear View Ln",
+            "city": "Rapid City",
+            "region": "SD",
+            "postal_code": "57702",
+            "country": "USA",
+            "phone": "605-342-0052",
+            "website": "https://allcreaturesrc.com/",
+            "services": [
+              "Surgery"
+            ],
+            "source": "Official branch advanced surgical services and contact pages: visiting specialist performs skin, abdominal and liver mass removal locally.",
+            "verification_url": "https://allcreaturesrc.com/service/advanced-surgical-services/",
+            "supporting_urls": [
+              "https://allcreaturesrc.com/service/advanced-surgical-services/",
+              "https://allcreaturesrc.com/contact/",
+              "https://allcreaturesrc.com/about/veterinarians/",
+              "https://midwestvetsurg.com/"
+            ],
+            "last_verified": "2026-10-13",
+            "last_verified_at": "2026-10-13T22:05:03-04:00",
+            "care_delivery": "physical branch; monthly visiting surgical specialist",
+            "availability_note": "Monthly visits by Kari Swanson for specialty surgery, including skin, abdominal and liver mass removal. Call the hospital for an initial consultation; the hospital coordinates records and surgery with the visiting surgeon.",
+            "clinician_review": "Kari Swanson is listed by the hospital as a Diplomate of the American College of Veterinary Surgeons and visiting surgeon. Her own service describes her as a board-certified small animal veterinary surgeon. This is a surgery credential; oncology board certification is not claimed. The branch roster lists Dean Falcon, Grace Evans and Wendy Blickensderfer; they are not represented as oncologists.",
+            "review_status": "complete",
+            "latitude": null,
+            "longitude": null,
+            "coordinates_unknown": true,
+            "coordinate_source": "Exact address verified on official branch contact page; building coordinates and a validated ZIP centroid were not established.",
+            "review_reference": "research/audit-runs/care-discovery-20261013T220028-0400/SD/result.json",
+            "audit_run_id": "care-discovery-20261013T220028-0400"
+          },
+          "after_sha256": "6e48fe661879f6c479a3689f9f7e9d3e9a0744e291a5182786fddc0f264f05f3"
+        },
+        {
+          "id": "sd-best-care-pet-hospital",
+          "before": null,
+          "after_sha256": "c6a46471804e775638c0835560115d949fb3beb19567215c51bfd1e542ec51e1"
+        },
+        {
+          "id": "sd-faithful-friends-veterinary-care",
+          "before": null,
+          "after_sha256": "fe44c5a9cf3fdf8257c730135d555a19370850bff855483b2dfb05ce8c618cca"
+        },
+        {
+          "id": "sd-all-city-pet-care-veh",
+          "before": null,
+          "after_sha256": "52ecbfc6abbf8d672f468813b2680d91b3da9d4df6c8caa98c89c3ffe74d861c"
+        },
+        {
+          "id": "sd-heather-ridge-pet-hospital",
+          "before": null,
+          "after_sha256": "3d6717d1dc4910e64ce8bd36f33a8de541d7000deaf15c35ae504c9c7094cc48"
+        },
+        {
+          "id": "sd-animal-clinic-rapid-city",
+          "before": null,
+          "after_sha256": "fecc806001b2d08f05268fc83102360be70a5e88df1d4211b62fbd8cc4cfe699"
+        },
+        {
+          "id": "sd-meiners-animal-clinic",
+          "before": null,
+          "after_sha256": "41367f6ec8a907f3e48ef1831a471b2fee94f16917740d18f40cd09e4503987c"
+        },
+        {
+          "id": "sd-cook-veterinary-clinic",
+          "before": null,
+          "after_sha256": "c3670f2a4df5993e480682043307eee791a6f70f84d441cda4ffbea4dfcd0fbd"
+        },
+        {
+          "id": "sd-brandon-valley-veterinary-clinic",
+          "before": null,
+          "after_sha256": "6b3db740e6acf390671ec804941c9ab5137abdfd7599618e17a3d540ffe15e0d"
+        },
+        {
+          "id": "sd-apex-veterinary-center",
+          "before": null,
+          "after_sha256": "a51dbe5bc229285525fe8569726e6d803ed5401f7c2c51c0e83ca9ee546a3477"
+        },
+        {
+          "id": "sd-glacial-lakes-veterinary-clinic",
+          "before": null,
+          "after_sha256": "dbabe0437f424319ffdb6606027649047719ec5ea0690d92bfe7536f67612cbe"
+        },
+        {
+          "id": "sd-dakota-large-animal-clinic",
+          "before": null,
+          "after_sha256": "c305072353dcd7ed8b49e629c56b3e586ec0ea69068f545065282c73e24039eb"
+        },
+        {
+          "id": "sd-cheyenne-river-animal-hospital",
+          "before": null,
+          "after_sha256": "22cdfad0b96eec0ef4a3aada2a302e8bde134c80383572073ba9497a653a783d"
+        },
+        {
+          "id": "sd-neighborhood-veterinary-care",
+          "before": null,
+          "after_sha256": "2d2759ee8f916c7b21282a642e54c91b389356c0f0676b4c042391d721cd0ce6"
+        },
+        {
+          "id": "sd-lewis-clark-yankton",
+          "before": null,
+          "after_sha256": "f6775c385fa4190f5547ceb0dd63e44852cae02f318fad40f74a532318239467"
+        },
+        {
+          "id": "sd-dakota-hills-veterinary-clinic",
+          "before": null,
+          "after_sha256": "568bf24b02660ddf3f10725cf09ef5aa44918d0e7c222e27a8979c7c4c37d460"
+        },
+        {
+          "id": "sd-mountain-view-animal-hospital",
+          "before": null,
+          "after_sha256": "cd455d860958c1a005c3e473127f460f8f81f6a1b1960dcab1c43c68fb8fae28"
+        },
+        {
+          "id": "sd-prairie-view-highmore",
+          "before": null,
+          "after_sha256": "945f830399297e43f2ea633458d3e4bfde757ec801cbcd51f2c5e07e0bd38b5a"
+        }
+      ]
+    },
+    "data/oncology_care_source_inventory.json": {
+      "key": "id",
+      "before_count": 1846,
+      "after_count": 1863,
+      "changes": [
+        {
+          "id": "dunes-animal-hospital",
+          "before": {
+            "id": "dunes-animal-hospital",
+            "name": "Dunes Animal Hospital",
+            "source_type": "center",
+            "master_url": "https://www.dunesanimal.com/services/oncology",
+            "supporting_urls": [
+              "https://www.dunesanimal.com/services/oncology",
+              "https://www.dunesanimal.com/staff",
+              "https://www.dunesanimal.com/about-us",
+              "https://www.dunesanimal.com/contact-us"
+            ],
+            "required_cadence": "weekly",
+            "last_checked": "2026-10-11",
+            "last_checked_at": "2026-10-11T16:10:24.286979-04:00",
+            "last_result": "success",
+            "http_status": 200,
+            "working_url": "https://www.dunesanimal.com/staff",
+            "fingerprint_sha256": "dddbc200d3e4d68f7b5743992a9b03d2690560689706c10df2be38389431404d",
+            "content_sufficient": true,
+            "fingerprint_method": "sha256-visible-text",
+            "last_run_id": "care-batched-20261011T143110-0400",
+            "last_review_note": "Current local oncology page explicitly states injectable chemotherapy is administered at practice. Current general veterinary roster and location/telephone checked. Generic radiation recommendations do not establish equipment or local radiation service; no radiation tag added. Local oncology care retained without claiming a board-certified oncologist.",
+            "last_reviewed_at": "2026-10-11T16:11:56.670616-04:00",
+            "last_review_run_id": "care-batched-20261011T143110-0400",
+            "review_reference": "research/audit-runs/p00-reconciled-20261012/review.json"
+          },
+          "after_sha256": "ef87b13eebea46875d896690e9eb70d5cdfe8a0486ba40395786d5fc763b977f"
+        },
+        {
+          "id": "upleash-veterinary-hospital",
+          "before": {
+            "id": "upleash-veterinary-hospital",
+            "name": "Upleash Veterinary Hospital",
+            "source_type": "center",
+            "master_url": "https://upleash.com/veterinary-services/oncology/",
+            "supporting_urls": [
+              "https://upleash.com/veterinary-services/oncology/",
+              "https://upleash.com/about-upleash-veterinary-hospital/",
+              "https://upleash.com/contact-upleash-veterinary-hospital/"
+            ],
+            "required_cadence": "weekly",
+            "last_checked": "2026-10-11",
+            "last_checked_at": "2026-10-11T07:10:15.488624-04:00",
+            "last_result": "partial",
+            "http_status": 200,
+            "working_url": "https://upleash.com/veterinary-services/oncology/",
+            "fingerprint_sha256": "87525632a7b7f87cfb74e5b5861dcf5b9189a450102c5cfb672d7e28872a5b58",
+            "content_sufficient": false,
+            "fingerprint_method": "sha256-normalized-visible-text-v2",
+            "last_run_id": "care-20261011T065613-0400",
+            "last_review_note": "A03 branch facts and owner-approved decisions reconciled; partial questions retained. See research/audit-runs/a03-approved-20261011/review.json. Existing visit timestamps/fingerprints are not refreshed by this integration.",
+            "last_reviewed_at": "2026-10-11T22:53:30.810067+00:00",
+            "last_review_run_id": "a03-approved-20261011"
+          },
+          "after_sha256": "f8772ecf465cc50f3a464414942335c704b18d730948def973f3a0b2c2abd74d"
+        },
+        {
+          "id": "all-creatures-veterinary-hospital-rapid-city",
+          "before": {
+            "id": "all-creatures-veterinary-hospital-rapid-city",
+            "name": "All Creatures Veterinary Hospital",
+            "source_type": "center",
+            "master_url": "https://allcreaturesrc.com/service/advanced-surgical-services/",
+            "supporting_urls": [
+              "https://allcreaturesrc.com/service/advanced-surgical-services/",
+              "https://allcreaturesrc.com/contact/",
+              "https://allcreaturesrc.com/about/veterinarians/",
+              "https://midwestvetsurg.com/"
+            ],
+            "required_cadence": "weekly",
+            "last_checked": "2026-10-13",
+            "last_result": "success",
+            "content_sufficient": true,
+            "last_run_id": "care-discovery-20261013T220028-0400",
+            "last_review_note": "Official branch advanced surgical services and contact pages: visiting specialist performs skin, abdominal and liver mass removal locally.",
+            "review_reference": "research/audit-runs/care-discovery-20261013T220028-0400/SD/result.json",
+            "visit_method": "Saved actual official Web/shell source receipts; parent independently reviewed local treatment scope",
+            "verified_fields": [
+              "active_physical_branch",
+              "full_address",
+              "phone",
+              "official_website",
+              "visiting_surgeon",
+              "credential_scope",
+              "local_skin_abdominal_liver_mass_removal",
+              "booking_and_records_route"
+            ],
+            "last_checked_at": "2026-10-13T22:05:33-04:00"
+          },
+          "after_sha256": "f8056b50c493826607b6d8e4b0a2837ad5793308ac3be8acda4abe75e378c179"
+        },
+        {
+          "id": "sd-best-care-pet-hospital",
+          "before": null,
+          "after_sha256": "ef20738a309e91e2e21550bd7b9a22e75c2a3cd90823394a049d64fa48bc9243"
+        },
+        {
+          "id": "sd-faithful-friends-veterinary-care",
+          "before": null,
+          "after_sha256": "cd0193f2b44bdce783283c3bb76520cef3bec726624bd0ab0371c44ef715ab66"
+        },
+        {
+          "id": "sd-all-city-pet-care-veh",
+          "before": null,
+          "after_sha256": "b71802c562bfd18d258bdf91f5b972d10b93b96964261d5f42f4abd49ec3c3e6"
+        },
+        {
+          "id": "sd-heather-ridge-pet-hospital",
+          "before": null,
+          "after_sha256": "7faaa7a423120bec0d5732c668d0d0aeaeb21306f4c53ab9e1f99994fe4ea89e"
+        },
+        {
+          "id": "sd-animal-clinic-rapid-city",
+          "before": null,
+          "after_sha256": "c3150fda415d0569a7c468ace164208b84a59f4580f1e22c9bfdedc16a1c8feb"
+        },
+        {
+          "id": "sd-meiners-animal-clinic",
+          "before": null,
+          "after_sha256": "d26db8efb00b6056eb4ec69c4dcc4f539beb89b4c0427dd12bffb625f32bf295"
+        },
+        {
+          "id": "sd-cook-veterinary-clinic",
+          "before": null,
+          "after_sha256": "35567929689fce25c419add74f7057388db30cca4f7d26131c87fbf6f51e34d9"
+        },
+        {
+          "id": "sd-brandon-valley-veterinary-clinic",
+          "before": null,
+          "after_sha256": "648eb498cb14d89528f340f860fc2857e4d064a6f119e6b11260bd3628ea4fc3"
+        },
+        {
+          "id": "sd-apex-veterinary-center",
+          "before": null,
+          "after_sha256": "85910ac6f196df4c85f2546b75342a2fe9ecad94131ce0d0d98b47d739ec704c"
+        },
+        {
+          "id": "sd-glacial-lakes-veterinary-clinic",
+          "before": null,
+          "after_sha256": "86391f88bebef91e2707e4f5fe261535819981d7cf3dee9365f7576748322ce1"
+        },
+        {
+          "id": "sd-dakota-large-animal-clinic",
+          "before": null,
+          "after_sha256": "1acb0aded1d244f59cd3679170f3c4c461c20616a8ab15ec7203f74784d26ce0"
+        },
+        {
+          "id": "sd-cheyenne-river-animal-hospital",
+          "before": null,
+          "after_sha256": "287e379d1a7dc31450a953d6ad52d331f222cb5370413a63134d2b61043a9e36"
+        },
+        {
+          "id": "sd-neighborhood-veterinary-care",
+          "before": null,
+          "after_sha256": "03a970f9d6dea571ec344c19393e20b87aa279aac23f2a2d6d658a93371d0219"
+        },
+        {
+          "id": "sd-lewis-clark-yankton",
+          "before": null,
+          "after_sha256": "d39436dc6b44d3a364c923babd9efbbb8157549de9754c97d9edfd8280a123f5"
+        },
+        {
+          "id": "sd-dakota-hills-veterinary-clinic",
+          "before": null,
+          "after_sha256": "d5ecbcc2f9922bee33f907b2795906137bdd53d84524d921828c0c50911a41d0"
+        },
+        {
+          "id": "sd-mountain-view-animal-hospital",
+          "before": null,
+          "after_sha256": "c53ac5c1fd39bf3908f76d52b87e73ab0781edeeece56767981be75e90139ed0"
+        },
+        {
+          "id": "sd-prairie-view-highmore",
+          "before": null,
+          "after_sha256": "074d1441fa2eb3df37a4b608b8ccc215c57efe41ef619dc6cbb52b113695eba8"
+        }
+      ]
+    }
+  }
+}

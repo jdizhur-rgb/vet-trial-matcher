@@ -62,6 +62,27 @@ def before_later_ri_pass(rows, path):
     Every changed current row is checked first. The original European counts,
     hashes, dates and branch-identity assertions below remain unchanged.
     """
+    # Reverse the exact South Dakota rows before the frozen earlier proofs.
+    sdroot = ROOT / 'research/audit-runs/sd-care-20261101'
+    sd = read(sdroot / 'baseline-projection.json')['collections'][path]
+    sdids = {r['source_id'] for f in ('proposed-records.json', 'existing-updates.json')
+             for r in read(sdroot / f)}
+    assert len(sdids) == 20 and len(rows) == sd['after_count']
+    sdchanges = {r['id']: r for r in sd['changes']}
+    assert set(sdchanges) == sdids
+    sdrows, sdseen = [], set()
+    for row in rows:
+        identity = row.get(sd['key'])
+        change = sdchanges.get(identity)
+        if change is None:
+            sdrows.append(row)
+            continue
+        assert identity not in sdseen and sha(row) == change['after_sha256'], identity
+        sdseen.add(identity)
+        if change['before'] is not None:
+            sdrows.append(copy.deepcopy(change['before']))
+    assert sdseen == sdids and len(sdrows) == sd['before_count']
+    rows = sdrows
     # Reverse the exact later MA reconciliation before the frozen earlier
     # projections. Accepted indexed-primary evidence retains its source limits.
     resolveroot = ROOT / 'research/audit-runs/ma-resolve26-20261028'
