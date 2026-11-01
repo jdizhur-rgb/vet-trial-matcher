@@ -30,4 +30,8 @@ remaining.json содержит22 конкретных вопроса по ис�
 
 ## Даты проверки источников
 
-20 принятых source identities,20 попыток с фактическими датами; review date2026-11-01. Native attempt range:2026-11-01T16:29:25.006640+00:00 — 2026-11-01T16:42:20.160432+00:00. ДляDakotaHills иMountainView успешные клинические Web-обзоры имеют только дату; точные native failed attempts сохранены отдельно. Remote SHA и production bytes будут добавлены в publication-proof.json после проверки. Доэтого публикация не считается завершённой.
+20 принятых source identities,20 попыток с фактическими датами; review date2026-11-01. Native attempt range:2026-11-01T16:29:25.006640+00:00 — 2026-11-01T16:42:20.160432+00:00. ДляDakotaHills иMountainView успешные клинические Web-обзоры имеют только дату; точные native failed attempts сохранены отдельно. Remote SHA данных: 19e0260e6ce8534775f32e8244e0b8a2da419f8a. Все 20 source identities проверены после записи: PASS. Для 17 новых источников прежней записи не было; три прежние даты 11–13 октября обновлены фактическими проверками 1 ноября. Подробные до/после значения сохранены в baseline-projection.json и publication-proof.json.
+
+## Публикация подтверждена
+
+GitHub build-candidate, deploy и notify-indexnow: PASS, run 41328232547. Проверка production 1 ноября в 11:50 ET: HTTP200, ровно20 SD-карточек, полное побайтовое совпадение с локальным wrapped artifact. SHA256: 043f1456cebd3fd76425753517d58b0a0b67488782a908f82fd14597a32fc5a2. Точные команды проверок и индивидуальные remote source dates находятся в publication-proof.json. Full catalog integrity audit и copied-evidence-key CI также SUCCESS. Публикация не устраняет22 оставшихся клинических/источниковых вопроса и не меняет completed=false.
