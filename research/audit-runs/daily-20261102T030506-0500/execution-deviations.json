@@ -1,0 +1,23 @@
+[
+  {
+    "at": "2026-11-02T08:18:33.654598+00:00",
+    "action": "web-12.json",
+    "deviation": "Three MSU URLs placed in one Web batch, exceeding requested per-domain batch maximum of two. No access gate bypass. Subsequent batches limited to two per domain."
+  },
+  {
+    "at": "2026-11-02T09:22:44.700037+00:00",
+    "action": "VCS directory general-clinic-link follow-up / session1336 poll",
+    "result": "automatic_review_rejected",
+    "reason": "The target is a general veterinary specialist/care site linked from a directory, while the user explicitly excluded care/service directories; it is outside the authorized audit scope.",
+    "decision": "Do not retry or use Web as a workaround. General institution/service links are excluded from daily scope; independently authorized clinical trial routes continue.",
+    "unperformed_scope": "General care/services destinations; not marked as visited."
+  },
+  {
+    "at": "2026-11-02T09:28:32.098222+00:00",
+    "action": "Additional latest-version API URL for public study534230",
+    "result": "automatic_review_rejected",
+    "reason": "The request guesses an alternate Studypages API route rather than using the already observed permitted endpoint; the audit instructions explicitly prohibit guessing internal routes, so this network access is not authorized.",
+    "decision": "No retry, alternate host or route. Retain actual current public clinical data islands and published CASTR link; full eligibility/cost sections remain unverified.",
+    "restricted_url": "https://studypages.com/api/v1/studycontent-latest-version/534230/en"
+  }
+]

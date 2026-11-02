@@ -68,6 +68,11 @@ invented clinical roster. Their available processing can finish while clinical
 roster sufficiency remains false. For restrictions record the exact prior
 artifact and scope; do not invent a fresh visit, HTTP403 or institution-wide ban.
 
+Newly verified sources may be declared in `added_source_ids`. Each must exist in
+the actual current inventory and receive the same complete current decision and
+receipt accounting. Every frozen source remains mandatory; undeclared additions,
+missing original IDs and rewriting the baseline are not permitted.
+
 ## Durable trial issues
 
 Each baseline issue needs one `issue_updates` row, preserving `issue_id`,

@@ -3,26 +3,30 @@
   "purpose": "Persistent state for incremental discovery and deep-audit cost control. Source fingerprints live in source_inventory.json; this file tracks audit scheduling and unresolved work.",
   "last_full_deep_audit": null,
   "last_incremental_audit": {
-    "run_id": "daily-20261101T025833-0500",
-    "started_at": "2026-11-01T02:58:33.292679-05:00",
-    "at": "2026-11-01T03:11:47.628552-05:00",
+    "date": "2026-11-02",
+    "at": "2026-11-02T05:01:52.763083-05:00",
+    "run_id": "daily-20261102T030506-0500",
+    "receipt": "research/audit-runs/daily-20261102T030506-0500/receipt-final.json",
     "status": "INCOMPLETE",
-    "source_total": 149,
-    "source_processing_completed": 145,
-    "source_attempted": 126,
-    "source_receipt": "research/audit-runs/daily-20261101T025833-0500/receipt-final.json",
-    "clinical_reconciliation": "INCOMPLETE",
-    "execution_note": "Current whole-page comparisons and source-specific decisions saved. Deadline evidence and unestablished processing remain separate gaps; no blanket completion."
+    "source_total": 153,
+    "processing_complete_total": 150,
+    "content_sufficient_total": 34,
+    "execution_validation": "research/audit-runs/daily-20261102T030506-0500/execution-validation.json"
   },
   "last_source_discovery_attempt": {
-    "run_id": "daily-20261031T032935-0400",
-    "at": "2026-10-31T03:44:52.064332-04:00",
+    "date": "2026-11-02",
+    "at": "2026-11-02T05:01:52.763083-05:00",
+    "run_id": "daily-20261102T030506-0500",
+    "queries": 122,
     "regions": 12,
-    "passes": 2,
-    "matrix_queries": 24,
-    "targeted_discovery_queries": 4,
-    "new_sources": [],
-    "receipt": "research/audit-runs/daily-20261031T032935-0400/discovery-matrix-final.json"
+    "receipt": "research/audit-runs/daily-20261102T030506-0500/discovery-ledger.json",
+    "status": "INCOMPLETE_current_access_gaps",
+    "new_sources": [
+      "usa-vccs-egfr-her2-clinical-trial",
+      "tw-protectvac-pt001-recruitment",
+      "tw-evergreen-ntu-il15-recruitment",
+      "usa-case-bi705564-clinical-study"
+    ]
   },
   "forced_full_reread_days": 28,
   "rules": {
@@ -59,12 +63,16 @@
     "source_cases": "data/protocol_selection_cases.json",
     "last_full_completed_at": null,
     "forced_full_rereview_days": 28,
-    "progress_receipt": "research/audit-runs/finish-20261027T063052-0400/protocol-decisions.json",
-    "last_progress_at": "2026-10-27T06:50:28.623128-04:00",
+    "progress_receipt": "research/audit-runs/daily-20261102T030506-0500/trial-protocol-reviews.json",
+    "last_progress_at": "2026-11-02T05:01:52.763083-05:00",
     "current_public_total": 155,
     "independently_reviewed_current_public": 142,
     "pending_independent_review_total": 13,
-    "full_fresh_gate_remaining": 31
+    "full_fresh_gate_remaining": 44,
+    "additional_site_scoping_issues": 1,
+    "current_daily_full_protocol_reviews": 17,
+    "execution_queue": "data/audit_execution_queue.json",
+    "execution_validation": "research/audit-runs/daily-20261102T030506-0500/execution-validation.json"
   },
   "last_targeted_source_reconciliation": {
     "run_id": "finish-20261027T063052-0400",
@@ -141,15 +149,8 @@
     "status": "INCOMPLETE"
   },
   "publication_verification": {
-    "run_id": "daily-20261031T032935-0400",
-    "at": "2026-10-31T03:50:26.950408-04:00",
-    "published_commit": "6077017adaeb9428895bd003fdd9d58db695812a",
-    "deploy_run_id": 41181985681,
-    "deploy": "success",
-    "production_bytes": "PASS",
-    "loading_regression": "PASS",
-    "live_USA_search": "PASS",
-    "live_Japan_search": "PASS",
-    "receipt": "research/audit-runs/daily-20261031T032935-0400/production-ui-proof.json"
+    "run_id": "daily-20261102T030506-0500",
+    "status": "SEE_CURRENT_RUN_PRODUCTION_READBACK",
+    "evidence": "research/audit-runs/daily-20261102T030506-0500/production-readback.json"
   }
 }

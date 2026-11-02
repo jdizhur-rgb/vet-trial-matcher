@@ -46,6 +46,33 @@ class ExecutionTests(unittest.TestCase):
     def test_complete_current_accounting_passes(self):
         self.assertEqual(self.check()[0], [])
 
+    def add_current_source(self):
+        data = self.root / "data"
+        data.mkdir(exist_ok=True)
+        (data / "source_inventory.json").write_text(json.dumps({"sources": [{"id": "s"}, {"id": "new"}]}))
+        self.review["added_source_ids"] = ["new"]
+        self.receipt["sources"].append({**copy.deepcopy(self.source), "source_id": "new"})
+        self.review["source_reviews"].append({**copy.deepcopy(self.decision), "source_id": "new"})
+        self.receipt["content_sufficient_total"] = 2
+
+    def test_declared_current_source_addition_preserves_frozen_sources(self):
+        self.add_current_source()
+        errors, summary, _ = self.check()
+        self.assertEqual(errors, [])
+        self.assertEqual(summary["source_total"], 2)
+        self.assertEqual(summary["baseline_source_total"], 1)
+        self.assertEqual(summary["sources_added"], 1)
+        self.receipt["sources"] = self.receipt["sources"][1:]
+        self.assertTrue(any("every frozen source" in e for e in self.check()[0]))
+
+    def test_undeclared_or_nonexistent_source_addition_is_rejected(self):
+        self.add_current_source()
+        self.review["added_source_ids"] = []
+        self.assertTrue(any("every frozen source" in e for e in self.check()[0]))
+        self.review["added_source_ids"] = ["new"]
+        (self.root / "data/source_inventory.json").write_text(json.dumps({"sources": [{"id": "s"}]}))
+        self.assertTrue(any("actual current inventory" in e for e in self.check()[0]))
+
     def test_previous_partial_does_not_prevent_promotion(self):
         self.source.update(previous_content_sufficient=False, previous_result="partial")
         self.assertTrue(current_source_sufficient(self.source, self.decision, self.root, self.start, self.end))

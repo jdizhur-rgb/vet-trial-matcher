@@ -1,0 +1,76 @@
+[
+  {
+    "command": [
+      "python",
+      "scripts/validate_audit_receipt.py",
+      "research/audit-runs/daily-20261102T030506-0500/receipt-final.json"
+    ],
+    "started_at": "2026-11-02T10:08:40.302909+00:00",
+    "exit_code": 1,
+    "log": "research/audit-runs/daily-20261102T030506-0500/receipt-validation.log"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_audit_gap_review.py",
+      "research/audit-runs/daily-20261102T030506-0500/gap-review.json",
+      "--receipt",
+      "research/audit-runs/daily-20261102T030506-0500/receipt-final.json"
+    ],
+    "started_at": "2026-11-02T10:08:40.353447+00:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261102T030506-0500/gap-validation.log"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/audit_execution_gate.py",
+      "check",
+      "research/audit-runs/daily-20261102T030506-0500",
+      "--receipt",
+      "research/audit-runs/daily-20261102T030506-0500/receipt-final.json",
+      "--queue-out",
+      "data/audit_execution_queue.json"
+    ],
+    "started_at": "2026-11-02T10:08:40.393240+00:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261102T030506-0500/execution-validation-command.log"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/test_matcher_logic.js"
+    ],
+    "started_at": "2026-11-02T10:08:40.476341+00:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261102T030506-0500/matcher-logic-final.log"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_production_sync.py"
+    ],
+    "started_at": "2026-11-02T10:08:40.800384+00:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261102T030506-0500/production-sync-final.log"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/check_evidence_keys.py",
+      "research/audit-runs/daily-20261102T030506-0500"
+    ],
+    "started_at": "2026-11-02T10:08:42.075933+00:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261102T030506-0500/evidence-key-scan.log"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_source_inventory.py"
+    ],
+    "started_at": "2026-11-02T10:08:42.265543+00:00",
+    "exit_code": 0,
+    "log": "research/audit-runs/daily-20261102T030506-0500/source-validation-final.log"
+  }
+]

@@ -170,7 +170,19 @@ def validate(baseline, review, receipt, root):
         return {r.get(key): r for r in rows}
     sources = keyed(receipt.get("sources", []), "source_id", "receipt")
     source_reviews = keyed(review.get("source_reviews", []), "source_id", "source reviews")
-    if set(sources) != set(baseline["source_ids"]) or set(source_reviews) != set(sources):
+    added_sources = review.get("added_source_ids", [])
+    if (not isinstance(added_sources, list)
+            or len(added_sources) != len(set(added_sources))
+            or set(added_sources) & set(baseline["source_ids"])):
+        errors.append("added sources must be distinct new identities")
+        added_sources = []
+    if added_sources:
+        inventory_path = root / "data/source_inventory.json"
+        current_sources = {s["id"] for s in read(inventory_path)["sources"]} if inventory_path.is_file() else set()
+        if not set(added_sources) <= current_sources:
+            errors.append("added source identities must exist in the actual current inventory")
+    expected_sources = set(baseline["source_ids"]) | set(added_sources)
+    if set(sources) != expected_sources or set(source_reviews) != set(sources):
         errors.append("every frozen source needs one current decision")
     sufficient = 0
     available = []
@@ -288,7 +300,8 @@ def validate(baseline, review, receipt, root):
     if reason == "runtime_failure" and not exists_refs(stop.get("evidence_refs"), root):
         errors.append("runtime failure needs saved error evidence")
     summary = {"status": "FAIL" if errors else "PASS", "source_sufficient": sufficient,
-        "source_total": len(baseline["source_ids"]), "issues_before": len(old),
+        "source_total": len(sources), "baseline_source_total": len(baseline["source_ids"]),
+        "sources_added": len(added_sources), "issues_before": len(old),
         "issues_resolved": sum(x.get("state") == "RESOLVED" for x in updates.values()),
         "issues_remaining": len(next_queue), "available_remaining": available,
         "issue_states": dict(Counter(x.get("state") for x in updates.values())),
