@@ -2,15 +2,15 @@
   "run_id": "daily-20261102T030506-0500",
   "mode": "DAILY GLOBAL WORK AUDIT",
   "started_at": "2026-11-02T03:05:06.512481-05:00",
-  "at": "2026-11-02T05:04:21.980535-05:00",
+  "at": "2026-11-02T05:46:34.310913-05:00",
   "baseline_main_sha": "519c8189e244e3c4acd924f21c7059828fae7f55",
-  "source_total": 153,
+  "source_total": 157,
   "baseline_source_total": 149,
-  "attempted_total": 131,
+  "attempted_total": 135,
   "content_sufficient_total": 34,
-  "processing_complete_total": 150,
+  "processing_complete_total": 154,
   "source_result_counts": {
-    "partial": 92,
+    "partial": 96,
     "fully_reconciled": 34,
     "not_checked": 22,
     "unreachable": 5
@@ -16405,6 +16405,420 @@
       "last_checked_at": "2026-11-02T04:14:57.437825-05:00",
       "last_result": "reachable",
       "current_fingerprint": "sha256:82f3b59bd3ed632b2ffa1e4c59427fffd047343ece0dc17168e517adfdfd1095"
+    },
+    {
+      "source_id": "at-vetmeduni-feline-lymphoma-study",
+      "source_name": "Vetmeduni Vienna — feline alimentary lymphoma clinical invitation",
+      "opened_this_run": true,
+      "attempted_urls": [
+        {
+          "source_id": "discovery-Austria-lymphoma",
+          "url": "https://www.vetmeduni.ac.at/fileadmin/v/oeuk/Magazin/2020/vetmed_2020_04_WEB.pdf",
+          "route": "actual_official_historical_followup",
+          "method": "shell_curl",
+          "attempted_at": "2026-11-02T11:44:16.705869+01:00",
+          "completed_at": "2026-11-02T11:44:25.175322+01:00",
+          "http_status": 200,
+          "effective_url": "https://www.vetmeduni.ac.at/fileadmin/v/oeuk/Magazin/2020/vetmed_2020_04_WEB.pdf",
+          "content_type": "application/pdf",
+          "attempts": [
+            {
+              "at": "2026-11-02T11:44:24.956796+01:00",
+              "http_status": 200,
+              "exit_code": 0,
+              "stderr": "",
+              "retry": 0
+            }
+          ],
+          "result": "retrieved_page",
+          "text_length": 261423,
+          "text_sha256": "35e0631ae471d8007bbc1bfe0dc6feb8aba58f9316da05bcd33848dc84726048",
+          "evidence_file": "research/audit-runs/daily-20261102T030506-0500/evidence/e8b51bbbbeef359c34.json",
+          "new_source_visit": true
+        },
+        {
+          "source_id": "discovery-frontier-0",
+          "url": "https://www.vetmeduni.ac.at/fileadmin/v/interne-kleintiere/onkologie/Katzenlymphomstudie_20160510.pdf",
+          "route": "selected_primary_or_originating_news",
+          "method": "shell_curl",
+          "attempted_at": "2026-11-02T11:34:20.277065+01:00",
+          "completed_at": "2026-11-02T11:34:28.944300+01:00",
+          "http_status": 200,
+          "effective_url": "https://www.vetmeduni.ac.at/fileadmin/v/interne-kleintiere/onkologie/Katzenlymphomstudie_20160510.pdf",
+          "content_type": "application/pdf",
+          "attempts": [
+            {
+              "at": "2026-11-02T11:34:25.288236+01:00",
+              "http_status": 0,
+              "exit_code": 28,
+              "stderr": "curl: (28) Proxy CONNECT aborted due to timeout\n",
+              "retry": 0
+            },
+            {
+              "at": "2026-11-02T11:34:28.930554+01:00",
+              "http_status": 200,
+              "exit_code": 0,
+              "stderr": "",
+              "retry": 1
+            }
+          ],
+          "result": "retrieved_page",
+          "text_length": 2561,
+          "text_sha256": "635b7510af33a3dfe83db98d25434b5d62a768341d37980ba63cc88fecebc918",
+          "evidence_file": "research/audit-runs/daily-20261102T030506-0500/evidence/f7da44f4c854decfe3.json",
+          "new_source_visit": true
+        }
+      ],
+      "route_used": [
+        "shell_curl"
+      ],
+      "current_content_comparison": [],
+      "previous_last_checked": null,
+      "previous_last_checked_at": null,
+      "previous_result": null,
+      "previous_fingerprint": null,
+      "processing_complete": true,
+      "processing_assessment": "current_reconciliation_done",
+      "content_sufficient": false,
+      "protocols_seen": 1,
+      "current_roster": null,
+      "reconciliation": "2016invitation and2020magazine read; full stated funded treatment and owner-paid diagnostics recorded, but current2026intake not established. This is an historical official therapeutic lead, not a current recruiting claim.",
+      "current_finding": "2016invitation and2020magazine read; full stated funded treatment and owner-paid diagnostics recorded, but current2026intake not established. This is an historical official therapeutic lead, not a current recruiting claim.",
+      "master_result": "partial",
+      "coverage_result": "partial",
+      "last_checked": "2026-11-02",
+      "last_checked_at": "2026-11-02T05:44:25.175322-05:00",
+      "last_result": "partial",
+      "current_fingerprint": "sha256:635b7510af33a3dfe83db98d25434b5d62a768341d37980ba63cc88fecebc918"
+    },
+    {
+      "source_id": "es-hifasvet-oncology-research",
+      "source_name": "Hifas Vet — oncology adjunct clinical research",
+      "opened_this_run": true,
+      "attempted_urls": [
+        {
+          "source_id": "discovery-Hifas-mammary",
+          "url": "https://hifasvet.com/wp-content/uploads/2025/03/Hifas_Onco_Pet_6.pdf",
+          "route": "published_product_study_reference",
+          "method": "shell_curl",
+          "attempted_at": "2026-11-02T11:41:56.431361+01:00",
+          "completed_at": "2026-11-02T11:42:01.735068+01:00",
+          "http_status": 200,
+          "effective_url": "https://hifasvet.com/wp-content/uploads/2025/03/Hifas_Onco_Pet_6.pdf",
+          "content_type": "application/pdf",
+          "attempts": [
+            {
+              "at": "2026-11-02T11:42:01.698975+01:00",
+              "http_status": 200,
+              "exit_code": 0,
+              "stderr": "",
+              "retry": 0
+            }
+          ],
+          "result": "retrieved_page",
+          "text_length": 19878,
+          "text_sha256": "27b0fe5677cb33f19d91a5ae4acb2ce1e8b2a83c01ea87d1345a0ecd27bab80f",
+          "evidence_file": "research/audit-runs/daily-20261102T030506-0500/evidence/a88dfcebfc136ee383.json",
+          "new_source_visit": true
+        },
+        {
+          "source_id": "discovery-Hifas-mammary",
+          "url": "https://hifasvet.com/productos/#oncopet",
+          "route": "actual_RandD_study_link",
+          "method": "shell_curl",
+          "attempted_at": "2026-11-02T11:37:31.983453+01:00",
+          "completed_at": "2026-11-02T11:37:37.909386+01:00",
+          "http_status": 200,
+          "effective_url": "https://hifasvet.com/productos/#oncopet",
+          "content_type": "text/html; charset=UTF-8",
+          "attempts": [
+            {
+              "at": "2026-11-02T11:37:37.899456+01:00",
+              "http_status": 200,
+              "exit_code": 0,
+              "stderr": "",
+              "retry": 0
+            }
+          ],
+          "result": "retrieved_page",
+          "text_length": 6524,
+          "text_sha256": "7dbc21a2a3bbc286a0ec4f4ac43f0c546826433629b32ab263f402be9007fdda",
+          "evidence_file": "research/audit-runs/daily-20261102T030506-0500/evidence/fef8ba4cebcc5bd495.json",
+          "new_source_visit": true
+        },
+        {
+          "source_id": "discovery-frontier-2",
+          "url": "https://hifasvet.com/id/",
+          "route": "selected_primary_or_originating_news",
+          "method": "shell_curl",
+          "attempted_at": "2026-11-02T11:34:20.277993+01:00",
+          "completed_at": "2026-11-02T11:34:27.464285+01:00",
+          "http_status": 200,
+          "effective_url": "https://hifasvet.com/id/",
+          "content_type": "text/html; charset=UTF-8",
+          "attempts": [
+            {
+              "at": "2026-11-02T11:34:27.455184+01:00",
+              "http_status": 200,
+              "exit_code": 0,
+              "stderr": "",
+              "retry": 0
+            }
+          ],
+          "result": "retrieved_page",
+          "text_length": 28049,
+          "text_sha256": "4cc611cc598989ca04af9180cb1c89b19c06a4dfc9c739b001c07a47d20b39c8",
+          "evidence_file": "research/audit-runs/daily-20261102T030506-0500/evidence/82ccfbe7c22158eb08.json",
+          "new_source_visit": true
+        }
+      ],
+      "route_used": [
+        "shell_curl"
+      ],
+      "current_content_comparison": [],
+      "previous_last_checked": null,
+      "previous_last_checked_at": null,
+      "previous_result": null,
+      "previous_fingerprint": null,
+      "processing_complete": true,
+      "processing_assessment": "current_reconciliation_done",
+      "content_sufficient": false,
+      "protocols_seen": 2,
+      "current_roster": null,
+      "reconciliation": "R&D, linked product and actual brochure read; phaseIIpostoperative mammary adjunct distinguished from the single-cat SCC case and non-oncology studies. Current intake, complete trial costs and treatment-only clinical interpretation are not published; no canonical trial added.",
+      "current_finding": "R&D, linked product and actual brochure read; phaseIIpostoperative mammary adjunct distinguished from the single-cat SCC case and non-oncology studies. Current intake, complete trial costs and treatment-only clinical interpretation are not published; no canonical trial added.",
+      "master_result": "partial",
+      "coverage_result": "partial",
+      "last_checked": "2026-11-02",
+      "last_checked_at": "2026-11-02T05:42:01.735068-05:00",
+      "last_result": "partial",
+      "current_fingerprint": "sha256:4cc611cc598989ca04af9180cb1c89b19c06a4dfc9c739b001c07a47d20b39c8"
+    },
+    {
+      "source_id": "no-immuvera-nebumet-development",
+      "source_name": "Immuvera Therapeutics — Nebumet clinical development",
+      "opened_this_run": true,
+      "attempted_urls": [
+        {
+          "source_id": "discovery-Immuvera-study-stage",
+          "url": "https://www.immuvera.com/news/successful-capital-raise-paves-the-way-for-pet-cancer-treatment",
+          "route": "published_study_development_news",
+          "method": "shell_curl",
+          "attempted_at": "2026-11-02T11:41:56.430835+01:00",
+          "completed_at": "2026-11-02T11:42:00.020080+01:00",
+          "http_status": 200,
+          "effective_url": "https://www.immuvera.com/news/successful-capital-raise-paves-the-way-for-pet-cancer-treatment",
+          "content_type": "text/html",
+          "attempts": [
+            {
+              "at": "2026-11-02T11:42:00.002140+01:00",
+              "http_status": 200,
+              "exit_code": 0,
+              "stderr": "",
+              "retry": 0
+            }
+          ],
+          "result": "retrieved_page",
+          "text_length": 6416,
+          "text_sha256": "e48080a58293c1e0842fe95c2da587d541df8cf8c8b9fa384b479e35f4973cc1",
+          "evidence_file": "research/audit-runs/daily-20261102T030506-0500/evidence/5f8d8c59966d87acef.json",
+          "new_source_visit": true
+        },
+        {
+          "source_id": "discovery-Immuvera-current-news",
+          "url": "https://www.immuvera.com/news",
+          "route": "published_official_news_link",
+          "method": "shell_curl",
+          "attempted_at": "2026-11-02T11:40:17.234903+01:00",
+          "completed_at": "2026-11-02T11:40:21.133449+01:00",
+          "http_status": 200,
+          "effective_url": "https://www.immuvera.com/news",
+          "content_type": "text/html",
+          "attempts": [
+            {
+              "at": "2026-11-02T11:40:21.118068+01:00",
+              "http_status": 200,
+              "exit_code": 0,
+              "stderr": "",
+              "retry": 0
+            }
+          ],
+          "result": "retrieved_page",
+          "text_length": 5347,
+          "text_sha256": "5cf5bf2b95215176d42223eee7a3756da343b9147d91cc15f9496c4a11ad20c7",
+          "evidence_file": "research/audit-runs/daily-20261102T030506-0500/evidence/ee989ba70e27be8826.json",
+          "new_source_visit": true
+        },
+        {
+          "source_id": "discovery-Immuvera-study-stage",
+          "url": "https://www.immuvera.com/news/immuvera-therapeutics-and-omica-biomed-strengthen-collaboration-in-veterinary-oncology",
+          "route": "published_study_development_news",
+          "method": "shell_curl",
+          "attempted_at": "2026-11-02T11:41:56.429914+01:00",
+          "completed_at": "2026-11-02T11:41:59.999882+01:00",
+          "http_status": 200,
+          "effective_url": "https://www.immuvera.com/news/immuvera-therapeutics-and-omica-biomed-strengthen-collaboration-in-veterinary-oncology",
+          "content_type": "text/html",
+          "attempts": [
+            {
+              "at": "2026-11-02T11:41:59.980867+01:00",
+              "http_status": 200,
+              "exit_code": 0,
+              "stderr": "",
+              "retry": 0
+            }
+          ],
+          "result": "retrieved_page",
+          "text_length": 5211,
+          "text_sha256": "e60853eb5b4e13edc001a18584fede4852e5fea5aa24592ce83eb96a626a5f2f",
+          "evidence_file": "research/audit-runs/daily-20261102T030506-0500/evidence/53c7fbe1b835f3b947.json",
+          "new_source_visit": true
+        },
+        {
+          "source_id": "discovery-Immuvera-NMBU",
+          "url": "https://www.immuvera.com/our-solution",
+          "route": "known_canonical_primary",
+          "method": "shell_curl",
+          "attempted_at": "2026-11-02T11:37:31.983923+01:00",
+          "completed_at": "2026-11-02T11:37:35.458242+01:00",
+          "http_status": 200,
+          "effective_url": "https://www.immuvera.com/our-solution",
+          "content_type": "text/html",
+          "attempts": [
+            {
+              "at": "2026-11-02T11:37:35.450131+01:00",
+              "http_status": 200,
+              "exit_code": 0,
+              "stderr": "",
+              "retry": 0
+            }
+          ],
+          "result": "retrieved_page",
+          "text_length": 5353,
+          "text_sha256": "8b1dace279a5b3059a2a4b0133f8ba034fdfb373b08ccb481895bf57e8fda1ac",
+          "evidence_file": "research/audit-runs/daily-20261102T030506-0500/evidence/fb04ebb63fc66976a7.json",
+          "new_source_visit": true
+        }
+      ],
+      "route_used": [
+        "shell_curl"
+      ],
+      "current_content_comparison": [],
+      "previous_last_checked": null,
+      "previous_last_checked_at": null,
+      "previous_result": null,
+      "previous_fingerprint": null,
+      "processing_complete": true,
+      "processing_assessment": "current_reconciliation_done",
+      "content_sufficient": false,
+      "protocols_seen": 2,
+      "current_roster": null,
+      "reconciliation": "Current full solution/news/relevant development articles read. Compare exact named Nebumet with four inactive registration-country records; retain cohort/site/intake uncertainty and original dates. No new owner enrollment, public site roster or costs are stated; old NMBU unnamed/dendritic cohorts not merged by sponsor.",
+      "current_finding": "Current full solution/news/relevant development articles read. Compare exact named Nebumet with four inactive registration-country records; retain cohort/site/intake uncertainty and original dates. No new owner enrollment, public site roster or costs are stated; old NMBU unnamed/dendritic cohorts not merged by sponsor.",
+      "master_result": "partial",
+      "coverage_result": "partial",
+      "last_checked": "2026-11-02",
+      "last_checked_at": "2026-11-02T05:42:00.020080-05:00",
+      "last_result": "partial",
+      "current_fingerprint": "sha256:8b1dace279a5b3059a2a4b0133f8ba034fdfb373b08ccb481895bf57e8fda1ac"
+    },
+    {
+      "source_id": "pl-sggw-nanooncology-research",
+      "source_name": "SGGW — experimental and clinical nanooncology research",
+      "opened_this_run": true,
+      "attempted_urls": [
+        {
+          "source_id": "discovery-Poland-nanooncology",
+          "url": "https://imw.sggw.edu.pl/laboratory-of-experimental-and-clinical-nanooncology/?lang=en",
+          "route": "official_research_signal",
+          "method": "shell_curl",
+          "attempted_at": "2026-11-02T11:35:57.968687+01:00",
+          "completed_at": "2026-11-02T11:36:09.976207+01:00",
+          "http_status": 200,
+          "effective_url": "https://wmw.sggw.edu.pl/",
+          "content_type": "text/html; charset=UTF-8",
+          "attempts": [
+            {
+              "at": "2026-11-02T11:36:02.980827+01:00",
+              "http_status": 0,
+              "exit_code": 28,
+              "stderr": "curl: (28) Proxy CONNECT aborted due to timeout\n",
+              "retry": 0
+            },
+            {
+              "at": "2026-11-02T11:36:09.963235+01:00",
+              "http_status": 200,
+              "exit_code": 0,
+              "stderr": "",
+              "retry": 1
+            }
+          ],
+          "result": "retrieved_page",
+          "text_length": 5298,
+          "text_sha256": "9197693f7f705585bb41bbc8a129d79be13e80af45917ba10bb7ef3db82ad0c3",
+          "evidence_file": "research/audit-runs/daily-20261102T030506-0500/evidence/ff328a3bcc8c46370b.json",
+          "new_source_visit": true
+        },
+        {
+          "source_id": "discovery-SGGW-archive",
+          "url": "https://archiwumimw.sggw.edu.pl/",
+          "route": "observed_official_archive_fallback",
+          "method": "shell_curl",
+          "attempted_at": "2026-11-02T11:44:16.706572+01:00",
+          "completed_at": "2026-11-02T11:44:23.137713+01:00",
+          "http_status": 200,
+          "effective_url": "https://archiwumimw.sggw.edu.pl/",
+          "content_type": "text/html; charset=UTF-8",
+          "attempts": [
+            {
+              "at": "2026-11-02T11:44:23.126520+01:00",
+              "http_status": 200,
+              "exit_code": 0,
+              "stderr": "",
+              "retry": 0
+            }
+          ],
+          "result": "retrieved_page",
+          "text_length": 11560,
+          "text_sha256": "7f0ca4d429a5ccbc1c983d878bb4d43d12b97205b21caec3e1803c8ff5a1fef9",
+          "evidence_file": "research/audit-runs/daily-20261102T030506-0500/evidence/dff73861f59a8ba19f.json",
+          "new_source_visit": true
+        },
+        {
+          "url": "https://imw.sggw.edu.pl/laboratory-of-experimental-and-clinical-nanooncology/?lang=en",
+          "method": "Web",
+          "attempted_at": "2026-11-02T10:38:21.051000+00:00",
+          "completed_at": "2026-11-02T10:38:22.165000+00:00",
+          "evidence_file": "research/audit-runs/daily-20261102T030506-0500/web-29.json",
+          "result": "web_retrieved_page",
+          "new_source_visit": true,
+          "http_status": null,
+          "freshness": "cache freshness not independently established",
+          "text_length": 20898
+        }
+      ],
+      "route_used": [
+        "shell_curl",
+        "Web"
+      ],
+      "current_content_comparison": [],
+      "previous_last_checked": null,
+      "previous_last_checked_at": null,
+      "previous_result": null,
+      "previous_fingerprint": null,
+      "processing_complete": true,
+      "processing_assessment": "current_reconciliation_done",
+      "content_sufficient": false,
+      "protocols_seen": 1,
+      "current_roster": null,
+      "reconciliation": "Actual original URL redirects to generic faculty. Same official URL read in Web with2monthunknownfreshness; official archive fallback read. Gold-nanoparticle topics and preclinical references do not constitute current owner trial intake. No institutionwide unavailability or clinical roster asserted.",
+      "current_finding": "Actual original URL redirects to generic faculty. Same official URL read in Web with2monthunknownfreshness; official archive fallback read. Gold-nanoparticle topics and preclinical references do not constitute current owner trial intake. No institutionwide unavailability or clinical roster asserted.",
+      "master_result": "partial",
+      "coverage_result": "partial",
+      "last_checked": "2026-11-02",
+      "last_checked_at": "2026-11-02T05:44:23.137713-05:00",
+      "last_result": "partial",
+      "current_fingerprint": "sha256:9197693f7f705585bb41bbc8a129d79be13e80af45917ba10bb7ef3db82ad0c3"
     }
   ]
 }
