@@ -1,0 +1,51 @@
+{
+  "commit": "5fc2f1db27ec9314b7544cf409b0d3055372592d",
+  "deploy_run": 41634278066,
+  "script_version": "clinical-audit-20261103-owner-rules-r1",
+  "catalog_version": "5d031c3b8485f52b",
+  "result": "PASS",
+  "rows": [
+    {
+      "name": "html",
+      "url": "https://vettrialfinder.com/matcher/",
+      "method": "shell_curl",
+      "started_at": "2026-11-03T07:18:24.566495-05:00",
+      "completed_at": "2026-11-03T07:18:28.563501-05:00",
+      "http_status": "200",
+      "exit_code": 0,
+      "stderr": "",
+      "local_sha256": "4caa7257db25ba6af6b16a1fb0c6113fc35876b8d998406297814491065cef49",
+      "live_sha256": "4caa7257db25ba6af6b16a1fb0c6113fc35876b8d998406297814491065cef49",
+      "equal": true,
+      "evidence": "research/audit-runs/owner-rules-20261103T065741-0500/production/html.body"
+    },
+    {
+      "name": "js",
+      "url": "https://vettrialfinder.com/matcher/matcher.js?v=clinical-audit-20261103-owner-rules-r1",
+      "method": "shell_curl",
+      "started_at": "2026-11-03T07:18:28.563969-05:00",
+      "completed_at": "2026-11-03T07:18:31.166407-05:00",
+      "http_status": "200",
+      "exit_code": 0,
+      "stderr": "",
+      "local_sha256": "a9b0a97ca943bb005fc4d5eea77839df43df2e220aaa15c43dd5af7210628375",
+      "live_sha256": "a9b0a97ca943bb005fc4d5eea77839df43df2e220aaa15c43dd5af7210628375",
+      "equal": true,
+      "evidence": "research/audit-runs/owner-rules-20261103T065741-0500/production/js.body"
+    },
+    {
+      "name": "catalog",
+      "url": "https://vettrialfinder.com/matcher/trials.json?v=5d031c3b8485f52b",
+      "method": "shell_curl",
+      "started_at": "2026-11-03T07:18:31.167113-05:00",
+      "completed_at": "2026-11-03T07:18:35.684261-05:00",
+      "http_status": "200",
+      "exit_code": 0,
+      "stderr": "",
+      "local_sha256": "5d031c3b8485f52b989ec1a6e9935dcaa9369509f53fbaa3a4e07f18b47c88c4",
+      "live_sha256": "5d031c3b8485f52b989ec1a6e9935dcaa9369509f53fbaa3a4e07f18b47c88c4",
+      "equal": true,
+      "evidence": "research/audit-runs/owner-rules-20261103T065741-0500/production/catalog.body"
+    }
+  ]
+}
