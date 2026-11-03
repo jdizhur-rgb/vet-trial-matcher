@@ -3,35 +3,27 @@
   "purpose": "Persistent state for incremental discovery and deep-audit cost control. Source fingerprints live in source_inventory.json; this file tracks audit scheduling and unresolved work.",
   "last_full_deep_audit": null,
   "last_incremental_audit": {
-    "date": "2026-11-02",
-    "at": "2026-11-02T05:47:58.201639-05:00",
-    "run_id": "daily-20261102T030506-0500",
-    "receipt": "research/audit-runs/daily-20261102T030506-0500/receipt-final.json",
-    "status": "INCOMPLETE",
+    "run_id": "daily-20261103T030532-0500",
+    "started_at": "2026-11-03T03:05:32.469195-05:00",
+    "at": "2026-11-03T04:44:53.867063-05:00",
+    "mode": "DAILY GLOBAL WORK AUDIT",
+    "receipt": "research/audit-runs/daily-20261103T030532-0500/receipt-final.json",
+    "execution_review": "research/audit-runs/daily-20261103T030532-0500/execution-review.json",
+    "content_sufficient_total": 43,
     "source_total": 157,
     "processing_complete_total": 154,
-    "content_sufficient_total": 34,
-    "execution_validation": "research/audit-runs/daily-20261102T030506-0500/execution-validation.json"
+    "status": "INCOMPLETE",
+    "scope": "Current source traversal, full daily deadline comparison, global country/language discovery and five due full protocol reviews; unresolved access/clinical/owner issues retained."
   },
   "last_source_discovery_attempt": {
-    "date": "2026-11-02",
-    "at": "2026-11-02T05:47:58.201639-05:00",
-    "run_id": "daily-20261102T030506-0500",
-    "queries": 232,
+    "run_id": "daily-20261103T030532-0500",
+    "at": "2026-11-03T04:44:53.867063-05:00",
     "regions": 12,
-    "receipt": "research/audit-runs/daily-20261102T030506-0500/discovery-ledger.json",
-    "status": "INCOMPLETE_current_access_gaps",
-    "new_sources": [
-      "usa-vccs-egfr-her2-clinical-trial",
-      "tw-protectvac-pt001-recruitment",
-      "tw-evergreen-ntu-il15-recruitment",
-      "usa-case-bi705564-clinical-study",
-      "at-vetmeduni-feline-lymphoma-study",
-      "es-hifasvet-oncology-research",
-      "no-immuvera-nebumet-development",
-      "pl-sggw-nanooncology-research"
-    ],
-    "countries": 81
+    "queries": 148,
+    "countries": 75,
+    "languages": 38,
+    "status": "INCOMPLETE",
+    "lead_ledger": "research/audit-runs/daily-20261103T030532-0500/lead-decisions.json"
   },
   "forced_full_reread_days": 28,
   "rules": {
@@ -77,7 +69,9 @@
     "additional_site_scoping_issues": 1,
     "current_daily_full_protocol_reviews": 17,
     "execution_queue": "data/audit_execution_queue.json",
-    "execution_validation": "research/audit-runs/daily-20261102T030506-0500/execution-validation.json"
+    "execution_validation": "research/audit-runs/daily-20261102T030506-0500/execution-validation.json",
+    "last_current_run_id": "daily-20261103T030532-0500",
+    "current_full_reviews_ref": "research/audit-runs/daily-20261103T030532-0500/completed-clinical-reviews.json"
   },
   "last_targeted_source_reconciliation": {
     "run_id": "finish-20261027T063052-0400",

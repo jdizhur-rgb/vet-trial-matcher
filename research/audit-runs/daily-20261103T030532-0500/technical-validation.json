@@ -1,0 +1,113 @@
+[
+  {
+    "command": [
+      "python",
+      "scripts/validate_catalog_sanitation.py"
+    ],
+    "started_at": "2026-11-03T09:45:53.398748+00:00",
+    "completed_at": "2026-11-03T09:45:53.430864+00:00",
+    "exit_code": 0,
+    "output": "{\n  \"records\": 315,\n  \"partial_records\": 4,\n  \"known_unresolved\": 4,\n  \"new_partial_records\": [],\n  \"resolved_but_still_queued\": [\n    \"eu-ch-sinonasal-heterogeneous-rt\",\n    \"fr-fregis-chemodectoma-thermoablation\",\n    \"fr-fregis-hepatic-embolization\",\n    \"fr-fregis-hepatic-tumor-thermoablation\",\n    \"nl-utrecht-osteosarcoma-oncolytic-virus-access\",\n    \"uk-rvc-insulinoma-toceranib\"\n  ]\n}\n"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_trials_catalog.py"
+    ],
+    "started_at": "2026-11-03T09:45:53.430930+00:00",
+    "completed_at": "2026-11-03T09:45:53.481950+00:00",
+    "exit_code": 0,
+    "output": "TRIAL_CATALOG_VALIDATION_OK records=315 unique_ids=315 active=155 required_active_fields=11\n"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_source_inventory.py"
+    ],
+    "started_at": "2026-11-03T09:45:53.482001+00:00",
+    "completed_at": "2026-11-03T09:45:53.519956+00:00",
+    "exit_code": 0,
+    "output": "SOURCE_INVENTORY_VALIDATION_OK sources=157 digest=1b9f1fe74e15\n"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_repository_hygiene.py"
+    ],
+    "started_at": "2026-11-03T09:45:53.520204+00:00",
+    "completed_at": "2026-11-03T09:45:53.597940+00:00",
+    "exit_code": 0,
+    "output": "REPOSITORY_HYGIENE_OK\n"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/check_evidence_keys.py"
+    ],
+    "started_at": "2026-11-03T09:45:53.597985+00:00",
+    "completed_at": "2026-11-03T09:45:55.542018+00:00",
+    "exit_code": 0,
+    "output": "PASS: no unredacted Google API keys.\n"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/test_matcher_logic.js"
+    ],
+    "started_at": "2026-11-03T09:45:55.542054+00:00",
+    "completed_at": "2026-11-03T09:45:55.858198+00:00",
+    "exit_code": 0,
+    "output": "MATCHER_LOGIC_OK trials=155 mct=4 yasha=0 mammary=5 osteosarcoma=17 bladder=6 brain=8\n"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/test_matcher_selection.js"
+    ],
+    "started_at": "2026-11-03T09:45:55.858252+00:00",
+    "completed_at": "2026-11-03T09:45:56.106965+00:00",
+    "exit_code": 0,
+    "output": "SOURCE_DERIVED_SELECTION_OK public_reviewed=142/155 pending=13 retained_reviews=149 cases=758\nMATCHER_SELECTION_OK canonical=315 public=155 checks=1466 criteria=222\n"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/test_matcher_selection.py"
+    ],
+    "started_at": "2026-11-03T09:45:56.107214+00:00",
+    "completed_at": "2026-11-03T09:45:56.460517+00:00",
+    "exit_code": 0,
+    "output": "MATCHER_SELECTION_PARITY_OK public=155 disease_checks=18600\nTUFTS_OSA_COHORT_PARITY_OK cases=8\nPRIMARY_SITE_LINEAGE_PHASE_PARITY_OK\n"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/test_matcher_protocol_sources.js"
+    ],
+    "started_at": "2026-11-03T09:45:56.460561+00:00",
+    "completed_at": "2026-11-03T09:45:56.565251+00:00",
+    "exit_code": 0,
+    "output": "SOURCE_DERIVED_SELECTION_OK public_reviewed=142/155 pending=13 retained_reviews=149 cases=758\n"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/test_matcher_protocol_sources.js",
+      "--reviewed-since=2026-11-03T03:05:32-05:00"
+    ],
+    "started_at": "2026-11-03T09:45:56.565479+00:00",
+    "completed_at": "2026-11-03T09:45:56.671163+00:00",
+    "exit_code": 0,
+    "output": "SOURCE_DERIVED_SELECTION_OK public_reviewed=5/155 pending=150 retained_reviews=149 cases=758\n"
+  },
+  {
+    "command": [
+      "python",
+      "scripts/validate_production_sync.py"
+    ],
+    "started_at": "2026-11-03T09:45:56.671210+00:00",
+    "completed_at": "2026-11-03T09:45:57.757443+00:00",
+    "exit_code": 0,
+    "output": "PRODUCTION_SYNC_OK total=155 treatment=151 access=4 matcher_ids=155 internal_links=7053\n"
+  }
+]
