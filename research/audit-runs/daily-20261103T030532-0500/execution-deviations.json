@@ -1,0 +1,35 @@
+{
+  "recorded_at": "2026-11-03T09:58:39.009784+00:00",
+  "items": [
+    {
+      "kind": "checkpoint_interval",
+      "actual_intervals": [
+        "03:11:48→03:28:10=16m22s",
+        "03:28:10→03:46:54=18m44s"
+      ],
+      "finding": "Two early intervals exceeded15min; no retroactive checkpoints fabricated. Thereafter automatic immutable checkpoints every10min."
+    },
+    {
+      "kind": "extra_diagnostic_request",
+      "url": "https://veterinaryclinicaltrials.org/",
+      "finding": "Initial native diagnostic request preceded the inventory wrapper and the root was read again by the normal master pass. Original diagnostic instant was not separately saved; it is not reconstructed."
+    },
+    {
+      "kind": "redundant_Web_retrieval",
+      "urls": [
+        "https://leahlabs.com/",
+        "https://www.anivive.com/trials",
+        "https://www.caninecancer.org.au/ausresearch.html"
+      ],
+      "finding": "Web20 repeated URLs already in Web2 because the wrapper metadata omitted its URL list. LEAH/Anivive were already readable; guide initial Web retrieval was insufficient. Both original tool responses/times are retained; no exact access denial was retried or bypassed."
+    },
+    {
+      "kind": "timestamp_ordering",
+      "finding": "Three source-date selections were corrected using actual timezone-aware instants instead of lexicographic mixed-zone strings. Original attempts were not redated. See timestamp-order-review.json."
+    },
+    {
+      "kind": "relative_directory_url_resolution",
+      "finding": "Corrected35 relative source fragments against actual named-institution inventory origins, and removed an invented URL for3directory rows with no sourceURL. Original104record dispositions remain visible by ID. No requests to erroneous vettrials.com and no clinical identity changes. See directory-relative-url-amendment.json."
+    }
+  ]
+}

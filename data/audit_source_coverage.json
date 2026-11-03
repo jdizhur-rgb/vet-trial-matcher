@@ -2,17 +2,17 @@
   "run_id": "daily-20261103T030532-0500",
   "mode": "DAILY GLOBAL WORK AUDIT",
   "started_at": "2026-11-03T03:05:32.469195-05:00",
-  "at": "2026-11-03T04:41:04.206727-05:00",
+  "at": "2026-11-03T05:04:50.011517-05:00",
   "baseline_main_sha": "2ad2ecfd77474c0185596ef2b11907966d342842",
   "source_total": 157,
   "baseline_source_total": 157,
-  "attempted_total": 134,
+  "attempted_total": 137,
   "content_sufficient_total": 43,
   "processing_complete_total": 154,
   "source_result_counts": {
-    "partial": 87,
+    "partial": 90,
     "checked": 43,
-    "not checked": 23,
+    "not checked": 20,
     "unreachable": 4
   },
   "executor_incomplete_source_ids": [
@@ -1685,6 +1685,18 @@
           "http_status": null,
           "retrieved_text_excerpt": "\nInternal Error ()\n【turn1441view1】 [wordlim: 200] Source: open({\"ref_id\":\"https://veterinaryclinicaltrials.org/s/prism-trial-precision-research-integrating-symptoms-and-molecular-biology-in-canine-glioma-715789/\",\"lineno\":null}); \nURL https://veterinaryclinicaltrials.org/s/prism-trial-precision-research-integrating-symptoms-and-molecular-biology-in-canine-glioma-715789/ is not accessible via this tool.",
           "freshness": "Crawl/cache metadata preserved in original Web artifact; no independent server-freshness claim."
+        },
+        {
+          "url": "https://veterinaryclinicaltrials.org/",
+          "method": "Web",
+          "route": "same_url_transport_fallback",
+          "attempted_at": "2026-11-03T08:12:13.888Z",
+          "completed_at": "2026-11-03T08:12:14.696Z",
+          "evidence_file": "research/audit-runs/daily-20261103T030532-0500/web-1.json",
+          "new_source_visit": true,
+          "http_status": null,
+          "result": "web_retrieved_content",
+          "freshness": "Original crawler/cache metadata retained in the full artifact; no independent server-freshness assertion."
         }
       ],
       "route_used": [
@@ -2274,6 +2286,18 @@
           "http_status": null,
           "retrieved_text_excerpt": "Internal Error ()\n【turn1434view0】 [wordlim: 200] Source: open({\"ref_id\":\"https://www.csuanimalcancercenter.org/clinical-trial/clinical-testing-of-canine-t-cells-engineered-to-target-osteosarcoma-and-soft-tissue-sarcoma-in-combination-with-oral-immunotherapy/\",\"lineno\":null}); \nFailed to fetch https://www.csuanimalcancercenter.org/clinical-trial/clinical-testing-of-canine-t-cells-engineered-to-target-osteosarcoma-and-soft-tissue-sarcoma-in-combination-with-oral-immunotherapy/: (500) Redirected to https://clinicaltrials.csuveterinaryhealth.org/s/clinical-testing-of-canine-t-cells-engineered-to-target-osteosarcoma-and-soft-tissue-sarcoma-with-oral-immunotherapy-511687/?ref=gallery which is not accessible via this tool. (non-retryable error)\n",
           "freshness": "Crawl/cache metadata preserved in original Web artifact; no independent server-freshness claim."
+        },
+        {
+          "url": "https://csuveterinaryhealth.org/clinical-trials/",
+          "method": "Web",
+          "route": "same_url_transport_fallback",
+          "attempted_at": "2026-11-03T08:12:13.888Z",
+          "completed_at": "2026-11-03T08:12:14.696Z",
+          "evidence_file": "research/audit-runs/daily-20261103T030532-0500/web-1.json",
+          "new_source_visit": true,
+          "http_status": null,
+          "result": "web_retrieved_content",
+          "freshness": "Original crawler/cache metadata retained in the full artifact; no independent server-freshness assertion."
         }
       ],
       "route_used": [
@@ -2347,11 +2371,11 @@
       "previous_last_checked": "2026-11-02",
       "previous_last_checked_at": "2026-11-02T03:40:39.736060-05:00",
       "previous_fingerprint": "sha256:cea18ebd1bd729b6b8ab686f767563d0f268ffd4b52cdd9d2cab6b069631dd55",
-      "finding": "The empty current StudyPages shell was checked through Web and official Flint fallback. Full Flint10-card roster plus CSU public37-study endpoint were read. Distinct additional canine glioma verdinexor, CAR-T/verdिनexor and TVT remain current; equine cancer studies, bladder ICG mapping and BARC tissue banking are not anticancer opportunities. STS engineered-cell primary restricts target to STS despite old OSA URL wording.",
+      "finding": "The empty current StudyPages shell was checked through Web and official Flint fallback. Full Flint10-card roster plus CSU public37-study endpoint were read. Distinct additional canine glioma verdinexor, CAR-T/verdिनexor and TVT remain current; equine cancer studies, bladder ICG mapping and BARC tissue banking are not anticancer opportunities. STS engineered-cell primary restricts target to STS despite old OSA URL wording. DATE SEMANTICS OWNER QUESTION: Current CSU protocol API end_date2028-12-31 is a study-period field. Canonical notes say recruits through December31,2028; no explicit guaranteed enrollment cutoff is established by this generic end_date.",
       "catalog_comparison": "Exact csu-* IDs compared by intervention and linked study IDs; diagnostic csu-ucc-icg-surgery and csu-agasaca-node-map stay excluded; csu-brain-cart-verdinexor, csu-glioma-verdinexor-only-2026 and csu-tvt-single-radiation-2026 remain distinct. No reactivation of missing B-cell studies or completed COTC033.",
       "content_sufficient": true,
       "master_result": "checked",
-      "new_last_checked_at": "2026-11-03T08:19:41.184Z",
+      "new_last_checked_at": "2026-11-03T03:21:42.408717-05:00",
       "new_last_checked": "2026-11-03",
       "current_evidence_sha256": "9c6dc6d37780d0810777fec4b0b3d6fd766f787e690619948cf8c2770e366b56"
     },
@@ -2638,10 +2662,23 @@
           "text_length": 0,
           "text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/90217dfa43a8c8f1e140.json"
+        },
+        {
+          "url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2",
+          "method": "Web",
+          "route": "same_url_transport_fallback",
+          "attempted_at": "2026-11-03T08:12:13.888Z",
+          "completed_at": "2026-11-03T08:12:14.696Z",
+          "evidence_file": "research/audit-runs/daily-20261103T030532-0500/web-1.json",
+          "new_source_visit": true,
+          "http_status": null,
+          "result": "web_retrieved_content",
+          "freshness": "Original crawler/cache metadata retained in the full artifact; no independent server-freshness assertion."
         }
       ],
       "route_used": [
-        "shell_curl"
+        "shell_curl",
+        "Web"
       ],
       "protocols_seen": null,
       "protocols": [
@@ -2661,14 +2698,14 @@
       "catalog_comparison": "Exact identities match msu-tcell-lymphoma, msu-sting-cmp002-solid-tumors (owner-excluded), msu-hs-quasiorganelle, msu-mct-steroids, msu-feline-mammary-met. Legacy msu-sting-solid stays inactive, not a second trial.",
       "content_sufficient": false,
       "master_result": "partial",
-      "new_last_checked_at": "2026-11-03T03:11:27.890153-05:00",
+      "new_last_checked_at": "2026-11-03T08:12:14.696Z",
       "new_last_checked": "2026-11-03",
       "current_evidence_sha256": "4cb9295869046ad0df77f74713b7b648cc28f9f79712fc946ee273f7daff4485"
     },
     {
       "source_id": "usa-minnesota-current-clinical-trials",
       "source_name": "University of Minnesota Clinical Investigation Center",
-      "opened_this_run": false,
+      "opened_this_run": true,
       "attempted_urls": [
         {
           "source_id": "usa-minnesota-current-clinical-trials",
@@ -2688,10 +2725,36 @@
           },
           "completed_at": "2026-11-03T03:11:25.630656-05:00",
           "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/818bf41675688c7a1ff4.json"
+        },
+        {
+          "source_id": "sponsor-leah-labs-clinical-trial",
+          "url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/car-t-cell",
+          "route": "official_fallback",
+          "method": "shell_curl",
+          "attempted_at": "2026-11-03T03:15:01.055809-05:00",
+          "new_source_visit": true,
+          "completed_at": "2026-11-03T03:15:04.204336-05:00",
+          "http_status": 200,
+          "effective_url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/car-t-cell",
+          "content_type": "text/html; charset=utf-8",
+          "attempts": [
+            {
+              "at": "2026-11-03T03:15:04.194716-05:00",
+              "http_status": 200,
+              "exit_code": 0,
+              "stderr": "",
+              "retry": 0
+            }
+          ],
+          "result": "retrieved_page",
+          "text_length": 9298,
+          "text_sha256": "41a3fe8c0fe2f04ee4f1fcfd9fd3671ab60843138f31f06e9b096eee7ebd0523",
+          "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/88eeb84614b020397ac0.json"
         }
       ],
       "route_used": [
-        "restriction_review_no_request"
+        "restriction_review_no_request",
+        "shell_curl"
       ],
       "protocols_seen": null,
       "protocols": [
@@ -2708,13 +2771,13 @@
       "previous_last_checked": "2026-10-27",
       "previous_last_checked_at": "2026-10-27T03:03:05.319734-04:00",
       "previous_fingerprint": "sha256:41a3fe8c0fe2f04ee4f1fcfd9fd3671ab60843138f31f06e9b096eee7ebd0523",
-      "finding": "The recorded Minnesota current-trials index and the individual unresolved protocols are exact saved restricted routes. Sponsor LEAH lists Minnesota, Missouri and Ohio; this does not newly verify Minnesota institutional intake, nor revoke its October27 institutional evidence. No site-wide inference or fresh visit.",
+      "finding": "The UMN general trial index and olaparib/AAV/ORBIT exact routes remain held. The separately permitted current CAR-T individual was actually retrieved today: explicitly Open and enrolling, >=10kg, no Boxers, >=4peripheral high-grade CD20+B-cell nodes, naive/relapsed substageA, conditioning treatment and stated funded visits/$2000future-care credit/$4000adverse-event support. These match the current site-specific LEAH canonical facts; Oct27full clinical date is preserved. This fresh individual primary does not establish the whole UMN roster or the other restricted protocols.",
       "catalog_comparison": "leah-bcell-cart-2026 Minnesota current intake cannot be newly confirmed; retain previous dated institutional facts. The four due unresolved cohorts retain their own current restriction questions, not AVMA look-alikes.",
       "content_sufficient": false,
-      "master_result": "not checked",
-      "new_last_checked_at": "2026-10-27T03:03:05.319734-04:00",
-      "new_last_checked": "2026-10-27",
-      "current_evidence_sha256": null
+      "master_result": "partial",
+      "new_last_checked_at": "2026-11-03T03:15:04.204336-05:00",
+      "new_last_checked": "2026-11-03",
+      "current_evidence_sha256": "8ced983b152ac640d38b4aad39fe9be1bf90793fa7612e41d922fdbb86fde090"
     },
     {
       "source_id": "usa-missouri-oncology-clinical-trials",
@@ -3043,7 +3106,7 @@
     {
       "source_id": "usa-penn-vet-clinical-trials",
       "source_name": "University of Pennsylvania School of Veterinary Medicine",
-      "opened_this_run": false,
+      "opened_this_run": true,
       "attempted_urls": [
         {
           "source_id": "usa-penn-vet-clinical-trials",
@@ -3120,10 +3183,38 @@
           },
           "completed_at": "2026-11-03T03:11:28.865459-05:00",
           "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/5e1647c971b0ff020a87.json"
+        },
+        {
+          "url": "https://www.vet.upenn.edu/clinical-trial/intraoperative-detection-of-oral-squamous-cell-carcinoma-margins-in-dogs-using-cathepsin-activated-near-infrared-nir-imaging/",
+          "route": "individual_primary",
+          "trial_ids": [
+            "penn-oral-scc-nir-margin-2026"
+          ],
+          "method": "shell_curl",
+          "attempted_at": "2026-11-03T03:18:34.474782-05:00",
+          "new_source_visit": true,
+          "completed_at": "2026-11-03T03:18:37.564714-05:00",
+          "http_status": 200,
+          "effective_url": "https://www.vet.upenn.edu/clinical-trial/intraoperative-detection-of-oral-squamous-cell-carcinoma-margins-in-dogs-using-cathepsin-activated-near-infrared-nir-imaging/",
+          "content_type": "text/html; charset=UTF-8",
+          "attempts": [
+            {
+              "at": "2026-11-03T03:18:37.556207-05:00",
+              "http_status": 200,
+              "exit_code": 0,
+              "stderr": "",
+              "retry": 0
+            }
+          ],
+          "result": "retrieved_page",
+          "text_length": 4409,
+          "text_sha256": "13241c9cf57f9230c4f1bc878e7b0bef11ab1f7e3ae1bc5823c322e04c3b29bb",
+          "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/0bfec49ba372869108df.json"
         }
       ],
       "route_used": [
-        "restriction_review_no_request"
+        "restriction_review_no_request",
+        "shell_curl"
       ],
       "protocols_seen": null,
       "protocols": [
@@ -3143,10 +3234,10 @@
       "finding": "All four recorded Penn index routes were reviewed against their saved exact restrictions, without network retry. Current AVMA record22208 changed from Suspended to Completed; its individual public HTML flags inactive, publicID999878. This is a new status signal for the exact B-cell IL18 CAR-T cohort, not proof the whole Penn program is closed.",
       "catalog_comparison": "penn-bcell-car-t-registry now has OWNER_DECISION status conflict with currently public canonical row; all other Penn cohorts remain separate. No automatic closure, replacement, or fresh verified date from registry.",
       "content_sufficient": false,
-      "master_result": "not checked",
-      "new_last_checked_at": "2026-10-27T04:14:08.219375-04:00",
-      "new_last_checked": "2026-10-27",
-      "current_evidence_sha256": null
+      "master_result": "partial",
+      "new_last_checked_at": "2026-11-03T03:18:37.564714-05:00",
+      "new_last_checked": "2026-11-03",
+      "current_evidence_sha256": "26802f4603596bae5795dc9ad34356a48c6f46e0ca0eec6eac8ff8ee5087ba46"
     },
     {
       "source_id": "usa-purdue-wcorc-clinical-trials",
@@ -3782,11 +3873,11 @@
       "previous_last_checked": "2026-11-02",
       "previous_last_checked_at": "2026-11-02T03:15:26-05:00",
       "previous_fingerprint": "sha256:283e19a379e483103db0f63b74eb2fff8800ce66ca4ff67a3756434752771bc3",
-      "finding": "The UC Davis public endpoint contains38 current studies, with15 cancer/tumor-related identities reviewed individually by purpose. New endocrine pituitary hypophysectomy covers surgery but does not confirm malignant eligibility; retain a nonpublished lead. FAP CAR-T current primary explicitly lists UC Davis, previous enrollment CSU/Tufts, and current $2000 surgery/$2500 local AE support; Davis is already a canonical site. CARE and PRISM were fully reviewed today.",
+      "finding": "The UC Davis public endpoint contains38 current studies, with15 cancer/tumor-related identities reviewed individually by purpose. New endocrine pituitary hypophysectomy covers surgery but does not confirm malignant eligibility; retain a nonpublished lead. FAP CAR-T current primary explicitly lists UC Davis, previous enrollment CSU/Tufts, and current $2000 surgery/$2500 local AE support; Davis is already a canonical site. CARE and PRISM were fully reviewed today. DATE SEMANTICS OWNER QUESTION: Current UC Davis public protocol API start_date2026-07-01/end_date2028-06-30 is a study-period field, while canonical notes promise Recruitment period2026-06-30 through2028-06-29. The one-day difference and enrollment-versus-study semantics are not silently corrected.",
       "catalog_comparison": "Three new full reviews include CARE/PRISM. tufts-sts-fap-car-t already contains Davis, not a new institution-based duplicate. ucd-liver-tae-tace conditional screening/cost owner issue remains. ucd-prostate-liquid-treatment is historical2019 sampling only. Feline pituitary malignancy is not established, following UGA owner cancer-scope rule.",
       "content_sufficient": false,
       "master_result": "partial",
-      "new_last_checked_at": "2026-11-03T08:18:57.656Z",
+      "new_last_checked_at": "2026-11-03T04:07:40.731912-05:00",
       "new_last_checked": "2026-11-03",
       "current_evidence_sha256": "fc0ac0d48406b1bd1593deede1876d40d2500396311bbaebd089eb0ecc36dbaf"
     },
@@ -4169,7 +4260,7 @@
     {
       "source_id": "usa-wisconsin-oncology-studies",
       "source_name": "University of Wisconsin Veterinary Care Oncology",
-      "opened_this_run": false,
+      "opened_this_run": true,
       "attempted_urls": [
         {
           "source_id": "usa-wisconsin-oncology-studies",
@@ -4187,10 +4278,119 @@
           },
           "completed_at": "2026-11-03T03:11:37.736323-05:00",
           "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/21c5594e975a68975b6e.json"
+        },
+        {
+          "url": "https://uwveterinarycare.wisc.edu/wp-content/uploads/2026/09/HDR-HBRT_Reference-Sheet.docx",
+          "route": "canonical_primary_protocol_url",
+          "trial_ids": [
+            "wisc-lymphoma-half-body-rt-chop"
+          ],
+          "method": "shell_curl",
+          "attempted_at": "2026-11-03T03:23:14.834877-05:00",
+          "new_source_visit": true,
+          "completed_at": "2026-11-03T03:23:18.667148-05:00",
+          "http_status": 200,
+          "effective_url": "https://uwveterinarycare.wisc.edu/wp-content/uploads/2026/09/HDR-HBRT_Reference-Sheet.docx",
+          "content_type": "application/msword",
+          "attempts": [
+            {
+              "at": "2026-11-03T03:23:18.654762-05:00",
+              "http_status": 200,
+              "exit_code": 0,
+              "stderr": "",
+              "retry": 0
+            }
+          ],
+          "result": "retrieved_page",
+          "text_length": 3723,
+          "text_sha256": "97f2516e793fe27bd07ea8663678a6c1c5a6df86044196646aee42f52f79b148",
+          "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/9307c24c304578b12633.json"
+        },
+        {
+          "url": "https://uwveterinarycare.wisc.edu/wp-content/uploads/2026/09/Half-Body-Radiotherapy-CHOP-25-Consent-Form.docx",
+          "route": "canonical_primary_consent_url",
+          "trial_ids": [
+            "wisc-lymphoma-half-body-rt-chop"
+          ],
+          "method": "shell_curl",
+          "attempted_at": "2026-11-03T03:23:15.605990-05:00",
+          "new_source_visit": true,
+          "completed_at": "2026-11-03T03:23:18.716475-05:00",
+          "http_status": 200,
+          "effective_url": "https://uwveterinarycare.wisc.edu/wp-content/uploads/2026/09/Half-Body-Radiotherapy-CHOP-25-Consent-Form.docx",
+          "content_type": "application/msword",
+          "attempts": [
+            {
+              "at": "2026-11-03T03:23:18.715167-05:00",
+              "http_status": 200,
+              "exit_code": 0,
+              "stderr": "",
+              "retry": 0
+            }
+          ],
+          "result": "retrieved_page",
+          "text_length": 6910,
+          "text_sha256": "44192262f2b6eeffeb2f35bfbad1829a8ad3b48a24dce576289fed79766be00f",
+          "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/cc2d1355dd04769aae65.json"
+        },
+        {
+          "url": "https://uwveterinarycare.wisc.edu/wp-content/uploads/2024/10/FLASH-flyer-editable.docx",
+          "route": "individual_primary",
+          "trial_ids": [
+            "wisc-osa-flash-radiotherapy"
+          ],
+          "method": "shell_curl",
+          "attempted_at": "2026-11-03T03:17:26.820646-05:00",
+          "new_source_visit": true,
+          "completed_at": "2026-11-03T03:17:30.130263-05:00",
+          "http_status": 200,
+          "effective_url": "https://uwveterinarycare.wisc.edu/wp-content/uploads/2024/10/FLASH-flyer-editable.docx",
+          "content_type": "application/msword",
+          "attempts": [
+            {
+              "at": "2026-11-03T03:17:30.122679-05:00",
+              "http_status": 200,
+              "exit_code": 0,
+              "stderr": "",
+              "retry": 0
+            }
+          ],
+          "result": "retrieved_page",
+          "text_length": 1402,
+          "text_sha256": "c6b5a1608dc888bca227dc415f2be7d04c79241946d907768109f7c51bdbe625",
+          "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/7fa5d294a26133a29a00.json"
+        },
+        {
+          "url": "https://uwveterinarycare.wisc.edu/wp-content/uploads/2026/04/FLASH-Consent-Form-1.docx",
+          "route": "canonical_primary_consent_url",
+          "trial_ids": [
+            "wisc-osa-flash-radiotherapy"
+          ],
+          "method": "shell_curl",
+          "attempted_at": "2026-11-03T03:23:17.245990-05:00",
+          "new_source_visit": true,
+          "completed_at": "2026-11-03T03:23:21.847063-05:00",
+          "http_status": 200,
+          "effective_url": "https://uwveterinarycare.wisc.edu/wp-content/uploads/2026/04/FLASH-Consent-Form-1.docx",
+          "content_type": "application/msword",
+          "attempts": [
+            {
+              "at": "2026-11-03T03:23:21.843248-05:00",
+              "http_status": 200,
+              "exit_code": 0,
+              "stderr": "",
+              "retry": 0
+            }
+          ],
+          "result": "retrieved_page",
+          "text_length": 7194,
+          "text_sha256": "1d9ef91e0bb36cacc409981f7d00226f4bc6e53b738dcae86b662fb656ce14af",
+          "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/271201c58c549b28f4c7.json"
         }
       ],
       "route_used": [
-        "restriction_review_no_request"
+        "restriction_review_no_request",
+        "shell_curl"
       ],
       "protocols_seen": null,
       "protocols": [
@@ -4207,10 +4407,10 @@
       "finding": "Exact Wisconsin master restriction preserved. Allowed official DOCX and 2026 consent documents were read for half-body RT+CHOP and FLASH OSA; present AVMA confirms the different PTCL 90Y-NM600 record. The FLASH flyer optional amputation conflicts with newer consent mandatory amputation around one month. Full criteria/funding were compared; present intake of the two due cohorts is not established by a saved flyer. Final individual-primary adjudication: both due HBRT/FLASH protocols have now received a complete five-fact review from the actual current official enrollment/referral invitation and2026consent. This resolves their reread requirement, not the whole-source roster/PTCL gap. The older flyer/newer consent amputation conflict was compared explicitly; current canonical mandatoryamputation remains correct.",
       "catalog_comparison": "wisc-lymphoma-half-body-rt-chop and wisc-osa-flash-radiotherapy remain due current-intake questions, clinical details reviewed today without resetting full verified dates. Canonical mandatory amputation conservatively matches newer consent. wisc-ptcl-90y-nm600-rpt distinct from broad metastatic RPT. Verified/funding dates renewed only for these two completed reviews; current official invitation is substantive evidence beyondHTTP200. PTCL remains independentlyblocked.",
       "content_sufficient": false,
-      "master_result": "not checked",
-      "new_last_checked_at": "2026-10-27T04:36:26-04:00",
-      "new_last_checked": "2026-10-27",
-      "current_evidence_sha256": null
+      "master_result": "partial",
+      "new_last_checked_at": "2026-11-03T03:23:21.847063-05:00",
+      "new_last_checked": "2026-11-03",
+      "current_evidence_sha256": "ffceea184cb925bba5838f53f4de9b77e23b3ef16de2387d6bceaa39ba9a618e"
     },
     {
       "source_id": "usa-utsw-vroc-clinical-trials",
@@ -4709,6 +4909,18 @@
           "http_status": null,
           "retrieved_text_excerpt": "\nInternal Error ()\n【turn1431view1】 [wordlim: 200] Source: open({\"ref_id\":\"https://anivivelifesciences.com/treatments\",\"lineno\":null}); \nFailed to fetch https://anivivelifesciences.com/treatments: (525) Unknown Status Code",
           "freshness": "Crawl/cache metadata preserved in original Web artifact; no independent server-freshness claim."
+        },
+        {
+          "url": "https://www.anivive.com/trials",
+          "method": "Web",
+          "route": "same_url_transport_fallback",
+          "attempted_at": "2026-11-03T08:16:09.518Z",
+          "completed_at": "2026-11-03T08:16:10.368Z",
+          "evidence_file": "research/audit-runs/daily-20261103T030532-0500/web-2.json",
+          "new_source_visit": true,
+          "http_status": null,
+          "result": "web_retrieved_content",
+          "freshness": "Original crawler/cache metadata retained in the full artifact; no independent server-freshness assertion."
         }
       ],
       "route_used": [
@@ -4725,7 +4937,7 @@
       "previous_last_checked": "2026-11-02",
       "previous_last_checked_at": "2026-11-02T03:14:15-05:00",
       "previous_fingerprint": "sha256:59abeeaedfc8af31d2d52fc4652a16a28b5fc607c03135cb6032f814eeb8f032",
-      "finding": "Native Anivive trial master timed out and both recorded old-domain fallbacks returned525. Same-URL Web recovered four study cards, including SINE/verdinexor plus carboplatin OSA, but reports last-week crawl. It is a current discovery signal rather than independently fresh Cornell intake proof. TODAY COMPLETED STEP: Actual Midwestern canine chemotherapy invitation read: untreated selected solid cancers, free exams/bloodwork/chemotherapy, but agent/protocolID and precisecampus not published. This is a new unresolved treatment lead, not proof of Anivive SINE/carboplatin identity. Exact AniTrial SINE restriction retained; current sponsor Web four-card listing does not reopen old completed cohort.",
+      "finding": "Native Anivive trial master timed out and both recorded old-domain fallbacks returned525. Same-URL Web recovered four study cards, including SINE/verdinexor plus carboplatin OSA, but reports last-week crawl. It is a current discovery signal rather than independently fresh Cornell intake proof. TODAY COMPLETED STEP: Actual Midwestern canine chemotherapy invitation read: untreated selected solid cancers, free exams/bloodwork/chemotherapy, but agent/protocolID and precisecampus not published. This is a new unresolved treatment lead, not proof of Anivive SINE/carboplatin identity. Exact AniTrial SINE restriction retained; current sponsor Web four-card listing does not reopen old completed cohort. Latest actual Web20 same official URL is today-crawled and still labels SINE Recruiting. This supersedes the earlier cache-age description but does not establish reopened individual Cornell intake or complete costs.",
       "catalog_comparison": "Exact anivive-sine-osa-carboplatin is distinguished from Midwestern generic chemotherapy research. Other three cards are nononcology. Restricted individual route and dated Cornell project remain exact access/currentness issue.",
       "content_sufficient": false,
       "master_result": "partial",
@@ -6074,7 +6286,7 @@
       "catalog_comparison": "No exact canonical match or current new patient enrollment inferred; keep unqualified research signal. SASH hospital/service directory outside this daily task was not traversed.",
       "content_sufficient": false,
       "master_result": "partial",
-      "new_last_checked_at": "2026-11-03T08:35:34.345Z",
+      "new_last_checked_at": "2026-11-03T03:36:44.339282-05:00",
       "new_last_checked": "2026-11-03",
       "current_evidence_sha256": "9e098d3c2713cf40d646f831089df7b463539ba35a5102a3cf966f98a4a9ae40"
     },
@@ -6126,6 +6338,30 @@
           "http_status": null,
           "retrieved_text_excerpt": "Australian (https://www.caninecancer.org.au/ausresearch.html)\n【turn1486view0】 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({\"ref_id\":\"https://www.caninecancer.org.au/ausresearch.html\",\"lineno\":null}); Total lines: 51\nL0: 【0†Home】 【1†About】 【2†Types of Cancer】 【3†Treatment】 【4†Oncologists】 【5†Research】 【6†Links】 【7†Forum】\nL1: \nL2: 【8†Image】\nL3: \nL4: 【9†Contact Us】\nL5: \nL6: [Input]\nL7: \nL8: [Input]\nL9: \nL10: 【10†Return To Top】\nL11: \nL12:    Copyright © 2013 CanineCancer.org.au  All rights reserved.\nL13: \nL14: 【11†iframe†www.facebook.com】\nL15: \nL16: 【12†Return To Top】\nL17: \nL18:                    Australian Research State Guide\nL19: \nL20: 【13†Image】\nL21: \nL22: Treatment of Metastic Osteosarcoma\nL23: New clinical trials have commenced at five Veterinary Oncology Specialist Centres within Australia for the trial of a drug to inhibit the spread of bone cancer.  The drug Auranofin has been tested in a mouse model with  results showing a significant reduction in the spread of osteosarcoma to the lungs without any side effects. It is hoped that similar results in the reduction of metastasis will be found with dogs.\nL24: Auranofin also has the potential for the preve",
           "freshness": "Crawl/cache metadata preserved in original Web artifact; no independent server-freshness claim."
+        },
+        {
+          "url": "https://www.caninecancer.org.au/ausresearch.html",
+          "method": "Web",
+          "route": "same_url_transport_fallback",
+          "attempted_at": "2026-11-03T08:16:09.518Z",
+          "completed_at": "2026-11-03T08:16:10.368Z",
+          "evidence_file": "research/audit-runs/daily-20261103T030532-0500/web-2.json",
+          "new_source_visit": true,
+          "http_status": null,
+          "result": "web_unavailable",
+          "freshness": "Original crawler/cache metadata retained in the full artifact; no independent server-freshness assertion."
+        },
+        {
+          "url": "https://www.caninecancer.org.au/Osteostudyflyer-2.pdf",
+          "method": "Web",
+          "route": "official_linked_protocol",
+          "attempted_at": "2026-11-03T09:38:20+00:00",
+          "completed_at": "2026-11-03T09:38:20+00:00",
+          "evidence_file": "research/audit-runs/daily-20261103T030532-0500/web-21.json",
+          "new_source_visit": true,
+          "http_status": null,
+          "result": "web_retrieved_content",
+          "freshness": "Original crawler/cache metadata retained in the full artifact; no independent server-freshness assertion."
         }
       ],
       "route_used": [
@@ -6146,7 +6382,7 @@
       "catalog_comparison": "Auranofin intervention/OSA and listed eight participants were individually distinguished from other Australian OSA vaccines and Enzistat. No current recruiting addition, no current active veterinary roster inferred from human research participants. Preserve historical lead; current intake unknown.",
       "content_sufficient": false,
       "master_result": "partial",
-      "new_last_checked_at": "2026-11-03T09:37:55+00:00",
+      "new_last_checked_at": "2026-11-03T09:38:20+00:00",
       "new_last_checked": "2026-11-03",
       "current_evidence_sha256": "4cb9295869046ad0df77f74713b7b648cc28f9f79712fc946ee273f7daff4485"
     },
@@ -9458,6 +9694,18 @@
           "http_status": null,
           "retrieved_text_excerpt": "\nLEAH Labs — LifEngine Animal Health Laboratories (https://leahlabs.com/)\n【turn1486view1】 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({\"ref_id\":\"https://leahlabs.com/\",\"lineno\":null}); Total lines: 201\nL0: 【0†LEAH LABORATORIES】\nL1: \nL2:   * 【1†Mission】\nL3:   * 【2†Science】\nL4:   * 【3†Clinical Trial】\nL5:   * 【4†Team】\nL6:   * 【5†Contact】\nL7: \nL8: LifEngine Animal Health Laboratories\nL9: # Fighting cancer\nL10: at both ends of\nL11: the leash\nL12: \nL13: We engineer living immune cells to fight cancer in pet dogs — and our discoveries are already reshaping the future of human cancer therapy.\nL14: \nL15: 【3†Clinical Trial Info】 【2†Our Science】\nL16: \nL17: Scroll\nL18: \nL19: 0\nL20: \nL21: dogs diagnosed with cancer every year\nL22: \nL23: 1^{st}\nL24: \nL25: team in the world to achieve canine CAR-T remissions\nL26: \nL27: 3\nL28: \nL29: clinical trial sites actively enrolling\nL30: \nL31: Mission\nL32: ## Designer cell therapies for pets first — and their people next.\nL33: \nL34: When a pet gets sick, families face limited options. LEAH Labs is changing that. We combine world-class gene editing with novel protein engineering to revolutionize companion animal oncology — while gener",
           "freshness": "Crawl/cache metadata preserved in original Web artifact; no independent server-freshness claim."
+        },
+        {
+          "url": "https://leahlabs.com/",
+          "method": "Web",
+          "route": "same_url_transport_fallback",
+          "attempted_at": "2026-11-03T08:16:09.518Z",
+          "completed_at": "2026-11-03T08:16:10.368Z",
+          "evidence_file": "research/audit-runs/daily-20261103T030532-0500/web-2.json",
+          "new_source_visit": true,
+          "http_status": null,
+          "result": "web_retrieved_content",
+          "freshness": "Original crawler/cache metadata retained in the full artifact; no independent server-freshness assertion."
         }
       ],
       "route_used": [
@@ -9474,7 +9722,7 @@
       "previous_last_checked": "2026-11-02",
       "previous_last_checked_at": "2026-11-02T03:21:33.886776-05:00",
       "previous_fingerprint": "sha256:aa0160bd9f6f1957ce1ab5bd3e0277825a30a4d58e3870cc226f789e761ffb43",
-      "finding": "LEAH native request timed out; sameURLWeb recovered today-crawled full sponsor invitation naming Minnesota, OhioState and Missouri as three partner sites and no-cost treatment. Current Missouri body independently invites xCART; sponsor-only Ohio and institutionallyheldMinnesota are not automatically active.",
+      "finding": "Entire sponsor three-site Minnesota/Ohio/Missouri roster compared. Current allowed Minnesota individual explicitly Open and enrolling with site-specific criteria/funding, and current Missouri protocol separately confirms intake; canonical site facts match. Ohio remains sponsor-listed/local slot to confirm. Index-only UMN restriction is not a restriction on this allowed individual page. No source-wide ban or transferred site-specific eligibility/allowances.",
       "catalog_comparison": "Exact leah-bcell-cart-2026; one protocol with siteconflicts, not three trials. Entire sponsor roster compared; Missouri direct access retained, no universal Missouri-specific10kg/steroidstipend rules assigned to other sites.",
       "content_sufficient": false,
       "master_result": "partial",
