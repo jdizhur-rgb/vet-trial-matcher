@@ -1,0 +1,1826 @@
+{
+  "run_id": "owner-rules-20261103T065741-0500",
+  "scope": "Targeted AVMA status requests, not a full daily-source receipt",
+  "source_id": "registry-avma-veterinary-clinical-trials",
+  "previous": {
+    "id": "registry-avma-veterinary-clinical-trials",
+    "name": "AVMA Veterinary Clinical Trials Registry",
+    "country": "USA",
+    "source_type": "registry",
+    "master_url": "https://veterinaryclinicaltrials.org/",
+    "required_cadence": "daily",
+    "last_checked": "2026-11-03",
+    "last_result": "partial",
+    "content_fingerprint": "sha256:4f52cc5b4c4fa94aafe3bd886f897c3bf96d4c6b52d2edc2a0955f902dcf2430",
+    "last_checked_at": "2026-11-03T08:39:53.749Z",
+    "last_http_status": 200,
+    "notes": "Both public AVMA pages were retrieved and all856 unique records compared field-by-field with previous856;444 oncology records include56Recruiting. Every recruiting identity was adjudicated:46exact canonical identities,8pending primary/cohort questions and2nonqualifying records. Only changed registry record22208 is now Completed (previous Suspended), a new Penn B-cell CAR-T owner-status question. Archived registry does not replace live institutional intake or whole multicenter roster.",
+    "last_attempts": [
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/electrochemotherapy-for-nasal-cancer-126469/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 20743,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:30:26.342034-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:30:33.696612-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/electrochemotherapy-for-nasal-cancer-126469/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:30:33.695133-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 70,
+        "text_sha256": "54defba9b2a97d4131449a7229a9bc6be85bbd266076afca17230c66d3a0ff5d",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/9f9f3a354775d523fd48.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/treating-dogs-with-glioma-using-radiation-and-immunotherapy-294689/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 21995,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:30:29.881701-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:30:37.177080-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/treating-dogs-with-glioma-using-radiation-and-immunotherapy-294689/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:30:37.175373-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 93,
+        "text_sha256": "0c605116278497c0b46b3c02c03ca01a237826e97ea82d6673682f6f157010f3",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/385935f1a855c3f5bf5e.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/electrochemotherapy-for-bone-cancer-419848/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 20742,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:31:53.109235-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:32:07.266889-05:00",
+        "http_status": 0,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/electrochemotherapy-for-bone-cancer-419848/",
+        "content_type": "",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:32:02.548810-05:00",
+            "http_status": 0,
+            "exit_code": 28,
+            "stderr": "curl: (28) Proxy CONNECT aborted due to timeout\n",
+            "retry": 0
+          },
+          {
+            "at": "2026-11-03T03:32:07.265918-05:00",
+            "http_status": 0,
+            "exit_code": 56,
+            "stderr": "curl: (56) CONNECT tunnel failed, response 403\n",
+            "retry": 1
+          }
+        ],
+        "result": "request_failed",
+        "text_length": 0,
+        "text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/3a131066dd62ff35e24d.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/car-t-cell-and-verdinexor-therapy-for-treatment-of-glioma-tumors-in-dogs-802549/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 20713,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:30:26.246283-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:30:33.620821-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/car-t-cell-and-verdinexor-therapy-for-treatment-of-glioma-tumors-in-dogs-802549/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:30:33.619257-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 106,
+        "text_sha256": "bc561cdc81470696a425a443e0687f7d7322e52cc98a2a72667303dac2cd000f",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/9f108250c70a73936bc4.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/enrolling-dogs-with-invasive-bladder-cancer-529661/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 23529,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:31:31.474069-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:31:39.380298-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/enrolling-dogs-with-invasive-bladder-cancer-529661/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:31:39.378952-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 77,
+        "text_sha256": "8aadb8878a80c7ee3ae3c79b8f1046017f663e6dd174df009b6b89088784b09c",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/4528df91120960120440.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/finding-draining-lymph-nodes-for-anal-gland-tumors-in-dogs-using-minimally-invasive-surgery-489499/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 22935,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:30:37.178210-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:30:44.492931-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/finding-draining-lymph-nodes-for-anal-gland-tumors-in-dogs-using-minimally-invasive-surgery-489499/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:30:44.491404-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 125,
+        "text_sha256": "104e9372c30f62ccbb08b00c4b22630fa12fc152dec9bd226dc92eb936ba1180",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/f8e40b0d7f2a208046dc.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/vaccine-study-for-dogs-with-appendicular-osteosarcoma-830974/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 16250,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:31:45.969067-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:31:49.750248-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/vaccine-study-for-dogs-with-appendicular-osteosarcoma-830974/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:31:49.748922-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 87,
+        "text_sha256": "0699f55d2a2385a87b826e1306f5d04a628fb0ed81b2f3365e106494d5929b73",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/6a65dbf9e9477c096d4b.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/mammary-tumors-in-cats-679833/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 20735,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:31:49.751191-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:31:57.542669-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/mammary-tumors-in-cats-679833/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:31:57.541238-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 56,
+        "text_sha256": "cd6e60ae3d896189925499ab4ae2f87ad5317be41e0d8010820768294d232c86",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/8f5b811a1bef8e7a481a.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/trametinib-for-dogs-with-histiocytic-sarcoma-419867/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 18509,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:31:02.937280-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:31:11.284861-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/trametinib-for-dogs-with-histiocytic-sarcoma-419867/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:31:11.283092-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 78,
+        "text_sha256": "cd7a57369af8065de0f21d3192911bd02548b9fa70e58d3c7096b0533ba8093f",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/c3e939067063c59d9ef2.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/single-radiation-treatment-for-dogs-with-transmissible-venereal-tumor-422595/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 28143,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:31:57.543462-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:32:07.280175-05:00",
+        "http_status": 0,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/single-radiation-treatment-for-dogs-with-transmissible-venereal-tumor-422595/",
+        "content_type": "",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:32:07.279824-05:00",
+            "http_status": 0,
+            "exit_code": 56,
+            "stderr": "curl: (56) CONNECT tunnel failed, response 403\n",
+            "retry": 0
+          }
+        ],
+        "result": "request_failed",
+        "text_length": 0,
+        "text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/954a0cac54a17127085d.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/vaccine-study-for-dogs-with-melanoma-138725/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 16249,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:30:12.285885-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:30:26.245166-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/vaccine-study-for-dogs-with-melanoma-138725/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:30:26.243782-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 70,
+        "text_sha256": "49adcd6c897832dabb75ab304a1b52997e94c008b63d4fc73be172ba837ef2af",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/aabf6838def5fb5039dd.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/targeted-radiopharmaceutical-therapy-rpt-in-companion-dogs-with-peripheral-t-cell-lymphoma-ptcl-451614/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 23599,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:30:40.586328-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:30:47.851541-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/targeted-radiopharmaceutical-therapy-rpt-in-companion-dogs-with-peripheral-t-cell-lymphoma-ptcl-451614/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:30:47.850015-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 133,
+        "text_sha256": "dd53a19c0014cf6662a4ac27f7f6dc61341a5b37b2f984c83b570d18edd23d23",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/accda5d10df9d7c6c23d.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/canine-liver-tumor-study-971858/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 19848,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:31:11.287390-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:31:20.740296-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/canine-liver-tumor-study-971858/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:31:20.736823-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 58,
+        "text_sha256": "d216706142b592fe35a803863f1c07f45b06cc0819424d2a9d070525af6682d7",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/bce3c9edf541f07084c0.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/the-effect-of-intravenous-carboplatin-on-pain-control-in-dogs-with-appendicular-osteosarcoma-734628/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 15925,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:30:52.309723-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:30:59.600570-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/the-effect-of-intravenous-carboplatin-on-pain-control-in-dogs-with-appendicular-osteosarcoma-734628/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:30:59.599188-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 126,
+        "text_sha256": "13942f67d4d82dcdcef8cd6b53fa3cb5e07a00ec003a42b1942c0500088380e0",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/f20a24a23e71d638655c.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/clinical-testing-of-canine-t-cells-engineered-to-target-osteosarcoma-and-soft-tissue-sarcoma-in-combination-with-oral-immunotherapy-737440/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 19838,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:31:11.197846-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:31:20.648893-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/clinical-testing-of-canine-t-cells-engineered-to-target-osteosarcoma-and-soft-tissue-sarcoma-in-combination-with-oral-immunotherapy-737440/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:31:20.647157-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 165,
+        "text_sha256": "b18e18ab35cad8011f837569aec15bc8dfd61f787dd50bbd217d52d675ceb33b",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/d4a71b038a1182c6e87f.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/enhanced-ethanol-ablation-for-feline-oral-squamous-cell-carcinoma-628338/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 15696,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:30:12.284979-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:30:22.209908-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/enhanced-ethanol-ablation-for-feline-oral-squamous-cell-carcinoma-628338/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:30:17.298505-05:00",
+            "http_status": 0,
+            "exit_code": 28,
+            "stderr": "curl: (28) Proxy CONNECT aborted due to timeout\n",
+            "retry": 0
+          },
+          {
+            "at": "2026-11-03T03:30:22.208655-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 1
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 99,
+        "text_sha256": "edefd888204ca9f3d43168e6427139d832bbb9b8397e81b584489fd3ef2079b5",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/c231c93960b6101941e5.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/clinical-trial-for-dogs-newly-diagnosed-with-osteosarcoma-324627/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 23320,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:31:57.537917-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:32:07.279637-05:00",
+        "http_status": 0,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/clinical-trial-for-dogs-newly-diagnosed-with-osteosarcoma-324627/",
+        "content_type": "",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:32:07.279501-05:00",
+            "http_status": 0,
+            "exit_code": 56,
+            "stderr": "curl: (56) CONNECT tunnel failed, response 403\n",
+            "retry": 0
+          }
+        ],
+        "result": "request_failed",
+        "text_length": 0,
+        "text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/5fe3f39d2def28f4dc4a.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/psma-ligand-based-theranostic-to-treat-canine-prostatic-cancer-518451/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 21097,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:30:29.833451-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:30:37.096404-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/psma-ligand-based-theranostic-to-treat-canine-prostatic-cancer-518451/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:30:37.095014-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 96,
+        "text_sha256": "54d0bf254f557a75d1b9ae814ac7b7c398958d26e4967af9033f6c89733098d7",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/550a200b33cf9d362042.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/combination-of-electrochemotherapy-and-gene-therapy-with-canine-il-12-834784/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 15636,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:31:42.525768-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:31:53.144192-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/combination-of-electrochemotherapy-and-gene-therapy-with-canine-il-12-834784/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:31:53.142911-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 103,
+        "text_sha256": "66cd7a231da00e52b46b765747c2a7d167962562096d4fccb46444c4682a02e2",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/85989b4b9e28535563aa.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/car-neutrophils-and-radiation-to-treat-glioma-in-the-dog-792158/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 21978,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:30:33.621908-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:30:40.592809-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/car-neutrophils-and-radiation-to-treat-glioma-in-the-dog-792158/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:30:40.591194-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 90,
+        "text_sha256": "decd517f209a16ed7a88ac080e6a6d53df21d1aa290bbe76765a28fbfa5c43ba",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/c6c9dc35f2be00ad08e9.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/chop-vs-lopp-chemotherapy-as-a-first-line-treatment-for-naive-peripheral-t-cell-lymphoma-in-dogs-171507/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 15948,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:30:55.499745-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:31:02.933502-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/chop-vs-lopp-chemotherapy-as-a-first-line-treatment-for-naive-peripheral-t-cell-lymphoma-in-dogs-171507/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:31:02.931930-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 131,
+        "text_sha256": "4c3b35158535eb9a3faacfd8b04928a9225a158048577c516fe70837b9870976",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/8dbd92f5fa6efd7cbcd8.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/immune-treatment-of-canine-bone-cancer-933248/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 23576,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:31:53.145309-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:32:07.269507-05:00",
+        "http_status": 0,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/immune-treatment-of-canine-bone-cancer-933248/",
+        "content_type": "",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:32:02.551611-05:00",
+            "http_status": 0,
+            "exit_code": 28,
+            "stderr": "curl: (28) Proxy CONNECT aborted due to timeout\n",
+            "retry": 0
+          },
+          {
+            "at": "2026-11-03T03:32:07.269323-05:00",
+            "http_status": 0,
+            "exit_code": 56,
+            "stderr": "curl: (56) CONNECT tunnel failed, response 403\n",
+            "retry": 1
+          }
+        ],
+        "result": "request_failed",
+        "text_length": 0,
+        "text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/afc5afa9ec9666cfc947.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/exploring-a-nonoparticle-enabled-treatment-of-oral-squamous-cell-carcinoma-in-cats-263209/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 16241,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:31:42.566066-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:31:49.714255-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/exploring-a-nonoparticle-enabled-treatment-of-oral-squamous-cell-carcinoma-in-cats-263209/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:31:49.712927-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 116,
+        "text_sha256": "5a015df33df2fd22f4508af3b0e72c59e761306c0bcfbf1b592c62a40069fa58",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/23a2889bde478b2a918d.json"
+      },
+      {
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "url": "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=0&take=500",
+        "route": "official_fallback",
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:14:24.041586-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:14:34.038896-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=0&take=500",
+        "content_type": "application/json",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:14:34.037333-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 1680243,
+        "text_sha256": "dc65ca935034d2ec86a525524a8160d8059e92b6a6475ef054385c73f14a8d18",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/34f4affa7b11a9cba24c.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/pilot-study-for-a-new-quasiorganelle-therapy-in-dogs-with-histiocytic-sarcoma-751925/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 28658,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:31:35.321709-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:31:42.524763-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/pilot-study-for-a-new-quasiorganelle-therapy-in-dogs-with-histiocytic-sarcoma-751925/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:31:42.522914-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 111,
+        "text_sha256": "c7ab83028bb66db8161f38d00edb300c374861311df1cf493f7fa56e378ce1f5",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/36b15a1563755dba01f6.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/dual-energy-ct-to-assess-bone-mineral-density-in-dogs-with-osteosarcoma-undergoing-stereotactic-body-radiation-therapy-979407/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 20267,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:31:46.053541-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:31:53.108212-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/dual-energy-ct-to-assess-bone-mineral-density-in-dogs-with-osteosarcoma-undergoing-stereotactic-body-radiation-therapy-979407/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:31:53.106625-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 152,
+        "text_sha256": "4f1a6895cdfb14924f390dfd59b9d367b1c8ae33d132885a44a0b63f57b64d2b",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/0f43af030b483b09608d.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/radiotherapy-trial-for-metastatic-bone-cancer-in-dogs-608560/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 22083,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:31:20.741335-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:31:35.320676-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/radiotherapy-trial-for-metastatic-bone-cancer-in-dogs-608560/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:31:35.319257-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 87,
+        "text_sha256": "930adc26ec9a595a32f72c9bb6f69f6ed23027080e3085dde54789d8524a1564",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/da4ebf458af78d5827ab.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/car-t-cell-immunotherapy-for-treatment-of-metastatic-osteosarcoma-in-dogs-450020/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 15975,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:31:07.443960-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:31:15.590941-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/car-t-cell-immunotherapy-for-treatment-of-metastatic-osteosarcoma-in-dogs-450020/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:31:15.589022-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 107,
+        "text_sha256": "eacd831508280f06511c75028aa35fadef69ae4ee3e80a657c33819e280861ba",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/264c1b74166c3bf9afcb.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/clinical-trial-of-trametinib-in-dogs-with-acute-myeloid-leukemia-aml-742779/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 28244,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:30:40.594287-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:30:47.924232-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/clinical-trial-of-trametinib-in-dogs-with-acute-myeloid-leukemia-aml-742779/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:30:47.921911-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 104,
+        "text_sha256": "68b31cb1c1ffe245b39b6c1c884e0a427592f65a1c16f56b3edafe7ad66d7c74",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/bb9e75fd2f96eddf9dfa.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/developing-a-blood-test-for-early-detection-of-bone-cancer-relapse-163351/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 28634,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:30:44.494281-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:30:52.285046-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/developing-a-blood-test-for-early-detection-of-bone-cancer-relapse-163351/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:30:52.283465-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 100,
+        "text_sha256": "7c06154add49ba6ee337a7b34bd76a6850b3bc14d735e829f7bac954f4a6688b",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/3850424d8356c8bfdff4.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/treatment-of-canine-sarcoma-with-fap-car-t-cells-fap-car-t-study-526334/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 28732,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:31:39.381335-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:31:46.052517-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/treatment-of-canine-sarcoma-with-fap-car-t-cells-fap-car-t-study-526334/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:31:46.051084-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 100,
+        "text_sha256": "f9abb66b0690917ce8a584aa521df2f67b0f91afb64ae67a60a539704bbf7cc9",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/f5b138a34d96fecbe8eb.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/novel-immunotherapy-for-cats-with-oral-squamous-cell-carcinoma-190378/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 28238,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:32:07.268980-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:32:07.291112-05:00",
+        "http_status": 0,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/novel-immunotherapy-for-cats-with-oral-squamous-cell-carcinoma-190378/",
+        "content_type": "",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:32:07.290974-05:00",
+            "http_status": 0,
+            "exit_code": 56,
+            "stderr": "curl: (56) CONNECT tunnel failed, response 403\n",
+            "retry": 0
+          }
+        ],
+        "result": "request_failed",
+        "text_length": 0,
+        "text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/f6383d9630fc647b09a9.json"
+      },
+      {
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "url": "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=500&take=500",
+        "route": "official_fallback",
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:14:24.042161-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:14:34.776487-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=500&take=500",
+        "content_type": "application/json",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:14:34.775352-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 1220677,
+        "text_sha256": "95b9fdc7e11589c4fff6da35fd418492ae9cb118f478ac5a6370cb73d6faa95c",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/6964147c732220816f6b.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/combinatorial-imaging-with-pdl1-irdye800-to-guide-surgical-treatment-of-oral-cancer-738092/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 28205,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:31:35.263738-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:31:42.564976-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/combinatorial-imaging-with-pdl1-irdye800-to-guide-surgical-treatment-of-oral-cancer-738092/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:31:42.563264-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 117,
+        "text_sha256": "2f1947a66a6c5de47dc64fa36dc6138035305c63bbfbedfba1f56c43e8a22aa7",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/64aa2f73353f740294f7.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/immunotherapy-for-canine-oral-melanoma-240248/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 21453,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:31:15.593009-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:31:31.472859-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/immunotherapy-for-canine-oral-melanoma-240248/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:31:25.750366-05:00",
+            "http_status": 0,
+            "exit_code": 28,
+            "stderr": "curl: (28) Proxy CONNECT aborted due to timeout\n",
+            "retry": 0
+          },
+          {
+            "at": "2026-11-03T03:31:31.471185-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 1
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 72,
+        "text_sha256": "c76d0a1586e94532020afb1cafa85b825bf7436fd970b55d3b94a4686e710ff8",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/4330a28275201705efcc.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/incidence-of-hypercoagulability-and-thromboembolism-in-dogs-with-surgically-treated-primary-hepatocellular-and-adrenal-neoplasia-638689/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 18631,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:31:07.251122-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:31:15.588744-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/incidence-of-hypercoagulability-and-thromboembolism-in-dogs-with-surgically-treated-primary-hepatocellular-and-adrenal-neoplasia-638689/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:31:15.587239-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 162,
+        "text_sha256": "6b3b5b29d7f99c689dd4bc6bfe83ea796e7b2303c05d3cc192d27c80406d87a3",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/747fb2844bffe7902035.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/targeted-electrochemotherapy-ect-cancer-treatment-928247/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 15196,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:31:39.529764-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:31:45.968462-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/targeted-electrochemotherapy-ect-cancer-treatment-928247/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:31:45.967119-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 85,
+        "text_sha256": "7661fbcf1d0727fa9ac47f3def0e66871e63bb6ac2177f9343f4ef276970949a",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/514081d731c236dd6990.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/pilot-study-evaluating-palbociclib-in-dogs-with-melanoma-squamous-cell-carcinoma-mammary-carcinoma-or-anal-sac-adenocarcinoma-381754/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 18378,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:30:59.601718-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:31:07.442997-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/pilot-study-evaluating-palbociclib-in-dogs-with-melanoma-squamous-cell-carcinoma-mammary-carcinoma-or-anal-sac-adenocarcinoma-381754/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:31:07.441503-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 162,
+        "text_sha256": "d71313494ba92d25b8570a6724a07a66b29943ad538922a6886c2116e73a11ba",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/532cf8751f235e9b1940.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/combination-chemotherapy-doxorubicin-temozolomide-with-or-without-propranolol-in-dogs-with-hemangiosarcoma-625639/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 28067,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:31:31.522458-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:31:39.528865-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/combination-chemotherapy-doxorubicin-temozolomide-with-or-without-propranolol-in-dogs-with-hemangiosarcoma-625639/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:31:39.527562-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 142,
+        "text_sha256": "4d1264efe6a485f5e287bd39cd6b61bdfea34370ce883a662ec676b2ad0576f6",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/01dfeef86a4a2a6b0bf3.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/minimally-invasive-metastasectomy-in-canines-mimic-trial-108296/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 15839,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:30:12.286136-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:30:29.880513-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/minimally-invasive-metastasectomy-in-canines-mimic-trial-108296/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:30:29.879083-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 92,
+        "text_sha256": "340edca45df1971c00b64d9aa831e82c9750a9de896d3e4f4fe6cf5c4587d37b",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/65e45bfa5453859dfeb1.json"
+      },
+      {
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "url": "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1",
+        "route": "official_fallback",
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:14:24.041141-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:14:27.704724-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:14:27.702919-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 45,
+        "text_sha256": "f82038990f98f3052aa0f6a4b55479c15105731ced7081e40639d0ac047f5fc0",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/a15dc20b75369e4c0d18.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/comparative-molecular-analysis-for-acquired-toceranib-resistance-in-dogs-with-mast-cell-tumors-667475/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 18502,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:31:02.934841-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:31:11.196713-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/comparative-molecular-analysis-for-acquired-toceranib-resistance-in-dogs-with-mast-cell-tumors-667475/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:31:11.195436-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 128,
+        "text_sha256": "71b679bcf261a90a2eea7208aba4b47bb86e5f12617fbda13a4914c13cbeff02",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/114ae3814d404a97fce2.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/prism-trial-precision-research-integrating-symptoms-and-molecular-biology-in-canine-glioma-715789/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 28602,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:32:07.270373-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:32:07.291722-05:00",
+        "http_status": 0,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/prism-trial-precision-research-integrating-symptoms-and-molecular-biology-in-canine-glioma-715789/",
+        "content_type": "",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:32:07.291631-05:00",
+            "http_status": 0,
+            "exit_code": 56,
+            "stderr": "curl: (56) CONNECT tunnel failed, response 403\n",
+            "retry": 0
+          }
+        ],
+        "result": "request_failed",
+        "text_length": 0,
+        "text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/caceee44d12acbc015d9.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/ethos-precision-medicine-umbrella-study-for-hemangiosarcoma-ethos-push-947218/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 15808,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:30:12.285355-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:30:22.198826-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/ethos-precision-medicine-umbrella-study-for-hemangiosarcoma-ethos-push-947218/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:30:17.296713-05:00",
+            "http_status": 0,
+            "exit_code": 28,
+            "stderr": "curl: (28) Proxy CONNECT aborted due to timeout\n",
+            "retry": 0
+          },
+          {
+            "at": "2026-11-03T03:30:22.193770-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 1
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 106,
+        "text_sha256": "bda134a748830188a4619f1b92f663a6e48d19fca17944e49ceae9a60c88a8e6",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/5c564e285ec103216868.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/dose-escalation-study-for-a-novel-sting-agonist-in-tumor-bearing-dogs-134139/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 20671,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:31:49.715191-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:31:57.536517-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/dose-escalation-study-for-a-novel-sting-agonist-in-tumor-bearing-dogs-134139/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:31:57.534997-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 103,
+        "text_sha256": "143774e3b7ea062d52fef1769092f054c5269e121dd0d1b66a04f011f6e4b296",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/56326abc75bd9b1fcf41.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/cosmyc-it-trial-canine-oncology-study-for-myc-inhibition-tolerability-trial-215169/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 21776,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:31:20.650526-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:31:35.261219-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/cosmyc-it-trial-canine-oncology-study-for-myc-inhibition-tolerability-trial-215169/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:31:35.259846-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 111,
+        "text_sha256": "caf720d31d6d33007bec307802cd54dc41f709184ab759089336b75fd195ebcf",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/d11bf67ee277dcb37eaf.json"
+      },
+      {
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "url": "https://veterinaryclinicaltrials.org/",
+        "route": "master",
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:11:18.191042-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:11:22.304906-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:11:22.302792-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 42,
+        "text_sha256": "605aedf8fd117af4d02796e02210feccea535eb8ba69abb4bac47cf197a5df7e",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/aaf55b8b170fbb3950cc.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/vaccine-study-for-dogs-with-splenic-hemangiosarcoma-633216/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 16248,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:30:55.500415-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:31:02.936353-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/vaccine-study-for-dogs-with-splenic-hemangiosarcoma-633216/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:31:02.935114-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 85,
+        "text_sha256": "5eba67bd71060f4c4d8cb2fa7c77cf57bd9c68e7ee095b924ab1e3eaecd38e88",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/41608183389dda8006bb.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/characterization-of-soft-tissue-sarcoma-microscopic-extension-135983/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 22827,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:30:37.097795-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:30:44.480656-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/characterization-of-soft-tissue-sarcoma-microscopic-extension-135983/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:30:44.479122-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 95,
+        "text_sha256": "ddd477a033ca2c5c8c81a10f6b4808f8a794aee1f47699d6357c0162a742109b",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/84fcc99a8aee7f9c07fa.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/nasal-cancer-treatment-with-electrochemotherapy-126269/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 15641,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:30:52.286202-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:30:59.518923-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/nasal-cancer-treatment-with-electrochemotherapy-126269/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:30:59.517596-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 81,
+        "text_sha256": "02773aa92823059ad10e23967928b76bfaf8c8e3cbd1533506643778c1e42e33",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/096234f00ccd8866a4a3.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/care-trial-combined-autophagy-inhibition-and-radiation-therapy-to-improve-efficacy-in-canine-glioma-719148/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 28728,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:30:47.927200-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:30:55.497966-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/care-trial-combined-autophagy-inhibition-and-radiation-therapy-to-improve-efficacy-in-canine-glioma-719148/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:30:55.495184-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 134,
+        "text_sha256": "3770a1a6d639ac58c91d356f2ac9ee56d5ab9f9eed5f0c96ac480d542ca8b7d5",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/c1d276f082021185e2cb.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/cellular-immunotherapy-for-the-treatment-of-b-cell-lymphoma-or-leukemia-999878/",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "route": "observed_individual_current_link",
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:21:47.362432-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:21:51.462279-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/cellular-immunotherapy-for-the-treatment-of-b-cell-lymphoma-or-leukemia-999878/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:21:51.460531-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 105,
+        "text_sha256": "08a5b79d91458f4ba7e0b25a5d06a6ba0c246f4ad1eccdd50c3a96cd0aa098d0",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/c46291055e505331c1fd.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/treating-metastatic-cancer-with-pd-1-inhibitor-and-targeted-immunotherapy-943925/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 20744,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:31:15.592412-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:31:31.521080-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/treating-metastatic-cancer-with-pd-1-inhibitor-and-targeted-immunotherapy-943925/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:31:25.659882-05:00",
+            "http_status": 0,
+            "exit_code": 28,
+            "stderr": "curl: (28) Proxy CONNECT aborted due to timeout\n",
+            "retry": 0
+          },
+          {
+            "at": "2026-11-03T03:31:31.519296-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 1
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 107,
+        "text_sha256": "6f5bc789c9a202b7befd53b23d865ca9b086ae94658aa1058a86252967be7f45",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/fc8878833a51ceb9ad13.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/using-a-fluorescent-dye-to-identify-bladder-tumors-in-dogs-during-surgery-812447/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 28715,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:30:47.853268-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:30:55.496599-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/using-a-fluorescent-dye-to-identify-bladder-tumors-in-dogs-during-surgery-812447/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:30:55.495084-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 107,
+        "text_sha256": "5fad23aba44c5d934291e5356e9b23c74a990b767e751401baa01f91858af2ce",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/6ada5b2f52b6f016584a.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/pilot-study-of-frunevetmab-solensia-and-meloxicam-for-palliative-therapy-of-feline-bone-invasive-oral-squamous-cell-carcinomas-321666/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 16423,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:30:59.519946-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:31:07.249747-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/pilot-study-of-frunevetmab-solensia-and-meloxicam-for-palliative-therapy-of-feline-bone-invasive-oral-squamous-cell-carcinomas-321666/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:31:07.247815-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 162,
+        "text_sha256": "6c5d1660b0da404f511b9a0fdaad8383fb667f3c55feb786c58482d2f0f0212e",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/38ebed35b8d13a716f75.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/cell-therapy-for-metastatic-osteosarcoma-277843/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 20710,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:30:22.210411-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:30:26.340861-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/cell-therapy-for-metastatic-osteosarcoma-277843/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:30:26.339371-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 74,
+        "text_sha256": "735616b7d7b477679e94e0d919fdae6d3a8efbc8a321f60592336f7917e94def",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/ca5cfdde43627f5d3071.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/osteosarcoma-targeted-bone-electrochemotherapy-with-cementoplasty-alternative-to-amputation-334974/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 28470,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:30:44.481419-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:30:52.308780-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/osteosarcoma-targeted-bone-electrochemotherapy-with-cementoplasty-alternative-to-amputation-334974/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:30:52.307549-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 127,
+        "text_sha256": "1639e82bf47258de93a95fd6e33657d8f2813db6dd3dc28b3ca179636746d497",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/c22855eb7bd09c2984bf.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/efficacy-and-safety-of-a-novel-anti-cancer-therapeutic-for-the-treatment-of-metastatic-mammary-carcinoma-in-cats-290584/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 16314,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:30:22.200036-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:30:29.832462-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/efficacy-and-safety-of-a-novel-anti-cancer-therapeutic-for-the-treatment-of-metastatic-mammary-carcinoma-in-cats-290584/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:30:29.831119-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 146,
+        "text_sha256": "721d6dc3b47adaf4b09bbbcd5c49120e3c4e4f4428cf6eaf55a57a308c273ed1",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/e995d2531e8c415f8da6.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/radiation-targeted-therapy-for-bladder-cancer-in-dogs-240431/",
+        "route": "current_AVMA_oncology_protocol",
+        "source_id": "registry-avma-veterinary-clinical-trials",
+        "avma_record_id": 22607,
+        "method": "shell_curl",
+        "attempted_at": "2026-11-03T03:30:33.697539-05:00",
+        "new_source_visit": true,
+        "completed_at": "2026-11-03T03:30:40.585285-05:00",
+        "http_status": 200,
+        "effective_url": "https://veterinaryclinicaltrials.org/s/radiation-targeted-therapy-for-bladder-cancer-in-dogs-240431/",
+        "content_type": "text/html; charset=utf-8",
+        "attempts": [
+          {
+            "at": "2026-11-03T03:30:40.583524-05:00",
+            "http_status": 200,
+            "exit_code": 0,
+            "stderr": "",
+            "retry": 0
+          }
+        ],
+        "result": "retrieved_page",
+        "text_length": 89,
+        "text_sha256": "fcd269194a25975f7b0b7c17ed8a513859abc7d1f1612da6ee31ef538b5114ed",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/evidence/bbe33db0f8c82b18fce3.json"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/electrochemotherapy-for-bone-cancer-419848/",
+        "method": "Web",
+        "attempted_at": "2026-11-03T08:39:51.276Z",
+        "completed_at": "2026-11-03T08:39:51.959Z",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/web-13.json",
+        "new_source_visit": true,
+        "result": "web_unavailable",
+        "http_status": null,
+        "retrieved_text_excerpt": "Internal Error ()\n【turn1439view0】 [wordlim: 200] Source: open({\"ref_id\":\"https://veterinaryclinicaltrials.org/s/electrochemotherapy-for-bone-cancer-419848/\",\"lineno\":null}); \nURL https://veterinaryclinicaltrials.org/s/electrochemotherapy-for-bone-cancer-419848/ is not accessible via this tool.\n",
+        "freshness": "Crawl/cache metadata preserved in original Web artifact; no independent server-freshness claim."
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/single-radiation-treatment-for-dogs-with-transmissible-venereal-tumor-422595/",
+        "method": "Web",
+        "attempted_at": "2026-11-03T08:39:51.276Z",
+        "completed_at": "2026-11-03T08:39:51.959Z",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/web-13.json",
+        "new_source_visit": true,
+        "result": "web_retrieved_content",
+        "http_status": null,
+        "retrieved_text_excerpt": "\nStudypages - Single Radiation Treatment for Dogs with Transmissible Venereal Tumor (https://veterinaryclinicaltrials.org/s/single-radiation-treatment-for-dogs-with-transmissible-venereal-tumor-422595/)\n【turn1439view1】 [wordlim: 200] Crawled: last month; Content type: text/html; Source: open({\"ref_id\":\"https://veterinaryclinicaltrials.org/s/single-radiation-treatment-for-dogs-with-transmissible-venereal-tumor-422595/\",\"lineno\":null}); Total lines: 3\nL0: 【0†Skip to main content】\nL1: \nL2: [Input]\n",
+        "freshness": "Crawl/cache metadata preserved in original Web artifact; no independent server-freshness claim."
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/clinical-trial-for-dogs-newly-diagnosed-with-osteosarcoma-324627/",
+        "method": "Web",
+        "attempted_at": "2026-11-03T08:39:52.204Z",
+        "completed_at": "2026-11-03T08:39:52.821Z",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/web-14.json",
+        "new_source_visit": true,
+        "result": "web_retrieved_content",
+        "http_status": null,
+        "retrieved_text_excerpt": "Studypages - Clinical trial for dogs newly diagnosed with osteosarcoma (https://veterinaryclinicaltrials.org/s/clinical-trial-for-dogs-newly-diagnosed-with-osteosarcoma-324627/)\n【turn1440view0】 [wordlim: 200] Crawled: 2 weeks ago; Content type: text/html; Source: open({\"ref_id\":\"https://veterinaryclinicaltrials.org/s/clinical-trial-for-dogs-newly-diagnosed-with-osteosarcoma-324627/\",\"lineno\":null}); Total lines: 3\nL0: 【0†Skip to main content】\nL1: \nL2: [Input]\n\n",
+        "freshness": "Crawl/cache metadata preserved in original Web artifact; no independent server-freshness claim."
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/immune-treatment-of-canine-bone-cancer-933248/",
+        "method": "Web",
+        "attempted_at": "2026-11-03T08:39:52.204Z",
+        "completed_at": "2026-11-03T08:39:52.821Z",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/web-14.json",
+        "new_source_visit": true,
+        "result": "web_retrieved_content",
+        "http_status": null,
+        "retrieved_text_excerpt": "\nStudypages - Immune treatment of Canine Bone Cancer (https://veterinaryclinicaltrials.org/s/immune-treatment-of-canine-bone-cancer-933248/)\n【turn1440view1】 [wordlim: 200] Crawled: 2 weeks ago; Content type: text/html; Source: open({\"ref_id\":\"https://veterinaryclinicaltrials.org/s/immune-treatment-of-canine-bone-cancer-933248/\",\"lineno\":null}); Total lines: 3\nL0: 【0†Skip to main content】\nL1: \nL2: [Input]\n",
+        "freshness": "Crawl/cache metadata preserved in original Web artifact; no independent server-freshness claim."
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1",
+        "method": "Web",
+        "attempted_at": "2026-11-03T08:19:05.887Z",
+        "completed_at": "2026-11-03T08:19:06.410Z",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/web-8.json",
+        "new_source_visit": true,
+        "result": "web_unavailable",
+        "http_status": null,
+        "retrieved_text_excerpt": "\nInternal Error ()\n【turn1433view1】 [wordlim: 200] Source: open({\"ref_id\":\"https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1\",\"lineno\":null}); \nURL https://veterinaryclinicaltrials.org/studies/?term~sc_paths=primary-field-19_oncology-1&term~studypage_status=R is not accessible via this tool.",
+        "freshness": "Crawl/cache metadata preserved in original Web artifact; no independent server-freshness claim."
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/novel-immunotherapy-for-cats-with-oral-squamous-cell-carcinoma-190378/",
+        "method": "Web",
+        "attempted_at": "2026-11-03T08:39:53.074Z",
+        "completed_at": "2026-11-03T08:39:53.749Z",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/web-15.json",
+        "new_source_visit": true,
+        "result": "web_retrieved_content",
+        "http_status": null,
+        "retrieved_text_excerpt": "Studypages - Novel Immunotherapy for Cats with Oral Squamous Cell Carcinoma (https://veterinaryclinicaltrials.org/s/novel-immunotherapy-for-cats-with-oral-squamous-cell-carcinoma-190378/)\n【turn1441view0】 [wordlim: 200] Crawled: 3 weeks ago; Content type: text/html; Source: open({\"ref_id\":\"https://veterinaryclinicaltrials.org/s/novel-immunotherapy-for-cats-with-oral-squamous-cell-carcinoma-190378/\",\"lineno\":null}); Total lines: 3\nL0: 【0†Skip to main content】\nL1: \nL2: [Input]\n\n",
+        "freshness": "Crawl/cache metadata preserved in original Web artifact; no independent server-freshness claim."
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/prism-trial-precision-research-integrating-symptoms-and-molecular-biology-in-canine-glioma-715789/",
+        "method": "Web",
+        "attempted_at": "2026-11-03T08:39:53.074Z",
+        "completed_at": "2026-11-03T08:39:53.749Z",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/web-15.json",
+        "new_source_visit": true,
+        "result": "web_unavailable",
+        "http_status": null,
+        "retrieved_text_excerpt": "\nInternal Error ()\n【turn1441view1】 [wordlim: 200] Source: open({\"ref_id\":\"https://veterinaryclinicaltrials.org/s/prism-trial-precision-research-integrating-symptoms-and-molecular-biology-in-canine-glioma-715789/\",\"lineno\":null}); \nURL https://veterinaryclinicaltrials.org/s/prism-trial-precision-research-integrating-symptoms-and-molecular-biology-in-canine-glioma-715789/ is not accessible via this tool.",
+        "freshness": "Crawl/cache metadata preserved in original Web artifact; no independent server-freshness claim."
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/",
+        "method": "Web",
+        "route": "same_url_transport_fallback",
+        "attempted_at": "2026-11-03T08:12:13.888Z",
+        "completed_at": "2026-11-03T08:12:14.696Z",
+        "evidence_file": "research/audit-runs/daily-20261103T030532-0500/web-1.json",
+        "new_source_visit": true,
+        "http_status": null,
+        "result": "web_retrieved_content",
+        "freshness": "Original crawler/cache metadata retained in the full artifact; no independent server-freshness assertion."
+      }
+    ],
+    "last_route_used": [
+      "shell_curl",
+      "Web"
+    ],
+    "fallback_urls": [
+      "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1",
+      "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=500&take=500",
+      "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=0&take=500"
+    ],
+    "last_audit_run_id": "daily-20261103T030532-0500",
+    "last_protocols_seen": null,
+    "last_coverage_gap": "Full56 protocol-by-protocol exact dispositions are saved in avma-active-reconciliation.json, not hostname dedupes. The eight pending include separate VSNT FortWorth randomized doxo/temozolomide±propranolol and UTSW three-drug cohort; do not silently merge because PI/drugs overlap. NCSU EEAcats is not PIVOT-C; general VOS ECT offering outside defined trial scope. Old completed/suspended entries retained as historical registry signals without canonical closure.",
+    "fingerprint_method": "Digest of hashes of actual current retrieved native documents; not proof of roster or clinical review.",
+    "last_visit_timestamp_precision": "instant",
+    "last_coverage_receipt": "research/audit-runs/daily-20261103T030532-0500/receipt-final.json",
+    "content_sufficient": false,
+    "recheck_after": "2026-10-21",
+    "reconciliation_run_id": "finalize-68-20261014T185109-0400",
+    "audit_last_run_id": "daily-20261028T030606-0400",
+    "last_check_summary": "Both public AVMA pages were retrieved and all856 unique records compared field-by-field with previous856;444 oncology records include56Recruiting. Every recruiting identity was adjudicated:46exact canonical identities,8pending primary/cohort questions and2nonqualifying records. Only changed registry record22208 is now Completed (previous Suspended), a new Penn B-cell CAR-T owner-status question. Archived registry does not replace live institutional intake or whole multicenter roster.",
+    "content_fingerprint_method": "shell_curl_retrieved_text",
+    "last_http_status_at": "2026-11-03T03:31:57.542669-05:00",
+    "last_processing_review_at": "2026-11-03T05:22:32.743476-05:00",
+    "processing_complete": true,
+    "last_current_review_finding": "Both public AVMA pages were retrieved and all856 unique records compared field-by-field with previous856;444 oncology records include56Recruiting. Every recruiting identity was adjudicated:46exact canonical identities,8pending primary/cohort questions and2nonqualifying records. Only changed registry record22208 is now Completed (previous Suspended), a new Penn B-cell CAR-T owner-status question. Archived registry does not replace live institutional intake or whole multicenter roster."
+  },
+  "new": {
+    "id": "registry-avma-veterinary-clinical-trials",
+    "name": "AVMA Veterinary Clinical Trials Registry",
+    "country": "USA",
+    "source_type": "registry",
+    "master_url": "https://veterinaryclinicaltrials.org/",
+    "required_cadence": "daily",
+    "last_checked": "2026-11-03",
+    "last_result": "partial",
+    "content_fingerprint": "sha256:5c394568db3b9f171069b1a5a8504745d64293780a279ba63dfdbf51a4d9bb5b",
+    "last_checked_at": "2026-11-03T07:03:13.403876-05:00",
+    "last_http_status": 200,
+    "notes": "Targeted owner-policy follow-up: both current public AVMA JSON pages retrieved (856 distinct records), plus exact Penn B-cell individual page. Exact VCT25005914 / record22208 is Completed; canonical matching access disabled under owner closure rule. This targeted status comparison does not establish a new full daily roster or institutional intake review. Prior full-audit evidence and source dates are preserved in baseline snapshot and previous daily receipt.",
+    "last_attempts": [
+      {
+        "url": "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=0&take=500",
+        "method": "shell_curl",
+        "route": "official_fallback_targeted_status_reconciliation",
+        "attempted_at": "2026-11-03T07:00:29.305037-05:00",
+        "completed_at": "2026-11-03T07:00:34.127193-05:00",
+        "http_status": 200,
+        "result": "retrieved_page",
+        "new_source_visit": true,
+        "evidence_file": "research/audit-runs/owner-rules-20261103T065741-0500/evidence/avma-page-1.json",
+        "text_sha256": "dc65ca935034d2ec86a525524a8160d8059e92b6a6475ef054385c73f14a8d18"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=500&take=500",
+        "method": "shell_curl",
+        "route": "official_fallback_targeted_status_reconciliation",
+        "attempted_at": "2026-11-03T07:00:34.129944-05:00",
+        "completed_at": "2026-11-03T07:00:36.782029-05:00",
+        "http_status": 200,
+        "result": "retrieved_page",
+        "new_source_visit": true,
+        "evidence_file": "research/audit-runs/owner-rules-20261103T065741-0500/evidence/avma-page-2.json",
+        "text_sha256": "95b9fdc7e11589c4fff6da35fd418492ae9cb118f478ac5a6370cb73d6faa95c"
+      },
+      {
+        "url": "https://veterinaryclinicaltrials.org/s/cellular-immunotherapy-for-the-treatment-of-b-cell-lymphoma-or-leukemia-999878/",
+        "method": "shell_curl",
+        "route": "individual_registry_protocol",
+        "attempted_at": "2026-11-03T07:03:10.480187-05:00",
+        "completed_at": "2026-11-03T07:03:13.403876-05:00",
+        "http_status": 200,
+        "result": "retrieved_page",
+        "new_source_visit": true,
+        "evidence_file": "research/audit-runs/owner-rules-20261103T065741-0500/evidence/penn-individual.json"
+      }
+    ],
+    "last_route_used": [
+      "shell_curl",
+      "Web"
+    ],
+    "fallback_urls": [
+      "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1",
+      "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=500&take=500",
+      "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=0&take=500"
+    ],
+    "last_audit_run_id": "owner-rules-20261103T065741-0500",
+    "last_protocols_seen": null,
+    "last_coverage_gap": "Full56 protocol-by-protocol exact dispositions are saved in avma-active-reconciliation.json, not hostname dedupes. The eight pending include separate VSNT FortWorth randomized doxo/temozolomide±propranolol and UTSW three-drug cohort; do not silently merge because PI/drugs overlap. NCSU EEAcats is not PIVOT-C; general VOS ECT offering outside defined trial scope. Old completed/suspended entries retained as historical registry signals without canonical closure.",
+    "fingerprint_method": "Digest of hashes of actual current retrieved native documents; not proof of roster or clinical review.",
+    "last_visit_timestamp_precision": "instant",
+    "last_coverage_receipt": "research/audit-runs/owner-rules-20261103T065741-0500/source-attempt-receipt.json",
+    "content_sufficient": false,
+    "recheck_after": "2026-10-21",
+    "reconciliation_run_id": "finalize-68-20261014T185109-0400",
+    "audit_last_run_id": "daily-20261028T030606-0400",
+    "last_check_summary": "Targeted owner-policy reconciliation of the exact current AVMA Penn B-cell cohort: Completed. Both registry JSON pages read; no repeated global discovery, institution roster or full protocol-review claim.",
+    "content_fingerprint_method": "shell_curl_retrieved_text",
+    "last_http_status_at": "2026-11-03T03:31:57.542669-05:00",
+    "last_processing_review_at": "2026-11-03T05:22:32.743476-05:00",
+    "processing_complete": true,
+    "last_current_review_finding": "Both public AVMA pages were retrieved and all856 unique records compared field-by-field with previous856;444 oncology records include56Recruiting. Every recruiting identity was adjudicated:46exact canonical identities,8pending primary/cohort questions and2nonqualifying records. Only changed registry record22208 is now Completed (previous Suspended), a new Penn B-cell CAR-T owner-status question. Archived registry does not replace live institutional intake or whole multicenter roster."
+  },
+  "attempted_urls": [
+    {
+      "url": "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=0&take=500",
+      "method": "shell_curl",
+      "route": "official_fallback_targeted_status_reconciliation",
+      "attempted_at": "2026-11-03T07:00:29.305037-05:00",
+      "completed_at": "2026-11-03T07:00:34.127193-05:00",
+      "http_status": 200,
+      "result": "retrieved_page",
+      "new_source_visit": true,
+      "evidence_file": "research/audit-runs/owner-rules-20261103T065741-0500/evidence/avma-page-1.json",
+      "text_sha256": "dc65ca935034d2ec86a525524a8160d8059e92b6a6475ef054385c73f14a8d18"
+    },
+    {
+      "url": "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=500&take=500",
+      "method": "shell_curl",
+      "route": "official_fallback_targeted_status_reconciliation",
+      "attempted_at": "2026-11-03T07:00:34.129944-05:00",
+      "completed_at": "2026-11-03T07:00:36.782029-05:00",
+      "http_status": 200,
+      "result": "retrieved_page",
+      "new_source_visit": true,
+      "evidence_file": "research/audit-runs/owner-rules-20261103T065741-0500/evidence/avma-page-2.json",
+      "text_sha256": "95b9fdc7e11589c4fff6da35fd418492ae9cb118f478ac5a6370cb73d6faa95c"
+    },
+    {
+      "url": "https://veterinaryclinicaltrials.org/s/cellular-immunotherapy-for-the-treatment-of-b-cell-lymphoma-or-leukemia-999878/",
+      "method": "shell_curl",
+      "route": "individual_registry_protocol",
+      "attempted_at": "2026-11-03T07:03:10.480187-05:00",
+      "completed_at": "2026-11-03T07:03:13.403876-05:00",
+      "http_status": 200,
+      "result": "retrieved_page",
+      "new_source_visit": true,
+      "evidence_file": "research/audit-runs/owner-rules-20261103T065741-0500/evidence/penn-individual.json"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run_id": "daily-20261103T030532-0500",
+  "last_run_id": "owner-rules-20261103T065741-0500",
   "issues": [
     {
       "issue_id": "full_protocol:uf-hsa-vaccine",
@@ -1301,9 +1301,9 @@
       "issue_id": "full_protocol:penn-bcell-car-t-registry",
       "trial_id": "penn-bcell-car-t-registry",
       "kind": "full_protocol",
-      "reviewed_at": "2026-11-03T04:41:04.206727-05:00",
-      "finding": "NEW current primary registry signal: exact record22208/public999878/VCT25005914 IL18 B-cell CAR-T changed Suspended→Completed and its individual HTML is inactive. Canonical still public under older Penn recruiting evidence; Penn primary is restricted. Owner decision is required on this conflict; study end June30,2027 is not a recruitment cutoff.",
-      "state": "OWNER_DECISION",
+      "reviewed_at": "2026-11-03T07:09:21.138569-05:00",
+      "finding": "Owner rule applied to current exact AVMA22208/VCT25005914 Completed record; this cohort is now nonmatchable. This is closure, not a five-fact clinical reread.",
+      "state": "POLICY_RESOLVED",
       "question": "Which current Penn B-cell CAR-T cohort and intake site remain open, under what complete eligibility, treatment backbone and owner-cost terms?",
       "next_action": "Юля: decide public matching status for the exact IL18 CAR-T cohort given current AVMA Completed and inaccessible Penn confirmation; retain separate cohorts.",
       "manual_evidence_urls": [
@@ -1311,7 +1311,10 @@
       ],
       "evidence_refs": [
         "research/audit-runs/daily-20261103T030532-0500/evidence/8f950ad169a363585fd6.json",
-        "research/audit-runs/daily-20261103T030532-0500/avma-delta.json"
+        "research/audit-runs/daily-20261103T030532-0500/avma-delta.json",
+        "research/audit-runs/owner-rules-20261103T065741-0500/evidence/penn-current-registry-record.json",
+        "research/audit-runs/owner-rules-20261103T065741-0500/evidence/penn-individual.json",
+        "data/audit_owner_policy.json"
       ],
       "restriction_or_unpublished_evidence_refs": [
         "research/audit-runs/daily-20261103T030532-0500/evidence/8f950ad169a363585fd6.json",
@@ -1320,7 +1323,22 @@
       "original_primary_evidence_retained": [
         "research/audit-runs/daily-20261102T030506-0500/evidence/8f950ad169a363585f.json"
       ],
-      "new_primary_signal": true
+      "new_primary_signal": true,
+      "previous_owner_question": "Which current Penn B-cell CAR-T cohort and intake site remain open, under what complete eligibility, treatment backbone and owner-cost terms?",
+      "previous_reviewed_at": "2026-11-03T04:41:04.206727-05:00",
+      "full_protocol_review_complete": false,
+      "previous_verified": "2026-09-09",
+      "resolved_scope": "current_access",
+      "policy_resolution": {
+        "rule": "avma_closed",
+        "registry_status": "Completed",
+        "avma_vct_code": "VCT25005914",
+        "identity_comparison": "Canonical registry URL public999878 and VCT25005914 identify the same Penn/Nicola Mason autologous B-cell lymphoma/leukemia CAR-T cohort; no other Penn CAR-T cohort closed.",
+        "evidence_refs": [
+          "research/audit-runs/owner-rules-20261103T065741-0500/evidence/penn-current-registry-record.json",
+          "research/audit-runs/owner-rules-20261103T065741-0500/evidence/penn-individual.json"
+        ]
+      }
     },
     {
       "issue_id": "full_protocol:penn-atherton-steap1-car-t-hs",
@@ -1622,23 +1640,38 @@
       "issue_id": "full_protocol:jp-nvlu-survivin-peptide-vaccine-2026",
       "trial_id": "jp-nvlu-survivin-peptide-vaccine-2026",
       "kind": "full_protocol",
-      "reviewed_at": "2026-11-03T04:41:04.206727-05:00",
-      "finding": "Today NVLU primary read in full. March31,2027 is the stated research period, not an explicit guaranteed recruitment cutoff. Canonical recruiting-through wording still requires owner revision decision; Oct30,2026 belongs to nononcology MUO/MSC.",
-      "state": "OWNER_DECISION",
+      "reviewed_at": "2026-11-03T07:09:21.138569-05:00",
+      "finding": "Owner rule applies the published study end 2027-03-31 as recruitment end for this currently public/recruiting cohort. Original clinical and funding dates preserved.",
+      "state": "POLICY_RESOLVED",
       "question": "Replace the canonical promise of recruiting through March 31 2027 with wording that distinguishes the research period from confirmed intake?",
       "next_action": "Юля: Replace the canonical promise of recruiting through March 31 2027 with wording that distinguishes the research period from confirmed intake?",
       "manual_evidence_urls": [
         "https://www.nvlu.ac.jp/amedical/clinical-research/05.html"
       ],
       "evidence_refs": [
-        "research/audit-runs/daily-20261103T030532-0500/evidence/a7f0b1e4cb8abf37a5de.json"
+        "research/audit-runs/daily-20261103T030532-0500/evidence/a7f0b1e4cb8abf37a5de.json",
+        "research/audit-runs/owner-rules-20261103T065741-0500/evidence/inherited-ec695371484b3595f0e6.json",
+        "data/audit_owner_policy.json"
       ],
       "restriction_or_unpublished_evidence_refs": [
         "research/audit-runs/daily-20261103T030532-0500/evidence/a7f0b1e4cb8abf37a5de.json"
       ],
       "original_primary_evidence_retained": [
         "research/audit-runs/daily-20261102T030506-0500/evidence/a7f0b1e4cb8abf37a5.json"
-      ]
+      ],
+      "previous_owner_question": "Replace the canonical promise of recruiting through March 31 2027 with wording that distinguishes the research period from confirmed intake?",
+      "previous_reviewed_at": "2026-11-03T04:41:04.206727-05:00",
+      "full_protocol_review_complete": false,
+      "previous_verified": "2026-10-04",
+      "resolved_scope": "deadline_interpretation",
+      "policy_resolution": {
+        "rule": "study_end_as_recruitment_end",
+        "published_study_end": "2027-03-31",
+        "identity_comparison": "Exact canonical jp-nvlu-survivin-peptide-vaccine-2026 and its own saved primary study-period date; no grant/ethics/sidebar or other cohort substituted.",
+        "evidence_refs": [
+          "research/audit-runs/owner-rules-20261103T065741-0500/evidence/inherited-ec695371484b3595f0e6.json"
+        ]
+      }
     },
     {
       "issue_id": "full_protocol:dk-copenhagen-flash-superficial-tumors",
@@ -1839,41 +1872,78 @@
       "issue_id": "full_protocol:ucd-oral-margin",
       "trial_id": "ucd-oral-margin",
       "kind": "full_protocol",
-      "state": "OWNER_DECISION",
-      "reviewed_at": "2026-11-03T05:01:01.378134-05:00",
-      "finding": "Current UC Davis public protocol API start_date2026-07-01/end_date2028-06-30 is a study-period field, while canonical notes promise Recruitment period2026-06-30 through2028-06-29. The one-day difference and enrollment-versus-study semantics are not silently corrected.",
+      "state": "POLICY_RESOLVED",
+      "reviewed_at": "2026-11-03T07:09:21.138569-05:00",
+      "finding": "Owner rule applies the published study end 2028-06-30 as recruitment end for this currently public/recruiting cohort. Original clinical and funding dates preserved.",
       "question": "Юля: approve wording that distinguishes study period from confirmed recruitment, and resolve the one-day date interpretation without inventing a cutoff.",
       "next_action": "Юля: approve wording that distinguishes study period from confirmed recruitment, and resolve the one-day date interpretation without inventing a cutoff.",
       "primary_url": "https://studypages.com/s/fluorescence-imaging-with-pdl1-irdye800-to-guide-surgical-treatment-of-oral-cancer-in-dogs-679907/",
       "previous_verified": "2026-10-14",
       "evidence_refs": [
-        "research/audit-runs/daily-20261103T030532-0500/evidence/1d89696f543a7ecb4ce0.json"
+        "research/audit-runs/daily-20261103T030532-0500/evidence/1d89696f543a7ecb4ce0.json",
+        "research/audit-runs/owner-rules-20261103T065741-0500/evidence/inherited-c23e0e5eb220d7a2655f.json",
+        "research/audit-runs/owner-rules-20261103T065741-0500/evidence/inherited-1d89696f543a7ecb4ce0.json",
+        "data/audit_owner_policy.json"
       ],
       "due_reason": "new_current_date_semantics_question",
       "original_evidence_dates": [
         "2026-11-03T03:21:43.747181-05:00"
       ],
-      "clinical_full_review_claimed": false
+      "clinical_full_review_claimed": false,
+      "previous_owner_question": "Юля: approve wording that distinguishes study period from confirmed recruitment, and resolve the one-day date interpretation without inventing a cutoff.",
+      "previous_reviewed_at": "2026-11-03T05:01:01.378134-05:00",
+      "full_protocol_review_complete": false,
+      "resolved_scope": "deadline_interpretation",
+      "policy_resolution": {
+        "rule": "study_end_as_recruitment_end",
+        "published_study_end": "2028-06-30",
+        "identity_comparison": "Exact canonical ucd-oral-margin and its own saved primary study-period date; no grant/ethics/sidebar or other cohort substituted.",
+        "evidence_refs": [
+          "research/audit-runs/owner-rules-20261103T065741-0500/evidence/inherited-c23e0e5eb220d7a2655f.json",
+          "research/audit-runs/owner-rules-20261103T065741-0500/evidence/inherited-1d89696f543a7ecb4ce0.json"
+        ]
+      }
     },
     {
       "issue_id": "full_protocol:csu-brain-cart-verdinexor",
       "trial_id": "csu-brain-cart-verdinexor",
       "kind": "full_protocol",
-      "state": "OWNER_DECISION",
-      "reviewed_at": "2026-11-03T05:01:01.378134-05:00",
-      "finding": "Current CSU protocol API end_date2028-12-31 is a study-period field. Canonical notes say recruits through December31,2028; no explicit guaranteed enrollment cutoff is established by this generic end_date.",
+      "state": "POLICY_RESOLVED",
+      "reviewed_at": "2026-11-03T07:09:21.138569-05:00",
+      "finding": "Owner rule applies the published study end 2028-12-31 as recruitment end for this currently public/recruiting cohort. Original clinical and funding dates preserved.",
       "question": "Юля: approve removing the guaranteed recruitment-through implication while retaining the current independently supported active cohort.",
       "next_action": "Юля: approve removing the guaranteed recruitment-through implication while retaining the current independently supported active cohort.",
       "primary_url": "https://clinicaltrials.csuveterinaryhealth.org/s/immunotherapy-car-t-treatment-for-canine-glioma-tumors-780192/?ref=gallery",
       "previous_verified": "2026-10-27",
       "evidence_refs": [
-        "research/audit-runs/daily-20261103T030532-0500/evidence/5c500a226e13e3af2915.json"
+        "research/audit-runs/daily-20261103T030532-0500/evidence/5c500a226e13e3af2915.json",
+        "research/audit-runs/owner-rules-20261103T065741-0500/evidence/inherited-9f108250c70a73936bc4.json",
+        "research/audit-runs/owner-rules-20261103T065741-0500/evidence/inherited-5c500a226e13e3af2915.json",
+        "research/audit-runs/owner-rules-20261103T065741-0500/evidence/inherited-d7d0d72c10245d093cd8.json",
+        "data/audit_owner_policy.json"
       ],
       "due_reason": "new_current_date_semantics_question",
       "original_evidence_dates": [
         "2026-11-03T03:21:42.465037-05:00"
       ],
-      "clinical_full_review_claimed": false
+      "clinical_full_review_claimed": false,
+      "previous_owner_question": "Юля: approve removing the guaranteed recruitment-through implication while retaining the current independently supported active cohort.",
+      "previous_reviewed_at": "2026-11-03T05:01:01.378134-05:00",
+      "full_protocol_review_complete": false,
+      "resolved_scope": "deadline_interpretation",
+      "policy_resolution": {
+        "rule": "study_end_as_recruitment_end",
+        "published_study_end": "2028-12-31",
+        "identity_comparison": "Exact canonical csu-brain-cart-verdinexor and its own saved primary study-period date; no grant/ethics/sidebar or other cohort substituted.",
+        "evidence_refs": [
+          "research/audit-runs/owner-rules-20261103T065741-0500/evidence/inherited-9f108250c70a73936bc4.json",
+          "research/audit-runs/owner-rules-20261103T065741-0500/evidence/inherited-5c500a226e13e3af2915.json",
+          "research/audit-runs/owner-rules-20261103T065741-0500/evidence/inherited-d7d0d72c10245d093cd8.json"
+        ]
+      }
     }
-  ]
+  ],
+  "last_daily_run_id": "daily-20261103T030532-0500",
+  "last_update_scope": "targeted_owner_policy",
+  "last_updated_at": "2026-11-03T07:09:21.138569-05:00"
 }

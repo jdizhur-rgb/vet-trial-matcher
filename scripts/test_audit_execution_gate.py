@@ -185,6 +185,67 @@ class ExecutionTests(unittest.TestCase):
         kinds = {x["kind"] for x in seed_queue(self.root, [trial], [trial], self.end)["issues"]}
         self.assertEqual(kinds, {"full_protocol", "independent_selection"})
 
+    def policy_fixture(self, rule):
+        item = self.issue("POLICY_RESOLVED")
+        self.baseline["issues"][0]["state"] = "OWNER_DECISION"
+        item.update(previous_verified="2026-10-20", full_protocol_review_complete=False,
+                    resolved_scope="current_access" if rule == "avma_closed" else "deadline_interpretation",
+                    policy_resolution={"rule": rule, "evidence_refs": ["evidence.json"],
+                                       "identity_comparison": "Exact protocol/cohort identifier compared"})
+        data = self.root / "data"
+        data.mkdir(exist_ok=True)
+        (data / "audit_owner_policy.json").write_text(json.dumps({"rules": {rule: {"enabled": True}}}))
+        trial = {"id": "trial", "verified": "2026-10-20"}
+        return item, trial
+
+    def test_owner_closed_policy_requires_exact_inactive_registry_record(self):
+        item, trial = self.policy_fixture("avma_closed")
+        item["policy_resolution"].update(registry_status="Completed", avma_vct_code="VCT123")
+        trial.update(available_for_matching=False, registry_status="Completed", avma_vct_code="VCT123")
+        path = self.root / "data/trials_base.json"
+        path.write_text(json.dumps([trial]))
+        self.assertEqual(self.check()[0], [])
+        self.assertEqual(self.check()[1]["policy_questions_resolved"], 1)
+        trial["available_for_matching"] = True
+        path.write_text(json.dumps([trial]))
+        self.assertTrue(any("unsupported owner-policy" in e for e in self.check()[0]))
+
+    def test_owner_date_policy_needs_persisted_date_and_cannot_refresh_clinical_date(self):
+        item, trial = self.policy_fixture("study_end_as_recruitment_end")
+        item["policy_resolution"]["published_study_end"] = "2027-03-31"
+        trial.update(recruitment_end="2027-03-31", recruitment_end_basis={
+            "rule": "study_end_as_recruitment_end", "primary_url": "https://example.org/protocol",
+            "published_study_end": "2027-03-31", "evidence_refs": ["evidence.json"]})
+        path = self.root / "data/trials_base.json"
+        path.write_text(json.dumps([trial]))
+        self.assertEqual(self.check()[0], [])
+        trial["verified"] = "2026-11-02"
+        path.write_text(json.dumps([trial]))
+        self.assertTrue(any("unsupported owner-policy" in e for e in self.check()[0]))
+
+    def test_owner_date_policy_cannot_close_a_different_clinical_scope(self):
+        item, trial = self.policy_fixture("study_end_as_recruitment_end")
+        item["policy_resolution"]["published_study_end"] = "2027-03-31"
+        item["resolved_scope"] = "funding"
+        trial.update(recruitment_end="2027-03-31", recruitment_end_basis={
+            "rule": "study_end_as_recruitment_end", "primary_url": "https://example.org/protocol",
+            "published_study_end": "2027-03-31", "evidence_refs": ["evidence.json"]})
+        (self.root / "data/trials_base.json").write_text(json.dumps([trial]))
+        self.assertTrue(any("unsupported owner-policy" in e for e in self.check()[0]))
+
+    def test_policy_resolution_history_does_not_reopen_until_full_review_is_due(self):
+        self.seed_files([{"issue_id": "full_protocol:trial", "trial_id": "trial", "kind": "full_protocol",
+                          "state": "POLICY_RESOLVED"}])
+        trial = {"id": "trial", "url": "https://example.org/trial", "verified": "2026-11-01"}
+        self.assertEqual(seed_queue(self.root, [trial], [trial], self.end)["issues"], [])
+        (self.root / "progress.json").write_text(json.dumps([{"trial_id": "trial",
+            "status": "current_full_protocol_not_verified", "remaining_fact": "Old owner date question"}]))
+        trial["verified"] = "2026-09-01"
+        due = seed_queue(self.root, [trial], [trial], self.end)["issues"]
+        self.assertEqual(len(due), 1)
+        self.assertEqual(due[0]["due_reason"], "28_day_review")
+        self.assertNotEqual(due[0]["question"], "Old owner date question")
+
     def test_unprocessed_discovery_url_cannot_disappear(self):
         self.review["discovered_urls"] = ["https://example.org/not-reviewed"]
         self.assertTrue(any("all discovered URLs" in e for e in self.check()[0]))

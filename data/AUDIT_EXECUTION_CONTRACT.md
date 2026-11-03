@@ -73,6 +73,10 @@ the actual current inventory and receive the same complete current decision and
 receipt accounting. Every frozen source remains mandatory; undeclared additions,
 missing original IDs and rewriting the baseline are not permitted.
 
+## Owner policy resolutions — 2026-11-03
+
+Apply `data/audit_owner_policy.json` and the November3 algorithm section. `POLICY_RESOLVED` is a separate terminal state for the owner-approved exact AVMA closure or study-end date interpretation. It does not assert a full protocol/independent-case review. Save `resolved_scope`, `policy_resolution` with rule, primary evidence references and exact identity comparison, `previous_verified`, and `full_protocol_review_complete=false`. AVMA closure requires the same persisted VCT/status and a nonmatchable canonical record; date interpretation requires the persisted primary-derived `recruitment_end` and source basis. Keep original clinical/evidence dates. Unrelated funding/eligibility/site questions remain pending. The gate reports policy resolutions separately and still seeds a new full review when the unchanged clinical date reaches28days. Ordinary `RESOLVED` retains every existing five-fact/case requirement.
+
 ## Durable trial issues
 
 Each baseline issue needs one `issue_updates` row, preserving `issue_id`,
@@ -87,6 +91,7 @@ their separate existing ledgers. Each update records actual `reviewed_at`,
 | `OPEN_AVAILABLE` | Concrete remaining question and next permitted action; do it within the run |
 | `BLOCKED` | Question, next action and `restriction_or_unpublished_evidence_refs` establishing the exact gap |
 | `DEFERRED` | Question, next action, explicit future timezone-aware `recheck_after` and `deferral_basis`; never defer a crossed deadline or new primary signal |
+| `POLICY_RESOLVED` | Exact approved status/date scope applied and validated; not a new full clinical review |
 | `OWNER_DECISION` | Exact unresolved medical/editorial/status decision, with existing evidence and next action; no invented consent |
 
 Do not copy the queue and change its date. An unchanged blocker may retain its

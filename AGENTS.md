@@ -71,3 +71,13 @@ A script, patch, local commit, intended workflow, or successful push attempt is 
 - Never overwrite or discard unrelated changes.
 - Add durable new operational lessons to `PROJECT_OPERATIONS.md`.
 - Keep task-specific research notes outside the canonical production catalog.
+
+
+## Owner-authorized AVMA closure and study-end cutoff rules — 2026-11-03
+
+This owner decision supersedes earlier requirements to re-ask on these two specific questions. The current-evidence execution contract and all exact access restrictions still apply. The machine-readable decision is `data/audit_owner_policy.json`.
+
+- A current AVMA **Completed / Completed with results / Closed / Terminated / Withdrawn** status closes current matching for the exact same protocol/cohort. Retain the historical record and evidence, set `available_for_matching=false`, and do not keep it public solely because an institutional page survives or cannot be read. Verify identity by protocol ID, intervention, disease/cohort and sites; an older different cohort does not close a newer one. Suspended is a pause, not a completed project. AVMA Recruiting still does not activate an otherwise unverified trial.
+- While the same patient protocol/cohort/site is currently recruiting, treat its published study/research-period end date as its recruitment cutoff when a more specific enrollment cutoff is not published. Save `recruitment_end`, the original study-end wording/date, primary URL, actual original read time and site timezone. The date-only cutoff is inclusive locally. It is an upper bound, not a promise that places remain open until then. Prefer a specific enrollment cutoff; do not apply unrelated grant, ethics, course, sidebar or follow-up-only dates. A site-specific date remains site-specific.
+- Apply these decisions without further owner confirmation. Close the exact status/date interpretation issue as `POLICY_RESOLVED`, separately from a completed five-fact clinical review. Preserve `verified`, `funding_verified`, original evidence dates, unresolved unrelated criteria/cost/site questions and the 28-day full-review schedule. A crossed cutoff still triggers the existing permitted extension check and conservative matching exclusion.
+

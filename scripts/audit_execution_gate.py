@@ -26,7 +26,49 @@ REGIONS = {"USA", "Canada", "UK", "continental Europe", "Latin America Caribbean
 PASSES = {"current_undated", "recent_seven_days"}
 LEAD_STATES = {"ADDED", "VERIFIED_EXISTING", "DUPLICATE", "CLOSED_CONFIRMED",
                "NOT_TREATMENT", "PENDING_EVIDENCE", "BLOCKED", "SOURCE_INDEX_REVIEWED"}
-ISSUE_STATES = {"RESOLVED", "OPEN_AVAILABLE", "BLOCKED", "DEFERRED", "OWNER_DECISION"}
+RESOLVED_STATES = {"RESOLVED", "POLICY_RESOLVED"}
+ISSUE_STATES = RESOLVED_STATES | {"OPEN_AVAILABLE", "BLOCKED", "DEFERRED", "OWNER_DECISION"}
+
+
+def policy_resolution_valid(item, previous, root):
+    """Owner-approved status/date decisions are not five-fact clinical reviews."""
+    resolution = item.get("policy_resolution", {})
+    policy_path = root / "data/audit_owner_policy.json"
+    catalog_path = root / "data/trials_base.json"
+    if (not policy_path.is_file() or not catalog_path.is_file()
+            or not exists_refs(resolution.get("evidence_refs"), root)
+            or not resolution.get("identity_comparison")
+            or item.get("full_protocol_review_complete") is not False):
+        return False
+    policy = read(policy_path).get("rules", {})
+    trial = next((t for t in read(catalog_path) if t.get("id") == item.get("trial_id")), {})
+    rule = resolution.get("rule")
+    if not policy.get(rule, {}).get("enabled") or not trial:
+        return False
+    if trial.get("verified") != item.get("previous_verified"):
+        return False  # Policy application cannot manufacture a clinical-review date.
+    if rule == "avma_closed":
+        status = "".join(c for c in str(resolution.get("registry_status", "")).lower() if c.isalnum())
+        return bool(trial.get("available_for_matching") is False
+                    and status in {"completed", "completedwithresults", "closed", "terminated", "withdrawn"}
+                    and trial.get("registry_status") == resolution.get("registry_status")
+                    and trial.get("avma_vct_code") == resolution.get("avma_vct_code")
+                    and resolution.get("avma_vct_code")
+                    and item.get("resolved_scope") == "current_access")
+    if rule == "study_end_as_recruitment_end":
+        try:
+            adopted = date.fromisoformat(resolution.get("published_study_end", ""))
+        except (ValueError, TypeError):
+            return False
+        basis = trial.get("recruitment_end_basis", {})
+        return bool(previous and previous.get("state") == "OWNER_DECISION"
+                    and item.get("kind") == "full_protocol"
+                    and item.get("resolved_scope") == "deadline_interpretation"
+                    and trial.get("recruitment_end") == adopted.isoformat()
+                    and basis.get("rule") == rule and basis.get("primary_url")
+                    and basis.get("published_study_end") == adopted.isoformat()
+                    and exists_refs(basis.get("evidence_refs"), root))
+    return False
 
 
 def read(path):
@@ -86,7 +128,7 @@ def seed_queue(root, catalog, public, now):
     queue_path = root / "data/audit_execution_queue.json"
     queue = read(queue_path) if queue_path.exists() else {"schema_version": 1, "issues": []}
     previous = {x["issue_id"]: dict(x) for x in queue["issues"]}
-    issues = {iid: item for iid, item in previous.items() if item.get("state") != "RESOLVED"}
+    issues = {iid: item for iid, item in previous.items() if item.get("state") not in RESOLVED_STATES}
     state = read(root / "data/audit_state.json").get("protocol_selection_review", {})
     prior_path = root / state.get("progress_receipt", "__missing__")
     decisions = {x["trial_id"]: x for x in read(prior_path)} if prior_path.is_file() else {}
@@ -114,19 +156,20 @@ def seed_queue(root, catalog, public, now):
             kinds.append("independent_selection")
         for kind in kinds:
             iid = f"{kind}:{tid}"
-            if kind == "full_protocol" and previous.get(iid, {}).get("state") == "RESOLVED" and not due:
+            if kind == "full_protocol" and previous.get(iid, {}).get("state") in RESOLVED_STATES and not due:
                 continue  # An obsolete historical pending list cannot reopen completed work.
             if iid not in issues:
+                reviewed_before = previous.get(iid, {}).get("state") in RESOLVED_STATES
                 issues[iid] = {"issue_id": iid, "trial_id": tid, "kind": kind,
                     "state": "UNTRIAGED", "primary_url": trial.get("url"),
                     "previous_verified": trial.get("verified"),
-                    "question": decisions.get(tid, {}).get("remaining_fact") or
+                    "question": (None if reviewed_before else decisions.get(tid, {}).get("remaining_fact")) or
                                 "Read the full primary protocol and reconcile current published facts.",
-                    "due_reason": "retained_pending" if tid in pending else
+                    "due_reason": "28_day_review" if reviewed_before and due else "retained_pending" if tid in pending else
                                   "missing_independent_cases" if kind == "independent_selection" else "28_day_review"}
     # Inactive/removal is not an automatic resolution of an inherited question.
     return {"schema_version": 1, "issues": list(issues.values()),
-            "resolved_history": [x for x in previous.values() if x.get("state") == "RESOLVED"]}
+            "resolved_history": [x for x in previous.values() if x.get("state") in RESOLVED_STATES]}
 
 
 def initialize(directory, root, now, scheduled=False):
@@ -230,7 +273,10 @@ def validate(baseline, review, receipt, root):
             errors.append(f"{iid}: explicit current issue disposition required")
         if not item.get("finding") or not exists_refs(item.get("evidence_refs"), root):
             errors.append(f"{iid}: missing actual issue review evidence")
-        if state == "RESOLVED":
+        if state == "POLICY_RESOLVED":
+            if not policy_resolution_valid(item, previous, root):
+                errors.append(f"{iid}: unsupported owner-policy resolution; not a clinical review")
+        elif state == "RESOLVED":
             needed = {"identity", "recruitment_sites", "eligibility", "funding", "contacts"}
             if item.get("kind") == "full_protocol" and not needed <= set(item.get("facts_checked", [])):
                 errors.append(f"{iid}: incomplete full protocol review")
@@ -302,7 +348,8 @@ def validate(baseline, review, receipt, root):
     summary = {"status": "FAIL" if errors else "PASS", "source_sufficient": sufficient,
         "source_total": len(sources), "baseline_source_total": len(baseline["source_ids"]),
         "sources_added": len(added_sources), "issues_before": len(old),
-        "issues_resolved": sum(x.get("state") == "RESOLVED" for x in updates.values()),
+        "issues_resolved": sum(x.get("state") in RESOLVED_STATES for x in updates.values()),
+        "policy_questions_resolved": sum(x.get("state") == "POLICY_RESOLVED" for x in updates.values()),
         "issues_remaining": len(next_queue), "available_remaining": available,
         "issue_states": dict(Counter(x.get("state") for x in updates.values())),
         "execution": "INCOMPLETE" if available or any(not x.get("processing_complete") for x in sources.values()) else "PASS",

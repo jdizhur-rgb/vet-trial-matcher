@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-03T07:05:30.461055-05:00",
+  "owner_instruction": "Если в AVMA проект закрыт, значит закрыт. Если стоят даты окончания исследования, и набор пока идёт, считаем эту дату концом набора.",
+  "decision_ref": "research/audit-runs/owner-rules-20261103T065741-0500/context.json",
+  "rules": {
+    "avma_closed": {
+      "enabled": true,
+      "scope": "Exact same protocol/cohort only; current AVMA Completed/Closed/Terminated/Withdrawn is sufficient to end matching even when the institution page survives.",
+      "suspended_is_not_completed": true,
+      "no_automatic_activation_from_registry_recruiting": true
+    },
+    "study_end_as_recruitment_end": {
+      "enabled": true,
+      "scope": "Published patient study/research-period end for the same currently recruiting protocol/cohort/site is the recruitment cutoff unless a more specific enrollment cutoff is published.",
+      "explicit_enrollment_cutoff_has_precedence": true,
+      "date_only_inclusive_in_site_timezone": true,
+      "not_a_guarantee_of_open_slots_until_that_date": true,
+      "unrelated_grant_ethics_training_and_followup_only_dates_excluded": true
+    }
+  },
+  "clinical_dates": "Policy application is not a new full clinical review or funding verification. Preserve all original evidence dates."
+}

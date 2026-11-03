@@ -1,0 +1,57 @@
+[
+  {
+    "command": "node scripts/test_matcher_catalog_loading.js",
+    "exit_code": 0,
+    "log": "check-01.log"
+  },
+  {
+    "command": "node scripts/test_matcher_logic.js",
+    "exit_code": 0,
+    "log": "check-02.log"
+  },
+  {
+    "command": "python scripts/validate_production_sync.py",
+    "exit_code": 0,
+    "log": "check-03.log"
+  },
+  {
+    "command": "python scripts/test_audit_execution_gate.py",
+    "exit_code": 0,
+    "log": "check-04.log"
+  },
+  {
+    "command": "python scripts/test_matcher_selection.py",
+    "exit_code": 0,
+    "log": "check-05.log"
+  },
+  {
+    "command": "node scripts/test_matcher_selection.js",
+    "exit_code": 0,
+    "log": "check-06.log"
+  },
+  {
+    "command": "node scripts/test_matcher_protocol_sources.js",
+    "exit_code": 0,
+    "log": "check-07.log"
+  },
+  {
+    "command": "python scripts/validate_source_inventory.py",
+    "exit_code": 0,
+    "log": "check-08.log"
+  },
+  {
+    "command": "python scripts/validate_catalog_sanitation.py",
+    "exit_code": 0,
+    "log": "check-09.log"
+  },
+  {
+    "command": "python scripts/validate_trials_catalog.py",
+    "exit_code": 0,
+    "log": "check-10.log"
+  },
+  {
+    "command": "python scripts/check_evidence_keys.py",
+    "exit_code": 0,
+    "log": "check-11.log"
+  }
+]
