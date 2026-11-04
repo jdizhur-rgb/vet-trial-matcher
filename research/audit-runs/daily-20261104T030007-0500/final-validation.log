@@ -1,0 +1,56 @@
+CMD python scripts/validate_trials_catalog.py
+TRIAL_CATALOG_VALIDATION_OK records=315 unique_ids=315 active=154 required_active_fields=11
+EXIT 0
+CMD python scripts/validate_catalog_sanitation.py
+{
+  "records": 315,
+  "partial_records": 4,
+  "known_unresolved": 4,
+  "new_partial_records": [],
+  "resolved_but_still_queued": [
+    "eu-ch-sinonasal-heterogeneous-rt",
+    "fr-fregis-chemodectoma-thermoablation",
+    "fr-fregis-hepatic-embolization",
+    "fr-fregis-hepatic-tumor-thermoablation",
+    "nl-utrecht-osteosarcoma-oncolytic-virus-access",
+    "uk-rvc-insulinoma-toceranib"
+  ]
+}
+EXIT 0
+CMD python scripts/validate_source_inventory.py
+SOURCE_INVENTORY_VALIDATION_OK sources=157 digest=5f3697b2b192
+EXIT 0
+CMD python scripts/semantic_dedupe_catalog.py
+{
+  "mode": "audit",
+  "effective_matchable_treatments": 150,
+  "probable_duplicates": 0,
+  "pairs": []
+}
+EXIT 0
+CMD python scripts/check_evidence_keys.py
+PASS: no unredacted Google API keys.
+EXIT 0
+CMD python scripts/validate_repository_hygiene.py
+REPOSITORY_HYGIENE_OK
+EXIT 0
+CMD node scripts/test_matcher_selection.js
+SOURCE_DERIVED_SELECTION_OK public_reviewed=141/154 pending=13 retained_reviews=149 cases=758
+MATCHER_SELECTION_OK canonical=315 public=154 checks=1461 criteria=222
+EXIT 0
+CMD python scripts/test_matcher_selection.py
+MATCHER_SELECTION_PARITY_OK public=154 disease_checks=18480
+TUFTS_OSA_COHORT_PARITY_OK cases=8
+PRIMARY_SITE_LINEAGE_PHASE_PARITY_OK
+EXIT 0
+CMD node scripts/test_matcher_catalog_loading.js
+Japan: 12 results after delayed load
+USA: 99 results after delayed load
+Catalog-loading regression PASS
+EXIT 0
+CMD node scripts/test_matcher_logic.js
+MATCHER_LOGIC_OK trials=154 mct=4 yasha=0 mammary=5 osteosarcoma=17 bladder=6 brain=8
+EXIT 0
+CMD python scripts/validate_production_sync.py
+PRODUCTION_SYNC_OK total=154 treatment=150 access=4 matcher_ids=154 internal_links=7053
+EXIT 0

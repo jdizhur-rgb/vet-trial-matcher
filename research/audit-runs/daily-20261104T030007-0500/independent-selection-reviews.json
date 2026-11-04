@@ -1,0 +1,78 @@
+{
+  "run_id": "daily-20261104T030007-0500",
+  "rows": [
+    {
+      "trial_id": "jp-nvlu-survivin-peptide-vaccine-2026",
+      "source_url": "https://www.nvlu.ac.jp/amedical/clinical-research/05.html",
+      "reviewed_at": "2026-11-04T03:26:41.613217-05:00",
+      "criteria": "NVLU survivin vaccine primary explicitly includes remission and postoperative recurrence-prevention cases. Gross residual tumor is not required;survivin expression OR specified postmortem consent needs investigator assessment.",
+      "cases": [
+        {
+          "name": "fresh primary supported candidate",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Histiocytic sarcoma",
+            "tumor_status": "No evidence of disease (NED)"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "wrong species",
+          "patient": {
+            "species": "Cat",
+            "country": "Japan",
+            "cancer": "Mammary carcinoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "different species outside protocol",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Histiocytic sarcoma",
+            "tumor_status": "No evidence of disease (NED)",
+            "species": "Cat"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "4f7d2300307719925f75f41992248c89d1bfc3c8000b52c09b7ae2b4b32cdbbf",
+      "full_protocol_reverified": true
+    },
+    {
+      "trial_id": "uf-boxer-glioma-autogenic-vaccine",
+      "source_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/neurology-2/autogenic-vaccine-study-in-dogs-with-glioma/",
+      "reviewed_at": "2026-11-04T03:26:41.613217-05:00",
+      "criteria": "UF glioma RNA vaccine primary is restricted to Boxer dogs with MRI-suspected malignant glioma and no previous tumor therapy; breed is not captured by owner form,so it must remain an explicit screening item.",
+      "cases": [
+        {
+          "name": "fresh primary supported candidate",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "prior chemo",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "different species outside protocol",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "species": "Cat"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "0075003fe37f757620f4d434fd8d3b2979f7a3734b9115734d9b264114b7807c",
+      "full_protocol_reverified": true
+    }
+  ]
+}
