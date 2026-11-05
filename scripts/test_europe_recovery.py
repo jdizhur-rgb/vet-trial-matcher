@@ -62,6 +62,24 @@ def before_later_ri_pass(rows, path):
     Every changed current row is checked first. The original European counts,
     hashes, dates and branch-identity assertions below remain unchanged.
     """
+    ctroot = ROOT / 'research/audit-runs/ct-care-20261105'
+    ct = read(ctroot / 'baseline-projection.json')['collections'][path]
+    ctids = {r['source_id'] for r in read(ctroot / 'review.json')['changes']}
+    changes = {r['id']: r for r in ct['changes']}
+    assert set(changes) == ctids and len(rows) == ct['after_count']
+    seen, prior = set(), []
+    for row in rows:
+        identity = row.get('id' if path.endswith('source_inventory.json') else 'source_id')
+        change = changes.get(identity)
+        if change is None:
+            prior.append(row)
+            continue
+        assert identity not in seen and sha(row) == change['after_sha256'], identity
+        seen.add(identity)
+        if change['before'] is not None:
+            prior.append(copy.deepcopy(change['before']))
+    assert seen == ctids and len(prior) == ct['before_count']
+    rows = prior
     # Reverse the exact three follow-up additions before the first SD proof.
     finishroot = ROOT / 'research/audit-runs/sd-finish-20261101'
     finish = read(finishroot / 'baseline-projection.json')['collections'][path]
