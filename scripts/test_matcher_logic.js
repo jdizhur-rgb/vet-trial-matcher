@@ -502,7 +502,13 @@ for (const steroids of ['Prescribed but NOT started', UNKNOWN]) {
   if (!hasTrial(daunoId,{...daunoPatient,steroids})) throw new Error('Unknown or unstarted steroids must allow prescreening, not imply completed exposure');
 }
 if (rows.some(x=>['castr-vrcco-sts-tcell-engager','elias-eci-novel-adjuvant-osa'].includes(x.id))) throw new Error('Closed ECIP-OSA-01 and confirmed TCE duplicate must not be public');
-if (rows.filter(x=>/534230/.test(x.registry_url||'')).length!==1) throw new Error('Registry 534230 must have exactly one public protocol');
+const tce = rows.filter(x=>/534230/.test(x.protocol_registry_url || x.registry_url || ''));
+if (tce.length !== 1 || tce[0].sites?.length !== 1 || tce[0].sites[0].city !== 'Bend') {
+  throw new Error('Registry 534230 must have one public protocol with only the confirmed VRCCO site');
+}
+for (const id of ['mizzou-osa-carboplatin-timing', 'mexico-ensenada-silver-nanoparticle-cancer-2026']) {
+  if (rows.some(row => row.id === id)) throw new Error(`Unconfirmed enrollment is still public: ${id}`);
+}
 if (hasTrial('vt-canine-glioma-ced',{cancer:'Brain tumor',radiation:'Previously received'})) throw new Error('VT CED must exclude prior radiation');
 if (hasTrial('csu-osa-3d-limb-spare',{cancer:'Osteosarcoma',metastasis:'Confirmed metastases'})) throw new Error('CSU limb-sparing study must exclude metastases');
 if (hasTrial('csu-feline-oscc-immunotherapy',{species:'Cat',cancer:'Oral squamous cell carcinoma',immunosuppressive:'Yes'})) throw new Error('CSU feline immunotherapy must exclude immunosuppressive drugs');

@@ -1833,7 +1833,7 @@
           "expected": "exclude"
         }
       ],
-      "selection_sha256": "0f8bf6998ba6aae282d20c5aafa37823e254c91a16b03dbe4e38bc85b148d617"
+      "selection_sha256": "0cd84c300d29315f1910177ca8cbdf12242c661f06495ddb934288005889cc5e"
     },
     {
       "trial_id": "mizzou-epitheliotropic-laverdia",
@@ -2106,7 +2106,7 @@
           "expected": "exclude"
         }
       ],
-      "selection_sha256": "7e04402e41cd60881a440a0599e4bfb17eedfb5d09df2fddf61ae5fd7d82a277"
+      "selection_sha256": "9f08170c891393252ec70a0a12fc4ea35840813cf2ed78fb48b74369ca663de2"
     },
     {
       "trial_id": "purdue-bladder-pdl1-vinblastine-deracoxib",
@@ -5716,19 +5716,19 @@
       "trial_id": "medvet-egfr-her2-vaccine-2026",
       "source_url": "https://www.medvet.com/clinical-studies/",
       "reviewed_at": "2026-11-02T04:19:30.260708-05:00",
-      "criteria": "MedVet EGFR/HER2 source normally requires histology but explicitly permits a long-bone lesion consistent with OSA when amputation is declined. Do not reject every MRI/radiograph-suspected OSA as unconfirmed. Today's complete MedVet primary preserves this long-bone exception; VCCS publishes additional local right-atrial-HSA/BRAF-positive-UCC exceptions, retained as a separate medical/site-scoping question rather than generalized to every site. Current selected site notes now correct only the owner-paid appointment amount ($995).",
+      "criteria": "MedVet EGFR/HER2 source normally requires histology but explicitly permits a long-bone lesion consistent with OSA when amputation is declined. Do not reject every MRI/radiograph-suspected OSA as unconfirmed. Today's complete MedVet primary preserves this long-bone exception; VCCS publishes additional local right-atrial-HSA/BRAF-positive-UCC exceptions, retained as a separate medical/site-scoping question rather than generalized to every site. Current selected site notes now correct only the owner-paid appointment amount ($995). Approved conservative network matching requires a confirmed diagnosis; local exceptions remain available only through individual site screening.",
       "cases": [
         {
-          "name": "fresh primary supported candidate",
+          "name": "suspected appendicular OSA requires direct site screening",
           "patient": {
             "cancer": "Osteosarcoma",
             "diagnosis_status": "Suspected / not confirmed",
             "osa_location": "Appendicular — limb bone"
           },
-          "expected": "review"
+          "expected": "exclude"
         },
         {
-          "name": "suspected bladder cancer has no published exception",
+          "name": "suspected urothelial carcinoma requires direct site screening",
           "patient": {
             "cancer": "Urothelial carcinoma",
             "diagnosis_status": "Suspected / not confirmed"
@@ -5753,9 +5753,20 @@
             "species": "Cat"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "confirmed diagnosis remains available for site screening",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "Confirmed by pathology/cytology"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "VCCS in Stamford"
+          ]
         }
       ],
-      "selection_sha256": "9e42bca30b5df5d39de0d4fc7c900ea189f152245dfacf614f987dada4f8f2ea",
+      "selection_sha256": "1c4089ea230a5c371d568a82bba19e3cc185e99b3a8ce61ddbaee7002be44390",
       "source_visit_refreshed_this_run": true,
       "primary_evidence_review_run": "daily-20261102T030506-0500",
       "selection_reconciled_at": "2026-11-02T04:19:30.260708-05:00"
@@ -6846,7 +6857,7 @@
       "trial_id": "ucd-liver-tae-tace",
       "source_url": "https://studypages.com/s/assessing-a-new-technique-to-shrink-liver-tumors-in-dogs-468706/",
       "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "UC Davis TAE/TACE source concerns unresectable/high-surgical-risk liver cancer,not blood cancer.",
+      "criteria": "UC Davis TAE/TACE source concerns unresectable/high-surgical-risk liver cancer,not blood cancer. Significant disease in another organ requires study-team screening rather than automatic exclusion.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -6855,7 +6866,10 @@
             "country": "USA",
             "cancer": "Hepatocellular carcinoma"
           },
-          "expected": "review"
+          "expected": "review",
+          "unknown_contains": [
+            "significant disease in other organs"
+          ]
         },
         {
           "name": "source-specific contradiction",
@@ -6876,7 +6890,7 @@
           "expected": "exclude"
         }
       ],
-      "selection_sha256": "78d252b1688619a51eb080cdcbc85240241a39c6877486ceb3bab1ed5bdb0249"
+      "selection_sha256": "6b90efb3c1b0ed8f650f9d03e3d73f74132acf61dc19148dfc409d610a9cb0d4"
     },
     {
       "trial_id": "au-uq-appendicular-osteosarcoma-vaccine",

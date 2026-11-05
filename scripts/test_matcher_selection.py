@@ -56,12 +56,9 @@ namespace = {}
 exec(compile(ast.Module(body=[fn], type_ignores=[]), '<legacy modalities>', 'exec'), namespace)
 assert 'Immunotherapy' in namespace['trial_modalities'](vax)
 medvet = by_id['medvet-egfr-her2-vaccine-2026']
-for cancer, location, expected in [
-    ('Osteosarcoma', 'Appendicular — limb bone', False),
-    ('Osteosarcoma', 'Axial — skull, spine, rib, or pelvis', True),
-    ('Urothelial carcinoma', "I don't know", True),
-]:
-    assert protocol_screening(medvet, {'cancer': cancer, 'osa_location': location, 'diagnosis_status': 'Suspected / not confirmed'})[0] == expected
+# The legacy page applies confirmed diagnosis after the shared screening helper.
+assert medvet['requires'].get('confirmed') is True
+assert 'histology_or_long_bone_osa_exception' not in medvet['requires']
 print(f'MATCHER_SELECTION_PARITY_OK public={len(matrix)} disease_checks={checks}')
 
 # Source-derived Tufts cohort cases exercise the shared legacy screening path.
