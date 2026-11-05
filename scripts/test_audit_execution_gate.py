@@ -178,6 +178,16 @@ class ExecutionTests(unittest.TestCase):
         trial["verified"] = "2026-09-01"
         self.assertEqual(len(seed_queue(self.root, [trial], [trial], self.end)["issues"]), 1)
 
+    def test_seed_queue_accepts_wrapped_progress_receipt(self):
+        self.seed_files([])
+        (self.root / "progress.json").write_text(json.dumps({"rows": [
+            {"trial_id": "trial", "status": "current_full_protocol_not_verified",
+             "remaining_fact": "Current contact is not published"}
+        ]}))
+        trial = {"id": "trial", "url": "https://example.org/trial", "verified": "2026-11-01"}
+        issue = seed_queue(self.root, [trial], [trial], self.end)["issues"][0]
+        self.assertEqual(issue["question"], "Current contact is not published")
+
     def test_unknown_date_and_missing_cases_seed_real_work(self):
         self.seed_files([])
         (self.root / "data/protocol_selection_cases.json").write_text('{"reviews":[]}')

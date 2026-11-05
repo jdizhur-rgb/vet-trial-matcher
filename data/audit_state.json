@@ -2,29 +2,8 @@
   "schema_version": 1,
   "purpose": "Persistent state for incremental discovery and deep-audit cost control. Source fingerprints live in source_inventory.json; this file tracks audit scheduling and unresolved work.",
   "last_full_deep_audit": null,
-  "last_incremental_audit": {
-    "run_id": "daily-20261104T030007-0500",
-    "started_at": "2026-11-04T03:00:07.799501-05:00",
-    "at": "2026-11-04T03:26:41.613217-05:00",
-    "mode": "DAILY GLOBAL WORK AUDIT",
-    "receipt": "research/audit-runs/daily-20261104T030007-0500/receipt-final.json",
-    "execution_review": "research/audit-runs/daily-20261104T030007-0500/execution-review.json",
-    "content_sufficient_total": 13,
-    "source_total": 157,
-    "processing_complete_total": 157,
-    "status": "INCOMPLETE",
-    "scope": "All sources and public primary routes processed; global country/language discovery and full canonical deadline ledger completed; external evidence and durable clinical/owner questions retained."
-  },
-  "last_source_discovery_attempt": {
-    "run_id": "daily-20261104T030007-0500",
-    "at": "2026-11-04T03:26:41.613217-05:00",
-    "regions": 12,
-    "queries": 48,
-    "countries": 24,
-    "languages": 12,
-    "status": "INCOMPLETE",
-    "lead_ledger": "research/audit-runs/daily-20261104T030007-0500/lead-decisions.json"
-  },
+  "last_incremental_audit": "2026-11-05",
+  "last_source_discovery_attempt": "2026-11-05",
   "forced_full_reread_days": 28,
   "rules": {
     "unchanged_master": "Do not reread every protocol solely because the master page is unchanged; verify changed, stale, unresolved, or due-for-forced-reread items.",
@@ -43,14 +22,11 @@
     "coverage_receipt": "research/audit-runs/weekly-care-20261010T005822-0400/coverage-receipt.json"
   },
   "last_incremental_resume": {
-    "run_id": "resume-20261010T201219-0400",
-    "parent_run_id": "daily-20261010T030027-0400",
-    "status": "INCOMPLETE",
-    "already_checked_sources_reopened": 0,
-    "newly_attempted_sources": 16,
-    "sufficient_sources_cumulative": 46,
-    "evidence_gaps_remaining": 62,
-    "processing_completion": "NOT_VERIFIED"
+    "run_id": "daily-20261105T030209-0500",
+    "completed_at": "2026-11-05T03:40:14.592360-05:00",
+    "receipt": "research/audit-runs/daily-20261105T030209-0500/receipt-final.json",
+    "queue_processing": "PASS",
+    "clinical_reconciliation": "INCOMPLETE"
   },
   "protocol_selection_review": {
     "status": "in_progress",
@@ -74,60 +50,10 @@
     "current_full_reviews_ref": "research/audit-runs/daily-20261104T030007-0500/completed-clinical-reviews.json"
   },
   "last_targeted_source_reconciliation": {
-    "run_id": "finish-20261027T063052-0400",
-    "started_at": "2026-10-27T06:30:52-04:00",
-    "at": "2026-10-27T06:49:59.536025-04:00",
-    "status": "INCOMPLETE_EXTERNAL_EVIDENCE",
-    "source_crosswalk_processed": 90,
-    "protocol_dispositions": 32,
-    "primary_reread_gap_resolved": [
-      "eu-fr-oral-intratumoral-immunotherapy"
-    ],
-    "remaining_full_protocol_ids": [
-      "eu-fr-hifu-urothelial",
-      "uk-edinburgh-oral-melanoma-tigilanol-tiglate",
-      "ncsu-mammary-inspire",
-      "uga-bcell-ivp",
-      "wsu-sts-local-immunotherapy",
-      "ethos-gilvetmab-melanoma",
-      "ethos-bcell-oral",
-      "ethos-osa-vaccine",
-      "tamu-mct-acid-suppressant",
-      "mizzou-osa-carboplatin-timing",
-      "ethos-solid-relapse",
-      "ethos-epush-hsa",
-      "ethos-mimic-osa-lung",
-      "anivive-sine-osa-carboplatin",
-      "uk-ndsr-osa-rfil2-watch",
-      "eu-uk-ndsr-high-grade-mammary-current",
-      "ncsu-canine-sts-xcsgel",
-      "ncsu-feline-oral-pivot-c",
-      "umn-feline-mammary-olaparib-meloxicam",
-      "penn-flash-rt-extremity-sts",
-      "umn-canine-oral-melanoma-aav-vaccine",
-      "ch-anicura-aoi-superficial-tumor-immunocytokines",
-      "china-petcura-personalized-mrna-iit-2026",
-      "jhu-cigat-osa-cryo-immunotherapy-2026",
-      "jhu-cigat-brain-rt-tmz-2026",
-      "jhu-cigat-mammary-kubanda-cryo-2026",
-      "mexico-ensenada-silver-nanoparticle-cancer-2026",
-      "umn-orbit-lymphoma",
-      "penn-atherton-steap1-car-t-hs",
-      "au-melbourne-hsa-autologous-vaccine-multicenter",
-      "penn-glioma-flash-gilvetmab-2026"
-    ],
-    "new_trials": [
-      "jp-nihon-head-neck-alternating-magnetic-field",
-      "jp-nihon-canine-glioma-il12"
-    ],
-    "confirmed_selection_fix": "ethos-mimic-osa-lung mandatory metastasectomy",
-    "receipt": "research/audit-runs/finish-20261027T063052-0400/continuation-receipt.json",
-    "does_not_retroactively_finish_oct26": true,
-    "ended_at": "2026-10-27T07:01:48.140849-04:00",
-    "data_commit": "7c4e73d40e83c427201d1857f2871f666f711f80",
-    "production": "PASS",
-    "live_USA_Japan": "PASS",
-    "report": "research/audit-runs/finish-20261027T063052-0400/report.md"
+    "run_id": "daily-20261105T030209-0500",
+    "completed_at": "2026-11-05T03:40:14.592360-05:00",
+    "sources_processed": 158,
+    "content_sufficient": 1
   },
   "last_gap_recovery": {
     "run_id": "gap-recovery-20261026T204639-0400",

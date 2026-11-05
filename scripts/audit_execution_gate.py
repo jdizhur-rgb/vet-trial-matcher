@@ -131,7 +131,13 @@ def seed_queue(root, catalog, public, now):
     issues = {iid: item for iid, item in previous.items() if item.get("state") not in RESOLVED_STATES}
     state = read(root / "data/audit_state.json").get("protocol_selection_review", {})
     prior_path = root / state.get("progress_receipt", "__missing__")
-    decisions = {x["trial_id"]: x for x in read(prior_path)} if prior_path.is_file() else {}
+    if prior_path.is_file():
+        prior_decisions = read(prior_path)
+        if isinstance(prior_decisions, dict):
+            prior_decisions = prior_decisions.get("rows", [])
+        decisions = {x["trial_id"]: x for x in prior_decisions}
+    else:
+        decisions = {}
     cases = {x["trial_id"] for x in read(root / "data/protocol_selection_cases.json")["reviews"]}
     pending = {tid for tid, row in decisions.items()
                if row.get("status") == "current_full_protocol_not_verified"}
