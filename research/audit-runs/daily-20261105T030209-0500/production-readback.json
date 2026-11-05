@@ -1,0 +1,47 @@
+{
+  "run_id": "daily-20261105T030209-0500",
+  "checked_at": "2026-11-05T03:53:00-05:00",
+  "publication_commits": {
+    "catalog_and_audit": "20b94381559c8734d312bb4ff0ab88ffa18a4cd3",
+    "source_inventory_repair": "9aceb4e152e743a6f7c077c3aa916511bba50da1"
+  },
+  "deploy_workflow": {
+    "run_id": 41997222111,
+    "url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/41997222111",
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "final_integrity_workflow": {
+    "run_id": 41997222155,
+    "url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/41997222155",
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "publication_recovery": "The first connector-created source_inventory blob was byte-corrupted. CI detected the UTF-8 failure. The file was republished from the exact local UTF-8 content, remote SHA was read back, and final integrity and deploy workflows passed.",
+  "production_url": "https://vettrialfinder.com/matcher/",
+  "assets": {
+    "index.html": {
+      "local_sha256": "c010e9642018edff2c1b7d6a7ecbcefd6aa5f1af8e1342acc89992b0b713af0a",
+      "live_sha256": "c010e9642018edff2c1b7d6a7ecbcefd6aa5f1af8e1342acc89992b0b713af0a",
+      "match": true
+    },
+    "matcher.js": {
+      "local_sha256": "a9b0a97ca943bb005fc4d5eea77839df43df2e220aaa15c43dd5af7210628375",
+      "live_sha256": "a9b0a97ca943bb005fc4d5eea77839df43df2e220aaa15c43dd5af7210628375",
+      "match": true,
+      "html_version": "clinical-audit-20261103-owner-rules-r1"
+    },
+    "trials.json": {
+      "local_sha256": "6c8e53bee8ab5479b18f8451601564424ca3f672887c2003760dc35ad70dda12",
+      "live_sha256": "6c8e53bee8ab5479b18f8451601564424ca3f672887c2003760dc35ad70dda12",
+      "match": true,
+      "html_version": "6c8e53bee8ab5479"
+    }
+  },
+  "live_search": {
+    "USA": {"status": "PASS", "displayed": 100, "evidence": "live-search-USA.json"},
+    "Japan": {"status": "PASS", "displayed": 12, "evidence": "live-search-Japan.json"}
+  },
+  "all_files_match": true,
+  "status": "PASS"
+}
