@@ -979,3 +979,7 @@ Individual additions, service scope and remaining evidence gaps are in research/
 ## Connecticut care follow-up — 2026-11-06
 
 The follow-up adds eleven physical locations with clinic-owned evidence for mass removal or oncologic surgery. Preserve the individual service scope and exact identities in research/audit-runs/ct-care-20261106/. Street addresses are verified, with coordinates explicitly pending. Do not transfer care between namesake practices or infer surgery delivery at a temporary address. A second discovery layer searched 154 named practices from the state spay/neuter participant list. The follow-up found no additional protocol with verified Connecticut treatment access. Keep the statewide queue open for remaining practice and service confirmation.
+
+## Connecticut statewide directory reconciliation — 2026-11-06
+
+The three-directory and municipality pass is documented in research/audit-runs/ct-care-statewide-20261106/review.json. Use positive clinic-owned branch evidence for surgery and local drug delivery. Noank-Mystic explicitly administers chemotherapy. Do not copy group services across branches, treat a referring site as the treatment facility, or infer that absence from public results means a service does not exist. Keep individually unresolved booking and branch questions in the queue.

@@ -62,6 +62,24 @@ def before_later_ri_pass(rows, path):
     Every changed current row is checked first. The original European counts,
     hashes, dates and branch-identity assertions below remain unchanged.
     """
+    statewide = ROOT / 'research/audit-runs/ct-care-statewide-20261106'
+    spec = read(statewide / 'baseline-projection.json')['collections'][path]
+    identity_key = 'id' if path.endswith('source_inventory.json') else 'source_id'
+    changes = {r['id']: r for r in spec['changes']}
+    assert len(rows) == spec['after_count']
+    prior, seen = [], set()
+    for row in rows:
+        identity = row.get(identity_key)
+        change = changes.get(identity)
+        if change is None:
+            prior.append(row)
+            continue
+        assert identity not in seen and sha(row) == change['after_sha256'], identity
+        seen.add(identity)
+        if change['before'] is not None:
+            prior.append(copy.deepcopy(change['before']))
+    assert seen == set(changes) and len(prior) == spec['before_count']
+    rows = prior
     followup = ROOT / 'research/audit-runs/ct-care-20261106'
     spec = read(followup / 'baseline-projection.json')['collections'][path]
     identity_key = 'id' if path.endswith('source_inventory.json') else 'source_id'
@@ -550,6 +568,15 @@ def test_data():
     assert a['street'] != b['street'] and a['phone'] != b['phone']
     assert not center_match(a, b) and not center_match(b, a)
     pairs = [p for p in pairs if p is not mn_pair[0]]
+    ct_pairs = [pair for pair in pairs if pair.get('review_reference') ==
+                'research/audit-runs/ct-care-statewide-20261106/review.json']
+    assert len(ct_pairs) == 3
+    for pair in ct_pairs:
+        a, b = [next(r for r in current if r.get('source_id') == sid) for sid in pair['source_ids']]
+        assert a['region'] == b['region'] == 'CT'
+        assert a['street'] != b['street'] and a['phone'] != b['phone']
+        assert not center_match(a, b) and not center_match(b, a)
+    pairs = [pair for pair in pairs if pair not in ct_pairs]
     assert len(pairs) == 78
     for pair in pairs:
         a, b = [next(r for r in public + supp if r.get('source_id') == sid) for sid in pair['source_ids']]
