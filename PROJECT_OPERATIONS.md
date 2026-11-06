@@ -975,3 +975,7 @@ Following the November 5 daily audit, the owner approved conservative matching c
 Add Connecticut clinic-specific care only with explicit local services. Stratford's oncology roster, chemotherapy, targeted therapy, immunotherapy and mass surgery are branch-specific. Norwalk MedVet's radiation service is corroborated by the branch, modality page and radiation oncologist profile. Windsor NEVCCC reports oncology and radiation temporarily unavailable. Veterinary Cancer Concierge Services is a mobile Fairfield and Westchester service, with the Stamford trial rendezvous kept separately in the EGFR/HER2 record. CUVS Stamford's canine coagulation study is outside the treatment catalog.
 
 Individual additions, service scope and remaining evidence gaps are in research/audit-runs/ct-care-20261105/. Exact Connecticut row reversal preserves historical regression assertions. No statewide primary census or all-practice completion is implied.
+
+## Connecticut care follow-up — 2026-11-06
+
+The follow-up adds seven physical locations with clinic-owned evidence for mass removal or oncologic surgery. Preserve the individual service scope and exact identities in research/audit-runs/ct-care-20261106/. Street addresses are verified, with coordinates explicitly pending. Do not transfer care between namesake practices or infer surgery delivery at a temporary address. The follow-up found no additional protocol with verified Connecticut treatment access. Keep the statewide queue open for remaining practice and service confirmation.
