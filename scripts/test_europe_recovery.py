@@ -62,24 +62,25 @@ def before_later_ri_pass(rows, path):
     Every changed current row is checked first. The original European counts,
     hashes, dates and branch-identity assertions below remain unchanged.
     """
-    statewide = ROOT / 'research/audit-runs/ct-care-statewide-20261106'
-    spec = read(statewide / 'baseline-projection.json')['collections'][path]
-    identity_key = 'id' if path.endswith('source_inventory.json') else 'source_id'
-    changes = {r['id']: r for r in spec['changes']}
-    assert len(rows) == spec['after_count']
-    prior, seen = [], set()
-    for row in rows:
-        identity = row.get(identity_key)
-        change = changes.get(identity)
-        if change is None:
-            prior.append(row)
-            continue
-        assert identity not in seen and sha(row) == change['after_sha256'], identity
-        seen.add(identity)
-        if change['before'] is not None:
-            prior.append(copy.deepcopy(change['before']))
-    assert seen == set(changes) and len(prior) == spec['before_count']
-    rows = prior
+    for run in ('germany-care-20261107', 'ct-care-statewide-20261106'):
+        directory = ROOT / 'research/audit-runs' / run
+        spec = read(directory / 'baseline-projection.json')['collections'][path]
+        identity_key = 'id' if path.endswith('source_inventory.json') else 'source_id'
+        changes = {row['id']: row for row in spec['changes']}
+        assert len(rows) == spec['after_count']
+        prior, seen = [], set()
+        for row in rows:
+            identity = row.get(identity_key)
+            change = changes.get(identity)
+            if change is None:
+                prior.append(row)
+                continue
+            assert identity not in seen and sha(row) == change['after_sha256'], identity
+            seen.add(identity)
+            if change['before'] is not None:
+                prior.append(copy.deepcopy(change['before']))
+        assert seen == set(changes) and len(prior) == spec['before_count']
+        rows = prior
     followup = ROOT / 'research/audit-runs/ct-care-20261106'
     spec = read(followup / 'baseline-projection.json')['collections'][path]
     identity_key = 'id' if path.endswith('source_inventory.json') else 'source_id'
