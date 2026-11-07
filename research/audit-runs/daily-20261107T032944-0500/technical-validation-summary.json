@@ -1,0 +1,31 @@
+{
+  "run_id": "daily-20261107T032944-0500",
+  "generated_at": "2026-11-07T03:50:18.045205-05:00",
+  "pass": [
+    "audit_execution_gate check",
+    "validate_audit_gap_review",
+    "audit_preflight core checks",
+    "validate_trials_catalog",
+    "validate_catalog_sanitation",
+    "validate_source_inventory",
+    "semantic_dedupe_catalog",
+    "validate_repository_hygiene",
+    "check_evidence_keys",
+    "build_matcher_data",
+    "test_matcher_selection.js",
+    "test_matcher_selection.py",
+    "test_matcher_catalog_loading.js",
+    "build_static_site",
+    "postbuild test_matcher_logic.js",
+    "postbuild validate_production_sync.py",
+    "git diff --check"
+  ],
+  "incomplete": [
+    "validate_audit_receipt: 158 current-evidence coverage gaps",
+    "test_matcher_protocol_sources.js --reviewed-since cutoff --require-full-review: 0/152 fresh full reviews"
+  ],
+  "not_verified": [
+    "Streamlit smoke test: ModuleNotFoundError streamlit"
+  ],
+  "logs_dir": "research/audit-runs/daily-20261107T032944-0500/logs"
+}
