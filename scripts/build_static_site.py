@@ -183,6 +183,7 @@ def main() -> None:
     run("seo/oncology_massachusetts.py", pythonpath="seo")
     run("seo/oncology_south_dakota.py", pythonpath="seo")
     run("seo/oncology_connecticut.py", pythonpath="seo")
+    run("seo/oncology_germany.py", pythonpath="seo")
 
     # These deterministic finishing stages operate on the generated HTML.
     run("seo_index_cleanup.py")

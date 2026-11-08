@@ -37,10 +37,10 @@ def add_robots_noindex(text: str) -> str:
     return text.replace("</head>", '<meta name="robots" content="noindex, follow"></head>', 1)
 
 
-def remove_unready_hreflang(text: str) -> str:
+def remove_unready_hreflang(text: str, localized_urls: set[str]) -> str:
     return re.sub(
-        r'<link\s+rel="alternate"\s+hreflang="(?:de|fr|es|it|nl)"[^>]*>',
-        "",
+        r'<link\s+rel="alternate"\s+hreflang="(?:de|fr|es|it|nl)"\s+href="([^"]+)"[^>]*>',
+        lambda match: match[0] if html.unescape(match[1]) in localized_urls else "",
         text,
         flags=re.I,
     )
@@ -385,6 +385,8 @@ def main() -> None:
 
     write_verification_page(root)
 
+    german_guide = root / "veterinary-oncology" / "germany" / "de" / "index.html"
+    localized_urls = {f"{SITE}/veterinary-oncology/germany/de/"} if german_guide.is_file() else set()
     indexable: list[str] = []
     noindexed = 0
     for page in sorted(root.rglob("index.html")):
@@ -394,7 +396,7 @@ def main() -> None:
         if not path:
             text = reinforce_homepage_metadata(text)
         text = polish_metadata(text)
-        text = remove_unready_hreflang(text)
+        text = remove_unready_hreflang(text, localized_urls)
         text = open_matcher_links_in_new_tab(text)
         text = text.replace('>Oncology Centers</a>', '>Trial Centers</a>')
         canonical = canonical_url(text)

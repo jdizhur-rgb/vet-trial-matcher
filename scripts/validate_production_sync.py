@@ -236,6 +236,18 @@ def main() -> None:
     ):
         assert url in sitemap, f"News route missing from sitemap: {url}"
 
+    germany_path = "veterinary-oncology/germany/"
+    germany_routes = {"en": germany_path, "de": germany_path + "de/"}
+    germany_urls = {language: f"https://vettrialfinder.com/{route}"
+                    for language, route in germany_routes.items()}
+    for language, route in germany_routes.items():
+        guide = read(SITE / route / "index.html")
+        url = germany_urls[language]
+        assert f'<html lang="{language}">' in guide and f'<link rel="canonical" href="{url}">' in guide
+        assert f"<loc>{url}</loc>" in sitemap
+        alternates = dict(re.findall(r'<link rel="alternate" hreflang="([^"]+)" href="([^"]+)">', guide))
+        assert alternates == germany_urls, f"Missing or incorrect language links for {url}"
+
     checked_links = validate_internal_links()
     print(
         "PRODUCTION_SYNC_OK",
