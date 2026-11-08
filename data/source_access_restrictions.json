@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-11-02",
+  "updated": "2026-11-08",
   "purpose": "Exact prior public-source route restrictions. Read before daily master, fallback, protocol or Web plans; do not retry by alternate tool. A source or domain is not globally forbidden from one denied protocol URL.",
   "routes": [
     {
@@ -869,6 +869,17 @@
       "record_ids": [],
       "origin": "research/audit-runs/daily-20261102T030506-0500/web-28.json",
       "reason": "Same official primary PDF returned Web403 after bounded shell connection failure; exact route not retried."
+    },
+    {
+      "url": "https://link.springer.com/article/10.1186/s12917-026-05605-6",
+      "do_not_retry": true,
+      "observed_at": "2026-11-08T03:51:08.772917-05:00",
+      "restriction_type": "automatic_review_rejection",
+      "record_ids": [
+        "eu-si-vetinspect-feline-ect-network-watch"
+      ],
+      "origin": "research/audit-runs/daily-20261108T034426--0500/route-results.json",
+      "reason": "Automatic review rejected the exact identity-provider/login-domain route; do not retry or bypass."
     }
   ]
 }

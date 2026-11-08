@@ -8,6 +8,16 @@ LYMPHOMA_CANCERS = {'B-cell lymphoma', 'T-cell lymphoma', 'Lymphoma — other'}
 st.set_page_config(page_title='Vet Cancer Care Finder', page_icon='🐾', layout='centered')
 
 
+def _format_site(site):
+    location = ', '.join(
+        str(site.get(field, '')).strip()
+        for field in ('city', 'state', 'country')
+        if str(site.get(field, '')).strip()
+    )
+    hospital = str(site.get('hospital') or site.get('name') or '').strip()
+    return f'{hospital} — {location}' if hospital and location else hospital or location
+
+
 def _render_result_save_controls(matches):
     import io, json
     from reportlab.lib.pagesizes import letter
@@ -24,7 +34,7 @@ def _render_result_save_controls(matches):
             lines.append("Confirm: " + "; ".join(dict.fromkeys(str(x) for x in unknown)) + ".")
         lines.append("Contact: " + tr.get("contacts", tr.get("contact", "Contact the study team through the official study page")))
         if tr.get("sites"):
-            lines.append("Participating sites: " + "; ".join(f"{x['hospital']} — {x['city']}, {x['state']}" for x in tr["sites"]))
+            lines.append("Participating sites: " + "; ".join(_format_site(x) for x in tr["sites"]))
         details_url = tr.get("registry_url") or tr.get("url")
         if details_url:
             lines.append("Full study details: " + details_url)
@@ -864,9 +874,7 @@ if search_clicked:
                         )
                     )
                     if tr.get('sites'):
-                        site_text = '; '.join(
-                            f"{x['hospital']} — {x['city']}, {x['state']}" for x in tr['sites']
-                        )
+                        site_text = '; '.join(_format_site(x) for x in tr['sites'])
                         st.write('**Participating sites:** ' + site_text)
                     details_url = tr.get('registry_url') or tr.get('url', '')
                     if details_url:

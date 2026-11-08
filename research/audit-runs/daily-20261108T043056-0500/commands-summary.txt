@@ -1,0 +1,25 @@
+pwd
+python --version
+git --version
+python scripts/audit_execution_gate.py init research/audit-runs/daily-20261108T043056-0500 --scheduled
+python scripts/audit_execution_gate.py check research/audit-runs/daily-20261108T043056-0500 --receipt research/audit-runs/daily-20261108T043056-0500/receipt-final.json --queue-out data/audit_execution_queue.json
+python scripts/validate_audit_receipt.py research/audit-runs/daily-20261108T043056-0500/receipt-final.json
+python scripts/validate_audit_gap_review.py research/audit-runs/daily-20261108T043056-0500/gap-review.json --receipt research/audit-runs/daily-20261108T043056-0500/receipt-final.json
+python scripts/audit_preflight.py
+python scripts/validate_catalog_sanitation.py
+python scripts/validate_trials_catalog.py
+python scripts/validate_source_inventory.py
+python scripts/semantic_dedupe_catalog.py
+python scripts/build_matcher_data.py
+node scripts/test_matcher_catalog_loading.js
+node scripts/test_matcher_selection.js
+python scripts/test_matcher_selection.py
+node scripts/test_matcher_protocol_sources.js --reviewed-since=2026-11-08T04:30:56-05:00 --require-full-review
+python scripts/test_streamlit_pages.py
+python scripts/build_static_site.py
+node scripts/test_matcher_logic.js
+python scripts/validate_production_sync.py
+python scripts/check_evidence_keys.py --redact research/audit-runs/daily-20261108T043056-0500
+python scripts/check_evidence_keys.py
+python scripts/validate_repository_hygiene.py
+git diff --check
