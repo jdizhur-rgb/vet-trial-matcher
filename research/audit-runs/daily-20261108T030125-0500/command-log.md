@@ -1,0 +1,25 @@
+# Command log — daily-20261108T030125-0500
+
+- `pwd` → `/workspace/scratch/fd10c0821871`
+- `python --version` → `Python 3.12.14`
+- `git --version` → `git version 2.52.0`
+- `python scripts/audit_execution_gate.py init research/audit-runs/daily-20261108T030125-0500 --scheduled` → initialized, 56 issues
+- source traversal: `python research/audit-runs/daily-20261108T030125-0500/run_fetch.py` → 513 decisions, 438 requests, 75 exact restrictions
+- 44 weak inventory routes opened through same-URL Web fallback
+- global discovery → 60 saved country/language queries across 12/12 regions and two required passes
+- `python scripts/audit_execution_gate.py check ... --queue-out data/audit_execution_queue.json` → PASS accounting; clinical reconciliation INCOMPLETE
+- `python scripts/validate_audit_receipt.py ...` → INCOMPLETE, 159 evidence gaps, zero structural errors
+- `python scripts/validate_audit_gap_review.py ...` → PASS, EXTERNAL_GAPS_ONLY
+- `python scripts/validate_source_inventory.py` → PASS, 161 sources
+- `python scripts/validate_trials_catalog.py` → PASS, 318 canonical / 154 public
+- `python scripts/validate_catalog_sanitation.py` → PASS, zero new partial records
+- `python scripts/semantic_dedupe_catalog.py` → PASS, zero probable duplicates
+- `python scripts/check_evidence_keys.py --redact ...` → 74 public-page key occurrences redacted; sidecars rehashed; final PASS
+- `python scripts/build_matcher_data.py` → PASS, 154 public / 150 treatment / 4 other access
+- `python scripts/build_static_site.py` → PASS
+- `node scripts/test_matcher_catalog_loading.js` → PASS, Japan 14 / USA 98 after delayed load
+- `node scripts/test_matcher_logic.js` → PASS
+- `node scripts/test_matcher_protocol_sources.js` → PASS
+- `node scripts/test_matcher_selection.js` → PASS after required rebuild
+- `python scripts/test_matcher_selection.py` → PASS
+- `python scripts/validate_production_sync.py` → PASS

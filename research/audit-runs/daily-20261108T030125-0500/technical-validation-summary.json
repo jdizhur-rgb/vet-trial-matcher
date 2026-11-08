@@ -1,0 +1,51 @@
+{
+  "run_id": "daily-20261108T030125-0500",
+  "environment": {
+    "pwd": "/workspace/scratch/fd10c0821871/vet-trial-matcher",
+    "python": "3.12.14",
+    "git": "2.52.0",
+    "status": "PASS"
+  },
+  "preflight": "PASS_WITH_INCONCLUSIVE: streamlit module unavailable only",
+  "validators": {
+    "audit_execution_gate": "PASS; clinical_reconciliation INCOMPLETE; discovery INCOMPLETE",
+    "strict_receipt": "INCOMPLETE with 159 evidence gaps and no structural errors",
+    "gap_review": "PASS; EXTERNAL_GAPS_ONLY",
+    "source_inventory": "PASS sources=161",
+    "trial_catalog": "PASS records=318 active=154",
+    "sanitation": "PASS new_partial_records=0",
+    "dedupe": "PASS probable_duplicates=0",
+    "repository_hygiene": "PASS",
+    "evidence_keys": "PASS after 74 public-page Google key redactions and sidecar rehash"
+  },
+  "tests": {
+    "matcher_catalog_loading": "PASS Japan=14 USA=98 delayed-load results; early/delayed/failure regression",
+    "matcher_logic": "PASS trials=154",
+    "matcher_protocol_sources": "PASS",
+    "matcher_selection_js": "PASS",
+    "matcher_selection_python": "PASS",
+    "production_sync": "PASS total=154 treatment=150 access=4"
+  },
+  "build_hashes": {
+    "seo/static/matcher/trials.json": {
+      "sha256": "f0d92434affea0605db2b39a42685a713a2cec08a2bfacf202b72635c625dd98",
+      "bytes": 364753
+    },
+    "seo/static/matcher/matcher.js": {
+      "sha256": "a9b0a97ca943bb005fc4d5eea77839df43df2e220aaa15c43dd5af7210628375",
+      "bytes": 58615
+    },
+    "seo/site/index.html": {
+      "sha256": "379a09a0f2b0b1f928ca4a54ce0735c305fb4cdbff78bcf3cdaf000ded95d6db",
+      "bytes": 50589
+    }
+  },
+  "publication": {
+    "status": "PENDING",
+    "commit": null,
+    "remote_main": null
+  },
+  "production": {
+    "status": "PENDING"
+  }
+}

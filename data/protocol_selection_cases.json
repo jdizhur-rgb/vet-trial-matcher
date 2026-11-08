@@ -9009,6 +9009,82 @@
         }
       ],
       "selection_sha256": "207a2afff91368ab98612db2a1c8bc4b814aa0fd1478395d2146668b6d066297"
+    },
+    {
+      "trial_id": "jp-tottori-pdt",
+      "source_url": "https://vth-tottori-u.jp/clinical-research/3571/",
+      "reviewed_at": "2026-11-08T03:13:54.147971-05:00",
+      "full_protocol_reverified": true,
+      "criteria": "Tottori currently treats selected dog and cat body-surface, intranasal and bladder tumors with a novel-photosensitizer PDT protocol; individual suitability and unpublished medical criteria require team screening.",
+      "cases": [
+        {
+          "name": "published dog bladder-tumor candidate",
+          "patient": {
+            "species": "Dog",
+            "country": "Japan",
+            "cancer": "Bladder cancer"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "published cat nasal-tumor candidate",
+          "patient": {
+            "species": "Cat",
+            "country": "Japan",
+            "cancer": "Nasal tumor / nasal cancer"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "diagnosis outside published tumor groups",
+          "patient": {
+            "species": "Dog",
+            "country": "Japan",
+            "cancer": "Lymphoma"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "025b9b74e91ffbfca0c866154e3f8083e891db4ec63b1f74d8b796402bebcdca"
+    },
+    {
+      "trial_id": "jp-vsec-ucc-mogamulizumab-radiation",
+      "source_url": "https://vsec.jp/hospital/clinical-research/",
+      "reviewed_at": "2026-11-08T03:13:54.147971-05:00",
+      "full_protocol_reverified": true,
+      "criteria": "VSEC accepts dogs with suspected or confirmed lower urinary-tract urothelial carcinoma and excludes prior anticancer drug, radiation or surgery; remaining obstruction, CKD and prognosis criteria require team screening.",
+      "cases": [
+        {
+          "name": "published suspected canine UCC candidate",
+          "patient": {
+            "species": "Dog",
+            "country": "Japan",
+            "cancer": "Urothelial carcinoma",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "prior chemotherapy contradicts protocol",
+          "patient": {
+            "species": "Dog",
+            "country": "Japan",
+            "cancer": "Urothelial carcinoma",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "different species outside protocol",
+          "patient": {
+            "species": "Cat",
+            "country": "Japan",
+            "cancer": "Urothelial carcinoma"
+          },
+          "expected": "exclude"
+        }
+      ],
+      "selection_sha256": "573c093717f0c8b5c46310082ebcfd12925493a70eecaffa9ef9b581cac65968"
     }
   ]
 }
