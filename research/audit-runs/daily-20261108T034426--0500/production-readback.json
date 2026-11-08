@@ -1,0 +1,58 @@
+{
+  "run_id": "daily-20261108T034426--0500",
+  "checked_at": "2026-11-08T04:20:45-05:00",
+  "url": "https://vettrialfinder.com/matcher/",
+  "deployment": "PASS",
+  "publication_note": "Core audit artifacts are on remote-main. Public matcher build bytes did not change in this run, so live byte equality verifies the existing deployment remains current.",
+  "files": {
+    "html": {
+      "status": 200,
+      "bytes": 62254,
+      "local_sha256": "ea9b8df4d48200699e88557ad594b23a48e0bfddbd6388facb070996d2064764",
+      "live_sha256": "ea9b8df4d48200699e88557ad594b23a48e0bfddbd6388facb070996d2064764",
+      "byte_equal": true
+    },
+    "matcher_js": {
+      "status": 200,
+      "bytes": 58615,
+      "local_sha256": "a9b0a97ca943bb005fc4d5eea77839df43df2e220aaa15c43dd5af7210628375",
+      "live_sha256": "a9b0a97ca943bb005fc4d5eea77839df43df2e220aaa15c43dd5af7210628375",
+      "byte_equal": true
+    },
+    "catalog": {
+      "status": 200,
+      "bytes": 364753,
+      "local_sha256": "f0d92434affea0605db2b39a42685a713a2cec08a2bfacf202b72635c625dd98",
+      "live_sha256": "f0d92434affea0605db2b39a42685a713a2cec08a2bfacf202b72635c625dd98",
+      "byte_equal": true,
+      "records": 154
+    }
+  },
+  "html_versions": {
+    "catalog": null,
+    "script": null,
+    "script_changed": false
+  },
+  "rendered_search": {
+    "inputs": {
+      "species": "Dog",
+      "cancer": "Cancer — any type",
+      "diagnosis_certainty": "I don't know",
+      "age": "",
+      "weight": "",
+      "zip": "",
+      "treatment_options": "all selected",
+      "approach": "Any approach"
+    },
+    "usa": {
+      "status": "PASS",
+      "rendered_count": 98,
+      "expected_count": 98
+    },
+    "japan": {
+      "status": "PASS",
+      "rendered_count": 14,
+      "expected_count": 14
+    }
+  }
+}

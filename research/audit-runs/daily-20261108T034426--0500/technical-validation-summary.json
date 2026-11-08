@@ -1,0 +1,45 @@
+{
+  "run_id": "daily-20261108T034426--0500",
+  "environment": {
+    "pwd": "/workspace/scratch/fd10c0821871/vet-trial-matcher",
+    "python": "3.12.14",
+    "git": "2.52.0",
+    "status": "PASS"
+  },
+  "preflight": "PASS_WITH_INCONCLUSIVE: optional streamlit module unavailable",
+  "validators": {
+    "audit_execution_gate": "PASS; clinical_reconciliation INCOMPLETE; discovery INCOMPLETE",
+    "strict_receipt": "INCOMPLETE with 159 external evidence gaps and 0 structural errors",
+    "gap_review": "PASS; EXTERNAL_GAPS_ONLY",
+    "source_inventory": "PASS sources=161",
+    "trial_catalog": "PASS records=318 active=154",
+    "sanitation": "PASS new_partial_records=0",
+    "semantic_dedupe": "PASS probable_duplicates=0",
+    "repository_hygiene": "PASS"
+  },
+  "tests": {
+    "matcher_catalog_loading": "PASS Japan=14 USA=98; early/delayed/failure regression",
+    "matcher_logic": "PASS trials=154",
+    "matcher_protocol_sources": "INCOMPLETE fresh full review 2/154; 152 not fully reread in this run",
+    "matcher_selection_js": "PASS",
+    "matcher_selection_python": "PASS",
+    "production_sync": "PASS total=154 treatment=150 access=4"
+  },
+  "publication": {
+    "status": "PASS",
+    "core_commit": "23c7ca048aa067f8ab91c59e54d4b2540a7c4ae7",
+    "remote_main": "23c7ca048aa067f8ab91c59e54d4b2540a7c4ae7",
+    "tree": "13539e2870353e98c925446d247ee8a716a73d5a"
+  },
+  "production": {
+    "status": "PASS",
+    "public_build_changed": false,
+    "html_byte_equal": true,
+    "matcher_js_byte_equal": true,
+    "catalog_byte_equal": true,
+    "catalog_version": "f0d92434affea060",
+    "script_version": "clinical-audit-20261103-owner-rules-r1",
+    "live_matcher_usa": "PASS 98",
+    "live_matcher_japan": "PASS 14"
+  }
+}
