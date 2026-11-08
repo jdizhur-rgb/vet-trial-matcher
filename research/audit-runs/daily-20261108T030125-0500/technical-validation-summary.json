@@ -41,11 +41,21 @@
     }
   },
   "publication": {
-    "status": "PENDING",
-    "commit": null,
-    "remote_main": null
+    "status": "PASS",
+    "commit": "dde97b03469a157d2e125f7bcccc57416b65c990",
+    "remote_main": "dde97b03469a157d2e125f7bcccc57416b65c990",
+    "tree": "83dd2dc9cf61d73207bb87567c62cb4a954de0d4",
+    "note": "The first API-created publication commit was rejected during readback because two large JSON blobs were truncated in transport. The corrected commit replaced both blobs from chunk-verified base64 and remote JSON parsing and tree equality passed."
   },
   "production": {
-    "status": "PENDING"
+    "status": "PASS",
+    "html_byte_equal": true,
+    "matcher_js_byte_equal": true,
+    "catalog_byte_equal": true,
+    "catalog_version": "f0d92434affea060",
+    "script_version": "clinical-audit-20261103-owner-rules-r1",
+    "script_version_changed": false,
+    "live_matcher_usa": "PASS 98",
+    "live_matcher_japan": "PASS 14"
   }
 }

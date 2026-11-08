@@ -23,3 +23,6 @@
 - `node scripts/test_matcher_selection.js` → PASS after required rebuild
 - `python scripts/test_matcher_selection.py` → PASS
 - `python scripts/validate_production_sync.py` → PASS
+- publication → corrected GitHub connector commit `dde97b03469a157d2e125f7bcccc57416b65c990`; remote JSON parsing and exact local/remote tree comparison PASS
+- production byte readback → HTML, `matcher.js`, and catalog PASS
+- rendered production matcher → USA 98 and Japan 14 for Dog / Cancer — any type / unknown diagnosis / blank age, weight and ZIP / all treatments / Any approach
