@@ -314,8 +314,8 @@
     {
       "trial_id": "ill-osa-il12-rt-current",
       "source_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/10/JEN-101-OSA-with-RT-10-2026.pdf",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Illinois JEN101 limb-OSA protocol excludes previous steroids/immunotherapy/chemo/radiation and requires radiation followed by amputation.",
+      "reviewed_at": "2026-11-09T08:05:42.439080-05:00",
+      "criteria": "Nonmetastatic appendicular OSA confirmed by cytology/histology with ALP; no earlier chemotherapy, radiotherapy, immunotherapy/checkpoint treatment, steroids or listed immune modulators; sufficient organ function for sedation.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -417,15 +417,52 @@
           },
           "expected": "exclude",
           "retained_from_reviewed_at": "2026-10-12T22:41:17.625761-04:00"
+        },
+        {
+          "name": "Documented appendicular, nonmetastatic candidate",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "metastasis": "No known metastases"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Radiation and subsequent surgery required",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Osteosarcoma",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Unknown staging is not counted as eligible",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Osteosarcoma",
+            "metastasis": "I don't know"
+          },
+          "expected": "review"
         }
       ],
-      "selection_sha256": "9f88b0a0864b5ac3bcae62919d193f9121d240dd92c916846ec8731b65350aa8"
+      "selection_sha256": "9f88b0a0864b5ac3bcae62919d193f9121d240dd92c916846ec8731b65350aa8",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "daily-20261109T071607-0500-run-now",
+      "selection_reconciled_at": "2026-11-09T08:05:42.439080-05:00",
+      "selection_reconciled_run": "continue-20261109T075757-0500"
     },
     {
       "trial_id": "ill-osa-z007-current",
       "source_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/10/Canine-Osteosarcoma-pulmonary-metastases.pdf",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Illinois Z007 source treats pulmonary OSA metastases from any primary site;absence of metastasis contradicts this cohort.",
+      "reviewed_at": "2026-11-09T08:05:42.439080-05:00",
+      "criteria": "Active or historic OSA (any primary site), lung nodule >=5 mm by CT, controlled pain if no amputation, expected survival at least 9 weeks, >=7 days since RT and >=21 days since chemo/immunotherapy. Exclude immunosuppression, pleural effusion, hypoxia or respiratory distress.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -497,9 +534,49 @@
             "respiratory"
           ],
           "retained_from_reviewed_at": "2026-10-12T22:41:17.625761-04:00"
+        },
+        {
+          "name": "Pulmonary metastatic cohort accepts either primary bone site",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "osa_location": "Axial — skull, spine, rib, or pelvis"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Without known metastases no access to metastatic study",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Osteosarcoma",
+            "metastasis": "No known metastases"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Unknown lung-lesion size and timing require screening",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Osteosarcoma",
+            "metastasis": "I don't know"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "5 mm",
+            "washout",
+            "respiratory"
+          ]
         }
       ],
-      "selection_sha256": "a635e442dd72be9635036dfc81a3d2abfe6969e21608e7aa5eb92e50231a0db6"
+      "selection_sha256": "a635e442dd72be9635036dfc81a3d2abfe6969e21608e7aa5eb92e50231a0db6",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "daily-20261109T071607-0500-run-now",
+      "selection_reconciled_at": "2026-11-09T08:05:42.439080-05:00",
+      "selection_reconciled_run": "continue-20261109T075757-0500"
     },
     {
       "trial_id": "illinois-sts-surgery",
@@ -5513,8 +5590,8 @@
     {
       "trial_id": "dk-copenhagen-flash-superficial-tumors",
       "source_url": "https://dyrehospitalet.ku.dk/forskning/forskningsprojekter/",
-      "reviewed_at": "2026-11-08T04:46:59.777772-05:00",
-      "criteria": "Copenhagen FLASH protocol treats superficial/subcutaneous/oral canine tumors with1–4radiation treatments;repeated anesthesia and travel to Sweden are required.",
+      "reviewed_at": "2026-11-09T08:05:42.439080-05:00",
+      "criteria": "Tumor of skin, subcutis or oral cavity, untreated or incompletely removed, only if expected benefit; repeated anesthesia and no serious concurrent illness; rabies vaccination and EU pet passport for Sweden.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -5543,12 +5620,45 @@
             "species": "Cat"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Canine oral/superficial candidate accepting radiotherapy",
+          "patient": {
+            "species": "Dog",
+            "country": "Denmark",
+            "cancer": "Mast cell tumor",
+            "diagnosis_status": "Confirmed by pathology/cytology"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Canine candidate declines mandatory radiotherapy",
+          "patient": {
+            "species": "Dog",
+            "country": "Denmark",
+            "cancer": "Mast cell tumor",
+            "prefs": [
+              "Surgery"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Unknown site screening stays with study team",
+          "patient": {
+            "species": "Dog",
+            "country": "Denmark",
+            "cancer": "Mast cell tumor",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "review"
         }
       ],
-      "selection_sha256": "b6131ecf37de49f4f9ab9800b9d456198c8caa04b0c7040deaa2a09c537f1b52",
+      "selection_sha256": "d757691a5ef77835f419de80b2f9dbbe0610fae6432caa3db7666bffecda4458",
       "full_protocol_reverified": true,
-      "primary_evidence_review_run": "daily-20261108T043056-0500",
-      "selection_reconciled_at": "2026-11-08T04:46:59.777772-05:00"
+      "primary_evidence_review_run": "daily-20261109T071607-0500-run-now",
+      "selection_reconciled_at": "2026-11-09T08:05:42.439080-05:00",
+      "selection_reconciled_run": "continue-20261109T075757-0500"
     },
     {
       "trial_id": "vt-canine-glioma-ced",
