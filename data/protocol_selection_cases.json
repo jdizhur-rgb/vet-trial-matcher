@@ -9694,6 +9694,87 @@
         }
       ],
       "selection_sha256": "d968e5a00cba2e639774f1906d5903aabec35692142530f3c7a14862e7afe5b8"
+    },
+    {
+      "trial_id": "csu-feline-scgl-radiotherapy-iacuc8528",
+      "source_url": "https://studypages.com/s/radiation-therapy-for-small-cell-gi-lymphoma-in-cats-710678/",
+      "reviewed_at": "2026-11-09T08:56:04.669900-05:00",
+      "criteria": "Feline small-cell GI lymphoma confirmed by endoscopic biopsy. Signs for at least six weeks (overview says more than six; leave exact boundary for coordinator). No previous chemotherapy. Recently changed diet, antibiotics or steroids may be eligible after waiting periods not specified. Adequate condition for anesthesia/radiation. Before enrollment CBC/chemistry, urinalysis, cobalamin/folate, abdominal ultrasound, thoracic radiographs, IHC and PARR within protocol-specific times.",
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": true,
+      "cases": [
+        {
+          "name": "feline small cell GI lymphoma candidate for CSU screening",
+          "patient": {
+            "species": "Cat",
+            "country": "USA",
+            "cancer": "Lymphoma — other",
+            "chemo": "Never",
+            "prefs": [
+              "Radiation"
+            ]
+          },
+          "expected": "review"
+        },
+        {
+          "name": "feline lymphoma after prior chemotherapy is excluded",
+          "patient": {
+            "species": "Cat",
+            "country": "USA",
+            "cancer": "Lymphoma — other",
+            "chemo": "Previously received",
+            "prefs": [
+              "Radiation"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "canine lymphoma outside feline protocol",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Lymphoma — other",
+            "chemo": "Never",
+            "prefs": [
+              "Radiation"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "radiation preference required",
+          "patient": {
+            "species": "Cat",
+            "country": "USA",
+            "cancer": "Lymphoma — other",
+            "chemo": "Never",
+            "prefs": [
+              "Chemotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "unknown biopsy and chemotherapy must remain screening",
+          "patient": {
+            "species": "Cat",
+            "country": "USA",
+            "cancer": "Lymphoma — other",
+            "diagnosis_status": "I don't know",
+            "chemo": "I don't know",
+            "prefs": [
+              "Radiation"
+            ]
+          },
+          "expected": "screen",
+          "unknown_contains": [
+            "chemotherapy",
+            "small-cell"
+          ]
+        }
+      ],
+      "selection_sha256": "daf730381832b7ccf50b0624d1dea6cc6592615c6e5d5cc3925b33b705b5be8b"
     }
   ]
 }
