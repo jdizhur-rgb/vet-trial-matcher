@@ -1,0 +1,269 @@
+{
+  "trial_id": "midwestern-glendale-canine-cancer-chemotherapy",
+  "source_url": "https://www.midwestern.edu/research/CRS/clinical-studies-animals/canine-cancer-chemotherapy-study",
+  "reviewed_at": "2026-11-09T12:27:08.048Z",
+  "criteria": "Active Glendale treatment cohort for dogs ≥12 months with validated malignant melanoma, HSA, mammary cancer, soft tissue sarcoma or spindle cell carcinoma. No previous corticosteroids, chemotherapy, immunotherapy or radiation. No planned procedure under general anesthesia during study; team screens comorbidities. The exact drug is unpublished. Spindle cell carcinoma is recorded literally, not mapped to spindle cell sarcoma.",
+  "full_protocol_reverified": true,
+  "cases": [
+    {
+      "name": "Eligible at the published minimum age of 12 months",
+      "patient": {
+        "species": "Dog",
+        "country": "USA",
+        "cancer": "Hemangiosarcoma",
+        "age": 1,
+        "age_known": true,
+        "diagnosis_status": "Confirmed by pathology/cytology",
+        "chemo": "Never",
+        "radiation": "Never",
+        "immunotherapy_history": "Never",
+        "steroids": "Never / no"
+      },
+      "expected": "review"
+    },
+    {
+      "name": "Named disease scope Mammary carcinoma",
+      "patient": {
+        "species": "Dog",
+        "country": "USA",
+        "cancer": "Mammary carcinoma",
+        "age": 1,
+        "age_known": true,
+        "diagnosis_status": "Confirmed by pathology/cytology",
+        "chemo": "Never",
+        "radiation": "Never",
+        "immunotherapy_history": "Never",
+        "steroids": "Never / no"
+      },
+      "expected": "review"
+    },
+    {
+      "name": "Named disease scope Soft tissue sarcoma",
+      "patient": {
+        "species": "Dog",
+        "country": "USA",
+        "cancer": "Soft tissue sarcoma",
+        "age": 1,
+        "age_known": true,
+        "diagnosis_status": "Confirmed by pathology/cytology",
+        "chemo": "Never",
+        "radiation": "Never",
+        "immunotherapy_history": "Never",
+        "steroids": "Never / no"
+      },
+      "expected": "review"
+    },
+    {
+      "name": "Named disease scope Oral melanoma",
+      "patient": {
+        "species": "Dog",
+        "country": "USA",
+        "cancer": "Oral melanoma",
+        "age": 1,
+        "age_known": true,
+        "diagnosis_status": "Confirmed by pathology/cytology",
+        "chemo": "Never",
+        "radiation": "Never",
+        "immunotherapy_history": "Never",
+        "steroids": "Never / no"
+      },
+      "expected": "review"
+    },
+    {
+      "name": "Named disease scope Melanoma — other",
+      "patient": {
+        "species": "Dog",
+        "country": "USA",
+        "cancer": "Melanoma — other",
+        "age": 1,
+        "age_known": true,
+        "diagnosis_status": "Confirmed by pathology/cytology",
+        "chemo": "Never",
+        "radiation": "Never",
+        "immunotherapy_history": "Never",
+        "steroids": "Never / no"
+      },
+      "expected": "review"
+    },
+    {
+      "name": "Missing age and prior therapy require screening",
+      "patient": {
+        "species": "Dog",
+        "country": "USA",
+        "cancer": "Hemangiosarcoma"
+      },
+      "expected": "review",
+      "unknown_contains": [
+        "minimum age",
+        "prior chemotherapy",
+        "prior immunotherapy",
+        "steroid",
+        "prior radiation"
+      ]
+    },
+    {
+      "name": "Source contradiction age",
+      "patient": {
+        "species": "Dog",
+        "country": "USA",
+        "cancer": "Hemangiosarcoma",
+        "age": 0.99,
+        "age_known": true,
+        "diagnosis_status": "Confirmed by pathology/cytology",
+        "chemo": "Never",
+        "radiation": "Never",
+        "immunotherapy_history": "Never",
+        "steroids": "Never / no"
+      },
+      "expected": "exclude"
+    },
+    {
+      "name": "Source contradiction chemo",
+      "patient": {
+        "species": "Dog",
+        "country": "USA",
+        "cancer": "Hemangiosarcoma",
+        "age": 1,
+        "age_known": true,
+        "diagnosis_status": "Confirmed by pathology/cytology",
+        "chemo": "Previously received",
+        "radiation": "Never",
+        "immunotherapy_history": "Never",
+        "steroids": "Never / no"
+      },
+      "expected": "exclude"
+    },
+    {
+      "name": "Source contradiction immunotherapy_history",
+      "patient": {
+        "species": "Dog",
+        "country": "USA",
+        "cancer": "Hemangiosarcoma",
+        "age": 1,
+        "age_known": true,
+        "diagnosis_status": "Confirmed by pathology/cytology",
+        "chemo": "Never",
+        "radiation": "Never",
+        "immunotherapy_history": "Previously received",
+        "steroids": "Never / no"
+      },
+      "expected": "exclude"
+    },
+    {
+      "name": "Source contradiction radiation",
+      "patient": {
+        "species": "Dog",
+        "country": "USA",
+        "cancer": "Hemangiosarcoma",
+        "age": 1,
+        "age_known": true,
+        "diagnosis_status": "Confirmed by pathology/cytology",
+        "chemo": "Never",
+        "radiation": "Previously received",
+        "immunotherapy_history": "Never",
+        "steroids": "Never / no"
+      },
+      "expected": "exclude"
+    },
+    {
+      "name": "Source contradiction steroids",
+      "patient": {
+        "species": "Dog",
+        "country": "USA",
+        "cancer": "Hemangiosarcoma",
+        "age": 1,
+        "age_known": true,
+        "diagnosis_status": "Confirmed by pathology/cytology",
+        "chemo": "Never",
+        "radiation": "Never",
+        "immunotherapy_history": "Never",
+        "steroids": "Previously took"
+      },
+      "expected": "exclude"
+    },
+    {
+      "name": "Source contradiction diagnosis_status",
+      "patient": {
+        "species": "Dog",
+        "country": "USA",
+        "cancer": "Hemangiosarcoma",
+        "age": 1,
+        "age_known": true,
+        "diagnosis_status": "Suspected / not confirmed",
+        "chemo": "Never",
+        "radiation": "Never",
+        "immunotherapy_history": "Never",
+        "steroids": "Never / no"
+      },
+      "expected": "exclude"
+    },
+    {
+      "name": "Source contradiction species",
+      "patient": {
+        "species": "Cat",
+        "country": "USA",
+        "cancer": "Hemangiosarcoma",
+        "age": 1,
+        "age_known": true,
+        "diagnosis_status": "Confirmed by pathology/cytology",
+        "chemo": "Never",
+        "radiation": "Never",
+        "immunotherapy_history": "Never",
+        "steroids": "Never / no"
+      },
+      "expected": "exclude"
+    },
+    {
+      "name": "Source contradiction country",
+      "patient": {
+        "species": "Dog",
+        "country": "Japan",
+        "cancer": "Hemangiosarcoma",
+        "age": 1,
+        "age_known": true,
+        "diagnosis_status": "Confirmed by pathology/cytology",
+        "chemo": "Never",
+        "radiation": "Never",
+        "immunotherapy_history": "Never",
+        "steroids": "Never / no"
+      },
+      "expected": "exclude"
+    },
+    {
+      "name": "Source contradiction cancer",
+      "patient": {
+        "species": "Dog",
+        "country": "USA",
+        "cancer": "Osteosarcoma",
+        "age": 1,
+        "age_known": true,
+        "diagnosis_status": "Confirmed by pathology/cytology",
+        "chemo": "Never",
+        "radiation": "Never",
+        "immunotherapy_history": "Never",
+        "steroids": "Never / no"
+      },
+      "expected": "exclude"
+    },
+    {
+      "name": "Source contradiction prefs",
+      "patient": {
+        "species": "Dog",
+        "country": "USA",
+        "cancer": "Hemangiosarcoma",
+        "age": 1,
+        "age_known": true,
+        "diagnosis_status": "Confirmed by pathology/cytology",
+        "chemo": "Never",
+        "radiation": "Never",
+        "immunotherapy_history": "Never",
+        "steroids": "Never / no",
+        "prefs": [
+          "Surgery"
+        ]
+      },
+      "expected": "exclude"
+    }
+  ],
+  "selection_sha256": "d968e5a00cba2e639774f1906d5903aabec35692142530f3c7a14862e7afe5b8"
+}
