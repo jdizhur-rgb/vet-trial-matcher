@@ -4669,8 +4669,8 @@
     {
       "trial_id": "tufts-sts-fap-car-t",
       "source_url": "https://vet.tufts.edu/clinical-trials/treatment-canine-soft-tissue-sarcoma-fap-car-t-cells",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Tufts FAP CAR-T requires STS>=2cm and strictly<8cm; >=11kg,14day chemotherapy washout and checkpoint/personalizedT-cell restrictions remain.",
+      "reviewed_at": "2026-11-09T15:06:02.111Z",
+      "criteria": "Tufts FAP CAR-T requires STS>=2cm and strictly<8cm; >=11kg,14day chemotherapy washout and checkpoint/personalizedT-cell restrictions remain. Current UC Davis IACUC 24677 has a local May 31, 2027 cutoff. Age at least one year, weight at least 11 kg, external biopsy-accessible sarcoma, 8 visits. No transfer of these local facts or dates to Tufts. CSU overlap remains open.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -4705,9 +4705,37 @@
           },
           "expected": "exclude",
           "retained_from_reviewed_at": "2026-10-14T07:31:23.043325-04:00"
+        },
+        {
+          "name": "Nov 9 active FAP candidate with local site date",
+          "patient": {
+            "cancer": "Soft tissue sarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published FAP weight contradiction",
+          "patient": {
+            "cancer": "Soft tissue sarcoma",
+            "weight_known": true,
+            "weight_lb": 12
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unavailable age and diagnosis still need screening",
+          "patient": {
+            "cancer": "Soft tissue sarcoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "67ac5a7fdf659b6b8bf02bab6f3c5820e2b7376422a6973d46bcf852b0273efa"
+      "selection_sha256": "cc412ed265dde2a77343c0386dab13e9b552ddfeb2dc0fc5abb605d59a2a2d22",
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "primary_evidence_source_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": true,
+      "full_protocol_reverified": false
     },
     {
       "trial_id": "utsw-vroc-melanoma-carboplatin-hifu",
@@ -8967,9 +8995,9 @@
     },
     {
       "trial_id": "au-uq-appendicular-osteosarcoma-vaccine",
-      "source_url": "https://veterinary-science.uq.edu.au/community/clinical-trials",
-      "reviewed_at": "2026-11-02T04:19:30.260728-05:00",
-      "criteria": "UQ vaccine primary requires nonmetastatic appendicular OSA and planned surgery.",
+      "source_url": "https://uqvets.com.au/about/clinical-research-trials",
+      "reviewed_at": "2026-11-09T10:05:43.925776-05:00",
+      "criteria": "Dog of any breed with recent limb-long-bone OSA, no evidence of metastasis on exam/radiographs and surgery planned; tumor and blood collected at surgery; current page does not alter original local logistics.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -8998,11 +9026,42 @@
             "cancer": "Osteosarcoma"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 candidate from protocol",
+          "patient": {
+            "species": "Dog",
+            "country": "Australia",
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 contradiction from protocol",
+          "patient": {
+            "species": "Dog",
+            "country": "Australia",
+            "cancer": "Osteosarcoma",
+            "metastasis": "Confirmed metastases"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown diagnosis requires screening",
+          "patient": {
+            "species": "Dog",
+            "country": "Australia",
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "59142c549af5551464126769cf1ac3c9a4a4caf55ace9894cff915ee35250074",
       "source_visit_refreshed_this_run": true,
-      "primary_evidence_review_run": "daily-20261102T030506-0500"
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "full_protocol_reverified": true,
+      "primary_evidence_source_run": "continue-20261109T075757-0500"
     },
     {
       "trial_id": "au-gamgee-personalized-mrna-vaccine",
