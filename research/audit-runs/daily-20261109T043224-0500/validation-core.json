@@ -1,0 +1,80 @@
+{
+  "at": "2026-11-09T09:54:42.472932+00:00",
+  "results": [
+    {
+      "command": [
+        "python",
+        "scripts/check_evidence_keys.py",
+        "--redact",
+        "research/audit-runs/daily-20261109T043224-0500"
+      ],
+      "returncode": 0,
+      "log": "research/audit-runs/daily-20261109T043224-0500/validation-logs/00-check_evidence_keys.log",
+      "tail": "PASS: redacted 0 occurrence(s).\n"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/check_evidence_keys.py",
+        "research/audit-runs/daily-20261109T043224-0500"
+      ],
+      "returncode": 0,
+      "log": "research/audit-runs/daily-20261109T043224-0500/validation-logs/01-check_evidence_keys.log",
+      "tail": "PASS: no unredacted Google API keys.\n"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate_source_inventory.py"
+      ],
+      "returncode": 0,
+      "log": "research/audit-runs/daily-20261109T043224-0500/validation-logs/02-validate_source_inventory.log",
+      "tail": "SOURCE_INVENTORY_VALIDATION_OK sources=161 digest=5dab38ac0db0\n"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate_trials_catalog.py"
+      ],
+      "returncode": 0,
+      "log": "research/audit-runs/daily-20261109T043224-0500/validation-logs/03-validate_trials_catalog.log",
+      "tail": "TRIAL_CATALOG_VALIDATION_OK records=318 unique_ids=318 active=154 required_active_fields=11\n"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate_catalog_sanitation.py"
+      ],
+      "returncode": 0,
+      "log": "research/audit-runs/daily-20261109T043224-0500/validation-logs/04-validate_catalog_sanitation.log",
+      "tail": "{\n  \"records\": 318,\n  \"partial_records\": 4,\n  \"known_unresolved\": 4,\n  \"new_partial_records\": [],\n  \"resolved_but_still_queued\": [\n    \"eu-ch-sinonasal-heterogeneous-rt\",\n    \"fr-fregis-chemodectoma-thermoablation\",\n    \"fr-fregis-hepatic-embolization\",\n    \"fr-fregis-hepatic-tumor-thermoablation\",\n    \"nl-utrecht-osteosarcoma-oncolytic-virus-access\",\n    \"uk-rvc-insulinoma-toceranib\"\n  ]\n}\n"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/validate_trial_links.py"
+      ],
+      "returncode": 0,
+      "log": "research/audit-runs/daily-20261109T043224-0500/validation-logs/05-validate_trial_links.log",
+      "tail": "al-scc-nir-margin-2026\turl\tHTTP 200 -> https://www.vet.upenn.edu/clinical-trial/intraoperative-detection-of-oral-squamous-cell-carcinoma-margins-in-dogs-using-cathepsin-activated-near-infrared-nir-imaging/\thttps://www.vet.upenn.edu/clinical-trial/intraoperative-detection-of-oral-squamous-cell-carcinoma-margins-in-dogs-using-cathepsin-activated-near-infrared-nir-imaging/\nOK\tjp-nihon-head-neck-alternating-magnetic-field\turl\tHTTP 200 -> https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=4035\thttps://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=4035\nOK\tjp-nihon-canine-glioma-il12\turl\tHTTP 200 -> https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=5145\thttps://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=5145\nOK\tvt-liver-laseit-pdt\turl\tHTTP 200 -> https://research.vetmed.vt.edu/clinical-trials/current-studies/liver-tumor-pdt.html\thttps://research.vetmed.vt.edu/clinical-trials/current-studies/liver-tumor-pdt.html\nOK\tjp-tottori-pdt\turl\tHTTP 200 -> https://vth-tottori-u.jp/clinical-research/3571/\thttps://vth-tottori-u.jp/clinical-research/3571/\nOK\tjp-vsec-ucc-mogamulizumab-radiation\turl\tHTTP 200 -> https://vsec.jp/hospital/clinical-research/\thttps://vsec.jp/hospital/clinical-research/\nTRIAL_LINK_VALIDATION_OK\n"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/test_matcher_selection.js"
+      ],
+      "returncode": 0,
+      "log": "research/audit-runs/daily-20261109T043224-0500/validation-logs/06-test_matcher_selection.log",
+      "tail": "SOURCE_DERIVED_SELECTION_OK public_reviewed=142/154 pending=12 retained_reviews=152 cases=769\nMATCHER_SELECTION_OK canonical=318 public=154 checks=1467 criteria=222\n"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/test_matcher_selection.py"
+      ],
+      "returncode": 0,
+      "log": "research/audit-runs/daily-20261109T043224-0500/validation-logs/07-test_matcher_selection.log",
+      "tail": "MATCHER_SELECTION_PARITY_OK public=154 disease_checks=18480\nTUFTS_OSA_COHORT_PARITY_OK cases=8\nPRIMARY_SITE_LINEAGE_PHASE_PARITY_OK\n"
+    }
+  ]
+}
