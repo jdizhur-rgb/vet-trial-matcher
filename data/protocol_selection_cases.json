@@ -4194,8 +4194,8 @@
     {
       "trial_id": "ca-ovc-oral-melanoma-palladia",
       "source_url": "https://ovcclinicaltrials.uoguelph.ca/evaluating-palladia-for-the-treatment-of-canine-oral-melanoma/",
-      "reviewed_at": "2026-10-18T07:18:57.446516+00:00",
-      "criteria": "Dog; Biopsy-confirmed oral melanoma; Palladia/toceranib; Measurable disease; no previous chemotherapy. Previous melanoma vaccine explicitly allowed.; OVC Guelph; Initial staging, study drug, dispensing and administration paid; other fees not inferred.; Dr Anthony Mutsaers / Dr Gabby Allegrini; OVC trial service; Other individual screening criteria require team confirmation.",
+      "reviewed_at": "2026-11-09T09:09:41.486581-05:00",
+      "criteria": "Biopsy-proven oral melanoma, measurable disease, no prior chemotherapy; previous melanoma vaccine permitted.",
       "cases": [
         {
           "name": "Current toceranib candidate",
@@ -4244,6 +4244,33 @@
           "unknown_contains": [
             "measurable"
           ]
+        },
+        {
+          "name": "current primary candidate",
+          "patient": {
+            "country": "Canada",
+            "cancer": "Oral melanoma",
+            "chemo": "Never"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "current primary contradiction",
+          "patient": {
+            "country": "Canada",
+            "cancer": "Oral melanoma",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "missing answer requires screening",
+          "patient": {
+            "country": "Canada",
+            "cancer": "Oral melanoma",
+            "chemo": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "2b8f71c49ea374a8fc2fbb8558f9517f785fdf2779f08235f4cf37a393b9d918",
@@ -4258,13 +4285,16 @@
         "funding": "Initial staging, study drug, dispensing and administration paid; other fees not inferred.",
         "contact": "Dr Anthony Mutsaers / Dr Gabby Allegrini; OVC trial service",
         "unpublished": "Other individual screening criteria require team confirmation."
-      }
+      },
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "ca-ovc-osa-hifu",
       "source_url": "https://ovcclinicaltrials.uoguelph.ca/evaluating-a-non-invasive-heat-therapy-for-the-treatment-of-bone-cancer-in-dogs-2/",
-      "reviewed_at": "2026-10-18T07:18:57.446516+00:00",
-      "criteria": "Dog; Confirmed distal-radius osteosarcoma, no metastasis; MRI-guided HIFU; No prior surgery/radiation for OSA; previous chemotherapy or bisphosphonates case-by-case, not automatically excluded.; SickKids Toronto and OVC Guelph visits; MRI/HIFU/anesthesia/study biopsies and analyses covered.; Dr Brigitte Brisson / OVC Clinical Trials; Exact anatomy and prior treatment indication remain screening questions. Literal-scope correction: previous surgery excludes only surgery for this OSA, not unrelated operations; distal-radius site is a specific team-screening field.",
+      "reviewed_at": "2026-11-09T09:09:41.486581-05:00",
+      "criteria": "Confirmed distal radius canine OSA, no metastases, no prior surgery or radiotherapy for OSA; previous chemo and bisphosphonates case-by-case.",
       "cases": [
         {
           "name": "Limb candidate still needs exact distal-radius confirmation",
@@ -4359,6 +4389,32 @@
             "osa_site_detail": "Femur"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "current primary candidate",
+          "patient": {
+            "country": "Canada",
+            "cancer": "Osteosarcoma",
+            "osa_location": "Appendicular — limb bone"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "current primary contradiction",
+          "patient": {
+            "country": "Canada",
+            "cancer": "Osteosarcoma",
+            "metastasis": "Confirmed metastases"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "missing answer requires screening",
+          "patient": {
+            "country": "Canada",
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "7e47c7b779c7f8edc10e26b57130baa39fdb50ff23b9a0970da4f515d996fe23",
@@ -4373,7 +4429,10 @@
         "funding": "MRI/HIFU/anesthesia/study biopsies and analyses covered.",
         "contact": "Dr Brigitte Brisson / OVC Clinical Trials",
         "unpublished": "Exact anatomy and prior treatment indication remain screening questions."
-      }
+      },
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "uk-liverpool-dogfight-glioma-ferumoxytol-rt",
@@ -5130,8 +5189,8 @@
     {
       "trial_id": "utsw-hsa-temozolomide-propranolol",
       "source_url": "https://veterinaryclinicaltrials.org/s/evaluation-of-a-combination-of-three-drugs-in-dogs-with-hemangiosarcoma-539715/",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "HSA combination-drug protocol accepts biopsy-confirmed HSA without requiring gross residual tumor; doxorubicin/carboplatin plus oral agents are required,with organ function and prior-drug-arm screening.",
+      "reviewed_at": "2026-11-09T09:09:41.486581-05:00",
+      "criteria": "Biopsy confirmed HSA (splenic, liver, heart, intramuscular), survival >2 weeks, no major organ failure; no both prior doxorubicin and carboplatin, one previous allowed for alternate arm, antioxidant supplements must stop.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -5159,9 +5218,38 @@
             "species": "Cat"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "current primary candidate",
+          "patient": {
+            "cancer": "Hemangiosarcoma",
+            "tumor_status": "No evidence of disease (NED)"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "current primary contradiction",
+          "patient": {
+            "cancer": "Hemangiosarcoma",
+            "prefs": [
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "missing answer requires screening",
+          "patient": {
+            "cancer": "Hemangiosarcoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "62e1b1d92f678a5dec4575cf9701d0eabbeddc3a05fd044a77ef2097d63d8a93"
+      "selection_sha256": "62e1b1d92f678a5dec4575cf9701d0eabbeddc3a05fd044a77ef2097d63d8a93",
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_source_run": "continue-20261109T075757-0500"
     },
     {
       "trial_id": "penn-bcell-car-t-registry",
@@ -5491,8 +5579,8 @@
     {
       "trial_id": "jp-nihon-mutation-positive-lung-cancer",
       "source_url": "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=4526",
-      "reviewed_at": "2026-10-28T03:21:40.699807-04:00",
-      "criteria": "Nihon lung protocol accepts suspected lung cancer for diagnosis/testing at the center,requires a qualifying mutation,>=4kg and surgery unsuitable/declined;lesion-free postoperative cases excluded.",
+      "reviewed_at": "2026-11-09T09:09:41.486581-05:00",
+      "criteria": "Dog ≥4kg with a lesion and qualifying mutation tested at Nihon, unsuitable for surgery or declined; no post-surgery cases with no remaining lesion.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -5521,12 +5609,45 @@
             "species": "Cat"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "current primary candidate",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Primary lung tumor",
+            "diagnosis_status": "Suspected / not confirmed",
+            "weight_known": true,
+            "weight_lb": 10
+          },
+          "expected": "review"
+        },
+        {
+          "name": "current primary contradiction",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Primary lung tumor",
+            "weight_known": true,
+            "weight_lb": 7
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "missing answer requires screening",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Primary lung tumor",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "e7644a91d14e676ca59d4a9ac95ba8757dd8251d121f72773fd1853bd58eb5eb",
       "source_evidence_file": "research/audit-runs/daily-20261028T030606-0400/evidence/acfb1dd5ffb53d780a.json",
       "source_retrieved_at": "2026-10-28T03:08:51.255185-04:00",
-      "full_protocol_reverified": true
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "illinois-daunomustine-multicentric-lymphoma",
@@ -6763,8 +6884,8 @@
     {
       "trial_id": "be-ghent-feline-mammary-gcn2-inhibitor",
       "source_url": "https://www.ugent.be/di/khd/nl/onderzoek/katten_met_borstkanker-info-dierenartsen_eng",
-      "reviewed_at": "2026-11-06T03:22:29.791175-05:00",
-      "criteria": "Ghent feline mammary GCN2 inhibitor source requires mastectomy with neo/adjuvant treatment.",
+      "reviewed_at": "2026-11-09T09:09:41.486581-05:00",
+      "criteria": "Cat with diagnosed mammary tumor and eligible for surgery; unknown histopathology/fitness require investigator.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -6795,9 +6916,40 @@
             "cancer": "Mammary carcinoma"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "current primary candidate",
+          "patient": {
+            "species": "Cat",
+            "country": "Belgium",
+            "cancer": "Mammary carcinoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "current primary contradiction",
+          "patient": {
+            "species": "Dog",
+            "country": "Belgium",
+            "cancer": "Mammary carcinoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "missing answer requires screening",
+          "patient": {
+            "species": "Cat",
+            "country": "Belgium",
+            "cancer": "Mammary carcinoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "7be1a99a3be80f4031a7c2a066e59bc5e4d9ac22a76149ccb3210e065d973c12"
+      "selection_sha256": "7be1a99a3be80f4031a7c2a066e59bc5e4d9ac22a76149ccb3210e065d973c12",
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "ch-zurich-canine-high-grade-glioma-chemoradiation",
@@ -7833,8 +7985,8 @@
     {
       "trial_id": "jp-nihon-proteasome-inhibitor-b-cell-tumors",
       "source_url": "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=4502",
-      "reviewed_at": "2026-10-28T03:21:40.699807-04:00",
-      "criteria": "Primary requires confirmed B-cell lymphoid neoplasm. A known T-cell/other lymphoma subtype must not pass from the generic Lymphoma — other choice; non-lymphoma diagnoses ignore a stale hidden lymphoma-type answer.",
+      "reviewed_at": "2026-11-09T09:09:41.486581-05:00",
+      "criteria": "Dog or cat with confirmed B-cell lymphoid tumor (lymphoma, plasma cell or selected B-cell CLL). Prior therapy stable for one week; ability to maintain daily activities and attend visits.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -7883,14 +8035,42 @@
             "lymphoma_type": "T-cell"
           },
           "expected": "review"
+        },
+        {
+          "name": "current primary candidate",
+          "patient": {
+            "country": "Japan",
+            "cancer": "B-cell lymphoma",
+            "lymphoma_type": "B-cell"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "current primary contradiction",
+          "patient": {
+            "country": "Japan",
+            "cancer": "T-cell lymphoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "missing answer requires screening",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Lymphoma — any type",
+            "lymphoma_type": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "9255085d797a2c0a227bcfe66cb84fb6a709d79a7add9f773ea38ebb36025c57",
       "selection_reconciled_at": "2026-10-22T01:20:49.544983+00:00",
-      "source_visit_refreshed_this_run": true,
+      "source_visit_refreshed_this_run": false,
       "source_evidence_file": "research/audit-runs/daily-20261028T030606-0400/evidence/421cc41dc9f8e55159.json",
       "source_retrieved_at": "2026-10-28T03:08:50.671273-04:00",
-      "full_protocol_reverified": true
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "ca-ovc-feline-oscc-porphysome-pdt",
@@ -9084,11 +9264,11 @@
     {
       "trial_id": "jp-nihon-head-neck-alternating-magnetic-field",
       "source_url": "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=4035",
-      "reviewed_at": "2026-10-28T03:21:40.699807-04:00",
+      "reviewed_at": "2026-11-09T09:09:41.486581-05:00",
       "source_retrieved_at": "2026-10-28T03:08:55.286626-04:00",
       "evidence_run": "daily-20261027T030001-0400",
       "evidence_file": "research/audit-runs/daily-20261027T030001-0400/evidence/dc2eaef3be47b40991.json",
-      "criteria": "Small to medium-sized dogs with a malignant tumor of the head, mouth or neck. The study team must confirm device fit, tumor location and anesthesia suitability; the source gives no numeric weight cutoff.",
+      "criteria": "Small to medium dogs with malignant head, oral or neck tumor; examples include oral melanoma, nasal and brain tumor; fit and anesthesia suitability need team confirmation.",
       "cases": [
         {
           "name": "source-defined canine treatment candidate; team screening required",
@@ -9127,20 +9307,49 @@
             "tumor_status": "No evidence of disease (NED)"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "current primary candidate",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Oral melanoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "current primary contradiction",
+          "patient": {
+            "species": "Cat",
+            "country": "Japan",
+            "cancer": "Oral melanoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "missing answer requires screening",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Oral melanoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "7d8e39fef9e63c97d16175a09ab2b44bea8cb40f95adb18531f8274533fe3107",
       "source_evidence_file": "research/audit-runs/daily-20261028T030606-0400/evidence/72e712c0682fa22aa2.json",
-      "full_protocol_reverified": true
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "jp-nihon-canine-glioma-il12",
       "source_url": "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=5145",
-      "reviewed_at": "2026-10-28T03:21:40.699807-04:00",
+      "reviewed_at": "2026-11-09T09:09:41.486581-05:00",
       "source_retrieved_at": "2026-10-28T03:08:55.398588-04:00",
       "evidence_run": "daily-20261027T030001-0400",
       "evidence_file": "research/audit-runs/daily-20261027T030001-0400/evidence/abbb8ea89466a11acb.json",
-      "criteria": "Glioma diagnosed by MRI or histopathology, including recurrence after surgery and/or radiotherapy. The procedure diagram refers to biopsy confirmation for the initial-treatment pathway; confirm the applicable diagnostic pathway, general health, anesthesia and treatment suitability with the team.",
+      "criteria": "Canine initial MRI or histopathologic glioma and recurrence after surgery/RT. Flow diagram references biopsy for initial pathway; no expansion without team screening. Poor-prognosis unrelated disease exclusion.",
       "cases": [
         {
           "name": "source-defined canine treatment candidate; team screening required",
@@ -9179,11 +9388,40 @@
             "tumor_status": "No evidence of disease (NED)"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "current primary candidate",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Brain tumor / glioma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "current primary contradiction",
+          "patient": {
+            "species": "Cat",
+            "country": "Japan",
+            "cancer": "Brain tumor / glioma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "missing answer requires screening",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "5123be272f2827d7670c60879980220dec8e28c5df17c93e0fc62b1922ca7b4c",
       "source_evidence_file": "research/audit-runs/daily-20261028T030606-0400/evidence/8a1d74738ab15002fb.json",
-      "full_protocol_reverified": true
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "ethos-mimic-osa-lung",
