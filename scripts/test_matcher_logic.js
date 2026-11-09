@@ -306,12 +306,19 @@ if (!localAml?.sites?.length || localAml.sites.some(site =>
 )) {
   throw new Error('The local-oncologist AML study must not inherit a Fort Collins treatment address or coordinates');
 }
-const osaVaccineSites = rows.find(row => row.id === 'ethos-osa-vaccine')?.sites || [];
+const osaVaccine = rows.find(row => row.id === 'ethos-osa-vaccine');
+const archivedOsaVaccine = JSON.parse(fs.readFileSync(path.join(root, 'data/trials_base.json'), 'utf8'))
+  .find(row => row.id === 'ethos-osa-vaccine');
+if (!archivedOsaVaccine || Boolean(osaVaccine) !== (archivedOsaVaccine.available_for_matching !== false)) {
+  throw new Error('The public OSA vaccine row must follow its canonical availability');
+}
+const osaVaccineSites = (osaVaccine || archivedOsaVaccine).sites || [];
 const metroCleveland = osaVaccineSites.find(site => site.hospital === 'Metropolitan Veterinary Hospital' && site.city === 'Cleveland');
 const metroAkron = osaVaccineSites.find(site => site.hospital === 'Metropolitan Veterinary Hospital' && site.city === 'Akron');
-if (!metroCleveland?.address?.includes('734 Alpha Dr') || !metroAkron?.address?.includes('1053 S Cleveland-Massillon Rd') ||
+if (!metroCleveland || !metroAkron || (osaVaccine && (
+    !metroCleveland.address?.includes('734 Alpha Dr') || !metroAkron.address?.includes('1053 S Cleveland-Massillon Rd') ||
     metroCleveland.address === metroAkron.address ||
-    (metroCleveland.lat != null && metroCleveland.lat === metroAkron.lat && metroCleveland.lon === metroAkron.lon)) {
+    (metroCleveland.lat != null && metroCleveland.lat === metroAkron.lat && metroCleveland.lon === metroAkron.lon)))) {
   throw new Error('Same-name Metropolitan trial branches must keep distinct Cleveland East/Akron addresses and avoid a shared legacy coordinate cache');
 }
 const pushHawaii = rows.find(row => row.id === 'ethos-epush-hsa')?.sites?.find(site => site.city === 'Honolulu');

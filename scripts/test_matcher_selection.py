@@ -8,9 +8,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from matcher_taxonomy import FAMILIES, diagnosis_match, protocol_screening, universal_limits_pass
+from seo.center_directory import address_for
 
 rows = json.loads((ROOT / 'data/trials_base.json').read_text())
 by_id = {t['id']: t for t in rows}
+# The shared branch lookup must stay accurate even when the trial is archived.
+assert '734 Alpha Dr' in address_for('Metropolitan Veterinary Hospital', 'Cleveland')
+assert '1053 S Cleveland-Massillon Rd' in address_for('Metropolitan Veterinary Hospital', 'Akron')
 matrix = json.loads(subprocess.check_output(['node', 'scripts/test_matcher_selection.js', '--matrix'], cwd=ROOT, text=True))
 checks = 0
 for entry in matrix:
