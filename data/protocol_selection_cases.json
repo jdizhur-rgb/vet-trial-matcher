@@ -5,8 +5,8 @@
     {
       "trial_id": "uf-osa-vaccine",
       "source_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/vaccine-study-for-dogs-with-osteosarcoma/",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "UF appendicular OSA vaccine requires treatment-naive limb disease,UF amputation and standard chemotherapy.",
+      "reviewed_at": "2026-11-09T09:30:48.406240-05:00",
+      "criteria": "Newly diagnosed untreated limb OSA without other life-threatening disease; requires UF amputation and tumor sampling; excludes zoledronate and concurrent OSA trial.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -72,15 +72,42 @@
           },
           "expected": "exclude",
           "retained_from_reviewed_at": "2026-10-12T22:41:17.625761-04:00"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "fbbf1f509df254cfd217f327e5963691fe85dc87bf4495533057bf18bfcb70e8"
+      "selection_sha256": "fbbf1f509df254cfd217f327e5963691fe85dc87bf4495533057bf18bfcb70e8",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "uf-osa-mrna",
       "source_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/mrna-vaccine-study-for-dogs-with-appendicular-osteosarcoma-currently-enrolling/",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "UF OSA RNA vaccine requires limb OSA,pretreatment sample and radiation;limited metastasis is discretionary.",
+      "reviewed_at": "2026-11-09T09:30:48.406240-05:00",
+      "criteria": "Microscopically confirmed limb OSA with UF pre-RT biopsy during planning CT; radiation required; mild metastases investigator discretion; no zoledronate or competing OSA trial.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -137,9 +164,36 @@
           },
           "expected": "exclude",
           "retained_from_reviewed_at": "2026-10-12T22:41:17.625761-04:00"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "osa_location": "Axial — skull, spine, rib, or pelvis"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "4aed08f303eb9be1e6c2412a5eb06a46538dfcffc2efe22fd5eeb1f92154a242"
+      "selection_sha256": "4aed08f303eb9be1e6c2412a5eb06a46538dfcffc2efe22fd5eeb1f92154a242",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "eu-it-unimi-oncofap-mmae",
@@ -867,8 +921,8 @@
     {
       "trial_id": "csu-osa-car-t-met",
       "source_url": "https://clinicaltrials.csuveterinaryhealth.org/s/car-t-cell-immunotherapy-for-metastatic-osteosarcoma-in-dogs-888207/",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "CSU CAR-T source requires surgically removed leg OSA,pulmonary metastasis,>=20kg and lymphodepleting chemotherapy.",
+      "reviewed_at": "2026-11-09T09:30:48.406240-05:00",
+      "criteria": "Canine limb OSA removed surgically, metastases limited to lungs and visible on chest x-rays, at least 20 kg, adequate bloodwork, no chemo in past 2–3 weeks or current steroids/immunomodulators.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -942,9 +996,39 @@
           },
           "expected": "exclude",
           "retained_from_reviewed_at": "2026-10-12T22:41:17.625761-04:00"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "weight_known": true,
+            "weight_lb": 55,
+            "metastasis": "Confirmed metastases",
+            "surgery": "Yes"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "metastasis": "No known metastases"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "3f82858dc808ac1ab4fcf70fad73e780767d5b7f74922c54669a2d13ff589577"
+      "selection_sha256": "3f82858dc808ac1ab4fcf70fad73e780767d5b7f74922c54669a2d13ff589577",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_source_run": "continue-20261109T075757-0500"
     },
     {
       "trial_id": "csu-brain-cart-verdinexor",
@@ -2159,8 +2243,8 @@
     {
       "trial_id": "mizzou-pulmonary-carcinoma-gilvetmab",
       "source_url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
-      "reviewed_at": "2026-11-07T03:13:01.720177-05:00",
-      "criteria": "Missouri gilvetmab source accepts gross OR microscopic primary pulmonary carcinoma and forbids concurrent immunosuppressants.",
+      "reviewed_at": "2026-11-09T09:30:48.406240-05:00",
+      "criteria": "Dogs with gross or microscopic disease; no immune-mediated disease, severe comorbidities, or concurrent steroids or other immunosuppressants. Initial screening needed.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -2227,11 +2311,36 @@
           },
           "expected": "exclude",
           "retained_from_reviewed_at": "2026-10-12T22:56:12.647421-04:00"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Primary lung tumor",
+            "tumor_status": "Completely removed — clean margins"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Primary lung tumor",
+            "immunosuppressive": "Yes"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Primary lung tumor"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "73cf4550d412d8e203fe2e786d7cf5f7814dc6301725cfddfa8c6407aa9d5024",
       "full_protocol_reverified": true,
-      "primary_evidence_review_run": "daily-20261107T025833-0500"
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "elias-eci-chemo-osa",
@@ -3674,8 +3783,8 @@
     {
       "trial_id": "utsw-vroc-glioma-car-neutrophils-rt",
       "source_url": "https://veterinaryclinicaltrials.org/s/car-neutrophils-and-radiation-to-treat-glioma-in-the-dog-792158/",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "UTSW glioma protocol brochure requires radiation,prednisone eligibility,stopping incompatible therapies/supplements and no prior local irradiation; linked registry accepts MRI-suspected glioma,not only preexisting histology.",
+      "reviewed_at": "2026-11-09T09:30:48.406240-05:00",
+      "criteria": "Dogs with MRI-suspected or biopsy/surgery-confirmed glioma, primary or postsurgical recurrence; no previous tumor radiation or concurrent chemotherapy/other immunotherapy; ≥2-week chemotherapy washout, steroids/anticonvulsants may continue; stop antioxidant supplements. Brochure lists ability to receive prednisone; center screening controls.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -3748,9 +3857,36 @@
           },
           "expected": "exclude",
           "retained_from_reviewed_at": "2026-10-14T07:31:23.043325-04:00"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "radiation": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Brain tumor / glioma"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "5bf1b8b896d92a5fd33557c61ad6ada45d27b4b03073b4cacafa0b5d70e29e7b"
+      "selection_sha256": "5bf1b8b896d92a5fd33557c61ad6ada45d27b4b03073b4cacafa0b5d70e29e7b",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "utsw-vroc-compassionate-advanced-unresectable",
@@ -4870,8 +5006,8 @@
     {
       "trial_id": "csu-sarcoma-engineered-tcells",
       "source_url": "https://clinicaltrials.csuveterinaryhealth.org/s/clinical-testing-of-canine-t-cells-engineered-to-target-soft-tissue-sarcoma-with-oral-immunotherapy-511687/",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "CSU STS CAR-T protocol requires conditioning oral chemotherapy, biopsy-accessible STS,>=11kg, no prior immunotherapy and two weeks without cancer treatment.",
+      "reviewed_at": "2026-11-09T09:30:48.406240-05:00",
+      "criteria": "Confirmed biopsiable canine STS, at least 11 kg, adequate bloodwork, no anticancer treatment in previous 2 weeks, no prior immunotherapy, no uncontrolled immune disease, all CSU visits.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -4897,9 +5033,36 @@
             "species": "Cat"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Soft tissue sarcoma",
+            "weight_known": true,
+            "weight_lb": 55
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Soft tissue sarcoma"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "d2a46a247cc41ad76b3914c9c79c83ee4a60f5d1cffd4989b235c7d150e0b1ad"
+      "selection_sha256": "d2a46a247cc41ad76b3914c9c79c83ee4a60f5d1cffd4989b235c7d150e0b1ad",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_source_run": "continue-20261109T075757-0500"
     },
     {
       "trial_id": "csu-osa-carboplatin-pain",
@@ -5040,8 +5203,8 @@
     {
       "trial_id": "utsw-vroc-glioma-ferumoxytol-rt",
       "source_url": "https://veterinaryclinicaltrials.org/s/treating-dogs-with-glioma-using-radiation-and-immunotherapy-294689/",
-      "reviewed_at": "2026-11-02T04:19:30.260691-05:00",
-      "criteria": "UTSW glioma protocol brochure requires radiation,prednisone eligibility,stopping incompatible therapies/supplements and no prior local irradiation; linked registry accepts MRI-suspected glioma,not only preexisting histology.",
+      "reviewed_at": "2026-11-09T09:30:48.406240-05:00",
+      "criteria": "Dogs with MRI-suspected or biopsy/surgery-confirmed glioma, primary or postsurgical recurrence; no previous tumor radiation or concurrent chemotherapy/other immunotherapy; ≥2-week chemotherapy washout, steroids/anticonvulsants may continue; stop antioxidant supplements. Brochure lists ability to receive prednisone; center screening controls.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -5077,11 +5240,36 @@
             "species": "Cat"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "radiation": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Brain tumor / glioma"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "8373acd9941748d8960877226584e5b6d5c9b7e7d8b8070d6bc7553e56fb33d8",
-      "source_visit_refreshed_this_run": true,
-      "primary_evidence_review_run": "daily-20261102T030506-0500"
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "full_protocol_reverified": true,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "ch-zurich-feline-oscc-flash-proton-rt",
@@ -5702,8 +5890,8 @@
     {
       "trial_id": "uf-boxer-glioma-autogenic-vaccine",
       "source_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/neurology-2/autogenic-vaccine-study-in-dogs-with-glioma/",
-      "reviewed_at": "2026-11-04T03:26:41.613217-05:00",
-      "criteria": "UF glioma RNA vaccine primary is restricted to Boxer dogs with MRI-suspected malignant glioma and no previous tumor therapy; breed is not captured by owner form,so it must remain an explicit screening item.",
+      "reviewed_at": "2026-11-09T09:30:48.406240-05:00",
+      "criteria": "Boxers only, suspect malignant glioma on MRI, no previous tumor treatment or other life-threatening disease. Breed requires screening.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -5729,10 +5917,37 @@
             "species": "Cat"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "0075003fe37f757620f4d434fd8d3b2979f7a3734b9115734d9b264114b7807c",
-      "full_protocol_reverified": true
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "mvh-hifu-doxorubicin-lymphoma",
@@ -6386,8 +6601,8 @@
     {
       "trial_id": "uf-hsa-vaccine",
       "source_url": "https://research.vetmed.ufl.edu/clinical-trials/small-animal/vaccine-study-for-dogs-with-hemangiosarcoma/",
-      "reviewed_at": "2026-11-02T04:19:30.260709-05:00",
-      "criteria": "Splenic primary required; doxorubicin after splenectomy. A primary heart/other site is not accepted. Current primary also requires staging10–16d and first doxorubicin14–17d after splenectomy; owner form has no postoperative-day input, so these remain investigator prescreen conditions and are now included in protocol notes.",
+      "reviewed_at": "2026-11-09T09:30:48.406240-05:00",
+      "criteria": "Newly diagnosed untreated splenic HSA, splenectomy and doxorubicin suitability; staging 10–16 days and first chemo 14–17 days after surgery.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -6446,18 +6661,43 @@
             "hsa_site": "I don't know"
           },
           "expected": "review"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Hemangiosarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Hemangiosarcoma",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Hemangiosarcoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "00350be8dd2afee7b96511efb2ee3c2aeae1681f75f25e7c639125b4bee34958",
       "selection_reconciled_at": "2026-10-22T01:20:49.544983+00:00",
-      "source_visit_refreshed_this_run": true,
-      "primary_evidence_review_run": "daily-20261102T030506-0500"
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "full_protocol_reverified": true,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "uf-melanoma",
       "source_url": "http://vetmed-research-a2-new.sites.medinfo.ufl.edu/clinical-trials/small-animal/melanoma-vaccine-study-for-dogs/",
-      "reviewed_at": "2026-11-02T04:19:30.260713-05:00",
-      "criteria": "UF vaccine primary accepts resectable/minimal malignant melanoma;complete recruitment confirmation remains via UF index.",
+      "reviewed_at": "2026-11-09T09:30:48.406240-05:00",
+      "criteria": "Recently diagnosed canine malignant melanoma, resectable or minimal, no major life-threatening disease.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -6485,11 +6725,35 @@
             "cancer": "Oral melanoma"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Oral melanoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "B-cell lymphoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Oral melanoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "82d32b4bf7d6b3a26776d9f2e0731c13bc2cba49c749f8bb5f22fe576ef0be27",
-      "source_visit_refreshed_this_run": true,
-      "primary_evidence_review_run": "daily-20261102T030506-0500"
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "full_protocol_reverified": true,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "uf-hs-trametinib",
@@ -6530,8 +6794,8 @@
     {
       "trial_id": "uf-feline-oscc",
       "source_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/clinical-trials-for-cats/feline-rna-nanoparticle-vaccine-against-oral-squamous-cell-carcinoma/",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "UF feline oral-SCC vaccine excludes advanced/metastatic disease and major comorbidities;naive tissue precedes standard treatment.",
+      "reviewed_at": "2026-11-09T09:30:48.406240-05:00",
+      "criteria": "Histology and staging-confirmed feline oral SCC, naive tumor sample before standard care; exclude advanced local/metastatic disease, other major diseases, subject to investigator medication/washout review.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -6560,9 +6824,39 @@
             "cancer": "Oral squamous cell carcinoma"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "species": "Cat",
+            "cancer": "Oral squamous cell carcinoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "species": "Cat",
+            "cancer": "Oral squamous cell carcinoma",
+            "metastasis": "Confirmed metastases"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "species": "Cat",
+            "cancer": "Oral squamous cell carcinoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "fe1353dce542cb22304e4ade886434440c8db0050bad6085343a9cedee6124dd"
+      "selection_sha256": "fe1353dce542cb22304e4ade886434440c8db0050bad6085343a9cedee6124dd",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "msu-hs-quasiorganelle",
@@ -6807,8 +7101,8 @@
     {
       "trial_id": "uf-oral-melanoma-vaccine-pd1",
       "source_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/vaccine-and-anti-pd1-study-in-dogs-with-malignant-melanoma/",
-      "reviewed_at": "2026-10-18T03:42:08.724620-04:00",
-      "criteria": "UF oral-melanoma vaccine+PD1 protocol requires the oral tumor not already excised. Current full protocol explicitly says the oral tumor must not have been excised; general history of surgery does not prove this. Required diagnostic tumor biopsies are distinct from tumor excision.",
+      "reviewed_at": "2026-11-09T09:30:48.406240-05:00",
+      "criteria": "Newly diagnosed canine resectable or minimal oral malignant melanoma that has not been excised; excludes major life-threatening disease; protocol biopsy.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -6873,11 +7167,39 @@
             "oral_tumor_excised": "Yes"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Oral melanoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Oral melanoma",
+            "surgery": "Yes",
+            "oral_tumor_excised": "Yes"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Oral melanoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "1a9dffe3ffeb8861b68af37e8c5d2417bbbd08fb456e1a655451014ea363aa83",
       "source_read_at": "2026-10-18T03:09:34.680264-04:00",
-      "current_primary_evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/cc6e93a64043cb4e45.json"
+      "current_primary_evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/cc6e93a64043cb4e45.json",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "tufts-z007-broad-solid-2026",
@@ -9117,13 +9439,13 @@
     {
       "trial_id": "mizzou-feline-highgrade-lymphoma-wart",
       "source_url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
-      "reviewed_at": "2026-11-07T03:13:01.720177-05:00",
+      "reviewed_at": "2026-11-09T09:30:48.406240-05:00",
       "source_attempt": {
         "method": "shell_curl",
         "attempted_at": "2026-10-22T03:15:20.494563-04:00",
         "evidence_file": "research/audit-runs/daily-20261022T030531-0400/evidence/2e08ea3023eebeaf3d.json"
       },
-      "criteria": "Missouri currently enrolls cats with cytology/histology-confirmed high-grade/large-cell gastrointestinal lymphoma confined to the abdomen, chemotherapy-naive, FeLV/FIV-negative and fit for anesthesia. Whole-abdomen radiation precedes COP/doxorubicin chemotherapy. Radiation is funded and $1,000 VHC credit follows radiation; screening/chemotherapy/travel costs are not stated. Weekly visits at least eight weeks, then five visits every three weeks. No separate protocol link is published; the named full primary study section is the protocol.",
+      "criteria": "Cat with cytology/histology confirmed high-grade GI lymphoma and no extra-abdominal lymphoma, previous chemo, FeLV/FIV or severe anesthetic-risk disease.",
       "cases": [
         {
           "name": "untreated cat with investigator screening of abdominal GI grade",
@@ -9218,11 +9540,39 @@
             "cancer": "Lymphoma — other"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "species": "Cat",
+            "cancer": "Lymphoma — other",
+            "chemo": "Never received"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "species": "Cat",
+            "cancer": "Lymphoma — other",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "species": "Cat",
+            "cancer": "Lymphoma — other"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "65bb2ddcb841a0d45ea8de5714dcf6005bcb9061338f77af270198d6b7df0904",
       "full_protocol_reverified": true,
-      "primary_evidence_review_run": "daily-20261107T025833-0500"
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "illinois-fam010-splenic-hemangiosarcoma",
@@ -9505,8 +9855,8 @@
     {
       "trial_id": "ncsu-liver-inspire",
       "source_url": "https://cvm.ncsu.edu/clinical-trial/now-enrolling-canine-patients-with-liver-tumors/",
-      "reviewed_at": "2026-10-27T03:05:07.964685-04:00",
-      "criteria": "Current primary enrolling through July 1, 2027. Dogs with 1–2 liver tumors 1–8 cm, >=30 lb, cytological diagnosis, no metastasis/other cancer/major heart disease or arrhythmia. INSPIRE with lobectomy or up to three INSPIRE treatments; fully funded per primary flyer. Unavailable owner-form criteria remain investigator screening.",
+      "reviewed_at": "2026-11-09T09:30:48.406240-05:00",
+      "criteria": "Dog ≥30 lb with 1–2 liver tumors 1–8 cm, cytology prior to screening, no metastasis or other cancer, no major heart disease/arrhythmia or contraindicating illness.",
       "cases": [
         {
           "name": "Eligible liver-tumor candidate needs investigator screening",
@@ -9556,9 +9906,38 @@
             "cancer": "B-cell lymphoma"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Other liver tumor",
+            "weight_known": true,
+            "weight_lb": 35
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Other liver tumor",
+            "weight_known": true,
+            "weight_lb": 26
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Other liver tumor"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "0dd88d20e9d1466c7c49b1278fef652fd8064cfda5b18f91ea6790166bb190bc"
+      "selection_sha256": "0dd88d20e9d1466c7c49b1278fef652fd8064cfda5b18f91ea6790166bb190bc",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "jp-nihon-head-neck-alternating-magnetic-field",

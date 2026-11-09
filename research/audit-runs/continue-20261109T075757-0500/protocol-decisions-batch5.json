@@ -1,0 +1,487 @@
+{
+  "reviewed_at": "2026-11-09T09:30:48.406240-05:00",
+  "protocols": {
+    "csu-sarcoma-engineered-tcells": {
+      "identity": "Institutional named protocol 5269 is STS only. General Flint master and older listing include osteosarcoma but no OSA cohort may be inferred here. Autologous engineered IV CAR-T after oral conditioning; may receive oral immunotherapy. Surgery or repeat biopsy about 1 week later.",
+      "recruitment_sites": "Current native and rendered institutional patient recruitment. CSU Veterinary Health System, 300 W Drake Rd, Fort Collins, CO",
+      "eligibility": "Confirmed biopsiable canine STS, at least 11 kg, adequate bloodwork, no anticancer treatment in previous 2 weeks, no prior immunotherapy, no uncontrolled immune disease, all CSU visits.",
+      "funding": "Up to $3,200 study treatment; $2,000 toward surgery or other treatment; oral immunotherapy except dispensing; up to $500 treatment-related side effects. Initial exam/diagnostic testing and remaining surgery owner-paid; screening assistance available.",
+      "contacts": "Dan Regan, csuoncologytrials@colostate.edu",
+      "deadline": "No published recruitment cutoff; 6–8 weeks participation.",
+      "evidence_refs": [
+        "research/audit-runs/continue-20261109T075757-0500/csu-two-car-t-rendered-primary.json",
+        "research/audit-runs/daily-20261109T071607-0500-run-now/pages/fe07dbc58bc16349df5a.txt"
+      ],
+      "selection_cases": [
+        [
+          {
+            "cancer": "Soft tissue sarcoma",
+            "weight_known": true,
+            "weight_lb": 55
+          },
+          "review"
+        ],
+        [
+          {
+            "cancer": "Osteosarcoma"
+          },
+          "exclude"
+        ],
+        [
+          {
+            "cancer": "Soft tissue sarcoma"
+          },
+          "screen"
+        ]
+      ]
+    },
+    "csu-osa-car-t-met": {
+      "identity": "IACUC 3398 independent from CSU STS 5269 and Penn metastatic CAR-iNKT cutoff. Autologous engineered IV CAR-T after two days conditioning chemotherapy; daily oral meds and rechecks days 1, 3, 7, 14, 28 and 60.",
+      "recruitment_sites": "Current native and rendered institutional patient recruitment. CSU Veterinary Health System, 300 W Drake Rd, Fort Collins, CO",
+      "eligibility": "Canine limb OSA removed surgically, metastases limited to lungs and visible on chest x-rays, at least 20 kg, adequate bloodwork, no chemo in past 2–3 weeks or current steroids/immunomodulators.",
+      "funding": "Owner pays initial exam/diagnostics and study visit exam fees; study pays other study-related treatment, diagnostics and labs, up to $2,000 for protocol side effects; screening assistance possible.",
+      "contacts": "Steve Dow, csuoncologytrials@colostate.edu",
+      "deadline": "No published recruitment end; approximately 60-day participation.",
+      "evidence_refs": [
+        "research/audit-runs/continue-20261109T075757-0500/csu-two-car-t-rendered-primary.json",
+        "research/audit-runs/daily-20261109T071607-0500-run-now/pages/fe07dbc58bc16349df5a.txt"
+      ],
+      "selection_cases": [
+        [
+          {
+            "cancer": "Osteosarcoma",
+            "weight_known": true,
+            "weight_lb": 55,
+            "metastasis": "Confirmed metastases",
+            "surgery": "Yes"
+          },
+          "review"
+        ],
+        [
+          {
+            "cancer": "Osteosarcoma",
+            "metastasis": "No known metastases"
+          },
+          "exclude"
+        ],
+        [
+          {
+            "cancer": "Osteosarcoma"
+          },
+          "screen"
+        ]
+      ]
+    },
+    "mizzou-pulmonary-carcinoma-gilvetmab": {
+      "identity": "Exact Missouri monoimmunotherapy with gilvetmab every 2 weeks for up to 10 doses for primary pulmonary carcinoma, distinct from metastasis studies.",
+      "recruitment_sites": "Official named currently enrolling subsection, Columbia Missouri; all study visits there.",
+      "eligibility": "Dogs with gross or microscopic disease; no immune-mediated disease, severe comorbidities, or concurrent steroids or other immunosuppressants. Initial screening needed.",
+      "funding": "Study pays gilvetmab ($540–$1,350 per treatment estimate); owner pays rechecks, labs and chest imaging.",
+      "contacts": "Missouri Oncology Clinical Trials cvmclinicaltrials@missouri.edu; 573-882-7821.",
+      "deadline": "No published recruitment deadline; up to 10 biweekly visits is duration.",
+      "evidence_refs": [
+        "research/audit-runs/daily-20261109T071607-0500-run-now/pages/37821df5885a3c57e4c9.txt"
+      ],
+      "selection_cases": [
+        [
+          {
+            "cancer": "Primary lung tumor",
+            "tumor_status": "Completely removed — clean margins"
+          },
+          "review"
+        ],
+        [
+          {
+            "cancer": "Primary lung tumor",
+            "immunosuppressive": "Yes"
+          },
+          "exclude"
+        ],
+        [
+          {
+            "cancer": "Primary lung tumor"
+          },
+          "screen"
+        ]
+      ]
+    },
+    "mizzou-feline-highgrade-lymphoma-wart": {
+      "identity": "Exact high-grade/large-cell feline GI lymphoma, WART followed by COP/doxorubicin, distinct from small-cell CSU and TAMU radiation protocols.",
+      "recruitment_sites": "Current official individual subsection, University of Missouri VHC, Columbia; all study visits at that site.",
+      "eligibility": "Cat with cytology/histology confirmed high-grade GI lymphoma and no extra-abdominal lymphoma, previous chemo, FeLV/FIV or severe anesthetic-risk disease.",
+      "funding": "Radiation plus $1,000 VHC stipend after RT; screening, chemo, other care and travel coverage not specified.",
+      "contacts": "Missouri Oncology Clinical Trials cvmclinicaltrials@missouri.edu; 573-882-7821.",
+      "deadline": "No published intake cutoff; visits weekly then every three weeks.",
+      "evidence_refs": [
+        "research/audit-runs/daily-20261109T071607-0500-run-now/pages/37821df5885a3c57e4c9.txt"
+      ],
+      "selection_cases": [
+        [
+          {
+            "species": "Cat",
+            "cancer": "Lymphoma — other",
+            "chemo": "Never received"
+          },
+          "review"
+        ],
+        [
+          {
+            "species": "Cat",
+            "cancer": "Lymphoma — other",
+            "chemo": "Previously received"
+          },
+          "exclude"
+        ],
+        [
+          {
+            "species": "Cat",
+            "cancer": "Lymphoma — other"
+          },
+          "screen"
+        ]
+      ]
+    },
+    "ncsu-liver-inspire": {
+      "identity": "NC State Mike Sano electroporation INSPIRE, with surgical and nonsurgical arms; distinct from NC State mammary INSPIRE.",
+      "recruitment_sites": "Current NC State named oncology listing, patient protocol and linked flyer. Single North Carolina State Veterinary Hospital, Raleigh.",
+      "eligibility": "Dog ≥30 lb with 1–2 liver tumors 1–8 cm, cytology prior to screening, no metastasis or other cancer, no major heart disease/arrhythmia or contraindicating illness.",
+      "funding": "Flyer says fully funded; includes consult, study bloodwork, CT, ECG/echo, FNA/pathology and lobectomy if assigned.",
+      "contacts": "Jewels Darrow jldarro2@ncsu.edu; 919-515-5090.",
+      "deadline": "Published enrollment July 1, 2023–July 1, 2027; date future at current visit.",
+      "evidence_refs": [
+        "research/audit-runs/daily-20261109T071607-0500-run-now/pages/0ea76aa16ddcf094f923.txt",
+        "research/audit-runs/daily-20261109T071607-0500-run-now/pages/2aa0667e52319b215912.txt"
+      ],
+      "selection_cases": [
+        [
+          {
+            "cancer": "Other liver tumor",
+            "weight_known": true,
+            "weight_lb": 35
+          },
+          "review"
+        ],
+        [
+          {
+            "cancer": "Other liver tumor",
+            "weight_known": true,
+            "weight_lb": 26
+          },
+          "exclude"
+        ],
+        [
+          {
+            "cancer": "Other liver tumor"
+          },
+          "screen"
+        ]
+      ]
+    },
+    "utsw-vroc-glioma-car-neutrophils-rt": {
+      "identity": "VCT25005903 and exact UT Southwestern Study 6. Randomized CAR-neutrophil injection versus no injection; assigned radiation modality (fractionated, SRT or Pulsar).",
+      "recruitment_sites": "Current VROC listing and exact registry protocol, single Dallas site.",
+      "eligibility": "Dogs with MRI-suspected or biopsy/surgery-confirmed glioma, primary or postsurgical recurrence; no previous tumor radiation or concurrent chemotherapy/other immunotherapy; ≥2-week chemotherapy washout, steroids/anticonvulsants may continue; stop antioxidant supplements. Brochure lists ability to receive prednisone; center screening controls.",
+      "funding": "Study-subsidized; scheduled imaging/follow-up covered; owners pay tests and care outside the study. NIH 1R01CA293514-01A1.",
+      "contacts": "Paige Neumann, paige.neumann@utsouthwestern.edu, 214-645-6221.",
+      "deadline": "Exact rendered AVMA recruitment 2025-05-30 through 2029-06-01 (Dallas local time).",
+      "evidence_refs": [
+        "research/audit-runs/continue-20261109T075757-0500/utsw-two-glioma-rendered-primary.json",
+        "research/audit-runs/continue-20261109T075757-0500/utsw-study-6-ocr.txt",
+        "research/audit-runs/daily-20261109T071607-0500-run-now/pages/ff162dcb86e6e83812db.txt"
+      ],
+      "selection_cases": [
+        [
+          {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "review"
+        ],
+        [
+          {
+            "cancer": "Brain tumor / glioma",
+            "radiation": "Previously received"
+          },
+          "exclude"
+        ],
+        [
+          {
+            "cancer": "Brain tumor / glioma"
+          },
+          "screen"
+        ]
+      ]
+    },
+    "utsw-vroc-glioma-ferumoxytol-rt": {
+      "identity": "VCT25005902 and exact UT Southwestern Study 7. Ferumoxytol nanoparticle infusions and stereotactic radiation 3×8 Gy, distinct Study 7 intervention.",
+      "recruitment_sites": "Current VROC listing and exact registry protocol, single Dallas site.",
+      "eligibility": "Dogs with MRI-suspected or biopsy/surgery-confirmed glioma, primary or postsurgical recurrence; no previous tumor radiation or concurrent chemotherapy/other immunotherapy; ≥2-week chemotherapy washout, steroids/anticonvulsants may continue; stop antioxidant supplements. Brochure lists ability to receive prednisone; center screening controls.",
+      "funding": "May be fully or partially subsidized per Study 7 flyer; owners may pay diagnostics, imaging, palliative and other care outside study. Government funding does not guarantee full subsidy.",
+      "contacts": "Paige Neumann, paige.neumann@utsouthwestern.edu, 214-645-6221.",
+      "deadline": "Exact rendered AVMA recruitment 2025-05-30 through 2027-06-01 (Dallas local time).",
+      "evidence_refs": [
+        "research/audit-runs/continue-20261109T075757-0500/utsw-two-glioma-rendered-primary.json",
+        "research/audit-runs/continue-20261109T075757-0500/utsw-study-7-ocr.txt",
+        "research/audit-runs/daily-20261109T071607-0500-run-now/pages/ff162dcb86e6e83812db.txt"
+      ],
+      "selection_cases": [
+        [
+          {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "review"
+        ],
+        [
+          {
+            "cancer": "Brain tumor / glioma",
+            "radiation": "Previously received"
+          },
+          "exclude"
+        ],
+        [
+          {
+            "cancer": "Brain tumor / glioma"
+          },
+          "screen"
+        ]
+      ]
+    },
+    "uf-osa-vaccine": {
+      "identity": "Post-amputation six-dose UF vaccine plus six chemotherapy visits; distinct from UF radiation and RNA-NP",
+      "recruitment_sites": "Exact UF individual protocol and currently listed institution; Gainesville, Florida.",
+      "eligibility": "Newly diagnosed untreated limb OSA without other life-threatening disease; requires UF amputation and tumor sampling; excludes zoledronate and concurrent OSA trial.",
+      "funding": "Owner pays workup/amputation, chemo, all six vaccines and visits; only injection site reaction up to $100 covered.",
+      "contacts": "UF Oncology clinical team, 352-392-2235; official study interest path.",
+      "deadline": "No published recruitment cutoff; treatment/recheck schedule only.",
+      "evidence_refs": [
+        "research/audit-runs/daily-20261109T071607-0500-run-now/pages/7fe0e129941f2910774c.txt"
+      ],
+      "selection_cases": [
+        [
+          {
+            "cancer": "Osteosarcoma"
+          },
+          "review"
+        ],
+        [
+          {
+            "cancer": "Osteosarcoma",
+            "chemo": "Previously received"
+          },
+          "exclude"
+        ],
+        [
+          {
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "I don't know"
+          },
+          "screen"
+        ]
+      ]
+    },
+    "uf-osa-mrna": {
+      "identity": "RNA-nanoparticle vaccine plus anti-PD-1 with radiation, not the post-amputation chemotherapy protocol",
+      "recruitment_sites": "Exact UF individual protocol and currently listed institution; Gainesville, Florida.",
+      "eligibility": "Microscopically confirmed limb OSA with UF pre-RT biopsy during planning CT; radiation required; mild metastases investigator discretion; no zoledronate or competing OSA trial.",
+      "funding": "Study vaccine production, exams, protocol lab tests and vaccine-day adverse events covered; standard workup and radiation owner-paid except selected grants. Up to $1,000 for immediate anaphylaxis.",
+      "contacts": "UF Oncology clinical team, 352-392-2235; official study interest path.",
+      "deadline": "No published recruitment cutoff; treatment/recheck schedule only.",
+      "evidence_refs": [
+        "research/audit-runs/daily-20261109T071607-0500-run-now/pages/675d08397082261f8df1.txt"
+      ],
+      "selection_cases": [
+        [
+          {
+            "cancer": "Osteosarcoma"
+          },
+          "review"
+        ],
+        [
+          {
+            "cancer": "Osteosarcoma",
+            "osa_location": "Axial — skull, spine, rib, or pelvis"
+          },
+          "exclude"
+        ],
+        [
+          {
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "I don't know"
+          },
+          "screen"
+        ]
+      ]
+    },
+    "uf-hsa-vaccine": {
+      "identity": "UF vaccine and doxorubicin after splenectomy for splenic HSA.",
+      "recruitment_sites": "Exact UF individual protocol and currently listed institution; Gainesville, Florida.",
+      "eligibility": "Newly diagnosed untreated splenic HSA, splenectomy and doxorubicin suitability; staging 10–16 days and first chemo 14–17 days after surgery.",
+      "funding": "Owner pays vaccines (~$1,275 for six), consultations, surgery, diagnostics and chemo; $100 max for injection-site reaction only.",
+      "contacts": "UF Oncology clinical team, 352-392-2235; official study interest path.",
+      "deadline": "No published recruitment cutoff; treatment/recheck schedule only.",
+      "evidence_refs": [
+        "research/audit-runs/daily-20261109T071607-0500-run-now/pages/63c6faa6f5625998e73c.txt"
+      ],
+      "selection_cases": [
+        [
+          {
+            "cancer": "Hemangiosarcoma"
+          },
+          "review"
+        ],
+        [
+          {
+            "cancer": "Hemangiosarcoma",
+            "chemo": "Previously received"
+          },
+          "exclude"
+        ],
+        [
+          {
+            "cancer": "Hemangiosarcoma",
+            "diagnosis_status": "I don't know"
+          },
+          "screen"
+        ]
+      ]
+    },
+    "uf-melanoma": {
+      "identity": "UF melanoma vaccine-only series with optional boosters, distinct from unexcised oral melanoma GD2/3 plus gilvetmab.",
+      "recruitment_sites": "Exact UF individual protocol and currently listed institution; Gainesville, Florida.",
+      "eligibility": "Recently diagnosed canine malignant melanoma, resectable or minimal, no major life-threatening disease.",
+      "funding": "Owner pays initial evaluation, vaccines, subsequent visits and boosters. No guaranteed subsidy.",
+      "contacts": "UF Oncology clinical team, 352-392-2235; official study interest path.",
+      "deadline": "No published recruitment cutoff; treatment/recheck schedule only.",
+      "evidence_refs": [
+        "research/audit-runs/daily-20261109T071607-0500-run-now/pages/94ee196b820709c93588.txt"
+      ],
+      "selection_cases": [
+        [
+          {
+            "cancer": "Oral melanoma"
+          },
+          "review"
+        ],
+        [
+          {
+            "cancer": "B-cell lymphoma"
+          },
+          "exclude"
+        ],
+        [
+          {
+            "cancer": "Oral melanoma",
+            "diagnosis_status": "I don't know"
+          },
+          "screen"
+        ]
+      ]
+    },
+    "uf-feline-oscc": {
+      "identity": "UF currently listed Milner personal RNA-NP vaccine for feline oral SCC; linked current protocol uses three administrations over nine weeks. An older Carlos Souza route presents a seven-week schedule, not applied to the currently linked protocol.",
+      "recruitment_sites": "Exact UF individual protocol and currently listed institution; Gainesville, Florida.",
+      "eligibility": "Histology and staging-confirmed feline oral SCC, naive tumor sample before standard care; exclude advanced local/metastatic disease, other major diseases, subject to investigator medication/washout review.",
+      "funding": "Current protocol covers three vaccine visits, study exams and lab work, immune monitoring, supportive care, 1- and 3-month rechecks and boosters. Evaluation and standard SCC treatment owner-paid.",
+      "contacts": "UF Oncology clinical team, 352-392-2235; official study interest path.",
+      "deadline": "No published recruitment cutoff; treatment/recheck schedule only.",
+      "evidence_refs": [
+        "research/audit-runs/daily-20261109T071607-0500-run-now/pages/3c683c2dc6471baeabf6.txt",
+        "research/audit-runs/daily-20261109T071607-0500-run-now/pages/4c8cac71f91f9a12f000.txt"
+      ],
+      "selection_cases": [
+        [
+          {
+            "species": "Cat",
+            "cancer": "Oral squamous cell carcinoma"
+          },
+          "review"
+        ],
+        [
+          {
+            "species": "Cat",
+            "cancer": "Oral squamous cell carcinoma",
+            "metastasis": "Confirmed metastases"
+          },
+          "exclude"
+        ],
+        [
+          {
+            "species": "Cat",
+            "cancer": "Oral squamous cell carcinoma",
+            "diagnosis_status": "I don't know"
+          },
+          "screen"
+        ]
+      ]
+    },
+    "uf-oral-melanoma-vaccine-pd1": {
+      "identity": "Exact GD2/3 vaccine and IV gilvetmab (four cycles), distinct from UF vaccine-only cohort.",
+      "recruitment_sites": "Exact UF individual protocol and currently listed institution; Gainesville, Florida.",
+      "eligibility": "Newly diagnosed canine resectable or minimal oral malignant melanoma that has not been excised; excludes major life-threatening disease; protocol biopsy.",
+      "funding": "Anti-PD1 drug and study tissue biopsies covered. Owner pays vaccine, screening, later visits and other costs.",
+      "contacts": "UF Oncology clinical team, 352-392-2235; official study interest path.",
+      "deadline": "No published recruitment cutoff; treatment/recheck schedule only.",
+      "evidence_refs": [
+        "research/audit-runs/daily-20261109T071607-0500-run-now/pages/b43e426b5a36369ea674.txt"
+      ],
+      "selection_cases": [
+        [
+          {
+            "cancer": "Oral melanoma"
+          },
+          "review"
+        ],
+        [
+          {
+            "cancer": "Oral melanoma",
+            "surgery": "Yes",
+            "oral_tumor_excised": "Yes"
+          },
+          "exclude"
+        ],
+        [
+          {
+            "cancer": "Oral melanoma",
+            "diagnosis_status": "I don't know"
+          },
+          "screen"
+        ]
+      ]
+    },
+    "uf-boxer-glioma-autogenic-vaccine": {
+      "identity": "Exact Carrera-Justiz tumor-derived RNA autogenic vaccine after CT-guided biopsy, three weekly vaccines.",
+      "recruitment_sites": "Exact UF individual protocol and currently listed institution; Gainesville, Florida.",
+      "eligibility": "Boxers only, suspect malignant glioma on MRI, no previous tumor treatment or other life-threatening disease. Breed requires screening.",
+      "funding": "CT-guided biopsy and lymph node removal with anesthesia/recovery, study vaccines and sample analyses covered. Other visit costs discussed individually.",
+      "contacts": "UF Neurology clinical team, 352-392-2235; official study interest path.",
+      "deadline": "No published recruitment cutoff; treatment/recheck schedule only.",
+      "evidence_refs": [
+        "research/audit-runs/daily-20261109T071607-0500-run-now/pages/f9bebf2ee8facf26f073.txt"
+      ],
+      "selection_cases": [
+        [
+          {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "review"
+        ],
+        [
+          {
+            "cancer": "Brain tumor / glioma",
+            "chemo": "Previously received"
+          },
+          "exclude"
+        ],
+        [
+          {
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "I don't know"
+          },
+          "screen"
+        ]
+      ]
+    }
+  }
+}
