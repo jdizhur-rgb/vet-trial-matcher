@@ -1,0 +1,46 @@
+{
+  "run_id": "daily-20261109T031815-0500",
+  "at": "2026-11-09T03:36:39.143927-05:00",
+  "phase": "post_traversal_discovery_accounting",
+  "source_routes": {
+    "configured": 273,
+    "native_attempted": 228,
+    "exact_restricted": 45
+  },
+  "canonical_protocol_routes": {
+    "native_before_raw_retrieval_stop": 62,
+    "web_reader_remaining_permitted": 123
+  },
+  "sources": {
+    "total": 161,
+    "attempted": 138,
+    "processing_complete": 161,
+    "content_sufficient": 0
+  },
+  "discovery": {
+    "regions": 12,
+    "passes": 2,
+    "queries": 44,
+    "selected_leads": 66
+  },
+  "durable_issues": {
+    "before": 66,
+    "blocked_or_unpublished": 66
+  },
+  "deadline": {
+    "catalog_rows": 318,
+    "known_cutoffs": 14,
+    "passed_inactive": 1,
+    "future_active": 13
+  },
+  "next": [
+    "finish validators",
+    "commit and publish audit metadata",
+    "production readback",
+    "visible report"
+  ],
+  "execution_notes": [
+    "Raw page retrieval stopped after embedded third-party key detection; evidence redacted; permitted remaining protocol URLs read via Web.",
+    "Exact saved restrictions and the Springer automatic-review denial were not retried."
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "run_id": "daily-20261109T031815-0500",
+  "generated_at": "2026-11-09T03:40:29.935341-05:00",
+  "environment": {
+    "pwd": "/workspace/scratch/fd10c0821871/vet-trial-matcher",
+    "python": "3.12.14",
+    "git": "2.52.0",
+    "status": "PASS"
+  },
+  "validators": {
+    "audit_execution_gate": "PASS",
+    "strict_receipt": "INCOMPLETE (161 evidence gaps; 0 schema errors)",
+    "gap_review": "PASS",
+    "source_inventory": "PASS",
+    "trial_catalog": "PASS",
+    "catalog_sanitation": "PASS with existing unresolved debt",
+    "semantic_dedupe": "PASS (0 probable duplicates)",
+    "evidence_key_scan": "PASS",
+    "matcher_catalog_loading": "PASS (USA 98; Japan 14)",
+    "matcher_selection_js": "PASS",
+    "matcher_selection_python": "PASS",
+    "matcher_protocol_sources": "PASS (142/154 current reviews; 12 pending)",
+    "matcher_logic": "PASS",
+    "production_sync": "PASS"
+  },
+  "catalog": {
+    "before": {
+      "catalog_sha256": "f4e7598a55710a211aede25fa0d72335c5b94a9470ac3a3f66deadab00579fec",
+      "canonical": 318,
+      "public_matchable": 154,
+      "treatment_trials": 150,
+      "other_treatment_access": 4,
+      "sources": 161,
+      "by_country": {
+        "France": 2,
+        "Switzerland": 6,
+        "UK": 4,
+        "USA": 105,
+        "Italy": 1,
+        "Canada": 3,
+        "Belgium": 1,
+        "Denmark": 1,
+        "China": 4,
+        "Taiwan": 2,
+        "Australia": 3,
+        "Spain": 1,
+        "Japan": 16,
+        "New Zealand": 1
+      },
+      "by_species": {
+        "Dog": 125,
+        "Cat": 13,
+        "['Dog', 'Cat']": 3,
+        "Dog/Cat": 3,
+        "['Dog']": 6
+      }
+    },
+    "after": {
+      "catalog_sha256": "f4e7598a55710a211aede25fa0d72335c5b94a9470ac3a3f66deadab00579fec",
+      "canonical": 318,
+      "public_matchable": 154,
+      "treatment_trials": 150,
+      "other_treatment_access": 4,
+      "sources": 161,
+      "by_country": {
+        "France": 2,
+        "Switzerland": 6,
+        "UK": 4,
+        "USA": 105,
+        "Italy": 1,
+        "Canada": 3,
+        "Belgium": 1,
+        "Denmark": 1,
+        "China": 4,
+        "Taiwan": 2,
+        "Australia": 3,
+        "Spain": 1,
+        "Japan": 16,
+        "New Zealand": 1
+      },
+      "by_species": {
+        "Dog": 125,
+        "Cat": 13,
+        "['Dog', 'Cat']": 3,
+        "Dog/Cat": 3,
+        "['Dog']": 6
+      }
+    },
+    "added_ids": [],
+    "updated_ids": [],
+    "closed_or_hidden_ids": [],
+    "deleted_ids": []
+  },
+  "publication": {
+    "status": "PENDING_COMMIT"
+  },
+  "production": {
+    "asset_readback": "PENDING",
+    "live_usa_search": "PENDING",
+    "live_japan_search": "PENDING"
+  }
+}
