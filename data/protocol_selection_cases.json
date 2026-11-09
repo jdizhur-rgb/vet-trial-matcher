@@ -5702,8 +5702,8 @@
     {
       "trial_id": "auburn-palbociclib-solid-cancers",
       "source_url": "https://www.vetmed.auburn.edu/research/clinical-trials/mammary-carcinoma-squamous-cell-carcinoma-agasaca-and-melanoma-clinical-trial/",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Auburn explicitly admits mammary carcinoma,SCC,histiocytic sarcoma,AGASACA and melanoma with measurable disease; cancer progression at enrollment must be reviewed.",
+      "reviewed_at": "2026-11-09T09:57:14.804827-05:00",
+      "criteria": "Dog with measurable and progressing mammary carcinoma, melanoma, SCC, histiocytic sarcoma or AGASACA; prior treatment allowed, otherwise healthy.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -5726,9 +5726,35 @@
             "species": "Cat"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 candidate from protocol",
+          "patient": {
+            "cancer": "Histiocytic sarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 contradiction from protocol",
+          "patient": {
+            "cancer": "B-cell lymphoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 missing diagnosis requires screening",
+          "patient": {
+            "cancer": "Histiocytic sarcoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "442af849720bd77931cf2bf7146e3817e8c1cbd7beeaf63c86e1d1b1568d4977"
+      "selection_sha256": "442af849720bd77931cf2bf7146e3817e8c1cbd7beeaf63c86e1d1b1568d4977",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_source_run": "continue-20261109T075757-0500"
     },
     {
       "trial_id": "utsw-vroc-glioma-ferumoxytol-rt",
@@ -5914,8 +5940,8 @@
     {
       "trial_id": "csu-aml-trametinib",
       "source_url": "https://clinicaltrials.csuveterinaryhealth.org/s/pilot-clinical-trial-of-anti-cancer-therapy-with-trametinib-in-naturally-occurring-acute-myeloid-leukemia-860722/",
-      "reviewed_at": "2026-10-27T04:27:30.811730-04:00",
-      "criteria": "CSU trametinib protocol is specifically acute myeloid leukemia with circulating leukemia cells. Generic leukemia/CLL is not an accepted diagnosis. Current protocol explicitly permits all visits with the pet’s local oncologist; no mandatory Fort Collins travel/site.",
+      "reviewed_at": "2026-11-09T09:57:14.804827-05:00",
+      "criteria": "Confirmed canine AML with circulating cells; initial blood/urine tests and functional; no current other anti-cancer therapy, required prior chemotherapy washout, no severe comorbidity.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -5938,9 +5964,36 @@
             "species": "Cat"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 candidate from protocol",
+          "patient": {
+            "cancer": "Acute myeloid leukemia"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 contradiction from protocol",
+          "patient": {
+            "species": "Cat",
+            "cancer": "Acute myeloid leukemia"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 missing diagnosis requires screening",
+          "patient": {
+            "cancer": "Acute myeloid leukemia",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "2e22d057c1345b3926eba491ffa7b929228442e112a27bd57e7c926bfc7f5232"
+      "selection_sha256": "2e22d057c1345b3926eba491ffa7b929228442e112a27bd57e7c926bfc7f5232",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_source_run": "continue-20261109T075757-0500"
     },
     {
       "trial_id": "penn-osa-car-inkt-newly-diagnosed",
@@ -6373,8 +6426,8 @@
     {
       "trial_id": "csu-tvt-single-radiation-2026",
       "source_url": "https://clinicaltrials.csuveterinaryhealth.org/s/single-radiation-treatment-for-dogs-with-transmissible-venereal-tumor-709721/?ref=gallery",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "CSU TVT protocol requires a single radiation treatment,lesion strictly>1cm,no prior surgery/radiation/systemic chemotherapy,and7day immunosuppressant washout.",
+      "reviewed_at": "2026-11-09T09:57:14.804827-05:00",
+      "criteria": "Confirmed TVT with measurable/samplable lesion >1cm; fit for anesthesia; no prior surgery, radiation or systemic chemotherapy for target tumor; no advanced spread; immunosuppression washout 7 days.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -6400,9 +6453,36 @@
             "species": "Cat"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 candidate from protocol",
+          "patient": {
+            "cancer": "Transmissible venereal tumor"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 contradiction from protocol",
+          "patient": {
+            "species": "Cat",
+            "cancer": "Transmissible venereal tumor"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 missing diagnosis requires screening",
+          "patient": {
+            "cancer": "Transmissible venereal tumor",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "0f8cc30fe4fa88e8a0c48f4ec8a31de15586db1a826e8cdd9e468a7f8aac6498"
+      "selection_sha256": "0f8cc30fe4fa88e8a0c48f4ec8a31de15586db1a826e8cdd9e468a7f8aac6498",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_source_run": "continue-20261109T075757-0500"
     },
     {
       "trial_id": "jp-nvlu-survivin-peptide-vaccine-2026",
@@ -10965,8 +11045,8 @@
     {
       "trial_id": "penn-oral-scc-nir-margin-2026",
       "source_url": "https://www.vet.upenn.edu/clinical-trial/intraoperative-detection-of-oral-squamous-cell-carcinoma-margins-in-dogs-using-cathepsin-activated-near-infrared-nir-imaging/",
-      "reviewed_at": "2026-10-24T03:12:18-04:00",
-      "criteria": "Penn Vet primary page requires a dog with diagnosed oral SCC eligible for surgical excision, no prior/current treatment for this cancer, and travel to Philadelphia; study adds IV cathepsin-activated NIR margin imaging during surgery.",
+      "reviewed_at": "2026-11-09T09:57:14.804827-05:00",
+      "criteria": "Dog with diagnosed oral SCC amenable to surgery; no current/prior treatment for target cancer; no immediate unrelated life-threatening condition; must attend Philadelphia visits.",
       "cases": [
         {
           "name": "source-supported candidate pending study-team checks",
@@ -11007,9 +11087,45 @@
             ]
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 candidate from protocol",
+          "patient": {
+            "cancer": "Oral squamous cell carcinoma",
+            "prefs": [
+              "Surgery"
+            ]
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 contradiction from protocol",
+          "patient": {
+            "cancer": "Oral squamous cell carcinoma",
+            "surgery": "Yes",
+            "prefs": [
+              "Surgery"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 missing diagnosis requires screening",
+          "patient": {
+            "cancer": "Oral squamous cell carcinoma",
+            "prefs": [
+              "Surgery"
+            ],
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "fb983593a00c6f58d1d2b7d65b113b4ef629d9e515751bee5a9494e4c19b8cb2"
+      "selection_sha256": "fb983593a00c6f58d1d2b7d65b113b4ef629d9e515751bee5a9494e4c19b8cb2",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_source_run": "continue-20261109T075757-0500"
     },
     {
       "trial_id": "ncsu-liver-inspire",
