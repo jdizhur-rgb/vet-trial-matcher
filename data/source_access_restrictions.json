@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-11-08",
+  "updated": "2026-11-09",
   "purpose": "Exact prior public-source route restrictions. Read before daily master, fallback, protocol or Web plans; do not retry by alternate tool. A source or domain is not globally forbidden from one denied protocol URL.",
   "routes": [
     {
@@ -880,6 +880,16 @@
       ],
       "origin": "research/audit-runs/daily-20261108T034426--0500/route-results.json",
       "reason": "Automatic review rejected the exact identity-provider/login-domain route; do not retry or bypass."
+    },
+    {
+      "url": "https://www.vetmed.wisc.edu/",
+      "do_not_retry": true,
+      "observed_at": "2026-11-09T07:21:50.971348-05:00",
+      "http_status": 403,
+      "record_ids": [
+        "wisc-ctla4"
+      ],
+      "origin": "research/audit-runs/daily-20261109T071607-0500-run-now/route-evidence.json"
     }
   ]
 }

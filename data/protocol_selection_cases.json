@@ -1331,9 +1331,9 @@
     },
     {
       "trial_id": "csu-glioma-verdinexor-only-2026",
-      "source_url": "https://clinicaltrials.csuveterinaryhealth.org/s/non-surgical-chemotherapy-treatment-for-canine-brain-tumors-836628/?ref=gallery",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "CSU verdinexor source requires MRI brain tumor,>=10kg and no previous chemotherapy/radiation.",
+      "source_url": "https://clinicaltrials.csuveterinaryhealth.org/api/v1/studycontent-latest-version/836628/en",
+      "reviewed_at": "2026-11-09T07:37:11.726626-05:00",
+      "criteria": "Dogs at least 10 kg, MRI-confirmed brain tumor, otherwise healthy, no prior chemotherapy or radiotherapy for this tumor. Regular neurological examinations and MRI follow-up.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -1414,9 +1414,39 @@
           },
           "expected": "exclude",
           "retained_from_reviewed_at": "2026-10-12T22:49:56.329874-04:00"
+        },
+        {
+          "name": "November 9 minimum weight and MRI-based referral",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "weight_known": true,
+            "weight_lb": 22.046226218487757,
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "November 9 prior radiation contradicts protocol",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "radiation": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "November 9 unknown weight requires screening",
+          "patient": {
+            "cancer": "Brain tumor / glioma"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "minimum weight"
+          ]
         }
       ],
-      "selection_sha256": "bfd2dd532a5d06420588a79a3fd12a9f135ad183306a4a81386a1b484912aea4"
+      "selection_sha256": "bfd2dd532a5d06420588a79a3fd12a9f135ad183306a4a81386a1b484912aea4",
+      "previous_reviewed_at": "2026-10-16T19:32:02.907532+00:00",
+      "full_protocol_reverified": true
     },
     {
       "trial_id": "penn-glioma-flash-gilvetmab-2026",
@@ -1457,8 +1487,8 @@
     {
       "trial_id": "msu-tcell-lymphoma",
       "source_url": "https://veterinaryclinicaltrials.org/s/chop-vs-lopp-chemotherapy-as-a-first-line-treatment-for-naive-peripheral-t-cell-lymphoma-in-dogs-171507/",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "MSU CHOP/LOPP accepts naive peripheral T-cell lymphoma,excluding cutaneous/indolent disease and previous lymphoma chemo/radiation.",
+      "reviewed_at": "2026-11-09T07:32:41.636241-05:00",
+      "criteria": "Confirmed peripheral T-cell lymphoma; indolent T-zone and cutaneous excluded; no prior lymphoma chemotherapy or radiation. Up to ten days of steroids only by clinician decision. Adequate labs; no dilated cardiomyopathy, ventricular arrhythmia or liver failure.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -1546,15 +1576,35 @@
           },
           "expected": "exclude",
           "retained_from_reviewed_at": "2026-10-12T22:49:56.329874-04:00"
+        },
+        {
+          "name": "November 9 missing material screening answers",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "T-cell lymphoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "November 9 direct source exclusion",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Cutaneous epitheliotropic lymphoma"
+          },
+          "expected": "exclude"
         }
       ],
-      "selection_sha256": "b34b3d0326d2eb65adba9ac8fb03b54832faa8d27d88348c1cd5cdfad2202562"
+      "selection_sha256": "b34b3d0326d2eb65adba9ac8fb03b54832faa8d27d88348c1cd5cdfad2202562",
+      "previous_reviewed_at": "2026-10-16T19:32:02.907532+00:00",
+      "full_protocol_reverified": true
     },
     {
       "trial_id": "msu-mct-steroids",
       "source_url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2/tmrncdmct",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "MSU MCT protocol excludes anticancer treatment within seven days, permits screening after washout, and requires surgery; trunk/2–6 cm/anesthesia conditions remain screening criteria.",
+      "reviewed_at": "2026-11-09T07:32:41.636241-05:00",
+      "criteria": "Cytology/histology-confirmed cutaneous trunk MCT above elbow/knee, 2–6 cm; no metastasis; ≥7-day washout anticancer/steroids and ≥5-day NSAID washout. Anesthesia fitness, survival ≥4 weeks with treatment and no diabetes/incompatible systemic illness.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -1600,9 +1650,30 @@
           },
           "expected": "exclude",
           "retained_from_reviewed_at": "2026-10-12T22:49:56.329874-04:00"
+        },
+        {
+          "name": "November 9 missing material screening answers",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Mast cell tumor"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "November 9 direct source exclusion",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Mast cell tumor",
+            "metastasis": "Confirmed metastases"
+          },
+          "expected": "exclude"
         }
       ],
-      "selection_sha256": "c0abc805193156a609e5319b378b058a194c4db9f94303ecd44d5f2847ef96d3"
+      "selection_sha256": "c0abc805193156a609e5319b378b058a194c4db9f94303ecd44d5f2847ef96d3",
+      "previous_reviewed_at": "2026-10-16T19:32:02.907532+00:00",
+      "full_protocol_reverified": true
     },
     {
       "trial_id": "jp-tokyo-feline-tcc-lapatinib",

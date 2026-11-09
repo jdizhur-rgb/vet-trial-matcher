@@ -2,7 +2,15 @@
   "schema_version": 1,
   "purpose": "Persistent state for incremental discovery and deep-audit cost control. Source fingerprints live in source_inventory.json; this file tracks audit scheduling and unresolved work.",
   "last_full_deep_audit": null,
-  "last_incremental_audit": "2026-11-09",
+  "last_incremental_audit": {
+    "run_id": "daily-20261109T071607-0500-run-now",
+    "started_at": "2026-11-09T07:16:07.492262-05:00",
+    "checkpoint_at": "2026-11-09T07:38:53.530444-05:00",
+    "status": "INCOMPLETE",
+    "receipt": "research/audit-runs/daily-20261109T071607-0500-run-now/receipt-final.json",
+    "execution_review": "research/audit-runs/daily-20261109T071607-0500-run-now/execution-review.json",
+    "notes": "Fresh repeat; incomplete semantic and discovery reconciliation. Prior durable queue deliberately preserved when execution gate did not pass."
+  },
   "last_source_discovery_attempt": "2026-11-09",
   "forced_full_reread_days": 28,
   "rules": {
@@ -98,11 +106,12 @@
     "scope": "One exact AVMA closure, known recruitment cutoffs and4owner-policy resolutions; not a repeated daily audit."
   },
   "last_deadline_review": {
-    "run_id": "daily-20261109T043224-0500",
-    "completed_at": "2026-11-09T05:18:12.859091-05:00",
-    "catalog_records_reviewed": 318,
+    "run_id": "daily-20261109T071607-0500-run-now",
+    "completed_at": "2026-11-09T07:38:53.530444-05:00",
+    "catalog_records_evaluated": 318,
     "known_cutoffs": 19,
     "active_passed_cutoffs": 0,
-    "receipt": "research/audit-runs/daily-20261109T043224-0500/deadline-review.json"
+    "receipt": "research/audit-runs/daily-20261109T071607-0500-run-now/deadline-review.json",
+    "fresh_primary_date_coverage": "INCOMPLETE"
   }
 }
