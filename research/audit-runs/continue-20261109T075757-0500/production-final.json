@@ -1,0 +1,80 @@
+{
+  "verified_data_sha": "2cf0cb7397c7ccd17a1455e6e051fcb3890f8f0a",
+  "matcher": "https://vettrialfinder.com/matcher/",
+  "asset_method": "Bounded Work curl production GET; generated HTML, JS and JSON byte comparison",
+  "headers": {
+    "index.html": {
+      "date": "Mon, 09 Nov 2026 15:12:00 GMT",
+      "last-modified": "Mon, 09 Nov 2026 15:11:01 GMT",
+      "etag": "\"6af1e285-f32e\"",
+      "age": "0"
+    },
+    "matcher.js": {
+      "date": "Mon, 09 Nov 2026 15:12:04 GMT",
+      "last-modified": "Mon, 09 Nov 2026 15:11:01 GMT",
+      "etag": "\"6af1e285-e4f7\"",
+      "age": "0"
+    },
+    "trials.json": {
+      "date": "Mon, 09 Nov 2026 15:12:00 GMT",
+      "last-modified": "Mon, 09 Nov 2026 15:11:01 GMT",
+      "etag": "\"6af1e285-5bbf1\"",
+      "age": "0"
+    }
+  },
+  "assets": {
+    "index.html": {
+      "byte_equal": true,
+      "sha256": "f30ee4918c70d533372d135dcedfdb58fee0dccefaafd5445696ce9823f1c6c3",
+      "local_sha256": "f30ee4918c70d533372d135dcedfdb58fee0dccefaafd5445696ce9823f1c6c3",
+      "actual_readback": "research/audit-runs/continue-20261109T075757-0500/live-cold-final/index.html"
+    },
+    "matcher.js": {
+      "byte_equal": true,
+      "sha256": "a9b0a97ca943bb005fc4d5eea77839df43df2e220aaa15c43dd5af7210628375",
+      "local_sha256": "a9b0a97ca943bb005fc4d5eea77839df43df2e220aaa15c43dd5af7210628375",
+      "actual_readback": "research/audit-runs/continue-20261109T075757-0500/live-cold-final/matcher.js"
+    },
+    "trials.json": {
+      "byte_equal": true,
+      "sha256": "4645c23b3e7dbc2378db7a6d6e4294fd9bce80df9c7ca7c6fff87ef4e4fbaf5c",
+      "local_sha256": "4645c23b3e7dbc2378db7a6d6e4294fd9bce80df9c7ca7c6fff87ef4e4fbaf5c",
+      "actual_readback": "research/audit-runs/continue-20261109T075757-0500/live-cold-final/trials.json"
+    }
+  },
+  "script_version": "clinical-audit-20261103-owner-rules-r1",
+  "catalog_version": "4645c23b3e7dbc23",
+  "scenario": {
+    "species": "Dog",
+    "diagnosis": "Cancer — any type",
+    "certainty": "I don't know",
+    "age": "",
+    "weight": "",
+    "ZIP": "",
+    "all_six_treatments": true,
+    "approach": "Any approach"
+  },
+  "live_searches": {
+    "USA": {
+      "displayed": 97,
+      "digest": "c80ffdda4d62a053",
+      "new_CSU_Adam_Dugger_contact": true,
+      "new_UC_Davis_FAP_cutoff_visible": true,
+      "status": "PASS"
+    },
+    "Japan": {
+      "displayed": 14,
+      "digest": "bf1a271814f30742",
+      "all_six_treatments_selected": true,
+      "rendered_at": "2026-11-09T15:11:44.398Z",
+      "status": "PASS"
+    }
+  },
+  "notes": [
+    "Canonical live GET timed out or CDN returned older cached catalog in first attempts; fresh public GET with harmless audit query returned exact bytes for all three assets.",
+    "Rendered fresh matcher query audit=20261109T1011 had updated CSU AML contact and UC Davis FAP site date. No production approval or form submission.",
+    "GitHub Actions API read timed out; deploy verified directly against all three live files and rendered content."
+  ],
+  "workflow": "Latest Actions run ID NOT VERIFIED; production contents directly verified.",
+  "asset_result": "PASS"
+}
