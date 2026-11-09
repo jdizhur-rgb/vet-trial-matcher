@@ -1033,8 +1033,8 @@
     {
       "trial_id": "csu-brain-cart-verdinexor",
       "source_url": "https://clinicaltrials.csuveterinaryhealth.org/s/immunotherapy-car-t-treatment-for-canine-glioma-tumors-780192/?ref=gallery",
-      "reviewed_at": "2026-10-27T04:27:30.811730-04:00",
-      "criteria": "Current CSU primary allows MRI-confirmed glioma, weight strictly over10lb, CAR-T and mandatory home verdinexor; radiation is an additional optional treatment. Prior chemotherapy/radiation exclude. Existing cases retained.",
+      "reviewed_at": "2026-11-09T09:41:53.719038-05:00",
+      "criteria": "Canine MRI glioma, >10 lb, no prior chemotherapy/RT, fit for anesthesia and home oral therapy.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -1132,15 +1132,44 @@
             "radiation_affordability": "Would not consider radiation"
           },
           "expected": "review"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "weight_known": true,
+            "weight_lb": 11
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "weight_known": true,
+            "weight_lb": 10
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Brain tumor / glioma"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "24bc11bbcb1d2500e05a820f6bb4393774ae63c9d11907b457eb1132751c1506"
+      "selection_sha256": "24bc11bbcb1d2500e05a820f6bb4393774ae63c9d11907b457eb1132751c1506",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "tufts-met-osa-vaccine-tme",
       "source_url": "https://vet.tufts.edu/clinical-trials/treatment-canine-metastatic-osteosarcoma-combined-tumor-microenvironment-modification-and-allogeneic-vaccination",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Tufts metastatic-OSA vaccine source requires previous amputation and chemotherapy followed by spread to lungs.",
+      "reviewed_at": "2026-11-09T09:41:53.719038-05:00",
+      "criteria": "Canine OSA after amputation and chemotherapy before lung metastasis; clinically well, no major heart/kidney/liver disease.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -1226,9 +1255,36 @@
             "organ"
           ],
           "retained_from_reviewed_at": "2026-10-12T22:41:17.625761-04:00"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "metastasis": "Confirmed metastases"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "metastasis": "No known metastases"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "82317333cdaef6616d6bc3abd61a3acc8441ed440cc74002f312ad46c9020eaf"
+      "selection_sha256": "82317333cdaef6616d6bc3abd61a3acc8441ed440cc74002f312ad46c9020eaf",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "osu-sts-mic-nk",
@@ -2053,8 +2109,8 @@
     {
       "trial_id": "jp-tokyo-canine-bladder-ido1-inhibitor",
       "source_url": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Tokyo IDO1 trial specifically treats canine bladder cancer,including suspected cases for workup.",
+      "reviewed_at": "2026-11-09T09:41:53.719038-05:00",
+      "criteria": "Dogs with bladder cancer; suspected cases may present for screening. Tissue sampling and Tokyo visits at weeks 1, 3, 5.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -2113,9 +2169,38 @@
           },
           "expected": "exclude",
           "retained_from_reviewed_at": "2026-10-12T22:49:56.329874-04:00"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Urothelial carcinoma",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Mammary carcinoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Urothelial carcinoma"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "7acab74ec41ebb80fa13128e9a20b541f3ea577b128aab146f3e227b855f4d2b"
+      "selection_sha256": "7acab74ec41ebb80fa13128e9a20b541f3ea577b128aab146f3e227b855f4d2b",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "mizzou-osa-carboplatin-timing",
@@ -2835,8 +2920,8 @@
     {
       "trial_id": "ch-zurich-canine-meningioma-genomic-rt",
       "source_url": "https://www.tierspital.uzh.ch/forschungsprojekte/strahlensensivitaet-hirntumor-meningiom/",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Zurich meningioma research-access protocol includes standard radiation;MRI/biopsy determine the exact meningioma cohort.",
+      "reviewed_at": "2026-11-09T09:41:53.719038-05:00",
+      "criteria": "Canine meningioma suspected on MRI, eligible for anesthesia and protocol assessment including biopsy.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -2901,15 +2986,44 @@
           },
           "expected": "exclude",
           "retained_from_reviewed_at": "2026-10-12T22:58:36.518292-04:00"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "country": "Switzerland",
+            "cancer": "Brain tumor / glioma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "species": "Cat",
+            "country": "Switzerland",
+            "cancer": "Brain tumor / glioma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "country": "Switzerland",
+            "cancer": "Brain tumor / glioma"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "62fd8337d4f48b5605827525b0d8b54722aa1d19d4623455d071e14ff0cdc5d0"
+      "selection_sha256": "62fd8337d4f48b5605827525b0d8b54722aa1d19d4623455d071e14ff0cdc5d0",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "ch-zurich-sts-fluorescence-guided-surgery",
       "source_url": "https://www.tierspital.uzh.ch/forschungsprojekte/studie-fluoreszenzbildgebung-weichteilsarkome/",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Zurich fluorescence surgery source allows primary STS OR re-excision after incomplete surgery in dogs/cats;operation required.",
+      "reviewed_at": "2026-11-09T09:41:53.719038-05:00",
+      "criteria": "Dog or cat with confirmed STS requiring surgery or re-excision after incomplete margins; no severe heart/renal disease precluding anesthesia; mild controlled disease allowed.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -2967,9 +3081,38 @@
           },
           "expected": "exclude",
           "retained_from_reviewed_at": "2026-10-12T22:58:36.518292-04:00"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "species": "Cat",
+            "country": "Switzerland",
+            "cancer": "Soft tissue sarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "country": "Switzerland",
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "country": "Switzerland",
+            "cancer": "Soft tissue sarcoma"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "34b901693dad8e5c2b21b31a40da58203097fda6c3d2b7833aedcef9f1bc94b6"
+      "selection_sha256": "34b901693dad8e5c2b21b31a40da58203097fda6c3d2b7833aedcef9f1bc94b6",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "penn-flash-rt-extremity-sts",
@@ -3079,8 +3222,8 @@
     {
       "trial_id": "jp-tokyo-histiocytic-sarcoma-anti-pd1-2026",
       "source_url": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Tokyo HS antiPD1 primary requires center biopsy,residual detectable HS and no prior immunotherapy or immunosuppressants.",
+      "reviewed_at": "2026-11-09T09:41:53.719038-05:00",
+      "criteria": "Tokyo biopsy confirmed HS and a detectable lesion remains; no immunosuppression or immunotherapy; recurring visits; large dogs may be restricted without a public numeric limit.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -3150,9 +3293,38 @@
           },
           "expected": "exclude",
           "retained_from_reviewed_at": "2026-10-13T06:20:42.806673-04:00"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Histiocytic sarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Histiocytic sarcoma",
+            "immunotherapy_history": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Histiocytic sarcoma"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "cfd9dedc7ace878815a75352cdf226830a8a883e442a53c4239a73955ec1d8a9"
+      "selection_sha256": "cfd9dedc7ace878815a75352cdf226830a8a883e442a53c4239a73955ec1d8a9",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "tufts-primary-pulmonary-carcinoma-sbrt",
@@ -4046,8 +4218,8 @@
     {
       "trial_id": "ucd-oral-margin",
       "source_url": "https://studypages.com/s/fluorescence-imaging-with-pdl1-irdye800-to-guide-surgical-treatment-of-oral-cancer-in-dogs-679907/",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "UC Davis oral theranostic source admits oral melanoma or oral SCC;it does not admit every oral tumor.",
+      "reviewed_at": "2026-11-09T09:41:53.719038-05:00",
+      "criteria": "Confirmed oral SCC or OMM, healthy for anesthesia and repeat visits and study biopsy; pediatric threshold in canonical prior primary evidence.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -4111,15 +4283,40 @@
           },
           "expected": "exclude",
           "retained_from_reviewed_at": "2026-10-14T07:31:23.043325-04:00"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Oral melanoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Histiocytic sarcoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Oral melanoma"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "6ee8d0be5f7ca9ef4887f8c105a01839c1a698530ae8fdbe11630798a546ef80"
+      "selection_sha256": "6ee8d0be5f7ca9ef4887f8c105a01839c1a698530ae8fdbe11630798a546ef80",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "ucd-pdl1-metastatic",
       "source_url": "https://studypages.com/s/innovative-immunotherapy-for-canine-lung-metastases-the-caalm-study-276511/",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "CAALM source requires oral melanoma with lung metastases and strict weight>15kg,<36kg.",
+      "reviewed_at": "2026-11-09T09:41:53.719038-05:00",
+      "criteria": "Dog >15 and <36 kg with cytology/biopsy-confirmed oral melanoma and ≥1 lung metastasis; no recent chemo, immunotherapy or steroids within two weeks and no uncontrolled illness.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -4196,9 +4393,39 @@
           },
           "expected": "exclude",
           "retained_from_reviewed_at": "2026-10-14T07:31:23.043325-04:00"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Oral melanoma",
+            "metastasis": "Confirmed metastases",
+            "weight_known": true,
+            "weight_lb": 40
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Oral melanoma",
+            "weight_known": true,
+            "weight_lb": 30
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Oral melanoma"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "e7b0a69684267c68ff6782bad2b9f7047ad0aa8dc54589241be08b309038049d"
+      "selection_sha256": "e7b0a69684267c68ff6782bad2b9f7047ad0aa8dc54589241be08b309038049d",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "tamu-feline-small-cell-gi-lymphoma-wart",
@@ -4720,8 +4947,8 @@
     {
       "trial_id": "tufts-hsa-liquid",
       "source_url": "https://vet.tufts.edu/clinical-trials/optimizing-integration-veterinary-clinical-research-findings-human-health-systems-improve-strategies-early-detection-and",
-      "reviewed_at": "2026-11-05T03:24:23.404896-05:00",
-      "criteria": "Splenic primary required with no obvious spread; HSA in heart/other primary site does not qualify.",
+      "reviewed_at": "2026-11-09T09:41:53.719038-05:00",
+      "criteria": "Dogs ≥10 kg, splenic HSA without apparent extra-splenic spread, no previous HSA therapy, no serious heart/lung/kidney/liver disease. Recent outside splenectomy may qualify with histopathology.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -4795,13 +5022,39 @@
             "hsa_site": "I don't know"
           },
           "expected": "review"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Hemangiosarcoma",
+            "hsa_location": "Splenic"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Hemangiosarcoma",
+            "weight_known": true,
+            "weight_lb": 20
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Hemangiosarcoma"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "7975d535012ce34d1e7b4e8b60c2f6441db7cb873afcbe9f88e61e446398e082",
       "selection_reconciled_at": "2026-10-22T01:20:49.544983+00:00",
-      "source_visit_refreshed_this_run": true,
+      "source_visit_refreshed_this_run": false,
       "full_protocol_reverified": true,
-      "source_evidence_file": "research/audit-runs/daily-20261105T030209-0500/evidence/a87bd368ac8ea3958ef94e66.json"
+      "source_evidence_file": "research/audit-runs/daily-20261105T030209-0500/evidence/a87bd368ac8ea3958ef94e66.json",
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "wisc-lymphoma-half-body-rt-chop",
@@ -4930,8 +5183,8 @@
     {
       "trial_id": "csu-osa-3d-limb-spare",
       "source_url": "https://studypages.com/s/a-limb-sparing-option-for-bone-cancer-in-dogs-558225/",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "CSU limb-sparing protocol is suspected/confirmed distal-radius OSA, giant breed OR weight>=40kg, no metastasis, limb-sparing surgery and six chemotherapy treatments. It does not establish all primary bone-tumor eligibility.",
+      "reviewed_at": "2026-11-09T09:41:53.719038-05:00",
+      "criteria": "Suspected/confirmed distal-radius OSA, giant breed OR ≥40 kg, surgery candidate, no metastases or immune-modulating drugs.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -4965,15 +5218,43 @@
             "species": "Cat"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "weight_known": true,
+            "weight_lb": 95
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "metastasis": "Confirmed metastases"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "9d4262d2db98a0a55d3f15354f42c9842890a1261804f5b44b4039aa3450e480"
+      "selection_sha256": "9d4262d2db98a0a55d3f15354f42c9842890a1261804f5b44b4039aa3450e480",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "csu-ucc-lapatinib-rt",
       "source_url": "https://clinicaltrials.csuveterinaryhealth.org/s/combination-of-lapatinib-and-fractionated-radiation-therapy-for-dogs-with-transitional-cell-carcinoma-598674/",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "CSU lapatinib/radiation bladder-TCC protocol requires daily radiation, NSAID tolerance, six-week radiation and two-week chemotherapy washouts.",
+      "reviewed_at": "2026-11-09T09:41:53.719038-05:00",
+      "criteria": "Dog with biopsy-proven bladder TCC, fit for repeat anesthesia and NSAID, no RT in last six weeks/chemo in last two.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -4999,9 +5280,37 @@
             "species": "Cat"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Urothelial carcinoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Urothelial carcinoma",
+            "prefs": [
+              "Targeted therapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Urothelial carcinoma"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "7dedb57697bb1c5ce1224e3072cc6dd41a661dc760c4c83eb789f4b5071f8bae"
+      "selection_sha256": "7dedb57697bb1c5ce1224e3072cc6dd41a661dc760c4c83eb789f4b5071f8bae",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "csu-sarcoma-engineered-tcells",
@@ -5850,8 +6159,8 @@
     {
       "trial_id": "jp-nvlu-survivin-peptide-vaccine-2026",
       "source_url": "https://www.nvlu.ac.jp/amedical/clinical-research/05.html",
-      "reviewed_at": "2026-11-08T04:46:59.777772-05:00",
-      "criteria": "NVLU survivin vaccine primary explicitly includes remission and postoperative recurrence-prevention cases. Gross residual tumor is not required;survivin expression OR specified postmortem consent needs investigator assessment.",
+      "reviewed_at": "2026-11-09T09:41:53.719038-05:00",
+      "criteria": "Canine cancer, survivin expression ideally confirmed; unknown expression when sampling difficult may require necropsy consent. Treatment, recurrence prevention or difficult recurrent disease described.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -5880,12 +6189,39 @@
             "species": "Cat"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Oral melanoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "species": "Cat",
+            "country": "Japan",
+            "cancer": "Oral melanoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Oral melanoma"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "4f7d2300307719925f75f41992248c89d1bfc3c8000b52c09b7ae2b4b32cdbbf",
       "full_protocol_reverified": true,
-      "primary_evidence_review_run": "daily-20261108T043056-0500",
-      "selection_reconciled_at": "2026-11-08T04:46:59.777772-05:00"
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "selection_reconciled_at": "2026-11-08T04:46:59.777772-05:00",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "uf-boxer-glioma-autogenic-vaccine",
@@ -7204,8 +7540,8 @@
     {
       "trial_id": "tufts-z007-broad-solid-2026",
       "source_url": "https://vet.tufts.edu/clinical-trials/evaluation-tlr-agonist-z-007-dogs-cancer",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Tufts Z007 source admits carcinoma/sarcoma/melanoma,>=7kg,biopsy-accessible2–7cm tumors,and no previous immunotherapy.",
+      "reviewed_at": "2026-11-09T09:41:53.719038-05:00",
+      "criteria": "Dog ≥7 kg, repeat-biopsy accessible solid tumor 2–7 cm, expected survival ≥8 weeks; untreated or failed standard therapy, no previous immunotherapy, autoimmune history, significant organ illness or count abnormalities. Metastasis permitted.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -7234,15 +7570,44 @@
             "cancer": "Soft tissue sarcoma"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Soft tissue sarcoma",
+            "weight_known": true,
+            "weight_lb": 22
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Soft tissue sarcoma",
+            "weight_known": true,
+            "weight_lb": 12
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Soft tissue sarcoma"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "ea37c77c327a7a59cf38f6e57028bcf1d11a7c2db3a643ddb048def0e3f5625f"
+      "selection_sha256": "ea37c77c327a7a59cf38f6e57028bcf1d11a7c2db3a643ddb048def0e3f5625f",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "eu-ch-pnst-plexus-fluorescence-surgery",
       "source_url": "https://www.tierspital.uzh.ch/forschungsprojekte/studie-plexustumore-hunde/",
-      "reviewed_at": "2026-11-05T03:24:23.404896-05:00",
-      "criteria": "Zurich plexus study accepts imaging suspicion of brachial/lumbar plexus tumor and requires planned surgery.",
+      "reviewed_at": "2026-11-09T09:41:53.719038-05:00",
+      "criteria": "Dogs with planned surgery and MRI/CT-suspected brachial/lumbar plexus tumor. Cytology helpful but not mandatory.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -7273,11 +7638,40 @@
             "cancer": "Peripheral nerve sheath tumor"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "country": "Switzerland",
+            "cancer": "Peripheral nerve sheath tumor",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "species": "Cat",
+            "country": "Switzerland",
+            "cancer": "Peripheral nerve sheath tumor"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "country": "Switzerland",
+            "cancer": "Peripheral nerve sheath tumor"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "10a0a1ed3176a24e2eac03b0990f02f00153029b5cb46ddc26345ff5ff2098be",
       "full_protocol_reverified": true,
-      "source_evidence_file": "research/audit-runs/daily-20261105T030209-0500/evidence/994c027561609b702507baa0.json"
+      "source_evidence_file": "research/audit-runs/daily-20261105T030209-0500/evidence/994c027561609b702507baa0.json",
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "barc-scc-intratumoral-carboplatin-2026",
@@ -7520,8 +7914,8 @@
     {
       "trial_id": "ch-zurich-canine-high-grade-glioma-chemoradiation",
       "source_url": "https://www.tierspital.uzh.ch/wp-content/uploads/2025/09/250916_Information_Study_english.pdf",
-      "reviewed_at": "2026-10-27T04:56:00.327928-04:00",
-      "criteria": "Full current Zurich glioma brochure: MRI-suspected high-grade glioma enters screening; minimally invasive funded biopsy confirms before treatment. Mandatory ten-session RT; randomization to TMZ+lomustine versus placebo; neurological and organ screening. A separate meningioma study is not this glioma cohort.",
+      "reviewed_at": "2026-11-09T09:41:53.719038-05:00",
+      "criteria": "MRI suspicion screened with minimal invasive biopsy; high-grade glioma confirmed before treatment, acceptable marrow/renal/liver function; no major incompatible illnesses.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -7573,9 +7967,38 @@
             "diagnosis_status": "Confirmed by pathology/cytology"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "country": "Switzerland",
+            "cancer": "Brain tumor / glioma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "species": "Cat",
+            "country": "Switzerland",
+            "cancer": "Brain tumor / glioma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "country": "Switzerland",
+            "cancer": "Brain tumor / glioma"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "e031eecc5c8eb8a09e83595260828341878c92d0570be37b01f626d035465113"
+      "selection_sha256": "e031eecc5c8eb8a09e83595260828341878c92d0570be37b01f626d035465113",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "be-ghent-fluorescence-lifetime-cancer-surgery",
@@ -8076,8 +8499,8 @@
     {
       "trial_id": "tufts-osa-actionable-targets-2026",
       "source_url": "https://vet.tufts.edu/clinical-trials/defining-actionable-targets-osteosarcoma",
-      "reviewed_at": "2026-10-22T01:02:20.082203+00:00",
-      "criteria": "Current Tufts primary: Group A requires newly diagnosed limb OSA without obvious spread and planned amputation. Group B requires prior amputation plus carboplatin or study-drug treatment and metastatic disease outside bone. Known owner answers must leave at least one group possible; unknown staging/history and exact prior drugs remain prescreening. No new form questions.",
+      "reviewed_at": "2026-11-09T09:41:53.719038-05:00",
+      "criteria": "Dog ≥15 kg; Group A presumptive limb OSA without spread and preamputation; Group B prior amputation plus carboplatin/study drug, specified lung/skin/subcutis/abdominal metastases and no bone metastasis, expected life ≥1 month. Both require adequate lab/organ status and no conflicting small molecules.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -8204,15 +8627,44 @@
             ]
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "weight_known": true,
+            "weight_lb": 40
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "surgery": "No",
+            "metastasis": "Confirmed metastases"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "d8da4ac5dbe0027b06eee047742f10bd75588ffb66002c29b78209ad999ce70f"
+      "selection_sha256": "d8da4ac5dbe0027b06eee047742f10bd75588ffb66002c29b78209ad999ce70f",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "jp-tokyo-organoid-guided-targeted-therapy-2026",
       "source_url": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Tokyo organoid source explicitly excludes lymphoma/leukemia and requires measurable solid tumor without established curative standard therapy and a supported drug target.",
+      "reviewed_at": "2026-11-09T09:41:53.719038-05:00",
+      "criteria": "Dogs/cats with metastatic or invasive solid tumor lacking curative standard therapy; promising screened drug and agreement to lesion sampling/visits weeks 1,3,5; not lymphoma or leukemia.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -8232,15 +8684,44 @@
             "standard_therapy_unavailable": "No"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Other solid tumor"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Other solid tumor",
+            "standard_therapy_unavailable": "No"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Other solid tumor"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "f5e44dd581b84a2f3efcd5d5f602bcafc9ada484f5c3f323f2fc3c2411734c49"
+      "selection_sha256": "f5e44dd581b84a2f3efcd5d5f602bcafc9ada484f5c3f323f2fc3c2411734c49",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "jp-tokyo-macromolecular-pirarubicin-solid-tumors",
       "source_url": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Tokyo polymer-pirarubicin primary explicitly includes HS among unresectable/metastatic solid tumors lacking effective standard treatment.",
+      "reviewed_at": "2026-11-09T09:41:53.719038-05:00",
+      "criteria": "Canine unresectable or metastatic malignant solid tumors without effective standard treatment; agree to lesion sampling and visits every 1–2 weeks.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -8269,9 +8750,38 @@
             "cancer": "Other solid tumor"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Other solid tumor"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Other solid tumor",
+            "standard_therapy_unavailable": "No"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Other solid tumor"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "28de3c71e13c90fac9262378c89aa23d17e97b21ed99dea314b25c7524b3799f"
+      "selection_sha256": "28de3c71e13c90fac9262378c89aa23d17e97b21ed99dea314b25c7524b3799f",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "jp-multicenter-oral-melanoma-anti-pd1-2026",
@@ -8386,8 +8896,8 @@
     {
       "trial_id": "tufts-sabr-pulmonary-metastases-2026",
       "source_url": "https://vet.tufts.edu/clinical-trials/stereotactic-ablative-radiotherapy-sabr-lung-metastases",
-      "reviewed_at": "2026-10-23T10:27:50.298709+00:00",
-      "criteria": "Tufts SABR source requires2–10progressive pulmonary metastases,controlled primary/other disease and safe stereotactic radiation.",
+      "reviewed_at": "2026-11-09T09:41:53.719038-05:00",
+      "criteria": "Cytology/histology-confirmed malignancy and 2–10 lung metastases, progression on chest imaging over ≥6–8 weeks; control of primary/other disease, no malignant effusion and fit for anesthesia/RT.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -8462,9 +8972,36 @@
             "metastasis": "Confirmed metastases"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "metastasis": "Confirmed metastases"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "metastasis": "No known metastases"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "b7e55f132b3e0213f2a1daa7f622d8a6f5d553a79e78d57f0c5d0fc5b4b5ba15"
+      "selection_sha256": "b7e55f132b3e0213f2a1daa7f622d8a6f5d553a79e78d57f0c5d0fc5b4b5ba15",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "jp-gifu-feline-oscc-radiotherapy-lavurchin",
@@ -8539,8 +9076,8 @@
     {
       "trial_id": "jp-hokkaido-canine-oral-melanoma-anti-pdl1",
       "source_url": "https://www.vetmed.hokudai.ac.jp/VMTH/aboutus/research/",
-      "reviewed_at": "2026-11-03T03:43:30.764073-05:00",
-      "criteria": "Hokkaido primary explicitly includes canine oral melanoma with lung metastases in its antiPDL1 research route.",
+      "reviewed_at": "2026-11-09T09:41:53.719038-05:00",
+      "criteria": "Named canonical cohort oral malignant melanoma with lung metastases; broader cancers not mapped from introductory wording. Regular clinic safety/efficacy assessments; remaining criteria unpublished.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -8569,6 +9106,32 @@
             "cancer": "Oral melanoma"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Oral melanoma",
+            "metastasis": "Confirmed metastases"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Oral melanoma",
+            "metastasis": "No known metastases"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Oral melanoma"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "21a57eb409f249b3a6b7eebf7c16f82d0f58ca7a23e187fbbb7957c509621a39",
@@ -8576,7 +9139,10 @@
       "evidence_scope": "Full current published protocol: status/access, whole published site roster, eligibility, treatment, funding and contact; unpublished clinical criteria explicitly remain investigator prescreening.",
       "evidence_refs": [
         "research/audit-runs/daily-20261103T030532-0500/evidence/1859648b8d6991789365.json"
-      ]
+      ],
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "jp-nihon-proteasome-inhibitor-b-cell-tumors",
@@ -10295,9 +10861,9 @@
     {
       "trial_id": "jp-tottori-pdt",
       "source_url": "https://vth-tottori-u.jp/clinical-research/3571/",
-      "reviewed_at": "2026-11-08T04:11:48.272078-05:00",
+      "reviewed_at": "2026-11-09T09:41:53.719038-05:00",
       "full_protocol_reverified": true,
-      "criteria": "Tottori currently treats selected dog and cat body-surface, intranasal and bladder tumors with a novel-photosensitizer PDT protocol; individual suitability and unpublished medical criteria require team screening.",
+      "criteria": "Dogs/cats principally with body surface, nasal cavity or bladder tumors and ability to return; eligibility depends on case, no other detailed published restrictions.",
       "cases": [
         {
           "name": "published dog bladder-tumor candidate",
@@ -10325,16 +10891,44 @@
             "cancer": "Lymphoma"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "species": "Cat",
+            "country": "Japan",
+            "cancer": "Nasal tumor / nasal cancer"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "country": "Japan",
+            "cancer": "T-cell lymphoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Bladder cancer"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "025b9b74e91ffbfca0c866154e3f8083e891db4ec63b1f74d8b796402bebcdca"
+      "selection_sha256": "025b9b74e91ffbfca0c866154e3f8083e891db4ec63b1f74d8b796402bebcdca",
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "jp-vsec-ucc-mogamulizumab-radiation",
       "source_url": "https://vsec.jp/hospital/clinical-research/",
-      "reviewed_at": "2026-11-08T04:11:48.272078-05:00",
+      "reviewed_at": "2026-11-09T09:41:53.719038-05:00",
       "full_protocol_reverified": true,
-      "criteria": "VSEC accepts dogs with suspected or confirmed lower urinary-tract urothelial carcinoma and excludes prior anticancer drug, radiation or surgery; remaining obstruction, CKD and prognosis criteria require team screening.",
+      "criteria": "Dog suspected or confirmed lower urinary tract UCC; no prior cancer therapy or surgery, urinary obstruction/hydronephrosis/hydroureter, IRIS 3–4 CKD, or poor expected survival <2–3 months.",
       "cases": [
         {
           "name": "published suspected canine UCC candidate",
@@ -10364,9 +10958,38 @@
             "cancer": "Urothelial carcinoma"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Urothelial carcinoma",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Urothelial carcinoma",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Urothelial carcinoma"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "573c093717f0c8b5c46310082ebcfd12925493a70eecaffa9ef9b581cac65968"
+      "selection_sha256": "573c093717f0c8b5c46310082ebcfd12925493a70eecaffa9ef9b581cac65968",
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "midwestern-glendale-canine-cancer-chemotherapy",
