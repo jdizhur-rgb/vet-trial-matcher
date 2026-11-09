@@ -581,8 +581,8 @@
     {
       "trial_id": "illinois-sts-surgery",
       "source_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/05/trial-Jen-101-alone-or-with-Hyla-for-STS.pdf",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Illinois JEN101+/-Hyla surgical STS protocol requires a1–5cm resectable tumor, surgery, no prior radiation,21day chemo washout and no immunosuppression.",
+      "reviewed_at": "2026-11-09T09:21:12.869381-05:00",
+      "criteria": "Dog with confirmed resectable STS 1–5 cm; no prior radiation; three-week chemo washout; no immunosuppressive or alternative treatment on study",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -638,15 +638,42 @@
             "Illinois"
           ],
           "retained_from_reviewed_at": "2026-10-12T22:41:17.625761-04:00"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Soft tissue sarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Soft tissue sarcoma",
+            "radiation": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Soft tissue sarcoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "088a1ba476fd83e1969ea8553766c32b17917d8c1a885d0e3e6c6e71ca81d4e0"
+      "selection_sha256": "088a1ba476fd83e1969ea8553766c32b17917d8c1a885d0e3e6c6e71ca81d4e0",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "illinois-sts-treatment",
       "source_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/05/trial-JEN-101-STS.pdf",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Illinois recurrent STS JEN101 protocol requires previously excised recurrent STS, tumor strictly>2cm, six-week chemotherapy/radiation washouts; prior immunotherapy/steroids remain excluded.",
+      "reviewed_at": "2026-11-09T09:21:12.869381-05:00",
+      "criteria": "Previously resected and confirmed recurrent canine STS >2 cm; no radiation/chemo in last six weeks; no prior immunotherapy, steroids, Apoquel or other immunomodulators; fit for sedation and contrast",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -708,15 +735,42 @@
             "6-week"
           ],
           "retained_from_reviewed_at": "2026-10-12T22:41:17.625761-04:00"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Soft tissue sarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Soft tissue sarcoma",
+            "surgery": "No"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Soft tissue sarcoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "8d818169ddc1c30068c031085c27ee87e94e7997853ef7056de1fce25ee274c1"
+      "selection_sha256": "8d818169ddc1c30068c031085c27ee87e94e7997853ef7056de1fce25ee274c1",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "illinois-ucc-gilvetmab-epacadostat",
       "source_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/05/trial-Gilvetmab-Epacadostat.pdf",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Illinois bladder-TCC protocol permits cytology OR positive molecular BRAF plus ultrasound bladder mass. Pathology-only confirmation must not block molecularly diagnosed screening.",
+      "reviewed_at": "2026-11-09T09:21:12.869381-05:00",
+      "criteria": "Dog with visible bladder mass on ultrasound and cytology or BRAF-positive molecular test; fit for repeated sedation; no prior chemo, RT or immunotherapy",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -779,9 +833,36 @@
             "BRAF"
           ],
           "retained_from_reviewed_at": "2026-10-12T22:41:17.625761-04:00"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Urothelial carcinoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Urothelial carcinoma",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Urothelial carcinoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "be38c2276c3b63d13d1138b38a4368c6992fe99584df08b3e82ec1ce3fff98ad"
+      "selection_sha256": "be38c2276c3b63d13d1138b38a4368c6992fe99584df08b3e82ec1ce3fff98ad",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "csu-osa-car-t-met",
@@ -2296,8 +2377,8 @@
     {
       "trial_id": "purdue-bladder-pdl1-vinblastine-deracoxib",
       "source_url": "https://vet.purdue.edu/wcorc/clinical-trials/canine-urinary-bladder-cancer.php",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Purdue bladder protocol admits suspected InvUC for study biopsy but excludes previous chemotherapy/radiation;vinblastine backbone required.",
+      "reviewed_at": "2026-11-09T09:21:12.869381-05:00",
+      "criteria": "Good general health, creatinine ≤2 mg/dL, biopsy confirmed or strongly suspected bladder/urethral InvUC to confirm by study; no prior RT/chemo; NSAID washout 5–14 days; supplements 2 weeks; no Librela/Cytopoint.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -2377,9 +2458,36 @@
           },
           "expected": "exclude",
           "retained_from_reviewed_at": "2026-10-12T22:56:12.647421-04:00"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Urothelial carcinoma",
+            "diagnosis_status": "Suspected / not confirmed"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Urothelial carcinoma",
+            "radiation": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Urothelial carcinoma"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "fee44fc85053b908c371afd5750752c25a18a7e834deda6913b28e0dc64afb6e"
+      "selection_sha256": "fee44fc85053b908c371afd5750752c25a18a7e834deda6913b28e0dc64afb6e",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "umn-glioma-zika-autologous-vax",
@@ -4832,8 +4940,8 @@
     {
       "trial_id": "illinois-oral-melanoma-il12-il15",
       "source_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/05/trial-IL12-IL15-fusion-with-RT-Oral-Melanoma.pdf",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Illinois IL12/IL15 oral-melanoma protocol requires one radiation dose;1–5cm tumor,>=1yr,>=8kg; any prior chemotherapy/radiation/immunotherapy and concurrent immunosuppression are excluded.",
+      "reviewed_at": "2026-11-09T09:21:12.869381-05:00",
+      "criteria": "Dog ≥1 year and 8 kg, cytology/histology confirmed oral melanoma, adequate function for sedation and contrast; no prior radiation, chemotherapy or immunotherapy; no immune-modulating/alternative treatment during study",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -4867,9 +4975,36 @@
             "species": "Cat"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Oral melanoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Oral melanoma",
+            "radiation": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Oral melanoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "4e663107b046e3fb6bb139d29d9bc921af302e5d7c87e65dde29c5a571b80812"
+      "selection_sha256": "4e663107b046e3fb6bb139d29d9bc921af302e5d7c87e65dde29c5a571b80812",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "auburn-palbociclib-solid-cancers",
@@ -5293,8 +5428,8 @@
     {
       "trial_id": "purdue-hifu-lymphoma",
       "source_url": "https://vet.purdue.edu/wcorc/clinical-trials/tumor-ablation.php",
-      "reviewed_at": "2026-10-22T01:20:49.544983+00:00",
-      "criteria": "Primary body explicitly says dogs have not yet received chemotherapy and all receive CHOP after HIFU. Untreated newly diagnosed lymphoma excludes known prior chemotherapy and reported relapse; prior steroids still follow published washout/team review.",
+      "reviewed_at": "2026-11-09T09:21:12.869381-05:00",
+      "criteria": "Dog ≥1 year, >8 kg, newly confirmed untreated intermediate/large-cell multicentric B/T-cell lymphoma; exclude stage V/extranodal and small-cell; 3-week anticancer treatment and 2-week steroid windows, staging and anesthesia fit.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -5354,17 +5489,45 @@
             "lymphoma_response": "Newly diagnosed / untreated"
           },
           "expected": "review"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "B-cell lymphoma",
+            "weight_known": true,
+            "weight_lb": 20
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "B-cell lymphoma",
+            "weight_known": true,
+            "weight_lb": 17
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "B-cell lymphoma"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "4bc6ccb871b312c12fb5441304d1f90a854821cd117bb4079f57079a229d4dc7",
       "selection_reconciled_at": "2026-10-22T01:20:49.544983+00:00",
-      "source_visit_refreshed_this_run": true
+      "source_visit_refreshed_this_run": false,
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "purdue-hifu-osteosarcoma",
       "source_url": "https://vet.purdue.edu/wcorc/clinical-trials/tumor-ablation.php",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Current Purdue HIFU protocol requires age>=1year and weight strictly>8kg; disease-specific staging,washouts and standard chemotherapy requirements remain.",
+      "reviewed_at": "2026-11-09T09:21:12.869381-05:00",
+      "criteria": "Dog ≥1 year, >8 kg, confirmed limb OSA, no metastasis, acoustically accessible tumor and anesthesia/surgery fit; no chemo in last 3 weeks or steroids in last 2 weeks.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -5393,9 +5556,38 @@
             "species": "Cat"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "osa_location": "Appendicular — limb bone",
+            "weight_known": true,
+            "weight_lb": 22
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "metastasis": "Confirmed metastases"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "f0f38bf696cf5ecb4a2fd72615a1d53e24d5d7140c5e79ff820ed4c85e8818a2"
+      "selection_sha256": "f0f38bf696cf5ecb4a2fd72615a1d53e24d5d7140c5e79ff820ed4c85e8818a2",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "ucd-nasal-chemo-radiation",
@@ -5824,8 +6016,8 @@
     {
       "trial_id": "vt-canine-glioma-ced",
       "source_url": "https://research.vetmed.vt.edu/clinical-trials/current-studies/molecular-combinatorial-therapy.html",
-      "reviewed_at": "2026-11-07T03:13:01.720177-05:00",
-      "criteria": "VirginiaTech CED glioma source requires3–45kg,single MRI glioma>=1cm,chemotherapy infusion;excludes any prior radiation and imposes6week chemo/surgery and6month immunotherapy washouts.",
+      "reviewed_at": "2026-11-09T09:21:12.869381-05:00",
+      "criteria": "Dog 3–45 kg, mild/moderate symptoms, one MRI mass ≥1 cm, not involving ventricles or brainstem; no prior RT, chemo/surgery last 6 weeks, immunotherapy last 6 months; exclude uncontrolled seizures or relevant concurrent illness.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -5861,11 +6053,37 @@
             "species": "Cat"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "weight_known": true,
+            "weight_lb": 20
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "radiation": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Brain tumor / glioma"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "597ca28c17fa851cbae0103779542c49e9275fe9c4791c8e84bbd4c6a57a1158",
       "full_protocol_reverified": true,
-      "primary_evidence_review_run": "daily-20261107T025833-0500"
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "wisc-ptcl-90y-nm600-rpt",
@@ -6847,8 +7065,8 @@
     {
       "trial_id": "vt-brain-verteporfin-pdt",
       "source_url": "https://research.vetmed.vt.edu/clinical-trials/current-studies/new-therapy-for-canine-brain-tumors.html",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "VirginiaTech verteporfin/PDT accepts MRI-or-biopsy newly diagnosed resectable brain tumor,with surgery and no previous brain-tumor therapy.",
+      "reviewed_at": "2026-11-09T09:21:12.869381-05:00",
+      "criteria": "New MRI or biopsy-confirmed resectable brain tumor in dog stable for anesthesia; no previous brain tumor chemotherapy, RT or other therapy; severe concurrent illness excludes.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -6877,9 +7095,35 @@
             "cancer": "Brain tumor / glioma"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Brain tumor / glioma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Brain tumor / glioma",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Brain tumor / glioma"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "dcb51073918e3542b31712edaafa0bd6209b4f80f354130cef8da1b9e96fc5bb"
+      "selection_sha256": "dcb51073918e3542b31712edaafa0bd6209b4f80f354130cef8da1b9e96fc5bb",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "be-ghent-feline-mammary-gcn2-inhibitor",
@@ -7249,8 +7493,8 @@
     {
       "trial_id": "purdue-hfire-liver-cancer",
       "source_url": "https://vet.purdue.edu/wcorc/clinical-trials/tumor-ablation.php",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Purdue HFIRE liver source requires resectable liver tumor and surgery5–7days after HFIRE.",
+      "reviewed_at": "2026-11-09T09:21:12.869381-05:00",
+      "criteria": "Dog with one or more surgically resectable liver tumors; suitable for biopsy, anesthesia and surgery, accepts subsequent resection; exclude prohibitive coagulopathy, illness or anesthetic risk.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -7281,9 +7525,39 @@
             "cancer": "Hepatocellular carcinoma"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Hepatocellular carcinoma",
+            "prefs": [
+              "Surgery",
+              "Experimental drug"
+            ]
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "species": "Cat",
+            "cancer": "Hepatocellular carcinoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Hepatocellular carcinoma"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "eccdb555169cedb467ac0a700e2dba6e1d59e7304a08c8d22b9321860a81ec7e"
+      "selection_sha256": "eccdb555169cedb467ac0a700e2dba6e1d59e7304a08c8d22b9321860a81ec7e",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "ucd-nasal-tae",
@@ -8123,7 +8397,7 @@
     {
       "trial_id": "aurelius-lytix-bcell-lymphoma",
       "source_url": "https://aureliusbio.com/",
-      "reviewed_at": "2026-10-18T07:20:10.816822+00:00",
+      "reviewed_at": "2026-11-09T09:21:12.869381-05:00",
       "cases": [
         {
           "name": "Published exact cohort candidate",
@@ -8233,9 +8507,31 @@
             "immunotherapy_history": "Previously received"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "B-cell lymphoma",
+            "chemo": "Never"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "T-cell lymphoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "B-cell lymphoma"
+          },
+          "expected": "screen"
         }
       ],
-      "criteria": "Published primary criteria require previously untreated stage III–V(a) B-cell lymphoma. Known prior lymphoma chemotherapy, tumor radiation or immunotherapy contradict untreated status.",
+      "criteria": "Previously untreated canine B-cell lymphoma stage 3–5(a); informed consent and ability to attend 3-day initial and ≥2 follow-up visits; remaining exact screening not publicly stated.",
       "source_read_at": "2026-10-18T03:09:06.367897-04:00",
       "current_primary_evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/8b8248af58bcfd8957.json",
       "field_review": {
@@ -8251,7 +8547,10 @@
       "selection_sha256": "73581fb8a0874e50edcd1c8e62911e7c0f14cb27181dbe651db831c433767e38",
       "selection_reconciled_at": "2026-10-22T01:20:49.544983+00:00",
       "source_evidence_reused": true,
-      "source_visit_refreshed_this_run": false
+      "source_visit_refreshed_this_run": true,
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "primary_evidence_source_run": "continue-20261109T075757-0500"
     },
     {
       "trial_id": "nz-kvs-kv9-solid-tumor-pilot",
@@ -9540,10 +9839,10 @@
     {
       "trial_id": "vt-liver-laseit-pdt",
       "source_url": "https://research.vetmed.vt.edu/clinical-trials/current-studies/liver-tumor-pdt.html",
-      "reviewed_at": "2026-11-05T03:20:33.172250-05:00",
+      "reviewed_at": "2026-11-09T09:21:12.869381-05:00",
       "full_protocol_reverified": true,
       "source_evidence_file": "research/audit-runs/daily-20261105T030209-0500/evidence/e0abbe621c67fe820dccc3fd.json",
-      "criteria": "The current official Virginia Tech protocol is limited to dogs with a recently diagnosed, surgically resectable liver tumor whose family has elected surgical removal. Other life-threatening disease and non-resectable tumors exclude. CT, bloodwork and the surgical workup determine final eligibility. Published costs cover study PDT, recheck CT, the two-day hospital stay and $2,000 toward surgery; other costs remain with the owner.",
+      "criteria": "Dog with newly diagnosed surgically resectable liver tumor; owner elects resection; CT/blood work fit and no other life-threatening disease.",
       "cases": [
         {
           "name": "dog with a liver tumor needs surgical-team screening",
@@ -9584,9 +9883,35 @@
             "cancer": "Brain tumor"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Other liver tumor",
+            "surgery": "Yes"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "species": "Cat",
+            "cancer": "Other liver tumor"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Other liver tumor"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "207a2afff91368ab98612db2a1c8bc4b814aa0fd1478395d2146668b6d066297"
+      "selection_sha256": "207a2afff91368ab98612db2a1c8bc4b814aa0fd1478395d2146668b6d066297",
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "jp-tottori-pdt",
