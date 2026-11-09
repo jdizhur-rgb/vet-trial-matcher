@@ -5253,8 +5253,8 @@
     {
       "trial_id": "wisc-lymphoma-half-body-rt-chop",
       "source_url": "https://uwveterinarycare.wisc.edu/wp-content/uploads/2026/09/HDR-HBRT_Reference-Sheet.docx",
-      "reviewed_at": "2026-11-03T04:22:57.730147-05:00",
-      "criteria": "Current Wisconsin September2026 reference requires ongoing CHOP, large-cell multicentric stage III+ lymphoma and partial/complete response after two CHOP cycles; radiation is interposed with CHOP.",
+      "reviewed_at": "2026-11-09T09:51:20.262935-05:00",
+      "criteria": "Canine large-cell multicentric stage III+, B or T, treatment naive before CHOP, currently in CHOP and partial/complete remission after two cycles (week 9); excludes progression or medical inability to tolerate anesthesia/CHOP.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -5292,6 +5292,30 @@
             "species": "Cat"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "B-cell lymphoma",
+            "chemo": "Currently receiving",
+            "lymphoma_response": "Partial response"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "B-cell lymphoma",
+            "chemo": "Never"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "B-cell lymphoma"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "16400c576d05a6f769126ff42de6cc9bbcf9120665d8a6fdb3cb39c2fd188c94",
@@ -5299,7 +5323,10 @@
       "evidence_refs": [
         "research/audit-runs/daily-20261103T030532-0500/evidence/9307c24c304578b12633.json"
       ],
-      "evidence_scope": "Full current allowed primary invitation/consent reread, all five clinical fact groups; source index restriction remains separate."
+      "evidence_scope": "Full current allowed primary invitation/consent reread, all five clinical fact groups; source index restriction remains separate.",
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_source_run": "continue-20261109T075757-0500"
     },
     {
       "trial_id": "mizzou-bcell-btk-bi705564",
@@ -6953,8 +6980,8 @@
     {
       "trial_id": "korea-vaxleukin15-mammary-2026",
       "source_url": "https://www.vaxcell-bio.com/en/animal01.php",
-      "reviewed_at": "2026-10-27T04:41:55.806674-04:00",
-      "criteria": "Current Vaxcell product information establishes approved canine mammary-tumor treatment alongside surgical standard care,including postoperative adjuvant use. Previous surgery satisfies the backbone;another planned operation is not universally required. Current full product information also labels canine lymphoma as adjunct to chemotherapy; mammary surgical standard care does not apply to lymphoma. Feline development is not approved access. Costs remain undisclosed. One commercial product/program, no duplicate trial.",
+      "reviewed_at": "2026-11-09T09:51:20.262935-05:00",
+      "criteria": "Dog with appropriate mammary tumor and standard surgery planned or completed; feline indications not approved.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -7071,15 +7098,45 @@
             ]
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "country": "South Korea",
+            "cancer": "Mammary carcinoma",
+            "surgery": "Yes"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "species": "Cat",
+            "country": "South Korea",
+            "cancer": "Mammary carcinoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "country": "South Korea",
+            "cancer": "Mammary carcinoma"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "133c5f595d77b0893846574f13985341622b0cafb08bdf57d748bbf63307f068"
+      "selection_sha256": "133c5f595d77b0893846574f13985341622b0cafb08bdf57d748bbf63307f068",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "korea-vaxleukin15-lymphoma-2026",
       "source_url": "https://www.vaxcell-bio.com/en/animal01.php",
-      "reviewed_at": "2026-11-02T04:19:30.260705-05:00",
-      "criteria": "Current Vaxcell product information establishes approved canine lymphoma immunoadjuvant only in combination with standard chemotherapy,not stand-alone IL15.",
+      "reviewed_at": "2026-11-09T09:51:20.262935-05:00",
+      "criteria": "Dog with lymphoma as adjunct to chemotherapy; prescribing clinician assesses phenotype, plans and drug risks. No prior surgery requirement.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -7108,11 +7165,42 @@
             "species": "Cat"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "country": "South Korea",
+            "cancer": "B-cell lymphoma",
+            "prefs": [
+              "Chemotherapy",
+              "Immunotherapy"
+            ]
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "species": "Cat",
+            "country": "South Korea",
+            "cancer": "B-cell lymphoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "country": "South Korea",
+            "cancer": "B-cell lymphoma"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "32ab2eaaacbd3fd51b4c8f901f3bf5857328902096efa5bca27ab83713e749c4",
-      "source_visit_refreshed_this_run": true,
-      "primary_evidence_review_run": "daily-20261102T030506-0500"
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "full_protocol_reverified": true,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "medvet-egfr-her2-vaccine-2026",
@@ -7474,8 +7562,8 @@
     {
       "trial_id": "msu-hs-quasiorganelle",
       "source_url": "https://veterinaryclinicaltrials.org/s/pilot-study-for-a-new-quasiorganelle-therapy-in-dogs-with-histiocytic-sarcoma-751925/",
-      "reviewed_at": "2026-11-05T03:24:23.404896-05:00",
-      "criteria": "MSU quasiorganelle primary requires visible HS,>=20kg,VCOG<=2 and medication washouts. Therapeutic-inclusion decision remains unresolved because its primary purpose is first-in-patient safety/dosing.",
+      "reviewed_at": "2026-11-09T09:51:20.262935-05:00",
+      "criteria": "Confirmed HS including hemophagocytic, visible ≤5 lesions with sum <15cm, ≥20kg, VCOG ≤2, organ function adequate. No specific concurrent disease, wound, immunodeficiency; systemic antibiotics/immune suppression, prednisone/chemo/RT washouts as published. Avoid pregnancy exposure in home.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -7505,17 +7593,45 @@
             "cancer": "Histiocytic sarcoma"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "cancer": "Histiocytic sarcoma",
+            "weight_known": true,
+            "weight_lb": 50
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "cancer": "Histiocytic sarcoma",
+            "weight_known": true,
+            "weight_lb": 40
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "cancer": "Histiocytic sarcoma"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "a17e6c87ca6b451307d9667d9708de7fa3605ed8772d32ff5c61ee14a9379a92",
       "full_protocol_reverified": true,
-      "source_evidence_file": "research/audit-runs/daily-20261105T030209-0500/web-issue-fallback.json"
+      "source_evidence_file": "research/audit-runs/daily-20261105T030209-0500/web-issue-fallback.json",
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "msu-feline-mammary-met",
       "source_url": "https://veterinaryclinicaltrials.org/s/efficacy-and-safety-of-a-novel-anti-cancer-therapeutic-for-the-treatment-of-metastatic-mammary-carcinoma-in-cats-290584/",
-      "reviewed_at": "2026-11-05T03:24:23.404896-05:00",
-      "criteria": "MSU feline metastatic-mammary protocol requires metastatic carcinoma;postmastectomy disease can qualify and molecular screening is required.",
+      "reviewed_at": "2026-11-09T09:51:20.262935-05:00",
+      "criteria": "Cat with confirmed mammary carcinoma plus metastasis and documented miR-10b overexpression; nonulcerated external lesion ≤8 cm³ total, reasonable organ function and expected survival >4 weeks. Prior surgery/chemo and concurrent NSAIDs may be allowed.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -7544,11 +7660,40 @@
             "cancer": "Mammary carcinoma"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "species": "Cat",
+            "cancer": "Mammary carcinoma",
+            "metastasis": "Confirmed metastases"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "species": "Cat",
+            "cancer": "Mammary carcinoma",
+            "metastasis": "No known metastases"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "species": "Cat",
+            "cancer": "Mammary carcinoma"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "8c735d83553b528074ff6574e13e88e9fd57de67b542c454b7ff86c9a30f2aee",
       "full_protocol_reverified": true,
-      "source_evidence_file": "research/audit-runs/daily-20261105T030209-0500/web-issue-fallback.json"
+      "source_evidence_file": "research/audit-runs/daily-20261105T030209-0500/web-issue-fallback.json",
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "cornell-oscc-trametinib",
@@ -9175,8 +9320,8 @@
     {
       "trial_id": "jp-multicenter-oral-melanoma-anti-pd1-2026",
       "source_url": "https://www.kamogawa-ac.jp/2026/09/30/24722/",
-      "reviewed_at": "2026-10-30T03:18:29.010609-04:00",
-      "criteria": "Current Japanese3site sponsored PD1 protocol is specifically canine oral melanoma with six fortnightly visits.",
+      "reviewed_at": "2026-11-09T09:51:20.262935-05:00",
+      "criteria": "Diagnosed oral malignant melanoma in dogs; site clinical state/staging and restricted meds; pathology/cytology needed, six visits every two weeks. No unverified numeric stage or size criterion.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -9204,11 +9349,39 @@
             "cancer": "Oral melanoma"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Oral melanoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "species": "Cat",
+            "country": "Japan",
+            "cancer": "Oral melanoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "country": "Japan",
+            "cancer": "Oral melanoma"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "99d6471f47d2fa8dfa565e100e47efd2947c4fdae1709786977911dd7307b474",
       "full_protocol_reverified": true,
-      "evidence_receipt": "research/audit-runs/daily-20261030T030022-0400/kamogawa-pd1-full-published-review.json"
+      "evidence_receipt": "research/audit-runs/daily-20261030T030022-0400/kamogawa-pd1-full-published-review.json",
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "jp-yamaguchi-canine-lymphoid-anti-cd20",
@@ -9626,7 +9799,7 @@
     {
       "trial_id": "ca-ovc-feline-oscc-porphysome-pdt",
       "source_url": "https://ovcclinicaltrials.uoguelph.ca/all-active-feline-clinical-trials-onco/",
-      "reviewed_at": "2026-10-18T07:18:57.446516+00:00",
+      "reviewed_at": "2026-11-09T09:51:20.262935-05:00",
       "cases": [
         {
           "name": "Published exact cohort candidate",
@@ -9654,9 +9827,36 @@
             "cancer": "Oral squamous cell carcinoma"
           },
           "expected": "review"
+        },
+        {
+          "name": "Nov 9 primary candidate",
+          "patient": {
+            "species": "Cat",
+            "country": "Canada",
+            "cancer": "Oral squamous cell carcinoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Nov 9 published contradiction",
+          "patient": {
+            "species": "Cat",
+            "country": "Canada",
+            "cancer": "Mammary carcinoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Nov 9 unknown answers require screening",
+          "patient": {
+            "species": "Cat",
+            "country": "Canada",
+            "cancer": "Oral squamous cell carcinoma"
+          },
+          "expected": "screen"
         }
       ],
-      "criteria": "Cat; Confirmed oral-cavity SCC; Porphysome nanoparticles plus phototherapy, oral subproject; Cat OCSCC is the published active cohort; broader dog/cat solid-tumour scientific title does not broaden the listed feline intake.; OVC; Not publicly specified; retained Unknown, not free.; Dr Michelle Oblak / OVC Clinical Trials; Full stage/size/prior-treatment limits and owner-covered costs are not supplied by this study section.",
+      "criteria": "Confirmed feline oral cavity squamous cell carcinoma; further protocol screening requirements not publicly enumerated.",
       "source_read_at": "2026-10-18T03:08:21.384222-04:00",
       "current_primary_evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/4b9298f440e024f4a8.json",
       "field_review": {
@@ -9669,7 +9869,11 @@
         "contact": "Dr Michelle Oblak / OVC Clinical Trials",
         "unpublished": "Full stage/size/prior-treatment limits and owner-covered costs are not supplied by this study section."
       },
-      "selection_sha256": "2202804cd67acf243936b557201e496b726abfdcbdb54058e60d3a6e86f8469c"
+      "selection_sha256": "2202804cd67acf243936b557201e496b726abfdcbdb54058e60d3a6e86f8469c",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "aurelius-lytix-bcell-lymphoma",
