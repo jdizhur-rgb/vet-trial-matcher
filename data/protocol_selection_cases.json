@@ -1233,8 +1233,8 @@
     {
       "trial_id": "cornell-smart-start-bcell-lymphoma",
       "source_url": "https://www.vet.cornell.edu/hospitals/clinical-trials/smart-start-therapy-canine-b-cell-lymphoma",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Cornell SmartStart source is explicitly B-cell lymphoma with CHOP-based study treatment.",
+      "reviewed_at": "2026-11-09T08:44:17.810218-05:00",
+      "criteria": "Diagnosed canine B-cell lymphoma, no previous treatment except prednisolone, willing to use CHOP.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -1322,9 +1322,39 @@
           },
           "expected": "exclude",
           "retained_from_reviewed_at": "2026-10-12T22:49:56.329874-04:00"
+        },
+        {
+          "name": "current primary candidate",
+          "patient": {
+            "species": "Dog",
+            "cancer": "B-cell lymphoma",
+            "steroids": "Currently taking"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "current primary contradiction",
+          "patient": {
+            "species": "Dog",
+            "cancer": "B-cell lymphoma",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "missing answer requires screening",
+          "patient": {
+            "species": "Dog",
+            "cancer": "B-cell lymphoma",
+            "chemo": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "7a8cbb30ac2623135e61fdba2557140bbf969c84b7fbc73ea86da36dcd8bab8e"
+      "selection_sha256": "7a8cbb30ac2623135e61fdba2557140bbf969c84b7fbc73ea86da36dcd8bab8e",
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "osu-oral-melanoma",
@@ -6277,8 +6307,8 @@
     {
       "trial_id": "cornell-oscc-trametinib",
       "source_url": "https://www.vet.cornell.edu/hospitals/clinical-trials/new-drug-oral-squamous-cell-carcinoma-dogs",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Cornell trametinib primary is specifically canine oral SCC.",
+      "reviewed_at": "2026-11-09T08:44:17.810218-05:00",
+      "criteria": "Dog with oral SCC; hospital exact criteria says diagnosed; lab can prescreen strong suspicion. Keep diagnosed required for enrollment, unknown requires screening.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -6306,9 +6336,37 @@
             "cancer": "Oral squamous cell carcinoma"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "current primary candidate",
+          "patient": {
+            "species": "Dog",
+            "cancer": "Oral squamous cell carcinoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "current primary contradiction",
+          "patient": {
+            "species": "Dog",
+            "cancer": "Oral melanoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "missing answer requires screening",
+          "patient": {
+            "species": "Dog",
+            "cancer": "Oral squamous cell carcinoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "9bcb91309dfb33c60ca8d0c5b7315e9786b608a77adcb24727a848017fa847d8"
+      "selection_sha256": "9bcb91309dfb33c60ca8d0c5b7315e9786b608a77adcb24727a848017fa847d8",
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "wisc-osa-flash-radiotherapy",
@@ -6356,8 +6414,8 @@
     {
       "trial_id": "barc-gold-nanoparticle-photothermal-2026",
       "source_url": "https://www.barcseattle.com/clinical-trials-index",
-      "reviewed_at": "2026-11-02T04:19:30.260716-05:00",
-      "criteria": "BARC gold-nanoparticle primary separates dog/cat diagnoses and superficial tumor size,bone-involvement restrictions;blood cancer is not the published cohort.",
+      "reviewed_at": "2026-11-09T08:44:17.810218-05:00",
+      "criteria": "Dogs: MCT >2 cm, STS <2 cm, oral melanoma 2–3 cm, cutaneous/foot melanoma <2 cm; cats: oral SCC without bone invasion or selected cutaneous MCT, sarcoma and carcinoma.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -6376,11 +6434,36 @@
             "cancer": "B-cell lymphoma"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "current primary candidate",
+          "patient": {
+            "species": "Dog",
+            "cancer": "Oral melanoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "current primary contradiction",
+          "patient": {
+            "species": "Dog",
+            "cancer": "B-cell lymphoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "missing answer requires screening",
+          "patient": {
+            "species": "Cat",
+            "cancer": "Oral squamous cell carcinoma"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "5df4ab82440cc368037ec6083e841ed327eea1ec7a9ae9b3d7a53c294d5269da",
-      "source_visit_refreshed_this_run": true,
-      "primary_evidence_review_run": "daily-20261102T030506-0500"
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "uf-oral-melanoma-vaccine-pd1",
@@ -6538,8 +6621,8 @@
     {
       "trial_id": "barc-scc-intratumoral-carboplatin-2026",
       "source_url": "https://www.barcseattle.com/clinical-trials-index",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "BARC superficial canine SCC carboplatin source requires nonmetastatic measurableSCC>=1cm and no prior chemo,radiation or immunotherapy.",
+      "reviewed_at": "2026-11-09T08:44:17.810218-05:00",
+      "criteria": "Canine confirmed superficial SCC with ≥1cm measurable lesion, no metastasis, no prior chemo, RT or immunotherapy, adequate organs and counts.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -6568,9 +6651,38 @@
             "cancer": "Squamous cell carcinoma — other"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "current primary candidate",
+          "patient": {
+            "species": "Dog",
+            "cancer": "Squamous cell carcinoma — other"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "current primary contradiction",
+          "patient": {
+            "species": "Dog",
+            "cancer": "Squamous cell carcinoma — other",
+            "metastasis": "Confirmed metastases"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "missing answer requires screening",
+          "patient": {
+            "species": "Dog",
+            "cancer": "Squamous cell carcinoma — other",
+            "metastasis": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "98d10e9d952fbe980d60bc9cb1f1105561eafa491f62b525f4eb97324ca0c9a8"
+      "selection_sha256": "98d10e9d952fbe980d60bc9cb1f1105561eafa491f62b525f4eb97324ca0c9a8",
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "vt-thyroid-histotripsy",
@@ -7609,8 +7721,8 @@
     {
       "trial_id": "jp-gifu-feline-oscc-radiotherapy-lavurchin",
       "source_url": "https://www.animalhospital.gifu-u.ac.jp/cancer/clinical_trial/202508.html",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "Gifu primary offers five radiation days with lavurchin for feline oral SCC.",
+      "reviewed_at": "2026-11-09T08:44:17.810218-05:00",
+      "criteria": "Feline oral SCC with planned radiotherapy; staging/prior-treatment or other clinical criteria not separately published.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -7641,9 +7753,40 @@
             "cancer": "Oral squamous cell carcinoma"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "current primary candidate",
+          "patient": {
+            "species": "Cat",
+            "country": "Japan",
+            "cancer": "Oral squamous cell carcinoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "current primary contradiction",
+          "patient": {
+            "species": "Dog",
+            "country": "Japan",
+            "cancer": "Oral squamous cell carcinoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "missing answer requires screening",
+          "patient": {
+            "species": "Cat",
+            "country": "Japan",
+            "cancer": "Oral squamous cell carcinoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "999e4c225654cbd160e4fab1cc858e566a27b88c989145f2c89a63b6e86a1756"
+      "selection_sha256": "999e4c225654cbd160e4fab1cc858e566a27b88c989145f2c89a63b6e86a1756",
+      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
     },
     {
       "trial_id": "jp-hokkaido-canine-oral-melanoma-anti-pdl1",
