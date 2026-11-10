@@ -62,7 +62,7 @@ def before_later_ri_pass(rows, path):
     Every changed current row is checked first. The original European counts,
     hashes, dates and branch-identity assertions below remain unchanged.
     """
-    for run in ('maine-care-20261109', 'germany-care-20261107', 'ct-care-statewide-20261106'):
+    for run in ('maine-care-followup-20261109', 'maine-care-20261109', 'germany-care-20261107', 'ct-care-statewide-20261106'):
         directory = ROOT / 'research/audit-runs' / run
         spec = read(directory / 'baseline-projection.json')['collections'][path]
         identity_key = 'id' if path.endswith('source_inventory.json') else 'source_id'
