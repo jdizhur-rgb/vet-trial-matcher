@@ -5399,8 +5399,8 @@
     {
       "trial_id": "csu-feline-oscc-immunotherapy",
       "source_url": "https://clinicaltrials.csuveterinaryhealth.org/s/novel-immunotherapy-for-cats-with-oral-squamous-cell-carcinoma-126320/",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "CSU feline OSCC accepts oral tumors including nearby-node involvement but excludes spread beyond nearby nodes; injectable accessible tumor and repeated anesthesia are required.",
+      "reviewed_at": "2026-11-09T20:05:58.604052-05:00",
+      "criteria": "CSU IACUC 8084: injection-accessible confirmed feline oral SCC; regional nodes may be involved, no spread beyond them; adequate liver/kidney, repeated anesthesia fit and no immune-suppressing medications. Exact current official compensation includes study procedures and up to $1000 for related adverse effects.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -5425,9 +5425,43 @@
             "cancer": "Oral squamous cell carcinoma"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "Recovery: confirmed oral SCC and no immunosuppressive treatment still requires investigator review",
+          "patient": {
+            "species": "Cat",
+            "cancer": "Oral squamous cell carcinoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "immunosuppressive": "No"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Recovery: current immunosuppressive drugs exclude",
+          "patient": {
+            "species": "Cat",
+            "cancer": "Oral squamous cell carcinoma",
+            "immunosuppressive": "Yes"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Recovery: unknown immunosuppression requires screening",
+          "patient": {
+            "species": "Cat",
+            "cancer": "Oral squamous cell carcinoma"
+          },
+          "expected": "screen",
+          "unknown_contains": [
+            "immunosuppressive"
+          ]
         }
       ],
-      "selection_sha256": "b75a9615f6cf47b116407c46b6d3792d381222c2f5d30108ef7fe6b543f81419"
+      "selection_sha256": "b75a9615f6cf47b116407c46b6d3792d381222c2f5d30108ef7fe6b543f81419",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "recovery-20261109T195819-0500",
+      "primary_evidence_source_run": "recovery-20261109T195819-0500",
+      "source_visit_refreshed_this_run": true
     },
     {
       "trial_id": "csu-osa-3d-limb-spare",
@@ -8070,8 +8104,8 @@
     {
       "trial_id": "tufts-z007-broad-solid-2026",
       "source_url": "https://vet.tufts.edu/clinical-trials/evaluation-tlr-agonist-z-007-dogs-cancer",
-      "reviewed_at": "2026-11-09T09:41:53.719038-05:00",
-      "criteria": "Dog ≥7 kg, repeat-biopsy accessible solid tumor 2–7 cm, expected survival ≥8 weeks; untreated or failed standard therapy, no previous immunotherapy, autoimmune history, significant organ illness or count abnormalities. Metastasis permitted.",
+      "reviewed_at": "2026-11-09T20:05:58.604052-05:00",
+      "criteria": "Tufts Z-007: eligible solid tumors generally 2–7 cm with repeat-biopsy access, dog at least 7 kg and expected survival at least 8 weeks, no prior immunotherapy; metastasis is not automatically exclusionary. Liver tumor eligibility requires explicit site review. Dated recruitment endpoint not published.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -8125,13 +8159,42 @@
             "cancer": "Soft tissue sarcoma"
           },
           "expected": "screen"
+        },
+        {
+          "name": "Recovery: metastasis alone does not automatically exclude a solid tumor",
+          "patient": {
+            "cancer": "Soft tissue sarcoma",
+            "metastasis": "Confirmed metastases",
+            "weight_known": true,
+            "weight_lb": 22
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Recovery: below seven kilograms does not qualify",
+          "patient": {
+            "cancer": "Soft tissue sarcoma",
+            "weight_known": true,
+            "weight_lb": 12
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Recovery: survival estimate requires clinical screening",
+          "patient": {
+            "cancer": "Soft tissue sarcoma"
+          },
+          "expected": "screen",
+          "unknown_contains": [
+            "expected survival"
+          ]
         }
       ],
-      "selection_sha256": "ea37c77c327a7a59cf38f6e57028bcf1d11a7c2db3a643ddb048def0e3f5625f",
+      "selection_sha256": "ef15a4afccb359e9872277a56c51a4fd758dbeb04d6ee212ca28eba707b35634",
       "full_protocol_reverified": true,
-      "primary_evidence_review_run": "continue-20261109T075757-0500",
-      "source_visit_refreshed_this_run": false,
-      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
+      "primary_evidence_review_run": "recovery-20261109T195819-0500",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_source_run": "recovery-20261109T195819-0500"
     },
     {
       "trial_id": "eu-ch-pnst-plexus-fluorescence-surgery",

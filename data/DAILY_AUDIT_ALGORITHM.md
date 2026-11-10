@@ -42,6 +42,14 @@ strict receipt/gap-review validators; no historical run is retroactively repaire
   each treatment lead needs primary evidence and exact canonical IDs/semantic
   comparison, or an explicit unresolved disposition. Inspect named protocol
   links even when their domain is already in inventory.
+- A partial roster cannot defer a named, permitted protocol link or an available
+  registry result. Enumerate every accessible oncology candidate in the same
+  pass and record its protocol-level disposition even if another part of that
+  source remains incomplete. For paginated or lazy-loaded registries, match the
+  declared result count against unique IDs examined; use the official native
+  feed or load all pages. Inspect the full individual protocol, including
+  separate eligibility, dates and compensation sections. A registry-level
+  recruiting badge does not override the individual protocol's elapsed cutoff.
 - Keep the dedicated daily deadline check independent of equality and deferral
   rules. Extract semantic dates from primary text/PDFs with site/cohort/timezone
   scope; the new accounting gate does not prove a date parser medically correct.
