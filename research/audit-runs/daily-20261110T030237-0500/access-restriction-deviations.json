@@ -1,0 +1,418 @@
+{
+  "run_id": "daily-20261110T030237-0500",
+  "count": 24,
+  "deviations": [
+    {
+      "source_id": "usa-johns-hopkins-cigat",
+      "url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+      "attempted_at": "2026-11-10T03:04:31.703150-05:00",
+      "http_status": 200,
+      "result": "retrieved",
+      "restriction": {
+        "url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:00:31.465749+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "jhu-cigat-osa-cryo-immunotherapy-2026",
+          "jhu-cigat-brain-rt-tmz-2026",
+          "jhu-cigat-mammary-kubanda-cryo-2026"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "effect": "execution deviation; do not retry or refresh source dates from this attempt"
+    },
+    {
+      "source_id": "usa-minnesota-current-clinical-trials",
+      "url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials",
+      "attempted_at": "2026-11-10T03:04:34.599516-05:00",
+      "http_status": 200,
+      "result": "retrieved",
+      "restriction": {
+        "url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:05:31.472089+00:00",
+        "http_status": 403,
+        "record_ids": [],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "effect": "execution deviation; do not retry or refresh source dates from this attempt"
+    },
+    {
+      "source_id": "usa-penn-vet-clinical-trials",
+      "url": "https://www.vet.upenn.edu/clinical-trials/",
+      "attempted_at": "2026-11-10T03:04:36.106888-05:00",
+      "http_status": 200,
+      "result": "retrieved",
+      "restriction": {
+        "url": "https://www.vet.upenn.edu/clinical-trials/",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:05:31.472712+00:00",
+        "http_status": 403,
+        "record_ids": [],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "effect": "execution deviation; do not retry or refresh source dates from this attempt"
+    },
+    {
+      "source_id": "usa-penn-comparative-immunotherapy-trials",
+      "url": "https://www.vet.upenn.edu/research/research-programs/comparative-immunotherapy-program/clinical-trials/",
+      "attempted_at": "2026-11-10T03:04:38.947599-05:00",
+      "http_status": 200,
+      "result": "retrieved",
+      "restriction": {
+        "url": "https://www.vet.upenn.edu/research/research-programs/comparative-immunotherapy-program/clinical-trials/",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:00:38.046703+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "penn-osa-car-inkt-newly-diagnosed",
+          "penn-anti-pd1-urothelial-carcinoma",
+          "penn-bcell-car-t-registry"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "effect": "execution deviation; do not retry or refresh source dates from this attempt"
+    },
+    {
+      "source_id": "usa-georgia-clinical-trials",
+      "url": "https://vet.uga.edu/research/clinical-trials/",
+      "attempted_at": "2026-11-10T03:04:43.490545-05:00",
+      "http_status": 200,
+      "result": "retrieved",
+      "restriction": {
+        "url": "https://vet.uga.edu/research/clinical-trials/",
+        "do_not_retry": true,
+        "observed_at": "2026-10-27T04:52:21-04:00",
+        "http_status": 403,
+        "method": "Web",
+        "origin": "research/audit-runs/daily-20261027T030001-0400/webremaining9.json",
+        "reference": "turn1197view0"
+      },
+      "effect": "execution deviation; do not retry or refresh source dates from this attempt"
+    },
+    {
+      "source_id": "usa-wisconsin-oncology-studies",
+      "url": "https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/",
+      "attempted_at": "2026-11-10T03:04:46.947969-05:00",
+      "http_status": 200,
+      "result": "retrieved",
+      "restriction": {
+        "url": "https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/",
+        "do_not_retry": true,
+        "origin": "explicit_prior_master_denial_narrative",
+        "source_id": "usa-wisconsin-oncology-studies"
+      },
+      "effect": "execution deviation; do not retry or refresh source dates from this attempt"
+    },
+    {
+      "source_id": "usa-ethos-clinical-studies",
+      "url": "https://www.ethosvet.com/clinical-studies/",
+      "attempted_at": "2026-11-10T03:04:47.898134-05:00",
+      "http_status": 404,
+      "result": "retrieved",
+      "restriction": {
+        "url": "https://www.ethosvet.com/clinical-studies/",
+        "do_not_retry": true,
+        "origin": "daily-20261017/inherited-gates.json",
+        "historical_scope": {
+          "source_id": "usa-ethos-clinical-studies",
+          "evidence": {
+            "url": "https://www.ethosvet.com/clinical-studies/",
+            "method": "Web",
+            "attempted_at": "2026-10-15T03:19:02-04:00",
+            "http_status": 403,
+            "result": "explicit_denial",
+            "evidence_file": "research/audit-runs/daily-20261015T030225-0400/web-15.json",
+            "evidence_reference": "turn746view3",
+            "do_not_retry": true,
+            "reason": "Retain the exact previously denied URL even when its parent source is partial and a later erroneous request returns404."
+          }
+        }
+      },
+      "effect": "execution deviation; do not retry or refresh source dates from this attempt"
+    },
+    {
+      "source_id": "usa-ethos-discovery-studies",
+      "url": "https://www.ethosdiscovery.org/clinical-studies/",
+      "attempted_at": "2026-11-10T03:04:48.583244-05:00",
+      "http_status": 404,
+      "result": "retrieved",
+      "restriction": {
+        "url": "https://www.ethosdiscovery.org/clinical-studies/",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:05:34.171248+00:00",
+        "http_status": 403,
+        "record_ids": [],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "effect": "execution deviation; do not retry or refresh source dates from this attempt"
+    },
+    {
+      "source_id": "netherlands-utrecht-interventional-oncology",
+      "url": "https://vetoncology.sites.uu.nl/research/interventional/",
+      "attempted_at": "2026-11-10T03:04:54.746466-05:00",
+      "http_status": 200,
+      "result": "retrieved",
+      "restriction": {
+        "url": "https://vetoncology.sites.uu.nl/research/interventional/",
+        "do_not_retry": true,
+        "origin": "explicit_prior_master_denial_narrative",
+        "source_id": "netherlands-utrecht-interventional-oncology"
+      },
+      "effect": "execution deviation; do not retry or refresh source dates from this attempt"
+    },
+    {
+      "source_id": "uk-rvc-clinical-investigation-centre",
+      "url": "https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre",
+      "attempted_at": "2026-11-10T03:04:57.678978-05:00",
+      "http_status": 403,
+      "result": "retrieved",
+      "restriction": {
+        "url": "https://www.rvc.ac.uk/research/facilities-and-resources/clinical-investigation-centre",
+        "do_not_retry": true,
+        "origin": "explicit_prior_master_denial_narrative",
+        "source_id": "uk-rvc-clinical-investigation-centre"
+      },
+      "effect": "execution deviation; do not retry or refresh source dates from this attempt"
+    },
+    {
+      "source_id": "usa-vrcco-clinical-trials",
+      "url": "https://vrcvet.com/clinical-trials/",
+      "attempted_at": "2026-11-10T03:05:13.014102-05:00",
+      "http_status": 200,
+      "result": "retrieved",
+      "restriction": {
+        "url": "https://vrcvet.com/clinical-trials/",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T18:59:57.548904+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "wsu-sts-local-immunotherapy"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "effect": "execution deviation; do not retry or refresh source dates from this attempt"
+    },
+    {
+      "source_id": "usa-wsu-vth-clinical-studies",
+      "url": "https://hospital.vetmed.wsu.edu/appointments/",
+      "attempted_at": "2026-11-10T03:05:13.307150-05:00",
+      "http_status": 403,
+      "result": "retrieved",
+      "restriction": {
+        "url": "https://hospital.vetmed.wsu.edu/appointments/",
+        "do_not_retry": true,
+        "origin": "explicit_prior_master_denial_narrative",
+        "source_id": "usa-wsu-vth-clinical-studies"
+      },
+      "effect": "execution deviation; do not retry or refresh source dates from this attempt"
+    },
+    {
+      "source_id": "china-petcura-mrna-iit",
+      "url": "https://www.petcura.cn/zh/mrna-vaccine/study/",
+      "attempted_at": "2026-11-10T03:05:17.169957-05:00",
+      "http_status": 200,
+      "result": "retrieved",
+      "restriction": {
+        "url": "https://www.petcura.cn/zh/mrna-vaccine/study/",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:00:31.448824+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "china-petcura-personalized-mrna-iit-2026"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "effect": "execution deviation; do not retry or refresh source dates from this attempt"
+    },
+    {
+      "source_id": "usa-nci-comparative-oncology-trials",
+      "url": "https://ccr.cancer.gov/comparative-oncology-program/trials",
+      "attempted_at": "2026-11-10T03:05:17.932813-05:00",
+      "http_status": 403,
+      "result": "retrieved",
+      "restriction": {
+        "url": "https://ccr.cancer.gov/comparative-oncology-program/trials",
+        "do_not_retry": true,
+        "origin": "explicit_prior_master_denial_narrative",
+        "source_id": "usa-nci-comparative-oncology-trials"
+      },
+      "effect": "execution deviation; do not retry or refresh source dates from this attempt"
+    },
+    {
+      "source_id": "japan-jsamc-current-clinical-trials",
+      "url": "https://www.jsamc.jp/dr_info/clinical/clinical07.html",
+      "attempted_at": "2026-11-10T03:05:22.742431-05:00",
+      "http_status": 200,
+      "result": "retrieved",
+      "restriction": {
+        "url": "https://www.jsamc.jp/dr_info/clinical/clinical07.html",
+        "do_not_retry": true,
+        "method": "Web",
+        "http_status": 403,
+        "observed_on": "2026-10-29",
+        "recorded_at": "2026-10-29T03:28:11.192311-04:00",
+        "origin": "research/audit-runs/daily-20261029T030505-0400/discovery-primary-2.json",
+        "reason": "Actual same-path Web403; native pre-denial evidence retained with its original timestamp; no later retry."
+      },
+      "effect": "execution deviation; do not retry or refresh source dates from this attempt"
+    },
+    {
+      "source_id": "japan-jvcog-current-clinical-trials",
+      "url": "https://www.jvcog.jp/clinical/index.html",
+      "attempted_at": "2026-11-10T03:05:26.478534-05:00",
+      "http_status": 200,
+      "result": "retrieved",
+      "restriction": {
+        "url": "https://www.jvcog.jp/clinical/index.html",
+        "do_not_retry": true,
+        "origin": "explicit_prior_master_denial_narrative",
+        "source_id": "japan-jvcog-current-clinical-trials"
+      },
+      "effect": "execution deviation; do not retry or refresh source dates from this attempt"
+    },
+    {
+      "source_id": "brazil-usp-loct-oncolytic-virus-program",
+      "url": "https://loct.fzea.usp.br/?page_id=848",
+      "attempted_at": "2026-11-10T03:05:26.607379-05:00",
+      "http_status": 200,
+      "result": "retrieved",
+      "restriction": {
+        "url": "https://loct.fzea.usp.br/?page_id=848",
+        "source_ids": [
+          "brazil-usp-loct-oncolytic-virus-program"
+        ],
+        "do_not_retry": true,
+        "observed_at": "2026-10-31T03:32:49.666146-04:00",
+        "http_status": null,
+        "restriction_kind": "automatic_review_scope_not_established",
+        "new_source_visit": false,
+        "reason": "Mixed action rejected because requested host appeared tied to frozen USP/FAPESP source. Exact permissible source scope remains NOT VERIFIED; temporary planning hold, not a claimed HTTP403 or global institution ban.",
+        "origin": "research/audit-runs/daily-20261031T032935-0400/automatic-review-rejection.json"
+      },
+      "effect": "execution deviation; do not retry or refresh source dates from this attempt"
+    },
+    {
+      "source_id": "fr-armonia-current-clinical-studies",
+      "url": "https://www.anicura.fr/cliniques/armonia/etudes-cliniques-en-cours-chv-anicura-armonia/",
+      "attempted_at": "2026-11-10T03:05:55.349231-05:00",
+      "http_status": 200,
+      "result": "retrieved",
+      "restriction": {
+        "url": "https://www.anicura.fr/cliniques/armonia/etudes-cliniques-en-cours-chv-anicura-armonia/",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T18:59:47.653454+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "eu-fr-hifu-urothelial"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "effect": "execution deviation; do not retry or refresh source dates from this attempt"
+    },
+    {
+      "source_id": "uk-cambridge-veterinary-clinical-trials",
+      "url": "https://www.vet.cam.ac.uk/research/clinical-trials",
+      "attempted_at": "2026-11-10T03:06:04.770435-05:00",
+      "http_status": 200,
+      "result": "retrieved",
+      "restriction": {
+        "url": "https://www.vet.cam.ac.uk/research/clinical-trials",
+        "do_not_retry": true,
+        "observed_at": "2026-10-19T03:24:37-04:00",
+        "method": "Web",
+        "http_status": 403,
+        "origin": "research/audit-runs/daily-20261019T032107-0400/web-02.json"
+      },
+      "effect": "execution deviation; do not retry or refresh source dates from this attempt"
+    },
+    {
+      "source_id": "brazil-usp-onvex-precision-oncology",
+      "url": "https://bv.fapesp.br/pt/auxilios/118356/onvex-oncologia-veterinaria-de-precisao-por-reposicionamento-translacional/",
+      "attempted_at": "2026-11-10T03:06:13.859019-05:00",
+      "http_status": 200,
+      "result": "retrieved",
+      "restriction": {
+        "url": "https://bv.fapesp.br/pt/auxilios/118356/onvex-oncologia-veterinaria-de-precisao-por-reposicionamento-translacional/",
+        "do_not_retry": true,
+        "observed_on": "2026-10-29",
+        "origin": "research/audit-runs/daily-20261029T030505-0400/execution-deviations.json",
+        "reason": "Automatic approval review rejected mixed request/poll because this exact historical restricted route was included. Excluded entirely from the permitted segment."
+      },
+      "effect": "execution deviation; do not retry or refresh source dates from this attempt"
+    },
+    {
+      "source_id": "tw-gongwin-animal-oncology",
+      "url": "https://www.gongwinbiopharm.com/pipeline",
+      "attempted_at": "2026-11-10T03:06:21.137373-05:00",
+      "http_status": 403,
+      "result": "retrieved",
+      "restriction": {
+        "url": "https://www.gongwinbiopharm.com/pipeline",
+        "do_not_retry": true,
+        "observed_at": "2026-11-02T09:12:31.637182+01:00",
+        "http_status": 403,
+        "record_ids": [],
+        "origin": "research/audit-runs/daily-20261102T030506-0500/evidence/29ab7dcb371b5c5c79.json",
+        "reason": "Exact observed access gate; no shell/Web retry or institution-wide restriction inferred."
+      },
+      "effect": "execution deviation; do not retry or refresh source dates from this attempt"
+    },
+    {
+      "source_id": "kr-namc-solid-tumor-study",
+      "url": "https://www.namc.co.kr/bbs/board.php?bo_table=tl_notice&page=14&wr_id=23",
+      "attempted_at": "2026-11-10T03:06:22.062046-05:00",
+      "http_status": 200,
+      "result": "retrieved",
+      "restriction": {
+        "url": "https://www.namc.co.kr/bbs/board.php?bo_table=tl_notice&page=14&wr_id=23",
+        "method": "Web",
+        "do_not_retry": true,
+        "http_status": 403,
+        "observed_at": "2026-10-22T03:43:08-04:00",
+        "origin": "research/audit-runs/daily-20261022T030531-0400/web-13.json"
+      },
+      "effect": "execution deviation; do not retry or refresh source dates from this attempt"
+    },
+    {
+      "source_id": "br-usp-fmvz-clinical-recruitment-news",
+      "url": "https://comunica.fmvz.usp.br/recrutamento-de-caes-para-pesquisa-de-cancer-na-area-retal/",
+      "attempted_at": "2026-11-10T03:06:24.865991-05:00",
+      "http_status": 200,
+      "result": "retrieved",
+      "restriction": {
+        "url": "https://comunica.fmvz.usp.br/recrutamento-de-caes-para-pesquisa-de-cancer-na-area-retal/",
+        "source_ids": [
+          "br-usp-fmvz-clinical-recruitment-news"
+        ],
+        "do_not_retry": true,
+        "observed_at": "2026-10-31T03:32:49.666146-04:00",
+        "http_status": null,
+        "restriction_kind": "automatic_review_scope_not_established",
+        "new_source_visit": false,
+        "reason": "Mixed action rejected because requested host appeared tied to frozen USP/FAPESP source. Exact permissible source scope remains NOT VERIFIED; temporary planning hold, not a claimed HTTP403 or global institution ban.",
+        "origin": "research/audit-runs/daily-20261031T032935-0400/automatic-review-rejection.json"
+      },
+      "effect": "execution deviation; do not retry or refresh source dates from this attempt"
+    },
+    {
+      "source_id": "usa-penn-atherton-laboratory",
+      "url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+      "attempted_at": "2026-11-10T03:06:46.975232-05:00",
+      "http_status": 200,
+      "result": "retrieved",
+      "restriction": {
+        "url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:00:42.635965+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "penn-atherton-steap1-car-t-hs"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "effect": "execution deviation; do not retry or refresh source dates from this attempt"
+    }
+  ]
+}

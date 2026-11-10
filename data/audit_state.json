@@ -3,21 +3,20 @@
   "purpose": "Persistent state for incremental discovery and deep-audit cost control. Source fingerprints live in source_inventory.json; this file tracks audit scheduling and unresolved work.",
   "last_full_deep_audit": null,
   "last_incremental_audit": {
-    "run_id": "continue-20261109T075757-0500",
-    "started_at": "2026-11-09T07:16:07.492262-05:00",
-    "checkpoint_at": "2026-11-09T10:13:13.898917-05:00",
+    "run_id": "daily-20261110T030237-0500",
+    "started_at": "2026-11-10T03:02:37.339652-05:00",
+    "completed_at": "2026-11-10T03:36:59.235554-05:00",
+    "checkpoint_at": "2026-11-10T03:36:59.235554-05:00",
     "status": "INCOMPLETE",
-    "receipt": "research/audit-runs/continue-20261109T075757-0500/receipt-final.json",
-    "execution_review": "research/audit-runs/continue-20261109T075757-0500/consolidated-gate/continue-20261109T075757-0500/execution-review.json",
-    "notes": "Permitted current work accounted for, source and independent coverage incomplete; durable queue verified and updated.",
-    "completed_at": "2026-11-09T10:13:13.898917-05:00",
-    "predecessor_run_id": "daily-20261109T071607-0500-run-now",
+    "receipt": "research/audit-runs/daily-20261110T030237-0500/receipt-final.json",
+    "execution_review": "research/audit-runs/daily-20261110T030237-0500/execution-review.json",
+    "notes": "All 161 source routes and 12-region discovery matrix received current decisions; strict roster evidence remains incomplete for 158 sources.",
     "queue_processing": "PASS",
     "clinical_reconciliation": "INCOMPLETE",
-    "sources_processed": 138,
-    "content_sufficient": 60
+    "sources_processed": 161,
+    "content_sufficient": 3
   },
-  "last_source_discovery_attempt": "2026-11-09",
+  "last_source_discovery_attempt": "2026-11-10",
   "forced_full_reread_days": 28,
   "rules": {
     "unchanged_master": "Do not reread every protocol solely because the master page is unchanged; verify changed, stale, unresolved, or due-for-forced-reread items.",
@@ -36,16 +35,18 @@
     "coverage_receipt": "research/audit-runs/weekly-care-20261010T005822-0400/coverage-receipt.json"
   },
   "last_incremental_resume": {
-    "run_id": "continue-20261109T075757-0500",
-    "completed_at": "2026-11-09T10:13:13.898917-05:00",
-    "receipt": "research/audit-runs/continue-20261109T075757-0500/receipt-final.json",
+    "run_id": "daily-20261110T030237-0500",
+    "started_at": "2026-11-10T03:02:37.339652-05:00",
+    "completed_at": "2026-11-10T03:36:59.235554-05:00",
+    "checkpoint_at": "2026-11-10T03:36:59.235554-05:00",
+    "status": "INCOMPLETE",
+    "receipt": "research/audit-runs/daily-20261110T030237-0500/receipt-final.json",
+    "execution_review": "research/audit-runs/daily-20261110T030237-0500/execution-review.json",
+    "notes": "All 161 source routes and 12-region discovery matrix received current decisions; strict roster evidence remains incomplete for 158 sources.",
     "queue_processing": "PASS",
     "clinical_reconciliation": "INCOMPLETE",
-    "status": "INCOMPLETE",
-    "execution_review": "research/audit-runs/continue-20261109T075757-0500/consolidated-gate/continue-20261109T075757-0500/execution-review.json",
-    "predecessor_run_id": "daily-20261109T071607-0500-run-now",
-    "sources_processed": 138,
-    "content_sufficient": 60
+    "sources_processed": 161,
+    "content_sufficient": 3
   },
   "protocol_selection_review": {
     "status": "in_progress",
@@ -55,30 +56,32 @@
     "source_cases": "data/protocol_selection_cases.json",
     "last_full_completed_at": null,
     "forced_full_rereview_days": 28,
-    "progress_receipt": "research/audit-runs/continue-20261109T075757-0500/full-protocol-reviews.json",
-    "last_progress_at": "2026-11-09T10:13:13.898917-05:00",
-    "current_public_total": 154,
-    "independently_reviewed_current_public": 142,
+    "progress_receipt": "research/audit-runs/daily-20261110T030237-0500/validation-results.json",
+    "last_progress_at": "2026-11-10T03:36:59.235554-05:00",
+    "current_public_total": 153,
+    "independently_reviewed_current_public": 141,
     "pending_independent_review_total": 12,
-    "full_fresh_gate_remaining": 59,
+    "full_fresh_gate_remaining": 153,
     "additional_site_scoping_issues": 1,
-    "current_daily_full_protocol_reviews": 95,
+    "current_daily_full_protocol_reviews": 0,
     "execution_queue": "data/audit_execution_queue.json",
-    "execution_validation": "research/audit-runs/continue-20261109T075757-0500/consolidated-gate/continue-20261109T075757-0500/execution-validation.json",
-    "last_current_run_id": "continue-20261109T075757-0500",
-    "current_full_reviews_ref": "research/audit-runs/continue-20261109T075757-0500/public-protocol-coverage.json"
+    "execution_validation": "research/audit-runs/daily-20261110T030237-0500/execution-gate-final.log",
+    "last_current_run_id": "daily-20261110T030237-0500",
+    "current_full_reviews_ref": "research/audit-runs/daily-20261110T030237-0500/validation-results.json"
   },
   "last_targeted_source_reconciliation": {
-    "run_id": "continue-20261109T075757-0500",
-    "completed_at": "2026-11-09T10:13:13.898917-05:00",
-    "sources_processed": 138,
-    "content_sufficient": 60,
+    "run_id": "daily-20261110T030237-0500",
+    "started_at": "2026-11-10T03:02:37.339652-05:00",
+    "completed_at": "2026-11-10T03:36:59.235554-05:00",
+    "checkpoint_at": "2026-11-10T03:36:59.235554-05:00",
     "status": "INCOMPLETE",
-    "receipt": "research/audit-runs/continue-20261109T075757-0500/receipt-final.json",
-    "execution_review": "research/audit-runs/continue-20261109T075757-0500/consolidated-gate/continue-20261109T075757-0500/execution-review.json",
-    "predecessor_run_id": "daily-20261109T071607-0500-run-now",
+    "receipt": "research/audit-runs/daily-20261110T030237-0500/receipt-final.json",
+    "execution_review": "research/audit-runs/daily-20261110T030237-0500/execution-review.json",
+    "notes": "All 161 source routes and 12-region discovery matrix received current decisions; strict roster evidence remains incomplete for 158 sources.",
     "queue_processing": "PASS",
-    "clinical_reconciliation": "INCOMPLETE"
+    "clinical_reconciliation": "INCOMPLETE",
+    "sources_processed": 161,
+    "content_sufficient": 3
   },
   "last_gap_recovery": {
     "run_id": "gap-recovery-20261026T204639-0400",
@@ -99,15 +102,16 @@
     "status": "INCOMPLETE"
   },
   "publication_verification": {
-    "run_id": "continue-20261109T075757-0500",
+    "run_id": "daily-20261110T030237-0500",
     "status": "PASS",
-    "checked_at": "2026-11-09T10:13:13.898917-05:00",
-    "published_data_commit": "2cf0cb7397c7ccd17a1455e6e051fcb3890f8f0a",
+    "checked_at": "2026-11-10T03:36:59.235554-05:00",
+    "published_data_commit": "ee670c9cbf7a4f9cb7e9cdb9b0ca4ef47b6f65cf",
     "production_url": "https://vettrialfinder.com/matcher/",
     "all_required_assets_match": true,
-    "live_usa_search": "PASS (97, full ordered titles)",
-    "live_japan_search": "PASS (14, full ordered titles)",
-    "evidence": "research/audit-runs/continue-20261109T075757-0500/production-final.json"
+    "live_usa_search": "PASS (96, fresh tab; current catalog)",
+    "live_japan_search": "PASS (14, fresh tab; current catalog)",
+    "evidence": "research/audit-runs/daily-20261110T030237-0500/production-readback.json",
+    "note": "No canonical/public site data changed in this run; production remained on the previously published data commit."
   },
   "last_owner_policy_application": {
     "run_id": "owner-rules-20261103T065741-0500",
@@ -117,13 +121,10 @@
     "scope": "One exact AVMA closure, known recruitment cutoffs and4owner-policy resolutions; not a repeated daily audit."
   },
   "last_deadline_review": {
-    "run_id": "continue-20261109T075757-0500",
-    "completed_at": "2026-11-09T10:13:13.898917-05:00",
-    "catalog_records_evaluated": 318,
-    "known_cutoffs": 24,
-    "active_passed_cutoffs": 0,
-    "receipt": "research/audit-runs/continue-20261109T075757-0500/deadline-review.json",
-    "fresh_primary_date_coverage": "INCOMPLETE",
-    "site_only_cutoffs": 1
+    "run_id": "daily-20261110T030237-0500",
+    "reviewed_at": "2026-11-10T03:24:05.655473-05:00",
+    "record_count": 320,
+    "active_crossed_deadline_count": 0,
+    "receipt": "research/audit-runs/daily-20261110T030237-0500/deadline-review.json"
   }
 }

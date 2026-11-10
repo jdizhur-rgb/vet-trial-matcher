@@ -1,0 +1,46 @@
+{
+  "run_id": "daily-20261110T030237-0500",
+  "checked_at": "2026-11-10T03:36:59.235554-05:00",
+  "url": "https://vettrialfinder.com/matcher/",
+  "http_readback": {
+    "status": "PASS",
+    "live_sha256": {
+      "index.html": "101568c0c053717b84183529e58cf1b951224160a47a12244fbcef97c7208cde",
+      "matcher.js": "a9b0a97ca943bb005fc4d5eea77839df43df2e220aaa15c43dd5af7210628375",
+      "trials.json": "13e91da5b239c5d7c956dd1b4d50b5448b29edf2215d9c8f63d7f44b1b4683ad"
+    },
+    "local_sha256": {
+      "index.html": "101568c0c053717b84183529e58cf1b951224160a47a12244fbcef97c7208cde",
+      "matcher.js": "a9b0a97ca943bb005fc4d5eea77839df43df2e220aaa15c43dd5af7210628375",
+      "trials.json": "13e91da5b239c5d7c956dd1b4d50b5448b29edf2215d9c8f63d7f44b1b4683ad"
+    },
+    "all_match": true,
+    "catalog_records": 153,
+    "script_url": "https://vettrialfinder.com/matcher/matcher.js?v=clinical-audit-20261103-owner-rules-r1",
+    "catalog_url": "https://vettrialfinder.com/matcher/trials.json?v=13e91da5b239c5d7"
+  },
+  "rendered_search": {
+    "scenario": {
+      "species": "Dog",
+      "cancer": "Cancer — any type",
+      "diagnosis_certainty": "I don't know",
+      "age": "blank",
+      "weight": "blank",
+      "zip": "blank",
+      "treatments": "all selected",
+      "approach": "Any approach"
+    },
+    "USA": {
+      "result_count": 96,
+      "expected_from_current_build": 96,
+      "status": "PASS"
+    },
+    "Japan": {
+      "result_count": 14,
+      "expected_from_current_build": 14,
+      "status": "PASS"
+    },
+    "method": "cloud_browser fresh tab after catalog load"
+  },
+  "cache_diagnostic": "An older already-open tab initially showed 97 USA results and included the now-suspended Penn osteosarcoma record. A newly created tab loaded the current catalog and correctly showed 96. This was stale tab state, not a current production mismatch."
+}
