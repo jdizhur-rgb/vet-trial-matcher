@@ -45,7 +45,7 @@ def listing(row):
     labels = {'Surgery': 'Tumor surgery', 'ECT': 'Electrochemotherapy (ECT)'}
     services = ''.join(f'<li>{esc(labels.get(s, s))}</li>' for s in row['services'])
     note = f'<p>{esc(row["availability_note"])}</p>' if row.get('availability_note') else ''
-    address = ', '.join(str(row.get(k) or '') for k in ('street', 'city', 'region', 'postal_code'))
+    address = ', '.join(str(row[key]) for key in ('street', 'city', 'region', 'postal_code') if row.get(key))
     # Keep inherited source dates; generating this guide is not a new clinic check.
     checked = f'<p class="ri-source-date">Directory record checked: <time datetime="{esc(row["last_verified"])}">{esc(row["last_verified"])}</time></p>' if row.get('last_verified') else ''
     phone = str(row.get('phone') or '')

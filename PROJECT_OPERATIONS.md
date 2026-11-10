@@ -993,3 +993,7 @@ PVESC moved oncology and specialty surgery to Falmouth on November 2. Preserve t
 ## Maine indexed care follow-up — 2026-11-09
 
 The second pass uses practice-name and clinic-domain queries plus a community-clinic search. It adds five physical surgery listings and closes the Lupine and Portland Vet Stroudwater questions in the earlier review. Animal Welfare Society generally reserves mass removal for existing patients. Rockland and Moosehead retain the narrower evidence from their clinic-owned surgical FAQs. Keep CareVet Coastal Maine's former Blake Vets mass removal evidence as a lead pending current branch confirmation. Scope, source locators and remaining gaps are in `research/audit-runs/maine-care-followup-20261109/`.
+
+## Maine state guide — owner-authorized 2026-11-09
+
+Generate /veterinary-oncology/maine/ from the existing care catalog. The published baseline is 45 physical clinic locations, one mobile service and three chemotherapy locations. Keep the Falmouth move, Dexter's clinic-supplied surgical address, Animal Welfare Society and Dirigo intake restrictions, and Veazie chemotherapy uncertainty explicit. Preserve individual source dates. The state guide enters the normal build, sitemap and internal search and is linked from the oncology care finder.
