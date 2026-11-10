@@ -111,6 +111,8 @@ EXCLUDED_PROFILE_IDS = {
     "3935c200-6335-4680-9dcf-b03ad4f2bb74",  # Mobile Cancer Care mailbox
     "f25f8ffa-fba7-4778-bd6d-9ef48580f8cf",  # Ivaoes pharmaceutical company
     "44c4b36e-4420-40be-be7a-937169dd6780",  # LAVet: no current local oncology established
+    # PVESC oncology relocated to Falmouth on November 2, 2026.
+    "3c97cd77-f716-4ebb-9d05-b9aa03b0062d",  # stale Warren Avenue directory profile
     # Current official roster confirms Ripoll at Bellevue WA; this raw profile
     # incorrectly combines Bellevue organization with the old Ventura address.
     "5a883725-1890-43bc-befb-4ab4369908aa",

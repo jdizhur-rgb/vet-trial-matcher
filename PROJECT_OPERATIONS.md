@@ -983,3 +983,9 @@ The follow-up adds eleven physical locations with clinic-owned evidence for mass
 ## Connecticut statewide directory reconciliation — 2026-11-06
 
 The three-directory and municipality pass is documented in research/audit-runs/ct-care-statewide-20261106/review.json. Use positive clinic-owned branch evidence for surgery and local drug delivery. Noank-Mystic explicitly administers chemotherapy. Do not copy group services across branches, treat a referring site as the treatment facility, or infer that absence from public results means a service does not exist. Keep individually unresolved booking and branch questions in the queue.
+
+## Maine statewide oncology care discovery — 2026-11-09
+
+The public-source pass covers the state's 16 counties, four directory layers and targeted clinic sources. It adds 38 care listings and updates two, for 40 physical locations and one mobile service. The evidence and open questions are in `research/audit-runs/maine-care-20261109/`. Keep explicit procedure scope, new-client restrictions and unverified location coordinates separate from specialty credentials. Heart of Maine performs surgery at its Dexter facility after an in-home evaluation. Its exact surgery address is supplied by the clinic.
+
+PVESC moved oncology and specialty surgery to Falmouth on November 2. Preserve the old ACVIM profile as raw history and suppress its stale oncology location. MVMC's surgery service explicitly lists oncologic surgery. Lucerne explicitly administers injectable chemotherapy and offers oral medications. Veazie's current tumor surgery is listed separately from its unresolved chemotherapy staffing. Port City delivers radiation in Portsmouth, NH. The MVMC squamous cell carcinoma study remains a lead pending protocol-level confirmation of current intake and eligibility.
