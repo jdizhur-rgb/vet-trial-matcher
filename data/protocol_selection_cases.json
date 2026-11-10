@@ -4228,8 +4228,8 @@
     {
       "trial_id": "utsw-vroc-compassionate-advanced-unresectable",
       "source_url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%205.pdf",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "UTSW Study5 brochure permits advanced/inoperable/recurrent non-protocol-listed solid tumors,weight strictly>2.5kg,individual board-selected treatment.",
+      "reviewed_at": "2026-11-09T20:16:55.607033-05:00",
+      "criteria": "Study objective and patient description say canine. Confirmed advanced/inoperable or recurrent tumor not covered by another VROC study; older than six months, above 2.5 kg, expected survival over three weeks, adequate organ function, and owner declines surgery or standard care. Individual protocol chosen by clinical team and board; at least one month of follow-up. Owner pays; possible subsidies only. Generic heading/index mentions cats; does not establish feline eligibility.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -4296,9 +4296,41 @@
           },
           "expected": "exclude",
           "retained_from_reviewed_at": "2026-10-14T07:31:23.043325-04:00"
+        },
+        {
+          "name": "Exact six-month boundary excludes",
+          "patient": {
+            "cancer": "Other solid tumor",
+            "age_known": true,
+            "age": 0.5
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Dog older than six months can reach prescreen",
+          "patient": {
+            "cancer": "Other solid tumor",
+            "age_known": true,
+            "age": 0.75
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Unknown age needs an explicit screen",
+          "patient": {
+            "cancer": "Other solid tumor"
+          },
+          "expected": "screen",
+          "unknown_contains": [
+            "age strictly above"
+          ]
         }
       ],
-      "selection_sha256": "fd72607464d832341c6d35325960852f0302698f79a81c30edf3803d8975032c"
+      "selection_sha256": "b10de7ca1d0e5cb950c61b33e894e18e07b6afceb9aa42bca33a035b706a8828",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "recovery-20261109T195819-0500",
+      "primary_evidence_source_run": "recovery-20261109T195819-0500",
+      "source_visit_refreshed_this_run": true
     },
     {
       "trial_id": "csu-cotc033-vaccine-immunity",
@@ -4739,9 +4771,9 @@
     },
     {
       "trial_id": "utsw-vroc-melanoma-carboplatin-hifu",
-      "source_url": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-trials.html",
-      "reviewed_at": "2026-10-16T19:32:02.907532+00:00",
-      "criteria": "UTSW Study4 brochure requires active melanoma,carboplatin treatment and no previous chemotherapy.",
+      "source_url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%204.pdf",
+      "reviewed_at": "2026-11-09T20:16:55.607033-05:00",
+      "criteria": "Confirmed canine melanoma with a target accessible to injection and/or ultrasound, older than six months, no prior chemotherapy or immunotherapy for melanoma; uncontrolled comorbidity or anesthetic risk excludes. IV or intratumoral carboplatin with or without HIFU, every three weeks for three to four cycles; at least three months of follow-up. Owner pays; possible subsidies only.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -4808,9 +4840,41 @@
           },
           "expected": "exclude",
           "retained_from_reviewed_at": "2026-10-14T07:38:43.687989-04:00"
+        },
+        {
+          "name": "Exact six-month boundary excludes",
+          "patient": {
+            "cancer": "Oral melanoma",
+            "age_known": true,
+            "age": 0.5
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Dog older than six months can reach prescreen",
+          "patient": {
+            "cancer": "Oral melanoma",
+            "age_known": true,
+            "age": 0.75
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Unknown age needs an explicit screen",
+          "patient": {
+            "cancer": "Oral melanoma"
+          },
+          "expected": "screen",
+          "unknown_contains": [
+            "age strictly above"
+          ]
         }
       ],
-      "selection_sha256": "ca0c8636f280952687a9ea4d64fe6315a7551aa232301be483c940ccc4c27472"
+      "selection_sha256": "35396aab4a1afbe93ac0eb49b15ddac068c909e5fab50a326e1416468a09c297",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "recovery-20261109T195819-0500",
+      "primary_evidence_source_run": "recovery-20261109T195819-0500",
+      "source_visit_refreshed_this_run": true
     },
     {
       "trial_id": "leah-bcell-cart-2026",
