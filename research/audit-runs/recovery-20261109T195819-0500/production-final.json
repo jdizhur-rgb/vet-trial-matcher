@@ -1,0 +1,51 @@
+{
+  "run_id": "recovery-20261109T195819-0500",
+  "data_commit": "12c6d69fbac8e063f5e6826a81690e5b83744869",
+  "workflow": {
+    "id": 42734789889,
+    "head_sha": "12c6d69fbac8e063f5e6826a81690e5b83744869",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/42734789889",
+    "updated_at": "2026-11-10T01:21:27Z"
+  },
+  "asset_readback": {
+    "read_at": "2026-11-10T01:22:04.700183+00:00",
+    "url": "https://vettrialfinder.com/matcher/?audit=12c6d69",
+    "html_matches_local": true,
+    "html_sha256": "ab39add55fead69f93abe39e0dfe78a549d4bd72d5dd38fb9fd9277113270751",
+    "asset_results": [
+      {
+        "url": "https://vettrialfinder.com/matcher/trials.json?v=d65971bc9bc5fca0",
+        "status": "PASS",
+        "actual_sha256": "d65971bc9bc5fca04f5ad239ac77a1c5d2ce4080c19c189b0cff0651e3c8bb95",
+        "expected_sha256": "d65971bc9bc5fca04f5ad239ac77a1c5d2ce4080c19c189b0cff0651e3c8bb95",
+        "error": ""
+      },
+      {
+        "url": "https://vettrialfinder.com/matcher/matcher.js?v=clinical-audit-20261103-owner-rules-r1",
+        "status": "PASS",
+        "actual_sha256": "a9b0a97ca943bb005fc4d5eea77839df43df2e220aaa15c43dd5af7210628375",
+        "expected_sha256": "a9b0a97ca943bb005fc4d5eea77839df43df2e220aaa15c43dd5af7210628375",
+        "error": ""
+      }
+    ]
+  },
+  "ui_readback": {
+    "at": "2026-11-10T01:22:44.894Z",
+    "url": "https://vettrialfinder.com/matcher/?audit=12c6d69",
+    "catalog_version": "d65971bc9bc5fca0",
+    "criteria": "Dog, Cancer — any type, diagnosis certainty I don’t know, blank age, weight and ZIP, all treatments selected, Any approach",
+    "usa": {
+      "actual": 97,
+      "expected_from_delayed_load_regression": 97,
+      "result": "PASS"
+    },
+    "japan": {
+      "actual": 14,
+      "expected_from_delayed_load_regression": 14,
+      "result": "PASS"
+    },
+    "exact_changed_cards": "Both UT Southwestern study cards display updated minimum age and their own eligibility. Earlier a1559e5 live read showed updated Tufts and CSU cards."
+  }
+}

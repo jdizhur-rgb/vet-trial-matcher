@@ -1,0 +1,903 @@
+{
+  "run_id": "recovery-20261109T195819-0500",
+  "reviewed_at": "2026-11-09T20:20:43.621497-05:00",
+  "clinical_scope_note": "Full native roster/lead reconciliation, not a claim of fresh individual reread for every mapped protocol. Historical identity/closure facts retain prior evidence dates.",
+  "registries": {
+    "csu": {
+      "response": {
+        "label": "csu-native",
+        "method": "curl",
+        "url": "https://clinicaltrials.csuveterinaryhealth.org/csuvet/studies/search/json/?skip=0&take=500",
+        "start": "2026-11-09T20:05:11.676435-05:00",
+        "end": "2026-11-09T20:05:17.352151-05:00",
+        "exit": 0,
+        "transport": "200 https://clinicaltrials.csuveterinaryhealth.org/csuvet/studies/search/json/?skip=0&take=500",
+        "error": "",
+        "body": "research/audit-runs/recovery-20261109T195819-0500/source-responses/csu-native.body",
+        "body_sha256": "4205c9a529a4806757f22e5b79b0ad4b3856b49d155b79c644d78c57e806d84d"
+      },
+      "native_declared_total": 37,
+      "enumerated_unique_ids": 37,
+      "oncology_or_near_scope_rows": 17,
+      "rows": [
+        {
+          "registry_id": 23696,
+          "title": "New Treatments for FIP (Feline Infectious Peritonitis)",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/new-treatments-for-fip-feline-infectious-peritonitis-827121",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 23693,
+          "title": "Combination of Lapatinib and Fractionated Radiation Therapy for Dogs with Transitional Cell Carcinoma",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/combination-of-lapatinib-and-fractionated-radiation-therapy-for-dogs-with-transitional-cell-carcinoma-598674",
+          "registry_label": "Active - Recruiting",
+          "disposition": "VERIFIED_EXISTING",
+          "canonical_ids": [
+            "csu-ucc-lapatinib-rt"
+          ],
+          "reason": "Lapatinib plus fractionated RT; same registry and disease."
+        },
+        {
+          "registry_id": 23709,
+          "title": "The Dog Aging Project: Test of Rapamycin in Aging Dogs (TRIAD)",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/the-dog-aging-project-test-of-rapamycin-in-aging-dogs-triad-487985",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 23721,
+          "title": "CAR T Cell Immunotherapy for Metastatic Osteosarcoma in Dogs",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/car-t-cell-immunotherapy-for-metastatic-osteosarcoma-in-dogs-888207",
+          "registry_label": "Active - Recruiting",
+          "disposition": "VERIFIED_EXISTING",
+          "canonical_ids": [
+            "csu-osa-car-t-met"
+          ],
+          "reason": "Metastatic OSA CAR-T 3398; distinct from STS."
+        },
+        {
+          "registry_id": 28702,
+          "title": "Minimally invasive sentinel lymph node mapping for dogs with anal sac adenocarcinoma (AGASACA)",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/minimally-invasive-sentinel-lymph-node-mapping-for-dogs-with-anal-sac-adenocarcinoma-agasaca-722225",
+          "registry_label": "Active - Recruiting",
+          "disposition": "NOT_TREATMENT",
+          "canonical_ids": [
+            "csu-agasaca-node-map"
+          ],
+          "reason": "Sentinel-node mapping."
+        },
+        {
+          "registry_id": 23714,
+          "title": "Non-surgical Chemotherapy Treatment for Canine Brain Tumors",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/non-surgical-chemotherapy-treatment-for-canine-brain-tumors-836628",
+          "registry_label": "Active - Recruiting",
+          "disposition": "VERIFIED_EXISTING",
+          "canonical_ids": [
+            "csu-glioma-verdinexor-only-2026"
+          ],
+          "reason": "Oral verdinexor alone; distinct from CAR-T and archived lymphoma."
+        },
+        {
+          "registry_id": 28183,
+          "title": "Low-Dose Radiation Therapy for Cats with Urinary Blockage (FLUTD)",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/low-dose-radiation-therapy-for-cats-with-urinary-blockage-flutd-117649",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 23707,
+          "title": "Treatment of Immune-Mediated Anemia (IMHA) in Cats",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/treatment-of-immune-mediated-anemia-imha-in-cats-943191",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 28250,
+          "title": "Novel Immunotherapy for Cats with Oral Squamous Cell Carcinoma",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/novel-immunotherapy-for-cats-with-oral-squamous-cell-carcinoma-126320",
+          "registry_label": "Active - Recruiting",
+          "disposition": "VERIFIED_EXISTING",
+          "canonical_ids": [
+            "csu-feline-oscc-immunotherapy"
+          ],
+          "reason": "IACUC 8084; separate full review includes current funding and contact."
+        },
+        {
+          "registry_id": 23697,
+          "title": "Evaluation of triamcinolone for osteoarthritis in dogs",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/evaluation-of-triamcinolone-for-osteoarthritis-in-dogs-899274",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 23706,
+          "title": "Join Our Study on Copper-Associated Chronic Hepatitis in Dogs",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/join-our-study-on-copper-associated-chronic-hepatitis-in-dogs-298257",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 23769,
+          "title": "CT Imaging Study for Ferret Adrenal Disease",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/ct-imaging-study-for-ferret-adrenal-disease-223480",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 28078,
+          "title": "Rapid Steroid Treatment for Dogs with Immune-Mediated Thrombocytopenia",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/rapid-steroid-treatment-for-dogs-with-immune-mediated-thrombocytopenia-793525",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 23717,
+          "title": "Clinical Characteristics and Long-Term Outcome in Cats and Dogs Diagnosed with Ductal Plate Malformation",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/clinical-characteristics-and-long-term-outcome-in-cats-and-dogs-diagnosed-with-ductal-plate-malformation-491856",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 23725,
+          "title": "Clinical Testing of Canine T Cells Engineered to Target Soft Tissue Sarcoma with Oral Immunotherapy",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/clinical-testing-of-canine-t-cells-engineered-to-target-soft-tissue-sarcoma-with-oral-immunotherapy-511687",
+          "registry_label": "Active - Recruiting",
+          "disposition": "VERIFIED_EXISTING",
+          "canonical_ids": [
+            "csu-sarcoma-engineered-tcells"
+          ],
+          "reason": "IACUC 5269 engineered T cells plus oral immunotherapy; distinct from FAP CAR-T and metastatic OSA."
+        },
+        {
+          "registry_id": 29266,
+          "title": "Radiation Therapy for Small Cell GI Lymphoma in Cats",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/radiation-therapy-for-small-cell-gi-lymphoma-in-cats-710678",
+          "registry_label": "Active - Recruiting",
+          "disposition": "VERIFIED_EXISTING",
+          "canonical_ids": [
+            "csu-feline-scgl-radiotherapy-iacuc8528"
+          ],
+          "reason": "IACUC 8528 GI 3 fractions totaling 6 Gy; repeat exact rendered primary. Published before this recovery."
+        },
+        {
+          "registry_id": 23743,
+          "title": "Studying Kidney Disease in Cats with Paw Pad Disease",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/studying-kidney-disease-in-cats-with-paw-pad-disease-811901",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 23698,
+          "title": "Comparing Treatments for Stifle Lameness in Horses",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/comparing-treatments-for-stifle-lameness-in-horses-492630",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 28166,
+          "title": "Ketamine Infusion Therapy for Horses with Chronic Arthritis Pain",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/ketamine-infusion-therapy-for-horses-with-chronic-arthritis-pain-232948",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 28144,
+          "title": "Single Radiation Treatment for Dogs with Transmissible Venereal Tumor",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/single-radiation-treatment-for-dogs-with-transmissible-venereal-tumor-709721",
+          "registry_label": "Active - Recruiting",
+          "disposition": "VERIFIED_EXISTING",
+          "canonical_ids": [
+            "csu-tvt-single-radiation-2026"
+          ],
+          "reason": "IACUC 7968 single-fraction RT."
+        },
+        {
+          "registry_id": 23700,
+          "title": "Join Our Study Testing a New Stem Cell Treatment for Canine Osteoarthritis",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/join-our-study-testing-a-new-stem-cell-treatment-for-canine-osteoarthritis-273758",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 23708,
+          "title": "Immunotherapy (CAR-T) treatment for canine glioma tumors",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/immunotherapy-car-t-treatment-for-canine-glioma-tumors-780192",
+          "registry_label": "Active - Recruiting",
+          "disposition": "VERIFIED_EXISTING",
+          "canonical_ids": [
+            "csu-brain-cart-verdinexor"
+          ],
+          "reason": "IACUC 5335 CAR-T plus verdinexor, different from 6276."
+        },
+        {
+          "registry_id": 28104,
+          "title": "Investigational Topical Gel for Dogs with Environmental Allergies",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/investigational-topical-gel-for-dogs-with-environmental-allergies-554716",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 28251,
+          "title": "Pilot clinical trial of anti-cancer therapy with trametinib in naturally occurring acute myeloid leukemia",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/pilot-clinical-trial-of-anti-cancer-therapy-with-trametinib-in-naturally-occurring-acute-myeloid-leukemia-860722",
+          "registry_label": "Active - Recruiting",
+          "disposition": "VERIFIED_EXISTING",
+          "canonical_ids": [
+            "csu-aml-trametinib"
+          ],
+          "reason": "IACUC 7867 trametinib plus prednisone; exact title and primary."
+        },
+        {
+          "registry_id": 23716,
+          "title": "The Effect of a Novel Diet on Epilepsy in Dogs",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/the-effect-of-a-novel-diet-on-epilepsy-in-dogs-743952",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 23705,
+          "title": "New Immunotherapy Treatment for Eye Cancer in Horses",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/new-immunotherapy-treatment-for-eye-cancer-in-horses-417527",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE_SPECIES",
+          "canonical_ids": [],
+          "reason": "Equine eye cancer."
+        },
+        {
+          "registry_id": 28213,
+          "title": "Helping Researchers Better Understand Diabetes in Cats",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/helping-researchers-better-understand-diabetes-in-cats-721417",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 23713,
+          "title": "Biorepository and Advanced Research in Brain Cancer (BARC)",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/biorepository-and-advanced-research-in-brain-cancer-barc-754438",
+          "registry_label": "Active - Recruiting",
+          "disposition": "NOT_TREATMENT",
+          "canonical_ids": [
+            "csu-brain-barc",
+            "csu-barc-feline-brain"
+          ],
+          "reason": "Biorepository, not assigned anticancer treatment."
+        },
+        {
+          "registry_id": 28714,
+          "title": "Near-Infrared Fluorescence Imaging with Indocyanine Green for Intraoperative Detection of Canine Urothelial Carcinoma",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/near-infrared-fluorescence-imaging-with-indocyanine-green-for-intraoperative-detection-of-canine-urothelial-carcinoma-403831",
+          "registry_label": "Active - Recruiting",
+          "disposition": "NOT_TREATMENT",
+          "canonical_ids": [
+            "csu-ucc-icg-surgery"
+          ],
+          "reason": "The investigation is ICG imaging with an independently planned procedure."
+        },
+        {
+          "registry_id": 23702,
+          "title": "Evaluation of a New Immunotherapy for Sarcoids in Horses",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/evaluation-of-a-new-immunotherapy-for-sarcoids-in-horses-348454",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE_SPECIES",
+          "canonical_ids": [],
+          "reason": "Equine sarcoids."
+        },
+        {
+          "registry_id": 23747,
+          "title": "A Lasting Legacy: Samples Collected from Pets After Death to Study Diseases of Aging",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/a-lasting-legacy-samples-collected-from-pets-after-death-to-study-diseases-of-aging-318334",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 23724,
+          "title": "Dual Energy CT to Assess Bone Mineral Density in Dogs with Osteosarcoma Undergoing Stereotactic Body Radiation Therapy",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/dual-energy-ct-to-assess-bone-mineral-density-in-dogs-with-osteosarcoma-undergoing-stereotactic-body-radiation-therapy-204408",
+          "registry_label": "Active - Recruiting",
+          "disposition": "NOT_TREATMENT",
+          "canonical_ids": [
+            "csu-osa-dual-energy-ct"
+          ],
+          "reason": "Imaging observation while receiving independently planned SBRT."
+        },
+        {
+          "registry_id": 23691,
+          "title": "A Limb-Sparing Option for Bone Cancer in Dogs",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/a-limb-sparing-option-for-bone-cancer-in-dogs-558225",
+          "registry_label": "Active - Recruiting",
+          "disposition": "VERIFIED_EXISTING",
+          "canonical_ids": [
+            "csu-osa-3d-limb-spare"
+          ],
+          "reason": "IACUC 6218 patient-specific limb-sparing implant plus chemotherapy."
+        },
+        {
+          "registry_id": 28200,
+          "title": "Building the Future of Veterinary Trauma Care",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/building-the-future-of-veterinary-trauma-care-686756",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 23704,
+          "title": "Staggering Disease Surveillance Study for Cats",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/staggering-disease-surveillance-study-for-cats-379625",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 23699,
+          "title": "Help Us Study a New Treatment for Cancer in Horses",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/help-us-study-a-new-treatment-for-cancer-in-horses-201689",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE_SPECIES",
+          "canonical_ids": [],
+          "reason": "Equine cancer."
+        },
+        {
+          "registry_id": 23712,
+          "title": "Brain Health Study: Helping Dogs Live Longer, Healthier Lives",
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/brain-health-study-helping-dogs-live-longer-healthier-lives-210673",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        }
+      ]
+    },
+    "ucd": {
+      "response": {
+        "label": "ucd-native",
+        "method": "curl",
+        "url": "https://studypages.com/ucdavisvet/studies/search/json/?skip=0&take=500",
+        "start": "2026-11-09T20:05:11.677403-05:00",
+        "end": "2026-11-09T20:05:17.286766-05:00",
+        "exit": 0,
+        "transport": "200 https://studypages.com/ucdavisvet/studies/search/json/?skip=0&take=500",
+        "error": "",
+        "body": "research/audit-runs/recovery-20261109T195819-0500/source-responses/ucd-native.body",
+        "body_sha256": "e50a2da34950bb925d73c40704cdc6c2b2b0b5d298b74a0cb3acefb1b482a40c"
+      },
+      "native_declared_total": 38,
+      "enumerated_unique_ids": 38,
+      "oncology_or_near_scope_rows": 15,
+      "rows": [
+        {
+          "registry_id": 23162,
+          "title": "CARE Trial: Combined Autophagy inhibition and Radiation therapy to improve Efficacy in Canine Glioma",
+          "url": "https://studypages.com/s/care-trial-combined-autophagy-inhibition-and-radiation-therapy-to-improve-efficacy-in-canine-glioma-353022",
+          "registry_label": "Active - Recruiting",
+          "disposition": "VERIFIED_EXISTING",
+          "canonical_ids": [
+            "ucd-care-canine-glioma"
+          ],
+          "reason": "IACUC 24515 / CARE BAQ-13 plus RT; new URL slug retains exact public study ID 353022."
+        },
+        {
+          "registry_id": 20122,
+          "title": "Help us assess an antiviral drug for treating FIP in cats.",
+          "url": "https://studypages.com/s/help-us-assess-an-antiviral-drug-for-treating-fip-in-cats-580467",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 21024,
+          "title": "Innovative Immunotherapy for Canine Lung Metastases: The CAALM Study",
+          "url": "https://studypages.com/s/innovative-immunotherapy-for-canine-lung-metastases-the-caalm-study-276511",
+          "registry_label": "Active - Recruiting",
+          "disposition": "VERIFIED_EXISTING",
+          "canonical_ids": [
+            "ucd-pdl1-metastatic"
+          ],
+          "reason": "IACUC 24060 / CAALM UCD-PDL1."
+        },
+        {
+          "registry_id": 1412,
+          "title": "Surgical technique to place urethral stents in dogs with prostate, bladder and/or urethra tumors",
+          "url": "https://studypages.com/s/surgical-technique-to-place-urethral-stents-in-dogs-with-prostate-bladder-andor-urethra-tumors-578213",
+          "registry_label": "Active - Recruiting",
+          "disposition": "CLOSED_CONFIRMED",
+          "canonical_ids": [
+            "ucd-urinary-stent"
+          ],
+          "reason": "Published end 2019-09-08 in retained protocol; index label does not override. Supportive stent."
+        },
+        {
+          "registry_id": 28731,
+          "title": "Treatment of Canine Sarcoma with FAP CAR T-cells (FAP CAR-T Study)",
+          "url": "https://studypages.com/s/treatment-of-canine-sarcoma-with-fap-car-t-cells-fap-car-t-study-621016",
+          "registry_label": "Active - Recruiting",
+          "disposition": "VERIFIED_EXISTING",
+          "canonical_ids": [
+            "tufts-sts-fap-car-t"
+          ],
+          "reason": "IACUC 24677 / VCCT-26-017; known distinct UC Davis site within FAP collaboration. Local cutoff 2027-09-10 retained from official protocol."
+        },
+        {
+          "registry_id": 22790,
+          "title": "Developing Better Treatments for Cats with Itchy Skin",
+          "url": "https://studypages.com/s/developing-better-treatments-for-cats-with-itchy-skin-777667",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 2692,
+          "title": "Assessing a new technique to shrink liver tumors in dogs",
+          "url": "https://studypages.com/s/assessing-a-new-technique-to-shrink-liver-tumors-in-dogs-468706",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OWNER_DECISION",
+          "canonical_ids": [
+            "ucd-liver-tae-tace"
+          ],
+          "reason": "IACUC 21290 Arm 2 / VCCT-22-005; compare against exact VCT26005956, no roster-only status override."
+        },
+        {
+          "registry_id": 1416,
+          "title": "Looking at a new treatment and assessing the outcome through blood and urine in dogs with prostate cancer",
+          "url": "https://studypages.com/s/looking-at-a-new-treatment-and-assessing-the-outcome-through-blood-and-urine-in-dogs-with-prostate-cancer-932892",
+          "registry_label": "Active - Recruiting",
+          "disposition": "CLOSED_CONFIRMED",
+          "canonical_ids": [
+            "ucd-prostate-liquid-treatment"
+          ],
+          "reason": "Exact historical calendar date 2019 beats active label."
+        },
+        {
+          "registry_id": 23577,
+          "title": "Comparing laser removal with and without photodynamic therapy for the treatment of ear sarcoids in horses",
+          "url": "https://studypages.com/s/comparing-laser-removal-with-and-without-photodynamic-therapy-for-the-treatment-of-ear-sarcoids-in-horses-866757",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE_SPECIES",
+          "canonical_ids": [],
+          "reason": "Equine ear sarcoids."
+        },
+        {
+          "registry_id": 1484,
+          "title": "Assessing and managing megaesophagus in dogs",
+          "url": "https://studypages.com/s/assessing-and-managing-megaesophagus-in-dogs-646462",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 1518,
+          "title": "Novel Treatment for Nasal Tumors",
+          "url": "https://studypages.com/s/novel-treatment-for-nasal-tumors-320455",
+          "registry_label": "Active - Recruiting",
+          "disposition": "VERIFIED_EXISTING",
+          "canonical_ids": [
+            "ucd-nasal-tae"
+          ],
+          "reason": "IACUC 21863 (20094), TAE for canine nasal tumor, different from IACUC 21239."
+        },
+        {
+          "registry_id": 22910,
+          "title": "Seeking Healthy Cats for a Gut Microbiome Study",
+          "url": "https://studypages.com/s/seeking-healthy-cats-for-a-gut-microbiome-study-433660",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 29065,
+          "title": "Hypophysectomy for cats with Pituitary Tumors",
+          "url": "https://studypages.com/s/hypophysectomy-for-cats-with-pituitary-tumors-483462",
+          "registry_label": "Active - Recruiting",
+          "disposition": "PENDING_EVIDENCE",
+          "canonical_ids": [],
+          "reason": "IACUC 24957 / VCCT-26-018 hypophysectomy assigned for feline hypersomatotropism. Malignant cohort not established. Retained exact primary; date 2028-10-13 not a reason to include."
+        },
+        {
+          "registry_id": 1986,
+          "title": "Using a new technique to shrink liver tumors in dogs",
+          "url": "https://studypages.com/s/using-a-new-technique-to-shrink-liver-tumors-in-dogs-539845",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OWNER_DECISION",
+          "canonical_ids": [
+            "ucd-liver-tae-tace"
+          ],
+          "reason": "IACUC 21290 Arm 1 / 24645, VCCT-22-005. Existing site; unresolved relation to completed VCT26005956."
+        },
+        {
+          "registry_id": 22924,
+          "title": "Copper liver disease in Labrador retrievers",
+          "url": "https://studypages.com/s/copper-liver-disease-in-labrador-retrievers-828296",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 20071,
+          "title": "Investigating new therapies for dogs with corneal endothelial disease",
+          "url": "https://studypages.com/s/investigating-new-therapies-for-dogs-with-corneal-endothelial-disease-332663",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 23158,
+          "title": "Advanced Brain Imaging for Dogs with Epilepsy",
+          "url": "https://studypages.com/s/advanced-brain-imaging-for-dogs-with-epilepsy-726088",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 20310,
+          "title": "Characterizing Gene Expression in Canine Cutaneous Lymphoma",
+          "url": "https://studypages.com/s/characterizing-gene-expression-in-canine-cutaneous-lymphoma-741880",
+          "registry_label": "Active - Recruiting",
+          "disposition": "NOT_TREATMENT",
+          "canonical_ids": [],
+          "reason": "Canine cutaneous lymphoma; expression/sampling study, not assigned therapy."
+        },
+        {
+          "registry_id": 2878,
+          "title": "Help researchers detect early corneal endothelial disease through advanced imaging techniques",
+          "url": "https://studypages.com/s/help-researchers-detect-early-corneal-endothelial-disease-through-advanced-imaging-techniques-693722",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 1379,
+          "title": "Understanding the genetics causing bilateral corneal stromal loss in Friesian horses",
+          "url": "https://studypages.com/s/understanding-the-genetics-causing-bilateral-corneal-stromal-loss-in-friesian-horses-148189",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 28192,
+          "title": "PRISM Trial: Precision Research Integrating Symptoms and Molecular Biology in Canine Glioma",
+          "url": "https://studypages.com/s/prism-trial-precision-research-integrating-symptoms-and-molecular-biology-in-canine-glioma-788706",
+          "registry_label": "Active - Recruiting",
+          "disposition": "VERIFIED_EXISTING",
+          "canonical_ids": [
+            "ucd-prism-canine-glioma"
+          ],
+          "reason": "IACUC 24619 / VCCT-26-014; existing treatment access with standard RT or palliation, not separate drug study."
+        },
+        {
+          "registry_id": 2738,
+          "title": "Assessing an Oral Drug to Reverse Subvalvular Aortic Stenosis (SAS) in Dogs",
+          "url": "https://studypages.com/s/assessing-an-oral-drug-to-reverse-subvalvular-aortic-stenosis-sas-in-dogs-980038",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 1390,
+          "title": "A multi-disciplinary, minimally-invasive treatment for nasolacrimal apparatus (NLA) blockage",
+          "url": "https://studypages.com/s/a-multi-disciplinary-minimally-invasive-treatment-for-nasolacrimal-apparatus-nla-blockage-309510",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 1387,
+          "title": "Understanding Sudden Acquired Retinal Degeneration Syndrome in dogs",
+          "url": "https://studypages.com/s/understanding-sudden-acquired-retinal-degeneration-syndrome-in-dogs-861795",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 28054,
+          "title": "Fluorescence Imaging with PDL1-IRDye800 to Guide Surgical Treatment of Oral Cancer in Dogs",
+          "url": "https://studypages.com/s/fluorescence-imaging-with-pdl1-irdye800-to-guide-surgical-treatment-of-oral-cancer-in-dogs-679907",
+          "registry_label": "Active - Recruiting",
+          "disposition": "VERIFIED_EXISTING",
+          "canonical_ids": [
+            "ucd-oral-margin"
+          ],
+          "reason": "VCCT-26-008 / IACUC 24708 PDL1-IRDye800 surgery."
+        },
+        {
+          "registry_id": 2876,
+          "title": "Oculocutaneous Syndrome in Italian Greyhounds With White Spotting",
+          "url": "https://studypages.com/s/oculocutaneous-syndrome-in-italian-greyhounds-with-white-spotting-836019",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 1427,
+          "title": "Using a combination of therapies for treatment of nasal cancer in dogs",
+          "url": "https://studypages.com/s/using-a-combination-of-therapies-for-treatment-of-nasal-cancer-in-dogs-217934",
+          "registry_label": "Active - Recruiting",
+          "disposition": "VERIFIED_EXISTING",
+          "canonical_ids": [
+            "ucd-nasal-chemo-radiation"
+          ],
+          "reason": "IACUC 21239/17733/19410, RT +/- IA chemotherapy."
+        },
+        {
+          "registry_id": 14650,
+          "title": "Characterization of naturally occurring osteosarcoma in dogs",
+          "url": "https://studypages.com/s/characterization-of-naturally-occurring-osteosarcoma-in-dogs-765697",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OWNER_DECISION",
+          "canonical_ids": [
+            "ucd-osa-palliative-amputation"
+          ],
+          "reason": "Tumor characterization; conditional owner-elected standard amputation coverage, access classification unresolved."
+        },
+        {
+          "registry_id": 1389,
+          "title": "Understanding the genes behind dry eye syndrome in West Highland white terriers",
+          "url": "https://studypages.com/s/understanding-the-genes-behind-dry-eye-syndrome-in-west-highland-white-terriers-311028",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 1378,
+          "title": "Understanding the genetics causing equine recurrent uveitis in horses",
+          "url": "https://studypages.com/s/understanding-the-genetics-causing-equine-recurrent-uveitis-in-horses-727462",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 20999,
+          "title": "Exploring Stress Reduction Strategies for Cats with Feline Interstitial Cystitis (FIC): A Study on Environmental Enrichment Therapy and Biomarkers",
+          "url": "https://studypages.com/s/exploring-stress-reduction-strategies-for-cats-with-feline-interstitial-cystitis-fic-a-study-on-environmental-enrichment-therapy-and-biomarkers-446839",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 23095,
+          "title": "Understanding Corneal Endothelial Dystrophy in Boxers",
+          "url": "https://studypages.com/s/understanding-corneal-endothelial-dystrophy-in-boxers-100366",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 22789,
+          "title": "Uncovering the Genetic Clues Behind Pemphigus Foliaceous",
+          "url": "https://studypages.com/s/uncovering-the-genetic-clues-behind-pemphigus-foliaceous-970579",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 18478,
+          "title": "Assessment of the blood supply to dog joints with arthritis and evaluation of a new technique for pain control",
+          "url": "https://studypages.com/s/assessment-of-the-blood-supply-to-dog-joints-with-arthritis-and-evaluation-of-a-new-technique-for-pain-control-316799",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 28239,
+          "title": "Investigating the effects of N-acetyl-glucosamine (NAG) in dogs with chronic enteropathy (CE)",
+          "url": "https://studypages.com/s/investigating-the-effects-of-n-acetyl-glucosamine-nag-in-dogs-with-chronic-enteropathy-ce-320284",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 22563,
+          "title": "Using Spinal Fluid to Help Diagnose Degenerative Myelopathy (DM)",
+          "url": "https://studypages.com/s/using-spinal-fluid-to-help-diagnose-degenerative-myelopathy-dm-563509",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 22198,
+          "title": "Portal vein hypoplasia and ductal plate malformation (blood vessel/bile duct diseases) of the liver in dogs",
+          "url": "https://studypages.com/s/portal-vein-hypoplasia-and-ductal-plate-malformation-blood-vesselbile-duct-diseases-of-the-liver-in-dogs-178925",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        },
+        {
+          "registry_id": 2984,
+          "title": "Evaluating the genetic differences in Akita dogs with and without sebaceous adenitis",
+          "url": "https://studypages.com/s/evaluating-the-genetic-differences-in-akita-dogs-with-and-without-sebaceous-adenitis-912008",
+          "registry_label": "Active - Recruiting",
+          "disposition": "OUT_OF_SCOPE",
+          "canonical_ids": [],
+          "reason": "Registry title/description does not show a canine/feline anticancer treatment protocol."
+        }
+      ]
+    },
+    "mars": {
+      "response": {
+        "label": "mars-native",
+        "url": "https://studypages.com/marsveterinaryclinicaltrials/studies/search/json/?skip=0&take=500",
+        "attempts": [
+          {
+            "at": "2026-11-10T01:18:06.789296+00:00",
+            "exit": 0,
+            "result": "200 https://studypages.com/marsveterinaryclinicaltrials/studies/search/json/?skip=0&take=500",
+            "error": ""
+          }
+        ]
+      },
+      "native_body_sha256": "bffbfdebd794bbf3424979904135ac38704045d1c7b12bf94401f3742aa136ea",
+      "native_declared_total": 12,
+      "enumerated_unique_ids": 12,
+      "oncology_or_near_scope_rows": 2,
+      "rows": [
+        {
+          "registry_id": 28771,
+          "title": "Canine Pancreatitis Recovery Diet Study",
+          "url": "https://studypages.com/s/canine-pancreatitis-recovery-diet-study-491980/",
+          "registry_label": "Active - Recruiting",
+          "canonical_ids": [],
+          "disposition": "OUT_OF_SCOPE",
+          "reason": "Not canine/feline oncology."
+        },
+        {
+          "registry_id": 28782,
+          "title": "The Mars Petcare Biobank",
+          "url": "https://studypages.com/s/the-mars-petcare-biobank-619308/",
+          "registry_label": "Active - Recruiting",
+          "canonical_ids": [],
+          "disposition": "NOT_TREATMENT",
+          "reason": "Biobank, no assigned anticancer treatment."
+        },
+        {
+          "registry_id": 28779,
+          "title": "Tracking Better Health Outcomes for Pets with Ear Infections",
+          "url": "https://studypages.com/s/tracking-better-health-outcomes-for-pets-with-ear-infections-463801/",
+          "registry_label": "Active - Recruiting",
+          "canonical_ids": [],
+          "disposition": "OUT_OF_SCOPE",
+          "reason": "Not canine/feline oncology."
+        },
+        {
+          "registry_id": 28778,
+          "title": "Therapeutic Trial for Cats with Gingivostomatitis",
+          "url": "https://studypages.com/s/therapeutic-trial-for-cats-with-gingivostomatitis-627298/",
+          "registry_label": "Active - Recruiting",
+          "canonical_ids": [],
+          "disposition": "OUT_OF_SCOPE",
+          "reason": "Not canine/feline oncology."
+        },
+        {
+          "registry_id": 28777,
+          "title": "Feline Osteoarthritis Study",
+          "url": "https://studypages.com/s/feline-osteoarthritis-study-400039/",
+          "registry_label": "Active - Recruiting",
+          "canonical_ids": [],
+          "disposition": "OUT_OF_SCOPE",
+          "reason": "Not canine/feline oncology."
+        },
+        {
+          "registry_id": 28774,
+          "title": "Minutes Count: Improving Rattlesnake Bite Diagnosis for Dogs",
+          "url": "https://studypages.com/s/minutes-count-improving-rattlesnake-bite-diagnosis-for-dogs-982576/",
+          "registry_label": "Active - Recruiting",
+          "canonical_ids": [],
+          "disposition": "OUT_OF_SCOPE",
+          "reason": "Not canine/feline oncology."
+        },
+        {
+          "registry_id": 28781,
+          "title": "Feline Therapeutic Weight Loss Study",
+          "url": "https://studypages.com/s/feline-therapeutic-weight-loss-study-582469/",
+          "registry_label": "Active - Recruiting",
+          "canonical_ids": [],
+          "disposition": "OUT_OF_SCOPE",
+          "reason": "Not canine/feline oncology."
+        },
+        {
+          "registry_id": 28775,
+          "title": "Non-Invasive Diagnostic Study for Cats with Chronic Gut Issues",
+          "url": "https://studypages.com/s/non-invasive-diagnostic-study-for-cats-with-chronic-gut-issues-820634/",
+          "registry_label": "Active - Recruiting",
+          "canonical_ids": [],
+          "disposition": "OUT_OF_SCOPE",
+          "reason": "Not canine/feline oncology."
+        },
+        {
+          "registry_id": 28783,
+          "title": "Canine Skin Health Study",
+          "url": "https://studypages.com/s/canine-skin-health-study-648807/",
+          "registry_label": "Active - Recruiting",
+          "canonical_ids": [],
+          "disposition": "OUT_OF_SCOPE",
+          "reason": "Not canine/feline oncology."
+        },
+        {
+          "registry_id": 28780,
+          "title": "A New Approach to Joint Care: Canine Osteoarthritis Vaccine Trial",
+          "url": "https://studypages.com/s/a-new-approach-to-joint-care-canine-osteoarthritis-vaccine-trial-361588/",
+          "registry_label": "Active - Recruiting",
+          "canonical_ids": [],
+          "disposition": "OUT_OF_SCOPE",
+          "reason": "Not canine/feline oncology."
+        },
+        {
+          "registry_id": 28773,
+          "title": "Improving Detection of Heart Disease in Pets: A Study on New Diagnostic Tools",
+          "url": "https://studypages.com/s/improving-detection-of-heart-disease-in-pets-a-study-on-new-diagnostic-tools-917721/",
+          "registry_label": "Active - Recruiting",
+          "canonical_ids": [],
+          "disposition": "OUT_OF_SCOPE",
+          "reason": "Not canine/feline oncology."
+        },
+        {
+          "registry_id": 28770,
+          "title": "Advancing Non-Invasive Care for Dogs with Lymphoma",
+          "url": "https://studypages.com/s/advancing-non-invasive-care-for-dogs-with-lymphoma-140763/",
+          "registry_label": "Active - Recruiting",
+          "canonical_ids": [
+            "mvh-hifu-doxorubicin-lymphoma"
+          ],
+          "disposition": "VERIFIED_EXISTING",
+          "reason": "Same VCSC-2026-A007/CT-0033 VCA Dallas HIFU plus doxorubicin study; prior exact full individual review retains its own timestamp."
+        }
+      ]
+    }
+  }
+}
