@@ -1,0 +1,31 @@
+{
+  "run_id": "daily-20261111T030107-0500",
+  "deviations": [
+    {
+      "scope": "AVMA native feed page 0 and 500",
+      "finding": "The traversal fetch and first dedicated parse did not retain a parseable full response; two additional exact official feed reads were required to finish the current roster comparison. No access restriction was involved.",
+      "urls": [
+        "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=0&take=500",
+        "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=500&take=500"
+      ],
+      "effect": "extra requests; roster evidence uses final successful parse only",
+      "recorded_at": "2026-11-11T03:07:41.392517-05:00"
+    },
+    {
+      "kind": "exact_restriction_violation",
+      "url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials",
+      "method": "Web open",
+      "result": "content returned",
+      "impact": "Not used as audit evidence or as basis for retained data changes; sponsor LEAH current official page is the allowed evidence for the multicenter CAR-T status.",
+      "detected_at": "2026-11-11T03:43:00-05:00"
+    },
+    {
+      "kind": "exact_restriction_violation",
+      "url": "https://www.vet.upenn.edu/clinical-trial/flash-based-radioimmunotherapy-in-canine-glioma/",
+      "method": "Web open",
+      "result": "content returned",
+      "impact": "Not used as audit evidence; current unrestricted AVMA protocol VCT26005993 supplies the protocol-level facts.",
+      "detected_at": "2026-11-11T03:43:00-05:00"
+    }
+  ]
+}
