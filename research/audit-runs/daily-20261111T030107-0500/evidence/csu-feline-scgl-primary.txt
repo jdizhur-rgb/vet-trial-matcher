@@ -1,0 +1,565 @@
+Studypages - Radiation Therapy for Small Cell GI Lymphoma in Cats @media print {
+        a[href]:after {
+            content: none;
+        }
+        
+        @page {
+            
+            /*size: 297mm 210mm;
+            /* portrait */
+            /*size: 400mm 450mm;*/
+            size: 375mm 450mm;
+            
+            /*margin: 25mm;*/
+            margin: 5mm;
+            /*margin-right: 45mm;*/ /* for compatibility with both A4 and Letter */
+        }
+        body {
+            
+            -webkit-print-color-adjust: exact;
+        }
+        .corner-ribbon {
+            display: none;
+        }
+    }
+
+    
+    
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    
+    
+    
+    * {
+        
+    }
+    html, body {
+        height: 100%;
+    }
+    .wrapper {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        /*margin: 0 auto -100px;*/ /* the bottom margin is the negative value of the footer's height */
+    }
+
+    html {
+        
+        margin-right: 0 !important;
+    }
+
+    @media (max-width: 767px) {
+    }
+
+    
+    .navbar-brand {
+        padding-left: 8px;
+        padding-right: 0;
+    }
+
+    .navbar-nav li a {
+        font-weight: 500;
+    }
+
+    #navbar-logo {
+        float: left;
+        margin-top: 5px;
+    }
+
+    @media (max-width: 767px) {
+        #site-header .container {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 991px) {
+        #site-header .container {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    @media (min-width: 992px) and (max-width: 1199px) {
+        #site-header .container {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        #site-header .container {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    
+    .messages {
+        padding: 0;
+        margin: 0;
+        margin-top: 15px;
+    }
+
+    .alert {
+        margin-bottom: 15px;
+    } {"dsn": "https://e93f02c1c515445db1333ba96b8378f3@sentry.io/44540", "isEnabled": true, "debugMode": false, "options": {"ignoreErrors": ["Can't find variable: _AutofillCallbackHandler", "Property: Invalid value for \"CSS Level 2.1\" property"], "release": "989c03f810ffa6e2b4ef5136f2b59b47e01ec1bb"}} {"autoRedirectUrl": "", "isReadOnly": false} const svRedirect = readIsland('d_sv_redirect');
+
+        function performAutoRedirect() {
+            const autoRedirectUrl = svRedirect.autoRedirectUrl;
+            const isReadOnly = svRedirect.isReadOnly;
+
+            // conditional redirect - for live pages, not preview
+            if (autoRedirectUrl) {
+              // ensure trailing slash
+              const urlWithSlash = autoRedirectUrl.endsWith('/') ? autoRedirectUrl : `${autoRedirectUrl}/`;
+
+              // redirect url including all url parameters
+              const urlWithParams = `${urlWithSlash}${window.location.search}`;
+
+              if (!isReadOnly) { // live page
+                console.log('perform redirect (live page)', urlWithParams);
+
+                // perform redirect - use replace TO NOT create a history entry
+                window.location.replace(urlWithParams);
+              } else { // preview page
+                console.log('skip redirect (preview page)', urlWithParams);
+                // do nothing
+                // TODO: show a popup explaining the live page will automatically redirect (so users not confused when it later happens)
+              }
+            }
+        }
+        performAutoRedirect(); @media print {
+          #content-preview-switcher {
+              display: none;
+          }
+      } Skip to main content #SPAnnouncementBanner {
+        background: #fff;
+    }
+
+    #SPAnnouncementBanner #announce-wrapper {
+        padding: 15px 0;
+    }
+
+    #SPAnnouncementBanner #announce-content {
+        z-index: 100;
+        position: relative;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 1.6;
+        background-color: lavender;
+        padding: 5px 0;
+    }
+
+    #SPAnnouncementBanner .link {
+        color: #343535;
+        text-decoration: underline;
+    }
+
+    .spacer::after {
+        content: "\2002";
+    } "" ["radiation therapy", "feline lymphoma", "GI lymphoma", "Small Cell GI Lymphoma", "Radiation treatment"] ["radiation therapy", "feline lymphoma", "GI lymphoma"] [] {"new_studypage_design": false, "enable_new_prescreener_design": false, "enable_public_page_forms_new_design": false, "enable_prescreener_enhancements": true} null false "" false [{"title": "Has your cat been diagnosed with small cell GI lymphoma via tissue biopsy?", "description": "", "required": true, "qtype": "B", "q_id": 5970, "criteria": null, "choices": [{"value": ""}, {"value": ""}], "display_config": {}, "order": 1, "allow_partial_match_in_criteria": false, "is_parent": false, "children": [], "is_child": false}, {"title": "Has your cat had symptoms related to the lymphoma (such as decreased appetite, vomiting, diarrhea, and/or weight loss) for at least 6 weeks?", "description": "", "required": true, "qtype": "B", "q_id": 5971, "criteria": null, "choices": [{"value": ""}, {"value": ""}], "display_config": {}, "order": 2, "allow_partial_match_in_criteria": false, "is_parent": false, "children": [], "is_child": false}, {"title": "Has your cat received any chemotherapy to treat the GI lymphoma?", "description": "", "required": true, "qtype": "B", "q_id": 5972, "criteria": null, "choices": [{"value": ""}, {"value": ""}], "display_config": {}, "order": 3, "allow_partial_match_in_criteria": false, "is_parent": false, "children": [], "is_child": false}, {"title": "Do you live within 150 miles of Fort Collins, CO?", "description": "", "required": true, "qtype": "B", "q_id": 5973, "criteria": null, "choices": [{"value": ""}, {"value": ""}], "display_config": {}, "order": 4, "allow_partial_match_in_criteria": false, "is_parent": false, "children": [], "is_child": false}] var survey_questions = JSON.parse(document.getElementById('d_survey_questions').textContent) {} null {"en": "English"} var survey_translations_data = JSON.parse(document.getElementById('d_survey_translations_data').textContent);
+                  var survey_moreinfo_data_temp = JSON.parse(document.getElementById('d_survey_moreinfo_data').textContent) || {};
+                  var survey_moreinfo_data = {};
+                  var survey_trans_lang_opts = JSON.parse(document.getElementById('d_survey_trans_lang_opts').textContent);  // todo: currently shared with workspace signup preferred language opts
+                  if (Object.keys(survey_moreinfo_data_temp).length) {
+                      if (survey_moreinfo_data_temp['consent_text']) {
+                          survey_moreinfo_data = {
+                              en: survey_moreinfo_data_temp['consent_text']
+                          }
+                      }
+                      for (var i = 0; i < Object.keys(survey_trans_lang_opts).length; i++) {
+                          var lang_code = Object.keys(survey_trans_lang_opts)[i];
+                          if (survey_moreinfo_data_temp['consent_text_' + lang_code]) {
+                              survey_moreinfo_data[lang_code] = survey_moreinfo_data_temp['consent_text_' + lang_code];
+                          }
+                      }
+                  } {"gallery_banner_bgcolor": "white", "gallery_logo_url": "https://yuzu-studypages-prod-east.s3.amazonaws.com/gallery_logos/b0fb010c-6aee-444e-a3d1-f19f8903acdc.png", "gallery_home_url": "https://clinicaltrials.csuveterinaryhealth.org", "gallery_url_name": "CSU Vetmed Gallery", "gallery_studies_url": "https://clinicaltrials.csuveterinaryhealth.org/studies/"} [{"code": "en", "language": "English", "url": "/en/s/radiation-therapy-for-small-cell-gi-lymphoma-in-cats-710678/"}] [{"name": "CSU VHEC", "location": "300 West Drake Road\nFort Collins, CO 80525", "detailed_directions": ""}] [] {"prof_url": "/investigator/b5b7e563a0f5479f94c86f3dbd5ed9c0/", "prof_pic": "https://yuzu-studypages-prod-east.s3.amazonaws.com/study_investigators/Tiffany_Martin.jpeg", "display_name": "Tiffany Martin, DVM", "department": false, "organization": "VHS", "add_style": ""} [{"prof_url": "/investigator/b5b7e563a0f5479f94c86f3dbd5ed9c0/", "prof_pic": "https://yuzu-studypages-prod-east.s3.amazonaws.com/study_investigators/Tiffany_Martin.jpeg", "display_name": "Tiffany Martin, DVM", "department": false, "organization": "Colorado State University Veterinary Medicine", "add_style": "margin-bottom:10px;"}, {"prof_url": "/investigator/4a2a0ba5a17e4a1b8ccff31527b531a2/", "prof_pic": "https://yuzu-studypages-prod-east.s3.amazonaws.com/study_investigators/VictoriaNewberryProfilePic.png", "display_name": "Victoria Newberry, Veterinary Resident - Post Doc", "department": false, "organization": "Colorado State University Veterinary Medicine", "add_style": "margin-bottom:10px;"}] [] null [] {"text": "Colorado State University Veterinary Medicine", "url": "/csuvet/"} null [] {} {"usePhoneMask": false, "isReadOnlyMode": false, "hasParentStudy": false, "hasLocations": false, "includeLanguageSwitcher": false, "studypageIsEmbedded": false, "is_oaic_lead": false, "is_preview": false, "is_edit_preview": false, "is_preview_draftlink": false, "track_activity_on_fe": true, "do_track_pageview": true, "sp_survey_shown": true, "already_joined": false, "is_avma_study": false, "is_megastudy": false, "include_investigators": true, "is_studypage_active": true, "is_active": true, "is_active_nyr": false, "is_full_studypage": true, "is_registry_study": false, "join_button_enabled": true, "join_button_action_sp_form": true, "join_button_action_self_contact": false, "join_button_action_external_link": false, "has_join_button_link_url": false, "is_finished_rec": false, "has_beta_features": false, "is_typeform_survey": false, "survey_moreinfo_enabled": false, "is_vetmed_study": true, "has_multiple_investigators": true, "flag": false, "requires_login": false, "sp_enable_notify_research": true, "failed_survey_message_v2": false, "call_forwarding_enabled": false, "study_can_snooze": false, "v3_hide_target_section": false, "show_powered_by_footer": false} {"homePageUrl": "/", "brandImagePngUrl": "https://yuzu-studypages-prod-east.s3.amazonaws.com/staticroot/images/logos/updated/sp-logo-hrz-new.f46e0af7ef83.png", "brandImageSvgUrl": "https://yuzu-studypages-prod-east.s3.amazonaws.com/staticroot/images/logos/updated/sp-logo-hrz-new.2bb28ba0c120.svg", "currentLanguageCode": "en", "schemaVersion": 3, "urlMstudyAbsolute": "", "mapsKey": "[REDACTED_GOOGLE_API_KEY]", "orgcode": "csuvet", "joinButtonTextLong": "", "joinButtonTextShort": "", "publicId": "710678", "recruitmentTarget": "", "oaicFirstName": "", "studyCategory": "", "oaicLeadToken": "", "studyId": "", "studypageStatus": "", "csrfToken": "em1OA5H5h8QPcjG4USPeCVRFJP8qkqBu48SvCshEeHThKbxnGuYF3K2CYh6EsAI2", "spLogoImage": "https://yuzu-studypages-prod-east.s3.amazonaws.com/org_logos/CSUVHSlogo_FIE7pWP_BDkaJZ9.webp", "spLogoImageOrNone": "https://yuzu-studypages-prod-east.s3.amazonaws.com/org_logos/CSUVHSlogo_FIE7pWP_BDkaJZ9.webp", "publicBannerImage": "https://yuzu-studypages-prod-east.s3.amazonaws.com/study_banners/710678-1ee7a2ea-6170-4cfb-a341-e492fc3a155f.jpeg", "studyStartDate": "Nov. 2, 2026", "studyEndDate": "", "contactName": "CSU Oncology Clinical Trials", "contactEmail": "csuoncologytrials@colostate.edu", "studyPhoneRegion": "US", "contactPhoneExtDisplay": "", "spPhoneConditional": "(970) 297-4001", "iacucNumber": "8528", "avmaId": "", "targetGenderDisplay": "", "healthyVolunteerDisplay": "", "ctgovLinkUrl": "", "ctgovNctId": "", "typeformResponseId": "", "urlTypeformSurvey": "", "imgKeyhole": "https://yuzu-studypages-prod-east.s3.amazonaws.com/staticroot/images/misc/keyhole.6ff69d0d6b10.png", "piReview": "", "studyCode": "", "megastudyId": "", "mstudyParentCustomUrl": "", "urlStudyAbsolute": "http://studypages.com/s/radiation-therapy-for-small-cell-gi-lymphoma-in-cats-710678/", "urlStudypage": "/s/710678/", "urlMemberDashboardPage": "/dashboard/", "urlStudyEmailEndpoint": "/study/710678/en/send_email/", "urlPublicLoginPage": "/login/", "urlPrivacyTerms": "/privacy_terms/", "urlFooterPrivacy": "/privacy/", "iconImageUrl": "https://yuzu-studypages-prod-east.s3.amazonaws.com/staticroot/images/logos/updated/sp-icon.dd59ab094dc5.svg", "poweredByUrl": "https://studypages.com", "copyrightYear": "2026", "urlStudyPublicActivityEndpoint": "/study/710678/activity_public/", "urlStudyReadonlyActivityEndpoint": "", "urlSurveyActivityReadonly": "", "urlSurveyActivityLive": "/survey_activity/710678/0/", "urlMstudyActivityEndpoint": "#"} "/study/710678/activity_public/" {"id": "30590", "name": "Radiation Therapy for Small Cell GI Lymphoma in Cats", "tagline": "Help us learn about the use of radiation treatment in cats with GI lymphoma", "speciesListDisplay": "Cats", "ageRange": "", "studyType": "Clinical Trial", "description": "\u003Cp\u003ESmall cell gastrointestinal lymphoma (SCGL) is a type of cancer that affects the digestive tract of cats. It can cause long-term weight loss, vomiting, and diarrhea. The usual treatment for SCGL includes giving pills every day. Some cats do not tolerate these medicines well. This study is testing another treatment option that does not require daily pills. The treatment uses three radiation treatments. The radiation will be given slowly to help protect your cat's digestive tract. Cats may take part in this study if they have SCGL, have had signs of the disease for more than 6 weeks, and have not yet received treatment for SCGL.\u003C/p\u003E\u003Cp\u003E\u003Cbr\u003E\u003C/p\u003E\u003Cp\u003EWe will check your cat after radiation treatment to see how well the treatment works and whether your cat has any side effects. We will also test stool (fecal) samples to learn about the bacteria in your cat's digestive tract.\u003C/p\u003E\u003Cp\u003E\u003Cbr\u003E\u003C/p\u003E\u003Cp\u003EThe goal of this study is to find out if this radiation treatment is safe, well tolerated, and helpful for cats with SCGL. We hope this treatment will improve the quality of life for cats with this cancer.\u003C/p\u003E", "requirements": "At the beginning of the study, cats will receive three daily doses of radiation for a total of 6 Gy delivered to the entire gastrointestinal tract. Owners will provide stool samples prior to radiation and at recheck appointments performed 1-week, 1-month, 3-months, and 6-months following RT. At recheck appointments, cats will undergo a physical examination to assess clinical progress following treatment. At home, owners weigh their cats on a provided scale and complete an online survey regarding their clinical progress once weekly for a month, then once monthly for 6 months following radiation therapy.", "responsibilities": "Owners are responsible for all diagnostic and treatment-related costs beyond the incentives described above provided by the study. Additional responsibilities include:Owners must provide stool samples from their cat prior to RT and at recheck visits 1-week, 1-month, 3-months, and 6-months following RT.Owners are responsible for completing an online survey about their cat\u2019s progress and weighing their cat on a provided cat scale once a week for a month and once a month for 6 months following RT.Owners must disclose all current medications (including supplements) and let the study team know if they change any medications including dosing during the study.Owners must make and keep all appointments for the clinical trial, including three days of radiation and recheck visits 1-week, 1-month, 3-months, and 6-months following RT.", "benefits": "Possible benefits include improvement or resolution of symptoms of SCGL and weight gain. Side effects could be related to radiation, anesthesia, or drug complications. Gastrointestinal toxicity, including vomiting, diarrhea, decreased appetite, or other changes, could occur from radiation therapy.", "compensation": "Once enrolled, the costs of radiation therapy, stool testing, and recheck appointments required by the study will be covered.", "videoUrl": "", "videoThumbUrl": "", "timeCommitment": "Radiation treatment will be given under anesthesia on 3 consecutive days at the start of the study; these visits will likely take most of the day or all day. Recheck visits are required 1-week, 1-month, 3-months, and 6-months following radiation; these visits will like take 1-2 hours.", "healthyVolunteer": "N", "targetGender": "", "recruitmentTarget": null} const svFlags = readIsland('d_sv_flags');
+              const svValues = readIsland('d_sv_values');
+              const svContent = readIsland('d_sv_content');
+
+              const pageConditionals = {
+                  usePhoneMask: svFlags.usePhoneMask,
+                  isReadOnlyMode: svFlags.isReadOnlyMode,
+                  hasParentStudy: svFlags.hasParentStudy,
+                  hasLocations: svFlags.hasLocations,
+              }
+
+              const includeLanguageSwitcher = svFlags.includeLanguageSwitcher;
+              const languageData = JSON.parse(document.getElementById('d_childstudy_lang_to_url_dicts').textContent);
+              let languages = [];
+              if (includeLanguageSwitcher) {
+                  languages = languageData
+              }
+              const galleryConfigData = JSON.parse(document.getElementById('d_org_gallery_public_conf').textContent);
+              const spQueryParams = new URLSearchParams(window.location.search);
+              const ref = spQueryParams.get('ref');
+              const comingFromGallery = Boolean(ref === 'gallery');
+              let galleryHomeUrl = null;
+              let galleryStudiesUrl = null;
+              let galleryUrlName = null;
+              let galleryLogoUrl = null;
+              // The gallery stamps the URL it sent the visitor from into `from`, so "Back to
+              // studies list" can restore the filter/search state they left. Validated in the app
+              // (utils/gallery-return-url.ts) -- it is a query param, so it is attacker-supplied.
+              let galleryReturnUrl = null;
+              if (comingFromGallery && galleryConfigData && Object.keys(galleryConfigData).length > 0) {
+                  galleryHomeUrl = galleryConfigData.gallery_home_url;
+                  galleryStudiesUrl = galleryConfigData.gallery_studies_url;
+                  galleryUrlName = galleryConfigData.gallery_url_name;
+                  galleryLogoUrl = galleryConfigData.gallery_logo_url;
+                  galleryReturnUrl = spQueryParams.get('from');
+              }
+              var vueConfig = {
+                  homePageUrl: svValues.homePageUrl,
+                  brandImagePngUrl: svValues.brandImagePngUrl,
+                  brandImageSvgUrl: svValues.brandImageSvgUrl,
+                  languages,
+                  currentLanguageCode: svValues.currentLanguageCode,
+                  logoAsPng: true,
+                  studypageIsEmbedded: svFlags.studypageIsEmbedded,
+                  isEditPreview: svFlags.is_edit_preview,
+                  showPoweredByFooter: svFlags.show_powered_by_footer,
+                  iconImageUrl: svValues.iconImageUrl,
+                  urlFooterPrivacy: svValues.urlFooterPrivacy,
+                  poweredByUrl: svValues.poweredByUrl,
+                  copyrightYear: svValues.copyrightYear,
+                  comingFromGallery,
+                  galleryHomeUrl,
+                  galleryStudiesUrl,
+                  galleryReturnUrl,
+                  galleryUrlName,
+                  galleryLogoUrl
+              }
+
+              var study_locations_dynamic_maps = true;
+              study_locations_dynamic_maps = JSON.parse(document.getElementById('studypage_dynamic_maps_js').textContent);
+              var study_locations_display = readIsland('d_sv_locations_display');
+              var study_locations_maps = readIsland('d_sv_locations_maps');
+
+              var investigators_list = readIsland('d_sv_investigators_list');
+              var investigator_featured = readIsland('d_sv_investigator_featured');
+
+              var study_pdfs_data = readIsland('d_sv_study_pdfs');
+
+              var public_irb_info = readIsland('d_sv_public_irb_info');
+
+              var custom_study_ids = readIsland('d_sv_custom_study_ids');
+
+              // d_lead_sp_data is emitted unconditionally and serialises to "" when there is no
+              // lead, so the readIsland fallback never fires -- gate on the flag, as the template did.
+              var oaic_data = svFlags.is_oaic_lead ? readIsland('d_lead_sp_data', {}) : {};
+
+              var affiliationData = readIsland('d_sv_affiliation_data');
+              var sample_data = readIsland('d_sv_sample_data');
+
+              var is_freetext_condition_enabled =  JSON.parse(document.getElementById('js_freetext_condition').textContent);
+
+              var avmaStudyData = JSON.parse(document.getElementById('d_avma_study_data')?.textContent || '{}');
+              var avmaStudyContentData = JSON.parse(document.getElementById('d_avma_studycontent_data')?.textContent || '{}');
+
+              var megastudy_locations_alphabetic = readIsland('d_sv_megastudy_locations');
+
+              
+              var svBranding = readIsland('d_sv_branding');
+
+              var ext_study_data = {
+                  preview_data: readIsland('d_preview_data', undefined),
+                  study_info: {
+                      schema_version: svValues.schemaVersion,
+                      //// data from view
+                      is_oaic_lead: svFlags.is_oaic_lead,
+                      is_read_only: svFlags.isReadOnlyMode,
+                      is_preview: svFlags.is_preview,
+                      is_edit_preview: svFlags.is_edit_preview,
+                      is_preview_draftlink: svFlags.is_preview_draftlink,
+                      draftlink_contents: readIsland('d_draftlink_contents_dict', undefined),
+                      track_activity_on_fe: svFlags.track_activity_on_fe,
+                      do_track_pageview: svFlags.do_track_pageview,
+                      sp_survey_shown: svFlags.sp_survey_shown,
+                      url_mstudy_absolute: svValues.urlMstudyAbsolute,
+                      current_language_code: svValues.currentLanguageCode,
+                      already_joined: svFlags.already_joined,
+                      maps_key: svValues.mapsKey,
+                      restricted_fields: JSON.parse(document.getElementById('d_restricted_fields').textContent),
+                      is_avma_study: svFlags.is_avma_study,
+                      is_megastudy: svFlags.is_megastudy,
+                      orgcode: svValues.orgcode,
+                      //// arrays
+                      study_conditions: JSON.parse(document.getElementById('d_study_conditions').textContent),
+                      study_locations_dynamic_maps: study_locations_dynamic_maps,
+                      study_locations_display: study_locations_display,
+                      study_locations_maps: study_locations_maps,
+                      investigators_list: investigators_list,
+                      custom_study_ids: custom_study_ids,
+                      megastudy_locations_alphabetic: megastudy_locations_alphabetic,
+
+                      //// objects
+                      investigator_featured: investigator_featured,
+                      survey_questions: survey_questions,
+                      oaic_data: oaic_data,
+                      publicIrbInfo: public_irb_info,
+                      affiliationData: affiliationData,
+
+                      //// booleans
+                      include_investigators: svFlags.include_investigators,
+                      is_studypage_active: svFlags.is_studypage_active,
+                      is_active: svFlags.is_active,
+                      studypage_status: svValues.studypageStatus,
+                      is_active_nyr: svFlags.is_active_nyr,
+                      is_full_studypage: svFlags.is_full_studypage,
+                      is_registry_study: svFlags.is_registry_study,
+                      join_button_enabled: svFlags.join_button_enabled,
+                      join_button_action_sp_form: svFlags.join_button_action_sp_form,
+                      join_button_action_self_contact: svFlags.join_button_action_self_contact,
+                      join_button_action_external_link: svFlags.join_button_action_external_link,
+                      join_button_text_long: svValues.joinButtonTextLong || null,
+                      join_button_text_short: svValues.joinButtonTextShort || null,
+                      has_join_button_redirect_url: svFlags.has_join_button_link_url,
+                      is_finished_rec: svFlags.is_finished_rec,
+                      has_parent_study: svFlags.hasParentStudy,
+                      has_beta_features: svFlags.has_beta_features,
+                      is_typeform_survey: svFlags.is_typeform_survey,
+                      survey_moreinfo_enabled: svFlags.survey_moreinfo_enabled,
+                      is_vetmed_study: svFlags.is_vetmed_study,
+                      sample_data: sample_data,
+                      is_auth_participant: false,
+                      has_locations: svFlags.hasLocations,
+                      has_multiple_investigators: svFlags.has_multiple_investigators,
+                      has_multiple_locations: pageConditionals.hasLocations ? svFlags.flag : null,
+                      requires_login: svFlags.requires_login,
+                      sp_enable_notify_research: svFlags.sp_enable_notify_research,
+                      failed_survey_message_v2: svFlags.failed_survey_message_v2,
+                      call_forwarding_enabled: svFlags.call_forwarding_enabled,
+                      study_can_snooze: svFlags.study_can_snooze,
+                      public_id: svValues.publicId,
+                      ...avmaStudyData,
+
+                      //// integers
+                      recruitment_target: svValues.recruitmentTarget,
+
+                      //// strings
+                      oaic_first_name: svValues.oaicFirstName,
+                      study_category: svValues.studyCategory,
+                      oaic_lead_token: svValues.oaicLeadToken,
+                      study_id: svValues.studyId,
+                      study_code: svValues.studyCode,
+                      csrf_token: svValues.csrfToken,
+                      sp_logo_image: svValues.spLogoImage,
+                      
+                      sp_logo_image_or_none: svValues.spLogoImageOrNone,
+                      public_banner_image: svValues.publicBannerImage,
+                      study_start_date: svValues.studyStartDate,
+                      study_end_date: svValues.studyEndDate,
+                      contact_name: svValues.contactName,
+                      contact_email: svValues.contactEmail,
+                      study_phone_region: svValues.studyPhoneRegion,
+                      sp_phone_conditional: svValues.spPhoneConditional,
+                      contact_phone_ext_display: pageConditionals.usePhoneMask
+                        ? (svFlags.call_forwarding_enabled ? svValues.contactPhoneExtDisplay : '')
+                        : svValues.contactPhoneExtDisplay,
+                      iacuc_number: svValues.iacucNumber,
+                      avma_id: svValues.avmaId,
+                      target_gender_display: svValues.targetGenderDisplay,
+                      healthy_volunteer_display: svValues.healthyVolunteerDisplay,
+                      ctgov_link_url: svValues.ctgovLinkUrl,
+                      ctgov_nct_id: svValues.ctgovNctId,
+                      survey_translations_data: survey_translations_data,
+                      survey_moreinfo_data: survey_moreinfo_data,
+                      img_keyhole: svValues.imgKeyhole,
+                      pi_review: svValues.piReview,
+
+                      //// urls
+                      url_study_absolute: svValues.urlStudyAbsolute,
+                      url_studypage: svValues.urlStudypage,
+                      url_member_dashboard_page: svValues.urlMemberDashboardPage,
+                      url_study_email_endpoint: svValues.urlStudyEmailEndpoint,
+                      url_public_login_page: svValues.urlPublicLoginPage,
+                      url_privacy_terms: svValues.urlPrivacyTerms,
+                      url_study_registry_data_endpoint: readIsland('d_registry_data_url'),
+                      url_study_public_activity_endpoint: svValues.urlStudyPublicActivityEndpoint, //// for click activity tracking
+                      url_study_readonly_activity_endpoint: svValues.urlStudyReadonlyActivityEndpoint,
+                      url_study_signup_endpoint: pageConditionals.isReadOnlyMode ? svValues.urlStudyReadonlyActivityEndpoint : '',
+                      url_survey_activity_endpoint: pageConditionals.isReadOnlyMode ? svValues.urlSurveyActivityReadonly : svValues.urlSurveyActivityLive,
+                  },
+                  study_content: {
+                      id: svContent.id,
+                      name: svContent.name,
+                      tagline: svContent.tagline,
+                      species_list_display: svContent.speciesListDisplay,  //// string - empty if none exist
+                      age_range: svContent.ageRange,
+                      keywords: JSON.parse(document.getElementById('d_study_keywords').textContent), //// array
+                      study_type: svContent.studyType,
+                      description: svContent.description,
+                      requirements: svContent.requirements,
+                      responsibilities: svContent.responsibilities,
+                      benefits: svContent.benefits,
+                      compensation: svContent.compensation,
+                      video_url: svContent.videoUrl,
+                      video_thumb_url: svContent.videoThumbUrl,
+                      study_pdfs: study_pdfs_data,
+                      links: JSON.parse(document.getElementById('d_study_links').textContent),
+                      v3_hide_target_section: svFlags.v3_hide_target_section,
+                      time_commitment: svContent.timeCommitment,
+                      //// ENG-8478: v3 stores these on StudyContent, NOT on Study. Server-render
+                      //// them like every other fact -- before this they reached the page only via
+                      //// the studycontent-latest-version XHR, which 404s on an unpublished study,
+                      //// on a lang with no active content, and on any error inside that view.
+                      healthy_volunteer: svContent.healthyVolunteer,
+                      target_gender: svContent.targetGender,
+                      recruitment_target: svContent.recruitmentTarget,
+                      ...avmaStudyContentData,
+                  }
+              }
+
+              if (ext_study_data.study_info.is_typeform_survey) {
+                  ext_study_data.study_info.tf_ref_id = svValues.typeformResponseId
+                  ext_study_data.study_info.url_typeform_survey = svValues.urlTypeformSurvey
+              }
+
+              if (pageConditionals.hasParentStudy) {
+                  ext_study_data.study_info.mstudy_p_custom_url = svValues.mstudyParentCustomUrl
+                  ext_study_data.study_info.url_mstudy_activity_endpoint = svValues.urlMstudyActivityEndpoint
+              }
+
+              if (svFlags.is_megastudy) {
+                  ext_study_data.study_info.megastudy_id = svValues.megastudyId;
+              } .sharebuttons {
+        
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(100, 100, 100, 0.30);
+        
+    }
+
+    
+    @media (min-width: 768px) and (max-width: 991px) {
+        
+            #video-image {
+                width: 100%;
+                height: auto;
+                margin-top: -43px;
+            }
+
+            #video-container {
+                overflow: hidden;
+                height: 255px;
+            }
+        
+    }
+
+    
+    @media (min-width: 992px) and (max-width: 1199px) {
+        
+            #video-image {
+                width: 100%;
+                height: auto;
+                margin-top: -67px;
+            }
+
+            #video-container {
+                overflow: hidden;
+                height: 318px;
+            }
+        
+    }
+
+    
+    @media (min-width: 1200px) {
+        
+            #video-image {
+                width: 100%;
+                height: auto;
+                margin-top: -69px;
+            }
+
+            #video-container {
+                overflow: hidden;
+                height: 328px;
+            }
+        
+    }
+
+    .join_button_text_standard, .join_button_text_survey {
+        
+    }
+
+    
+    
+
+    
+        
+        .navbar-header {
+            width: 70%;
+            display: inline-block;
+        }
+
+        #dynamic-lang-select {
+            width: 30%;
+        }
+        
+    
+
+    
+        .glance-key {
+            padding-right: 3px;
+        }
+        .glance-value {
+            padding-right: 8px;
+        }
+        #condition-icon {
+            padding-right: 5px;
+        }
+        #schedule-icon {
+            padding-right: 5px;
+        }
+        #global-find-location-icon {
+            padding-right: 5px;
+        }
+        #nearest-centers-icon-td,
+        #nearest-centers-title-td {
+            float: left;
+        }
+        #nearest-locations-title-div {
+            padding-top: 2px;
+        }
+
+        #see-all-sites-btn-container {
+            float: right;
+        }
+    
+
+    
+
+    
+    @media (min-width: 768px) and (max-width: 991px) {
+        
+            .share-btn-twitter {
+                margin-right: 0;
+            }
+        
+    }
+
+    
+        #above-flier {
+            background-color: #f5f5db;
+        } .vertical-align {
+        display: flex;
+        align-items: center;
+        bottom: 0px;
+      }
+      .mob-preview-footer-padding {
+        @media screen and (max-width: 767px) {
+          padding-bottom: 60px;
+        }
+      } Privacy Policy Terms of Use 2026 Studypages by Yuzu Labs PBC var show_all_inv_default = false;
+      function replaceHtml(query, searchText, replaceText) {
+          const elements = document.querySelectorAll(query);
+
+          // Loop through each element and replace the specified text
+          elements.forEach(function(element) {
+              element.innerHTML = element.innerHTML.replace(new RegExp(searchText, 'g'), replaceText);
+          });
+      }
