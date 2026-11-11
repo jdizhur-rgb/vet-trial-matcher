@@ -10572,7 +10572,9 @@
     "source_url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
     "special_requirement": "Study-team screening and conditioning chemotherapy required. Minnesota: >=10 kg, no Boxers, peripheral multicentric high-grade CD20+ B-cell lymphoma, >=4 evaluable peripheral nodes, naive/relapsed substage A, performance status 0–1 and >=72-hour prednisone washout. Missouri: >10 kg, clinically well, no primary GI/lung involvement and >=72-hour prednisone washout. Confirm Ohio criteria and slot.",
     "funding_verified": "2026-11-07",
-    "protocol_reviewed_at": "2026-11-07T03:13:01.720177-05:00"
+    "protocol_reviewed_at": "2026-11-07T03:13:01.720177-05:00",
+    "sponsor_status_checked_at": "2026-11-11T03:26:00-05:00",
+    "sponsor_status_source": "https://leahlabs.com/"
   },
   {
     "id": "mexico-ensenada-silver-nanoparticle-cancer-2026",
@@ -12538,7 +12540,7 @@
     "funding": "🟡 Partially funded. Owners pay screening diagnostics; after enrollment the sponsor covers three FLASH-RT treatments, examinations, laboratory tests, sedation/anesthesia, CSF taps, gilvetmab infusions and protocol CT/MRI imaging.",
     "funding_status": "Partially funded",
     "funding_source": "https://www.vet.upenn.edu/clinical-trial/flash-based-radioimmunotherapy-in-canine-glioma/",
-    "funding_verified": "2026-09-30",
+    "funding_verified": "2026-11-11",
     "requires": {
       "active_treatment_target": true,
       "planned_radiation": true
@@ -12548,7 +12550,7 @@
       "anesthesia_contraindicated": true
     },
     "notes": "Dogs need histopathologic confirmation of glioma or diagnostic MRI showing a supratentorial lesion consistent with glioma, must be suitable for general anesthesia, and must have a tumor compatible with the FLASH equipment. Systemic chemotherapy or immunotherapy requires a three-week washout; prior gilvetmab is not allowed. All dogs receive three FLASH proton treatments and are randomized to receive or not receive three gilvetmab infusions, with 12 follow-up visits over 11 months.",
-    "verified": "2026-10-12",
+    "verified": "2026-11-11",
     "study_type": "treatment",
     "available_for_matching": true,
     "status_confidence": "confirmed_current",
@@ -12569,7 +12571,13 @@
       "immunotherapy"
     ],
     "address": "Penn Vet Ryan Veterinary Hospital, 3900 Spruce Street, Philadelphia, PA 19104",
-    "special_requirement": "Glioma may be established by pathology or diagnostic MRI showing a supratentorial lesion. Three FLASH radiation treatments are required, with randomization to Gilvetmab. No systemic chemotherapy or immunotherapy within three weeks and no previous Gilvetmab; anesthesia suitability and compatibility with FLASH equipment require Penn assessment."
+    "special_requirement": "Glioma may be established by pathology or diagnostic MRI showing a supratentorial lesion. Three FLASH radiation treatments are required, with randomization to Gilvetmab. No systemic chemotherapy or immunotherapy within three weeks and no previous Gilvetmab; anesthesia suitability and compatibility with FLASH equipment require Penn assessment.",
+    "protocol_reviewed_at": "2026-11-11T03:18:00-05:00",
+    "registry_url": "https://veterinaryclinicaltrials.org/s/flash-based-radioimmunotherapy-in-canine-glioma-417438/",
+    "registry_url_verified": "2026-11-11",
+    "registry_status": "Recruiting",
+    "registry_status_checked_at": "2026-11-11T03:16:00-05:00",
+    "avma_vct_code": "VCT26005993"
   },
   {
     "id": "jp-tokyo-organoid-guided-targeted-therapy-2026",
@@ -14139,7 +14147,7 @@
   },
   {
     "id": "csu-feline-scgl-radiotherapy-iacuc8528",
-    "title": "Low-dose gastrointestinal radiation for feline small-cell lymphoma",
+    "title": "Low-dose gastrointestinal radiation for untreated feline small-cell lymphoma",
     "center": "Colorado State University Veterinary Teaching Hospital",
     "country": "USA",
     "state": "Colorado",
@@ -14154,29 +14162,32 @@
     "available_for_matching": true,
     "url": "https://studypages.com/s/radiation-therapy-for-small-cell-gi-lymphoma-in-cats-710678/",
     "source_url": "https://studypages.com/s/radiation-therapy-for-small-cell-gi-lymphoma-in-cats-710678/",
-    "contacts": "CSU Oncology Clinical Trials, csuoncologytrials@colostate.edu; (970) 297-4001.",
+    "contacts": "CSU Oncology Clinical Trials — (970) 297-4001; csuoncologytrials@colostate.edu",
     "contact_source": "https://studypages.com/s/radiation-therapy-for-small-cell-gi-lymphoma-in-cats-710678/",
-    "funding": "Partially funded. After enrollment CSU covers the radiation treatment, stool testing and study recheck appointments. The owner pays other diagnostics and treatment costs. Separate anesthesia and travel coverage are not specified.",
+    "funding": "🟡 Partially funded. After enrollment CSU covers radiation treatment, required stool testing and protocol recheck appointments. Owners pay diagnostic and other treatment costs outside those study incentives.",
     "funding_status": "Partially funded",
     "funding_source": "https://studypages.com/s/radiation-therapy-for-small-cell-gi-lymphoma-in-cats-710678/",
-    "funding_verified": "2026-11-09",
-    "verified": "2026-11-09",
-    "protocol_reviewed_at": "2026-11-09T08:56:04.669900-05:00",
+    "funding_verified": "2026-11-11",
+    "verified": "2026-11-11",
+    "protocol_reviewed_at": "2026-11-11T03:20:00-05:00",
     "protocol_id": "IACUC 8528",
     "recruitment_start": "2026-11-02",
     "intervention": "Three consecutive daily radiation doses totaling 6 Gy to the entire gastrointestinal tract under anesthesia.",
     "requires": {
       "confirmed": true,
-      "active_treatment_target": true,
       "small_cell_gastrointestinal_lymphoma": true,
+      "previously_untreated": true,
+      "steroid_washout_days": 5,
       "planned_radiation": true,
       "anesthesia_candidate": true
     },
     "excludes": {
-      "prior_chemo": true
+      "prior_chemo": true,
+      "recent_systemic_antibiotics_14d": true,
+      "significant_systemic_disease": true
     },
-    "special_requirement": "Endoscopic biopsy must confirm small-cell gastrointestinal lymphoma. The protocol requires at least six weeks of symptoms; confirm the exact boundary with CSU. Prior chemotherapy excludes participation. Recent steroids, antibiotics or diet changes may be allowed after a study-defined waiting period. Pretreatment testing and suitability for anesthesia require CSU review.",
-    "notes": "This study is for cats with small-cell gastrointestinal lymphoma without previous chemotherapy. Follow-up at 1 week, 1, 3 and 6 months includes exams and stool samples; owners record weight and progress at home. The study tests whether this approach is tolerable and helpful; benefit is not guaranteed. No recruitment end is published.",
+    "special_requirement": "Biopsy-confirmed untreated small-cell GI lymphoma with symptoms for at least six weeks; three consecutive days of abdominal radiation under anesthesia and follow-up through six months are required. CSU prescreening determines medication washouts and anesthesia suitability.",
+    "notes": "Cats need biopsy-confirmed small-cell gastrointestinal lymphoma, including IHC/PARR confirmation, symptoms for at least six weeks, and no prior chemotherapy. The protocol gives 6 Gy to the entire gastrointestinal tract in three daily low-rate radiation treatments under anesthesia. Owners provide stool samples and attend rechecks at one week and one, three, and six months, with home weights and quality-of-life surveys. Recent glucocorticoids, antibiotics, diet changes, concurrent malignancy, or serious systemic disease may exclude enrollment.",
     "owner_prescreen_required": true,
     "treatments": [
       "Radiation"
@@ -14194,6 +14205,28 @@
         "country": "USA",
         "source_url": "https://studypages.com/s/radiation-therapy-for-small-cell-gi-lymphoma-in-cats-710678/"
       }
-    ]
+    ],
+    "registry_url": "https://veterinaryclinicaltrials.org/s/radiation-treatment-for-cats-with-small-cell-gi-lymphoma-674332/",
+    "registry_url_verified": "2026-11-11",
+    "registry_status": "Recruiting",
+    "registry_status_checked_at": "2026-11-11T03:16:00-05:00",
+    "avma_vct_code": "VCT26005992",
+    "recruitment_end": "2027-12-31",
+    "recruitment_end_source": "https://veterinaryclinicaltrials.org/s/radiation-treatment-for-cats-with-small-cell-gi-lymphoma-674332/",
+    "recruitment_end_timezone": "America/Denver",
+    "recruitment_end_basis": {
+      "rule": "study_end_as_recruitment_end",
+      "policy_ref": "data/audit_owner_policy.json",
+      "published_study_end": "2027-12-31",
+      "primary_url": "https://veterinaryclinicaltrials.org/s/radiation-treatment-for-cats-with-small-cell-gi-lymphoma-674332/",
+      "original_read_at": "2026-11-11T03:16:00-05:00",
+      "scope": "same published CSU protocol/cohort; no site activation inferred",
+      "enrollment_condition": "The current official AVMA record is recruiting; per owner policy its published study end is used as the recruitment end unless superseded by newer primary evidence.",
+      "evidence_refs": [
+        "research/audit-runs/daily-20261111T030107-0500/evidence/avma-feline-vct26005992-json.json",
+        "research/audit-runs/daily-20261111T030107-0500/evidence/csu-feline-scgl-primary-json.json"
+      ],
+      "decision_recorded_at": "2026-11-11T03:22:00-05:00"
+    }
   }
 ]
