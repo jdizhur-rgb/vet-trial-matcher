@@ -1,0 +1,31 @@
+{
+  "url": "https://www.ethosvet.com/clinical-studies/",
+  "attempted": false,
+  "restricted": true,
+  "attempted_at": null,
+  "completed_at": "2026-11-11T03:02:42.708939-05:00",
+  "method": "restriction_guard",
+  "result": "not_requested_exact_restriction",
+  "restriction": {
+    "url": "https://www.ethosvet.com/clinical-studies/",
+    "do_not_retry": true,
+    "origin": "daily-20261017/inherited-gates.json",
+    "historical_scope": {
+      "source_id": "usa-ethos-clinical-studies",
+      "evidence": {
+        "url": "https://www.ethosvet.com/clinical-studies/",
+        "method": "Web",
+        "attempted_at": "2026-10-15T03:19:02-04:00",
+        "http_status": 403,
+        "result": "explicit_denial",
+        "evidence_file": "research/audit-runs/daily-20261015T030225-0400/web-15.json",
+        "evidence_reference": "turn746view3",
+        "do_not_retry": true,
+        "reason": "Retain the exact previously denied URL even when its parent source is partial and a later erroneous request returns404."
+      }
+    }
+  },
+  "source_id": "usa-ethos-clinical-studies",
+  "route": "master",
+  "text_file": null
+}
