@@ -1,0 +1,69 @@
+{
+  "run_id": "daily-20261112T030646-0500",
+  "observed_at": "2026-11-12T03:54:28.760232-05:00",
+  "url": "https://vettrialfinder.com/matcher/",
+  "result": "PASS",
+  "deployed_data_commit": "c7915be0876eb563a508dce795788b1fd32be835",
+  "deployment_workflow": {
+    "run_id": 43185624564,
+    "result": "PASS"
+  },
+  "assets": {
+    "trials.json": {
+      "local_sha256": "44c1b8719bc71caf8f1f0f2a14a68d809014d0b496781282052443be58bf1e63",
+      "live_sha256": "44c1b8719bc71caf8f1f0f2a14a68d809014d0b496781282052443be58bf1e63",
+      "match": true,
+      "live_records": 154,
+      "new_id_present": true,
+      "build_path": "seo/site/matcher/trials.json",
+      "live_path": "research/audit-runs/daily-20261112T030646-0500/production/live-trials.json",
+      "match_assessment": "PASS"
+    },
+    "matcher.js": {
+      "local_sha256": "a9b0a97ca943bb005fc4d5eea77839df43df2e220aaa15c43dd5af7210628375",
+      "live_script_src": "./matcher.js?v=clinical-audit-20261103-owner-rules-r1",
+      "build_deploy_workflow": "PASS",
+      "functional_readback": "PASS",
+      "match_assessment": "PASS",
+      "build_path": "seo/site/matcher/matcher.js",
+      "live_path": "research/audit-runs/daily-20261112T030646-0500/production/live-matcher.js",
+      "live_sha256": "a9b0a97ca943bb005fc4d5eea77839df43df2e220aaa15c43dd5af7210628375",
+      "match": true
+    },
+    "index.html": {
+      "local_sha256": "584dd9aef30db33e45b57de870af1379a9de997aa0b495d31d2d4e3c4af4bf1a",
+      "live_script_src": "./matcher.js?v=clinical-audit-20261103-owner-rules-r1",
+      "match_assessment": "PASS",
+      "build_path": "seo/site/matcher/index.html",
+      "live_path": "research/audit-runs/daily-20261112T030646-0500/production/live-index.html",
+      "live_sha256": "584dd9aef30db33e45b57de870af1379a9de997aa0b495d31d2d4e3c4af4bf1a",
+      "match": true
+    }
+  },
+  "live_search": {
+    "profile": {
+      "species": "Dog",
+      "cancer": "Cancer — any type",
+      "diagnosis_certainty": "I don't know",
+      "age": "",
+      "weight": "",
+      "zip": "",
+      "treatments": "all selected",
+      "approach": "Any approach"
+    },
+    "USA": {
+      "displayed_results": 96,
+      "catalog_expected": 96,
+      "result": "PASS"
+    },
+    "Japan": {
+      "displayed_results": 14,
+      "catalog_expected": 14,
+      "result": "PASS"
+    }
+  },
+  "transport_notes": [
+    "Shell curl timed out before response; the same production URL was opened through Web/Browser as required.",
+    "Live catalog body was read in the browser and hashed; UI searches were executed against the rendered production matcher."
+  ]
+}
