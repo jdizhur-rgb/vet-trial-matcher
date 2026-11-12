@@ -12244,6 +12244,52 @@
       ],
       "selection_sha256": "aeaa74af7f8d7b6d41e5e5c072978b4a1be2df6fc02373c31799b6dd1a4d5cc8",
       "full_protocol_reverified": true
+    },
+    {
+      "trial_id": "illinois-feline-oscc-sbrt-olaparib-metformin-2026",
+      "source_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/11/OSCC-RT-Olap-and-Metformin-Trial.pdf",
+      "reviewed_at": "2026-11-12T03:21:49.257163-05:00",
+      "criteria": "Cat older than 1 year with cytologic or histologic oral SCC; biopsy-accessible, radiation-suitable tumor; anesthesia candidate; excludes diabetes, untreated comorbidity and IRIS stage III-or-greater renal disease. Current PDF lists SBRT, olaparib and metformin and exact owner-cost coverage.",
+      "cases": [
+        {
+          "name": "confirmed feline oral SCC requires team screening",
+          "patient": {
+            "species": "Cat",
+            "country": "USA",
+            "cancer": "Oral squamous cell carcinoma",
+            "diagnosis_status": "Confirmed by cytology or biopsy"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "anesthesia"
+          ]
+        },
+        {
+          "name": "different species is outside protocol",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Oral squamous cell carcinoma",
+            "diagnosis_status": "Confirmed by cytology or biopsy"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "unconfirmed diagnosis remains screening only",
+          "patient": {
+            "species": "Cat",
+            "country": "USA",
+            "cancer": "Oral squamous cell carcinoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
+        }
+      ],
+      "selection_sha256": "11810e26b12ca5ca666397a2eee79d72bd5b10bbf4ddabcc339dc90e61517999",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "daily-20261112T030646-0500",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_source_run": "daily-20261112T030646-0500"
     }
   ]
 }
