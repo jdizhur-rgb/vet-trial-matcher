@@ -12290,6 +12290,71 @@
       "primary_evidence_review_run": "daily-20261112T030646-0500",
       "source_visit_refreshed_this_run": true,
       "primary_evidence_source_run": "daily-20261112T030646-0500"
+    },
+    {
+      "trial_id": "jhu-cigat-osa-cryo-immunotherapy-2026",
+      "source_url": "https://veterinaryclinicaltrials.org/s/immune-treatment-of-canine-bone-cancer-933248/",
+      "reviewed_at": "2026-11-12T08:20:07.793132-05:00",
+      "criteria": "AVMA VCT26005952: biopsy-confirmed osteosarcoma confined to a limb, no prior chemotherapy or osteosarcoma treatment, and willingness to proceed with amputation and chemotherapy. The exact protocol does not establish cryotherapy enrollment.",
+      "source_visit_refreshed_this_run": false,
+      "full_protocol_reverified": false,
+      "primary_evidence_source_run": "continue-20261109T075757-0500",
+      "selection_sha256": "aee85d34f5e7831b7e9017d0253bb9694c23a87e7b27ec64e40359ead57e3788",
+      "cases": [
+        {
+          "name": "candidate with untreated localized limb osteosarcoma",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "osa_location": "Appendicular — limb bone",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "metastasis": "No known metastases",
+            "chemo": "Never"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "axial tumor outside the protocol",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "osa_location": "Axial — skull, spine, rib, or pelvis"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "confirmed spread outside the limb",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "metastasis": "Confirmed metastases"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "previous chemotherapy excluded",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "amputation declined as a treatment preference",
+          "patient": {
+            "cancer": "Osteosarcoma",
+            "prefs": [
+              "Chemotherapy",
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "unanswered staging and diagnosis remain for screening",
+          "patient": {
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "review"
+        }
+      ]
     }
   ]
 }

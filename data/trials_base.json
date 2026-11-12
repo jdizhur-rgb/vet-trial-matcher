@@ -3098,13 +3098,13 @@
     "species": "Dog",
     "url": "https://studypages.com/s/characterization-of-naturally-occurring-osteosarcoma-in-dogs-765697/",
     "contacts": "UC Davis Veterinary Center for Clinical Trials — 530-754-1954",
-    "funding": "Contact study team.",
+    "funding": "Conditional research coverage: UC Davis covers the owner-elected amputation and protocol follow-up, exams, lab tests and X-rays if participation continues through week 15. If the owner elects chemotherapy earlier, study participation ends and the owner pays for surgery.",
     "requires": {
       "confirmed": true,
       "no_metastasis": true
     },
     "excludes": {},
-    "notes": "Active-recruiting North American cohort following up to 120 dogs treated palliatively with standard amputation without chemotherapy. The record remains nonmatchable because the protocol characterizes outcomes after an owner-elected standard procedure and does not provide an experimental anticancer intervention.",
+    "notes": "Observational study of outcomes after owner-elected standard palliative amputation alone. It does not assign an anticancer intervention and is excluded from both treatment-trial matching and the treatment-access category. The conditional cost coverage is retained for the historical record.",
     "study_type": "observational",
     "sites": [
       {
@@ -10374,7 +10374,7 @@
   },
   {
     "id": "jhu-cigat-osa-cryo-immunotherapy-2026",
-    "title": "Cryotherapy or intratumoral immunotherapy before amputation for canine osteosarcoma",
+    "title": "Intratumoral immunotherapy before amputation for canine limb osteosarcoma",
     "center": "Johns Hopkins Center for Image-Guided Animal Therapy (CIGAT)",
     "country": "USA",
     "state": "Maryland",
@@ -10382,20 +10382,22 @@
     "cancers": [
       "Osteosarcoma"
     ],
-    "status": "Open and recruiting — listed on the current Johns Hopkins CIGAT clinical-trials page",
-    "url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
-    "contacts": "Johns Hopkins CIGAT — 410-502-7325; contact through the official clinical-trials page",
-    "funding": "🟡 Partially funded. Study covers PET-CT/CT imaging, cryotherapy or intratumoral immunotherapy, study-related medications and follow-up imaging/blood tests; required amputation and chemotherapy are owner-paid.",
+    "status": "Recruiting — Johns Hopkins immunotherapy cohort listed by AVMA (VCT26005952)",
+    "url": "https://veterinaryclinicaltrials.org/s/immune-treatment-of-canine-bone-cancer-933248/",
+    "contacts": "Johns Hopkins CIGAT — 410-502-7325; cigat@jhmi.edu",
+    "funding": "Partially funded. The protocol provides study immunotherapy, study imaging and gilvetmab. Owners arrange standard amputation and chemotherapy; these are not listed as covered. Confirm the full cost breakdown with the study team.",
     "requires": {
       "confirmed": true,
       "active_treatment_target": true,
-      "planned_amputation_and_chemo": true
+      "planned_amputation_and_chemo": true,
+      "appendicular_location": true,
+      "no_metastasis": true
     },
     "excludes": {
       "prior_chemo": true,
       "prior_osteosarcoma_treatment": true
     },
-    "notes": "Treatment trial for histopathologically confirmed canine osteosarcoma. Eligible dogs receive PET-CT and either cryotherapy or two doses of tumor-injected immunotherapy before required amputation at about two weeks, followed by chemotherapy. Johns Hopkins lists no prior osteosarcoma treatment or chemotherapy for other cancers and requires the dog to be systemically healthy apart from osteosarcoma.",
+    "notes": "For dogs with histologically confirmed limb osteosarcoma. The Johns Hopkins protocol published by AVMA describes staging PET-CT, intratumoral immunotherapy with carboplatin before amputation, then standard chemotherapy with gilvetmab. No prior osteosarcoma treatment or chemotherapy for another cancer. The current availability of the cryotherapy option described in earlier institutional materials is unconfirmed.",
     "verified": "2026-09-07",
     "study_type": "treatment",
     "available_for_matching": true,
@@ -10413,7 +10415,8 @@
     "funding_status": "Partially funded",
     "treatment_approaches": [
       "immunotherapy"
-    ]
+    ],
+    "special_requirement": "The team must confirm that osteosarcoma is limited to the affected limb and that the dog can undergo the required amputation and chemotherapy."
   },
   {
     "id": "jhu-cigat-brain-rt-tmz-2026",
