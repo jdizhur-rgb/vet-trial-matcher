@@ -25,6 +25,8 @@
 ## Поиск и охват
 
 - **Обработка очереди:** 162/162 источников; 12/12 регионов; незавершённая работа исполнителя: **0**.
+- Основной обход: 137 фактических master-запросов и 24 exact-restriction решения; 96 фактических запросов к записанным fallback routes и 24 exact-restriction решения; дополнительно прочитаны 5 linked protocol pages нового источника Instituto VOC. Восемь недостаточных/ошибочных native responses проверены по тем же официальным URL через Web.
+- Global discovery: 96 отдельных country/language searches — 32 current/undated, 32 углубляющих поиска по странам со слабой выдачей и 32 fresh searches с семидневным перекрытием. Использованы английский и соответствующие местные языки во всех 12 регионах.
 - Исходный frozen inventory: 161 источник. Фактически выполнены 137 master-запросов; 24 master routes имели сохранённые exact restrictions и не запрашивались повторно. Выполнены 96 разрешённых запросов к записанным fallback routes; ещё 24 fallback routes были exact-restricted. Для нового Instituto VOC открыты master и 5 индивидуальных protocol pages. Восемь неудачных shell-URL дополнительно проверены через Web.
 - Global discovery: **96 отдельных country/language searches** во всех 12 регионах — 32 current/undated, 32 углубляющих при слабой выдаче и 32 fresh signals с семидневным перекрытием. Использованы английский и соответствующие местные языки.
 - Разобран 181 выбранный discovery URL: 109 `NOT_TREATMENT`, 36 `SOURCE_INDEX_REVIEWED`, 27 `VERIFIED_EXISTING`, 6 `CLOSED_CONFIRMED`, 3 `PENDING_EVIDENCE`.
@@ -81,5 +83,6 @@
 - `master-index.json`, `fallback-index.json`, `web-fallback-index.json`, `evidence/` — timestamps, методы, URLs, hashes и retrieved evidence
 - `discovery/` и `evidence/web-discovery-review.json` — реальные поисковые ответы, primary review и решения по leads
 - `validation-results.json`, `production-readback.json`, `git-readback.json`, `checkpoint-final.json` — validators, deploy, live readback и финальный checkpoint
+- `commands-summary.md` и `changed-files.txt` — фактически выполненные ключевые команды, результаты и список изменённых файлов
 
 **Причина окончания:** `completed_available_work`. Все доступные разрешённые действия выполнены до 180-минутного предела; остались документированные внешние пробелы, требующие нового или изменившегося primary evidence. Runtime failure и истечение времени не были причиной остановки.
