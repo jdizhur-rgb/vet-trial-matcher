@@ -1,0 +1,109 @@
+{
+  "run_id": "daily-20261113T030644-0500",
+  "generated_at": "2026-11-13T03:51:09.136091-05:00",
+  "result": "PASS_WITH_STRICT_CLINICAL_INCOMPLETE",
+  "catalog": {
+    "sanitation": "PASS",
+    "schema": "PASS",
+    "records": 321,
+    "public": 154,
+    "treatment": 150,
+    "other_treatment_access": 4,
+    "semantic_duplicates": 0
+  },
+  "sources": {
+    "inventory": "PASS",
+    "sources": 162
+  },
+  "matcher": {
+    "build": "PASS",
+    "selection_js": "PASS",
+    "selection_python": "PASS",
+    "loading_regression": "PASS",
+    "logic": "PASS",
+    "local_production_sync": "PASS"
+  },
+  "audit": {
+    "execution_gate": "PASS",
+    "strict_receipt": "INCOMPLETE",
+    "gap_review": "PASS",
+    "source_sufficient": "1/162",
+    "external_gaps": 161,
+    "executor_incomplete": 0
+  },
+  "environment": {
+    "core": "PASS",
+    "preflight": "PASS_WITH_INCONCLUSIVE",
+    "inconclusive": "Python streamlit package unavailable; core build/static matcher tests passed."
+  },
+  "logs": {
+    "audit-execution-gate.log": {
+      "sha256": "c4a9bd940a5565b90596645fbcf8aeb8f67c34063f1cffae944cc89c3f99b69e",
+      "bytes": 545
+    },
+    "audit-gap-review.log": {
+      "sha256": "b06263ac2e4e8d2bdc118f760f2561ff2447f78d533a6d0a3b853e8c8132ca12",
+      "bytes": 384
+    },
+    "audit-preflight.log": {
+      "sha256": "d2e5198147b196835594701246ca6b03fbcb605237a66c66eabb1c274392580b",
+      "bytes": 1382
+    },
+    "audit-receipt.log": {
+      "sha256": "996e02347af522ed40162db588ae797a9930190a344a28f16948bd97a9126258",
+      "bytes": 12729
+    },
+    "build-matcher-data.log": {
+      "sha256": "3cd1163f3b949320c747dc6231e903acd79b25c6185b3d26ad651919cad1a181",
+      "bytes": 74
+    },
+    "build-static-site.log": {
+      "sha256": "3cf1e43fa36a510869fee73770233e04fb09798dd31bf956f50b932150f009e9",
+      "bytes": 4499
+    },
+    "catalog-sanitation.log": {
+      "sha256": "eeb4526d5269e087cb1e97b5d90de1dda2f767f576e31fc7eae1451057bdde48",
+      "bytes": 394
+    },
+    "catalog-schema.log": {
+      "sha256": "ea05842c3a33e68aef0f59417f6dff3251095fcbed89e5aa4aec69e959d56bb9",
+      "bytes": 92
+    },
+    "evidence-keys.log": {
+      "sha256": "6643a2b12c275a9c1f10bdc9ff65e058f289847b25933531adfec87c0e42417f",
+      "bytes": 37
+    },
+    "matcher-catalog-loading.log": {
+      "sha256": "f06255196ce3e8f8962a7cb9da1f017c90d65db4ffeaa1f5cd2353b208226629",
+      "bytes": 104
+    },
+    "matcher-logic.log": {
+      "sha256": "6ef43c8229127495a68757f0ce033696eed835226f2eb49df822ec36a008ce93",
+      "bytes": 86
+    },
+    "matcher-selection-js.log": {
+      "sha256": "01c8e9d9f0c922661ecd1d1af88823265917682b11044826375ec52539ee8352",
+      "bytes": 166
+    },
+    "matcher-selection-py.log": {
+      "sha256": "26ef789757753330375efeef8251f28e2c4cd9053f3f16ac48f3cef28dcdd436",
+      "bytes": 132
+    },
+    "production-sync-local.log": {
+      "sha256": "deec0ca05e2593c824bda714f0b8838226494523508d166506c925dfe4b258f7",
+      "bytes": 88
+    },
+    "repository-hygiene.log": {
+      "sha256": "7405d94ba9a71472aba3f3d614024fc8412699698968684aa6edf1a35fc46261",
+      "bytes": 22
+    },
+    "semantic-dedupe.log": {
+      "sha256": "c62f83b299c5ae5840d7b16955cbb5dc3a3e83f853ef3678f5590486be0eede7",
+      "bytes": 106
+    },
+    "source-inventory.log": {
+      "sha256": "70319300a6843e8d94741b52dc50d4d155451693b88e14c645b60bc0b5501b7e",
+      "bytes": 63
+    }
+  }
+}
