@@ -1,0 +1,39 @@
+{
+  "run_id": "daily-20261114T030014-0500",
+  "checked_at": "2026-11-14T03:34:29.943111-05:00",
+  "data_commit": "430764dc22c268685f441b418ea56b89154bdd60",
+  "deploy": {
+    "status": "PASS",
+    "evidence": "Published catalog and matcher assets are live; live UI contains the updated EGFR/HER2 roster and $595 VCCS consultation."
+  },
+  "live_assets": {
+    "index_html_sha256": "a8655cc986b1b81613214937a84add5307357ea88c03f79ddab67f9168925788",
+    "matcher_js_sha256": "a9b0a97ca943bb005fc4d5eea77839df43df2e220aaa15c43dd5af7210628375",
+    "trials_json_sha256": "75acdca6f1213fb36d0bafb2d850127951eae10374992e4ef11e5d0f9a8184a6",
+    "script_version": "matcher.js?v=clinical-audit-20261103-owner-rules-r1",
+    "catalog_version": "trials.json?v=75acdca6f1213fb3",
+    "matches_local_build": true,
+    "cache_note": "A cache-busted/current-browser read returned the new HTML/catalog version. One unbusted shell request briefly returned the prior HTML cache tag, while the live UI and catalog already contained the update."
+  },
+  "live_search": {
+    "profile": "Dog; Cancer — any type; diagnosis certainty I don't know; blank age, weight and ZIP; all treatment options selected; Any approach",
+    "usa": {
+      "status": "PASS",
+      "displayed_results": 96,
+      "catalog_expected": 96
+    },
+    "japan": {
+      "status": "PASS",
+      "displayed_results": 14,
+      "catalog_expected": 14
+    }
+  },
+  "published_change_readback": {
+    "status": "PASS",
+    "signals": [
+      "Treeline Veterinary Cancer Care / Boulder present",
+      "VCCS consultation $595 present",
+      "EGFR/HER2 title present"
+    ]
+  }
+}
