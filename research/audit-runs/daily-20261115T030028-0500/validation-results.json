@@ -1,0 +1,115 @@
+{
+  "run_id": "daily-20261115T030028-0500",
+  "recorded_at": "2026-11-15T03:43:40.007377-05:00",
+  "checks": [
+    {
+      "name": "audit_execution_gate",
+      "status": "PASS",
+      "detail": "execution PASS; clinical reconciliation INCOMPLETE; discovery INCOMPLETE; 5/162 source sufficient; 8/74 inherited issues resolved; 66 blocked; 0 available remaining"
+    },
+    {
+      "name": "strict_audit_receipt",
+      "status": "INCOMPLETE",
+      "detail": "157 current evidence gaps; no receipt schema errors"
+    },
+    {
+      "name": "audit_gap_review",
+      "status": "PASS",
+      "detail": "157 individual external-blocker rows; 129 roster_unestablished, 28 source_unavailable; strict coverage INCOMPLETE"
+    },
+    {
+      "name": "audit_preflight",
+      "status": "PASS_WITH_INCONCLUSIVE",
+      "detail": "core checks pass; Streamlit ancillary check unavailable because streamlit module is not installed"
+    },
+    {
+      "name": "catalog_sanitation",
+      "status": "PASS",
+      "detail": "321 records; 4 known partial; 0 new partial"
+    },
+    {
+      "name": "trials_catalog",
+      "status": "PASS",
+      "detail": "321 canonical; 154 active/public"
+    },
+    {
+      "name": "source_inventory",
+      "status": "PASS",
+      "detail": "162 sources"
+    },
+    {
+      "name": "repository_hygiene",
+      "status": "PASS"
+    },
+    {
+      "name": "full_catalog_audit",
+      "status": "PASS",
+      "detail": "completed current catalog comparison"
+    },
+    {
+      "name": "matcher_catalog_loading",
+      "status": "PASS",
+      "detail": "Japan 14 and USA 96 after delayed load; early/loading/failure paths did not show false zero"
+    },
+    {
+      "name": "matcher_logic",
+      "status": "PASS",
+      "detail": "154 public records"
+    },
+    {
+      "name": "matcher_selection_js",
+      "status": "PASS",
+      "detail": "154 public; 1467 checks"
+    },
+    {
+      "name": "matcher_selection_python",
+      "status": "PASS",
+      "detail": "18480 disease checks"
+    },
+    {
+      "name": "protocol_sources_historical",
+      "status": "PASS",
+      "detail": "143/154 have retained independent reviews; 11 historical pending"
+    },
+    {
+      "name": "protocol_sources_fresh_today",
+      "status": "INCOMPLETE",
+      "detail": "8/154 fully reread from current primary protocol evidence today; 146 not fully reread today"
+    },
+    {
+      "name": "trial_links",
+      "status": "PASS",
+      "detail": "154 active records; 164 links OK; 10 uncertain; 0 dead; 0 records without a link"
+    },
+    {
+      "name": "production_sync_local",
+      "status": "PASS",
+      "detail": "154 total; 150 treatment; 4 other treatment access"
+    },
+    {
+      "name": "evidence_key_scan",
+      "status": "PASS",
+      "detail": "Google API key found in fetched page was redacted; post-redaction scan clean"
+    },
+    {
+      "name": "deploy",
+      "status": "PASS",
+      "detail": "GitHub Actions run 43695394035 completed successfully"
+    },
+    {
+      "name": "production_asset_readback",
+      "status": "PASS",
+      "detail": "live HTML, matcher JS and catalog exactly match build bytes"
+    },
+    {
+      "name": "live_search_USA",
+      "status": "PASS",
+      "detail": "96 rendered results; exact ordered-title match to current catalog"
+    },
+    {
+      "name": "live_search_Japan",
+      "status": "PASS",
+      "detail": "14 rendered results; exact ordered-title match to current catalog"
+    }
+  ]
+}
