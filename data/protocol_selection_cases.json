@@ -8200,8 +8200,8 @@
     {
       "trial_id": "korea-vaxleukin15-mammary-2026",
       "source_url": "https://www.vaxcell-bio.com/en/animal01.php",
-      "reviewed_at": "2026-11-09T09:51:20.262935-05:00",
-      "criteria": "Dog with appropriate mammary tumor and standard surgery planned or completed; feline indications not approved.",
+      "reviewed_at": "2026-11-17T14:36:50.243Z",
+      "criteria": "Current Vaxcell label: dogs only, mammary adjuvant alongside surgical standard care; lymphoma alongside chemotherapy. Commercial access through Yuhan; one product, not two options.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -8344,13 +8344,28 @@
             "cancer": "Mammary carcinoma"
           },
           "expected": "screen"
+        },
+        {
+          "name": "B-cell commercial access remains after duplicate archive",
+          "patient": {
+            "country": "South Korea",
+            "cancer": "B-cell lymphoma",
+            "surgery": "No",
+            "chemo": "Currently receiving",
+            "prefs": [
+              "Immunotherapy",
+              "Chemotherapy"
+            ]
+          },
+          "expected": "review"
         }
       ],
       "selection_sha256": "133c5f595d77b0893846574f13985341622b0cafb08bdf57d748bbf63307f068",
       "full_protocol_reverified": true,
       "primary_evidence_review_run": "continue-20261109T075757-0500",
       "source_visit_refreshed_this_run": false,
-      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now",
+      "current_evidence": "research/audit-runs/resume-20261117T073957-0500/complete-protocol-reviews-0938.json"
     },
     {
       "trial_id": "korea-vaxleukin15-lymphoma-2026",
@@ -8416,11 +8431,12 @@
           "expected": "screen"
         }
       ],
-      "selection_sha256": "32ab2eaaacbd3fd51b4c8f901f3bf5857328902096efa5bca27ab83713e749c4",
+      "selection_sha256": "2d21f144c730269d4fb9a3c9088c1bcbe6fcc54d6d93f1b356dfffcfd700b740",
       "source_visit_refreshed_this_run": false,
       "primary_evidence_review_run": "continue-20261109T075757-0500",
       "full_protocol_reverified": true,
-      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now",
+      "archived_duplicate_evidence": "research/audit-runs/resume-20261117T073957-0500/vaxleukin-semantic-dedupe.json"
     },
     {
       "trial_id": "medvet-egfr-her2-vaccine-2026",
@@ -11791,8 +11807,8 @@
     },
     {
       "trial_id": "ca-ovc-feline-oscc-porphysome-pdt",
-      "source_url": "https://ovcclinicaltrials.uoguelph.ca/all-active-feline-clinical-trials-onco/",
-      "reviewed_at": "2026-11-09T09:51:20.262935-05:00",
+      "source_url": "https://veterinaryclinicaltrials.org/s/exploring-a-nonoparticle-enabled-treatment-of-oral-squamous-cell-carcinoma-in-cats-263209/",
+      "reviewed_at": "2026-11-17T14:36:50.243Z",
       "cases": [
         {
           "name": "Published exact cohort candidate",
@@ -11847,9 +11863,43 @@
             "cancer": "Oral squamous cell carcinoma"
           },
           "expected": "screen"
+        },
+        {
+          "name": "current feline intact oral SCC under clinical prescreen",
+          "patient": {
+            "species": "Cat",
+            "country": "Canada",
+            "cancer": "Oral squamous cell carcinoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "no oral cancer target after removal",
+          "patient": {
+            "species": "Cat",
+            "country": "Canada",
+            "cancer": "Oral squamous cell carcinoma",
+            "tumor_status": "No evidence of disease (NED)"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "diagnosis and active target unknown",
+          "patient": {
+            "species": "Cat",
+            "country": "Canada",
+            "cancer": "Oral squamous cell carcinoma"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "active treatment target",
+            "confirmation of the diagnosis"
+          ]
         }
       ],
-      "criteria": "Confirmed feline oral cavity squamous cell carcinoma; further protocol screening requirements not publicly enumerated.",
+      "criteria": "VCT24005799 and the current Guelph roster: confirmed naturally occurring feline oral SCC with active treatment target; thoracic radiographs and anemia, prior oral tumor chemotherapy, liver function/individual study-team review as published. Other malignancy or no remaining tumor does not fit.",
       "source_read_at": "2026-10-18T03:08:21.384222-04:00",
       "current_primary_evidence": "research/audit-runs/daily-20261018T030540-0400/evidence/4b9298f440e024f4a8.json",
       "field_review": {
@@ -11862,11 +11912,12 @@
         "contact": "Dr Michelle Oblak / OVC Clinical Trials",
         "unpublished": "Full stage/size/prior-treatment limits and owner-covered costs are not supplied by this study section."
       },
-      "selection_sha256": "2202804cd67acf243936b557201e496b726abfdcbdb54058e60d3a6e86f8469c",
+      "selection_sha256": "9ca4096bfb8a5149e81b3fbf7ec365fbaf3ccd220ecb3ebc828951f8b45df47e",
       "full_protocol_reverified": true,
       "primary_evidence_review_run": "continue-20261109T075757-0500",
       "source_visit_refreshed_this_run": false,
-      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
+      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now",
+      "current_evidence": "research/audit-runs/resume-20261117T073957-0500/complete-protocol-reviews-0938.json"
     },
     {
       "trial_id": "aurelius-lytix-bcell-lymphoma",
