@@ -4,6 +4,9 @@ from datetime import datetime,timezone
 from email.utils import parsedate_to_datetime
 from concurrent.futures import ThreadPoolExecutor
 from lxml.html import fromstring
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[3]))
+from scripts.check_evidence_keys import redact_text
 R=pathlib.Path(sys.argv[1]); D=R/(sys.argv[3] if len(sys.argv)>3 else 'evidence'); D.mkdir(exist_ok=True)
 def key(x):
  p=urlsplit(x); return urlunsplit(('',p.netloc.lower(),p.path.rstrip('/'),p.query,''))
@@ -79,17 +82,18 @@ def save(u):
          except (ValueError,TypeError):pass
        if islands and not islands.get('d_sv_flags',{}).get('requires_login'):
         ref=D/(h+'-protocol.json')
-        ref.write_text(json.dumps(islands,ensure_ascii=False,indent=2)+'\n')
+        ref.write_text(redact_text(json.dumps(islands,ensure_ascii=False,indent=2))+'\n',encoding='utf-8')
         out['public_protocol_ref']=str(ref)
       for t in doc.xpath('//script|//style|//noscript|//svg'):t.drop_tree()
       text='\n'.join(s for line in doc.text_content().splitlines() if (s:=' '.join(line.split())))
       links=[[urljoin(current,t.get('href')), ' '.join(t.text_content().split())] for t in doc.xpath('//a[@href]') if t.get('href') and not t.get('href').startswith(('javascript:','#','mailto:','tel:'))]
      except (ValueError,TypeError):pass
     if re.search('verify (?:that )?you are human|captcha|checking your browser',text,re.I) and len(text)<1700:out['result']='access_gate'
+    text=redact_text(text)
     out.update(text_length=len(text),text_sha256=hashlib.sha256(text.encode()).hexdigest(),links=list(dict((u,v) for u,v in links).items()),text_ref=str(D/(h+'.txt')))
-    (D/(h+'.txt')).write_text(text)
+    (D/(h+'.txt')).write_text(text,encoding='utf-8')
    break
- p.write_text(json.dumps(out,ensure_ascii=False)+'\n')
+ p.write_text(redact_text(json.dumps(out,ensure_ascii=False))+'\n',encoding='utf-8')
  return out
 urls=list(dict.fromkeys(u.strip() for u in pathlib.Path(sys.argv[2]).read_text().splitlines() if u.strip()))
 with ThreadPoolExecutor(max_workers=6) as pool:
