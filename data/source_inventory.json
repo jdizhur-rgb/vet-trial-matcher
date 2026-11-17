@@ -12,8 +12,8 @@
       "required_cadence": "daily",
       "last_checked": "2026-11-17",
       "last_result": "partial",
-      "content_fingerprint": "sha256:048d4137b085e73f5b3a297e8d39460d0487574c23ea9374cfa55c90d0daaf52",
-      "last_checked_at": "2026-11-17T08:09:47.129Z",
+      "content_fingerprint": "sha256:605aedf8fd117af4d02796e02210feccea535eb8ba69abb4bac47cf197a5df7e",
+      "last_checked_at": "2026-11-17T08:26:21.004566-05:00",
       "last_http_status": 200,
       "notes": "Targeted owner-policy follow-up: both current public AVMA JSON pages retrieved (856 distinct records), plus exact Penn B-cell individual page. Exact VCT25005914 / record22208 is Completed; canonical matching access disabled under owner closure rule. This targeted status comparison does not establish a new full daily roster or institutional intake review. Prior full-audit evidence and source dates are preserved in baseline snapshot and previous daily receipt.",
       "last_attempts": [
@@ -66,28 +66,180 @@
           "evidence_key": "61c9b625532a8974b50f"
         }
       ],
-      "last_route_used": "fallback",
+      "last_route_used": "master",
       "fallback_urls": [
         "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1",
         "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=500&take=500",
         "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=0&take=500"
       ],
-      "last_audit_run_id": "daily-20261117T030023-0500",
+      "last_audit_run_id": "resume-20261117T073957-0500",
       "last_protocols_seen": null,
-      "last_coverage_gap": "Current complete qualifying oncology-treatment roster is not established by today’s permitted official responses.",
-      "fingerprint_method": "normalized_current_run_route_text",
+      "last_coverage_gap": "Two freshly retrieved official pages show 859 distinct records with zero changes against same-day scheduled card identity/status and 113 recruiting all specialties. Among 62 oncology keyword matches, 61 have exact prior VCT dispositions and feline lymphoplasmacytic rhinitis is nononcology. Individual outstanding 11 VCTs given current permitted structured readings, eligible VT same-trial cutoff published and CSU feline AVMA exact source verified previously. Unpublished or conflicting arm identities, ECT site names, and some partner intake/funding fields remain external; no invented roster.",
+      "fingerprint_method": "sha256 of actual current retrieved text; transport fingerprint alone is not roster proof",
       "last_visit_timestamp_precision": "instant",
-      "last_coverage_receipt": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json",
+      "last_coverage_receipt": "research/audit-runs/resume-20261117T073957-0500/receipt-progress.json",
       "content_sufficient": false,
       "recheck_after": "2026-10-21",
       "reconciliation_run_id": "daily-20261111T030107-0500",
       "audit_last_run_id": "daily-20261116T040013-0500",
       "last_check_summary": "Native current public JSON gallery paginated with 500+359=859 distinct records and identical declared total. 113 Recruiting of all conditions. Filtered 61 likely oncology candidates and examined permitted individual public protocol data; positive, excluded and ambiguous identity decisions are in discovery-leads. Several precise interventions and current branch access remain unresolved and no full clinical roster is claimed.",
       "content_fingerprint_method": "sha256 of current retrieved official response; transport fingerprint only, not roster proof",
-      "last_http_status_at": "2026-11-10T03:07:40.591433-05:00",
-      "last_processing_review_at": "2026-11-17T04:55:17.815741-05:00",
-      "processing_complete": false,
-      "last_current_review_finding": "Native current public JSON gallery paginated with 500+359=859 distinct records and identical declared total. 113 Recruiting of all conditions. Filtered 61 likely oncology candidates and examined permitted individual public protocol data; positive, excluded and ambiguous identity decisions are in discovery-leads. Several precise interventions and current branch access remain unresolved and no full clinical roster is claimed."
+      "last_http_status_at": "2026-11-17T07:41:40.661097-05:00",
+      "last_processing_review_at": "2026-11-17T09:06:04.810267-05:00",
+      "processing_complete": true,
+      "last_current_review_finding": "Two freshly retrieved official pages show 859 distinct records with zero changes against same-day scheduled card identity/status and 113 recruiting all specialties. Among 62 oncology keyword matches, 61 have exact prior VCT dispositions and feline lymphoplasmacytic rhinitis is nononcology. Individual outstanding 11 VCTs given current permitted structured readings, eligible VT same-trial cutoff published and CSU feline AVMA exact source verified previously. Unpublished or conflicting arm identities, ECT site names, and some partner intake/funding fields remain external; no invented roster.",
+      "last_attempted_urls": [
+        {
+          "url": "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:44:13.324900-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "a15dc20b75369e4c0d18"
+        },
+        {
+          "url": "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=0&take=500",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:44:26.492681-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "34f4affa7b11a9cba24c"
+        },
+        {
+          "url": "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=500&take=500",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:44:13.188198-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "6964147c732220816f6b"
+        },
+        {
+          "url": "https://veterinaryclinicaltrials.org/s/canine-liver-tumor-study-971858/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T08:25:59.333759-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "07449c37839d02d300f0"
+        },
+        {
+          "url": "https://veterinaryclinicaltrials.org/s/treating-metastatic-cancer-with-pd-1-inhibitor-and-targeted-immunotherapy-943925/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T08:25:59.344225-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "f1465471ef75e435d419"
+        },
+        {
+          "url": "https://veterinaryclinicaltrials.org/s/combination-chemotherapy-doxorubicin-temozolomide-with-or-without-propranolol-in-dogs-with-hemangiosarcoma-625639/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T08:26:03.994635-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "6a53f5dfee8b456cd9d2"
+        },
+        {
+          "url": "https://veterinaryclinicaltrials.org/s/targeted-electrochemotherapy-ect-cancer-treatment-928247/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T08:26:03.898024-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "0e746ada45f5b2613235"
+        },
+        {
+          "url": "https://veterinaryclinicaltrials.org/s/combination-of-electrochemotherapy-and-gene-therapy-with-canine-il-12-834784/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T08:26:08.238958-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "898ed6aaa7dc2d26bff8"
+        },
+        {
+          "url": "https://veterinaryclinicaltrials.org/s/dose-escalation-study-for-a-novel-sting-agonist-in-tumor-bearing-dogs-134139/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T08:26:08.239659-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "651f6fe6f6b0cdeb2612"
+        },
+        {
+          "url": "https://veterinaryclinicaltrials.org/s/electrochemotherapy-for-bone-cancer-419848/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T08:26:12.330016-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "c3e9d476ab0c74c9ebe9"
+        },
+        {
+          "url": "https://veterinaryclinicaltrials.org/s/clinical-trial-of-a-targeted-chemotherapy-drug-delivered-by-a-catheter-to-treat-dogs-with-glioma-brain-tumors-763280/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T08:26:12.372681-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "fc52c84a4447c9aae78a"
+        },
+        {
+          "url": "https://veterinaryclinicaltrials.org/s/novel-immunotherapy-for-cats-with-oral-squamous-cell-carcinoma-190378/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T08:26:16.808695-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "8c86964649df10095783"
+        },
+        {
+          "url": "https://veterinaryclinicaltrials.org/s/electrochemotherapy-for-nasal-cancer-126469/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T08:26:16.861380-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "4a3ccdfc8b0a613d9448"
+        },
+        {
+          "url": "https://veterinaryclinicaltrials.org/s/osteosarcoma-targeted-bone-electrochemotherapy-with-cementoplasty-alternative-to-amputation-334974/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T08:26:21.004566-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "73e9b2fbaa9753c92b50"
+        },
+        {
+          "url": "https://veterinaryclinicaltrials.org/",
+          "route": "master",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:41:40.661097-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "aaf55b8b170fbb3950cc"
+        }
+      ]
     },
     {
       "id": "registry-uk-vcsr",
@@ -276,9 +428,9 @@
       "master_url": "https://csuveterinaryhealth.org/clinical-trials/",
       "required_cadence": "daily",
       "last_checked": "2026-11-17",
-      "last_result": "partial",
-      "content_fingerprint": "sha256:ef91d7a38d8ac81c1da322a0bacef1801c02241a4dc261054dfd13a1cbab941e",
-      "last_checked_at": "2026-11-17T08:09:47.782Z",
+      "last_result": "reachable",
+      "content_fingerprint": "sha256:ef76849af86147ac847f09b5b604d86f36291e1ad8da48ec0d845d0f46cdeaa0",
+      "last_checked_at": "2026-11-17T13:58:20.917033+00:00",
       "last_http_status": 200,
       "notes": "The empty current StudyPages shell was checked through Web and official Flint fallback. Full Flint10-card roster plus CSU public37-study endpoint were read. Distinct additional canine glioma verdinexor, CAR-T/verdिनexor and TVT remain current; equine cancer studies, bladder ICG mapping and BARC tissue banking are not anticancer opportunities. STS engineered-cell primary restricts target to STS despite old OSA URL wording. DATE SEMANTICS OWNER QUESTION: Current CSU protocol API end_date2028-12-31 is a study-period field. Canonical notes say recruits through December31,2028; no explicit guaranteed enrollment cutoff is established by this generic end_date. 2026-11-13: AVMA VCT26005992 currently recruits untreated cats with small-cell GI lymphoma for three daily whole-abdomen radiation treatments at CSU; fully funded after initial screening. The complete CSU roster remains unproven because its registry API timed out.",
       "last_attempts": [
@@ -395,22 +547,244 @@
         "https://clinicaltrials.csuveterinaryhealth.org/csuvet/studies/search/json/?skip=0&take=500",
         "https://veterinaryclinicaltrials.org/s/radiation-treatment-for-cats-with-small-cell-gi-lymphoma-674332/"
       ],
-      "last_audit_run_id": "daily-20261117T030023-0500",
-      "last_protocols_seen": null,
-      "fingerprint_method": "current official response body only; not clinical proof",
-      "last_coverage_receipt": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json",
-      "content_sufficient": false,
+      "last_audit_run_id": "resume-20261117T073957-0500",
+      "last_protocols_seen": 10,
+      "fingerprint_method": "sha256 of actual current retrieved text; transport fingerprint alone is not roster proof",
+      "last_coverage_receipt": "research/audit-runs/resume-20261117T073957-0500/receipt-progress.json",
+      "content_sufficient": true,
       "recheck_after": null,
       "reconciliation_run_id": "daily-20261111T030107-0500",
       "audit_last_run_id": "daily-20261116T040013-0500",
       "last_check_summary": "usa-colorado-state-vth-clinical-trials: https://csuveterinaryhealth.org/clinical-trials/ returned retrieved (HTTP 200); 11 route decisions recorded. Current clinical reconciliation is not evidenced.",
       "content_fingerprint_method": "sha256 of current retrieved official response; transport fingerprint only, not roster proof",
-      "last_http_status_at": "2026-11-10T03:13:35.410316-05:00",
+      "last_http_status_at": "2026-11-17T07:41:39.628762-05:00",
       "last_visit_timestamp_precision": "instant",
-      "last_coverage_gap": "Current complete qualifying oncology-treatment roster is not established by today’s permitted official responses.",
-      "last_processing_review_at": "2026-11-17T04:55:17.816440-05:00",
-      "processing_complete": false,
-      "last_current_review_finding": "usa-colorado-state-vth-clinical-trials: https://csuveterinaryhealth.org/clinical-trials/ returned retrieved (HTTP 200); 11 route decisions recorded. Current clinical reconciliation is not evidenced."
+      "last_coverage_gap": null,
+      "last_processing_review_at": "2026-11-17T09:06:04.810385-05:00",
+      "processing_complete": true,
+      "last_current_review_finding": "37-record current native institutional gallery and Flint current masters reconciled. Treatment study IDs here are ten; diagnostics AGASACA lymph mapping, urothelial ICG, dual-energy CT, and BARC tissue study kept out. CAR-T with verdinexor and stand-alone IACUC6276 are distinct. Feline SCGL institutional 8528 and AVMA 8528 do not form two trials. Named systemic standard care and archived AVMA COTC033/carboplatin pain not revived.",
+      "last_attempted_urls": [
+        {
+          "url": "https://csuveterinaryhealth.org/clinical-trials/",
+          "route": "master",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:41:39.628762-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "354aaacb3a6474f6e1f8"
+        },
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/studies/?term~sc_paths=primary-field_cancer",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:44:13.184534-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "c574b7d145d9184b346b"
+        },
+        {
+          "url": "https://www.csuanimalcancercenter.org/current-clinical-trials/",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:44:13.129423-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "e35066486dc5bb473abd"
+        },
+        {
+          "url": "https://www.csuanimalcancercenter.org/clinical-trial/clinical-testing-of-canine-t-cells-engineered-to-target-osteosarcoma-and-soft-tissue-sarcoma-in-combination-with-oral-immunotherapy/",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "error_or_redirect",
+          "completed_at": "2026-11-17T07:44:13.280275-05:00",
+          "http_status": 301,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "620c2058b8002d4b2f65"
+        },
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/clinical-testing-of-canine-t-cells-engineered-to-target-osteosarcoma-and-soft-tissue-sarcoma-with-oral-immunotherapy-511687/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "error_or_redirect",
+          "completed_at": "2026-11-17T07:44:17.486704-05:00",
+          "http_status": 302,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "620c2058b8002d4b2f65"
+        },
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/clinical-testing-of-canine-t-cells-engineered-to-target-soft-tissue-sarcoma-with-oral-immunotherapy-511687/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:44:21.428533-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "620c2058b8002d4b2f65"
+        },
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/csuvet/studies/search/json/?skip=0&take=500",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:44:13.300337-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "fe07dbc58bc16349df5a"
+        },
+        {
+          "url": "https://veterinaryclinicaltrials.org/s/radiation-treatment-for-cats-with-small-cell-gi-lymphoma-674332/",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:44:26.408546-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "4310a0210ffef40ac031"
+        },
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/combination-of-lapatinib-and-fractionated-radiation-therapy-for-dogs-with-transitional-cell-carcinoma-598674/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T13:57:53.429200+00:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "40fdc020e4eac1afdde7"
+        },
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/car-t-cell-immunotherapy-for-metastatic-osteosarcoma-in-dogs-888207/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T13:57:53.433311+00:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "e059c335e31b4799d3be"
+        },
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/minimally-invasive-sentinel-lymph-node-mapping-for-dogs-with-anal-sac-adenocarcinoma-agasaca-722225/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T13:57:57.016993+00:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "9863a5e973d6b503ff99"
+        },
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/non-surgical-chemotherapy-treatment-for-canine-brain-tumors-836628/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:46:43.913116-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "f16af4e0ac154f56a6d7"
+        },
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/novel-immunotherapy-for-cats-with-oral-squamous-cell-carcinoma-126320/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T13:58:02.768501+00:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "2a867b8bc96a73dc8f74"
+        },
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/clinical-testing-of-canine-t-cells-engineered-to-target-soft-tissue-sarcoma-with-oral-immunotherapy-511687/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T13:58:02.852537+00:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "3f419c81cb281b03c354"
+        },
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/radiation-therapy-for-small-cell-gi-lymphoma-in-cats-710678/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T13:58:07.293495+00:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "5e6d71fa42e9c6263afb"
+        },
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/single-radiation-treatment-for-dogs-with-transmissible-venereal-tumor-709721/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:46:43.992611-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "f806803e08817a2353a2"
+        },
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/immunotherapy-car-t-treatment-for-canine-glioma-tumors-780192/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:45:59.625206-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "d7d0d72c10245d093cd8"
+        },
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/pilot-clinical-trial-of-anti-cancer-therapy-with-trametinib-in-naturally-occurring-acute-myeloid-leukemia-860722/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T13:58:10.692975+00:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "8513bf89b6393f766596"
+        },
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/biorepository-and-advanced-research-in-brain-cancer-barc-754438/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T13:58:15.172699+00:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "0956b9f10cb4b0f45b07"
+        },
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/near-infrared-fluorescence-imaging-with-indocyanine-green-for-intraoperative-detection-of-canine-urothelial-carcinoma-403831/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T13:58:15.265881+00:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "d535b7484f68711bc03f"
+        },
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/dual-energy-ct-to-assess-bone-mineral-density-in-dogs-with-osteosarcoma-undergoing-stereotactic-body-radiation-therapy-204408/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T13:58:20.860473+00:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "0922d4aca003ea44f2f7"
+        },
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/a-limb-sparing-option-for-bone-cancer-in-dogs-558225/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T13:58:20.917033+00:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "bb0dc23303b6060e2979"
+        }
+      ]
     },
     {
       "id": "usa-cornell-vet-clinical-trials",
@@ -878,8 +1252,8 @@
       "required_cadence": "daily",
       "last_checked": "2026-11-17",
       "last_result": "partial",
-      "content_fingerprint": "sha256:a61f8a13f193112e736590616905b94943ce605ef2ab867c49f648e3c96e2eeb",
-      "last_checked_at": "2026-11-17T03:06:20.539972-05:00",
+      "content_fingerprint": "sha256:de18c1591448187709f28ccdd22481c26b445581f2bed45dfd274400f11ef31a",
+      "last_checked_at": "2026-11-17T08:21:23.484004-05:00",
       "last_http_status": 200,
       "last_attempts": [
         {
@@ -907,23 +1281,75 @@
       "fallback_urls": [
         "https://cvm.ncsu.edu/research/clinical-trials/oncology/"
       ],
-      "last_audit_run_id": "daily-20261117T030023-0500",
-      "last_protocols_seen": 5,
-      "last_coverage_gap": "Current complete qualifying oncology-treatment roster is not established by today’s permitted official responses.",
+      "last_audit_run_id": "resume-20261117T073957-0500",
+      "last_protocols_seen": null,
+      "last_coverage_gap": "Official index identifies four corresponding candidates, equine and legacy tissue excluded; bladder IL12 leaf retains passed Sep 30 cutoff. Liver direct indication retains July 1 2027; separate narrower AVMA criteria cannot override it. Three precise XCSgel, PIVOT-C and mammary INSPIRE primary routes not visited due saved exact access holds. Their current detail/funding provenance is unresolved despite available index document comparison.",
       "notes": "Full oncology index and general trial index were read. Six dog/cat anticancer invitations: STS radiation/XCSgel, feline oral PIVOT-C, bladder immunotherapy, liver INSPIRE, mammary INSPIRE, plus equine melanoma/eyelid studies excluded by species; cancer-legacy donation and feline gingivostomatitis are not anticancer treatment. Exact individual NCSU routes remain restricted where recorded.",
-      "fingerprint_method": "current official response body only; not clinical proof",
+      "fingerprint_method": "sha256 of actual current retrieved text; transport fingerprint alone is not roster proof",
       "last_visit_timestamp_precision": "instant",
-      "last_coverage_receipt": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json",
+      "last_coverage_receipt": "research/audit-runs/resume-20261117T073957-0500/receipt-progress.json",
       "content_sufficient": false,
       "recheck_after": null,
       "reconciliation_run_id": "daily-20261111T030107-0500",
       "audit_last_run_id": "daily-20261116T040013-0500",
       "last_check_summary": "Read oncology fallback: two equine entries and donation/oral inflammation are out of scope; matched both INSPIRE cohorts, PIVOT-C, XCSgel and invasive bladder IL-12. Liver primary lists 2027-07-01; the bladder card does not extend its 2026-09-30 deadline. Current primary details for the three individually restricted links cannot be inferred from the index.",
       "content_fingerprint_method": "sha256 of current retrieved official response; transport fingerprint only, not roster proof",
-      "last_http_status_at": "2026-11-10T03:13:30.647862-05:00",
-      "last_processing_review_at": "2026-11-17T04:55:17.817089-05:00",
-      "processing_complete": false,
-      "last_current_review_finding": "Read oncology fallback: two equine entries and donation/oral inflammation are out of scope; matched both INSPIRE cohorts, PIVOT-C, XCSgel and invasive bladder IL-12. Liver primary lists 2027-07-01; the bladder card does not extend its 2026-09-30 deadline. Current primary details for the three individually restricted links cannot be inferred from the index."
+      "last_http_status_at": "2026-11-17T07:41:44.916178-05:00",
+      "last_processing_review_at": "2026-11-17T09:06:04.810464-05:00",
+      "processing_complete": true,
+      "last_current_review_finding": "Official index identifies four corresponding candidates, equine and legacy tissue excluded; bladder IL12 leaf retains passed Sep 30 cutoff. Liver direct indication retains July 1 2027; separate narrower AVMA criteria cannot override it. Three precise XCSgel, PIVOT-C and mammary INSPIRE primary routes not visited due saved exact access holds. Their current detail/funding provenance is unresolved despite available index document comparison.",
+      "last_attempted_urls": [
+        {
+          "url": "https://cvm.ncsu.edu/research/clinical-trials/",
+          "route": "master",
+          "method": "curl",
+          "result": "error_or_redirect",
+          "completed_at": "2026-11-17T07:41:40.374377-05:00",
+          "http_status": 0,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "d14d5f9c533118ec943a"
+        },
+        {
+          "url": "https://cvm.ncsu.edu/research/clinical-trials/",
+          "route": "master",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:41:44.916178-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "d14d5f9c533118ec943a"
+        },
+        {
+          "url": "https://cvm.ncsu.edu/research/clinical-trials/oncology/",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:44:25.592813-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "7abdaa709c0428522fb3"
+        },
+        {
+          "url": "https://cvm.ncsu.edu/clinical-trial/now-enrolling-dogs-with-invasive-bladder-cancer/",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T08:21:23.484004-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "94e8b750db88c4e32bb4"
+        },
+        {
+          "url": "https://cvm.ncsu.edu/clinical-trial/now-enrolling-canine-patients-with-liver-tumors/",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:45:52.580256-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "0ea76aa16ddcf094f923"
+        }
+      ]
     },
     {
       "id": "usa-ohio-state-current-trials",
@@ -1189,9 +1615,9 @@
       "master_url": "https://www.vet.purdue.edu/wcorc/clinical-trials/",
       "required_cadence": "daily",
       "last_checked": "2026-11-17",
-      "last_result": "partial",
-      "content_fingerprint": "sha256:8f2453901c66beb71bf19477d92e62244eeb0cd64b827cb0d0497fa40fb4284a",
-      "last_checked_at": "2026-11-17T03:16:18.849715-05:00",
+      "last_result": "reachable",
+      "content_fingerprint": "sha256:2b02823cc70e020733214dbd99cd9352608b249a40b00926e837ea534f978252",
+      "last_checked_at": "2026-11-17T07:47:26.144668-05:00",
       "last_http_status": 200,
       "last_attempts": [
         {
@@ -1286,14 +1712,14 @@
         }
       ],
       "last_route_used": "master",
-      "last_audit_run_id": "daily-20261117T030023-0500",
-      "last_protocols_seen": 8,
-      "last_coverage_gap": "Current complete qualifying oncology-treatment roster is not established by today’s permitted official responses.",
+      "last_audit_run_id": "resume-20261117T073957-0500",
+      "last_protocols_seen": 4,
+      "last_coverage_gap": null,
       "notes": "Purdue current oncology and dog/cat index routes plus individual tumor-ablation, bladder, lymphoma, OSA, emerging cancer and M029 pages were read. Current programs include HIFU lymphoma, H-FIRE liver, HIFU OSA, combined cPDL1/vinblastine/deracoxib UCC; PD-L1 vaccine card is Enrollment Closed. M029 remains safety/PK/target-effect PhaseI with $350/month owner monitoring, not treatment-benefit inclusion. OSA sample/imaging and lymphoma BDI are diagnostic despite credits.",
-      "fingerprint_method": "current official response body only; not clinical proof",
+      "fingerprint_method": "sha256 of actual current retrieved text; transport fingerprint alone is not roster proof",
       "last_visit_timestamp_precision": "instant",
-      "last_coverage_receipt": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json",
-      "content_sufficient": false,
+      "last_coverage_receipt": "research/audit-runs/resume-20261117T073957-0500/receipt-progress.json",
+      "content_sufficient": true,
       "audit_last_run_id": "daily-20261116T040013-0500",
       "last_check_summary": "Opened broad Purdue index plus WCORC disease and ablation bodies. Current distinct antitumour cohorts are three ablations plus one bladder triple-drug sequencing study; bladder PD-L1 alone and CDK9 closed, OSA amputation-only COTC034 paused, cancer vaccine closed despite parent promotion. DCE-CT/MRS and BDI cohorts use diagnostic outcome rather than randomized anticancer drug. Need one further safety-phase/identity review of Emerging Immunotherapy M029 versus investigational AKS-619d.",
       "content_fingerprint_method": "sha256 of current retrieved official response; transport fingerprint only, not roster proof",
@@ -1302,11 +1728,133 @@
         "https://vet.purdue.edu/ctr/clinical-research/canine.php",
         "https://vet.purdue.edu/ctr/clinical-research/feline.php"
       ],
-      "last_http_status_at": "2026-11-10T03:14:12.918430-05:00",
-      "last_processing_review_at": "2026-11-17T04:55:17.817540-05:00",
-      "processing_complete": false,
-      "last_current_review_finding": "Opened broad Purdue index plus WCORC disease and ablation bodies. Current distinct antitumour cohorts are three ablations plus one bladder triple-drug sequencing study; bladder PD-L1 alone and CDK9 closed, OSA amputation-only COTC034 paused, cancer vaccine closed despite parent promotion. DCE-CT/MRS and BDI cohorts use diagnostic outcome rather than randomized anticancer drug. Need one further safety-phase/identity review of Emerging Immunotherapy M029 versus investigational AKS-619d.",
-      "reconciliation_run_id": "daily-20261111T030107-0500"
+      "last_http_status_at": "2026-11-17T07:41:44.568455-05:00",
+      "last_processing_review_at": "2026-11-17T09:06:04.810636-05:00",
+      "processing_complete": true,
+      "last_current_review_finding": "Source topic and leaf pages establish four enrolling qualifying treatments. Purdue's separate experimental anti-PD-L1 vaccine closed; TCC PD-L1 monotherapy and enitociclib both show Completed; published phase I M029 remains a dose-finding watch and AKS-619d is sponsor proof-of-concept, neither becomes eligible on generic masthead. OSA imaging and COTC034 do not allocate experimental anticancer treatment.",
+      "reconciliation_run_id": "daily-20261111T030107-0500",
+      "last_attempted_urls": [
+        {
+          "url": "https://www.vet.purdue.edu/wcorc/clinical-trials/",
+          "route": "master",
+          "method": "curl",
+          "result": "error_or_redirect",
+          "completed_at": "2026-11-17T07:41:40.377246-05:00",
+          "http_status": 0,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "3b4f78fd1ed348b6d3f1"
+        },
+        {
+          "url": "https://www.vet.purdue.edu/wcorc/clinical-trials/",
+          "route": "master",
+          "method": "curl",
+          "result": "error_or_redirect",
+          "completed_at": "2026-11-17T07:41:40.912022-05:00",
+          "http_status": 301,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "3b4f78fd1ed348b6d3f1"
+        },
+        {
+          "url": "https://vet.purdue.edu/wcorc/clinical-trials/",
+          "route": "master",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:41:44.568455-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "3b4f78fd1ed348b6d3f1"
+        },
+        {
+          "url": "https://vet.purdue.edu/ctr/clinical-research/veterinary-clinical-trials.php",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:44:25.393210-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "b99cdcd65a7dfdf3a0d1"
+        },
+        {
+          "url": "https://vet.purdue.edu/ctr/clinical-research/canine.php",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:44:25.298207-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "a6b25bec24ca7f13b042"
+        },
+        {
+          "url": "https://vet.purdue.edu/ctr/clinical-research/feline.php",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:44:30.393046-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "af77ac13a4712a5f573c"
+        },
+        {
+          "url": "https://vet.purdue.edu/wcorc/clinical-trials/canine-lymphoma.php",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:47:16.340687-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "1a280f7a00e1565b1bc8"
+        },
+        {
+          "url": "https://vet.purdue.edu/wcorc/clinical-trials/emerging-immunotherapy-study.php",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:47:26.144668-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "b92a25c8c01d14252faf"
+        },
+        {
+          "url": "https://vet.purdue.edu/wcorc/clinical-trials/canine-osteosarcoma.php",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:47:21.662798-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "01ab574247fa2f30b5e1"
+        },
+        {
+          "url": "https://vet.purdue.edu/wcorc/clinical-trials/tumor-ablation.php",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:46:38.287563-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "4123774cc4b77b9092ea"
+        },
+        {
+          "url": "https://vet.purdue.edu/wcorc/clinical-trials/emerging-canine-cancer.php",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:47:21.631833-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "e23db9ad3b69b09d3f2f"
+        },
+        {
+          "url": "https://vet.purdue.edu/wcorc/clinical-trials/canine-urinary-bladder-cancer.php",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:47:16.348563-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "873255efed5b2d222ea3"
+        }
+      ]
     },
     {
       "id": "usa-tennessee-vet-clinical-trials",
@@ -1368,9 +1916,9 @@
       "master_url": "https://vet.tufts.edu/clinical-trials",
       "required_cadence": "daily",
       "last_checked": "2026-11-17",
-      "last_result": "partial",
-      "content_fingerprint": "sha256:5f526ea837e6bac403e80df51b73c15a120462fa8d85d87a143179d03f18e1ed",
-      "last_checked_at": "2026-11-17T03:02:33.890494-05:00",
+      "last_result": "reachable",
+      "content_fingerprint": "sha256:ce95ffd428238c828f132068beea4454cfa08aece0d87b623c7a8b6583d3d5fa",
+      "last_checked_at": "2026-11-17T12:58:23.749834+00:00",
       "last_http_status": 200,
       "last_attempts": [
         {
@@ -1385,23 +1933,125 @@
         }
       ],
       "last_route_used": "master",
-      "last_audit_run_id": "daily-20261117T030023-0500",
-      "last_protocols_seen": null,
-      "last_coverage_gap": "Current complete qualifying oncology-treatment roster is not established by today’s permitted official responses.",
+      "last_audit_run_id": "resume-20261117T073957-0500",
+      "last_protocols_seen": 7,
+      "last_coverage_gap": null,
       "notes": "Both complete Tufts pagination pages were read. Current oncology identities: BG34 melanoma; COTC034 OSA characterization; primary lung SBRT; lung-metastasis SABR; actionable OSA targets; Z007; FAP CAR-T STS; metastatic OSA vaccine/TME; HSA liquid-biopsy. Other cards inflammatory enteropathy, skin and CKD are not cancer treatment.",
-      "fingerprint_method": "current official response body only; not clinical proof",
+      "fingerprint_method": "sha256 of actual current retrieved text; transport fingerprint alone is not roster proof",
       "last_visit_timestamp_precision": "instant",
-      "last_coverage_receipt": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json",
-      "content_sufficient": false,
+      "last_coverage_receipt": "research/audit-runs/resume-20261117T073957-0500/receipt-progress.json",
+      "content_sufficient": true,
       "recheck_after": "2026-10-21",
       "reconciliation_run_id": "daily-20261111T030107-0500",
       "audit_last_run_id": "daily-20261116T040013-0500",
       "last_check_summary": "usa-tufts-clinical-trials: https://vet.tufts.edu/clinical-trials returned retrieved (HTTP 200); 1 route decisions recorded. Current clinical reconciliation is not evidenced.",
       "content_fingerprint_method": "sha256 of current retrieved official response; transport fingerprint only, not roster proof",
-      "last_http_status_at": "2026-11-10T03:04:43.711860-05:00",
-      "last_processing_review_at": "2026-11-17T04:55:17.817661-05:00",
-      "processing_complete": false,
-      "last_current_review_finding": "usa-tufts-clinical-trials: https://vet.tufts.edu/clinical-trials returned retrieved (HTTP 200); 1 route decisions recorded. Current clinical reconciliation is not evidenced."
+      "last_http_status_at": "2026-11-17T07:41:50.172470-05:00",
+      "last_processing_review_at": "2026-11-17T09:06:04.810730-05:00",
+      "processing_complete": true,
+      "last_current_review_finding": "Two index pages enumerated. Oncology leaves show seven treatment identities with different cancer and protocol settings; BG34 is suspended, COTC034 only characterizes OSA, other visible leaves are not oncology. Three records fully reread in this continuation; three others have current recruitment but separately retained full eligibility/funding needs.",
+      "last_attempted_urls": [
+        {
+          "url": "https://vet.tufts.edu/clinical-trials",
+          "route": "master",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:41:50.172470-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "ce0e3270276e2c8db206"
+        },
+        {
+          "url": "https://vet.tufts.edu/clinical-trials?page=1",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T12:58:23.749834+00:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "0130e32c962152e9eed8"
+        },
+        {
+          "url": "https://vet.tufts.edu/clinical-trials/bg34-200-plus-immunotherapy-canine-malignant-melanoma",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:47:17.920647-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "e62c6d3670dc1312d47b"
+        },
+        {
+          "url": "https://vet.tufts.edu/clinical-trials/clinical-molecular-and-immune-characterization-naturally-occurring-osteosarcoma-dogs-cotc034",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:47:17.968206-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "5d4f2821d2ec3d8a82e8"
+        },
+        {
+          "url": "https://vet.tufts.edu/clinical-trials/sbrt-canine-lung-tumor-study",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:46:59.169413-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "559f1f8eb3d3a2f7d6f1"
+        },
+        {
+          "url": "https://vet.tufts.edu/clinical-trials/stereotactic-ablative-radiotherapy-sabr-lung-metastases",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:46:52.492545-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "8b4a174b2c04dfd22db5"
+        },
+        {
+          "url": "https://vet.tufts.edu/clinical-trials/defining-actionable-targets-osteosarcoma",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:46:52.504430-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "e47c0e89075c4893eb70"
+        },
+        {
+          "url": "https://vet.tufts.edu/clinical-trials/evaluation-tlr-agonist-z-007-dogs-cancer",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:46:04.348494-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "c13fe223e754b978c08d"
+        },
+        {
+          "url": "https://vet.tufts.edu/clinical-trials/treatment-canine-soft-tissue-sarcoma-fap-car-t-cells",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:46:12.572226-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "dbf6fc863b1527580bd8"
+        },
+        {
+          "url": "https://vet.tufts.edu/clinical-trials/treatment-canine-metastatic-osteosarcoma-combined-tumor-microenvironment-modification-and-allogeneic-vaccination",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:46:12.580306-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "00d29846cbc3569e2ac6"
+        }
+      ]
     },
     {
       "id": "usa-uc-davis-vcct",
@@ -1411,9 +2061,9 @@
       "master_url": "https://clinicaltrials.vetmed.ucdavis.edu/",
       "required_cadence": "daily",
       "last_checked": "2026-11-17",
-      "last_result": "partial",
-      "content_fingerprint": "sha256:3580f51c739a9076f8874abfc86fb011f1b18d7ec50ed6062ace386c71c3bb53",
-      "last_checked_at": "2026-11-17T08:09:45.562Z",
+      "last_result": "reachable",
+      "content_fingerprint": "sha256:c8d5c07060ff09f039adaea1d8ca71e9b9dc052344bbb1b44569dfd6d98cdc43",
+      "last_checked_at": "2026-11-17T13:58:21.612505+00:00",
       "last_http_status": 200,
       "notes": "The UC Davis public endpoint contains38 current studies, with15 cancer/tumor-related identities reviewed individually by purpose. New endocrine pituitary hypophysectomy covers surgery but does not confirm malignant eligibility; retain a nonpublished lead. FAP CAR-T current primary explicitly lists UC Davis, previous enrollment CSU/Tufts, and current $2000 surgery/$2500 local AE support; Davis is already a canonical site. CARE and PRISM were fully reviewed today. DATE SEMANTICS OWNER QUESTION: Current UC Davis public protocol API start_date2026-07-01/end_date2028-06-30 is a study-period field, while canonical notes promise Recruitment period2026-06-30 through2028-06-29. The one-day difference and enrollment-versus-study semantics are not silently corrected.",
       "fallback_urls": [
@@ -1472,22 +2122,224 @@
         }
       ],
       "last_route_used": "master",
-      "last_audit_run_id": "daily-20261117T030023-0500",
-      "last_protocols_seen": null,
-      "last_coverage_gap": "Current complete qualifying oncology-treatment roster is not established by today’s permitted official responses.",
-      "fingerprint_method": "current official response body only; not clinical proof",
+      "last_audit_run_id": "resume-20261117T073957-0500",
+      "last_protocols_seen": 8,
+      "last_coverage_gap": null,
+      "fingerprint_method": "sha256 of actual current retrieved text; transport fingerprint alone is not roster proof",
       "last_visit_timestamp_precision": "instant",
-      "last_coverage_receipt": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json",
-      "content_sufficient": false,
+      "last_coverage_receipt": "research/audit-runs/resume-20261117T073957-0500/receipt-progress.json",
+      "content_sufficient": true,
       "recheck_after": null,
       "reconciliation_run_id": "daily-20261111T030107-0500",
       "audit_last_run_id": "daily-20261116T040013-0500",
       "last_check_summary": "usa-uc-davis-vcct: https://clinicaltrials.vetmed.ucdavis.edu/ returned retrieved (HTTP 200); 5 route decisions recorded. Current clinical reconciliation is not evidenced.",
       "content_fingerprint_method": "sha256 of current retrieved official response; transport fingerprint only, not roster proof",
-      "last_http_status_at": "2026-11-10T03:13:35.732300-05:00",
-      "last_processing_review_at": "2026-11-17T04:55:17.817805-05:00",
-      "processing_complete": false,
-      "last_current_review_finding": "usa-uc-davis-vcct: https://clinicaltrials.vetmed.ucdavis.edu/ returned retrieved (HTTP 200); 5 route decisions recorded. Current clinical reconciliation is not evidenced."
+      "last_http_status_at": "2026-11-17T07:41:48.741424-05:00",
+      "last_processing_review_at": "2026-11-17T09:06:04.810801-05:00",
+      "processing_complete": true,
+      "last_current_review_finding": "38 total institutional cards (15 oncology candidates including equine); eight owner-relevant identities, including PRISM conventional RT financial access only and two exact hepatic arms as one study. Stent and prostate sample records still display active incorrectly with 2019 end; retired from matching already. Feline pituitary protocol VCCT-26-018 covers pituitary surgery for hypersomatotropism and characterizes removed endocrine tumor; no malignant cohort specified, analogous previous canonical pituitary exclusion. Cutaneous lymphoma genetics and COTC OSA characterization do not assign therapy. Oral theranostic site specifies June30 2028; separate AVMA date disagreement does not overwrite it.",
+      "last_attempted_urls": [
+        {
+          "url": "https://clinicaltrials.vetmed.ucdavis.edu/",
+          "route": "master",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:41:48.741424-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "97505adf0877eb3469e0"
+        },
+        {
+          "url": "https://clinicaltrials.vetmed.ucdavis.edu/clinical-trial-articles-news",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:44:25.949423-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "72fe8c5ab3b33172ce0a"
+        },
+        {
+          "url": "https://studypages.com/ucdavisvet/studies/",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:44:31.112315-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "daa5022e942a4ae909b0"
+        },
+        {
+          "url": "https://studypages.com/ucdavisvet/studies/search/json/?skip=0&take=500",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:44:31.080713-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "7490d5bfe4b423e4010c"
+        },
+        {
+          "url": "https://studypages.com/s/care-trial-combined-autophagy-inhibition-and-radiation-therapy-to-improve-efficacy-in-canine-glioma-353022/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T13:57:53.784494+00:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "221086427980222a4676"
+        },
+        {
+          "url": "https://studypages.com/s/innovative-immunotherapy-for-canine-lung-metastases-the-caalm-study-276511/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T13:57:53.788679+00:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "f5634946fb8292ee4172"
+        },
+        {
+          "url": "https://studypages.com/s/surgical-technique-to-place-urethral-stents-in-dogs-with-prostate-bladder-andor-urethra-tumors-578213/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T13:57:57.945301+00:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "b1c4bf3362b37217b7da"
+        },
+        {
+          "url": "https://studypages.com/s/treatment-of-canine-sarcoma-with-fap-car-t-cells-fap-car-t-study-621016/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T13:57:57.876705+00:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "7706e8e9767bdfa6b254"
+        },
+        {
+          "url": "https://studypages.com/s/assessing-a-new-technique-to-shrink-liver-tumors-in-dogs-468706/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T13:58:01.832480+00:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "62285b64028400f76389"
+        },
+        {
+          "url": "https://studypages.com/s/looking-at-a-new-treatment-and-assessing-the-outcome-through-blood-and-urine-in-dogs-with-prostate-cancer-932892/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T13:58:01.833312+00:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "ff47b2ebb251e2528ca1"
+        },
+        {
+          "url": "https://studypages.com/s/novel-treatment-for-nasal-tumors-320455/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T13:58:07.238754+00:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "a9e196575378349d8530"
+        },
+        {
+          "url": "https://studypages.com/s/hypophysectomy-for-cats-with-pituitary-tumors-483462/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T13:58:07.239617+00:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "078d975d3a0658ac75c3"
+        },
+        {
+          "url": "https://studypages.com/s/using-a-new-technique-to-shrink-liver-tumors-in-dogs-539845/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T13:58:11.760473+00:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "d43c03c273895212b7bd"
+        },
+        {
+          "url": "https://studypages.com/s/characterizing-gene-expression-in-canine-cutaneous-lymphoma-741880/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T13:58:11.745910+00:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "00328f33126678b57fa9"
+        },
+        {
+          "url": "https://studypages.com/s/prism-trial-precision-research-integrating-symptoms-and-molecular-biology-in-canine-glioma-788706/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "error_or_redirect",
+          "completed_at": "2026-11-17T13:58:16.774051+00:00",
+          "http_status": 0,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "2c44a4bcffcbbd2951d4"
+        },
+        {
+          "url": "https://studypages.com/s/prism-trial-precision-research-integrating-symptoms-and-molecular-biology-in-canine-glioma-788706/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T13:58:17.180636+00:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "2c44a4bcffcbbd2951d4"
+        },
+        {
+          "url": "https://studypages.com/s/fluorescence-imaging-with-pdl1-irdye800-to-guide-surgical-treatment-of-oral-cancer-in-dogs-679907/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "error_or_redirect",
+          "completed_at": "2026-11-17T13:58:16.774145+00:00",
+          "http_status": 0,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "26426aff2d0ee09a1166"
+        },
+        {
+          "url": "https://studypages.com/s/fluorescence-imaging-with-pdl1-irdye800-to-guide-surgical-treatment-of-oral-cancer-in-dogs-679907/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T13:58:17.187968+00:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "26426aff2d0ee09a1166"
+        },
+        {
+          "url": "https://studypages.com/s/using-a-combination-of-therapies-for-treatment-of-nasal-cancer-in-dogs-217934/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T13:58:21.612505+00:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "7ed44ff821163f96c290"
+        },
+        {
+          "url": "https://studypages.com/s/characterization-of-naturally-occurring-osteosarcoma-in-dogs-765697/?ref=gallery",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T13:58:21.608958+00:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "005e77792ea2a76fc2cb"
+        }
+      ]
     },
     {
       "id": "usa-florida-oncology-trials",
@@ -2171,9 +3023,9 @@
       "master_url": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-trials.html",
       "required_cadence": "daily",
       "last_checked": "2026-11-17",
-      "last_result": "partial",
-      "content_fingerprint": "sha256:f33ad329205aa0ce33ad81cb030582caab6c084a401e13fa9a067eebf53516a9",
-      "last_checked_at": "2026-11-17T03:24:43.930654-05:00",
+      "last_result": "reachable",
+      "content_fingerprint": "sha256:f9cd9d09f175d8c5e3ed0a57f8e4f56b1bd9e39b0f022895b3a53e99434f335b",
+      "last_checked_at": "2026-11-17T08:19:43.056526-05:00",
       "last_http_status": 200,
       "last_attempts": [
         {
@@ -2218,23 +3070,115 @@
         }
       ],
       "last_route_used": "master",
-      "last_audit_run_id": "daily-20261117T030023-0500",
-      "last_protocols_seen": 8,
-      "last_coverage_gap": "Current complete qualifying oncology-treatment roster is not established by today’s permitted official responses.",
+      "last_audit_run_id": "resume-20261117T073957-0500",
+      "last_protocols_seen": 4,
+      "last_coverage_gap": null,
       "notes": "Full current8-title VROC roster read; its dogs/cats heading does not override individual canine brain eligibility. Current native primary/public registry and PDF screenshots were examined separately. Three completed-registry trials CPMV, histotripsy and CRTNP/HIFU remain hidden under standing owner decision. HSA three-drug registry is recruiting but missing from the8-title institution roster and does not publish study cost coverage.",
-      "fingerprint_method": "current official response body only; not clinical proof",
-      "last_coverage_receipt": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json",
-      "content_sufficient": false,
+      "fingerprint_method": "sha256 of actual current retrieved text; transport fingerprint alone is not roster proof",
+      "last_coverage_receipt": "research/audit-runs/resume-20261117T073957-0500/receipt-progress.json",
+      "content_sufficient": true,
       "recheck_after": null,
       "reconciliation_run_id": "daily-20261111T030107-0500",
       "audit_last_run_id": "daily-20261116T040013-0500",
       "last_check_summary": "VROC master has eight entries. Two exact glioma AVMA current trials are explicitly canine despite species header; CPMV and CRT-NP already completed separately. Histotripsy emphasis differs in title and body; combined-novel platform/compassionate intake not equivalent to named randomized protocols. Dallas HSA VCT25005913 confirmed distinct from Fort Worth VCT26005971 with unclear arm text. Several exact inner links/eligible cohorts still need reconciliation.",
       "content_fingerprint_method": "sha256 of current retrieved official response; transport fingerprint only, not roster proof",
-      "last_http_status_at": "2026-11-10T03:04:50.634702-05:00",
+      "last_http_status_at": "2026-11-17T07:41:50.240464-05:00",
       "last_visit_timestamp_precision": "instant",
-      "last_processing_review_at": "2026-11-17T04:55:17.818637-05:00",
-      "processing_complete": false,
-      "last_current_review_finding": "VROC master has eight entries. Two exact glioma AVMA current trials are explicitly canine despite species header; CPMV and CRT-NP already completed separately. Histotripsy emphasis differs in title and body; combined-novel platform/compassionate intake not equivalent to named randomized protocols. Dallas HSA VCT25005913 confirmed distinct from Fort Worth VCT26005971 with unclear arm text. Several exact inner links/eligible cohorts still need reconciliation."
+      "last_processing_review_at": "2026-11-17T09:06:04.810889-05:00",
+      "processing_complete": true,
+      "last_current_review_finding": "All eight documents were separately OCR-read. Master brochure is cross-technique routing; #1 CPMV, #2 combined histotripsy/RT and #3 CRT-NP had exact previously documented AVMA closure; unchanged stale general master categories did not reopen them. #4 carboplatin/HIFU, #5 advanced compassionate access, #6 CAR-neutrophil glioma and #7 ferumoxytol glioma matched four records. Brain applicants are canine on specific leaf, despite generic hospital header. Separate Fort Worth HSA registry arm is not a VROC roster item.",
+      "last_attempted_urls": [
+        {
+          "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-trials.html",
+          "route": "master",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:41:50.240464-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "ff162dcb86e6e83812db"
+        },
+        {
+          "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%206.pdf",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T08:19:27.653583-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "d4c85a9c95a59b6e996d"
+        },
+        {
+          "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%207.pdf",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T08:19:27.715741-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "13f814514b50e7a08c84"
+        },
+        {
+          "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Brochure%20Master%20Trial.pdf",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T08:19:35.584808-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "2825e033885f9aea649a"
+        },
+        {
+          "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%201.pdf",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T08:19:35.461517-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "bf6a1a0ee53d8a61bc91"
+        },
+        {
+          "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%202.pdf",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T08:19:43.056526-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "eb748562996349150bac"
+        },
+        {
+          "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%203.pdf",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T08:19:42.997978-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "e0bf97e54b650ee3b398"
+        },
+        {
+          "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%204.pdf",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:46:20.745096-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "df6ee40beeecf3a44e11"
+        },
+        {
+          "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%205.pdf",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:46:20.616325-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "9331f2b919a4764957ee"
+        }
+      ]
     },
     {
       "id": "usa-ethos-clinical-studies",
@@ -2869,8 +3813,8 @@
       "required_cadence": "daily",
       "last_checked": "2026-11-17",
       "last_result": "partial",
-      "content_fingerprint": "sha256:feb9f5ae4e470405296dbddc0f20cb65390f62be1726ef9ba72de2e10de8d565",
-      "last_checked_at": "2026-11-17T03:02:44.562761-05:00",
+      "content_fingerprint": "sha256:9748cb70cdf573a54b4752ee3661178eb9a9cf19c645b87b76ecb56bdeefecde",
+      "last_checked_at": "2026-11-17T13:48:27.004811+00:00",
       "last_http_status": 200,
       "last_attempts": [
         {
@@ -2885,13 +3829,13 @@
         }
       ],
       "last_route_used": "master",
-      "last_audit_run_id": "daily-20261117T030023-0500",
+      "last_audit_run_id": "resume-20261117T073957-0500",
       "last_protocols_seen": null,
-      "last_coverage_gap": "Current complete qualifying oncology-treatment roster is not established by today’s permitted official responses.",
+      "last_coverage_gap": "Reconciled dog and cat lists with direct clinics and related Oncowaf rows. Zurich fluorescence, glioma, meningioma, Lattice, feline FLASH and Ghent mammary known. ESVONC list is not direct recruitment for exact pending Frégis thermal/embolic, Italian mucosal vaccine, Portuguese microwave/thermoablation or Évora PDT; Portuguese/French/Italian targeted institution searches return program or older science but no current recruitment. UK RVC primary marks its toceranib insulinoma study observational and preference allocated; remains excluded. Swiss dose-finding, PET, and Liège or Utrecht sampling do not qualify.",
       "notes": "ESVONC ongoing-trials directory contains dog/cat treatment and sample/imaging entries, with named site contacts. It is a secondary regional index, not an enrolling sponsor. Read the full dog/cat table and followed identities into current mandatory Oncowaf/Zurich/Utrecht/Ghent sources. TODAY COMPLETED STEP: All ESVONC dog/cat rows and all23Oncowaf rows were enumerated against current primary institutional sources and exact IDs. Additional ESVONC feline STS vaccine corresponds to newly read Zurich ADAM12 Phase0, not a catalog duplicate. Ghent GCN2 feline mammary remains its exact treatment protocol; fluorescence lifetime remains owner-excluded without funded surgery. European empty country headings do not prove zero studies in a country.",
-      "fingerprint_method": "current official response body only; not clinical proof",
+      "fingerprint_method": "sha256 of actual current retrieved text; transport fingerprint alone is not roster proof",
       "last_visit_timestamp_precision": "instant",
-      "last_coverage_receipt": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json",
+      "last_coverage_receipt": "research/audit-runs/resume-20261117T073957-0500/receipt-progress.json",
       "content_sufficient": false,
       "recheck_after": "2026-10-21",
       "targeted_followups": [
@@ -2912,10 +3856,62 @@
       "audit_last_run_id": "daily-20261116T040013-0500",
       "last_check_summary": "europe-esvonc-ongoing-trials: https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials returned retrieved (HTTP 200); 1 route decisions recorded. Current clinical reconciliation is not evidenced.",
       "content_fingerprint_method": "sha256 of current retrieved official response; transport fingerprint only, not roster proof",
-      "last_http_status_at": "2026-11-10T03:04:58.454534-05:00",
-      "last_processing_review_at": "2026-11-17T04:55:17.819304-05:00",
-      "processing_complete": false,
-      "last_current_review_finding": "europe-esvonc-ongoing-trials: https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials returned retrieved (HTTP 200); 1 route decisions recorded. Current clinical reconciliation is not evidenced."
+      "last_http_status_at": "2026-11-17T07:41:50.932605-05:00",
+      "last_processing_review_at": "2026-11-17T09:06:04.811029-05:00",
+      "processing_complete": true,
+      "last_current_review_finding": "Reconciled dog and cat lists with direct clinics and related Oncowaf rows. Zurich fluorescence, glioma, meningioma, Lattice, feline FLASH and Ghent mammary known. ESVONC list is not direct recruitment for exact pending Frégis thermal/embolic, Italian mucosal vaccine, Portuguese microwave/thermoablation or Évora PDT; Portuguese/French/Italian targeted institution searches return program or older science but no current recruitment. UK RVC primary marks its toceranib insulinoma study observational and preference allocated; remains excluded. Swiss dose-finding, PET, and Liège or Utrecht sampling do not qualify.",
+      "last_attempted_urls": [
+        {
+          "url": "https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials",
+          "route": "master",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:41:50.932605-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "cc5b13c1627cf2f0c365"
+        },
+        {
+          "url": "https://oncowaf.be/en/ClinicalTrials/searchResults",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:41:56.410142-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "9d3cc59897d5b884d248"
+        },
+        {
+          "url": "https://www.tierspital.uzh.ch/ueber-uns/lehre-und-forschung/klinische-studien/",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:44:30.555609-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "4ba5574f1031f217662f"
+        },
+        {
+          "url": "https://www.dvg.de/wp-content/uploads/2026/05/26-05-11_260509-Flyer-FLASH-Studie.pdf",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "error_or_redirect",
+          "completed_at": "2026-11-17T13:48:25.402070+00:00",
+          "http_status": 0,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "73bfc9562964ed2cb2cc"
+        },
+        {
+          "url": "https://www.dvg.de/wp-content/uploads/2026/05/26-05-11_260509-Flyer-FLASH-Studie.pdf",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T13:48:27.004811+00:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "73bfc9562964ed2cb2cc"
+        }
+      ]
     },
     {
       "id": "europe-oncowaf-clinical-trials",
@@ -2926,8 +3922,8 @@
       "required_cadence": "daily",
       "last_checked": "2026-11-17",
       "last_result": "partial",
-      "content_fingerprint": "sha256:47960a3a1c5823f4f82629111a917330d6d5cf17eb7ffb6420c311276b57f954",
-      "last_checked_at": "2026-11-17T03:02:44.040608-05:00",
+      "content_fingerprint": "sha256:19ddcb66491d9b876b28d5ac53252aaf986ad0adbe9131b87f07e5c0562e3c95",
+      "last_checked_at": "2026-11-17T07:44:30.555609-05:00",
       "last_http_status": 200,
       "last_attempts": [
         {
@@ -2942,13 +3938,13 @@
         }
       ],
       "last_route_used": "master",
-      "last_audit_run_id": "daily-20261117T030023-0500",
+      "last_audit_run_id": "resume-20261117T073957-0500",
       "last_protocols_seen": null,
-      "last_coverage_gap": "Current complete qualifying oncology-treatment roster is not established by today’s permitted official responses.",
+      "last_coverage_gap": "Individual listed rows mapped to verified Zürich therapeutic identities, known VetAgro/Armonia therapeutic leads, Frégis/Portuguese/Italian previously listed but unconfirmed candidates, investigator-only access in Utrecht, RVC observational, and known diagnostics. UK/Netherlands RVC linked rows are one multicenter study, not two. Direct current primary intake not established solely by this secondary directory. Scope-specific missing documents recorded separately.",
       "notes": "Full23-row Oncowaf table read, with protocol identity, eligibility, sites and contacts. Therapeutic rows include7-site insulinoma toceranib, Zurich glioma/lattice/meningioma/STS and PNST surgery, Portuguese liver ablation/chemodectoma/mammaryPDT, French Armonia HIFU/oral immunotherapy/Fregis liver and cardiac ablation, Italian2-site hydroxyapatite vaccine. Diagnostic/biosampling rows are excluded; Utrecht viral OSA current primary says enough participants January2026.",
-      "fingerprint_method": "current official response body only; not clinical proof",
+      "fingerprint_method": "sha256 of actual current retrieved text; transport fingerprint alone is not roster proof",
       "last_visit_timestamp_precision": "instant",
-      "last_coverage_receipt": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json",
+      "last_coverage_receipt": "research/audit-runs/resume-20261117T073957-0500/receipt-progress.json",
       "content_sufficient": false,
       "recheck_after": "2026-10-21",
       "targeted_followups": [
@@ -2969,10 +3965,42 @@
       "audit_last_run_id": "daily-20261116T040013-0500",
       "last_check_summary": "europe-oncowaf-clinical-trials: https://oncowaf.be/en/ClinicalTrials/searchResults returned retrieved (HTTP 200); 1 route decisions recorded. Current clinical reconciliation is not evidenced.",
       "content_fingerprint_method": "sha256 of current retrieved official response; transport fingerprint only, not roster proof",
-      "last_http_status_at": "2026-11-10T03:04:58.394828-05:00",
-      "last_processing_review_at": "2026-11-17T04:55:17.819347-05:00",
-      "processing_complete": false,
-      "last_current_review_finding": "europe-oncowaf-clinical-trials: https://oncowaf.be/en/ClinicalTrials/searchResults returned retrieved (HTTP 200); 1 route decisions recorded. Current clinical reconciliation is not evidenced."
+      "last_http_status_at": "2026-11-17T07:41:56.410142-05:00",
+      "last_processing_review_at": "2026-11-17T09:06:04.811087-05:00",
+      "processing_complete": true,
+      "last_current_review_finding": "Individual listed rows mapped to verified Zürich therapeutic identities, known VetAgro/Armonia therapeutic leads, Frégis/Portuguese/Italian previously listed but unconfirmed candidates, investigator-only access in Utrecht, RVC observational, and known diagnostics. UK/Netherlands RVC linked rows are one multicenter study, not two. Direct current primary intake not established solely by this secondary directory. Scope-specific missing documents recorded separately.",
+      "last_attempted_urls": [
+        {
+          "url": "https://oncowaf.be/en/ClinicalTrials/searchResults",
+          "route": "master",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:41:56.410142-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "9d3cc59897d5b884d248"
+        },
+        {
+          "url": "https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:41:50.932605-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "cc5b13c1627cf2f0c365"
+        },
+        {
+          "url": "https://www.tierspital.uzh.ch/ueber-uns/lehre-und-forschung/klinische-studien/",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:44:30.555609-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "4ba5574f1031f217662f"
+        }
+      ]
     },
     {
       "id": "netherlands-utrecht-interventional-oncology",
@@ -4727,8 +5755,8 @@
       "required_cadence": "daily",
       "last_checked": "2026-11-17",
       "last_result": "partial",
-      "content_fingerprint": "sha256:236fbd800de59f87725fd789c4f1ba5ce9822ee2c342a1ae23ddb0f1cb2c5cce",
-      "last_checked_at": "2026-11-17T03:06:58.223405-05:00",
+      "content_fingerprint": "sha256:d12c770393aeca8dac94a9069e84af781df846eaca50ac833a7987f405136cd9",
+      "last_checked_at": "2026-11-17T07:44:34.880933-05:00",
       "last_http_status": 200,
       "linked_trial_ids": [
         "medvet-egfr-her2-vaccine-2026"
@@ -4757,24 +5785,66 @@
         }
       ],
       "last_route_used": "master",
-      "last_audit_run_id": "daily-20261117T030023-0500",
+      "last_audit_run_id": "resume-20261117T073957-0500",
       "last_protocols_seen": null,
-      "last_coverage_gap": "Current complete qualifying oncology-treatment roster is not established by today’s permitted official responses.",
-      "fingerprint_method": "current official response body only; not clinical proof",
+      "last_coverage_gap": "Sponsor/support research page explicitly counts ten current EGFR sites, lists and resolves named three exclusions, and on own-trials Santa Fe lists no active. Illinois B7H3 CAL-T, microbiome and Immunocidin notices are separate source leads, with normal governing protocol decisions; no new locations inferred from general care. Site-specific BARC grant is not a new shared enrollment cohort.",
+      "fingerprint_method": "sha256 of actual current retrieved text; transport fingerprint alone is not roster proof",
       "last_visit_timestamp_precision": "instant",
-      "last_coverage_receipt": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json",
+      "last_coverage_receipt": "research/audit-runs/resume-20261117T073957-0500/receipt-progress.json",
       "content_sufficient": false,
       "recheck_after": "2026-10-21",
       "reconciliation_run_id": "daily-20261111T030107-0500",
       "audit_last_run_id": "daily-20261116T040013-0500",
       "last_check_summary": "usa-canine-cancer-alliance-research: https://www.ccralliance.org/research-projects returned retrieved (HTTP 200); 2 route decisions recorded. Current clinical reconciliation is not evidenced.",
       "content_fingerprint_method": "sha256 of current retrieved official response; transport fingerprint only, not roster proof",
-      "last_http_status_at": "2026-11-10T03:05:17.169740-05:00",
-      "last_processing_review_at": "2026-11-17T04:55:17.820618-05:00",
-      "processing_complete": false,
-      "last_current_review_finding": "usa-canine-cancer-alliance-research: https://www.ccralliance.org/research-projects returned retrieved (HTTP 200); 2 route decisions recorded. Current clinical reconciliation is not evidenced.",
+      "last_http_status_at": "2026-11-17T07:42:18.242080-05:00",
+      "last_processing_review_at": "2026-11-17T09:06:04.811280-05:00",
+      "processing_complete": true,
+      "last_current_review_finding": "Sponsor/support research page explicitly counts ten current EGFR sites, lists and resolves named three exclusions, and on own-trials Santa Fe lists no active. Illinois B7H3 CAL-T, microbiome and Immunocidin notices are separate source leads, with normal governing protocol decisions; no new locations inferred from general care. Site-specific BARC grant is not a new shared enrollment cohort.",
       "fallback_urls": [
         "https://www.ccralliance.org/yale-status"
+      ],
+      "last_attempted_urls": [
+        {
+          "url": "https://www.ccralliance.org/research-projects",
+          "route": "master",
+          "method": "curl",
+          "result": "error_or_redirect",
+          "completed_at": "2026-11-17T07:42:12.504635-05:00",
+          "http_status": 0,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "4b5c2f20041de8afaf98"
+        },
+        {
+          "url": "https://www.ccralliance.org/research-projects",
+          "route": "master",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:42:18.242080-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "4b5c2f20041de8afaf98"
+        },
+        {
+          "url": "https://www.ccralliance.org/yale-status",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:44:34.880933-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "6b3ae6a366e81fbc2cc1"
+        },
+        {
+          "url": "https://www.barcseattle.com/clinical-trials-index",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:42:11.900690-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "938f73fff3e52373b3aa"
+        }
       ]
     },
     {
@@ -5314,8 +6384,8 @@
       "required_cadence": "daily",
       "last_checked": "2026-11-17",
       "last_result": "partial",
-      "content_fingerprint": "sha256:923507bc27c1e73bebdea52e8dbfd7135dabf4df8d7999332869c6336e8d95bd",
-      "last_checked_at": "2026-11-17T03:07:04.642666-05:00",
+      "content_fingerprint": "sha256:a79e9dee68c4cc78f9ebcdc8175d1551e93f6fc9ca4171ffeda16407a8adf2a0",
+      "last_checked_at": "2026-11-17T07:44:36.006228-05:00",
       "last_http_status": 200,
       "last_route_used": "master",
       "last_attempts": [
@@ -5351,22 +6421,54 @@
         }
       ],
       "notes": "Yamaguchi current hospital body names antiCD20 for lymphoid tumors, antiPD1 for canine tumors, oncolytic-virus research and investigational anticancer drug; early-cancer blood collection and immune-mediated MSC research are separate. TODAY COMPLETED STEP: Yamaguchi individual current trial page read completely. AntiCD20 lymphoid and broad canine antiPD1 programs are invitations with full eligibility/costs not published; early-detection blood research is not therapy and viral/new-drug programs explicitly ended. Generic PD1 program is not merged with the separate3-center oral melanoma registration trial; its JSAMC/Yamaguchi/Kamogawa roster remains separately compared.",
-      "last_audit_run_id": "daily-20261117T030023-0500",
-      "last_protocols_seen": 2,
-      "fingerprint_method": "current official response body only; not clinical proof",
+      "last_audit_run_id": "resume-20261117T073957-0500",
+      "last_protocols_seen": null,
+      "fingerprint_method": "sha256 of actual current retrieved text; transport fingerprint alone is not roster proof",
       "last_visit_timestamp_precision": "instant",
-      "last_coverage_receipt": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json",
+      "last_coverage_receipt": "research/audit-runs/resume-20261117T073957-0500/receipt-progress.json",
       "content_sufficient": false,
       "recheck_after": "2026-10-21",
       "reconciliation_run_id": "daily-20261111T030107-0500",
       "audit_last_run_id": "daily-20261116T040013-0500",
       "last_check_summary": "Yamaguchi master and clinical-study entry agree anti-CD20 for lymphoid cancer, an older broad anti-PD1 clinical programme, two explicitly finished virus/new-drug trials, and diagnostic blood collection. Active corporate oral melanoma study is the exact current three-site group. The undated broad older anti-PD1 page lacks current eligibility, dates or separate enrolment; identity unresolved.",
       "content_fingerprint_method": "sha256 of current retrieved official response; transport fingerprint only, not roster proof",
-      "last_http_status_at": "2026-11-10T03:13:45.211467-05:00",
-      "last_coverage_gap": null,
-      "last_processing_review_at": "2026-11-17T04:55:17.821170-05:00",
-      "processing_complete": false,
-      "last_current_review_finding": "Yamaguchi master and clinical-study entry agree anti-CD20 for lymphoid cancer, an older broad anti-PD1 clinical programme, two explicitly finished virus/new-drug trials, and diagnostic blood collection. Active corporate oral melanoma study is the exact current three-site group. The undated broad older anti-PD1 page lacks current eligibility, dates or separate enrolment; identity unresolved."
+      "last_http_status_at": "2026-11-17T07:42:24.598315-05:00",
+      "last_coverage_gap": "Current hospital adult dogs' lymphoid anti-CD20 exact study and September university/sponsor three-site oral melanoma registrations reconciled. Blood biomarker observation, immune-disease stem cells and closed reovirus excluded. Older broad canine PD-1 exact primary still says 'active' in a 2024 investigator summary; September release describes moving research to narrower corporate registration. No current distinct broader cohort eligibility, funding or booking established by safe partner searches.",
+      "last_processing_review_at": "2026-11-17T09:06:04.811318-05:00",
+      "processing_complete": true,
+      "last_current_review_finding": "Current hospital adult dogs' lymphoid anti-CD20 exact study and September university/sponsor three-site oral melanoma registrations reconciled. Blood biomarker observation, immune-disease stem cells and closed reovirus excluded. Older broad canine PD-1 exact primary still says 'active' in a 2024 investigator summary; September release describes moving research to narrower corporate registration. No current distinct broader cohort eligibility, funding or booking established by safe partner searches.",
+      "last_attempted_urls": [
+        {
+          "url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html",
+          "route": "master",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:42:24.598315-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "ecda04f309bd8fdf83c1"
+        },
+        {
+          "url": "https://mizutakuvet.com/service-2-3/",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:43:13.128017-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "d3e3e915585e48d0b8f3"
+        },
+        {
+          "url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:44:36.006228-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "4d6d5d823971def295a8"
+        }
+      ]
     },
     {
       "id": "japan-veterinary-cancer-society-clinical-trials",
@@ -5453,11 +6555,11 @@
       "master_url": "https://www.jsamc.jp/dr_info/clinical/clinical07.html",
       "required_cadence": "daily",
       "last_checked": "2026-11-17",
-      "last_checked_at": "2026-11-17T03:05:29.599128-05:00",
+      "last_checked_at": "2026-11-17T07:45:27.101670-05:00",
       "last_result": "partial",
-      "content_fingerprint": "sha256:92df4303ccab5edad2152169e7ff58c84e859068430367fdb767838306043978",
+      "content_fingerprint": "sha256:89eba8121a581763118e1ae1c621ab6e6b568912c7ef80eef626d6c67d4427ae",
       "last_http_status": 200,
-      "last_route_used": "fallback",
+      "last_route_used": "official_fallback_or_leaf",
       "last_attempts": [
         {
           "url": "https://www.jsamc.jp/dr_info/clinical/clinical07.html",
@@ -5482,25 +6584,47 @@
         "jp-jsamc-feline-anti-pd1"
       ],
       "notes": "JSAMC clinical07 route remains under exact prior403 restriction. The permitted iCAT page explicitly describes ongoing felineantiPD1 research and links this same denied route, without publishing full criteria/costs. No forbidden retry was made.",
-      "last_audit_run_id": "daily-20261117T030023-0500",
+      "last_audit_run_id": "resume-20261117T073957-0500",
       "last_protocols_seen": null,
-      "last_coverage_gap": "Current complete qualifying oncology-treatment roster is not established by today’s permitted official responses.",
-      "fingerprint_method": "normalized_current_run_route_text",
+      "last_coverage_gap": "Exact hospital master restriction respected. Alternate iCAT official content identifies feline-specific PD-1 as currently described and future CAR-T only; dated three-site partner announcement confirms the distinct canine melanoma role of JSAMC. Neither permitted partner provides current feline protocol funding and exact enrollment window, which stay unverified.",
+      "fingerprint_method": "sha256 of actual current retrieved text; transport fingerprint alone is not roster proof",
       "fallback_urls": [
         "https://www.cure-cancer.jp/"
       ],
       "last_visit_timestamp_precision": "instant",
-      "last_coverage_receipt": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json",
+      "last_coverage_receipt": "research/audit-runs/resume-20261117T073957-0500/receipt-progress.json",
       "content_sufficient": false,
       "recheck_after": "2026-10-21",
       "reconciliation_run_id": "daily-20261111T030107-0500",
       "audit_last_run_id": "daily-20261116T040013-0500",
       "last_check_summary": "japan-jsamc-current-clinical-trials: https://www.jsamc.jp/dr_info/clinical/clinical07.html returned restricted_not_retried; 2 route decisions recorded. Current clinical reconciliation is not evidenced.",
       "content_fingerprint_method": "sha256 of current retrieved official response; transport fingerprint only, not roster proof",
-      "last_http_status_at": "2026-11-10T03:07:24.526099-05:00",
-      "last_processing_review_at": "2026-11-17T04:55:17.821328-05:00",
-      "processing_complete": false,
-      "last_current_review_finding": "japan-jsamc-current-clinical-trials: https://www.jsamc.jp/dr_info/clinical/clinical07.html returned restricted_not_retried; 2 route decisions recorded. Current clinical reconciliation is not evidenced."
+      "last_http_status_at": "2026-11-17T07:43:30.893616-05:00",
+      "last_processing_review_at": "2026-11-17T09:06:04.811341-05:00",
+      "processing_complete": true,
+      "last_current_review_finding": "Exact hospital master restriction respected. Alternate iCAT official content identifies feline-specific PD-1 as currently described and future CAR-T only; dated three-site partner announcement confirms the distinct canine melanoma role of JSAMC. Neither permitted partner provides current feline protocol funding and exact enrollment window, which stay unverified.",
+      "last_attempted_urls": [
+        {
+          "url": "https://www.cure-cancer.jp/",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:43:30.893616-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "fa4904dada7c9a1f1f5d"
+        },
+        {
+          "url": "https://www.cure-cancer.jp/research/",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:45:27.101670-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "774a93a133490594b413"
+        }
+      ]
     },
     {
       "id": "global-vettrials-directory",
@@ -6921,15 +8045,15 @@
       ],
       "required_cadence": "daily",
       "last_checked": "2026-11-17",
-      "last_checked_at": "2026-11-17T03:07:13.630241-05:00",
+      "last_checked_at": "2026-11-17T07:44:45.748705-05:00",
       "last_result": "partial",
-      "content_fingerprint": "sha256:7fed3e9235e42766790598fd968cd46f9364912e605962d82270d5a027e8e4e8",
+      "content_fingerprint": "sha256:aaa21fb01e753e0218b8242afc946d0d456e8feedc9380f5d753136765e644c2",
       "notes": "Entire sponsor three-site Minnesota/Ohio/Missouri roster compared. Current allowed Minnesota individual explicitly Open and enrolling with site-specific criteria/funding, and current Missouri protocol separately confirms intake; canonical site facts match. Ohio remains sponsor-listed/local slot to confirm. Index-only UMN restriction is not a restriction on this allowed individual page. No source-wide ban or transferred site-specific eligibility/allowances.",
       "last_http_status": 200,
       "last_route_used": "master",
-      "last_audit_run_id": "daily-20261117T030023-0500",
+      "last_audit_run_id": "resume-20261117T073957-0500",
       "last_protocols_seen": null,
-      "last_coverage_gap": "Current complete qualifying oncology-treatment roster is not established by today’s permitted official responses.",
+      "last_coverage_gap": "All three sponsor sites reconciled by name. Minnesota and Missouri offer current exact xenogeneic CD20 CAR-T with site-specific eligibility and payment, different from BTK. Ohio remains advertised by sponsor; official Ohio public current roster does not publish corresponding local eligibility, funding or openings. Do not attribute Minnesota terms to Ohio.",
       "last_attempts": [
         {
           "url": "https://leahlabs.com/",
@@ -6972,19 +8096,71 @@
           "evidence_key": "65c993c23b0408a9ea2a"
         }
       ],
-      "fingerprint_method": "current official response body only; not clinical proof",
+      "fingerprint_method": "sha256 of actual current retrieved text; transport fingerprint alone is not roster proof",
       "last_visit_timestamp_precision": "instant",
-      "last_coverage_receipt": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json",
+      "last_coverage_receipt": "research/audit-runs/resume-20261117T073957-0500/receipt-progress.json",
       "content_sufficient": false,
       "recheck_after": "2026-10-21",
       "reconciliation_run_id": "daily-20261111T030107-0500",
       "audit_last_run_id": "daily-20261116T040013-0500",
       "last_check_summary": "sponsor-leah-labs-clinical-trial: https://leahlabs.com/ returned retrieved (HTTP 200); 4 route decisions recorded. Current clinical reconciliation is not evidenced.",
       "content_fingerprint_method": "sha256 of current retrieved official response; transport fingerprint only, not roster proof",
-      "last_http_status_at": "2026-11-10T03:13:49.658464-05:00",
-      "last_processing_review_at": "2026-11-17T04:55:17.822780-05:00",
-      "processing_complete": false,
-      "last_current_review_finding": "sponsor-leah-labs-clinical-trial: https://leahlabs.com/ returned retrieved (HTTP 200); 4 route decisions recorded. Current clinical reconciliation is not evidenced."
+      "last_http_status_at": "2026-11-17T07:42:34.100463-05:00",
+      "last_processing_review_at": "2026-11-17T09:06:04.811411-05:00",
+      "processing_complete": true,
+      "last_current_review_finding": "All three sponsor sites reconciled by name. Minnesota and Missouri offer current exact xenogeneic CD20 CAR-T with site-specific eligibility and payment, different from BTK. Ohio remains advertised by sponsor; official Ohio public current roster does not publish corresponding local eligibility, funding or openings. Do not attribute Minnesota terms to Ohio.",
+      "last_attempted_urls": [
+        {
+          "url": "https://leahlabs.com/",
+          "route": "master",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:42:34.100463-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "303a48e1203de3733c9d"
+        },
+        {
+          "url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/car-t-cell",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "error_or_redirect",
+          "completed_at": "2026-11-17T07:44:41.923446-05:00",
+          "http_status": 0,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "88eeb84614b020397ac0"
+        },
+        {
+          "url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/car-t-cell",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:44:45.748705-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "88eeb84614b020397ac0"
+        },
+        {
+          "url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:41:39.549043-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "37821df5885a3c57e4c9"
+        },
+        {
+          "url": "https://vmc.vet.osu.edu/clinical-trials-office/current-trials",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:44:40.648544-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "65c993c23b0408a9ea2a"
+        }
+      ]
     },
     {
       "id": "usa-oklahoma-state-clinical-trials",
@@ -9727,10 +10903,10 @@
       "required_cadence": "daily",
       "last_checked": "2026-11-17",
       "last_result": "partial",
-      "content_fingerprint": "sha256:bcd8acc48542bf63699f165f0ef2c50b895ce89842232a9f1616f6aa1de90613",
+      "content_fingerprint": "sha256:8d40d901990c9d5f151ce2b2bc99f244a2479825353d47e60eee80563f6c38fe",
       "added_at": "2026-10-21T03:55:08.610890-04:00",
       "source_role": "Official trial/research discovery source; not a care location directory. Clinical access requires separate protocol-level qualification.",
-      "last_checked_at": "2026-11-17T03:08:09.250116-05:00",
+      "last_checked_at": "2026-11-17T07:45:17.924648-05:00",
       "last_attempts": [
         {
           "url": "https://therajan.com/joomla/",
@@ -9785,22 +10961,94 @@
       ],
       "last_route_used": "master",
       "audit_last_run_id": "daily-20261116T040013-0500",
-      "last_audit_run_id": "daily-20261117T030023-0500",
+      "last_audit_run_id": "resume-20261117T073957-0500",
       "last_protocols_seen": null,
       "content_sufficient": false,
       "last_check_summary": "sponsor-therajan-egfr-her2-trial: https://therajan.com/joomla/ returned retrieved (HTTP 200); 5 route decisions recorded. Current clinical reconciliation is not evidenced.",
-      "last_coverage_receipt": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json",
+      "last_coverage_receipt": "research/audit-runs/resume-20261117T073957-0500/receipt-progress.json",
       "last_http_status": 200,
-      "last_http_status_at": "2026-11-10T03:14:18.401667-05:00",
-      "fingerprint_method": "current official response body only; not clinical proof",
+      "last_http_status_at": "2026-11-17T07:43:09.960261-05:00",
+      "fingerprint_method": "sha256 of actual current retrieved text; transport fingerprint alone is not roster proof",
       "content_fingerprint_method": "sha256 of current retrieved official response; transport fingerprint only, not roster proof",
       "last_visit_timestamp_precision": "instant",
-      "last_coverage_gap": "Current complete qualifying oncology-treatment roster is not established by today’s permitted official responses.",
+      "last_coverage_gap": "Legacy USDA-approved twelve-site list is not today's enrolling roster. Reconciled with CCA 14 named sites, ten canonical active/individual confirmation sites, three explicitly not enrolling (Chicago, Richmond, Missouri) and Santa Fe own facility not active. Generic Phoenix service restrictions and two conflicting Stamford addresses require study-specific route; newer VCCS exact appointment address already present. No additional site added or general exclusion inferred.",
       "notes": "Therajan sponsor clinical page and all four configured supportingroutes were read. EGFR/HER2peptide immunotherapeutic is a USDAregulatedstudy for confirmedOSA,HSA,UCC; efficacy/safety are not established byUSDA. Coordinator currentlocation roster is separate from the sponsor overview. Whole fresh CCA12site status roster and current MedVet/BARC/VCCS site-specific conditions have now been compared; all9active canonical sites and3explicit closed sites accounted. The remaining question is shared VCCS-only eligibility modeling, not missing sponsor traversal.",
-      "last_processing_review_at": "2026-11-17T04:55:17.825618-05:00",
-      "processing_complete": false,
-      "last_current_review_finding": "sponsor-therajan-egfr-her2-trial: https://therajan.com/joomla/ returned retrieved (HTTP 200); 5 route decisions recorded. Current clinical reconciliation is not evidenced.",
-      "reconciliation_run_id": "daily-20261111T030107-0500"
+      "last_processing_review_at": "2026-11-17T09:06:04.811519-05:00",
+      "processing_complete": true,
+      "last_current_review_finding": "Legacy USDA-approved twelve-site list is not today's enrolling roster. Reconciled with CCA 14 named sites, ten canonical active/individual confirmation sites, three explicitly not enrolling (Chicago, Richmond, Missouri) and Santa Fe own facility not active. Generic Phoenix service restrictions and two conflicting Stamford addresses require study-specific route; newer VCCS exact appointment address already present. No additional site added or general exclusion inferred.",
+      "reconciliation_run_id": "daily-20261111T030107-0500",
+      "last_attempted_urls": [
+        {
+          "url": "https://therajan.com/joomla/",
+          "route": "master",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:43:09.960261-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "4a5131d67b18c7c6181c"
+        },
+        {
+          "url": "https://therajan.com/joomla/index.php/for-pet-owners.html",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:45:12.708491-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "9281b4729971bfe4bc5e"
+        },
+        {
+          "url": "https://therajan.com/joomla/index.php/for-veterinarians.html",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:45:12.681719-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "fbbc55933706e5e5241f"
+        },
+        {
+          "url": "https://therajan.com/joomla/index.php/faqs.html",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:45:17.924648-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "5534e754bfe97a7bb606"
+        },
+        {
+          "url": "https://therajan.com/joomla/index.php/find-a-clinic.html",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:45:17.921141-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "1a4c28c53b1aa93d19cd"
+        },
+        {
+          "url": "https://www.ccralliance.org/yale-status",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:44:34.880933-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "6b3ae6a366e81fbc2cc1"
+        },
+        {
+          "url": "https://www.barcseattle.com/clinical-trials-index",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:42:11.900690-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "938f73fff3e52373b3aa"
+        }
+      ]
     },
     {
       "id": "japan-vmdp-clinical-development",
@@ -9871,10 +11119,10 @@
       "required_cadence": "daily",
       "last_checked": "2026-11-17",
       "last_result": "partial",
-      "content_fingerprint": "sha256:771cc26b57e5647848775bf36eca3ad61d60fab0a39cca3a532f5564b0dc510c",
+      "content_fingerprint": "sha256:010e6e3e04ce9d2e4b9c7dbdf21ef1832657afbdb3a0d46452e92981e71150c4",
       "added_at": "2026-10-21T03:55:08.610894-04:00",
       "source_role": "Official trial/research discovery source; not a care location directory. Clinical access requires separate protocol-level qualification.",
-      "last_checked_at": "2026-11-17T03:08:00.355879-05:00",
+      "last_checked_at": "2026-11-17T07:45:13.844706-05:00",
       "last_attempts": [
         {
           "url": "https://mizutakuvet.com/service-2-3/",
@@ -9899,22 +11147,54 @@
       ],
       "last_route_used": "master",
       "audit_last_run_id": "daily-20261116T040013-0500",
-      "last_audit_run_id": "daily-20261117T030023-0500",
+      "last_audit_run_id": "resume-20261117T073957-0500",
       "last_protocols_seen": null,
       "content_sufficient": false,
       "last_check_summary": "japan-yamaguchi-mizuno-clinical-trials: https://mizutakuvet.com/service-2-3/ returned retrieved (HTTP 200); 2 route decisions recorded. Current clinical reconciliation is not evidenced.",
-      "last_coverage_receipt": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json",
+      "last_coverage_receipt": "research/audit-runs/resume-20261117T073957-0500/receipt-progress.json",
       "last_http_status": 200,
-      "last_http_status_at": "2026-11-10T03:14:04.009874-05:00",
-      "fingerprint_method": "current official response body only; not clinical proof",
-      "last_coverage_gap": "Current complete qualifying oncology-treatment roster is not established by today’s permitted official responses.",
+      "last_http_status_at": "2026-11-17T07:43:13.128017-05:00",
+      "fingerprint_method": "sha256 of actual current retrieved text; transport fingerprint alone is not roster proof",
+      "last_coverage_gap": "Investigator summary provides 2024 research history of broad anti-PD1, anti-CD20, and completed reovirus; dated September institutional registration names exact three sites for oral melanoma. This is research/news cross-check, not a separate warm roster or direct evidence of broader current enrollment.",
       "content_fingerprint_method": "sha256 of current retrieved official response; transport fingerprint only, not roster proof",
       "last_visit_timestamp_precision": "instant",
       "notes": "Mizuno current trialguide and officialantiPD1fallback distinguish caninePD1antibody, novelanticancerdrug and nonrecombinantreovirus research. The reovirus programme began2013; publications/results do not themselves prove currentowner access for each indication.",
-      "last_processing_review_at": "2026-11-17T04:55:17.825756-05:00",
-      "processing_complete": false,
-      "last_current_review_finding": "japan-yamaguchi-mizuno-clinical-trials: https://mizutakuvet.com/service-2-3/ returned retrieved (HTTP 200); 2 route decisions recorded. Current clinical reconciliation is not evidenced.",
-      "reconciliation_run_id": "daily-20261111T030107-0500"
+      "last_processing_review_at": "2026-11-17T09:06:04.811546-05:00",
+      "processing_complete": true,
+      "last_current_review_finding": "Investigator summary provides 2024 research history of broad anti-PD1, anti-CD20, and completed reovirus; dated September institutional registration names exact three sites for oral melanoma. This is research/news cross-check, not a separate warm roster or direct evidence of broader current enrollment.",
+      "reconciliation_run_id": "daily-20261111T030107-0500",
+      "last_attempted_urls": [
+        {
+          "url": "https://mizutakuvet.com/service-2-3/",
+          "route": "master",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:43:13.128017-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "d3e3e915585e48d0b8f3"
+        },
+        {
+          "url": "https://mizutakuvet.com/",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:45:13.844706-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "64d54e5d6c3f5c5431d8"
+        },
+        {
+          "url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:42:24.598315-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "ecda04f309bd8fdf83c1"
+        }
+      ]
     },
     {
       "id": "japan-tokyo-maeda-clinical-research",
@@ -11126,9 +12406,9 @@
       "fallback_urls": [],
       "required_cadence": "daily",
       "last_checked": "2026-11-17",
-      "last_checked_at": "2026-11-17T03:05:28.326654-05:00",
+      "last_checked_at": "2026-11-17T08:21:23.484004-05:00",
       "last_result": "partial",
-      "content_fingerprint": "sha256:22c4b33e84ba74f97cdd52029770bb0a1389baac85bb21445baf39cae87042cc",
+      "content_fingerprint": "sha256:62e61bfde36b102bac188feef97261acdcf2f7552b92aebca53689fa6140815d",
       "last_attempts": [
         {
           "url": "https://www.dogcancertcc.com/clinical-trials",
@@ -11145,21 +12425,53 @@
       "discovered_by_run": "daily-20261027T030001-0400",
       "last_http_status": 200,
       "last_check_summary": "directory-dogcancertcc-clinical-trials: https://www.dogcancertcc.com/clinical-trials returned retrieved (HTTP 200); 1 route decisions recorded. Current clinical reconciliation is not evidenced.",
-      "last_coverage_receipt": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json",
+      "last_coverage_receipt": "research/audit-runs/resume-20261117T073957-0500/receipt-progress.json",
       "audit_last_run_id": "daily-20261116T040013-0500",
-      "fingerprint_method": "current official response body only; not clinical proof",
+      "fingerprint_method": "sha256 of actual current retrieved text; transport fingerprint alone is not roster proof",
       "last_protocols_seen": null,
-      "last_http_status_at": "2026-11-10T03:06:34.352595-05:00",
+      "last_http_status_at": "2026-11-17T07:43:28.532450-05:00",
       "last_route_used": "master",
-      "last_audit_run_id": "daily-20261117T030023-0500",
+      "last_audit_run_id": "resume-20261117T073957-0500",
       "content_sufficient": false,
-      "last_coverage_gap": "Current complete qualifying oncology-treatment roster is not established by today’s permitted official responses.",
+      "last_coverage_gap": "The index advertises Purdue CDK9 as open but Purdue explicitly says Completed; NC State direct IL12 local deadline passed. Probiome is supportive, resiniferatoxin targets discomfort, not underlying cancer, and AMC older neobladder protocol has no new actual intake verification. Other listed Illinois/CSU/Minnesota/Wisconsin institutional studies handled under their own sources. No title-only additions.",
       "last_visit_timestamp_precision": "instant",
-      "last_processing_review_at": "2026-11-17T04:55:17.826966-05:00",
-      "processing_complete": false,
-      "last_current_review_finding": "directory-dogcancertcc-clinical-trials: https://www.dogcancertcc.com/clinical-trials returned retrieved (HTTP 200); 1 route decisions recorded. Current clinical reconciliation is not evidenced.",
+      "last_processing_review_at": "2026-11-17T09:06:04.811594-05:00",
+      "processing_complete": true,
+      "last_current_review_finding": "The index advertises Purdue CDK9 as open but Purdue explicitly says Completed; NC State direct IL12 local deadline passed. Probiome is supportive, resiniferatoxin targets discomfort, not underlying cancer, and AMC older neobladder protocol has no new actual intake verification. Other listed Illinois/CSU/Minnesota/Wisconsin institutional studies handled under their own sources. No title-only additions.",
       "content_fingerprint_method": "sha256 of current retrieved official response; transport fingerprint only, not roster proof",
-      "reconciliation_run_id": "daily-20261111T030107-0500"
+      "reconciliation_run_id": "daily-20261111T030107-0500",
+      "last_attempted_urls": [
+        {
+          "url": "https://www.dogcancertcc.com/clinical-trials",
+          "route": "master",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:43:28.532450-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "0e45ea87537f7bd1e41d"
+        },
+        {
+          "url": "https://vet.purdue.edu/wcorc/clinical-trials/canine-urinary-bladder-cancer.php",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T07:47:16.348563-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "873255efed5b2d222ea3"
+        },
+        {
+          "url": "https://cvm.ncsu.edu/clinical-trial/now-enrolling-dogs-with-invasive-bladder-cancer/",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "result": "retrieved",
+          "completed_at": "2026-11-17T08:21:23.484004-05:00",
+          "http_status": 200,
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "94e8b750db88c4e32bb4"
+        }
+      ]
     },
     {
       "id": "south-africa-saaca-research-foundation",

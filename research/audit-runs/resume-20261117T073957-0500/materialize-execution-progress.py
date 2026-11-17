@@ -16,7 +16,20 @@ def evidence(u):
 b=load(r/'execution-baseline.json'); earlier=load(r/'morning-accounting/execution-review.json')
 queue={i['issue_id']:i for i in b['issues']}
 review=load(r/'execution-review.json')
-dates=load(r/'confirmed-protocol-reviews.json')
+dates=[]
+for name,casefile in [
+ ('confirmed-protocol-reviews.json','independent-results.json'),
+ ('complete-protocol-reviews-0904.json','new-cases-0904-results.json'),
+ ('complete-protocol-reviews-purdue-0905.json','purdue-current-case-results.json'),
+ ('flash-zurich-reconciliation.json','flash-zurich-case-results.json'),
+ ('tae-current-reconciliation.json','tae-source-case-results.json')]:
+ if not (r/name).exists():continue
+ group=load(r/name)
+ res=load(r/casefile)
+ for d in group if isinstance(group,list) else [group]:
+  d['review_ref']=ref(name);d['case_ref']=ref(casefile)
+  d.setdefault('independent_case_tested_at',res['at'])
+  dates.append(d)
 working=load(r/'unfinished-protocol-plan.json')
 independent=load(r/'missing-independent-plan.json')
 coverage=load(r/'receipt-progress.json')
@@ -54,12 +67,12 @@ for item in queue.values():
  new.append(row)
 ids={x['issue_id'] for x in new}
 for d in dates:
- tid=d['trial_id']; f=ref('confirmed-protocol-reviews.json')
+ tid=d['trial_id']; f=d['review_ref']
  for kind in ('full_protocol','independent_selection'):
   iid=kind+':'+tid
   row={'issue_id':iid,'kind':kind,'trial_id':tid,'state':'RESOLVED','reviewed_at':d['reviewed_at'] if kind=='full_protocol' else d['independent_case_tested_at'],'finding':'The named exact current primary protocol and the independently generated selection case outcomes are recorded with per-record dates and proof.','evidence_refs':[f]}
   if kind=='full_protocol':row.update(facts_checked=d['facts_checked'],full_protocol_review_complete=True)
-  else:row.update(cases_checked=['positive','negative','unknown'],evidence_refs=[f,ref('independent-results.json')])
+  else:row.update(cases_checked=['positive','negative','unknown'],evidence_refs=[f,d['case_ref']])
   if iid in ids:new=[x for x in new if x['issue_id']!=iid]
   new.append(row)
 review.update(source_reviews=decisions,issue_updates=new,discovery_queries=earlier['discovery_queries'],discovered_urls=earlier['discovered_urls'],leads=earlier['leads'],deadline_review_ref=ref('deadline-continuation-latest.json'),ended_at=None)

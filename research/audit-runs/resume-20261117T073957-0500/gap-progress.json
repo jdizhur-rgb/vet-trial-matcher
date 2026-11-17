@@ -1,26 +1,55 @@
 {
   "original_run_id": "resume-20261117T073957-0500",
-  "recorded_at": "2026-11-17T08:54:32.782424-05:00",
+  "recorded_at": "2026-11-17T09:02:43.039524-05:00",
   "rows": [
     {
       "source_id": "registry-avma-veterinary-clinical-trials",
-      "category": "roster_unestablished",
-      "processing_assessment": "executor_unfinished",
-      "question": "Current full roster and catalog disposition for registry-avma-veterinary-clinical-trials",
-      "reason": "Transport evidence only. https://veterinaryclinicaltrials.org/: retrieved, HTTP 200 | https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1: retrieved, HTTP 200 | https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=500&take=500: retrieved, HTTP 200 | https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=0&take=500: retrieved, HTTP 200",
-      "next_action": "Compare all in-scope primary detail and available alternate official routes for registry-avma-veterinary-clinical-trials.",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Two freshly retrieved official pages show 859 distinct records with zero changes against same-day scheduled card identity/status and 113 recruiting all specialties. Among 62 oncology keyword matches, 61 have exact prior VCT dispositions and feline lymphoplasmacytic rhinitis is nononcology. Individual outstanding 11 VCTs given current permitted structured readings, eligible VT same-trial cutoff published and CSU feline AVMA exact source verified previously. Unpublished or conflicting arm identities, ECT site names, and some partner intake/funding fields remain external; no invented roster.",
+      "reason": "Two freshly retrieved official pages show 859 distinct records with zero changes against same-day scheduled card identity/status and 113 recruiting all specialties. Among 62 oncology keyword matches, 61 have exact prior VCT dispositions and feline lymphoplasmacytic rhinitis is nononcology. Individual outstanding 11 VCTs given current permitted structured readings, eligible VT same-trial cutoff published and CSU feline AVMA exact source verified previously. Unpublished or conflicting arm identities, ECT site names, and some partner intake/funding fields remain external; no invented roster.",
+      "next_action": "Recheck only on new permitted official record or scheduled due date",
       "evidence": {
         "source_id": "registry-avma-veterinary-clinical-trials",
         "attempted_urls": [
-          "https://veterinaryclinicaltrials.org/",
           "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1",
+          "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=0&take=500",
           "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=500&take=500",
-          "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=0&take=500"
+          "https://veterinaryclinicaltrials.org/s/canine-liver-tumor-study-971858/?ref=gallery",
+          "https://veterinaryclinicaltrials.org/s/treating-metastatic-cancer-with-pd-1-inhibitor-and-targeted-immunotherapy-943925/?ref=gallery",
+          "https://veterinaryclinicaltrials.org/s/combination-chemotherapy-doxorubicin-temozolomide-with-or-without-propranolol-in-dogs-with-hemangiosarcoma-625639/?ref=gallery",
+          "https://veterinaryclinicaltrials.org/s/targeted-electrochemotherapy-ect-cancer-treatment-928247/?ref=gallery",
+          "https://veterinaryclinicaltrials.org/s/combination-of-electrochemotherapy-and-gene-therapy-with-canine-il-12-834784/?ref=gallery",
+          "https://veterinaryclinicaltrials.org/s/dose-escalation-study-for-a-novel-sting-agonist-in-tumor-bearing-dogs-134139/?ref=gallery",
+          "https://veterinaryclinicaltrials.org/s/electrochemotherapy-for-bone-cancer-419848/?ref=gallery",
+          "https://veterinaryclinicaltrials.org/s/clinical-trial-of-a-targeted-chemotherapy-drug-delivered-by-a-catheter-to-treat-dogs-with-glioma-brain-tumors-763280/?ref=gallery",
+          "https://veterinaryclinicaltrials.org/s/novel-immunotherapy-for-cats-with-oral-squamous-cell-carcinoma-190378/?ref=gallery",
+          "https://veterinaryclinicaltrials.org/s/electrochemotherapy-for-nasal-cancer-126469/?ref=gallery",
+          "https://veterinaryclinicaltrials.org/s/osteosarcoma-targeted-bone-electrochemotherapy-with-cementoplasty-alternative-to-amputation-334974/?ref=gallery",
+          "https://veterinaryclinicaltrials.org/"
         ]
       },
-      "unperformed_steps": [
-        "Compare all in-scope primary detail and available alternate official routes for registry-avma-veterinary-clinical-trials."
-      ]
+      "completion_decision": {
+        "remaining_fact": "Two freshly retrieved official pages show 859 distinct records with zero changes against same-day scheduled card identity/status and 113 recruiting all specialties. Among 62 oncology keyword matches, 61 have exact prior VCT dispositions and feline lymphoplasmacytic rhinitis is nononcology. Individual outstanding 11 VCTs given current permitted structured readings, eligible VT same-trial cutoff published and CSU feline AVMA exact source verified previously. Unpublished or conflicting arm identities, ECT site names, and some partner intake/funding fields remain external; no invented roster.",
+        "routes_exhausted_evidence": [
+          "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1",
+          "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=0&take=500",
+          "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=500&take=500",
+          "https://veterinaryclinicaltrials.org/s/canine-liver-tumor-study-971858/?ref=gallery",
+          "https://veterinaryclinicaltrials.org/s/treating-metastatic-cancer-with-pd-1-inhibitor-and-targeted-immunotherapy-943925/?ref=gallery",
+          "https://veterinaryclinicaltrials.org/s/combination-chemotherapy-doxorubicin-temozolomide-with-or-without-propranolol-in-dogs-with-hemangiosarcoma-625639/?ref=gallery",
+          "https://veterinaryclinicaltrials.org/s/targeted-electrochemotherapy-ect-cancer-treatment-928247/?ref=gallery",
+          "https://veterinaryclinicaltrials.org/s/combination-of-electrochemotherapy-and-gene-therapy-with-canine-il-12-834784/?ref=gallery",
+          "https://veterinaryclinicaltrials.org/s/dose-escalation-study-for-a-novel-sting-agonist-in-tumor-bearing-dogs-134139/?ref=gallery",
+          "https://veterinaryclinicaltrials.org/s/electrochemotherapy-for-bone-cancer-419848/?ref=gallery",
+          "https://veterinaryclinicaltrials.org/s/clinical-trial-of-a-targeted-chemotherapy-drug-delivered-by-a-catheter-to-treat-dogs-with-glioma-brain-tumors-763280/?ref=gallery",
+          "https://veterinaryclinicaltrials.org/s/novel-immunotherapy-for-cats-with-oral-squamous-cell-carcinoma-190378/?ref=gallery",
+          "https://veterinaryclinicaltrials.org/s/electrochemotherapy-for-nasal-cancer-126469/?ref=gallery",
+          "https://veterinaryclinicaltrials.org/s/osteosarcoma-targeted-bone-electrochemotherapy-with-cementoplasty-alternative-to-amputation-334974/?ref=gallery",
+          "https://veterinaryclinicaltrials.org/"
+        ],
+        "available_reconciliation_done_evidence": "Two freshly retrieved official pages show 859 distinct records with zero changes against same-day scheduled card identity/status and 113 recruiting all specialties. Among 62 oncology keyword matches, 61 have exact prior VCT dispositions and feline lymphoplasmacytic rhinitis is nononcology. Individual outstanding 11 VCTs given current permitted structured readings, eligible VT same-trial cutoff published and CSU feline AVMA exact source verified previously. Unpublished or conflicting arm identities, ECT site names, and some partner intake/funding fields remain external; no invented roster."
+      }
     },
     {
       "source_id": "registry-uk-vcsr",
@@ -74,30 +103,6 @@
           "https://www.vetmed.auburn.edu/wp-content/uploads/2024/10/Canine_Oncology_Clinical-Trial-Flyer.pdf"
         ]
       }
-    },
-    {
-      "source_id": "usa-colorado-state-vth-clinical-trials",
-      "category": "roster_unestablished",
-      "processing_assessment": "executor_unfinished",
-      "question": "Current full roster and catalog disposition for usa-colorado-state-vth-clinical-trials",
-      "reason": "Master is general entry; Flint listings and structured CSU roster accessible. Compare all fields/identified oncologic entries with exact current and date data, including engineered T-cells and any master/JSON differences; only named five identities preliminarily crosswalked.",
-      "next_action": "Read and enumerate the oncology protocols in the saved material for https://csuveterinaryhealth.org/clinical-trials/; reconcile individual identities and changed routes with canonical.",
-      "evidence": {
-        "source_id": "usa-colorado-state-vth-clinical-trials",
-        "attempted_urls": [
-          "https://csuveterinaryhealth.org/clinical-trials/",
-          "https://clinicaltrials.csuveterinaryhealth.org/studies/?term~sc_paths=primary-field_cancer",
-          "https://www.csuanimalcancercenter.org/current-clinical-trials/",
-          "https://www.csuanimalcancercenter.org/clinical-trial/clinical-testing-of-canine-t-cells-engineered-to-target-osteosarcoma-and-soft-tissue-sarcoma-in-combination-with-oral-immunotherapy/",
-          "https://clinicaltrials.csuveterinaryhealth.org/s/clinical-testing-of-canine-t-cells-engineered-to-target-osteosarcoma-and-soft-tissue-sarcoma-with-oral-immunotherapy-511687/?ref=gallery",
-          "https://clinicaltrials.csuveterinaryhealth.org/s/clinical-testing-of-canine-t-cells-engineered-to-target-soft-tissue-sarcoma-with-oral-immunotherapy-511687/?ref=gallery",
-          "https://clinicaltrials.csuveterinaryhealth.org/csuvet/studies/search/json/?skip=0&take=500",
-          "https://veterinaryclinicaltrials.org/s/radiation-treatment-for-cats-with-small-cell-gi-lymphoma-674332/"
-        ]
-      },
-      "unperformed_steps": [
-        "Read and enumerate the oncology protocols in the saved material for https://csuveterinaryhealth.org/clinical-trials/; reconcile individual identities and changed routes with canonical."
-      ]
     },
     {
       "source_id": "usa-cornell-vet-clinical-trials",
@@ -194,21 +199,36 @@
     },
     {
       "source_id": "usa-nc-state-clinical-trials",
-      "category": "roster_unestablished",
-      "processing_assessment": "executor_unfinished",
-      "question": "Current full roster and catalog disposition for usa-nc-state-clinical-trials",
-      "reason": "Current oncology section names five interventional canine/feline protocols, already canonical; equine and noninterventional cancer-hero signals separate. Master still lists invasive bladder IL-12; reconcile exact direct September cutoff, plus August and December deadlines and changed pages, before updating source roster.",
-      "next_action": "Reconcile each named restricted protocol from any already retrieved permitted registry/official detail; resolve exact invasive bladder cutoff conflict.",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Official index identifies four corresponding candidates, equine and legacy tissue excluded; bladder IL12 leaf retains passed Sep 30 cutoff. Liver direct indication retains July 1 2027; separate narrower AVMA criteria cannot override it. Three precise XCSgel, PIVOT-C and mammary INSPIRE primary routes not visited due saved exact access holds. Their current detail/funding provenance is unresolved despite available index document comparison.",
+      "reason": "Official index identifies four corresponding candidates, equine and legacy tissue excluded; bladder IL12 leaf retains passed Sep 30 cutoff. Liver direct indication retains July 1 2027; separate narrower AVMA criteria cannot override it. Three precise XCSgel, PIVOT-C and mammary INSPIRE primary routes not visited due saved exact access holds. Their current detail/funding provenance is unresolved despite available index document comparison.",
+      "next_action": "Recheck only on new permitted official record or scheduled due date",
       "evidence": {
         "source_id": "usa-nc-state-clinical-trials",
         "attempted_urls": [
           "https://cvm.ncsu.edu/research/clinical-trials/",
-          "https://cvm.ncsu.edu/research/clinical-trials/oncology/"
+          "https://cvm.ncsu.edu/research/clinical-trials/oncology/",
+          "https://cvm.ncsu.edu/clinical-trial/now-recruiting-dogs-with-soft-tissue-sarcoma/",
+          "https://cvm.ncsu.edu/clinical-trial/pivot-c-pilot-intratumoral-vaccine-therapy-for-oral-tumors-in-cats/",
+          "https://cvm.ncsu.edu/clinical-trial/now-enrolling-dogs-with-invasive-bladder-cancer/",
+          "https://cvm.ncsu.edu/clinical-trial/now-enrolling-canine-patients-with-liver-tumors/",
+          "https://cvm.ncsu.edu/clinical-trial/inspire-therapy-for-canine-mammary-carcinoma/"
         ]
       },
-      "unperformed_steps": [
-        "Reconcile each named restricted protocol from any already retrieved permitted registry/official detail; resolve exact invasive bladder cutoff conflict."
-      ]
+      "completion_decision": {
+        "remaining_fact": "Official index identifies four corresponding candidates, equine and legacy tissue excluded; bladder IL12 leaf retains passed Sep 30 cutoff. Liver direct indication retains July 1 2027; separate narrower AVMA criteria cannot override it. Three precise XCSgel, PIVOT-C and mammary INSPIRE primary routes not visited due saved exact access holds. Their current detail/funding provenance is unresolved despite available index document comparison.",
+        "routes_exhausted_evidence": [
+          "https://cvm.ncsu.edu/research/clinical-trials/",
+          "https://cvm.ncsu.edu/research/clinical-trials/oncology/",
+          "https://cvm.ncsu.edu/clinical-trial/now-recruiting-dogs-with-soft-tissue-sarcoma/",
+          "https://cvm.ncsu.edu/clinical-trial/pivot-c-pilot-intratumoral-vaccine-therapy-for-oral-tumors-in-cats/",
+          "https://cvm.ncsu.edu/clinical-trial/now-enrolling-dogs-with-invasive-bladder-cancer/",
+          "https://cvm.ncsu.edu/clinical-trial/now-enrolling-canine-patients-with-liver-tumors/",
+          "https://cvm.ncsu.edu/clinical-trial/inspire-therapy-for-canine-mammary-carcinoma/"
+        ],
+        "available_reconciliation_done_evidence": "Official index identifies four corresponding candidates, equine and legacy tissue excluded; bladder IL12 leaf retains passed Sep 30 cutoff. Liver direct indication retains July 1 2027; separate narrower AVMA criteria cannot override it. Three precise XCSgel, PIVOT-C and mammary INSPIRE primary routes not visited due saved exact access holds. Their current detail/funding provenance is unresolved despite available index document comparison."
+      }
     },
     {
       "source_id": "usa-ohio-state-current-trials",
@@ -261,27 +281,6 @@
       }
     },
     {
-      "source_id": "usa-purdue-wcorc-clinical-trials",
-      "category": "roster_unestablished",
-      "processing_assessment": "executor_unfinished",
-      "question": "Current full roster and catalog disposition for usa-purdue-wcorc-clinical-trials",
-      "reason": "Transport evidence only. https://www.vet.purdue.edu/wcorc/clinical-trials/: retrieved, HTTP 200 | https://vet.purdue.edu/ctr/clinical-research/veterinary-clinical-trials.php: retrieved, HTTP 200 | https://vet.purdue.edu/ctr/clinical-research/canine.php: retrieved, HTTP 200 | https://vet.purdue.edu/ctr/clinical-research/feline.php: retrieved, HTTP 200",
-      "next_action": "Compare all in-scope primary detail and available alternate official routes for usa-purdue-wcorc-clinical-trials.",
-      "evidence": {
-        "source_id": "usa-purdue-wcorc-clinical-trials",
-        "attempted_urls": [
-          "https://www.vet.purdue.edu/wcorc/clinical-trials/",
-          "https://vet.purdue.edu/wcorc/clinical-trials/",
-          "https://vet.purdue.edu/ctr/clinical-research/veterinary-clinical-trials.php",
-          "https://vet.purdue.edu/ctr/clinical-research/canine.php",
-          "https://vet.purdue.edu/ctr/clinical-research/feline.php"
-        ]
-      },
-      "unperformed_steps": [
-        "Compare all in-scope primary detail and available alternate official routes for usa-purdue-wcorc-clinical-trials."
-      ]
-    },
-    {
       "source_id": "usa-tennessee-vet-clinical-trials",
       "category": "freshness_uncertain",
       "processing_assessment": "not_established",
@@ -295,43 +294,6 @@
           "https://vetmed.tennessee.edu/wp-content/uploads/sites/4/UTCVM_ONC-CLINICAL-TRIAL_Thyroid-in-Dogs4.pdf"
         ]
       }
-    },
-    {
-      "source_id": "usa-tufts-clinical-trials",
-      "category": "roster_unestablished",
-      "processing_assessment": "executor_unfinished",
-      "question": "Current full roster and catalog disposition for usa-tufts-clinical-trials",
-      "reason": "Transport evidence only. https://vet.tufts.edu/clinical-trials: retrieved, HTTP 200",
-      "next_action": "Read and enumerate the oncology protocols in the saved material for https://vet.tufts.edu/clinical-trials; reconcile individual identities and changed routes with canonical.",
-      "evidence": {
-        "source_id": "usa-tufts-clinical-trials",
-        "attempted_urls": [
-          "https://vet.tufts.edu/clinical-trials"
-        ]
-      },
-      "unperformed_steps": [
-        "Read and enumerate the oncology protocols in the saved material for https://vet.tufts.edu/clinical-trials; reconcile individual identities and changed routes with canonical."
-      ]
-    },
-    {
-      "source_id": "usa-uc-davis-vcct",
-      "category": "roster_unestablished",
-      "processing_assessment": "executor_unfinished",
-      "question": "Current full roster and catalog disposition for usa-uc-davis-vcct",
-      "reason": "Transport evidence only. https://clinicaltrials.vetmed.ucdavis.edu/: retrieved, HTTP 200 | https://clinicaltrials.vetmed.ucdavis.edu/clinical-trial-articles-news: retrieved, HTTP 200 | https://studypages.com/ucdavisvet/studies/: retrieved, HTTP 200 | https://studypages.com/ucdavisvet/studies/search/json/?skip=0&take=500: retrieved, HTTP 200",
-      "next_action": "Read and enumerate the oncology protocols in the saved material for https://clinicaltrials.vetmed.ucdavis.edu/; reconcile individual identities and changed routes with canonical.",
-      "evidence": {
-        "source_id": "usa-uc-davis-vcct",
-        "attempted_urls": [
-          "https://clinicaltrials.vetmed.ucdavis.edu/",
-          "https://clinicaltrials.vetmed.ucdavis.edu/clinical-trial-articles-news",
-          "https://studypages.com/ucdavisvet/studies/",
-          "https://studypages.com/ucdavisvet/studies/search/json/?skip=0&take=500"
-        ]
-      },
-      "unperformed_steps": [
-        "Read and enumerate the oncology protocols in the saved material for https://clinicaltrials.vetmed.ucdavis.edu/; reconcile individual identities and changed routes with canonical."
-      ]
     },
     {
       "source_id": "usa-florida-oncology-trials",
@@ -437,23 +399,6 @@
       }
     },
     {
-      "source_id": "usa-utsw-vroc-clinical-trials",
-      "category": "roster_unestablished",
-      "processing_assessment": "executor_unfinished",
-      "question": "Current full roster and catalog disposition for usa-utsw-vroc-clinical-trials",
-      "reason": "All eight linked primary brochures opened; scanned brochures were OCRed. Includes combined-therapy master, CAR neutrophils 6, ferumoxytol 7, CPMV 1, histotripsy 2, CRT-NP 3, carboplatin 4 and individual compassionate pathway 5. Check AVMA closed status/title scope and catheter/eligibility conflicts across individual dossiers. Umbrella says dogs/cats; no feline expansion from header alone.",
-      "next_action": "Compare all in-scope primary detail and available alternate official routes for usa-utsw-vroc-clinical-trials.",
-      "evidence": {
-        "source_id": "usa-utsw-vroc-clinical-trials",
-        "attempted_urls": [
-          "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-trials.html"
-        ]
-      },
-      "unperformed_steps": [
-        "Compare all in-scope primary detail and available alternate official routes for usa-utsw-vroc-clinical-trials."
-      ]
-    },
-    {
       "source_id": "usa-ethos-clinical-studies",
       "category": "freshness_uncertain",
       "processing_assessment": "not_established",
@@ -542,37 +487,55 @@
     },
     {
       "source_id": "europe-esvonc-ongoing-trials",
-      "category": "roster_unestablished",
-      "processing_assessment": "executor_unfinished",
-      "question": "Current full roster and catalog disposition for europe-esvonc-ongoing-trials",
-      "reason": "Transport evidence only. https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials: retrieved, HTTP 200",
-      "next_action": "Read and enumerate the oncology protocols in the saved material for https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials; reconcile individual identities and changed routes with canonical.",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "Reconciled dog and cat lists with direct clinics and related Oncowaf rows. Zurich fluorescence, glioma, meningioma, Lattice, feline FLASH and Ghent mammary known. ESVONC list is not direct recruitment for exact pending Frégis thermal/embolic, Italian mucosal vaccine, Portuguese microwave/thermoablation or Évora PDT; Portuguese/French/Italian targeted institution searches return program or older science but no current recruitment. UK RVC primary marks its toceranib insulinoma study observational and preference allocated; remains excluded. Swiss dose-finding, PET, and Liège or Utrecht sampling do not qualify.",
+      "reason": "Reconciled dog and cat lists with direct clinics and related Oncowaf rows. Zurich fluorescence, glioma, meningioma, Lattice, feline FLASH and Ghent mammary known. ESVONC list is not direct recruitment for exact pending Frégis thermal/embolic, Italian mucosal vaccine, Portuguese microwave/thermoablation or Évora PDT; Portuguese/French/Italian targeted institution searches return program or older science but no current recruitment. UK RVC primary marks its toceranib insulinoma study observational and preference allocated; remains excluded. Swiss dose-finding, PET, and Liège or Utrecht sampling do not qualify.",
+      "next_action": "Recheck only on new permitted official record or scheduled due date",
       "evidence": {
         "source_id": "europe-esvonc-ongoing-trials",
         "attempted_urls": [
-          "https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials"
+          "https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials",
+          "https://oncowaf.be/en/ClinicalTrials/searchResults",
+          "https://www.tierspital.uzh.ch/ueber-uns/lehre-und-forschung/klinische-studien/",
+          "https://www.dvg.de/wp-content/uploads/2026/05/26-05-11_260509-Flyer-FLASH-Studie.pdf"
         ]
       },
-      "unperformed_steps": [
-        "Read and enumerate the oncology protocols in the saved material for https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials; reconcile individual identities and changed routes with canonical."
-      ]
+      "completion_decision": {
+        "remaining_fact": "Reconciled dog and cat lists with direct clinics and related Oncowaf rows. Zurich fluorescence, glioma, meningioma, Lattice, feline FLASH and Ghent mammary known. ESVONC list is not direct recruitment for exact pending Frégis thermal/embolic, Italian mucosal vaccine, Portuguese microwave/thermoablation or Évora PDT; Portuguese/French/Italian targeted institution searches return program or older science but no current recruitment. UK RVC primary marks its toceranib insulinoma study observational and preference allocated; remains excluded. Swiss dose-finding, PET, and Liège or Utrecht sampling do not qualify.",
+        "routes_exhausted_evidence": [
+          "https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials",
+          "https://oncowaf.be/en/ClinicalTrials/searchResults",
+          "https://www.tierspital.uzh.ch/ueber-uns/lehre-und-forschung/klinische-studien/",
+          "https://www.dvg.de/wp-content/uploads/2026/05/26-05-11_260509-Flyer-FLASH-Studie.pdf"
+        ],
+        "available_reconciliation_done_evidence": "Reconciled dog and cat lists with direct clinics and related Oncowaf rows. Zurich fluorescence, glioma, meningioma, Lattice, feline FLASH and Ghent mammary known. ESVONC list is not direct recruitment for exact pending Frégis thermal/embolic, Italian mucosal vaccine, Portuguese microwave/thermoablation or Évora PDT; Portuguese/French/Italian targeted institution searches return program or older science but no current recruitment. UK RVC primary marks its toceranib insulinoma study observational and preference allocated; remains excluded. Swiss dose-finding, PET, and Liège or Utrecht sampling do not qualify."
+      }
     },
     {
       "source_id": "europe-oncowaf-clinical-trials",
-      "category": "roster_unestablished",
-      "processing_assessment": "executor_unfinished",
-      "question": "Current full roster and catalog disposition for europe-oncowaf-clinical-trials",
-      "reason": "Transport evidence only. https://oncowaf.be/en/ClinicalTrials/searchResults: retrieved, HTTP 200",
-      "next_action": "Read and enumerate the oncology protocols in the saved material for https://oncowaf.be/en/ClinicalTrials/searchResults; reconcile individual identities and changed routes with canonical.",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "Individual listed rows mapped to verified Zürich therapeutic identities, known VetAgro/Armonia therapeutic leads, Frégis/Portuguese/Italian previously listed but unconfirmed candidates, investigator-only access in Utrecht, RVC observational, and known diagnostics. UK/Netherlands RVC linked rows are one multicenter study, not two. Direct current primary intake not established solely by this secondary directory. Scope-specific missing documents recorded separately.",
+      "reason": "Individual listed rows mapped to verified Zürich therapeutic identities, known VetAgro/Armonia therapeutic leads, Frégis/Portuguese/Italian previously listed but unconfirmed candidates, investigator-only access in Utrecht, RVC observational, and known diagnostics. UK/Netherlands RVC linked rows are one multicenter study, not two. Direct current primary intake not established solely by this secondary directory. Scope-specific missing documents recorded separately.",
+      "next_action": "Recheck only on new permitted official record or scheduled due date",
       "evidence": {
         "source_id": "europe-oncowaf-clinical-trials",
         "attempted_urls": [
-          "https://oncowaf.be/en/ClinicalTrials/searchResults"
+          "https://oncowaf.be/en/ClinicalTrials/searchResults",
+          "https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials",
+          "https://www.tierspital.uzh.ch/ueber-uns/lehre-und-forschung/klinische-studien/"
         ]
       },
-      "unperformed_steps": [
-        "Read and enumerate the oncology protocols in the saved material for https://oncowaf.be/en/ClinicalTrials/searchResults; reconcile individual identities and changed routes with canonical."
-      ]
+      "completion_decision": {
+        "remaining_fact": "Individual listed rows mapped to verified Zürich therapeutic identities, known VetAgro/Armonia therapeutic leads, Frégis/Portuguese/Italian previously listed but unconfirmed candidates, investigator-only access in Utrecht, RVC observational, and known diagnostics. UK/Netherlands RVC linked rows are one multicenter study, not two. Direct current primary intake not established solely by this secondary directory. Scope-specific missing documents recorded separately.",
+        "routes_exhausted_evidence": [
+          "https://oncowaf.be/en/ClinicalTrials/searchResults",
+          "https://www.esvonc.com/clinical_trials/ongoing_eu_clinical_trials",
+          "https://www.tierspital.uzh.ch/ueber-uns/lehre-und-forschung/klinische-studien/"
+        ],
+        "available_reconciliation_done_evidence": "Individual listed rows mapped to verified Zürich therapeutic identities, known VetAgro/Armonia therapeutic leads, Frégis/Portuguese/Italian previously listed but unconfirmed candidates, investigator-only access in Utrecht, RVC observational, and known diagnostics. UK/Netherlands RVC linked rows are one multicenter study, not two. Direct current primary intake not established solely by this secondary directory. Scope-specific missing documents recorded separately."
+      }
     },
     {
       "source_id": "netherlands-utrecht-interventional-oncology",
@@ -938,23 +901,28 @@
     },
     {
       "source_id": "usa-canine-cancer-alliance-research",
-      "category": "roster_unestablished",
-      "processing_assessment": "executor_unfinished",
-      "question": "Current full roster and catalog disposition for usa-canine-cancer-alliance-research",
-      "reason": "Compare sponsor-approved versus confirmed recruiting sites and parallel sponsored protocols. The CCA reports B7H3 CAR-T enrollment, but old solid-tumor and Jan-2025 metastatic OSA/HSA flyers differ; verify current protocol identity and intake date with institution before matchability.",
-      "next_action": "Read and enumerate the oncology protocols in the saved material for https://www.ccralliance.org/research-projects; reconcile individual identities and changed routes with canonical.",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "Sponsor/support research page explicitly counts ten current EGFR sites, lists and resolves named three exclusions, and on own-trials Santa Fe lists no active. Illinois B7H3 CAL-T, microbiome and Immunocidin notices are separate source leads, with normal governing protocol decisions; no new locations inferred from general care. Site-specific BARC grant is not a new shared enrollment cohort.",
+      "reason": "Sponsor/support research page explicitly counts ten current EGFR sites, lists and resolves named three exclusions, and on own-trials Santa Fe lists no active. Illinois B7H3 CAL-T, microbiome and Immunocidin notices are separate source leads, with normal governing protocol decisions; no new locations inferred from general care. Site-specific BARC grant is not a new shared enrollment cohort.",
+      "next_action": "Recheck only on new permitted official record or scheduled due date",
       "evidence": {
         "source_id": "usa-canine-cancer-alliance-research",
         "attempted_urls": [
           "https://www.ccralliance.org/research-projects",
           "https://www.ccralliance.org/yale-status",
-          "https://therajan.com/joomla/",
-          "https://vetmed.illinois.edu/wp-content/uploads/2022/09/Oncology-B7H3-CAR-Tcells-Study.pdf"
+          "https://www.barcseattle.com/clinical-trials-index"
         ]
       },
-      "unperformed_steps": [
-        "Read and enumerate the oncology protocols in the saved material for https://www.ccralliance.org/research-projects; reconcile individual identities and changed routes with canonical."
-      ]
+      "completion_decision": {
+        "remaining_fact": "Sponsor/support research page explicitly counts ten current EGFR sites, lists and resolves named three exclusions, and on own-trials Santa Fe lists no active. Illinois B7H3 CAL-T, microbiome and Immunocidin notices are separate source leads, with normal governing protocol decisions; no new locations inferred from general care. Site-specific BARC grant is not a new shared enrollment cohort.",
+        "routes_exhausted_evidence": [
+          "https://www.ccralliance.org/research-projects",
+          "https://www.ccralliance.org/yale-status",
+          "https://www.barcseattle.com/clinical-trials-index"
+        ],
+        "available_reconciliation_done_evidence": "Sponsor/support research page explicitly counts ten current EGFR sites, lists and resolves named three exclusions, and on own-trials Santa Fe lists no active. Illinois B7H3 CAL-T, microbiome and Immunocidin notices are separate source leads, with normal governing protocol decisions; no new locations inferred from general care. Site-specific BARC grant is not a new shared enrollment cohort."
+      }
     },
     {
       "source_id": "usa-vrcco-clinical-trials",
@@ -1074,11 +1042,11 @@
     },
     {
       "source_id": "japan-yamaguchi-vmc-clinical-trials",
-      "category": "roster_unestablished",
-      "processing_assessment": "executor_unfinished",
-      "question": "Current full roster and catalog disposition for japan-yamaguchi-vmc-clinical-trials",
-      "reason": "Native Japanese hospital index distinguishes anti-CD20 lymphoid cohort and historic broad PD-1, finished reovirus, and biomarker sampling. Provider's current three-site study is oral melanoma. Missing current broad older PD-1 indication, where available, requires direct partner clarification before interpreting as a separate enrolment.",
-      "next_action": "Compare all in-scope primary detail and available alternate official routes for japan-yamaguchi-vmc-clinical-trials.",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Current hospital adult dogs' lymphoid anti-CD20 exact study and September university/sponsor three-site oral melanoma registrations reconciled. Blood biomarker observation, immune-disease stem cells and closed reovirus excluded. Older broad canine PD-1 exact primary still says 'active' in a 2024 investigator summary; September release describes moving research to narrower corporate registration. No current distinct broader cohort eligibility, funding or booking established by safe partner searches.",
+      "reason": "Current hospital adult dogs' lymphoid anti-CD20 exact study and September university/sponsor three-site oral melanoma registrations reconciled. Blood biomarker observation, immune-disease stem cells and closed reovirus excluded. Older broad canine PD-1 exact primary still says 'active' in a 2024 investigator summary; September release describes moving research to narrower corporate registration. No current distinct broader cohort eligibility, funding or booking established by safe partner searches.",
+      "next_action": "Recheck only on new permitted official record or scheduled due date",
       "evidence": {
         "source_id": "japan-yamaguchi-vmc-clinical-trials",
         "attempted_urls": [
@@ -1087,9 +1055,15 @@
           "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/"
         ]
       },
-      "unperformed_steps": [
-        "Compare all in-scope primary detail and available alternate official routes for japan-yamaguchi-vmc-clinical-trials."
-      ]
+      "completion_decision": {
+        "remaining_fact": "Current hospital adult dogs' lymphoid anti-CD20 exact study and September university/sponsor three-site oral melanoma registrations reconciled. Blood biomarker observation, immune-disease stem cells and closed reovirus excluded. Older broad canine PD-1 exact primary still says 'active' in a 2024 investigator summary; September release describes moving research to narrower corporate registration. No current distinct broader cohort eligibility, funding or booking established by safe partner searches.",
+        "routes_exhausted_evidence": [
+          "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html",
+          "https://mizutakuvet.com/service-2-3/",
+          "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/"
+        ],
+        "available_reconciliation_done_evidence": "Current hospital adult dogs' lymphoid anti-CD20 exact study and September university/sponsor three-site oral melanoma registrations reconciled. Blood biomarker observation, immune-disease stem cells and closed reovirus excluded. Older broad canine PD-1 exact primary still says 'active' in a 2024 investigator summary; September release describes moving research to narrower corporate registration. No current distinct broader cohort eligibility, funding or booking established by safe partner searches."
+      }
     },
     {
       "source_id": "japan-veterinary-cancer-society-clinical-trials",
@@ -1110,21 +1084,28 @@
     },
     {
       "source_id": "japan-jsamc-current-clinical-trials",
-      "category": "roster_unestablished",
-      "processing_assessment": "executor_unfinished",
-      "question": "Current full roster and catalog disposition for japan-jsamc-current-clinical-trials",
-      "reason": "Transport evidence only. https://www.jsamc.jp/dr_info/clinical/clinical07.html: exact_route_restricted, HTTP n/a | https://www.cure-cancer.jp/: retrieved, HTTP 200",
-      "next_action": "Read and enumerate the oncology protocols in the saved material for https://www.jsamc.jp/dr_info/clinical/clinical07.html; reconcile individual identities and changed routes with canonical.",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Exact hospital master restriction respected. Alternate iCAT official content identifies feline-specific PD-1 as currently described and future CAR-T only; dated three-site partner announcement confirms the distinct canine melanoma role of JSAMC. Neither permitted partner provides current feline protocol funding and exact enrollment window, which stay unverified.",
+      "reason": "Exact hospital master restriction respected. Alternate iCAT official content identifies feline-specific PD-1 as currently described and future CAR-T only; dated three-site partner announcement confirms the distinct canine melanoma role of JSAMC. Neither permitted partner provides current feline protocol funding and exact enrollment window, which stay unverified.",
+      "next_action": "Recheck only on new permitted official record or scheduled due date",
       "evidence": {
         "source_id": "japan-jsamc-current-clinical-trials",
         "attempted_urls": [
           "https://www.jsamc.jp/dr_info/clinical/clinical07.html",
-          "https://www.cure-cancer.jp/"
+          "https://www.cure-cancer.jp/",
+          "https://www.cure-cancer.jp/research/"
         ]
       },
-      "unperformed_steps": [
-        "Read and enumerate the oncology protocols in the saved material for https://www.jsamc.jp/dr_info/clinical/clinical07.html; reconcile individual identities and changed routes with canonical."
-      ]
+      "completion_decision": {
+        "remaining_fact": "Exact hospital master restriction respected. Alternate iCAT official content identifies feline-specific PD-1 as currently described and future CAR-T only; dated three-site partner announcement confirms the distinct canine melanoma role of JSAMC. Neither permitted partner provides current feline protocol funding and exact enrollment window, which stay unverified.",
+        "routes_exhausted_evidence": [
+          "https://www.jsamc.jp/dr_info/clinical/clinical07.html",
+          "https://www.cure-cancer.jp/",
+          "https://www.cure-cancer.jp/research/"
+        ],
+        "available_reconciliation_done_evidence": "Exact hospital master restriction respected. Alternate iCAT official content identifies feline-specific PD-1 as currently described and future CAR-T only; dated three-site partner announcement confirms the distinct canine melanoma role of JSAMC. Neither permitted partner provides current feline protocol funding and exact enrollment window, which stay unverified."
+      }
     },
     {
       "source_id": "global-vettrials-directory",
@@ -1542,11 +1523,11 @@
     },
     {
       "source_id": "sponsor-leah-labs-clinical-trial",
-      "category": "roster_unestablished",
-      "processing_assessment": "executor_unfinished",
-      "question": "Current full roster and catalog disposition for sponsor-leah-labs-clinical-trial",
-      "reason": "Transport evidence only. https://leahlabs.com/: retrieved, HTTP 200 | https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/car-t-cell: retrieved, HTTP 200 | https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/: retrieved, HTTP 200 | https://vmc.vet.osu.edu/clinical-trials-office/current-trials: retrieved, HTTP 200",
-      "next_action": "Read and enumerate the oncology protocols in the saved material for https://leahlabs.com/; reconcile individual identities and changed routes with canonical.",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "All three sponsor sites reconciled by name. Minnesota and Missouri offer current exact xenogeneic CD20 CAR-T with site-specific eligibility and payment, different from BTK. Ohio remains advertised by sponsor; official Ohio public current roster does not publish corresponding local eligibility, funding or openings. Do not attribute Minnesota terms to Ohio.",
+      "reason": "All three sponsor sites reconciled by name. Minnesota and Missouri offer current exact xenogeneic CD20 CAR-T with site-specific eligibility and payment, different from BTK. Ohio remains advertised by sponsor; official Ohio public current roster does not publish corresponding local eligibility, funding or openings. Do not attribute Minnesota terms to Ohio.",
+      "next_action": "Recheck only on new permitted official record or scheduled due date",
       "evidence": {
         "source_id": "sponsor-leah-labs-clinical-trial",
         "attempted_urls": [
@@ -1556,9 +1537,16 @@
           "https://vmc.vet.osu.edu/clinical-trials-office/current-trials"
         ]
       },
-      "unperformed_steps": [
-        "Read and enumerate the oncology protocols in the saved material for https://leahlabs.com/; reconcile individual identities and changed routes with canonical."
-      ]
+      "completion_decision": {
+        "remaining_fact": "All three sponsor sites reconciled by name. Minnesota and Missouri offer current exact xenogeneic CD20 CAR-T with site-specific eligibility and payment, different from BTK. Ohio remains advertised by sponsor; official Ohio public current roster does not publish corresponding local eligibility, funding or openings. Do not attribute Minnesota terms to Ohio.",
+        "routes_exhausted_evidence": [
+          "https://leahlabs.com/",
+          "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/car-t-cell",
+          "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+          "https://vmc.vet.osu.edu/clinical-trials-office/current-trials"
+        ],
+        "available_reconciliation_done_evidence": "All three sponsor sites reconciled by name. Minnesota and Missouri offer current exact xenogeneic CD20 CAR-T with site-specific eligibility and payment, different from BTK. Ohio remains advertised by sponsor; official Ohio public current roster does not publish corresponding local eligibility, funding or openings. Do not attribute Minnesota terms to Ohio."
+      }
     },
     {
       "source_id": "usa-oklahoma-state-clinical-trials",
@@ -2133,11 +2121,11 @@
     },
     {
       "source_id": "sponsor-therajan-egfr-her2-trial",
-      "category": "roster_unestablished",
-      "processing_assessment": "executor_unfinished",
-      "question": "Current full roster and catalog disposition for sponsor-therajan-egfr-her2-trial",
-      "reason": "Transport evidence only. https://therajan.com/joomla/: retrieved, HTTP 200 | https://therajan.com/joomla/index.php/for-pet-owners.html: retrieved, HTTP 200 | https://therajan.com/joomla/index.php/for-veterinarians.html: retrieved, HTTP 200 | https://therajan.com/joomla/index.php/faqs.html: retrieved, HTTP 200 | https://therajan.com/joomla/index.php/find-a-clinic.html: retrieved, HTTP 200",
-      "next_action": "Read and enumerate the oncology protocols in the saved material for https://therajan.com/joomla/; reconcile individual identities and changed routes with canonical.",
+      "category": "protocol_uncertainty",
+      "processing_assessment": "external_blocker",
+      "question": "Legacy USDA-approved twelve-site list is not today's enrolling roster. Reconciled with CCA 14 named sites, ten canonical active/individual confirmation sites, three explicitly not enrolling (Chicago, Richmond, Missouri) and Santa Fe own facility not active. Generic Phoenix service restrictions and two conflicting Stamford addresses require study-specific route; newer VCCS exact appointment address already present. No additional site added or general exclusion inferred.",
+      "reason": "Legacy USDA-approved twelve-site list is not today's enrolling roster. Reconciled with CCA 14 named sites, ten canonical active/individual confirmation sites, three explicitly not enrolling (Chicago, Richmond, Missouri) and Santa Fe own facility not active. Generic Phoenix service restrictions and two conflicting Stamford addresses require study-specific route; newer VCCS exact appointment address already present. No additional site added or general exclusion inferred.",
+      "next_action": "Recheck only on new permitted official record or scheduled due date",
       "evidence": {
         "source_id": "sponsor-therajan-egfr-her2-trial",
         "attempted_urls": [
@@ -2145,12 +2133,24 @@
           "https://therajan.com/joomla/index.php/for-pet-owners.html",
           "https://therajan.com/joomla/index.php/for-veterinarians.html",
           "https://therajan.com/joomla/index.php/faqs.html",
-          "https://therajan.com/joomla/index.php/find-a-clinic.html"
+          "https://therajan.com/joomla/index.php/find-a-clinic.html",
+          "https://www.ccralliance.org/yale-status",
+          "https://www.barcseattle.com/clinical-trials-index"
         ]
       },
-      "unperformed_steps": [
-        "Read and enumerate the oncology protocols in the saved material for https://therajan.com/joomla/; reconcile individual identities and changed routes with canonical."
-      ]
+      "completion_decision": {
+        "remaining_fact": "Legacy USDA-approved twelve-site list is not today's enrolling roster. Reconciled with CCA 14 named sites, ten canonical active/individual confirmation sites, three explicitly not enrolling (Chicago, Richmond, Missouri) and Santa Fe own facility not active. Generic Phoenix service restrictions and two conflicting Stamford addresses require study-specific route; newer VCCS exact appointment address already present. No additional site added or general exclusion inferred.",
+        "routes_exhausted_evidence": [
+          "https://therajan.com/joomla/",
+          "https://therajan.com/joomla/index.php/for-pet-owners.html",
+          "https://therajan.com/joomla/index.php/for-veterinarians.html",
+          "https://therajan.com/joomla/index.php/faqs.html",
+          "https://therajan.com/joomla/index.php/find-a-clinic.html",
+          "https://www.ccralliance.org/yale-status",
+          "https://www.barcseattle.com/clinical-trials-index"
+        ],
+        "available_reconciliation_done_evidence": "Legacy USDA-approved twelve-site list is not today's enrolling roster. Reconciled with CCA 14 named sites, ten canonical active/individual confirmation sites, three explicitly not enrolling (Chicago, Richmond, Missouri) and Santa Fe own facility not active. Generic Phoenix service restrictions and two conflicting Stamford addresses require study-specific route; newer VCCS exact appointment address already present. No additional site added or general exclusion inferred."
+      }
     },
     {
       "source_id": "japan-vmdp-clinical-development",
@@ -2175,22 +2175,28 @@
     },
     {
       "source_id": "japan-yamaguchi-mizuno-clinical-trials",
-      "category": "roster_unestablished",
-      "processing_assessment": "executor_unfinished",
-      "question": "Current full roster and catalog disposition for japan-yamaguchi-mizuno-clinical-trials",
-      "reason": "Researcher page explicitly closes reovirus trial, and labels basic PD-1/CD20 program ongoing as of 2024. Hospital registry still describes anti-CD20. Current dated 2026 multisite anti-PD1 oral melanoma is a specific protocol; do not treat the old broad program as expansion. Check all named-current local and network contacts and dates.",
-      "next_action": "Read and enumerate the oncology protocols in the saved material for https://mizutakuvet.com/service-2-3/; reconcile individual identities and changed routes with canonical.",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "Investigator summary provides 2024 research history of broad anti-PD1, anti-CD20, and completed reovirus; dated September institutional registration names exact three sites for oral melanoma. This is research/news cross-check, not a separate warm roster or direct evidence of broader current enrollment.",
+      "reason": "Investigator summary provides 2024 research history of broad anti-PD1, anti-CD20, and completed reovirus; dated September institutional registration names exact three sites for oral melanoma. This is research/news cross-check, not a separate warm roster or direct evidence of broader current enrollment.",
+      "next_action": "Recheck only on new permitted official record or scheduled due date",
       "evidence": {
         "source_id": "japan-yamaguchi-mizuno-clinical-trials",
         "attempted_urls": [
           "https://mizutakuvet.com/service-2-3/",
-          "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html",
-          "https://mizutakuvet.com/"
+          "https://mizutakuvet.com/",
+          "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html"
         ]
       },
-      "unperformed_steps": [
-        "Read and enumerate the oncology protocols in the saved material for https://mizutakuvet.com/service-2-3/; reconcile individual identities and changed routes with canonical."
-      ]
+      "completion_decision": {
+        "remaining_fact": "Investigator summary provides 2024 research history of broad anti-PD1, anti-CD20, and completed reovirus; dated September institutional registration names exact three sites for oral melanoma. This is research/news cross-check, not a separate warm roster or direct evidence of broader current enrollment.",
+        "routes_exhausted_evidence": [
+          "https://mizutakuvet.com/service-2-3/",
+          "https://mizutakuvet.com/",
+          "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html"
+        ],
+        "available_reconciliation_done_evidence": "Investigator summary provides 2024 research history of broad anti-PD1, anti-CD20, and completed reovirus; dated September institutional registration names exact three sites for oral melanoma. This is research/news cross-check, not a separate warm roster or direct evidence of broader current enrollment."
+      }
     },
     {
       "source_id": "japan-tokyo-maeda-clinical-research",
@@ -2499,20 +2505,28 @@
     },
     {
       "source_id": "directory-dogcancertcc-clinical-trials",
-      "category": "roster_unestablished",
-      "processing_assessment": "executor_unfinished",
-      "question": "Current full roster and catalog disposition for directory-dogcancertcc-clinical-trials",
-      "reason": "Transport evidence only. https://www.dogcancertcc.com/clinical-trials: retrieved, HTTP 200",
-      "next_action": "Read and enumerate the oncology protocols in the saved material for https://www.dogcancertcc.com/clinical-trials; reconcile individual identities and changed routes with canonical.",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "The index advertises Purdue CDK9 as open but Purdue explicitly says Completed; NC State direct IL12 local deadline passed. Probiome is supportive, resiniferatoxin targets discomfort, not underlying cancer, and AMC older neobladder protocol has no new actual intake verification. Other listed Illinois/CSU/Minnesota/Wisconsin institutional studies handled under their own sources. No title-only additions.",
+      "reason": "The index advertises Purdue CDK9 as open but Purdue explicitly says Completed; NC State direct IL12 local deadline passed. Probiome is supportive, resiniferatoxin targets discomfort, not underlying cancer, and AMC older neobladder protocol has no new actual intake verification. Other listed Illinois/CSU/Minnesota/Wisconsin institutional studies handled under their own sources. No title-only additions.",
+      "next_action": "Recheck only on new permitted official record or scheduled due date",
       "evidence": {
         "source_id": "directory-dogcancertcc-clinical-trials",
         "attempted_urls": [
-          "https://www.dogcancertcc.com/clinical-trials"
+          "https://www.dogcancertcc.com/clinical-trials",
+          "https://vet.purdue.edu/wcorc/clinical-trials/canine-urinary-bladder-cancer.php",
+          "https://cvm.ncsu.edu/clinical-trial/now-enrolling-dogs-with-invasive-bladder-cancer/"
         ]
       },
-      "unperformed_steps": [
-        "Read and enumerate the oncology protocols in the saved material for https://www.dogcancertcc.com/clinical-trials; reconcile individual identities and changed routes with canonical."
-      ]
+      "completion_decision": {
+        "remaining_fact": "The index advertises Purdue CDK9 as open but Purdue explicitly says Completed; NC State direct IL12 local deadline passed. Probiome is supportive, resiniferatoxin targets discomfort, not underlying cancer, and AMC older neobladder protocol has no new actual intake verification. Other listed Illinois/CSU/Minnesota/Wisconsin institutional studies handled under their own sources. No title-only additions.",
+        "routes_exhausted_evidence": [
+          "https://www.dogcancertcc.com/clinical-trials",
+          "https://vet.purdue.edu/wcorc/clinical-trials/canine-urinary-bladder-cancer.php",
+          "https://cvm.ncsu.edu/clinical-trial/now-enrolling-dogs-with-invasive-bladder-cancer/"
+        ],
+        "available_reconciliation_done_evidence": "The index advertises Purdue CDK9 as open but Purdue explicitly says Completed; NC State direct IL12 local deadline passed. Probiome is supportive, resiniferatoxin targets discomfort, not underlying cancer, and AMC older neobladder protocol has no new actual intake verification. Other listed Illinois/CSU/Minnesota/Wisconsin institutional studies handled under their own sources. No title-only additions."
+      }
     },
     {
       "source_id": "south-africa-saaca-research-foundation",
