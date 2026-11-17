@@ -1,0 +1,106 @@
+{
+  "records": 322,
+  "partial_records": 4,
+  "known_unresolved": 4,
+  "new_partial_records": [],
+  "resolved_but_still_queued": [
+    "eu-ch-sinonasal-heterogeneous-rt",
+    "fr-fregis-chemodectoma-thermoablation",
+    "fr-fregis-hepatic-embolization",
+    "fr-fregis-hepatic-tumor-thermoablation",
+    "nl-utrecht-osteosarcoma-oncolytic-virus-access",
+    "uk-rvc-insulinoma-toceranib"
+  ]
+}
+TRIAL_CATALOG_VALIDATION_OK records=322 unique_ids=322 active=153 required_active_fields=11
+SOURCE_INVENTORY_VALIDATION_OK sources=164 digest=8f0af6fddee6
+{
+  "mode": "audit",
+  "effective_matchable_treatments": 149,
+  "probable_duplicates": 0,
+  "pairs": []
+}
+MATCHER_TAXONOMY_SYNC_OK
+MATCHER_DATA_OK total=153 treatment=149 access=4
+REPOSITORY_HYGIENE_OK
+ADDRESS_PREFLIGHT {"centers": 84, "coverage_placeholders": 10, "missing_centers": 0, "missing_sites": 0, "physical_sites": 91}
+Generated 45 pages from 149 treatment opportunities
+CANCER_PAGES_ENHANCED 44
+CENTER_PAGES_SKIPPED_UNPROFILED 24 | Animal Medical Center, Gifu University; CareVets Glen Eden; CareVets Kilbirnie; CareVets Rototuna; Hokkaido University Veterinary Teaching Hospital; Hospital Veterinario Puchol / ReachGlio; Japan Small Animal Cancer Center; Kamogawa Animal Medical Center; Kode Veterinary Sciences — New Zealand multicentre pilot; Midwestern University Companion Animal Clinic; Nihon University Animal Medical Center; Nippon Veterinary and Life Science University Veterinary Medical Center; Nippon Zenyaku Kogyo multicenter veterinary trial; Onewa Road Veterinary Hospital; Rappaw Central Veterinary Hospital; Remuera Veterinary Clinic & Hospital; Tottori University Veterinary Medical Center; Treeline Veterinary Cancer Care; University of Tokyo Veterinary Medical Center; VCA Dallas Animal Specialty Hospital; VSEC Animal Medical Center (Specialty & Emergency Center); Vet Services Dannevirke; Vet Services Napier; Yamaguchi University Veterinary Medical Center
+CENTER_PAGES_OK 104
+CENTER_OWNER_PAGES_OK 80
+CENTER_PAGES_ENHANCED 80
+CANCER_PAGE_CONSISTENCY_OK 44
+TRIAL_FIRST_PAGES_OK 44
+CANCER_COVERAGE_OK 22 21 1
+HELP_CENTER_OK https://vettrialfinder.com/help/
+CENTER_PROFILES_OK pages=80 verified_profiles=80 redirects_skipped=0
+SITE_SHELL_OK 147
+ABOUT_PAGE_OK
+RETAINED_CENTER_PROFILES_OK restored=5
+CENTER_URL_REDIRECTS_OK redirects=18
+CANCER_DEPTH_VALIDATION_OK 22 diagnoses x 2 species
+CANCER_PAGE_SEMANTIC_BUILD_OK 44 generated pages
+MATCHER_TAXONOMY_SYNC_OK
+MATCHER_DATA_OK total=153 treatment=149 access=4
+ONCOLOGY_CENTER_CATALOG_OK profiles=458 acvim_locations=215 matched=67 supplemental_added=1680 centers=1914
+ONCOLOGY_CENTER_FINDER_OK centers=1914
+ONCOLOGY_CENTERS_OK centers=1914 states=52
+ARTICLE_CATALOG_OK articles=13 categories=4
+RI_STATE_GUIDE_OK locations=14 chemotherapy=2 ECT=1
+ND_STATE_GUIDE_OK physical=20 network=1 restricted=1
+WY_STATE_GUIDE_OK physical=26 mobile=2 chemotherapy=5
+MA_STATE_GUIDE_OK physical=98 mobile=1 network=2 chemotherapy=18
+SD_STATE_GUIDE_OK physical=23 chemotherapy=2
+CT_STATE_GUIDE_OK physical=73 mobile=1 chemotherapy=7
+ME_STATE_GUIDE_OK physical=45 mobile=1 chemotherapy=3
+GERMANY_CARE_GUIDES_OK languages=2 directory_rows=354
+SEO_INDEX_POLICY_OK indexable=175 noindex=43
+HELP_CONTENT_OK details= 25
+CENTER_DIRECTORY_PICKER_OK sections=4
+CENTER_PROFILES_OK pages=103 verified_profiles=85 redirects_skipped=18
+SENTENCE_CASE_OK pages=220
+SITE_SEARCH_OK pages=198
+CENTER_URL_REGRESSION_OK historical_routes=14 redirects=18
+RESTORED_CENTER_PROFILES_REGRESSION_OK profiles=5
+PRODUCTION_SYNC_OK total=153 treatment=149 access=4 matcher_ids=153 internal_links=7133
+MATCHER_LOGIC_OK trials=153 mct=4 yasha=0 mammary=6 osteosarcoma=13 bladder=6 brain=8
+node:assert:152
+  throw new AssertionError(obj);
+  ^
+
+AssertionError [ERR_ASSERTION]: Independent review is stale: anivive-sine-osa-carboplatin
++ actual - expected
+
++ '4383a47d4e365f64b1e57a0e4061beed68a6b05816bc5ac6b018c7e7000ab082'
+- '1ce15eed141a2cc6d776d00e7d8747ff09d4f41b4d103d2bf2a2282ed29ad23f'
+
+    at Object.<anonymous> (/workspace/scratch/c446bd545bf3/vtf-resume-1117/scripts/test_matcher_protocol_sources.js:31:9)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object..js (node:internal/modules/cjs/loader:2060:10)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.require (node:internal/modules/cjs/loader:1674:12)
+    at require (node:internal/modules/helpers:157:16)
+    at Object.<anonymous> (/workspace/scratch/c446bd545bf3/vtf-resume-1117/scripts/test_matcher_selection.js:102:1)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: '4383a47d4e365f64b1e57a0e4061beed68a6b05816bc5ac6b018c7e7000ab082',
+  expected: '1ce15eed141a2cc6d776d00e7d8747ff09d4f41b4d103d2bf2a2282ed29ad23f',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.22.1
+NO_TRACKING_OK
+PUBLIC_PAGE_SHELL_OK 221
+Traceback (most recent call last):
+  File "/workspace/scratch/c446bd545bf3/vtf-resume-1117/scripts/build_static_site.py", line 227, in <module>
+    main()
+  File "/workspace/scratch/c446bd545bf3/vtf-resume-1117/scripts/build_static_site.py", line 210, in main
+    subprocess.run(["node", "scripts/test_matcher_selection.js"], cwd=ROOT, check=True)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['node', 'scripts/test_matcher_selection.js']' returned non-zero exit status 1.

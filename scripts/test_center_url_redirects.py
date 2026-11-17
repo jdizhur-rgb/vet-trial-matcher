@@ -31,7 +31,7 @@ RESTORED = {
     "schwarzman-animal-medical-center": 0,
     "louisiana-state-university-school-of-veterinary-medicine": 0,
     "medvet-clinical-studies-center": 1,
-    "anivive-lifesciences-multicenter": 1,
+    "anivive-lifesciences-multicenter": 0,
     "european-multicenter-study-floryne-buishand": 0,
 }
 
@@ -83,9 +83,6 @@ def main():
         assert f'MedVet {hospital}' in card, hospital
     for other_site in ('Chicago', 'Bridge Animal Referral Center', 'Hope Veterinary Oncology', 'VCCS', '$695'):
         assert other_site not in card, other_site
-    anivive = (SITE / "centers/anivive-lifesciences-multicenter/index.html").read_text(encoding="utf-8")
-    assert 'Cornell University Hospital for Animals' in anivive
-    assert 'current patient admission remains subject to Cornell prescreen' in anivive
     print(f"CENTER_URL_REGRESSION_OK historical_routes={len(EXPECTED)} redirects={redirects}")
     print(f"RESTORED_CENTER_PROFILES_REGRESSION_OK profiles={len(RESTORED)}")
 

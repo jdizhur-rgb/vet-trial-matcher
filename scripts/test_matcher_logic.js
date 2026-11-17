@@ -78,9 +78,8 @@ for (const species of ['Dog', 'Cat']) {
   if (found !== (species === 'Dog')) throw new Error('UF Boxer glioma vaccine has incorrect species/cancer matching');
 }
 const sineId = 'anivive-sine-osa-carboplatin';
-for (const [surgery, chemo, expected] of [['No','Never',false], ['Yes','Never',true], ['Yes','Previously received',false]]) {
-  const found = matches(patient({cancer:'Osteosarcoma', surgery, chemo, tumor_status:'Completely removed — clean margins'})).some(row => row.trial.id === sineId);
-  if (found !== expected) throw new Error('Cornell SINE must require amputation and exclude previous chemotherapy');
+if (rows.some(row => row.id === sineId)) {
+  throw new Error('Completed Cornell SINE (AVMA VCT24005828) must stay outside public treatment matching');
 }
 
 const goldId = 'barc-gold-nanoparticle-photothermal-2026';
