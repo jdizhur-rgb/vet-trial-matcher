@@ -1,0 +1,57 @@
+{
+  "trial_id": "eu-ch-large-tumor-lattice-sbrt",
+  "change": "Both randomized arms receive required radiotherapy on five consecutive days; explicit refusal must exclude. Primary HTML is open; separate costs PDF remains exact-restricted. Prior clinical and funding verification dates preserved.",
+  "evidence_keys": [
+    "195eea1f6ec9771d3aa8",
+    "4c7679ff9ee73849f0d3"
+  ],
+  "before": {
+    "requires": {
+      "confirmed": true,
+      "active_treatment_target": true,
+      "large_inoperable_or_rt_preferred": true
+    },
+    "verified": "2026-11-06",
+    "funding_verified": "2026-11-06"
+  },
+  "after": {
+    "requires": {
+      "confirmed": true,
+      "active_treatment_target": true,
+      "large_inoperable_or_rt_preferred": true,
+      "planned_radiation": true
+    },
+    "verified": "2026-11-06",
+    "funding_verified": "2026-11-06"
+  },
+  "prior_matcher_result": {
+    "id": "eu-ch-large-tumor-lattice-sbrt",
+    "positive": true,
+    "negative": false,
+    "unknown": true,
+    "pass": false,
+    "positive_class": "Possible match",
+    "negative_class": "Possible match",
+    "unknown_class": "Possible match",
+    "unknown_notes": [
+      "pathology/cytology confirmation of the diagnosis",
+      "whether an active treatment target is present",
+      "whether the tumor is large/inoperable or radiotherapy is preferred to surgery"
+    ]
+  },
+  "current_matcher_result": {
+    "id": "eu-ch-large-tumor-lattice-sbrt",
+    "positive": true,
+    "negative": true,
+    "unknown": true,
+    "pass": true,
+    "positive_class": "Possible match",
+    "unknown_class": "Possible match",
+    "unknown_notes": [
+      "pathology/cytology confirmation of the diagnosis",
+      "whether an active treatment target is present",
+      "whether the tumor is large/inoperable or radiotherapy is preferred to surgery",
+      "required study radiation has not yet been confirmed"
+    ]
+  }
+}

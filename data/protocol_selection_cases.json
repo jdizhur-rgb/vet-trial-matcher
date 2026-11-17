@@ -282,8 +282,8 @@
     {
       "trial_id": "eu-it-unimi-oncofap-mmae",
       "source_url": "https://www.ospedaleveterinario.unimi.it/collaborare-con-noi-studi-di-ricerca/",
-      "reviewed_at": "2026-11-09T09:46:31.886282-05:00",
-      "criteria": "Canine FAP-positive spontaneous tumor unsuitable for surgery/standard treatment or symptomatic distant metastases, clinical/organ and lab screening. Source heart-threshold wording internally ambiguous, so team screens.",
+      "reviewed_at": "2026-11-17T09:46:23.727Z",
+      "criteria": "Exact Milan/Lodi Phase I–II protocol OPBA822022, spontaneous FAP-positive canine lesions where useful standard therapy is unavailable. No numerical age bound is published. Four weekly infusions and protocol-funded biopsy/FAP testing, two CTs and required bloodwork. Other tests owner paid. Names clinic/investigator; live signup slots must be confirmed by the team.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -369,13 +369,52 @@
             "diagnosis_status": "I don't know"
           },
           "expected": "screen"
+        },
+        {
+          "name": "17 Nov current primary: expected candidate",
+          "patient": {
+            "country": "Italy",
+            "species": "Dog",
+            "cancer": "Other solid tumor",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable",
+            "standard_therapy_unavailable": "Yes"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "17 Nov current primary: explicit exclusion",
+          "patient": {
+            "country": "Italy",
+            "species": "Dog",
+            "cancer": "Other solid tumor",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable",
+            "standard_therapy_unavailable": "No"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "17 Nov current primary: unknown needs pre-screen",
+          "patient": {
+            "country": "Italy",
+            "species": "Dog",
+            "cancer": "Other solid tumor",
+            "diagnosis_status": "I don't know",
+            "standard_therapy_unavailable": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "b511cc070d06e5401e1176e54a02e0d19be0246bf7d1a0cdff39121be0584482",
       "full_protocol_reverified": true,
-      "primary_evidence_review_run": "continue-20261109T075757-0500",
-      "source_visit_refreshed_this_run": false,
-      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
+      "primary_evidence_review_run": "daily-20261117T030023-0500",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_source_run": "daily-20261117T030023-0500",
+      "previous_reviewed_at": "2026-11-09T09:46:31.886282-05:00",
+      "source_evidence_file": "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
+      "primary_evidence_key": "840f8169e8fc3504412b",
+      "primary_evidence_ref": "research/audit-runs/daily-20261117T030023-0500/reviewed-protocols.tsv"
     },
     {
       "trial_id": "osu-osa-ai-sbrt",
@@ -3439,9 +3478,9 @@
     },
     {
       "trial_id": "ch-zurich-canine-meningioma-genomic-rt",
-      "source_url": "https://www.tierspital.uzh.ch/forschungsprojekte/strahlensensivitaet-hirntumor-meningiom/",
-      "reviewed_at": "2026-11-09T09:41:53.719038-05:00",
-      "criteria": "Canine meningioma suspected on MRI, eligible for anesthesia and protocol assessment including biopsy.",
+      "source_url": "https://www.tierspital.uzh.ch/wp-content/uploads/2025/05/Flyer-Meningiom-Studie.pdf",
+      "reviewed_at": "2026-11-17T09:46:23.727Z",
+      "criteria": "Current Zurich body and individual German PDF agree suspected meningioma on MRI/CT is sufficient for screening, biopsy and molecular testing required, standard RT for 10 sessions. Owner pays radiation-planning CT and RT; MRI and biopsy are covered; current HTML describes discounted follow-up. Zurich oncology intake.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -3531,19 +3570,59 @@
             "cancer": "Brain tumor / glioma"
           },
           "expected": "screen"
+        },
+        {
+          "name": "17 Nov current primary: expected candidate",
+          "patient": {
+            "country": "Switzerland",
+            "species": "Dog",
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "tumor_status": "Tumor still present / measurable",
+            "brain_present": "Yes"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "17 Nov current primary: explicit exclusion",
+          "patient": {
+            "country": "Switzerland",
+            "species": "Dog",
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Suspected / not confirmed",
+            "tumor_status": "Tumor still present / measurable",
+            "brain_present": "Yes",
+            "radiation_affordability": "Would not consider radiation"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "17 Nov current primary: unknown needs pre-screen",
+          "patient": {
+            "country": "Switzerland",
+            "species": "Dog",
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "I don't know",
+            "tumor_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "62fd8337d4f48b5605827525b0d8b54722aa1d19d4623455d071e14ff0cdc5d0",
       "full_protocol_reverified": true,
-      "primary_evidence_review_run": "continue-20261109T075757-0500",
-      "source_visit_refreshed_this_run": false,
-      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
+      "primary_evidence_review_run": "daily-20261117T030023-0500",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_source_run": "daily-20261117T030023-0500",
+      "previous_reviewed_at": "2026-11-09T09:41:53.719038-05:00",
+      "source_evidence_file": "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
+      "primary_evidence_key": "236082d2b844cebe2989",
+      "primary_evidence_ref": "research/audit-runs/daily-20261117T030023-0500/reviewed-protocols.tsv"
     },
     {
       "trial_id": "ch-zurich-sts-fluorescence-guided-surgery",
       "source_url": "https://www.tierspital.uzh.ch/forschungsprojekte/studie-fluoreszenzbildgebung-weichteilsarkome/",
-      "reviewed_at": "2026-11-09T09:41:53.719038-05:00",
-      "criteria": "Dog or cat with confirmed STS requiring surgery or re-excision after incomplete margins; no severe heart/renal disease precluding anesthesia; mild controlled disease allowed.",
+      "reviewed_at": "2026-11-17T09:46:23.727Z",
+      "criteria": "Current Zurich dog/cat confirmed STS initial excision or re-excision after incomplete surgery, fitness for anesthesia required. Compares ICG and Angiostamp; fluorescent residual guides surgical excision. Covers most surgery costs (SNF), no exact balance. Ethics ZH026/2023 also on canine plexus-specific arm, eligibility differs; Zurich same site.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -3626,13 +3705,54 @@
             "cancer": "Soft tissue sarcoma"
           },
           "expected": "screen"
+        },
+        {
+          "name": "17 Nov current primary: expected candidate",
+          "patient": {
+            "country": "Switzerland",
+            "species": "Cat",
+            "cancer": "Soft tissue sarcoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "17 Nov current primary: explicit exclusion",
+          "patient": {
+            "country": "Switzerland",
+            "species": "Cat",
+            "cancer": "Soft tissue sarcoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable",
+            "prefs": [
+              "Radiation",
+              "Chemotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "17 Nov current primary: unknown needs pre-screen",
+          "patient": {
+            "country": "Switzerland",
+            "species": "Cat",
+            "cancer": "Soft tissue sarcoma",
+            "diagnosis_status": "I don't know",
+            "tumor_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "34b901693dad8e5c2b21b31a40da58203097fda6c3d2b7833aedcef9f1bc94b6",
       "full_protocol_reverified": true,
-      "primary_evidence_review_run": "continue-20261109T075757-0500",
-      "source_visit_refreshed_this_run": false,
-      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
+      "primary_evidence_review_run": "daily-20261117T030023-0500",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_source_run": "daily-20261117T030023-0500",
+      "previous_reviewed_at": "2026-11-09T09:41:53.719038-05:00",
+      "source_evidence_file": "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
+      "primary_evidence_key": "50d48372daec6e06d1cf",
+      "primary_evidence_ref": "research/audit-runs/daily-20261117T030023-0500/reviewed-protocols.tsv"
     },
     {
       "trial_id": "penn-flash-rt-extremity-sts",
@@ -7709,8 +7829,8 @@
     {
       "trial_id": "dk-copenhagen-flash-superficial-tumors",
       "source_url": "https://dyrehospitalet.ku.dk/forskning/forskningsprojekter/",
-      "reviewed_at": "2026-11-09T08:05:42.439080-05:00",
-      "criteria": "Tumor of skin, subcutis or oral cavity, untreated or incompletely removed, only if expected benefit; repeated anesthesia and no serious concurrent illness; rabies vaccination and EU pet passport for Sweden.",
+      "reviewed_at": "2026-11-17T09:46:23.727Z",
+      "criteria": "Current University of Copenhagen treatment body and separate patient intake row 23d189a6ee5e9c4977fb: dogs with superficial or oral malignant tumors and expected participation benefit. One to four radiotherapy sessions, FLASH or conventional comparison, treatment/followup grant-funded, owners handle EU pet passport and rabies for Swedish delivery. Frederiksberg enrolment, Lund cooperation, no independent Oxford intakes. Project period 2020–2027 only, no month/day.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -7771,13 +7891,53 @@
             "diagnosis_status": "I don't know"
           },
           "expected": "review"
+        },
+        {
+          "name": "17 Nov current primary: expected candidate",
+          "patient": {
+            "country": "Denmark",
+            "species": "Dog",
+            "cancer": "Soft tissue sarcoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "17 Nov current primary: explicit exclusion",
+          "patient": {
+            "country": "Denmark",
+            "species": "Dog",
+            "cancer": "Soft tissue sarcoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable",
+            "radiation_affordability": "Would not consider radiation"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "17 Nov current primary: unknown needs pre-screen",
+          "patient": {
+            "country": "Denmark",
+            "species": "Dog",
+            "cancer": "Soft tissue sarcoma",
+            "diagnosis_status": "I don't know",
+            "tumor_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "d757691a5ef77835f419de80b2f9dbbe0610fae6432caa3db7666bffecda4458",
       "full_protocol_reverified": true,
-      "primary_evidence_review_run": "daily-20261109T071607-0500-run-now",
+      "primary_evidence_review_run": "daily-20261117T030023-0500",
       "selection_reconciled_at": "2026-11-09T08:05:42.439080-05:00",
-      "selection_reconciled_run": "continue-20261109T075757-0500"
+      "selection_reconciled_run": "continue-20261109T075757-0500",
+      "previous_reviewed_at": "2026-11-09T08:05:42.439080-05:00",
+      "source_evidence_file": "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
+      "primary_evidence_key": "3931f3512e062eed0468",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_source_run": "daily-20261117T030023-0500",
+      "primary_evidence_ref": "research/audit-runs/daily-20261117T030023-0500/reviewed-protocols.tsv"
     },
     {
       "trial_id": "vt-canine-glioma-ced",
@@ -8176,8 +8336,8 @@
     {
       "trial_id": "eu-ch-large-tumor-lattice-sbrt",
       "source_url": "https://www.tierspital.uzh.ch/forschungsprojekte/lattice-oder-sbrt-strahlentherapie-bei-grossen-tumoren/",
-      "reviewed_at": "2026-11-06T03:22:29.791175-05:00",
-      "criteria": "Zurich Lattice/SBRT primary admits dogs with large,inoperable tumors or tumors for which radiation is preferred to surgery;this is broad prescreening,not HS-specific treatment.",
+      "reviewed_at": "2026-11-17T09:49:20.847Z",
+      "criteria": "Current 26 October Zurich patient protocol gives both randomly allocated RT regimens for five consecutive days. Study requires accepting RT, large inoperable disease or RT preferred, and sufficient screening. Source-specific funding PDF could not be revisited; full clinical verification not claimed.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -8206,9 +8366,51 @@
             "cancer": "Soft tissue sarcoma"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "17 Nov mandatory RT, compatible candidate",
+          "patient": {
+            "country": "Switzerland",
+            "species": "Dog",
+            "cancer": "Other solid tumor",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable",
+            "large_inoperable_or_rt_preferred": "Yes"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "17 Nov selected RT but expressly declines mandatory RT",
+          "patient": {
+            "country": "Switzerland",
+            "species": "Dog",
+            "cancer": "Other solid tumor",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable",
+            "large_inoperable_or_rt_preferred": "Yes",
+            "radiation_affordability": "Would not consider radiation"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "17 Nov unknown refusal and eligibility require prescreen",
+          "patient": {
+            "country": "Switzerland",
+            "species": "Dog",
+            "cancer": "Other solid tumor",
+            "diagnosis_status": "I don't know",
+            "large_inoperable_or_rt_preferred": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
-      "selection_sha256": "f0d43a75774bc81c7141a8360cc570d986d8749bb65961a6707f8f23e807766c"
+      "selection_sha256": "1b6b6db00a83d3303f3b64406fab9df23189dd2dfa4cbe8387a4123737a0b21b",
+      "previous_reviewed_at": "2026-11-06T03:22:29.791175-05:00",
+      "full_protocol_reverified": false,
+      "primary_evidence_key": "195eea1f6ec9771d3aa8",
+      "primary_evidence_review_run": "daily-20261117T030023-0500",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_ref": "research/audit-runs/daily-20261117T030023-0500/zurich-lattice-correction.json"
     },
     {
       "trial_id": "uf-hsa-vaccine",
@@ -9094,8 +9296,8 @@
     {
       "trial_id": "eu-ch-pnst-plexus-fluorescence-surgery",
       "source_url": "https://www.tierspital.uzh.ch/forschungsprojekte/studie-plexustumore-hunde/",
-      "reviewed_at": "2026-11-09T09:41:53.719038-05:00",
-      "criteria": "Dogs with planned surgery and MRI/CT-suspected brachial/lumbar plexus tumor. Cytology helpful but not mandatory.",
+      "reviewed_at": "2026-11-17T09:46:23.727Z",
+      "criteria": "Current Zurich published 26 Oct, exact 40-dog brachial/lumbar plexus surgical cohort under ethics ZH026/2023. CT/MRI suspicion sufficient; cytology helpful but not required. Random ICG or Angiostamp IV 12–16h before surgery; study dye free, no itemized staging/surgery costs, Zurich office route. Generic confirmed-STS cohort uses same ethics code but has different named eligibility; preserve separate selections under the current catalog pending direct evidence they share intake.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -9152,14 +9354,54 @@
             "cancer": "Peripheral nerve sheath tumor"
           },
           "expected": "screen"
+        },
+        {
+          "name": "17 Nov current primary: expected candidate",
+          "patient": {
+            "country": "Switzerland",
+            "species": "Dog",
+            "cancer": "Peripheral nerve sheath tumor",
+            "diagnosis_status": "Suspected / not confirmed",
+            "tumor_status": "Tumor still present / measurable"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "17 Nov current primary: explicit exclusion",
+          "patient": {
+            "country": "Switzerland",
+            "species": "Dog",
+            "cancer": "Peripheral nerve sheath tumor",
+            "diagnosis_status": "Suspected / not confirmed",
+            "tumor_status": "Tumor still present / measurable",
+            "prefs": [
+              "Radiation",
+              "Chemotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "17 Nov current primary: unknown needs pre-screen",
+          "patient": {
+            "country": "Switzerland",
+            "species": "Dog",
+            "cancer": "Peripheral nerve sheath tumor",
+            "diagnosis_status": "I don't know",
+            "tumor_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "10a0a1ed3176a24e2eac03b0990f02f00153029b5cb46ddc26345ff5ff2098be",
       "full_protocol_reverified": true,
-      "source_evidence_file": "research/audit-runs/daily-20261105T030209-0500/evidence/994c027561609b702507baa0.json",
-      "primary_evidence_review_run": "continue-20261109T075757-0500",
-      "source_visit_refreshed_this_run": false,
-      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
+      "source_evidence_file": "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
+      "primary_evidence_review_run": "daily-20261117T030023-0500",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_source_run": "daily-20261117T030023-0500",
+      "previous_reviewed_at": "2026-11-09T09:41:53.719038-05:00",
+      "primary_evidence_key": "683a9b5d72db98842356",
+      "primary_evidence_ref": "research/audit-runs/daily-20261117T030023-0500/reviewed-protocols.tsv"
     },
     {
       "trial_id": "barc-scc-intratumoral-carboplatin-2026",
@@ -9521,8 +9763,8 @@
     {
       "trial_id": "ch-zurich-canine-high-grade-glioma-chemoradiation",
       "source_url": "https://www.tierspital.uzh.ch/wp-content/uploads/2025/09/250916_Information_Study_english.pdf",
-      "reviewed_at": "2026-11-09T09:41:53.719038-05:00",
-      "criteria": "MRI suspicion screened with minimal invasive biopsy; high-grade glioma confirmed before treatment, acceptable marrow/renal/liver function; no major incompatible illnesses.",
+      "reviewed_at": "2026-11-17T09:46:23.727Z",
+      "criteria": "Current Zurich protocol and German, English and Italian PDFs: MRI suspicion with required pre-RT biopsy confirmation and fit organ/bone marrow labs. Both blinded arms get ten weekday RT treatments; capsules TMZ + lomustine versus placebo. Biopsy, chemotherapy and associated labs free; discounted RT, MRI surveillance every six months or as indicated. Neurology office specified.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -9599,13 +9841,53 @@
             "cancer": "Brain tumor / glioma"
           },
           "expected": "screen"
+        },
+        {
+          "name": "17 Nov current primary: expected candidate",
+          "patient": {
+            "country": "Switzerland",
+            "species": "Dog",
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable",
+            "brain_present": "Yes"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "17 Nov current primary: explicit exclusion",
+          "patient": {
+            "country": "Switzerland",
+            "species": "Dog",
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable",
+            "brain_present": "Yes",
+            "radiation_affordability": "Would not consider radiation"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "17 Nov current primary: unknown needs pre-screen",
+          "patient": {
+            "country": "Switzerland",
+            "species": "Dog",
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "I don't know",
+            "tumor_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "e031eecc5c8eb8a09e83595260828341878c92d0570be37b01f626d035465113",
       "full_protocol_reverified": true,
-      "primary_evidence_review_run": "continue-20261109T075757-0500",
-      "source_visit_refreshed_this_run": false,
-      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
+      "primary_evidence_review_run": "daily-20261117T030023-0500",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_source_run": "daily-20261117T030023-0500",
+      "previous_reviewed_at": "2026-11-09T09:41:53.719038-05:00",
+      "source_evidence_file": "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
+      "primary_evidence_key": "33f57cf322de7a2b6968",
+      "primary_evidence_ref": "research/audit-runs/daily-20261117T030023-0500/reviewed-protocols.tsv"
     },
     {
       "trial_id": "be-ghent-fluorescence-lifetime-cancer-surgery",
