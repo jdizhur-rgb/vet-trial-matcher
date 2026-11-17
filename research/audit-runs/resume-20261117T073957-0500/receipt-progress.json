@@ -1,11 +1,11 @@
 {
   "run_id": "resume-20261117T073957-0500",
   "time_context": "America/New_York",
-  "recorded_at": "2026-11-17T08:24:23.922278-05:00",
+  "recorded_at": "2026-11-17T08:38:24.748695-05:00",
   "status": "IN_PROGRESS",
   "source_total": 164,
   "attempted_total": 84,
-  "content_sufficient_total": 7,
+  "content_sufficient_total": 8,
   "sources": [
     {
       "source_id": "registry-avma-veterinary-clinical-trials",
@@ -120,7 +120,7 @@
     {
       "source_id": "directory-veterinary-cancer-society",
       "opened_this_run": true,
-      "processing_complete": false,
+      "processing_complete": true,
       "content_sufficient": false,
       "protocols_seen": null,
       "master_result": "partial",
@@ -150,14 +150,35 @@
           "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
           "evidence_key": "07f2224dff7662c6efe7",
           "result": "retrieved"
+        },
+        {
+          "attempted_at": "2026-11-17T08:32:28.453476-05:00",
+          "completed_at": "2026-11-17T08:32:32.979223-05:00",
+          "url": "https://www.acibiosciences.com/open-studies",
+          "http_status": 200,
+          "exit_code": 0,
+          "error": "",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "953202ff5cf38c291560",
+          "result": "retrieved"
         }
       ],
       "route_used": "master",
-      "current_response_comparison_evidence": [],
+      "current_response_comparison_evidence": [
+        {
+          "old_body_sha256": "b9acb4309153425727ba8dfbe0a73020f9f5bb54d4b83a8e2c7ccbfaf4800d08",
+          "current_body_sha256": "d0f3272d4b76ea867aaa5c2b6710097c2b04e9e7a8e44a6afc1812b927d96aae",
+          "whole_response_equal": false,
+          "url": "https://www.acibiosciences.com/open-studies",
+          "old_attempt_not_a_new_visit": true
+        }
+      ],
       "previous_last_checked": "2026-11-17",
       "previous_last_checked_at": "2026-11-17T03:02:11.749618-05:00",
-      "continuation_latest_attempt_at": "2026-11-17T07:41:41.123633-05:00",
-      "finding": "Transport evidence only. https://vetcancersociety.org/resources/clinical-trials/: retrieved, HTTP 200",
+      "continuation_latest_attempt_at": "2026-11-17T08:32:32.979223-05:00",
+      "finding": "Cancer research resource is a link directory, not an enrolling roster. The specific clinical routes point to AVMA, NCI, known university rosters, BARC, ACI, Guardian, Hope, PetCure, SAGE and Santa Fe; official ACI roster shows its oral melanoma enrollment closed. Care and specialist pages excluded. Individual named provider protocols are reviewed under their sources.",
       "cumulative_previous_processing_complete": false,
       "cumulative_previous_content_sufficient": false,
       "previous_receipt_ref": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json"
@@ -5455,7 +5476,7 @@
     {
       "source_id": "foundation-perseus-clinical-trial-discovery",
       "opened_this_run": true,
-      "processing_complete": false,
+      "processing_complete": true,
       "content_sufficient": false,
       "protocols_seen": null,
       "master_result": "partial",
@@ -5487,7 +5508,7 @@
       "previous_last_checked": "2026-11-17",
       "previous_last_checked_at": "2026-11-17T03:03:36.200199-05:00",
       "continuation_latest_attempt_at": "2026-11-17T07:42:29.824330-05:00",
-      "finding": "Transport evidence only. https://www.theperseusfoundation.com/clinical-trials: retrieved, HTTP 200",
+      "finding": "Legacy list of external teaching-hospital and specialty-trials landing sites, not clinical protocols. Listed Auburn, CSU, Cornell, UC Davis, UF, Illinois, Michigan, Missouri, NCSU, Penn, Purdue, Tufts and additional indices use older routes; clinical masters are reconciled independently rather than duplicate source records.",
       "cumulative_previous_processing_complete": false,
       "cumulative_previous_content_sufficient": false,
       "previous_receipt_ref": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json"
@@ -5625,7 +5646,7 @@
     {
       "source_id": "foundation-dog-cancer-foundation-trial-directory",
       "opened_this_run": true,
-      "processing_complete": false,
+      "processing_complete": true,
       "content_sufficient": false,
       "protocols_seen": null,
       "master_result": "partial",
@@ -5642,6 +5663,19 @@
           "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
           "evidence_key": "1b5e1e45bdf2c25a5e6d",
           "result": "retrieved"
+        },
+        {
+          "attempted_at": "2026-11-17T08:32:28.453476-05:00",
+          "completed_at": "2026-11-17T08:32:32.979223-05:00",
+          "url": "https://www.acibiosciences.com/open-studies",
+          "http_status": 200,
+          "exit_code": 0,
+          "error": "",
+          "route": "official_fallback_or_leaf",
+          "method": "curl",
+          "evidence_file": "research/audit-runs/resume-20261117T073957-0500/source-route-evidence.json",
+          "evidence_key": "953202ff5cf38c291560",
+          "result": "retrieved"
         }
       ],
       "route_used": "master",
@@ -5652,12 +5686,19 @@
           "whole_response_equal": false,
           "url": "https://www.dogcancerfoundation.org/clinical-trials-for-dogs-with-cancer",
           "old_attempt_not_a_new_visit": true
+        },
+        {
+          "old_body_sha256": "b9acb4309153425727ba8dfbe0a73020f9f5bb54d4b83a8e2c7ccbfaf4800d08",
+          "current_body_sha256": "d0f3272d4b76ea867aaa5c2b6710097c2b04e9e7a8e44a6afc1812b927d96aae",
+          "whole_response_equal": false,
+          "url": "https://www.acibiosciences.com/open-studies",
+          "old_attempt_not_a_new_visit": true
         }
       ],
       "previous_last_checked": "2026-11-17",
       "previous_last_checked_at": "2026-11-17T03:03:44.689418-05:00",
-      "continuation_latest_attempt_at": "2026-11-17T07:42:30.165754-05:00",
-      "finding": "Transport evidence only. https://www.dogcancerfoundation.org/clinical-trials-for-dogs-with-cancer: retrieved, HTTP 200",
+      "continuation_latest_attempt_at": "2026-11-17T08:32:32.979223-05:00",
+      "finding": "Listing says links verified Aug 20. It names AVMA, NCI, PetCure, ACI, OVC and university/clinic sites without presenting independent protocols. ACI is already in inventory and its only oncology listing explicitly says enrollment closed. Other linked primary masters are already in the queue.",
       "cumulative_previous_processing_complete": false,
       "cumulative_previous_content_sufficient": false,
       "previous_receipt_ref": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json"
@@ -7372,10 +7413,10 @@
     {
       "source_id": "new-zealand-kode-veterinary-sciences-trials",
       "opened_this_run": true,
-      "processing_complete": false,
-      "content_sufficient": false,
-      "protocols_seen": null,
-      "master_result": "partial",
+      "processing_complete": true,
+      "content_sufficient": true,
+      "protocols_seen": 1,
+      "master_result": "reachable",
       "attempted_urls": [
         {
           "attempted_at": "2026-11-17T07:42:40.259423-05:00",
@@ -7464,7 +7505,7 @@
       "previous_last_checked": "2026-11-17",
       "previous_last_checked_at": "2026-11-17T03:07:55.115509-05:00",
       "continuation_latest_attempt_at": "2026-11-17T07:45:08.388662-05:00",
-      "finding": "Transport evidence only. https://www.kodevet9.com/clinical-trial: retrieved, HTTP 200 | https://www.kodevet9.com/faq?appDefId=14c92d28-031e-7910-c9a8-a670011e062d&categoryId=2c502639-939c-4d02-bc2a-28112a328450: retrieved, HTTP 200 | https://www.kodevet9.com/clinical-trial-referral-form: retrieved, HTTP 200 | https://www.kodevet9.com/contact-9: retrieved, HTTP 200",
+      "finding": "Current sponsor lists one Kv9 protocol, referring veterinarians can request screening, funding separates screening from treatment, and sponsor FAQ states no set enrollment end. This establishes the named program roster only. Individual location capacity and any newly announced individual treatment site were not inferred from an old wider-area press report.",
       "cumulative_previous_processing_complete": false,
       "cumulative_previous_content_sufficient": false,
       "previous_receipt_ref": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json"
@@ -8385,7 +8426,7 @@
     {
       "source_id": "australia-thekids-sarcoma-gel-research",
       "opened_this_run": true,
-      "processing_complete": false,
+      "processing_complete": true,
       "content_sufficient": false,
       "protocols_seen": null,
       "master_result": "partial",
@@ -8409,7 +8450,7 @@
       "previous_last_checked": "2026-11-17",
       "previous_last_checked_at": "2026-11-17T03:04:56.540164-05:00",
       "continuation_latest_attempt_at": "2026-11-17T07:43:10.540589-05:00",
-      "finding": "Primary institute's 2023 Perth study report identifies actual dogs with STS treated with injectable gel, but no dated current protocol enrollment or owner intake. Check current institute/cohost result or continuation before classifying external.",
+      "finding": "2023 official story reports use of gel after sarcoma resection in a Perth dog; separate UWA project reads Finished, and partner program and name/intervention searches revealed no successor intake. UWA retrieval recorded in supplemental web batch; no active public protocol added.",
       "cumulative_previous_processing_complete": false,
       "cumulative_previous_content_sufficient": false,
       "previous_receipt_ref": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json"
@@ -8782,7 +8823,7 @@
     {
       "source_id": "usa-calusa-uconn-study-signal",
       "opened_this_run": true,
-      "processing_complete": false,
+      "processing_complete": true,
       "content_sufficient": false,
       "protocols_seen": null,
       "master_result": "partial",
@@ -8819,7 +8860,7 @@
       "previous_last_checked": "2026-11-17",
       "previous_last_checked_at": "2026-11-17T03:05:23.762776-05:00",
       "continuation_latest_attempt_at": "2026-11-17T07:43:21.628534-05:00",
-      "finding": "Transport evidence only. https://www.facebook.com/cvcboca/posts/advancing-the-future-of-veterinary-cancer-care-in-collaboration-with-uconn-cance/1599013032239137/: retrieved, HTTP 200",
+      "finding": "Official clinic post documents treatment at no cost for one patient in a UConn collaboration but names no drug, diagnosis, protocol ID, or general enrollment. Targeted partner, site and AVMA search did not establish the case identity or whether anyone can join; an unrelated NCI registry page is not evidence for it.",
       "cumulative_previous_processing_complete": false,
       "cumulative_previous_content_sufficient": false,
       "previous_receipt_ref": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json"
@@ -8946,7 +8987,7 @@
     {
       "source_id": "sponsor-cimcure-clinical-news",
       "opened_this_run": true,
-      "processing_complete": false,
+      "processing_complete": true,
       "content_sufficient": false,
       "protocols_seen": null,
       "master_result": "partial",
@@ -9017,7 +9058,7 @@
       "previous_last_checked": "2026-11-17",
       "previous_last_checked_at": "2026-11-17T03:08:29.590476-05:00",
       "continuation_latest_attempt_at": "2026-11-17T07:45:27.217111-05:00",
-      "finding": "Transport evidence only. https://cimcure.com/news/: retrieved, HTTP 200 | https://cimcure.com/: retrieved, HTTP 200 | https://cimcure.com/technology/: retrieved, HTTP 200 | https://cimcure.com/roadmap/: retrieved, HTTP 200",
+      "finding": "Active dated phase I CTIS signal concerns humans. Canine hemangiosarcoma immunotherapy plus doxorubicin is a September 2025 results announcement, matching the existing research watch. Previously reported canine bladder study is a results signal; milestones and roadmap disclose no currently enrolling canine or feline study.",
       "cumulative_previous_processing_complete": false,
       "cumulative_previous_content_sufficient": false,
       "previous_receipt_ref": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json"
@@ -9307,7 +9348,7 @@
     {
       "source_id": "brazil-ufpel-electroporation-oncology-project",
       "opened_this_run": true,
-      "processing_complete": false,
+      "processing_complete": true,
       "content_sufficient": false,
       "protocols_seen": null,
       "master_result": "partial",
@@ -9379,7 +9420,7 @@
       "previous_last_checked": "2026-11-17",
       "previous_last_checked_at": "2026-11-17T03:08:38.722528-05:00",
       "continuation_latest_attempt_at": "2026-11-17T07:45:28.624720-05:00",
-      "finding": "UFPel project u10335 (Oct 31 2025–Feb 28 2027) plans 40 dogs receiving bleomycin ECT or calcium electroporation via HCV-UFPel oncology. Specific protocol, but currently open clinical screening, owner link and financial terms are not published in the project entry; journal/other university official links checked or queued separately.",
+      "finding": "Official u10335 plans 40 dogs with spontaneous cutaneous neoplasia: bleomycin electrochemotherapy vs calcium electroporation. Oct 2025–Feb 2027 is project timing, not a published intake window; PI profile/related pages and Portuguese searches do not establish patient referral or funding. Separate u7937 eyelid excision/cryosurgery is a comparison of procedures, with neither current intake nor a confirmed malignant-only cohort.",
       "cumulative_previous_processing_complete": false,
       "cumulative_previous_content_sufficient": false,
       "previous_receipt_ref": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json"
@@ -9419,7 +9460,7 @@
     {
       "source_id": "tw-protectvac-pt001-recruitment",
       "opened_this_run": true,
-      "processing_complete": false,
+      "processing_complete": true,
       "content_sufficient": false,
       "protocols_seen": null,
       "master_result": "partial",
@@ -9451,7 +9492,7 @@
       "previous_last_checked": "2026-11-17",
       "previous_last_checked_at": "2026-11-17T03:05:38.890841-05:00",
       "continuation_latest_attempt_at": "2026-11-17T07:43:31.577251-05:00",
-      "finding": "Transport evidence only. https://www.protectvac.com/news-18.html: retrieved, HTTP 200",
+      "finding": "October 2025 recruitment notice identifies vaccine targets CTLA-4 and PD-L1, oral melanoma stage II–III, age one year or older, two arms, and exact eight participating centers. The sponsor's current news pages still link the unchanged original invitation; November 2026 posts are unrelated. Current site-by-site capacity, cutoff and sponsor funding are not published; separate Evergreen IL-15 identity excluded from this comparison.",
       "cumulative_previous_processing_complete": false,
       "cumulative_previous_content_sufficient": false,
       "previous_receipt_ref": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json"
@@ -9538,7 +9579,7 @@
     {
       "source_id": "at-vetmeduni-feline-lymphoma-study",
       "opened_this_run": true,
-      "processing_complete": false,
+      "processing_complete": true,
       "content_sufficient": false,
       "protocols_seen": null,
       "master_result": "partial",
@@ -9590,7 +9631,7 @@
       "previous_last_checked": "2026-11-17",
       "previous_last_checked_at": "2026-11-17T03:08:43.488769-05:00",
       "continuation_latest_attempt_at": "2026-11-17T07:45:30.572807-05:00",
-      "finding": "2016 flyer requests cats with GI lymphoma, excludes extra-GI disease and says it is comparing lymphoma subtypes. Long-lived exact same flyer is not a fresh 2026 therapeutic enrollment proof. Finish review of current hospital official fallback and look for same protocol status/publications.",
+      "finding": "2016 owner PDF describes laparotomy-based tissue diagnosis and treatment tailored to histologic subtype, with standard chemotherapy described rather than experimentally allocated anticancer intervention. 2020 account is retrospective context; no new dated owner recruitment protocol surfaced.",
       "cumulative_previous_processing_complete": false,
       "cumulative_previous_content_sufficient": false,
       "previous_receipt_ref": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json"
@@ -9664,7 +9705,7 @@
     {
       "source_id": "no-immuvera-nebumet-development",
       "opened_this_run": true,
-      "processing_complete": false,
+      "processing_complete": true,
       "content_sufficient": false,
       "protocols_seen": null,
       "master_result": "partial",
@@ -9756,7 +9797,7 @@
       "previous_last_checked": "2026-11-17",
       "previous_last_checked_at": "2026-11-17T03:09:01.642889-05:00",
       "continuation_latest_attempt_at": "2026-11-17T07:45:41.452515-05:00",
-      "finding": "Transport evidence only. https://www.immuvera.com/our-solution: retrieved, HTTP 200 | https://www.immuvera.com/news: retrieved, HTTP 200 | https://www.immuvera.com/news/immuvera-therapeutics-and-omica-biomed-strengthen-collaboration-in-veterinary-oncology: retrieved, HTTP 200 | https://www.immuvera.com/news/successful-capital-raise-paves-the-way-for-pet-cancer-treatment: retrieved, HTTP 200",
+      "finding": "Nebumet program, capital raise and Spain OMICA diagnostic monitoring collaboration refer to one inhaled therapy registration program tracked in four country rows. Partner work and capital raise do not identify site-level current recruitment or new protocol; no expansion in confirmed roster.",
       "cumulative_previous_processing_complete": false,
       "cumulative_previous_content_sufficient": false,
       "previous_receipt_ref": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json"
@@ -9764,7 +9805,7 @@
     {
       "source_id": "pl-sggw-nanooncology-research",
       "opened_this_run": true,
-      "processing_complete": false,
+      "processing_complete": true,
       "content_sufficient": false,
       "protocols_seen": null,
       "master_result": "partial",
@@ -9822,7 +9863,7 @@
       "previous_last_checked": "2026-11-17",
       "previous_last_checked_at": "2026-11-17T03:08:52.630936-05:00",
       "continuation_latest_attempt_at": "2026-11-17T07:45:37.843609-05:00",
-      "finding": "Transport evidence only. https://imw.sggw.edu.pl/laboratory-of-experimental-and-clinical-nanooncology/?lang=en: retrieved, HTTP 200 | https://archiwumimw.sggw.edu.pl/: retrieved, HTTP 200",
+      "finding": "Mapped laboratory URL now redirects to the Warsaw SGGW veterinary faculty portal/Polish graduate admission. Archive and Polish searches for dog tumor research and nanoparticle recruitment did not show an open owner-facing protocol. University research links alone cannot establish an enrolling trial.",
       "cumulative_previous_processing_complete": false,
       "cumulative_previous_content_sufficient": false,
       "previous_receipt_ref": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json"
@@ -9830,7 +9871,7 @@
     {
       "source_id": "uk-liverpool-dogfight-glioma-trial",
       "opened_this_run": true,
-      "processing_complete": false,
+      "processing_complete": true,
       "content_sufficient": false,
       "protocols_seen": null,
       "master_result": "partial",
@@ -9862,7 +9903,7 @@
       "previous_last_checked": "2026-11-17",
       "previous_last_checked_at": "2026-11-17T03:05:45.460555-05:00",
       "continuation_latest_attempt_at": "2026-11-17T07:43:35.874393-05:00",
-      "finding": "Transport evidence only. https://www.liverpool.ac.uk/people/tim-bentley: retrieved, HTTP 200",
+      "finding": "Investigator confirms current DOG-FIGhT using ferumoxytol as radiosensitizer; his chlorambucil and M032 projects are explicitly prior and different. University and named-clinic searches located no direct current intake, date, complete locations or funding; maintain exact trial as already tracked without changing access or publishing clinical verification date.",
       "cumulative_previous_processing_complete": false,
       "cumulative_previous_content_sufficient": false,
       "previous_receipt_ref": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json"
@@ -10027,7 +10068,7 @@
     {
       "source_id": "spain-instituto-voc-clinical-trials",
       "opened_this_run": true,
-      "processing_complete": false,
+      "processing_complete": true,
       "content_sufficient": false,
       "protocols_seen": null,
       "master_result": "partial",
@@ -10116,7 +10157,7 @@
       "previous_last_checked": "2026-11-17",
       "previous_last_checked_at": "2026-11-17T03:09:06.722357-05:00",
       "continuation_latest_attempt_at": "2026-11-17T07:45:48.532971-05:00",
-      "finding": "Transport evidence only. https://www.institutovoc.com/seccion/ensayos-clinicos/abiertos/: retrieved, HTTP 200 | https://www.institutovoc.com/estudio-con-palladia-y-aine-en-carcinomas-inflamatorios-de-mama/: retrieved, HTTP 200 | https://www.institutovoc.com/estudio-internacional-para-el-tratamiento-de-mastocitomas-con-terapias-dirigidas-masitinib/: retrieved, HTTP 200 | https://www.institutovoc.com/estudio-clinico-en-tumores-mamarios-felinos-con-terapias-dirigidas-palladia/: retrieved, HTTP 200 | https://www.institutovoc.com/estudio-clinico-fase-ii-sobre-la-administracion-de-trocoxil-mevacoxib-en-pacientes-con-neoplasias-malignas/: retrieved, HTTP 200 | https://www.institutovoc.com/estudio-sobre-la-analgesia-multimodal-en-pacientes-con-tumores-oseos/: retrieved, HTTP 200",
+      "finding": "Label Abiertos conflicts with historical identity: feline macroscopic mammary Palladia exact study appears in ESVONC 2014 results, AB07008 masitinib in sponsor 2015 update. Palladia plus NSAID inflammatory mammary has only a title; phase II trocoxil has detailed but undated clinic terms and no independent contemporary intake. Bone analgesia is supportive rather than tumor-targeting. No current new trial published.",
       "cumulative_previous_processing_complete": false,
       "cumulative_previous_content_sufficient": false,
       "previous_receipt_ref": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json"

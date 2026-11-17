@@ -26,11 +26,11 @@ def bundle_evidence(obj):
     if k in bundle:return
     bundle[k]={x:obj.get(x) for x in ('evidence_key','url','effective_url','method','attempts','result','http_status','body_sha256','text_sha256','text_length','restriction')}
 manual={}
-for path in [run/'source-reconciliation-slice.tsv',run/'source-reconciliation-next.tsv',run/'source-reconciliation-rosters.tsv']:
+for path in [run/'source-reconciliation-slice.tsv',run/'source-reconciliation-next.tsv',run/'source-reconciliation-rosters.tsv',run/'source-reconciliation-latest.tsv']:
     if not path.exists():continue
     for line in path.read_text().splitlines():
         sid,state,keys,ids,finding=line.split('\t')
-        assert sid not in manual, sid
+        assert sid not in manual or path.name == "source-reconciliation-latest.tsv", sid
         manual[sid]=state,keys.split(';'),[x for x in ids.split(';') if x],finding
 
 ref=str(run/'source-route-evidence.json')
