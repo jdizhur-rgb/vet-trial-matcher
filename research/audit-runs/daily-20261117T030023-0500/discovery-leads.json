@@ -2,13 +2,13 @@
   "run_id": "daily-20261117T030023-0500",
   "dispositions": {
     "VERIFIED_EXISTING": 43,
-    "NOT_TREATMENT": 14,
-    "PENDING_EVIDENCE": 17,
+    "NOT_TREATMENT": 13,
+    "PENDING_EVIDENCE": 19,
     "CLOSED_CONFIRMED": 7,
     "SOURCE_INDEX_REVIEWED": 7,
     "ADDED": 1
   },
-  "selected": 89,
+  "selected": 90,
   "rows": [
     {
       "url": "https://veterinaryclinicaltrials.org/s/vaccine-study-for-dogs-with-splenic-hemangiosarcoma-633216/?ref=gallery",
@@ -1302,8 +1302,8 @@
     },
     {
       "url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/oncology/percutaneous-cementoplasty-in-dogs-with-appendicular-osteosarcoma-treated-with-stereotactic-body-radiation-therapy-evaluation-of-safety-and-efficacy-in-reducing-pain-and-risk-of-pathological-fracture/",
-      "disposition": "NOT_TREATMENT",
-      "reason": "UF assigns a bone-stabilizing cement procedure and related follow-up to dogs already scheduled for SBRT. Research objective is fracture risk/pain; coverage applies to cementoplasty and selected follow-up, not the tumour-directed radiation itself. Distinct from VOS anticancer ECT and Oniris cement study.",
+      "disposition": "PENDING_EVIDENCE",
+      "reason": "Evidence keys 616ead6d0f3a654d325a and d9af0ecda8ff55f70b31 conflict: UF current oncology list says Closed Enrollment while exact procedure detail says Currently Enrolling. Also the assigned Biocera-Vet procedure evaluates fracture risk/pain alongside standard SBRT, not direct cancer control. No public addition under the current treatment-only policy; determine a dated protocol-level recruiting status only from direct evidence.",
       "primary_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/oncology/percutaneous-cementoplasty-in-dogs-with-appendicular-osteosarcoma-treated-with-stereotactic-body-radiation-therapy-evaluation-of-safety-and-efficacy-in-reducing-pain-and-risk-of-pathological-fracture/",
       "evidence_refs": [
         "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
@@ -1311,6 +1311,9 @@
       ],
       "current_attempt_keys": [
         "d9af0ecda8ff55f70b31"
+      ],
+      "unperformed_steps": [
+        "Reconcile current patient intake with the organizer protocol and current roster: https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/oncology/percutaneous-cementoplasty-in-dogs-with-appendicular-osteosarcoma-treated-with-stereotactic-body-radiation-therapy-evaluation-of-safety-and-efficacy-in-reducing-pain-and-risk-of-pathological-fracture/"
       ]
     },
     {
@@ -1607,6 +1610,22 @@
         "ch-uzh-feline-sts-adam12-phase0-2026"
       ],
       "identity_comparison": "Exact new ADAM-12 ZH226/2024 first Phase 0 trial at Zurich for feline confirmed STS, two doses, no feasible surgery/RT, safety and tolerability primary; no defined standard-treatment backbone or published owner costs. Ethics ID and full text agree on alternate hospital path. Distinct from ZH026/2023 fluorescence-assisted surgical STS, feline FLASH is SCC. Added as research watchlist only, never public matching."
+    },
+    {
+      "url": "https://www.dvg.de/wp-content/uploads/2026/01/26-01-20_Studie_Immuntherapie-bei-FISS.pdf",
+      "disposition": "PENDING_EVIDENCE",
+      "reason": "January 2026 University of Zurich flyer on DVG: five terminal feline injection-site sarcomas, same investigator, initial CT roughly CHF 1,200, subsequent study costs specified. The flyer does not name ZH226/2024 or ADAM-12 and differs from the October record in dose/monitoring. Identity and current applicability of coverage remain unestablished. Do not graft price onto the newer study or list a second open cohort.",
+      "primary_url": "https://www.dvg.de/wp-content/uploads/2026/01/26-01-20_Studie_Immuntherapie-bei-FISS.pdf",
+      "evidence_refs": [
+        "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
+        "research/audit-runs/daily-20261117T030023-0500/discovery-decisions.tsv"
+      ],
+      "current_attempt_keys": [
+        "8281675ed1e4cf17e7b2"
+      ],
+      "unperformed_steps": [
+        "Reconcile current patient intake with the organizer protocol and current roster: https://www.dvg.de/wp-content/uploads/2026/01/26-01-20_Studie_Immuntherapie-bei-FISS.pdf"
+      ]
     },
     {
       "url": "https://veterinaryclinicaltrials.org/s/embolization-and-chemoembolization-in-dogs-with-non-resectable-liver-tumors-251903/",

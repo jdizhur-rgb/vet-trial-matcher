@@ -5,8 +5,8 @@
     {
       "trial_id": "uf-osa-vaccine",
       "source_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/vaccine-study-for-dogs-with-osteosarcoma/",
-      "reviewed_at": "2026-11-09T09:30:48.406240-05:00",
-      "criteria": "Newly diagnosed untreated limb OSA without other life-threatening disease; requires UF amputation and tumor sampling; excludes zoledronate and concurrent OSA trial.",
+      "reviewed_at": "2026-11-17T09:37:23.602Z",
+      "criteria": "Florida current appendicular osteosarcoma vaccine has six doses with standard amputation and chemotherapy, is separate from RNA nanoparticle study. Recent treatment-naive diagnosis, limb amputation and tissue sampling at UF, no zoledronic acid or double enrollment. Owner pays except up to $100 for injection-site reaction, referral form required.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -93,21 +93,63 @@
           "patient": {
             "cancer": "Osteosarcoma",
             "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
+        },
+        {
+          "name": "17 Nov current primary: expected candidate",
+          "patient": {
+            "country": "USA",
+            "species": "Dog",
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable",
+            "osa_location": "Appendicular — limb bone",
+            "chemo": "Never"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "17 Nov current primary: explicit exclusion",
+          "patient": {
+            "country": "USA",
+            "species": "Dog",
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable",
+            "osa_location": "Appendicular — limb bone",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "17 Nov current primary: unknown needs pre-screen",
+          "patient": {
+            "country": "USA",
+            "species": "Dog",
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "I don't know",
+            "chemo": "I don't know",
+            "osa_location": "I don't know"
           },
           "expected": "screen"
         }
       ],
       "selection_sha256": "fbbf1f509df254cfd217f327e5963691fe85dc87bf4495533057bf18bfcb70e8",
       "full_protocol_reverified": true,
-      "primary_evidence_review_run": "continue-20261109T075757-0500",
-      "source_visit_refreshed_this_run": false,
-      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
+      "primary_evidence_review_run": "daily-20261117T030023-0500",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_source_run": "daily-20261117T030023-0500",
+      "previous_reviewed_at": "2026-11-09T09:30:48.406240-05:00",
+      "source_evidence_file": "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
+      "primary_evidence_key": "6a57f7c4e8b082613d9c",
+      "primary_evidence_ref": "research/audit-runs/daily-20261117T030023-0500/reviewed-protocols.tsv"
     },
     {
       "trial_id": "uf-osa-mrna",
       "source_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/mrna-vaccine-study-for-dogs-with-appendicular-osteosarcoma-currently-enrolling/",
-      "reviewed_at": "2026-11-09T09:30:48.406240-05:00",
-      "criteria": "Microscopically confirmed limb OSA with UF pre-RT biopsy during planning CT; radiation required; mild metastases investigator discretion; no zoledronate or competing OSA trial.",
+      "reviewed_at": "2026-11-17T09:37:23.602Z",
+      "criteria": "Exact Florida open RNA nanoparticle vaccine plus IV anti-PD1 protocol for biopsy-confirmed appendicular OSA, UF tissue before mandatory RT. Mild metastatic spread may qualify by investigator judgment. Study covers vaccine expenses and some toxicity; owner remains liable for standard care and RT unless on-case support confirmed. Clinic published, no calendar cutoff.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -187,13 +229,55 @@
             "diagnosis_status": "I don't know"
           },
           "expected": "screen"
+        },
+        {
+          "name": "17 Nov current primary: expected candidate",
+          "patient": {
+            "country": "USA",
+            "species": "Dog",
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable",
+            "osa_location": "Appendicular — limb bone",
+            "metastasis": "No known metastases"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "17 Nov current primary: explicit exclusion",
+          "patient": {
+            "country": "USA",
+            "species": "Dog",
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable",
+            "osa_location": "Appendicular — limb bone",
+            "metastasis": "No known metastases",
+            "radiation_affordability": "Would not consider radiation"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "17 Nov current primary: unknown needs pre-screen",
+          "patient": {
+            "country": "USA",
+            "species": "Dog",
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "I don't know",
+            "osa_location": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "4aed08f303eb9be1e6c2412a5eb06a46538dfcffc2efe22fd5eeb1f92154a242",
       "full_protocol_reverified": true,
-      "primary_evidence_review_run": "continue-20261109T075757-0500",
-      "source_visit_refreshed_this_run": false,
-      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
+      "primary_evidence_review_run": "daily-20261117T030023-0500",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_source_run": "daily-20261117T030023-0500",
+      "previous_reviewed_at": "2026-11-09T09:30:48.406240-05:00",
+      "source_evidence_file": "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
+      "primary_evidence_key": "50a483052e73f895a40c",
+      "primary_evidence_ref": "research/audit-runs/daily-20261117T030023-0500/reviewed-protocols.tsv"
     },
     {
       "trial_id": "eu-it-unimi-oncofap-mmae",
@@ -4995,9 +5079,9 @@
     },
     {
       "trial_id": "tamu-feline-small-cell-gi-lymphoma-wart",
-      "source_url": "https://studypages.com/s/evaluating-whole-abdomen-radiation-therapy-as-a-treatment-for-feline-small-cell-gastrointestinal-lymphoma-358215/",
-      "reviewed_at": "2026-11-09T09:46:31.886282-05:00",
-      "criteria": "Biopsy confirmed small-cell GI lymphoma, newly diagnosed difficult to medicate or relapsed after chemo; no chemo/steroids seven days prior, labs within 14 days; owner lives within six hours drive of College Station.",
+      "source_url": "https://studypages.com/api/v1/studycontent-latest-version/358215/en",
+      "reviewed_at": "2026-11-17T09:37:23.602Z",
+      "criteria": "StudyPages structured current content ID 22785 for exact investigator protocol: active, single College Station site, end date null, target 10. Biopsy-confirmed feline small-cell GI lymphoma difficult to medicate or relapsed; seven-day chemo/steroid washouts, six-hour drive catchment; radiation days 0–4. Study pays after inclusion; screening blood/urine within 14 days and overnight housing if indicated possible owner cost.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -5059,13 +5143,56 @@
             "diagnosis_status": "I don't know"
           },
           "expected": "screen"
+        },
+        {
+          "name": "17 Nov current primary: expected candidate",
+          "patient": {
+            "country": "USA",
+            "species": "Cat",
+            "cancer": "Lymphoma — other",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable",
+            "chemo": "Never",
+            "steroids": "Never"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "17 Nov current primary: explicit exclusion",
+          "patient": {
+            "country": "USA",
+            "species": "Cat",
+            "cancer": "Lymphoma — other",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable",
+            "chemo": "Never",
+            "steroids": "Never",
+            "radiation_affordability": "Would not consider radiation"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "17 Nov current primary: unknown needs pre-screen",
+          "patient": {
+            "country": "USA",
+            "species": "Cat",
+            "cancer": "Lymphoma — other",
+            "diagnosis_status": "I don't know",
+            "chemo": "I don't know",
+            "steroids": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "ff3a0f00183fe61faa877f0e2dbfc2526c1e40210343091152eb114d7938645e",
       "full_protocol_reverified": true,
-      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "primary_evidence_review_run": "daily-20261117T030023-0500",
       "source_visit_refreshed_this_run": true,
-      "primary_evidence_source_run": "continue-20261109T075757-0500"
+      "primary_evidence_source_run": "daily-20261117T030023-0500",
+      "previous_reviewed_at": "2026-11-09T09:46:31.886282-05:00",
+      "source_evidence_file": "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
+      "primary_evidence_key": "89df515ee69d2b283e3e",
+      "primary_evidence_ref": "research/audit-runs/daily-20261117T030023-0500/reviewed-protocols.tsv"
     },
     {
       "trial_id": "tufts-sts-fap-car-t",
@@ -8086,8 +8213,8 @@
     {
       "trial_id": "uf-hsa-vaccine",
       "source_url": "https://research.vetmed.ufl.edu/clinical-trials/small-animal/vaccine-study-for-dogs-with-hemangiosarcoma/",
-      "reviewed_at": "2026-11-09T09:30:48.406240-05:00",
-      "criteria": "Newly diagnosed untreated splenic HSA, splenectomy and doxorubicin suitability; staging 10–16 days and first chemo 14–17 days after surgery.",
+      "reviewed_at": "2026-11-17T09:37:23.602Z",
+      "criteria": "Florida present splenic HSA vaccine with standard doxorubicin. Confirmed splenic primary after splenectomy: stage 10–16 days after splenectomy and start first doxorubicin at 14–17 days. Owner pays, listing estimates approximately $1,275 for six doses, up to $100 covered for injection site reaction.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -8169,20 +8296,64 @@
             "diagnosis_status": "I don't know"
           },
           "expected": "screen"
+        },
+        {
+          "name": "17 Nov current primary: expected candidate",
+          "patient": {
+            "country": "USA",
+            "species": "Dog",
+            "cancer": "Hemangiosarcoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "surgery": "Yes",
+            "prior_procedure": "Splenectomy",
+            "hsa_site": "Spleen",
+            "chemo": "Never"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "17 Nov current primary: explicit exclusion",
+          "patient": {
+            "country": "USA",
+            "species": "Dog",
+            "cancer": "Hemangiosarcoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "surgery": "Yes",
+            "prior_procedure": "Splenectomy",
+            "hsa_site": "Heart",
+            "chemo": "Never"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "17 Nov current primary: unknown needs pre-screen",
+          "patient": {
+            "country": "USA",
+            "species": "Dog",
+            "cancer": "Hemangiosarcoma",
+            "diagnosis_status": "I don't know",
+            "surgery": "I don't know",
+            "hsa_site": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "00350be8dd2afee7b96511efb2ee3c2aeae1681f75f25e7c639125b4bee34958",
       "selection_reconciled_at": "2026-10-22T01:20:49.544983+00:00",
-      "source_visit_refreshed_this_run": false,
-      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_review_run": "daily-20261117T030023-0500",
       "full_protocol_reverified": true,
-      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
+      "primary_evidence_source_run": "daily-20261117T030023-0500",
+      "previous_reviewed_at": "2026-11-09T09:30:48.406240-05:00",
+      "source_evidence_file": "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
+      "primary_evidence_key": "2895a306c437b2173335",
+      "primary_evidence_ref": "research/audit-runs/daily-20261117T030023-0500/reviewed-protocols.tsv"
     },
     {
       "trial_id": "uf-melanoma",
       "source_url": "http://vetmed-research-a2-new.sites.medinfo.ufl.edu/clinical-trials/small-animal/melanoma-vaccine-study-for-dogs/",
-      "reviewed_at": "2026-11-09T09:30:48.406240-05:00",
-      "criteria": "Recently diagnosed canine malignant melanoma, resectable or minimal, no major life-threatening disease.",
+      "reviewed_at": "2026-11-17T09:37:23.602Z",
+      "criteria": "Florida primary linked by current enrolling index: recently diagnosed resectable/minimal malignant melanoma, no other life-threatening disease; oncology assessment and vaccine costs owner paid including later visits or boosters. The current notice does not publish a calendar cutoff.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -8232,19 +8403,56 @@
             "diagnosis_status": "I don't know"
           },
           "expected": "screen"
+        },
+        {
+          "name": "17 Nov current primary: expected candidate",
+          "patient": {
+            "country": "USA",
+            "species": "Dog",
+            "cancer": "Oral melanoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "17 Nov current primary: explicit exclusion",
+          "patient": {
+            "country": "USA",
+            "species": "Cat",
+            "cancer": "Oral melanoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "17 Nov current primary: unknown needs pre-screen",
+          "patient": {
+            "country": "USA",
+            "species": "Dog",
+            "cancer": "Oral melanoma",
+            "diagnosis_status": "I don't know",
+            "tumor_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "82d32b4bf7d6b3a26776d9f2e0731c13bc2cba49c749f8bb5f22fe576ef0be27",
-      "source_visit_refreshed_this_run": false,
-      "primary_evidence_review_run": "continue-20261109T075757-0500",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_review_run": "daily-20261117T030023-0500",
       "full_protocol_reverified": true,
-      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
+      "primary_evidence_source_run": "daily-20261117T030023-0500",
+      "previous_reviewed_at": "2026-11-09T09:30:48.406240-05:00",
+      "source_evidence_file": "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
+      "primary_evidence_key": "6f60adaba8df84918643",
+      "primary_evidence_ref": "research/audit-runs/daily-20261117T030023-0500/reviewed-protocols.tsv"
     },
     {
       "trial_id": "uf-hs-trametinib",
       "source_url": "https://research.vetmed.ufl.edu/phase-ii-open-label-non-randomized-multicenter-clinical-trial-of-trametinib-for-dogs-with-histiocytic-sarcoma/",
-      "reviewed_at": "2026-11-15T03:30:43.656929-05:00",
-      "criteria": "Current UF protocol specifically recruits dogs with histiocytic sarcoma for trametinib.",
+      "reviewed_at": "2026-11-17T09:37:23.602Z",
+      "criteria": "The UF current recruiting index and exact protocol now both print enrolling; measurable histiocytic sarcoma, no concurrent anticancer treatment, two-week chemo and four-week RT washouts, paired research biopsies, oral trametinib covered with selected care. Matching AVMA VCT25005905 lists UF Gainesville and estimated study end 1 Jan 2030. No other activated site is enumerated in the retrieved roster.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -8272,12 +8480,54 @@
             "cancer": "Histiocytic sarcoma"
           },
           "expected": "exclude"
+        },
+        {
+          "name": "17 Nov current primary: expected candidate",
+          "patient": {
+            "country": "USA",
+            "species": "Dog",
+            "cancer": "Histiocytic sarcoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable",
+            "chemo": "Never",
+            "radiation": "Never"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "17 Nov current primary: explicit exclusion",
+          "patient": {
+            "country": "USA",
+            "species": "Dog",
+            "cancer": "Histiocytic sarcoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "No evidence of disease (NED)",
+            "chemo": "Never",
+            "radiation": "Never"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "17 Nov current primary: unknown needs pre-screen",
+          "patient": {
+            "country": "USA",
+            "species": "Dog",
+            "cancer": "Histiocytic sarcoma",
+            "diagnosis_status": "I don't know",
+            "tumor_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "1274816d0bf7802e607fb834b9671a7e4d32aca86100525d620032618157c59d",
       "source_visit_refreshed_this_run": true,
-      "primary_evidence_review_run": "daily-20261115T030028-0500",
-      "full_protocol_reverified": true
+      "primary_evidence_review_run": "daily-20261117T030023-0500",
+      "full_protocol_reverified": true,
+      "previous_reviewed_at": "2026-11-15T03:30:43.656929-05:00",
+      "source_evidence_file": "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
+      "primary_evidence_key": "3412de0771de6c1dd8c4",
+      "primary_evidence_source_run": "daily-20261117T030023-0500",
+      "primary_evidence_ref": "research/audit-runs/daily-20261117T030023-0500/reviewed-protocols.tsv"
     },
     {
       "trial_id": "uf-feline-oscc",
@@ -10358,8 +10608,8 @@
     {
       "trial_id": "jp-multicenter-oral-melanoma-anti-pd1-2026",
       "source_url": "https://www.kamogawa-ac.jp/2026/09/30/24722/",
-      "reviewed_at": "2026-11-09T09:51:20.262935-05:00",
-      "criteria": "Diagnosed oral malignant melanoma in dogs; site clinical state/staging and restricted meds; pathology/cytology needed, six visits every two weeks. No unverified numeric stage or size criterion.",
+      "reviewed_at": "2026-11-17T09:37:23.602Z",
+      "criteria": "Exact Zenoaq registration trial, Kyoto Kamogawa, Yamaguchi University and Japan Small Animal Medical Center Tokorozawa all named. Enrollment began Aug 2026, sponsor Oct 6 confirms start. Canine confirmed oral malignant melanoma, six every-other-week visits, health and concurrent drug screening. Cost explained individually; no exact enrollment end on primary and sponsor notice.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -10412,14 +10662,51 @@
             "cancer": "Oral melanoma"
           },
           "expected": "screen"
+        },
+        {
+          "name": "17 Nov current primary: expected candidate",
+          "patient": {
+            "country": "Japan",
+            "species": "Dog",
+            "cancer": "Oral melanoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "17 Nov current primary: explicit exclusion",
+          "patient": {
+            "country": "Japan",
+            "species": "Cat",
+            "cancer": "Oral melanoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "17 Nov current primary: unknown needs pre-screen",
+          "patient": {
+            "country": "Japan",
+            "species": "Dog",
+            "cancer": "Oral melanoma",
+            "diagnosis_status": "I don't know",
+            "tumor_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "99d6471f47d2fa8dfa565e100e47efd2947c4fdae1709786977911dd7307b474",
       "full_protocol_reverified": true,
       "evidence_receipt": "research/audit-runs/daily-20261030T030022-0400/kamogawa-pd1-full-published-review.json",
-      "primary_evidence_review_run": "continue-20261109T075757-0500",
-      "source_visit_refreshed_this_run": false,
-      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
+      "primary_evidence_review_run": "daily-20261117T030023-0500",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_source_run": "daily-20261117T030023-0500",
+      "previous_reviewed_at": "2026-11-09T09:51:20.262935-05:00",
+      "source_evidence_file": "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
+      "primary_evidence_key": "d98d1785e9d8580b7ee6",
+      "primary_evidence_ref": "research/audit-runs/daily-20261117T030023-0500/reviewed-protocols.tsv"
     },
     {
       "trial_id": "jp-yamaguchi-canine-lymphoid-anti-cd20",
