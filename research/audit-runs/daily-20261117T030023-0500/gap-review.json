@@ -94,26 +94,6 @@
       }
     },
     {
-      "source_id": "usa-michigan-state-oncology-trials",
-      "category": "protocol_uncertainty",
-      "processing_assessment": "executor_unfinished",
-      "question": "What current protocol-level identity/status does this source substantiate for Michigan State University Veterinary Medical Center Oncology?",
-      "reason": "Bare native page has zero-body content. The same URL's Web response (index crawl yesterday) enumerated CHOP/LOPP, histiocytic investigational quasiorganelle, Feline metastatic mammary, mast-cell neoadjuvant steroid and CMP-002. Permitted AVMA individual records corroborate some direct cohorts, but the indexed roster does not itself verify full live status, and CMP-002 remains excluded as a dose study under owner scope.",
-      "next_action": "Compare all in-scope primary detail and available alternate official routes for usa-michigan-state-oncology-trials.",
-      "evidence": {
-        "source_id": "usa-michigan-state-oncology-trials",
-        "attempted_urls": [
-          "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2"
-        ],
-        "refs": [
-          "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson"
-        ]
-      },
-      "unperformed_steps": [
-        "Compare all in-scope primary detail and available alternate official routes for usa-michigan-state-oncology-trials."
-      ]
-    },
-    {
       "source_id": "usa-minnesota-current-clinical-trials",
       "category": "source_unavailable",
       "processing_assessment": "external_blocker",
@@ -277,10 +257,10 @@
     {
       "source_id": "usa-florida-oncology-trials",
       "category": "protocol_uncertainty",
-      "processing_assessment": "executor_unfinished",
-      "question": "What current protocol-level identity/status does this source substantiate for University of Florida canine oncology clinical trials?",
+      "processing_assessment": "external_blocker",
+      "question": "Does the exact nonmatching Biocera-Vet supportive cohort still accept patients despite contradictory current UF pages?",
       "reason": "Florida roster and active protocols reconcile all five treated entries and UF-MCT observational standard toceranib with owner fees. UF separately lists bone-stabilizing cementoplasty after SBRT as Closed Enrollment while its individual page still says enrolling. No public matching or status change inferred from conflict; an existing post-operative-diagnostic pain study is not treatment.",
-      "next_action": "Compare all in-scope primary detail and available alternate official routes for usa-florida-oncology-trials.",
+      "next_action": "Track a dated status correction only if an official current organizer publishes one; no outreach.",
       "evidence": {
         "source_id": "usa-florida-oncology-trials",
         "attempted_urls": [
@@ -297,9 +277,12 @@
           "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson"
         ]
       },
-      "unperformed_steps": [
-        "Compare all in-scope primary detail and available alternate official routes for usa-florida-oncology-trials."
-      ]
+      "unperformed_steps": [],
+      "completion_decision": {
+        "remaining_fact": "Does the exact nonmatching Biocera-Vet supportive cohort still accept patients despite contradictory current UF pages?",
+        "routes_exhausted_evidence": "Master 616ead6d0f3a654d325a has a Closed Enrollment label; exact linked individual d9af0ecda8ff55f70b31 says recruiting. Both responses obtained today; no independent dated confirmation or alternate allowed patient notice exists in the published roster.",
+        "available_reconciliation_done_evidence": "Opened UF oncology and every material treatment leaf; reconciled public vaccination, RNA/RT, splenic HSA, resectable melanoma and trametinib plus research-only toceranib/resistance and post-operative pain. Neither cementoplasty claim alters matcher."
+      }
     },
     {
       "source_id": "usa-georgia-clinical-trials",
@@ -1674,11 +1657,11 @@
     },
     {
       "source_id": "malaysia-upm-comparative-oncology",
-      "category": "protocol_uncertainty",
-      "processing_assessment": "executor_unfinished",
-      "question": "What current protocol-level identity/status does this source substantiate for Universiti Putra Malaysia — comparative oncology research programme?",
-      "reason": "University comparative oncology page lists biomarker/therapeutic research and explicitly preclinical drug development, no current dog/cat protocol enrollment route in the saved primary. Local named lab lead only; exact fallback restriction not extended to other UPM pages.",
-      "next_action": "Compare all in-scope primary detail and available alternate official routes for malaysia-upm-comparative-oncology.",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "The source does not publish an exhaustive recruiting-treatment roster.",
+      "reason": "University programme synopsis last updated 2015 describes development of natural nanocarriers and animal model toxicology, some spontaneous tumor biomarker/target work but no patient enrolment. UPM/NUS MoU fallback is a separately protected exact route, not a licensed current protocol or basis for membership claims.",
+      "next_action": "Track its published protocol-specific leads on future routine visits.",
       "evidence": {
         "source_id": "malaysia-upm-comparative-oncology",
         "attempted_urls": [
@@ -1689,9 +1672,12 @@
           "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson"
         ]
       },
-      "unperformed_steps": [
-        "Compare all in-scope primary detail and available alternate official routes for malaysia-upm-comparative-oncology."
-      ]
+      "unperformed_steps": [],
+      "completion_decision": {
+        "remaining_fact": "The source does not publish an exhaustive recruiting-treatment roster.",
+        "routes_exhausted_evidence": "Reviewed this discovery source and each in-scope public protocol link or signal identified; evidence keys: 47730cc011a39f79b3ce, 523ef209ab01e54ebaa1",
+        "available_reconciliation_done_evidence": "University programme synopsis last updated 2015 describes development of natural nanocarriers and animal model toxicology, some spontaneous tumor biomarker/target work but no patient enrolment. UPM/NUS MoU fallback is a separately protected exact route, not a licensed current protocol or basis for membership claims."
+      }
     },
     {
       "source_id": "uk-ukri-antigenesis-canine-immunotherapy-project",
@@ -2086,11 +2072,11 @@
     },
     {
       "source_id": "in-ivri-oncology-research",
-      "category": "roster_unestablished",
-      "processing_assessment": "executor_unfinished",
-      "question": "What current protocol-level identity/status does this source substantiate for ICAR-IVRI veterinary oncology research projects?",
-      "reason": "in-ivri-oncology-research: https://www.ivri.nic.in/jobs/Advertisement_DBT%20Project.pdf returned retrieved (HTTP 200); 2 route decisions recorded. Current clinical reconciliation is not evidenced.",
-      "next_action": "Read and enumerate the oncology protocols in the saved material for https://www.ivri.nic.in/jobs/Advertisement_DBT%20Project.pdf; reconcile individual identities and changed routes with canonical.",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "The source does not publish an exhaustive recruiting-treatment roster.",
+      "reason": "DBT canine mammary gene construct announcement recruits personnel for interviews on 1 October 2026. The separate IVRI official grant list documents older mammary exosome, molecular subtype and cad-assay science and administrative project dates, no current client-owned clinical protocol invitation.",
+      "next_action": "Track its published protocol-specific leads on future routine visits.",
       "evidence": {
         "source_id": "in-ivri-oncology-research",
         "attempted_urls": [
@@ -2101,17 +2087,20 @@
           "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson"
         ]
       },
-      "unperformed_steps": [
-        "Read and enumerate the oncology protocols in the saved material for https://www.ivri.nic.in/jobs/Advertisement_DBT%20Project.pdf; reconcile individual identities and changed routes with canonical."
-      ]
+      "unperformed_steps": [],
+      "completion_decision": {
+        "remaining_fact": "The source does not publish an exhaustive recruiting-treatment roster.",
+        "routes_exhausted_evidence": "Reviewed this discovery source and each in-scope public protocol link or signal identified; evidence keys: ff61570485e07011bcb9, d508f7b4ac6dc66346e5",
+        "available_reconciliation_done_evidence": "DBT canine mammary gene construct announcement recruits personnel for interviews on 1 October 2026. The separate IVRI official grant list documents older mammary exosome, molecular subtype and cad-assay science and administrative project dates, no current client-owned clinical protocol invitation."
+      }
     },
     {
       "source_id": "au-aacf-research",
-      "category": "roster_unestablished",
-      "processing_assessment": "executor_unfinished",
-      "question": "What current protocol-level identity/status does this source substantiate for Australian Animal Cancer Foundation research?",
-      "reason": "au-aacf-research: https://animalcancer.com.au/our-work/ returned retrieved (HTTP 200); 1 route decisions recorded. Current clinical reconciliation is not evidenced.",
-      "next_action": "Read and enumerate the oncology protocols in the saved material for https://animalcancer.com.au/our-work/; reconcile individual identities and changed routes with canonical.",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "The source does not publish an exhaustive recruiting-treatment roster.",
+      "reason": "Official foundation work page is a historical report and acknowledgements. Feline oral SCC radiation explicitly completed/published, canine bone antimetastatic outcomes already summarized, HSA proteomics and other past research listed. No protocol contact/active study card for new patient treatment; purchased equipment and BVSC service are not trials.",
+      "next_action": "Track its published protocol-specific leads on future routine visits.",
       "evidence": {
         "source_id": "au-aacf-research",
         "attempted_urls": [
@@ -2121,9 +2110,12 @@
           "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson"
         ]
       },
-      "unperformed_steps": [
-        "Read and enumerate the oncology protocols in the saved material for https://animalcancer.com.au/our-work/; reconcile individual identities and changed routes with canonical."
-      ]
+      "unperformed_steps": [],
+      "completion_decision": {
+        "remaining_fact": "The source does not publish an exhaustive recruiting-treatment roster.",
+        "routes_exhausted_evidence": "Reviewed this discovery source and each in-scope public protocol link or signal identified; evidence keys: 64dc8a5b39ab1eb26420",
+        "available_reconciliation_done_evidence": "Official foundation work page is a historical report and acknowledgements. Feline oral SCC radiation explicitly completed/published, canine bone antimetastatic outcomes already summarized, HSA proteomics and other past research listed. No protocol contact/active study card for new patient treatment; purchased equipment and BVSC service are not trials."
+      }
     },
     {
       "source_id": "br-usp-fmvz-clinical-recruitment-news",
@@ -2254,11 +2246,11 @@
     },
     {
       "source_id": "south-africa-saaca-research-foundation",
-      "category": "roster_unestablished",
-      "processing_assessment": "executor_unfinished",
-      "question": "What current protocol-level identity/status does this source substantiate for SA-Animal Cancer Association research and funding discovery?",
-      "reason": "south-africa-saaca-research-foundation: https://www.saaca.org.za/ returned retrieved (HTTP 200); 2 route decisions recorded. Current clinical reconciliation is not evidenced.",
-      "next_action": "Read and enumerate the oncology protocols in the saved material for https://www.saaca.org.za/; reconcile individual identities and changed routes with canonical.",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "external_blocker",
+      "question": "The source does not publish an exhaustive recruiting-treatment roster.",
+      "reason": "Charity supports Onderstepoort oncology resources and student training, assistance/education. Full published partners list is charitable sponsors, not treatment sites; no research protocol invitation or active canine/feline anticancer referral.",
+      "next_action": "Track its published protocol-specific leads on future routine visits.",
       "evidence": {
         "source_id": "south-africa-saaca-research-foundation",
         "attempted_urls": [
@@ -2269,9 +2261,12 @@
           "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson"
         ]
       },
-      "unperformed_steps": [
-        "Read and enumerate the oncology protocols in the saved material for https://www.saaca.org.za/; reconcile individual identities and changed routes with canonical."
-      ]
+      "unperformed_steps": [],
+      "completion_decision": {
+        "remaining_fact": "The source does not publish an exhaustive recruiting-treatment roster.",
+        "routes_exhausted_evidence": "Reviewed this discovery source and each in-scope public protocol link or signal identified; evidence keys: 042c8a7c85b5470740cc, a53e75073679b7cc7556",
+        "available_reconciliation_done_evidence": "Charity supports Onderstepoort oncology resources and student training, assistance/education. Full published partners list is charitable sponsors, not treatment sites; no research protocol invitation or active canine/feline anticancer referral."
+      }
     },
     {
       "source_id": "japan-icat-translational-cancer-research",

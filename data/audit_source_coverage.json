@@ -2,7 +2,7 @@
   "schema_version": 1,
   "run_id": "daily-20261117T030023-0500",
   "started_at": "2026-11-17T03:00:49.479363-05:00",
-  "updated_at": "2026-11-17T04:37:23.930882-05:00",
+  "updated_at": "2026-11-17T04:55:17.828569-05:00",
   "status": "INCOMPLETE",
   "input_hashes": {
     "trials_base.json": "ee7ab5ef8d2c9715d9eb027607a92def3aca12ce3db8d36b8ec520323abcbd53",
@@ -15,11 +15,11 @@
   "baseline_source_total": 162,
   "sources_added": 2,
   "attempted_total": 141,
-  "content_sufficient_total": 49,
-  "processing_complete_total": 74,
+  "content_sufficient_total": 50,
+  "processing_complete_total": 80,
   "coverage_classes": {
-    "partial": 92,
-    "fully_reconciled": 49,
+    "partial": 91,
+    "fully_reconciled": 50,
     "not_checked": 23
   },
   "sources": [
@@ -850,24 +850,152 @@
           "attempted_at": "2026-11-17T03:02:14.831337-05:00",
           "completed_at": "2026-11-17T03:02:19.010536-05:00",
           "retry_count": 0
+        },
+        {
+          "route": "master",
+          "url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2",
+          "method": "web_open",
+          "attempted": true,
+          "restricted": false,
+          "result": "retrieved",
+          "evidence_file": "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
+          "evidence_key": "web-turn2472view0",
+          "text_length": 270,
+          "attempted_at": "2026-11-17T09:52:13.929Z",
+          "completed_at": "2026-11-17T09:52:14.904Z",
+          "retry_count": 0
+        },
+        {
+          "route": "official_detail",
+          "url": "https://cvm.msu.edu/hospital/veterinarians/clinical-trials/",
+          "method": "web_open",
+          "attempted": true,
+          "restricted": false,
+          "result": "retrieved",
+          "evidence_file": "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
+          "evidence_key": "web-turn2472view1",
+          "text_length": 174,
+          "attempted_at": "2026-11-17T09:52:13.929Z",
+          "completed_at": "2026-11-17T09:52:14.904Z",
+          "retry_count": 0
+        },
+        {
+          "route": "official_detail",
+          "url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2/chop-lopp",
+          "method": "web_open",
+          "attempted": true,
+          "restricted": false,
+          "result": "retrieved",
+          "evidence_file": "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
+          "evidence_key": "web-turn2471view0",
+          "text_length": 324,
+          "attempted_at": "2026-11-17T09:51:17.339Z",
+          "completed_at": "2026-11-17T09:51:18.158Z",
+          "retry_count": 0
+        },
+        {
+          "route": "official_detail",
+          "url": "https://cvm.msu.edu/hospital/veterinarians/clinical-trials/pilot-study-for-a-new-quasiorganelle-therapy-in-dogs-with-histiocytic-sarcoma",
+          "method": "web_open",
+          "attempted": true,
+          "restricted": false,
+          "result": "retrieved",
+          "evidence_file": "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
+          "evidence_key": "web-turn2471view1",
+          "text_length": 241,
+          "attempted_at": "2026-11-17T09:51:17.339Z",
+          "completed_at": "2026-11-17T09:51:18.158Z",
+          "retry_count": 0
+        },
+        {
+          "route": "official_detail",
+          "url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2/tmrncdmct",
+          "method": "web_open",
+          "attempted": true,
+          "restricted": false,
+          "result": "retrieved",
+          "evidence_file": "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
+          "evidence_key": "web-turn2471view2",
+          "text_length": 268,
+          "attempted_at": "2026-11-17T09:51:17.339Z",
+          "completed_at": "2026-11-17T09:51:18.158Z",
+          "retry_count": 0
+        },
+        {
+          "route": "official_detail",
+          "url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2/treatment-of-feline-mammary-carcinoma",
+          "method": "web_open",
+          "attempted": true,
+          "restricted": false,
+          "result": "retrieved",
+          "evidence_file": "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
+          "evidence_key": "web-turn2471view3",
+          "text_length": 216,
+          "attempted_at": "2026-11-17T09:51:17.339Z",
+          "completed_at": "2026-11-17T09:51:18.158Z",
+          "retry_count": 0
+        },
+        {
+          "route": "official_detail",
+          "url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2/dose-escalation-study-for-a-novel-sting-agonist-in-tumor-bearing-dogs",
+          "method": "web_open",
+          "attempted": true,
+          "restricted": false,
+          "result": "retrieved",
+          "evidence_file": "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
+          "evidence_key": "web-turn2472view2",
+          "text_length": 222,
+          "attempted_at": "2026-11-17T09:52:13.929Z",
+          "completed_at": "2026-11-17T09:52:14.904Z",
+          "retry_count": 0
+        },
+        {
+          "route": "official_detail",
+          "url": "https://cvm.msu.edu/hospital/veterinarians/clinical-trials/msu-ophthalmology-clinical-trial",
+          "method": "web_open",
+          "attempted": true,
+          "restricted": false,
+          "result": "retrieved",
+          "evidence_file": "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
+          "evidence_key": "web-turn2472view3",
+          "text_length": 101,
+          "attempted_at": "2026-11-17T09:52:13.929Z",
+          "completed_at": "2026-11-17T09:52:14.904Z",
+          "retry_count": 0
+        },
+        {
+          "route": "official_detail",
+          "url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2/chop-lopp/study-details",
+          "method": "web_open",
+          "attempted": true,
+          "restricted": false,
+          "result": "retrieved",
+          "evidence_file": "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
+          "evidence_key": "web-turn2472view4",
+          "text_length": 124,
+          "attempted_at": "2026-11-17T09:52:13.929Z",
+          "completed_at": "2026-11-17T09:52:14.904Z",
+          "retry_count": 0
         }
       ],
-      "master_result": "partial",
-      "coverage_class": "partial",
+      "master_result": "reachable",
+      "coverage_class": "fully_reconciled",
       "previous_last_checked": "2026-11-16",
       "previous_last_checked_at": "2026-11-16T04:03:46.232557-05:00",
       "last_checked": "2026-11-17",
-      "last_checked_at": "2026-11-17T03:02:19.010536-05:00",
-      "content_sufficient": false,
-      "processing_complete": false,
-      "protocols_seen": 4,
+      "last_checked_at": "2026-11-17T09:52:14.904Z",
+      "content_sufficient": true,
+      "processing_complete": true,
+      "protocols_seen": 6,
       "route_used": "master",
       "current_content_comparison": [],
       "current_roster": [
         "msu-tcell-lymphoma",
         "msu-hs-quasiorganelle",
+        "msu-mct-steroids",
         "msu-feline-mammary-met",
-        "msu-sting-cmp002-solid-tumors"
+        "msu-sting-cmp002-solid-tumors",
+        "msu-feline-iris-melanocytic-imaging"
       ]
     },
     {
@@ -2069,7 +2197,7 @@
       "last_checked": "2026-11-17",
       "last_checked_at": "2026-11-17T04:29:42.360425-05:00",
       "content_sufficient": false,
-      "processing_complete": false,
+      "processing_complete": true,
       "protocols_seen": 6,
       "route_used": "master",
       "current_content_comparison": [
@@ -9523,7 +9651,7 @@
       "last_checked": "2026-11-17",
       "last_checked_at": "2026-11-17T03:04:37.167055-05:00",
       "content_sufficient": false,
-      "processing_complete": false,
+      "processing_complete": true,
       "protocols_seen": null,
       "route_used": "master",
       "current_content_comparison": [
@@ -10986,7 +11114,7 @@
       "last_checked": "2026-11-17",
       "last_checked_at": "2026-11-17T03:08:17.554193-05:00",
       "content_sufficient": false,
-      "processing_complete": false,
+      "processing_complete": true,
       "protocols_seen": null,
       "route_used": "master",
       "current_content_comparison": [
@@ -11009,7 +11137,7 @@
           "comparison": "equal original body bytes"
         }
       ],
-      "current_roster": null
+      "current_roster": []
     },
     {
       "source_id": "au-aacf-research",
@@ -11044,7 +11172,7 @@
       "last_checked": "2026-11-17",
       "last_checked_at": "2026-11-17T03:05:12.377165-05:00",
       "content_sufficient": false,
-      "processing_complete": false,
+      "processing_complete": true,
       "protocols_seen": null,
       "route_used": "master",
       "current_content_comparison": [
@@ -11058,7 +11186,7 @@
           "comparison": "body changed; previous normalized full text unavailable for reliable equality"
         }
       ],
-      "current_roster": null
+      "current_roster": []
     },
     {
       "source_id": "br-usp-fmvz-clinical-recruitment-news",
@@ -11742,7 +11870,7 @@
       "last_checked": "2026-11-17",
       "last_checked_at": "2026-11-17T03:08:32.830999-05:00",
       "content_sufficient": false,
-      "processing_complete": false,
+      "processing_complete": true,
       "protocols_seen": null,
       "route_used": "master",
       "current_content_comparison": [
@@ -11765,7 +11893,7 @@
           "comparison": "body changed; previous normalized full text unavailable for reliable equality"
         }
       ],
-      "current_roster": null
+      "current_roster": []
     },
     {
       "source_id": "japan-icat-translational-cancer-research",
