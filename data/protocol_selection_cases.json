@@ -424,8 +424,8 @@
     {
       "trial_id": "ill-osa-il12-rt-current",
       "source_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/10/JEN-101-OSA-with-RT-10-2026.pdf",
-      "reviewed_at": "2026-11-09T08:05:42.439080-05:00",
-      "criteria": "Nonmetastatic appendicular OSA confirmed by cytology/histology with ALP; no earlier chemotherapy, radiotherapy, immunotherapy/checkpoint treatment, steroids or listed immune modulators; sufficient organ function for sedation.",
+      "reviewed_at": "2026-11-17T09:24:15.789Z",
+      "criteria": "Current Illinois JEN-101 plus affected-leg RT and amputation four weeks after RT. Confirmed treatment-naive appendicular canine OSA without metastases, specific immunosuppressor restrictions and organ fitness. Illinois covers JEN-101 and RT, ultrasound/radiographs and up to $2500 amputation, owner pays remainder and named screening/rechecks. Current institution booking contact.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -560,19 +560,68 @@
             "metastasis": "I don't know"
           },
           "expected": "review"
+        },
+        {
+          "name": "17 Nov current primary: expected candidate",
+          "patient": {
+            "country": "USA",
+            "species": "Dog",
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable",
+            "osa_location": "Appendicular — limb bone",
+            "metastasis": "No known metastases",
+            "chemo": "Never",
+            "radiation": "Never",
+            "radiation_affordability": "Would consider radiation"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "17 Nov current primary: explicit exclusion",
+          "patient": {
+            "country": "USA",
+            "species": "Dog",
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable",
+            "osa_location": "Appendicular — limb bone",
+            "metastasis": "No known metastases",
+            "chemo": "Never",
+            "radiation": "Never",
+            "radiation_affordability": "Would not consider radiation"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "17 Nov current primary: unknown needs pre-screen",
+          "patient": {
+            "country": "USA",
+            "species": "Dog",
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "I don't know",
+            "metastasis": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "9f88b0a0864b5ac3bcae62919d193f9121d240dd92c916846ec8731b65350aa8",
       "full_protocol_reverified": true,
-      "primary_evidence_review_run": "daily-20261109T071607-0500-run-now",
+      "primary_evidence_review_run": "daily-20261117T030023-0500",
       "selection_reconciled_at": "2026-11-09T08:05:42.439080-05:00",
-      "selection_reconciled_run": "continue-20261109T075757-0500"
+      "selection_reconciled_run": "continue-20261109T075757-0500",
+      "previous_reviewed_at": "2026-11-09T08:05:42.439080-05:00",
+      "source_evidence_file": "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
+      "primary_evidence_key": "5b37553b42bd85d7966c",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_source_run": "daily-20261117T030023-0500",
+      "primary_evidence_ref": "research/audit-runs/daily-20261117T030023-0500/reviewed-protocols.tsv"
     },
     {
       "trial_id": "ill-osa-z007-current",
       "source_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/10/Canine-Osteosarcoma-pulmonary-metastases.pdf",
-      "reviewed_at": "2026-11-09T08:05:42.439080-05:00",
-      "criteria": "Active or historic OSA (any primary site), lung nodule >=5 mm by CT, controlled pain if no amputation, expected survival at least 9 weeks, >=7 days since RT and >=21 days since chemo/immunotherapy. Exclude immunosuppression, pleural effusion, hypoxia or respiratory distress.",
+      "reviewed_at": "2026-11-17T09:24:15.789Z",
+      "criteria": "Current Illinois IV Z-007 up to eight weekly doses for canine histology/cytology OSA with pulmonary lesions at least 5 mm on CT, any primary site, previous amputation allowed; controlled pain otherwise. Excludes pleural effusion/hypoxia/respiratory distress; 7d prior RT and 21d chemotherapy/immunotherapy washouts. Study costs covered after owner-funded screening, phone listed.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -680,13 +729,56 @@
             "washout",
             "respiratory"
           ]
+        },
+        {
+          "name": "17 Nov current primary: expected candidate",
+          "patient": {
+            "country": "USA",
+            "species": "Dog",
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Completely removed — clean margins",
+            "metastasis": "Confirmed metastases",
+            "surgery": "Yes"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "17 Nov current primary: explicit exclusion",
+          "patient": {
+            "country": "USA",
+            "species": "Dog",
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Completely removed — clean margins",
+            "metastasis": "No known metastases",
+            "surgery": "Yes"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "17 Nov current primary: unknown needs pre-screen",
+          "patient": {
+            "country": "USA",
+            "species": "Dog",
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "I don't know",
+            "metastasis": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "a635e442dd72be9635036dfc81a3d2abfe6969e21608e7aa5eb92e50231a0db6",
       "full_protocol_reverified": true,
-      "primary_evidence_review_run": "daily-20261109T071607-0500-run-now",
+      "primary_evidence_review_run": "daily-20261117T030023-0500",
       "selection_reconciled_at": "2026-11-09T08:05:42.439080-05:00",
-      "selection_reconciled_run": "continue-20261109T075757-0500"
+      "selection_reconciled_run": "continue-20261109T075757-0500",
+      "previous_reviewed_at": "2026-11-09T08:05:42.439080-05:00",
+      "source_evidence_file": "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
+      "primary_evidence_key": "22def732598998ca5567",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_source_run": "daily-20261117T030023-0500",
+      "primary_evidence_ref": "research/audit-runs/daily-20261117T030023-0500/reviewed-protocols.tsv"
     },
     {
       "trial_id": "illinois-sts-surgery",
@@ -5228,8 +5320,8 @@
     {
       "trial_id": "ca-ovc-oral-melanoma-palladia",
       "source_url": "https://ovcclinicaltrials.uoguelph.ca/evaluating-palladia-for-the-treatment-of-canine-oral-melanoma/",
-      "reviewed_at": "2026-11-09T09:09:41.486581-05:00",
-      "criteria": "Biopsy-proven oral melanoma, measurable disease, no prior chemotherapy; previous melanoma vaccine permitted.",
+      "reviewed_at": "2026-11-17T09:24:15.789Z",
+      "criteria": "OVC oncology roster and individual Palladia protocol for measurable biopsy-confirmed canine oral melanoma; prior chemotherapy prohibited, prior melanoma vaccination allowed, repeated Guelph visits. Study covers initial staging items and Palladia with dispensing/administration. OVC intake route explicit; no stated cutoff.",
       "cases": [
         {
           "name": "Current toceranib candidate",
@@ -5305,6 +5397,41 @@
             "chemo": "I don't know"
           },
           "expected": "screen"
+        },
+        {
+          "name": "17 Nov current primary: expected candidate",
+          "patient": {
+            "country": "Canada",
+            "species": "Dog",
+            "cancer": "Oral melanoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable",
+            "chemo": "Never"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "17 Nov current primary: explicit exclusion",
+          "patient": {
+            "country": "Canada",
+            "species": "Dog",
+            "cancer": "Oral melanoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable",
+            "chemo": "Previously received"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "17 Nov current primary: unknown needs pre-screen",
+          "patient": {
+            "country": "Canada",
+            "species": "Dog",
+            "cancer": "Oral melanoma",
+            "diagnosis_status": "I don't know",
+            "chemo": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "2b8f71c49ea374a8fc2fbb8558f9517f785fdf2779f08235f4cf37a393b9d918",
@@ -5320,15 +5447,20 @@
         "contact": "Dr Anthony Mutsaers / Dr Gabby Allegrini; OVC trial service",
         "unpublished": "Other individual screening criteria require team confirmation."
       },
-      "primary_evidence_review_run": "continue-20261109T075757-0500",
-      "source_visit_refreshed_this_run": false,
-      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
+      "primary_evidence_review_run": "daily-20261117T030023-0500",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_source_run": "daily-20261117T030023-0500",
+      "previous_reviewed_at": "2026-11-09T09:09:41.486581-05:00",
+      "full_protocol_reverified": true,
+      "source_evidence_file": "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
+      "primary_evidence_key": "e3d47edb8c60633fe62b",
+      "primary_evidence_ref": "research/audit-runs/daily-20261117T030023-0500/reviewed-protocols.tsv"
     },
     {
       "trial_id": "ca-ovc-osa-hifu",
       "source_url": "https://ovcclinicaltrials.uoguelph.ca/evaluating-a-non-invasive-heat-therapy-for-the-treatment-of-bone-cancer-in-dogs-2/",
-      "reviewed_at": "2026-11-09T09:09:41.486581-05:00",
-      "criteria": "Confirmed distal radius canine OSA, no metastases, no prior surgery or radiotherapy for OSA; previous chemo and bisphosphonates case-by-case.",
+      "reviewed_at": "2026-11-17T09:24:15.789Z",
+      "criteria": "Current Guelph MRI-guided HIFU protocol for confirmed distal-radius canine OSA without metastases or prior local surgery/radiation. Prior chemotherapy/bisphosphonate adjudicated, not absolute. OVC enrolling/visits and at least one SickKids Toronto procedure visit, MRI/HIFU/anesthesia/biopsy covered. No stated cutoff.",
       "cases": [
         {
           "name": "Limb candidate still needs exact distal-radius confirmation",
@@ -5449,6 +5581,45 @@
             "cancer": "Osteosarcoma"
           },
           "expected": "screen"
+        },
+        {
+          "name": "17 Nov current primary: expected candidate",
+          "patient": {
+            "country": "Canada",
+            "species": "Dog",
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable",
+            "metastasis": "No known metastases",
+            "osa_location": "Appendicular — limb bone",
+            "radiation": "Never"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "17 Nov current primary: explicit exclusion",
+          "patient": {
+            "country": "Canada",
+            "species": "Dog",
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable",
+            "metastasis": "Confirmed metastases",
+            "osa_location": "Appendicular — limb bone",
+            "radiation": "Never"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "17 Nov current primary: unknown needs pre-screen",
+          "patient": {
+            "country": "Canada",
+            "species": "Dog",
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "I don't know",
+            "metastasis": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "7e47c7b779c7f8edc10e26b57130baa39fdb50ff23b9a0970da4f515d996fe23",
@@ -5464,9 +5635,14 @@
         "contact": "Dr Brigitte Brisson / OVC Clinical Trials",
         "unpublished": "Exact anatomy and prior treatment indication remain screening questions."
       },
-      "primary_evidence_review_run": "continue-20261109T075757-0500",
-      "source_visit_refreshed_this_run": false,
-      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
+      "primary_evidence_review_run": "daily-20261117T030023-0500",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_source_run": "daily-20261117T030023-0500",
+      "previous_reviewed_at": "2026-11-09T09:09:41.486581-05:00",
+      "full_protocol_reverified": true,
+      "source_evidence_file": "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
+      "primary_evidence_key": "d736c5caa6ef2c96ecc1",
+      "primary_evidence_ref": "research/audit-runs/daily-20261117T030023-0500/reviewed-protocols.tsv"
     },
     {
       "trial_id": "uk-liverpool-dogfight-glioma-ferumoxytol-rt",
@@ -8887,8 +9063,8 @@
     {
       "trial_id": "vt-brain-verteporfin-pdt",
       "source_url": "https://research.vetmed.vt.edu/clinical-trials/current-studies/new-therapy-for-canine-brain-tumors.html",
-      "reviewed_at": "2026-11-09T09:21:12.869381-05:00",
-      "criteria": "New MRI or biopsy-confirmed resectable brain tumor in dog stable for anesthesia; no previous brain tumor chemotherapy, RT or other therapy; severe concurrent illness excludes.",
+      "reviewed_at": "2026-11-17T09:24:15.789Z",
+      "criteria": "Current Virginia Tech study for newly diagnosed, resectable MRI/biopsy canine brain tumor, surgery plus perioperative verteporfin PDT. Prior CNS anticancer therapy or poor anesthetic fitness excluded. Blacksburg covers resection, PDT, designated hospital/MRI/testing; owner pays diagnostic MRI, relevant uncovered local and seizure care and travel. Contact Mindy Quigley.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -8939,13 +9115,53 @@
             "cancer": "Brain tumor / glioma"
           },
           "expected": "screen"
+        },
+        {
+          "name": "17 Nov current primary: expected candidate",
+          "patient": {
+            "country": "USA",
+            "species": "Dog",
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "brain_present": "Yes",
+            "radiation": "Never",
+            "surgery": "Yes"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "17 Nov current primary: explicit exclusion",
+          "patient": {
+            "country": "USA",
+            "species": "Dog",
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "brain_present": "Yes",
+            "radiation": "Previously received",
+            "surgery": "Yes"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "17 Nov current primary: unknown needs pre-screen",
+          "patient": {
+            "country": "USA",
+            "species": "Dog",
+            "cancer": "Brain tumor / glioma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "dcb51073918e3542b31712edaafa0bd6209b4f80f354130cef8da1b9e96fc5bb",
       "full_protocol_reverified": true,
-      "primary_evidence_review_run": "continue-20261109T075757-0500",
-      "source_visit_refreshed_this_run": false,
-      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
+      "primary_evidence_review_run": "daily-20261117T030023-0500",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_source_run": "daily-20261117T030023-0500",
+      "previous_reviewed_at": "2026-11-09T09:21:12.869381-05:00",
+      "source_evidence_file": "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
+      "primary_evidence_key": "518ced9e392c05e48d64",
+      "primary_evidence_ref": "research/audit-runs/daily-20261117T030023-0500/reviewed-protocols.tsv"
     },
     {
       "trial_id": "be-ghent-feline-mammary-gcn2-inhibitor",

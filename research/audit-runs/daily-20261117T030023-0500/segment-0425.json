@@ -1,0 +1,64 @@
+{
+  "run_id": "daily-20261117T030023-0500",
+  "checkpoint_at": "2026-11-17T04:26:18.033494-05:00",
+  "status": "IN_PROGRESS_INCOMPLETE",
+  "main_at_checkpoint": "b7223a29c3deafafc59bf22b3d4e0de9c57d14a2",
+  "durable_queue_sha256": "bd8443fd7ef09ed171a1b570b837d7da3c4a62cfe34e5502301e633fc4f36cb2",
+  "counts": {
+    "sources": {
+      "source_total": 164,
+      "baseline_source_total": 162,
+      "sources_added": 2,
+      "attempted_total": 141,
+      "content_sufficient_total": 45,
+      "processing_complete_total": 68,
+      "coverage_classes": {
+        "partial": 96,
+        "fully_reconciled": 45,
+        "not_checked": 23
+      }
+    },
+    "protocol": {
+      "EXACT_ROUTES_RESTRICTED": 30,
+      "READ_OR_RECONCILIATION_PENDING": 94,
+      "FULL_PUBLIC_PROTOCOL_REREAD": 30
+    },
+    "deadline": {
+      "primary_deadline_not_verified": 250,
+      "expired_no_new_matching": 6,
+      "future_new_study_end_cutoff": 20,
+      "future_known_date": 18,
+      "not_published_in_reviewed_protocol": 27
+    },
+    "issues": {
+      "BLOCKED": 66,
+      "OWNER_DECISION": 1,
+      "OPEN_AVAILABLE": 1,
+      "POLICY_RESOLVED": 2
+    },
+    "leads": {
+      "VERIFIED_EXISTING": 43,
+      "NOT_TREATMENT": 14,
+      "PENDING_EVIDENCE": 17,
+      "CLOSED_CONFIRMED": 7,
+      "SOURCE_INDEX_REVIEWED": 7,
+      "ADDED": 1
+    },
+    "discovery": 138
+  },
+  "artifact_sha256": {
+    "receipt-final.json": "3515559a4ed52e153d6e69ab6eb4a9649e4a8bcf5007a893d098f370000a8a6c",
+    "gap-review.json": "a5a66df08464f391b7191e436cc17168e07b5ce9d272667a8899e89343154a11",
+    "execution-review.json": "1aa7d0f1bdc649d2b090ba654460c7eac7a7ce12bde099b2e14d2871497ee890",
+    "deadline-review.json": "b31fe692ee7af39dfa97bf9bc51b2d4623bc496dba3671278f6725275eccc139",
+    "discovery-leads.json": "b1ce46660d7d105bac55b93134baca07b77210c72e796f69cd56ed97a6125b32",
+    "protocol-review.json": "4df702beded720c2fa79050afafadd335a2af65c9e6cb1b231bd84dda1bd0254",
+    "zurich-adam12-disposition.json": "0ea6eed683cfb0a86d19a1740d40413bb90f3aa023c77d985d181898155ddead",
+    "protocol-verified-updates.json": "16397c6511a3f0286f80c815c34247926ec11e1808ccc25c8c4642c1911f9c08"
+  },
+  "remaining": [
+    "96 source rows with permitted further reconciliation",
+    "94 public trial rows with current clinical or independent work incomplete",
+    "per-record cutoff reconciliation and primary lead processing remain"
+  ]
+}
