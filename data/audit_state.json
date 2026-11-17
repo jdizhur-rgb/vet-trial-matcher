@@ -5,21 +5,29 @@
   "last_incremental_audit": {
     "run_id": "daily-20261117T030023-0500",
     "started_at": "2026-11-17T03:00:49.479363-05:00",
-    "checkpoint_at": "2026-11-17T03:53:32.348436-05:00",
+    "checkpoint_at": "2026-11-17T04:10:32.916113-05:00",
     "status": "INCOMPLETE",
     "receipt": "research/audit-runs/daily-20261117T030023-0500/receipt-final.json",
     "execution_review": "research/audit-runs/daily-20261117T030023-0500/execution-review.json",
     "queue_processing": "INCOMPLETE",
     "clinical_reconciliation": "INCOMPLETE",
-    "sources_processed": 52,
-    "content_sufficient": 29,
+    "sources_processed": 61,
+    "content_sufficient": 38,
     "published_updates": [
       "VSEC mandatory RT",
-      "8 adoption dates",
+      "18 adopted registry dates",
       "ENVT",
       "2 standardized terminal records"
     ],
-    "notes": "Progress checkpoint; no complete source traversal or final clinical coverage claimed. Durable prior queue remains until execution gate passes."
+    "notes": "Progress checkpoint; no complete source traversal or final clinical coverage claimed. Durable prior queue remains until execution gate passes.",
+    "sources_attempted": 141,
+    "sources_total": 164,
+    "documented_source_restrictions": 23,
+    "protocols_fully_reread": 23,
+    "pending_publication": [
+      "2 additional verified dates",
+      "Lisanext official trial source"
+    ]
   },
   "last_source_discovery_attempt": "2026-11-17",
   "forced_full_reread_days": 28,
@@ -111,16 +119,16 @@
     "status": "INCOMPLETE"
   },
   "publication_verification": {
-    "run_id": "daily-20261110T030237-0500",
+    "run_id": "daily-20261117T030023-0500",
     "status": "PASS",
-    "checked_at": "2026-11-10T03:36:59.235554-05:00",
-    "published_data_commit": "ee670c9cbf7a4f9cb7e9cdb9b0ca4ef47b6f65cf",
+    "checked_at": "2026-11-17T04:04:08-05:00",
+    "published_data_commit": "74430d794fa0d87774c926dce2cdb6f3c88173a6",
     "production_url": "https://vettrialfinder.com/matcher/",
     "all_required_assets_match": true,
-    "live_usa_search": "PASS (96, fresh tab; current catalog)",
-    "live_japan_search": "PASS (14, fresh tab; current catalog)",
-    "evidence": "research/audit-runs/daily-20261110T030237-0500/production-readback.json",
-    "note": "No canonical/public site data changed in this run; production remained on the previously published data commit."
+    "live_usa_search": "PASS (96; ordered titles match)",
+    "live_japan_search": "PASS (14; ordered titles match)",
+    "evidence": "research/audit-runs/daily-20261117T030023-0500/production-latest-rendered.json",
+    "assets_evidence": "research/audit-runs/daily-20261117T030023-0500/production-latest-assets.json"
   },
   "last_owner_policy_application": {
     "run_id": "owner-rules-20261103T065741-0500",
@@ -133,11 +141,11 @@
     "run_id": "daily-20261117T030023-0500",
     "evidence": "research/audit-runs/daily-20261117T030023-0500/deadline-review.json",
     "summary": {
-      "primary_deadline_not_verified": 271,
+      "primary_deadline_not_verified": 257,
       "expired_no_new_matching": 6,
-      "future_new_study_end_cutoff": 8,
+      "future_new_study_end_cutoff": 20,
       "future_known_date": 18,
-      "not_published_in_reviewed_protocol": 18
+      "not_published_in_reviewed_protocol": 20
     }
   },
   "last_run_id": "daily-20261117T030023-0500",
