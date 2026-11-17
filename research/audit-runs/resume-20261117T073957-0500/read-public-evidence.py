@@ -48,6 +48,11 @@ def save(u):
     content=b.read_bytes(); out['body_sha256']=hashlib.sha256(content).hexdigest(); text=''; links=[]
     if content.startswith(b'%PDF'):
      text=subprocess.run(['pdftotext','-layout',str(b),'-'],capture_output=True,text=True).stdout
+     if D.name=='pdf-ocr' and len(text.strip())<100:
+      image_prefix=pathlib.Path(a)/'scan'
+      subprocess.run(['pdftoppm','-r','180','-f','1','-l','5','-png',str(b),str(image_prefix)],check=True,timeout=35,capture_output=True)
+      text='\n'.join(subprocess.run(['tesseract',str(img),'stdout'],check=True,capture_output=True,text=True,timeout=25).stdout for img in sorted(pathlib.Path(a).glob('scan-*.png')))
+      out['extraction']='pdftoppm 180dpi and local Tesseract OCR; check against native text and layout'
     elif content.startswith(b'PK\x03\x04') and current.lower().endswith('.docx'):
      from xml.etree import ElementTree as ET
      with zipfile.ZipFile(b) as zf:
