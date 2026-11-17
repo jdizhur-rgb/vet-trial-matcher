@@ -575,13 +575,47 @@
         "matchable_flag_at_check": true
       },
       "site_cutoffs": [],
-      "fresh_primary_calendar_pages": [],
+      "fresh_primary_calendar_pages": [
+        {
+          "url": "https://cvm.ncsu.edu/clinical-trial/now-enrolling-canine-patients-with-liver-tumors/",
+          "source_attempts": [
+            {
+              "attempted_at": "2026-11-17T07:45:48.536161-05:00",
+              "completed_at": "2026-11-17T07:45:52.580256-05:00",
+              "url": "https://cvm.ncsu.edu/clinical-trial/now-enrolling-canine-patients-with-liver-tumors/",
+              "http_status": 200,
+              "exit_code": 0,
+              "error": ""
+            }
+          ],
+          "evidence_ref": "research/audit-runs/resume-20261117T073957-0500/evidence/0ea76aa16ddcf094f923.txt",
+          "published_deadline": "2027-07-01",
+          "published_wording": "Enrollment Finish 07/01/2027"
+        },
+        {
+          "url": "https://cvm.ncsu.edu/wp-content/uploads/sites/444/2023/07/Liver-Tumor-Study-Flyer.pdf",
+          "source_attempts": [
+            {
+              "attempted_at": "2026-11-17T14:14:39.473077+00:00",
+              "completed_at": "2026-11-17T14:14:43.476805+00:00",
+              "url": "https://cvm.ncsu.edu/wp-content/uploads/sites/444/2023/07/Liver-Tumor-Study-Flyer.pdf",
+              "http_status": 200,
+              "exit_code": 0,
+              "error": ""
+            }
+          ],
+          "evidence_ref": "research/audit-runs/resume-20261117T073957-0500/evidence/2aa0667e52319b215912.txt",
+          "published_deadline": null,
+          "published_wording": null
+        }
+      ],
       "prior_morning_review": {
         "ledger": "research/audit-runs/daily-20261117T030023-0500/deadline-review.json",
         "result": "future_known_date",
         "reviewed_at": "2026-11-17T04:55:17.865211-05:00"
       },
-      "result": "no_new_primary_cutoff_review_in_this_segment; original dated result kept separately"
+      "result": "current_explicit_future_cutoff_confirmed",
+      "latest_direct_primary_deadline_review_at": "2026-11-17T09:19:33.041805-05:00"
     },
     {
       "record_id": "ncsu-mammary-inspire",
@@ -949,24 +983,20 @@
       "site_cutoffs": [],
       "fresh_primary_calendar_pages": [
         {
-          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/car-t-cell-immunotherapy-for-metastatic-osteosarcoma-in-dogs-888207/",
-          "actual_read_at": "2026-11-17T08:03:36.256906-05:00",
-          "body_sha256": "9032922702fed06557af0df5ef8d18a9d3e6f257bc2417df93313ff8039ef589",
-          "published_study_end_text": null,
-          "avma_vct_code": null,
-          "registry_or_local_protocol_active": true,
-          "protocol_id": "3398",
-          "underlying_data_sha256": "5dbe21679c449fe9d886f56fd1b39873f40a463366029a4e4676b845ade5501d"
-        },
-        {
-          "url": "https://veterinaryclinicaltrials.org/s/car-t-cell-immunotherapy-for-treatment-of-metastatic-osteosarcoma-in-dogs-450020/",
-          "actual_read_at": "2026-11-17T08:03:40.533355-05:00",
-          "body_sha256": "44fe09038fe4b094e7c056e4638de395c5fc260d2ec7e45ae5e987e382b87254",
-          "published_study_end_text": "Dec. 31, 2026",
-          "avma_vct_code": "VCT23005734",
-          "registry_or_local_protocol_active": true,
-          "protocol_id": "",
-          "underlying_data_sha256": "c5a4f93341cac6722723533201f1aa233bb34d4078dbd3ba6c66d5cbf5e28311"
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/api/v1/studycontent-latest-version/888207/en",
+          "source_attempts": [
+            {
+              "attempted_at": "2026-11-17T14:20:11.415284+00:00",
+              "completed_at": "2026-11-17T14:20:16.430492+00:00",
+              "url": "https://clinicaltrials.csuveterinaryhealth.org/api/v1/studycontent-latest-version/888207/en",
+              "http_status": 200,
+              "exit_code": 0,
+              "error": ""
+            }
+          ],
+          "evidence_ref": "research/audit-runs/resume-20261117T073957-0500/evidence/3d6f1a73081c90c50675.txt",
+          "published_study_end": null,
+          "end_type": null
         }
       ],
       "prior_morning_review": {
@@ -974,7 +1004,8 @@
         "result": "future_new_study_end_cutoff",
         "reviewed_at": "2026-11-17T04:55:17.865211-05:00"
       },
-      "result": "presented_current_primary_calendar_fields; preserve explicit existing cutoff and site scope"
+      "result": "read_current_primary_no_cutoff_published",
+      "latest_direct_primary_deadline_review_at": "2026-11-17T09:22:40.278732-05:00"
     },
     {
       "record_id": "csu-malignant-tram-sapan",
@@ -1236,14 +1267,20 @@
       "site_cutoffs": [],
       "fresh_primary_calendar_pages": [
         {
-          "url": "https://studypages.com/s/innovative-immunotherapy-for-canine-lung-metastases-the-caalm-study-276511/",
-          "actual_read_at": "2026-11-17T08:03:36.001004-05:00",
-          "body_sha256": "dd8d94e0b8dd9a0ed2cd14db636aa3dce81e2150226c4d7c0127d5b19b73760d",
-          "published_study_end_text": "Sept. 10, 2027",
-          "avma_vct_code": null,
-          "registry_or_local_protocol_active": true,
-          "protocol_id": "24060",
-          "underlying_data_sha256": "c7568174367ba22f2adafef3cc0808ed3b2a72ceb6f15871e2e9135e2d359d96"
+          "url": "https://studypages.com/api/v1/studycontent-latest-version/276511/en",
+          "source_attempts": [
+            {
+              "attempted_at": "2026-11-17T14:20:11.416085+00:00",
+              "completed_at": "2026-11-17T14:20:15.987976+00:00",
+              "url": "https://studypages.com/api/v1/studycontent-latest-version/276511/en",
+              "http_status": 200,
+              "exit_code": 0,
+              "error": ""
+            }
+          ],
+          "evidence_ref": "research/audit-runs/resume-20261117T073957-0500/evidence/c8d5e5315b9e07496f9c.txt",
+          "published_study_end": "2027-09-10",
+          "end_type": "published_study_end"
         }
       ],
       "prior_morning_review": {
@@ -1251,7 +1288,8 @@
         "result": "future_known_date",
         "reviewed_at": "2026-11-17T04:55:17.865211-05:00"
       },
-      "result": "presented_current_primary_calendar_fields; preserve explicit existing cutoff and site scope"
+      "result": "current_study_end_cutoff_confirmed",
+      "latest_direct_primary_deadline_review_at": "2026-11-17T09:22:40.278732-05:00"
     },
     {
       "record_id": "ucd-liver-rna",
@@ -1724,14 +1762,20 @@
       "site_cutoffs": [],
       "fresh_primary_calendar_pages": [
         {
-          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/immunotherapy-car-t-treatment-for-canine-glioma-tumors-780192/?ref=gallery",
-          "actual_read_at": "2026-11-17T08:03:40.628620-05:00",
-          "body_sha256": "3516d842b612febf156c8fba6a44e696f6157f2220af44c7bcb2f3b4735b8a6a",
-          "published_study_end_text": "Dec. 31, 2028",
-          "avma_vct_code": null,
-          "registry_or_local_protocol_active": true,
-          "protocol_id": "5335",
-          "underlying_data_sha256": "8778310e76d42b07f1ba2eb2c0714d7433d286424be50589c5d91cc793a4164b"
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/api/v1/studycontent-latest-version/780192/en",
+          "source_attempts": [
+            {
+              "attempted_at": "2026-11-17T14:20:16.434083+00:00",
+              "completed_at": "2026-11-17T14:20:21.442093+00:00",
+              "url": "https://clinicaltrials.csuveterinaryhealth.org/api/v1/studycontent-latest-version/780192/en",
+              "http_status": 200,
+              "exit_code": 0,
+              "error": ""
+            }
+          ],
+          "evidence_ref": "research/audit-runs/resume-20261117T073957-0500/evidence/5c500a226e13e3af2915.txt",
+          "published_study_end": "2028-12-31",
+          "end_type": "published_study_end"
         }
       ],
       "prior_morning_review": {
@@ -1739,7 +1783,8 @@
         "result": "future_known_date",
         "reviewed_at": "2026-11-17T04:55:17.865211-05:00"
       },
-      "result": "presented_current_primary_calendar_fields; preserve explicit existing cutoff and site scope"
+      "result": "current_study_end_cutoff_confirmed",
+      "latest_direct_primary_deadline_review_at": "2026-11-17T09:22:40.278732-05:00"
     },
     {
       "record_id": "csu-brain-barc",
@@ -3657,14 +3702,20 @@
       "site_cutoffs": [],
       "fresh_primary_calendar_pages": [
         {
-          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/combination-of-lapatinib-and-fractionated-radiation-therapy-for-dogs-with-transitional-cell-carcinoma-598674/",
-          "actual_read_at": "2026-11-17T08:03:48.318625-05:00",
-          "body_sha256": "d22c6eda39376183f8eb885fd6200efeea94d352ab1c91af055ceabb222b022e",
-          "published_study_end_text": null,
-          "avma_vct_code": null,
-          "registry_or_local_protocol_active": true,
-          "protocol_id": "7191",
-          "underlying_data_sha256": "6766af45a84c336e23475656d8aff5c6ed48ba4cb71ad8722833b7a7baffe243"
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/api/v1/studycontent-latest-version/598674/en",
+          "source_attempts": [
+            {
+              "attempted_at": "2026-11-17T14:20:11.415555+00:00",
+              "completed_at": "2026-11-17T14:20:16.413455+00:00",
+              "url": "https://clinicaltrials.csuveterinaryhealth.org/api/v1/studycontent-latest-version/598674/en",
+              "http_status": 200,
+              "exit_code": 0,
+              "error": ""
+            }
+          ],
+          "evidence_ref": "research/audit-runs/resume-20261117T073957-0500/evidence/1cd02f5f775276852977.txt",
+          "published_study_end": null,
+          "end_type": null
         }
       ],
       "prior_morning_review": {
@@ -3672,7 +3723,8 @@
         "result": "future_new_study_end_cutoff",
         "reviewed_at": "2026-11-17T04:55:17.865211-05:00"
       },
-      "result": "presented_current_primary_calendar_fields; preserve explicit existing cutoff and site scope"
+      "result": "read_current_primary_no_cutoff_published",
+      "latest_direct_primary_deadline_review_at": "2026-11-17T09:22:40.278732-05:00"
     },
     {
       "record_id": "csu-sarcoma-engineered-tcells",
@@ -3687,14 +3739,20 @@
       "site_cutoffs": [],
       "fresh_primary_calendar_pages": [
         {
-          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/clinical-testing-of-canine-t-cells-engineered-to-target-soft-tissue-sarcoma-with-oral-immunotherapy-511687/",
-          "actual_read_at": "2026-11-17T08:03:48.317767-05:00",
-          "body_sha256": "9d1adafbf08bff8cea442089546277f7cca2d0b059b0998bbc1471cc218c8a40",
-          "published_study_end_text": null,
-          "avma_vct_code": null,
-          "registry_or_local_protocol_active": true,
-          "protocol_id": "5269",
-          "underlying_data_sha256": "64602d26ac7cb3bc1fb73cca0351cf8362bac96d9c670a93af3ce22ff449b595"
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/api/v1/studycontent-latest-version/511687/en",
+          "source_attempts": [
+            {
+              "attempted_at": "2026-11-17T14:20:16.434475+00:00",
+              "completed_at": "2026-11-17T14:20:21.486332+00:00",
+              "url": "https://clinicaltrials.csuveterinaryhealth.org/api/v1/studycontent-latest-version/511687/en",
+              "http_status": 200,
+              "exit_code": 0,
+              "error": ""
+            }
+          ],
+          "evidence_ref": "research/audit-runs/resume-20261117T073957-0500/evidence/299ec22db542cffa33bb.txt",
+          "published_study_end": null,
+          "end_type": null
         }
       ],
       "prior_morning_review": {
@@ -3702,7 +3760,8 @@
         "result": "primary_deadline_not_verified",
         "reviewed_at": "2026-11-17T04:55:17.865211-05:00"
       },
-      "result": "presented_current_primary_calendar_fields; preserve explicit existing cutoff and site scope"
+      "result": "read_current_primary_no_cutoff_published",
+      "latest_direct_primary_deadline_review_at": "2026-11-17T09:22:40.278732-05:00"
     },
     {
       "record_id": "csu-cotc033-vaccine-immunity",
@@ -3804,13 +3863,31 @@
         "matchable_flag_at_check": true
       },
       "site_cutoffs": [],
-      "fresh_primary_calendar_pages": [],
+      "fresh_primary_calendar_pages": [
+        {
+          "url": "https://vet.tufts.edu/clinical-trials/treatment-canine-metastatic-osteosarcoma-combined-tumor-microenvironment-modification-and-allogeneic-vaccination",
+          "source_attempts": [
+            {
+              "attempted_at": "2026-11-17T07:46:08.524645-05:00",
+              "completed_at": "2026-11-17T07:46:12.580306-05:00",
+              "url": "https://vet.tufts.edu/clinical-trials/treatment-canine-metastatic-osteosarcoma-combined-tumor-microenvironment-modification-and-allogeneic-vaccination",
+              "http_status": 200,
+              "exit_code": 0,
+              "error": ""
+            }
+          ],
+          "evidence_ref": "research/audit-runs/resume-20261117T073957-0500/evidence/00d29846cbc3569e2ac6.txt",
+          "published_deadline": null,
+          "published_wording": null
+        }
+      ],
       "prior_morning_review": {
         "ledger": "research/audit-runs/daily-20261117T030023-0500/deadline-review.json",
         "result": "primary_deadline_not_verified",
         "reviewed_at": "2026-11-17T04:55:17.865211-05:00"
       },
-      "result": "no_new_primary_cutoff_review_in_this_segment; original dated result kept separately"
+      "result": "read_current_primary_no_cutoff_published",
+      "latest_direct_primary_deadline_review_at": "2026-11-17T09:19:33.041805-05:00"
     },
     {
       "record_id": "osu-sts-mic-nk",
@@ -4588,24 +4665,20 @@
       "site_cutoffs": [],
       "fresh_primary_calendar_pages": [
         {
-          "url": "https://studypages.com/s/novel-drug-combined-with-radiation-therapy-for-dogs-with-brain-tumors-glioma-353022/",
-          "actual_read_at": "2026-11-17T08:03:43.811124-05:00",
-          "body_sha256": "128d9aa706cdc51cd633a9d49627306528d43fd5c0da2b11497acb7d3f5dd387",
-          "published_study_end_text": "Jan. 4, 2028",
-          "avma_vct_code": null,
-          "registry_or_local_protocol_active": true,
-          "protocol_id": "24515",
-          "underlying_data_sha256": "7af13a3ddde6971706d3e8a3975597749b0fe79f740a8f25b0c8df2b450f1b95"
-        },
-        {
-          "url": "https://studypages.com/s/care-trial-combined-autophagy-inhibition-and-radiation-therapy-to-improve-efficacy-in-canine-glioma-353022/",
-          "actual_read_at": "2026-11-17T08:03:49.000510-05:00",
-          "body_sha256": "128d9aa706cdc51cd633a9d49627306528d43fd5c0da2b11497acb7d3f5dd387",
-          "published_study_end_text": "Jan. 4, 2028",
-          "avma_vct_code": null,
-          "registry_or_local_protocol_active": true,
-          "protocol_id": "24515",
-          "underlying_data_sha256": "7af13a3ddde6971706d3e8a3975597749b0fe79f740a8f25b0c8df2b450f1b95"
+          "url": "https://studypages.com/api/v1/studycontent-latest-version/353022/en",
+          "source_attempts": [
+            {
+              "attempted_at": "2026-11-17T14:20:16.434336+00:00",
+              "completed_at": "2026-11-17T14:20:20.511259+00:00",
+              "url": "https://studypages.com/api/v1/studycontent-latest-version/353022/en",
+              "http_status": 200,
+              "exit_code": 0,
+              "error": ""
+            }
+          ],
+          "evidence_ref": "research/audit-runs/resume-20261117T073957-0500/evidence/f6bc90a9c418b91aceab.txt",
+          "published_study_end": "2028-01-04",
+          "end_type": "published_study_end"
         }
       ],
       "prior_morning_review": {
@@ -4613,7 +4686,8 @@
         "result": "future_known_date",
         "reviewed_at": "2026-11-17T04:55:17.865211-05:00"
       },
-      "result": "presented_current_primary_calendar_fields; preserve explicit existing cutoff and site scope"
+      "result": "current_study_end_cutoff_confirmed",
+      "latest_direct_primary_deadline_review_at": "2026-11-17T09:22:40.278732-05:00"
     },
     {
       "record_id": "ucd-prism-canine-glioma",
@@ -4628,14 +4702,20 @@
       "site_cutoffs": [],
       "fresh_primary_calendar_pages": [
         {
-          "url": "https://studypages.com/s/prism-trial-precision-research-integrating-symptoms-and-molecular-biology-in-canine-glioma-788706/",
-          "actual_read_at": "2026-11-17T08:03:48.994458-05:00",
-          "body_sha256": "531b8b5aa0ec23dfec8863d3a00f588f1ac98392e77f7beb52965f3d40c9a175",
-          "published_study_end_text": "Aug. 13, 2031",
-          "avma_vct_code": null,
-          "registry_or_local_protocol_active": true,
-          "protocol_id": "24619",
-          "underlying_data_sha256": "dafd42b9afb387ecd0975f3ad2b51dd27d90aae811c77602b62c20869b5f3a8b"
+          "url": "https://studypages.com/api/v1/studycontent-latest-version/788706/en",
+          "source_attempts": [
+            {
+              "attempted_at": "2026-11-17T14:20:16.435234+00:00",
+              "completed_at": "2026-11-17T14:20:20.553064+00:00",
+              "url": "https://studypages.com/api/v1/studycontent-latest-version/788706/en",
+              "http_status": 200,
+              "exit_code": 0,
+              "error": ""
+            }
+          ],
+          "evidence_ref": "research/audit-runs/resume-20261117T073957-0500/evidence/fe797ca390af3f45ec90.txt",
+          "published_study_end": "2031-08-13",
+          "end_type": "published_study_end"
         }
       ],
       "prior_morning_review": {
@@ -4643,7 +4723,8 @@
         "result": "future_known_date",
         "reviewed_at": "2026-11-17T04:55:17.865211-05:00"
       },
-      "result": "presented_current_primary_calendar_fields; preserve explicit existing cutoff and site scope"
+      "result": "current_study_end_cutoff_confirmed",
+      "latest_direct_primary_deadline_review_at": "2026-11-17T09:22:40.278732-05:00"
     },
     {
       "record_id": "aurelius-lytix-bcell-lymphoma",
@@ -4973,14 +5054,20 @@
       "site_cutoffs": [],
       "fresh_primary_calendar_pages": [
         {
-          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/pilot-clinical-trial-of-anti-cancer-therapy-with-trametinib-in-naturally-occurring-acute-myeloid-leukemia-860722/",
-          "actual_read_at": "2026-11-17T08:03:55.726112-05:00",
-          "body_sha256": "3017b86fb40e9a52637bd407a9ae501c088831f250d5a988b8a3974f9b578755",
-          "published_study_end_text": "March 31, 2028",
-          "avma_vct_code": null,
-          "registry_or_local_protocol_active": true,
-          "protocol_id": "7867",
-          "underlying_data_sha256": "fe79d897245d48692220837a6b5b602a99ff4dd7c832960667ccf6f25cfbcd1f"
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/api/v1/studycontent-latest-version/860722/en",
+          "source_attempts": [
+            {
+              "attempted_at": "2026-11-17T07:46:29.390605-05:00",
+              "completed_at": "2026-11-17T07:46:33.460504-05:00",
+              "url": "https://clinicaltrials.csuveterinaryhealth.org/api/v1/studycontent-latest-version/860722/en",
+              "http_status": 200,
+              "exit_code": 0,
+              "error": ""
+            }
+          ],
+          "evidence_ref": "research/audit-runs/resume-20261117T073957-0500/evidence/bb0aa440215bd328bb85.txt",
+          "published_study_end": "2028-03-31",
+          "end_type": "published_study_end"
         }
       ],
       "prior_morning_review": {
@@ -4988,7 +5075,8 @@
         "result": "future_known_date",
         "reviewed_at": "2026-11-17T04:55:17.865211-05:00"
       },
-      "result": "presented_current_primary_calendar_fields; preserve explicit existing cutoff and site scope"
+      "result": "current_study_end_cutoff_confirmed",
+      "latest_direct_primary_deadline_review_at": "2026-11-17T09:22:40.278732-05:00"
     },
     {
       "record_id": "csu-ucc-icg-surgery",
@@ -5547,14 +5635,20 @@
       "site_cutoffs": [],
       "fresh_primary_calendar_pages": [
         {
-          "url": "https://studypages.com/s/using-a-combination-of-therapies-for-treatment-of-nasal-cancer-in-dogs-217934/",
-          "actual_read_at": "2026-11-17T08:03:55.780741-05:00",
-          "body_sha256": "998fd6b8cb5ed81e6c5e417e87b35798af7d1066d0b40b0129be33771db488aa",
-          "published_study_end_text": null,
-          "avma_vct_code": null,
-          "registry_or_local_protocol_active": true,
-          "protocol_id": "21239 (19410, 17733)",
-          "underlying_data_sha256": "189fc6d0e41dfa87ddf0cc5a730f58fbb180b08ad34f4e85ade136b8f53995e7"
+          "url": "https://studypages.com/api/v1/studycontent-latest-version/217934/en",
+          "source_attempts": [
+            {
+              "attempted_at": "2026-11-17T14:20:21.488732+00:00",
+              "completed_at": "2026-11-17T14:20:25.528846+00:00",
+              "url": "https://studypages.com/api/v1/studycontent-latest-version/217934/en",
+              "http_status": 200,
+              "exit_code": 0,
+              "error": ""
+            }
+          ],
+          "evidence_ref": "research/audit-runs/resume-20261117T073957-0500/evidence/76159d77104ad9d4192d.txt",
+          "published_study_end": null,
+          "end_type": null
         }
       ],
       "prior_morning_review": {
@@ -5562,7 +5656,8 @@
         "result": "primary_deadline_not_verified",
         "reviewed_at": "2026-11-17T04:55:17.865211-05:00"
       },
-      "result": "presented_current_primary_calendar_fields; preserve explicit existing cutoff and site scope"
+      "result": "read_current_primary_no_cutoff_published",
+      "latest_direct_primary_deadline_review_at": "2026-11-17T09:22:40.278732-05:00"
     },
     {
       "record_id": "ucd-nasal-tae",
@@ -5577,14 +5672,20 @@
       "site_cutoffs": [],
       "fresh_primary_calendar_pages": [
         {
-          "url": "https://studypages.com/s/novel-treatment-for-nasal-tumors-320455/",
-          "actual_read_at": "2026-11-17T08:03:55.764358-05:00",
-          "body_sha256": "041bf71cce6d5343d1db26cfc6834150a1031017d5a597bf9344237fabe1d89e",
-          "published_study_end_text": null,
-          "avma_vct_code": null,
-          "registry_or_local_protocol_active": true,
-          "protocol_id": "21863 (20094)",
-          "underlying_data_sha256": "0df4a1057aba2b2be50cdb42b876bee44eabd139edc94a331ba261152810355b"
+          "url": "https://studypages.com/api/v1/studycontent-latest-version/320455/en",
+          "source_attempts": [
+            {
+              "attempted_at": "2026-11-17T14:20:21.489346+00:00",
+              "completed_at": "2026-11-17T14:20:25.505851+00:00",
+              "url": "https://studypages.com/api/v1/studycontent-latest-version/320455/en",
+              "http_status": 200,
+              "exit_code": 0,
+              "error": ""
+            }
+          ],
+          "evidence_ref": "research/audit-runs/resume-20261117T073957-0500/evidence/de4cef268b26466d96db.txt",
+          "published_study_end": null,
+          "end_type": null
         }
       ],
       "prior_morning_review": {
@@ -5592,7 +5693,8 @@
         "result": "primary_deadline_not_verified",
         "reviewed_at": "2026-11-17T04:55:17.865211-05:00"
       },
-      "result": "presented_current_primary_calendar_fields; preserve explicit existing cutoff and site scope"
+      "result": "read_current_primary_no_cutoff_published",
+      "latest_direct_primary_deadline_review_at": "2026-11-17T09:22:40.278732-05:00"
     },
     {
       "record_id": "ucd-liver-tae-tace",
@@ -5761,14 +5863,20 @@
       "site_cutoffs": [],
       "fresh_primary_calendar_pages": [
         {
-          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/non-surgical-chemotherapy-treatment-for-canine-brain-tumors-836628/?ref=gallery",
-          "actual_read_at": "2026-11-17T08:03:55.752545-05:00",
-          "body_sha256": "ce57bce55859e6c1469b3a2bba4fae98ab74e2dbe8e28bb5e5c05df3b45dbc89",
-          "published_study_end_text": null,
-          "avma_vct_code": null,
-          "registry_or_local_protocol_active": true,
-          "protocol_id": "6276",
-          "underlying_data_sha256": "b246625b28de9170b612b810cb84dcb77d67e515f0853134a705388dea7b9f94"
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/api/v1/studycontent-latest-version/836628/en",
+          "source_attempts": [
+            {
+              "attempted_at": "2026-11-17T14:20:21.488966+00:00",
+              "completed_at": "2026-11-17T14:20:25.909754+00:00",
+              "url": "https://clinicaltrials.csuveterinaryhealth.org/api/v1/studycontent-latest-version/836628/en",
+              "http_status": 200,
+              "exit_code": 0,
+              "error": ""
+            }
+          ],
+          "evidence_ref": "research/audit-runs/resume-20261117T073957-0500/evidence/981b639ed55beb3dd6a0.txt",
+          "published_study_end": null,
+          "end_type": null
         }
       ],
       "prior_morning_review": {
@@ -5776,7 +5884,8 @@
         "result": "primary_deadline_not_verified",
         "reviewed_at": "2026-11-17T04:55:17.865211-05:00"
       },
-      "result": "presented_current_primary_calendar_fields; preserve explicit existing cutoff and site scope"
+      "result": "read_current_primary_no_cutoff_published",
+      "latest_direct_primary_deadline_review_at": "2026-11-17T09:22:40.278732-05:00"
     },
     {
       "record_id": "csu-tvt-single-radiation-2026",
@@ -5791,14 +5900,20 @@
       "site_cutoffs": [],
       "fresh_primary_calendar_pages": [
         {
-          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/single-radiation-treatment-for-dogs-with-transmissible-venereal-tumor-709721/?ref=gallery",
-          "actual_read_at": "2026-11-17T08:03:59.292523-05:00",
-          "body_sha256": "ba1f049f1b888090b6e98353bfb7c244d531f8517efe0825d72107e923e780f8",
-          "published_study_end_text": null,
-          "avma_vct_code": null,
-          "registry_or_local_protocol_active": true,
-          "protocol_id": "7968",
-          "underlying_data_sha256": "f57848a6f009a57f72e4119df37bb115bf4387844431b4fa41a85ec856b97e2a"
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/api/v1/studycontent-latest-version/709721/en",
+          "source_attempts": [
+            {
+              "attempted_at": "2026-11-17T14:20:21.488357+00:00",
+              "completed_at": "2026-11-17T14:20:25.956625+00:00",
+              "url": "https://clinicaltrials.csuveterinaryhealth.org/api/v1/studycontent-latest-version/709721/en",
+              "http_status": 200,
+              "exit_code": 0,
+              "error": ""
+            }
+          ],
+          "evidence_ref": "research/audit-runs/resume-20261117T073957-0500/evidence/56973081608614df0ccd.txt",
+          "published_study_end": null,
+          "end_type": null
         }
       ],
       "prior_morning_review": {
@@ -5806,7 +5921,8 @@
         "result": "future_new_study_end_cutoff",
         "reviewed_at": "2026-11-17T04:55:17.865211-05:00"
       },
-      "result": "presented_current_primary_calendar_fields; preserve explicit existing cutoff and site scope"
+      "result": "read_current_primary_no_cutoff_published",
+      "latest_direct_primary_deadline_review_at": "2026-11-17T09:22:40.278732-05:00"
     },
     {
       "record_id": "tufts-osa-actionable-targets-2026",
@@ -6077,13 +6193,31 @@
         "matchable_flag_at_check": true
       },
       "site_cutoffs": [],
-      "fresh_primary_calendar_pages": [],
+      "fresh_primary_calendar_pages": [
+        {
+          "url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/neurology-2/autogenic-vaccine-study-in-dogs-with-glioma/",
+          "source_attempts": [
+            {
+              "attempted_at": "2026-11-17T07:46:54.200482-05:00",
+              "completed_at": "2026-11-17T07:46:58.034728-05:00",
+              "url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/neurology-2/autogenic-vaccine-study-in-dogs-with-glioma/",
+              "http_status": 200,
+              "exit_code": 0,
+              "error": ""
+            }
+          ],
+          "evidence_ref": "research/audit-runs/resume-20261117T073957-0500/evidence/f9bebf2ee8facf26f073.txt",
+          "published_deadline": null,
+          "published_wording": null
+        }
+      ],
       "prior_morning_review": {
         "ledger": "research/audit-runs/daily-20261117T030023-0500/deadline-review.json",
         "result": "primary_deadline_not_verified",
         "reviewed_at": "2026-11-17T04:55:17.865211-05:00"
       },
-      "result": "no_new_primary_cutoff_review_in_this_segment; original dated result kept separately"
+      "result": "read_current_primary_no_cutoff_published",
+      "latest_direct_primary_deadline_review_at": "2026-11-17T09:19:33.041805-05:00"
     },
     {
       "record_id": "mvh-hifu-doxorubicin-lymphoma",
@@ -6362,13 +6496,31 @@
         "matchable_flag_at_check": true
       },
       "site_cutoffs": [],
-      "fresh_primary_calendar_pages": [],
+      "fresh_primary_calendar_pages": [
+        {
+          "url": "https://vth-tottori-u.jp/clinical-research/3571/",
+          "source_attempts": [
+            {
+              "attempted_at": "2026-11-17T07:46:59.854923-05:00",
+              "completed_at": "2026-11-17T07:47:05.751112-05:00",
+              "url": "https://vth-tottori-u.jp/clinical-research/3571/",
+              "http_status": 200,
+              "exit_code": 0,
+              "error": ""
+            }
+          ],
+          "evidence_ref": "research/audit-runs/resume-20261117T073957-0500/evidence/1ad3b9db0fdec94647af.txt",
+          "published_deadline": null,
+          "published_wording": null
+        }
+      ],
       "prior_morning_review": {
         "ledger": "research/audit-runs/daily-20261117T030023-0500/deadline-review.json",
         "result": "primary_deadline_not_verified",
         "reviewed_at": "2026-11-17T04:55:17.865211-05:00"
       },
-      "result": "no_new_primary_cutoff_review_in_this_segment; original dated result kept separately"
+      "result": "read_current_primary_no_cutoff_published",
+      "latest_direct_primary_deadline_review_at": "2026-11-17T09:19:33.041805-05:00"
     },
     {
       "record_id": "jp-vsec-ucc-mogamulizumab-radiation",
@@ -6443,5 +6595,5 @@
       "result": "no_new_primary_cutoff_review_in_this_segment; original dated result kept separately"
     }
   ],
-  "updated_at": "2026-11-17T08:39:36.657955-05:00"
+  "updated_at": "2026-11-17T09:22:40.278732-05:00"
 }
