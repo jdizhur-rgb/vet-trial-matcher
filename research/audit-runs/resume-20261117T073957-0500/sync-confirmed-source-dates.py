@@ -41,5 +41,5 @@ for s in inv['sources']:
                     'evidence_ref':str(r/'source-route-evidence.json'),'most_recent_actual_attempt':newest})
 if changes:
     put(p,inv)
-    put(r/'source-date-delta-0840.json',{'run_id':r.name,'recorded_at':datetime.now(ZoneInfo('America/New_York')).isoformat(),'updated':changes,'unchanged_count':len(inv['sources'])-len(changes)})
+    put(r/(sys.argv[2] if len(sys.argv)>2 else 'source-date-delta-0840.json'),{'run_id':r.name,'recorded_at':datetime.now(ZoneInfo('America/New_York')).isoformat(),'updated':changes,'unchanged_count':len(inv['sources'])-len(changes)})
 print('updated',len(changes))
