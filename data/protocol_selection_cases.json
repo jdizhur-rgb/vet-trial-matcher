@@ -11841,9 +11841,9 @@
     {
       "trial_id": "jp-vsec-ucc-mogamulizumab-radiation",
       "source_url": "https://vsec.jp/hospital/clinical-research/",
-      "reviewed_at": "2026-11-09T09:41:53.719038-05:00",
+      "reviewed_at": "2026-11-17T08:27:30.897Z",
       "full_protocol_reverified": true,
-      "criteria": "Dog suspected or confirmed lower urinary tract UCC; no prior cancer therapy or surgery, urinary obstruction/hydronephrosis/hydroureter, IRIS 3–4 CKD, or poor expected survival <2–3 months.",
+      "criteria": "Dog suspected or confirmed lower urinary tract UCC; no prior cancer therapy or surgery, urinary obstruction/hydronephrosis/hydroureter, IRIS 3–4 CKD, or poor expected survival <2–3 months. Both randomized arms receive three weeks of radiation; the refusal of radiation excludes both arms. Costs are unpublished.",
       "cases": [
         {
           "name": "published suspected canine UCC candidate",
@@ -11899,12 +11899,60 @@
             "cancer": "Urothelial carcinoma"
           },
           "expected": "screen"
+        },
+        {
+          "name": "Mandatory study radiotherapy accepted",
+          "patient": {
+            "species": "Dog",
+            "country": "Japan",
+            "cancer": "Urothelial carcinoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "radiation_affordability": "Would consider radiation"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "No radiation preference excludes both arms",
+          "patient": {
+            "species": "Dog",
+            "country": "Japan",
+            "cancer": "Urothelial carcinoma",
+            "prefs": [
+              "Immunotherapy",
+              "Chemotherapy",
+              "Surgery"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Explicitly refuses radiation even with box checked",
+          "patient": {
+            "species": "Dog",
+            "country": "Japan",
+            "cancer": "Urothelial carcinoma",
+            "radiation_affordability": "Would not consider radiation"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Uncertain radiation preference retains screening warning",
+          "patient": {
+            "species": "Dog",
+            "country": "Japan",
+            "cancer": "Urothelial carcinoma"
+          },
+          "expected": "screen",
+          "unknown_contains": [
+            "required study radiation"
+          ]
         }
       ],
-      "selection_sha256": "573c093717f0c8b5c46310082ebcfd12925493a70eecaffa9ef9b581cac65968",
-      "primary_evidence_review_run": "continue-20261109T075757-0500",
-      "source_visit_refreshed_this_run": false,
-      "primary_evidence_source_run": "daily-20261109T071607-0500-run-now"
+      "selection_sha256": "437233a0b5ce72c5ce4a039c08db4c66a927cd742911afb3482a91cd6f8ca93a",
+      "primary_evidence_review_run": "daily-20261117T030023-0500",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_source_run": "daily-20261117T030023-0500",
+      "primary_evidence_ref": "research/audit-runs/daily-20261117T030023-0500/reviewed-protocols.tsv"
     },
     {
       "trial_id": "midwestern-glendale-canine-cancer-chemotherapy",
