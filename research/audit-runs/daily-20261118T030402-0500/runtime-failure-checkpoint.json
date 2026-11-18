@@ -1,0 +1,170 @@
+{
+  "run_id": "daily-20261118T030402-0500",
+  "recorded_at": "2026-11-18 10:11:53 UTC",
+  "status": "FAILED_INCOMPLETE",
+  "started_at": "2026-11-18T03:04:02.404339-05:00",
+  "failure_observed_at": "2026-11-18T10:07:25Z",
+  "stop": {
+    "reason": "runtime_failure",
+    "detail": "exec-server transport disconnected; resume recovery timed out after45s. Environment then reported unavailable. Shell/Python/filesystem/Git CLI no longer usable; GitHub connector remains available.",
+    "evidence": "Actual failed functions cell294 and user-provided environment status unavailable."
+  },
+  "error": "Failed to create unified exec process: exec-server transport disconnected; failed to resume exec-server session: recovery timed out after 45s",
+  "publication": {
+    "pr": 24,
+    "url": "https://github.com/jdizhur-rgb/vet-trial-matcher/pull/24",
+    "local_commit": "2448b0629fcaab46276ac042b2be9146d8a92623",
+    "api_commit": "5a9bb6fb2ef50818bcf32513790bb0ef7fdba19d",
+    "main_sha": "53da0103b3b1e2cbfa3c57182a15132ed7a5a00d",
+    "tested_tree": "4f99cd0088fb0961eb5bbaaa3af9fb12e1064629",
+    "remote_tree_exact": true
+  },
+  "production": {
+    "deployment": {
+      "recorded_at": "2026-11-18 10:01:16 UTC",
+      "id": 44281052329,
+      "name": "Build and deploy static site",
+      "head_sha": "53da0103b3b1e2cbfa3c57182a15132ed7a5a00d",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/44281052329",
+      "updated_at": "2026-11-18T10:00:50Z"
+    },
+    "catalog": {
+      "bytes": 403159,
+      "local_and_production_sha256": "9665d68b5e626407865a39d686630cc7afc243bd615faf97bd240a0ecd1bd573",
+      "http_status": 200,
+      "result": "PASS"
+    },
+    "matcher_page": {
+      "bytes": 62254,
+      "local_and_production_sha256": "ad9b7be9611714f88a8e83fd90d4b85fd211e7c43fecc0383a89c8baeb6f6f5c",
+      "http_status": 200,
+      "result": "PASS"
+    },
+    "rendered_search": {
+      "url": "https://vettrialfinder.com/matcher/",
+      "species": "Dog",
+      "cancer_type": "Cancer — any type",
+      "USA": 95,
+      "Japan": 14,
+      "result": "PASS",
+      "method": "Actual browser combobox interaction and Find potential trials clicks, rendered accessibility results observed; marked deliverable. Screenshot not captured."
+    }
+  },
+  "sources": {
+    "total": 164,
+    "individual_decisions": 164,
+    "actual_master_or_fallback_web_attempts": 144,
+    "restriction_review_without_new_request": 20,
+    "published_progress_sufficient": 21,
+    "last_local_amended_sufficient": 22,
+    "last_local_processing_complete": 83,
+    "last_local_unconfirmed_processing": 81,
+    "latest_amendment": "ENVT complete table excludes cancer-treatment cohorts; exact scope zero. Local source-decisions015 and repaired gap validator PASS were observed before runtime loss.",
+    "no_claim_of_all_sources_fully_verified": true
+  },
+  "gap_validator_last_observed": {
+    "review_validation": "PASS",
+    "gap_total": 142,
+    "categories": {
+      "source_unavailable": 26,
+      "freshness_uncertain": 20,
+      "discovery_source_not_trial_roster": 37,
+      "roster_unestablished": 17,
+      "protocol_uncertainty": 42
+    },
+    "processing_assessments": {
+      "external_blocker": 61,
+      "not_established": 81
+    },
+    "strict_coverage_status": "INCOMPLETE",
+    "processing_completion": "NOT_VERIFIED",
+    "original_local_artifact": "gap-progress-amended-validation.json",
+    "recovered_from": "Actual tool output, not a new validator run."
+  },
+  "clinical": {
+    "canonical": 322,
+    "public": 152,
+    "treatment": 149,
+    "other_access": 3,
+    "fresh_five_fact_reviews": 26,
+    "retained_public_independent_case_coverage": 141,
+    "pending_independent_case_groups": 11,
+    "retained_case_count": 1329,
+    "new_canonical_trials": 0,
+    "clinical_selection_changes": 0
+  },
+  "discovery": {
+    "country_language_queries_in_saved_plan": 100,
+    "countries_in_two_passes": 34,
+    "required_regions_both_passes": 12,
+    "selected_leads": 30,
+    "last_local_dispositions": {
+      "CLOSED_CONFIRMED": 2,
+      "PENDING_EVIDENCE": 11,
+      "SOURCE_INDEX_REVIEWED": 5,
+      "VERIFIED_EXISTING": 2,
+      "NOT_TREATMENT": 7,
+      "BLOCKED": 3
+    },
+    "coverage_limit": "Not all world countries/languages; weak outputs were deepened. Raw responses were saved in now-unavailable local workspace; published public-evidence contains payload hashes. Do not claim complete primary adjudication or durable full raw response recovery."
+  },
+  "deadline_review": {
+    "original_local_file": "deadline-review.json",
+    "ids_accounted": 322,
+    "known_cutoffs_compared": 43,
+    "known_not_passed": 40,
+    "known_passed": 3,
+    "expired_already_nonmatchable": [
+      "ucd-urinary-stent",
+      "ncsu-canine-ucc-il12",
+      "penn-osa-carinkt"
+    ],
+    "current_NCSU_primary_confirms_no_extension": "09/30/2026",
+    "original_ledger_no_structured_cutoff_current_full_reads": 17,
+    "original_ledger_no_structured_cutoff_not_verified": 262,
+    "full_reconciliation": "INCOMPLETE; latest six protocol reviews were not incorporated into the original deadline ledger before runtime loss.",
+    "no_new_closures_or_extensions_applied": true
+  },
+  "durable_queue": {
+    "untouched": true,
+    "main_blob_sha": "edd4784cdbbccf2511ad58ba9cb9340121aeaf31",
+    "last_run_id": "resume-20261117T073957-0500",
+    "total_rows": 278,
+    "unresolved_rows": 75,
+    "local_individual_decisions_before_failure": {
+      "RESOLVED": 1,
+      "BLOCKED": 66,
+      "OWNER_DECISION": 8
+    },
+    "locally_resolved_question": "eu-ch-large-tumor-lattice-sbrt current funded versus owner-paid expenses, supported by full current primary flyer.",
+    "warning": "Local resolution was not applied to durable queue because final execution gate could not run; all75remain preserved."
+  },
+  "unperformed_steps": [
+    "Complete daily deadline extraction/reconciliation beyond known43cutoffs, and incorporate latest6fullreviews.",
+    "Run final audit_execution_gate.py check with final receipt and queue-out; no queue replacement allowed without valid check.",
+    "Seal final receipt/gap/execution-review and final strict validator outputs; publish original local ledgers and complete search responses if runtime recovers."
+  ],
+  "validators": {
+    "final_execution_gate": "NOT_RUN_RUNTIME_FAILURE",
+    "final_strict_receipt": "NOT_RUN_RUNTIME_FAILURE",
+    "final_gap": "NOT_RUN_RUNTIME_FAILURE",
+    "last_progress_gap": "PASS amended; initial FAIL retained as history",
+    "clinical_completion": "INCOMPLETE",
+    "data_build_and_selection_tests": "PASS; exact deployed tree verified",
+    "preflight": "PASS_WITH_INCONCLUSIVE: ancillary Streamlit module missing"
+  },
+  "deviations": [
+    {
+      "kind": "access_restriction_violation",
+      "url": "https://loct.fzea.usp.br/?page_id=848",
+      "finding": "A mistaken repeat request reached an exact prior automatic-review hold during discovery. Actual error admitted and journaled; response quarantined, supports no clinical sufficiency/date/queue closure. No further requests."
+    },
+    {
+      "kind": "batch_limit",
+      "finding": "Earlier AVMA3, Zurich4 and BVSC3 requests exceeded2perdomain; Milan extraction retry count exceeded single transient retry. Recorded in published execution-deviations.json."
+    }
+  ],
+  "recovery_note": "Emergency checkpoint reconstructed from current tool transcript and actually published tested tree after runtime loss. It is not a fabricated receipt, rerun, validator PASS or clinical review."
+}
