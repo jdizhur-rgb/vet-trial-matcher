@@ -1,0 +1,65 @@
+{
+  "recorded_at": "2026-11-18T08:41:40.164248+00:00",
+  "amendments": [
+    {
+      "trial_id": "illinois-sts-surgery",
+      "old_case": {
+        "name": "18 Nov individual-primary hard contradiction",
+        "patient": {
+          "country": "USA",
+          "species": "Dog",
+          "cancer": "Soft tissue sarcoma",
+          "surgery": "No"
+        },
+        "expected": "exclude"
+      },
+      "corrected_case": {
+        "name": "18 Nov primary-required surgery declined in treatment preferences",
+        "patient": {
+          "country": "USA",
+          "species": "Dog",
+          "cancer": "Soft tissue sarcoma",
+          "prefs": [
+            "Radiation",
+            "Chemotherapy",
+            "Immunotherapy",
+            "Targeted therapy",
+            "Experimental drug"
+          ]
+        },
+        "expected": "exclude"
+      },
+      "reason": "The existing surgery answer describes past treatment, not refusal of future surgery. Source-mandated planned surgery must be tested by excluding Surgery from treatment preferences. No matcher code or medical criterion changed."
+    },
+    {
+      "trial_id": "penn-oral-scc-nir-margin-2026",
+      "old_case": {
+        "name": "18 Nov individual-primary hard contradiction",
+        "patient": {
+          "country": "USA",
+          "species": "Dog",
+          "cancer": "Oral squamous cell carcinoma",
+          "surgery": "No"
+        },
+        "expected": "exclude"
+      },
+      "corrected_case": {
+        "name": "18 Nov primary-required surgery declined in treatment preferences",
+        "patient": {
+          "country": "USA",
+          "species": "Dog",
+          "cancer": "Oral squamous cell carcinoma",
+          "prefs": [
+            "Radiation",
+            "Chemotherapy",
+            "Immunotherapy",
+            "Targeted therapy",
+            "Experimental drug"
+          ]
+        },
+        "expected": "exclude"
+      },
+      "reason": "The existing surgery answer describes past treatment, not refusal of future surgery. Source-mandated planned surgery must be tested by excluding Surgery from treatment preferences. No matcher code or medical criterion changed."
+    }
+  ]
+}

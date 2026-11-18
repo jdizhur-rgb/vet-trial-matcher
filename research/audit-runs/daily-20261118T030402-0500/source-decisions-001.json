@@ -1,0 +1,146 @@
+{
+  "reviewed_at": "2026-11-18 08:17:25 UTC",
+  "rows": [
+    {
+      "index": 0,
+      "finding": "AVMA master Web reader exposed only a Google Tag Manager iframe. The oncology gallery and both public JSON pages were inaccessible in Web after native master connect timeout. No current registry objects or exact-status changes were established; yesterday's 859 records are retained only as historical baseline.",
+      "protocols": [],
+      "catalog_comparison": "No current exact protocol comparison possible; no activation/closure applied.",
+      "remaining_available_steps": [],
+      "completion_basis": "All three recorded official fallback URLs attempted once in Web; no roster was returned. Registry clinical status remains unestablished.",
+      "category": "source_unavailable",
+      "processing_assessment": "external_blocker",
+      "evidence_refs": [
+        "web-avma.json",
+        "first-native-attempt.json"
+      ],
+      "current_official_content": false,
+      "roster_complete": false
+    },
+    {
+      "index": 1,
+      "finding": "UK-VCSR reader returned four cards: real equine allergic-reaction project UK-VCSR-2026-00013, three explicitly AI-generated sample cards including canine lymphoma00001. All are ineligible for this catalog. Returned crawl age four days prevents independent confirmation of today's registry contents.",
+      "protocols": [
+        "UK-VCSR-2026-00013",
+        "UK-VCSR-2026-00006 AI sample",
+        "UK-VCSR-2026-00003 AI sample",
+        "UK-VCSR-2026-00001 AI sample"
+      ],
+      "catalog_comparison": "No real canine/feline therapeutic oncology candidate among the four visible cards; do not promote sample lymphoma.",
+      "remaining_available_steps": [],
+      "completion_basis": "All four published cards individually classified; no recorded fallback and no further relevant official protocol lead from this returned index.",
+      "category": "freshness_uncertain",
+      "processing_assessment": "external_blocker",
+      "evidence_refs": [
+        "web-masters-001-006.json"
+      ],
+      "current_official_content": false,
+      "roster_complete": false
+    },
+    {
+      "index": 2,
+      "finding": "VCS current reader lists 25 university sources and15 other clinical-research routes, including AVMA, Guardian, Gulf Coast, Hope, PolicyLab and VCC Hope. This is a navigation directory, not an oncology trial roster.",
+      "protocols": [],
+      "catalog_comparison": "University/network identities mapped to mandatory inventory. Guardian/Gulf Coast/Hope/PolicyLab/VCC Hope links still require exact route/lead disposition; their source names are not protocol duplicates.",
+      "remaining_available_steps": [
+        "Follow the directory's remaining Guardian/Gulf Coast/Hope/PolicyLab/VCC Hope clinical-research links and classify any protocol signals."
+      ],
+      "completion_basis": "Navigation read is complete; lead reconciliation is not yet complete.",
+      "category": "discovery_source_not_trial_roster",
+      "processing_assessment": "executor_unfinished",
+      "evidence_refs": [
+        "web-masters-001-006.json"
+      ],
+      "current_official_content": true,
+      "roster_complete": false
+    },
+    {
+      "index": 3,
+      "finding": "Auburn ongoing index exposes one palbociclib dose-finding protocol. Individual primary confirms dog mammary/SCC/HS/AGASACA/melanoma, measurable progressing cancer if previously treated, owner-paid screening and funded treatment/biopsy/rechecks up to two months, onco@auburn.edu/3348444690. Index crawl last week and protocol two days old; current recruitment freshness remains unconfirmed.",
+      "protocols": [
+        "Palbociclib canine solid cancers"
+      ],
+      "catalog_comparison": "Exact match auburn-palbociclib-solid-cancers by agent/five diseases/Auburn; no new trial. Dose-finding owner-scope history retained; no date refreshed.",
+      "remaining_available_steps": [
+        "Read the linked official palbociclib flyer for any changed eligibility or cutoff."
+      ],
+      "completion_basis": "Index and individual clinical body read; material linked PDF remains to examine.",
+      "category": "freshness_uncertain",
+      "processing_assessment": "executor_unfinished",
+      "evidence_refs": [
+        "web-masters-001-006.json",
+        "web-review-001.json"
+      ],
+      "current_official_content": false,
+      "roster_complete": false
+    },
+    {
+      "index": 4,
+      "finding": "CSU VHS master directs to its trial portal. Flint today's index enumerates ten identities: feline SCGL radiation, UCC ICG surgery, feline OSCC immunotherapy, canine AML trametinib, 3D limb implant, AGASACA node mapping, UCC lapatinib/RT, engineered sarcoma T cells, OSA dual-energy CT, metastatic OSA CAR-T. Portal oncology, public JSON, exact engineered-cell redirect and AVMA SCGL routes returned reader errors. These prevent a complete university roster, including known brain/TVT protocols absent from this partial Flint list.",
+      "protocols": [
+        "csu-feline-scgl-radiotherapy-iacuc8528",
+        "csu-ucc-icg-surgery",
+        "csu-feline-oscc-immunotherapy",
+        "csu-aml-trametinib",
+        "csu-osa-3d-limb-spare",
+        "csu-agasaca-node-map",
+        "csu-ucc-lapatinib-rt",
+        "csu-sarcoma-engineered-tcells",
+        "csu-osa-dual-energy-ct",
+        "csu-osa-car-t-met"
+      ],
+      "catalog_comparison": "All ten exact current identities exist in canonical. Imaging/node-mapping remain nonmatchable. Missing brain/TVT on this index is not closure. Engineered-cell individual is not silently merged with Tufts FAP.",
+      "remaining_available_steps": [],
+      "completion_basis": "Master and all five inventory fallbacks read with actual reader results; current Flint identities reconciled, unavailable portal completeness retained as external gap.",
+      "category": "roster_unestablished",
+      "processing_assessment": "external_blocker",
+      "evidence_refs": [
+        "web-masters-001-006.json",
+        "web-review-001.json",
+        "web-review-002.json",
+        "web-review-003.json"
+      ],
+      "current_official_content": true,
+      "roster_complete": false
+    },
+    {
+      "index": 5,
+      "finding": "Cornell today's complete master lists two therapeutic oncology protocols: oral SCC trametinib and Smart-Start B-cell pre-treatment plus CHOP. Both current individual pages read completely for identity, Ithaca access, eligibility, funding and contact. Other listed trials are non-oncology or nontherapeutic.",
+      "protocols": [
+        "cornell-oscc-trametinib",
+        "cornell-smart-start-bcell-lymphoma"
+      ],
+      "catalog_comparison": "Exact two canonical matches, same agents/cohorts/Cornell. SCC study drug and procedures free plus $1000 completion credit; Smart-Start standard care owner-paid with10% discount and$1000 chemo support. Neither publishes calendar recruitment cutoff. No substantive mismatch found.",
+      "remaining_available_steps": [],
+      "completion_basis": "Both currently listed treatment protocols fully reconciled against complete canonical; no other oncology treatment link in current master.",
+      "category": null,
+      "processing_assessment": "external_blocker",
+      "evidence_refs": [
+        "web-masters-001-006.json",
+        "web-review-002.json"
+      ],
+      "current_official_content": true,
+      "roster_complete": true
+    },
+    {
+      "index": 6,
+      "finding": "Iowa State index lists only Cerumen as a Biomatrix for Canine Lymphoma Screening under Oncology. This is diagnostic sample research, not anticancer therapy. Individual link returned a four-week-old page locator without its full body in the batch; index crawl three weeks old.",
+      "protocols": [
+        "isu-lymphoma-cerumen"
+      ],
+      "catalog_comparison": "Exact existing diagnostic record isu-lymphoma-cerumen stays unavailable for treatment matching. Prior isu-osa-radiation is not closed from index absence.",
+      "remaining_available_steps": [
+        "Read the complete cerumen primary body and official Clinical Trials Center route to establish available signals and any oncology roster."
+      ],
+      "completion_basis": "Visible signal classified; obvious official current-research navigation still unperformed.",
+      "category": "freshness_uncertain",
+      "processing_assessment": "executor_unfinished",
+      "evidence_refs": [
+        "web-masters-001-006.json",
+        "web-review-001.json"
+      ],
+      "current_official_content": false,
+      "roster_complete": false
+    }
+  ]
+}

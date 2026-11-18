@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-11-09",
+  "updated": "2026-11-18",
   "purpose": "Exact prior public-source route restrictions. Read before daily master, fallback, protocol or Web plans; do not retry by alternate tool. A source or domain is not globally forbidden from one denied protocol URL.",
   "routes": [
     {
@@ -901,6 +901,82 @@
       ],
       "origin": "research/audit-runs/continue-20261109T075757-0500/care-center-access-denial.json",
       "reason": "Exact primary PDF returned 403 with Just a moment challenge; no retry or alternate reader on that route."
+    },
+    {
+      "url": "https://vet.tufts.edu/clinical-trials/sbrt-canine-lung-tumor-study",
+      "do_not_retry": true,
+      "http_status": 403,
+      "method": "web_open",
+      "observed_at": "2026-11-18T08:32:35.467984+00:00",
+      "origin": "research/audit-runs/daily-20261118T030402-0500/public-evidence.json",
+      "reason": "Exact individual primary returned Web403. No retry or alternate-method request on this route. Other Tufts routes remain permitted.",
+      "original_local_evidence_key": "research/audit-runs/daily-20261118T030402-0500/web-review-020.json"
+    },
+    {
+      "url": "https://uwveterinarycare.wisc.edu/wp-content/uploads/2026/04/FLASH-Consent-Form-1.docx",
+      "do_not_retry": true,
+      "http_status": 403,
+      "method": "web_open",
+      "observed_at": "2026-11-18T08:43:12.946619+00:00",
+      "origin": "research/audit-runs/daily-20261118T030402-0500/public-evidence.json",
+      "reason": "Actual same official DOCX returned Web403 after native connect timeout. No retry or alternate method for this exact route.",
+      "original_local_evidence_key": "research/audit-runs/daily-20261118T030402-0500/web-review-035.json"
+    },
+    {
+      "url": "https://uwveterinarycare.wisc.edu/wp-content/uploads/2024/10/FLASH-flyer-editable.docx",
+      "do_not_retry": true,
+      "http_status": 403,
+      "method": "web_open",
+      "observed_at": "2026-11-18T08:44:53.223200+00:00",
+      "origin": "research/audit-runs/daily-20261118T030402-0500/public-evidence.json",
+      "reason": "Actual same official older FLASH DOCX returned Web403 after native connecttimeout. No retry or alternate method for exactroute.",
+      "original_local_evidence_key": "research/audit-runs/daily-20261118T030402-0500/web-review-036.json"
+    },
+    {
+      "url": "https://www.vmdp.jp/development/",
+      "do_not_retry": true,
+      "http_status": 403,
+      "method": "web_open",
+      "observed_at": "2026-11-18 09:15:55 UTC",
+      "origin": "research/audit-runs/daily-20261118T030402-0500/public-evidence.json",
+      "reason": "Actual current official route returned explicit403; exact route withheld from further attempts.",
+      "original_local_evidence_key": "research/audit-runs/daily-20261118T030402-0500/web-review-076.json"
+    },
+    {
+      "url": "https://institucional.ufpel.edu.br/projetos/id/u10335",
+      "do_not_retry": true,
+      "http_status": 403,
+      "method": "web_open",
+      "observed_at": "2026-11-18 09:16:53 UTC",
+      "origin": "research/audit-runs/daily-20261118T030402-0500/public-evidence.json",
+      "reason": "Exact public route returned403; no retry or alternate-tool request. Restriction does not prohibit other institution sources.",
+      "original_local_evidence_key": "research/audit-runs/daily-20261118T030402-0500/web-review-080.json"
+    },
+    {
+      "url": "https://institucional.ufpel.edu.br/servidores/id/21596",
+      "do_not_retry": true,
+      "observed_at": "2026-11-18T09:39:28+00:00",
+      "http_status": 403,
+      "source_ids": [
+        "brazil-ufpel-electroporation-oncology-project"
+      ],
+      "origin": "research/audit-runs/daily-20261118T030402-0500/public-evidence.json",
+      "evidence_key": "web-review-110.json",
+      "restriction_kind": "http_403_exact_route",
+      "original_local_evidence_key": "research/audit-runs/daily-20261118T030402-0500/public-evidence.json"
+    },
+    {
+      "url": "https://institucional.ufpel.edu.br/projetos/id/u7937",
+      "do_not_retry": true,
+      "observed_at": "2026-11-18T09:39:28+00:00",
+      "http_status": 403,
+      "source_ids": [
+        "brazil-ufpel-electroporation-oncology-project"
+      ],
+      "origin": "research/audit-runs/daily-20261118T030402-0500/public-evidence.json",
+      "evidence_key": "web-review-110.json",
+      "restriction_kind": "http_403_exact_route",
+      "original_local_evidence_key": "research/audit-runs/daily-20261118T030402-0500/public-evidence.json"
     }
   ]
 }

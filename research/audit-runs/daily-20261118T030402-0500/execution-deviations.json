@@ -1,0 +1,29 @@
+{
+  "recorded_at": "2026-11-18 09:00:01 UTC",
+  "items": [
+    {
+      "evidence": "web-avma.json",
+      "deviation": "Three official registry fallbacks were dispatched in one batch, exceeding the max-two-per-domain rule."
+    },
+    {
+      "evidence": "web-review-040.json",
+      "deviation": "Four Zurich extraction requests dispatched in one batch, exceeding max-two-per-domain."
+    },
+    {
+      "evidence": "web-review-052.json",
+      "deviation": "Three BVSC extraction requests dispatched in one batch, exceeding max-two-per-domain."
+    },
+    {
+      "evidence": "web-review-037.json,web-review-042.json",
+      "deviation": "Milan body extraction timed out twice after initial partial body; second extraction attempt exceeded a single transient retry if counted as a full fetch. No further retry."
+    },
+    {
+      "recorded_at": "2026-11-18T09:36:46.217679+00:00",
+      "url": "https://loct.fzea.usp.br/?page_id=848",
+      "evidence": "web-review-099.json",
+      "deviation": "Exact automatic-review planning hold was mistakenly requested again during discovery before refreshing route restrictions. Returned text is quarantined and is not evidence supporting a clinical verification, current source sufficiency or queue resolution. No further request allowed.",
+      "restriction_origin": "research/audit-runs/daily-20261031T032935-0400/automatic-review-rejection.json"
+    }
+  ],
+  "effect": "Batch deviations and one exact restricted-route retry occurred. Actual provenance preserved; USP response quarantined; no clinical conclusions may use it. Remaining exact holds remain in force."
+}
