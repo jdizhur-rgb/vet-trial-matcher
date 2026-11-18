@@ -6404,8 +6404,8 @@
     {
       "trial_id": "tufts-hsa-liquid",
       "source_url": "https://vet.tufts.edu/clinical-trials/optimizing-integration-veterinary-clinical-research-findings-human-health-systems-improve-strategies-early-detection-and",
-      "reviewed_at": "2026-11-17T09:55:17.409Z",
-      "criteria": "Current Tufts individual clinical office labels recruiting. Canine splenic HSA ≥10kg, no obvious extrasplenic spread, acceptable general health and no prior antitumor treatment. Doxorubicin around two weeks post surgery followed by liquid-biopsy selected oral inhibitors, relapse re-profiles and can switch to vinblastine. Study meds free; cancer treatment fees up to $5000 plus covered study-related adverse treatment per protocol.",
+      "reviewed_at": "2026-11-18T12:55:23.807Z",
+      "criteria": "Current Tufts individual primary protocol: dog at least10kg; splenic HSA without evident distant spread, no prior HSA treatment or serious organ disease; recent splenectomy with histology accepted. Doxorubicin plus ctDNA-guided oral small molecule inhibitors. Up to$5000 HSA treatment, oral agents and related adverse effects funded; unrelated conditions owner-paid. Tufts North Grafton, clinicaltrials@tufts.edu.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -6551,6 +6551,47 @@
             "hsa_site": "I don't know"
           },
           "expected": "screen"
+        },
+        {
+          "name": "18 Nov fresh Tufts primary compatible splenic HSA",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Hemangiosarcoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "hsa_site": "Spleen",
+            "tumor_status": "Completely removed — clean margins",
+            "metastasis": "No known metastases",
+            "prior_procedure": "Splenectomy",
+            "surgery": "Yes",
+            "chemo": "Never",
+            "weight_known": true,
+            "weight_lb": 33.07
+          },
+          "expected": "review"
+        },
+        {
+          "name": "18 Nov Tufts source excludes under 10 kg",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Hemangiosarcoma",
+            "weight_known": true,
+            "weight_lb": 17.64
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "18 Nov Tufts missing diagnosis needs prescreen",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Hemangiosarcoma",
+            "diagnosis_status": "I don't know",
+            "weight_known": true,
+            "weight_lb": 33.07
+          },
+          "expected": "screen"
         }
       ],
       "selection_sha256": "7975d535012ce34d1e7b4e8b60c2f6441db7cb873afcbe9f88e61e446398e082",
@@ -6558,11 +6599,11 @@
       "source_visit_refreshed_this_run": true,
       "full_protocol_reverified": true,
       "source_evidence_file": "research/audit-runs/daily-20261117T030023-0500/route-transport.ndjson",
-      "primary_evidence_review_run": "daily-20261117T030023-0500",
+      "primary_evidence_review_run": "resume-20261118T072940-0500",
       "primary_evidence_source_run": "daily-20261117T030023-0500",
-      "previous_reviewed_at": "2026-11-09T09:41:53.719038-05:00",
+      "previous_reviewed_at": "2026-11-17T09:55:17.409Z",
       "primary_evidence_key": "b1fecc07678ea918f8a2",
-      "primary_evidence_ref": "research/audit-runs/daily-20261117T030023-0500/reviewed-protocols.tsv"
+      "primary_evidence_ref": "research/audit-runs/resume-20261118T072940-0500/protocol-decisions.json"
     },
     {
       "trial_id": "wisc-lymphoma-half-body-rt-chop",
@@ -8940,8 +8981,8 @@
     {
       "trial_id": "eu-ch-large-tumor-lattice-sbrt",
       "source_url": "https://www.tierspital.uzh.ch/forschungsprojekte/lattice-oder-sbrt-strahlentherapie-bei-grossen-tumoren/",
-      "reviewed_at": "2026-11-18T09:03:39+00:00",
-      "criteria": "Randomized Lattice versus SBRT, five consecutive days; Current Zurich individual page says participation possible; single Zurich enrollment site; Published inclusion dogs with large inoperable tumor or RT preferred; safe biopsies and planned RT. Generic dog/cat header does not broaden dog-specific inclusion.; Full exact flyer: owner pays initial consult, planningCT and RT anesthesia; research covers radiation and CT/MRI followups at6and12months.; Zurich Radiation Oncology, onkologie@vetclinics.uzh.ch; Winterthurerstrasse280c8057Zurich",
+      "reviewed_at": "2026-11-18T12:44:09.838Z",
+      "criteria": "Current permitted Zurich trial page supports canine Lattice versus SBRT eligibility, five consecutive treatment days and Zurich contact. Funding split retains historical evidence; the held flyer was not re-requested in this resume. This is a limited review, not a full five-fact protocol re-verification.",
       "cases": [
         {
           "name": "fresh primary supported candidate",
@@ -9039,11 +9080,12 @@
       ],
       "selection_sha256": "1b6b6db00a83d3303f3b64406fab9df23189dd2dfa4cbe8387a4123737a0b21b",
       "previous_reviewed_at": "2026-11-17T09:49:20.847Z",
-      "full_protocol_reverified": true,
+      "full_protocol_reverified": false,
       "primary_evidence_key": "195eea1f6ec9771d3aa8",
-      "primary_evidence_review_run": "daily-20261118T030402-0500",
+      "primary_evidence_review_run": "resume-20261118T072940-0500",
       "source_visit_refreshed_this_run": true,
-      "primary_evidence_ref": "research/audit-runs/daily-20261118T030402-0500/protocol-decisions-003.json"
+      "primary_evidence_ref": "research/audit-runs/resume-20261118T072940-0500/evidence-correction.json",
+      "review_limitation": "The morning funding refresh depended on an exact held PDF. Restored verified/funding_verified/protocol_reviewed_at to pre-morning values; retained valid eligibility cases and unchanged selection hash."
     },
     {
       "trial_id": "uf-hsa-vaccine",

@@ -1,0 +1,74 @@
+{
+  "run_id": "resume-20261118T072940-0500",
+  "rows": [
+    {
+      "trial_id": "tufts-hsa-liquid",
+      "reviewed_at": "2026-11-18T12:55:23.807Z",
+      "full_protocol_review_complete": true,
+      "previous_dates": {
+        "verified": "2026-11-17",
+        "funding_verified": "2026-11-17",
+        "protocol_reviewed_at": "2026-11-17T09:55:17.409Z"
+      },
+      "facts_checked": {
+        "identity": "Tufts splenic HSA liquid biopsy guided doxorubicin plus oral small molecule inhibitors, distinct from pure sampling.",
+        "recruitment_sites": "Current individual Tufts North Grafton primary protocol explicitly Recruiting; one clinical site described.",
+        "eligibility": "Dog >=10kg, splenic HSA without visible extra-splenic spread; no prior HSA treatment or serious heart/lung/kidney/liver disease; post-splenectomy histology accepted.",
+        "funding": "HSA treatment covered up to$5000, oral inhibitors free for study duration and trial-related side effects covered. Unrelated conditions not covered; do not invent separate surgery reimbursement.",
+        "contacts": "Tufts Clinical Trials Office, clinicaltrials@tufts.edu."
+      },
+      "deadline_finding": "No calendar intake cutoff in complete current protocol. Weeks2–54 follow-up or end at cancer spread are patient-treatment timelines, not calendar recruitment limits.",
+      "source_url": "https://vet.tufts.edu/clinical-trials/optimizing-integration-veterinary-clinical-research-findings-human-health-systems-improve-strategies-early-detection-and",
+      "evidence_refs": [
+        "research/audit-runs/resume-20261118T072940-0500/public-evidence.json"
+      ],
+      "independent_cases": [
+        {
+          "name": "18 Nov fresh Tufts primary compatible splenic HSA",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Hemangiosarcoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "hsa_site": "Spleen",
+            "tumor_status": "Completely removed — clean margins",
+            "metastasis": "No known metastases",
+            "prior_procedure": "Splenectomy",
+            "surgery": "Yes",
+            "chemo": "Never",
+            "weight_known": true,
+            "weight_lb": 33.07
+          },
+          "expected": "review"
+        },
+        {
+          "name": "18 Nov Tufts source excludes under 10 kg",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Hemangiosarcoma",
+            "weight_known": true,
+            "weight_lb": 17.64
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "18 Nov Tufts missing diagnosis needs prescreen",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Hemangiosarcoma",
+            "diagnosis_status": "I don't know",
+            "weight_known": true,
+            "weight_lb": 33.07
+          },
+          "expected": "screen"
+        }
+      ],
+      "catalog_comparison": "Five published clinical facts agree with existing canonical data. Only three evidence dates advanced after full current read; no change to eligibility, funding prose, treatment status or sites.",
+      "local_raw_evidence_refs": [
+        "research/audit-runs/resume-20261118T072940-0500/web-037.json"
+      ]
+    }
+  ]
+}
