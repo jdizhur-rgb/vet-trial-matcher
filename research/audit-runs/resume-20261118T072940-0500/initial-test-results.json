@@ -1,0 +1,68 @@
+[
+  {
+    "command": "python scripts/validate_source_inventory.py",
+    "status": "fulfilled",
+    "value": {
+      "chunk_id": "0f150e",
+      "wall_time_seconds": 0.021557706,
+      "exit_code": 0,
+      "original_token_count": 16,
+      "output": "SOURCE_INVENTORY_VALIDATION_OK sources=168 digest=3998abc4d567\n"
+    }
+  },
+  {
+    "command": "node scripts/test_matcher_selection.js",
+    "status": "fulfilled",
+    "value": {
+      "chunk_id": "6a5534",
+      "wall_time_seconds": 0.3383645,
+      "exit_code": 0,
+      "original_token_count": 42,
+      "output": "SOURCE_DERIVED_SELECTION_OK public_reviewed=141/152 pending=11 retained_reviews=156 cases=1329\nMATCHER_SELECTION_OK canonical=322 public=152 checks=1463 criteria=222\n"
+    }
+  },
+  {
+    "command": "python scripts/test_matcher_selection.py",
+    "status": "fulfilled",
+    "value": {
+      "chunk_id": "3f9327",
+      "wall_time_seconds": 0.427580096,
+      "exit_code": 0,
+      "original_token_count": 33,
+      "output": "MATCHER_SELECTION_PARITY_OK public=152 disease_checks=18240\nTUFTS_OSA_COHORT_PARITY_OK cases=8\nPRIMARY_SITE_LINEAGE_PHASE_PARITY_OK\n"
+    }
+  },
+  {
+    "command": "node scripts/test_matcher_protocol_sources.js",
+    "status": "fulfilled",
+    "value": {
+      "chunk_id": "016fb4",
+      "wall_time_seconds": 0.220604447,
+      "exit_code": 0,
+      "original_token_count": 24,
+      "output": "SOURCE_DERIVED_SELECTION_OK public_reviewed=141/152 pending=11 retained_reviews=156 cases=1329\n"
+    }
+  },
+  {
+    "command": "node scripts/test_matcher_catalog_loading.js",
+    "status": "fulfilled",
+    "value": {
+      "chunk_id": "4aad62",
+      "wall_time_seconds": 0.130682209,
+      "exit_code": 0,
+      "original_token_count": 26,
+      "output": "Japan: 14 results after delayed load\nUSA: 95 results after delayed load\nCatalog-loading regression PASS\n"
+    }
+  },
+  {
+    "command": "node scripts/test_matcher_logic.js",
+    "status": "fulfilled",
+    "value": {
+      "chunk_id": "f297e3",
+      "wall_time_seconds": 0.11212505,
+      "exit_code": 1,
+      "original_token_count": 261,
+      "output": "node:fs:483\n    return binding.readFileUtf8(path, stringToFlags(options.flag));\n                   ^\n\nError: ENOENT: no such file or directory, open '/workspace/scratch/c446bd545bf3/vtf-resume-1118/seo/site/north-america/dogs/oral-melanoma/index.html'\n    at Object.readFileSync (node:fs:483:20)\n    at Object.<anonymous> (/workspace/scratch/c446bd545bf3/vtf-resume-1118/scripts/test_matcher_logic.js:114:19)\n    at Module._compile (node:internal/modules/cjs/loader:1929:14)\n    at Object..js (node:internal/modules/cjs/loader:2060:10)\n    at Module.load (node:internal/modules/cjs/loader:1651:32)\n    at Module._load (node:internal/modules/cjs/loader:1443:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  errno: -2,\n  code: 'ENOENT',\n  syscall: 'open',\n  path: '/workspace/scratch/c446bd545bf3/vtf-resume-1118/seo/site/north-america/dogs/oral-melanoma/index.html'\n}\n\nNode.js v24.22.3\n"
+    }
+  }
+]
