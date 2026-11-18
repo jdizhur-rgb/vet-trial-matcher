@@ -1,0 +1,108 @@
+{
+  "checked_at": "2026-11-18T13:05:42.161911+00:00",
+  "main_sha": "be6913b212f30acbe716aad615e2c23cd8c27c04",
+  "urls": [
+    {
+      "url": "https://api.github.com/repos/jdizhur-rgb/vet-trial-matcher/actions/runs?head_sha=be6913b212f30acbe716aad615e2c23cd8c27c04",
+      "attempted_at": "2026-11-18T13:05:42.161922+00:00",
+      "status": 200,
+      "sha256": "ee34aa52ac969e299b444427c3aa6f26e13ca975a98b8a97486f58371e08e4cb",
+      "workflow_runs": [
+        {
+          "id": 44310011439,
+          "name": "Semantic dedupe catalog",
+          "head_sha": "be6913b212f30acbe716aad615e2c23cd8c27c04",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/44310011439"
+        },
+        {
+          "id": 44310011310,
+          "name": "Full catalog integrity audit",
+          "head_sha": "be6913b212f30acbe716aad615e2c23cd8c27c04",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/44310011310"
+        },
+        {
+          "id": 44310011356,
+          "name": "Check copied evidence keys",
+          "head_sha": "be6913b212f30acbe716aad615e2c23cd8c27c04",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/44310011356"
+        },
+        {
+          "id": 44310011326,
+          "name": "Trial catalog validation",
+          "head_sha": "be6913b212f30acbe716aad615e2c23cd8c27c04",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/44310011326"
+        },
+        {
+          "id": 44310011549,
+          "name": "Validate active trial links",
+          "head_sha": "be6913b212f30acbe716aad615e2c23cd8c27c04",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/44310011549"
+        },
+        {
+          "id": 44310011353,
+          "name": "Build and deploy static site",
+          "head_sha": "be6913b212f30acbe716aad615e2c23cd8c27c04",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/44310011353"
+        }
+      ]
+    },
+    {
+      "url": "https://vettrialfinder.com/matcher/trials.json",
+      "attempted_at": "2026-11-18T13:05:52.146620+00:00",
+      "status": 200,
+      "sha256": "f358b5f7c3dda29387c70fe423a4f423ee3f6b627427973966f979f74d718881",
+      "matches_local_bytes": true,
+      "records": 152,
+      "date_checks": [
+        {
+          "id": "eu-ch-large-tumor-lattice-sbrt",
+          "verified": "2026-11-06",
+          "funding_verified": "2026-11-06",
+          "protocol_reviewed_at": "2026-11-06T03:22:29.791175-05:00"
+        },
+        {
+          "id": "tufts-hsa-liquid",
+          "verified": "2026-11-18",
+          "funding_verified": "2026-11-18",
+          "protocol_reviewed_at": "2026-11-18T12:55:23.807Z"
+        }
+      ]
+    },
+    {
+      "url": "https://vettrialfinder.com/matcher/matcher.js",
+      "attempted_at": "2026-11-18T13:05:58.226485+00:00",
+      "status": 200,
+      "sha256": "a9b0a97ca943bb005fc4d5eea77839df43df2e220aaa15c43dd5af7210628375",
+      "matches_local_bytes": true
+    },
+    {
+      "url": "https://vettrialfinder.com/matcher/",
+      "attempted_at": "2026-11-18T13:06:02.450452+00:00",
+      "status": 200,
+      "sha256": "8513a5df01d54592ea915542bd7ae12acbd4b9666f26596dd8ecce8965cf3487",
+      "script_urls": [
+        "./matcher.js?v=clinical-audit-20261103-owner-rules-r1"
+      ],
+      "matches_local_bytes": false
+    }
+  ],
+  "built_html_readback": {
+    "matches_built_site": true,
+    "live_catalog_url_declaration": [
+      "MATCHER_DATA_URL='./trials.json?v=f358b5f7c3dda293';</script><script src=\"./matcher.js?v=clinical-audit-20261103-owner-rules-r1\" defer><"
+    ],
+    "note": "Static source template differs from generated deployment HTML; compare built seo/site/matcher/index.html."
+  }
+}
