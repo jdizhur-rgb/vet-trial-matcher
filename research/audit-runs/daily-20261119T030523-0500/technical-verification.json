@@ -1,0 +1,116 @@
+{
+  "run_id": "daily-20261119T030523-0500",
+  "results": [
+    {
+      "name": "build_matcher",
+      "command": [
+        "python",
+        "scripts/build_matcher_data.py"
+      ],
+      "exit_code": 0,
+      "tail": "MATCHER_TAXONOMY_SYNC_OK\nMATCHER_DATA_OK total=152 treatment=149 access=3\n"
+    },
+    {
+      "name": "matcher_selection_js",
+      "command": [
+        "node",
+        "scripts/test_matcher_selection.js"
+      ],
+      "exit_code": 0,
+      "tail": "SOURCE_DERIVED_SELECTION_OK public_reviewed=141/152 pending=11 retained_reviews=156 cases=1332\nMATCHER_SELECTION_OK canonical=322 public=152 checks=1463 criteria=222\n"
+    },
+    {
+      "name": "matcher_selection_py",
+      "command": [
+        "python",
+        "scripts/test_matcher_selection.py"
+      ],
+      "exit_code": 0,
+      "tail": "MATCHER_SELECTION_PARITY_OK public=152 disease_checks=18240\nTUFTS_OSA_COHORT_PARITY_OK cases=8\nPRIMARY_SITE_LINEAGE_PHASE_PARITY_OK\n"
+    },
+    {
+      "name": "protocol_sources",
+      "command": [
+        "node",
+        "scripts/test_matcher_protocol_sources.js"
+      ],
+      "exit_code": 0,
+      "tail": "SOURCE_DERIVED_SELECTION_OK public_reviewed=141/152 pending=11 retained_reviews=156 cases=1332\n"
+    },
+    {
+      "name": "catalog_loading",
+      "command": [
+        "node",
+        "scripts/test_matcher_catalog_loading.js"
+      ],
+      "exit_code": 0,
+      "tail": "Japan: 14 results after delayed load\nUSA: 95 results after delayed load\nCatalog-loading regression PASS\n"
+    },
+    {
+      "name": "matcher_logic",
+      "command": [
+        "node",
+        "scripts/test_matcher_logic.js"
+      ],
+      "exit_code": 0,
+      "tail": "MATCHER_LOGIC_OK trials=152 mct=4 yasha=0 mammary=6 osteosarcoma=13 bladder=6 brain=8\n"
+    },
+    {
+      "name": "source_inventory",
+      "command": [
+        "python",
+        "scripts/validate_source_inventory.py"
+      ],
+      "exit_code": 0,
+      "tail": "SOURCE_INVENTORY_VALIDATION_OK sources=168 digest=39f66c4c3805\n"
+    },
+    {
+      "name": "trials_catalog",
+      "command": [
+        "python",
+        "scripts/validate_trials_catalog.py"
+      ],
+      "exit_code": 0,
+      "tail": "TRIAL_CATALOG_VALIDATION_OK records=322 unique_ids=322 active=152 required_active_fields=11\n"
+    },
+    {
+      "name": "catalog_sanitation",
+      "command": [
+        "python",
+        "scripts/validate_catalog_sanitation.py"
+      ],
+      "exit_code": 0,
+      "tail": "{\n  \"records\": 322,\n  \"partial_records\": 4,\n  \"known_unresolved\": 4,\n  \"new_partial_records\": [],\n  \"resolved_but_still_queued\": [\n    \"eu-ch-sinonasal-heterogeneous-rt\",\n    \"fr-fregis-chemodectoma-thermoablation\",\n    \"fr-fregis-hepatic-embolization\",\n    \"fr-fregis-hepatic-tumor-thermoablation\",\n    \"nl-utrecht-osteosarcoma-oncolytic-virus-access\",\n    \"uk-rvc-insulinoma-toceranib\"\n  ]\n}\n"
+    },
+    {
+      "name": "production_sync",
+      "command": [
+        "python",
+        "scripts/validate_production_sync.py"
+      ],
+      "exit_code": 0,
+      "tail": "PRODUCTION_SYNC_OK total=152 treatment=149 access=3 matcher_ids=152 internal_links=7133\n"
+    },
+    {
+      "name": "evidence_keys",
+      "command": [
+        "python",
+        "scripts/check_evidence_keys.py"
+      ],
+      "exit_code": 0,
+      "tail": "PASS: no unredacted Google API keys.\n"
+    },
+    {
+      "name": "audit_unit_tests",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "scripts/test_audit_execution_gate.py",
+        "scripts/test_audit_gap_review.py"
+      ],
+      "exit_code": 0,
+      "tail": ".............................\n----------------------------------------------------------------------\nRan 29 tests in 0.016s\n\nOK\n"
+    }
+  ]
+}
