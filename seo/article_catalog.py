@@ -41,6 +41,7 @@ CATEGORIES = {
 }
 
 ARTICLE_CATEGORIES = {
+    "cancer-screening-tests-for-dogs": "diagnosis",
     "pet-lump-diagnosis-before-surgery": "diagnosis",
     "surgical-margins-after-tumor-removal": "diagnosis",
     "cancer-dx-screening-older-dogs": "diagnosis",

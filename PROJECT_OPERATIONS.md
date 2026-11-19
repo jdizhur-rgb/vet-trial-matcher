@@ -18,6 +18,10 @@ Publish only candidates that met the workers' saved completeness gate: worker 5'
 
 # Vet Cancer Treatment Finder — Project Operations / Single Source of Truth
 
+## Canine cancer screening review — owner-authorized 2026-11-19
+
+The owner approved consolidating, translating and publishing the comparative test review at `/articles/cancer-screening-tests-for-dogs/`. Source content is `seo/content/cancer-screening-tests-for-dogs.html`, rendered by `seo/cancer_screening_review_article.py` through the existing production builder and diagnosis article category. Preserve its worked sensitivity/specificity/positive-predictive-value example, distinct test mechanisms and limitations, explicit March 6, 2024 OncoK9 commercial closure, and follow-up/long-term insurance uncertainty. Live Canos pages now describe Guardian as available and Origin as including cancer detection; old indexed descriptions said otherwise. Do not assign PetDx CANDiD performance to Guardian. The AI-generated cover is illustrative, not a study patient. This article does not change the treatment catalog, genomic-test cards, clinical verification dates or matching. Facebook copy is a draft, not an automatically published post.
+
 ## Common diagnosis wording — owner-requested 2026-11-01
 
 Extend the bladder-cancer correction across the reviewed diagnosis family. `seo/diagnosis_names.py` owns display/search labels for11diagnoses: bone/osteosarcoma, liver/hepatocellular carcinoma, breast/mammary carcinoma, brain/glioma, brain/meningioma, nose/nasal tumors, primary lung, mouth/oral melanoma, mouth/oral SCC, thyroid carcinoma and bladder/urothelial carcinoma. Preserve the exact subtype after the broad anatomy term; these are presentation labels, never new matching synonyms. Meningioma remains a brain tumor rather than an automatic malignant-cancer label. Keep primary lung separate from lung metastases. Do not equate hemangiosarcoma with all splenic cancer, MCT or melanoma with all skin cancer, or HS/myeloma/lymphoma with an invented interchangeable blood-cancer diagnosis.

@@ -43,6 +43,7 @@ from site_shell import apply_site_shell, wrap_html
 from vaccine_article import generate_cancer_vaccine_article
 from surgical_margins_article import generate_surgical_margins_article
 from cancer_dx_article import generate_cancer_dx_article
+from cancer_screening_review_article import generate_cancer_screening_review_article
 from repurposed_drugs_article import generate_repurposed_drugs_article
 from mushrooms_herbs_supplements_article import generate_mushrooms_herbs_supplements_article
 from dangerous_cancer_remedies_article import generate_dangerous_cancer_remedies_article
@@ -213,6 +214,7 @@ def main():
     generate_trial_directions_article(out)
     generate_lomustine_monitoring_article(out)
     generate_informed_consent_article(out)
+    generate_cancer_screening_review_article(out)
     generate_news_section(out)
     vaccine_page = out / "articles" / "cancer-vaccines" / "index.html"
     if vaccine_page.exists():
