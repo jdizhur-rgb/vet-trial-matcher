@@ -1,0 +1,63 @@
+{
+  "run_id": "daily-20261119T030523-0500",
+  "checked_at": "2026-11-19T03:44:07-05:00",
+  "deployed_data_commit": "56152112b5b3d7dc7a04d1e61a84b3a6a244921f",
+  "deploy_workflow_run": 44489330829,
+  "deploy_workflow_result": "success",
+  "assets": {
+    "home": {
+      "url": "https://vettrialfinder.com/",
+      "bytes": 50589,
+      "sha256": "b0096e2177d19a5b14e7a60ab0f74ff54b0740f6ae7db4e732541cd8e388e94d",
+      "status": 200
+    },
+    "matcher_html": {
+      "url": "https://vettrialfinder.com/matcher/",
+      "bytes": 62254,
+      "sha256": "0a98fd73f49d1a6d876f41cfdb7c25788d69f8ed670a8d838827e9ae3a0f1267",
+      "status": 200,
+      "script_version": "./matcher.js?v=clinical-audit-20261103-owner-rules-r1"
+    },
+    "trials_json": {
+      "url": "https://vettrialfinder.com/matcher/trials.json",
+      "bytes": 403166,
+      "sha256": "966aae063a774d82f61acc768f1f4cfb472e1034208b4495bc38408d37326257",
+      "local_sha256": "966aae063a774d82f61acc768f1f4cfb472e1034208b4495bc38408d37326257",
+      "status": 200,
+      "byte_identical_to_local": true
+    },
+    "matcher_js": {
+      "url": "https://vettrialfinder.com/matcher/matcher.js",
+      "bytes": 58615,
+      "sha256": "a9b0a97ca943bb005fc4d5eea77839df43df2e220aaa15c43dd5af7210628375",
+      "local_sha256": "a9b0a97ca943bb005fc4d5eea77839df43df2e220aaa15c43dd5af7210628375",
+      "status": 200,
+      "byte_identical_to_local": true
+    }
+  },
+  "live_ui_checks": [
+    {
+      "species": "Dog",
+      "cancer_type": "Cancer — any type",
+      "diagnosis_certainty": "I don't know",
+      "country": "USA",
+      "treatment_options": "all",
+      "research_approach": "Any approach",
+      "displayed_results": 95,
+      "expected_results": 95,
+      "result": "PASS"
+    },
+    {
+      "species": "Dog",
+      "cancer_type": "Cancer — any type",
+      "diagnosis_certainty": "I don't know",
+      "country": "Japan",
+      "treatment_options": "all",
+      "research_approach": "Any approach",
+      "displayed_results": 14,
+      "expected_results": 14,
+      "result": "PASS"
+    }
+  ],
+  "overall": "PASS"
+}
