@@ -15355,6 +15355,79 @@
           "expected": "review"
         }
       ]
+    },
+    {
+      "trial_id": "penn-flash-metastatic-osa-gilvetmab-2026",
+      "source_url": "https://www.vet.upenn.edu/clinical-trial/proton-flash-rt-in-canine-metastatic-osteosarcoma/",
+      "reviewed_at": "2026-11-20T03:25:00-05:00",
+      "criteria": "Official Penn protocol: confirmed appendicular osteosarcoma after amputation; at least one measurable pulmonary metastasis over 1 cm with largest target under 5 cm; no bone metastasis or previous gilvetmab; three-week systemic chemotherapy/immunotherapy washout; anesthesia fitness; one proton FLASH dose plus three gilvetmab infusions.",
+      "source_visit_refreshed_this_run": true,
+      "full_protocol_reverified": true,
+      "primary_evidence_source_run": "daily-20261120T025854-0500",
+      "selection_sha256": "1d662a63ee3ab7848b899a8c59f1dbf0b4c896bcbb88b90191afcd6ac72e7fea",
+      "cases": [
+        {
+          "name": "source-supported metastatic appendicular OSA candidate",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Osteosarcoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable",
+            "metastasis": "Confirmed metastases",
+            "surgery": "Yes",
+            "prior_procedure": "Amputation",
+            "prefs": [
+              "Radiation",
+              "Immunotherapy"
+            ]
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "measurable lung metastases"
+          ]
+        },
+        {
+          "name": "no pulmonary metastatic disease",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Osteosarcoma",
+            "metastasis": "No known metastases",
+            "surgery": "Yes",
+            "prior_procedure": "Amputation",
+            "prefs": [
+              "Radiation",
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "amputation not performed",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Osteosarcoma",
+            "metastasis": "Confirmed metastases",
+            "surgery": "No",
+            "prefs": [
+              "Radiation",
+              "Immunotherapy"
+            ]
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "different species outside protocol",
+          "patient": {
+            "species": "Cat",
+            "country": "USA",
+            "cancer": "Osteosarcoma"
+          },
+          "expected": "exclude"
+        }
+      ]
     }
   ]
 }
