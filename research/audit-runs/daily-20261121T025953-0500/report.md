@@ -47,4 +47,11 @@ Execution закончен, потому что доступные route/source/
 
 ## Публикация
 
-Локальные обязательные проверки завершены. Commit/push и production readback записываются отдельным финальным шагом этого же запуска.
+- Audit/data commit опубликован в `main`: `0dcfebd5225a58f1c46b89c6353795333539e4fe`.
+- Production HTTP readback: matcher 200; `trials.json` 200, 153 записей, SHA-256 `5de4db11ac9ab7d78c39d926bcab7d7de5dadae4511064cb6d5064d625444edd`, совпадает с ожидаемым неизменившимся asset.
+- Production browser readback: страница загрузилась; запрос Dog / USA / Osteosarcoma вернул 19 возможностей, включая Penn FLASH и Ethos MIMIC.
+- Каталог не менялся, поэтому публикация фиксирует результаты аудита, source inventory и durable queue, без изменения пользовательского контента/UI.
+
+
+**Завершено:** `2026-11-21T03:30:46.203921-05:00`
+**Причина окончания:** доступная работа исчерпана; остались только документированные внешние пробелы и сохранённые exact restrictions.
