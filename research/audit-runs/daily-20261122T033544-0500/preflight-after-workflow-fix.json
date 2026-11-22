@@ -1,0 +1,42 @@
+{
+  "status": "PASS_WITH_INCONCLUSIVE",
+  "safe_to_continue": true,
+  "checks": [
+    {
+      "name": "audit-execution-regressions",
+      "ok": true,
+      "returncode": 0,
+      "output": "......................\n----------------------------------------------------------------------\nRan 22 tests in 0.018s\n\nOK"
+    },
+    {
+      "name": "catalog",
+      "ok": true,
+      "returncode": 0,
+      "output": "TRIAL_CATALOG_VALIDATION_OK records=323 unique_ids=323 active=153 required_active_fields=11"
+    },
+    {
+      "name": "sources",
+      "ok": true,
+      "returncode": 0,
+      "output": "SOURCE_INVENTORY_VALIDATION_OK sources=168 digest=7483aa7d592b"
+    },
+    {
+      "name": "hygiene",
+      "ok": true,
+      "returncode": 0,
+      "output": "REPOSITORY_HYGIENE_OK"
+    },
+    {
+      "name": "matcher-selection",
+      "ok": true,
+      "returncode": 0,
+      "output": "MATCHER_SELECTION_PARITY_OK public=153 disease_checks=18360\nTUFTS_OSA_COHORT_PARITY_OK cases=8\nPRIMARY_SITE_LINEAGE_PHASE_PARITY_OK"
+    },
+    {
+      "name": "streamlit",
+      "ok": false,
+      "returncode": 1,
+      "output": "Traceback (most recent call last):\n  File \"/workspace/scratch/713cddbf2188/vet-trial-matcher-20261122b/scripts/test_streamlit_pages.py\", line 5, in <module>\n    from streamlit.testing.v1 import AppTest\nModuleNotFoundError: No module named 'streamlit'"
+    }
+  ]
+}
