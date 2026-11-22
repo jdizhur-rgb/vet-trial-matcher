@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "run_id": "daily-20261122T030301-0500",
+  "checked_at": "2026-11-22T03:27:15-05:00",
+  "status": "PASS",
+  "publication": {
+    "branch": "main",
+    "expected_parent": "b846011ab8e5a8fdd49ddcc10c0849f5e27dba29",
+    "published_data_commit": "52bbbbc8867f637f17e87adcad9f7c1e8593c2d5",
+    "remote_ref_verified": true,
+    "catalog_change": "NO_CHANGE",
+    "workflow_runs": [
+      {
+        "id": 45002637473,
+        "name": "Build and deploy static site",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/45002637473"
+      },
+      {
+        "id": 45002637478,
+        "name": "Check copied evidence keys",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/45002637478"
+      },
+      {
+        "id": 45002637409,
+        "name": "Full catalog integrity audit",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/45002637409"
+      }
+    ]
+  },
+  "matcher": {
+    "url": "https://vettrialfinder.com/matcher/",
+    "title": "Find cancer clinical trials for dogs and cats | Vet Cancer Care Finder",
+    "form_case": {
+      "species": "Dog",
+      "cancer": "Osteosarcoma",
+      "visible_result_count": 19
+    }
+  },
+  "catalog_asset": {
+    "url": "https://vettrialfinder.com/matcher/trials.json",
+    "live_records": 153,
+    "live_unique_ids": 153,
+    "live_browser_view_chars": 405242,
+    "live_browser_view_fnv1a_utf16": "548a7512",
+    "local_path": "seo/site/matcher/trials.json",
+    "local_records": 153,
+    "local_unique_ids": 153,
+    "local_bytes": 406466,
+    "local_text_chars": 405110,
+    "local_sha256": "5de4db11ac9ab7d78c39d926bcab7d7de5dadae4511064cb6d5064d625444edd",
+    "semantic_cardinality_match": true,
+    "byte_match_checked": false,
+    "byte_match_note": "The browser JSON viewer reformats the response text. Its rendered text fingerprint is retained separately and is not represented as a byte-for-byte HTTP body comparison."
+  },
+  "result": "Live matcher rendered and returned 19 osteosarcoma opportunities; the production catalog contains 153 records with 153 unique IDs, matching the validated local public cardinality."
+}
