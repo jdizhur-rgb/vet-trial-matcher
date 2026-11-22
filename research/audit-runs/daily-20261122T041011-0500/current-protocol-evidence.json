@@ -1,0 +1,4175 @@
+{
+  "run_id": "daily-20261122T041011-0500",
+  "recorded_at": "2026-11-22T09:10:36.166808+00:00",
+  "method": "native_current_primary_protocol_requests",
+  "limits": {
+    "workers": 6,
+    "same_host_max": 2,
+    "connect_seconds": 5,
+    "total_read_seconds": 15,
+    "transient_retry_max": 1,
+    "body_cap_bytes": 12000000
+  },
+  "restriction_count_loaded": 103,
+  "jobs": 177,
+  "public_trial_total": 153,
+  "attempts": [
+    {
+      "source_id": "au-gamgee-personalized-mrna-vaccine",
+      "role": "url",
+      "requested_url": "https://www.gamgee.io/trial/",
+      "final_url": "https://www.gamgee.io/trial/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.072661+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.gamgee.io/trial/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.005
+        },
+        {
+          "url": "https://www.gamgee.io/trial/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.003
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "au-melbourne-hsa-autologous-vaccine-multicenter",
+      "role": "url",
+      "requested_url": "https://medipaws.com.au/clinical-research/dogs-with-splenic-haemangiosarcoma",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:36.060885+00:00",
+      "restriction": {
+        "url": "https://medipaws.com.au/clinical-research/dogs-with-splenic-haemangiosarcoma",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:00:46.744832+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "au-melbourne-hsa-autologous-vaccine-multicenter"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "au-uq-appendicular-osteosarcoma-vaccine",
+      "role": "funding_source",
+      "requested_url": "https://news.uq.edu.au/2023-07-21-uq-launches-vaccine-trial-dogs-bone-cancer",
+      "final_url": "https://news.uq.edu.au/2023-07-21-uq-launches-vaccine-trial-dogs-bone-cancer",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.064271+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://news.uq.edu.au/2023-07-21-uq-launches-vaccine-trial-dogs-bone-cancer",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://news.uq.edu.au/2023-07-21-uq-launches-vaccine-trial-dogs-bone-cancer",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "au-uq-appendicular-osteosarcoma-vaccine",
+      "role": "url",
+      "requested_url": "https://uqvets.com.au/about/clinical-research-trials",
+      "final_url": "https://uqvets.com.au/about/clinical-research-trials",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.061064+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://uqvets.com.au/about/clinical-research-trials",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://uqvets.com.au/about/clinical-research-trials",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "auburn-palbociclib-solid-cancers",
+      "role": "url",
+      "requested_url": "https://www.vetmed.auburn.edu/research/clinical-trials/mammary-carcinoma-squamous-cell-carcinoma-agasaca-and-melanoma-clinical-trial/",
+      "final_url": "https://www.vetmed.auburn.edu/research/clinical-trials/mammary-carcinoma-squamous-cell-carcinoma-agasaca-and-melanoma-clinical-trial/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.901995+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.vetmed.auburn.edu/research/clinical-trials/mammary-carcinoma-squamous-cell-carcinoma-agasaca-and-melanoma-clinical-trial/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://www.vetmed.auburn.edu/research/clinical-trials/mammary-carcinoma-squamous-cell-carcinoma-agasaca-and-melanoma-clinical-trial/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "aurelius-lytix-bcell-lymphoma",
+      "role": "url",
+      "requested_url": "https://aureliusbio.com/",
+      "final_url": "https://aureliusbio.com/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.996623+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://aureliusbio.com/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        },
+        {
+          "url": "https://aureliusbio.com/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "barc-gold-nanoparticle-photothermal-2026",
+      "role": "url",
+      "requested_url": "https://www.barcseattle.com/clinical-trials-index",
+      "final_url": "https://www.barcseattle.com/clinical-trials-index",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.823837+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.barcseattle.com/clinical-trials-index",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://www.barcseattle.com/clinical-trials-index",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "barc-scc-intratumoral-carboplatin-2026",
+      "role": "url",
+      "requested_url": "https://www.barcseattle.com/clinical-trials-index",
+      "final_url": "https://www.barcseattle.com/clinical-trials-index",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.923431+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.barcseattle.com/clinical-trials-index",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        },
+        {
+          "url": "https://www.barcseattle.com/clinical-trials-index",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.005
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "be-ghent-feline-mammary-gcn2-inhibitor",
+      "role": "funding_source",
+      "requested_url": "https://www.ugent.be/plone_portal/di/khd/nl/onderzoek/katten_met_borstkanker-info-eigenaars_eng",
+      "final_url": "https://www.ugent.be/plone_portal/di/khd/nl/onderzoek/katten_met_borstkanker-info-eigenaars_eng",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.958567+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.ugent.be/plone_portal/di/khd/nl/onderzoek/katten_met_borstkanker-info-eigenaars_eng",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://www.ugent.be/plone_portal/di/khd/nl/onderzoek/katten_met_borstkanker-info-eigenaars_eng",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "be-ghent-feline-mammary-gcn2-inhibitor",
+      "role": "url",
+      "requested_url": "https://www.ugent.be/di/khd/nl/onderzoek/katten_met_borstkanker-info-dierenartsen_eng",
+      "final_url": "https://www.ugent.be/di/khd/nl/onderzoek/katten_met_borstkanker-info-dierenartsen_eng",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.957001+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.ugent.be/di/khd/nl/onderzoek/katten_met_borstkanker-info-dierenartsen_eng",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://www.ugent.be/di/khd/nl/onderzoek/katten_met_borstkanker-info-dierenartsen_eng",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "ca-ovc-feline-oscc-porphysome-pdt",
+      "role": "funding_source",
+      "requested_url": "https://www.uoguelph.ca/ovc/news/node/3724",
+      "final_url": "https://www.uoguelph.ca/ovc/news/node/3724",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.852272+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.uoguelph.ca/ovc/news/node/3724",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://www.uoguelph.ca/ovc/news/node/3724",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "ca-ovc-feline-oscc-porphysome-pdt",
+      "role": "url",
+      "requested_url": "https://ovcclinicaltrials.uoguelph.ca/all-active-feline-clinical-trials-onco/",
+      "final_url": "https://ovcclinicaltrials.uoguelph.ca/all-active-feline-clinical-trials-onco/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.881458+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://ovcclinicaltrials.uoguelph.ca/all-active-feline-clinical-trials-onco/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://ovcclinicaltrials.uoguelph.ca/all-active-feline-clinical-trials-onco/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.007
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "ca-ovc-oral-melanoma-palladia",
+      "role": "url",
+      "requested_url": "https://ovcclinicaltrials.uoguelph.ca/evaluating-palladia-for-the-treatment-of-canine-oral-melanoma/",
+      "final_url": "https://ovcclinicaltrials.uoguelph.ca/evaluating-palladia-for-the-treatment-of-canine-oral-melanoma/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.866810+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://ovcclinicaltrials.uoguelph.ca/evaluating-palladia-for-the-treatment-of-canine-oral-melanoma/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://ovcclinicaltrials.uoguelph.ca/evaluating-palladia-for-the-treatment-of-canine-oral-melanoma/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.006
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "ca-ovc-osa-hifu",
+      "role": "url",
+      "requested_url": "https://ovcclinicaltrials.uoguelph.ca/evaluating-a-non-invasive-heat-therapy-for-the-treatment-of-bone-cancer-in-dogs-2/",
+      "final_url": "https://ovcclinicaltrials.uoguelph.ca/evaluating-a-non-invasive-heat-therapy-for-the-treatment-of-bone-cancer-in-dogs-2/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.867717+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://ovcclinicaltrials.uoguelph.ca/evaluating-a-non-invasive-heat-therapy-for-the-treatment-of-bone-cancer-in-dogs-2/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://ovcclinicaltrials.uoguelph.ca/evaluating-a-non-invasive-heat-therapy-for-the-treatment-of-bone-cancer-in-dogs-2/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.003
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "ch-anicura-aoi-superficial-tumor-immunocytokines",
+      "role": "url",
+      "requested_url": "https://www.anicura.ch/standorte/aoi/onkologie/weitere-therapien/",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.958636+00:00",
+      "restriction": {
+        "url": "https://www.anicura.ch/standorte/aoi/onkologie/weitere-therapien/",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:00:27.773237+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "ch-anicura-aoi-superficial-tumor-immunocytokines"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "ch-zurich-canine-high-grade-glioma-chemoradiation",
+      "role": "funding_source",
+      "requested_url": "https://www.tierspital.uzh.ch/wp-content/uploads/2025/09/250916_Information_Study_english.pdf",
+      "final_url": "https://www.tierspital.uzh.ch/wp-content/uploads/2025/09/250916_Information_Study_english.pdf",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.979983+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.tierspital.uzh.ch/wp-content/uploads/2025/09/250916_Information_Study_english.pdf",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://www.tierspital.uzh.ch/wp-content/uploads/2025/09/250916_Information_Study_english.pdf",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.003
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "ch-zurich-canine-high-grade-glioma-chemoradiation",
+      "role": "url",
+      "requested_url": "https://www.tierspital.uzh.ch/forschungsprojekte/studie-therapie-gliome-hund/",
+      "final_url": "https://www.tierspital.uzh.ch/forschungsprojekte/studie-therapie-gliome-hund/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.998714+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.tierspital.uzh.ch/forschungsprojekte/studie-therapie-gliome-hund/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.009
+        },
+        {
+          "url": "https://www.tierspital.uzh.ch/forschungsprojekte/studie-therapie-gliome-hund/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "ch-zurich-canine-meningioma-genomic-rt",
+      "role": "url",
+      "requested_url": "https://www.tierspital.uzh.ch/forschungsprojekte/strahlensensivitaet-hirntumor-meningiom/",
+      "final_url": "https://www.tierspital.uzh.ch/forschungsprojekte/strahlensensivitaet-hirntumor-meningiom/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.955082+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.tierspital.uzh.ch/forschungsprojekte/strahlensensivitaet-hirntumor-meningiom/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://www.tierspital.uzh.ch/forschungsprojekte/strahlensensivitaet-hirntumor-meningiom/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.006
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "ch-zurich-feline-oscc-flash-proton-rt",
+      "role": "funding_source",
+      "requested_url": "https://www.dvg.de/wp-content/uploads/2026/05/26-05-11_260509-Flyer-FLASH-Studie.pdf",
+      "final_url": "https://www.dvg.de/wp-content/uploads/2026/05/26-05-11_260509-Flyer-FLASH-Studie.pdf",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.964059+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.dvg.de/wp-content/uploads/2026/05/26-05-11_260509-Flyer-FLASH-Studie.pdf",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://www.dvg.de/wp-content/uploads/2026/05/26-05-11_260509-Flyer-FLASH-Studie.pdf",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "ch-zurich-feline-oscc-flash-proton-rt",
+      "role": "url",
+      "requested_url": "https://www.tierspital.uzh.ch/forschungsprojekte/tumor-maulhoehle-katzen/",
+      "final_url": "https://www.tierspital.uzh.ch/forschungsprojekte/tumor-maulhoehle-katzen/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.977251+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.tierspital.uzh.ch/forschungsprojekte/tumor-maulhoehle-katzen/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://www.tierspital.uzh.ch/forschungsprojekte/tumor-maulhoehle-katzen/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.013
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "ch-zurich-sts-fluorescence-guided-surgery",
+      "role": "url",
+      "requested_url": "https://www.tierspital.uzh.ch/forschungsprojekte/studie-fluoreszenzbildgebung-weichteilsarkome/",
+      "final_url": "https://www.tierspital.uzh.ch/forschungsprojekte/studie-fluoreszenzbildgebung-weichteilsarkome/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.956016+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.tierspital.uzh.ch/forschungsprojekte/studie-fluoreszenzbildgebung-weichteilsarkome/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://www.tierspital.uzh.ch/forschungsprojekte/studie-fluoreszenzbildgebung-weichteilsarkome/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.007
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "china-dongjun-mct-new-drug-2026",
+      "role": "url",
+      "requested_url": "https://www.caudjlab.com/newdetail.aspx?id=73",
+      "final_url": "https://www.caudjlab.com/newdetail.aspx?id=73",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.996855+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.caudjlab.com/newdetail.aspx?id=73",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://www.caudjlab.com/newdetail.aspx?id=73",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "china-dongjun-oral-scc-new-drug-2026",
+      "role": "url",
+      "requested_url": "https://www.caudjlab.com/newdetail.aspx?id=73",
+      "final_url": "https://www.caudjlab.com/newdetail.aspx?id=73",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.019884+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.caudjlab.com/newdetail.aspx?id=73",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        },
+        {
+          "url": "https://www.caudjlab.com/newdetail.aspx?id=73",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "china-dongjun-osa-new-drug-2026",
+      "role": "url",
+      "requested_url": "https://www.caudjlab.com/newdetail.aspx?id=73",
+      "final_url": "https://www.caudjlab.com/newdetail.aspx?id=73",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.998375+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.caudjlab.com/newdetail.aspx?id=73",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://www.caudjlab.com/newdetail.aspx?id=73",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "china-petcura-personalized-mrna-iit-2026",
+      "role": "url",
+      "requested_url": "https://www.petcura.cn/zh/mrna-vaccine/study/",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.996928+00:00",
+      "restriction": {
+        "url": "https://www.petcura.cn/zh/mrna-vaccine/study/",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:00:31.448824+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "china-petcura-personalized-mrna-iit-2026"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "cornell-oscc-trametinib",
+      "role": "url",
+      "requested_url": "https://www.vet.cornell.edu/hospitals/clinical-trials/new-drug-oral-squamous-cell-carcinoma-dogs",
+      "final_url": "https://www.vet.cornell.edu/hospitals/clinical-trials/new-drug-oral-squamous-cell-carcinoma-dogs",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.799704+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.vet.cornell.edu/hospitals/clinical-trials/new-drug-oral-squamous-cell-carcinoma-dogs",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://www.vet.cornell.edu/hospitals/clinical-trials/new-drug-oral-squamous-cell-carcinoma-dogs",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "cornell-smart-start-bcell-lymphoma",
+      "role": "url",
+      "requested_url": "https://www.vet.cornell.edu/hospitals/clinical-trials/smart-start-therapy-canine-b-cell-lymphoma",
+      "final_url": "https://www.vet.cornell.edu/hospitals/clinical-trials/smart-start-therapy-canine-b-cell-lymphoma",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.052853+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.vet.cornell.edu/hospitals/clinical-trials/smart-start-therapy-canine-b-cell-lymphoma",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.008
+        },
+        {
+          "url": "https://www.vet.cornell.edu/hospitals/clinical-trials/smart-start-therapy-canine-b-cell-lymphoma",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.004
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "csu-aml-trametinib",
+      "role": "url",
+      "requested_url": "https://clinicaltrials.csuveterinaryhealth.org/s/pilot-clinical-trial-of-anti-cancer-therapy-with-trametinib-in-naturally-occurring-acute-myeloid-leukemia-860722/",
+      "final_url": "https://clinicaltrials.csuveterinaryhealth.org/s/pilot-clinical-trial-of-anti-cancer-therapy-with-trametinib-in-naturally-occurring-acute-myeloid-leukemia-860722/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.033288+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/pilot-clinical-trial-of-anti-cancer-therapy-with-trametinib-in-naturally-occurring-acute-myeloid-leukemia-860722/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/pilot-clinical-trial-of-anti-cancer-therapy-with-trametinib-in-naturally-occurring-acute-myeloid-leukemia-860722/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "csu-brain-cart-verdinexor",
+      "role": "url",
+      "requested_url": "https://clinicaltrials.csuveterinaryhealth.org/s/immunotherapy-car-t-treatment-for-canine-glioma-tumors-780192/?ref=gallery",
+      "final_url": "https://clinicaltrials.csuveterinaryhealth.org/s/immunotherapy-car-t-treatment-for-canine-glioma-tumors-780192/?ref=gallery",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.820818+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/immunotherapy-car-t-treatment-for-canine-glioma-tumors-780192/?ref=gallery",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/immunotherapy-car-t-treatment-for-canine-glioma-tumors-780192/?ref=gallery",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.005
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "csu-feline-oscc-immunotherapy",
+      "role": "url",
+      "requested_url": "https://clinicaltrials.csuveterinaryhealth.org/s/novel-immunotherapy-for-cats-with-oral-squamous-cell-carcinoma-126320/",
+      "final_url": "https://clinicaltrials.csuveterinaryhealth.org/s/novel-immunotherapy-for-cats-with-oral-squamous-cell-carcinoma-126320/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.863688+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/novel-immunotherapy-for-cats-with-oral-squamous-cell-carcinoma-126320/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.004
+        },
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/novel-immunotherapy-for-cats-with-oral-squamous-cell-carcinoma-126320/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "csu-feline-scgl-radiotherapy-iacuc8528",
+      "role": "url",
+      "requested_url": "https://studypages.com/s/radiation-therapy-for-small-cell-gi-lymphoma-in-cats-710678/",
+      "final_url": "https://studypages.com/s/radiation-therapy-for-small-cell-gi-lymphoma-in-cats-710678/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.164799+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://studypages.com/s/radiation-therapy-for-small-cell-gi-lymphoma-in-cats-710678/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://studypages.com/s/radiation-therapy-for-small-cell-gi-lymphoma-in-cats-710678/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "csu-glioma-verdinexor-only-2026",
+      "role": "url",
+      "requested_url": "https://clinicaltrials.csuveterinaryhealth.org/s/non-surgical-chemotherapy-treatment-for-canine-brain-tumors-836628/?ref=gallery",
+      "final_url": "https://clinicaltrials.csuveterinaryhealth.org/s/non-surgical-chemotherapy-treatment-for-canine-brain-tumors-836628/?ref=gallery",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.083418+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/non-surgical-chemotherapy-treatment-for-canine-brain-tumors-836628/?ref=gallery",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.004
+        },
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/non-surgical-chemotherapy-treatment-for-canine-brain-tumors-836628/?ref=gallery",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "csu-osa-3d-limb-spare",
+      "role": "url",
+      "requested_url": "https://studypages.com/s/a-limb-sparing-option-for-bone-cancer-in-dogs-558225/",
+      "final_url": "https://studypages.com/s/a-limb-sparing-option-for-bone-cancer-in-dogs-558225/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.885280+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://studypages.com/s/a-limb-sparing-option-for-bone-cancer-in-dogs-558225/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        },
+        {
+          "url": "https://studypages.com/s/a-limb-sparing-option-for-bone-cancer-in-dogs-558225/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.003
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "csu-osa-car-t-met",
+      "role": "url",
+      "requested_url": "https://clinicaltrials.csuveterinaryhealth.org/s/car-t-cell-immunotherapy-for-metastatic-osteosarcoma-in-dogs-888207/",
+      "final_url": "https://clinicaltrials.csuveterinaryhealth.org/s/car-t-cell-immunotherapy-for-metastatic-osteosarcoma-in-dogs-888207/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.802378+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/car-t-cell-immunotherapy-for-metastatic-osteosarcoma-in-dogs-888207/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        },
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/car-t-cell-immunotherapy-for-metastatic-osteosarcoma-in-dogs-888207/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.003
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "csu-sarcoma-engineered-tcells",
+      "role": "url",
+      "requested_url": "https://clinicaltrials.csuveterinaryhealth.org/s/clinical-testing-of-canine-t-cells-engineered-to-target-soft-tissue-sarcoma-with-oral-immunotherapy-511687/",
+      "final_url": "https://clinicaltrials.csuveterinaryhealth.org/s/clinical-testing-of-canine-t-cells-engineered-to-target-soft-tissue-sarcoma-with-oral-immunotherapy-511687/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.884966+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/clinical-testing-of-canine-t-cells-engineered-to-target-soft-tissue-sarcoma-with-oral-immunotherapy-511687/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.003
+        },
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/clinical-testing-of-canine-t-cells-engineered-to-target-soft-tissue-sarcoma-with-oral-immunotherapy-511687/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "csu-tvt-single-radiation-2026",
+      "role": "url",
+      "requested_url": "https://clinicaltrials.csuveterinaryhealth.org/s/single-radiation-treatment-for-dogs-with-transmissible-venereal-tumor-709721/?ref=gallery",
+      "final_url": "https://clinicaltrials.csuveterinaryhealth.org/s/single-radiation-treatment-for-dogs-with-transmissible-venereal-tumor-709721/?ref=gallery",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.086686+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/single-radiation-treatment-for-dogs-with-transmissible-venereal-tumor-709721/?ref=gallery",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/single-radiation-treatment-for-dogs-with-transmissible-venereal-tumor-709721/?ref=gallery",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "csu-ucc-lapatinib-rt",
+      "role": "url",
+      "requested_url": "https://clinicaltrials.csuveterinaryhealth.org/s/combination-of-lapatinib-and-fractionated-radiation-therapy-for-dogs-with-transitional-cell-carcinoma-598674/",
+      "final_url": "https://clinicaltrials.csuveterinaryhealth.org/s/combination-of-lapatinib-and-fractionated-radiation-therapy-for-dogs-with-transitional-cell-carcinoma-598674/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.885881+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/combination-of-lapatinib-and-fractionated-radiation-therapy-for-dogs-with-transitional-cell-carcinoma-598674/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://clinicaltrials.csuveterinaryhealth.org/s/combination-of-lapatinib-and-fractionated-radiation-therapy-for-dogs-with-transitional-cell-carcinoma-598674/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.011
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "dk-copenhagen-flash-superficial-tumors",
+      "role": "url",
+      "requested_url": "https://dyrehospitalet.ku.dk/forskning/forskningsprojekter/",
+      "final_url": "https://dyrehospitalet.ku.dk/forskning/forskningsprojekter/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.981279+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://dyrehospitalet.ku.dk/forskning/forskningsprojekter/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://dyrehospitalet.ku.dk/forskning/forskningsprojekter/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "ethos-bcell-oral",
+      "role": "url",
+      "requested_url": "https://www.ethosvet.com/clinical-study/canine-b-cell-lymphoma-study/",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.777949+00:00",
+      "restriction": {
+        "url": "https://www.ethosvet.com/clinical-study/canine-b-cell-lymphoma-study/",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:00:00.500809+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "ethos-bcell-oral"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "ethos-epush-hsa",
+      "role": "funding_source",
+      "requested_url": "https://veterinaryclinicaltrials.org/investigator/fec318f2f9044e7abcb29b55bf55c7f5/",
+      "final_url": "https://veterinaryclinicaltrials.org/investigator/fec318f2f9044e7abcb29b55bf55c7f5/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.844027+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://veterinaryclinicaltrials.org/investigator/fec318f2f9044e7abcb29b55bf55c7f5/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        },
+        {
+          "url": "https://veterinaryclinicaltrials.org/investigator/fec318f2f9044e7abcb29b55bf55c7f5/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.003
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "ethos-epush-hsa",
+      "role": "url",
+      "requested_url": "https://www.ethosdiscovery.org/clinical-study/ethos-precision-medicine-umbrella-study-for-hemangiosarcoma-epush/",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.820603+00:00",
+      "restriction": {
+        "url": "https://www.ethosdiscovery.org/clinical-study/ethos-precision-medicine-umbrella-study-for-hemangiosarcoma-epush/",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:00:07.187498+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "ethos-epush-hsa"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "ethos-gilvetmab-melanoma",
+      "role": "url",
+      "requested_url": "https://www.ethosvet.com/clinical-study/melanoma-treatment-study/",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.777932+00:00",
+      "restriction": {
+        "url": "https://www.ethosvet.com/clinical-study/melanoma-treatment-study/",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:00:00.485037+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "ethos-gilvetmab-melanoma"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "ethos-mimic-osa-lung",
+      "role": "url",
+      "requested_url": "https://www.ethosdiscovery.org/clinical-study/minimally-invasive-metastasectomy-in-canines-mimic-2/",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.820866+00:00",
+      "restriction": {
+        "url": "https://www.ethosdiscovery.org/clinical-study/minimally-invasive-metastasectomy-in-canines-mimic-2/",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:00:07.188130+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "ethos-mimic-osa-lung"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "ethos-solid-relapse",
+      "role": "url",
+      "requested_url": "https://www.ethosdiscovery.org/clinical-study/stratification-of-outcomes-for-lymphoma-in-dogs-with-relapsed-lymphoma-solid-relapse/",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.820566+00:00",
+      "restriction": {
+        "url": "https://www.ethosdiscovery.org/clinical-study/stratification-of-outcomes-for-lymphoma-in-dogs-with-relapsed-lymphoma-solid-relapse/",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:00:07.177324+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "ethos-solid-relapse"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "eu-ch-large-tumor-lattice-sbrt",
+      "role": "funding_source",
+      "requested_url": "https://www.tierspital.uzh.ch/wp-content/uploads/2025/07/250531-Lattice-Flyer.pdf",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.670572+00:00",
+      "restriction": {
+        "url": "https://www.tierspital.uzh.ch/wp-content/uploads/2025/07/250531-Lattice-Flyer.pdf",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:05:36.739197+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "eu-ch-large-tumor-lattice-sbrt"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "eu-ch-large-tumor-lattice-sbrt",
+      "role": "url",
+      "requested_url": "https://www.tierspital.uzh.ch/forschungsprojekte/lattice-oder-sbrt-strahlentherapie-bei-grossen-tumoren/",
+      "final_url": "https://www.tierspital.uzh.ch/forschungsprojekte/lattice-oder-sbrt-strahlentherapie-bei-grossen-tumoren/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.741320+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.tierspital.uzh.ch/forschungsprojekte/lattice-oder-sbrt-strahlentherapie-bei-grossen-tumoren/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://www.tierspital.uzh.ch/forschungsprojekte/lattice-oder-sbrt-strahlentherapie-bei-grossen-tumoren/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "eu-ch-pnst-plexus-fluorescence-surgery",
+      "role": "url",
+      "requested_url": "https://www.tierspital.uzh.ch/forschungsprojekte/studie-plexustumore-hunde/",
+      "final_url": "https://www.tierspital.uzh.ch/forschungsprojekte/studie-plexustumore-hunde/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.844928+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.tierspital.uzh.ch/forschungsprojekte/studie-plexustumore-hunde/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.009
+        },
+        {
+          "url": "https://www.tierspital.uzh.ch/forschungsprojekte/studie-plexustumore-hunde/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.005
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "eu-fr-hifu-urothelial",
+      "role": "url",
+      "requested_url": "https://www.anicura.fr/cliniques/armonia/etudes-cliniques-en-cours-chv-anicura-armonia/",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.668576+00:00",
+      "restriction": {
+        "url": "https://www.anicura.fr/cliniques/armonia/etudes-cliniques-en-cours-chv-anicura-armonia/",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T18:59:47.653454+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "eu-fr-hifu-urothelial"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "eu-fr-oral-intratumoral-immunotherapy",
+      "role": "url",
+      "requested_url": "https://www.vetagro-sup.fr/recherche-expertise/cicv-centre-investigation-clinique-veterinaire/etude-pour-developper-un-nouveau-medicament-pour-traiter-les-melanomes-et-carcinomes-epidermoides-buccaux/",
+      "final_url": "https://www.vetagro-sup.fr/recherche-expertise/cicv-centre-investigation-clinique-veterinaire/etude-pour-developper-un-nouveau-medicament-pour-traiter-les-melanomes-et-carcinomes-epidermoides-buccaux/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.728822+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.vetagro-sup.fr/recherche-expertise/cicv-centre-investigation-clinique-veterinaire/etude-pour-developper-un-nouveau-medicament-pour-traiter-les-melanomes-et-carcinomes-epidermoides-buccaux/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        },
+        {
+          "url": "https://www.vetagro-sup.fr/recherche-expertise/cicv-centre-investigation-clinique-veterinaire/etude-pour-developper-un-nouveau-medicament-pour-traiter-les-melanomes-et-carcinomes-epidermoides-buccaux/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "eu-it-unimi-oncofap-mmae",
+      "role": "url",
+      "requested_url": "https://www.ospedaleveterinario.unimi.it/collaborare-con-noi-studi-di-ricerca/",
+      "final_url": "https://www.ospedaleveterinario.unimi.it/collaborare-con-noi-studi-di-ricerca/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.841432+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.ospedaleveterinario.unimi.it/collaborare-con-noi-studi-di-ricerca/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://www.ospedaleveterinario.unimi.it/collaborare-con-noi-studi-di-ricerca/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "eu-uk-ndsr-high-grade-mammary-current",
+      "role": "url",
+      "requested_url": "https://www.ndsr.co.uk/insights/canine-mammary-cancer/",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.823902+00:00",
+      "restriction": {
+        "url": "https://www.ndsr.co.uk/insights/canine-mammary-cancer/",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:00:09.688273+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "eu-uk-ndsr-high-grade-mammary-current"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "ill-osa-il12-rt-current",
+      "role": "url",
+      "requested_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/10/JEN-101-OSA-with-RT-10-2026.pdf",
+      "final_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/10/JEN-101-OSA-with-RT-10-2026.pdf",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.804632+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vetmed.illinois.edu/wp-content/uploads/2026/10/JEN-101-OSA-with-RT-10-2026.pdf",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://vetmed.illinois.edu/wp-content/uploads/2026/10/JEN-101-OSA-with-RT-10-2026.pdf",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "ill-osa-z007-current",
+      "role": "url",
+      "requested_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/10/Canine-Osteosarcoma-pulmonary-metastases.pdf",
+      "final_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/10/Canine-Osteosarcoma-pulmonary-metastases.pdf",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.820504+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vetmed.illinois.edu/wp-content/uploads/2026/10/Canine-Osteosarcoma-pulmonary-metastases.pdf",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://vetmed.illinois.edu/wp-content/uploads/2026/10/Canine-Osteosarcoma-pulmonary-metastases.pdf",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.005
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "illinois-daunomustine-multicentric-lymphoma",
+      "role": "url",
+      "requested_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/10/Daunomustine-LSA-3.0-RDVM-Trial-Announcement-for-Website-June-2026.pdf",
+      "final_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/10/Daunomustine-LSA-3.0-RDVM-Trial-Announcement-for-Website-June-2026.pdf",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.138099+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vetmed.illinois.edu/wp-content/uploads/2026/10/Daunomustine-LSA-3.0-RDVM-Trial-Announcement-for-Website-June-2026.pdf",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.003
+        },
+        {
+          "url": "https://vetmed.illinois.edu/wp-content/uploads/2026/10/Daunomustine-LSA-3.0-RDVM-Trial-Announcement-for-Website-June-2026.pdf",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "illinois-fam010-splenic-hemangiosarcoma",
+      "role": "url",
+      "requested_url": "https://familiartx.com/studies/fam-010",
+      "final_url": "https://familiartx.com/studies/fam-010",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.140568+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://familiartx.com/studies/fam-010",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        },
+        {
+          "url": "https://familiartx.com/studies/fam-010",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.003
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "illinois-feline-oscc-sbrt-olaparib-metformin-2026",
+      "role": "url",
+      "requested_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/11/OSCC-RT-Olap-and-Metformin-Trial.pdf",
+      "final_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/11/OSCC-RT-Olap-and-Metformin-Trial.pdf",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.841889+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vetmed.illinois.edu/wp-content/uploads/2026/11/OSCC-RT-Olap-and-Metformin-Trial.pdf",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        },
+        {
+          "url": "https://vetmed.illinois.edu/wp-content/uploads/2026/11/OSCC-RT-Olap-and-Metformin-Trial.pdf",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "illinois-oral-melanoma-il12-il15",
+      "role": "url",
+      "requested_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/05/trial-IL12-IL15-fusion-with-RT-Oral-Melanoma.pdf",
+      "final_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/05/trial-IL12-IL15-fusion-with-RT-Oral-Melanoma.pdf",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.902205+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vetmed.illinois.edu/wp-content/uploads/2026/05/trial-IL12-IL15-fusion-with-RT-Oral-Melanoma.pdf",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.008
+        },
+        {
+          "url": "https://vetmed.illinois.edu/wp-content/uploads/2026/05/trial-IL12-IL15-fusion-with-RT-Oral-Melanoma.pdf",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "illinois-osa-sbrt-dc-homing-hydrogel",
+      "role": "url",
+      "requested_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/09/Canine-Osteosarcoma-SBRT_trial.pdf",
+      "final_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/09/Canine-Osteosarcoma-SBRT_trial.pdf",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.141150+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vetmed.illinois.edu/wp-content/uploads/2026/09/Canine-Osteosarcoma-SBRT_trial.pdf",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        },
+        {
+          "url": "https://vetmed.illinois.edu/wp-content/uploads/2026/09/Canine-Osteosarcoma-SBRT_trial.pdf",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.003
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "illinois-sts-surgery",
+      "role": "url",
+      "requested_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/05/trial-Jen-101-alone-or-with-Hyla-for-STS.pdf",
+      "final_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/05/trial-Jen-101-alone-or-with-Hyla-for-STS.pdf",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.901401+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vetmed.illinois.edu/wp-content/uploads/2026/05/trial-Jen-101-alone-or-with-Hyla-for-STS.pdf",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        },
+        {
+          "url": "https://vetmed.illinois.edu/wp-content/uploads/2026/05/trial-Jen-101-alone-or-with-Hyla-for-STS.pdf",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "illinois-sts-treatment",
+      "role": "url",
+      "requested_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/05/trial-JEN-101-STS.pdf",
+      "final_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/05/trial-JEN-101-STS.pdf",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.925212+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vetmed.illinois.edu/wp-content/uploads/2026/05/trial-JEN-101-STS.pdf",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        },
+        {
+          "url": "https://vetmed.illinois.edu/wp-content/uploads/2026/05/trial-JEN-101-STS.pdf",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.006
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "illinois-ucc-gilvetmab-epacadostat",
+      "role": "url",
+      "requested_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/05/trial-Gilvetmab-Epacadostat.pdf",
+      "final_url": "https://vetmed.illinois.edu/wp-content/uploads/2026/05/trial-Gilvetmab-Epacadostat.pdf",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.923174+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vetmed.illinois.edu/wp-content/uploads/2026/05/trial-Gilvetmab-Epacadostat.pdf",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        },
+        {
+          "url": "https://vetmed.illinois.edu/wp-content/uploads/2026/05/trial-Gilvetmab-Epacadostat.pdf",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.005
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "jhu-cigat-brain-rt-tmz-2026",
+      "role": "url",
+      "requested_url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.998420+00:00",
+      "restriction": {
+        "url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:00:31.465749+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "jhu-cigat-osa-cryo-immunotherapy-2026",
+          "jhu-cigat-brain-rt-tmz-2026",
+          "jhu-cigat-mammary-kubanda-cryo-2026"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "jhu-cigat-mammary-kubanda-cryo-2026",
+      "role": "funding_source",
+      "requested_url": "https://www.hopkinsmedicine.org/-/media/radiology/_docs/kumbanda_mammary_cancer_trial.pdf",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.998472+00:00",
+      "restriction": {
+        "url": "https://www.hopkinsmedicine.org/-/media/radiology/_docs/kumbanda_mammary_cancer_trial.pdf",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:05:48.872661+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "jhu-cigat-mammary-kubanda-cryo-2026"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "jhu-cigat-mammary-kubanda-cryo-2026",
+      "role": "url",
+      "requested_url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.998448+00:00",
+      "restriction": {
+        "url": "https://www.hopkinsmedicine.org/radiology/veterinarians/clinical-trials",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:00:31.465749+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "jhu-cigat-osa-cryo-immunotherapy-2026",
+          "jhu-cigat-brain-rt-tmz-2026",
+          "jhu-cigat-mammary-kubanda-cryo-2026"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "jhu-cigat-osa-cryo-immunotherapy-2026",
+      "role": "url",
+      "requested_url": "https://veterinaryclinicaltrials.org/s/immune-treatment-of-canine-bone-cancer-933248/",
+      "final_url": "https://veterinaryclinicaltrials.org/s/immune-treatment-of-canine-bone-cancer-933248/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.009303+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://veterinaryclinicaltrials.org/s/immune-treatment-of-canine-bone-cancer-933248/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://veterinaryclinicaltrials.org/s/immune-treatment-of-canine-bone-cancer-933248/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "jp-gifu-feline-oscc-radiotherapy-lavurchin",
+      "role": "url",
+      "requested_url": "https://www.animalhospital.gifu-u.ac.jp/cancer/clinical_trial/202508.html",
+      "final_url": "https://www.animalhospital.gifu-u.ac.jp/cancer/clinical_trial/202508.html",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.117542+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.animalhospital.gifu-u.ac.jp/cancer/clinical_trial/202508.html",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        },
+        {
+          "url": "https://www.animalhospital.gifu-u.ac.jp/cancer/clinical_trial/202508.html",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "jp-hokkaido-canine-oral-melanoma-anti-pdl1",
+      "role": "url",
+      "requested_url": "https://www.vetmed.hokudai.ac.jp/VMTH/aboutus/research/",
+      "final_url": "https://www.vetmed.hokudai.ac.jp/VMTH/aboutus/research/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.107483+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.vetmed.hokudai.ac.jp/VMTH/aboutus/research/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://www.vetmed.hokudai.ac.jp/VMTH/aboutus/research/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "jp-jsamc-feline-anti-pd1",
+      "role": "funding_source",
+      "requested_url": "https://www.atpress.ne.jp/news/560205",
+      "final_url": "https://www.atpress.ne.jp/news/560205",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.095612+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.atpress.ne.jp/news/560205",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://www.atpress.ne.jp/news/560205",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "jp-jsamc-feline-anti-pd1",
+      "role": "url",
+      "requested_url": "https://www.jsamc.jp/dr_info/clinical/clinical07.html",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:36.084019+00:00",
+      "restriction": {
+        "url": "https://www.jsamc.jp/dr_info/clinical/clinical07.html",
+        "do_not_retry": true,
+        "method": "Web",
+        "http_status": 403,
+        "observed_on": "2026-10-29",
+        "recorded_at": "2026-10-29T03:28:11.192311-04:00",
+        "origin": "research/audit-runs/daily-20261029T030505-0400/discovery-primary-2.json",
+        "reason": "Actual same-path Web403; native pre-denial evidence retained with its original timestamp; no later retry."
+      },
+      "opened": false
+    },
+    {
+      "source_id": "jp-multicenter-oral-melanoma-anti-pd1-2026",
+      "role": "url",
+      "requested_url": "https://www.kamogawa-ac.jp/2026/09/30/24722/",
+      "final_url": "https://www.kamogawa-ac.jp/2026/09/30/24722/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.097806+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.kamogawa-ac.jp/2026/09/30/24722/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://www.kamogawa-ac.jp/2026/09/30/24722/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "jp-nihon-canine-glioma-il12",
+      "role": "url",
+      "requested_url": "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=5145",
+      "final_url": "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=5145",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.150598+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=5145",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=5145",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "jp-nihon-head-neck-alternating-magnetic-field",
+      "role": "url",
+      "requested_url": "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=4035",
+      "final_url": "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=4035",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.157898+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=4035",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=4035",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.008
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "jp-nihon-mutation-positive-lung-cancer",
+      "role": "url",
+      "requested_url": "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=4526",
+      "final_url": "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=4526",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.118236+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=4526",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        },
+        {
+          "url": "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=4526",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "jp-nihon-proteasome-inhibitor-b-cell-tumors",
+      "role": "url",
+      "requested_url": "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=4502",
+      "final_url": "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=4502",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.118585+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=4502",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        },
+        {
+          "url": "https://hp.brs.nihon-u.ac.jp/~nuanmec/?page_id=4502",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "jp-nvlu-survivin-peptide-vaccine-2026",
+      "role": "url",
+      "requested_url": "https://www.nvlu.ac.jp/amedical/clinical-research/05.html",
+      "final_url": "https://www.nvlu.ac.jp/amedical/clinical-research/05.html",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.116974+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.nvlu.ac.jp/amedical/clinical-research/05.html",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.007
+        },
+        {
+          "url": "https://www.nvlu.ac.jp/amedical/clinical-research/05.html",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "jp-tokyo-canine-bladder-ido1-inhibitor",
+      "role": "url",
+      "requested_url": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
+      "final_url": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.083974+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "jp-tokyo-histiocytic-sarcoma-anti-pd1-2026",
+      "role": "url",
+      "requested_url": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
+      "final_url": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.137661+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.017
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "jp-tokyo-macromolecular-pirarubicin-solid-tumors",
+      "role": "url",
+      "requested_url": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
+      "final_url": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.094916+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "jp-tokyo-organoid-guided-targeted-therapy-2026",
+      "role": "url",
+      "requested_url": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
+      "final_url": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.083766+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://www.vm.a.u-tokyo.ac.jp/vmc/aboutus/research/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "jp-tottori-pdt",
+      "role": "url",
+      "requested_url": "https://vth-tottori-u.jp/clinical-research/3571/",
+      "final_url": "https://vth-tottori-u.jp/clinical-research/3571/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.159129+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vth-tottori-u.jp/clinical-research/3571/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        },
+        {
+          "url": "https://vth-tottori-u.jp/clinical-research/3571/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "jp-vsec-ucc-mogamulizumab-radiation",
+      "role": "url",
+      "requested_url": "https://vsec.jp/hospital/clinical-research/",
+      "final_url": "https://vsec.jp/hospital/clinical-research/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.150125+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vsec.jp/hospital/clinical-research/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://vsec.jp/hospital/clinical-research/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "jp-yamaguchi-canine-lymphoid-anti-cd20",
+      "role": "url",
+      "requested_url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html#four",
+      "final_url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html#four",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.095134+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html#four",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://ds.cc.yamaguchi-u.ac.jp/~yuamec1/exam/info.html#four",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "korea-vaxleukin15-mammary-2026",
+      "role": "url",
+      "requested_url": "https://www.vaxcell-bio.com/en/animal01.php",
+      "final_url": "https://www.vaxcell-bio.com/en/animal01.php",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.007196+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.vaxcell-bio.com/en/animal01.php",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://www.vaxcell-bio.com/en/animal01.php",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "leah-bcell-cart-2026",
+      "role": "source_url",
+      "requested_url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+      "final_url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.018022+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.009
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "leah-bcell-cart-2026",
+      "role": "url",
+      "requested_url": "https://leahlabs.com/",
+      "final_url": "https://leahlabs.com/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.019565+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://leahlabs.com/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.009
+        },
+        {
+          "url": "https://leahlabs.com/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "medvet-egfr-her2-vaccine-2026",
+      "role": "funding_source",
+      "requested_url": "https://vetcancerconcierge.com/clinical-trials/",
+      "final_url": "https://vetcancerconcierge.com/clinical-trials/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.862274+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vetcancerconcierge.com/clinical-trials/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.003
+        },
+        {
+          "url": "https://vetcancerconcierge.com/clinical-trials/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "medvet-egfr-her2-vaccine-2026",
+      "role": "url",
+      "requested_url": "https://www.medvet.com/clinical-studies/",
+      "final_url": "https://www.medvet.com/clinical-studies/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.863965+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.medvet.com/clinical-studies/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://www.medvet.com/clinical-studies/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.004
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "midwestern-glendale-canine-cancer-chemotherapy",
+      "role": "url",
+      "requested_url": "https://www.midwestern.edu/research/CRS/clinical-studies-animals/canine-cancer-chemotherapy-study",
+      "final_url": "https://www.midwestern.edu/research/CRS/clinical-studies-animals/canine-cancer-chemotherapy-study",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.159225+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.midwestern.edu/research/CRS/clinical-studies-animals/canine-cancer-chemotherapy-study",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://www.midwestern.edu/research/CRS/clinical-studies-animals/canine-cancer-chemotherapy-study",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "mizzou-bcell-btk-bi705564",
+      "role": "url",
+      "requested_url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+      "final_url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.822167+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.005
+        },
+        {
+          "url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "mizzou-feline-highgrade-lymphoma-wart",
+      "role": "url",
+      "requested_url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+      "final_url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.842091+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        },
+        {
+          "url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "mizzou-pulmonary-carcinoma-gilvetmab",
+      "role": "url",
+      "requested_url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+      "final_url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.821383+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.005
+        },
+        {
+          "url": "https://vhc.missouri.edu/small-animal-hospital/oncology/clinical-trials/current-clinical-trials/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "msu-feline-mammary-met",
+      "role": "url",
+      "requested_url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2/treatment-of-feline-mammary-carcinoma",
+      "final_url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2/treatment-of-feline-mammary-carcinoma",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.785351+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2/treatment-of-feline-mammary-carcinoma",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2/treatment-of-feline-mammary-carcinoma",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "msu-hs-quasiorganelle",
+      "role": "url",
+      "requested_url": "https://cvm.msu.edu/hospital/veterinarians/clinical-trials/pilot-study-for-a-new-quasiorganelle-therapy-in-dogs-with-histiocytic-sarcoma",
+      "final_url": "https://cvm.msu.edu/hospital/veterinarians/clinical-trials/pilot-study-for-a-new-quasiorganelle-therapy-in-dogs-with-histiocytic-sarcoma",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.773510+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://cvm.msu.edu/hospital/veterinarians/clinical-trials/pilot-study-for-a-new-quasiorganelle-therapy-in-dogs-with-histiocytic-sarcoma",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://cvm.msu.edu/hospital/veterinarians/clinical-trials/pilot-study-for-a-new-quasiorganelle-therapy-in-dogs-with-histiocytic-sarcoma",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "msu-mct-steroids",
+      "role": "url",
+      "requested_url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2/tmrncdmct",
+      "final_url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2/tmrncdmct",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.773867+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2/tmrncdmct",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        },
+        {
+          "url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2/tmrncdmct",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "msu-tcell-lymphoma",
+      "role": "url",
+      "requested_url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2/chop-lopp",
+      "final_url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2/chop-lopp",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.759485+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2/chop-lopp",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2/chop-lopp",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "mvh-hifu-doxorubicin-lymphoma",
+      "role": "url",
+      "requested_url": "https://studypages.com/s/advancing-non-invasive-care-for-dogs-with-lymphoma-140763/",
+      "final_url": "https://studypages.com/s/advancing-non-invasive-care-for-dogs-with-lymphoma-140763/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.106375+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://studypages.com/s/advancing-non-invasive-care-for-dogs-with-lymphoma-140763/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://studypages.com/s/advancing-non-invasive-care-for-dogs-with-lymphoma-140763/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "ncsu-canine-sts-xcsgel",
+      "role": "url",
+      "requested_url": "https://cvm.ncsu.edu/clinical-trial/now-recruiting-dogs-with-soft-tissue-sarcoma/",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.852339+00:00",
+      "restriction": {
+        "url": "https://cvm.ncsu.edu/clinical-trial/now-recruiting-dogs-with-soft-tissue-sarcoma/",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:00:13.886211+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "ncsu-canine-sts-xcsgel"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "ncsu-feline-oral-pivot-c",
+      "role": "url",
+      "requested_url": "https://cvm.ncsu.edu/clinical-trial/pivot-c-pilot-intratumoral-vaccine-therapy-for-oral-tumors-in-cats/",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.852412+00:00",
+      "restriction": {
+        "url": "https://cvm.ncsu.edu/clinical-trial/pivot-c-pilot-intratumoral-vaccine-therapy-for-oral-tumors-in-cats/",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:00:13.985802+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "ncsu-feline-oral-pivot-c"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "ncsu-liver-inspire",
+      "role": "funding_source",
+      "requested_url": "https://cvm.ncsu.edu/wp-content/uploads/sites/444/2023/07/Liver-Tumor-Study-Flyer.pdf",
+      "final_url": "https://cvm.ncsu.edu/wp-content/uploads/sites/444/2023/07/Liver-Tumor-Study-Flyer.pdf",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.787550+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://cvm.ncsu.edu/wp-content/uploads/sites/444/2023/07/Liver-Tumor-Study-Flyer.pdf",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://cvm.ncsu.edu/wp-content/uploads/sites/444/2023/07/Liver-Tumor-Study-Flyer.pdf",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "ncsu-liver-inspire",
+      "role": "url",
+      "requested_url": "https://cvm.ncsu.edu/clinical-trial/now-enrolling-canine-patients-with-liver-tumors/",
+      "final_url": "https://cvm.ncsu.edu/clinical-trial/now-enrolling-canine-patients-with-liver-tumors/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.776281+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://cvm.ncsu.edu/clinical-trial/now-enrolling-canine-patients-with-liver-tumors/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://cvm.ncsu.edu/clinical-trial/now-enrolling-canine-patients-with-liver-tumors/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.003
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "ncsu-mammary-inspire",
+      "role": "funding_source",
+      "requested_url": "https://cvm.ncsu.edu/wp-content/uploads/sites/444/2022/08/Mammary-flyer-phase-two-1.pdf",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.777503+00:00",
+      "restriction": {
+        "url": "https://cvm.ncsu.edu/wp-content/uploads/sites/444/2022/08/Mammary-flyer-phase-two-1.pdf",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:05:38.710738+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "ncsu-mammary-inspire"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "ncsu-mammary-inspire",
+      "role": "url",
+      "requested_url": "https://cvm.ncsu.edu/clinical-trial/inspire-therapy-for-canine-mammary-carcinoma/",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.776726+00:00",
+      "restriction": {
+        "url": "https://cvm.ncsu.edu/clinical-trial/inspire-therapy-for-canine-mammary-carcinoma/",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T18:59:55.544091+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "ncsu-mammary-inspire"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "nz-kvs-kv9-solid-tumor-pilot",
+      "role": "url",
+      "requested_url": "https://www.kodevet9.com/clinical-trial",
+      "final_url": "https://www.kodevet9.com/clinical-trial",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.138319+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.kodevet9.com/clinical-trial",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.003
+        },
+        {
+          "url": "https://www.kodevet9.com/clinical-trial",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "osu-oral-melanoma",
+      "role": "funding_source",
+      "requested_url": "https://veterinaryclinicaltrials.org/investigator/126f5a01086f46f8b4ff16ba1540ea51/",
+      "final_url": "https://veterinaryclinicaltrials.org/investigator/126f5a01086f46f8b4ff16ba1540ea51/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.032426+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://veterinaryclinicaltrials.org/investigator/126f5a01086f46f8b4ff16ba1540ea51/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.005
+        },
+        {
+          "url": "https://veterinaryclinicaltrials.org/investigator/126f5a01086f46f8b4ff16ba1540ea51/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "osu-oral-melanoma",
+      "role": "url",
+      "requested_url": "https://vmc.vet.osu.edu/clinical-trials/immunotherapy-canine-oral-melanoma",
+      "final_url": "https://vmc.vet.osu.edu/clinical-trials/immunotherapy-canine-oral-melanoma",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.033965+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vmc.vet.osu.edu/clinical-trials/immunotherapy-canine-oral-melanoma",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://vmc.vet.osu.edu/clinical-trials/immunotherapy-canine-oral-melanoma",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "osu-osa-ai-sbrt",
+      "role": "url",
+      "requested_url": "https://vmc.vet.osu.edu/clinical-trials/use-ai-enhanced-patient-specific-biomechanical-modeling-identify-dogs-appendicular",
+      "final_url": "https://vmc.vet.osu.edu/clinical-trials/use-ai-enhanced-patient-specific-biomechanical-modeling-identify-dogs-appendicular",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.800259+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vmc.vet.osu.edu/clinical-trials/use-ai-enhanced-patient-specific-biomechanical-modeling-identify-dogs-appendicular",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.003
+        },
+        {
+          "url": "https://vmc.vet.osu.edu/clinical-trials/use-ai-enhanced-patient-specific-biomechanical-modeling-identify-dogs-appendicular",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "osu-sts-mic-nk",
+      "role": "url",
+      "requested_url": "https://vmc.vet.osu.edu/clinical-trials/targeting-mic-augment-adoptive-nk-therapy-using-canine-soft-tissue-sarcoma-model",
+      "final_url": "https://vmc.vet.osu.edu/clinical-trials/targeting-mic-augment-adoptive-nk-therapy-using-canine-soft-tissue-sarcoma-model",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.901721+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vmc.vet.osu.edu/clinical-trials/targeting-mic-augment-adoptive-nk-therapy-using-canine-soft-tissue-sarcoma-model",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        },
+        {
+          "url": "https://vmc.vet.osu.edu/clinical-trials/targeting-mic-augment-adoptive-nk-therapy-using-canine-soft-tissue-sarcoma-model",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "penn-atherton-steap1-car-t-hs",
+      "role": "url",
+      "requested_url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:36.032478+00:00",
+      "restriction": {
+        "url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:00:42.635965+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "penn-atherton-steap1-car-t-hs"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "penn-feline-oscc",
+      "role": "url",
+      "requested_url": "https://www.vet.upenn.edu/clinical-trial/pilot-study-of-frunevetmab-solensia-and-meloxicam-for-palliative-therapy-of-feline-bone-invasive-oral-squamous-cell-carcinomas/",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.743456+00:00",
+      "restriction": {
+        "url": "https://www.vet.upenn.edu/clinical-trial/pilot-study-of-frunevetmab-solensia-and-meloxicam-for-palliative-therapy-of-feline-bone-invasive-oral-squamous-cell-carcinomas/",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T18:59:52.251747+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "penn-feline-oscc"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "penn-flash-metastatic-osa-gilvetmab-2026",
+      "role": "url",
+      "requested_url": "https://www.vet.upenn.edu/clinical-trial/proton-flash-rt-in-canine-metastatic-osteosarcoma/",
+      "final_url": "https://www.vet.upenn.edu/clinical-trial/proton-flash-rt-in-canine-metastatic-osteosarcoma/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.165707+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.vet.upenn.edu/clinical-trial/proton-flash-rt-in-canine-metastatic-osteosarcoma/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://www.vet.upenn.edu/clinical-trial/proton-flash-rt-in-canine-metastatic-osteosarcoma/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "penn-flash-rt-extremity-sts",
+      "role": "url",
+      "requested_url": "https://www.vet.upenn.edu/clinical-trial/evaluation-of-proton-flash-rt-in-naturally-occurring-canine-extremity-sarcoma/",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.901772+00:00",
+      "restriction": {
+        "url": "https://www.vet.upenn.edu/clinical-trial/evaluation-of-proton-flash-rt-in-naturally-occurring-canine-extremity-sarcoma/",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:00:21.403376+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "penn-flash-rt-extremity-sts"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "penn-glioma-flash-gilvetmab-2026",
+      "role": "url",
+      "requested_url": "https://www.vet.upenn.edu/clinical-trial/flash-based-radioimmunotherapy-in-canine-glioma/",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:36.072960+00:00",
+      "restriction": {
+        "url": "https://www.vet.upenn.edu/clinical-trial/flash-based-radioimmunotherapy-in-canine-glioma/",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:00:48.735170+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "penn-glioma-flash-gilvetmab-2026"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "penn-oral-scc-nir-margin-2026",
+      "role": "url",
+      "requested_url": "https://www.vet.upenn.edu/clinical-trial/intraoperative-detection-of-oral-squamous-cell-carcinoma-margins-in-dogs-using-cathepsin-activated-near-infrared-nir-imaging/",
+      "final_url": "https://www.vet.upenn.edu/clinical-trial/intraoperative-detection-of-oral-squamous-cell-carcinoma-margins-in-dogs-using-cathepsin-activated-near-infrared-nir-imaging/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.140295+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.vet.upenn.edu/clinical-trial/intraoperative-detection-of-oral-squamous-cell-carcinoma-margins-in-dogs-using-cathepsin-activated-near-infrared-nir-imaging/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.003
+        },
+        {
+          "url": "https://www.vet.upenn.edu/clinical-trial/intraoperative-detection-of-oral-squamous-cell-carcinoma-margins-in-dogs-using-cathepsin-activated-near-infrared-nir-imaging/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.003
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "penn-psma-theranostic-prostate",
+      "role": "url",
+      "requested_url": "https://www.vet.upenn.edu/clinical-trial/psma-ligand-based-theranostic-to-treat-canine-prostatic-cancer/",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.901808+00:00",
+      "restriction": {
+        "url": "https://www.vet.upenn.edu/clinical-trial/psma-ligand-based-theranostic-to-treat-canine-prostatic-cancer/",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:00:21.407667+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "penn-psma-theranostic-prostate"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "purdue-bladder-pdl1-vinblastine-deracoxib",
+      "role": "url",
+      "requested_url": "https://vet.purdue.edu/wcorc/clinical-trials/canine-urinary-bladder-cancer.php",
+      "final_url": "https://vet.purdue.edu/wcorc/clinical-trials/canine-urinary-bladder-cancer.php",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.824095+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vet.purdue.edu/wcorc/clinical-trials/canine-urinary-bladder-cancer.php",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://vet.purdue.edu/wcorc/clinical-trials/canine-urinary-bladder-cancer.php",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "purdue-hfire-liver-cancer",
+      "role": "url",
+      "requested_url": "https://vet.purdue.edu/wcorc/clinical-trials/tumor-ablation.php",
+      "final_url": "https://vet.purdue.edu/wcorc/clinical-trials/tumor-ablation.php",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.048771+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vet.purdue.edu/wcorc/clinical-trials/tumor-ablation.php",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://vet.purdue.edu/wcorc/clinical-trials/tumor-ablation.php",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "purdue-hifu-lymphoma",
+      "role": "url",
+      "requested_url": "https://vet.purdue.edu/wcorc/clinical-trials/tumor-ablation.php",
+      "final_url": "https://vet.purdue.edu/wcorc/clinical-trials/tumor-ablation.php",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.049364+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vet.purdue.edu/wcorc/clinical-trials/tumor-ablation.php",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://vet.purdue.edu/wcorc/clinical-trials/tumor-ablation.php",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "purdue-hifu-osteosarcoma",
+      "role": "url",
+      "requested_url": "https://vet.purdue.edu/wcorc/clinical-trials/tumor-ablation.php",
+      "final_url": "https://vet.purdue.edu/wcorc/clinical-trials/tumor-ablation.php",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.073146+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vet.purdue.edu/wcorc/clinical-trials/tumor-ablation.php",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        },
+        {
+          "url": "https://vet.purdue.edu/wcorc/clinical-trials/tumor-ablation.php",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "spain-puchol-reachglio-2026",
+      "role": "url",
+      "requested_url": "https://veterinarios.hospitalveterinariopuchol.com/blog/reachglio-ensayo-clinico-glioma-perros/",
+      "final_url": "https://veterinarios.hospitalveterinariopuchol.com/blog/reachglio-ensayo-clinico-glioma-perros/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.073334+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://veterinarios.hospitalveterinariopuchol.com/blog/reachglio-ensayo-clinico-glioma-perros/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://veterinarios.hospitalveterinariopuchol.com/blog/reachglio-ensayo-clinico-glioma-perros/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "taiwan-evergreen-il15-melanoma-osa",
+      "role": "url",
+      "requested_url": "https://www.egah.com.tw/news/%E6%8B%9B%E5%8B%9F%E7%8A%AC%E9%BB%91%E8%89%B2%E7%B4%A0%E7%98%A4%E5%8F%8A%E9%AA%A8%E8%82%89%E7%98%A4%E8%87%A8%E5%BA%8A%E8%A9%A6%E9%A9%97",
+      "final_url": "https://www.egah.com.tw/news/%E6%8B%9B%E5%8B%9F%E7%8A%AC%E9%BB%91%E8%89%B2%E7%B4%A0%E7%98%A4%E5%8F%8A%E9%AA%A8%E8%82%89%E7%98%A4%E8%87%A8%E5%BA%8A%E8%A9%A6%E9%A9%97",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.020393+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.egah.com.tw/news/%E6%8B%9B%E5%8B%9F%E7%8A%AC%E9%BB%91%E8%89%B2%E7%B4%A0%E7%98%A4%E5%8F%8A%E9%AA%A8%E8%82%89%E7%98%A4%E8%87%A8%E5%BA%8A%E8%A9%A6%E9%A9%97",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        },
+        {
+          "url": "https://www.egah.com.tw/news/%E6%8B%9B%E5%8B%9F%E7%8A%AC%E9%BB%91%E8%89%B2%E7%B4%A0%E7%98%A4%E5%8F%8A%E9%AA%A8%E8%82%89%E7%98%A4%E8%87%A8%E5%BA%8A%E8%A9%A6%E9%A9%97",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "taiwan-protect-pt001-oral-melanoma",
+      "role": "url",
+      "requested_url": "https://www.protectvac.com/news-18.html",
+      "final_url": "https://www.protectvac.com/news-18.html",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.021043+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.protectvac.com/news-18.html",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://www.protectvac.com/news-18.html",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "tamu-feline-small-cell-gi-lymphoma-wart",
+      "role": "url",
+      "requested_url": "https://studypages.com/s/evaluating-whole-abdomen-radiation-therapy-as-a-treatment-for-feline-small-cell-gastrointestinal-lymphoma-358215/",
+      "final_url": "https://studypages.com/s/evaluating-whole-abdomen-radiation-therapy-as-a-treatment-for-feline-small-cell-gastrointestinal-lymphoma-358215/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.072912+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://studypages.com/s/evaluating-whole-abdomen-radiation-therapy-as-a-treatment-for-feline-small-cell-gastrointestinal-lymphoma-358215/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://studypages.com/s/evaluating-whole-abdomen-radiation-therapy-as-a-treatment-for-feline-small-cell-gastrointestinal-lymphoma-358215/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "tamu-mct-acid-suppressant",
+      "role": "url",
+      "requested_url": "https://vetmed.tamu.edu/gilab/research/studies/",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.800013+00:00",
+      "restriction": {
+        "url": "https://vetmed.tamu.edu/gilab/research/studies/",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:00:04.300717+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "tamu-mct-acid-suppressant"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "tufts-hsa-liquid",
+      "role": "url",
+      "requested_url": "https://vet.tufts.edu/clinical-trials/optimizing-integration-veterinary-clinical-research-findings-human-health-systems-improve-strategies-early-detection-and",
+      "final_url": "https://vet.tufts.edu/clinical-trials/optimizing-integration-veterinary-clinical-research-findings-human-health-systems-improve-strategies-early-detection-and",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.773289+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vet.tufts.edu/clinical-trials/optimizing-integration-veterinary-clinical-research-findings-human-health-systems-improve-strategies-early-detection-and",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.01
+        },
+        {
+          "url": "https://vet.tufts.edu/clinical-trials/optimizing-integration-veterinary-clinical-research-findings-human-health-systems-improve-strategies-early-detection-and",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "tufts-met-osa-vaccine-tme",
+      "role": "url",
+      "requested_url": "https://vet.tufts.edu/clinical-trials/treatment-canine-metastatic-osteosarcoma-combined-tumor-microenvironment-modification-and-allogeneic-vaccination",
+      "final_url": "https://vet.tufts.edu/clinical-trials/treatment-canine-metastatic-osteosarcoma-combined-tumor-microenvironment-modification-and-allogeneic-vaccination",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.885544+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vet.tufts.edu/clinical-trials/treatment-canine-metastatic-osteosarcoma-combined-tumor-microenvironment-modification-and-allogeneic-vaccination",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        },
+        {
+          "url": "https://vet.tufts.edu/clinical-trials/treatment-canine-metastatic-osteosarcoma-combined-tumor-microenvironment-modification-and-allogeneic-vaccination",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.003
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "tufts-osa-actionable-targets-2026",
+      "role": "url",
+      "requested_url": "https://vet.tufts.edu/clinical-trials/defining-actionable-targets-osteosarcoma",
+      "final_url": "https://vet.tufts.edu/clinical-trials/defining-actionable-targets-osteosarcoma",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.092738+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vet.tufts.edu/clinical-trials/defining-actionable-targets-osteosarcoma",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.005
+        },
+        {
+          "url": "https://vet.tufts.edu/clinical-trials/defining-actionable-targets-osteosarcoma",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "tufts-primary-pulmonary-carcinoma-sbrt",
+      "role": "url",
+      "requested_url": "https://vet.tufts.edu/clinical-trials/sbrt-canine-lung-tumor-study",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:36.117035+00:00",
+      "restriction": {
+        "url": "https://vet.tufts.edu/clinical-trials/sbrt-canine-lung-tumor-study",
+        "do_not_retry": true,
+        "http_status": 403,
+        "method": "web_open",
+        "observed_at": "2026-11-18T08:32:35.467984+00:00",
+        "origin": "research/audit-runs/daily-20261118T030402-0500/public-evidence.json",
+        "reason": "Exact individual primary returned Web403. No retry or alternate-method request on this route. Other Tufts routes remain permitted.",
+        "original_local_evidence_key": "research/audit-runs/daily-20261118T030402-0500/web-review-020.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "tufts-sabr-pulmonary-metastases-2026",
+      "role": "url",
+      "requested_url": "https://vet.tufts.edu/clinical-trials/stereotactic-ablative-radiotherapy-sabr-lung-metastases",
+      "final_url": "https://vet.tufts.edu/clinical-trials/stereotactic-ablative-radiotherapy-sabr-lung-metastases",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.102850+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vet.tufts.edu/clinical-trials/stereotactic-ablative-radiotherapy-sabr-lung-metastases",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://vet.tufts.edu/clinical-trials/stereotactic-ablative-radiotherapy-sabr-lung-metastases",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "tufts-sts-fap-car-t",
+      "role": "url",
+      "requested_url": "https://vet.tufts.edu/clinical-trials/treatment-canine-soft-tissue-sarcoma-fap-car-t-cells",
+      "final_url": "https://vet.tufts.edu/clinical-trials/treatment-canine-soft-tissue-sarcoma-fap-car-t-cells",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.885703+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vet.tufts.edu/clinical-trials/treatment-canine-soft-tissue-sarcoma-fap-car-t-cells",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://vet.tufts.edu/clinical-trials/treatment-canine-soft-tissue-sarcoma-fap-car-t-cells",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.003
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "tufts-z007-broad-solid-2026",
+      "role": "url",
+      "requested_url": "https://vet.tufts.edu/clinical-trials/evaluation-tlr-agonist-z-007-dogs-cancer",
+      "final_url": "https://vet.tufts.edu/clinical-trials/evaluation-tlr-agonist-z-007-dogs-cancer",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.845640+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vet.tufts.edu/clinical-trials/evaluation-tlr-agonist-z-007-dogs-cancer",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.003
+        },
+        {
+          "url": "https://vet.tufts.edu/clinical-trials/evaluation-tlr-agonist-z-007-dogs-cancer",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "ucd-care-canine-glioma",
+      "role": "funding_source",
+      "requested_url": "https://studypages.com/s/care-trial-combined-autophagy-inhibition-and-radiation-therapy-to-improve-efficacy-in-canine-glioma-353022/",
+      "final_url": "https://studypages.com/s/care-trial-combined-autophagy-inhibition-and-radiation-therapy-to-improve-efficacy-in-canine-glioma-353022/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.998916+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://studypages.com/s/care-trial-combined-autophagy-inhibition-and-radiation-therapy-to-improve-efficacy-in-canine-glioma-353022/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://studypages.com/s/care-trial-combined-autophagy-inhibition-and-radiation-therapy-to-improve-efficacy-in-canine-glioma-353022/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.003
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "ucd-care-canine-glioma",
+      "role": "url",
+      "requested_url": "https://studypages.com/s/novel-drug-combined-with-radiation-therapy-for-dogs-with-brain-tumors-glioma-353022/",
+      "final_url": "https://studypages.com/s/novel-drug-combined-with-radiation-therapy-for-dogs-with-brain-tumors-glioma-353022/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.984719+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://studypages.com/s/novel-drug-combined-with-radiation-therapy-for-dogs-with-brain-tumors-glioma-353022/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://studypages.com/s/novel-drug-combined-with-radiation-therapy-for-dogs-with-brain-tumors-glioma-353022/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "ucd-liver-tae-tace",
+      "role": "url",
+      "requested_url": "https://studypages.com/s/assessing-a-new-technique-to-shrink-liver-tumors-in-dogs-468706/",
+      "final_url": "https://studypages.com/s/assessing-a-new-technique-to-shrink-liver-tumors-in-dogs-468706/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.071228+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://studypages.com/s/assessing-a-new-technique-to-shrink-liver-tumors-in-dogs-468706/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.004
+        },
+        {
+          "url": "https://studypages.com/s/assessing-a-new-technique-to-shrink-liver-tumors-in-dogs-468706/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "ucd-nasal-chemo-radiation",
+      "role": "url",
+      "requested_url": "https://studypages.com/s/using-a-combination-of-therapies-for-treatment-of-nasal-cancer-in-dogs-217934/",
+      "final_url": "https://studypages.com/s/using-a-combination-of-therapies-for-treatment-of-nasal-cancer-in-dogs-217934/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.053089+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://studypages.com/s/using-a-combination-of-therapies-for-treatment-of-nasal-cancer-in-dogs-217934/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://studypages.com/s/using-a-combination-of-therapies-for-treatment-of-nasal-cancer-in-dogs-217934/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.004
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "ucd-nasal-tae",
+      "role": "url",
+      "requested_url": "https://studypages.com/s/novel-treatment-for-nasal-tumors-320455/",
+      "final_url": "https://studypages.com/s/novel-treatment-for-nasal-tumors-320455/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.060829+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://studypages.com/s/novel-treatment-for-nasal-tumors-320455/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://studypages.com/s/novel-treatment-for-nasal-tumors-320455/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "ucd-oral-margin",
+      "role": "url",
+      "requested_url": "https://studypages.com/s/fluorescence-imaging-with-pdl1-irdye800-to-guide-surgical-treatment-of-oral-cancer-in-dogs-679907/",
+      "final_url": "https://studypages.com/s/fluorescence-imaging-with-pdl1-irdye800-to-guide-surgical-treatment-of-oral-cancer-in-dogs-679907/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.800594+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://studypages.com/s/fluorescence-imaging-with-pdl1-irdye800-to-guide-surgical-treatment-of-oral-cancer-in-dogs-679907/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        },
+        {
+          "url": "https://studypages.com/s/fluorescence-imaging-with-pdl1-irdye800-to-guide-surgical-treatment-of-oral-cancer-in-dogs-679907/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "ucd-pdl1-metastatic",
+      "role": "url",
+      "requested_url": "https://studypages.com/s/innovative-immunotherapy-for-canine-lung-metastases-the-caalm-study-276511/",
+      "final_url": "https://studypages.com/s/innovative-immunotherapy-for-canine-lung-metastases-the-caalm-study-276511/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.785552+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://studypages.com/s/innovative-immunotherapy-for-canine-lung-metastases-the-caalm-study-276511/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://studypages.com/s/innovative-immunotherapy-for-canine-lung-metastases-the-caalm-study-276511/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "ucd-prism-canine-glioma",
+      "role": "url",
+      "requested_url": "https://studypages.com/s/prism-trial-precision-research-integrating-symptoms-and-molecular-biology-in-canine-glioma-788706/",
+      "final_url": "https://studypages.com/s/prism-trial-precision-research-integrating-symptoms-and-molecular-biology-in-canine-glioma-788706/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.000104+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://studypages.com/s/prism-trial-precision-research-integrating-symptoms-and-molecular-biology-in-canine-glioma-788706/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://studypages.com/s/prism-trial-precision-research-integrating-symptoms-and-molecular-biology-in-canine-glioma-788706/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.003
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "uf-boxer-glioma-autogenic-vaccine",
+      "role": "url",
+      "requested_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/neurology-2/autogenic-vaccine-study-in-dogs-with-glioma/",
+      "final_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/neurology-2/autogenic-vaccine-study-in-dogs-with-glioma/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.106601+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/neurology-2/autogenic-vaccine-study-in-dogs-with-glioma/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/neurology-2/autogenic-vaccine-study-in-dogs-with-glioma/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "uf-feline-oscc",
+      "role": "url",
+      "requested_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/clinical-trials-for-cats/feline-rna-nanoparticle-vaccine-against-oral-squamous-cell-carcinoma/",
+      "final_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/clinical-trials-for-cats/feline-rna-nanoparticle-vaccine-against-oral-squamous-cell-carcinoma/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.775451+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/clinical-trials-for-cats/feline-rna-nanoparticle-vaccine-against-oral-squamous-cell-carcinoma/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/clinical-trials-for-cats/feline-rna-nanoparticle-vaccine-against-oral-squamous-cell-carcinoma/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "uf-hs-trametinib",
+      "role": "url",
+      "requested_url": "https://research.vetmed.ufl.edu/phase-ii-open-label-non-randomized-multicenter-clinical-trial-of-trametinib-for-dogs-with-histiocytic-sarcoma/",
+      "final_url": "https://research.vetmed.ufl.edu/phase-ii-open-label-non-randomized-multicenter-clinical-trial-of-trametinib-for-dogs-with-histiocytic-sarcoma/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.758900+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://research.vetmed.ufl.edu/phase-ii-open-label-non-randomized-multicenter-clinical-trial-of-trametinib-for-dogs-with-histiocytic-sarcoma/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://research.vetmed.ufl.edu/phase-ii-open-label-non-randomized-multicenter-clinical-trial-of-trametinib-for-dogs-with-histiocytic-sarcoma/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "uf-hsa-vaccine",
+      "role": "funding_source",
+      "requested_url": "https://research.vetmed.ufl.edu/clinical-trials/small-animal/vaccine-study-for-dogs-with-hemangiosarcoma/",
+      "final_url": "https://research.vetmed.ufl.edu/clinical-trials/small-animal/vaccine-study-for-dogs-with-hemangiosarcoma/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.742612+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://research.vetmed.ufl.edu/clinical-trials/small-animal/vaccine-study-for-dogs-with-hemangiosarcoma/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://research.vetmed.ufl.edu/clinical-trials/small-animal/vaccine-study-for-dogs-with-hemangiosarcoma/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "uf-hsa-vaccine",
+      "role": "url",
+      "requested_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/oncology/vaccine-study-for-dogs-with-hemangiosarcoma/",
+      "final_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/oncology/vaccine-study-for-dogs-with-hemangiosarcoma/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.757028+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/oncology/vaccine-study-for-dogs-with-hemangiosarcoma/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/oncology/vaccine-study-for-dogs-with-hemangiosarcoma/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "uf-melanoma",
+      "role": "funding_source",
+      "requested_url": "http://vetmed-research-a2-new.sites.medinfo.ufl.edu/clinical-trials/small-animal/melanoma-vaccine-study-for-dogs/",
+      "final_url": "http://vetmed-research-a2-new.sites.medinfo.ufl.edu/clinical-trials/small-animal/melanoma-vaccine-study-for-dogs/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.754201+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "http://vetmed-research-a2-new.sites.medinfo.ufl.edu/clinical-trials/small-animal/melanoma-vaccine-study-for-dogs/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "http://vetmed-research-a2-new.sites.medinfo.ufl.edu/clinical-trials/small-animal/melanoma-vaccine-study-for-dogs/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "uf-melanoma",
+      "role": "url",
+      "requested_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/melanoma-vaccine-study-for-dogs/",
+      "final_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/melanoma-vaccine-study-for-dogs/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.743364+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/melanoma-vaccine-study-for-dogs/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/melanoma-vaccine-study-for-dogs/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "uf-oral-melanoma-vaccine-pd1",
+      "role": "url",
+      "requested_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/vaccine-and-anti-pd1-study-in-dogs-with-malignant-melanoma/",
+      "final_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/vaccine-and-anti-pd1-study-in-dogs-with-malignant-melanoma/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.811988+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/vaccine-and-anti-pd1-study-in-dogs-with-malignant-melanoma/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/vaccine-and-anti-pd1-study-in-dogs-with-malignant-melanoma/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "uf-osa-mrna",
+      "role": "url",
+      "requested_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/mrna-vaccine-study-for-dogs-with-appendicular-osteosarcoma-currently-enrolling/",
+      "final_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/mrna-vaccine-study-for-dogs-with-appendicular-osteosarcoma-currently-enrolling/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.731126+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/mrna-vaccine-study-for-dogs-with-appendicular-osteosarcoma-currently-enrolling/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/mrna-vaccine-study-for-dogs-with-appendicular-osteosarcoma-currently-enrolling/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "uf-osa-vaccine",
+      "role": "url",
+      "requested_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/vaccine-study-for-dogs-with-osteosarcoma/",
+      "final_url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/vaccine-study-for-dogs-with-osteosarcoma/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.729020+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/vaccine-study-for-dogs-with-osteosarcoma/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        },
+        {
+          "url": "https://research.vetmed.ufl.edu/research-programs/clinical-trials/small-animal/vaccine-study-for-dogs-with-osteosarcoma/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "uga-bcell-ivp",
+      "role": "url",
+      "requested_url": "https://vet.uga.edu/clinical-trial/dogs-diagnosed-with-b-cell-lymphoma/",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.776355+00:00",
+      "restriction": {
+        "url": "https://vet.uga.edu/clinical-trial/dogs-diagnosed-with-b-cell-lymphoma/",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T18:59:57.475697+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "uga-bcell-ivp"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "uk-edinburgh-oral-melanoma-tigilanol-tiglate",
+      "role": "url",
+      "requested_url": "https://vet.ed.ac.uk/news/latest-news/2024/drug-trial-studies-plant-based-oral-cancer-therapy-dogs",
+      "final_url": "https://vet.ed.ac.uk/news/latest-news/2024/drug-trial-studies-plant-based-oral-cancer-therapy-dogs",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.748795+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://vet.ed.ac.uk/news/latest-news/2024/drug-trial-studies-plant-based-oral-cancer-therapy-dogs",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://vet.ed.ac.uk/news/latest-news/2024/drug-trial-studies-plant-based-oral-cancer-therapy-dogs",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.005
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "uk-liverpool-dogfight-glioma-ferumoxytol-rt",
+      "role": "url",
+      "requested_url": "https://www.liverpool.ac.uk/people/tim-bentley",
+      "final_url": "https://www.liverpool.ac.uk/people/tim-bentley",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.742884+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.liverpool.ac.uk/people/tim-bentley",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://www.liverpool.ac.uk/people/tim-bentley",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.009
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "uk-ndsr-osa-rfil2-watch",
+      "role": "url",
+      "requested_url": "https://www.ndsr.co.uk/information-sheets/osteosarcoma-2/",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.822368+00:00",
+      "restriction": {
+        "url": "https://www.ndsr.co.uk/information-sheets/osteosarcoma-2/",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:00:09.635756+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "uk-ndsr-osa-rfil2-watch"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "umn-canine-oral-melanoma-aav-vaccine",
+      "role": "url",
+      "requested_url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/new-vaccine",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.902265+00:00",
+      "restriction": {
+        "url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/new-vaccine",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:00:22.188075+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "umn-canine-oral-melanoma-aav-vaccine"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "umn-feline-mammary-olaparib-meloxicam",
+      "role": "url",
+      "requested_url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/olaparib",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.866874+00:00",
+      "restriction": {
+        "url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/olaparib",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:00:17.272492+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "umn-feline-mammary-olaparib-meloxicam"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "umn-glioma-nanoparticle-gene",
+      "role": "url",
+      "requested_url": "https://vetmed.umn.edu/canine-brain-tumor-program/available-trials",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.822343+00:00",
+      "restriction": {
+        "url": "https://vetmed.umn.edu/canine-brain-tumor-program/available-trials",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:00:08.059201+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "umn-glioma-zika-autologous-vax",
+          "umn-glioma-nanoparticle-gene"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "umn-glioma-zika-autologous-vax",
+      "role": "url",
+      "requested_url": "https://vetmed.umn.edu/canine-brain-tumor-program/available-trials",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.822310+00:00",
+      "restriction": {
+        "url": "https://vetmed.umn.edu/canine-brain-tumor-program/available-trials",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:00:08.059201+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "umn-glioma-zika-autologous-vax",
+          "umn-glioma-nanoparticle-gene"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "umn-orbit-lymphoma",
+      "role": "url",
+      "requested_url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/orbit-vsv",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:36.019931+00:00",
+      "restriction": {
+        "url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/orbit-vsv",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T19:00:38.811697+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "umn-orbit-lymphoma"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "utsw-hsa-temozolomide-propranolol",
+      "role": "funding_source",
+      "requested_url": "https://veterinaryclinicaltrials.org/s/evaluation-of-a-combination-of-three-drugs-in-dogs-with-hemangiosarcoma-539715/",
+      "final_url": "https://veterinaryclinicaltrials.org/s/evaluation-of-a-combination-of-three-drugs-in-dogs-with-hemangiosarcoma-539715/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.049246+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://veterinaryclinicaltrials.org/s/evaluation-of-a-combination-of-three-drugs-in-dogs-with-hemangiosarcoma-539715/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://veterinaryclinicaltrials.org/s/evaluation-of-a-combination-of-three-drugs-in-dogs-with-hemangiosarcoma-539715/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "utsw-hsa-temozolomide-propranolol",
+      "role": "url",
+      "requested_url": "https://veterinaryclinicaltrials.org/investigator/e49205cb5a4046f8bb9e288a2ea04f48/",
+      "final_url": "https://veterinaryclinicaltrials.org/investigator/e49205cb5a4046f8bb9e288a2ea04f48/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.035059+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://veterinaryclinicaltrials.org/investigator/e49205cb5a4046f8bb9e288a2ea04f48/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://veterinaryclinicaltrials.org/investigator/e49205cb5a4046f8bb9e288a2ea04f48/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "utsw-vroc-compassionate-advanced-unresectable",
+      "role": "url",
+      "requested_url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%205.pdf",
+      "final_url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%205.pdf",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.946939+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%205.pdf",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%205.pdf",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "utsw-vroc-glioma-car-neutrophils-rt",
+      "role": "contact_source",
+      "requested_url": "https://veterinaryclinicaltrials.org/s/car-neutrophils-and-radiation-to-treat-glioma-in-the-dog-792158/",
+      "final_url": "https://veterinaryclinicaltrials.org/s/car-neutrophils-and-radiation-to-treat-glioma-in-the-dog-792158/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.939572+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://veterinaryclinicaltrials.org/s/car-neutrophils-and-radiation-to-treat-glioma-in-the-dog-792158/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        },
+        {
+          "url": "https://veterinaryclinicaltrials.org/s/car-neutrophils-and-radiation-to-treat-glioma-in-the-dog-792158/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.003
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "utsw-vroc-glioma-car-neutrophils-rt",
+      "role": "funding_source",
+      "requested_url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%206.pdf",
+      "final_url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%206.pdf",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.934893+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%206.pdf",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        },
+        {
+          "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%206.pdf",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "utsw-vroc-glioma-car-neutrophils-rt",
+      "role": "url",
+      "requested_url": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-trials.html",
+      "final_url": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-trials.html",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.926729+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-trials.html",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.003
+        },
+        {
+          "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-trials.html",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "utsw-vroc-glioma-ferumoxytol-rt",
+      "role": "contact_source",
+      "requested_url": "https://veterinaryclinicaltrials.org/s/treating-dogs-with-glioma-using-radiation-and-immunotherapy-294689/",
+      "final_url": "https://veterinaryclinicaltrials.org/s/treating-dogs-with-glioma-using-radiation-and-immunotherapy-294689/",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.940206+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://veterinaryclinicaltrials.org/s/treating-dogs-with-glioma-using-radiation-and-immunotherapy-294689/",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://veterinaryclinicaltrials.org/s/treating-dogs-with-glioma-using-radiation-and-immunotherapy-294689/",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.004
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "utsw-vroc-glioma-ferumoxytol-rt",
+      "role": "funding_source",
+      "requested_url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%207.pdf",
+      "final_url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%207.pdf",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.980525+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%207.pdf",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        },
+        {
+          "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%207.pdf",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.002
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "utsw-vroc-glioma-ferumoxytol-rt",
+      "role": "url",
+      "requested_url": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-trials.html",
+      "final_url": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-trials.html",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.949382+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-trials.html",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/veterinary-research-oncology-clinic/clinical-trials.html",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "utsw-vroc-melanoma-carboplatin-hifu",
+      "role": "url",
+      "requested_url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%204.pdf",
+      "final_url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%204.pdf",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.938899+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%204.pdf",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        },
+        {
+          "url": "https://www.utsouthwestern.edu/departments/radiation-oncology/assets/VROC%20Trials%20Brochure%20Study%204.pdf",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.003
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "vt-brain-verteporfin-pdt",
+      "role": "url",
+      "requested_url": "https://research.vetmed.vt.edu/clinical-trials/current-studies/new-therapy-for-canine-brain-tumors.html",
+      "final_url": "https://research.vetmed.vt.edu/clinical-trials/current-studies/new-therapy-for-canine-brain-tumors.html",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.926126+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://research.vetmed.vt.edu/clinical-trials/current-studies/new-therapy-for-canine-brain-tumors.html",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.005
+        },
+        {
+          "url": "https://research.vetmed.vt.edu/clinical-trials/current-studies/new-therapy-for-canine-brain-tumors.html",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.003
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "vt-canine-glioma-ced",
+      "role": "url",
+      "requested_url": "https://research.vetmed.vt.edu/clinical-trials/current-studies/molecular-combinatorial-therapy.html",
+      "final_url": "https://research.vetmed.vt.edu/clinical-trials/current-studies/molecular-combinatorial-therapy.html",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.031037+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://research.vetmed.vt.edu/clinical-trials/current-studies/molecular-combinatorial-therapy.html",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.003
+        },
+        {
+          "url": "https://research.vetmed.vt.edu/clinical-trials/current-studies/molecular-combinatorial-therapy.html",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.0
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "vt-liver-laseit-pdt",
+      "role": "url",
+      "requested_url": "https://research.vetmed.vt.edu/clinical-trials/current-studies/liver-tumor-pdt.html",
+      "final_url": "https://research.vetmed.vt.edu/clinical-trials/current-studies/liver-tumor-pdt.html",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:36.158940+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://research.vetmed.vt.edu/clinical-trials/current-studies/liver-tumor-pdt.html",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        },
+        {
+          "url": "https://research.vetmed.vt.edu/clinical-trials/current-studies/liver-tumor-pdt.html",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.009
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "vt-thyroid-histotripsy",
+      "role": "url",
+      "requested_url": "https://research.vetmed.vt.edu/clinical-trials/current-studies/developing-a-non-invasive-treatment-for-canine-thyroid-tumors.html",
+      "final_url": "https://research.vetmed.vt.edu/clinical-trials/current-studies/developing-a-non-invasive-treatment-for-canine-thyroid-tumors.html",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.922589+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://research.vetmed.vt.edu/clinical-trials/current-studies/developing-a-non-invasive-treatment-for-canine-thyroid-tumors.html",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.007
+        },
+        {
+          "url": "https://research.vetmed.vt.edu/clinical-trials/current-studies/developing-a-non-invasive-treatment-for-canine-thyroid-tumors.html",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.005
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "wisc-lymphoma-half-body-rt-chop",
+      "role": "funding_source",
+      "requested_url": "https://uwveterinarycare.wisc.edu/wp-content/uploads/2026/09/HDR-HBRT_Reference-Sheet.docx",
+      "final_url": "https://uwveterinarycare.wisc.edu/wp-content/uploads/2026/09/HDR-HBRT_Reference-Sheet.docx",
+      "result": "transport_error",
+      "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+      "completed_at": "2026-11-22T09:10:35.799917+00:00",
+      "redirects": [],
+      "tries": [
+        {
+          "url": "https://uwveterinarycare.wisc.edu/wp-content/uploads/2026/09/HDR-HBRT_Reference-Sheet.docx",
+          "attempt": 1,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.01
+        },
+        {
+          "url": "https://uwveterinarycare.wisc.edu/wp-content/uploads/2026/09/HDR-HBRT_Reference-Sheet.docx",
+          "attempt": 2,
+          "error": "ConnectError: [Errno -3] Temporary failure in name resolution",
+          "elapsed_seconds": 0.001
+        }
+      ],
+      "opened": true
+    },
+    {
+      "source_id": "wisc-lymphoma-half-body-rt-chop",
+      "role": "url",
+      "requested_url": "https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.777097+00:00",
+      "restriction": {
+        "url": "https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/",
+        "do_not_retry": true,
+        "origin": "explicit_prior_master_denial_narrative",
+        "source_id": "usa-wisconsin-oncology-studies"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "wisc-osa-flash-radiotherapy",
+      "role": "funding_source",
+      "requested_url": "https://uwveterinarycare.wisc.edu/wp-content/uploads/2026/04/FLASH-Consent-Form-1.docx",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.777915+00:00",
+      "restriction": {
+        "url": "https://uwveterinarycare.wisc.edu/wp-content/uploads/2026/04/FLASH-Consent-Form-1.docx",
+        "do_not_retry": true,
+        "http_status": 403,
+        "method": "web_open",
+        "observed_at": "2026-11-18T08:43:12.946619+00:00",
+        "origin": "research/audit-runs/daily-20261118T030402-0500/public-evidence.json",
+        "reason": "Actual same official DOCX returned Web403 after native connect timeout. No retry or alternate method for this exact route.",
+        "original_local_evidence_key": "research/audit-runs/daily-20261118T030402-0500/web-review-035.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "wisc-osa-flash-radiotherapy",
+      "role": "url",
+      "requested_url": "https://uwveterinarycare.wisc.edu/wp-content/uploads/2024/10/FLASH-flyer-editable.docx",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.777892+00:00",
+      "restriction": {
+        "url": "https://uwveterinarycare.wisc.edu/wp-content/uploads/2024/10/FLASH-flyer-editable.docx",
+        "do_not_retry": true,
+        "http_status": 403,
+        "method": "web_open",
+        "observed_at": "2026-11-18T08:44:53.223200+00:00",
+        "origin": "research/audit-runs/daily-20261118T030402-0500/public-evidence.json",
+        "reason": "Actual same official older FLASH DOCX returned Web403 after native connecttimeout. No retry or alternate method for exactroute.",
+        "original_local_evidence_key": "research/audit-runs/daily-20261118T030402-0500/web-review-036.json"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "wisc-ptcl-90y-nm600-rpt",
+      "role": "url",
+      "requested_url": "https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.777860+00:00",
+      "restriction": {
+        "url": "https://uwveterinarycare.wisc.edu/veterinary-clinical-studies/oncology/",
+        "do_not_retry": true,
+        "origin": "explicit_prior_master_denial_narrative",
+        "source_id": "usa-wisconsin-oncology-studies"
+      },
+      "opened": false
+    },
+    {
+      "source_id": "wsu-sts-local-immunotherapy",
+      "role": "url",
+      "requested_url": "https://vrcvet.com/clinical-trials/",
+      "result": "skipped_exact_restriction",
+      "completed_at": "2026-11-22T09:10:35.776430+00:00",
+      "restriction": {
+        "url": "https://vrcvet.com/clinical-trials/",
+        "do_not_retry": true,
+        "observed_at": "2026-10-16T18:59:57.548904+00:00",
+        "http_status": 403,
+        "record_ids": [
+          "wsu-sts-local-immunotherapy"
+        ],
+        "origin": "research/audit-runs/selection-restart-20261016/source-attempts.json"
+      },
+      "opened": false
+    }
+  ]
+}
