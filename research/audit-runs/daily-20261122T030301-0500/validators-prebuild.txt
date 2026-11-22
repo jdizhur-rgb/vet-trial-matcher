@@ -1,0 +1,48 @@
+SOURCE_INVENTORY_VALIDATION_OK sources=168 digest=0ee22288b34e
+TRIAL_CATALOG_VALIDATION_OK records=323 unique_ids=323 active=153 required_active_fields=11
+{
+  "records": 323,
+  "partial_records": 4,
+  "known_unresolved": 4,
+  "new_partial_records": [],
+  "resolved_but_still_queued": [
+    "eu-ch-sinonasal-heterogeneous-rt",
+    "fr-fregis-chemodectoma-thermoablation",
+    "fr-fregis-hepatic-embolization",
+    "fr-fregis-hepatic-tumor-thermoablation",
+    "nl-utrecht-osteosarcoma-oncolytic-virus-access",
+    "uk-rvc-insulinoma-toceranib"
+  ]
+}
+REPOSITORY_HYGIENE_OK
+EE
+======================================================================
+ERROR: test_audit_execution_gate (unittest.loader._FailedTest.test_audit_execution_gate)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_audit_execution_gate
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/713cddbf2188/vet-trial-matcher-20261122/scripts/test_audit_execution_gate.py", line 10, in <module>
+    from audit_execution_gate import current_source_sufficient, validate, REGIONS, PASSES, seed_queue
+ModuleNotFoundError: No module named 'audit_execution_gate'
+
+
+======================================================================
+ERROR: test_audit_gap_review (unittest.loader._FailedTest.test_audit_gap_review)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_audit_gap_review
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/713cddbf2188/vet-trial-matcher-20261122/scripts/test_audit_gap_review.py", line 5, in <module>
+    from validate_audit_gap_review import validate
+ModuleNotFoundError: No module named 'validate_audit_gap_review'
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+FAILED (errors=2)

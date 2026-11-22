@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "run_id": "daily-20261122T030301-0500",
+  "execution_gate": {
+    "status": "PASS",
+    "source_sufficient": 1,
+    "source_total": 168,
+    "baseline_source_total": 168,
+    "sources_added": 0,
+    "issues_before": 74,
+    "issues_resolved": 0,
+    "policy_questions_resolved": 0,
+    "issues_remaining": 74,
+    "available_remaining": [],
+    "issue_states": {
+      "BLOCKED": 74
+    },
+    "execution": "PASS",
+    "clinical_reconciliation": "INCOMPLETE",
+    "discovery": "INCOMPLETE",
+    "scope": "Accounting/evidence gate; not independent medical verification or exhaustive global coverage.",
+    "errors": []
+  },
+  "strict_receipt": {
+    "status": "INCOMPLETE",
+    "coverage_gap_count": 167,
+    "errors": []
+  },
+  "gap_review": {
+    "review_validation": "PASS",
+    "errors": [],
+    "gap_total": 167,
+    "categories": {
+      "roster_unestablished": 137,
+      "source_unavailable": 30
+    },
+    "processing_assessments": {
+      "external_blocker": 167
+    },
+    "processing_completion": "EXTERNAL_GAPS_ONLY",
+    "strict_coverage_status": "INCOMPLETE"
+  },
+  "catalog_validator": "PASS records=323 active=153",
+  "source_inventory_validator": "PASS sources=168",
+  "catalog_sanitation": "PASS with 4 known unresolved partial records and no new partial records",
+  "repository_hygiene": "PASS",
+  "audit_gate_tests": "PASS 29 tests",
+  "matcher_and_build": "PASS",
+  "evidence_key_scan": "PASS",
+  "evidence_refs": [
+    "research/audit-runs/daily-20261122T030301-0500/validators-prebuild.txt",
+    "research/audit-runs/daily-20261122T030301-0500/audit-gate-tests.txt",
+    "research/audit-runs/daily-20261122T030301-0500/build-and-matcher-tests.txt",
+    "research/audit-runs/daily-20261122T030301-0500/evidence-key-check.txt"
+  ]
+}
