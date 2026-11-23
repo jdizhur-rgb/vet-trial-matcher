@@ -15428,6 +15428,457 @@
           "expected": "exclude"
         }
       ]
+    },
+    {
+      "trial_id": "ncsu-mammary-inspire",
+      "source_url": "https://cvm.ncsu.edu/clinical-trial/inspire-therapy-for-canine-mammary-carcinoma/",
+      "reviewed_at": "2026-11-23T03:26:18.251226-05:00",
+      "criteria": "Independent cases derived from current canonical source fields for ncsu-mammary-inspire: species=Dog, disease=Mammary carcinoma, requires={\"active_treatment_target\": true, \"max_tumor_cm\": 3, \"measurable\": true, \"min_tumor_cm\": 1, \"min_weight_lb\": 30, \"no_metastasis\": true, \"previously_spayed\": true}, excludes={\"anesthesia_contraindicated\": true, \"poor_general_health\": true}. Today's exact protocol URL decision is saved in the current protocol evidence.",
+      "cases": [
+        {
+          "name": "23 Nov source-derived candidate",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Mammary carcinoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "23 Nov species contradiction",
+          "patient": {
+            "species": "Cat",
+            "country": "USA",
+            "cancer": "Mammary carcinoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "23 Nov unknown diagnosis requires screening",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Mammary carcinoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
+        }
+      ],
+      "selection_sha256": "260ad559f7b94f5bbfc7387cf574c04ae05263b4866846abda095a09aee67026",
+      "full_protocol_reverified": false,
+      "primary_evidence_review_run": "daily-20261123T030529-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_ref": "research/audit-runs/daily-20261123T030529-0500/current-protocol-web-summary.json"
+    },
+    {
+      "trial_id": "uga-bcell-ivp",
+      "source_url": "https://vet.uga.edu/clinical-trial/dogs-diagnosed-with-b-cell-lymphoma/",
+      "reviewed_at": "2026-11-23T03:26:18.251226-05:00",
+      "criteria": "Independent cases derived from current canonical source fields for uga-bcell-ivp: species=Dog, disease=B-cell lymphoma, requires={\"active_treatment_target\": true, \"confirmed\": true, \"max_weight_kg\": 50, \"min_age_years\": 1, \"min_weight_kg\": 10, \"prior_chemo\": false, \"prior_radiation\": false}, excludes={\"prior_immunotherapy\": true}. Today's exact protocol URL decision is saved in the current protocol evidence.",
+      "cases": [
+        {
+          "name": "23 Nov source-derived candidate",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "B-cell lymphoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "23 Nov species contradiction",
+          "patient": {
+            "species": "Cat",
+            "country": "USA",
+            "cancer": "B-cell lymphoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "23 Nov unknown diagnosis requires screening",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "B-cell lymphoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
+        }
+      ],
+      "selection_sha256": "4453132c0bcb5e6a142ad9e1aabcf1c226466d5939fcd94a5a4d95f8c304f3c7",
+      "full_protocol_reverified": false,
+      "primary_evidence_review_run": "daily-20261123T030529-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_ref": "research/audit-runs/daily-20261123T030529-0500/current-protocol-web-summary.json"
+    },
+    {
+      "trial_id": "ethos-bcell-oral",
+      "source_url": "https://www.ethosvet.com/clinical-study/canine-b-cell-lymphoma-study/",
+      "reviewed_at": "2026-11-23T03:26:18.251226-05:00",
+      "criteria": "Independent cases derived from current canonical source fields for ethos-bcell-oral: species=Dog, disease=B-cell lymphoma, requires={\"active_treatment_target\": true, \"confirmed\": true, \"max_weight_lb\": 100, \"min_age_years\": 1, \"min_weight_lb\": 22, \"prior_chemo\": false, \"prior_radiation\": false}, excludes={\"prior_immunotherapy\": true}. Today's exact protocol URL decision is saved in the current protocol evidence.",
+      "cases": [
+        {
+          "name": "23 Nov source-derived candidate",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "B-cell lymphoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "23 Nov species contradiction",
+          "patient": {
+            "species": "Cat",
+            "country": "USA",
+            "cancer": "B-cell lymphoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "23 Nov unknown diagnosis requires screening",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "B-cell lymphoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
+        }
+      ],
+      "selection_sha256": "df12d600874f40f983fd321ef88ca7ea184f232808dfdd4021bee870455643cc",
+      "full_protocol_reverified": false,
+      "primary_evidence_review_run": "daily-20261123T030529-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_ref": "research/audit-runs/daily-20261123T030529-0500/current-protocol-web-summary.json"
+    },
+    {
+      "trial_id": "tamu-mct-acid-suppressant",
+      "source_url": "https://vetmed.tamu.edu/gilab/research/studies/",
+      "reviewed_at": "2026-11-23T03:26:18.251226-05:00",
+      "criteria": "Independent cases derived from current canonical source fields for tamu-mct-acid-suppressant: species=Dog, disease=Mast cell tumor, requires={\"active_treatment_target\": true, \"confirmed\": true, \"measurable\": true, \"planned_surgery\": true}, excludes={}. Today's exact protocol URL decision is saved in the current protocol evidence.",
+      "cases": [
+        {
+          "name": "23 Nov source-derived candidate",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Mast cell tumor"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "23 Nov species contradiction",
+          "patient": {
+            "species": "Cat",
+            "country": "USA",
+            "cancer": "Mast cell tumor"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "23 Nov unknown diagnosis requires screening",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Mast cell tumor",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
+        }
+      ],
+      "selection_sha256": "52b7888464322a69f329a8577aa77beb6c05f9962ba0b0ec6974865daadabb7a",
+      "full_protocol_reverified": false,
+      "primary_evidence_review_run": "daily-20261123T030529-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_ref": "research/audit-runs/daily-20261123T030529-0500/current-protocol-web-summary.json"
+    },
+    {
+      "trial_id": "eu-uk-ndsr-high-grade-mammary-current",
+      "source_url": "https://www.ndsr.co.uk/insights/canine-mammary-cancer/",
+      "reviewed_at": "2026-11-23T03:26:18.251226-05:00",
+      "criteria": "Independent cases derived from current canonical source fields for eu-uk-ndsr-high-grade-mammary-current: species=Dog, disease=Mammary carcinoma, requires={\"confirmed\": true}, excludes={}. Today's exact protocol URL decision is saved in the current protocol evidence.",
+      "cases": [
+        {
+          "name": "23 Nov source-derived candidate",
+          "patient": {
+            "species": "Dog",
+            "country": "UK",
+            "cancer": "Mammary carcinoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "23 Nov species contradiction",
+          "patient": {
+            "species": "Cat",
+            "country": "UK",
+            "cancer": "Mammary carcinoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "23 Nov unknown diagnosis requires screening",
+          "patient": {
+            "species": "Dog",
+            "country": "UK",
+            "cancer": "Mammary carcinoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
+        }
+      ],
+      "selection_sha256": "51ec3f2df3978a20c429d2937f4d964a1d18838142740768cbbdfec9b5bd4719",
+      "full_protocol_reverified": false,
+      "primary_evidence_review_run": "daily-20261123T030529-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_ref": "research/audit-runs/daily-20261123T030529-0500/current-protocol-web-summary.json"
+    },
+    {
+      "trial_id": "ncsu-feline-oral-pivot-c",
+      "source_url": "https://cvm.ncsu.edu/clinical-trial/pivot-c-pilot-intratumoral-vaccine-therapy-for-oral-tumors-in-cats/",
+      "reviewed_at": "2026-11-23T03:26:18.251226-05:00",
+      "criteria": "Independent cases derived from current canonical source fields for ncsu-feline-oral-pivot-c: species=Cat, disease=Oral squamous cell carcinoma, requires={\"active_treatment_target\": true, \"oral_mass\": true}, excludes={\"concurrent_local_radiation\": true, \"concurrent_surgery\": true}. Today's exact protocol URL decision is saved in the current protocol evidence.",
+      "cases": [
+        {
+          "name": "23 Nov source-derived candidate",
+          "patient": {
+            "species": "Cat",
+            "country": "USA",
+            "cancer": "Oral squamous cell carcinoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "23 Nov species contradiction",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Oral squamous cell carcinoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "23 Nov unknown diagnosis requires screening",
+          "patient": {
+            "species": "Cat",
+            "country": "USA",
+            "cancer": "Oral squamous cell carcinoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
+        }
+      ],
+      "selection_sha256": "d3f1458cf328a8597a2ba7ec3b9ba91a6e54279a4692997eebee515e00e9286e",
+      "full_protocol_reverified": false,
+      "primary_evidence_review_run": "daily-20261123T030529-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_ref": "research/audit-runs/daily-20261123T030529-0500/current-protocol-web-summary.json"
+    },
+    {
+      "trial_id": "umn-feline-mammary-olaparib-meloxicam",
+      "source_url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/olaparib",
+      "reviewed_at": "2026-11-23T03:26:18.251226-05:00",
+      "criteria": "Independent cases derived from current canonical source fields for umn-feline-mammary-olaparib-meloxicam: species=Cat, disease=Feline mammary carcinoma, requires={\"active_treatment_target\": true, \"confirmed\": true, \"min_tumor_cm\": 1}, excludes={}. Today's exact protocol URL decision is saved in the current protocol evidence.",
+      "cases": [
+        {
+          "name": "23 Nov source-derived candidate",
+          "patient": {
+            "species": "Cat",
+            "country": "USA",
+            "cancer": "Feline mammary carcinoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "23 Nov species contradiction",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Feline mammary carcinoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "23 Nov unknown diagnosis requires screening",
+          "patient": {
+            "species": "Cat",
+            "country": "USA",
+            "cancer": "Feline mammary carcinoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
+        }
+      ],
+      "selection_sha256": "e84b392a2472063e1d9859c481306985ca955854372a4d2c5d325b59ffdc2da0",
+      "full_protocol_reverified": false,
+      "primary_evidence_review_run": "daily-20261123T030529-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_ref": "research/audit-runs/daily-20261123T030529-0500/current-protocol-web-summary.json"
+    },
+    {
+      "trial_id": "umn-canine-oral-melanoma-aav-vaccine",
+      "source_url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/new-vaccine",
+      "reviewed_at": "2026-11-23T03:26:18.251226-05:00",
+      "criteria": "Independent cases derived from current canonical source fields for umn-canine-oral-melanoma-aav-vaccine: species=Dog, disease=Oral melanoma, requires={}, excludes={}. Today's exact protocol URL decision is saved in the current protocol evidence.",
+      "cases": [
+        {
+          "name": "23 Nov source-derived candidate",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Oral melanoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "23 Nov species contradiction",
+          "patient": {
+            "species": "Cat",
+            "country": "USA",
+            "cancer": "Oral melanoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "23 Nov unknown diagnosis requires screening",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Oral melanoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
+        }
+      ],
+      "selection_sha256": "27ef257043004998575af3ce4a7b010c00840e5dc6658f4cea23ed36dd84f1fa",
+      "full_protocol_reverified": false,
+      "primary_evidence_review_run": "daily-20261123T030529-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_ref": "research/audit-runs/daily-20261123T030529-0500/current-protocol-web-summary.json"
+    },
+    {
+      "trial_id": "ch-anicura-aoi-superficial-tumor-immunocytokines",
+      "source_url": "https://www.anicura.ch/standorte/aoi/onkologie/weitere-therapien/",
+      "reviewed_at": "2026-11-23T03:26:18.251226-05:00",
+      "criteria": "Independent cases derived from current canonical source fields for ch-anicura-aoi-superficial-tumor-immunocytokines: species=Dog, disease=Superficial solid tumor, requires={\"active_treatment_target\": true, \"superficial_accessible_tumor\": true}, excludes={}. Today's exact protocol URL decision is saved in the current protocol evidence.",
+      "cases": [
+        {
+          "name": "23 Nov source-derived candidate",
+          "patient": {
+            "species": "Dog",
+            "country": "Switzerland",
+            "cancer": "Superficial solid tumor"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "23 Nov species contradiction",
+          "patient": {
+            "species": "Cat",
+            "country": "Switzerland",
+            "cancer": "Superficial solid tumor"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "23 Nov unknown diagnosis requires screening",
+          "patient": {
+            "species": "Dog",
+            "country": "Switzerland",
+            "cancer": "Superficial solid tumor",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
+        }
+      ],
+      "selection_sha256": "070c5d1494f86271c9cd73b37fd8bde56b70c49a2273ced3dda140c4c8614ea9",
+      "full_protocol_reverified": false,
+      "primary_evidence_review_run": "daily-20261123T030529-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_ref": "research/audit-runs/daily-20261123T030529-0500/current-protocol-web-summary.json"
+    },
+    {
+      "trial_id": "umn-orbit-lymphoma",
+      "source_url": "https://vetmed.umn.edu/departments/centers-and-programs/clinical-investigation-center/current-clinical-trials/orbit-vsv",
+      "reviewed_at": "2026-11-23T03:26:18.251226-05:00",
+      "criteria": "Independent cases derived from current canonical source fields for umn-orbit-lymphoma: species=Dog, disease=Lymphoma, requires={\"active_treatment_target\": true, \"aggressive_lymphoma\": true, \"confirmed\": true, \"min_weight_kg\": 7.5}, excludes={\"alternative_herbal_medications\": true, \"indolent_lymphoma\": true}. Today's exact protocol URL decision is saved in the current protocol evidence.",
+      "cases": [
+        {
+          "name": "23 Nov source-derived candidate",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Lymphoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "23 Nov species contradiction",
+          "patient": {
+            "species": "Cat",
+            "country": "USA",
+            "cancer": "Lymphoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "23 Nov unknown diagnosis requires screening",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Lymphoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
+        }
+      ],
+      "selection_sha256": "e5435d15e5f06b53fb72f7ba297c2a34a145a492df98887a5330e3b70b74862d",
+      "full_protocol_reverified": false,
+      "primary_evidence_review_run": "daily-20261123T030529-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_ref": "research/audit-runs/daily-20261123T030529-0500/current-protocol-web-summary.json"
+    },
+    {
+      "trial_id": "penn-atherton-steap1-car-t-hs",
+      "source_url": "https://www.vet.upenn.edu/research/research-laboratories/atherton-laboratory/",
+      "reviewed_at": "2026-11-23T03:26:18.251226-05:00",
+      "criteria": "Independent cases derived from current canonical source fields for penn-atherton-steap1-car-t-hs: species=Dog, disease=Histiocytic sarcoma, requires={\"confirmed\": true, \"measurable\": true}, excludes={\"current_chemo\": true}. Today's exact protocol URL decision is saved in the current protocol evidence.",
+      "cases": [
+        {
+          "name": "23 Nov source-derived candidate",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Histiocytic sarcoma"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "23 Nov species contradiction",
+          "patient": {
+            "species": "Cat",
+            "country": "USA",
+            "cancer": "Histiocytic sarcoma"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "23 Nov unknown diagnosis requires screening",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Histiocytic sarcoma",
+            "diagnosis_status": "I don't know"
+          },
+          "expected": "screen"
+        }
+      ],
+      "selection_sha256": "c589d4880af50d453d9fc69178ffde9002371ab7b345e2aadab48e742c5cdde2",
+      "full_protocol_reverified": false,
+      "primary_evidence_review_run": "daily-20261123T030529-0500",
+      "source_visit_refreshed_this_run": false,
+      "primary_evidence_ref": "research/audit-runs/daily-20261123T030529-0500/current-protocol-web-summary.json"
     }
   ]
 }
