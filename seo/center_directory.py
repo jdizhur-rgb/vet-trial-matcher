@@ -39,7 +39,7 @@ LOCATIONS = {
 
     # Universities / teaching hospitals — international
     "University of Évora Veterinary Hospital": "Hospital Veterinário, Universidade de Évora, Herdade da Mitra, Apartado 94, 7002-554 Évora, Portugal",
-    "University of Zurich Veterinary Hospital": "Universitäres Tierspital Zürich, Winterthurerstrasse 204, 8057 Zürich, Switzerland",
+    "University of Zurich Veterinary Hospital": "Universitäres Tierspital Zürich, Winterthurerstrasse 260, 8057 Zürich, Switzerland",
     "University of Milan Veterinary Teaching Hospital (Lodi)": "Ospedale Veterinario Universitario, Via dell'Università 6, 26900 Lodi LO, Italy",
     "Ontario Veterinary College — University of Guelph": "Ontario Veterinary College, University of Guelph, 50 Stone Rd E, Guelph, ON N1G 2W1, Canada",
     "Hospital for Sick Children": "The Hospital for Sick Children, 555 University Ave, Toronto, ON M5G 1X8, Canada",
@@ -148,6 +148,7 @@ ALIASES = {
     "Tufts Cummings School of Veterinary Medicine": "Tufts University Cummings School of Veterinary Medicine",
     "Cummings School of Veterinary Medicine, Tufts University": "Tufts University Cummings School of Veterinary Medicine",
     "Tufts Cummings Vet": "Tufts University Cummings School of Veterinary Medicine",
+    "Tufts University Foster Hospital for Small Animals": "Tufts University Cummings School of Veterinary Medicine",
     "Michigan State University": "Michigan State University College of Veterinary Medicine",
     "Michigan State University Veterinary Medical Center": "Michigan State University College of Veterinary Medicine",
     "Michigan State Vet Med": "Michigan State University College of Veterinary Medicine",
@@ -183,6 +184,8 @@ ALIASES = {
     "University of Zurich — Division of Radiation Oncology": "University of Zurich Veterinary Hospital",
     "Universitäres Tierspital Zürich / University of Zurich": "University of Zurich Veterinary Hospital",
     "University of Zurich Vet Hospital": "University of Zurich Veterinary Hospital",
+    "University of Zurich Veterinary Teaching Hospital": "University of Zurich Veterinary Hospital",
+    "Universitäres Tierspital Zürich": "University of Zurich Veterinary Hospital",
     "AniCura I Portoni Rossi / University of Teramo": "AniCura Ospedale Veterinario I Portoni Rossi",
     "University of Milan Vet Hospital": "University of Milan Veterinary Teaching Hospital (Lodi)",
     "Ontario Veterinary College": "Ontario Veterinary College — University of Guelph",

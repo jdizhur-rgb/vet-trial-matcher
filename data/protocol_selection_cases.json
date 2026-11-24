@@ -15879,6 +15879,119 @@
       "primary_evidence_review_run": "daily-20261123T030529-0500",
       "source_visit_refreshed_this_run": false,
       "primary_evidence_ref": "research/audit-runs/daily-20261123T030529-0500/current-protocol-web-summary.json"
+    },
+    {
+      "trial_id": "ch-zurich-heart-base-sbrt-monitoring-2026",
+      "source_url": "https://www.tierspital.uzh.ch/forschungsprojekte/bestrahlung-von-herzbasistumoren/",
+      "reviewed_at": "2026-11-24T03:29:20.405277-05:00",
+      "criteria": "Independent cases derived from the current Zurich protocol: dog, chemodectoma/heart-base tumor, planned stereotactic radiotherapy; final cardiac and radiation eligibility remains a study-team screen.",
+      "cases": [
+        {
+          "name": "24 Nov source-derived candidate",
+          "patient": {
+            "species": "Dog",
+            "country": "Switzerland",
+            "cancer": "Chemodectoma",
+            "radiation": "Yes",
+            "diagnosis_status": "Confirmed by pathology/cytology"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "24 Nov species contradiction",
+          "patient": {
+            "species": "Cat",
+            "country": "Switzerland",
+            "cancer": "Chemodectoma",
+            "radiation": "Yes"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "24 Nov unknown radiation plan",
+          "patient": {
+            "species": "Dog",
+            "country": "Switzerland",
+            "cancer": "Chemodectoma",
+            "radiation": "I don't know"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "radiation"
+          ]
+        }
+      ],
+      "selection_sha256": "2f75e415a8bbad5aa459388188b9937391eb628172e3587c3073ccac39328d32",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "daily-20261124T030358-0500",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_ref": "research/audit-runs/daily-20261124T030358-0500/discovery-primary-reviews.json"
+    },
+    {
+      "trial_id": "tufts-cotc034-osa-funded-amputation-2026",
+      "source_url": "https://vet.tufts.edu/clinical-trials/clinical-molecular-and-immune-characterization-naturally-occurring-osteosarcoma-dogs-cotc034",
+      "reviewed_at": "2026-11-24T03:29:20.405277-05:00",
+      "criteria": "Independent cases derived from the current Tufts COTC034 protocol: dog, appendicular osteosarcoma, no metastasis, at least 25 kg, amputation planned and no prior anticancer therapy.",
+      "cases": [
+        {
+          "name": "24 Nov source-derived candidate",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Osteosarcoma",
+            "weight_known": true,
+            "weight_kg": 30,
+            "metastasis": "No known metastases",
+            "osa_location": "Appendicular — limb bone",
+            "surgery": "Yes",
+            "chemo": "No",
+            "radiation": "No",
+            "immunotherapy_history": "No",
+            "steroids": "No",
+            "immunosuppressive": "No",
+            "diagnosis_status": "Confirmed by pathology/cytology"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "24 Nov species contradiction",
+          "patient": {
+            "species": "Cat",
+            "country": "USA",
+            "cancer": "Osteosarcoma",
+            "weight_known": true,
+            "weight_kg": 30,
+            "metastasis": "No known metastases",
+            "surgery": "Yes",
+            "osa_location": "Appendicular — limb bone"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "24 Nov unknown metastasis and surgery",
+          "patient": {
+            "species": "Dog",
+            "country": "USA",
+            "cancer": "Osteosarcoma",
+            "weight_known": true,
+            "weight_kg": 30,
+            "osa_location": "Appendicular — limb bone",
+            "metastasis": "I don't know",
+            "surgery": "I don't know",
+            "immunosuppressive": "No"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "metastasis",
+            "surgery"
+          ]
+        }
+      ],
+      "selection_sha256": "a8004bd6e42b5173e7b566cc23af5621383ae1e980fcb58979d25c12e6c69fc0",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "daily-20261124T030358-0500",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_ref": "research/audit-runs/daily-20261124T030358-0500/discovery-primary-reviews.json"
     }
   ]
 }

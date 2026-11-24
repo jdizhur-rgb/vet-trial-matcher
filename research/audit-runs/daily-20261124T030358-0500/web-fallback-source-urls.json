@@ -1,0 +1,121 @@
+[
+  {
+    "id": "australia-anzcvs-oncology-research-news",
+    "role": "master",
+    "url": "https://www.anzcvs.org.au/chapters/veterinary%2Boncology/news/oncology-clinical-trials/",
+    "result": "http_error",
+    "status": 500
+  },
+  {
+    "id": "germany-dvg-veterinary-clinical-studies",
+    "role": "fallback_1",
+    "url": "https://www.tierspital.uzh.ch/kleintierklinik/kleintierchirurgie/studien-fluoreszenzfarbstoffe-tumorpatienten/",
+    "result": "http_error",
+    "status": 404
+  },
+  {
+    "id": "registry-avma-veterinary-clinical-trials",
+    "role": "fallback_1",
+    "url": "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1",
+    "result": "thin_or_js_shell",
+    "status": 200
+  },
+  {
+    "id": "registry-avma-veterinary-clinical-trials",
+    "role": "master",
+    "url": "https://veterinaryclinicaltrials.org/",
+    "result": "thin_or_js_shell",
+    "status": 200
+  },
+  {
+    "id": "sponsor-paccal-vet-owner-trials",
+    "role": "master",
+    "url": "https://www.paccalvet.com/",
+    "result": "http_error",
+    "status": 404
+  },
+  {
+    "id": "usa-anivive-trials",
+    "role": "fallback_1",
+    "url": "https://anivivelifesciences.com/trials",
+    "result": "http_error",
+    "status": 525
+  },
+  {
+    "id": "usa-anivive-trials",
+    "role": "fallback_2",
+    "url": "https://anivivelifesciences.com/treatments",
+    "result": "http_error",
+    "status": 525
+  },
+  {
+    "id": "usa-colorado-state-vth-clinical-trials",
+    "role": "fallback_1",
+    "url": "https://clinicaltrials.csuveterinaryhealth.org/studies/?term~sc_paths=primary-field_cancer",
+    "result": "thin_or_js_shell",
+    "status": 200
+  },
+  {
+    "id": "usa-colorado-state-vth-clinical-trials",
+    "role": "fallback_5",
+    "url": "https://veterinaryclinicaltrials.org/s/radiation-treatment-for-cats-with-small-cell-gi-lymphoma-674332/",
+    "result": "thin_or_js_shell",
+    "status": 200
+  },
+  {
+    "id": "usa-mars-veterinary-health-clinical-trials",
+    "role": "master",
+    "url": "https://studypages.com/marsveterinaryclinicaltrials/home/",
+    "result": "thin_or_js_shell",
+    "status": 200
+  },
+  {
+    "id": "usa-michigan-state-oncology-trials",
+    "role": "master",
+    "url": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2",
+    "result": "thin_or_js_shell",
+    "status": 200
+  },
+  {
+    "id": "usa-oklahoma-state-clinical-trials",
+    "role": "fallback_1",
+    "url": "https://vethospital.okstate.edu/info-for-researchers/clinical-trials",
+    "result": "http_error",
+    "status": 404
+  },
+  {
+    "id": "usa-oklahoma-state-clinical-trials",
+    "role": "fallback_2",
+    "url": "https://vetmed.okstate.edu/clinical-trials",
+    "result": "http_error",
+    "status": 404
+  },
+  {
+    "id": "usa-oklahoma-state-clinical-trials",
+    "role": "fallback_4",
+    "url": "https://vethospital-cs.okstate.edu/info-for-researchers",
+    "result": "http_error",
+    "status": 404
+  },
+  {
+    "id": "usa-oklahoma-state-clinical-trials",
+    "role": "master",
+    "url": "https://vethospital.okstate.edu/info-for-researchers/clinical-trials.html",
+    "result": "http_error",
+    "status": 404
+  },
+  {
+    "id": "usa-uc-davis-vcct",
+    "role": "fallback_2",
+    "url": "https://studypages.com/ucdavisvet/studies/",
+    "result": "thin_or_js_shell",
+    "status": 200
+  },
+  {
+    "id": "usa-veterinary-oncology-services-trials",
+    "role": "master",
+    "url": "https://www.petcancerinformation.com",
+    "result": "http_error",
+    "status": 503
+  }
+]
