@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/713cddbf2188/vet-trial-matcher-20261125/scripts/validate_production_sync.py", line 263, in <module>
+    main()
+  File "/workspace/scratch/713cddbf2188/vet-trial-matcher-20261125/scripts/validate_production_sync.py", line 85, in main
+    matcher_rows = json.loads(read(MATCHER / "trials.json"))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/713cddbf2188/vet-trial-matcher-20261125/scripts/validate_production_sync.py", line 25, in read
+    assert path.exists(), f"Missing production file: {path.relative_to(ROOT)}"
+           ^^^^^^^^^^^^^
+AssertionError: Missing production file: seo/site/matcher/trials.json

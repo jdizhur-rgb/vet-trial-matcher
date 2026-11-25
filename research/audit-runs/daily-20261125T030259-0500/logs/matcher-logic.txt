@@ -1,0 +1,21 @@
+node:fs:483
+    return binding.readFileUtf8(path, stringToFlags(options.flag));
+                   ^
+
+Error: ENOENT: no such file or directory, open '/workspace/scratch/713cddbf2188/vet-trial-matcher-20261125/seo/site/north-america/dogs/oral-melanoma/index.html'
+    at Object.readFileSync (node:fs:483:20)
+    at Object.<anonymous> (/workspace/scratch/713cddbf2188/vet-trial-matcher-20261125/scripts/test_matcher_logic.js:114:19)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object..js (node:internal/modules/cjs/loader:2060:10)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47 {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/workspace/scratch/713cddbf2188/vet-trial-matcher-20261125/seo/site/north-america/dogs/oral-melanoma/index.html'
+}
+
+Node.js v24.22.3
