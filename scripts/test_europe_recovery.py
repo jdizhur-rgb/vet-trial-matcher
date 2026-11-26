@@ -62,7 +62,7 @@ def before_later_ri_pass(rows, path):
     Every changed current row is checked first. The original European counts,
     hashes, dates and branch-identity assertions below remain unchanged.
     """
-    for run in ('vt-care-20261125', 'maine-care-followup-20261109', 'maine-care-20261109', 'germany-care-20261107', 'ct-care-statewide-20261106'):
+    for run in ('vt-finish-20261125', 'vt-care-20261125', 'maine-care-followup-20261109', 'maine-care-20261109', 'germany-care-20261107', 'ct-care-statewide-20261106'):
         directory = ROOT / 'research/audit-runs' / run
         spec = read(directory / 'baseline-projection.json')['collections'][path]
         identity_key = 'id' if path.endswith('source_inventory.json') else 'source_id'
@@ -542,6 +542,17 @@ def test_data():
             old_tele[ix][index] = change['old_value']
     assert sha(old_tele) == proof['baseline_tele_reversed_delta_sha256']
     pairs = read(ROOT / 'data/oncology_care_distinct_sites.json')['pairs']
+    vt_pair = [p for p in pairs if set(p['source_ids']) == {
+        'mount-anthony-veterinary-hospital', 'vt-west-mountain-animal-hospital'}]
+    assert len(vt_pair) == 1
+    vt_a, vt_b = [next(r for r in catalog['centers'] if r.get('source_id') == sid)
+                  for sid in vt_pair[0]['source_ids']]
+    assert vt_a['street'] == '832 West Road' and vt_b['street'] == '1726 Harwood Hill Road'
+    assert vt_a['phone'] == '802-442-4324' and vt_b['phone'] == '802-447-7723'
+    assert 'Surgery' in vt_a['services'] and 'Chemotherapy' not in vt_a['services']
+    assert 'Chemotherapy' in vt_b['services']
+    assert not center_match(vt_a, vt_b) and not center_match(vt_b, vt_a)
+    pairs = [p for p in pairs if p is not vt_pair[0]]
     sturbridge = [p for p in pairs if set(p['source_ids']) == {
         'ma-sturbridge-general', 'ma-vsc-sturbridge'}]
     assert len(sturbridge) == 1
