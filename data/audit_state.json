@@ -5,7 +5,7 @@
   "last_incremental_audit": {
     "run_id": "daily-20261126T025951-0500",
     "started_at": "2026-11-26T03:00:51.771238-05:00",
-    "ended_at": "2026-11-26T03:24:32.436615-05:00",
+    "ended_at": "2026-11-26T03:35:49.012811-05:00",
     "status": "INCOMPLETE",
     "sources_total": 168,
     "sources_processed": 168,
@@ -21,11 +21,43 @@
     "receipt": "research/audit-runs/daily-20261126T025951-0500/receipt-final.json",
     "execution_review": "research/audit-runs/daily-20261126T025951-0500/execution-review.json",
     "deadline_review": "research/audit-runs/daily-20261126T025951-0500/deadline-review.json",
-    "publication": "PENDING",
+    "publication": "PASS",
     "production_readback": "research/audit-runs/daily-20261126T025951-0500/production-readback.json",
-    "production_readback_status": "PENDING",
+    "production_readback_status": "PASS",
     "catalog_change": "NO_CHANGE",
-    "stop_reason": "completed_available_work"
+    "stop_reason": "completed_available_work",
+    "published_data_commit": "20949067a3b713197f98834894530a277510a83b",
+    "publication_verification": {
+      "branch": "main",
+      "published_commit": "20949067a3b713197f98834894530a277510a83b",
+      "remote_main_state_readback": "PASS",
+      "production_ui_readback": "PASS",
+      "catalog_change": "NO_CHANGE",
+      "workflow_status": "PASS",
+      "workflow_runs": [
+        {
+          "id": 45784105842,
+          "name": "Full catalog integrity audit",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/45784105842"
+        },
+        {
+          "id": 45784105841,
+          "name": "Check copied evidence keys",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/45784105841"
+        },
+        {
+          "id": 45784105848,
+          "name": "Build and deploy static site",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/45784105848"
+        }
+      ]
+    }
   },
   "last_source_discovery_attempt": "2026-11-26",
   "forced_full_reread_days": 28,
@@ -123,41 +155,42 @@
     "status": "INCOMPLETE"
   },
   "publication_verification": {
-    "run_id": "daily-20261122T030301-0500",
+    "run_id": "daily-20261126T025951-0500",
     "status": "PASS",
-    "checked_at": "2026-11-22T03:27:15-05:00",
-    "published_data_commit": "52bbbbc8867f637f17e87adcad9f7c1e8593c2d5",
-    "expected_parent": "b846011ab8e5a8fdd49ddcc10c0849f5e27dba29",
+    "checked_at": "2026-11-26T03:35:49.012811-05:00",
+    "published_data_commit": "20949067a3b713197f98834894530a277510a83b",
+    "expected_parent": "b0ff03d917438042590ce83257dd8e0b34e7f81d",
     "branch": "main",
     "workflow_runs": [
       {
-        "id": 45002637473,
-        "name": "Build and deploy static site",
-        "status": "completed",
-        "conclusion": "success",
-        "html_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/45002637473"
-      },
-      {
-        "id": 45002637478,
-        "name": "Check copied evidence keys",
-        "status": "completed",
-        "conclusion": "success",
-        "html_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/45002637478"
-      },
-      {
-        "id": 45002637409,
+        "id": 45784105842,
         "name": "Full catalog integrity audit",
         "status": "completed",
         "conclusion": "success",
-        "html_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/45002637409"
+        "html_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/45784105842"
+      },
+      {
+        "id": 45784105841,
+        "name": "Check copied evidence keys",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/45784105841"
+      },
+      {
+        "id": 45784105848,
+        "name": "Build and deploy static site",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/45784105848"
       }
     ],
     "production_readback_status": "PASS",
-    "live_public_records": 153,
-    "live_unique_ids": 153,
-    "osteosarcoma_result_count": 19,
+    "live_public_records": 155,
+    "live_unique_ids": 155,
+    "usa_any_cancer_result_count": 97,
+    "japan_any_cancer_result_count": 14,
     "catalog_change": "NO_CHANGE",
-    "evidence": "research/audit-runs/daily-20261122T030301-0500/production-readback.json"
+    "evidence": "research/audit-runs/daily-20261126T025951-0500/production-readback.json"
   },
   "last_owner_policy_application": {
     "run_id": "owner-rules-20261103T065741-0500",
@@ -178,7 +211,7 @@
     }
   },
   "last_run_id": "daily-20261126T025951-0500",
-  "last_audit_at": "2026-11-26T03:24:32.436615-05:00",
+  "last_audit_at": "2026-11-26T03:35:49.012811-05:00",
   "last_receipt": "research/audit-runs/daily-20261126T025951-0500/receipt-final.json",
   "last_execution_review": {
     "run_id": "daily-20261126T025951-0500",
