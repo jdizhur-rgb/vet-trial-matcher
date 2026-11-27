@@ -15994,6 +15994,61 @@
       "primary_evidence_review_run": "daily-20261124T030358-0500",
       "source_visit_refreshed_this_run": true,
       "primary_evidence_ref": "research/audit-runs/daily-20261124T030358-0500/discovery-primary-reviews.json"
+    },
+    {
+      "trial_id": "au-peninsula-distal-sts-synchrotron",
+      "source_url": "https://www.drarthurhouse.com.au/saving-dogs-legs",
+      "reviewed_at": "2026-11-27T13:56:07.799Z",
+      "criteria": "Distal limb site, confirmed diagnosis, intact surgical target, staging without known metastases, suitable anesthesia. Site and anesthesia suitability require study prescreening.",
+      "cases": [
+        {
+          "name": "Candidate for prescreening",
+          "patient": {
+            "species": "Dog",
+            "country": "Australia",
+            "cancer": "Soft tissue sarcoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable",
+            "metastasis": "No known metastases",
+            "surgery": "No"
+          },
+          "expected": "review"
+        },
+        {
+          "name": "Known metastases",
+          "patient": {
+            "species": "Dog",
+            "country": "Australia",
+            "cancer": "Soft tissue sarcoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable",
+            "metastasis": "Confirmed metastases",
+            "surgery": "No"
+          },
+          "expected": "exclude"
+        },
+        {
+          "name": "Unknown metastases",
+          "patient": {
+            "species": "Dog",
+            "country": "Australia",
+            "cancer": "Soft tissue sarcoma",
+            "diagnosis_status": "Confirmed by pathology/cytology",
+            "tumor_status": "Tumor still present / measurable",
+            "metastasis": "I don't know",
+            "surgery": "No"
+          },
+          "expected": "review",
+          "unknown_contains": [
+            "staging"
+          ]
+        }
+      ],
+      "selection_sha256": "3e0f101438e2ddce2624a8b915562ea4a1fe696e677c132ea31954782c8a90ee",
+      "full_protocol_reverified": true,
+      "primary_evidence_review_run": "manual-20261127T085310-0500",
+      "source_visit_refreshed_this_run": true,
+      "primary_evidence_ref": "research/audit-runs/manual-20261127T085310-0500/peninsula-primary.json"
     }
   ]
 }
