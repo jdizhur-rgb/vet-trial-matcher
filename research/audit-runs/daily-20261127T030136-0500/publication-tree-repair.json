@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "run_id": "daily-20261127T030136-0500",
+  "recorded_at": "2026-11-27T03:46:00.715758-05:00",
+  "status": "REPAIRED_AND_VERIFIED",
+  "incident": {
+    "commit": "bd7c7e5a65c993e1d3269b356e8bfc4500d070fd",
+    "observed_tree": "80d6d9e3d2c1d0f3268bdd0f8234b729265e5fba",
+    "expected_tree": "07a8aebef41c02f5c6bc3466f0ca4305144a9958",
+    "cause": "Closing commit was constructed with the wrong Git base tree and omitted 273 already-published audit files. Exact tree readback detected the mismatch before final reporting."
+  },
+  "repair": {
+    "commit": "a12c945f39d3a6ec3b85a0de89e030614bb1583f",
+    "tree": "07a8aebef41c02f5c6bc3466f0ca4305144a9958",
+    "remote_main_readback": "PASS",
+    "exact_tree_match": "PASS"
+  },
+  "workflow_runs": [
+    {
+      "id": 45967853318,
+      "name": "Full catalog integrity audit",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/45967853318"
+    },
+    {
+      "id": 45967853494,
+      "name": "Check copied evidence keys",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/45967853494"
+    },
+    {
+      "id": 45967853285,
+      "name": "Build and deploy static site",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/jdizhur-rgb/vet-trial-matcher/actions/runs/45967853285"
+    }
+  ],
+  "production_readback": {
+    "url": "https://vettrialfinder.com/matcher/",
+    "usa_any_cancer": 97,
+    "japan_any_cancer": 14,
+    "status": "PASS"
+  },
+  "catalog_change": "NO_CHANGE"
+}
