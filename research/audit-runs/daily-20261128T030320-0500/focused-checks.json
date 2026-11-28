@@ -1,0 +1,157 @@
+{
+  "finished_at": "2026-11-28T08:13:46.023Z",
+  "failures": 0,
+  "results": [
+    {
+      "id": "auburn-palbociclib-solid-cancers",
+      "basis": "Auburn protocol and its flyer: progressive measurable disease, eligible carcinoma/sarcoma list, dogs. The forms cannot settle progressive solid disease, so a result still requires screening.",
+      "cases": [
+        {
+          "name": "positive",
+          "profile": {
+            "cancer": "Histiocytic sarcoma"
+          },
+          "expected": "review",
+          "expected_unknown": "progressive",
+          "actual": {
+            "confidence": "Possible match",
+            "unknown": [
+              "whether disease is progressive"
+            ]
+          },
+          "pass": true
+        },
+        {
+          "name": "negative",
+          "profile": {
+            "cancer": "Histiocytic sarcoma",
+            "tumor_status": "No evidence of disease (NED)"
+          },
+          "expected": "exclude",
+          "actual": null,
+          "pass": true
+        },
+        {
+          "name": "unknown",
+          "profile": {
+            "cancer": "Histiocytic sarcoma",
+            "tumor_status": "I don't know"
+          },
+          "expected": "review",
+          "expected_unknown": "measurable",
+          "actual": {
+            "confidence": "Possible match",
+            "unknown": [
+              "whether an active treatment target is present",
+              "whether measurable disease is present",
+              "whether disease is progressive"
+            ]
+          },
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "au-peninsula-distal-sts-synchrotron",
+      "basis": "Peninsula and investigator: canine distal limb STS before surgery, no known systemic or metastatic disease. Tumor location and fitness confirmed clinically.",
+      "cases": [
+        {
+          "name": "positive",
+          "profile": {
+            "country": "Australia",
+            "cancer": "Soft tissue sarcoma",
+            "surgery": "No",
+            "metastasis": "No known metastases"
+          },
+          "expected": "review",
+          "actual": {
+            "confidence": "Possible match",
+            "unknown": []
+          },
+          "pass": true
+        },
+        {
+          "name": "negative",
+          "profile": {
+            "country": "Australia",
+            "cancer": "Soft tissue sarcoma",
+            "surgery": "No",
+            "metastasis": "Confirmed metastases"
+          },
+          "expected": "exclude",
+          "actual": null,
+          "pass": true
+        },
+        {
+          "name": "unknown",
+          "profile": {
+            "country": "Australia",
+            "cancer": "Soft tissue sarcoma",
+            "surgery": "No",
+            "metastasis": "I don't know"
+          },
+          "expected": "review",
+          "expected_unknown": "no metastasis",
+          "actual": {
+            "confidence": "Possible match",
+            "unknown": [
+              "whether staging confirms no metastasis"
+            ]
+          },
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "ncsu-canine-ucc-il12",
+      "basis": "Exact NC State enrollment cutoff September 30, 2026; current page still has expired cutoff, no extension on the flyer.",
+      "cases": [
+        {
+          "name": "after cutoff",
+          "profile": {
+            "cancer": "Urothelial carcinoma",
+            "weight_known": true,
+            "weight": 12,
+            "weight_unit": "kg"
+          },
+          "expected": "exclude",
+          "actual": null,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "penn-osa-carinkt",
+      "basis": "Exact metastatic cohort AVMA VCT24005853 shows Suspended and has an already-crossed stored cutoff.",
+      "cases": [
+        {
+          "name": "after cutoff",
+          "profile": {
+            "cancer": "Osteosarcoma",
+            "metastasis": "Confirmed metastases"
+          },
+          "expected": "exclude",
+          "actual": null,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "bluepearl-hsa-paccal",
+      "basis": "Sponsor reports topline results for the same splenectomy pilot and no new enrollment is proven.",
+      "cases": [
+        {
+          "name": "historical eligibility",
+          "profile": {
+            "cancer": "Hemangiosarcoma",
+            "hsa_site": "Spleen",
+            "prior_procedure": "Splenectomy"
+          },
+          "expected": "exclude",
+          "actual": null,
+          "pass": true
+        }
+      ]
+    }
+  ]
+}
