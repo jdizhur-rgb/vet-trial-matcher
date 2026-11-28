@@ -14,10 +14,10 @@
       "evidence": {
         "source_id": "registry-avma-veterinary-clinical-trials",
         "attempted_urls": [
-          "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1",
           "https://veterinaryclinicaltrials.org/",
+          "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=0&take=500",
           "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=500&take=500",
-          "https://veterinaryclinicaltrials.org/avma/studies/search/json/?skip=0&take=500"
+          "https://veterinaryclinicaltrials.org/studies/?term~studypage_status=R&term~sc_paths=primary-field-19_oncology-1"
         ],
         "receipt_artifact": "research/audit-runs/daily-20261128T030320-0500/route-attempts.json"
       }
@@ -89,12 +89,12 @@
       "evidence": {
         "source_id": "usa-colorado-state-vth-clinical-trials",
         "attempted_urls": [
-          "https://clinicaltrials.csuveterinaryhealth.org/studies/?term~sc_paths=primary-field_cancer",
           "https://csuveterinaryhealth.org/clinical-trials/",
-          "https://www.csuanimalcancercenter.org/current-clinical-trials/",
           "https://clinicaltrials.csuveterinaryhealth.org/csuvet/studies/search/json/?skip=0&take=500",
+          "https://www.csuanimalcancercenter.org/clinical-trial/clinical-testing-of-canine-t-cells-engineered-to-target-osteosarcoma-and-soft-tissue-sarcoma-in-combination-with-oral-immunotherapy/",
           "https://veterinaryclinicaltrials.org/s/radiation-treatment-for-cats-with-small-cell-gi-lymphoma-674332/",
-          "https://www.csuanimalcancercenter.org/clinical-trial/clinical-testing-of-canine-t-cells-engineered-to-target-osteosarcoma-and-soft-tissue-sarcoma-in-combination-with-oral-immunotherapy/"
+          "https://clinicaltrials.csuveterinaryhealth.org/studies/?term~sc_paths=primary-field_cancer",
+          "https://www.csuanimalcancercenter.org/current-clinical-trials/"
         ],
         "receipt_artifact": "research/audit-runs/daily-20261128T030320-0500/route-attempts.json"
       }
@@ -175,12 +175,12 @@
     {
       "source_id": "usa-michigan-state-oncology-trials",
       "category": "roster_unestablished",
-      "processing_assessment": "not_established",
-      "question": "Does Michigan State University Veterinary Medical Center Oncology publish a current attributable oncology-treatment roster?",
-      "reason": "Native retrieval evidence only: clinical reconciliation is not yet individually adjudicated in this checkpoint.",
-      "next_action": "Compare returned protocol links and clinical text for https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2",
+      "processing_assessment": "executor_unfinished",
+      "question": "MSU Web roster names CHOP/LOPP T-cell lymphoma, CMP-002 STING solid tumors, HS quasiorganelle, neoadjuvant corticosteroids for canine MCT, and metastatic feline mammary therapy.",
+      "reason": "MSU Web roster names CHOP/LOPP T-cell lymphoma, CMP-002 STING solid tumors, HS quasiorganelle, neoadjuvant corticosteroids for canine MCT, and metastatic feline mammary therapy.",
+      "next_action": "Read all linked individual current cohorts, especially the MCT steroid comparator versus catalog identity.",
       "unperformed_steps": [
-        "Compare returned protocol links and clinical text for https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2"
+        "Read all linked individual current cohorts, especially the MCT steroid comparator versus catalog identity."
       ],
       "evidence": {
         "source_id": "usa-michigan-state-oncology-trials",
@@ -232,9 +232,9 @@
       "processing_assessment": "executor_unfinished",
       "question": "Current oncology page has ten cards: two equine programs, two postmortem tissue donations, feline gingivostomatitis, plus five oncology treatment protocols. The general list also links OSA radiation/surgery separately. Expired canine bladder posting is not current access.",
       "reason": "Current oncology page has ten cards: two equine programs, two postmortem tissue donations, feline gingivostomatitis, plus five oncology treatment protocols. The general list also links OSA radiation/surgery separately. Expired canine bladder posting is not current access.",
-      "next_action": "Review the individual permitted FVRCP, XCSgel and OSA procedures/costs and verify if general master and oncology roster are complete across specialty pages.",
+      "next_action": "Use only allowed separate organizer evidence for XCSgel/PIVOT-C. Finish OSA criteria/costs.",
       "unperformed_steps": [
-        "Review the individual permitted FVRCP, XCSgel and OSA procedures/costs and verify if general master and oncology roster are complete across specialty pages."
+        "Use only allowed separate organizer evidence for XCSgel/PIVOT-C. Finish OSA criteria/costs."
       ],
       "evidence": {
         "source_id": "usa-nc-state-clinical-trials",
@@ -373,10 +373,10 @@
       "evidence": {
         "source_id": "usa-uc-davis-vcct",
         "attempted_urls": [
-          "https://clinicaltrials.vetmed.ucdavis.edu/clinical-trial-articles-news",
-          "https://clinicaltrials.vetmed.ucdavis.edu/",
+          "https://studypages.com/ucdavisvet/studies/search/json/?skip=0&take=500",
           "https://studypages.com/ucdavisvet/studies/",
-          "https://studypages.com/ucdavisvet/studies/search/json/?skip=0&take=500"
+          "https://clinicaltrials.vetmed.ucdavis.edu/",
+          "https://clinicaltrials.vetmed.ucdavis.edu/clinical-trial-articles-news"
         ],
         "receipt_artifact": "research/audit-runs/daily-20261128T030320-0500/route-attempts.json"
       }
@@ -598,9 +598,9 @@
       "evidence": {
         "source_id": "usa-anivive-trials",
         "attempted_urls": [
+          "https://anivivelifesciences.com/treatments",
           "https://anivivelifesciences.com/trials",
-          "https://www.anivive.com/trials",
-          "https://anivivelifesciences.com/treatments"
+          "https://www.anivive.com/trials"
         ],
         "receipt_artifact": "research/audit-runs/daily-20261128T030320-0500/route-attempts.json"
       }
@@ -701,12 +701,12 @@
     {
       "source_id": "italy-milan-veterinary-studies",
       "category": "roster_unestablished",
-      "processing_assessment": "not_established",
-      "question": "Does University of Milan Veterinary Teaching Hospital publish a current attributable oncology-treatment roster?",
-      "reason": "Native retrieval evidence only: clinical reconciliation is not yet individually adjudicated in this checkpoint.",
-      "next_action": "Compare returned protocol links and clinical text for https://www.ospedaleveterinario.unimi.it/collaborare-con-noi-studi-di-ricerca/",
+      "processing_assessment": "executor_unfinished",
+      "question": "OPBA 82 2022 exact phase I/II OncoFAP-MMAE for PAF-positive spontaneous canine cancers without suitable standard options; University of Milan Lodi. Official page covers study biopsy, scans, four infusions and tests; unrelated testing owner-paid. No dated confirmation of current intake found.",
+      "reason": "OPBA 82 2022 exact phase I/II OncoFAP-MMAE for PAF-positive spontaneous canine cancers without suitable standard options; University of Milan Lodi. Official page covers study biopsy, scans, four infusions and tests; unrelated testing owner-paid. No dated confirmation of current intake found.",
+      "next_action": "Find a current exact intake update without assuming an older owner invitation still open.",
       "unperformed_steps": [
-        "Compare returned protocol links and clinical text for https://www.ospedaleveterinario.unimi.it/collaborare-con-noi-studi-di-ricerca/"
+        "Find a current exact intake update without assuming an older owner invitation still open."
       ],
       "evidence": {
         "source_id": "italy-milan-veterinary-studies",
@@ -995,12 +995,12 @@
     {
       "source_id": "usa-barc-clinical-trials",
       "category": "roster_unestablished",
-      "processing_assessment": "not_established",
-      "question": "Does Bridge Animal Referral Center clinical trials publish a current attributable oncology-treatment roster?",
-      "reason": "Native retrieval evidence only: clinical reconciliation is not yet individually adjudicated in this checkpoint.",
-      "next_action": "Compare returned protocol links and clinical text for https://www.barcseattle.com/clinical-trials-index",
+      "processing_assessment": "executor_unfinished",
+      "question": "Sponsor labels the Palladia-naive canine randomized fecal transplant or placebo study Active Enrollment. All receive standard Palladia. Primary descriptions emphasize GI tolerability; they do not say the study pays for or gives separate access to Palladia.",
+      "reason": "Sponsor labels the Palladia-naive canine randomized fecal transplant or placebo study Active Enrollment. All receive standard Palladia. Primary descriptions emphasize GI tolerability; they do not say the study pays for or gives separate access to Palladia.",
+      "next_action": "Reconcile each additional BARC line; find exact named FMT cost, disease scope and primary endpoint and current HSA comparison cohort.",
       "unperformed_steps": [
-        "Compare returned protocol links and clinical text for https://www.barcseattle.com/clinical-trials-index"
+        "Reconcile each additional BARC line; find exact named FMT cost, disease scope and primary endpoint and current HSA comparison cohort."
       ],
       "evidence": {
         "source_id": "usa-barc-clinical-trials",
@@ -1382,12 +1382,12 @@
     {
       "source_id": "japan-nvlu-vmc-clinical-research",
       "category": "roster_unestablished",
-      "processing_assessment": "not_established",
-      "question": "Does Nippon Veterinary and Life Science University Veterinary Medical Center publish a current attributable oncology-treatment roster?",
-      "reason": "Native retrieval evidence only: clinical reconciliation is not yet individually adjudicated in this checkpoint.",
-      "next_action": "Compare returned protocol links and clinical text for https://www.nvlu.ac.jp/amedical/clinical-research/index.html",
+      "processing_assessment": "executor_unfinished",
+      "question": "Canine implanted BCNU glioma study population has a published research period ending March 31, 2026, with no current recruiting invitation or exact canonical record found. Separate survivin vaccine listing still shows March 31, 2027.",
+      "reason": "Canine implanted BCNU glioma study population has a published research period ending March 31, 2026, with no current recruiting invitation or exact canonical record found. Separate survivin vaccine listing still shows March 31, 2027.",
+      "next_action": "Reconcile all current study links, BCNU project and survivin cohort eligibility.",
       "unperformed_steps": [
-        "Compare returned protocol links and clinical text for https://www.nvlu.ac.jp/amedical/clinical-research/index.html"
+        "Reconcile all current study links, BCNU project and survivin cohort eligibility."
       ],
       "evidence": {
         "source_id": "japan-nvlu-vmc-clinical-research",
@@ -1583,18 +1583,18 @@
     {
       "source_id": "japan-gifu-oncology-clinical-trials",
       "category": "roster_unestablished",
-      "processing_assessment": "not_established",
-      "question": "Does Gifu University oncology clinical trials publish a current attributable oncology-treatment roster?",
-      "reason": "Native retrieval evidence only: clinical reconciliation is not yet individually adjudicated in this checkpoint.",
-      "next_action": "Compare returned protocol links and clinical text for https://www.animalhospital.gifu-u.ac.jp/cancer/clinical_trial/index.html",
+      "processing_assessment": "executor_unfinished",
+      "question": "Gifu roster lists August 18 2025 owner invitation for feline oral SCC, radiotherapy plus rebrethin. Exact existing Gifu comparator; not a current announcement of a different study.",
+      "reason": "Gifu roster lists August 18 2025 owner invitation for feline oral SCC, radiotherapy plus rebrethin. Exact existing Gifu comparator; not a current announcement of a different study.",
+      "next_action": "Compare named feline oral SCC protocol and cost with canonical fields, then establish whether current referrals remain open.",
       "unperformed_steps": [
-        "Compare returned protocol links and clinical text for https://www.animalhospital.gifu-u.ac.jp/cancer/clinical_trial/index.html"
+        "Compare named feline oral SCC protocol and cost with canonical fields, then establish whether current referrals remain open."
       ],
       "evidence": {
         "source_id": "japan-gifu-oncology-clinical-trials",
         "attempted_urls": [
-          "https://www.animalhospital.gifu-u.ac.jp/cancer/clinical_trial/202508.html",
-          "https://www.animalhospital.gifu-u.ac.jp/cancer/clinical_trial/index.html"
+          "https://www.animalhospital.gifu-u.ac.jp/cancer/clinical_trial/index.html",
+          "https://www.animalhospital.gifu-u.ac.jp/cancer/clinical_trial/202508.html"
         ],
         "receipt_artifact": "research/audit-runs/daily-20261128T030320-0500/route-attempts.json"
       }
@@ -1742,11 +1742,11 @@
       "evidence": {
         "source_id": "usa-oklahoma-state-clinical-trials",
         "attempted_urls": [
-          "https://vethospital.okstate.edu/info-for-researchers/clinical-trials",
-          "https://vetmed.okstate.edu/clinical-trials",
-          "https://vethospital-cs.okstate.edu/info-for-researchers",
           "https://vethospital.okstate.edu/info-for-researchers/clinical-trials.html",
-          "https://vethospital.okstate.edu/"
+          "https://vethospital.okstate.edu/",
+          "https://vethospital.okstate.edu/info-for-researchers/clinical-trials",
+          "https://vethospital-cs.okstate.edu/info-for-researchers",
+          "https://vetmed.okstate.edu/clinical-trials"
         ],
         "receipt_artifact": "research/audit-runs/daily-20261128T030320-0500/route-attempts.json"
       }
@@ -1790,12 +1790,12 @@
     {
       "source_id": "italy-bologna-oncology-clinical-trials",
       "category": "roster_unestablished",
-      "processing_assessment": "not_established",
-      "question": "Does University of Bologna veterinary oncology clinical trials publish a current attributable oncology-treatment roster?",
-      "reason": "Native retrieval evidence only: clinical reconciliation is not yet individually adjudicated in this checkpoint.",
-      "next_action": "Compare returned protocol links and clinical text for https://site.unibo.it/ospedale-veterinario/it/piccoli-animali/trials-clinici-in-oncologia-veterinaria",
+      "processing_assessment": "executor_unfinished",
+      "question": "The official listing marks all three displayed dog cancer cohorts concluded: appendicular osteosarcoma, malignant melanoma and visceral/cardiac hemangiosarcoma. Do not translate three closed old listings into three new closures of matcher cards.",
+      "reason": "The official listing marks all three displayed dog cancer cohorts concluded: appendicular osteosarcoma, malignant melanoma and visceral/cardiac hemangiosarcoma. Do not translate three closed old listings into three new closures of matcher cards.",
+      "next_action": "Check exact previous cohort identities and dates before sealing the source.",
       "unperformed_steps": [
-        "Compare returned protocol links and clinical text for https://site.unibo.it/ospedale-veterinario/it/piccoli-animali/trials-clinici-in-oncologia-veterinaria"
+        "Check exact previous cohort identities and dates before sealing the source."
       ],
       "evidence": {
         "source_id": "italy-bologna-oncology-clinical-trials",
@@ -1818,9 +1818,9 @@
       "evidence": {
         "source_id": "usa-mars-veterinary-health-clinical-trials",
         "attempted_urls": [
+          "https://studypages.com/marsveterinaryclinicaltrials/studies/search/json/?skip=0&take=500",
           "https://bluepearlvet.com/current-clinical-studies/",
-          "https://studypages.com/marsveterinaryclinicaltrials/home/",
-          "https://studypages.com/marsveterinaryclinicaltrials/studies/search/json/?skip=0&take=500"
+          "https://studypages.com/marsveterinaryclinicaltrials/home/"
         ],
         "receipt_artifact": "research/audit-runs/daily-20261128T030320-0500/route-attempts.json"
       }
@@ -1988,26 +1988,6 @@
       }
     },
     {
-      "source_id": "sponsor-elias-clinical-studies",
-      "category": "roster_unestablished",
-      "processing_assessment": "not_established",
-      "question": "Does ELIAS Animal Health clinical studies publish a current attributable oncology-treatment roster?",
-      "reason": "Native retrieval evidence only: clinical reconciliation is not yet individually adjudicated in this checkpoint.",
-      "next_action": "Compare returned protocol links and clinical text for https://eliasanimalhealth.com/clinical-studies/",
-      "unperformed_steps": [
-        "Compare returned protocol links and clinical text for https://eliasanimalhealth.com/clinical-studies/"
-      ],
-      "evidence": {
-        "source_id": "sponsor-elias-clinical-studies",
-        "attempted_urls": [
-          "https://eliasanimalhealth.com/clinical-studies/eci-combined-with-chemotherapy/",
-          "https://eliasanimalhealth.com/clinical-studies/",
-          "https://eliasanimalhealth.com/clinical-studies/canine-osteosarcoma-combined-immunotherapy/"
-        ],
-        "receipt_artifact": "research/audit-runs/daily-20261128T030320-0500/route-attempts.json"
-      }
-    },
-    {
       "source_id": "fr-armonia-current-clinical-studies",
       "category": "source_unavailable",
       "processing_assessment": "not_established",
@@ -2129,10 +2109,10 @@
       "evidence": {
         "source_id": "new-zealand-kode-veterinary-sciences-trials",
         "attempted_urls": [
-          "https://www.kodevet9.com/clinical-trial",
+          "https://www.kodevet9.com/contact-9",
           "https://www.kodevet9.com/faq?appDefId=14c92d28-031e-7910-c9a8-a670011e062d&categoryId=2c502639-939c-4d02-bc2a-28112a328450",
-          "https://www.kodevet9.com/clinical-trial-referral-form",
-          "https://www.kodevet9.com/contact-9"
+          "https://www.kodevet9.com/clinical-trial",
+          "https://www.kodevet9.com/clinical-trial-referral-form"
         ],
         "receipt_artifact": "research/audit-runs/daily-20261128T030320-0500/route-attempts.json"
       }
@@ -2339,8 +2319,8 @@
       "evidence": {
         "source_id": "spain-ucm-mammary-oncology-studies",
         "attempted_urls": [
-          "https://www.ucm.es/hcv/noticias/ensayo-clinico-en-perras-con-cancer-inflamatorio-de-mama",
-          "https://www.ucm.es/hcv/noticias/ensayo-clinico-en-perras-con-cancer-mamario"
+          "https://www.ucm.es/hcv/noticias/ensayo-clinico-en-perras-con-cancer-mamario",
+          "https://www.ucm.es/hcv/noticias/ensayo-clinico-en-perras-con-cancer-inflamatorio-de-mama"
         ],
         "receipt_artifact": "research/audit-runs/daily-20261128T030320-0500/route-attempts.json"
       }
@@ -2435,8 +2415,8 @@
       "evidence": {
         "source_id": "japan-tokyo-maeda-clinical-research",
         "attempted_urls": [
-          "https://www.vm.a.u-tokyo.ac.jp/vmc/download/research/poster_TCC.pdf",
-          "https://www.maedalab.com/"
+          "https://www.maedalab.com/",
+          "https://www.vm.a.u-tokyo.ac.jp/vmc/download/research/poster_TCC.pdf"
         ],
         "receipt_artifact": "research/audit-runs/daily-20261128T030320-0500/route-attempts.json"
       }
@@ -2480,12 +2460,12 @@
     {
       "source_id": "jp-jasmine-oncology-studies",
       "category": "roster_unestablished",
-      "processing_assessment": "not_established",
-      "question": "Does JASMINE clinical oncology research publish a current attributable oncology-treatment roster?",
-      "reason": "Native retrieval evidence only: clinical reconciliation is not yet individually adjudicated in this checkpoint.",
-      "next_action": "Compare returned protocol links and clinical text for https://jasmine-vet.co.jp/ref/study/",
+      "processing_assessment": "executor_unfinished",
+      "question": "JASMINE names new radiotherapy for canine nasal adenocarcinoma at Azabu and Nihon Universities; neither exact scope or independent current slots confirmed. The separate JVCOG diffuse large B-cell lymphoma option is explicitly paused.",
+      "reason": "JASMINE names new radiotherapy for canine nasal adenocarcinoma at Azabu and Nihon Universities; neither exact scope or independent current slots confirmed. The separate JVCOG diffuse large B-cell lymphoma option is explicitly paused.",
+      "next_action": "Read separate official protocols from the two named institutions and distinguish the paused lymphoma cohort.",
       "unperformed_steps": [
-        "Compare returned protocol links and clinical text for https://jasmine-vet.co.jp/ref/study/"
+        "Read separate official protocols from the two named institutions and distinguish the paused lymphoma cohort."
       ],
       "evidence": {
         "source_id": "jp-jasmine-oncology-studies",
@@ -2954,26 +2934,6 @@
       }
     },
     {
-      "source_id": "usa-cuvs-stamford-clinical-trials",
-      "category": "roster_unestablished",
-      "processing_assessment": "not_established",
-      "question": "Does Cornell University Veterinary Specialists — Stamford clinical trials publish a current attributable oncology-treatment roster?",
-      "reason": "Native retrieval evidence only: clinical reconciliation is not yet individually adjudicated in this checkpoint.",
-      "next_action": "Compare returned protocol links and clinical text for https://www.cuvs.org/clinical_trials",
-      "unperformed_steps": [
-        "Compare returned protocol links and clinical text for https://www.cuvs.org/clinical_trials"
-      ],
-      "evidence": {
-        "source_id": "usa-cuvs-stamford-clinical-trials",
-        "attempted_urls": [
-          "https://www.cuvs.org/clinical_trials/canine_studies",
-          "https://www.cuvs.org/clinical_trials",
-          "https://www.cuvs.org/clinical_trials/feline_studies"
-        ],
-        "receipt_artifact": "research/audit-runs/daily-20261128T030320-0500/route-attempts.json"
-      }
-    },
-    {
       "source_id": "japan-tottori-vmc-clinical-research",
       "category": "roster_unestablished",
       "processing_assessment": "not_established",
@@ -3022,11 +2982,11 @@
       "evidence": {
         "source_id": "spain-instituto-voc-clinical-trials",
         "attempted_urls": [
+          "https://www.institutovoc.com/estudio-sobre-la-analgesia-multimodal-en-pacientes-con-tumores-oseos/",
           "https://www.institutovoc.com/estudio-con-palladia-y-aine-en-carcinomas-inflamatorios-de-mama/",
-          "https://www.institutovoc.com/seccion/ensayos-clinicos/abiertos/",
           "https://www.institutovoc.com/estudio-internacional-para-el-tratamiento-de-mastocitomas-con-terapias-dirigidas-masitinib/",
           "https://www.institutovoc.com/estudio-clinico-en-tumores-mamarios-felinos-con-terapias-dirigidas-palladia/",
-          "https://www.institutovoc.com/estudio-sobre-la-analgesia-multimodal-en-pacientes-con-tumores-oseos/",
+          "https://www.institutovoc.com/seccion/ensayos-clinicos/abiertos/",
           "https://www.institutovoc.com/estudio-clinico-fase-ii-sobre-la-administracion-de-trocoxil-mevacoxib-en-pacientes-con-neoplasias-malignas/"
         ],
         "receipt_artifact": "research/audit-runs/daily-20261128T030320-0500/route-attempts.json"
@@ -3053,12 +3013,12 @@
     {
       "source_id": "hungary-lisanext-canine-vaccine-study",
       "category": "roster_unestablished",
-      "processing_assessment": "not_established",
-      "question": "Does Lisanext / University of Veterinary Medicine Budapest — canine vaccine study publish a current attributable oncology-treatment roster?",
-      "reason": "Native retrieval evidence only: clinical reconciliation is not yet individually adjudicated in this checkpoint.",
-      "next_action": "Compare returned protocol links and clinical text for https://lisanext.hu/",
+      "processing_assessment": "executor_unfinished",
+      "question": "Sponsor still displays a notice that it temporarily cannot accept applications. A separate old invitation for up to 20 vaccinated dogs does not override it. No exact canonical selection record found; no activation.",
+      "reason": "Sponsor still displays a notice that it temporarily cannot accept applications. A separate old invitation for up to 20 vaccinated dogs does not override it. No exact canonical selection record found; no activation.",
+      "next_action": "Check whether a current university study invite supersedes the pause; no outreach.",
       "unperformed_steps": [
-        "Compare returned protocol links and clinical text for https://lisanext.hu/"
+        "Check whether a current university study invite supersedes the pause; no outreach."
       ],
       "evidence": {
         "source_id": "hungary-lisanext-canine-vaccine-study",

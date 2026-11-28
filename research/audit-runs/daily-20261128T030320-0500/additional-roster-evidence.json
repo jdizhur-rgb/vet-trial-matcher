@@ -1,0 +1,72 @@
+{
+  "at": "2026-11-28T03:31:05.527025-05:00",
+  "observations": {
+    "sponsor-elias-clinical-studies": {
+      "finding": "ELIAS displayed two relevant distinct OSA cohorts: ECI plus chemotherapy and ECI plus novel adjuvant and surgery. Both are explicitly closed to enrollment, matching the already inactive canonical entries.",
+      "rows": [
+        {
+          "id": "elias-eci-chemo-osa",
+          "result": "Already inactive; current master explicitly confirms closed enrollment."
+        },
+        {
+          "id": "elias-eci-novel-adjuvant-osa",
+          "result": "Already inactive; separate current master statement explicitly confirms closed enrollment."
+        }
+      ],
+      "suff": true,
+      "primary": "https://eliasanimalhealth.com/clinical-studies/",
+      "steps": []
+    },
+    "usa-cuvs-stamford-clinical-trials": {
+      "finding": "The CUVS master points to canine and feline rosters. The canine page lists only a hematocrit coagulation monitor investigation; feline page explicitly lists no active clinical trials. No therapeutic oncology protocol in the combined published roster.",
+      "rows": [
+        {
+          "identity": "canine hematocrit monitor",
+          "result": "Diagnostic/monitoring method, not cancer treatment."
+        },
+        {
+          "identity": "feline roster",
+          "result": "No active trials explicitly stated."
+        }
+      ],
+      "suff": true,
+      "primary": "https://www.cuvs.org/clinical_trials",
+      "steps": []
+    },
+    "usa-michigan-state-oncology-trials": {
+      "finding": "MSU Web roster names CHOP/LOPP T-cell lymphoma, CMP-002 STING solid tumors, HS quasiorganelle, neoadjuvant corticosteroids for canine MCT, and metastatic feline mammary therapy.",
+      "rows": [
+        {
+          "id": "msu-tcell-lymphoma",
+          "result": "Current roster candidate; review its individual protocol for criteria and funding."
+        },
+        {
+          "id": "msu-sting-cmp002-solid-tumors",
+          "result": "Current roster candidate; review its individual protocol for criteria and funding."
+        },
+        {
+          "id": "msu-hs-quasiorganelle",
+          "result": "Current roster candidate; review its individual protocol for criteria and funding."
+        },
+        {
+          "id": "msu-feline-mammary-met",
+          "result": "Current roster candidate; review its individual protocol for criteria and funding."
+        }
+      ],
+      "suff": false,
+      "primary": "https://cvm.msu.edu/hospital/services/oncology/clinical-trials-2",
+      "steps": [
+        "Read all linked individual current cohorts, especially the MCT steroid comparator versus catalog identity."
+      ]
+    },
+    "japan-gifu-oncology-clinical-trials": {
+      "finding": "Gifu roster lists August 18 2025 owner invitation for feline oral SCC, radiotherapy plus rebrethin. Exact existing Gifu comparator; not a current announcement of a different study.",
+      "rows": [],
+      "suff": false,
+      "primary": "https://www.animalhospital.gifu-u.ac.jp/cancer/clinical_trial/index.html",
+      "steps": [
+        "Compare named feline oral SCC protocol and cost with canonical fields, then establish whether current referrals remain open."
+      ]
+    }
+  }
+}
